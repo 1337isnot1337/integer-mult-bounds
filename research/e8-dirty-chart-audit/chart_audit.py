@@ -68,26 +68,41 @@ def replay(c, events, orientation, charts):
 
 
 def gaussian_witness(c, delta):
-    # Do not infer an error merely from treating frame operators as independent.
-    # Instantiate actual pinned Gaussian matrices on a concrete basis vector.
+    # Formal frame tags may be linearly dependent. Check every address column
+    # of each distinct coefficient operator before concluding it is zero.
+    blocks = {}
     for output, row in sorted(delta.items()):
         for source in sorted({j for j, frame in row}, key=lambda j: (j == output, j)):
-            terms = {frame:a for (j,frame),a in row.items() if j == source}
-            value = [[Q(0), Q(0)] for _ in range(1<<c['h'])]
-            for frame, factor in terms.items():
-                op = X.ident(c['h']) if frame == -1 else X.canonical_frame(c['h'], c['frames'][frame]).adjoint()
-                vector, denominator = op.zero_state(0)
+            terms = tuple(sorted((frame,a) for (j,frame),a in row.items()
+                                 if j == source and a))
+            if terms: blocks.setdefault(terms, (output, source))
+    operators = {}
+    for address in range(1<<c['h']):
+        columns = {}  # Retain only this address, not whole dense matrices.
+        for terms, (output, source) in blocks.items():
+            value = {}
+            for frame, factor in terms:
+                if frame not in operators:
+                    operators[frame] = (X.ident(c['h']) if frame == -1 else
+                        X.canonical_frame(c['h'], c['frames'][frame]).adjoint())
+                if frame not in columns:
+                    columns[frame] = operators[frame].zero_state(address)
+                vector, denominator = columns[frame]
+                scale = factor / (1<<denominator)
                 for i,(a,b) in enumerate(vector):
-                    value[i][0] += factor*Q(a, 1<<denominator)
-                    value[i][1] += factor*Q(b, 1<<denominator)
-            bad = [(i,a,b) for i,(a,b) in enumerate(value) if a or b]
-            if bad:
-                return dict(output_register=output, dirty_source=source, input_address=0,
-                    coefficient_operator=[dict(frame=frame, basis=[] if frame == -1 else c['frames'][frame], coefficient=str(a)) for frame,a in sorted(terms.items())],
-                    nonzero_output_coordinates=len(bad), first_nonzero=dict(address=bad[0][0], real=str(bad[0][1]), imaginary=str(bad[0][2])),
+                    if not (a or b): continue
+                    real, imaginary = value.get(i, (Q(0), Q(0)))
+                    pair = (real+scale*a, imaginary+scale*b)
+                    if any(pair): value[i] = pair
+                    else: value.pop(i, None)
+            if value:
+                first = min(value)
+                return dict(output_register=output, dirty_source=source, input_address=address,
+                    coefficient_operator=[dict(frame=frame, basis=[] if frame == -1 else c['frames'][frame], coefficient=str(a)) for frame,a in terms],
+                    nonzero_output_coordinates=len(value), first_nonzero=dict(address=first, real=str(value[first][0]), imaginary=str(value[first][1])),
                     expected_difference='0', off_diagonal=source != output,
                     interpretation='Exact endpoint mismatch before the final invertible output chart. An off-diagonal response cannot be removed by independent invertible changes on each helper.')
-    return None  # Basis-zero search is sufficient to certify a witness, not to exclude one.
+    return None  # Every column of every distinct coefficient operator is zero.
 
 
 def audit(candidate, programs):
@@ -100,18 +115,21 @@ def audit(candidate, programs):
         status = ('FAIL_ORDINARY_SCALARS' if ordinary else
                   'PASS_FORMAL_ENDPOINT' if not delta else
                   'FAIL_EXACT_GAUSSIAN_ENDPOINT' if witness else
-                  'UNRESOLVED_FORMAL_MISMATCH')
+                  'PASS_EXACT_GAUSSIAN_ENDPOINT')
         orientations[orientation] = dict(status=status,
             ordinary_scalar_bad_registers=len(ordinary),
             chart_sensitive_bad_registers=len(delta),
             chart_sensitive_bad_targets=sum(candidate['v'] <= i < 2*candidate['v'] for i in delta),
+            exact_address_columns_examined=(witness['input_address']+1 if witness
+                                            else 1<<candidate['h'] if delta else 0),
             exact_witness=witness)
-    passed = all(x['status'] == 'PASS_FORMAL_ENDPOINT' for x in orientations.values())
+    passed = all(x['status'] in {'PASS_FORMAL_ENDPOINT', 'PASS_EXACT_GAUSSIAN_ENDPOINT'}
+                 for x in orientations.values())
     return dict(status='PASS_REQUIRED_ENDPOINT' if passed else 'ENDPOINT_NOT_ESTABLISHED',
                 orientations=orientations,
                 scope='Required independent-helper endpoint only. This does not certify the full supplier, '
                       'exclude a coupled-bank construction, or invalidate an unconditional theorem. '
-                      'A formal mismatch without an actual Gaussian witness is unresolved, not a disproof.')
+                      'Formal mismatches are resolved by exact evaluation of all address columns.')
 
 
 def main():

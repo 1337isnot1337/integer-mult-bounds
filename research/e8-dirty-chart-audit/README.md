@@ -35,11 +35,17 @@ python -B research/e8-dirty-chart-audit/chart_audit.py candidate.json \
 ```
 
 For the bundled PR419 bracket, use `--emitter419` in place of `--programs`.
-Successful formal endpoint checks exit zero. An actual mismatch or an unresolved
-formal mismatch exits one. The diagnostic distinguishes the two: different
-formal tags alone are not treated as a Gaussian counterexample. The witness
-search currently uses the basis vector at address zero; failure to find a
-witness there is reported as unresolved.
+Successful formal or exact Gaussian endpoint checks exit zero. An actual
+mismatch exits one. Different formal tags alone are not treated as a Gaussian
+counterexample: the verifier evaluates all address columns of every distinct
+coefficient operator, stopping at the first exact nonzero entry. If every column
+vanishes, it reports `PASS_EXACT_GAUSSIAN_ENDPOINT`. It caches operators and the
+current address column, without retaining whole dense matrices.
+
+The regression suite also includes a three-axis operator combination that is
+zero on address zero but nonzero on address one. Testing only the first address
+would miss this mismatch. Another test resolves different tags that represent
+the same exact operator. These checks concern the emitted endpoint only.
 
 The fixtures are finite words from pinned research runs. PR419 event streams are
 regenerated with its byte-identical emitter. The admitted control uses a retained

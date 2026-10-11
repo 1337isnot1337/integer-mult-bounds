@@ -43,7 +43,21 @@ establish them.
 The replay uses formal tags as a sufficient identity test. A failed formal test
 does not by itself imply an operator mismatch, because frame operators can be
 linearly dependent. For a counterexample, the tool substitutes the pinned exact
-Gaussian matrices and evaluates an actual basis vector.
+Gaussian matrices and evaluates address basis vectors in order. A single nonzero
+entry proves a mismatch. If all `2^h` columns of every coefficient operator
+vanish, linearity proves that the emitted endpoint agrees on every input vector.
+Repeated coefficient operators are checked once. This resolves formal
+cancellations without assuming that distinct tags are independent.
+
+For example, on three address axes the exact operator
+
+```
+T_[1,4]^-1 - T_[1,6]^-1 - T_[2,4]^-1 + T_[2,5]^-1
+```
+
+annihilates the basis vector at address zero. On address one it instead gives
+`i*|4> - |6>`. Thus a zero result on the first address alone cannot certify
+operator equality. The focused regression uses these actual canonical frames.
 
 For both supplied PR419 words, the forward off-diagonal coefficient from dirty
 helper 255 to helper 244 is `(I - T_[48]^-1)/4`. On the basis vector at address
