@@ -1,0 +1,157 @@
+{
+  "status": "PASS_COMPONENT_RECEIPTS_AFTER_JSON_LIMIT_COMPLETION",
+  "source_mapping_sha256": "eb5e7789c978f77c8e42d48adad260d72f978873cc24bb6400acf4cd2169dcf9",
+  "adapter_manifest_sha256": "c5c9072b2ef2439fae694c0dde807828e2e1aaf56a43389962974624a57c9fb7",
+  "candidate_inputs_sha256": "11ccb2e75eb4eebd927219fdcf5eeaa9c6be37adcb1729e8a4da5d7940ded907",
+  "fresh_stages": [
+    {
+      "stage": "original377-full-eight-stage-regression",
+      "returncode": 0,
+      "seconds": 96.87493825005367,
+      "log_sha256": "644c10c0dbadc55371d236218ac7ab33ad11893489e41e49ba60d8949ee3a7b8"
+    },
+    {
+      "stage": "candidate-regression-pin-preparation",
+      "returncode": 0,
+      "seconds": 1.2038833340629935,
+      "log_sha256": "437e57e946ef75bc680bbea15cf32aa04cc9b57ed8e494b82e83c659ae746d42"
+    },
+    {
+      "stage": "candidate-full-local-admission",
+      "returncode": 0,
+      "seconds": 1.3772495409939438,
+      "log_sha256": "ea59968fc1becce7944aa07c4bf857098ad890905a318fc48ffc8413570c7735"
+    },
+    {
+      "stage": "candidate-data-banks-profile",
+      "returncode": 0,
+      "seconds": 1.1751659580040723,
+      "log_sha256": "71d28d90abf04d08949a22df0d605a25f07197499157b86636f9cf9bdcadd781"
+    },
+    {
+      "stage": "candidate-exact-clifford",
+      "returncode": 0,
+      "seconds": 76.2252074580174,
+      "log_sha256": "6aa1f790e3623529d4cb0ae1e9dd8be415d89e17aab84fa1ec415fad930db44b"
+    },
+    {
+      "stage": "candidate-data-cover-phases",
+      "returncode": 0,
+      "seconds": 5.966738249990158,
+      "log_sha256": "0abaa1d2933b0aff9fc78f5ab6f28217d5e8fa4068c37805f42b3af8464f4b31"
+    },
+    {
+      "stage": "candidate-global-invoice",
+      "returncode": 0,
+      "seconds": 12.112056834041141,
+      "log_sha256": "97313faea3a9fbc03e2ec49dfd547c0fc2f2e0d873aa6c7f00ecc905dfa1308f"
+    },
+    {
+      "stage": "candidate-independent-template-moments",
+      "returncode": 0,
+      "seconds": 0.8107733749784529,
+      "log_sha256": "bb76bab2431d05631e8511d8f75aaceaafac9f7d6bea86b81c6d0e4101e483f6"
+    },
+    {
+      "stage": "candidate-fixed-old-bit-regression",
+      "returncode": 0,
+      "seconds": 0.020490041933953762,
+      "log_sha256": "72b2e4e23347fd983b3eaf8185ce0e17b756bfb2afafbf22ab26411848011cba"
+    }
+  ],
+  "complex_coarse": "999632926176283/1000000000000000000",
+  "clifford": {
+    "status": "PASS_EXACT_GAUSSIAN_CLIFFORD_LOCAL_FRAMES_AND_CHILDREN",
+    "frames": 948,
+    "distinct_directed_edges": 3122,
+    "ranks": {
+      "9": 2,
+      "1": 1524,
+      "8": 24,
+      "2": 461,
+      "3": 484,
+      "4": 102,
+      "6": 300,
+      "5": 182,
+      "7": 43
+    },
+    "endpoint_adapters": 240,
+    "recipe_sha256": "1d09d59e7579912d07c8546f293d6ef1596a17b1c8d6e2ed061d279c0b366e1b",
+    "all_child_equalities_include_global_phase": true,
+    "small_full_column_controls": [
+      {
+        "h": 1,
+        "circuits": 32,
+        "all_address_columns": 64,
+        "wrong_global_phase_rejected": 32
+      },
+      {
+        "h": 2,
+        "circuits": 32,
+        "all_address_columns": 128,
+        "wrong_global_phase_rejected": 32
+      },
+      {
+        "h": 3,
+        "circuits": 32,
+        "all_address_columns": 256,
+        "wrong_global_phase_rejected": 32
+      },
+      {
+        "h": 4,
+        "circuits": 32,
+        "all_address_columns": 512,
+        "wrong_global_phase_rejected": 32
+      }
+    ],
+    "seconds": 76.19533533288632,
+    "scope": "Fixed E8 local frames, every used nested transition, copied-center directions and old/new endpoint adapters. Does not by itself admit nine-stage global cover, routing or all-size theorem."
+  },
+  "finite_invoice": {
+    "local_primitive_bound": 7040031186072,
+    "local_adapters": 271456,
+    "compiler": 25934336,
+    "scalar_primitives_all_invocations": 5057712,
+    "outside_adapter_bound": 1988400,
+    "pervertex": 558450079948471,
+    "group_bits": 2628,
+    "live_stock_bits": 2642,
+    "physical_stock_bits": 2642,
+    "logical_groups_bits": 2677,
+    "router_bits": 7984,
+    "literal_bits": 35284,
+    "required_C0_bits": 200012,
+    "G_exponent": 30000,
+    "E_exponent": 100000,
+    "C0_exponent": 210000,
+    "halving_degree": 2,
+    "halving_integer_inequality": [
+      5329,
+      4608
+    ],
+    "induction_gap_multiple_B": 49,
+    "physical_row_coefficient": 15445,
+    "retained_row_coefficient": 20161
+  },
+  "receipt_sha256": {
+    "INDEPENDENT-TEMPLATE-AUDIT.json": "c57a0f0fa4f90fa8f42492da18f47e5adb3bfdb128271b7b35d9484df1207942",
+    "CLIFFORD-REVIEW.json": "633d28a226f71282af65aab142a784cd2d09d9885e25960cadc115b51c882ff8",
+    "DATA-PHASES.json": "f621f6d4296cb215f334830356c5f79fe10d6d04d15b3ccda76ba0885ab67d0a",
+    "CLIFFORD-RECIPES.json": "1d09d59e7579912d07c8546f293d6ef1596a17b1c8d6e2ed061d279c0b366e1b",
+    "GLOBAL-TEMPLATE.json.gz": "2e4a3e6901e420a1272c86ea34cbbe97a4d2c454ab0f2812bd3b431eb6b0ac80",
+    "OUTER-FIXED-BIT.json": "60839ac5be1427dbe56842d0c1ef01fe30c31c3a38d2aa5592edfcfd31412d55",
+    "GLOBAL-REVIEW.json": "e10c02f8ee6e2f6eee75b366999e25e617486bd4de33ec6792f81650402cb7f5",
+    "PROOF.txt": "ea0edb8cfb6b2f2c1adb2de12cc0aa5fb7c57e649033528565af3e52087beda7",
+    "local-admission/UPSTREAM-GUARD.json": "b3a5225ace875c14c90adeb4dfec0f9afc167bf9700483d2de35aac15d66d104",
+    "local-admission/INDEPENDENT-AUDIT.json": "d96cb98da13bfa4bdd8e2ac00552df3a7a9c88f5247e2970464da3d070b83df0"
+  },
+  "inputs_unchanged": true,
+  "scientific_stage_seconds": 195.76650304207578,
+  "new_numerical_priority_claim": false,
+  "combined_kappa_admitted": false,
+  "scope": "Independent component verification of PR384 existing proposed complex saving. Historical admission upstream_head/manifests are original provenance, not candidate provenance; exact consumed mapping and candidate hashes govern this run. Inherited E8/compiler/common-grid/precision/analytic interfaces remain conditional. No bit382 admission or Lean build.",
+  "original_wrapper_status": "FAIL_JSON_REPORT_PARSING_AFTER_ALL_SCIENTIFIC_STAGES",
+  "original_failure_sha256": "3fe900352dcf182625e7d19ede3a9a65fff35fe0838de5a2cf71eff38033386b",
+  "receipt_completion_script_sha256": "6fe12767f30f82579352590370d844a3bdc18d541b67bda4d44f61d1cb222374",
+  "no_child_replay": true
+}

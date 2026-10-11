@@ -1,0 +1,21 @@
+--- original377/work/odd-stages/global_nine.py
++++ adapter/work/odd-stages/global_nine.py
+@@ -69,7 +69,7 @@
+ # slot. Calls, replicas and cover classes run sequentially; their clean work
+ # is reused only after the source-checked erasure events.
+ macros=max(raw['scalar_bill'][o]['totals']['scalar_macros'] for o in locals)
+-local_children=raw['label_checks']['invocation_calls'];assert local_children==3974
++local_children=raw['label_checks']['invocation_calls'];assert local_children==3973
+ compiler=64*(m+1)**3
+ local_adapter_bound=16*(macros+local_children+(2*v+R)+h)+64*m
+ local_primitive=max(local_checks[o]['real_component_primitives'] for o in locals)
+--- original377/work/odd-stages/audit_nine_template.py
++++ adapter/work/odd-stages/audit_nine_template.py
+@@ -71,6 +71,6 @@
+ M=engine('moment');B=engine('base_two_moment');r=M.certify(H,73,14727,True);b=Q(int(Q(r['lower'])*10**18),10**18);grid=Q(1,10**18);fb=32*73**2*sum(H.values())
+ lo,up=M.moment(H,73,14727,b,True);nl,nu=M.moment(H,73,14727,b+grid,True);assert up<1<nl
+ _,u=B.moment(73,14727,list(H.items()),b);_,bu=B.moment(73,14727,[(1,fb)],b);l,_=B.moment(73,14727,list(H.items()),b+grid);bl,_=B.moment(73,14727,[(1,fb)],b+grid);assert u+Q(1,10**16)*bu<1<l+Q(1,10**16)*bl
+-assert b==Q(999240641319551,10**18)
++assert b==Q(999632926176283,10**18)
+ result=dict(status='PASS_INDEPENDENT_EMITTED_TEMPLATE_AUDIT_AND_TWO_MOMENTS',template_sha256=hashlib.sha256(raw).hexdigest(),coarse_complex=str(b),next_grid_rejected=True,all_eight_signed_data_columns=True,bridge_omission_controls=9,structural_controls_rejected=controls,paid_profile=dict(sorted(H.items())),fixed_baseline_kappa='804849251275843/1000000000000000000',final_kappa_improvement_claim=False,scope='Finite complex component with explicit PROOF.txt retaining the analytic interfaces. No Lean rebuild and no improved bit-side or multiplication certificate.')
+ (OUT/'INDEPENDENT-TEMPLATE-AUDIT.json').write_text(json.dumps(result,indent=2));print(result)

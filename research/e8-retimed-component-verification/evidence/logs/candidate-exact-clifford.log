@@ -1,0 +1,18 @@
+canonical exact circuits and preimage labels 948 PASS
+children 0 / 3122 seconds 0.2932755419751629
+children 200 / 3122 seconds 4.162192541989498
+children 400 / 3122 seconds 8.159302124986425
+children 600 / 3122 seconds 12.349640457890928
+children 800 / 3122 seconds 17.19476337498054
+children 1000 / 3122 seconds 22.038198166992515
+children 1200 / 3122 seconds 26.649091707891785
+children 1400 / 3122 seconds 31.599966332898475
+children 1600 / 3122 seconds 36.66931454197038
+children 1800 / 3122 seconds 41.63113474997226
+children 2000 / 3122 seconds 46.6204061669996
+children 2200 / 3122 seconds 51.62870349991135
+children 2400 / 3122 seconds 56.608355457894504
+children 2600 / 3122 seconds 61.59250033297576
+children 2800 / 3122 seconds 66.65047954197507
+children 3000 / 3122 seconds 71.66945566690993
+{'status': 'PASS_EXACT_GAUSSIAN_CLIFFORD_LOCAL_FRAMES_AND_CHILDREN', 'frames': 948, 'distinct_directed_edges': 3122, 'ranks': {9: 2, 1: 1524, 8: 24, 2: 461, 3: 484, 4: 102, 6: 300, 5: 182, 7: 43}, 'endpoint_adapters': 240, 'recipe_sha256': '1d09d59e7579912d07c8546f293d6ef1596a17b1c8d6e2ed061d279c0b366e1b', 'all_child_equalities_include_global_phase': True, 'small_full_column_controls': [{'h': 1, 'circuits': 32, 'all_address_columns': 64, 'wrong_global_phase_rejected': 32}, {'h': 2, 'circuits': 32, 'all_address_columns': 128, 'wrong_global_phase_rejected': 32}, {'h': 3, 'circuits': 32, 'all_address_columns': 256, 'wrong_global_phase_rejected': 32}, {'h': 4, 'circuits': 32, 'all_address_columns': 512, 'wrong_global_phase_rejected': 32}], 'seconds': 76.19533533288632, 'scope': 'Fixed E8 local frames, every used nested transition, copied-center directions and old/new endpoint adapters. Does not by itself admit nine-stage global cover, routing or all-size theorem.'}

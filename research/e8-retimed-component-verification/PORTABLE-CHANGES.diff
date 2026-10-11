@@ -1,0 +1,29 @@
+--- reviewed-run/verify.py
++++ portable/verify.py
+@@ -5,12 +5,13 @@
+ from pathlib import Path
+ if not __debug__ or sys.flags.optimize:raise RuntimeError('Assertions required')
+ sys.dont_write_bytecode=True
++sys.set_int_max_str_digits(0)
+ A=Path(__file__).resolve().parent
+ read=lambda p:json.loads(Path(p).read_text())
+ sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+-ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path,required=True);args=ap.parse_args();O=args.output.resolve()
+-if O.exists():raise RuntimeError('Fresh output required')
+-M=read(A/'SOURCE-MAPPING.json');R=Path(M['source377_root']);F=Path(M['certificate_snapshot'])
++ap=argparse.ArgumentParser();ap.add_argument('--output',type=Path);ap.add_argument('--check-inputs',action='store_true');args=ap.parse_args();O=args.output.resolve() if args.output else None
++if O is not None and (O.exists() or O.is_relative_to(A)):raise RuntimeError('Fresh external output required')
++M=read(A/'SOURCE-MAPPING.json');R=(A/M['source377_root']).resolve();F=(A/M['certificate_snapshot']).resolve()
+ def original_integrity():
+  assert sha(R/'MANIFEST.json')==M['source377_manifest_sha256']
+  actual={p.relative_to(R).as_posix():sha(p) for p in R.rglob('*') if p.is_file() and p!=R/'MANIFEST.json'}
+@@ -23,6 +24,9 @@
+ assert {k for k in set(old_cert)|set(new_cert) if old_cert.get(k)!=new_cert.get(k)}=={'A','B','blocks','derived_from','frames'}
+ assert new_cert['frames'][:len(old_cert['frames'])]==old_cert['frames']
+ for name,want in adapter.items():assert sha(A/name)==want,name
++if args.check_inputs:
++ print('PASS original source closure and all package input hashes');sys.exit(0)
++if O is None:ap.error('--output is required for a full replay')
+ O.mkdir();(O/'logs').mkdir();(O/'tmp').mkdir()
+ env=dict(os.environ,PYTHONDONTWRITEBYTECODE='1',OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',TMPDIR=str(O/'tmp'))
+ for k in ['PYTHONOPTIMIZE','CX_PINS','CX_SOURCE_PINS','CX_RECORD']:env.pop(k,None)

@@ -1,0 +1,21 @@
+{
+  "source377_head": "d0a620fcc99ba012468d61d01f5bb14007076d50",
+  "source377_root": "/tmp/task2-pr377-isolated/research/nine-stage-complex-e8",
+  "source377_manifest_sha256": "3743f954b5a652e51fa9ae5101318345d79f4c897ff9a29d5c54387b92118458",
+  "source378_head": "c248962c3cf641d4f6226d63d86843f2c096a7d0",
+  "source384_head": "fd81a16a1e4e82acfb4d45752cba17450644fde6",
+  "certificate_compressed_sha256": "f2664ee7bcdfb55893abe9f1be8ee6a394a602e8262e611de2a0328bbd508aa7",
+  "certificate_expanded_sha256": "f2a404fe3f00cf843718fc8c23c6227d84e5e65c5a19cc1141dc1a6997ca86e7",
+  "certificate_snapshot": "/tmp/task2-pr378-read/far-pinned.json.gz",
+  "overlays": {
+    "work/odd-stages/global_nine.py": {
+      "original_sha256": "7e33e6ca88b11e28544bf7d43b02252208d4355369a14adb2aa8baa15773e42a",
+      "adapter_sha256": "bf40a7d9cee7927d0134b1ad7c2bfd776f6cf3d1469baaa122b9046423e42619"
+    },
+    "work/odd-stages/audit_nine_template.py": {
+      "original_sha256": "30c33508d02aeb8823dc477e8027bf6d44740aea0d3a3970fd2490aaf3b072d0",
+      "adapter_sha256": "59a5f5b2e341b425cec3cc04693b051ea98dd94d77cff0dc46f80c9f40a4aa0b"
+    }
+  },
+  "scope": "Verification of existing proposed complex component; no new combined kappa admission."
+}

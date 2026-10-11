@@ -1,0 +1,60 @@
+{
+  "error": "Exceeds the limit (4300 digits) for integer string conversion: value has 9634 digits; use sys.set_int_max_str_digits() to increase the limit",
+  "stages": [
+    {
+      "stage": "original377-full-eight-stage-regression",
+      "returncode": 0,
+      "seconds": 96.87493825005367,
+      "log_sha256": "644c10c0dbadc55371d236218ac7ab33ad11893489e41e49ba60d8949ee3a7b8"
+    },
+    {
+      "stage": "candidate-regression-pin-preparation",
+      "returncode": 0,
+      "seconds": 1.2038833340629935,
+      "log_sha256": "437e57e946ef75bc680bbea15cf32aa04cc9b57ed8e494b82e83c659ae746d42"
+    },
+    {
+      "stage": "candidate-full-local-admission",
+      "returncode": 0,
+      "seconds": 1.3772495409939438,
+      "log_sha256": "ea59968fc1becce7944aa07c4bf857098ad890905a318fc48ffc8413570c7735"
+    },
+    {
+      "stage": "candidate-data-banks-profile",
+      "returncode": 0,
+      "seconds": 1.1751659580040723,
+      "log_sha256": "71d28d90abf04d08949a22df0d605a25f07197499157b86636f9cf9bdcadd781"
+    },
+    {
+      "stage": "candidate-exact-clifford",
+      "returncode": 0,
+      "seconds": 76.2252074580174,
+      "log_sha256": "6aa1f790e3623529d4cb0ae1e9dd8be415d89e17aab84fa1ec415fad930db44b"
+    },
+    {
+      "stage": "candidate-data-cover-phases",
+      "returncode": 0,
+      "seconds": 5.966738249990158,
+      "log_sha256": "0abaa1d2933b0aff9fc78f5ab6f28217d5e8fa4068c37805f42b3af8464f4b31"
+    },
+    {
+      "stage": "candidate-global-invoice",
+      "returncode": 0,
+      "seconds": 12.112056834041141,
+      "log_sha256": "97313faea3a9fbc03e2ec49dfd547c0fc2f2e0d873aa6c7f00ecc905dfa1308f"
+    },
+    {
+      "stage": "candidate-independent-template-moments",
+      "returncode": 0,
+      "seconds": 0.8107733749784529,
+      "log_sha256": "bb76bab2431d05631e8511d8f75aaceaafac9f7d6bea86b81c6d0e4101e483f6"
+    },
+    {
+      "stage": "candidate-fixed-old-bit-regression",
+      "returncode": 0,
+      "seconds": 0.020490041933953762,
+      "log_sha256": "72b2e4e23347fd983b3eaf8185ce0e17b756bfb2afafbf22ab26411848011cba"
+    }
+  ],
+  "original_inputs_unchanged": true
+}
