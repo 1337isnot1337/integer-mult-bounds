@@ -1,0 +1,49 @@
+{
+  "status": "PASS_ACTUAL442_BIT_FIXTURE_AND_AUDIT_REGRESSIONS",
+  "parent_template_sha256": "f9ce9ac945d9e8ea737dc5e456e366a7e2a21d8b989d24b742d7f124d26fb32f",
+  "hosted_template_sha256": "dd7833dcaff8c84b258847f4c4d65b6402c702700ae37d2c464083ee37b24126",
+  "profile": {
+    "1": 178560,
+    "4": 26368,
+    "2": 78072,
+    "3": 22296,
+    "5": 9576,
+    "8": 648,
+    "7": 4224,
+    "6": 2176
+  },
+  "hosted_residuals": 39568,
+  "mutations": [
+    {
+      "name": "omit_terminal_exchange",
+      "original_audit_accepted": true,
+      "wrong_columns": 8,
+      "columns": [
+        2,
+        1,
+        8,
+        4,
+        32,
+        16,
+        128,
+        64
+      ]
+    },
+    {
+      "name": "zero_bridge_coefficient",
+      "original_audit_accepted": true,
+      "wrong_columns": 3,
+      "columns": [
+        5,
+        6,
+        4,
+        11,
+        16,
+        32,
+        64,
+        128
+      ]
+    }
+  ],
+  "scope": "Actual442bit template positive fixture and audit contract regressions; no new phase,price,combinedbound orcomplex run"
+}

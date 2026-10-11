@@ -1,0 +1,11 @@
+{
+  "parent.json.gz": "parent/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+  "hosted.json.gz": "hosted/GLOBAL-TEMPLATE.json.gz",
+  "PARENT-GLOBAL.json": "parent/bit426-source-centres/global/GLOBAL.json",
+  "PARENT-AUDIT.json": "parent/bit426-source-centres/global/AUDIT.json",
+  "HOSTED-GLOBAL.json": "hosted/GLOBAL.json",
+  "KERNEL.json": "parent/bit426-source-centres/bit-kernel-receipt.json",
+  "frames.json.gz": "parent/bit426-source-centres/records/frames.json",
+  "states.json.gz": "parent/bit426-source-centres/records/249-states.json",
+  "AUDIT-CONTRACT.json": "AUDIT-CONTRACT.json"
+}

@@ -1,0 +1,24 @@
+{
+  "files": {
+    "SOURCE-PINS.json": "889ea5b1ba7eff1e1a95a6fdc22a5d639ff0dd73243fbed25b6db69957b03f62",
+    "audit_stage.py": "a835f61104894e16efff5c64eafcd61f2cf4f8c71d4c53fa0442e87470e2ec36",
+    "driver.py": "a9726a9841de1beb1eb4b39ae5b03c56b040bd1a8aaf317666e5df05bd3cccfb",
+    "source/research/idle-axis-hosting/audit.py": "38594423a401110bd430b734037c6ecba422ee6a94d71709984e0afa9cd1edf8",
+    "source/research/idle-axis-hosting/EXPECTED.json": "ed83c1bf1ca2d01eaab5149a34520806a07ef375dfa9e3ed69d123f4be4c9960",
+    "source/research/idle-axis-hosting/bit_hosted.py": "6dfbf26213e8adf87563b3575cfb722bd07ecd65627f056b3293411dd3d89a61",
+    "source/research/idle-axis-hosting/hosting_core.py": "d8b90cd5d152df3c7c351230863d9e61816ad5e1f21d69bea1a86a5daad559a3",
+    "source/research/idle-axis-hosting/MANIFEST.json": "f68b82604363329618529313ac9c3796dc1e88b176eaee4a7b0dec9be428e987",
+    "source/research/idle-axis-hosting/SELECTION.json": "315d54be472842707cce879618be477d8b897050e873bc136d114eec6a232f97",
+    "source/research/e8-early-reset-kernel/bit_global.py": "79c7dc84e65dca10c35c842cf170e4719d45c38a25d03bf762332b24c700b6c9",
+    "source/research/e8-early-reset-kernel/bit_audit.py": "203bb609952ad7b7ca761e9f9883ee9fa35a0a0474503b396d47a31169102e7d",
+    "source/research/e8-early-reset-kernel/MANIFEST.json": "95a9570287b64d22de30e6ae3acf931d5f6daef1a163f0c99532e1a24639fbc2",
+    "source/research/e8-early-reset-kernel/SELECTION.json": "b5f5d8c78d912820c8ed1a67c21062bec799714b9caa6724dfd515306ad42a2b",
+    "source/research/e8-early-reset-kernel/source_span.py": "4772d177f37254c6f854af5ee3871aca193cfb24307a53c143c3bf517e56631e",
+    "source/research/e8-early-reset-kernel/apply.py": "0d530e9703e1d1734c7af205bd393cba89ac41f75ed9781ea3dc5e46650f44f5",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/e8core.py": "3f4e25f700b7eb5821ab9cdfc65541f3f921baffeb8704beb21c6d7072052d29",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "source/research/split-centres-global/vendor/export_records.py": "8a5999601f917dbb492bb9ae9a344611f18cc7cedc53dc3c76496a369e530eb3"
+  }
+}

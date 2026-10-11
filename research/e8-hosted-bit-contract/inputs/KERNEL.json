@@ -1,0 +1,14 @@
+{
+  "status": "PASS_FROZEN_RESPONSE_KERNEL",
+  "input_sha256": "98ffef9246c8bf6c537ab5e134321abea05cf0b7830c9e3fd92cbe4e88d8c308",
+  "output_sha256": "da4aa797d6dad909fd1faaa90abea749b026299ac8cad3ad0a4a248e16bdb5f5",
+  "entries": 110,
+  "total_entrance_rank": 128,
+  "donor_slots": 97,
+  "new_frames": 0,
+  "controls": [
+    "wrong source",
+    "missing donor",
+    "duplicate pivot"
+  ]
+}

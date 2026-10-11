@@ -1,0 +1,36 @@
+{
+  "repository": "DaysSky/integer-mult-bounds",
+  "commit": "4e16d001d505d4f21dd2bcfc44591f9be4c279bd",
+  "files": [
+    {
+      "path": "vendor/audit.py",
+      "upstream_path": "research/idle-axis-hosting/audit.py",
+      "sha256": "38594423a401110bd430b734037c6ecba422ee6a94d71709984e0afa9cd1edf8",
+      "git_blob": "bd40b9b7914deeced02d5364162060d8130ab08e"
+    },
+    {
+      "path": "vendor/NOTICE.md",
+      "upstream_path": "research/idle-axis-hosting/NOTICE.md",
+      "sha256": "027a868628d0408602dbeae688b031ed9b4abfd6e5401f6e8106a3eb25ebc4ca",
+      "git_blob": "391e865e06f77efa9ec0aa3ee9c048673b1f24ab"
+    },
+    {
+      "path": "LICENSE",
+      "upstream_path": "research/idle-axis-hosting/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "upstream/EXPECTED.json",
+      "upstream_path": "research/idle-axis-hosting/EXPECTED.json",
+      "sha256": "ed83c1bf1ca2d01eaab5149a34520806a07ef375dfa9e3ed69d123f4be4c9960",
+      "git_blob": "1b0811df29bc2eabdabb51219e9b2382da9a48f6"
+    },
+    {
+      "path": "upstream/PARENT-GLOBAL.json",
+      "upstream_path": "research/e8-early-reset-kernel/local-evidence/GLOBAL.json",
+      "sha256": "16c4e829eea1b2d12b70cec7e6a9c0e33ea0eae98a40894a3b779790fd2efbb3",
+      "git_blob": "9d69b480fb0e58d21a83c208d8337d682ff4d5fb"
+    }
+  ]
+}

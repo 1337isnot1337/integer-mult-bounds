@@ -1,0 +1,142 @@
+{
+  "status": "PASS_MINIMAL_ACTUAL442_BIT_FIXTURE",
+  "source_before": {
+    "SOURCE-PINS.json": "889ea5b1ba7eff1e1a95a6fdc22a5d639ff0dd73243fbed25b6db69957b03f62",
+    "audit_stage.py": "a835f61104894e16efff5c64eafcd61f2cf4f8c71d4c53fa0442e87470e2ec36",
+    "MANIFEST.json": "62b5ca8458735e867524e3fe97e619aa6a08a35063a966cc0e03d8cb8e469b28",
+    "driver.py": "a9726a9841de1beb1eb4b39ae5b03c56b040bd1a8aaf317666e5df05bd3cccfb",
+    "source/research/idle-axis-hosting/audit.py": "38594423a401110bd430b734037c6ecba422ee6a94d71709984e0afa9cd1edf8",
+    "source/research/idle-axis-hosting/EXPECTED.json": "ed83c1bf1ca2d01eaab5149a34520806a07ef375dfa9e3ed69d123f4be4c9960",
+    "source/research/idle-axis-hosting/bit_hosted.py": "6dfbf26213e8adf87563b3575cfb722bd07ecd65627f056b3293411dd3d89a61",
+    "source/research/idle-axis-hosting/hosting_core.py": "d8b90cd5d152df3c7c351230863d9e61816ad5e1f21d69bea1a86a5daad559a3",
+    "source/research/idle-axis-hosting/MANIFEST.json": "f68b82604363329618529313ac9c3796dc1e88b176eaee4a7b0dec9be428e987",
+    "source/research/idle-axis-hosting/SELECTION.json": "315d54be472842707cce879618be477d8b897050e873bc136d114eec6a232f97",
+    "source/research/e8-early-reset-kernel/bit_global.py": "79c7dc84e65dca10c35c842cf170e4719d45c38a25d03bf762332b24c700b6c9",
+    "source/research/e8-early-reset-kernel/bit_audit.py": "203bb609952ad7b7ca761e9f9883ee9fa35a0a0474503b396d47a31169102e7d",
+    "source/research/e8-early-reset-kernel/MANIFEST.json": "95a9570287b64d22de30e6ae3acf931d5f6daef1a163f0c99532e1a24639fbc2",
+    "source/research/e8-early-reset-kernel/SELECTION.json": "b5f5d8c78d912820c8ed1a67c21062bec799714b9caa6724dfd515306ad42a2b",
+    "source/research/e8-early-reset-kernel/source_span.py": "4772d177f37254c6f854af5ee3871aca193cfb24307a53c143c3bf517e56631e",
+    "source/research/e8-early-reset-kernel/apply.py": "0d530e9703e1d1734c7af205bd393cba89ac41f75ed9781ea3dc5e46650f44f5",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/e8core.py": "3f4e25f700b7eb5821ab9cdfc65541f3f921baffeb8704beb21c6d7072052d29",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "source/research/split-centres-global/vendor/export_records.py": "8a5999601f917dbb492bb9ae9a344611f18cc7cedc53dc3c76496a369e530eb3"
+  },
+  "source_after": {
+    "SOURCE-PINS.json": "889ea5b1ba7eff1e1a95a6fdc22a5d639ff0dd73243fbed25b6db69957b03f62",
+    "audit_stage.py": "a835f61104894e16efff5c64eafcd61f2cf4f8c71d4c53fa0442e87470e2ec36",
+    "MANIFEST.json": "62b5ca8458735e867524e3fe97e619aa6a08a35063a966cc0e03d8cb8e469b28",
+    "driver.py": "a9726a9841de1beb1eb4b39ae5b03c56b040bd1a8aaf317666e5df05bd3cccfb",
+    "source/research/idle-axis-hosting/audit.py": "38594423a401110bd430b734037c6ecba422ee6a94d71709984e0afa9cd1edf8",
+    "source/research/idle-axis-hosting/EXPECTED.json": "ed83c1bf1ca2d01eaab5149a34520806a07ef375dfa9e3ed69d123f4be4c9960",
+    "source/research/idle-axis-hosting/bit_hosted.py": "6dfbf26213e8adf87563b3575cfb722bd07ecd65627f056b3293411dd3d89a61",
+    "source/research/idle-axis-hosting/hosting_core.py": "d8b90cd5d152df3c7c351230863d9e61816ad5e1f21d69bea1a86a5daad559a3",
+    "source/research/idle-axis-hosting/MANIFEST.json": "f68b82604363329618529313ac9c3796dc1e88b176eaee4a7b0dec9be428e987",
+    "source/research/idle-axis-hosting/SELECTION.json": "315d54be472842707cce879618be477d8b897050e873bc136d114eec6a232f97",
+    "source/research/e8-early-reset-kernel/bit_global.py": "79c7dc84e65dca10c35c842cf170e4719d45c38a25d03bf762332b24c700b6c9",
+    "source/research/e8-early-reset-kernel/bit_audit.py": "203bb609952ad7b7ca761e9f9883ee9fa35a0a0474503b396d47a31169102e7d",
+    "source/research/e8-early-reset-kernel/MANIFEST.json": "95a9570287b64d22de30e6ae3acf931d5f6daef1a163f0c99532e1a24639fbc2",
+    "source/research/e8-early-reset-kernel/SELECTION.json": "b5f5d8c78d912820c8ed1a67c21062bec799714b9caa6724dfd515306ad42a2b",
+    "source/research/e8-early-reset-kernel/source_span.py": "4772d177f37254c6f854af5ee3871aca193cfb24307a53c143c3bf517e56631e",
+    "source/research/e8-early-reset-kernel/apply.py": "0d530e9703e1d1734c7af205bd393cba89ac41f75ed9781ea3dc5e46650f44f5",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/e8core.py": "3f4e25f700b7eb5821ab9cdfc65541f3f921baffeb8704beb21c6d7072052d29",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "source/research/e8-early-reset-kernel/vendor/kernel417/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "source/research/split-centres-global/vendor/export_records.py": "8a5999601f917dbb492bb9ae9a344611f18cc7cedc53dc3c76496a369e530eb3"
+  },
+  "inputs_before": {
+    "completion": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30",
+    "bit426-source-centres/bit-source-centres-prekernel.json": "98ffef9246c8bf6c537ab5e134321abea05cf0b7830c9e3fd92cbe4e88d8c308",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55"
+  },
+  "inputs_after": {
+    "completion": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30",
+    "bit426-source-centres/bit-source-centres-prekernel.json": "98ffef9246c8bf6c537ab5e134321abea05cf0b7830c9e3fd92cbe4e88d8c308",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55"
+  },
+  "steps": [
+    {
+      "name": "kernel",
+      "returncode": 0,
+      "log_sha256": "3f693dcbe49585d9ce689315e42a81cc7e4a4e45f0990c938217fb43c5150f28"
+    },
+    {
+      "name": "export",
+      "returncode": 0,
+      "log_sha256": "6c647e3d28cf94ce9f8b9fdcfc5c10797c18d488d74fe09b8de8671dfd7ae107"
+    },
+    {
+      "name": "source-spans",
+      "returncode": 0,
+      "log_sha256": "bdf95dbce8337be57aab8a3d3b42a711ee276496c40cbb4c5356fc9cc9b2e811"
+    },
+    {
+      "name": "parent-global",
+      "returncode": 0,
+      "log_sha256": "a6c2f8b5bbb809334d51bb5a5df813ac02a90091e94a159d0f149c7d29d39b88"
+    },
+    {
+      "name": "parent-audit",
+      "returncode": 0,
+      "log_sha256": "5a7c716a9e694de91720026d7cb50b9860c4047d13e2bc57e4100713f419b980"
+    },
+    {
+      "name": "hosted-bit",
+      "returncode": 0,
+      "log_sha256": "0f4134e600e0f195c6630a3f4ec2f3253d2bc7cf1fd83bbf5d4361d52aeff898"
+    },
+    {
+      "name": "audit-contract",
+      "returncode": 0,
+      "log_sha256": "b047e505755d0b340269037caac721ce5e71f6eafc66e962e789550da45276ac"
+    }
+  ],
+  "wall_seconds": 4.431400874978863,
+  "child_usage": [
+    4.306425,
+    0.08592,
+    156090368,
+    0,
+    0,
+    0,
+    43248,
+    355,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    25,
+    2497
+  ],
+  "output_hashes": {
+    "parent-global.log": "a6c2f8b5bbb809334d51bb5a5df813ac02a90091e94a159d0f149c7d29d39b88",
+    "AUDIT-CONTRACT.json": "c1ef35445c1cfdf61192484ca66ecb4cc1aaec88ea4451cdae6886097e58ec39",
+    "source-spans.log": "bdf95dbce8337be57aab8a3d3b42a711ee276496c40cbb4c5356fc9cc9b2e811",
+    "audit-contract.log": "b047e505755d0b340269037caac721ce5e71f6eafc66e962e789550da45276ac",
+    "kernel.log": "3f693dcbe49585d9ce689315e42a81cc7e4a4e45f0990c938217fb43c5150f28",
+    "reset-input.json": "98ffef9246c8bf6c537ab5e134321abea05cf0b7830c9e3fd92cbe4e88d8c308",
+    "parent-audit.log": "5a7c716a9e694de91720026d7cb50b9860c4047d13e2bc57e4100713f419b980",
+    "hosted-bit.log": "0f4134e600e0f195c6630a3f4ec2f3253d2bc7cf1fd83bbf5d4361d52aeff898",
+    "export.log": "6c647e3d28cf94ce9f8b9fdcfc5c10797c18d488d74fe09b8de8671dfd7ae107",
+    "hosted/GLOBAL-TEMPLATE.json.gz": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e",
+    "hosted/GLOBAL.json": "3b0bb426ea6dcb942cc2007c21a49f6ac89ce5e08a07b6ac47039e4da445b1a8",
+    "parent/bit426-source-centres/bit-source-centres.json": "da4aa797d6dad909fd1faaa90abea749b026299ac8cad3ad0a4a248e16bdb5f5",
+    "parent/bit426-source-centres/bit-kernel-receipt.json": "a1c446b6c83db2391284da5eab5028207c692508439fcfa56a1b30b6a400fc8d",
+    "parent/inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "parent/work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+    "parent/bit426-source-centres/records/249-records.bin": "99cb283793818ad03f8f16f95a8eb23d0b18769d0657d58043fb7a427471c35d",
+    "parent/bit426-source-centres/records/249-states.json": "40c063fd3d7b63c735f762097e692b5c36f618c60e8ed257de9e5f92be11b48e",
+    "parent/bit426-source-centres/records/frames.json": "884480e45865a9d9d57f5f7198844a64271b046bc95e9820efbefb9e10878330",
+    "parent/bit426-source-centres/global/GEOMETRY.json": "fc7b29b16ee754ca9717973b745d6322bbf8351a5e35e3fc9e0fbf7a88dc0317",
+    "parent/bit426-source-centres/global/AUDIT.json": "dc88232628c407d66421ff604b78e32cc6984ca2c94c058506f8c0dd41cb4447",
+    "parent/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz": "ca3f454af68c8a03ad9cb0a5a43e2da95cffd98fd77062a67eb43a49380c2fa3",
+    "parent/bit426-source-centres/global/GLOBAL.json": "85b5a3108ddd6964d0391e98ae2c0274f3eca090ecd1882239f30998b6fedd07"
+  },
+  "scope": "Bit-only deterministic fixture and2auditcontract regressions. Reused completed438 exact resetinput; no full parent/complex/phase/price/assembly replay, no numericalbound admission"
+}

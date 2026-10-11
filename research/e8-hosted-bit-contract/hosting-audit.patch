@@ -1,0 +1,18 @@
+--- a/research/idle-axis-hosting/audit.py
++++ b/research/idle-axis-hosting/audit.py
+@@ -8,6 +8,7 @@
+   * the emitted paid profile, live stock and rank deficit 2496 are recomputed from scratch.
+ Mutation controls must be rejected.  usage: audit.py PARENT_CHANGED_DIR BIT_DIR COMPLEX_DIR OUT.json"""
+ import copy, gzip, hashlib, json, sys
++from schedule_guard import require_hosted_bit_contract
+ from collections import Counter, defaultdict
+ from pathlib import Path
+ V, K, T, L = 120, 4, 8, 9
+@@ -25,6 +26,7 @@
+     return w
+ 
+ def audit_bit(t, parent_t, widths):
++    require_hosted_bit_contract(t, parent_t)
+     assert t['local_programs'] == parent_t['local_programs'] and len(t['calls']) == 72
+     ev = []; rank = {}; pair = {}
+     for e in t['schedule']:
