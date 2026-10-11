@@ -1,0 +1,173 @@
+{
+  "status": "PASS_REGRESSION_WITH_CONCRETE_GAUSSIAN_COUNTEREXAMPLES",
+  "cases": [
+    {
+      "name": "admitted416_control",
+      "candidate_sha256": "9504f801c3e9aaabb54a65c7eb94babc4aedfeeb68ebeac73f29610d16887fd9",
+      "orientations": {
+        "backward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 0,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": null
+        },
+        "forward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 0,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": null
+        }
+      }
+    },
+    {
+      "name": "original419",
+      "candidate_sha256": "ed29208a34f756f4e959ca7573dc6bec4db724e52a9eb623468c38489d719420",
+      "orientations": {
+        "forward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 430,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": {
+            "output_helper": 244,
+            "dirty_source": 255,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "1/4"
+              },
+              {
+                "frame": 980,
+                "basis": [
+                  48
+                ],
+                "coefficient": "-1/4"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "1/8",
+              "imaginary": "1/8"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        },
+        "backward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 483,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": {
+            "output_helper": 246,
+            "dirty_source": 420,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "-1/2"
+              },
+              {
+                "frame": 976,
+                "basis": [
+                  3
+                ],
+                "coefficient": "1/2"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "-1/4",
+              "imaginary": "-1/4"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        }
+      }
+    },
+    {
+      "name": "changed419_956",
+      "candidate_sha256": "409308eaaeaa8b0fed1832794f81bac73fb99305335a2b6aff5147c3d701b7b8",
+      "orientations": {
+        "forward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 430,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": {
+            "output_helper": 244,
+            "dirty_source": 255,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "1/4"
+              },
+              {
+                "frame": 980,
+                "basis": [
+                  48
+                ],
+                "coefficient": "-1/4"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "1/8",
+              "imaginary": "1/8"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        },
+        "backward": {
+          "ordinary_scalar_control": "PASS",
+          "chart_sensitive_bad_registers": 483,
+          "chart_sensitive_bad_targets": 0,
+          "exact_witness": {
+            "output_helper": 246,
+            "dirty_source": 420,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "-1/2"
+              },
+              {
+                "frame": 976,
+                "basis": [
+                  3
+                ],
+                "coefficient": "1/2"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "-1/4",
+              "imaginary": "-1/4"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        }
+      }
+    }
+  ],
+  "source_hashes": {
+    "/tmp/pr275-entrance-chart-regression.py": "78f7d061ef34345f02f11508c95d3a51ff541a7c26593e6aeae588682a524cf1",
+    "/tmp/task2-pr416-research/research/e8-frameclosure214-target-prefixes/local/deps/clifford_exact.py": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+    "/tmp/task2-pr419-immutable/code/emit.py": "b06ae2fb90b668f27e73adfee523120f68c746a702c76443e3b9406ccc2f0933",
+    "/tmp/task2-pr416-956-literal-v2-fresh/candidate.json": "9504f801c3e9aaabb54a65c7eb94babc4aedfeeb68ebeac73f29610d16887fd9",
+    "/tmp/task2-pr419-956-screen-fresh/gcert1-e8promoted.json.gz": "ed29208a34f756f4e959ca7573dc6bec4db724e52a9eb623468c38489d719420",
+    "/tmp/task2-pr419-956-screen-fresh/candidate.json": "409308eaaeaa8b0fed1832794f81bac73fb99305335a2b6aff5147c3d701b7b8",
+    "/tmp/task2-pr416-956-chain-fresh/local/LOCAL-PROGRAMS.json.gz": "0414963ae820bf8786fa487c34c23df6a0d08dc4fa22df42a099b1c43ac19095"
+  },
+  "scope": "The proposed independent residual-bank assembly requires each helper to return its own normalized dirty input. PR419 prewhitening fails that interface under actual entrance normalization, despite passing ordinary scalar checks. This does not exclude a different, explicitly proved coupled-bank construction."
+}

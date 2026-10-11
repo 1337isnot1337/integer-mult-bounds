@@ -1,0 +1,151 @@
+{
+  "status": "PASS_INDEPENDENT_EXECUTION_OF_CHART_REGRESSION",
+  "source_script_sha256": "78f7d061ef34345f02f11508c95d3a51ff541a7c26593e6aeae588682a524cf1",
+  "root_receipt_sha256": "bf3528d9243eaa7c6718811c4451214a96476a445b9a056179eb90223330e8bd",
+  "results": [
+    {
+      "name": "admitted416_control",
+      "orientations": {
+        "backward": {
+          "bad_registers": 0,
+          "exact_witness": null
+        },
+        "forward": {
+          "bad_registers": 0,
+          "exact_witness": null
+        }
+      }
+    },
+    {
+      "name": "original419",
+      "orientations": {
+        "forward": {
+          "bad_registers": 430,
+          "exact_witness": {
+            "output_helper": 244,
+            "dirty_source": 255,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "1/4"
+              },
+              {
+                "frame": 980,
+                "basis": [
+                  48
+                ],
+                "coefficient": "-1/4"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "1/8",
+              "imaginary": "1/8"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        },
+        "backward": {
+          "bad_registers": 483,
+          "exact_witness": {
+            "output_helper": 246,
+            "dirty_source": 420,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "-1/2"
+              },
+              {
+                "frame": 976,
+                "basis": [
+                  3
+                ],
+                "coefficient": "1/2"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "-1/4",
+              "imaginary": "-1/4"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        }
+      }
+    },
+    {
+      "name": "changed419_956",
+      "orientations": {
+        "forward": {
+          "bad_registers": 430,
+          "exact_witness": {
+            "output_helper": 244,
+            "dirty_source": 255,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "1/4"
+              },
+              {
+                "frame": 980,
+                "basis": [
+                  48
+                ],
+                "coefficient": "-1/4"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "1/8",
+              "imaginary": "1/8"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        },
+        "backward": {
+          "bad_registers": 483,
+          "exact_witness": {
+            "output_helper": 246,
+            "dirty_source": 420,
+            "input_address": 0,
+            "coefficient_operator": [
+              {
+                "frame": -1,
+                "basis": [],
+                "coefficient": "-1/2"
+              },
+              {
+                "frame": 976,
+                "basis": [
+                  3
+                ],
+                "coefficient": "1/2"
+              }
+            ],
+            "nonzero_output_coordinates": 2,
+            "first_nonzero": {
+              "address": 0,
+              "real": "-1/4",
+              "imaginary": "-1/4"
+            },
+            "expected_off_diagonal_coefficient": "0",
+            "interpretation": "Nonzero off-diagonal helper response before the final invertible output chart. Independent bank boundary changes cannot remove this cross-helper term."
+          }
+        }
+      }
+    }
+  ],
+  "scope": "Exact reproduction of scoped endpoint counterexamples, no universal impossibility claim"
+}

@@ -1,0 +1,44 @@
+{
+  "fixtures": {
+    "admitted416-candidate.json.gz": {
+      "source_path": "/tmp/task2-pr416-956-literal-v2-fresh/candidate.json",
+      "source_sha256": "9504f801c3e9aaabb54a65c7eb94babc4aedfeeb68ebeac73f29610d16887fd9",
+      "fixture_sha256": "0c72ea052a4fae96090c1a6cbbcbd6f8ba4c1dfc09c2f832c390ca1b27686a56",
+      "compression": "deterministic gzip, mtime=0"
+    },
+    "original419-candidate.json.gz": {
+      "source_path": "/tmp/task2-pr419-956-screen-fresh/gcert1-e8promoted.json.gz",
+      "source_sha256": "ed29208a34f756f4e959ca7573dc6bec4db724e52a9eb623468c38489d719420",
+      "fixture_sha256": "ed29208a34f756f4e959ca7573dc6bec4db724e52a9eb623468c38489d719420",
+      "compression": "source gzip bytes retained"
+    },
+    "changed419-candidate.json.gz": {
+      "source_path": "/tmp/task2-pr419-956-screen-fresh/candidate.json",
+      "source_sha256": "409308eaaeaa8b0fed1832794f81bac73fb99305335a2b6aff5147c3d701b7b8",
+      "fixture_sha256": "60bf3824b9eda70516b5e76953a70c9c3646d11f0ddfbd4147adfcadbb4931ed",
+      "compression": "deterministic gzip, mtime=0"
+    },
+    "admitted416-programs.json.gz": {
+      "source_path": "/tmp/task2-pr416-956-chain-fresh/local/LOCAL-PROGRAMS.json.gz",
+      "source_sha256": "0414963ae820bf8786fa487c34c23df6a0d08dc4fa22df42a099b1c43ac19095",
+      "fixture_sha256": "0414963ae820bf8786fa487c34c23df6a0d08dc4fa22df42a099b1c43ac19095",
+      "compression": "source gzip bytes retained"
+    }
+  },
+  "vendor": {
+    "emit419.py": {
+      "repo": "chafreaky/integer-mult-bounds",
+      "head": "70a276cb948e5be6071cde3f1bebdaf2f995ab8e",
+      "path": "research/e8-promoted-closure/code/emit.py",
+      "git_blob": "a02dde1ae9386a6b2fffb5a6c7e9ed1bfae08341",
+      "sha256": "b06ae2fb90b668f27e73adfee523120f68c746a702c76443e3b9406ccc2f0933"
+    },
+    "clifford_exact.py": {
+      "repo": "eumemic/integer-mult-bounds",
+      "head": "c76d101df11ad4152c52fd9d68344c064e453d3a",
+      "path": "research/e8-frameclosure214-target-prefixes/local/deps/clifford_exact.py",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
+    }
+  },
+  "scope": "Finite word/event fixtures from source-pinned research runs. This package regenerates PR419 event streams and audits endpoints; it does not reconstruct upstream words or repeat the entire supplier verification."
+}

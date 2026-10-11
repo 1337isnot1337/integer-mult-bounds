@@ -1,0 +1,24 @@
+{
+  "files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "NOTICE.md": "f35d8b3e74c1ddb4d4c34d0f8ea934cf41008c9b01aa27e5dc531687172eeb12",
+    "PROOF.md": "589d90de11c4c2bf87a27b4f7fcde78a4c5874cf262b6b41e2859461d8be7d18",
+    "README.md": "45e934fb965b372e3a7b42f56f05b1b7e8807e183bdfebdec3229e1edd2afca7",
+    "SOURCES.json": "f3b3c45ff2986989fa967b4fb5243d6e847c9993f2514bfb6295da281626da89",
+    "VALIDATION.md": "6b75e95c841bda38c7a02a0d173ffae243c2c116d728ad6ed1e66b7519e25866",
+    "chart_audit.py": "57e0c3ce755a4e7f71288b51327d01780ab8bab354a8f3d9a4b827a9d87a9220",
+    "inputs/admitted416-candidate.json.gz": "0c72ea052a4fae96090c1a6cbbcbd6f8ba4c1dfc09c2f832c390ca1b27686a56",
+    "inputs/admitted416-programs.json.gz": "0414963ae820bf8786fa487c34c23df6a0d08dc4fa22df42a099b1c43ac19095",
+    "inputs/changed419-candidate.json.gz": "60bf3824b9eda70516b5e76953a70c9c3646d11f0ddfbd4147adfcadbb4931ed",
+    "inputs/discovery.json": "bf3528d9243eaa7c6718811c4451214a96476a445b9a056179eb90223330e8bd",
+    "inputs/independent-review.json": "fabbe4626dfc9d8bfa60dd93bec1dc4d8cb40bcbf676c16af533fa013eb07a6e",
+    "inputs/original419-candidate.json.gz": "ed29208a34f756f4e959ca7573dc6bec4db724e52a9eb623468c38489d719420",
+    "test_chart_audit.py": "fbf956e66a046d9b590d196400eb469c02533ef294902cf5e3e1a521c6675f51",
+    "vendor/NOTICE-PR416.md": "e350ff774b71b9100fd9494c6196248da5efb93359efdc9bf05731e893ab9957",
+    "vendor/NOTICE-PR419.md": "ee738efb80f613f38dbdbd4b02fe91b115e0f24f0fffa82c7a31d1625304e7fc",
+    "vendor/clifford_exact.py": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+    "vendor/emit419.py": "b06ae2fb90b668f27e73adfee523120f68c746a702c76443e3b9406ccc2f0933",
+    "verify.py": "49016b026a9c098f0a6a7772f0f87927132e71dd4116e631ac2ec0ab549a58e8"
+  }
+}
