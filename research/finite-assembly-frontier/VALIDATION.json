@@ -1,0 +1,31 @@
+{
+  "status": "PASS_LOCAL_FINITE_ASSEMBLY_PACKAGE",
+  "python": "3.14.8",
+  "code_and_input_digest": "cabe9f0fd477d6ef3878cd2d76b0fc0d6cb3d30fd04757eef74e6568da925dcc",
+  "digest_format": "SHA256 of sorted compact JSON mapping .py and inputs/ paths to SHA256",
+  "tests": 4,
+  "cap_target_regimes": 48,
+  "grid_cases": 3,
+  "bootstrap_levels": 9,
+  "strict_outer_constraints": 47,
+  "rational_engines_per_moment": 2,
+  "moments_checked": [
+    "bit_cap",
+    "complex_cap",
+    "selected_seed"
+  ],
+  "rejected_outer_controls": [
+    "next_grid",
+    "zero_eta",
+    "zero_beta",
+    "unit_beta"
+  ],
+  "supplier_replay": {
+    "head": "6d9244518175caf9e0089f92486959bc2c317273",
+    "manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+    "steps": 13,
+    "wall_seconds": 6.193095125025138,
+    "phase_mode": "source-bound phase evidence reused; no full Gaussian replay"
+  },
+  "scope": "General conditional parameter theorem plus source-bound PR433 example. No unconditional or global optimality claim. CI status belongs to the eventual public commit."
+}

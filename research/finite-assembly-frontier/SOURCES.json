@@ -1,0 +1,48 @@
+{
+  "repository": "icekylinx/integer-mult-bounds",
+  "commit": "6d9244518175caf9e0089f92486959bc2c317273",
+  "files": [
+    {
+      "local_path": "vendor/outer.py",
+      "source_path": "research/split-centres-global/vendor/engines/outer.py",
+      "sha256": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+      "git_blob": "43007488ad2c43187c77cc6798beff8b1cd76ad2"
+    },
+    {
+      "local_path": "inputs/pr433-published-certificate.json",
+      "source_path": "research/split-centres-global/CERTIFICATE.json",
+      "sha256": "f71580f22193726fb582eae604807ff70a7302265e001d9484a718e63bbe14c4",
+      "git_blob": "7e807079c1ec4907306035c84be1ba2fb1d69d79"
+    },
+    {
+      "local_path": "inputs/supplier-MANIFEST.json",
+      "source_path": "research/split-centres-global/MANIFEST.json",
+      "sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+      "git_blob": "16951256986998a0cae0f388aec754f963a11c06"
+    },
+    {
+      "local_path": "vendor/combined433.py",
+      "source_path": "research/split-centres-global/code/combined.py",
+      "sha256": "9c5bc70f2331b7342ceb252adcddb993581c45f80c37bcc58642dbad3b9775c2",
+      "git_blob": "4131327bce31241e71d2d1502959627b1bf32bce"
+    },
+    {
+      "local_path": "vendor/moment.py",
+      "source_path": "research/split-centres-global/vendor/engines/moment.py",
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+      "git_blob": "7d697cb45203fe72d97037403d6da41f71f3b7fd"
+    },
+    {
+      "local_path": "vendor/base_two_moment.py",
+      "source_path": "research/split-centres-global/vendor/engines/base_two_moment.py",
+      "sha256": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+      "git_blob": "14a90fa0e788217856f070382c9e61bd7c603c61"
+    },
+    {
+      "local_path": "vendor/NOTICE-PR433.md",
+      "source_path": "research/split-centres-global/NOTICE.md",
+      "sha256": "66101a9e74d0ba9c2da4c8802bcb1968534adfa7130b954628eb8bf515fc0389",
+      "git_blob": "b7daf8de493d4c6507236f8fc42a6dcf47747577"
+    }
+  ]
+}

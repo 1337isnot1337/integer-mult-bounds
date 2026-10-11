@@ -1,0 +1,149 @@
+{
+  "source_manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+  "files": [
+    {
+      "local_path": "inputs/replay/RESULT.json",
+      "output_path": "run/RESULT.json",
+      "output_sha256": "3c8313d5c180cb10e1b17d2dd09d7845f571dec144954776ba4c9b86d6a75603",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/BIT-PRICE.json",
+      "output_path": "run/BIT-PRICE.json",
+      "output_sha256": "5226d8a114fa275f55b1b42ade7b80608d0872c25211ee03f97c572bc626a6d7",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/split-centres/INTEGRATION.json",
+      "output_path": "run/split-centres/INTEGRATION.json",
+      "output_sha256": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/split-centres/INDEPENDENT-REPLAY.json",
+      "output_path": "run/split-centres/INDEPENDENT-REPLAY.json",
+      "output_sha256": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/split-centres/SCALAR-FRAME-AUDIT.json",
+      "output_path": "run/split-centres/SCALAR-FRAME-AUDIT.json",
+      "output_sha256": "b95a94656aaadde629004fbb2825d8426411edaecd477e160d7c9e8ca6b3b0bd",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/split-centres/CLIFFORD-REVIEW.json",
+      "output_path": "run/split-centres/CLIFFORD-REVIEW.json",
+      "output_sha256": "7a8b21e342680964005d0caff529b133fa4915b97fbca0969b8f28e0da670bf2",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/split-centres/LOCAL-CHECKS.json",
+      "output_path": "run/split-centres/LOCAL-CHECKS.json",
+      "output_sha256": "c12c15e92ff3ed47be2c293930fda6a5ff69258fa09b19de3cf8e0067b1ceb7d",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit426-source-centres/global/GLOBAL.json",
+      "output_path": "run/bit426-source-centres/global/GLOBAL.json",
+      "output_sha256": "e84c84f41602168bae25a810737a91ba989783ace2a93944cf5ae965f3199e4c",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit426-source-centres/global/GEOMETRY.json.gz",
+      "output_path": "run/bit426-source-centres/global/GEOMETRY.json",
+      "output_sha256": "86ab83441723c5e76b32db764f38a32afbc52392f24c3a83091ff695cfe3ddf4",
+      "gzip": true
+    },
+    {
+      "local_path": "inputs/replay/bit426-source-centres/global/AUDIT.json",
+      "output_path": "run/bit426-source-centres/global/AUDIT.json",
+      "output_sha256": "d9458a572a3bc60023a7e367c24e25559bc72498c6772f87955f58058547ec57",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit426-source-centres/bit-source-centres-receipt.json",
+      "output_path": "run/bit426-source-centres/bit-source-centres-receipt.json",
+      "output_sha256": "cfcc6b56da99ffefcd38175542e924ab64bb4132749aaa67f9395481dfd0a88f",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/hamming_packets.log",
+      "output_path": "run/hamming_packets.log",
+      "output_sha256": "2338da125e564481cac168871ab334ded72960d35f73fdabc9a83d3428cd1125",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_construct.log",
+      "output_path": "run/complex_construct.log",
+      "output_sha256": "ea19af4453ffb1bc9bf33b9c32eef61d7fff652809beaeb77b786ec550f231a9",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_audit.log",
+      "output_path": "run/complex_audit.log",
+      "output_sha256": "76b9768bddbd48d0511c4d542110e92bc123bb5932779bc25306fc7522c99eb8",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_emit.log",
+      "output_path": "run/complex_emit.log",
+      "output_sha256": "5bc5e23a3a722fe5484b8603dfe38870c66841c1469ba6685eee6a1b7251d566",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_phases.log",
+      "output_path": "run/complex_phases.log",
+      "output_sha256": "3f57c055c80416ad7244dc762051c9bac6ecb74983e460b7876541570bc35bc2",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit_construct.log",
+      "output_path": "run/bit_construct.log",
+      "output_sha256": "9077796f449db32a77c66375ee579c9a55bfe740b5dcb757cf9b21be37250933",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit_export.log",
+      "output_path": "run/bit_export.log",
+      "output_sha256": "292c80db0fc7026a134d52d452a77ff13b5f8bc9701fd35b4183619511d96f2e",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit_global.log",
+      "output_path": "run/bit_global.log",
+      "output_sha256": "c900fc692166ac4f308da4c093affd973570fcc68f42adf74892da813d5b56fd",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit_audit.log",
+      "output_path": "run/bit_audit.log",
+      "output_sha256": "16ed4221099b5ae6752379e90192161be048ea7aea7ed270df6d6893244f8b11",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/bit_price.log",
+      "output_path": "run/bit_price.log",
+      "output_sha256": "e487f4822581a1b8d3746cf8a79ae6394342fca1e9c8533e970f0f0c672b5b4b",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_integrate.log",
+      "output_path": "run/complex_integrate.log",
+      "output_sha256": "32938be76f990be50950051263c8a765da1b00aafe9af455ee775f190e4839a7",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/complex_replay.log",
+      "output_path": "run/complex_replay.log",
+      "output_sha256": "04a057c55168c3dbfe452a4fc62fc90f55f1844d9e8c62e48e78e59b58ae1137",
+      "gzip": false
+    },
+    {
+      "local_path": "inputs/replay/combined.log",
+      "output_path": "run/combined.log",
+      "output_sha256": "fef1d8867a50212df361e28e768fffa809a4f4be81de4aaef833d313187dd1eb",
+      "gzip": false
+    }
+  ]
+}

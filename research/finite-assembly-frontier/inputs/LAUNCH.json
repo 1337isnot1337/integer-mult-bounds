@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/tmp/task2-pr433-immutable-static/verify.py",
+    "/tmp/task2-pr433-default-envelope/run"
+  ],
+  "source_manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+  "python_executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
+  "python_version": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "assertions_enabled": true,
+  "retained_scratch": "/tmp/task2-pr433-default-envelope/scratch",
+  "phase_mode": "default source-bound phase evidence",
+  "no_installs_compilers_or_cleanup": true
+}
