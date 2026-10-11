@@ -1,0 +1,54 @@
+{
+  "original": "/tmp/task2-address-map-candidate/original_emit.py",
+  "candidate": "/tmp/task2-address-map-candidate/candidate_emit.py",
+  "git_blob": "e033a8ceecc58a048477c4053331b8fc39680add",
+  "source_commit": "43e5aa3a2fb6701b1facf542f7f3dee0fbb33c3e",
+  "fixtures": [
+    {
+      "path": "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+      "completion": "/tmp/task2-pr438-basis-finite-fresh/COMPLETION.json",
+      "status": "PASS_CHANGED_PR438_BIT_FINITE_CHECK",
+      "output_key": "bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz"
+    },
+    {
+      "path": "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz",
+      "completion": "/tmp/task2-pr442-bit-fixture-fresh/COMPLETION.json",
+      "status": "PASS_MINIMAL_ACTUAL442_BIT_FIXTURE",
+      "output_key": "hosted/GLOBAL-TEMPLATE.json.gz"
+    }
+  ],
+  "files": [
+    {
+      "path": "/tmp/task2-address-map-candidate/original_emit.py",
+      "sha256": "515d7021293e23aba1165ee270e17c375072e7128ed7b3c738768b6f6b7e9af8"
+    },
+    {
+      "path": "/tmp/task2-address-map-candidate/candidate_emit.py",
+      "sha256": "829b66fb6f11638ac28d945b346e1177168798951678a587962255ee5319e338"
+    },
+    {
+      "path": "/tmp/task2-address-map-candidate/ADDRESS-MAP.patch",
+      "sha256": "f2d530814404c804bcd4ce50a6d85c3f2f4b4e2f6509cae55ab949be71a86839"
+    },
+    {
+      "path": "/tmp/task2-address-map-candidate/MANIFEST.json",
+      "sha256": "41f4ff030294d26cb6bec546df52094208eb7970f291b28ce6304add8f1eeda5"
+    },
+    {
+      "path": "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "c557653592de641a6cdb22f5ad5b3adb5b00fbff4905b7487e4be6767fd18dbd"
+    },
+    {
+      "path": "/tmp/task2-pr438-basis-finite-fresh/COMPLETION.json",
+      "sha256": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30"
+    },
+    {
+      "path": "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e"
+    },
+    {
+      "path": "/tmp/task2-pr442-bit-fixture-fresh/COMPLETION.json",
+      "sha256": "3083493cef033d148f08fb4a448fdbfbd45f028fb4d42d0c7e425db39ba42676"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+--- original/code/emit.py
++++ candidate/code/emit.py
+@@ -17,6 +17,7 @@
+ sys.path.insert(0,str(HERE.parents[1]/"idle-axis-hosting"))
+ from bank_routes import validate_isometries
+ import hosting_core as HC
++from digest_encoder import compile_stream, encoded_records
+ 
+ H,L,K,T,M=8,11,5,8,78
+ def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
+@@ -192,6 +193,7 @@
+     hosted={(s,h):(i,cp,off,width) for i,cp,off,width,s,h in slots}
+     assert len(slots)==len(hosted)==L*R and set(hosted)=={(s,h) for s in range(L) for h in range(R)}
+     remainder={str(i):{str(r):n for r,n in sorted(Counter(rem[i,cp] for cp in range(2*V)).items())} for i in win}
++    compiled = {ori: compile_stream(events) for ori, events in streams.items()}
+     paid=Counter(); calls=[]; assignment=set(); expanded=hashlib.sha256(); full_event_count=0
+     for e in events:
+         if e['kind']!='local': continue
+@@ -210,14 +212,11 @@
+             assert all(0<=f<LIVE for f,route in owners)
+             # Stream one full renamed instruction program into a source-bound
+             # digest, including exact owner route descriptors and reflection.
+-            for z in streams[ori]:
++            for z, encoded in zip(streams[ori], encoded_records(compiled[ori], owners, [LIVE,['private',0]]), strict=True):
+                 op=z[0]
+-                if op==0: paid[z[4]]+=bool(z[4]); mapped=[op,owners[z[1]],*z[2:]]
+-                else:
+-                    ox=owners[z[1]]; oy=owners[z[2]] if z[2]<LOCAL else [LIVE,['private',0]]
+-                    mapped=[op,ox,oy,*z[3:]]
+-                    if op==2: paid[z[5]]+=1
+-                expanded.update((json.dumps(mapped,separators=(',',':'))+'\n').encode()); full_event_count+=1
++                if op==0: paid[z[4]]+=bool(z[4])
++                elif op==2: paid[z[5]]+=1
++                expanded.update(encoded); full_event_count+=1
+             calls.append(dict(stage=s,replica=rep,pair=p,orientation=ori,owners=owners,local_hash=checks[ori]['sha256']))
+     paid.pop(0,None)
+     assert len(assignment)==L*T*R and len(calls)==L*T

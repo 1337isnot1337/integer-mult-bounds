@@ -1,0 +1,10 @@
+{
+  "status": "STATIC_CANDIDATE_NOT_EXECUTED",
+  "upstream": "PR44743e5aa3a2fb6701b1facf542f7f3dee0fbb33c3e",
+  "source_git_blob": "e033a8ceecc58a048477c4053331b8fc39680add",
+  "mechanism": "Hoist fixed per-stage mapper results into LOCAL+1 table; replace repeated two operand function calls by integer lookups.",
+  "preserved": "Every original scalar stage restoration, dirty/private copy-clear, level and bridge control; source AST differs only table assignment and operand lookup.",
+  "expected_validation_cost": "Prepare exact-source AST operand/loop contract on retained authentic438/442 streams; index equivalence for11stage metadata andall instructions <1second; if reviewed, one GF2 scalar-stage loop equivalence/timing perhaps1\u20135seconds,<200MB, no supplier/phase/geometry/global invoice replay.",
+  "scope": "Implementation optimization; benefit unmeasured, no numerical/finite coefficient claim.",
+  "frontier_caution": "PR450 now explicitly disclaims cross-family split bound;464 repricing does not fix that interface. PR467 whole-owner GLOBAL_PENDING remains distinct."
+}

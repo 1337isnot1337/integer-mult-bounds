@@ -1,0 +1,15 @@
+--- original/code/emit.py
++++ candidate/code/emit.py
+@@ -122,10 +122,11 @@
+                     side=i//V; side=1-side if rev else side
+                     return (2*p+side)*V+i%V
+                 return 2*K*V+s*R+i-2*V
++            global_indices = [mapper(i) for i in range(LOCAL + 1)]
+             before=vals[:]; opened=False
+             for z in streams['reverse' if rev else 'forward']:
+                 if z[0]==0: continue
+-                x,y=mapper(z[1]),mapper(z[2])
++                x,y=global_indices[z[1]],global_indices[z[2]]
+                 if z[0]==1:
+                     if z[3]&1: vals[x]^=vals[y]
+                 elif z[0]==2:

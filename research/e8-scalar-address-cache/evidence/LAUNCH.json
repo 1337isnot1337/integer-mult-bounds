@@ -1,0 +1,11 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/tmp/task2-address-map-adapter/driver.py",
+    "--output",
+    "/tmp/task2-address-map-contract-fresh"
+  ],
+  "adapter_manifest_sha256": "a1ec4da46584b3c3343344da423c5a2e8c8d2f0abaa8d6700a51067c52bb8e9d",
+  "assertions_enabled": true
+}

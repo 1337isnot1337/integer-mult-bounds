@@ -1,0 +1,16 @@
+{
+  "repository": "rohanarun/integer-mult-bounds",
+  "commit": "43e5aa3a2fb6701b1facf542f7f3dee0fbb33c3e",
+  "emitter_git_blob": "e033a8ceecc58a048477c4053331b8fc39680add",
+  "external_input_bindings": {
+    "/tmp/task2-address-map-candidate/original_emit.py": "evidence/candidate/original_emit.py",
+    "/tmp/task2-address-map-candidate/candidate_emit.py": "evidence/candidate/candidate_emit.py",
+    "/tmp/task2-address-map-candidate/ADDRESS-MAP.patch": "evidence/candidate/ADDRESS-MAP.patch",
+    "/tmp/task2-address-map-candidate/MANIFEST.json": "evidence/candidate/MANIFEST.json",
+    "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz": "inputs/fixture-0.json.gz",
+    "/tmp/task2-pr438-basis-finite-fresh/COMPLETION.json": "inputs/COMPLETION-0.json",
+    "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz": "inputs/fixture-1.json.gz",
+    "/tmp/task2-pr442-bit-fixture-fresh/COMPLETION.json": "inputs/COMPLETION-1.json"
+  },
+  "prior_digest_cache_commit": "2c47125cbb0619dc63ccdf64c9c583f064240aeb"
+}

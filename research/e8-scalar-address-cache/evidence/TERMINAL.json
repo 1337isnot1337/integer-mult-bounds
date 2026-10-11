@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/tmp/task2-address-map-adapter/driver.py",
+    "--output",
+    "/tmp/task2-address-map-contract-fresh"
+  ],
+  "returncode": 0,
+  "wall_seconds": 0.9844912920380011,
+  "log_sha256": "25ce9821e7d55589ac831e9bdb9dd8b7b0a6564289b4cc0c88561261f5b676c7",
+  "launch_sha256": "23523021e3074a8d01d6d7b9d967eb806a0cd3acaab58a86541b8079f988a2e2",
+  "child_ru_maxrss_bytes": 154402816,
+  "outputs": {
+    "RESULT.json": "25ce9821e7d55589ac831e9bdb9dd8b7b0a6564289b4cc0c88561261f5b676c7"
+  }
+}

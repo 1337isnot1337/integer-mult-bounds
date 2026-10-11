@@ -1,0 +1,340 @@
+{
+  "status": "PASS_EXACT_SCALAR_REPLAY_ADDRESS_MAP_CONTRACT",
+  "scope": "setup-inclusive scalar-replay microbenchmark on retained local words; not fresh supplier admission",
+  "inputs_before": {
+    "/tmp/task2-address-map-candidate/original_emit.py": "515d7021293e23aba1165ee270e17c375072e7128ed7b3c738768b6f6b7e9af8",
+    "/tmp/task2-address-map-candidate/candidate_emit.py": "829b66fb6f11638ac28d945b346e1177168798951678a587962255ee5319e338",
+    "/tmp/task2-address-map-candidate/ADDRESS-MAP.patch": "f2d530814404c804bcd4ce50a6d85c3f2f4b4e2f6509cae55ab949be71a86839",
+    "/tmp/task2-address-map-candidate/MANIFEST.json": "41f4ff030294d26cb6bec546df52094208eb7970f291b28ce6304add8f1eeda5",
+    "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz": "c557653592de641a6cdb22f5ad5b3adb5b00fbff4905b7487e4be6767fd18dbd",
+    "/tmp/task2-pr438-basis-finite-fresh/COMPLETION.json": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30",
+    "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e",
+    "/tmp/task2-pr442-bit-fixture-fresh/COMPLETION.json": "3083493cef033d148f08fb4a448fdbfbd45f028fb4d42d0c7e425db39ba42676",
+    "adapter_manifest": "a1ec4da46584b3c3343344da423c5a2e8c8d2f0abaa8d6700a51067c52bb8e9d"
+  },
+  "inputs_after": {
+    "/tmp/task2-address-map-candidate/original_emit.py": "515d7021293e23aba1165ee270e17c375072e7128ed7b3c738768b6f6b7e9af8",
+    "/tmp/task2-address-map-candidate/candidate_emit.py": "829b66fb6f11638ac28d945b346e1177168798951678a587962255ee5319e338",
+    "/tmp/task2-address-map-candidate/ADDRESS-MAP.patch": "f2d530814404c804bcd4ce50a6d85c3f2f4b4e2f6509cae55ab949be71a86839",
+    "/tmp/task2-address-map-candidate/MANIFEST.json": "41f4ff030294d26cb6bec546df52094208eb7970f291b28ce6304add8f1eeda5",
+    "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz": "c557653592de641a6cdb22f5ad5b3adb5b00fbff4905b7487e4be6767fd18dbd",
+    "/tmp/task2-pr438-basis-finite-fresh/COMPLETION.json": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30",
+    "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e",
+    "/tmp/task2-pr442-bit-fixture-fresh/COMPLETION.json": "3083493cef033d148f08fb4a448fdbfbd45f028fb4d42d0c7e425db39ba42676",
+    "adapter_manifest": "a1ec4da46584b3c3343344da423c5a2e8c8d2f0abaa8d6700a51067c52bb8e9d"
+  },
+  "fixtures": [
+    {
+      "fixture": "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+      "R": 747,
+      "contract": {
+        "operands": 325050,
+        "private_operands": 6446,
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "reflections": [
+          false,
+          true
+        ]
+      },
+      "complete_replay_sha256": "0aa4ea26ac4990ecd3ae3b77a9e30ba2d0d91b75e8a6b62839a30b9dae267ba4",
+      "columns": 9417,
+      "stages": [
+        {
+          "stage": 0,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 1,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 2,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 3,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 4,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 5,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 6,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 7,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 8,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 9,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 10,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        }
+      ],
+      "controls": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "timings": [
+        {
+          "order": [
+            "original",
+            "candidate"
+          ],
+          "seconds": {
+            "original": 0.035984375048428774,
+            "candidate": 0.02146337495651096
+          }
+        },
+        {
+          "order": [
+            "candidate",
+            "original"
+          ],
+          "seconds": {
+            "candidate": 0.02072825003415346,
+            "original": 0.03598775004502386
+          }
+        },
+        {
+          "order": [
+            "original",
+            "candidate"
+          ],
+          "seconds": {
+            "original": 0.035918999928981066,
+            "candidate": 0.020722375018522143
+          }
+        }
+      ]
+    },
+    {
+      "fixture": "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz",
+      "R": 747,
+      "contract": {
+        "operands": 323642,
+        "private_operands": 6446,
+        "stages": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "reflections": [
+          false,
+          true
+        ]
+      },
+      "complete_replay_sha256": "0aa4ea26ac4990ecd3ae3b77a9e30ba2d0d91b75e8a6b62839a30b9dae267ba4",
+      "columns": 9417,
+      "stages": [
+        {
+          "stage": 0,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 1,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 2,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 3,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 4,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 5,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 6,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 7,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 8,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        },
+        {
+          "stage": 9,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": true
+        },
+        {
+          "stage": 10,
+          "all_columns": 9417,
+          "helper_columns": 8217,
+          "reverse": false
+        }
+      ],
+      "controls": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ],
+      "timings": [
+        {
+          "order": [
+            "original",
+            "candidate"
+          ],
+          "seconds": {
+            "original": 0.03577362501528114,
+            "candidate": 0.020593291032128036
+          }
+        },
+        {
+          "order": [
+            "candidate",
+            "original"
+          ],
+          "seconds": {
+            "candidate": 0.020675665931776166,
+            "original": 0.035751916002482176
+          }
+        },
+        {
+          "order": [
+            "original",
+            "candidate"
+          ],
+          "seconds": {
+            "original": 0.03600904194172472,
+            "candidate": 0.021167750004678965
+          }
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 0.9097831669496372,
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "ru_maxrss": 154402816,
+  "ru_maxrss_unit": "bytes"
+}
