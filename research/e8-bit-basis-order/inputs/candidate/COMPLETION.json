@@ -1,0 +1,107 @@
+{
+  "status": "PASS_CHANGED_BIT_FINITE_CHECK",
+  "scope": "changed bit only; unchanged complex receipts reused; no phase replay",
+  "source_manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+  "candidate_sha256": "ee95a35d2bbdba598ea4e40917467090a956b06fad15b3f00d260f0db7ebd453",
+  "reused": {
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr361/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "work/pr361/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "work/pr361/code/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "split-centres/INTEGRATION.json": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+    "split-centres/INDEPENDENT-REPLAY.json": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29"
+  },
+  "input_before": {
+    "candidate": "ee95a35d2bbdba598ea4e40917467090a956b06fad15b3f00d260f0db7ebd453",
+    "baseline_completion": "722690f12ea5bc47effc78ad5f0e3c155344bba513718d2d99f5ffb4e145b321",
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr361/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "work/pr361/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "work/pr361/code/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "split-centres/INTEGRATION.json": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+    "split-centres/INDEPENDENT-REPLAY.json": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29"
+  },
+  "input_after": {
+    "candidate": "ee95a35d2bbdba598ea4e40917467090a956b06fad15b3f00d260f0db7ebd453",
+    "baseline_completion": "722690f12ea5bc47effc78ad5f0e3c155344bba513718d2d99f5ffb4e145b321",
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr361/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "work/pr361/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "work/pr361/code/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "split-centres/INTEGRATION.json": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+    "split-centres/INDEPENDENT-REPLAY.json": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29"
+  },
+  "steps": [
+    {
+      "name": "export",
+      "returncode": 0,
+      "log_sha256": "6591bd062e93bac77aa788bdda8a982ed6d63ed1e4b2d1048e099555b47a8b50"
+    },
+    {
+      "name": "global",
+      "returncode": 0,
+      "log_sha256": "1110e617dbe5b6c1b738547f3a07a48b8fa012ad4778cf65c5055ae23bf0070d"
+    },
+    {
+      "name": "audit",
+      "returncode": 0,
+      "log_sha256": "68e8c1a8a7a267a603b784e5261b45fd3c6d45a317ef5ba85bd305b4c143dff2"
+    },
+    {
+      "name": "price",
+      "returncode": 0,
+      "log_sha256": "e487f4822581a1b8d3746cf8a79ae6394342fca1e9c8533e970f0f0c672b5b4b"
+    },
+    {
+      "name": "combined",
+      "returncode": 0,
+      "log_sha256": "5c50444eae0779587c6a70056b3d489ee3b749ea72cea7763896ff4407f5d2a2"
+    }
+  ],
+  "wall_seconds": 3.5411427090875804,
+  "child_usage": [
+    3.443853,
+    0.05456,
+    135905280,
+    0,
+    0,
+    0,
+    26343,
+    326,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    47,
+    1953
+  ],
+  "output_hashes": {
+    "RESULT.json": "7498e4eac4d4e3598dce02fbe589a4c2ba98fb7b0c471a2e4e5f543b729ec217",
+    "price.log": "e487f4822581a1b8d3746cf8a79ae6394342fca1e9c8533e970f0f0c672b5b4b",
+    "audit.log": "68e8c1a8a7a267a603b784e5261b45fd3c6d45a317ef5ba85bd305b4c143dff2",
+    "export.log": "6591bd062e93bac77aa788bdda8a982ed6d63ed1e4b2d1048e099555b47a8b50",
+    "combined.log": "5c50444eae0779587c6a70056b3d489ee3b749ea72cea7763896ff4407f5d2a2",
+    "BIT-PRICE.json": "578af4b67c4d251e7fefab1b4a6dba1f2a37c9ab13659ab8efce6d600caabc5b",
+    "global.log": "1110e617dbe5b6c1b738547f3a07a48b8fa012ad4778cf65c5055ae23bf0070d",
+    "split-centres/INDEPENDENT-REPLAY.json": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29",
+    "split-centres/INTEGRATION.json": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+    "bit426-source-centres/bit-source-centres.json": "ee95a35d2bbdba598ea4e40917467090a956b06fad15b3f00d260f0db7ebd453",
+    "inherited/bit-geometry.json.gz": "5c980202227859e8bb9b863f94503930c2a59d460c0421356688e2b0d828b4a1",
+    "work/pr361/code/engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+    "work/pr361/code/engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+    "work/pr361/code/engines/outer.py": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+    "work/pr370-source/research/e8-bit/data/bit/bitE8-r865.json.gz": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+    "bit426-source-centres/records/249-records.bin": "be6763a87a826d5e521c3c78b098322404e96c23e79f99cf5e6a4f33c0f387b8",
+    "bit426-source-centres/records/249-states.json": "e0be800f2fada0efe4bae0077851eae75f1ed4be462f259dd35a2413daf72082",
+    "bit426-source-centres/records/frames.json": "884480e45865a9d9d57f5f7198844a64271b046bc95e9820efbefb9e10878330",
+    "bit426-source-centres/global/GEOMETRY.json": "a5515888fffad2f82f7cde74af80cf5fc5a5197974104b63699305b9faeb1889",
+    "bit426-source-centres/global/AUDIT.json": "ec0e91c2540dcce22836372d6a0692ef2d04d6fb044732eddd2820b54491625d",
+    "bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz": "52471310c7a730b54d6ed2f979fa4cabd86f180538c0c50b0b38687b7b105eb9",
+    "bit426-source-centres/global/GLOBAL.json": "30431f77668cfd693eb86e351d08e71107525be17497db31638d4e685692b523"
+  }
+}

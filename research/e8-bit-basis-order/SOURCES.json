@@ -1,0 +1,132 @@
+{
+  "repository": "icekylinx/integer-mult-bounds",
+  "commit": "6d9244518175caf9e0089f92486959bc2c317273",
+  "supplier_manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+  "files": [
+    {
+      "path": "inputs/baseline/word.json.gz",
+      "original_sha256": "015811014644ed62acba1da590d9cf6ebdfe834d89867f8ce2b68722609072ea",
+      "gzip": true
+    },
+    {
+      "path": "inputs/baseline/GLOBAL.json",
+      "original_sha256": "e84c84f41602168bae25a810737a91ba989783ace2a93944cf5ae965f3199e4c",
+      "gzip": false
+    },
+    {
+      "path": "inputs/baseline/RESULT.json",
+      "original_sha256": "3c8313d5c180cb10e1b17d2dd09d7845f571dec144954776ba4c9b86d6a75603",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/word.json.gz",
+      "original_sha256": "ee95a35d2bbdba598ea4e40917467090a956b06fad15b3f00d260f0db7ebd453",
+      "gzip": true
+    },
+    {
+      "path": "inputs/candidate/GLOBAL.json",
+      "original_sha256": "30431f77668cfd693eb86e351d08e71107525be17497db31638d4e685692b523",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/RESULT.json",
+      "original_sha256": "7498e4eac4d4e3598dce02fbe589a4c2ba98fb7b0c471a2e4e5f543b729ec217",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/GEOMETRY.json.gz",
+      "original_sha256": "a5515888fffad2f82f7cde74af80cf5fc5a5197974104b63699305b9faeb1889",
+      "gzip": true
+    },
+    {
+      "path": "inputs/candidate/AUDIT.json",
+      "original_sha256": "ec0e91c2540dcce22836372d6a0692ef2d04d6fb044732eddd2820b54491625d",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/BIT-PRICE.json",
+      "original_sha256": "578af4b67c4d251e7fefab1b4a6dba1f2a37c9ab13659ab8efce6d600caabc5b",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/COMPLETION.json",
+      "original_sha256": "f97a6a3d0ce8abbca1996b17c53caa339b00524f0c10c1101a99a191132b5f08",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/FINITE-COMPARISON.json",
+      "original_sha256": "82572249a38d7c7f87e4d278e561c139ae0cb9f8e2cc1b4edd96ab08f57becf4",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/export.log",
+      "original_sha256": "6591bd062e93bac77aa788bdda8a982ed6d63ed1e4b2d1048e099555b47a8b50",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/global.log",
+      "original_sha256": "1110e617dbe5b6c1b738547f3a07a48b8fa012ad4778cf65c5055ae23bf0070d",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/audit.log",
+      "original_sha256": "68e8c1a8a7a267a603b784e5261b45fd3c6d45a317ef5ba85bd305b4c143dff2",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/price.log",
+      "original_sha256": "e487f4822581a1b8d3746cf8a79ae6394342fca1e9c8533e970f0f0c672b5b4b",
+      "gzip": false
+    },
+    {
+      "path": "inputs/candidate/combined.log",
+      "original_sha256": "5c50444eae0779587c6a70056b3d489ee3b749ea72cea7763896ff4407f5d2a2",
+      "gzip": false
+    },
+    {
+      "path": "inputs/complex/INTEGRATION.json",
+      "original_sha256": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+      "gzip": false
+    },
+    {
+      "path": "inputs/complex/INDEPENDENT-REPLAY.json",
+      "original_sha256": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29",
+      "gzip": false
+    },
+    {
+      "path": "inputs/baseline/COMPLETION.json",
+      "original_sha256": "722690f12ea5bc47effc78ad5f0e3c155344bba513718d2d99f5ffb4e145b321",
+      "gzip": false
+    },
+    {
+      "path": "inputs/SUPPLIER-MANIFEST.json",
+      "original_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+      "gzip": false
+    },
+    {
+      "path": "inputs/SUPPLIER-SOURCE-BINDING.json",
+      "original_sha256": "ad1451feae399995cca071345ab090f1282ca5cfe38932bb6345009ae543e2cb",
+      "gzip": false
+    },
+    {
+      "path": "inputs/baseline/ASSEMBLY-LOCALS.json",
+      "original_sha256": "029b78b4199995c40335aad52e74e60765326f355eeef7be89592bd686278cd9",
+      "gzip": false
+    },
+    {
+      "path": "vendor/bit_construct.py",
+      "original_sha256": "a461e6c983531beb5c8ac82ff593f39ce4e056387d1d6061f6e6b294dde4395f",
+      "gzip": false
+    },
+    {
+      "path": "LICENSE",
+      "original_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "gzip": false
+    },
+    {
+      "path": "vendor/NOTICE-PR433.md",
+      "original_sha256": "66101a9e74d0ba9c2da4c8802bcb1968534adfa7130b954628eb8bf515fc0389",
+      "gzip": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+--- a/research/split-centres-global/code/bit_construct.py
++++ b/research/split-centres-global/code/bit_construct.py
+@@ -57,13 +57,13 @@
+     # Find an invertible minor, preserving the original order of centre rows.
+     echelon = {}
+     for row in rows:
+-        for p, q in sorted(echelon.items()):
++        for p, q in sorted(echelon.items(), reverse=True):
+             if row >> p & 1:
+                 row ^= q
+         assert row, 'Retained forms must be independent'
+-        p = (row & -row).bit_length() - 1
++        p = row.bit_length() - 1
+         echelon[p] = row
+-    pivots = sorted(echelon)
++    pivots = sorted(echelon, reverse=True)
+     matrix = [1 << i for i in range(v)]
+     for p, row in zip(pivots, rows):
+         matrix[p] = row

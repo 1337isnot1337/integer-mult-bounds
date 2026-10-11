@@ -1,0 +1,42 @@
+{
+  "status": "PASS_CHANGED_BIT_FINITE_COST_AND_INDEPENDENT_AUDIT",
+  "python": "3.14.8",
+  "supplier_commit": "6d9244518175caf9e0089f92486959bc2c317273",
+  "supplier_manifest_sha256": "3129eb4321f706542470f8443f66a6b4351a12a9ceec85e7f76aa19db1e1e32f",
+  "scientific_stages": [
+    "export",
+    "global",
+    "audit",
+    "price",
+    "combined"
+  ],
+  "scientific_run_seconds": 3.5411427090875804,
+  "completed_driver_sha256": "a24a48cc036a31a08792896446c7efdacce08ebda12fbda8e707bd9e9f0288f2",
+  "completed_run_sha256": "f97a6a3d0ce8abbca1996b17c53caa339b00524f0c10c1101a99a191132b5f08",
+  "independent_review": {
+    "source_inputs": 46,
+    "output_hashes": 22,
+    "local_columns_each_orientation": 998,
+    "global_columns": 7782,
+    "bank_assignments": 54576,
+    "bank_controls": 8,
+    "strict_outer_constraints": 47,
+    "outer_controls": 4
+  },
+  "local_additions": [
+    14510,
+    14542
+  ],
+  "coefficient_bits": [
+    223,
+    192
+  ],
+  "two_level_coefficient_bits": [
+    483,
+    420
+  ],
+  "coarse_caps_and_kappa_unchanged": true,
+  "phase_replay": false,
+  "complex_component": "exact completed source receipts reused",
+  "portable_wrapper_validation": "input-only; exact derived constructor and unchanged stage/input bindings checked; no second full scientific run"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "PASS_ACTUAL_FINITE_COST_COMPARISON",
+  "coefficient": "4133102071585442738602693393898919077364732015670619884057",
+  "two_level_coefficient": "1765480327964144359059818667672312184441048701945634758871470371595777703976260950775676203474324491767368886150988529342610404",
+  "coefficient_bits": 192,
+  "two_level_bits": 420,
+  "baseline_coefficient_bits": 223,
+  "baseline_two_level_bits": 483,
+  "local_additions": 14542,
+  "unit_additions": 1064304,
+  "kappa": "560432476129139/500000000000000000",
+  "bit_lower": "561061350132569610283/500000000000000000000000",
+  "complex_lower": "1183986549206329/1000000000000000000",
+  "scope": "Pinned433 finite coefficient improvement only; no coarse bound gain, no434 port",
+  "receipt_sha256": "f97a6a3d0ce8abbca1996b17c53caa339b00524f0c10c1101a99a191132b5f08"
+}
