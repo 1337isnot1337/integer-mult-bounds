@@ -1,0 +1,20 @@
+{
+  "status": "PASS_KERNEL_STAGE",
+  "entries": 118,
+  "total_entrance_rank": 160,
+  "donor_slots": 119,
+  "new_frames": 0,
+  "new_frame_gram_determinants": [],
+  "local_histogram": {
+    "1": 2511,
+    "2": 1031,
+    "3": 309,
+    "4": 347,
+    "5": 102,
+    "7": 14,
+    "8": 9
+  },
+  "columns": 987,
+  "input_sha256": "98ffef9246c8bf6c537ab5e134321abea05cf0b7830c9e3fd92cbe4e88d8c308",
+  "output_sha256": "cc6242d90ccdd8477521ea16f35ee2667dbe6c48cc60c6e4e9bcf6460497b233"
+}

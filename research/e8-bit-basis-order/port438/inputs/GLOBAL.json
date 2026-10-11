@@ -1,0 +1,165 @@
+{
+  "status": "PASS_SOURCE_BOUND_NINE_STAGE_BIT_TEMPLATE",
+  "h": 8,
+  "m": 64,
+  "v": 120,
+  "R": 747,
+  "replicas": 8,
+  "live": 14223,
+  "physical": 14232,
+  "word_sha256": "2be5d42a53e367648f4dd33fd4a368c61e1565f0cf7c48bfe887ca953a735063",
+  "source_records_sha256": "a0fd597c8cc0edd639d463f886be5e7984133ae16cf36f73c43aec2ec965c535",
+  "local_checks": {
+    "forward": {
+      "copies": 9,
+      "adds": 14757,
+      "records": 19089,
+      "all_columns": 987,
+      "cancellation_free_row_l1": 352915,
+      "profile": {
+        "1": 2511,
+        "2": 1031,
+        "3": 309,
+        "4": 347,
+        "5": 102,
+        "7": 14,
+        "8": 9
+      },
+      "sha256": "85acdfcd8edf3b44f6133d8e00d459d31d7e8fdc3b79b40a3c99ce078af89fae"
+    },
+    "reverse": {
+      "copies": 9,
+      "adds": 14757,
+      "records": 19089,
+      "all_columns": 987,
+      "cancellation_free_row_l1": 1686810,
+      "profile": {
+        "1": 2511,
+        "2": 1031,
+        "3": 309,
+        "4": 347,
+        "5": 102,
+        "7": 14,
+        "8": 9
+      },
+      "sha256": "b72a94dc0ddeddb9b5555ee976293f9337929ac2bd4e75e3a1b3fa4c8416de31"
+    }
+  },
+  "scalar_stages": [
+    {
+      "stage": 0,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": false
+    },
+    {
+      "stage": 1,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": true
+    },
+    {
+      "stage": 2,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": false
+    },
+    {
+      "stage": 3,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": true
+    },
+    {
+      "stage": 4,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": false
+    },
+    {
+      "stage": 5,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": true
+    },
+    {
+      "stage": 6,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": false
+    },
+    {
+      "stage": 7,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": true
+    },
+    {
+      "stage": 8,
+      "all_columns": 7683,
+      "helper_columns": 6723,
+      "reverse": false
+    }
+  ],
+  "independent_unbanked_scalar_columns": 7683,
+  "all_scalar_columns_restored": true,
+  "geometry_sha256": "e063503254229545578cf12d53eefbf990129d9335af05c680194d35408a959b",
+  "template_sha256": "95dee94afed0fdb7ccdf0ace4f81c4dd60b8c18ba56857036a7532ef03ca22c9",
+  "emitted_program_sha256": "01f4738891cc3797569d5dc869f2517a7a550ec978e8446adade26bb5cf26bdc",
+  "emitted_events": 1374408,
+  "local_invocations": 72,
+  "bank_assignments": 53784,
+  "banks_per_stage": 727,
+  "entrance_rank_total": 160,
+  "mixed_width_slots": true,
+  "padding_calls": 0,
+  "profile": {
+    "1": 180792,
+    "2": 74232,
+    "3": 22248,
+    "4": 24984,
+    "5": 7344,
+    "7": 6768,
+    "8": 648,
+    "14": 3840,
+    "28": 3840,
+    "42": 3840
+  },
+  "paid_calls": 328536,
+  "rank_mass": 907776,
+  "deficit": 2496,
+  "maxchild": 42,
+  "halving_depth": 2,
+  "halving_integer_inequality": [
+    4096,
+    3528
+  ],
+  "local_additions": 14757,
+  "bridge_additions": 17280,
+  "copy_erase_episodes": 648,
+  "global_prefix_bound": "11618636861972555523343873296287586172648663474176000000000",
+  "global_prefix_bits": 193,
+  "charged_prefix_bits": 256,
+  "omitted_bridge_shears_rejected": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+  ],
+  "scope": "Complete source-bound finite cover template. Local and unbanked global F2 columns are replayed; arbitrary physical bank dirt follows by injective owner routes and the all-column local theorem. Astronomical cover enumeration and all-size compiler interfaces remain explicit inherited assumptions.",
+  "seconds": 1.9217105000279844
+}

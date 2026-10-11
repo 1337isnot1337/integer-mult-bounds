@@ -82,10 +82,10 @@ def forms(word):
 
 def coefficient(g, geo):
     paid = sum(g['profile'].values())
-    routes = 576*(240+758)+61440+2*g['bank_assignments']+2*g['copy_erase_episodes']
-    selectors = 144*((14502-1)+758*64*(geo['max_route_factors']+63+64))
+    routes = 576*(240+g['R'])+61440+2*g['bank_assignments']+2*g['copy_erase_episodes']
+    selectors = 144*((g['live']-1)+g['R']*64*(geo['max_route_factors']+63+64))
     value = (72*g['local_additions']+g['bridge_additions']
-             + routes*(16*4097**2+14511)+paid*(8*64**2+8+128*128**3)
+             + routes*(16*4097**2+g['physical'])+paid*(8*64**2+8+128*128**3)
              + 16*64**3+g['copy_erase_episodes']+selectors+int(g['global_prefix_bound'])+1)
     return value, (value+1)**2*(paid+1)**2
 
@@ -190,6 +190,8 @@ def verify():
                   two_level_bits=[483, 420], scope='Pinned PR433 finite-cost comparison; coarse caps and exponent unchanged.')
     for key, value in read('EXPECTED.json').items():
         assert report[key] == value
+    from verify_port import verify_port
+    report['post_kernel_transfer'] = verify_port()
     assert snapshot() == manifest
     return report
 

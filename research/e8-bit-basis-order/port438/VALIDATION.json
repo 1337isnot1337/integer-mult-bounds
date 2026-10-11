@@ -1,0 +1,37 @@
+{
+  "status": "PASS_CHANGED_PR438_BIT_FINITE_CHECK",
+  "source_commit": "e3b56de7869f6af88d48ac0ab1d7959c4c9e6176",
+  "source_manifest_sha256": "8901e14e3d39c218b568e645938b7c9269a723d2978f88c031c1e6dab46475ba",
+  "completed_run_sha256": "a7a2efeef20ba6b8fa381b19bd6bd83745bdca4b2ba255de5caa863ff74eec30",
+  "fresh_stages": [
+    "bit_construct",
+    "bit_reset",
+    "bit_kernel",
+    "post_basis",
+    "export",
+    "global",
+    "audit",
+    "price",
+    "combined"
+  ],
+  "wall_seconds": 18.487286624964327,
+  "local_columns": 987,
+  "global_columns": 7683,
+  "bank_controls": 8,
+  "outer_constraints": 47,
+  "outer_controls": 4,
+  "complex_scope": "11 unchanged outputs reused from independently completed PR433 complex component; no new complex/phase execution",
+  "baseline_scope": "Literal original word replay and exact finite algebra on unchanged candidate geometry/schedule; no second baseline global replay",
+  "adapter_scope": "Exact executed scripts with original temporary paths retained as evidence, not a portable CLI",
+  "postprocessor_scope": "Portable actual-input API and CLI; downstream supplier admission required for every new word",
+  "coefficient_bits": [
+    226,
+    193
+  ],
+  "two_level_bits": [
+    488,
+    423
+  ],
+  "local_add_delta": 32,
+  "kappa_unchanged": true
+}

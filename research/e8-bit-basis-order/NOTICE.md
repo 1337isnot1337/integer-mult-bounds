@@ -13,3 +13,5 @@ The full original notice is in vendor/NOTICE-PR433.md. It retains credit to
 Zhihao Chen and OpenAI Codex (PR425/386), ai-nanachi and OpenAI Codex (PR426),
 Dylan Crow and Anthropic Claude (PR370), Jacob Sussman and upstream contributors.
 All sources remain tied to the immutable supplier commit in SOURCES.json.
+
+Post-kernel source-basis postprocessor and audit: George Lydakis, with OpenAI Codex assistance. The pinned PR438 reset/kernel construction and original supplier notices are retained in port438/supplier. Original contributors retain their attribution; no claim is made to their construction or exponent.

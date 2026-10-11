@@ -1,0 +1,25 @@
+{
+  "status": "PASS_POST_KERNEL_BASIS_STAGE",
+  "input_sha256": "cc6242d90ccdd8477521ea16f35ee2667dbe6c48cc60c6e4e9bcf6460497b233",
+  "output_sha256": "2be5d42a53e367648f4dd33fd4a368c61e1565f0cf7c48bfe887ca953a735063",
+  "counts": [
+    559,
+    575
+  ],
+  "columns": 987,
+  "profile": {
+    "1": 2511,
+    "4": 347,
+    "2": 1031,
+    "3": 309,
+    "5": 102,
+    "8": 9,
+    "7": 14
+  },
+  "controls": [
+    "inverse omission",
+    "dirt omission"
+  ],
+  "reflected_columns": true,
+  "upstream_kernel_receipt_preserved": true
+}

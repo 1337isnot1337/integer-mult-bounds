@@ -1,0 +1,12 @@
+{
+  "original-word.json.gz": "bit426-source-centres/bit-source-centres-postkernel-original.json",
+  "word.json.gz": "bit426-source-centres/bit-source-centres.json",
+  "GLOBAL.json": "bit426-source-centres/global/GLOBAL.json",
+  "GEOMETRY.json.gz": "bit426-source-centres/global/GEOMETRY.json",
+  "AUDIT.json": "bit426-source-centres/global/AUDIT.json",
+  "BASIS-STAGE.json": "bit426-source-centres/BASIS-STAGE.json",
+  "KERNEL.json": "bit426-source-centres/bit-kernel-receipt.json",
+  "RESULT.json": "RESULT.json",
+  "FINITE-COMPARISON.json": "FINITE-COMPARISON.json",
+  "CONSTRUCT.json": "bit426-source-centres/bit-source-centres-receipt.json"
+}

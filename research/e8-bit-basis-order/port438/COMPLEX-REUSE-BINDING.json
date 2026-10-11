@@ -1,0 +1,99 @@
+{
+  "scientific_source_comparison": {
+    "code/complex_audit.py": {
+      "sha256": "adeba5ea113652b60105db2e8719b18ffa292d3cc23730cca614b40272348330",
+      "identical_433": true
+    },
+    "code/complex_construct.py": {
+      "sha256": "0f7f45b2333ec7daf4291e2bf675b49bc330b97fb5965dd27220ba353c291d6f",
+      "identical_433": true
+    },
+    "code/complex_emit.py": {
+      "sha256": "f56d5f01f7c121741f175814138dca7190d769920f0a27e2d5b99c21aebed0f1",
+      "identical_433": true
+    },
+    "code/complex_integrate.py": {
+      "sha256": "3792f41e409383e6989bda22801a4836a646a530f99e99bbd7244a8f3a1a8b4f",
+      "identical_433": true
+    },
+    "code/complex_phases.py": {
+      "sha256": "3e2a52198475ee280a314895ab74df8437e3c0de0cad2d90baa370aa2a52c364",
+      "identical_433": false
+    },
+    "code/complex_phases_full.py": {
+      "sha256": "0f2795aaffafe0c64d77f3748ef2109a3c42c58da867e4cf269a0a8cb6109466",
+      "identical_433": true
+    },
+    "code/complex_replay.py": {
+      "sha256": "be2dccce2d1ad2c4f5c01a851c9c3896cc88236b5aeae706aad2ab16d6bfdad9",
+      "identical_433": true
+    },
+    "inputs/complex-data-phases.json.gz": {
+      "sha256": "c972b5b60649c2a52354f5160f69adc0f4a270fa09d32012beff9888774ab84f",
+      "identical_433": true
+    },
+    "inputs/complex-phase-receipt.json": {
+      "sha256": "b7e9de8137ed1de3e72a94c3a11525a8ff3770c914a43e3c3b82fd5d75264b32",
+      "identical_433": false
+    },
+    "inputs/complex-phase-recipes.json.gz": {
+      "sha256": "b5472bb1d3f9ff41b0819780a42886a7686b4caf3c0617bb1dc86158b3fb8671",
+      "identical_433": true
+    },
+    "inputs/complex-ports.json.gz": {
+      "sha256": "77b0c0fa19ef3da1c7316010e13493aa5eea1a50c3506eddc08f7480e659878b",
+      "identical_433": true
+    },
+    "inputs/complex-template.json.gz": {
+      "sha256": "1b84904a31a733aab9bfdda3f528c06719f590d2133a43687a8bded955dc991e",
+      "identical_433": true
+    },
+    "inputs/e8-r865.json.gz": {
+      "sha256": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+      "identical_433": true
+    },
+    "vendor/clifford_exact.py": {
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962",
+      "identical_433": true
+    },
+    "vendor/engines/base_two_moment.py": {
+      "sha256": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
+      "identical_433": true
+    },
+    "vendor/engines/moment.py": {
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
+      "identical_433": true
+    },
+    "vendor/engines/outer.py": {
+      "sha256": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c",
+      "identical_433": true
+    },
+    "vendor/hamming_packets.py": {
+      "sha256": "daa9301e2767a711cfe66c6bebaad68e1a3bdb97ec9e848c927527ab43b37ae5",
+      "identical_433": true
+    }
+  },
+  "changed_files": [
+    "code/complex_phases.py",
+    "inputs/complex-phase-receipt.json"
+  ],
+  "completion_sha256": "722690f12ea5bc47effc78ad5f0e3c155344bba513718d2d99f5ffb4e145b321",
+  "verified_outputs": {
+    "run/split-centres/CANONICAL-WORD.json.gz": "79ff8e19335d5d5d1563ef0bc218106945d6a2b88ece53ee24bb3d88b2594ba3",
+    "run/split-centres/FULL-DISCOVERY.json": "ea19af4453ffb1bc9bf33b9c32eef61d7fff652809beaeb77b786ec550f231a9",
+    "run/split-centres/LOCAL-PROGRAMS.json.gz": "65829d265c3ad5955263301b5be23114fec562aa7847d58658df873205aba37e",
+    "run/split-centres/LOCAL-CHECKS.json": "c12c15e92ff3ed47be2c293930fda6a5ff69258fa09b19de3cf8e0067b1ceb7d",
+    "run/split-centres/CLIFFORD-REVIEW.json": "7a8b21e342680964005d0caff529b133fa4915b97fbca0969b8f28e0da670bf2",
+    "run/split-centres/INDEPENDENT-REPLAY.json": "26c16787d76af2f1f354af7f599cda2b1b1ec285eabf500d7aafb3e4f4782c29",
+    "run/split-centres/CLIFFORD-RECIPES.json": "242fe77af077973e1933524fe5c7ff3b68bef14b1f6938e024827de78d954492",
+    "run/split-centres/GLOBAL-TEMPLATE.json.gz": "a761d07a741a482ad0d2af725fa5298146635a3a2fae69e554bf0565d55d26c6",
+    "run/split-centres/INTEGRATION.json": "6666a978604459e235b6081d7ec596537f0b452a0be6963082647730cbe0de14",
+    "run/split-centres/FULL-WORD.json.gz": "6d311e5832c1bf86351dd9204971b99b61c0c556bd95d11b0b4b3d15426bab9a",
+    "run/split-centres/SCALAR-FRAME-AUDIT.json": "b95a94656aaadde629004fbb2825d8426411edaecd477e160d7c9e8ca6b3b0bd"
+  },
+  "reuse_scope": "Independent completed PR433 complex run; not new PR438 complex execution",
+  "phase_binding_exception": {
+    "difference": "PR433 checks decompressed canonical payload and adds runtime gzip digest; PR438 directly checks gzip digest. The only receipt difference is PR433 extra payload SHA. Recipes/compiler/canonical construction otherwise identical.",
+    "required_guard": "Before reuse assert retained canonical gzip SHA equals PR438 input receipt canonical_word_sha256, payload SHA equals completed PR433 payload pin, recipe SHA equals both sources. No receipt rewriting."
+  }
+}

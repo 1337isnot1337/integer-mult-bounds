@@ -69,3 +69,51 @@ The five tested minor/order choices establish no global optimality of this
 basis. Newer reset/kernel words need their own reconstruction and validation
 before this choice can be transferred. All inherited compiler, dirty-bank,
 common-grid, restored-work, precision and analytic assumptions remain premises.
+
+## Transfer after a frozen upstream selection
+
+The same argument holds when the source-basis block follows earlier resets or
+kernel transformations. Let T be the explicitly delimited source-only suffix
+of A, and require that B begins with its literal inverse. Recover each copied
+form by applying T to formal unit source rows. The new basis T' realizes those
+same forms in the same copy order. Therefore T', copy, T'^-1 induces the same
+source-to-target linear transformation as T, copy, T^-1 for every state
+entering the block, including states correlated with dirty helpers.
+
+The postprocessor uses the actual input block and its copied forms. It requires
+all basis operations at the existing full frame and preserves the set of
+source rows touched by the block. Thus each affected source reaches the same
+full frame, with the same rank increment; subsequent full-frame operations
+add no paid frame move. Each selected copy is checked to occupy that frame.
+The surrounding word, retained-form order, scatter, helper state, frame data,
+and start/final labels are untouched. This algebraic argument does not replace
+the supplier's legality, integer-span, ownership, or finite-invoice checks.
+
+PR438's 11 resets and 118 kernel entries were first reconstructed with their
+original input/output hashes and controls. The postprocessor then produced
+word 2be5d42a53e367648f4dd33fd4a368c61e1565f0cf7c48bfe887ca953a735063
+from the original post-kernel word cc6242d90ccdd8477521ea16f35ee2667dbe6c48cc60c6e4e9bcf6460497b233.
+The unchanged integer-span replay gave the same local paid histogram; both
+literal orientations restore all 987 columns. The original kernel receipt
+continues to identify its original output, and BASIS-STAGE.json binds the
+separate transformation. No upstream selection or receipt was repinned.
+
+The fresh emitted-program verification measures prefix maxima 352,915 and
+1,686,810, versus 4,749,873 and 18,976,454 from the original word. Both words
+have the same 727 banks per stage, 14,223 live and 14,232 physical families,
+328,536 paid calls, rank deficit 2,496, and row coefficient 18,355. The local
+addition counts are 14,725 and 14,757. With all extra additions charged, the
+candidate coefficient is
+
+    C = 11618636861972555523343873296287586172648663760810665400081.
+
+Its 193-bit coefficient and 423-bit two-level coefficient strictly improve the
+algebraically reconstructed baseline's 226 and 488 bits. The baseline uses the
+same verified schedule/geometry and its own literal prefix and addition count;
+there was no second baseline global run. The fresh candidate's unchanged
+combined certifier passes both moment engines, all 47 strict inequalities,
+eight bank controls and four outer controls. The 256/512 conservative charges
+and κ are unchanged. The completed PR433 complex receipts are reused as a
+separate component: compared scientific sources match except the phase guard
+and receipt representation, whose actual canonical gzip/payload and recipe
+hashes satisfy both versions. This is not a fresh PR438 complex replay.

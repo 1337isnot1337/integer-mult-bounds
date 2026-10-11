@@ -1,0 +1,13 @@
+{
+  "status": "PASS_ACTUAL_FRESH_FINITE_INVOICE",
+  "candidate_coefficient": "11618636861972555523343873296287586172648663760810665400081",
+  "candidate_bits": 193,
+  "candidate_two_level_bits": 423,
+  "source_projected_coefficient": "82188330587888376961373106195271196377707398804483318967211886464529",
+  "source_projected_bits": 226,
+  "source_projected_two_level_bits": 488,
+  "baseline_scope": "Local replay plus exact algebra nomination; baseline full global not rerun",
+  "b": "1183986549206329/1000000000000000000",
+  "c": "1134794627881866057683/1000000000000000000000000",
+  "k": "45340333148791/40000000000000000"
+}
