@@ -1,0 +1,41 @@
+{
+  "public_fixtures": [
+    {
+      "pr": 404,
+      "head": "12f488264cdd74a3b60d0fb534f4955792384f5c",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/12f488264cdd74a3b60d0fb534f4955792384f5c/research/e8-shared-donor-chains/inputs/bank-patterns.json",
+      "source_manifest_sha256": "19c8820253e1ed55e0cdbd48e255aff489c5681017a8a2041178e64155295b24",
+      "file": "inputs/pr404-patterns.json",
+      "sha256": "23947e260f32de24038674239456a8b1ce590f9f54d34b74289408ebf3d4d4fd"
+    },
+    {
+      "pr": 409,
+      "head": "212e03d7665d08fc6a037d3e33612cb7fc60874d",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/212e03d7665d08fc6a037d3e33612cb7fc60874d/research/e8-sequential-gauges/PATTERNS.json",
+      "source_manifest_sha256": "6b413975d40af48fc15ef2a554b3e1f442f8affaafd9da86bdd57d12478b2b19",
+      "file": "inputs/pr409-patterns.json",
+      "sha256": "e64dfb15ea77d79e92109d53c5a34723e27d49b367f674d694f5c446114ce947"
+    },
+    {
+      "pr": 410,
+      "head": "95ad14d5359d62a89e7bb06eb59b68029e77fb6f",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/95ad14d5359d62a89e7bb06eb59b68029e77fb6f/research/e8-enlarged-sequential206/inputs/bank-patterns.json",
+      "source_manifest_sha256": "4c4f0cadf2c292d393fdad8bbd4fe72f66328dff92e6f384ae63ebc746734b89",
+      "file": "inputs/pr410-patterns.json",
+      "sha256": "eb9bd9dd6445e37d43d8240df6c3c74415e7f2d0cc08fe8d0a5e1d35481ace9c"
+    }
+  ],
+  "research_fixtures": [
+    {
+      "name": "PR404 with enlarged956",
+      "source_patterns_sha256": "cd412b44e733fce37e48e716af229a3e6d4a3e24e3f2a31d48139e2d78eccaee",
+      "source_patterns_file": "inputs/pr404-with-enlarged956-patterns.json"
+    },
+    {
+      "name": "PR409 with enlarged956",
+      "source_patterns_sha256": "8aa9ae2cf8259b668f4877f0b835d62287b25646e273be03d26483665b5288d6",
+      "source_patterns_file": "inputs/pr409-with-enlarged956-patterns.json"
+    }
+  ],
+  "scope": "Pinned pattern witnesses only; no claim of replaying their entire supplier packages."
+}

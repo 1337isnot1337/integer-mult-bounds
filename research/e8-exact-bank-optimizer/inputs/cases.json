@@ -1,0 +1,82 @@
+[
+  {
+    "name": "PR404",
+    "inventory_per_replica": {
+      "9": 587,
+      "8": 143,
+      "5": 27,
+      "7": 9,
+      "4": 15
+    },
+    "minimum_replicas": 4,
+    "banks": 369,
+    "padding": 197,
+    "source_patterns_sha256": "23947e260f32de24038674239456a8b1ce590f9f54d34b74289408ebf3d4d4fd",
+    "source_patterns_file": "inputs/pr404-patterns.json",
+    "source_replicas": 8
+  },
+  {
+    "name": "PR409",
+    "inventory_per_replica": {
+      "9": 577,
+      "8": 153,
+      "5": 27,
+      "4": 15,
+      "7": 9
+    },
+    "minimum_replicas": 32,
+    "banks": 2947,
+    "padding": 1531,
+    "source_patterns_sha256": "e64dfb15ea77d79e92109d53c5a34723e27d49b367f674d694f5c446114ce947",
+    "source_patterns_file": "inputs/pr409-patterns.json",
+    "source_replicas": 32
+  },
+  {
+    "name": "PR410",
+    "inventory_per_replica": {
+      "9": 575,
+      "8": 155,
+      "5": 19,
+      "4": 23,
+      "7": 9
+    },
+    "minimum_replicas": 16,
+    "banks": 1471,
+    "padding": 743,
+    "source_patterns_sha256": "eb9bd9dd6445e37d43d8240df6c3c74415e7f2d0cc08fe8d0a5e1d35481ace9c",
+    "source_patterns_file": "inputs/pr410-patterns.json",
+    "source_replicas": 16
+  },
+  {
+    "name": "PR404 with enlarged956",
+    "inventory_per_replica": {
+      "9": 587,
+      "8": 142,
+      "7": 9,
+      "5": 28,
+      "4": 15
+    },
+    "minimum_replicas": 64,
+    "banks": 5901,
+    "padding": 3125,
+    "source_patterns_sha256": "cd412b44e733fce37e48e716af229a3e6d4a3e24e3f2a31d48139e2d78eccaee",
+    "source_patterns_file": "inputs/pr404-with-enlarged956-patterns.json",
+    "source_replicas": 64
+  },
+  {
+    "name": "PR409 with enlarged956",
+    "inventory_per_replica": {
+      "9": 577,
+      "8": 152,
+      "7": 9,
+      "5": 28,
+      "4": 15
+    },
+    "minimum_replicas": 64,
+    "banks": 5891,
+    "padding": 3035,
+    "source_patterns_sha256": "8aa9ae2cf8259b668f4877f0b835d62287b25646e273be03d26483665b5288d6",
+    "source_patterns_file": "inputs/pr409-with-enlarged956-patterns.json",
+    "source_replicas": 64
+  }
+]

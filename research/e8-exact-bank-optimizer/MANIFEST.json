@@ -1,0 +1,21 @@
+{
+  "files": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "NOTICE.md": "56f4dcda74784d1c0b61c8eeac625496902235ca99fe27929644df2b541d4e75",
+    "PROOF.md": "e92b01ce46710cedd2b2d1729e47f75059aa7bd2d940659b8ccb751234277596",
+    "README.md": "65fae81f0df460203ecdfacc5e56b4d0e88b7ccf82cc66fa2e17b76611f5bb2c",
+    "SOURCES.json": "e4b5aaf7571e86e19b96d02856b0f610732b8e48b972b1745eb6417c103e969a",
+    "VALIDATION.md": "8c8220ce3d1db6c731cff7176cf4362b64e64a69a7a5b72940ca8f9b73ebea82",
+    "bank_optimizer.py": "939dc7823edccbbfcf3e8264cf9ec6fb16fd927466257c193b85b5fada462147",
+    "inputs/cases.json": "82098b13e450c3b53ea5c258184bb7e10a0fd3316f955b00659692f8474f23ce",
+    "inputs/example-inventory.json": "1f85510a1ba2057227a1d3dddbf366e3b5aa7fe2997d72839f0e53214f1e09ce",
+    "inputs/pr404-patterns.json": "23947e260f32de24038674239456a8b1ce590f9f54d34b74289408ebf3d4d4fd",
+    "inputs/pr404-with-enlarged956-patterns.json": "cd412b44e733fce37e48e716af229a3e6d4a3e24e3f2a31d48139e2d78eccaee",
+    "inputs/pr409-patterns.json": "e64dfb15ea77d79e92109d53c5a34723e27d49b367f674d694f5c446114ce947",
+    "inputs/pr409-with-enlarged956-patterns.json": "8aa9ae2cf8259b668f4877f0b835d62287b25646e273be03d26483665b5288d6",
+    "inputs/pr410-patterns.json": "eb9bd9dd6445e37d43d8240df6c3c74415e7f2d0cc08fe8d0a5e1d35481ace9c",
+    "test_bank_optimizer.py": "5267616ee5644f6d940a8f42f10f6a6036c85f82a867ce3af38e4b3c9f6794f3",
+    "verify.py": "b4ef2916f087dcc44cc24794ba6095b9143a9801e8ab6a8b7fe7dc9415c8fb8e"
+  }
+}
