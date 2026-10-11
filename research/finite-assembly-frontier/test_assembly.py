@@ -1,6 +1,10 @@
 """Behavioral boundaries of the finite target constructor."""
 import unittest
 from fractions import Fraction as Q
+import json
+from pathlib import Path
+import subprocess
+import sys
 
 from assembly import INITIAL, ceiling, construct, greatest_grid_target
 
@@ -43,6 +47,20 @@ class FiniteAssemblyTests(unittest.TestCase):
         result = construct(Q(1, 100), Q(1, 50), INITIAL/4)
         self.assertEqual(result['bootstrap_chain'], [INITIAL])
         self.assertEqual(result['cutoffs'], [])
+
+    def test_cli_exports_fine_grid_witness(self):
+        grid = Q(1, 10**100)
+        completed = subprocess.run(
+            [sys.executable, '-B', str(Path(__file__).with_name('assembly.py')),
+             '--bit', '1/99', '--complex', '1/99', '--grid', str(grid)],
+            check=True, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = json.loads(completed.stdout)
+        self.assertEqual(result['target'], str(greatest_grid_target(Q(1, 99), Q(1, 99), grid)))
+        self.assertEqual(len(result['strict_constraints']), 47)
+        # Inspect the serialized signs without reparsing huge decimal strings
+        # into integers under this test process's own conversion guard.
+        self.assertTrue(all(value[0] in '123456789' for value in result['strict_constraints'].values()))
+        self.assertGreater(max(map(len, result['strict_constraints'].values())), 4300)
 
     def test_unattainable_targets_and_invalid_premises_rejected(self):
         for target in [Q(0), Q(-1), Q(1, 100), Q(1, 99)]:

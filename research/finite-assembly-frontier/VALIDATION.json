@@ -1,9 +1,9 @@
 {
   "status": "PASS_LOCAL_FINITE_ASSEMBLY_PACKAGE",
   "python": "3.14.8",
-  "code_and_input_digest": "cabe9f0fd477d6ef3878cd2d76b0fc0d6cb3d30fd04757eef74e6568da925dcc",
+  "code_and_input_digest": "3cef9f5ac2fdef4987c6abb45819b365e91f1fab1d0b3bc6c7aaca60d8798593",
   "digest_format": "SHA256 of sorted compact JSON mapping .py and inputs/ paths to SHA256",
-  "tests": 4,
+  "tests": 5,
   "cap_target_regimes": 48,
   "grid_cases": 3,
   "bootstrap_levels": 9,
@@ -27,5 +27,6 @@
     "wall_seconds": 6.193095125025138,
     "phase_mode": "source-bound phase evidence reused; no full Gaussian replay"
   },
-  "scope": "General conditional parameter theorem plus source-bound PR433 example. No unconditional or global optimality claim. CI status belongs to the eventual public commit."
+  "scope": "General conditional parameter theorem plus source-bound PR433 example. No unconditional or global optimality claim. CI status belongs to the eventual public commit.",
+  "cli_regression": "100-digit grid emits complete JSON with rational fields beyond Python decimal conversion limit; previous CLI failed during serialization"
 }

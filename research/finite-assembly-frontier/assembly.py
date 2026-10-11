@@ -118,6 +118,11 @@ def jsonable(value):
 if __name__ == '__main__':
     import argparse
     import json
+    import sys
+    # Finite witnesses at fine grids can have rational numerators beyond
+    # Python's decimal conversion guard. These integers are generated here.
+    if hasattr(sys, 'set_int_max_str_digits'):
+        sys.set_int_max_str_digits(0)
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--bit', type=Q, required=True)
     parser.add_argument('--complex', type=Q, required=True, dest='complex_')
