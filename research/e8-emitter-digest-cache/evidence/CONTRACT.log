@@ -1,0 +1,75 @@
+{
+  "status": "PASS_EXACT_EXTRACTED_HASHING_LOOP",
+  "manifest_sha256": "f7cb090611fe6f01ab024716a1358a5318a05d05454eac8a0bde933969c27115",
+  "records_byte_compared": 2742552,
+  "fixtures": [
+    {
+      "calls": 72,
+      "count": 1374408,
+      "digest": "01f4738891cc3797569d5dc869f2517a7a550ec978e8446adade26bb5cf26bdc",
+      "paid_profile": {
+        "1": 180792,
+        "2": 74232,
+        "3": 22248,
+        "4": 24984,
+        "5": 7344,
+        "7": 1008,
+        "8": 648
+      }
+    },
+    {
+      "calls": 72,
+      "count": 1368144,
+      "digest": "409317f091a49fdce2ea7a9b58c839d34503553b184e58535d18fd9273596e1a",
+      "paid_profile": {
+        "1": 178560,
+        "2": 74232,
+        "3": 22248,
+        "4": 23328,
+        "5": 9576,
+        "7": 1008,
+        "8": 648
+      }
+    }
+  ],
+  "opcodes": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "signed_and_private_operands": true,
+  "schema_controls": 4,
+  "timings_including_compile_and_owner_cache": {
+    "original": [
+      3.207127625006251,
+      3.206449209013954,
+      3.2044514999724925
+    ],
+    "cached": [
+      0.586597083020024,
+      0.5854215830331668,
+      0.6098205829039216
+    ]
+  },
+  "benchmark_order": [
+    [
+      "original",
+      "cached"
+    ],
+    [
+      "cached",
+      "original"
+    ],
+    [
+      "original",
+      "cached"
+    ]
+  ],
+  "median_speedup": 5.466186760605659,
+  "seconds": 15.650829665944912,
+  "peak_rss_bytes": 108888064,
+  "scope": "hashing-loop microbenchmark only; no full wrapper/runtime/numerical improvement claim",
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "source_and_fixtures_unchanged": true
+}

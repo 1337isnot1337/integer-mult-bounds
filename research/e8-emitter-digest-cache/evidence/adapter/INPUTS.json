@@ -1,0 +1,15 @@
+{
+  "latest_head": "43e5aa3a2fb6701b1facf542f7f3dee0fbb33c3e",
+  "emitter_git_blob": "e033a8ceecc58a048477c4053331b8fc39680add",
+  "fixtures": [
+    {
+      "path": "/tmp/task2-pr438-basis-finite-fresh/bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "c557653592de641a6cdb22f5ad5b3adb5b00fbff4905b7487e4be6767fd18dbd"
+    },
+    {
+      "path": "/tmp/task2-pr442-bit-fixture-fresh/hosted/GLOBAL-TEMPLATE.json.gz",
+      "sha256": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e"
+    }
+  ],
+  "scope": "serialization/hash-loop contract only; no suppliers or mathematical checkers executed"
+}

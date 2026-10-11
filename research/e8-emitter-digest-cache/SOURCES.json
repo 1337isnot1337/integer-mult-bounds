@@ -1,0 +1,46 @@
+{
+  "repository": "rohanarun/integer-mult-bounds",
+  "commit": "43e5aa3a2fb6701b1facf542f7f3dee0fbb33c3e",
+  "files": [
+    {
+      "path": "evidence/adapter/original_emit.py",
+      "upstream_path": "research/e8-eleven-hosting-selected/code/emit.py",
+      "sha256": "515d7021293e23aba1165ee270e17c375072e7128ed7b3c738768b6f6b7e9af8",
+      "git_blob": "e033a8ceecc58a048477c4053331b8fc39680add"
+    },
+    {
+      "path": "LICENSE",
+      "upstream_path": "research/e8-eleven-hosting-selected/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64"
+    },
+    {
+      "path": "evidence/UPSTREAM-NOTICE.md",
+      "upstream_path": "research/e8-eleven-hosting-selected/NOTICE.md",
+      "sha256": "28662fdf0a5dc6adaa13e491e2a7023ec9846bcb83ab183f8da393555fa96dab",
+      "git_blob": "793fb1baa35a46e48c434aa26606c2116ac09dac"
+    },
+    {
+      "path": "evidence/UPSTREAM-MANIFEST.json",
+      "upstream_path": "research/e8-eleven-hosting-selected/MANIFEST.json",
+      "sha256": "58048a268e837f4e8a30521435b2c3dad77fd0e74b38f020b7b7e11367ecf5b7",
+      "git_blob": "ccc12498de7c0680bd9153385bc08b2ee6d72ece"
+    }
+  ],
+  "fixtures": [
+    {
+      "path": "inputs/fixture-0.json.gz",
+      "sha256": "c557653592de641a6cdb22f5ad5b3adb5b00fbff4905b7487e4be6767fd18dbd",
+      "completion": "inputs/COMPLETION-0.json",
+      "original_output_path": "bit426-source-centres/global/GLOBAL-TEMPLATE.json.gz",
+      "scope": "Completed PR438 changed bit template"
+    },
+    {
+      "path": "inputs/fixture-1.json.gz",
+      "sha256": "39456843593dc113bbffab19a7054612c8f78c10d379f13f526be4830b85f67e",
+      "completion": "inputs/COMPLETION-1.json",
+      "original_output_path": "hosted/GLOBAL-TEMPLATE.json.gz",
+      "scope": "Authentic PR442 hosted bit template"
+    }
+  ]
+}

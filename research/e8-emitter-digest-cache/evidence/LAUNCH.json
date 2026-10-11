@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/homebrew/opt/python@3.14/bin/python3.14",
+    "-B",
+    "/tmp/task2-digest-encoder-adapter/harness.py",
+    "/tmp/task2-digest-encoder-contract-fresh"
+  ],
+  "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
+  "system": "Darwin",
+  "machine": "arm64",
+  "python": "3.14.8 (main, Sep 30 2026, 17:55:09) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "ru_maxrss_unit": "bytes on Darwin",
+  "scope": "one extracted hashing-loop contract/microbenchmark; no supplier replay",
+  "returncode": 0,
+  "elapsed_seconds": 15.685858500073664,
+  "log_sha256": "254609dfff76c0b32afabf0051066ce8aadd2b686cb5842b58711ed871366669"
+}
