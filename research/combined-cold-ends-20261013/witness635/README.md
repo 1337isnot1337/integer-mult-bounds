@@ -46,7 +46,19 @@ composition proof, a positive control and twelve repair corruptions, both
 nomination exporters, and the separate native-width/owner/rational-moment
 checker with five rejection controls under isolated optimized Python.
 
-`MANIFEST.json` binds this complete input package. **Fresh full replay is pending for this owner map.** The retained discovery replay rebuilt the owner controller, all 23 controller controls, invoice and both exact moment engines using previously verified native providers and baseline. A separate strict native-width, literal-owner and rational-moment check also passed. These are not represented as a completed fresh end-to-end certificate. The previous owner map is undergoing a fresh replay separately. The package-specific
+`MANIFEST.json` binds this complete input package. The complete fresh replay
+passed all **64 stages**, with no reused baseline or local supplier results,
+and confirmed the bound above. Independent proof, twelve composition mutations,
+five owner mutations, declaration reconstruction and both exact nomination
+exporters also passed. [Retained validation](../validation635/README.md) includes
+the complete replay archive, receipts and environment details.
+
+The validation preserves the executed commit, manifest and README. This README
+was subsequently updated only to report completion; all other 320 manifested
+inputs remain byte-identical. The [documentation update record](../DOCUMENTATION-UPDATE.json)
+binds both manifests and verifies that distinction.
+
+The package-specific
 SPEC verifier is authoritative for this replay; the input-only WITNESS and
 output-only EXPECTED declarations independently reconstruct SPEC exactly.
 
