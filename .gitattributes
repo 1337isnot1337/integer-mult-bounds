@@ -34,3 +34,28 @@ research/gen5b-weighted-matching/** -text -whitespace
 # Frozen PR210 package and round-nine evidence retain their audited bytes.
 research/five-stage-source527-banks/** -text -whitespace
 research/community-round9-audit/** -text -whitespace
+
+# Preserve exact graded-convolution source and evidence bytes.
+research/graded-box-convolution/** -text
+research/graded-box-convolution-validation/** -text
+
+# Preserve archived experiment bytes; whitespace is part of their source manifests.
+research/experiment-log/** -whitespace
+
+# Preserve the exact frozen E8 bit supplier source manifest.
+research/e8-bit-carrier-skeleton/** -text -whitespace
+# Preserve the exact reviewed complex supplier packages.
+research/direct-delivery504-global/** -text -whitespace
+research/punctured112-global/** -text -whitespace
+# Maintainer execution receipts preserve exact reviewed bytes.
+research/community-pr531-audit/** -text -whitespace
+
+# Frozen formalization packages and their historical supplier lineage.
+research/e8-early-reset-reuse/** -text -whitespace
+research/e8-early-reset-kernel/** -text -whitespace
+research/idle-axis-hosting/** -text -whitespace
+research/split-centres-global/** -text -whitespace
+research/e8-complex-gauge-kernel/** -text -whitespace
+research/e8-lemma-a-lean/** -text -whitespace
+research/e8-lemma-g-lean/** -text -whitespace
+research/community-formal-20261012-audit/** -text -whitespace

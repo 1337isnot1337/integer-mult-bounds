@@ -1,5 +1,11 @@
 # Contributing and independent review
 
+Before reviewing an existing PR, consult the [central review ledger](docs/research/pr-ledger.md).
+Record the reviewed commit and its evidence separately from publication and GitHub closure.
+Recheck the current head before closing incorporated work, link its retained source and attribution,
+and leave partial or changed submissions open with the remaining question recorded. Research notes
+and verification tools can merit integration even when they do not improve the selected bound.
+
 This is a research draft. Corrections to the mathematics, implementation,
 source attribution, and stated scope are welcome through issues or pull requests.
 
@@ -29,6 +35,8 @@ affected by your changes. The current proof and bank scheduling supplement are s
 historical PDF targets belong to their respective checkpoints. Review changes to
 claims in the README and note together. Finite tests should address a mathematical
 identity or a failure mode, rather than simply restating implementation details.
+
+**Regenerated artifacts and hashes.** When verification regenerates a compressed artifact, compare its decompressed payload (or a documented canonical representation of every proof-relevant field). Compression headers and streams can differ across Python, zlib and tar versions. Keep exact hashes for committed source archives and other immutable inputs; a regenerated container hash may be recorded with environment details but should not determine mathematical equality across environments. See the [community reproducibility audit](research/gzip-container-reproducibility/README.md) by Maxime Fleury, following Antoine Olivier’s independent replay findings.
 
 New contributions are under the repository's Apache-2.0 license. Retain source
 attribution and disclose substantial AI assistance. Do not describe certificate
