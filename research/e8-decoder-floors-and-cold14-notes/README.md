@@ -23,3 +23,19 @@ Measured on #615's words (#615 re-verified locally: κ 0.001626010676080313):
 
 ## Credits
 Builds on jeremykothe2 (#591–#601, #607–#617), DreamingOfClouds (#595 format limits, #604, #610), chafreaky (#583, #616), #446 (Theorems A–C), eumemic (#543) and the contributors listed in those PRs. Prepared by Joel Pulikkan (GamingPuzzled) with Claude Opus 5.5 (Anthropic) via Claude Code. Apache-2.0.
+
+## 4. E8 over extension rings and K12 (`s1-extension-rings/`, details in `REPORT.md`)
+On the bit side ranks are counted over Q, so a K-line unit is a rank-k unit with k = [K:Q] and h = k·w_K (argued). Exact F2 minrank of the decoder pattern, asymmetric decoders allowed (SAT, no proof logs):
+
+| view | lines v | w | largest non-orthogonal set | minrank | v/w |
+|---|---|---|---|---|---|
+| Gaussian E8 | 60 | 4 | 12 | 15 (13, 14 UNSAT) | 15 |
+| Eisenstein E8 (Witting) | 40 | 4 | 7 | 10 (7–9 UNSAT) | 10 |
+| Hurwitz E8 | 10 | 2 | 5 | 5 | 5 |
+
+- In every extension view, minrank = v/w. Real E8's cross-field gain (minrank 9 < 120/8) disappears. Under the full-rank-totals premise that #595 uses for E8's 72, x_K = 1.0, so D ≤ 0: no saving.
+- Copy-cost searches (CP-SAT, 900 s, not proven optimal): Gaussian best 60 (proven lower bound only x_K ≥ 0.15); Eisenstein best 40 (x_K ≥ 0.225). Hurwitz symmetric decoders: optimum 10 (x_K = 1). Hurwitz asymmetric decoders: open.
+- **Open question:** a structural lower bound Σ_j dim span A_j ≥ ~0.71·v for these units (the threshold to beat bit E8's ceiling at w = 4, float screen). This has the same open status as E8's 72.
+- G34 / Coxeter–Todd K12: 126 lines, w = 6, largest non-orthogonal set 15, so x_K ≥ 0.714 even at minrank 15; it loses.
+- Complex side (argued): F4-Hermitian (Eisenstein) labels give an alternating F2 trace form, so there are no odd-norm residuals and the phase calculus fails. Gaussian labels reduce mod (1+i) to F2, so they bring no extension.
+- Side finding (float screen only, not certified): the paper's original triple family has a higher X* than E8 (~7.4e-3 bit, ~7.2e-3 complex at h = 24, s = 3), but 630 orthogonal neighbours per target (vs 63 for E8) makes its helper cost the issue. X* alone does not rank unit families.
