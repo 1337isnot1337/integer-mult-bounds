@@ -1,17 +1,19 @@
-# Three-demotion provider with T37 whole-owner packing
+# Joint entrance choices with T37 whole-owner packing
 
-DRAFT: exact arithmetic and literal owner construction pass; full global admission is pending.
+The updated draft composes PR1148's joint entrance choices (head f1d8dc59288dcab77cae713c450d14069e7eec05) with a new exact T37 owner flow on PR1131's wave order. The candidate conditional price is **κ = 0.001675568675201533**, **0.0004611994%** above that PR1148 head at 0.001675560947524449.
 
-The candidate conditional price is κ = 0.001675129371412064, 0.0004610783% above PR1148 at 0.001675121647789207. It combines PR1148's unchanged local word with a new integer flow on PR1131's T37 wave order. It has 159,840 whole-helper roles in 333 calls and idle profile {1:834,48:11374}. Exact equations and bipartite matching pass. Two independent rational moment engines and 47 strict outer inequalities price the explicit profile. This does not yet assert complete physical admission.
+**Verification pending:** the 159,840 literal whole-helper roles in 333 calls, exact integer flow equations, bipartite matching decomposition, and two-engine rational profile price pass. Full native replay and strict T37 admission are in progress. This draft is not yet a verified new frontier.
 
-The 37-replica root equals the fixed-family grid upper value proved in PR1148; that upper bound alone is not a construction. The frozen assignment here supplies the candidate construction; provider, controller, charts and finite invoice must still be replayed before this draft is marked ready.
+The local paid profile is `{1:2364,2:498,3:412,4:130,5:82,8:8}`. The new flow has idle profile `{1:834,48:11374}` and targets the fixed-word grid upper value from PR1148. An upper relaxation alone does not establish physical realization; the draft supplies a concrete owner map for full admission.
 
-Rebuild the owner map using Python 3.11+:
+Package: `research/three-demotions-t37-composition/`. Reconstruct the owner map without an optimizer using:
 
-    python -B construct.py --flow PATTERN-FLOW.json --plan PLAN.json --out NEW_OUTPUT
+```sh
+python -B construct.py --flow PATTERN-FLOW.json --plan PLAN.json --out NEW_OUTPUT
+```
 
-The resulting OWNERS.json.gz must match the frozen map. Full verification receipts and a standalone replay wrapper will be added after verification.
+A standalone full verification wrapper and receipts will be added after verification. The package directory name is retained from the initial three-demotion composition; its latest payload uses joint entrance groups 603, 611 and 635.
 
-Credit: Thomas DiFiore and Codex for PR1148's demotions and endpoints; Ali Romman and Codex for PR1129's pattern-flow/matching construction and T37 audit; PR1131 for the wave order and independent T37 construction; PR1074/1018 and their full local ancestry, Chafik Boukhalfa's PR795 dual prices, PR890/942, Hao Yan's owner/source-event machinery, PR1091, and the unchanged PR589 bit supplier. New composition by Rohan Arun with substantial OpenAI Codex assistance. Derived construction code retains Apache-2.0 licensing and original notices.
+Credit: Thomas DiFiore/Codex and PR1148's full local ancestry; seslly/shipstuff PR1111's group-635 lead; Ali Romman/Codex PR1129's integer flow, matching decomposition and T37 audit; PR1131's wave order; PR1074/1018, Rohan Arun's PR987, PR1030, PR864, Hao Yan/FanPUYen's PR858, PR870, Chafik Boukhalfa's PR795/890 duals, PR942, PR1091, and the unchanged PR589 bit supplier. New composition by Rohan Arun with substantial OpenAI Codex assistance, Apache-2.0. Original notices retained.
 
-All inherited all-size/compiler, common-label/mutable-source, whole-call hosting, precision/tape, exact-recovery, analytic-transfer and bit H1-H5 obligations remain. PR559 recurrence correction is retained. This is not an unconditional multiplication theorem, full formalization, or runtime benchmark.
+All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery, analytic transfer, PR559 recurrence correction and bit H1-H5 obligations remain. No unconditional multiplication theorem, full formalization, general sphere-packing optimality or runtime improvement is claimed.
