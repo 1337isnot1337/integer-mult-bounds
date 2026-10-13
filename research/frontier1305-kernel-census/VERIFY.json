@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "input SHA256/Git-blob pins; exact rational replay of all five censuses against evidence; every priced record bound to exactly one census match; evidence tallies equal RESULT.json with no negative price; positive control reproduces #1297's 5+5 hooks for pivots 555/567 at -11707; four failure controls (byte change, coefficient change, forged price, unbound edit) rejected"
+    }
+  ]
+}
