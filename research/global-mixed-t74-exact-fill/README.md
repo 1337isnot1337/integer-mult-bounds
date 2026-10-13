@@ -1,10 +1,18 @@
-Conditional candidate **κ = 0.001676855229071321**, **0.000014933920% above PR1297** (0.001676854978651125). Double the verified four-kernel construction to 74 replicas, then use exact alternating paths to replace one base call with the extra provider and fill all four leftover rank-one idle children.
+Conditional **κ = 0.001676855229071321**, a **0.00001493392089%** improvement over PR1297 (0.001676854978651125). Doubling the four-kernel construction to 74 replicas admits one more extra-provider call and fills all four leftover rank-one gaps.
 
-**Draft, full global admission pending.** The literal owner screen checks all 319,680 helper roles against strict bridge-aware physical windows, bin capacities, the actual provider width inventories and distinct physical families per call. Two exact moment engines and all 47 outer inequalities pass for the candidate profile. The local scalar words are byte-unchanged from PR1297; their prior native receipts are inherited, not fresh T74 verification. Full T74 parent binding, emitted-controller audit, finite invoice, strict assembly and mutation controls remain pending. Hosted CI is separate.
+The complete package-owned finite replay passes. It reconstructs all 319,680 owner roles and the exact doubled parent; checks emitted chronology, charts, finite invoice, both exact moment engines and 47 outer inequalities; rejects 114 admission, 12 bit, 15 controller, eight independent owner and six new geometry/charge mutations. The generalized formulas also retain the 37-replica regression with 114 rejected admission mutations.
 
-The dispatch is 249 base / 417 extra calls. The upgraded call is stage3, replica28, at time416 of the doubled interleaved order. The four old 32-dimensional bins with pattern 4+9+9+9 become 5+9+9+9; whole width4 and width5 owners are rerouted through exact alternating paths. The final idle profile is only H48=22748. Aggregate profile: {'1': 1559100, '2': 339000, '3': 277392, '4': 84912, '5': 54612, '8': 5328, '48': 22748}; width73, live66304, deficit23680. No idle axis is moved between data streams.
+The scalar words are byte-unchanged from PR1297. This local release run explicitly reused their word-bound completed native receipts and reran their independent local, fusion, kernel and phase-premise checks; it does not claim fresh native runs. Hosted CI is separate and was queued at the last exact-head check.
 
-`reconstruct.py --out /absolute/path/to/a/new/work-directory` rebuilds the literal witness from the pinned PR1297 inputs using only the standard library. The output directory must not exist. It does not perform full global admission. `PRICE.json` retains the separate exact arithmetic receipt.
+The dispatch is 249 base / 417 extra among 666 calls. Exact alternating paths change whole width-four and width-five owner assignments. Idle H48=22,748 and no H1 gaps remain. Prefix use is 1,441 bits, charged at 2,048; row coefficient 19,545 is below the unchanged 20,161 limit. PROOF-NOTE.md explains the direct sum, namespace sharing and larger prefix charge. No pending idle axis is transferred between data streams.
+
+Reproduce offline with Python 3.14 and SymPy installed:
+
+```sh
+python -B research/global-mixed-t74-exact-fill/verify.py --work /absolute/path/to/new/work
+```
+
+Default operation runs both native suppliers sequentially. Explicit `--base-native-from` and `--extra-native-from` accept completed predecessor native directories only after word and stage binding checks. Work must be outside the package and must not exist. `reconstruct.py --out /absolute/path/to/new/owners` runs the separate standard-library owner construction. See `evidence/FULL-ADMISSION.json` and the exact pinned predecessor under `vendor/pr1297`.
 
 Conditional finite construction only. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery, analytic transfer, PR559 recurrence correction and PR589 bit H1-H5 assumptions remain. No unconditional theorem, full Lean certification, or global packing claim.
 
@@ -12,5 +20,5 @@ Credit: Rohan Arun / PR1297 and PR1286 for the four cold-kernel composition; Jer
 
 ## Open next questions
 
-- Complete the unchanged strict global admission pipeline for the doubled namespace and changed dispatch. First step: bind the exact T74 parent and replay the emitted controller; current blocker is pending execution.
-- Assess larger rank-profile or centre-path changes after this finite packing improvement. This candidate is not a global optimum or an unconditional multiplication theorem.
+- Seek a new local paid profile or a compatible centre-path change. This result only removes the integral packing remainder of the existing two-provider construction.
+- Further replication alone is not claimed to improve this exact-fill profile, and global optimality remains open. All inherited theorem obligations remain conditional.
