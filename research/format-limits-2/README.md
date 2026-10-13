@@ -44,7 +44,7 @@ Sections: 1 erratum and scope, 2 invoice calculus and prices, 3 censuses of the 
 | P2 | Bit invoice calculus on #555: c reproduced to 24 digits; cst unit ±2.80% c, port 2.15%. Word-level helper knobs (0.06–0.11% c) not re-run. | root, mass, cst rows CHECKED; rest RECORDED |
 | P3 | Helper exchange rate by width on #649: w9 0.070% (no merge) / 0.140% (merged), down to w4 0.026 / 0.072; explains the old 0.027–0.143 spread. | CHECKED |
 | P4 | Stage count s = 9 → 7 is worse at every R: hosting overflows 8.7%, b₇ only +0.21% over b₉ at equal R. | CHECKED (model) |
-| P5 | The climb mass is a forced cover (mass = mW − deficit): mass padding is illegal, frame annealing gains 0.0% b, "fewer helpers" is not a gain. | identity CHECKED; SA outcome RECORDED |
+| P5 | The climb mass is a forced cover (mass = mW − deficit): mass padding is illegal, frame annealing on the #626 ck/jp8 words gains 0.0% b (fixed op order; jump-merging frame raises as in #741 were not in the move set), "fewer helpers" is not a gain. | identity CHECKED; SA outcome RECORDED |
 | C1 | Provenance census of #656: 492 helpers born at 4 allocation sites: S1 scratch 224, S3 packet copy 156, S4 slot copy 112; κ identity exact. | CHECKED (tags from a recorded rebuild) |
 | C2 | The shipped word is a dirty-borrow program, not a clean SLP: 2056 distinct read rows (minimum chain cover 2056), 268 of 422 B-phase helpers are pure dirt, equal to the S3 + S4 sites. | CHECKED |
 | C3 | The 112 ports form a cap in F₂⁹ (no three XOR to 0, every hyperplane misses ≥ 48); 8-port blocks sit at dimension ≤ 5. | cap CHECKED; corollary ARGUED |
@@ -192,7 +192,7 @@ unit-climb profile there is not excluded. **Status.** CHECKED (model). **Depends
 
 **Statement.** The invoice asserts mass = mW − deficit with the deficit 2560 an asserted constant (= 64v − 4608); mass padding
 is therefore illegal and moving mass only reshapes it (moving 1% of the unit-climb mass into width-9 climbs would be +0.26% b if
-it were legal). Frame simulated annealing over legal frame assignments (fixed op order, 6M moves per run) gains 0.0% b; (#698 proves the same fixed-order frame optimality exactly for the selected CK supplier's B-phase frames, over all reassignments preserving the scalar circuit, gate order and end-of-B frames; the annealing here is the weaker, sampled statement and is kept only for the climb-mass reading.) about 96% of
+it were legal). Frame simulated annealing over legal frame assignments (fixed op order, 6M moves per run) gains 0.0% b on the #626 ck/jp8 words (scope note: the move set did not include raising a gate frame inside an existing paid chain to merge two jumps; #741, on #699's SW4 word, gains that way, so this row does not bound such merges); (#698 proves the same fixed-order frame optimality exactly for the selected CK supplier's B-phase frames, over all reassignments preserving the scalar circuit, gate order and end-of-B frames; the annealing here is the weaker, sampled statement and is kept only for the climb-mass reading.) about 96% of
 the unit mid-chain climbs are blocked by one rule family (common frame at ADD, monotone chains, target end frame perp(port));
 the SSS hourglass word has climb mass 1976 against 6186 shipped, yet "fewer helpers" is not a gain.
 **Scope.** Shipped ck/jp8, fixed op order, frame choice only. **Status.** CHECKED (mass identity, local mass per call, the
