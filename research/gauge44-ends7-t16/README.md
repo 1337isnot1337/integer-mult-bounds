@@ -1,25 +1,22 @@
-# Rank-seven helper ends + sixteen replicas with Child 2 & Child 15 optimal polarization: conditional κ = 0.001672748766764262
+# Rank-seven helper ends + sixteen replicas with Child 2 & Child 15 Port 94 optimal polarization: conditional κ = 0.001672750137367829
 
-- **κ = 0.001672748766764262** (conservative 0.001672748763912664), exact rational 836374383382131 / 500000000000000000, T16.
-  This strictly improves upon the previous record (κ = 0.001672746568309053) by +2.198455e-9 and the PR #1104 baseline
-  (κ = 0.001672691689152441) by +5.707761e-8 (+0.00341%).
+- **κ = 0.001672750137367829** (conservative 0.001672750134516234), exact rational 1672750137367829 / 1000000000000000000, T16.
+  This strictly improves upon the previous record (κ = 0.001672748766764262) by +1.370603567e-9 and the PR #1104 baseline
+  (κ = 0.001672691689152441) by +5.8448215388e-8 (+0.00349%).
 - **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  `60581832d5b509d2c5d4a3dc35bed816748ad73fdf16360e1c5140278d94db92`.
+  b68a89f1f2f13ddeec2215fc4e8a7dffbdab8a9544a49ec2eb471bc13eccb4c.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
-- **Mechanism (credit: #1030, AlexS / Scale, `research/complex-rank7-end-pair`).** #1030 lets U8's helpers 588/589
-  end in dimension seven instead of eight (end `U = span{256,128,96,17,9,5,3}`), changing eight B frames and two
-  early-cleanup frames. On the seven-slot k8 word (`c2b29430…`, R = 480) those helpers are **574/575**; the
-  recipe `construction/ends7/RECIPE-ENDS7-k8.json` is the same twelve annotations (B 994, 995, 1026, 1027, 1106, 1107,
-  1138, 1139; tails 93/94; both ends), output word `f64e0942…`. Local profile Δ `{1:-6,2:+14,3:-8}` (rank mass −2),
-  widths `{7:30,8:122}` → `{7:32,8:120}`. The freed width is re-packed by an exact pattern-flow LNS on the T16 geometry, followed by an exact
+- **Mechanism (credit: #1030, AlexS / Scale, 
+esearch/complex-rank7-end-pair).** #1030 lets U8's helpers 588/589
+  end in dimension seven instead of eight (end U = span{256,128,96,17,9,5,3}), changing eight B frames and two
+  early-cleanup frames. On the seven-slot k8 word (c2b29430…, R = 480) those helpers are **574/575**; the
+  recipe construction/ends7/RECIPE-ENDS7-k8.json is the same twelve annotations (B 994, 995, 1026, 1027, 1106, 1107,
+  1138, 1139; tails 93/94; both ends), output word 64e0942…. Local profile Δ {1:-6,2:+14,3:-8} (rank mass −2),
+  widths {7:30,8:122} → {7:32,8:120}. The freed width is re-packed by an exact pattern-flow LNS on the T16 geometry, followed by an exact
   9-pair whole-helper exchange across child 15 ports 94..111, followed by a CP-SAT optimal 27-role concentration
-  partition across ports 94..101, 108 (`data/OWNERS.json.gz`, frozen), yielding remainder distribution [4, 8, 12, 16, 28, 28, 28, 28, 28]
-  and strictly minimizing the concave complex moment M(z). Search over every helper: see `construction/ends7/README.md`.
-- **Checks in the ends7 layer:** literal recipe (old values checked, codimension-one lowerings, output pinned); three
-  negative controls (end restored to eight, wrong frame, cone violation), each rejected by both audit_local and the
-  native hpe auditor; native locals pinned; audit_local; PR1049's leaver-premise check on the new word; strict T8.
-
+  partition across ports 94..101, 108 (data/OWNERS.json.gz, frozen), a Child 2 Port 90 remainder-8 polarization to remainder 0,
+  and a Child 15 Port 94 remainder-4 polarization to remainder 0 (polarize_child15_p94.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
 ## Verification (two commands)
 
 ```sh
