@@ -1,30 +1,35 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "1672733678608451/1000000000000000000",
-  "kappa_decimal": "0.001672733678608451",
-  "conservative_kappa_decimal": "0.001672733675756873",
-  "complex_lower": "335107280956493118461/200000000000000000000000",
+  "kappa": "1672746568309053/1000000000000000000",
+  "kappa_decimal": "0.001672746568309053",
+  "conservative_kappa_decimal": "0.001672746565457453",
+  "complex_lower": "104721833607109179543/62500000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
     "1": 348654,
     "2": 62220,
     "3": 61371,
-    "4": 20448,
+    "4": 20449,
     "5": 11808,
     "6": 1,
     "7": 49,
-    "8": 1153,
-    "20": 9,
+    "8": 1154,
+    "12": 1,
+    "16": 1,
+    "28": 5,
     "48": 4867
   },
   "idle_remainder_profile": {
     "1": 2190,
     "2": 12,
     "3": 315,
+    "4": 1,
     "6": 1,
     "7": 49,
-    "8": 1,
-    "20": 9,
+    "8": 2,
+    "12": 1,
+    "16": 1,
+    "28": 5,
     "48": 4867
   },
   "complete_invocations": 144,
@@ -41,71 +46,71 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "db3fdbcf705b1ca6e9e414aa118b278f9948727fc6aba0da889d4ff48f6c4011",
+  "spec_sha256": "d36297005ac57a89bf2829772cb2f5fe202bfe33ca553587f312cd5acc332d8c",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.418,
+      "seconds": 1.391,
       "exit_code": 0,
       "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
     },
     {
       "name": "bind8",
-      "seconds": 0.346,
+      "seconds": 0.31,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "lift16",
-      "seconds": 2.828,
+      "seconds": 2.977,
       "exit_code": 0,
-      "log_sha256": "42a47385e12619a297a9244edfda714d4ab8d379b8c5419a570a7bacaee61d72"
+      "log_sha256": "228916c11e5f89c8d4c723889cffa12e909634ad7f1f65f1902b040b35994b6b"
     },
     {
       "name": "bind",
-      "seconds": 0.359,
+      "seconds": 0.395,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 5.859,
+      "seconds": 5.978,
       "exit_code": 0,
-      "log_sha256": "89ddb203e8c9e89aed758d21a87f1b7779e8f4b20a7d7895e474253123b90dc1"
+      "log_sha256": "3e1e6194635595ce33aadf356003b92f238bd776cc29bb3cb3283a35767f335e"
     },
     {
       "name": "audit",
-      "seconds": 21.956,
+      "seconds": 24.298,
       "exit_code": 0,
-      "log_sha256": "364a78742bb3684f20c747e77fd6570a9b9fa85bca88bd2219612612889da44a"
+      "log_sha256": "52d18779df1d3e2013d5066abe33e8549ca73be4dc578ca18181c5e6f37e1c56"
     },
     {
       "name": "invoice",
-      "seconds": 1.302,
+      "seconds": 1.389,
       "exit_code": 0,
       "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
     },
     {
       "name": "assembly",
-      "seconds": 0.342,
+      "seconds": 0.379,
       "exit_code": 0,
-      "log_sha256": "3e9900e2df7dd6664dd434250cfbc74a84920f3c73016cf19613e603adfd6019"
+      "log_sha256": "e52d6a57158985c755dd7d2b20ac6bd6f9c23ebafc933278dc147e7eb540a629"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.438,
+      "seconds": 0.474,
       "exit_code": 0,
       "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.662,
+      "seconds": 0.722,
       "exit_code": 0,
       "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent-t16",
-      "seconds": 1.172,
+      "seconds": 1.15,
       "exit_code": 0,
       "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
     }

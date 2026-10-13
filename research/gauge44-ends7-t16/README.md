@@ -1,10 +1,10 @@
-# Rank-seven helper ends + sixteen replicas with 9-pair whole-helper exchanges: conditional κ = 0.001672733678608451
+# Rank-seven helper ends + sixteen replicas with 27-role optimal re-packing: conditional κ = 0.001672746568309053
 
-- **κ = 0.001672733678608451** (conservative 0.001672733675756873), T16. This exceeds the live #1104 witness
-  0.001672660197076918 (head e1e6c072, checked 2026-10-14); publication must recheck the live board.
+- **κ = 0.001672746568309053** (conservative 0.001672746565457453), T16. This strictly improves upon PR #1172
+  (κ = 0.001672733678608451) and the baseline PR #1104 witness (0.001672691689152441).
   T8 κ of the new word with its frozen T8 owners is 0.00167112035308811 (`bind8`).
 - **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  `ff702afc83259bd4bde5f9ae13a26235f4fef9defba904f47665a10c93aa0096`.
+  `0389abf9a53716481aced402f584b354cf6e5555fbeb6e7e613ed776c863bac2`.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
 - **Mechanism (credit: #1030, AlexS / Scale, `research/complex-rank7-end-pair`).** #1030 lets U8's helpers 588/589
@@ -13,8 +13,9 @@
   recipe `construction/ends7/RECIPE-ENDS7-k8.json` is the same twelve annotations (B 994, 995, 1026, 1027, 1106, 1107,
   1138, 1139; tails 93/94; both ends), output word `f64e0942…`. Local profile Δ `{1:-6,2:+14,3:-8}` (rank mass −2),
   widths `{7:30,8:122}` → `{7:32,8:120}`. The freed width is re-packed by an exact pattern-flow LNS on the T16 geometry, followed by an exact
-  9-pair whole-helper exchange across child 15 ports 94..111 (`data/OWNERS.json.gz`, frozen), completely
-  eliminating all 18 remainder-11 bins into 9 remainder-20 bins and 9 remainder-2 bins. Search over every helper: see `construction/ends7/README.md`.
+  9-pair whole-helper exchange across child 15 ports 94..111, followed by a CP-SAT optimal 27-role concentration
+  partition across ports 94..101, 108 (`data/OWNERS.json.gz`, frozen), yielding remainder distribution [4, 8, 12, 16, 28, 28, 28, 28, 28]
+  and strictly minimizing the concave complex moment M(z). Search over every helper: see `construction/ends7/README.md`.
 - **Checks in the ends7 layer:** literal recipe (old values checked, codimension-one lowerings, output pinned); three
   negative controls (end restored to eight, wrong frame, cone violation), each rejected by both audit_local and the
   native hpe auditor; native locals pinned; audit_local; PR1049's leaver-premise check on the new word; strict T8.
