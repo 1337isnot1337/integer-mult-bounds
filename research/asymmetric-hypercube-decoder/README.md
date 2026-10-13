@@ -2,8 +2,9 @@
 
 **Uniform structural theorems with exact replay; no new κ.** The higher-target
 extension determines a complete hierarchy at `k=2`, the third generalized
-weight for every `k>=2,q=p-k>=2`, the fourth weight and all its optimizers
-for `q>=3`, and a five-weight prefix at `q=2` with all rank-three through
+weight for every `k>=2,q=p-k>=2`, the first five weights for every `q>=3`,
+all fourth-weight optimizers, and all fifth-weight optimizers for `q>=4`.
+At `q=2` it determines a five-weight prefix with all rank-three through
 rank-five optimizers classified.
 A generalized weight `d_r` measures the smallest support of r independent
 observation rows. The exact deletion threshold for **some selectable r-target
@@ -12,13 +13,17 @@ set** is `d_r-r`; arbitrary prescribed target sets are a separate problem.
 | Result | Parameter range | Proof |
 | --- | --- | --- |
 | Complete generalized-weight hierarchies, with and without the empty star | `k=2,p>=2`, every available rank | [HIGHER-GRAPH.md](HIGHER-GRAPH.md) |
+| Exact prescribed-forest matching formula in `C-`, partition optimization in both codes, and every prescribed triple | `k=2,p>=2` | [GRAPH-TARGETS.md](GRAPH-TARGETS.md) |
 | First two nonzero word weights are `2q+2` and `4q+2` | `k>=2,q>=3` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `d_3=6q+3`; every optimum is a triangle of minimum stars | `k>=2,q>=3` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `d_3=15` for `k=2,3`; `d_3=14` for `k>=4` | `q=2` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `(d_1,...,d_5)=(6,11,14,15,16)` | `q=2,k>=4` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `d_4=8q+2`; every optimum is a four-star clique | `k>=2,q>=3` | [FOURTH-WEIGHT.md](FOURTH-WEIGHT.md) |
+| `d_5=10q`; every second-weight word is an adjacent-star sum | `k>=2,q>=3` | [FIFTH-WEIGHT.md](FIFTH-WEIGHT.md) |
+| Every rank-five optimum is a five-star clique; exact prescribed-five-target criterion | `k>=2,q>=4` | [FIFTH-WEIGHT.md](FIFTH-WEIGHT.md) |
 | Every optimal rank-three, four and five subcode is an affine four-flat code; exact prescribed-target criterion | `q=2,k>=4` | [CUBE-OPTIMIZERS.md](CUBE-OPTIMIZERS.md) |
 | Exact ordinary-cube shortening to a Reed–Muller code, with the empty-star boundary distinguished | `k>=2,q>=0` | [CUBE-OPTIMIZERS.md](CUBE-OPTIMIZERS.md) |
+| Exact original-pair-core shortening with unrestricted core signs; all extra layers have weight at least sixteen | `q=3,k>=2`, shortening `C+` on `k-2` original pairs | [CORE-SHORTENING.md](CORE-SHORTENING.md) |
 
 The boundary is a real change in optimizer structure: every span of three
 minimum stars needs at least fifteen ports, but a localized affine cube has
@@ -37,6 +42,9 @@ deletions exactly when they use the same original pairs and their sign vectors
 are affinely independent. For `q>=3`, prescribed quadruples attain `8q-2`
 deletions exactly when their columns are independent on an optimal four-star
 clique. These statements concern the specified proper-star observation model.
+For `q>=4`, prescribed five-target sets attain `10q-5` deletions exactly
+when their columns are independent on a five-star clique. The rank-five
+optimizer classification at `q=3` remains open in this milestone.
 
 [COPY-OBSTRUCTION.md](COPY-OBSTRUCTION.md) addresses a much larger physical
 class. An integral separating pairing with odd diagonal forces total copied
@@ -45,6 +53,21 @@ readable corrections and chronological copy-to-zero reuse. Every even-size
 paired-port geometry with intersection-one readability satisfies that condition.
 Under the inherited odd-stage rank ledger, `C>=v` prevents a positive saving.
 The actual selected E8 supplier has even diagonal and is outside this obstruction.
+
+[ODD-NATIVE-COST.md](ODD-NATIVE-COST.md) gives a separate uniform ceiling
+for acquiring every literal odd-degree proper star natively. For every odd
+`k>=5`, its bit saving is less than `107/66606` under the inherited schedule
+with at least five stages, even with favorable helper sharing and hosting.
+A separately stated conditional three-stage extension excludes odd `k>=7`.
+Both ceilings are below the campaign-start selected bound. Arbitrary recoded
+observations and COPY-assisted innovations remain outside this result.
+
+For prescribed graph targets, [GRAPH-TARGETS.md](GRAPH-TARGETS.md) goes
+beyond selectable-target weights. Every forest T with r edges has exact
+nonempty-star deletion budget
+`2p(p-1)-r-binom(2p-r,2)+p-nu(T)`, where `nu(T)` is a capacity-matching
+number between target-tree components and original coordinate pairs.
+The empty star does not improve this budget when `p>=6,r<=p`.
 
 The general incidence-code/cut connection is credited to Martínez-Bernal,
 Valencia-Bucio, and Villarreal in the graph note. The uniform minimum distance
@@ -56,7 +79,7 @@ concurrent source credits, and the original obstruction remain below.
 From the repository root, Python 3.10+ with its standard library:
 
 ```sh
-for check in shortening optimizer block copy_obstruction; do
+for check in shortening optimizer block copy_obstruction core_shortening graph_targets; do
   python3 -I -O -B "research/asymmetric-hypercube-decoder/${check}_verify.py" --self-test || exit
 done
 ```
@@ -82,6 +105,17 @@ isolated optimized relocation, corruption rejection, and output preservation.
   binary/rational matrix checks at `k=2,p=3,...,6` and `k=4,p=4,...,7`, plus
   hypothesis-failure controls and a sequential copy fragment requiring the
   innovation argument. This is not a full physical supplier replay.
+- [core_shortening_verify.py](core_shortening_verify.py): full-generator
+  original-core shortenings at `q=3,k=3,...,6`, all thirty independent
+  sign-polynomial components, all 1,048,576 words of the smallest shortened
+  code, and exact residual-code and core-polynomial distance checks.
+  Its negative controls detect the extra weight-sixteen layers omitted by
+  a model that simply repeats the signed-core graph code.
+- [graph_targets_verify.py](graph_targets_verify.py): all 4,112 target sets
+  at `p=2,3`, all 73 triple/quadruple orbits at `p=4` covering 12,650 target
+  sets, 4,329,472 actual decoder assignments, and 1,845 restoration controls.
+  The exact forest formula is checked independently by capacity matching,
+  root-choice dynamic programming, and full retained-graph or decoder oracles.
 
 The campaign remains active. [CAMPAIGN-18H.json](CAMPAIGN-18H.json) records
 its scope and minimum research period. These completed mathematical milestones

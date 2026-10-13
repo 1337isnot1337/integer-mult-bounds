@@ -217,8 +217,16 @@ This source trace is pinned to main commit
 `91a2094f2e022930069e8cfdc810a3ea1b81cd09`. Its selected certificate names
 Jeremy Kothe's PR #799 complex word, Chafik Boukhalfa's PR #741 frames, and
 DreamingOfClouds' PR #589 bit tuning of eumemic's PR #555 construction. The
-conditional selected value is still \(1661634653669567/10^{18}\).
-Nothing here changes that selection.
+conditional selected value at that campaign-start checkpoint was
+\(1661634653669567/10^{18}\).
+
+A read-only refresh at main commit
+`007664306fff84fbb1c9a1b4053b69f439764034` finds the selected PR #890
+composition at \(1661957774647029/10^{18}\). Its
+[pinned integration review](https://github.com/CrocSwap/integer-mult-bounds/blob/007664306fff84fbb1c9a1b4053b69f439764034/docs/research/community-frontier890-review.md)
+retains the same PR #589 / PR #555 bit supplier. The bit ledger traced below
+therefore remains applicable. This refresh is a source inspection, not a new
+cold replay of the selected assembly; nothing here changes that selection.
 
 The selected bit word has ambient dimension \(h=8\), \(v=111\) sources
 and targets, \(R=439\) dirty helpers, and nine COPY ranks equal to seven:

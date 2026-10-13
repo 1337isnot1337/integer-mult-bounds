@@ -6,6 +6,37 @@
   "current_main_snapshot": "91a2094f2e022930069e8cfdc810a3ea1b81cd09",
   "selected_kappa_at_start": "1661634653669567/1000000000000000000",
   "selected_review": "docs/research/community-frontier799-review.md",
+  "source_refresh": {
+    "recorded_at": "2026-10-13T23:28:46+09:00",
+    "main_commit": "007664306fff84fbb1c9a1b4053b69f439764034",
+    "selected_kappa": "1661957774647029/1000000000000000000",
+    "selected_review": "docs/research/community-frontier890-review.md",
+    "audited_source_head": "4b3bd8cbe8e3e81c44161017c9b72c905a8040a8",
+    "bit_supplier": "PR589 on PR555, unchanged by the refreshed composition",
+    "scope": "Read-only inspection of selected certificate and actual integration review; no new cold supplier replay claimed.",
+    "overlap": [
+      {
+        "pr": 938,
+        "head": "df645942469e6a739ec94010a6068c398f4a6c86",
+        "distinction": "Dirty-fanout connector-query star census; a different object from signed proper-star evaluation codes."
+      },
+      {
+        "pr": 939,
+        "head": "3a8ec54d62fb8824c658dc7ed356f99423cac8cf",
+        "distinction": "E8 binary-root star-reader COPY obstruction; E8 lies outside our integral odd-diagonal paired-port theorem."
+      },
+      {
+        "pr": 954,
+        "head": "a98219aa708e1bd2ae4ca90e720e66569f7f0147",
+        "distinction": "E8 fixed-star first-decoder rank drops on 56 punctures; outside the odd-diagonal paired-port hypothesis."
+      },
+      {
+        "pr": 958,
+        "head": "28d68c88f0184835d8c8a7266ab8d0dad3f18a8a",
+        "distinction": "Read the actual proof: five-port point-only decoder uses quadratic labels and overlap-one plus overlap-three corrections. Our literal odd-star theorem uses incidence labels, additional copied proper stars, and only overlap-one corrections."
+      }
+    ]
+  },
   "started_at": "2026-10-13T22:16:53+09:00",
   "minimum_duration_hours": 18,
   "earliest_completion_at": "2026-10-14T16:16:53+09:00",
@@ -33,7 +64,7 @@
   },
   "attribution": "Sam Sung with substantial OpenAI Codex assistance, including independent AI-assisted review.",
   "checkpoint": {
-    "recorded_at": "2026-10-13T23:13:47+09:00",
+    "recorded_at": "2026-10-14T00:08:33+09:00",
     "phase": "research and construction; the reserved final verification phase has not begun",
     "campaign_status": "active; minimum duration and remaining research obligations are not complete",
     "reviewed_milestones": [
@@ -51,6 +82,26 @@
         "claim": "Integral separating-pairing weighted COPY obstruction, including chronological copy-to-zero innovations and even paired-port corollary.",
         "proof": "COPY-OBSTRUCTION.md",
         "review": "Lead independently checked rank decomposition, integral specialization, source-column invariant, and template scope; separate checker review and replay."
+      },
+      {
+        "claim": "Uniform fifth generalized weight d5=10q and all second-weight words for k>=2,q>=3; all fifth-weight optimizers and prescribed-target criterion for q>=4.",
+        "proof": "FIFTH-WEIGHT.md",
+        "review": "Independent AI-assisted proof and final-text reviews; lead checked boundary kernels, low-word span, Fourier contradiction, induction and optimizer cases."
+      },
+      {
+        "claim": "Exact unrestricted original-core shortening filtration at q3, its dimension formula, and sharp weight16 barrier for extra layers.",
+        "proof": "CORE-SHORTENING.md",
+        "review": "Two separate AI-assisted mathematical reviews plus lead review; full-generator finite checker independently authored and integrated with failure controls."
+      },
+      {
+        "claim": "Native literal odd-star decoder ceiling c<107/66606 for all odd k>=5 in the inherited L>=5 template; conditional L3 extension c<53/32958 for odd k>=7.",
+        "proof": "ODD-NATIVE-COST.md",
+        "review": "Independent derivation and lead audit of source/idle schedule, hosting refinement and actual bank denominator; both ran exact rational log and discriminant checks."
+      },
+      {
+        "claim": "Exact prescribed-target partition formulas for every paired two-port target set, a matching formula for every forest, and complete three-target budgets.",
+        "proof": "GRAPH-TARGETS.md",
+        "review": "Independent AI-assisted proof review and full checker review, lead review of complete proof and code, independent optimized self-test with byte-identical receipt."
       }
     ],
     "verification": [
@@ -85,16 +136,32 @@
         "receipt_sha256": "b166a48db0cfbb7fe8b9929a248e73018f7d535f0b71757ae4553255d62b2ce1",
         "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/copy_obstruction_verify.py --self-test",
         "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      },
+      {
+        "script": "core_shortening_verify.py",
+        "script_sha256": "050c05331014c4c08446dbbc90a9a13bc969b4e1363d6d682eba51a51d37d2de",
+        "receipt": "CORE-SHORTENING-RESULTS.json",
+        "receipt_sha256": "d6d33689671a0506e7da1f4928044807010657590848ab886302bf5d742b72b4",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/core_shortening_verify.py --self-test",
+        "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      },
+      {
+        "script": "graph_targets_verify.py",
+        "script_sha256": "8b0816e6f5b3e4fcc0d904846cc3e27a12af12f11c940c0055dee8c812845d6d",
+        "receipt": "GRAPH-TARGETS-RESULTS.json",
+        "receipt_sha256": "9c457657cfa21ad903e31d3592c79557653661a0cc6d253c18a39a880e477f52",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/graph_targets_verify.py --self-test",
+        "status": "PASS: 4112 complete target sets, 73 p4 target orbits covering 12650 sets, 4329472 direct decoder assignments; isolated optimized relocation, corruption rejection, failure output preservation and atomic replacement failure cleanup."
       }
     ],
     "next_unresolved_work": [
-      "Uniform fifth and higher generalized weights: q3 support29 is the active boundary; new weight14 and common-original-core lemmas are under development.",
-      "Exact prescribed-target budgets outside the optimum criteria: graph triples/quads have new scratch results needing proof review and integration.",
-      "Common-original-core shortening with unrestricted signs: determine a uniform residual-code filtration rather than assume signed-face shortening.",
-      "Odd-size paired-port supplier: price the known scalar identities under shared monotone source routes and actual odd-stage moments; do not duplicate older unshared screens.",
-      "Continue the full minimum research period, then perform the reserved independent verification, current-source/overlap refresh and publication through PR669."
+      "Classify q3 fifth-weight optimizers and resolve the rank6 boundary, where ordinary-cube constructions already beat the star-clique upper bound for k>=5.",
+      "Extend prescribed-target geometry beyond two-ports and the classified optimal higher-rank subcodes; the all-r forest matching theorem is now integrated.",
+      "Complete independent finite verification of the proved native odd-three point-space recoding invoice and its complete-template ceilings; investigate remaining physical helper/source costs.",
+      "Construct or exclude remaining odd-size physical schedules with complete source/helper/frame/copy/restoration and recursive accounting; the native-cost ceilings exclude only their stated classes.",
+      "Continue the full minimum research period, then perform the reserved independent verification, source/overlap refresh and publication through PR669."
     ],
-    "publication_status": "New milestone files are local; published PR head remains 7d526020fc368ce4157cd436995c2f4fcf683318 at this checkpoint.",
+    "publication_status": "First local checkpoint is commit 697e4d36a6a8c34727677ffdfc4164929fb7c870; additional reviewed milestones remain local. Published PR head is still 7d526020fc368ce4157cd436995c2f4fcf683318 at this checkpoint.",
     "environment": {
       "python": "3.14.5",
       "arithmetic": "Python integers, exact F2 elimination, and Fraction rational elimination; standard library only"
