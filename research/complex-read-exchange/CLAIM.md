@@ -62,3 +62,21 @@ One bounded follow-up therefore tests all simultaneous nonempty choices in
 those 16 three-pair components, still requiring at least one partial and keeping
 known SW4 moves on untouched pairs. This tests a possible three-way repair
 without reopening arbitrary gate permutations or unrestricted multi-pair search.
+
+## Completed result and handoff
+
+Completed this claim in [PR #775](https://github.com/CrocSwap/integer-mult-bounds/pull/775).
+The two-pair domain rejected all 175,456 parameterized cases; the bounded
+three-pair follow-up rejected all 27,344 cases in the 16 connected triples.
+These are case counts, not counts of distinct completed rewrites. Both independent
+engines agreed on every first-refusal digest and the finite coverage. The public
+optimized Python 3.13 replay passed, including the exact 728-column SW4 scalar
+control and all 13 focused tests; Python 3.11 checks also passed.
+
+No legal improving candidate was found and no kappa improvement is claimed.
+The exclusion applies only to the pinned word and the documented eligibility,
+insertion, boundary and frame-floor rules. The direct-target graph does not prove
+circuit independence, and arbitrary triples and larger combinations remain open.
+The final overlap refresh covered 586 open PRs through #767; #741's frame-growth
+construction is credited as a separate approach. This bounded experiment is
+complete. Further search classes belong in a separate research claim.
