@@ -32,6 +32,13 @@ All twelve packing candidates pass complete strict local admission, controller/i
 [Integration receipt](docs/research/community-batch1099-integration.json) ·
 [PR ledger](docs/research/pr-ledger.md) · [Contributors](CONTRIBUTORS.md)
 
+**Unreviewed research candidate:** an idle-pair repartition on the #1094
+replay has a fresh strict controller/owner audit, invoice and assembly at
+`κ = 0.001672846574134982`; its 15 controller, 69 assembly, and 12 bit-supplier
+mutation controls pass. It remains unreviewed and is not promoted to the
+selected result yet. See the
+[candidate, receipts and scope](research/frontier1094-idle-exchanges/README.md).
+
 ```sh
 # Also requires a C++17 compiler and Boost headers.
 python3 -m pip install numpy sympy scipy
