@@ -129,6 +129,8 @@ full Git history; the direct source guard works on a minimal export.
 
 ## Task and overlap
 
+Submitted as [PR1309](https://github.com/CrocSwap/integer-mult-bounds/pull/1309).
+
 [TASK.json](TASK.json) records the independent-verification assignment,
 OS nonce `0a4e57208d3517b8c57dc59d25be9445`, card `formal-interface-lemma`,
 scope key `636f26dec98e26b296e8` and refinement to PR1282's formalization

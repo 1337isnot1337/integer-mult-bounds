@@ -68,5 +68,8 @@
   "assigned_scope_key": "636f26dec98e26b296e8",
   "first_step": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
   "predecessor_pr": 1282,
-  "predecessor_head": "851e5232f7c9e105fb6e8f3a7be7a070e7524012"
+  "predecessor_head": "851e5232f7c9e105fb6e8f3a7be7a070e7524012",
+  "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/1309",
+  "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1291",
+  "mathematical_commit": "9dd1dab1b84d372037da88516b1eed1232579377"
 }
