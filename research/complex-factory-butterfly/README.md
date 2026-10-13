@@ -24,11 +24,17 @@ the incumbent's 128; its accepted PR696 price is 93 versus 81. Every source
 read, coefficient operation, sign, scale and private clear is charged.
 Across fourteen windows, inverse cleanup and both real components, the local
 PR696 disadvantage is `14 × 2 × 2 × (93−81) = 672` primitives per orientation.
-The complete forward bill is **123,768 → 124,440** and inverse-transpose bill
+The complete forward scalar primitive bill is **123,768 → 124,440** and inverse-transpose bill
 **123,784 → 124,456**. These are exact finite instruction counts, not runtime
 benchmarks. The inherited positive prefix bounds also grow: forward
 **68,417 → 425,853**, backward **1,649,462 → 48,573,157/4**. Both replays retain
 the original 192-bit charged allocation; no precision improvement is claimed.
+The pinned local invoice allowance also charges for scalar macros. For the
+closest witness, macros grow **15,512 → 15,736**, adapter allowance
+**320,000 → 323,584**, and the PR696 local bound grows
+**8,298,987,643,784 → 8,391,936,304,680**. This is an arithmetic local recount,
+not execution of the whole-owner/global invoice. The negative search statement
+concerns its declared primitive-count objective, not optimal total local cost.
 
 ## Reproduce
 
@@ -116,6 +122,14 @@ prefixes and four residual rules tested here. This negative result contributes
 completed coverage of those rules and does not assert the incumbent is optimal.
 PR922's word is neither imported nor independently audited here; no priority
 or combined-savings claim is made.
+
+A second immediate refresh found **CubeJerry's [PR924](https://github.com/CrocSwap/integer-mult-bounds/pull/924)**,
+head `e6f3cb8ca813dfc54c77738c9acd74a536b607fd`, proposing coupled wire
+rescalings and a fixed-topology gauge certificate. That scope also differs
+from our finite prefix/elimination families. Its implementation is not imported
+or audited. Its discussion prompted explicit reporting of the additional
+per-macro adapter allowance above; the formula is independently read from the
+pinned repository invoice and recomputed from our own fresh replay.
 
 The complete raw-word replay is supplemental evidence for the closest losing
 witness, not selected-provider admission. No later cold-end or gauge recipe is

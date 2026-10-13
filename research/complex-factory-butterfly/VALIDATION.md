@@ -53,7 +53,7 @@ that checker. This failure is captured in `EXPECTED.json`, separately from the
 passing exact matrix and full native scalar/frame checks. Positive full-word
 prefix bounds grow from **68,417 → 425,853** forward and
 **1,649,462 → 48,573,157/4** backward. The inherited **192-bit** charged allocation
-is retained. No no-worse precision claim or proposed installation follows.
+is retained. No precision improvement or proposed installation follows.
 
 Two packaging issues were caught and repaired before final verification:
 
@@ -79,3 +79,11 @@ Concurrent PR922 proposes a different, smaller circuit via noncommuting
 three-register contractions. Its exact metadata head is recorded in
 `OVERLAP.json`; its implementation is not imported or independently audited.
 Our contribution is only the new bounded-family negative evidence.
+
+The final adapter-cost addition was verified by another complete optimized
+minimal-source replay. The formula is from the already pinned
+`invoice_allcold.py`: compiler 25,934,336; adapter allowance 320,000 → 323,584;
+local PR696 recount 8,298,987,643,784 → 8,391,936,304,680. The global invoice was
+not run. Concurrent PR924 at `e6f3cb8ca813dfc54c77738c9acd74a536b607fd` is
+credited for prompting this explicit accounting distinction; its fixed-topology
+gauge result is not imported or independently audited.

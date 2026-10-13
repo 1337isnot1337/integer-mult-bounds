@@ -32,7 +32,7 @@ not a sample over clean data. Every primitive lowering also executes a ninth,
 arbitrary private-work input column and must erase its influence and end with
 private work zero. This is cleared private workspace, not public helper erasure.
 
-## Complete finite price
+## Primitive price and retained local allowance
 
 The incumbent PR681 word contains 34 macros and costs 128 primitives per real
 component under its historical Horner lowering. Sagar Thakrar's accepted PR696
@@ -84,9 +84,18 @@ Every generated word is additionally checked on all eight dirty basis columns
 with integer numerators and powers-of-two denominators. The independent
 witness checker uses separate code and independently derived inverse targets.
 
-The retained nearest witness fails the original87 sufficient envelope test
+The retained nearest witness fails the original 87-gate circuit sufficient envelope test
 at `cleanup: endpoint growth increased`. No envelope domination or precision
 improvement is asserted. Full native prefix measurements and the four local
 envelope comparisons are separate receipt fields. The search's cost-only
 negative result holds before imposing this additional restriction: a subset
 passing stricter precision requirements cannot contain a cheaper member.
+
+The complete primitive projection is not the entire local compiler allowance.
+For the pinned invoice formula at m=73, C=64*(m+1)^3=25,934,336 and
+A=16*(macros+children+registers+centers)+64*m. Children=3,472, registers=716 and
+centers=8 are unchanged; macros increase by 224. Thus A grows by 3,584 and the
+local PR696 recount grows by 3,584*C+672=92,948,660,896. The nearest witness is
+inferior on this broader bill as well. We do not claim a total-local-cost
+minimum across the enumerated family: the enumeration's objective is explicitly
+primitive count, and the local recount is for the retained nearest witness.

@@ -937,7 +937,19 @@
           "unit_additions": 3056
         }
       },
-      "programs_json_sha256": "ae3c339ffc42fc5dce0a4aab62b1130359eee3729f4ef98bd24c16fdbaa06f22"
+      "programs_json_sha256": "ae3c339ffc42fc5dce0a4aab62b1130359eee3729f4ef98bd24c16fdbaa06f22",
+      "retained_local_recount": {
+        "adapter_allowance": 320000,
+        "centers": 8,
+        "compiler_allowance": 25934336,
+        "dimension": 73,
+        "local_bound": 8298987643784,
+        "maximum_pr696_primitives": 123784,
+        "recursive_children": 3472,
+        "registers": 716,
+        "scalar_macros": 15512,
+        "scope": "Arithmetic recount of pinned local allowance; no global invoice execution."
+      }
     },
     "butterfly": {
       "canonical_json_sha256": "6157f4d03ecb83e8226dc08ca42b88b741bdd436d421b046c42182ee9f288f69",
@@ -1612,7 +1624,19 @@
           "unit_additions": 3140
         }
       },
-      "programs_json_sha256": "6cc06e83e37f90b3e2465650ced07087829a28386ab9ff74d2bdfb85606a917c"
+      "programs_json_sha256": "6cc06e83e37f90b3e2465650ced07087829a28386ab9ff74d2bdfb85606a917c",
+      "retained_local_recount": {
+        "adapter_allowance": 323584,
+        "centers": 8,
+        "compiler_allowance": 25934336,
+        "dimension": 73,
+        "local_bound": 8391936304680,
+        "maximum_pr696_primitives": 124456,
+        "recursive_children": 3472,
+        "registers": 716,
+        "scalar_macros": 15736,
+        "scope": "Arithmetic recount of pinned local allowance; no global invoice execution."
+      }
     }
   },
   "scalar_macros_saved_with_cleanup": -224,

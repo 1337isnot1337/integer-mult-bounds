@@ -75,5 +75,30 @@
       "coverage": "Metadata read; not independently audited or imported",
       "distinction": "Noncommuting three-register contractions versus prescribed input/output prefix families with four residual rules. Our negative result adds separate finite-domain coverage and no optimality claim."
     }
+  },
+  "immediate_presubmission_refresh": {
+    "highest_open_pr": 924,
+    "pr922_head_unchanged": true,
+    "additional_related_pr": {
+      "number": 924,
+      "title": "Research: certify coupled factory scales and exact gauge floor",
+      "head": "e6f3cb8ca813dfc54c77738c9acd74a536b607fd",
+      "author": "CubeJerry",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/924",
+      "distinction": "Coupled wire rescaling and fixed-topology gauge certificate, not our declared finite prefix/minimum-fill family. Metadata only; not imported or audited. Its cost discussion prompted explicit local adapter-allowance recount from our own replay."
+    }
+  },
+  "final_metadata_check": {
+    "checked_utc": "2026-10-13T13:12:30Z",
+    "highest_open_pr": 929,
+    "reviewed_new_pr_numbers": [
+      925,
+      926,
+      927,
+      928,
+      929
+    ],
+    "related_factory_heads_unchanged": true,
+    "scope": "925/926 concern bit frames; 927 historical rankings; 928 layout; 929 grouped cyclic inverses (body and file paths inspected). None duplicates the fixed eight-register butterfly family."
   }
 }

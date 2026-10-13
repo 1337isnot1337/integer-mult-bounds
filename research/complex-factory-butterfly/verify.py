@@ -137,6 +137,22 @@ def verify(out):
             for q in coefficients:
                 lower.macro_check(q, lower.lower(['add',['T',0],['S',0],q.numerator,q.denominator]))
             receipts[name]['pr696'][direction] = r
+    # Recount the pinned invoice_allcold.py local allowance only. This is not
+    # an executed whole-owner/global invoice or later provider admission.
+    for name, receipt in receipts.items():
+        word = words[name]
+        m, compiler = 73, 64 * 74**3
+        macros = max(r['scalar_macros'] for r in receipt['pr696'].values())
+        children = sum(receipt['emitted']['forward']['paid_profile'].values())
+        registers, centers = 2 * word['v'] + word['R'], len(word['centers'])
+        adapters = 16 * (macros + children + registers + centers) + 64 * m
+        primitives = max(r['new_real_primitives'] for r in receipt['pr696'].values())
+        receipt['retained_local_recount'] = {
+            'dimension':m, 'compiler_allowance':compiler, 'scalar_macros':macros,
+            'recursive_children':children, 'registers':registers, 'centers':centers,
+            'adapter_allowance':adapters, 'maximum_pr696_primitives':primitives,
+            'local_bound':primitives + adapters * compiler,
+            'scope':'Arithmetic recount of pinned local allowance; no global invoice execution.'}
     before, after = words['baseline681'], words['butterfly']
     for key in ('local_profile', 'start', 'final', 'compensation', 'ports', 'centers',
                 'center_frames', 'frames', 'edges'):
