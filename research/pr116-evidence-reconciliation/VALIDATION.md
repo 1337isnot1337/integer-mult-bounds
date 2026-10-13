@@ -30,3 +30,15 @@ CI or a fresh execution of the original package. The author's standalone
 full-suite archive was not recovered. No full `make verify`, supplier cold
 replay or Lean compilation was run. No mathematical assertion was weakened or
 old input rewritten to make a replay pass.
+
+Final integration check: rebased onto
+`2921874911956718fcaaaf9396fe8267b3cfa9f0`. The original research base remains
+`8bddbee377e2f3ce1f1247196c4b290d55767d20`; all consumed historical objects,
+PR116's upstream head and the selected result are unchanged. On rebased
+implementation `b5d7e5150f3f25c68107403c6ed035a5c8253c4a`, the optimized 28-test
+package, complete result replay, byte-identical capsule regeneration, five
+selected tests, 14 ledger tests, selected-record checker and complete 642-entry
+ledger checker all pass again. Subsequent changes are documentation only.
+The open queue was refreshed through PR1003; no competing PR116 reconciliation
+was found. The PR279 work that prompted the pivot has now merged separately.
+`codex` and `codex-automation` labels are unavailable in the upstream repository.
