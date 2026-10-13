@@ -7,7 +7,7 @@ the whole-owner map is rebuilt for the new width inventory. The scalar program, 
 windows, and PR589's bit supplier are unchanged. **Prepared by G. V. Chudnovsky with Anthropic Claude assistance**; see
 NOTICE.md for the chain this builds on.
 
-- **κ = 0.001674576537247681** (complex lower endpoint 0.001677385447562089700732 = 419346361890522425183/(2.5·10²³); the complex side binds).
+- **κ = 0.001674576537247681** (complex lower endpoint 0.0016773854475620898 = 419346361890522425183/(2.5·10²³); the complex side binds).
   That is +0.0292% over research/gauge44-slots-t16-arcflow (0.001674087289164567), +0.1390% over research/gauge44-slots-t16
   (0.001672251604432734, the #1055 chain's best) and +0.7591% over the selected [#942](https://github.com/CrocSwap/integer-mult-bounds/pull/942).
 - **Why it gains.** On the seven-slot word the 240 width-9 helpers outnumber their partners (30 width-7, 32 width-5, 16.5
