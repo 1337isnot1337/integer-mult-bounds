@@ -18,13 +18,12 @@ an exact dyadic FULL-frame cleanup. Every previously ended row and column and
 all four new ends remain isolated. `PROOF-CK-U4.md` describes this construction.
 All 23 core verification files remain byte-identical to PR637.
 
-**The final fresh end-to-end replay is pending.** Native frames, arbitrary dirt,
-reflected local programs, independent replay, wrappers and all 3,110 CK phase
-edges passed. All 51 CK raw controls, 114 global admission controls, physical
-controller controls and both exact moment engines passed in discovery, using
-previously audited JP8 and baseline artifacts. An independent Fraction/GF2 proof
-and native-width/owner/rational check also passed. The parent README and
-validation folder record subsequent fresh verification status.
+**The full fresh replay passed all 64 stages without reuse**, followed by
+every supplemental wrapper check, in 371.07 seconds for the core stages.
+All 51 receipt artifacts and 64 stage logs were independently hash-checked.
+The [validation folder](../validation/) preserves the full replay archive,
+receipts, exact reconstruction and mutation-control results, and executed input
+snapshots. Execution was on macOS; no Linux replay is claimed.
 
 Reproduce with Python 3.10 or newer, a C++ compiler and Boost headers:
 
