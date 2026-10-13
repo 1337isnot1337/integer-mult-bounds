@@ -5,7 +5,8 @@
   "base_commit": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
   "claimed_at_utc": "2026-10-13T03:48:00Z",
   "expected_finish_utc": "2026-10-13T04:23:00Z",
-  "verification_reserved_from_utc": "2026-10-13T04:13:00Z",
+  "planned_verification_no_later_than_utc": "2026-10-13T04:13:00Z",
+  "actual_verification_started_at_utc": "2026-10-13T03:56:30Z",
   "coordination": "GitHub pinnedIssues was empty; the only open issue was #650 (Discussions). Local claim used as requested.",
   "candidates": [
     "Resynthesize the seed-selected R420 phase-B block 1; rejected as too close to concurrent #670 and #674 block resynthesis.",
@@ -22,5 +23,13 @@
     "661": "9ca7aa3ab0a3260a2f36ac86b9911a31fd88bd89",
     "612": "ce37f3ce35ba8891771e01492b3a21978763bebb"
   },
-  "status": "in progress"
+  "status": "completed: finite circuit improvement, no new kappa",
+  "result_update_at_utc": "2026-10-13T04:05:35Z",
+  "result": {
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/686",
+    "summary": "Single restored helper pair saves 108 binary XORs: D 19922->19814, complete native word 26916->26808. No additional frame changes, copies, helpers or local recursive children; both native prefix maxima unchanged.",
+    "completed_coverage": "87990/87990 unordered pairs by two methods; both orientations; all 660 native columns and 1380 nine-stage columns; six D controls, 18 bridge controls per word and an F2-neutral prefix-inflation rejection.",
+    "handoff": "README.md, SOURCES.json, certificate.json, VALIDATION.json and one-command verify.py; generalized D interface and remaining hosting/all-size obligations explicitly documented.",
+    "final_overlap_refresh": "Open PR metadata refreshed through #685; no frame-zero R420 pair construction found. #670/#674 modify B; #661 holds D fixed; #673/#677 use different dirty primitives. Main remained at the exact base and no pinned issue existed."
+  }
 }

@@ -174,7 +174,7 @@ PR661's exact frame bound fixes D and the scalar gate order and explicitly
 excludes resynthesis. This task changes that excluded circuit structure.
 PR612's original R420 Lean boundaries do not prove this changed D interface.
 PR589's punctured-word transport search is separate.
-The final refresh through PR681 also checked PR673's multiway cyclic-inverse
+The final refresh through PR685 also checked PR673's multiway cyclic-inverse
 dirty echo and PR677's native ADDRESS/DATA interface: both change different
 primitives. Neither is a dependency, and no novelty of the general reversible
 prepare/share/restore trick is claimed. The new evidence here is its concrete,

@@ -23,6 +23,14 @@
     {
       "command": "make selected-record-check",
       "result": "PASS selected record, exact kappa, original source inventory and proof supplement: 51110230636731/31250000000000000"
+    },
+    {
+      "command": "python3 -I -B research/r420-frame-zero-pair/verify.py (from a fresh Git archive containing only this package and its nine pinned source files)",
+      "result": "Same PASS and complete certificate; no unlisted local dependency required"
+    },
+    {
+      "command": "git diff --cached --check",
+      "result": "Passed; only new files in research/r420-frame-zero-pair are included"
     }
   ],
   "coverage": [
@@ -43,5 +51,6 @@
     "Remote CI"
   ],
   "remaining_obligations": "Review generalized D interface under all-size/common-label realization; rebuild hosted parent and invoice before supplier integration. All inherited physical, precision, tape and analytic obligations remain.",
-  "assistance": "Substantial OpenAI Codex assistance; no independent human review claimed"
+  "assistance": "Substantial OpenAI Codex assistance; no independent human review claimed",
+  "result_pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/686"
 }
