@@ -1,0 +1,20 @@
+{
+  "DEPENDENCY-PINS.json": "8ce67d5bdb1ae2643908606d6123a05f12df4c547e1c78366b9ee724d9e037c0",
+  "NOTICE.md": "ae6f2c4c31c5a9ec0433bc13d16522e195397eb5081552c54870f61d1700a0fb",
+  "PROOF.md": "46ef4ec5e2e2727928e89dfd95ae018a26c9a6d75371fdd5c26ed976e62aba3f",
+  "README.md": "ed58a37440fc10a84baa27ec3d460d3da68bdb34bcaf7dca5b8adf46d4642645",
+  "build_owners.py": "fd0f0a24c34f8927890038e12c375642ad91e5d1ae28bfaea50b60b53e3339a3",
+  "build_parent.py": "f86610b5ba77144980257d1e2a3addf6a4bdfad2cfdc72fb99d22765fbae6ebc",
+  "check_parent.py": "56e923ba05ddab3414a531e2d8455f8fe04e03c60f0d0c707cd42e3a3383924f",
+  "common.py": "41a2e8a4cc69251e7e31dd82b4776ccfe46033afa8dca59f45f5d3c377541ea7",
+  "data/ADAPTER-EDITS.json": "82f4efc903789dcfd046e7bd26e72a9a5904cf909f03edd1e8812a2bfc990211",
+  "data/CLAIM.json": "e610d96b7ec0a79aefe5b31e424710715497fae326672ea3eec73ddda37895eb",
+  "data/EDITS.json": "43923636f076bda0c6c9087dee6b0bd3118b79d7317306de563a8ffc52567ff9",
+  "data/SPEC.json": "9dbaac1043821ece044f6aac9afb531c52d38fcb2367f31c2c8eacd4d455a19c",
+  "freeze.py": "154667b513a640bd96ca91da58bc065fd31dabaab109452e38812935cbaf54de",
+  "independent_check.py": "07216c2d7d6e46f08af649c1f30c8fe1fcd48a35257291ae9548358726ca61bb",
+  "owner_controls.py": "2241e3958b732f5cc03a24b7d972e942b036ef324d8c99a5002f6afe00136fe9",
+  "price.py": "af05621b2232ce22e2dda0c4d610e4606c7d584ae439b081df9a842ac4402f90",
+  "source_adapters.py": "2423752102e0b4c0e8d329586868cfe55869682e76cc392decc3f99273d320f7",
+  "verify.py": "f52c1a9f8e69a52113efc2003ab7fb37769bb5e1e38f17a8222cab6a69fb1fc5"
+}

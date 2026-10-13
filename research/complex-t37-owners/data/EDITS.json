@@ -1,0 +1,146 @@
+[
+  {
+    "role": [
+      8,
+      5
+    ],
+    "before": {
+      "owner_replica": 29,
+      "child": 8,
+      "port": 0,
+      "offset": 0
+    },
+    "after": {
+      "owner_replica": 4,
+      "child": 10,
+      "port": 63,
+      "offset": 44
+    }
+  },
+  {
+    "role": [
+      315,
+      414
+    ],
+    "before": {
+      "owner_replica": 27,
+      "child": 15,
+      "port": 0,
+      "offset": 26
+    },
+    "after": {
+      "owner_replica": 27,
+      "child": 15,
+      "port": 0,
+      "offset": 18
+    }
+  },
+  {
+    "role": [
+      249,
+      266
+    ],
+    "before": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 12
+    },
+    "after": {
+      "owner_replica": 27,
+      "child": 15,
+      "port": 0,
+      "offset": 22
+    }
+  },
+  {
+    "role": [
+      266,
+      193
+    ],
+    "before": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 21
+    },
+    "after": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 12
+    }
+  },
+  {
+    "role": [
+      314,
+      414
+    ],
+    "before": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 25
+    },
+    "after": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 16
+    }
+  },
+  {
+    "role": [
+      260,
+      193
+    ],
+    "before": {
+      "owner_replica": 27,
+      "child": 15,
+      "port": 0,
+      "offset": 18
+    },
+    "after": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 20
+    }
+  },
+  {
+    "role": [
+      311,
+      414
+    ],
+    "before": {
+      "owner_replica": 27,
+      "child": 15,
+      "port": 0,
+      "offset": 22
+    },
+    "after": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 24
+    }
+  },
+  {
+    "role": [
+      228,
+      122
+    ],
+    "before": {
+      "owner_replica": 4,
+      "child": 10,
+      "port": 63,
+      "offset": 44
+    },
+    "after": {
+      "owner_replica": 20,
+      "child": 14,
+      "port": 111,
+      "offset": 28
+    }
+  }
+]
