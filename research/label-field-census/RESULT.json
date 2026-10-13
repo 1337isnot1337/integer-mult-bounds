@@ -1,0 +1,207 @@
+{
+ "units": [
+  {
+   "name": "E8 root lines (Hamming frame)",
+   "field": "Q",
+   "k": 1,
+   "v": 120,
+   "n": 8,
+   "omega": 8,
+   "orth_degrees": [
+    63
+   ],
+   "support_sizes": [
+    57,
+    57,
+    57,
+    57,
+    57,
+    57,
+    57,
+    57
+   ],
+   "support_cliques": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+   ],
+   "x_lb": "8/15",
+   "x_lb_decimal": 0.5333333333333333,
+   "ceiling": {
+    "s": 3,
+    "X_upper": "2002325578115810218206294113230114817270077/250000000000000000000000000000000000000000000",
+    "X_decimal": 0.00800930231246324,
+    "kappa_upper_decimal": 0.007945663094665085
+   }
+  },
+  {
+   "name": "E7 root lines (in E8, orthogonal to a root)",
+   "field": "Q",
+   "k": 1,
+   "v": 63,
+   "n": 7,
+   "omega": 7,
+   "orth_degrees": [
+    30
+   ],
+   "support_sizes": [
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33
+   ],
+   "support_cliques": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+   ],
+   "x_lb": "7/9",
+   "x_lb_decimal": 0.7777777777777778,
+   "ceiling": {
+    "s": 11,
+    "X_upper": "923423603180445516994123700271757115842773/500000000000000000000000000000000000000000000",
+    "X_decimal": 0.001846847206360891,
+    "kappa_upper_decimal": 0.001843442649453661
+   }
+  },
+  {
+   "name": "D4 root lines",
+   "field": "Q",
+   "k": 1,
+   "v": 12,
+   "n": 4,
+   "omega": 3,
+   "orth_degrees": [
+    3
+   ],
+   "support_sizes": [
+    9,
+    9,
+    9,
+    9
+   ],
+   "support_cliques": [
+    3,
+    3,
+    3,
+    3
+   ],
+   "x_lb": "1",
+   "x_lb_decimal": 1.0,
+   "ceiling": null
+  },
+  {
+   "name": "F4 root lines",
+   "field": "Q",
+   "k": 1,
+   "v": 24,
+   "n": 4,
+   "omega": 5,
+   "orth_degrees": [
+    9
+   ],
+   "support_sizes": [
+    15,
+    15,
+    15,
+    15
+   ],
+   "support_cliques": [
+    5,
+    5,
+    5,
+    5
+   ],
+   "x_lb": "5/6",
+   "x_lb_decimal": 0.8333333333333334,
+   "ceiling": {
+    "s": 13,
+    "X_upper": "134658777711522281315612015184512983978493/62500000000000000000000000000000000000000000",
+    "X_decimal": 0.0021545404433843565,
+    "kappa_upper_decimal": 0.0021499083788325906
+   }
+  },
+  {
+   "name": "Eisenstein E8 = Witting configuration (rank-2 rational labels)",
+   "field": "Q(w)",
+   "k": 2,
+   "v": 40,
+   "n": 4,
+   "omega": 7,
+   "orth_degrees": [
+    12
+   ],
+   "support_sizes": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "support_cliques": [
+    7,
+    7,
+    7,
+    7
+   ],
+   "x_lb": "7/10",
+   "x_lb_decimal": 0.7,
+   "ceiling": {
+    "s": 7,
+    "X_upper": "1583730043744900162043520719379330330411903/250000000000000000000000000000000000000000000",
+    "X_decimal": 0.0063349201749796,
+    "kappa_upper_decimal": 0.006295041589015014
+   }
+  },
+  {
+   "name": "Hurwitz E8 (rank-4 rational labels)",
+   "field": "H",
+   "k": 4,
+   "v": 10,
+   "n": 2,
+   "omega": 5,
+   "orth_degrees": [
+    1
+   ],
+   "support_sizes": [
+    9,
+    9
+   ],
+   "support_cliques": [
+    5,
+    5
+   ],
+   "x_lb": "1",
+   "x_lb_decimal": 1.0,
+   "ceiling": null
+  }
+ ],
+ "calibration": {
+  "bit P111 frontier unit (h=8, x=63/111)": {
+   "s": 5,
+   "X_upper": "6000494733125290389846862026956841873470691/1000000000000000000000000000000000000000000000",
+   "X_decimal": 0.00600049473312529
+  },
+  "complex P112 frontier unit (h=9, x=64/112)": {
+   "s": 5,
+   "X_upper": "648281531610818146770663927824784877884667/125000000000000000000000000000000000000000000",
+   "X_decimal": 0.005186252252886545
+  },
+  "complex-side Witting analogue (window >= omega = 7, x >= 7/10)": {
+   "s": 7,
+   "X_upper": "204606215125069964937132294124921827460639/62500000000000000000000000000000000000000000",
+   "X_decimal": 0.0032736994420011194
+  }
+ }
+}
