@@ -30,7 +30,7 @@
   "result_utc": "2026-10-13T17:43:20.653820+00:00",
   "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/1075",
   "submission_base": "abdc6a7002abdbcd9e21bfc5e1a795784deacfdf",
-  "verification_started_utc": "2026-10-13T17:38:39Z",
+  "verification_started_utc": "2026-10-13T17:38:42+00:00",
   "result": "Exact cached mask replay: median 87.6626 -> 18.3572 seconds (4.7754x), three alternating fresh-process pairs with identical complete receipts. Full differential comparison covers 4324 rows / 8596927616 coefficients. 17 package tests, 9 inherited tests, Python 3.12 replay, 38 source pins and selected integrity pass. t=6 rank lower bound 3088; no exclusion and no new kappa.",
   "final_overlap": "Refreshed open queue through PR1072 immediately before submission; exact cached XOR/xor_permute searches empty; cube_core_family search only PR946. No pinned coordination issue still exists.",
   "labels": "Neither codex nor codex-automation is available in the repository; no new labels created.",
