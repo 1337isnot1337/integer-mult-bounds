@@ -52,3 +52,22 @@ On the bit side ranks are counted over Q, so a K-line unit is a rank-k unit with
 - Exact prices at concentrated idle (PR568 `moment.certify`): #639 b = 0.0016391439889600812; 72×jp8 b = 0.0016392558 (not admissible, since the global controls need two dispatched providers); 71 jp8 + 1 st2 (#635's jp8 word as the second provider) b = 0.0016392519, i.e. **+1.08e-7 b** from removing the forced ck call. #643 (jeremykothe2) later realised this twin dispatch independently.
 - Exact sub-MIP obstruction: with jp8 at t = 5 and every window not touching t ≤ 7 held fixed, the optimum leaves 64 idle-3 owners, so no perfect packing exists in that neighbourhood. Once ck's 9+7 pairs are gone, the early windows are the tight ones.
 - Mass-neutral V pricing per end per call (V639.json): u4-type premix-only dim-8 ends ({1:+2, 2:−1, 4:+1, 5:−1}, width −1) ≈ −0.025, essentially neutral, consistent with #637's 23 LP-negative candidates. **Dim-7 factored end pairs (#627 type) ≈ +2.25 per pair: the positive direction.** This should carry over to the gauge44 lineage (#645 onward) and was not searched here.
+
+## 7. I_{11,1} / I_{13,1}: punctures and helper structure (`s4-lorentzian-helpers/`)
+Status: README and scripts are complete, and run1 logs are included. `expected/` is **not yet frozen**, and one SAT case (clique orbit 0 at k = 19) is still running.
+- **Punctures never help the centre decoder** (exact matroid-partition certificate). The 220 lines of I_{11,1} split into 22 independent sets, 2 inside each centre reader set, so the cost is ≥ |L|/2 for every live set L. For I_{13,1}, three copies of the lines split into 91 sets, giving ≥ (3/7)|L|. Every label decoder satisfies x ≥ 1/2 for |P| ≤ 8 (x ≥ 3/7 for |P| ≤ 10 on I_{13,1}).
+- **Minrank stays 11** after ≤ 19 punctures for 4 of the 5 maximum-clique S_11-orbits (SAT, no proof logs; orbit 0 pending). The 38,786 maximum cliques fall into 5 orbits, and a union bound shows any ≤ 21 punctures leave one alive.
+- **Helpers.** E8's R = 439 is 240 carriers (3 branches per source, forced by E7 being a 4-design) + 180 cell registers + 9 totals + 10 puncture carriers. In I_{11,1}:
+  - triple sources also need ≥ 3 branches in any frame design (exact quadratic-form nullspace);
+  - the cell cover number is 3;
+  - 20,790 good 4-frames exist, but **no partition into good 4-frames exists**: every good frame holds 0 or 2 pairs, and there are 55 pairs.
+  - Needers cover 56–70 lines, against 30 in E8.
+  - The transferred cell skeleton has 787 helpers (3.58 per port), or 732 (3.33 per port) with 2-branch pairs. The calibrated model gives a_est 1.58–1.81e-3, against E8's 1.806e-3: no robust gain without a new middle network.
+
+## 8. Why "no new kappa" construction savings cannot move κ (R5 triage, 2026-10-13)
+κ depends only on (i) the complex paid rank profile H = calls × local_paid + idle and the live stock W (b is the moment root of Σ_r r·n_r·(73/r)^b = 73W), and (ii) the bit profile (c). Primitive, ADD and XOR counts enter only finite admission checks, all with large slack: local_primitive_bound < 2^48, prefix < payload, row < 20161, and so on. The outer row gap also uses the fixed 20161.
+- #883, #916, #901, #917, #919, #922, #882, #932, #937 and #945 each leave the paid children, helper widths and phase events unchanged, so the gain is exactly 0. Several act on historical CK/JP8/X4 words rather than the selected U8 word.
+- Bit savings (#914, #915, #908, #904, #891, #713, #884, #936, #941) leave c unchanged. c = 0.0017334 > b ≈ 0.0016647, so the bit side doesn't bind anyway.
+- #892 (rank-8 coded helper) does change the local profile, but it is excluded by its own packing obstruction on the old word.
+- The only path from these savings to κ is a lower local prefix bound, which allows more replicas. Raising the charged payload does that directly: row slack 3,692 allows payload up to ~2,350, which is what T37 (#942) uses.
+- **Next real lever:** dim-7 factored end pairs (#627 type, local {1:+2, 2:+2, 5:−2}, width −4) on the U8 word. Priced at ideal packing, each is worth about **+1.7e-7 b per pair per call**, about 60× the T37 gain.
