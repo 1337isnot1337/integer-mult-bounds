@@ -71,3 +71,19 @@ Status: `expected/` is frozen from the complete run1 (all steps finished; the k 
 - #892 (rank-8 coded helper) does change the local profile, but it is excluded by its own packing obstruction on the old word.
 - The only path from these savings to κ is a lower local prefix bound, which allows more replicas. Raising the charged payload does that directly: row slack 3,692 allows payload up to ~2,350, which is what T37 (#942) uses.
 - **Next real lever:** dim-7 factored end pairs (#627 type, local {1:+2, 2:+2, 5:−2}, width −4) on the U8 word. Priced at ideal packing, each is worth about **+1.7e-7 b per pair per call**, about 60× the T37 gain.
+
+## 9. Exhaustive local-rewrite search on the fused X54 words (`r7-fusion-search/`, 2026-10-13)
+**Search target:** the composed words of #1239/#1218: #1193's mixed T37 construction with #1195's source-holder fusions and #1130's X54 slot. JFX is the joint-entrance provider and D4FX its group-627 variant. Prices are exact, from #1186's frame toolkit (b = #1094 cost units): X54 = −1,788 and the two fusions = −4,338 on the joint word.
+
+**Frames:** the exact frame optimum of both words equals their published profiles, so frame changes have no slack left.
+
+| family | candidates per word | feasible | gains |
+|---|---|---|---|
+| every read fusion × {B-after, B-before-next, tail, prepend} restores × {none, single/pair swaps, full exchange} (#1186 `repair.py`) | 2,238 fusions / 2,850 pricings | 969 | **0** |
+| standalone SW4 read-set exchanges (all non-empty subsets per copy pair) | 50 | 0 (cone cap "L not inside U" at end-of-B target vertices) | 0 |
+| #1186 `joint.py` triangle-hybrid family | 161 (JFX/D4FX); 259 on the fusions-only word | 24 | 0 |
+| `joint2.py`: generalised slots over all donation/restore gap classes, with keep/swap/fuse per movable read (reproduces X54 exactly in 120 equivalent variants), non-target holders | 3,924 | 0 | 0 |
+| a fusion analogue at the X54 site (in place of the slot) | 45 touching 54/589 | 4 | 0 (best +956, worse than the slot) |
+| `joint2` with target holders (+2,940 per word) and `fusion2.py` (10,603 generalised fusions on JFX) | — | **partial**: stopped before completion | none found |
+
+**Conclusion (scoped):** on these words, no further width-neutral source-holder fusion, read exchange or triangle slot of the searched families gains. The remaining κ gains in the lineage come from other mechanisms, such as #1274's helper-donor cold kernels and #1252/#1268's idle-pair exchanges. Scripts `joint2.py` and `fusion2.py` extend #1186's exact-frame toolkit (credit mdumitrean #1186/#1195), which is not re-vendored here.
