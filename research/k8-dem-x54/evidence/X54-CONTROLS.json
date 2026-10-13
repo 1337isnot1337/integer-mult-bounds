@@ -1,0 +1,78 @@
+{
+ "C0_identity": {
+  "ok": true,
+  "out": "{\"control\": null, \"sha256\": \"b0b9ffd88347cc8c8662fab3d28f65a50bca3d7e98a1337fbaf8c898303201db\"}"
+ },
+ "recipe": {
+  "ok": true,
+  "build": {
+   "control": null,
+   "sha256": "bffd102af0f7476b7e9e528133c4f0ced8d54e756ddc2014d37a57da93a5a58a"
+  },
+  "audit_tail": "}"
+ },
+ "drop_restore": {
+  "ok": true,
+  "build": {
+   "control": "drop_restore",
+   "sha256": "41afa2b49cba14715afde6c60e7210cd352865303ad920aa26714c25091ef26a"
+  },
+  "audit_tail": "RuntimeError: all-column endpoint failure (False, [108, 111, 328, 334, 335, 511, 519])"
+ },
+ "restore_full": {
+  "ok": true,
+  "build": {
+   "control": "restore_full",
+   "sha256": "ce99e22106e100a7a249558b2309e03db99f318505fa635f2e641c2b0aa79fbb"
+  },
+  "audit_tail": "RuntimeError: all-column endpoint failure (False, [44, 47, 359, 360, 366, 367, 519, 543])"
+ },
+ "drop_preread": {
+  "ok": true,
+  "build": {
+   "control": "drop_preread",
+   "sha256": "b11992d70f126623ad9ba3331b1385ef8f6949d820ade57f4cf9ce14c681f8a4"
+  },
+  "audit_tail": "RuntimeError: nonzero entrance response"
+ },
+ "donation_after": {
+  "ok": true,
+  "build": {
+   "control": "donation_after",
+   "sha256": "8f340358a95dc2b0d19611a2f36114f3b64902bde8a0c0c30dc9e1f848a7e40d"
+  },
+  "audit_tail": "RuntimeError: nonzero entrance response"
+ },
+ "drop_restore@54": {
+  "ok": true,
+  "build": {
+   "control": "drop_restore@54",
+   "sha256": "41afa2b49cba14715afde6c60e7210cd352865303ad920aa26714c25091ef26a"
+  },
+  "audit_tail": "RuntimeError: all-column endpoint failure (False, [108, 111, 328, 334, 335, 511, 519])"
+ },
+ "restore_full@54": {
+  "ok": true,
+  "build": {
+   "control": "restore_full@54",
+   "sha256": "ce99e22106e100a7a249558b2309e03db99f318505fa635f2e641c2b0aa79fbb"
+  },
+  "audit_tail": "RuntimeError: all-column endpoint failure (False, [44, 47, 359, 360, 366, 367, 519, 543])"
+ },
+ "drop_preread@54": {
+  "ok": true,
+  "build": {
+   "control": "drop_preread@54",
+   "sha256": "b11992d70f126623ad9ba3331b1385ef8f6949d820ade57f4cf9ce14c681f8a4"
+  },
+  "audit_tail": "RuntimeError: nonzero entrance response"
+ },
+ "donation_after@54": {
+  "ok": true,
+  "build": {
+   "control": "donation_after@54",
+   "sha256": "8f340358a95dc2b0d19611a2f36114f3b64902bde8a0c0c30dc9e1f848a7e40d"
+  },
+  "audit_tail": "RuntimeError: nonzero entrance response"
+ }
+}

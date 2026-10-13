@@ -1,0 +1,26 @@
+[
+  {
+    "step": "build",
+    "exit_code": 0,
+    "seconds": 0.3777047350013163,
+    "log_sha256": "8232e271213a6d4a37307359ae524082245dafd643e9f22893695727d5288ad6"
+  },
+  {
+    "step": "independent-local",
+    "exit_code": 0,
+    "seconds": 1.8347542439987592,
+    "log_sha256": "4056832a3e787631466558afceaae8858554545f05e997d5e663cf1b85e03143"
+  },
+  {
+    "step": "x54-controls",
+    "exit_code": 0,
+    "seconds": 8.355992253997101,
+    "log_sha256": "4d43769af696783a77c11f1daf48b89029d2d7cbcd8ed132c888a07e62df2806"
+  },
+  {
+    "step": "strict-global",
+    "exit_code": 0,
+    "seconds": 68.21931386999859,
+    "log_sha256": "1656442d4f2b5622a8337aeb42ea1977ab4cba8a29de27d0cffb43e61880b131"
+  }
+]

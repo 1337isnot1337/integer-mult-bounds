@@ -1,0 +1,79 @@
+{
+  "status": "PASS_CHANGED_LOCAL_INTERFACES_STRICT_T16_ADMISSION",
+  "kappa": "1675161536733127/1000000000000000000",
+  "kappa_decimal": "0.001675161536733127",
+  "complex_lower": "1677972411576700344927/1000000000000000000000000",
+  "bit_lower": "1733427039589844234749/1000000000000000000000000",
+  "profile": {
+    "1": 341928,
+    "2": 71136,
+    "3": 59616,
+    "4": 18144,
+    "5": 12096,
+    "8": 1152,
+    "24": 1,
+    "48": 4918
+  },
+  "idle": {
+    "1": 360,
+    "24": 1,
+    "48": 4918
+  },
+  "controls": {
+    "admission": 69,
+    "bit_supplier": 12,
+    "independent_t16": 6,
+    "controller": 15
+  },
+  "outer_strict_inequalities": 47,
+  "steps": [
+    {
+      "step": "bind",
+      "exit_code": 0,
+      "seconds": 0.865718865999952,
+      "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
+    },
+    {
+      "step": "emit",
+      "exit_code": 0,
+      "seconds": 12.651543626001512,
+      "log_sha256": "c2b3d81b56feed2dcc3c8c1f483d1aeaf4aac508febb2d6bf02b5b1fcacfec84"
+    },
+    {
+      "step": "audit",
+      "exit_code": 0,
+      "seconds": 49.49454583199986,
+      "log_sha256": "7e85bdbb7c54e0e3ce4546c605d75357ce8dfb3a89054cdd3e5450b2ddcee3d5"
+    },
+    {
+      "step": "invoice",
+      "exit_code": 0,
+      "seconds": 2.0081056720009656,
+      "log_sha256": "b481b1f9a2de7af6d77510f2e89684f9d2e59612fd577f6a3fd0d71e9cde4538"
+    },
+    {
+      "step": "assembly",
+      "exit_code": 0,
+      "seconds": 0.639997507998487,
+      "log_sha256": "3338a684ea5cad96f00e4abb95097243b5ff96b9bb02a91602d9f2a45193207a"
+    },
+    {
+      "step": "admission-controls",
+      "exit_code": 0,
+      "seconds": 0.851499080999929,
+      "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
+    },
+    {
+      "step": "bit-supplier-controls",
+      "exit_code": 0,
+      "seconds": 1.359628791000432,
+      "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
+    },
+    {
+      "step": "independent-t16",
+      "exit_code": 0,
+      "seconds": 2.070183485000598,
+      "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
+    }
+  ]
+}

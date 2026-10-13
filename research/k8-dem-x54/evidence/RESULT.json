@@ -1,0 +1,81 @@
+{
+  "status": "PASS_X54_ON_THREE_DEMOTIONS_COMPLETE_ADMISSION",
+  "kappa": "1675161536733127/1000000000000000000",
+  "kappa_decimal": "0.001675161536733127",
+  "complex_lower": "1677972411576700344927/1000000000000000000000000",
+  "bit_lower": "1733427039589844234749/1000000000000000000000000",
+  "controls": {
+    "admission": 69,
+    "bit_supplier": 12,
+    "independent_t16": 6,
+    "controller": 15
+  },
+  "x54_controls": 10,
+  "outer_strict_inequalities": 47,
+  "native_steps": [
+    {
+      "step": "native",
+      "exit_code": 0,
+      "seconds": 3.1325011669996456
+    },
+    {
+      "step": "ledgers",
+      "exit_code": 0,
+      "seconds": 1.6251255399984075
+    },
+    {
+      "step": "local-replay",
+      "exit_code": 0,
+      "seconds": 12.718041640000592
+    },
+    {
+      "step": "wrappers",
+      "exit_code": 0,
+      "seconds": 4.154475071998604
+    },
+    {
+      "step": "phases",
+      "exit_code": 0,
+      "seconds": 264.96576558200104
+    }
+  ],
+  "native_semantic_artifacts": {
+    "CANONICAL-WORD.json.gz": "39e2e76b58b73131af08ab13d8c31fb82a17d304aaba0e91a698a46dc56cb95a",
+    "LOCAL-PROGRAMS.json.gz": "572a4e01e67002b8762e50618fb8b862d6fa5887fd3c9829e484979d04300afa",
+    "LOCAL-CHECKS.json": "da0a68dd86fdc22d27ec14b5a357460f0ad72659f973f3620edb885ea257a3a1",
+    "INDEPENDENT-LOCAL-REPLAY.json": "19de4ec76efaab937431969117c281d9f8fb8ac9f1d5343ab16c003dc33eb928",
+    "CLIFFORD-RECIPES.json": "67182d584917fd790dc6331a3605d1c321a396732a1bae1fdfee039c881f01af",
+    "CLIFFORD-REVIEW.json": "e1d548d850c60e494d1cef37b22c5411d8c6c6d90a5b99de60535cf066531171",
+    "RESIDUAL-ADAPTERS.json": "f96536a306c4202865667b2a213b7dacb0292fe5354dc412c1d6022c8d68b4cd"
+  },
+  "native_reuse": true,
+  "parent_reuse": true,
+  "previous_kappa": "0.001675121647789207",
+  "scope": "Conditional native exact-complex witness: #1148's three-demotion k8 word plus the X54 triangle-hybrid slot (#1130 recipe, identical edits and frames), hosted by #1148's unchanged T16 owner map. Scalar operations elsewhere, widths, entrances, owners and geometry are unchanged. PR559 exact-cover recurrence correction, bit bad-residue surcharge and H1-H5 retained; all-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape and analytic transfer remain assumptions.",
+  "steps": [
+    {
+      "step": "build",
+      "exit_code": 0,
+      "seconds": 0.3777047350013163,
+      "log_sha256": "8232e271213a6d4a37307359ae524082245dafd643e9f22893695727d5288ad6"
+    },
+    {
+      "step": "independent-local",
+      "exit_code": 0,
+      "seconds": 1.8347542439987592,
+      "log_sha256": "4056832a3e787631466558afceaae8858554545f05e997d5e663cf1b85e03143"
+    },
+    {
+      "step": "x54-controls",
+      "exit_code": 0,
+      "seconds": 8.355992253997101,
+      "log_sha256": "4d43769af696783a77c11f1daf48b89029d2d7cbcd8ed132c888a07e62df2806"
+    },
+    {
+      "step": "strict-global",
+      "exit_code": 0,
+      "seconds": 68.21931386999859,
+      "log_sha256": "1656442d4f2b5622a8337aeb42ea1977ab4cba8a29de27d0cffb43e61880b131"
+    }
+  ]
+}
