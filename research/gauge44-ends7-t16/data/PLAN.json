@@ -8,16 +8,14 @@
   "live": 14336,
   "deficit": 5120,
   "profile": {
-    "1": 348666,
-    "2": 62224,
-    "3": 61421,
+    "1": 348675,
+    "2": 62208,
+    "3": 61416,
     "4": 20448,
     "5": 11808,
-    "6": 2,
-    "7": 8,
+    "7": 3,
     "8": 1152,
-    "11": 1,
-    "48": 4873
+    "48": 4875
   },
   "order": [
     [
@@ -85647,15 +85645,15 @@
     }
   },
   "source_plan_sha256": "3b47f5027c4f047883c23a41e4578b0fd5c85cdc01fb5a14a6f23eabbe12acbc",
-  "assignment_sha256": "af9134046286c8ef675899751a4d18e476a0f2aaad273175174989b6db796395",
+  "assignment_sha256": "df373980c60cee79cd8267048b427bca72716930e33177b22c83d5f06a9062a3",
   "source_owners_sha256": "93fdab52291d9ea20d7caec2760cf4ad0cf0f491bad380db93d48b6cdef36045",
-  "assignment_content_sha256": "478246b4260a39dc728c3983b6ff8e68db3954ef17e9e54e5a147a260d3f4702",
+  "assignment_content_sha256": "906ba201c642e2320a80015e6973afdaa5eaeda8ada58efd827b2511af257623",
   "replica_lift": {
     "groups": 2,
     "source_replicas": 8,
     "replicas": 16,
     "parent_template_content_sha256": "8904bbbf46dfbf1c6df0e43479a23913fc59a410e879188112e88f16c850ede8",
-    "owners_file_sha256": "af9134046286c8ef675899751a4d18e476a0f2aaad273175174989b6db796395",
+    "owners_file_sha256": "df373980c60cee79cd8267048b427bca72716930e33177b22c83d5f06a9062a3",
     "window_semantics": "strict physical source-event touch intervals, including bridges",
     "schedule_content_sha256": "ef9b70f30251e90ca15f54e7802cedf9b2d23bdc150e8f2bc18c916d0f2f2312"
   }

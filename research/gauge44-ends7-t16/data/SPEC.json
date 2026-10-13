@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "plan_sha256": "3cf24024782d91d5e8a060d6ff76889f39a312a619c847e0590054d8d01fc349",
-    "owners_sha256": "af9134046286c8ef675899751a4d18e476a0f2aaad273175174989b6db796395"
+    "plan_sha256": "b5d163db8f651c9240910482196062eaa1e0fe110da235b119b1d37be9c0dc20",
+    "owners_sha256": "df373980c60cee79cd8267048b427bca72716930e33177b22c83d5f06a9062a3"
   },
   "dispatch": [
     [
@@ -1933,37 +1933,32 @@
     "gain_baseline_kappa": "0.001636241501576388",
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
-    "actual_73column_sigmas": 10057,
-    "cross_replica_helper_roles": 58701,
-    "idle_remainders": 7467,
+    "actual_73column_sigmas": 10174,
+    "cross_replica_helper_roles": 58595,
+    "idle_remainders": 7449,
     "idle_remainder_profile": {
-      "1": 2202,
-      "2": 16,
-      "3": 365,
-      "6": 2,
-      "7": 8,
-      "11": 1,
-      "48": 4873
+      "1": 2211,
+      "3": 360,
+      "7": 3,
+      "48": 4875
     },
     "global_profile": {
-      "1": 348666,
-      "2": 62224,
-      "3": 61421,
+      "1": 348675,
+      "2": 62208,
+      "3": 61416,
       "4": 20448,
       "5": 11808,
-      "6": 2,
-      "7": 8,
+      "7": 3,
       "8": 1152,
-      "11": 1,
-      "48": 4873
+      "48": 4875
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001672846993028285",
-    "kappa_decimal": "0.001672846995880185",
-    "complex_lower": "1675650102119662212841/1000000000000000000000000",
-    "conservative_complex_lower": "335130019851639449599/200000000000000000000000",
-    "kappa": "334569399176037/200000000000000000",
+    "conservative_kappa_decimal": "0.001672965555437235",
+    "kappa_decimal": "0.001672965558289236",
+    "complex_lower": "418942265553491756457/250000000000000000000000",
+    "conservative_complex_lower": "418942264838099758829/250000000000000000000000",
+    "kappa": "418241389572309/250000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
