@@ -1,0 +1,83 @@
+{
+  "assignment_seed": 51,
+  "base_commit": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
+  "collapsed_host_moment_ratio": "2",
+  "collapsed_host_sandwich_profile": {
+    "9": 2
+  },
+  "coverage": {
+    "Walsh_child_reduction_columns_both_directions": 1024,
+    "binomial_dp_widths": [
+      0,
+      288
+    ],
+    "clean_basis_columns": 512,
+    "collapsed_program_basis_columns": 1024,
+    "dilation_counts_sha256": "eb2a043145ad2440ac4248b31833b6ed865c438d91fc6aa62271441c531fd45a",
+    "dilation_f": [
+      1,
+      32
+    ],
+    "dirty_basis_columns": 512,
+    "dirty_repaired_basis_columns": 512,
+    "independent_tensor_columns": 512
+  },
+  "dirty_complement_multiplicities": [
+    24,
+    88,
+    232,
+    168
+  ],
+  "free_host_moment_ratio_lower_bound": "4",
+  "free_host_width_profile": {
+    "4": 2,
+    "5": 2,
+    "9": 2
+  },
+  "host_multiplicities": [
+    160,
+    224,
+    352,
+    288
+  ],
+  "moment_ratio_lower_bound_for_0_lt_sigma_le_1": "5",
+  "negative_controls": {
+    "omit_host_calls": "REJECTED on source basis column 0",
+    "omit_host_entry": "REJECTED on source basis column 0",
+    "omit_normalization": "REJECTED on source basis column 0",
+    "omit_source_boundaries": "REJECTED on source basis column 0",
+    "rank_two_into_two_rank_one_owners": "REJECTED: missing -1 eigenspace",
+    "unrestored_dirty_workspace": {
+      "scratch_basis_column": 63,
+      "status": "REJECTED",
+      "unrepaired_phase_exponent": 3
+    },
+    "wrong_dirty_repair_sign": {
+      "scratch_basis_column": 63,
+      "status": "REJECTED",
+      "unrepaired_phase_exponent": 3
+    },
+    "wrong_eigenvalue_route": "REJECTED"
+  },
+  "object": {
+    "a": 4,
+    "b": 5,
+    "coefficients_per_stream": 512,
+    "r": 9
+  },
+  "recursive_width_profile": {
+    "4": 3,
+    "5": 3,
+    "9": 2
+  },
+  "route_sha256": "a73a93797b26756588687ca65516c17d45ee59079f8c901d3911d6b2a879454b",
+  "scope": "Exact finite operator replay and written all-f algebraic argument; this literal encoder loses even with free routing and owner calls. No all-size tape compiler, global lower bound, or new kappa.",
+  "source_multiplicities": [
+    136,
+    136,
+    120,
+    120
+  ],
+  "status": "PASS_EXACT_DILATION_AND_UNFAVORABLE_BOUNDARY_BUDGET",
+  "uniform_capacity_slack_lower_bound": "3/64"
+}

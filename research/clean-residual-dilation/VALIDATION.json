@@ -1,0 +1,78 @@
+{
+  "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "checks": [
+    {
+      "name": "relocated isolated optimized replay",
+      "exit_code": 0,
+      "seconds": 3.989,
+      "expected_pass": true,
+      "last_output": "512 clean + 512 dirty + 512 repaired columns; 8 negative controls; moment ratio >= 5 (>= 4 with free hosts; 2 after host collapse)."
+    },
+    {
+      "name": "reject omitted source boundary in committed certificate",
+      "exit_code": 1,
+      "seconds": 3.928,
+      "expected_pass": false,
+      "last_output": "ValueError: committed certificate differs from the replay"
+    },
+    {
+      "name": "reject corrupt inherited operator source",
+      "exit_code": 1,
+      "seconds": 0.046,
+      "expected_pass": false,
+      "last_output": "ValueError: source pin mismatch: notes/general-clifford-frames.tex"
+    }
+  ],
+  "base_commit": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
+  "regular_replay": {
+    "command": "python3 -B research/clean-residual-dilation/verify.py --write research/clean-residual-dilation/CERTIFICATE.json",
+    "exit_code": 0,
+    "wall_seconds": 3.98
+  },
+  "optimized_replay": {
+    "command": "python3 -I -O research/clean-residual-dilation/verify.py",
+    "exit_code": 0
+  },
+  "selected_record_check": {
+    "command": "make selected-record-check",
+    "exit_code": 0,
+    "kappa": "51110230636731/31250000000000000"
+  },
+  "upstream_preservation": {
+    "command": "git diff --exit-code -- upstream/",
+    "exit_code": 0
+  },
+  "final_overlap_refresh": {
+    "open_pr_count": 482,
+    "arrivals": [
+      {
+        "number": 662,
+        "title": "Tooling: accelerate exact Clifford helper checks with identical receipts",
+        "head": "458744109003e0958798f27c1f04be78f03663ce"
+      },
+      {
+        "number": 661,
+        "title": "Scoped negative result: R420 phase-B frames are moment-optimal at fixed gate order",
+        "head": "9ca7aa3ab0a3260a2f36ac86b9911a31fd88bd89"
+      }
+    ],
+    "pinned_coordination_issues": [],
+    "main_head": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
+    "conclusion": "New arrivals concern fixed-order bit frames and Clifford verifier speed; no matching spectral split-residual scope found."
+  },
+  "not_run": [
+    "full make verify",
+    "frontier626 cold supplier replay",
+    "Linux CI",
+    "Lean build"
+  ],
+  "check_scope": "New standalone package only; selected suppliers and upstream source files are unchanged. Finite exact checks supplement the written all-f algebraic proof, not a full theorem or compiler verification.",
+  "artifact_sha256": {
+    "verify.py": "81248ba140b100c2660f25bd79a1869191c8b1bb875bf547ea0248cd30cba88e",
+    "README.md": "e6cfe4bbbc0879a4b5711a34098b624b82ef549ff09fbe8ac908b479c4e2b146",
+    "CERTIFICATE.json": "22bff5e3bdf72416574c10298d65fdcb0350b7cf8e83a1d3c52e54bf7204cbf7",
+    "SOURCE-PINS.json": "c6316ecd1e7d82b86784db46da96259b224205571b6dd10bd68e9cf3eb1f0113",
+    "CLAIM.json": "89bee032c4daf0f814fb14d576503c7fa4f57c0243dbdef1c03c3556a987649f"
+  }
+}

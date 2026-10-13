@@ -1,0 +1,55 @@
+{
+  "track": "Recursive interfaces",
+  "assignment_seed": 51,
+  "randomness": "python3 secrets.randbelow(100), operating-system randomness; drawn once",
+  "base_commit": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
+  "started_utc": "2026-10-13T02:56:12Z",
+  "selection_deadline_utc": "2026-10-13T03:04:12Z",
+  "verification_starts_by_utc": "2026-10-13T03:26:12Z",
+  "expected_finish_utc": "2026-10-13T03:36:12Z",
+  "coordination": "No pinned issues; only open issue #650 concerns Discussions. Claim recorded locally as requested.",
+  "candidates": [
+    {
+      "task": "Defer dirty-helper cleanup across successive calls",
+      "decision": "Not selected: extensive cold-end, gauge and deferred-readout work in existing suppliers and open PRs."
+    },
+    {
+      "task": "Clean-workspace spectral embedding of a width-9 complex residual into two separate owners",
+      "decision": "Selected: changes the arbitrary-dirty similarity hypothesis in #451; explicit encoder and full boundary cost, not another split-routing replay."
+    },
+    {
+      "task": "Fuse consecutive native bit queries",
+      "decision": "Not selected: #521 already supplies an exact dirty-input primitive; avoid duplicating it."
+    }
+  ],
+  "object": "C_(9f) into C_(4f) direct-sum C_(5f), one equally sized zero workspace, f>=1. Seed selects a=1+(51 mod 8)=4, b=9-a=5.",
+  "method": "Exact fourth-root eigenspace multiplicities and an explicit Walsh/permutation encoder; exact finite all-basis replay and negative controls; bill both encoder boundaries, owners, workspace and restoration.",
+  "deliverable": "Scoped research note, exact reproducible standard-library certificate/checker and full conditional cost recurrence; no kappa claim.",
+  "overlap_checked": {
+    "open_pr_count": 480,
+    "relevant_prs": [
+      448,
+      451,
+      480,
+      481,
+      494,
+      521,
+      627,
+      633
+    ]
+  },
+  "scope_exclusions": [
+    "No selected-certificate edits",
+    "No supplier or upstream modifications",
+    "No claim that a finite replay proves an all-size tape compiler"
+  ],
+  "result": {
+    "status": "Completed research note and scoped negative cost result; no new kappa",
+    "finding": "For every f>=1, C_(9f) embeds in C_(4f) direct-sum C_(5f) with a complementary workspace phase. One phase pass restores arbitrary dirty workspace. The literal recursive moment costs at least five times a single residual (four with free hosts); host collapse leaves two width-9f transforms, and full collapse recovers the original call.",
+    "evidence": "512 clean columns, 512 dirty columns, 512 repaired columns; independent tensor entries; 1024 Walsh reduction checks; 1024 collapsed-circuit columns; 8 mathematical negative controls.",
+    "refinement": "The clean embedding also supplies a dirty interface after an explicit complementary phase repair; this is the same encoded residual, not a second investigation.",
+    "link": "https://github.com/CrocSwap/integer-mult-bounds/tree/research/seed51-clean-residual-dilation/research/clean-residual-dilation",
+    "verification_started_utc": "2026-10-13T03:12:40Z",
+    "reproduce": "python3 -B research/clean-residual-dilation/verify.py"
+  }
+}

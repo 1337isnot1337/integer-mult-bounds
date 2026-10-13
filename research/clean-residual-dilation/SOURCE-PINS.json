@@ -1,0 +1,53 @@
+{
+  "base_commit": "66849e1475c930fd7732b1a0067ffee7e1e95f60",
+  "selected_kappa": "51110230636731/31250000000000000",
+  "local_sha256": {
+    "certificates/selected-result.json": "b3bf402f31a69bde0629936a9b569bed48281568d7b16d5fba120b5311ea1f53",
+    "docs/research/community-k492-review.md": "3b731d30e80010b15408a289b0b32192700885474c8b36d48ee3320a7a8c5c47",
+    "research/community-k492-audit/pr626/replay/ASSEMBLY.json": "6127732e2fcdd470dab349c1c51d03cd9f0787ad0309b1b4a7c811a908028f4e",
+    "research/complex-k492-owner-repair/PROOF-NOTE-R.md": "22312bb347bdf159e6a01a45c47675e6170d33b258e2fd9ed52aee88fb92c0ed",
+    "notes/general-clifford-frames.tex": "c9bb9655b594583c6b4bab8cb485233f1d1e588f83858cf1e4c3530cee8fed54",
+    "notes/batched-complex-rows.tex": "64c70926a8705874f1c9b42a2f703e42cad4e90f927f544458cfdf729540236c",
+    "research/fourier-boundary-fusion/REPORT.md": "b855ea8db9d199af1231fad1cdba9a101cd3fff973aa317506faffbf847d5f13",
+    "research/experiment-log/negative-searches/rejected-interface.md": "f09b6c1932bb33d2fcb575ef30812e035bcf6b3846282067d3ed3cd46399cdd1"
+  },
+  "external_references": [
+    {
+      "pr": 451,
+      "author": "Chafik Boukhalfa / chafreaky",
+      "head": "f3a38153678b55063fc005901cc968266166507d",
+      "path": "research/cross-family-residual-obstruction/README.md",
+      "sha256": "91ff9f57769a4b7449ead7802ef0d9fedde32f6d6eae537718ed17553c829f36",
+      "role": "Prior trace obstruction, inspected through pinned GitHub contents; not imported or executed by this checker."
+    },
+    {
+      "pr": 448,
+      "author": "Sreekanth Nair / higherbeing",
+      "head": "359022bcd71143e45d48def0dd005bf67f339aa7",
+      "role": "Original split-residual proposal; read current discussion acknowledging single-stream interface failure.",
+      "discussion_urls": [
+        "https://github.com/CrocSwap/integer-mult-bounds/pull/448#issuecomment-6113791847",
+        "https://github.com/CrocSwap/integer-mult-bounds/pull/448#issuecomment-6113842081"
+      ],
+      "independent_review_author": "hipotures / RaD, with Claude assistance",
+      "independent_review_source": "https://github.com/hipotures/rad/blob/c6d971dabdde94e1c5ec1521c44ca63fd41debf9/research/integer-multiplication-bounds/campaigns/frontier-batch-20261011/code/job1_stream_model.py"
+    },
+    {
+      "pr": 521,
+      "head": "a190fdb39f31647fc6f651625353710624627348",
+      "role": "Overlap check only: native bit-query fusion; not a mathematical dependency."
+    },
+    {
+      "pr": 647,
+      "head": "956bb581e7f97328e1b53baa5aca3d2490f2f607",
+      "role": "Overlap check only: paid-copy E8 exact-RAM construction, distinct object."
+    }
+  ],
+  "selected_supplier_heads": {
+    "626": "660de893d27bb7abd1d5b01b1640207528a5c851",
+    "622": "f69477f4f6d3c7eb1f740b166881bffed4ffa9f6",
+    "623": "e39a615ca601ce5d62abeb24f3fcdb8644ca1005",
+    "543": "2065fe4f72a914d907f1046603f5a36f17018535"
+  },
+  "dependency_policy": "Only local byte pins are checked on replay. External pins identify inspected prior work and are not fetched or executed. No supplier code is imported."
+}
