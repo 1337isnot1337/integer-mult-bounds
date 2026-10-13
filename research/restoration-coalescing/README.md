@@ -9,10 +9,12 @@ Navinor, with help from opencode. Apache-2.0. **No new multiplication exponent.*
 Every recursive child that borrows a dirty workspace stream must return it, and
 the inherited contract restores it **after every child** so that the next child
 sees the node-entry state. When a node issues `r` children this pays `r`
-restoration passes. This note prices a single change: let the workspace drift
-across the batch and restore it **once** at the node exit.
-
-Two independent conditions decide whether that eliminates work.
+restoration passes. This note prices a single operator-level change: let the
+workspace drift across the batch and replace the `r` restorations by the **one**
+composed restoration `(G_r...G_1)^{-1}` at the node exit. The question is not
+what a particular assembly does with that slack (that is assembly pricing), but
+when this rewrite is even a *valid and pass-reducing identity on the restored
+operator*. Two independent conditions decide it, both decidable exactly.
 
 * **Correctness (read-free batch).** The deferred single restoration returns the
   identical observables (final data and final workspace) if and only if no child
@@ -58,7 +60,9 @@ imaginary parts); the checker builds every operator explicitly at `N = 8`.
 ## Starting point and scope selection
 
 Base commit `ce7ad1b6ab09452c3478723a2e96ed5ff212dc08` (current `origin/main`).
-At this base the selected conditional result is the `#1094`-on-`#1087` assembly,
+At this base the selected conditional result is the
+`CrocSwap/integer-mult-bounds#1094`-on-`CrocSwap/integer-mult-bounds#1087`
+assembly,
 `kappa = 836330098538459/500000000000000000 = 0.001672660197076918`; see the
 [selected record](../../certificates/selected-result.json) and
 [current status](../../docs/research/current-status.md). This note does not
@@ -100,7 +104,9 @@ the final `D` and final `W`. The child data work `sum_i B_i(·)` is identical in
 both schemes and cancels from the comparison; only restoration is priced.
 
 This is the same restoration invariant the repository already charges: dirty
-connectors and private child scratch are restored (`#905`, `#929`, `#951`;
+connectors and private child scratch are restored
+(`CrocSwap/integer-mult-bounds#905`, `CrocSwap/integer-mult-bounds#929`,
+`CrocSwap/integer-mult-bounds#951`;
 [universal-connector-boundary](../universal-connector-boundary/README.md)), and
 the compact-control construction "restores arbitrary values ... and charges
 exceptional-address repair at every node" ([current status](../../docs/research/current-status.md)).
@@ -190,11 +196,59 @@ selected `kappa`. Neither the selected frontier nor `upstream/` changes. Inherit
 all-size/compiler, hosting, precision/tape and analytic assumptions remain with
 their existing constructions.
 
+## Relation to concurrent and prior work
+
+Two concurrent, same-track contributions already price *restoration deferral* at
+the assembly level, and this note is deliberately narrower and complementary,
+not a replacement or a re-derivation of either.
+
+* **[CrocSwap/integer-mult-bounds#1012](https://github.com/CrocSwap/integer-mult-bounds/pull/1012)**
+  (thakrarsagar, seed 57) prices restoration deferral of the U8 helper
+  rank/frame *climbs* inside the hosted T37 recurrence, using the hosting lemma
+  and the `8k+1+hosted+idle=73` coverage identity, and reports exact kappa
+  ceilings. Its conclusion is that deferral is *mass-neutral* there and its value
+  is consolidation inside shared hosting windows. That is a statement about rank
+  mass and window capacity in one frozen assembly.
+
+* **[CrocSwap/integer-mult-bounds#974](https://github.com/CrocSwap/integer-mult-bounds/pull/974)**
+  (avirazza, same track) prices the same boundary classes with zero parent cost;
+  thakrarsagar's note independently reproduces its T37 one-unit value.
+
+This note asks a different question at a different layer: **as an operator
+identity, when does replacing `r` restorations by one composed restoration
+preserve the observables and actually remove passes?** Its two answers — the
+read-free condition (correctness) and the composable-family condition (cost) —
+are exact algebraic facts about the restored operator, independent of any
+assembly, kappa ceiling, hosting lemma, or T37 payload. The cost unit here is a
+coefficient/routing pass (a diagonal unit phase is one `Scan`, a permutation is
+one `Route`, per the retained recurrence vocabulary), not the rank mass those
+assembly notes count. So there is no contradiction with the "mass-neutral"
+finding there: helper climbs are rank-advancing frame work whose mass is
+coverage-productive, whereas the restoration passes coalesced here are
+phase/routing passes whose operators compose. This note gives the
+operator-level preconditions and a standalone sub-second exact verifier (no T37
+archives, no pinned engines); those notes give the assembly-level ceiling
+effect. Both are needed before deferral can be placed in a real supplier call.
+Where thakrarsagar's note shows the T37 slack is consolidation in shared
+windows, this note shows exactly which restoration families admit a genuine
+`r -> 1` pass reduction at all, and which (heterogeneous) make it worse.
+
+This is a second, independent treatment of the restoration question using a
+meaningfully different method (exact Gaussian-rational operator algebra and
+structure detection, versus assembly-level pricing on frozen payloads), as the
+sprint invites. It does not claim priority on "restoration deferral" and does not
+reproduce either note's numbers.
+
 ## Attribution
 
 The eager per-child restoration contract and the dirty-connector model are
-repository-wide: `#905`/`#929`/`#951` (Chafik Boukhalfa), `#877`/`#896` (Gareth
-Davidson), `#934`/`#943`/`#944`/`#953` (Ross Richardson), and
+repository-wide: `CrocSwap/integer-mult-bounds#905`/
+`CrocSwap/integer-mult-bounds#929`/ `CrocSwap/integer-mult-bounds#951` (Chafik
+Boukhalfa), `CrocSwap/integer-mult-bounds#877`/
+`CrocSwap/integer-mult-bounds#896` (Gareth Davidson),
+`CrocSwap/integer-mult-bounds#934`/ `CrocSwap/integer-mult-bounds#943`/
+`CrocSwap/integer-mult-bounds#944`/ `CrocSwap/integer-mult-bounds#953` (Ross
+Richardson), and
 [universal-connector-boundary](../universal-connector-boundary/README.md). The
 compact-control per-node restoration/repair charge is credited to Douglas
 Colkitt's retained construction ([current status](../../docs/research/current-status.md)).
