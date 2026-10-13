@@ -1,100 +1,104 @@
-# Label-field census: rank-k labels and other lattices do not beat E8 (no κ claim)
+# Label-field census: certified ceilings for rank-k E8 units (no κ claim)
 
-Rohan Guliani (@Rohansguliani), 2026-10-13. Apache-2.0. Prepared with substantial AI assistance (Mux agent); every
-number below comes from `census.py` and the certified roots of `research/format-limits-corrected`.
+Rohan Guliani (@Rohansguliani), 2026-10-13. Apache-2.0. Prepared with substantial AI assistance (Mux agent). Every
+number below is printed by `census.py`, using the certified roots of `research/format-limits-corrected`.
 
-**This package makes no κ claim and ships no word.** It tests one structural change: replacing the rational E8 label
-geometry with a label field of higher rank per port. It finds that this change does not help, and records where it fails.
+**This package makes no κ claim and ships no word.** It turns the copy-cost floors proved for E8 over other label
+fields into certified B_K format ceilings. From those ceilings it states which decoder cost each unit would need.
 
-## Question
+## Prior and concurrent work (read first)
 
-The selected result has κ = 0.001635527380375392. Two observations about where that number comes from:
+- GamingPuzzled / Joel Pulikkan, #620: the extension-ring screen of Gaussian, Eisenstein and Hurwitz E8 units.
+- Hurwitz: #703 (Mister-Meeseeks) proves the asymmetric copy cost is exactly 10 on the 10 quaternionic lines; #785
+  covers fixed-support nonlinear messages.
+- Gaussian: #738 (Sagar Thakrar) proves floor 40 on the 60 lines and excludes three stages. #770 shows 40 is
+  optimal among weighted maximal-clique certificates. #767 adds planar and incidence decoder obstructions.
+- Eisenstein: #798 (jonathanlam) proves cost ≥ 22 for any finite set of scalar binary totals. It also shows 22 is the
+  limit of the clique method, so the true optimum lies in [22, 40].
+- Rational E8: #765 shows tensor basis mixing cannot lower the copy rank 72^d.
+- The format ceiling a ≤ X(s, h/k, x/k): research/format-limits-corrected, building on DreamingOfClouds' #446
+  Theorems B and C.
 
-1. **The outer assembly is already saturated.** With the binding complex supplier
-   a = 65528268492323474503/4·10²², the exact value a/(1+a) equals the selected κ to a relative 1.4·10⁻¹⁶.
+This package does not re-prove any of those floors. It adds the conversion to certified ceilings, a common table, and
+an argued complex-side window bound.
+
+## Two observations
+
+1. **The outer assembly is saturated.** With the binding complex supplier a = 65528268492323474503/4·10²², the exact
+   value a/(1+a) equals the selected κ = 51110230636731/31250000000000000 to a relative 1.4·10⁻¹⁶.
    a/(1+a) is the balance of `min(1−ε, εq)` ([assembly-domain audit](../../docs/research/assembly-domain-audit.md)).
-   Changing the ring, the transform length, the Gaussian resampling or the Fürer / Schönhage–Strassen /
-   Harvey–van der Hoeven outer layer acts only through this conversion. It can therefore raise κ by at most a factor
-   1+a ≈ 1.0016. A meaningful factor has to come from the supplier saving a.
-2. **Inside the B_K format the saving is capped by the unit.** Section A of
-   [format-limits-corrected](../format-limits-corrected/README.md) proves a ≤ X(s, h/k, x/k): the ceiling depends only
-   on the stage count s, the window per label rank w = h/k, and the copy cost per port and label rank x/k. On the realised
-   units this gives κ ≤ 5.16·10⁻³, so κ > 0.01 needs a unit with a smaller w or x.
+   Ring, transform length, Gaussian resampling, and Fürer / Schönhage–Strassen / Harvey–van der Hoeven changes act only
+   through this conversion. They can raise κ by at most a factor 1+a ≈ 1.0016. A meaningful factor must come from the
+   supplier saving a, which the B_K format caps through the unit's (w = h/k, x/k).
+2. **A richer label field halves or quarters w, but raises the copy cost.** The Eisenstein and Hurwitz E8 are rank-2
+   and rank-4 rational labels in the same 8-dimensional window. So w = 4 or 2 instead of 8, and the ceiling depends on
+   how much the copy cost per port x/k rises.
 
-A structural lever that the format theorem leaves open is the **label field**. E8 also carries a Z[ω]-lattice structure
-(the 40-line Witting configuration in Q(ω)⁴) and a Hurwitz structure (10 quaternionic lines in H²). Labels over those fields
-are rational labels of rank k = 2 and k = 4 inside the same 8-dimensional window, so w drops from 8 to 4 or 2. At w = 4 the
-ceiling clears 1/99 whenever x/k ≲ 0.624 (s = 5, float bisection), while the frontier units have x ≈ 0.57. On these window numbers alone
-the change looks like a factor of two.
+## Results (certified roots, maximised over odd s ≤ 13)
 
-## What fails
+**Copy cost to ceiling.** Here x = cost / v. The Eisenstein window is n = 4 Q(ω)-dimensions; the Gaussian window is
+n = 4; the Hurwitz window is n = 2.
 
-The copy floor rises faster than the window falls. For a coordinate-total decoder, N_TS ≠ 0 exactly on non-orthogonal
-pairs. Requiring B_TT = 1 and B_TS = 0 there forces B[K, K] = I on every clique K of pairwise non-orthogonal lines inside
-a total. So each total costs at least the largest such clique in its support, and x ≥ x_lb = Σ cliques / v. The
-census computes these quantities exactly and feeds x_lb to the certified ceiling `skel.X`. Because X is non-increasing
-in x, the X column is an upper bound for every decoder of that type.
+| unit | copy cost | source of the cost | bit-side ceiling X |
+|---|---:|---|---|
+| Eisenstein, 40 lines | 22 | lower bound for any decoder (#798) | ≤ 1.496·10⁻² (s = 3) |
+| | 23 | | ≤ 1.295·10⁻² |
+| | **24** | | **≤ 1.150·10⁻²: largest cost with X > 1/99** |
+| | 25 | | ≤ 1.0053·10⁻² < 1/99 |
+| | 26 | | ≤ 8.61·10⁻³ |
+| | 28 | coordinate-total lower bound (this census) | ≤ 6.335·10⁻³ |
+| | 29 | | ≤ 5.32·10⁻³: below the realised bit unit (6.000·10⁻³) |
+| | ≥ 37 | | no positive saving for s ≤ 13 |
+| Gaussian, 60 lines | 40 | floor (#738) | ≤ 7.688·10⁻³ (s = 7) |
+| Hurwitz, 10 lines | 10 | exact (#703) | no positive saving for s ≤ 13 (x = 1) |
 
-| configuration | field, k | v | n = h/k | ω (max non-orth clique) | support cliques | x_lb | certified ceiling X |
+`RESULT.json` lists every cost from 22 to 40. For calibration, the same engine gives 6.000·10⁻³ for the realised bit
+unit (h = 8, x = 63/111) and 5.186·10⁻³ for the realised complex unit (h = 9, x = 64/112).
+
+**Rational and field configurations with coordinate-total decoders.** The quantity x_lb is the sum of the support
+cliques divided by v.
+
+| configuration | field, k | v | n | ω | support cliques | x_lb | ceiling X |
 |---|---|---:|---:|---:|---|---|---|
-| E8 root lines, Hamming frame | Q, 1 | 120 | 8 | 8 | 8 × 8 | 8/15 | ≤ 8.009·10⁻³ (s = 3) |
-| E7 root lines | Q, 1 | 63 | 7 | 7 | 7 × 7 | 7/9 | ≤ 1.847·10⁻³ (s = 11) |
-| D4 root lines | Q, 1 | 12 | 4 | 3 | 4 × 3 | 1 | no positive saving |
-| F4 root lines | Q, 1 | 24 | 4 | 5 | 4 × 5 | 5/6 | ≤ 2.155·10⁻³ (s = 13) |
-| **Eisenstein E8 (Witting)** | Q(ω), 2 | 40 | 4 | **7** | 4 × 7 | 7/10 | **≤ 6.335·10⁻³** (s = 7) |
-| **Hurwitz E8** | H, 4 | 10 | 2 | 5 | 2 × 5 | 1 | **no positive saving** |
+| E8, Hamming frame | Q, 1 | 120 | 8 | 8 | 8 × 8 | 8/15 | ≤ 8.009·10⁻³ |
+| E7 | Q, 1 | 63 | 7 | 7 | 7 × 7 | 7/9 | ≤ 1.847·10⁻³ |
+| D4 | Q, 1 | 12 | 4 | 3 | 4 × 3 | 1 | none (s ≤ 13) |
+| F4 | Q, 1 | 24 | 4 | 5 | 4 × 5 | 5/6 | ≤ 2.155·10⁻³ |
+| Eisenstein E8 (Witting) | Q(ω), 2 | 40 | 4 | 7 | 4 × 7 | 7/10 | ≤ 6.335·10⁻³ |
+| Hurwitz E8 | H, 4 | 10 | 2 | 5 | 2 × 5 | 1 | none (s ≤ 13) |
 
-For calibration, the same engine gives 6.000·10⁻³ for the realised bit unit (h = 8, x = 63/111) and 5.186·10⁻³ for the
-realised complex unit (h = 9, x = 64/112). The complex-side analogue of Witting is worse: its F₄ window is at least ω = 7,
-and at x ≥ 7/10 it gives at most 3.274·10⁻³.
+Why x_lb is a lower bound: with coordinate totals, N_TS ≠ 0 exactly on non-orthogonal pairs. B_TT = 1 and B_TS = 0
+there force B[K, K] = I on every clique K inside a total, so each total costs at least its largest support clique. The
+Eisenstein value 28 sits inside #798's open interval [22, 40]. So **coordinate-total decoders are excluded from the
+range that would matter**, and only other decoders could reach cost ≤ 24.
 
-Reading of the table:
+## What this means for κ > 0.01
 
-- **Witting.** The window halves (w = 4), but 7 of the 40 lines are pairwise non-orthogonal inside each coordinate support.
-  E8 has 8 such lines in 8 dimensions; Witting has 7 in 4. Compared lower bound against lower bound, Witting
-  (6.33·10⁻³) is below E8 (8.01·10⁻³). It is only 5.6% above the realised E8 bit unit, and only if its decoder attains
-  the clique bound. The realised E8 decoder does not: P120 costs 72 against its clique bound of 64.
-- **Hurwitz.** Every line is orthogonal to exactly one other, so the non-orthogonality cliques cover the ports. Then x ≥ 1
-  and D_s = (s−1)k − s·x < 0: there is no saving at any s.
-- **Rational alternatives (D4, F4, E7)** are all worse than E8. E8 is the only configuration here whose non-orthogonal
-  clique does not exceed its dimension, and that is why it is the best unit.
-- **κ > 0.01 is out of reach for this decoder type.** Even E8 with a coordinate-total decoder at its clique bound
-  (x = 8/15) has ceiling 8.01·10⁻³ < 1/99. Section A.7 of format-limits records the copy charge as the largest single
-  multiplier (×6.9). This census adds that choosing another lattice or label field does not lower it.
-
-## Consequence for the stretch goal
-
-Under the current format, a different lattice or label field does not give the factor of six needed for κ > 0.01.
-What remains open is the scope this census excludes. It is the same list the format theorem leaves uncovered:
-
-1. **Decoders without coordinate totals.** Totals whose reader and source sets avoid large non-orthogonal cliques could
-   escape the clique bound. #446 Theorem C's pairing-rank floor then still applies.
-2. **Non-B_K schedules**, which change (Sch) and (Dfc).
-3. **A different deficit identity (P)**, for example networks whose endpoint is not a two-bank exchange.
-
-A useful next target is a quantitative version of item 1: a lower bound on Σ_j rank B[R_j, A_j] over all
-decompositions N = Σ_j r_j a_jᵀ with the E8 pattern. If that bound is at least 0.476·v at h = 9 or 0.499·v at h = 8
-(the copy ratios at which the ceiling reaches 1/99, from the same `skel.profile`), then units with those windows cannot
-reach κ > 0.01 in this format.
+- **Bit side.** An Eisenstein decoder of cost ≤ 24 would give a bit-side ceiling above 1/99. A decoder of cost ≤ 28
+  would still beat the realised E8 bit unit. Whether such a decoder exists is #798's open question; the clique method
+  cannot settle it.
+- **Complex side (argued, not proved here).** Let the complex unit's window be the residue-field rank of the pairing B,
+  as for E8, where the F₂ window is 9 and the clique is 8. Then an Eisenstein complex unit has an F₄ window of at least
+  ω = 7, because a 7-clique forces a 7 × 7 identity block. At window 7 the certified ceiling is ≤ 8.07·10⁻³ even at
+  cost 22, and ≤ 5.98·10⁻³ at cost 24. Keeping the current complex unit instead caps the ceiling at 5.19·10⁻³.
+- **Outcome.** Since κ ≤ min(bit, complex), **the label-field change cannot reach κ > 0.01 in the B_K format.** This
+  holds even if #798's open interval resolves at its lower end. The change could still raise the ceiling several-fold
+  above today's frontier, if a cost ≤ 24 Eisenstein bit decoder exists and the Q(ω) frames carry over.
 
 ## Scope and verification
 
-- The Witting rays are generated in Z[ω]⁴. The script asserts Hermitian norm 3 on all 40 rays and |⟨u, w⟩|² ∈ {0, 3}.
-  Each ray is orthogonal to exactly 12 others, which matches the Witting configuration.
-- The Hurwitz lines are H(1,0), H(0,1) and H(1, y) for y ∈ {±1, ±i, ±j, ±k}, with the Hermitian form a c̄ + b d̄.
-- Cliques are exact (exhaustive search with `e8units.first_clique`). Ceilings are rational-interval roots from
-  `skel.X`, maximised over s ∈ {3, 5, …, 13}. The census does not evaluate the s ≥ 15 tail. The format-limits tail
-  bound shows that X decreases there for the realised units, but this census does not re-prove it for these units.
-- x_lb is a bound only for coordinate-total decoders in the stated orthogonal frame (lattice lines that are mutually
-  orthogonal). Other frames or decoders are not covered. The clique bound uses only B_TT = 1 and B_TS = 0 on
-  N_TS ≠ 0. It does not use the window rank, so it is weaker than the SAT floors of format-limits for E8.
-- It is not checked here whether the bit contract's rational address shears and the complex binary phase frames can be
-  carried over Q(ω) or H. The negative result does not need this: even if both transfer, the ceiling is too low.
+- **Rays.** The Witting rays are generated in Z[ω]⁴. The script asserts Hermitian norm 3 and |⟨u, w⟩|² ∈ {0, 3}, and
+  each ray is orthogonal to exactly 12 others. The Hurwitz lines are H(1,0), H(0,1) and H(1, y) for y ∈ {±1, ±i, ±j, ±k}.
+- **Exact computation.** Cliques are found by exhaustive search (`e8units.first_clique`). Ceilings are rational-interval
+  roots from the unchanged `skel.X`.
+- **Not checked here:**
+  - Stage counts s ≥ 15. Rows marked "none" or with a best s at 13 could change there.
+  - Decoders other than coordinate totals in the x_lb table.
+  - Whether the bit contract's rational shears and the complex phase frames can be realised over Q(ω).
+  - Helper, hosting, compiler and analytic obligations. The ceilings are upper bounds, and realised words sit 2.5–2.7×
+    below them (format-limits §A.5).
 
 ```sh
 python3 -B research/label-field-census/census.py --json /tmp/label-field-census.json
-# compare with research/label-field-census/RESULT.json (about 2 minutes; numpy only)
+# compare with research/label-field-census/RESULT.json (about 4 minutes; numpy only)
 ```
-
-Builds on DreamingOfClouds' #446 (Theorems B and C) and the format-limits packages and their contributors
-(`research/format-limits-corrected`). It reuses their `skel`, `cert` and `e8units` modules unchanged.

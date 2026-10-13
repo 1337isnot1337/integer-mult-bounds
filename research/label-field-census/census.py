@@ -217,7 +217,7 @@ def main():
         rows.append(row)
         print('%-62s v=%3d n=%d omega=%2d supp-cliques=%s x_lb=%-7s ceiling: %s' % (
             u['name'], u['v'], u['n'], u['omega'], u['support_cliques'], x_lb,
-            'no positive saving (D_s <= 0 for all s)' if c is None else 'X <= %.6g at s=%d' % (float(c['hi']), c['s'])))
+            'no positive saving for s <= 13' if c is None else 'X <= %.6g at s=%d' % (float(c['hi']), c['s'])))
     # calibration rows: the realised frontier units (x from the shipped decoders), same certified engine
     calib = {}
     for name, (h, x) in {'bit P111 frontier unit (h=8, x=63/111)': (8, Fr(63, 111)),
@@ -226,8 +226,23 @@ def main():
         c = ceiling(h, x)
         calib[name] = dict(s=c['s'], X_upper=str(c['hi']), X_decimal=float(c['hi']))
         print('%-62s ceiling: X <= %.6g at s=%d' % (name, float(c['hi']), c['s']))
+    # Certified ceilings for copy costs proved elsewhere (cost in field rank units over v ports; window n):
+    # Eisenstein E8: any decoder costs >= 22 (#798), coordinate totals >= 28 (this census), open up to 40 (#798);
+    # Gaussian E8: floor 40 on 60 lines (#738, #770); Hurwitz E8: exactly 10 on 10 lines (#703).
+    sweep = {}
+    for name, v, n, costs in (('Eisenstein E8 (40 lines, n=4)', 40, 4, range(22, 41)),
+                              ('Gaussian E8 (60 lines, n=4)', 60, 4, (40,)),
+                              ('Hurwitz E8 (10 lines, n=2)', 10, 2, (10,))):
+        for cost in costs:
+            c = ceiling(n, Fr(cost, v))
+            sweep['%s cost=%d' % (name, cost)] = None if c is None else dict(
+                s=c['s'], X_upper=str(c['hi']), X_decimal=float(c['hi']),
+                kappa_upper_decimal=float(c['hi'] / (1 + c['hi'])))
+            print('%-48s cost=%2d x=%-6s %s' % (name, cost, Fr(cost, v),
+                  'no positive saving for s <= 13' if c is None else 'X <= %.6g at s=%d' % (float(c['hi']), c['s'])))
     if args.json:
-        Path(args.json).write_text(json.dumps(dict(units=rows, calibration=calib), indent=1) + '\n')
+        Path(args.json).write_text(json.dumps(dict(units=rows, calibration=calib, copy_cost_sweep=sweep),
+                                              indent=1) + '\n')
 
 
 if __name__ == '__main__':
