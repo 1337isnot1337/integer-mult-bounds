@@ -1,0 +1,30 @@
+{
+  "status": "claimed locally; no pinned sprint coordination issue",
+  "track": "verification engineering",
+  "assignment_seed": 94,
+  "randomness": "Python secrets.randbelow(100), operating-system randomness",
+  "base_commit": "2921874911956718fcaaaf9396fe8267b3cfa9f0",
+  "started_utc": "2026-10-13T17:24:36Z",
+  "claimed_utc": "2026-10-13T17:28:07.922857Z",
+  "expected_finish_utc": "2026-10-13T17:56:36Z",
+  "verification_reserved_from_utc": "2026-10-13T17:48:36Z",
+  "candidates": [
+    {
+      "object": "historical block-label atanh interval evaluation",
+      "decision": "Not chosen: PR667 already supplies the same integer-Horner mechanism."
+    },
+    {
+      "object": "quadratic-code XOR row permutations in scripts/experiments/cube_core_family.py",
+      "decision": "Chosen: eliminate repeated mask construction while preserving every generated row and ordered elimination. Largest admitted t=6, default 4096-row cap; t=3,4,5 full historical certificate as regressions."
+    },
+    {
+      "object": "historical additive-label modular elimination",
+      "decision": "Not chosen: small workload and adjacent modular-rank tooling PR976; prefer a distinct kernel."
+    }
+  ],
+  "method": "Precompute immutable exact adjacent-block swap masks per replay; compare complete original and accelerated receipts and every generated row. Alternating same-input fresh-process benchmarks. No result caching or row omission.",
+  "expected_deliverable": "One opt-in source-pinned replay adapter, exact-equivalence argument, reproducible before/after benchmark and corruption controls; no kappa or new impossibility claim.",
+  "overlap_checked": "757 open PRs through #1060; exact xor_permute search empty; cube_core search only broad encoding PR946. PR752 quadratic-affine dot-product packing, PR898 Leech minors, PR667 logarithms and PR976 joint-frame rank concern different kernels.",
+  "negative_results": "Historical cube note excludes specified full-support quadratic cores t=3,4,5, not all supported matrices/subcodes. This does not rerun discovery or claim t=6 exclusion.",
+  "attribution": "Ross Richardson with substantial OpenAI Codex assistance; original cube audit by Douglas R. Colkitt. Apache-2.0."
+}
