@@ -9,3 +9,15 @@
 - Three initial candidates: PR236 source availability (already PR746), PR210 later parity/fusion head (already PR930), and PR279's twelve-path target-prefix increment. A targeted overlap search found PR828 covering PR279 exactly, before any work was claimed. One pivot to the unmatched changed-head records: [116,118,123,225][96 mod 4] = 116.
 - Overlap: PR116/118/117 are producer lineage, not independent receipt reconciliation; no PR116-specific consolidation found in the open PR queue. Earlier round-eight pr116-delta.json is a historical summary to corroborate, not fresh source identity evidence. Prior negative results are not reopened; no circuit search is proposed.
 - No pinned coordination issue exists (GraphQL checked immediately before this claim); local claim used. No workers delegated.
+
+## Result — 2026-10-13 16:24 UTC
+
+Submitted [PR1007](https://github.com/CrocSwap/integer-mult-bounds/pull/1007).
+Complete Git-tree reconciliation finds only the three evidence/status paths;
+41 dependency objects are unchanged. All 42 historical check records match,
+and the three focused jobs' actual synthetic merge has the historical source
+tree. Twenty-eight local tests, cross-version offline replay, regeneration and
+the complete 642-entry ledger checks pass; see `VALIDATION.md`. Mathematical
+acceptance and the unrecovered author local-run archive remain separate.
+Selected frontier and upstream are unchanged. No PR116 overlap appeared in the
+final queue; the separately claimed PR279 reconciliation merged during this run.
