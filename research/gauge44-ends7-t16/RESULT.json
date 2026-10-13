@@ -1,30 +1,30 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "1672691689152441/1000000000000000000",
-  "kappa_decimal": "0.001672691689152441",
-  "conservative_kappa_decimal": "0.001672691686300935",
-  "complex_lower": "335098854900124282333/200000000000000000000000",
+  "kappa": "1672733678608451/1000000000000000000",
+  "kappa_decimal": "0.001672733678608451",
+  "conservative_kappa_decimal": "0.001672733675756873",
+  "complex_lower": "335107280956493118461/200000000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
     "1": 348654,
-    "2": 62211,
+    "2": 62220,
     "3": 61371,
     "4": 20448,
     "5": 11808,
     "6": 1,
     "7": 49,
     "8": 1153,
-    "11": 18,
+    "20": 9,
     "48": 4867
   },
   "idle_remainder_profile": {
     "1": 2190,
-    "2": 3,
+    "2": 12,
     "3": 315,
     "6": 1,
     "7": 49,
     "8": 1,
-    "11": 18,
+    "20": 9,
     "48": 4867
   },
   "complete_invocations": 144,
@@ -33,7 +33,7 @@
   "charged_prefix_bits": 512,
   "physical_row_coefficient": 16469,
   "retained_row_coefficient": 20161,
-  "actual_73_axis_charts": 9857,
+  "actual_73_axis_charts": 9847,
   "controls": {
     "admission": 69,
     "bit_supplier": 12,
@@ -41,73 +41,73 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "8f6658e867d073c608d32cc212d342d086b95dbb81bcd34f3ee3187cb1955fb8",
+  "spec_sha256": "db3fdbcf705b1ca6e9e414aa118b278f9948727fc6aba0da889d4ff48f6c4011",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.078,
+      "seconds": 1.418,
       "exit_code": 0,
-      "log_sha256": "3aea2a4b68e7aaeadd9ffef649be0d25e2dff1535d9a61bffeaf6d92e55ba6a8"
+      "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
     },
     {
       "name": "bind8",
-      "seconds": 0.297,
+      "seconds": 0.346,
       "exit_code": 0,
-      "log_sha256": "78a081673d6b4fde10a86e6f767d53648b868d1f0cac2441d12951434ad7341b"
+      "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "lift16",
-      "seconds": 2.281,
+      "seconds": 2.828,
       "exit_code": 0,
-      "log_sha256": "a57bc25d53d5b618efda030a1e55870a6938238b320aa135f5c0586e9f25a8f8"
+      "log_sha256": "42a47385e12619a297a9244edfda714d4ab8d379b8c5419a570a7bacaee61d72"
     },
     {
       "name": "bind",
-      "seconds": 0.344,
+      "seconds": 0.359,
       "exit_code": 0,
-      "log_sha256": "78a081673d6b4fde10a86e6f767d53648b868d1f0cac2441d12951434ad7341b"
+      "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 4.438,
+      "seconds": 5.859,
       "exit_code": 0,
-      "log_sha256": "c9776925c076634e57210df15dd23a2ea26d256c228640d08379704844c460f3"
+      "log_sha256": "89ddb203e8c9e89aed758d21a87f1b7779e8f4b20a7d7895e474253123b90dc1"
     },
     {
       "name": "audit",
-      "seconds": 16.86,
+      "seconds": 21.956,
       "exit_code": 0,
-      "log_sha256": "4a20c7816e11e0b586441053c1c45fa90874b676defc2d2554d844ad591d09ef"
+      "log_sha256": "364a78742bb3684f20c747e77fd6570a9b9fa85bca88bd2219612612889da44a"
     },
     {
       "name": "invoice",
-      "seconds": 0.907,
+      "seconds": 1.302,
       "exit_code": 0,
-      "log_sha256": "caa1229b78eca961462d35e8ee458be536111111a985294a153e4dd74b9171a8"
+      "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
     },
     {
       "name": "assembly",
-      "seconds": 0.312,
+      "seconds": 0.342,
       "exit_code": 0,
-      "log_sha256": "c1349bc0a0e9286889af0e8425d599704b75ca506efd513357bb8fe2f662e916"
+      "log_sha256": "3e9900e2df7dd6664dd434250cfbc74a84920f3c73016cf19613e603adfd6019"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.391,
+      "seconds": 0.438,
       "exit_code": 0,
-      "log_sha256": "34527ddfe1e53bec71dc5759eb9a26417be6d4e93e76cbf80575d9bafebd876b"
+      "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.562,
+      "seconds": 0.662,
       "exit_code": 0,
-      "log_sha256": "c648542cd6dddbb154af7d02a41aaed1025603d9a4ab54f7c249d2b683e22249"
+      "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent-t16",
-      "seconds": 0.688,
+      "seconds": 1.172,
       "exit_code": 0,
-      "log_sha256": "d2c13b333d463a5c2de42078e9c47a89209075e1d1beac24cf3fc1f573f18c05"
+      "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
     }
   ],
   "scope": "Conditional native exact-complex witness after complete conservative admission, moment and outer checks; PR559 exact-cover recurrence correction only, bit bad-residue surcharge and H1-H5 retained. The new source-branch gauge and retired-basis completion, the gauge44-barch U8 local word and all 72 cold helper ends, and explicit all144 whole-owner dispatch with a two-copy remainder trade are composed with the cited unchanged merged PR589 bit supplier (PR555 punctured R439 word; derived bit deficit T(2Kv-L*cst)), replacing the PR543 supplier of PR635; This is a new T16 composition of the accepted PR799 and PR589 suppliers. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape and analytic transfer remain assumptions. No unconditional theorem or full Lean certification."
