@@ -1,0 +1,103 @@
+{
+  "status": "active",
+  "assignment_seed": 48,
+  "track": "Structural decoder research; sustained higher-rank and supplier-interface continuation",
+  "base_commit": "7d526020fc368ce4157cd436995c2f4fcf683318",
+  "current_main_snapshot": "91a2094f2e022930069e8cfdc810a3ea1b81cd09",
+  "selected_kappa_at_start": "1661634653669567/1000000000000000000",
+  "selected_review": "docs/research/community-frontier799-review.md",
+  "started_at": "2026-10-13T22:16:53+09:00",
+  "minimum_duration_hours": 18,
+  "earliest_completion_at": "2026-10-14T16:16:53+09:00",
+  "research_phase_minimum_hours": 13.5,
+  "verification_phase_minimum_hours": 4.5,
+  "candidate_tasks": [
+    "Uniform fourth and higher generalized weights, starting with the q>=3 d4=8q+2 hypothesis and its unresolved q=3 boundary.",
+    "Exact geometry of exceptional q=2 subcodes and prescribed multi-target deletion budgets.",
+    "Physical realization and complete recursive pricing of simultaneous proper-star decoders under the selected supplier interfaces."
+  ],
+  "objective": "Develop a general, physically accountable multi-target decoder theory: higher-rank theorems and exact certificates, plus either a verified complete supplier improvement or a rigorous obstruction for a clearly defined enlarged decoder class.",
+  "success_standard": "An early theorem is a milestone, not campaign completion. Continue substantive unresolved work for the minimum period and independently verify the final claims. Do not manufacture a kappa improvement, idle to consume time, or label unresolved central obligations complete.",
+  "publication": "https://github.com/CrocSwap/integer-mult-bounds/pull/669",
+  "constraints": [
+    "Preserve upstream and selected frontier.",
+    "Only update existing PR669; do not merge.",
+    "Record exact sources and predecessor credit.",
+    "No finite replay promoted to a uniform proof.",
+    "No unpriced helper/source/frame/copy/restoration/recursive work."
+  ],
+  "first_assignments": {
+    "geometry": "Fourth-weight theorem and higher-rank structure, initially scratch only.",
+    "supplier": "Actual physical supplier interface and optimistic complete invoice, initially scratch only.",
+    "lead": "Refresh overlap, coordinate exact experiments, maintain checkpoints and independently review all proposed results."
+  },
+  "attribution": "Sam Sung with substantial OpenAI Codex assistance, including independent AI-assisted review.",
+  "checkpoint": {
+    "recorded_at": "2026-10-13T23:13:47+09:00",
+    "phase": "research and construction; the reserved final verification phase has not begun",
+    "campaign_status": "active; minimum duration and remaining research obligations are not complete",
+    "reviewed_milestones": [
+      {
+        "claim": "Uniform fourth generalized weight d4=8q+2 and complete four-star optimizer classification for k>=2,q>=3.",
+        "proof": "FOURTH-WEIGHT.md",
+        "review": "Independent AI-assisted review of theorem, q>=4 equality, q=3 equality, and final text; lead reviewed boundary argument."
+      },
+      {
+        "claim": "Exact ordinary-cube shortening and all q2 rank3/4/5 optimizers; prescribed target criterion for eleven deletions.",
+        "proof": "CUBE-OPTIMIZERS.md",
+        "review": "Separate AI-assisted proof review, finite implementation independent of reduction, and exact-text drift review."
+      },
+      {
+        "claim": "Integral separating-pairing weighted COPY obstruction, including chronological copy-to-zero innovations and even paired-port corollary.",
+        "proof": "COPY-OBSTRUCTION.md",
+        "review": "Lead independently checked rank decomposition, integral specialization, source-column invariant, and template scope; separate checker review and replay."
+      }
+    ],
+    "verification": [
+      {
+        "script": "shortening_verify.py",
+        "script_sha256": "99f969307eb7c120a32aff6503c8787c768d3e7cc79551427ecc23ea421c22e1",
+        "receipt": "SHORTENING-RESULTS.json",
+        "receipt_sha256": "b4eb4a08ab3ac033eb460756fa6f40f267725a2197a19b20cf4a00f279a88829",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/shortening_verify.py --self-test",
+        "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      },
+      {
+        "script": "optimizer_verify.py",
+        "script_sha256": "2ab6fe919c4af03b0f13941685604d5f51c5ef8f1c9857f8a1c6fdf1e82ecd5a",
+        "receipt": "OPTIMIZER-RESULTS.json",
+        "receipt_sha256": "8b116c4e79d51ea38e239e66396eba083fdf420bddc2b710e8330dcf5fa8921d",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/optimizer_verify.py --self-test",
+        "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      },
+      {
+        "script": "block_verify.py",
+        "script_sha256": "f6663116d672d7bdc78fc4ff4a3ab84818337c3c9639959ed16261f36e03d66b",
+        "receipt": "BLOCK-RESULTS.json",
+        "receipt_sha256": "9fbca06918ff2c41ce25c10ff09dcc4f28b8d276723cc106d80b650305c6f603",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/block_verify.py --self-test",
+        "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      },
+      {
+        "script": "copy_obstruction_verify.py",
+        "script_sha256": "f23ae7783bbbef4171da3c153393af3f4d95b0493a738c021893d21d549eb366",
+        "receipt": "COPY-OBSTRUCTION-RESULTS.json",
+        "receipt_sha256": "b166a48db0cfbb7fe8b9929a248e73018f7d535f0b71757ae4553255d62b2ce1",
+        "command": "python3 -I -O -B research/asymmetric-hypercube-decoder/copy_obstruction_verify.py --self-test",
+        "status": "PASS including isolated optimized relocation, corruption rejection and failure output preservation"
+      }
+    ],
+    "next_unresolved_work": [
+      "Uniform fifth and higher generalized weights: q3 support29 is the active boundary; new weight14 and common-original-core lemmas are under development.",
+      "Exact prescribed-target budgets outside the optimum criteria: graph triples/quads have new scratch results needing proof review and integration.",
+      "Common-original-core shortening with unrestricted signs: determine a uniform residual-code filtration rather than assume signed-face shortening.",
+      "Odd-size paired-port supplier: price the known scalar identities under shared monotone source routes and actual odd-stage moments; do not duplicate older unshared screens.",
+      "Continue the full minimum research period, then perform the reserved independent verification, current-source/overlap refresh and publication through PR669."
+    ],
+    "publication_status": "New milestone files are local; published PR head remains 7d526020fc368ce4157cd436995c2f4fcf683318 at this checkpoint.",
+    "environment": {
+      "python": "3.14.5",
+      "arithmetic": "Python integers, exact F2 elimination, and Fraction rational elimination; standard library only"
+    }
+  }
+}

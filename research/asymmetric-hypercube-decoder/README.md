@@ -2,7 +2,9 @@
 
 **Uniform structural theorems with exact replay; no new κ.** The higher-target
 extension determines a complete hierarchy at `k=2`, the third generalized
-weight for every `k>=2,q=p-k>=2`, and a five-weight prefix at `q=2`.
+weight for every `k>=2,q=p-k>=2`, the fourth weight and all its optimizers
+for `q>=3`, and a five-weight prefix at `q=2` with all rank-three through
+rank-five optimizers classified.
 A generalized weight `d_r` measures the smallest support of r independent
 observation rows. The exact deletion threshold for **some selectable r-target
 set** is `d_r-r`; arbitrary prescribed target sets are a separate problem.
@@ -14,6 +16,9 @@ set** is `d_r-r`; arbitrary prescribed target sets are a separate problem.
 | `d_3=6q+3`; every optimum is a triangle of minimum stars | `k>=2,q>=3` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `d_3=15` for `k=2,3`; `d_3=14` for `k>=4` | `q=2` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
 | `(d_1,...,d_5)=(6,11,14,15,16)` | `q=2,k>=4` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
+| `d_4=8q+2`; every optimum is a four-star clique | `k>=2,q>=3` | [FOURTH-WEIGHT.md](FOURTH-WEIGHT.md) |
+| Every optimal rank-three, four and five subcode is an affine four-flat code; exact prescribed-target criterion | `q=2,k>=4` | [CUBE-OPTIMIZERS.md](CUBE-OPTIMIZERS.md) |
+| Exact ordinary-cube shortening to a Reed–Muller code, with the empty-star boundary distinguished | `k>=2,q>=0` | [CUBE-OPTIMIZERS.md](CUBE-OPTIMIZERS.md) |
 
 The boundary is a real change in optimizer structure: every span of three
 minimum stars needs at least fifteen ports, but a localized affine cube has
@@ -27,12 +32,62 @@ prescribed triple attains `6q` deletions exactly when its three columns on
 some triangle have rank three. The larger budgets required by triples
 failing that criterion are not classified.
 
+For `q=2,k>=4`, prescribed sets of three, four or five targets attain eleven
+deletions exactly when they use the same original pairs and their sign vectors
+are affinely independent. For `q>=3`, prescribed quadruples attain `8q-2`
+deletions exactly when their columns are independent on an optimal four-star
+clique. These statements concern the specified proper-star observation model.
+
+[COPY-OBSTRUCTION.md](COPY-OBSTRUCTION.md) addresses a much larger physical
+class. An integral separating pairing with odd diagonal forces total copied
+frame rank `C>=v`, even with arbitrary recoded linear observations, individually
+readable corrections and chronological copy-to-zero reuse. Every even-size
+paired-port geometry with intersection-one readability satisfies that condition.
+Under the inherited odd-stage rank ledger, `C>=v` prevents a positive saving.
+The actual selected E8 supplier has even diagonal and is outside this obstruction.
+
 The general incidence-code/cut connection is credited to Martínez-Bernal,
 Valencia-Bucio, and Villarreal in the graph note. The uniform minimum distance
 is inherited from Luke Mansoor's #732. Earlier one- and two-target results,
 concurrent source credits, and the original obstruction remain below.
 
-## Reproduce the higher-target results
+## Reproduce the current campaign milestone
+
+From the repository root, Python 3.10+ with its standard library:
+
+```sh
+for check in shortening optimizer block copy_obstruction; do
+  python3 -I -O -B "research/asymmetric-hypercube-decoder/${check}_verify.py" --self-test || exit
+done
+```
+
+Each prints `PASS` followed by its filename after checking the saved receipt,
+isolated optimized relocation, corruption rejection, and output preservation.
+
+- [shortening_verify.py](shortening_verify.py): 42 full-generator shortenings,
+  comparing both inclusions with independently generated Reed–Muller spaces and
+  checking full ranks against the pinned PR #772 formula.
+- [optimizer_verify.py](optimizer_verify.py): all 187 rank-three through
+  rank-five subspaces of `RM(1,4)`, all 6,748 target sets of those sizes, and
+  54,208 single-deletion restoration controls in that full cube code.
+- [block_verify.py](block_verify.py): six complementary-block/four-cycle
+  models at `q=2,k=3,4,5`; 4,196,424 complete codewords in the four models
+  of dimension at most 22; exact syndrome matching over 1,296,438,900 logical
+  complementary 4+4 support candidates; 139,776 alternating 3/4 cycle support
+  candidates with separately fixed core signs in each block. Its 720
+  support-fourteen subcode case instances overlap between models and are not
+  a global distinct-subcode count. Nine adversarial controls reject false
+  shortening and parity-only models.
+- [copy_obstruction_verify.py](copy_obstruction_verify.py): eight exact
+  binary/rational matrix checks at `k=2,p=3,...,6` and `k=4,p=4,...,7`, plus
+  hypothesis-failure controls and a sequential copy fragment requiring the
+  innovation argument. This is not a full physical supplier replay.
+
+The campaign remains active. [CAMPAIGN-18H.json](CAMPAIGN-18H.json) records
+its scope and minimum research period. These completed mathematical milestones
+do not settle the remaining higher-rank and odd-size physical questions.
+
+## Reproduce the earlier higher-target results
 
 From the repository root, Python 3.10+ with its standard library:
 
