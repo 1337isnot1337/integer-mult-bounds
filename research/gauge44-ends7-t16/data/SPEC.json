@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "plan_sha256": "9ca2085d626d4ad64dbe61700d3353c83418557d88550e83999429b0d6a40dc8",
-    "owners_sha256": "0389abf9a53716481aced402f584b354cf6e5555fbeb6e7e613ed776c863bac2"
+    "owners_sha256": "60581832d5b509d2c5d4a3dc35bed816748ad73fdf16360e1c5140278d94db92",
+    "plan_sha256": "bf2e3b2852594121612892883d44dd860c2293493b7a09bd923200b2e727bc7b"
   },
   "dispatch": [
     [
@@ -1930,19 +1930,20 @@
     }
   },
   "expected": {
+    "gain_baseline_kappa": "0.001636241501576388",
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
-    "actual_73column_sigmas": 9847,
-    "cross_replica_helper_roles": 58199,
-    "idle_remainders": 7444,
+    "actual_73column_sigmas": 9849,
+    "cross_replica_helper_roles": 58200,
+    "idle_remainders": 7443,
     "idle_remainder_profile": {
       "1": 2190,
       "2": 12,
-      "3": 315,
+      "3": 313,
       "4": 1,
       "6": 1,
-      "7": 49,
-      "8": 2,
+      "7": 51,
+      "8": 1,
       "12": 1,
       "16": 1,
       "28": 5,
@@ -1951,12 +1952,12 @@
     "global_profile": {
       "1": 348654,
       "2": 62220,
-      "3": 61371,
+      "3": 61369,
       "4": 20449,
       "5": 11808,
       "6": 1,
-      "7": 49,
-      "8": 1154,
+      "7": 51,
+      "8": 1153,
       "12": 1,
       "16": 1,
       "28": 5,
@@ -1964,17 +1965,16 @@
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001672746565457453",
-    "kappa_decimal": "0.001672746568309053",
-    "complex_lower": "104721833607109179543/62500000000000000000000",
-    "conservative_complex_lower": "167554933485258298329/100000000000000000000000",
-    "kappa": "1672746568309053/1000000000000000000",
+    "conservative_kappa_decimal": "0.001672748763912664",
+    "kappa_decimal": "0.001672748766764262",
+    "complex_lower": "1675551543542373369/1000000000000000000000",
+    "conservative_complex_lower": "837775770340605647169/500000000000000000000000",
+    "kappa": "836374383382131/500000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
     },
-    "mutations_rejected": 15,
-    "gain_baseline_kappa": "0.001636241501576388"
+    "mutations_rejected": 15
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",
