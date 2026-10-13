@@ -1,6 +1,6 @@
 # Eight-slot k8 word with rank-seven helper ends and T16 packing
 
-Conditional κ = **0.001673005344598825**, conservative κ = **0.00167300534174675600**. The upstream conditional assumptions and PR589 bit supplier remain unchanged.
+Conditional κ = **0.001673006105142741**, conservative κ = **0.00167300610229067600**. The upstream conditional assumptions and PR589 bit supplier remain unchanged.
 
 This package adds the eighth triangle-hybrid slot **X54/E589** after the rank-seven ends of helpers574/575, then binds the strongest checked ends7-X54-E7G4d4 T16 owner map. The final local word is NOT the seven-slot baseline and NOT the ends7-only intermediate word.
 
@@ -10,7 +10,7 @@ This package adds the eighth triangle-hybrid slot **X54/E589** after the rank-se
 - Canonical content SHA256: `4577d75e58f128340ce49dbdeeb6f034ed7e77dfbea973614c85676654864838`.
 - R480, residual width3728; widths {4:56,5:32,7:32,8:120,9:240}.
 - Local paid profile {1:2406,2:432,3:426,4:138,5:84,8:8}.
-- Frozen T16 owners SHA256: `df373980c60cee79cd8267048b427bca72716930e33177b22c83d5f06a9062a3`.
+- Frozen T16 owners SHA256: `d275e6c0ef501fdc9cb6fba883d65666d10391ad35ed5e66b2f4d7689ec75d4b`.
 - Frozen T16 PLAN SHA256: `d64d0314634805d9a919a0251935a91f84146281cbc9a97d8de6a2b62d3cabe7`.
 - Frozen T8 κ =0.001671160051689084; its data is in `data/T8` and `data/SPEC-T8.json`.
 
