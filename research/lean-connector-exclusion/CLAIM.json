@@ -42,5 +42,16 @@
     "No formal proof of the full query-model 74 bound",
     "No selected supplier changes",
     "No full multiplication theorem"
-  ]
+  ],
+  "completed_result": {
+    "updated_at": "2026-10-13T17:48:55.467502+00:00",
+    "status": "Completed scoped formalization",
+    "result": "Lean kernel checks all 945 five-source pairing codes, the matching-grammar correspondence, and four-source/near-universal/twelve-toggle witnesses; 11 audited statements and 8 negative controls pass. No new kappa.",
+    "result_link": "https://github.com/bbMisk/integer-mult-bounds/tree/research/lean-connector-exclusion-seed76/research/lean-connector-exclusion",
+    "reproduce": "python3 -I -B research/lean-connector-exclusion/verify.py",
+    "expected": "PASS_LEAN_CONNECTOR_EXCLUSION pairings=945 theorems=11 controls=8",
+    "overlap_refresh": "742 open PRs inspected through #1075; subject PR943 still at cf360b4b09b7d0419decdd6ac85421fefed55bdd. No duplicate connector formalization identified; no pinned sprint issue.",
+    "submission_main": "abdc6a7002abdbcd9e21bfc5e1a795784deacfdf",
+    "verification": "Fresh kernel build, compiled dependency audit, all rejection controls, byte-identical normal/relocated-optimized receipts, selected-record gate and five related tests pass."
+  }
 }
