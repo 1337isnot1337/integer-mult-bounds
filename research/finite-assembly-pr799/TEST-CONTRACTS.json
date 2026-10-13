@@ -1,0 +1,13 @@
+{
+  "baseline": "full current same-run assembly plus upstream original binding checker exact receipt",
+  "hash_tamper_contract": "Altered upstream/core/sibling manifested bytes must reject before scientific imports.",
+  "physical_replay": false,
+  "rejection_controls": [
+    "ceiling_endpoint",
+    "next_grid",
+    "zero_eta",
+    "zero_beta",
+    "unit_beta"
+  ],
+  "target": "whole EXPECTED assembly,seedintervals,target,baseline,gain,levels"
+}
