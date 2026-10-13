@@ -1,10 +1,10 @@
-# Rank-seven helper ends + sixteen replicas with Child 2, Child 15 Port 94 & Port 98 optimal polarization: conditional κ = 0.001672755352904798
+# Rank-seven helper ends + sixteen replicas with Child 2, Child 15 Port 94 & Port 98 polarization and Child 15 CP-SAT full repack: conditional κ = 0.001672771174489824
 
-- **κ = 0.001672755352904798** (conservative 0.001672755350053198), exact rational 836377676452399 / 500000000000000000, T16.
-  This strictly improves upon the previous record (κ = 0.001672750137367829) by +5.215536969e-9 and the PR #1104 baseline
-  (κ = 0.001672691689152441) by +6.3663752763e-8 (+0.00381%).
+- **κ = 0.001672771174489824** (conservative 0.001672771171638199), exact rational 52274099202807 / 31250000000000000 (= 1672771174489824 / 10^18), T16.
+  This strictly improves upon the previous record (κ = 0.001672750137367829) by +1.5821585026e-8 (+0.00095%) and the PR #1104 baseline
+  (κ = 0.001672691689152441) by +7.9485337383e-8 (+0.00475%).
 - **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  47639285e15d0cf5deda860478ad8eb9ad372bac977c0b16c1fee5fa158c606e.
+  d88d123af93d5135b213c84da921f17eb66e49ef0c157a5c6b36f64fb6f3fb84.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
 - **Mechanism (credit: #1030, AlexS / Scale, 
@@ -17,7 +17,7 @@ esearch/complex-rank7-end-pair).** #1030 lets U8's helpers 588/589
   9-pair whole-helper exchange across child 15 ports 94..111, followed by a CP-SAT optimal 27-role concentration
   partition across ports 94..101, 108 (data/OWNERS.json.gz, frozen), a Child 2 Port 90 remainder-8 polarization to remainder 0,
   a Child 15 Port 94 remainder-4 polarization to remainder 0 (polarize_child15_p94.py),
-  and a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
+  a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), and a global CP-SAT re-packing of 81 roles across 21 non-full ports on Child 15 eliminating intermediate remainders 6, 12, 16 (repack_child15_special.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
 ## Verification (two commands)
 
 ```sh

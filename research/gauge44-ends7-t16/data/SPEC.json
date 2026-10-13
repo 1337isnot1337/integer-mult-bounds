@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "47639285e15d0cf5deda860478ad8eb9ad372bac977c0b16c1fee5fa158c606e",
-    "plan_sha256": "65a1bc16faf3b6e15c4ce954f25313548953e4dc94c8c2e941a66d36c77546ad"
+    "owners_sha256": "d88d123af93d5135b213c84da921f17eb66e49ef0c157a5c6b36f64fb6f3fb84",
+    "plan_sha256": "2cee6f9e9ef087170823008b053d615e6b0c01099d788a79b8229966b127214d"
   },
   "dispatch": [
     [
@@ -1940,42 +1940,38 @@
       "gauge44": 144
     },
     "mutations_rejected": 15,
-    "actual_73column_sigmas": 9850,
-    "cross_replica_helper_roles": 58200,
-    "idle_remainders": 7442,
+    "actual_73column_sigmas": 9859,
+    "cross_replica_helper_roles": 58201,
+    "idle_remainders": 7441,
     "idle_remainder_profile": {
-      "1": 2190,
-      "2": 12,
-      "3": 313,
-      "6": 1,
+      "1": 2192,
+      "2": 9,
+      "3": 315,
       "7": 51,
       "8": 1,
-      "12": 1,
-      "16": 1,
-      "28": 4,
-      "32": 1,
+      "24": 1,
+      "28": 2,
+      "32": 3,
       "48": 4867
     },
     "global_profile": {
-      "1": 348654,
-      "2": 62220,
-      "3": 61369,
+      "1": 348656,
+      "2": 62217,
+      "3": 61371,
       "4": 20448,
       "5": 11808,
-      "6": 1,
       "7": 51,
       "8": 1153,
-      "12": 1,
-      "16": 1,
-      "28": 4,
-      "32": 1,
+      "24": 1,
+      "28": 2,
+      "32": 3,
       "48": 4867
     },
-    "conservative_kappa_decimal": "0.001672755350053194",
-    "kappa_decimal": "0.001672755352904798",
-    "complex_lower": "418889537943069717629/250000000000000000000000",
-    "conservative_complex_lower": "837779074455555536867/500000000000000000000000",
-    "kappa": "836377676452399/500000000000000000"
+    "conservative_kappa_decimal": "0.001672771171638199",
+    "kappa_decimal": "0.001672771174489824",
+    "complex_lower": "418893506605486868327/250000000000000000000000",
+    "conservative_complex_lower": "1675574023560758087827/1000000000000000000000000",
+    "kappa": "52274099202807/31250000000000000"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",
