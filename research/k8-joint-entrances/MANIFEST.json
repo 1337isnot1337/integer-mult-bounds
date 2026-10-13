@@ -6,7 +6,7 @@
   "PARENT-PINS.json": "ae43954e4cee8951e9bff82efd728fe18e12f44e62ccc4d0177e31108ec6c5f0",
   "PLAN.json.gz": "e963ed64b9970858902b9388bcf1c5f9cc704859ad021ce8bda465a4dcef8310",
   "PROOF.md": "7b856d7f73d506b7ee2d6f5f4e87a63ce984596b869d05d39172aff6ab460ad0",
-  "README.md": "0add0f225fc1c677f2475c6f0d21aaf5cce7b373734d180b9292de4ee2e6ebec",
+  "README.md": "94486079abec27e661d5ecad596c8cdc28875b793abae67ed38d99e7065d6427",
   "RECIPE.json": "2257aa6b16f2650a4213c5a14b44dfff967954d376e72ca04e089069aeb11aa1",
   "SEARCH.json": "1ced31dda0990c49f79ebefcd8b4f44c59c9a60879eb3218aaa3e42e43588c57",
   "SOURCE-PINS.json": "e222854342bd87dd68488b8a90d83764029852e8e99a168c677a3206393ccb94",
@@ -65,10 +65,14 @@
   "evidence/PREPARATION.json": "4a6f3ee54f0296e2dcfef6349c5d1c7a748bd82a28a9df21d063ee1d1bd52a45",
   "evidence/REPLAY-LOGS.json.gz": "24ba73b37f9cf8a9ff99479ad8b64d0a11298aaf892399769f5790a881a0c1b2",
   "evidence/REPLAY.json": "247ecc5482230bb60433b595a822431d3400de41f6a34a7d3d29e940ffdc64ef",
+  "evidence/REPOSITORY-VERIFICATION.json": "737a9cbee16227c41987974338784f1ced02ab652267f084654a4a7a389e0c51",
   "evidence/RESULT.json": "ca2230332afe446ee95d7803167ff9f373d1041b182e4de9f4f02e31fd3177f0",
   "evidence/STAGES.json": "b9b423babdd1d44abf014af323770f810ffdfee62760aa147bb77a4987f63979",
   "evidence/UPSTREAM-COMPATIBILITY.json": "849a7a5955f230c97c1538f7d81a7b18da53f3ee82997137d18f7fc8cc869333",
   "evidence/WRAPPER-CHECKS.json": "f2a005b54bea64d66633d8a82d0454348172da3b88361081a72126bf1d51744d",
+  "evidence/repository-gcc16-continuation.log.gz": "c5c39cf7429e4888cc629987283018f801dae87004aa11e49a2238dd953bdd29",
+  "evidence/repository-python311.log.gz": "080f7502976685ab531b3721056de3f77ff6354a52e3b60758557c30bc76bad8",
+  "evidence/repository-system-python.log.gz": "6e167fbdda1eb0c60275f9d4423329996cd8b6a4c2037666f686b94a0a29a68a",
   "independent/all_t_bound.py": "a536866350b343ee0ece96f97021ea38d9164c6d6d557e54cf060935b9e129af",
   "verify.py": "4359c9c828714887c026aefc42ab93ee89d8aa8b1553e4d66b90c11ddc677647"
 }
