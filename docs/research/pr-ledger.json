@@ -2897,9 +2897,12 @@
       "disposition": "changed_since_review",
       "integration_location": [],
       "github_state": "OPEN",
-      "unresolved_question": "Review the changes between the recorded historical head(s) and the current head; old evidence does not approve those changes.",
+      "unresolved_question": "PR116 source/evidence reconciliation proves that the later head changes only README status, its source hash and an added author receipt; focused CI checkout has the historical source tree. Earlier evidence remains triage, not mathematical acceptance. Review the mechanism and disposition separately; the author local full-run archive was not recovered.",
       "closure": null,
-      "current_head_observed_in": "research/pr-reconciliation-20261012/ending-snapshot.json"
+      "current_head_observed_in": "research/pr-reconciliation-20261012/ending-snapshot.json",
+      "reconciliation_evidence": [
+        "research/pr116-evidence-reconciliation/RESULT.json"
+      ]
     },
     {
       "number": 117,

@@ -115,7 +115,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#111](https://github.com/CrocSwap/integer-mult-bounds/pull/111) | rohanarun | partially reviewed | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
 | [#113](https://github.com/CrocSwap/integer-mult-bounds/pull/113) | rohanarun | partially reviewed | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
 | [#114](https://github.com/CrocSwap/integer-mult-bounds/pull/114) | eumemic | partially reviewed | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
-| [#116](https://github.com/CrocSwap/integer-mult-bounds/pull/116) | rohanarun | changed since review | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
+| [#116](https://github.com/CrocSwap/integer-mult-bounds/pull/116) | rohanarun | changed since review | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) · [source/CI reconciliation](../../research/pr116-evidence-reconciliation/README.md); mechanism review remains |
 | [#117](https://github.com/CrocSwap/integer-mult-bounds/pull/117) | eumemic | partially reviewed | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
 | [#118](https://github.com/CrocSwap/integer-mult-bounds/pull/118) | rohanarun | changed since review | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
 | [#121](https://github.com/CrocSwap/integer-mult-bounds/pull/121) | Th0rgal | partially reviewed | [record 1](../../research/overnight-pr-review-20261009/dispositions.json) |
