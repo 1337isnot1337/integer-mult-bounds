@@ -565,3 +565,14 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#624](https://github.com/CrocSwap/integer-mult-bounds/pull/624) | jeremydiviney | incorporated | [record 1](../../research/community-k492-audit/DISPOSITIONS.json) |
 | [#625](https://github.com/CrocSwap/integer-mult-bounds/pull/625) | jeremykothe2 | incorporated | [record 1](../../research/community-k492-audit/DISPOSITIONS.json) |
 | [#626](https://github.com/CrocSwap/integer-mult-bounds/pull/626) | chafreaky | incorporated | [record 1](../../research/community-k492-audit/DISPOSITIONS.json) |
+
+## Exact-head independent replay round (2026-10-13)
+
+These later open PRs are outside the frozen inventory above. Review evidence
+records publication separately from PR state and does not change the selected
+result. The audit package records finite verification limits.
+
+| PR | Author | Disposition | Exact reviewed head and base; evidence |
+|---|---|---|---|
+| [#685](https://github.com/CrocSwap/integer-mult-bounds/pull/685) | chafreaky | finite replay confirmed | Head `5fc2a0c4e10558f09f03a8e42559dcf8e381e57e`, source base `17ce0c79b7b51c2634b439ea5a2b754f09909693`; [κ 0.001660339298410333 reproduced exactly](../../research/pr-record699-685-audit/README.md). |
+| [#699](https://github.com/CrocSwap/integer-mult-bounds/pull/699) | jeremykothe2 | finite replay confirmed | Head `03e8d7ca494a083e5053cd6b1228f66b98414479` (later `f042731` changes only README/MANIFEST), base `66849e1475c930fd7732b1a0067ffee7e1e95f60`; [κ 0.001660666354374641 reproduced exactly](../../research/pr-record699-685-audit/README.md). |

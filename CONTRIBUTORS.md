@@ -11,6 +11,21 @@ See the [review](docs/research/community-k492-review.md) for scope and provenanc
 | [Ali Romman](https://github.com/aliromman) | #621 uniform prime-power cyclic inverse theorem and two exact arithmetic engines; no paid multiplication bound claimed. |
 | [Joel Pulikkan / GamingPuzzled](https://github.com/GamingPuzzled) | #620 owner-headroom lead credited by subsequent allocations; E8 decoder/extension-ring research archived, broader solver claims partially reviewed. |
 
+## Independent record-PR audit (2026-10-13)
+
+**Rohan Guliani (@Rohansguliani)** independently replayed
+[Jeremy Kothe's #699](https://github.com/CrocSwap/integer-mult-bounds/pull/699)
+(κ = 0.001660666354374641, head `03e8d7c`) and
+[Chafik Boukhalfa's #685](https://github.com/CrocSwap/integer-mult-bounds/pull/685)
+(κ = 0.001660339298410333, head `5fc2a0c`) from fresh constructions, with a
+no-import checker and a standalone #589 bit-circuit replay; both finite κ
+values were confirmed exactly. See
+[`research/pr-record699-685-audit/README.md`](research/pr-record699-685-audit/README.md).
+This does not update the selected bound. The audit builds on #699/#685 and
+their credited #659, #645, #664, #635 and #589 source lineages, whose notices
+and Apache-2.0 licenses are retained. The tooling and prose disclose substantial
+AI assistance through Mux (OpenAI GPT-6 Astra and Claude Opus 5.5).
+
 DreamingOfClouds' cold-helper construction, eumemic's selected #543 bit supplier,
 Rohan Arun's #559 native recurrence correction and all preceding contributors
 remain part of the cumulative result. Parallel work retains credit even when
