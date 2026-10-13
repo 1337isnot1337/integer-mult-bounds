@@ -117,6 +117,7 @@ H5 RECORDED (`evidence/B175-NOTES.md`; its script overwrites a card pickle and i
 1. **S1 blocks (0,1,2,3), (0,1,4,5), (0,1,6,7):** the Hall bound is slack (H6); 48 scratch registers, including the centres 224, 240, 256, have no minimality proof. B177 is running; no verdict yet.
 2. **Multiset-changing merges** (undo/redo ADDs, B169-style holder merges) are outside every Lawler result; the S3/S4 and bridge theorems are FOM only.
 3. **S1 true-cap case and interface change.** S1 minimality is proved given the shipped end-of-A frames as bounds. The case where later readers' true caps replace those frames is open (as in #717), and so are fewer plane-stopper rows and other hyperplanes.
+   - *Update (post-submission, unverified here; card B188):* on the 11 eight-line blocks of #656, all 7 pair directions for the S1 stage basis cost exactly 2 registers per demanded plane (2 × 12 = 24 per block, the shipped cost). Directions with fewer stoppers need more pair registers, because a pair register serves only one plane. So a change of stage basis alone cannot lower the S1 count. What remains open is fewer demanded planes (an op-multiset change) or a frame descent.
 4. The cut ops and centre frames are not examined beyond K1-K3; non-S3/S4 helper pairs have no generic sweep; #870 is not local.
 5. **H-CUT** is not enforced by AL; several-epoch cuts in another verifier are outside the theorem.
 6. **Decoder n ≥ 9** (mixed β ≤ 7 terms, #717 D1) is a separate question; the decoder terms are not covered.
