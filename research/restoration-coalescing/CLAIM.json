@@ -1,0 +1,27 @@
+{
+  "track": "recursive-interfaces",
+  "track_range": "50-59",
+  "assignment_seed": 53,
+  "seed_source": "operating-system randomness (Cryptographic RandomNumberGenerator), 0-99",
+  "contributor": "Navinor",
+  "ai_assistance": "with help from opencode",
+  "base_commit": "ce7ad1b6ab09452c3478723a2e96ed5ff212dc08",
+  "branch": "research/agent-13-recursive-seed53",
+  "object_investigated": "Elimination of per-child dirty-workspace restoration across one recursion batch by deferring it to a single composed restoration at the node exit.",
+  "proposed_method": "Exact Gaussian-rational operator algebra at N=8: eager (restore after every child) vs deferred (restore once at exit). Two conditions decided exactly: read-free batch (correctness) and composable restoration family (cost).",
+  "parameter_range": "N=8 coefficient positions (e=3); r=3 children per node; restoration families: diagonal unit phases (a in {1,2,3} via i^(a*popcount)), cyclic permutations (shifts {1,2,4}), and a heterogeneous mix (phase+Walsh+permutation).",
+  "candidates_considered": [
+    "Coalesce per-child dirty-workspace restoration across a batch (chosen)",
+    "Defer compact-control exceptional-address repair charged at every node to the root",
+    "Eliminate the Walsh entrance/exit boundary between same-subset children"
+  ],
+  "overlap_check": {
+    "research/seed51-clean-residual-dilation": "seed 51, recursive-interface track; prices a spectral-split residual ENCODER and its per-stream dirty restoration. Different object (encoded hosting vs restoration coalescing), different boundary. No duplication.",
+    "kernel-frame-coalescing": "changes frame ranks (rank-1 to rank-2 climbs), not restoration passes. Different cost axis.",
+    "universal-connector-boundary": "query-path / dirty-connector census; supplies the restoration invariant this note prices, not the coalescing mechanism."
+  },
+  "expected_deliverable": "A research note with a complete restoration cost recurrence, a sharp correctness boundary (read-free), a sharp cost boundary (composable family), and an exact stdlib verifier with two positive cases and two negative controls. No new kappa.",
+  "pinned_coordination_issue": "none reachable; claim recorded locally",
+  "expected_finish": "same session; verification reserved for the final quarter",
+  "status": "completed"
+}
