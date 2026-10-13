@@ -1,30 +1,30 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "836382990093363/500000000000000000",
-  "kappa_decimal": "0.001672765980186726",
-  "conservative_kappa_decimal": "0.001672765977335015",
-  "complex_lower": "1675568814697413823921/1000000000000000000000000",
+  "kappa": "334569399176037/200000000000000000",
+  "kappa_decimal": "0.001672846995880185",
+  "conservative_kappa_decimal": "0.001672846993028285",
+  "complex_lower": "1675650102119662212841/1000000000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
-    "1": 348654,
-    "2": 62211,
-    "3": 61426,
+    "1": 348666,
+    "2": 62224,
+    "3": 61421,
     "4": 20448,
     "5": 11808,
-    "6": 1,
-    "7": 6,
+    "6": 2,
+    "7": 8,
     "8": 1152,
-    "11": 18,
-    "48": 4870
+    "11": 1,
+    "48": 4873
   },
   "idle_remainder_profile": {
-    "1": 2190,
-    "2": 3,
-    "3": 370,
-    "6": 1,
-    "7": 6,
-    "11": 18,
-    "48": 4870
+    "1": 2202,
+    "2": 16,
+    "3": 365,
+    "6": 2,
+    "7": 8,
+    "11": 1,
+    "48": 4873
   },
   "complete_invocations": 144,
   "roles": 69120,
@@ -32,7 +32,7 @@
   "charged_prefix_bits": 512,
   "physical_row_coefficient": 16469,
   "retained_row_coefficient": 20161,
-  "actual_73_axis_charts": 9828,
+  "actual_73_axis_charts": 10057,
   "controls": {
     "admission": 69,
     "bit_supplier": 12,
@@ -40,11 +40,11 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "94e0232aede81bb1f3f68600098cc300bcb19a86c53c4a73b40e99dd0dbc0ac8",
+  "spec_sha256": "26739e2cf969da085797fb09827785e44e041c8b930d098b0a34764deabf0890",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.266,
+      "seconds": 1.188,
       "exit_code": 0,
       "log_sha256": "3aea2a4b68e7aaeadd9ffef649be0d25e2dff1535d9a61bffeaf6d92e55ba6a8"
     },
@@ -56,55 +56,55 @@
     },
     {
       "name": "lift16",
-      "seconds": 2.515,
+      "seconds": 2.453,
       "exit_code": 0,
-      "log_sha256": "2e24becb3cc51c1273e7f95b6c1ad07ea7268d8f010e45136e2a717ab978c85c"
+      "log_sha256": "0d429603df518f8be4d471b38aa532698b93d6125088ee0e21befb86179cb3a5"
     },
     {
       "name": "bind",
-      "seconds": 0.438,
+      "seconds": 0.375,
       "exit_code": 0,
       "log_sha256": "78a081673d6b4fde10a86e6f767d53648b868d1f0cac2441d12951434ad7341b"
     },
     {
       "name": "emit",
-      "seconds": 4.656,
+      "seconds": 5.125,
       "exit_code": 0,
-      "log_sha256": "0d4ad4d3ec19dac80cabcc252d52f0e1be675433a2e72fa5812cd31f128efd18"
+      "log_sha256": "cc1ef094ac41130608ae1ddda6330dc4741deaf6d09b80421a8cf37a111919d4"
     },
     {
       "name": "audit",
-      "seconds": 18.844,
+      "seconds": 19.421,
       "exit_code": 0,
-      "log_sha256": "46dfa91895e878dae0d7e0e4f242a46697ebee087416d630fe620fe448a22839"
+      "log_sha256": "ed6581929337460b20f88dcde5c4e3a2c45df3b75759dc0aa107f3322436a071"
     },
     {
       "name": "invoice",
-      "seconds": 1.078,
+      "seconds": 0.969,
       "exit_code": 0,
       "log_sha256": "caa1229b78eca961462d35e8ee458be536111111a985294a153e4dd74b9171a8"
     },
     {
       "name": "assembly",
-      "seconds": 0.344,
+      "seconds": 0.328,
       "exit_code": 0,
-      "log_sha256": "787262ef961d4cb11da7bb463fed3f7c7f249384969edccdaf9c329f65dae233"
+      "log_sha256": "83ba98e1af53dfd859162c623b8b6b71ae7e52ffbab6c0ce67bf5fb67f9bf39a"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.422,
+      "seconds": 0.407,
       "exit_code": 0,
       "log_sha256": "34527ddfe1e53bec71dc5759eb9a26417be6d4e93e76cbf80575d9bafebd876b"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.594,
+      "seconds": 0.562,
       "exit_code": 0,
       "log_sha256": "c648542cd6dddbb154af7d02a41aaed1025603d9a4ab54f7c249d2b683e22249"
     },
     {
       "name": "independent-t16",
-      "seconds": 0.828,
+      "seconds": 0.781,
       "exit_code": 0,
       "log_sha256": "d2c13b333d463a5c2de42078e9c47a89209075e1d1beac24cf3fc1f573f18c05"
     }

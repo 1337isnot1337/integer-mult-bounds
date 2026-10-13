@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "plan_sha256": "c958fe85322465ba8ba727fcd9dcc7439e1e2d5879ec16a17ad9bbc3f771722e",
-    "owners_sha256": "75c9562408f8b79425556a385aaa401224ec89496abac11ecd2306b3e417312c"
+    "plan_sha256": "3cf24024782d91d5e8a060d6ff76889f39a312a619c847e0590054d8d01fc349",
+    "owners_sha256": "af9134046286c8ef675899751a4d18e476a0f2aaad273175174989b6db796395"
   },
   "dispatch": [
     [
@@ -1933,37 +1933,37 @@
     "gain_baseline_kappa": "0.001636241501576388",
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
-    "actual_73column_sigmas": 9828,
-    "cross_replica_helper_roles": 58311,
-    "idle_remainders": 7458,
+    "actual_73column_sigmas": 10057,
+    "cross_replica_helper_roles": 58701,
+    "idle_remainders": 7467,
     "idle_remainder_profile": {
-      "1": 2190,
-      "2": 3,
-      "3": 370,
-      "6": 1,
-      "7": 6,
-      "11": 18,
-      "48": 4870
+      "1": 2202,
+      "2": 16,
+      "3": 365,
+      "6": 2,
+      "7": 8,
+      "11": 1,
+      "48": 4873
     },
     "global_profile": {
-      "1": 348654,
-      "2": 62211,
-      "3": 61426,
+      "1": 348666,
+      "2": 62224,
+      "3": 61421,
       "4": 20448,
       "5": 11808,
-      "6": 1,
-      "7": 6,
+      "6": 2,
+      "7": 8,
       "8": 1152,
-      "11": 18,
-      "48": 4870
+      "11": 1,
+      "48": 4873
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001672765977335015",
-    "kappa_decimal": "0.001672765980186726",
-    "complex_lower": "1675568814697413823921/1000000000000000000000000",
-    "conservative_complex_lower": "1675568811836138353091/1000000000000000000000000",
-    "kappa": "836382990093363/500000000000000000",
+    "conservative_kappa_decimal": "0.001672846993028285",
+    "kappa_decimal": "0.001672846995880185",
+    "complex_lower": "1675650102119662212841/1000000000000000000000000",
+    "conservative_complex_lower": "335130019851639449599/200000000000000000000000",
+    "kappa": "334569399176037/200000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
