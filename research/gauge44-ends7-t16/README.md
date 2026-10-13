@@ -1,10 +1,10 @@
-# Rank-seven helper ends + sixteen replicas on the seven-slot k8 word: conditional κ = 0.001672691689152441
+# Rank-seven helper ends + sixteen replicas on the seven-slot k8 word: conditional κ = 0.001672765980186726
 
-- **κ = 0.001672691689152441** (conservative 0.001672691686300935), T16. This exceeds the live #1094 draft claim
-  0.001672660197076918 (head e1e6c072, checked 2026-10-14); publication must recheck the live board.
-  T8 κ of the new word with its frozen T8 owners is 0.00167112035308811 (`bind8`).
-- **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  `c4c82492eaea52ba28f73e8f65d71172447150e2ad4ff37aaec4a219a7751823`.
+- **κ = 0.001672765980186726** (conservative 0.001672765977335015), T16. This exceeds published #1104
+  0.001672691689152441 (head d8982686, checked 2026-10-14); publication must recheck the live board.
+  T8 κ of the unchanged ends7 word with its frozen T8 owners is 0.00167112035308811 (`bind8`).
+- **Frozen packing:** Packer2 E7G4b, strict candidate E7G4_1, improving the RankSevenEnds laneG_4 map;
+  owner SHA-256 `75c9562408f8b79425556a385aaa401224ec89496abac11ecd2306b3e417312c`.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
 - **Mechanism (credit: #1030, AlexS / Scale, `research/complex-rank7-end-pair`).** #1030 lets U8's helpers 588/589
@@ -37,13 +37,13 @@ This package runs the two-bank T16 whole-owner controller on [research/gauge44-s
 The local word (`c2b29430…`), its 480 helper widths and the PR589 bit supplier are unchanged. The only new
 object is a 16-replica owner map.
 
-- **κ = 0.001672651218919025** (conservative 0.001672651216067113). That is +9.86×10⁻⁷ over #1018's T8
+- **κ = 0.001672651218919025** (conservative 0.001672651216067113). That is +11.01×10⁻⁷ over #1018's T8
   κ 0.00167166528321877. The complex side binds.
 - **Change:** T16 on #1018. `data/OWNERS.json.gz` (`2e1252f4…`, 69,120 whole-helper roles, 144 calls) is an exact
   pattern-flow LNS repack (integer pattern counts + König edge colouring) on the actual T16 window geometry. It is
   frozen data. The verifier runs no constructor and no optimizer: `t16/lift16.py` checks every role inside its
   owner's actual bridge-aware window, the controller audit re-derives the profile, and `t16/indep16.py` independently
-  rechecks windows, whole widths, charts, prefix and row. Idle profile `{1:2190, 2:3, 3:315, 6:1, 7:49, 8:1, 11:18, 48:4867}`.
+  rechecks windows, whole widths, charts, prefix and row. Idle profile `{1:2190, 2:3, 3:370, 6:1, 7:6, 11:18, 48:4870}`.
   Prefix 397 < 512; physical row coefficient 16469 < 20161.
 - **Code:** `code/` is byte-identical to the signed research/gauge44-barch-t16 code (the #870 T16 adaptation of
   #858's source edits). `t16/` holds #858's `build_parent.py` and the generic-R `lift16.py`/`indep16.py` (R taken from the
