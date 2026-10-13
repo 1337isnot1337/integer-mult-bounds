@@ -48,7 +48,7 @@ PYTHON=/path/to/python-with-numpy bash research/pr-record699-685-audit/replay.sh
 
 The script fetches the two PR refs and requires each reviewed head to be one of their ancestors. It also checks both parent commits. It builds a separate shared clone with worktrees at the pinned heads, reconstructs PR635's pinned source for #699, runs both packages' pipelines, and then runs `independent_check.py`. The receipt is written to `<out>/INDEPENDENT-AUDIT.json`. The calling checkout is not modified. The #589 standalone replay is separate: run `BOOST_INCLUDE=… PYTHON=… bash research/e8-bit-p111-tuned/tune/verify.sh <new dir>`.
 
-Tested on Linux with Python 3.13.7 and GCC 15.2.0.
+Tested on Linux with Python 3.13.7 and GCC 15.2.0. The full command finished with exit code 0 in 71 minutes and printed `PASS independent finite checks` for both PRs.
 
 ## Credit
 
