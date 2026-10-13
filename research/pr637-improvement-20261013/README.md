@@ -16,9 +16,12 @@ the finite invoice, both moment engines, a separate rational native/owner/moment
 checker, and five independent corruption controls passed. A full fresh replay
 of the pinned PR637 baseline passed all 64 stages, with no reuse.
 
-**Publication status:** the new witness's full fresh replay is pending. The
-[validation directory](validation/) contains the completed prepublication checks;
-its final receipt will be added when the fresh replay finishes.
+The improved witness's full fresh replay passed **64/64 stages**, with no
+baseline or local reuse, in 274.98 seconds. All 51 artifact hashes and 64 stage-log
+hashes were independently checked. The supplemental owner, declaration, exporter,
+and independent U4 checks and their mutation controls also passed.
+The [validation directory](validation/) retains the receipts and full replay archives.
+Execution was on macOS; no Linux replay is claimed.
 
 ```sh
 PYTHON=python3 sh research/pr637-improvement-20261013/witness637/verify.sh /tmp/pr637-improved-fresh
@@ -32,3 +35,8 @@ relaxed fixed-dispatch packing ceiling, which would require idle ranks 36 and
 
 Prepared by Chi Zhao with substantial OpenAI Codex assistance. Upstream
 construction and contributor credits are preserved in the witness.
+
+The replay used commit `e020728199ed60e0604196f12c6276b5431998c6`. After it
+passed, only the witness README and its manifest entry changed. The
+[documentation update record](DOCUMENTATION-UPDATE.json) binds both manifests
+and confirms that all 311 other manifested inputs are unchanged.
