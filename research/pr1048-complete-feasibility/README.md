@@ -3,7 +3,9 @@
 **Complete finite exclusion, independently replayed; no improved construction
 or new kappa.** On the exact PR589 input, no legal sequence of at most two
 transports improves the surcharge-inclusive reference root in the domain below.
-This replaces another sampled scan with a complete, explicitly limited result.
+This supplies an independently replayed replacement for the restricted
+two-transport claim in PR1048. It is not the first negative reframing result;
+the broader prior PR933 is credited below.
 
 Both implementations agree on every single-operation domain, the full pair
 candidate transcript, all 93 pair-profile deltas and their occurrence counts.
@@ -84,11 +86,23 @@ PR1048 code and woklerx's bracket repair unchanged with their notices, and adds
 reference-root pricing and a bounded coverage diagnosis. This continuation
 reuses those checkers and closes the precisely stated two-transport domain.
 
-Live overlap checks through PR1230 found PR1048 and PR1182 unchanged at their
-pinned heads. PR1143 concerns fixed frame slots on the different R480 word;
-PR1208/1221 are fixed-profile Boolean reductions. See [OVERLAP.json](OVERLAP.json)
-for the bounded search record. No general priority claim is made for commuting
-search, pair projection or interval arithmetic.
+Publication review also read Ian Libânio's
+[PR933](https://github.com/CrocSwap/integer-mult-bounds/pull/933) at
+`b9348c6907516e55dc07e135ad4d7a480d4f9840`. It already reports wider relocation
+and all-frame reoptimization results, including interacting pairs and an
+independent sample of 2,000 pairs. That broader package was not replayed here,
+and this contribution does not claim priority for a two-move negative result
+or establish PR933's broader coverage. The added value is the certified
+reference-root comparator, the stated pair-projection completeness argument,
+and a second implementation checking the **entire** narrower frozen domain.
+
+Fresh publication checks through PR1379 found PR1048 and PR1182 unchanged at
+their pinned heads. PR1143 concerns fixed frame slots on the different R480
+word; PR1208/1221 are fixed-profile Boolean reductions; PR1368 concerns a
+lower-frame barrier for eight individual phase-B blocks. See
+[OVERLAP.json](OVERLAP.json) and [PUBLICATION.md](PUBLICATION.md) for the bounded
+search record. No general priority claim is made for commuting search, pair
+projection or interval arithmetic.
 
 Prepared by Brian Ross with substantial OpenAI Codex assistance, including
 independent GPT-6 Astra work at xhigh reasoning. Credit DreamingOfClouds and the
@@ -99,5 +113,19 @@ credited to Brian Ross with exact source links in [PROOF.md](PROOF.md). These ar
 methodological adaptations, not copied code. New material is Apache-2.0; no
 independent human review or proof-assistant verification is claimed.
 
-Only this new directory is added. The completed K492/PR1162 checkout and the
-earlier certified-repair package are unchanged. Nothing was pushed or published.
+## Open next questions
+
+The smallest useful follow-up is a correspondence audit against PR933: compare
+its first-slot equivalence and post-first neighborhoods on explicit operation
+pairs with this pair-specific projection. That can identify whether the two
+proofs cover the same literal paths without repeating either broad search.
+Different relocation primitives and global frame reoptimization are the main
+obstacles; no equivalence or defect in PR933 is asserted here. The synthetic
+strict-improvement control is a starting check for any proposed quotient.
+
+No larger search is justified by this package alone. Growing catalogues,
+arbitrary frames and longer paths need a new completeness argument before
+substantial computation. The completed K492/PR1162 checkout and the earlier
+local branches are preserved. Publication adds the two new audit directories
+and their byte-identical retained PR1048/PR1182 sources; it changes no selected
+construction or existing upstream source.
