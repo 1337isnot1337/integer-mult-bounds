@@ -1,10 +1,10 @@
-# Rank-seven helper ends + sixteen replicas with Child 2, Child 15 Port 94 & Port 98 polarization, CP-SAT repack, and Ports 104 & 106 4-way shuffle: conditional κ = 0.001672781000472830
+# Rank-seven helper ends + sixteen replicas with Child 15 odd remainders consolidation (Ports 109, 111 -> 32, Port 106 -> 24): conditional κ = 0.001672781312867556
 
-- **κ = 0.001672781000472830** (conservative 0.001672780997621194), exact rational 167278100047283 / 100000000000000000 (= 1672781000472830 / 10^18), T16.
-  This strictly improves upon the previous record (κ = 0.001672750137367829) by +9.825983006e-9 (+0.00059%) and the PR #1104 baseline
-  (κ = 0.001672691689152441) by +8.9311320389e-8 (+0.00534%).
+- **κ = 0.001672781312867556** (conservative 0.001672781310015919), exact rational 418195328216889 / 250000000000000000 (= 1672781312867556 / 10^18), T16.
+  This strictly improves upon Breakthrough 6 (κ = 0.001672781000472830) by +3.12394726e-10 and pinned baseline fc5cc156 (κ = 0.001672771174489824) by +1.0138378378e-8 (+0.00061%),
+  and the PR #1104 baseline (κ = 0.001672691689152441) by +8.9623715427e-8 (+0.00536%).
 - **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  2ea75db242472a18dc6d3f8aa0db03d5eecb8522efe2b9d63227055277b6b95d.
+  85f1709c8bafce35ef1a7f74e861a6bc898c3f8c37e943f3d7ad9b2ef9d29084.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
 - **Mechanism (credit: #1030, AlexS / Scale, 
@@ -17,7 +17,7 @@ esearch/complex-rank7-end-pair).** #1030 lets U8's helpers 588/589
   9-pair whole-helper exchange across child 15 ports 94..111, followed by a CP-SAT optimal 27-role concentration
   partition across ports 94..101, 108 (data/OWNERS.json.gz, frozen), a Child 2 Port 90 remainder-8 polarization to remainder 0,
   a Child 15 Port 94 remainder-4 polarization to remainder 0 (polarize_child15_p94.py),
-  a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), a global CP-SAT re-packing of 81 roles across 21 non-full ports on Child 15 eliminating intermediate remainders 6, 12, 16 (repack_child15_special.py), and an exact 4-way whole-helper shuffle across Ports 104, 106, 88, and (13, 7) extinguishing remainders 8 and 24 to reach full capacity and idle (polarize_child15_p104_p106.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
+  a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), a global CP-SAT re-packing of 81 roles across 21 non-full ports on Child 15 eliminating intermediate remainders 6, 12, 16 (repack_child15_special.py), and an exact 4-way whole-helper shuffle across Ports 104, 106, 88, and (13, 7) extinguishing remainders 8 and 24 to reach full capacity and idle (polarize_child15_p104_p106.py), and an exact 3-way whole-helper consolidation extinguishing remainder 28 in Ports 109 and 111 into full remainder-32 idle bins while packing Port 106 to remainder 24 via donor exchange with Replica 4 Port 80 (repack_b7.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
 ## Verification (two commands)
 
 ```sh
