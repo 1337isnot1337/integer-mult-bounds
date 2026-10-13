@@ -404,11 +404,13 @@ None of these is a result. Each item has a measured fact behind it and exactly o
    - Measured: in 9 of 14 blocks, 2–4 S1 scratch registers are never read after phase A. Dyadic A-programs with 12–14 scratch reproduce the end-of-A rows exactly.
    - This works IF there is such a program whose 8 lines end phase A at frame dim ≤ 2–3, their shipped frames. The current dyadic programs leave the lines at frame 4, which forces all 112 target end frames from 8 to 9.
    - Check: frames range over only 67 subspaces of a 4-dim label space per block, so a frame-bounded search per block (one value solve per frame schedule) settles it.
+   - Update (post-submission, unverified here): an exact attempt shows the drop is partly value-infeasible. Dropping registers 433/435 is impossible while keeping shipped ops 3608–3671. The remaining blocks are untested.
 
 2. **Single-packet S4 via coefficient reads (≤ 112 helpers, net ≤ +1.96% b).**
    - Measured: all 28 S4 four-cycles admit one-packet coefficient reads if the targets are still empty. Coefficient ADDs into targets are SPEC-legal. (Related: #683 prices a mixed K/M face bypass and finds four carriers are forced; a different object.)
    - This works IF the ~252 target adds can be deferred past M-ready while polluting only sources whose caps already contain the key frames. Deferring them all naively gives 619 illegal ops.
    - Check: choose deferrals per source, interleaved, and run the oracle.
+   - Update (post-submission, unverified here): answered negatively. 18 of the 28 deferred S4 adds are illegal even when deferred alone, checked exactly on cycles 0–1. So this item is closed as stated.
 
 3. **Order-free frame slack on #656 (reordering of commuting ops; up to a few % b, nominal bound ≈ 8% is an over-report).**
    - Measured: the order-free dimension relaxation allows 2478 psi/call against shipped fragmentation 20,337. At the fixed shipped order the exact legal gain is 0 (supported by #698 for the CK B phase and by row F1: 950 of 1096 target ops at ceiling and an all-at-U assignment costing +520, not gaining). The relaxation could not be calibrated (its fixed-order value is 568 psi where the exact one is 0). Random topological re-creations of three blocks' S3/S4 threading (19 runs) all landed on exactly the shipped cost, so the open part is the S1 / phase-A order.
