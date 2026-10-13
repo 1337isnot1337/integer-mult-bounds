@@ -2,7 +2,10 @@
 
 Negative results and one open lead, recorded so others don't repeat them. Scripts are included as they were run (paths reference a local scratch dir and `~/imb-src` pinned sources; Python 3.11 with numpy, scipy, sympy, python-sat, ortools). SAT results come from CaDiCaL via python-sat **without proof logs**. Nothing here is packaged with a verify.sh.
 
-## 1. Unit screen (`ade_screen.py`)
+## 1. Unit screen (`ade_screen.py`; **superseded by `s3-unit-families/` §1**)
+
+> **Erratum.** As #630 (vectorsss) points out, the "E6" row was D6 (30 lines). True E6 (the complement of an A2: v 36, h 6) has exact F2 minrank 7 and label copy cost 35 (x = 35/36), so X ≤ 5.69e-5: it is still useless. The c column here was rank_F2(J+G), which is only an upper bound; the exact minranks are in `s3-unit-families/`. E7 and E8 are unchanged.
+
 Real ADE root systems as units (v lines, window h = rank, c = F2 rank of (J+G) mod 2, proxy x = c·h/v, ceiling via #595's `skel.X`): only E8 gives a useful ceiling. E7 (v 63, h 7, c 7) reaches X* ≈ 1.84e-3; A_n, D_n and E6 have x ≥ 1 and give no saving. X scales roughly as 1/h, consistent with the Leech (#598) and Niemeier (#606) losses.
 
 ## 2. E8 decoder floors (`s2-decoder/`, details in `REPORT.md`)
@@ -39,3 +42,8 @@ On the bit side ranks are counted over Q, so a K-line unit is a rank-k unit with
 - G34 / Coxeter–Todd K12: 126 lines, w = 6, largest non-orthogonal set 15, so x_K ≥ 0.714 even at minrank 15; it loses.
 - Complex side (argued): F4-Hermitian (Eisenstein) labels give an alternating F2 trace form, so there are no odd-norm residuals and the phase calculus fails. Gaussian labels reduce mod (1+i) to F2, so they bring no extension.
 - Side finding (float screen only, not certified): the paper's original triple family has a higher X* than E8 (~7.4e-3 bit, ~7.2e-3 complex at h = 24, s = 3), but 630 orthogonal neighbours per target (vs 63 for E8) makes its helper cost the issue. X* alone does not rank unit families.
+
+## 5. Beyond E8: triple and Lorentzian families (`s3-unit-families/`, own README and `verify.sh`, 114 PASS)
+- Certified ceilings above E8's: the paper's triple family T_h (bit cst h(h−1), max X* 7.7735e-3 at h = 21; complex cst h², max 7.4444e-3 at h = 22) and the Lorentzian units of #634: I_{11,1} (minrank exactly 11, cst 110, x = 1/2, X* 7.1715e-3) and I_{13,1} (cst 156, x = 3/7, X* 8.6247e-3).
+- Helper-adjusted (model, calibrated to #555 within 0.3%, not a bound): no candidate reaches E8's estimate, even at E8's 3.95 helpers per port. To break even, a design would need ≤ 2.6–3.4 helpers per port for I_{n,1} (≤ 2.5 for bit triples). The best lead is I_{11,1}; next steps are its punctures (the analogue of E8's 120 → 111) and a real helper design.
+- #595 §D helper floors don't separate the families: the triple family has cover number 2 (exact certificates up to h = 24).
