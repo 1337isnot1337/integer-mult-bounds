@@ -15,6 +15,13 @@ r^4.602452 for fixed fanout 8. This is a **classical local primitive**, not a
 paid common-label supplier or a new multiplication κ. The one-line admission
 repair below is independently useful even without adopting the new schedule.
 
+The [full-transform and bit integration experiment](../dirty-echo-integration/README.md)
+now implements complete synthetic Fourier transforms and Boolean address
+interchanges with this echo. The functional checks pass, but the complete
+all-role recursive bill rejects this direct adapter as a route to larger κ.
+Its proof and exact counterexamples identify the remaining interface and
+cost obligations without changing the local echo result.
+
 ## Executable admission defect
 
 At PR628 head `0768f97d06c623b8211e651543c66135796b62bf`, `dirty.py::compose`
@@ -114,7 +121,8 @@ git fetch https://github.com/CrocSwap/integer-mult-bounds.git 0768f97d06c623b821
 Expected final line: `PASS_DIRTY_ECHO_ALIAS_REPAIR_AND_FINE_GRID`.
 The script checks the repair, echo, same-input Fraction benchmark and the
 separately scoped [PR659 final-grid refinement](../gauge44-notri-fine-grid/README.md).
-The last component reconstructs the pinned complex supplier afresh and takes
+It also runs the full-transform/bit integration and its scoped cost rejection.
+The final-grid component reconstructs the pinned complex supplier afresh and takes
 roughly three minutes on the recorded machine. It requires assertions in
 inherited engines. The alias and echo checkers separately support `-I -O`.
 

@@ -16,4 +16,5 @@ python3 -I -B "$root/research/cyclic-dirty-commutator-audit/verify.py" --out "$o
 python3 -I -B "$root/research/cyclic-dirty-commutator-audit/verify_echo.py" --out "$out/ECHO.json"
 python3 -I -B "$root/research/cyclic-dirty-commutator-audit/benchmark.py" --out "$out/BENCHMARK.json"
 python3 -B "$root/research/gauge44-notri-fine-grid/verify.py" --out "$out/fine-grid"
+sh "$root/research/dirty-echo-integration/replay.sh" "$out/integration"
 echo PASS_DIRTY_ECHO_ALIAS_REPAIR_AND_FINE_GRID
