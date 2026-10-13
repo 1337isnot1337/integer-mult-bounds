@@ -27,8 +27,12 @@ all-dispatch-count optimum is claimed.
 
 Before publication, exact bindings, physical owner admission and 31 mutations,
 the invoice, both moment engines and 155 assembly controls passed. Independent
-native/owner/rational checks and five mutations also passed. **Full fresh
-end-to-end replay is pending at publication.** Evidence is in [validation/](validation/).
+native/owner/rational checks and five mutations also passed. The full fresh
+replay passed **82/82 stages**, without reuse, in 425.33 seconds. All 63 artifact
+and 82 log hashes were independently checked. Every supplemental proof,
+mutation check, owner reconstruction and recipe reconstruction passed. Complete
+evidence is in [validation/](validation/). Execution was on macOS; no Linux
+replay is claimed.
 
 ```sh
 PYTHON=python3 sh research/selective249-improvement-20261013/witness/verify.sh /tmp/selective249-fresh
@@ -38,3 +42,8 @@ Use Python 3.10+, a C++ compiler, Boost headers, and a new output directory.
 The inherited all-size, compiler, realization, analytic-transfer and bit H1–H5
 premises remain. Prepared by Chi Zhao with substantial OpenAI Codex assistance;
 upstream contribution and license notices remain in the witness.
+
+The fresh replay used commit `12b98ab8f76a3ae9bc26191b7812889dafd4d3ae`. After success,
+only the witness README and its manifest entry changed. The
+[documentation update record](DOCUMENTATION-UPDATE.json) confirms that all
+319 other manifested files are unchanged.

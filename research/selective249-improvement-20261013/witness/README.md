@@ -19,13 +19,12 @@ does not use PR640's altered CK supplier. Selective use releases exactly 12
 rank units into PR639's 36-unit idle remainder. The literal owner map packs
 all slack into 2,230 dimension-48 idle rows, with 35,424 checked roles.
 
-**The final fresh end-to-end replay is pending.** The new native word passed
-all scalar/frame, arbitrary-dirt, reflected-local, independent, wrapper and
-3,027 exact phase-edge checks. Discovery rebuilt the three-provider controller,
-31 controller mutations, invoice and both exact moment engines using audited
-native artifacts. All 155 admission mutations passed, as did the independent
-native-width/owner/rational checker. The parent README and validation folder
-record subsequent fresh verification status.
+**The full fresh replay passed all 82 stages without reuse**, followed by
+every supplemental wrapper check, in 425.33 seconds for the core stages.
+All 63 receipt artifacts and 82 stage logs were independently hash-checked.
+The [validation folder](../validation/) preserves the full replay archive,
+receipts, exact reconstruction and mutation-control results, and executed input
+snapshots. Execution was on macOS; no Linux replay is claimed.
 
 Reproduce with Python 3.10 or newer, a C++ compiler and Boost headers:
 
