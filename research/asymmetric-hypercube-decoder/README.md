@@ -1,4 +1,77 @@
-# Sharp global-star punctures and optimal decoder geometry
+# Global-star decoding: sharp punctures and higher-target hierarchies
+
+**Uniform structural theorems with exact replay; no new κ.** The higher-target
+extension determines a complete hierarchy at `k=2`, the third generalized
+weight for every `k>=2,q=p-k>=2`, and a five-weight prefix at `q=2`.
+A generalized weight `d_r` measures the smallest support of r independent
+observation rows. The exact deletion threshold for **some selectable r-target
+set** is `d_r-r`; arbitrary prescribed target sets are a separate problem.
+
+| Result | Parameter range | Proof |
+| --- | --- | --- |
+| Complete generalized-weight hierarchies, with and without the empty star | `k=2,p>=2`, every available rank | [HIGHER-GRAPH.md](HIGHER-GRAPH.md) |
+| First two nonzero word weights are `2q+2` and `4q+2` | `k>=2,q>=3` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
+| `d_3=6q+3`; every optimum is a triangle of minimum stars | `k>=2,q>=3` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
+| `d_3=15` for `k=2,3`; `d_3=14` for `k>=4` | `q=2` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
+| `(d_1,...,d_5)=(6,11,14,15,16)` | `q=2,k>=4` | [HIGHER-WEIGHTS.md](HIGHER-WEIGHTS.md) |
+
+The boundary is a real change in optimizer structure: every span of three
+minimum stars needs at least fifteen ports, but a localized affine cube has
+three independent rows on fourteen ports. At `q=2,k>=4`, three, four, or five
+selectable targets therefore all need exactly **eleven deletions**. At `(p,k)=(8,4)`,
+three selectable targets instead need exactly 24 deletions. Code results apply
+to both proper-star spaces; overlap-class corrections are covered at
+power-of-two k only. For `q>=3`, there are exactly
+`2^(k+1) binom(p,k-2) binom(q+2,3)` optimal three-dimensional subcodes. A
+prescribed triple attains `6q` deletions exactly when its three columns on
+some triangle have rank three. The larger budgets required by triples
+failing that criterion are not classified.
+
+The general incidence-code/cut connection is credited to Martínez-Bernal,
+Valencia-Bucio, and Villarreal in the graph note. The uniform minimum distance
+is inherited from Luke Mansoor's #732. Earlier one- and two-target results,
+concurrent source credits, and the original obstruction remain below.
+
+## Reproduce the higher-target results
+
+From the repository root, Python 3.10+ with its standard library:
+
+```sh
+for check in higher cube boundary; do
+  python3 -I -O -B "research/asymmetric-hypercube-decoder/${check}_verify.py" --self-test || exit
+done
+```
+
+Expected output prefixes: `PASS_HIGHER_GRAPH`, `PASS_CUBE`, and `PASS_K3_BOUNDARY`.
+The independent checks compare their deterministic receipts before reporting
+success. Every self-test also checks relocation, optimized execution,
+corruption rejection, and preservation of an existing output on failure.
+
+- [higher_verify.py](higher_verify.py): all labeled vertex partitions and all
+  internal cuts at `p=3,...,6`; 8,224 literal edge restrictions at `p=2,3`;
+  all 449,606 nonzero subspaces of the two graph codes at `p=3,4`; all
+  7,135,750 rank-three subspaces at `p=5`, including exactly eighty optima
+  in each code, matching the triangle count; complete weight distributions for 523,776 words
+  at `p=5,...,9`; 68 optimal simultaneous-decoder witnesses with 1,511
+  full-code restoration controls.
+- [cube_verify.py](cube_verify.py): fifteen literal three-, four-, and five-target
+  decoders, evaluated on every port at `q=2,k=4,...,8`; 165 restoration controls
+  within the displayed subcodes; 25 three-star constructions at `k,q=2,...,6`.
+  The smallest cube certificates include the actual proper-star expansions,
+  targets, deletions, and decoder coefficients in [CUBE-RESULTS.json](CUBE-RESULTS.json).
+- [boundary_verify.py](boundary_verify.py): all five shortening spaces of the
+  full `p=5,k=3` code, 90 basis vectors, and all 1,024 words of its residual
+  extension E. This checks the exceptional boundary lemma; it does not
+  enumerate all global three-dimensional subcodes.
+
+These finite checks support the separate written proofs. They do not replace
+them or constitute a proof-assistant verification. [HIGHER-CLAIM.json](HIGHER-CLAIM.json)
+records the continuation base `8bcbaafe8590d30eff9c0ae5fd9e49479c84038c`,
+source pins, review coverage, and stopping rule. [HIGHER-COST.md](HIGHER-COST.md)
+prices the displayed scalar evaluation and explains the unresolved supplier
+interface. There is no changed multiplication bound or selected certificate.
+
+## One- and two-target geometry
 
 **Uniform structural theorems; no new κ.** Put `q=p-k`. For every `k>=2`
 and `q>=2`, this package now proves:
