@@ -54,9 +54,9 @@ On the bit side ranks are counted over Q, so a K-line unit is a rank-k unit with
 - Mass-neutral V pricing per end per call (V639.json): u4-type premix-only dim-8 ends ({1:+2, 2:−1, 4:+1, 5:−1}, width −1) ≈ −0.025, essentially neutral, consistent with #637's 23 LP-negative candidates. **Dim-7 factored end pairs (#627 type) ≈ +2.25 per pair: the positive direction.** This should carry over to the gauge44 lineage (#645 onward) and was not searched here.
 
 ## 7. I_{11,1} / I_{13,1}: punctures and helper structure (`s4-lorentzian-helpers/`)
-Status: README and scripts are complete, and run1 logs are included. `expected/` is **not yet frozen**, and one SAT case (clique orbit 0 at k = 19) is still running.
+Status: `expected/` is frozen from the complete run1 (all steps finished; the k = 19 SAT runs take ~2 h). No second fresh run has been done yet.
 - **Punctures never help the centre decoder** (exact matroid-partition certificate). The 220 lines of I_{11,1} split into 22 independent sets, 2 inside each centre reader set, so the cost is ≥ |L|/2 for every live set L. For I_{13,1}, three copies of the lines split into 91 sets, giving ≥ (3/7)|L|. Every label decoder satisfies x ≥ 1/2 for |P| ≤ 8 (x ≥ 3/7 for |P| ≤ 10 on I_{13,1}).
-- **Minrank stays 11** after ≤ 19 punctures for 4 of the 5 maximum-clique S_11-orbits (SAT, no proof logs; orbit 0 pending). The 38,786 maximum cliques fall into 5 orbits, and a union bound shows any ≤ 21 punctures leave one alive.
+- **Minrank stays 11** after ≤ 19 punctures for **all 5** maximum-clique S_11-orbits (SAT, no proof logs; orbit 0 UNSAT in 7,484 s). So any 10-total decoder needs ≥ 20 punctures. The 38,786 maximum cliques fall into 5 orbits, and a union bound shows any ≤ 21 punctures leave one alive.
 - **Helpers.** E8's R = 439 is 240 carriers (3 branches per source, forced by E7 being a 4-design) + 180 cell registers + 9 totals + 10 puncture carriers. In I_{11,1}:
   - triple sources also need ≥ 3 branches in any frame design (exact quadratic-form nullspace);
   - the cell cover number is 3;
