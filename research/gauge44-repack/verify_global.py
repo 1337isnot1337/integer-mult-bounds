@@ -37,19 +37,23 @@ source = main/'research/complex-k492-owner-repair/vendor/multicold'
 baseline = main/'research/community-k492-audit/pr622/replay/baseline558'
 vendor = source/'vendor/pr558/vendor/pr552/complex-global/vendor531'
 pins = PACKAGE/'data/UPSTREAM-PINS.json'
+bit_receipt = 'research/e8-bit-p111-tuned/tune/EXPECTED.json'
 if pins.exists():
     for rel, expected in json.loads(pins.read_text()).items():
         assert sha(main/rel) == expected, 'Upstream dependency changed: ' + rel
 else:
     assert args.discover, 'Missing upstream pins'
     paths = list((baseline/'complex-global/base').rglob('*'))
-    paths += [source/'code/run_portable.py', source/'inputs/PR543-EXPECTED.json',
+    paths += [source/'code/run_portable.py', main/bit_receipt,
               vendor/'evidence/audit/PREFIX-AND-INVOICE.json']
     paths += [source/'vendor/pr558/vendor/pr552/complex-global/vendor535/inputs/ROUND20-PARENT-TEMPLATE.json.gz',
               baseline/'complex-global/controller-input/split-centres/CANONICAL-WORD.json.gz',
               vendor/'code/prepare_supplier_base.py']
     paths += [source/'engines'/name for name in ('moment.py', 'base_two_moment.py', 'outer.py')]
     dump(pins, {p.relative_to(main).as_posix(): sha(p) for p in sorted(paths) if p.is_file()})
+# PR589 bit receipt: the vendored copy must be byte-identical to merged main's preserved copy.
+assert (PACKAGE/'inputs/PR589-EXPECTED.json').read_bytes() == (main/bit_receipt).read_bytes(), \
+    'Vendored PR589 bit receipt differs from main'
 work.mkdir(parents=True)
 env = dict(os.environ, PYTHONDONTWRITEBYTECODE='1', PYTHONUTF8='1',
            PYTHONINTMAXSTRDIGITS='0', MULTICOLD_SOURCE=str(source),

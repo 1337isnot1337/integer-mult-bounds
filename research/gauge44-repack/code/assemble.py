@@ -2,7 +2,10 @@
 
 Prepared with OpenAI Codex assistance. The rational engines and outer
 constraints are retained from PR547/PR548 and their preserved ancestry.
-The bit operator is the cited unchanged PR543 supplier. The complex owner
+The bit operator is the cited unchanged PR589 supplier (merged; main's
+research/e8-bit-p111-tuned/tune/EXPECTED.json, vendored byte for byte as
+inputs/PR589-EXPECTED.json). It replaces the PR543 supplier cited by PR645/PR648;
+nothing else in the assembly changes. The complex owner
 and invoice inputs must be freshly emitted by the packaged physical replay.
 All conservative admission guards and conservative moment/outer witnesses run
 before the PR559 native-complex correction. The bit surcharge is retained.
@@ -151,9 +154,14 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
  assert finite['required_C0_bits']==(32*73*total_mass*total_mass).bit_length()
  actual_checks=dict(local_primitive_bound=invoice['local_primitive_bound']<2**48,logical=logical<2**6050,router=router<2**30000,literal=literal<2**100000,mass=total_mass<2**100001,precision=32*73*total_mass*total_mass<2**210000,tape=2*total_mass+18<2**210000,row=finite['physical_row_coefficient']<20161,halving=73*73>2*48*48)
  assert actual_checks==invoice['strict_checks'] and all(actual_checks.values())
- bit_path=P/'inputs/PR543-EXPECTED.json';bit_data=bit_path.read_bytes()
- assert hashlib.sha1(b'blob '+str(len(bit_data)).encode()+b'\0'+bit_data).hexdigest()=='b61d859826246e0c3dabbe096e57ad7015eadfd5'
- bit=json.loads(bit_data)['nine']
+ bit_path=Path(__file__).resolve().parent.parent/'inputs/PR589-EXPECTED.json';bit_data=bit_path.read_bytes()
+ assert hashlib.sha1(b'blob '+str(len(bit_data)).encode()+b'\0'+bit_data).hexdigest()=='e293ddc557742637f9f679f083a1a282d87b1b13'
+ bit_receipt=json.loads(bit_data);bit=bit_receipt['nine']
+ # PR555/PR589 punctured R439 word: v=111 live ports, nine rank-7 pseudo-target totals (decoder constant 63).
+ bit_word=bit_receipt['word'];assert bit_word['v']==111 and bit_word['R']==439 and bit_word['decoder_constant']==63==sum(bit_word['copy_ranks'])
+ assert bit['bit_lower']=='1733427039589844234749/1000000000000000000000000' and bit['bit']['bank_assignments']==0
+ # Nine-stage rank-mass identity T(8v-9cst) = 32*(8*111-9*63) = 10272 (PR543's v=120, cst=72 word gives 9984).
+ BIT_DEFICIT=32*(8*bit_word['v']-9*bit_word['decoder_constant']);assert BIT_DEFICIT==10272
  c=Q(bit['bit_lower'])
  H={int(r):n for r,n in owner['paid_profile'].items()};pin('expected.global_profile',owner['paid_profile'])
  # Claimed lower endpoints come from the spec; discovery derives them with the same certified moment engine.
@@ -174,7 +182,7 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
    rows.append(dict(side=side,surcharge=bad,endpoint=str(z),accept=accept,mercator=[str(l-1),str(u-1)],base_two=[str(ll-1),str(uu-1)]))
   return rows
  bitH={int(r):n for r,n in bit['profile'].items()}
- bit_moments=check_moment('bit',bitH,64,bit['bit']['live'],c,9984,True)
+ bit_moments=check_moment('bit',bitH,64,bit['bit']['live'],c,BIT_DEFICIT,True)
  conservative_moments=check_moment('conservative_complex',H,73,owner['live'],conservative_b,2560,True)
  assert bit['bit']['two_level_coefficient_bits']<bit['bit']['charged_two_level_coefficient_bits']==512 and bit['bit']['row_coefficient']<20161
  def outer_witness(bb):
@@ -204,9 +212,10 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
  assert M.moment(bitH,64,bit['bit']['live'],c+Q(1,10**24),False)[1]<1
  model_controls=['native_complex_endpoint_rejected_with_old_surcharge','omitting_bit_surcharge_would_fail_next_endpoint_rejection']
  moments=bit_moments+native_moments
- input_hashes={'owner_audit':owner_sha,'fresh_invoice':invoice_sha,'inputs/PR543-EXPECTED.json':sha(bit_path)}
+ binding='complex' if (1-Q(1,10**24))*b<c else 'bit';assert binding=='complex'
+ input_hashes={'owner_audit':owner_sha,'fresh_invoice':invoice_sha,'inputs/PR589-EXPECTED.json':sha(bit_path)}
  input_hashes.update({'engines/'+name+'.py':sha(P/'engines'/(name+'.py'))for name in ('moment','base_two_moment','outer')})
- return dict(status='PASS_GAUGE44_NATIVE_EXACT_GLOBAL_ASSEMBLY',kappa=str(k),kappa_decimal=dec(k),complex_lower=str(b),complex_decimal=dec(b),bit_lower=str(c),bit_decimal=dec(c),binding='complex',gain_over_pr635_percent=dec(100*(k/Q(X['gain_baseline_kappa'])-1)),complex_profile=H,provider_counts=invoice['provider_counts'],surcharge_model={'complex':False,'bit':True},conservative_complex_lower=str(conservative_b),conservative_complex_decimal=dec(conservative_b),conservative_kappa=str(conservative_k),conservative_kappa_decimal=dec(conservative_k),conservative_moments=conservative_moments,conservative_bootstrap=conservative_cuts,conservative_outer={n:str(v)for n,v in conservative_outer['strict_constraints'].items()},conservative_controls=conservative_controls,model_controls=model_controls,native_correction_gain=dec(k-conservative_k),template_sha256=owner['template_sha256'],input_sha256=input_hashes,bit_supplier=dict(pr=543,repository='eumemic/integer-mult-bounds',commit='2065fe4f72a914d907f1046603f5a36f17018535',path='research/e8-bit-r420/EXPECTED.json',git_blob_sha1='b61d859826246e0c3dabbe096e57ad7015eadfd5',replay_scope='Cited unchanged supplier; this assembly reprices its full profile and does not rebuild its bit circuit.'),moments=moments,bootstrap=cuts,outer={n:str(v)for n,v in outer['strict_constraints'].items()},controls=controls,scope='Conditional native exact-complex witness after complete conservative admission, moment and outer checks; PR559 exact-cover recurrence correction only, bit bad-residue surcharge and H1-H5 retained. The new source-branch gauge and retired-basis completion, 44 cold dimension-four ends, and explicit all72 whole-owner dispatch are composed with the same cited unchanged PR543 bit supplier as PR635. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape and analytic transfer remain assumptions. No unconditional theorem or full Lean certification.')
+ return dict(status='PASS_GAUGE44_NATIVE_EXACT_GLOBAL_ASSEMBLY',kappa=str(k),kappa_decimal=dec(k),complex_lower=str(b),complex_decimal=dec(b),bit_lower=str(c),bit_decimal=dec(c),binding=binding,gain_over_pr635_percent=dec(100*(k/Q(X['gain_baseline_kappa'])-1)),complex_profile=H,provider_counts=invoice['provider_counts'],surcharge_model={'complex':False,'bit':True},conservative_complex_lower=str(conservative_b),conservative_complex_decimal=dec(conservative_b),conservative_kappa=str(conservative_k),conservative_kappa_decimal=dec(conservative_k),conservative_moments=conservative_moments,conservative_bootstrap=conservative_cuts,conservative_outer={n:str(v)for n,v in conservative_outer['strict_constraints'].items()},conservative_controls=conservative_controls,model_controls=model_controls,native_correction_gain=dec(k-conservative_k),template_sha256=owner['template_sha256'],input_sha256=input_hashes,bit_supplier=dict(pr=589,base_pr=555,repository='CrocSwap/integer-mult-bounds',pr_head='a5afc8c6169ea61ba7c51dfd3cade02cc7b13b46',pr_path='research/e8-bit-p111/tune/EXPECTED.json',main_commit='17ce0c79b7b51c2634b439ea5a2b754f09909693',main_path='research/e8-bit-p111-tuned/tune/EXPECTED.json',git_blob_sha1='e293ddc557742637f9f679f083a1a282d87b1b13',replaced_supplier=dict(pr=543,git_blob_sha1='b61d859826246e0c3dabbe096e57ad7015eadfd5',bit_lower='413456747036699736067/250000000000000000000000'),replay_scope='Cited unchanged merged supplier; this assembly reprices its full nine-stage profile with both exact moment engines (bad-residue surcharge retained) and does not rebuild its bit circuit.'),moments=moments,bootstrap=cuts,outer={n:str(v)for n,v in outer['strict_constraints'].items()},controls=controls,scope='Conditional native exact-complex witness after complete conservative admission, moment and outer checks; PR559 exact-cover recurrence correction only, bit bad-residue surcharge and H1-H5 retained. The new source-branch gauge and retired-basis completion, 44 cold dimension-four ends, and explicit all72 whole-owner dispatch are composed with the cited unchanged merged PR589 bit supplier (PR555 punctured R439 word, v=111) in place of PR543; the v=111 bit supplier in the outer assembly and pooled-cell bit hosting are retained as in PR545/PR555. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape and analytic transfer remain assumptions. No unconditional theorem or full Lean certification.')
 if __name__=='__main__':
  import sys
  package,C,out=map(Path,sys.argv[1:4]);assert package.resolve()==P and not out.exists()

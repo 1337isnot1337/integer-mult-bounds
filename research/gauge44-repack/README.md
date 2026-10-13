@@ -1,3 +1,13 @@
+# Gauge44 repack with the merged #589 bit supplier: conditional κ = 0.001651390457077212
+
+**This revision changes only the cited bit supplier.** #648's complex side (icekylinx's #645 gauge44 construction with jeremykothe2's repacked owner map) certifies b = 0.001654122058459393176396, above #543's bit c = 0.001653826988146798944268, so #648's κ was the #543 cap. Merged main already contains a stronger bit supplier: DreamingOfClouds' [#589](https://github.com/CrocSwap/integer-mult-bounds/pull/589) (two A-section transports on eumemic's [#555](https://github.com/CrocSwap/integer-mult-bounds/pull/555) punctured R439 word), c = 0.001733427039589844234749, preserved on main at `research/e8-bit-p111-tuned/tune/EXPECTED.json`.
+
+- **κ = 412847614269303/250000000000000000 = 0.001651390457077212**, +0.01781% over #648 (0.001651096360425895). The complex side binds again. The conservative (pre-#559) complex charge passes at 0.00165139045419947.
+- **What changed.** `inputs/PR589-EXPECTED.json` is main's #589 receipt, byte for byte (git blob e293ddc5…, identical at #589's head a5afc8c and on main 17ce0c79). `code/assemble.py` reads it instead of #543's receipt, checks its blob id, word parameters (v = 111, R = 439, decoder constant 63) and the nine-stage deficit identity T(8v − 9·cst) = 32·321 = 10,272 (it was the literal 9,984 = #543's v = 120 value), computes the binding side, and records the new supplier. `verify_global.py` asserts the vendored receipt equals main's copy; `data/UPSTREAM-PINS.json` pins main's copy by sha256. `data/SPEC.json` κ fields were re-derived by the package's discovery → `code/freeze_spec.py` → strict chain. The owner map, PLAN, construction, invoice, both exact moment engines (bit bad-residue surcharge retained), the 47-inequality outer assembly and all 69 admission controls are unchanged.
+- **Retained assumptions added by the swap**: those #555/#545 retain for the bit side: a v = 111 bit supplier in the outer assembly, and pooled-cell bit hosting (as for #543, not #458's stricter one-helper-per-family rule).
+
+Everything below is #648's README, unchanged.
+
 # Gauge44 with a repacked owner map: conditional κ = 0.001651096360425895
 
 **The construction is icekylinx's [#645](https://github.com/CrocSwap/integer-mult-bounds/pull/645) (`research/gauge44-global`), unchanged.** This package changes only the literal owner map and its PLAN: `data/OWNERS.json.gz` (sha256 1a7438f32d25f028…) and `data/PLAN.json` (064d05a8b1f48542…), plus the expected values in `data/SPEC.json` re-derived for that map by #645's own discovery/freeze/strict chain (`verify_global.py`, `code/freeze_spec.py`). Every construction file, code file, recipe and the supplier word are #645's, byte for byte. We claim only the owner map.

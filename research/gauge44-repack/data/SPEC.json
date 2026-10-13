@@ -1327,15 +1327,15 @@
     },
     "live": 7168,
     "physical": 7670,
-    "conservative_kappa_decimal": "0.001651096360425895",
-    "kappa_decimal": "0.001651096360425895",
     "complex_lower": "413530514614848294099/250000000000000000000000",
     "conservative_complex_lower": "1654122055572122962147/1000000000000000000000000",
-    "kappa": "330219272085179/200000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 72
     },
-    "mutations_rejected": 15
+    "mutations_rejected": 15,
+    "conservative_kappa_decimal": "0.00165139045419947",
+    "kappa_decimal": "0.001651390457077212",
+    "kappa": "412847614269303/250000000000000000"
   }
 }
