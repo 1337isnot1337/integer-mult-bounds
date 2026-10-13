@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "passing",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-batch1099-audit/check_frontier1094.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Positive control: pinned CrocSwap/integer-mult-bounds#1094 inputs pass the full R1-R7/X1/X2 owner audit. Failure controls: M1 one-integer cross-child axis mutation rejected at X2 with single-locus and rank-preservation guards; M2 within-child duplicate rejected at X2; M1/M2 loci differ. Blindness: X2 need() suppressed, geometry identical and R1-R7/X1 accept M1. Coverage: 11 owner-audit and 6 frozen indep16 controls inventoried, zero X2-directed mutants before this package. Trace: reproduce target, verify_frontier1094.py, verify_selected_result.py, community-batch1099.yml, claim list 1022-1087 and frozen indep16/audit_allcold keying asserted as recorded."
+    }
+  ]
+}
