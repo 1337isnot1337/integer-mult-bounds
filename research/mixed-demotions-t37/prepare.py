@@ -26,7 +26,8 @@ def prepare(work,baseline,providers):
                 assert text.count(before)==1,(before,text.count(before));text=text.replace(before,after);extra.append([before,after,1])
         if name=='runtime/freeze_spec.py':
             for before,after in [("spec['expected']['assembly_controls_rejected'] = 69","spec['expected']['assembly_controls_rejected'] = 114"),
-              ("spec['expected']['provider_counts'] = {'gauge44':333}","spec['expected']['provider_counts'] = dict(__import__('collections').Counter(pid for s,r,pid in spec['dispatch']))")]:
+              ("spec['expected']['provider_counts'] = {'gauge44':333}","spec['expected']['provider_counts'] = dict(__import__('collections').Counter(pid for s,r,pid in spec['dispatch']))"),
+              ("spec['expected']['mutations_rejected'] = 15","spec['expected']['mutations_rejected'] = 23")]:
                 assert text.count(before)==1
                 text=text.replace(before,after);extra.append([before,after,1])
         target.write_text(text,encoding='utf-8',newline='\n')

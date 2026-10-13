@@ -6,7 +6,7 @@ The contribution is the mixed dispatch and its literal whole-helper realization.
 
 ## Reproduce
 
-Use Python 3.11+, the repository's cold-replay dependencies (including a C++ compiler, Boost headers, NumPy/SciPy/SymPy and Z3), and a new output directory outside the checkout:
+Use Python 3.11+, the repository's cold-replay dependencies (including a C++ compiler, Boost headers, NumPy/SciPy/SymPy ), and a new output directory outside the checkout:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 nice -n 15 \
@@ -17,7 +17,7 @@ If Boost is not on the compiler's normal include path, set `CPLUS_INCLUDE_PATH` 
 
 A completed cold PR799 replay can be reused with `--ancestry799 /path/to/completed/replay`. The retained maintainer checker rechecks its source, artifacts, logs and PR589/741/799 bindings; an independent fixed coverage check rejects omitted stages. This option still rebuilds both new local providers and every new global stage.
 
-The driver checks both exact scalar maps and all 704 columns in both orientations, all native phase edges, local entrance mutations, the full helper map against literal bridge-aware windows, provider substitutions, the emitted controller, the complete invoice, 114 admission mutations, 12 bit-supplier mutations, two rational moment engines, and 47 strict outer inequalities. It also checks eight parent controls, eight frozen-flow controls, and eight independent owner controls. Successful completion writes `RESULT.json` with status `PASS_MIXED_JOINT_ENTRANCES_T37_COMPLETE_ADMISSION`.
+The driver checks both exact scalar maps and all 704 columns in both orientations, all native phase edges, local entrance mutations, the full helper map against literal bridge-aware windows, provider substitutions, the emitted controller and its 23 mutations, the complete invoice, 114 admission mutations, 12 bit-supplier mutations, two rational moment engines, and 47 strict outer inequalities. It also checks eight parent controls, eight frozen-flow controls, and eight independent owner controls. Successful completion writes `RESULT.json` with status `PASS_MIXED_JOINT_ENTRANCES_T37_COMPLETE_ADMISSION`.
 
 Immutable upstream archives retain byte pins. Fresh compressed outputs are compared by their complete decompressed content or documented semantic identity; only validated phase timing and compression references are rebound. The committed `SPEC.json` remains frozen throughout verification.
 

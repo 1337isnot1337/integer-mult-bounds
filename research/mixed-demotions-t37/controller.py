@@ -43,7 +43,7 @@ def replay(work,providers,discovery=False):
     assert len(asm['outer'])==47 and all(Fraction(v)>0 for v in asm['outer'].values())
     assert not ac['discovery_accepted_controls'] and len(ac['rejected_controls'])==114
     assert len(bc['rejected_controls'])==12 and bc['derived_deficit']==10272
-    assert audit['mutation_controls_run'] and len(audit['mutations_rejected'])==15
+    assert audit['mutation_controls_run'] and len(audit['mutations_rejected'])==23
     assert asm['template_sha256']==owner['template_sha256']==invoice['template_sha256']
     assert invoice['owner_audit_sha256']==sha(g/'audit/OWNERS-AND-PROFILE.json')
     assert invoice['controller_audit_sha256']==sha(g/'audit/ASYNC-AUDIT.json')
@@ -52,4 +52,4 @@ def replay(work,providers,discovery=False):
             assert read(g/'base/providers'/pid/name)==read(local/name),'Fresh provider binding: '+pid+'/'+name
     return dict(status='PASS_MIXED_DEMOTIONS_T37_STRICT_CONTROLLER',kappa=asm['kappa'],kappa_decimal=asm['kappa_decimal'],
       complex_profile=asm['complex_profile'],roles=159840,calls=333,prefix_bits=775,row_coefficient=17495,
-      controls=dict(admission=114,bit_supplier=12,controller=15),scope=claim['scope'],stages=stages)
+      controls=dict(admission=114,bit_supplier=12,controller=23),scope=claim['scope'],stages=stages)
