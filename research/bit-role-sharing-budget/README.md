@@ -35,6 +35,14 @@ and live denominator fixed. Removing 99 fails the target; removing 100
 passes. This is an invoice reduction after hosting, not a helper-count or
 scalar-gate reduction. No mechanism achieving it is supplied.
 
+The [hosting follow-up](../bit-sharing-hosting-gate/README.md) tests a
+running decoder cache and reconstructs every physical helper reservation.
+Thirteen free helper eliminations give 104 gross units but zero net units
+after owner restoration. With the rank-7 data boundaries preserved, the
+corresponding favorable consolidation screen first passes at 102 units.
+This refines the implementation requirements; it does not invalidate the
+rank-8 relaxation above or supply a replacement operator.
+
 [PROOF.md](PROOF.md) states the fixed-query direct-sum obstruction, complete
 cost ledger, relaxation domains, thresholds and repair allowance. Unlike the
 earlier three-shear adapter obstruction, its role-query argument allows
