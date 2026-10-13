@@ -1,35 +1,36 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "1672750137367829/1000000000000000000",
-  "kappa_decimal": "0.001672750137367829",
-  "conservative_kappa_decimal": "0.001672750134516234",
-  "complex_lower": "1675552918742823481899/1000000000000000000000000",
+  "kappa": "836377676452399/500000000000000000",
+  "kappa_decimal": "0.001672755352904798",
+  "conservative_kappa_decimal": "0.001672755350053194",
+  "complex_lower": "418889537943069717629/250000000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
-    "1": 348653,
+    "1": 348654,
     "2": 62220,
     "3": 61369,
     "4": 20448,
-    "5": 11809,
+    "5": 11808,
     "6": 1,
     "7": 51,
     "8": 1153,
     "12": 1,
     "16": 1,
-    "28": 5,
+    "28": 4,
+    "32": 1,
     "48": 4867
   },
   "idle_remainder_profile": {
-    "1": 2189,
+    "1": 2190,
     "2": 12,
     "3": 313,
-    "5": 1,
     "6": 1,
     "7": 51,
     "8": 1,
     "12": 1,
     "16": 1,
-    "28": 5,
+    "28": 4,
+    "32": 1,
     "48": 4867
   },
   "complete_invocations": 144,
@@ -38,7 +39,7 @@
   "charged_prefix_bits": 512,
   "physical_row_coefficient": 16469,
   "retained_row_coefficient": 20161,
-  "actual_73_axis_charts": 9849,
+  "actual_73_axis_charts": 9850,
   "controls": {
     "admission": 69,
     "bit_supplier": 12,
@@ -46,71 +47,71 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "617f4c991cc454d6ce6984b2cb27fa408427139b849746148387021929867a9d",
+  "spec_sha256": "803c0b31d68f19afab4e5a6d3252e47a229f210334fc424a65c7efa048ffc06e",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.306,
+      "seconds": 1.499,
       "exit_code": 0,
       "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
     },
     {
       "name": "bind8",
-      "seconds": 0.309,
+      "seconds": 0.334,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "lift16",
-      "seconds": 2.668,
+      "seconds": 3.116,
       "exit_code": 0,
-      "log_sha256": "551ddd9cf18423c06750163737efc55094783328f271be93649f20f15847fce2"
+      "log_sha256": "53a9252bf46d4c186840b8ad325a9d0e774f10ed77ee69c171ff805e9f9d168d"
     },
     {
       "name": "bind",
-      "seconds": 0.354,
+      "seconds": 0.463,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 5.551,
+      "seconds": 5.91,
       "exit_code": 0,
-      "log_sha256": "c80746ae66d9ad1fdcd5f83b21e08243824754eb4608c19f5748735d5301fc2c"
+      "log_sha256": "39bc892888f33eeb258f83e393b5605340c5728eaa1f44766e4b9a27538db41f"
     },
     {
       "name": "audit",
-      "seconds": 21.743,
+      "seconds": 22.909,
       "exit_code": 0,
-      "log_sha256": "72a6684f52546def08ba33cb907fb3bfdcd5cd0f3564c15d6c4e10e83ac75ecc"
+      "log_sha256": "52c48ffeaa66ef3a2568619ddb372cef1b5cdda44543afc5b3c7ee779d5abb85"
     },
     {
       "name": "invoice",
-      "seconds": 1.252,
+      "seconds": 1.216,
       "exit_code": 0,
       "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
     },
     {
       "name": "assembly",
-      "seconds": 0.346,
+      "seconds": 0.333,
       "exit_code": 0,
-      "log_sha256": "35e4bf18efbfecd1b5ea99bf5310fa6439844c65b35a97188a9ff44aac11edf6"
+      "log_sha256": "86c88dfc636395f0109cabf3e0dc02440aec87cc3c238af7179782a4dc5e37d5"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.467,
+      "seconds": 0.446,
       "exit_code": 0,
       "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.658,
+      "seconds": 0.699,
       "exit_code": 0,
       "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent-t16",
-      "seconds": 0.958,
+      "seconds": 0.978,
       "exit_code": 0,
       "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
     }

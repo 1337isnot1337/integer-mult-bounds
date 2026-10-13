@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "bb68a89f1f2f13ddeec2215fc4e8a7dffbdab8a9544a49ec2eb471bc13eccb4c",
-    "plan_sha256": "37843e49fb7a63af9909945d786fd04d72ec31150e26aea57ee5a8c59fabccbf"
+    "owners_sha256": "47639285e15d0cf5deda860478ad8eb9ad372bac977c0b16c1fee5fa158c606e",
+    "plan_sha256": "65a1bc16faf3b6e15c4ce954f25313548953e4dc94c8c2e941a66d36c77546ad"
   },
   "dispatch": [
     [
@@ -1940,41 +1940,42 @@
       "gauge44": 144
     },
     "mutations_rejected": 15,
-    "actual_73column_sigmas": 9849,
+    "actual_73column_sigmas": 9850,
     "cross_replica_helper_roles": 58200,
     "idle_remainders": 7442,
     "idle_remainder_profile": {
-      "1": 2189,
+      "1": 2190,
       "2": 12,
       "3": 313,
-      "5": 1,
       "6": 1,
       "7": 51,
       "8": 1,
       "12": 1,
       "16": 1,
-      "28": 5,
+      "28": 4,
+      "32": 1,
       "48": 4867
     },
     "global_profile": {
-      "1": 348653,
+      "1": 348654,
       "2": 62220,
       "3": 61369,
       "4": 20448,
-      "5": 11809,
+      "5": 11808,
       "6": 1,
       "7": 51,
       "8": 1153,
       "12": 1,
       "16": 1,
-      "28": 5,
+      "28": 4,
+      "32": 1,
       "48": 4867
     },
-    "conservative_kappa_decimal": "0.001672750134516234",
-    "kappa_decimal": "0.001672750137367829",
-    "complex_lower": "1675552918742823481899/1000000000000000000000000",
-    "conservative_complex_lower": "837776457940832323721/500000000000000000000000",
-    "kappa": "1672750137367829/1000000000000000000"
+    "conservative_kappa_decimal": "0.001672755350053194",
+    "kappa_decimal": "0.001672755352904798",
+    "complex_lower": "418889537943069717629/250000000000000000000000",
+    "conservative_complex_lower": "837779074455555536867/500000000000000000000000",
+    "kappa": "836377676452399/500000000000000000"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",
