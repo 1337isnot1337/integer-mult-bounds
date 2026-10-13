@@ -47,6 +47,35 @@ d.need([a.values for a in banks] == originals, 'product inverse')
 print('PASS_BOUNDARY_PROBE')
 '''
 
+ACCESS_PROBE = LOAD+r'''
+d, F = v.d, v.F
+class Observed(list):
+    def __init__(self, values):
+        super().__init__(values)
+        self.reads = self.writes = 0
+    def __getitem__(self, index):
+        value = super().__getitem__(index)
+        self.reads += 1
+        return value
+    def __setitem__(self, index, value):
+        super().__setitem__(index, value)
+        self.writes += 1
+
+for mode in ('leaf', 'compose'):
+    for sign in (1, -1):
+        banks = [Observed([(F(i+j+1, 8), F(j-2*i, 16)) for i in range(8)])
+                 for j in range(2 if mode == 'leaf' else 3)]
+        if mode == 'leaf':
+            meter = d.lift(banks[0], banks[1], (F(1, 4), F(1, 8)), F(1, 2), 64, 3, sign)
+        else:
+            factors = [(False, (F(1, 4), F(1, 8)), F(1)),
+                       (True, (F(1, 3), F(1, 9)), F(1))]
+            meter = d.compose(banks[0], banks[1], factors, banks[2:], d.ONE, F(1, 2), 64, 3, sign)
+        actual = (sum(a.reads for a in banks), sum(a.writes for a in banks))
+        d.need(actual == (meter.reads, meter.writes), 'literal access accounting')
+print('PASS_LITERAL_DIRTY_READ_ACCOUNTING cases=4')
+'''
+
 
 def need(ok, message):
     if not ok:
@@ -74,10 +103,15 @@ def main():
         package = root/'standalone package'
         shutil.copytree(HERE, package, ignore=shutil.ignore_patterns('__pycache__'))
         run(['-c', PROBE, str(package)])
+        run(['-c', ACCESS_PROBE, str(package)])
         source = package/'dirty_stride.py'
         original = source.read_text()
         inverse_probe = PROBE.replace('originals =', 'fs = fs[:2]\noriginals =', 1)
         mutations = [
+            ('duplicate_validation_read',
+             "            value = data[i]\n            need(rnd(value, bits) == value, 'fixed grid data')",
+             "            need(rnd(data[i], bits) == data[i], 'fixed grid data')",
+             'literal access accounting', ACCESS_PROBE),
             ('missing_source_undo', '    causal(source, target, stride, geometry, undo=True)\n',
              '', 'source restoration', PROBE),
             ('unpaired_closure', 'closure(source, target, stride, geometry, -1, level)',

@@ -42,6 +42,11 @@ standalone use, exact regeneration, source and certificate corruption, and
 faults in the arithmetic word. It runs two complete replays; the scoped CI
 job uses this command on Python 3.11 and 3.14.
 
+An independent array observer also checks every indexed read and write for
+both signs of a leaf and a complete factor word. Input validation reads
+each value once into a scalar. A mutation that repeats the read is rejected
+because the actual access count differs from the meter.
+
 Expected primary marker:
 
 ```text

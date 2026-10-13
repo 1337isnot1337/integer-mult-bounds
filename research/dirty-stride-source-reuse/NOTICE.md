@@ -2,8 +2,10 @@
 
 New material is prepared for Ali Romman (@aliromman), with substantial
 OpenAI Codex assistance in the derivation, implementation, tests, and text.
-One AI agent performed this work. The separate exact arithmetic paths are
-not independent human review or a formal proof of the full theorem.
+One AI agent produced the initial construction. The quadratic-phase agent
+found the repeated validation reads; the coordinator reproduced and corrected
+them. These AI checks and separate exact arithmetic paths are not independent
+human review or a formal proof of the full theorem.
 
 The new files use Apache-2.0. The retained predecessor files keep their
 original notices and source pins in `SOURCE.json`.
