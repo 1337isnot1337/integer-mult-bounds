@@ -180,12 +180,12 @@ determines the small randomized control corpus; the large measured workload
 is the unchanged historical default, not a seed-selected easier input.
 
 Credit **Douglas R. Colkitt** for the original cube family, exact permutation,
-rank screen, historical proof note and certificate. Related pending work is
+rank screen, historical proof note and certificate. Related work is
 distinct: Tuomo Kiiskinen's PR667 uses integer Horner logarithms; Curtis
 Dransfield's PR752 packs quadratic-affine dot products; PR898 packs Leech
 minor lanes; PR976 optimizes historical joint-frame rank. PR946's broad encoding
 proposal illustrates why this adapter leaves historical source pins intact.
-No pending code is imported and no priority claim is made for mask caching.
+No code from those PRs is imported and no priority claim is made for mask caching.
 
 Prepared by **Ross Richardson with substantial OpenAI Codex assistance**, which
 included implementation, testing, analysis and documentation. No independent
