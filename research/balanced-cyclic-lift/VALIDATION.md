@@ -38,6 +38,8 @@ The immediate publication refresh at approximately 05:57 UTC covered **621 open
 PRs through #802**. PR628 remains at the consumed head, main was freshly fetched
 at the exact base again, and no matching in-place cyclic leaf submission was
 identified. PR796's root valuations were read separately and credited as context.
+An immediate pre-creation check also inspected PR803's analytic inverse bound,
+head `d213ac12d4a1ab8f717d942e844df318ceb395fb`; its mechanism is distinct.
 
 The root `make verify` was launched once on an untouched exported base snapshot,
 so historical generators cannot change this contribution or the primary checkout.

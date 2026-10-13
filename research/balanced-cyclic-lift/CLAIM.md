@@ -46,3 +46,35 @@ PR756's balanced-Fano verification tooling is reserved for the coordinating chat
 
 Contributor: Wentao Li (@VictorLiwentao; X: [@Is__Victor](https://x.com/Is__Victor)), with substantial OpenAI Codex
 assistance. No independent human review or priority claim is made.
+
+## Completed result (one final claim update)
+
+Published [PR805](https://github.com/CrocSwap/integer-mult-bounds/pull/805) on
+2026-10-13 at approximately 01:02 America/Chicago (06:02 UTC).
+Status: research construction / recursive interface; **no new kappa**.
+The exact real half-stable cyclic leaf and ordered product restore one arbitrary
+dirty array, one dirty scalar and the source. The n55/L5 fixture uses 220 enlarged
+factor executions and 2,660 coordinate updates. The predecessor's 3,232 additive
+leaf calls have a different leaf interface and price.
+
+The frozen mathematical source commit is
+`055e34ecc195529841f0a75c7b53a61c12cce694`; publication receipt changes are documentation
+and context pins only. The base and consumed PR628 source pins remain above and
+in SOURCES.json. Reproduce with
+`python3 -I -O -B research/balanced-cyclic-lift/verify.py`; expect
+`PASS_BALANCED_CYCLIC_LIFT` with 1,560 factors, 7,420 columns, 4,680 rounded factor
+cases, 315 products and 25 controls. Optimized/offline/package-corruption and
+Python 3.9.6/3.13.2 checks pass. Root make verify passed seven historical groups,
+then failed at gen4-bank-verify because the unchanged base environment lacks SymPy.
+
+The final full overlap refresh covered 621 open PRs through #802, followed by
+an immediate pre-creation inspection of #803's separate analytic inverse bound.
+No matching cyclic in-place leaf contribution was identified. Related echo-tree,
+checkpoint and analytic authors are credited in NOTICE.md; no concurrent code is
+consumed. The original selected result and upstream files are unchanged.
+
+Verification and handoff began early, at approximately 05:40 UTC, retaining more
+than the final quarter of this work for checks and publication. Remaining limits:
+exact coefficient entries grow with cycle length; the full complex/root/scaling,
+physical compiler, tape/layout, supplier invoice and multiplication transfer are
+not supplied. The bounded experiment ends at this one reviewable contribution.

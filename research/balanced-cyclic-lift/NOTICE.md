@@ -33,6 +33,8 @@ clean checkpoints. Both retain different leaf/storage contracts; their code is
 not consumed. Exact inspected heads are in SOURCES.json as context only.
 The immediate final refresh also read Hao Yan's PR796 root-valuation audit;
 its nonarchimedean claim is separate from this real-coefficient leaf contract.
+Immediately before creation, Rafael Guevara / alephnan's PR803 degree-controlled
+analytic inverse bound was inspected as a separate result. It is not consumed.
 
 The selected #626/#543 construction and its Kothe/Boukhalfa/eumemic and retained
 supplier lineage are credited context, not a claimed dependency yielding a new
