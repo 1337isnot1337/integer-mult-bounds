@@ -17,7 +17,39 @@
     "components": 138,
     "fractional_components": 0
   },
-  "global_variable_dimension_search": "Running; no claimed result yet.",
+  "global_variable_dimension_search": {
+    "status": "INCONCLUSIVE_NO_NEW_NOMINATION",
+    "source_variables": 192,
+    "source_domains": {
+      "2": 112,
+      "5": 24,
+      "374": 56
+    },
+    "local_frame_variables": 2395,
+    "lp_columns": 1806543,
+    "lp_rows": 293554,
+    "lp_nonzero_coefficients": 3840348,
+    "widths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "attempts": [
+      {
+        "method": "highs",
+        "outcome": "Stopped by the researcher after more than ten minutes without a returned LP solution; no bound or primal candidate retained."
+      },
+      {
+        "method": "highs-ipm",
+        "solver_time_limit_seconds": 180,
+        "outcome": "HiGHS time limit reached; primal_status None. No integer local solve or physical admission attempted."
+      }
+    ],
+    "scope": "This is an unfinished optimization attempt, not a mathematical infeasibility result. The unchanged scalar word, endpoints, current eligibility census and backward frame ceilings still limit the family. The admitted kappa is unchanged."
+  },
   "admission": "Fresh native five-stage replay and unchanged strict T16 engines. Exact slot permutation preserves inventory and occupied widths; no owner optimizer is used.",
   "numeric_scope": "All discovery relaxed exponents and LP results are floating nominations. CLAIM.json is the admitted value. No exact optimality claim for discovery solvers.",
   "restricted_joint_dimension_packing_search": {
