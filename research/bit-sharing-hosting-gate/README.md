@@ -41,3 +41,11 @@ could be claimed; the complex supplier is unchanged.
 
 Prepared for @androolloyd with substantial OpenAI Codex assistance.
 Apache-2.0. Source and predecessor attribution is in PROOF.md and SOURCES.json.
+
+## Changed-boundary follow-up
+
+[Paired boundary preflight](../bit-paired-boundary-gate/README.md) verifies a
+different composable endpoint and an exact 296-helper owner plan. Its target
+invoice passes without consolidation, but the required local scalar word
+has not been constructed. The explicit wrapper around the current word is
+fully charged and rejected. The construction goal remains unachieved.

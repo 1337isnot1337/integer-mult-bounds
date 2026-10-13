@@ -19,4 +19,5 @@ python3 -B "$root/research/gauge44-notri-fine-grid/verify.py" --out "$out/fine-g
 sh "$root/research/dirty-echo-integration/replay.sh" "$out/integration"
 sh "$root/research/bit-role-sharing-budget/replay.sh" "$out/bit-role-sharing"
 sh "$root/research/bit-sharing-hosting-gate/replay.sh" "$out/bit-sharing-hosting-gate"
+sh "$root/research/bit-paired-boundary-gate/replay.sh" "$out/bit-paired-boundary-gate"
 echo PASS_DIRTY_ECHO_ALIAS_REPAIR_AND_FINE_GRID
