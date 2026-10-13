@@ -81,5 +81,80 @@
     },
     "floating_kappa_relaxed": "0.0016755686752014923",
     "scope": "The solver reported an optimal integer local assignment within its floating tolerances, with fractional packing allowed. The resulting relaxed exponent agrees with the admitted word ceiling to numerical precision. It is not an exact optimality proof or admitted physical supplier."
+  },
+  "further_joint_dimension_packing_searches": [
+    {
+      "status": "COMPLETED_FLOATING_MILP_NOMINATION_NO_IMPROVEMENT",
+      "source_variables": 56,
+      "source_dimensions": [
+        3,
+        4,
+        5
+      ],
+      "lp_columns": 124607,
+      "lp_rows": 60789,
+      "lp_objective": 128088.16224717825,
+      "integer_local_objective": 128100.08258351801,
+      "kappa_relaxed": 0.0016755686752014923,
+      "local_profile": {
+        "1": 2366,
+        "2": 498,
+        "3": 412,
+        "4": 130,
+        "5": 82,
+        "8": 8
+      },
+      "width_inventory": {
+        "9": 240,
+        "4": 42,
+        "8": 114,
+        "7": 38,
+        "5": 46
+      },
+      "scope": "All subspaces of the indicated dimensions inside the fixed five-dimensional ceilings for fourteen four-helper groups. All smaller entrances remain fixed. Local frame choices are integral; aggregate owner bins remain fractional. Floating solver optimality is not an exact optimality certificate or physical admission."
+    },
+    {
+      "status": "COMPLETED_FLOATING_MILP_NOMINATION_NO_IMPROVEMENT",
+      "source_variables": 56,
+      "source_dimensions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "lp_columns": 296723,
+      "lp_rows": 81565,
+      "lp_objective": 128088.16224717826,
+      "integer_local_objective": 128100.08258351801,
+      "kappa_relaxed": 0.0016755686752014923,
+      "local_profile": {
+        "1": 2366,
+        "2": 498,
+        "3": 412,
+        "4": 130,
+        "5": 82,
+        "8": 8
+      },
+      "width_inventory": {
+        "9": 240,
+        "4": 42,
+        "8": 114,
+        "7": 38,
+        "5": 46
+      },
+      "scope": "All subspaces of the indicated dimensions inside the fixed five-dimensional ceilings for fourteen four-helper groups. All smaller entrances remain fixed. Local frame choices are integral; aggregate owner bins remain fractional. Floating solver optimality is not an exact optimality certificate or physical admission."
+    }
+  ],
+  "rank_one_entrance_removal": {
+    "status": "COMPLETED_FLOATING_SCREEN_NO_IMPROVEMENT",
+    "single_helper_trials": 136,
+    "point_cohort_trials": 8,
+    "all_at_once_trials": 1,
+    "improving_nominations": 0,
+    "best_tested_kappa_relaxed": 0.0016754742310856087,
+    "all_at_once_kappa_relaxed": 0.00159211053842416,
+    "scope": "Remove unit-dimensional entrance spaces and refit local gate frames. Aggregate floating packing is a relaxation; these variants are not admitted providers."
   }
 }
