@@ -17,9 +17,11 @@ assignment from pinned PR638 data.
 
 Exact binding, owner admission and its 23 controls, the finite invoice, both
 moment engines, and an independent native/owner/rational-moment check passed.
-Five independent corruption controls also passed. **The new witness's full fresh
-replay is pending at publication.** Completed checks are retained in
-[validation/](validation/).
+Five independent corruption controls also passed. The full fresh replay then
+passed **64/64 stages**, without reuse, in 296.15 seconds. All 51 artifact and
+64 stage-log hashes were independently checked. Supplemental checks, both owner
+reconstructions and their mutation controls passed. Complete evidence is retained
+in [validation/](validation/). Execution was on macOS; no Linux replay is claimed.
 
 ```sh
 PYTHON=python3 sh research/pr638-improvement-20261013/witness638/verify.sh /tmp/pr638-improved-fresh
@@ -29,3 +31,8 @@ Use Python 3.10+, a C++ compiler, Boost headers, and a new output directory.
 The inherited all-size, compiler, realization, analytic-transfer, and bit H1–H5
 premises remain. Prepared by Chi Zhao with substantial OpenAI Codex assistance;
 upstream construction and contributor credits are preserved in the witness.
+
+The replay used commit `cf2f6d77eb555bf5a970d7e334aa46659b5ea66b`. Only the
+witness README and its manifest entry changed after execution. The
+[documentation update record](DOCUMENTATION-UPDATE.json) confirms all 311 other
+manifested inputs are unchanged.

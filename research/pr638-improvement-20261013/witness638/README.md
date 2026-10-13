@@ -12,12 +12,14 @@ all construction recipes, 23 core verification files and the 71 JP8 / 1 CK
 dispatch remain unchanged from PR637. CK is at time 5, stage 2, replica 0,
 forward orientation. All 35,424 roles retain valid physical owners and intervals.
 
-**The final fresh end-to-end replay is pending.** Discovery rebuilt the bound
-controller, all 23 controller mutations, invoice and both exact moment engines
-using previously audited native suppliers. All 114 admission controls passed,
-as did the separate native-width/owner/rational checker. These checks are not
-represented as a completed fresh replay. The parent README and validation
-folder record subsequent execution status.
+**The full fresh replay passed all 64 stages without reuse**, followed by every
+supplemental wrapper check. Native suppliers, exact phases, physical ownership,
+23 controller mutations, the invoice, both moment engines and 114 admission
+controls passed. The independent native/owner/rational checker, five owner
+mutations, declarations, both exact owner reconstructions, four exporter
+mutations and six U4 mutations also passed. The [validation folder](../validation/)
+preserves the full replay archive, receipts and executed snapshot. Execution was
+on macOS; no Linux replay is claimed.
 
 Reproduce with Python 3.10 or newer, a C++ compiler and Boost headers:
 
