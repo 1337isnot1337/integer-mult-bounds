@@ -11,21 +11,23 @@ experiment: the complete optimistic child histogram, used to reject interface
 routes without headroom. The card asks for a new physically realizable helper
 inventory; this package instead quantifies the screen itself on **changed
 coverage-law interfaces**, answering the coverage-law half of
-[PR #1240](https://github.com/CrocSwap/integer-mult-bounds/pull/1240)'s open
-question. The full task card is in [TASK-CARD.md](TASK-CARD.md); structured
-scope metadata is in [TASK.json](TASK.json).
+https://github.com/CrocSwap/integer-mult-bounds/pull/1240's open question. The
+full task card is in [TASK-CARD.md](TASK-CARD.md); structured scope metadata is
+in [TASK.json](TASK.json).
 
 ## Model and object
 
 The hosted nine-stage coverage law of the selected line (semantics follow
-PR1012's coverage identity and PR #1240's moment model; the arithmetic here is
+CrocSwap/integer-mult-bounds#1012's coverage identity and
+CrocSwap/integer-mult-bounds#1240's moment model; the arithmetic here is
 written independently):
 
 - width `m = 73`; per call `w = families/stages = 896/9` live data families;
 - coverage identity: paid rank mass + idle mass = `(m − unpaid)·w + centre`
   (selected line: `unpaid = 1`, `centre = 64`); deficit `D = unpaid·w − centre`;
-- the selected #1094 local word per call is `{1:2412, 2:418, 3:432, 4:142,
-  5:82, 8:8}` (paid mass 5586), recorded at `research/gauge44-slots-t16/README.md`;
+- the selected CrocSwap/integer-mult-bounds#1094 local word per call is
+  `{1:2412, 2:418, 3:432, 4:142, 5:82, 8:8}` (paid mass 5586), recorded at
+  `research/gauge44-slots-t16/README.md`;
 - idle/remainder children have rank at most `R = 51` (halving guard `m² > 2R²`);
   the optimistic relaxation allows fractional counts and puts all idle mass at `R`.
 
@@ -49,8 +51,9 @@ Two targets:
 
 ## Results (all brackets certified with exact rational intervals)
 
-Positive control: `a* = 0.001690054109088696` reproduces PR #1240's grid
-ceiling `a < 0.001690054109089` to within one 1e-15 grid step.
+Positive control: `a* = 0.001690054109088696` reproduces
+https://github.com/CrocSwap/integer-mult-bounds/pull/1240's grid ceiling
+`a < 0.001690054109089` to within one 1e-15 grid step.
 
 | Lever (others at the selected line) | T2: unbinding (`a = 0.001736437026484097`) | T1: `a = 1/99` |
 |---|---|---|
@@ -71,10 +74,11 @@ Reading the T1 column as an interface budget: the headline target needs one of
 three large changes — every live family keeping at least 2.804 unpaid
 coordinates (integer 3 at `c = 64`), or a 3.45× larger template (3093 families
 per replica at 9 stages), or a paid word at most 4.911% of its current counts
-(a 95.1% reduction, consistent with PR #1240's independently derived "about 95%
-lower fully priced local excess spend"). Centre-charge relief alone cannot reach
-T1 at any `c ≥ 0`. T2 is much nearer: about 1% more unpaid coordinates, or one
-unit off the 64 centre charge, or 906 families, or a 3.06% paid-count cut.
+(a 95.1% reduction, consistent with CrocSwap/integer-mult-bounds#1240's
+independently derived "about 95% lower fully priced local excess spend").
+Centre-charge relief alone cannot reach T1 at any `c ≥ 0`. T2 is much nearer:
+about 1% more unpaid coordinates, or one unit off the 64 centre charge, or 906
+families, or a 3.06% paid-count cut.
 
 ## D/E diagnostic
 
@@ -103,9 +107,10 @@ is the acceptance test.
 - The `u`, `c` and pair thresholds are at `F = 896` families; the `F` and `s`
   thresholds are at the selected `u = 1, c = 64`. Changing several levers at once
   can meet a target below each single-lever threshold (see open questions).
-- `u > 1` and any `c ≠ 64` are what-if coverage laws. PR1012's identity is
-  re-checked only at the selected point; a realized `u ≥ 3` would itself be a
-  changed interface contract needing its own admission.
+- `u > 1` and any `c ≠ 64` are what-if coverage laws.
+  CrocSwap/integer-mult-bounds#1012's identity is re-checked only at the
+  selected point; a realized `u ≥ 3` would itself be a changed interface
+  contract needing its own admission.
 - `κ = a/(1+a)` is the retained planning transfer, not a theorem; T2 uses the
   bit supplier pinned at the base commit, and any bit-side improvement moves it.
 - All inherited all-size/compiler, common-label/mutable-source, whole-call
@@ -114,33 +119,36 @@ is the acceptance test.
 
 ## Boundary with existing work
 
-- [PR #1240](https://github.com/CrocSwap/integer-mult-bounds/pull/1240)
-  (Douglas Colkitt) derives the coverage-law moment model and the fixed-word
-  packing ceiling, and names the coverage-law change as open. This package
-  answers that question with independently written, code-disjoint exact
-  interval arithmetic; its `unpaid` what-if parameter is used here as a search
-  lever.
-- The pending stacked branches of [PR #1240](https://github.com/CrocSwap/integer-mult-bounds/pull/1240)
-  and [PR #1272](https://github.com/CrocSwap/integer-mult-bounds/pull/1272)
-  carry a `levers.py` ideal-budget table (first-order multiples per lever) that
-  #1272's proposed `centre-path-sharing` and `coverage-law-change` cards cite.
-  This package is complementary: it certifies exact threshold brackets (not
-  first-order multiples) at two targets, adds the families and paid-word-scaling
-  levers, least-integer thresholds, the `(u=2, c=0)` pair obstruction and the
-  `a* < D/E` convexity margins, and ships as a package on the base commit.
-- [PR #1264](https://github.com/CrocSwap/integer-mult-bounds/pull/1264) screens
-  14 open claims at the **unchanged** coverage law; nothing there varies the
-  interface.
-- [PR #1272](https://github.com/CrocSwap/integer-mult-bounds/pull/1272)
-  (pending) narrows this card with a ceiling screen; this package is that screen
-  applied to changed interfaces.
+- https://github.com/CrocSwap/integer-mult-bounds/pull/1240 (Douglas Colkitt)
+  derives the coverage-law moment model and the fixed-word packing ceiling, and
+  names the coverage-law change as open. This package answers that question with
+  independently written, code-disjoint exact interval arithmetic; its `unpaid`
+  what-if parameter is used here as a search lever.
+- The pending stacked branches of
+  https://github.com/CrocSwap/integer-mult-bounds/pull/1240 and
+  https://github.com/CrocSwap/integer-mult-bounds/pull/1272 carry a `levers.py`
+  ideal-budget table (first-order multiples per lever) that
+  CrocSwap/integer-mult-bounds#1272's proposed `centre-path-sharing` and
+  `coverage-law-change` cards cite. This package is complementary: it certifies
+  exact threshold brackets (not first-order multiples) at two targets, adds the
+  families and paid-word-scaling levers, least-integer thresholds, the
+  `(u=2, c=0)` pair obstruction and the `a* < D/E` convexity margins, and ships
+  as a package on the base commit.
+- https://github.com/CrocSwap/integer-mult-bounds/pull/1264 screens 14 open
+  claims at the **unchanged** coverage law; nothing there varies the interface.
+- https://github.com/CrocSwap/integer-mult-bounds/pull/1272 (pending) narrows
+  this card with a ceiling screen; this package is that screen applied to
+  changed interfaces.
 - Ali Romman's `research/heterogeneous-owner-assembly/` bounds every mixture of
   the frozen catalogue's 25 cost interfaces and explicitly excludes new
-  helper-inventory interfaces such as PR1004/1005's R489/R480. The thresholds
-  here price what such a new interface would have to deliver.
-- Distinct from discussion #1265 (within-group idle repartitions at a fixed
-  coverage law) and discussion #1315 (X2 acceptance boundary for the selected
-  owner map).
+  helper-inventory interfaces such as the R489/R480 interfaces of
+  CrocSwap/integer-mult-bounds#1004 and CrocSwap/integer-mult-bounds#1005. The
+  thresholds here price what such a new interface would have to deliver.
+- Distinct from
+  https://github.com/CrocSwap/integer-mult-bounds/discussions/1265 (within-group
+  idle repartitions at a fixed coverage law) and
+  https://github.com/CrocSwap/integer-mult-bounds/discussions/1315 (X2
+  acceptance boundary for the selected owner map).
 
 ## Reproduce
 
@@ -169,14 +177,16 @@ nine extra families raise it.
 See [TASK.json](TASK.json) for the structured list:
 
 1. **Can any physically realizable helper inventory move a lever past a
-   threshold?** First step: map PR1004/1005's R489/R480 interfaces onto
-   `(u, c, F, s)` and price them here. Blocked on an admission proof that a known
-   interface change corresponds to a coverage-identity change rather than a
-   repacking.
-2. **Thresholds for the #1148 joint-entrance words** (whose packing caps are
-   0.17–0.21% below the selected word's). First step: pin one joint-entrance
-   profile from PR #1264's `SNAPSHOT.json` and rerun the table. Blocked on the
-   profile not being in the base tree.
+   threshold?** First step: map the R489/R480 interfaces of
+   CrocSwap/integer-mult-bounds#1004 and CrocSwap/integer-mult-bounds#1005 onto
+   `(u, c, F, s)` and price them here. Blocked on an admission proof that a
+   known interface change corresponds to a coverage-identity change rather than
+   a repacking.
+2. **Thresholds for the CrocSwap/integer-mult-bounds#1148 joint-entrance words**
+   (whose packing caps are 0.17–0.21% below the selected word's). First step:
+   pin one joint-entrance profile from
+   https://github.com/CrocSwap/integer-mult-bounds/pull/1264's `SNAPSHOT.json`
+   and rerun the table. Blocked on the profile not being in the base tree.
 3. **The exact combined `(u, c)` and `(F, s)` Pareto surface at 1/99.** First
    step: a certified 2D grid in `verify.py`; not blocked, cheap.
 
@@ -184,7 +194,7 @@ See [TASK.json](TASK.json) for the structured list:
 
 Contributor: **Navinor**, with help from opencode. Apache-2.0.
 
-Predecessors: PR1012's coverage identity; PR
+Predecessors: CrocSwap/integer-mult-bounds#1012's coverage identity;
 https://github.com/CrocSwap/integer-mult-bounds/pull/1240 and
 https://github.com/CrocSwap/integer-mult-bounds/pull/1264 (Douglas Colkitt) for
 the moment model, the fixed-word ceiling and the open question; the selected

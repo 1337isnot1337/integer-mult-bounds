@@ -2,7 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 """Exact relief thresholds for the coverage law behind the selected complex local word.
 
-Model (all inputs explicit; semantics follow PR1012's coverage identity and the
+Model (all inputs explicit; semantics follow CrocSwap/integer-mult-bounds#1012's
+coverage identity and the
 moment model of https://github.com/CrocSwap/integer-mult-bounds/pull/1240, whose
 arithmetic is NOT imported here):
 
@@ -11,9 +12,11 @@ arithmetic is NOT imported here):
   * coverage identity: paid rank mass + idle mass = (m - unpaid) * w + centre,
     i.e. each live family keeps `unpaid` unpaid coordinates (1 on the selected
     line) and each call pays a centre path of `centre` (64 on the selected line);
-  * the local word fixes its paid child profile per call (the selected #1094 word
+  * the local word fixes its paid child profile per call (the selected
+    CrocSwap/integer-mult-bounds#1094 word
     is {1:2412, 2:418, 3:432, 4:142, 5:82, 8:8}, mass 5586, recorded at
-    research/gauge44-slots-t16/README.md and re-priced by PR #1240);
+    research/gauge44-slots-t16/README.md and re-priced by
+    CrocSwap/integer-mult-bounds#1240);
   * all remaining mass is idle/remainder children of rank at most R, where the
     outer halving guard m^2 > 2 R^2 gives R = 51 at m = 73.
 
@@ -49,9 +52,10 @@ STAGES = 9
 FAMILIES0 = 896
 CENTRE0 = 64
 UNPAID0 = 1
-WORD = {1: 2412, 2: 418, 3: 432, 4: 142, 5: 82, 8: 8}  # selected #1094 local word per call
+WORD = {1: 2412, 2: 418, 3: 432, 4: 142, 5: 82, 8: 8}  # selected CrocSwap/integer-mult-bounds#1094 local word per call
 WORD_MASS = sum(r * n for r, n in WORD.items())  # 5586
-# PR #1240 reports the incumbent ceiling as a < 0.001690054109089 (positive control).
+# CrocSwap/integer-mult-bounds#1240 reports the incumbent ceiling as
+# a < 0.001690054109089 (positive control).
 REF_CEILING = Q(1690054109089, 10 ** 15)
 # scripts/research_baseline.py at the base commit: bit_saving = 1733427039589844234749/10^24.
 KAPPA_BIT = Q(1733427039589844234749, 10 ** 24)
@@ -253,13 +257,14 @@ def run(out_path):
     rep.check(q['total'] == Q(7232) and q['idle'] == Q(1646), 'COVERAGE_IDENTITY',
               f"total={q['total']} idle={q['idle']} w={frac_str(q['w'])} deficit={frac_str(q['deficit'])}")
 
-    # --- positive control: reproduce PR #1240's incumbent ceiling.
-    # #1240 reports the first 1e-15 grid point above a*, so its number is an upper
-    # bound; require our true bracket to sit within one grid step below it.
+    # --- positive control: reproduce CrocSwap/integer-mult-bounds#1240's incumbent ceiling.
+    # CrocSwap/integer-mult-bounds#1240 reports the first 1e-15 grid point above
+    # a*, so its number is an upper bound; require our true bracket to sit within
+    # one grid step below it.
     lo, hi = ceiling(WORD)
     rep.check(hi - lo <= Q(2, 10 ** 18) and hi <= REF_CEILING and lo >= REF_CEILING - Q(1, 10 ** 15),
               'INCUMBENT_CEILING',
-              f'a* in [{dec(lo, 18)}, {dec(hi, 18)}] vs #1240 grid ceiling {dec(REF_CEILING, 15)}')
+              f'a* in [{dec(lo, 18)}, {dec(hi, 18)}] vs CrocSwap/integer-mult-bounds#1240 grid ceiling {dec(REF_CEILING, 15)}')
     rep.cert['incumbent_ceiling'] = {'a_lo': frac_str(lo), 'a_hi': frac_str(hi),
                                     'decimal': dec(hi, 18), 'pr1240_reported': dec(REF_CEILING, 15)}
 
