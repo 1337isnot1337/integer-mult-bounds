@@ -404,7 +404,7 @@ None of these is a result. Each item has a measured fact behind it and exactly o
    - Measured: in 9 of 14 blocks, 2–4 S1 scratch registers are never read after phase A. Dyadic A-programs with 12–14 scratch reproduce the end-of-A rows exactly.
    - This works IF there is such a program whose 8 lines end phase A at frame dim ≤ 2–3, their shipped frames. The current dyadic programs leave the lines at frame 4, which forces all 112 target end frames from 8 to 9.
    - Check: frames range over only 67 subspaces of a 4-dim label space per block, so a frame-bounded search per block (one value solve per frame schedule) settles it.
-   - Update (post-submission, unverified here): answered negatively. A frame-constrained re-synthesis shows each S1 block needs all 16 of its registers (a forced-matching argument), so no S1 scratch can be dropped at the shipped frames.
+   - Update (post-submission, unverified here): mostly answered negatively. For the 11 eight-line S1 blocks, given the shipped end-of-A frames, a frame-constrained re-synthesis shows the block needs all 16 of its registers (a forced-matching argument). Still open: blocks (0,1,*), where lines can act as couriers, and the case where later readers' true caps replace the shipped end-of-A frames as the bounds.
 
 2. **Single-packet S4 via coefficient reads (≤ 112 helpers, net ≤ +1.96% b).**
    - Measured: all 28 S4 four-cycles admit one-packet coefficient reads if the targets are still empty. Coefficient ADDs into targets are SPEC-legal. (Related: #683 prices a mixed K/M face bypass and finds four carriers are forced; a different object.)
