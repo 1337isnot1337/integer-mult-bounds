@@ -22,6 +22,12 @@ all-role recursive bill rejects this direct adapter as a route to larger κ.
 Its proof and exact counterexamples identify the remaining interface and
 cost obligations without changing the local echo result.
 
+The [bit role-sharing cost screen](../bit-role-sharing-budget/README.md)
+then prices arbitrary XOR role pooling, ideal local consolidation, and
+cross-stage rank/repair targets before attempting a replacement supplier.
+It rejects the first two routes to κ=0.01 and records exact requirements
+for a genuinely changed paid profile. No new κ is claimed.
+
 ## Executable admission defect
 
 At PR628 head `0768f97d06c623b8211e651543c66135796b62bf`, `dirty.py::compose`
@@ -122,6 +128,7 @@ Expected final line: `PASS_DIRTY_ECHO_ALIAS_REPAIR_AND_FINE_GRID`.
 The script checks the repair, echo, same-input Fraction benchmark and the
 separately scoped [PR659 final-grid refinement](../gauge44-notri-fine-grid/README.md).
 It also runs the full-transform/bit integration and its scoped cost rejection.
+The bit role-sharing budget screen is included as the final check.
 The final-grid component reconstructs the pinned complex supplier afresh and takes
 roughly three minutes on the recorded machine. It requires assertions in
 inherited engines. The alias and echo checkers separately support `-I -O`.
