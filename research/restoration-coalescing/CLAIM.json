@@ -25,5 +25,7 @@
   "expected_deliverable": "A research note with a complete restoration cost recurrence, a sharp correctness boundary (read-free), a sharp cost boundary (composable family), and an exact stdlib verifier with two positive cases and two negative controls. No new kappa.",
   "pinned_coordination_issue": "none reachable; claim recorded locally",
   "expected_finish": "same session; verification reserved for the final quarter",
-  "status": "completed"
+  "status": "completed",
+  "result": "Scoped research note: a complete restoration cost recurrence plus a sharp correctness boundary (read-free batch) and a sharp cost boundary (composable restoration family). Two positive cases (phase 3->1 passes / 24->8 mults; permutation 3->1 passes) and two negative controls (reader divergence; heterogeneous dense composition 64 vs 16 mults). No new kappa; selected frontier and upstream/ unchanged.",
+  "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1155"
 }
