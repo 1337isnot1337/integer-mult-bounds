@@ -29,5 +29,9 @@
     "620": "E8 decoder research; partially reviewed in current ledger; head e9cf03bbdf7094b5a83f6dbd1d74bfd77a05fb87",
     "231_head": "3c11e696a2fb2c454585d72710de27cd6bd3be68"
   },
-  "status": "claimed"
+  "status": "completed; submitted for review",
+  "result": "Proved the global proper-star obstruction and exact local missing-cell characterization with sharp threshold 2(p-k)+1; no new kappa.",
+  "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/669",
+  "completed_at": "2026-10-13T12:28:03+09:00",
+  "verification": "9 compressed systems, 11 physical port systems, 131336 coefficient vectors, 3413 deletion sets, 2 global-star certificates and 5 negative-control categories. Python 3.11.13, 3.14.5 and optimized mode produce identical receipts; independent proof/code review completed."
 }
