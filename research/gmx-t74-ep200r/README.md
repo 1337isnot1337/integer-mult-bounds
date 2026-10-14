@@ -1,14 +1,14 @@
-# Endpoint and outer-witness refinement on PR1424 / PR1536 (construction unchanged)
+# 220-digit endpoint and outer-witness refinement on PR1424 / PR1536 / PR1549 (construction unchanged)
 
-**Current claim (matches `CLAIM.json` and `SPEC.json`): conditional kappa = 0.00167685522907132188620645677227459261951244873951047526280336519105115665521200964951578469164138454299292754381039421806310169652882028512229353918717571864509128612830494687936330582554446814903439**, which is **9.000000e-200** above PR1536's 0.0016768552290713218862064567722745926195124487395104752628033651910511566552120096495157846916413845429929275438103942180631016965288202851222935391871757186450912861283049468793633058255444681490343.
+**Current claim (matches `CLAIM.json` and `SPEC.json`): conditional kappa = 0.0016768552290713218862064567722745926195124487395104752628033651910511566552120096495157846916413845429929275438103942180631016965288202851222935391871757186450912861283049468793633058255444681490343981523271533501139143**, which is **8.152327e-201** above PR1549's 0.001676855229071321886...03439, and **9.815233e-200** above PR1536's 0.001676855229071321886...0343.
 
 **Soundness repair retained:** Retains PR1519/PR1536's fine Mercator engine repair (even term count) and independent exact 2*atanh oracle stage (`code/oracle_check.py`, run by `verify.py` as stage `fine-engine-oracle`). The construction, scalar words, provider inventory, owners and paid profile are PR1424's (PR1319's 74-replica exact fill of PR1297's four cold kernels), unchanged.
 
-## What changed relative to PR1536
-1. Outer witness settings in `SPEC.json:outer_refinement`: grid_digits 200 (deepened from 199 to 200 digits, resolving the 200th decimal digit 9), margin_digits 250 (eta = beta = 10^-250, target backoff 10^-253), bootstrap_steps 90 (deepened from 82 to 90 steps), endpoint_digits 200.
-2. Certified complex endpoints (native and conservative) remain 1e-200 certified. Both rational engines accept at the endpoint and reject at endpoint + 1e-200.
-3. Strict assembly replay passes all 47 outer inequalities, conservative checks, and 4 rejection controls (`next_grid`, `zero_eta`, `zero_beta`, `unit_beta`).
-4. Full package-owned verification passed (`PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION`).
+## What changed relative to PR1536 and PR1549
+1. **220-digit certified complex endpoints:** Both native and conservative complex endpoints are refined to a 1e-220 certified bracket (`endpoint_digits` = 220). Both rational engines (`fine_mercator` with DYAD 2^830 and `fine_moment` with GRID 10^240) certify accept at the endpoint and reject at endpoint + 1e-220.
+2. **Deepened outer witness settings:** In `SPEC.json:outer_refinement`: `grid_digits` = 220 (deepened from 200 to 220 digits), `margin_digits` = 260 (eta = beta = 10^-260, target backoff 10^-263), `bootstrap_steps` = 100 (deepened from 90 to 100 steps).
+3. **Strict assembly replay:** Passes all 47 outer inequalities, conservative checks, and 4 rejection controls (`next_grid`, `zero_eta`, `zero_beta`, `unit_beta`).
+4. **Full package-owned verification:** Passed all 6 stages (`PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION`).
 
 Reproduce from this package: `python3 -B verify.py --work /absolute/new/work --base-native-from /bound/base/native --extra-native-from /bound/extra/native`. Omit the native reuse flags to regenerate the native providers. Assertions must be enabled. Full verification used explicit source-bound native reuse; no fresh native replay or hosted CI success is claimed.
 
