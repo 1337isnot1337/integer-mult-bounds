@@ -130,6 +130,7 @@ python3 scripts/research_package.py --package research/selected-centre-chrono-so
 | `global_rank_q` edited in RESULT.json | `result receipt differs` |
 | One byte of the archive copy flipped | `pin mismatch: ...selected-replay.tar.gz` |
 | PR1918 `source_rank` edited | `pin mismatch: ...selected-centre-composed-source-rank/RESULT.json` |
+| One kernel-witness coefficient changed from `-1/4` to `-1/2` | `result receipt differs` |
 
 ## Sources and pins
 
