@@ -6,6 +6,9 @@ Standard library plus the unchanged repository sources it pins (no third-party p
   2. rebuild.py: PR1297's two pinned words + inputs/EDITS.json reproduce the shipped words' scalar programs, the
      complete B + early-cleanup map is unchanged over all registers (exact Fractions), the interfaces and the remaining
      cleanup are byte-identical, and every new read of 566 sees its initial value;
+  2b. kernel_check.py (RESTORATION.md): the restoration lemma at every pivot read, the nine-term ledger (zero at the end
+     of the tail, no port at the end of B), the derived compensation, the frame recount and four mutated kernels,
+     reproducing evidence/KERNEL-CHECK.json exactly;
   3. the unchanged independent audit_local.py (research/gauge44-frames-x/independent) passes on both shipped words and
      its recounted paid profiles equal the rebound PLAN provider profiles;
   4. bookkeeping: PLAN.profile = dispatch counts x provider profiles + unchanged idle remainder = SPEC expected profile,
@@ -15,7 +18,9 @@ Standard library plus the unchanged repository sources it pins (no third-party p
      logic with PAYLOAD = charged prefix bits) gives exactly SPEC.expected.kappa and conservative kappa, strictly above
      PR1319's kappa;
   6. evidence binding: the recorded strict T74 replay, refined (PR1549 200-digit) assembly and native receipts agree
-     with SPEC / SPEC-R200 (the full chain itself is replay_full.py, not run here);
+     with SPEC / SPEC-R200 (the full chain itself is replay_full.py, not run here); the recorded fresh replay_full.py run
+     (evidence/FULL-REPLAY.json, evidence/INTERFACES.json) has every stage, PR1319's own admission of the ancestor at its
+     claimed kappa, the container and payload controls, identical call interfaces and equal hosting quantities;
   7. failure controls: flipped coefficient, dropped restore, read moved into the pivot's busy window, corrupted word byte
      and forged profile are all rejected.
 usage: python3 -B verify.py"""
@@ -23,9 +28,10 @@ import copy, gzip, hashlib, importlib.util, json, subprocess, sys, tempfile
 from decimal import Decimal
 from fractions import Fraction as Q
 from pathlib import Path
-assert __debug__, 'assertions required'
+if not __debug__:
+    raise SystemExit('verify.py: run without -O / PYTHONOPTIMIZE (its assert statements are the checks)')
 PKG = Path(__file__).resolve().parent; ROOT = PKG.parents[1]; sys.path.insert(0, str(PKG))
-import rebuild as RB
+import rebuild as RB, kernel_check as KC
 P1319 = ROOT / 'research/global-mixed-t74-exact-fill'
 MC = ROOT / 'research/complex-k492-owner-repair/vendor/multicold/engines'
 AUDIT = ROOT / 'research/gauge44-frames-x/independent/audit_local.py'
@@ -52,6 +58,14 @@ E = rd(PKG / 'inputs/EDITS.json'); q = E['pivot']; reb = []
 for name, (bp, npth) in RB.WORDS.items():
     r = RB.check(name, RB.load(bp), RB.load(npth), E['edit'], q); assert r['pass'], r; reb.append(r)
 checks['rebuild'] = {r['word']: dict(rows=r['b_tail_map_rows'], differing=r['b_tail_map_rows_differing']) for r in reb}
+# 2b. restoration argument over the whole program (RESTORATION.md): lemma, nine-term ledger, compensation, frames, controls
+kc = {}
+for name, (bp, npth) in KC.WORDS.items():
+    base = KC.load(bp); r = KC.analyse(base, KC.load(npth), E['edit'], q); r['controls'] = KC.controls(base, E['edit'], q)
+    r['pass'] = r['pass'] and all(c['rejected'] for c in r['controls'].values()); assert r['pass'], (name, {k: v for k, v in r.items() if k != 'ledger'}); kc[name] = r
+assert json.dumps(kc, indent=1, sort_keys=True) + '\n' == (PKG / 'evidence/KERNEL-CHECK.json').read_text(encoding='utf-8'), 'kernel check differs from evidence/KERNEL-CHECK.json'
+checks['restoration'] = {n: dict(D_end_of_B=r['D_end_of_B'], D_end_of_tail_zero=r['D_end_of_tail_zero'], compensation_gates=r['compensation_gates'],
+                                 paid_profile_delta=r['paid_profile_delta'], controls_rejected=sum(c['rejected'] for c in r['controls'].values())) for n, r in kc.items()}
 # 3. unchanged local audit on the shipped words
 plan, spec, prof = rd(PKG / 'data/PLAN.json'), rd(PKG / 'data/SPEC.json'), rd(PKG / 'data/PROFILE.json')
 words = {'gauge44': PKG / 'inputs/gauge44-word-566.json.gz', 'extra': PKG / 'inputs/extra-word-566.json.gz'}
@@ -125,6 +139,25 @@ r200 = rd(PKG / 'evidence/REFINED-R200.json'); s200 = rd(PKG / 'data/SPEC-R200.j
 assert r200['status'] == 'PASS_STRICT_MIXED_T74_EXACT_FILL' and r200['kappa'] == s200['expected']['kappa'] and s200['outer_refinement'] == dict(grid_digits=200, margin_digits=250, endpoint_digits=200, bootstrap_steps=90)
 assert Decimal(r200['kappa_decimal']) > Decimal(rd(PKG / 'RESULT.json')['predecessors']['pr1549']['kappa_decimal'])
 checks['refined_kappa_decimal_prefix'] = r200['kappa_decimal'][:40]
+# 6b. the separate replay (replay_full.py, one fresh work directory): ancestor admission and kernel side by side
+STAGES = ['parent', 'ancestor-reconstruct-owners', 'ancestor-lift-parent', 'ancestor-container-control', 'ancestor-strict-t74', 'ancestor-geometry',
+          'native-gauge44', 'native-extra', 'rebind', 'strict-t74', 'geometry', 'kernel-check', 'interfaces', 'fine-engine-oracle', 'strict-r200']
+fr = rd(PKG / 'evidence/FULL-REPLAY.json')
+assert fr['status'] == 'PASS_T74_PIVOT566_KERNEL_COMPLETE_FINITE_ADMISSION' and fr['kappa'] == spec['expected']['kappa'] and fr['refined_kappa'] == s200['expected']['kappa']
+assert [x['name'] for x in fr['stages']] == STAGES and all(x['exit_code'] == 0 for x in fr['stages']), 'replay stages'
+assert not any(fr['native_reuse']['ancestor'].values()) and not any(fr['native_reuse']['kernel'].values()), 'the recorded replay must be fresh'
+anc = fr['ancestor']
+assert anc['kappa'] == rd(P1319 / 'CLAIM.json')['kappa'] and anc['strict_status'] == 'PASS_STRICT_MIXED_T74_EXACT_FILL' and anc['geometry_controls_rejected'] == 6
+assert anc['container_control']['plan_paths_changed'] == ['assignment_sha256', 'replica_lift.owners_file_sha256'] and anc['payload_control_rejected']
+itf = rd(PKG / 'evidence/INTERFACES.json')
+assert itf['call_interfaces_identical'] and all(v['identical'] for v in itf['interface'].values())
+assert itf['kappa'] == dict(ancestor=anc['kappa'], kernel=spec['expected']['kappa']) and all(v['equal'] for v in itf['hosting_summary'].values())
+allowed = ('profile.', 'provider_calls[*].local_program_sha256 ', 'provider_registry.gauge44.', 'provider_registry.extra.')
+assert all(x.startswith(allowed) for x in itf['plan']) and all(x.split('.')[2] in ('actual_paid_profile', 'artifact_semantic_sha256', 'artifact_sha256', 'orientation_program_sha256') for x in itf['plan'] if x.startswith('provider_registry.'))
+for pid in ('gauge44', 'extra'): assert itf['native'][pid]['RESIDUAL-ADAPTERS.json'] == itf['native'][pid]['WRAPPER-CHECKS.json'] == 'identical bytes'
+assert itf['hosting']['global/hosted']['ACTUAL-SIGMAS.json.gz'] == itf['hosting']['global/hosted']['IDLE-REMAINDER-FRAMES.json.gz'] == 'identical bytes'
+checks['separate_replay'] = dict(stages=len(STAGES), ancestor_kappa=anc['kappa'], call_interfaces_identical=True,
+                                 hosting_equal=sorted(itf['hosting_summary']), plan_paths_differing=len(itf['plan']))
 # 7. failure controls
 def rejects(fn):
     try: fn()

@@ -27,3 +27,14 @@ the scripts in this package and by the unchanged predecessor code they call.
 - **Unchanged repository code called:** `research/gauge44-frames-x/independent/audit_local.py` (PR645 lineage
   independent local audit) and the retained multicold moment/outer engines
   (`research/complex-k492-owner-repair/vendor/multicold/engines`).
+
+## Revision 2 (2026-10-14)
+
+Revision 2 answers the maintainer's batch review of this PR
+([community-efficient700-review.md](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient700-review.md),
+Mister-Meeseeks). It adds `RESTORATION.md`, `kernel_check.py`, `interfaces.py` and the ancestor stages of
+`replay_full.py`. The ancestor stages run Rohan Arun's unchanged PR1319 scripts (`reconstruct.py`, `lift_parent.py`,
+`replay.py`, `geometry_controls.py`) and PR1297's `verify.py`, binding regenerated containers by payload. PR1319's
+package is not modified. `kernel_check.py` follows the program semantics of icekylinx's unchanged #645
+`audit_local.py`, reimplemented independently. Prepared with substantial AI assistance (Anthropic Claude, via Claude
+Code).

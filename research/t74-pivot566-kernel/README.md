@@ -34,6 +34,11 @@ The global T74 profile becomes `{1:1559766, 2:337668, 3:278058, 4:84912, 5:54612
 
 - **Exact rebuild** (`rebuild.py`, standard library). PR1297's pinned words plus `inputs/EDITS.json` reproduce the shipped
   words' scalar programs. The full B + early-cleanup map, the remaining cleanup and all interfaces are identical.
+- **Restoration argument** ([RESTORATION.md](RESTORATION.md), checked by `kernel_check.py`, receipt
+  `evidence/KERNEL-CHECK.json`). Every inserted or deleted read of q sees q's initial value, so only q's column can
+  change. The nine terms' propagated differences cancel exactly, register by register. At the end of B they touch no
+  port, so the derived compensation (7,208 gates) is unchanged, and the whole program map is unchanged. Two frame
+  chains change (registers 150 and 494), giving H1 +1, H2 −2, H3 +1. Four mutated kernels are rejected.
 - **Local admission.** The unchanged `research/gauge44-frames-x/independent/audit_local.py` passes on both shipped
   words, and its recounted paid profiles equal the PLAN. The lineage native chain
   (`research/k8-eight-ends/replay_native.py` from PR1297's layout: native, ledgers, local replay, wrappers, phases)
@@ -52,7 +57,11 @@ The global T74 profile becomes `{1:1559766, 2:337668, 3:278058, 4:84912, 5:54612
   `PASS_STRICT_MIXED_T74_EXACT_FILL`, κ = 0.0016768966690212993077507109972679626716… PR1549's fine-engine oracle check also passes.
   The endpoints were certified by bisection with the same engines, accepting at the endpoint and rejecting one grid
   step above (`evidence/ENDPOINTS-R200.json`).
-- **Pricing** (`evidence/PRICING.json`). Exact optimal frames on both words, Δ = −1,855 each, both `ok` (certified).
+- **Pricing** (`evidence/PRICING.json`). Optimal frames for the PR1186 toolkit's integer cost weights on both words,
+  Δ = −1,855 each (c_1 − 2c_2 + c_3 at PR1319's endpoint), both `ok` (certified).
+- **Ancestor and kernel replayed side by side** (`evidence/FULL-REPLAY.json`, `evidence/INTERFACES.json`). One fresh
+  `replay_full.py` run, with no native reuse, covers PR1319's own admission of the unchanged ancestor and then the
+  kernel; see Revision 2 below.
 
 ## Reproduce
 
@@ -70,19 +79,69 @@ Expected: `PASS_T74_PIVOT566_KERNEL_BOUNDED 1676896669021299/1000000000000000000
 - κ and the conservative κ recomputed from the profile with the retained moment engines and the 47-constraint outer
   witness;
 - the binding of the recorded strict, refined and native receipts;
+- the restoration argument (`kernel_check.py`, which must reproduce `evidence/KERNEL-CHECK.json` exactly, with its four
+  mutated-kernel controls);
 - five failure controls (flipped coefficient, dropped restore, read in the pivot's busy window, corrupted word byte,
   mass-neutral forged profile).
 
-Complete chain, about 15–20 minutes, with Python 3.14 and SymPy as for PR1319:
+Complete chain, about 13 minutes fresh, with Python 3.14 and SymPy as for PR1319:
 
 ```sh
 python3 -B research/t74-pivot566-kernel/replay_full.py --work /abs/new/dir --refined \
     [--orig-base-native-from D --orig-extra-native-from D]   # optional reuse for PR1297's ORIGINAL words
 ```
 
-It runs PR1297's own admission (which builds the layout), fresh lineage native chains of both new words, the rebind
-(which must reproduce `data/PLAN.json`), PR1319's strict replay and geometry controls, and, with `--refined`, PR1549's
-assembler and oracle. Expected: `PASS_T74_PIVOT566_KERNEL_COMPLETE_FINITE_ADMISSION 0.001676896669021299`.
+It runs, in order:
+- PR1297's own admission (which builds the layout and runs fresh native chains of PR1297's original words);
+- PR1319's admission of the unchanged ancestor (regenerated owners, template and PLAN bound by payload, container and
+  payload controls, strict T74 replay and geometry controls on PR1319's own data);
+- fresh lineage native chains of both kernel words and the rebind (which must reproduce `data/PLAN.json`);
+- PR1319's strict replay and geometry controls on the kernel;
+- `kernel_check.py` and `interfaces.py`;
+- with `--refined`, PR1549's assembler and oracle.
+
+Expected: `PASS_T74_PIVOT566_KERNEL_COMPLETE_FINITE_ADMISSION 0.001676896669021299`. The scripts refuse `-O`, because
+their assert statements are the checks.
+
+## Revision 2 (2026-10-14): separate replay and restoration argument
+
+The maintainer's continuation point asked for three things:
+- resolve the inherited PR1319 admission (controller, geometry, invoice and semantic regenerated-artifact checks);
+- review the kernel's restoration argument;
+- replay the kernel's complete native and whole-call interfaces separately from the unchanged ancestor.
+
+This revision answers them as follows.
+
+- **Restoration.** [RESTORATION.md](RESTORATION.md) gives the argument over the whole audited program: the lemma, the
+  nine-term ledger, the compensation, the frames and four controls. `kernel_check.py` checks every step exactly and is
+  part of the bounded hook.
+- **Inherited admission.** PR1319's recorded blocker is container bytes. Its `verify.py` binds the regenerated
+  `OWNERS.json.gz` by the hash of its gzip bytes (PLAN `assignment_sha256` and `replica_lift.owners_file_sha256`), and
+  gzip output depends on the zlib build. `replay_full.py` runs PR1319's unchanged `reconstruct.py` and
+  `lift_parent.py` and checks every regenerated payload against PR1319's pinned files. The pinned owners container then
+  stands in for the regenerated one.
+  - Container control: the owners are recompressed with other gzip bytes. Exactly those two PLAN fields change, and
+    the payload hash (`assignment_content_sha256`) does not.
+  - Payload control: one re-timed role is rejected.
+  - PR1319's strict T74 replay (controller audit with mutations, invoice, assembly, admission and bit controls) and its
+    geometry controls then pass on PR1319's own data with fresh natives: κ = 0.001676855229071321, its claim.
+  - PR1319's package is not modified.
+- **Separate native and whole-call replay.** In the same fresh work directory the kernel words get their own fresh
+  native chains, rebind and strict T74 replay (κ = 0.001676896669021299). `interfaces.py` compares the two runs:
+  - **Call interfaces.** Every interface the hosting reads from a local word is identical on both words: ports,
+    centres, register count, and each helper's entrance frame, end frame and width (`call_interfaces_identical`).
+  - **Native artifacts.** `RESIDUAL-ADAPTERS.json` and `WRAPPER-CHECKS.json` are byte-identical on both words. The
+    canonical and full words, local programs (+7 events per orientation), local checks, frame audit, independent local
+    replay, Clifford recipes and review differ, as the changed gates and frames require.
+  - **PLAN.** It differs from PR1319's only in each call's `local_program_sha256`, the providers' program and artifact
+    hashes and paid profiles, and the global profile.
+  - **Strict T74 receipts.** Both replays agree on every hosting quantity: calls, roles, provider counts, live, deficit,
+    rank mass, idle remainder, width inventories, prefix bits (1,441, charged at 2,048), physical row coefficient
+    (19,545 < 20,161) and control counts. The actual 73-axis charts and the idle-remainder frames are byte-identical.
+    The runs differ in the profiles, the program-dependent hashes and invoice counts, and κ.
+
+The scripts used to rely on `assert __debug__`, which `-O` strips along with every other check. `verify.py`,
+`replay_full.py`, `kernel_check.py` and `interfaces.py` now refuse `-O` explicitly.
 
 ## Overlap and novelty
 
