@@ -22,8 +22,13 @@ audit (`research/t16-owner-audit-seed67/verify.py`, `geometry()`).
 reproduce command. It depends on the review-time maintainer composition
 `research/community-batch1099-audit/check_frontier1094.py`, which is pinned in
 the record's `proof_supplements` but is executed neither by
-`make frontier1094-verify` nor by the `community-batch1099.yml` CI job. Every
-checker that the reproduce path does execute is structurally blind to X2.
+`make frontier1094-verify` nor by the `community-batch1099.yml` CI job. No
+checker that the reproduce path does execute recomputes X2 semantically. That
+is a missing-semantic-recomputation gap, not demonstrated end-to-end
+acceptance of a mutated pinned input: the source-hash layers reject the
+mutated fixture before the semantic rules ever run (executed evidence below),
+and full mutated-chain acceptance was not executed. Which layer catches what
+is recorded in `RESULT.json` under `source_bound_acceptance`.
 
 ## Task card
 
@@ -38,8 +43,9 @@ Base commit; exact predecessor and dependency heads:
 Concrete object and question:
   one named condition, X2, of the selected supplier's hosting soundness:
   does its acceptance follow from the actual source-bound checks?
-Scope status: unchanged (one named current condition audited with a new
-  semantic counterexample, as the card allows)
+Scope status: refined (one named current condition audited with a new
+  semantic counterexample, as the card allows; wording refined to the
+  selected CrocSwap/integer-mult-bounds#1094 owner map and obligation X2)
 Existing restriction being changed (or exact claim being audited):
   audited claim: the selected composition's owner/hosting acceptance
 Method; explicit parameter ranges/candidate alphabet:
@@ -59,7 +65,8 @@ Optimistic full cost budget; required observable improvement:
   stdlib-only replay of the pinned audit on pinned inputs; no construction
 Success evidence; falsification test; time/compute cap:
   RESULT.json from one command; falsified if geometry() accepts M1 or if any
-  executed checker on the reproduce path rejects M1; minutes on one core
+  executed semantic rule on the reproduce path rejects M1 (source-hash pin
+  rejections do not count as semantic detection); minutes on one core
 Predecessor authors; intended artifact and reproduction command:
   Josie Elliston (X2 rule, owner audit), Rohan Arun (CrocSwap/integer-mult-bounds#1094 owner map),
   Jeremy Kothe (T16 owner-map lineage), Hao Yan (CrocSwap/integer-mult-bounds#858 controller/indep16),
@@ -78,11 +85,42 @@ Predecessor authors; intended artifact and reproduction command:
 | frozen `upstream1087.tar.gz` chain (`verify_t16.py` → `lift16`/`audit_allcold`/`indep16`) | n/a | no — `indep16.py` keys cells per `(owner, child, port)`; `audit_allcold.py` asserts only `len(pending) == rank` per child |
 | `research/community-batch1099-audit/check_frontier1094.py` (batch1099 review time) | — | **yes**, via `geometry()`; its result is pinned evidence in `docs/research/community-batch1099-integration.json` |
 
-So the obligation is real and currently checked exactly once, at review time,
-by a composition that neither the reproduce command nor CI re-runs for CrocSwap/integer-mult-bounds#1094.
-The construction-time receipts in `hosting/expand_owners.py` and
-`hosting/reuse_owners.py` record `all_footprints_disjoint_compacted_prefixes:
-True` as a flag; the flag is not independently enforced on the reproduce path.
+So the obligation is real and currently checked semantically exactly once, at
+review time, by a composition that neither the reproduce command nor CI
+re-runs for CrocSwap/integer-mult-bounds#1094. The construction-time receipts in
+`hosting/expand_owners.py` and `hosting/reuse_owners.py` record
+`all_footprints_disjoint_compacted_prefixes: True` as a flag; the flag is not
+independently enforced on the reproduce path.
+
+## Hash/pin layer vs semantic layer (executed)
+
+Review follow-up: missing semantic recomputation is not the same as acceptance
+of mutated pinned inputs, because the source-hash layers can reject the
+mutation first. The source-bound acceptance path has three layers, and each
+one's relation to the M1 fixture is measured:
+
+| Layer | Checker | M1-mutated pinned `DATA-PHASES.json` |
+| --- | --- | --- |
+| record/manifest hashes | `scripts/verify_selected_result.py` (record, `SELECTED-SOURCE.json` package inventory, `proof_supplements`) | the top-level audit fixture is outside the manifest's package roots, so this layer alone neither accepts nor rejects it; the three vendored `DATA-PHASES.json` copies are pinned at `c5916ff3…` and a mutation of those is rejected |
+| source input pins, before any semantic rule | `check_frontier1094.py` line 19; `t16-owner-audit-seed67/verify.py` line 359 | **rejected** at the sha256 pin (`SOURCES.json` `inputs.data_phases_sha256`) |
+| semantic rules | R1–R7/X1, X2 (`geometry()`); frozen `indep16`/`audit_allcold` | R1–R7/X1 accept (executed, in-memory); X2 rejects (executed); frozen chain carries no cross-child rule (code trace) |
+
+Executed evidence (verify.py section 7, recorded in `RESULT.json`
+`source_bound_acceptance.executed`): the one-integer M1 edit is applied to a
+copy of the pinned fixture bytes in a scratch tree (byte delta 4; parsing the
+edited bytes yields exactly the in-memory M1 fixture; tracked files are
+untouched and the scratch tree is deleted), and the real source-bound
+entrypoints are run against it. With the mutation,
+`check_frontier1094.py` stops at its DATA-PHASES hash require (line 19,
+before `geometry()` at line 21) and the owner audit stops at
+`FAIL input: DATA-PHASES hash` (line 359, before `geometry()` at line 362).
+With intact bytes, both entrypoints pass the pins and reach later code: the
+composition stops only at the intentionally absent scratch dependency past
+`geometry()`, and the owner audit reaches its claim loop and stops only on the
+absent git blob store. So the demonstrated gap is that no executed checker
+recomputes X2 semantically on the reproduce path; a mutated pinned input is
+rejected by the source-hash layer before the semantic rules, and end-to-end
+acceptance of the mutated chain was not executed.
 
 ## Minimal adversarial instance
 
@@ -95,7 +133,10 @@ role count, width and profile aggregate (exactly one differing integer), and:
 - `geometry()` rejects it: `X2: children [0, 1, 14] share axes at port 0`.
 - With only the X2 `need()` suppressed, `geometry()` returns a byte-identical
   geometry object and the complete R1–R7/X1 rule set accepts the fixture —
-  the X2 rule is the only rule that reads pending axes.
+  the X2 rule is the only rule that reads pending axes. This is a
+  semantic-layer measurement on in-memory mutated bytes: the source-bound
+  entrypoints never deliver mutated pinned bytes to these rules (hash layer,
+  above).
 - The concrete damage: roles at time 3 and time 6 (both helper 476, owner
   replica 0, family 224, port 0, offset 0, width 8) resolve the same
   pending axis 13 of family 224 — one physical cell written twice — while
@@ -144,12 +185,18 @@ PLAN `7bd786ba…`, SPEC `8cb51f25…`, owner audit `f6e27f76…`, composition
   the pricing audit is not)? First step: enumerate which obligations of
   `docs/research/community-batch1099-review.md` are enforced where, one rule
   per table row. Blocker: none; this is a natural continuation.
-- Would the frozen `indep16` chain accept the M1 fixture end to end? Why it
-  matters: it would close the code-trace claim by execution. First step: run
-  `make frontier1094-verify` with `--baseline1042` reuse and the mutated
-  phases overlaid. Blocker: the published frontier1042 baseline artifacts and cold
-  replay time were outside this session's budget; the acceptance of M1 by the
-  frozen chain is established by code trace only.
+- Would the frozen `indep16` chain accept a mutated fixture end to end below
+  the hash pins? Why it matters: it would close the remaining code-trace claim
+  (the frozen chain carries no cross-child pending-axis rule) by execution.
+  First step: run `make frontier1094-verify` with `--baseline1042` reuse and
+  the mutated phases re-pinned consistently at generation time. Blocker: the
+  published frontier1042 baseline artifacts and cold replay time were outside
+  this session's budget. What is already executed: the source-bound
+  entrypoints reject the mutated pinned bytes at their hash pins before any
+  semantic rule runs, so the mutated pinned input never reaches the frozen
+  chain; the chain's own DATA-PHASES hash handling is an emit-time
+  self-consistency binding (`emit_allcold.py` `source_artifacts` ↔
+  `audit_allcold.py` `exact_data_phase_recipe_sha256`), not an external pin.
 
 ## Limitations and unrun obligations
 
@@ -157,7 +204,11 @@ PLAN `7bd786ba…`, SPEC `8cb51f25…`, owner audit `f6e27f76…`, composition
   construction, not a supplier change, and not a κ claim; the selected record
   and `upstream/` are unchanged.
 - The full `make frontier1094-verify` cold replay with the mutated phases was
-  not run (see above); frozen-chain blindness is code-trace evidence.
+  not run (see above); frozen-chain blindness is code-trace evidence, and
+  end-to-end acceptance of a mutated pinned input is not claimed anywhere in
+  this package. The executed evidence covers the semantic layer (in-memory
+  mutation) and the hash/pin layer (real entrypoints run against a scratch
+  copy of the mutated bytes).
 - No claim other than the selected CrocSwap/integer-mult-bounds#1094 inputs was re-audited; the
   historical `research/owner-boundary-audit/` package was used as an example
   of the method only and was not rerun.

@@ -92,10 +92,95 @@
     }
   },
   "blindness": {
-    "method": "X2 need() suppressed only to measure what the remaining rule set sees",
+    "method": "X2 need() suppressed only to measure what the remaining semantic rule set sees; in-memory mutated bytes, not an end-to-end acceptance claim for a mutated pinned input",
     "geometry_identical": true,
     "rule_set_accepts": true,
-    "rule_set": "R1-R7 plus X1 (owner-audit rule bodies)"
+    "rule_set": "R1-R7 plus X1 (owner-audit rule bodies), semantic layer only"
+  },
+  "source_bound_acceptance": {
+    "claim_scope": "Missing semantic recomputation on the reproduce path is demonstrated; end-to-end acceptance of a mutated pinned input is not. The semantic rule set does not reject M1 (executed in memory), but the source-hash layer rejects the mutated pinned bytes before any semantic rule runs (executed at both source-bound entrypoints). Full mutated-chain acceptance was not executed.",
+    "layer_order": [
+      "record/manifest hashes (scripts/verify_selected_result.py)",
+      "source input pins (check_frontier1094.py, t16-owner-audit-seed67/verify.py)",
+      "semantic rules (R1-R7/X1, X2; frozen indep16/audit_allcold)"
+    ],
+    "record_manifest_layer": {
+      "script": "scripts/verify_selected_result.py",
+      "fixture_covered_by_package_roots": false,
+      "fixture_note": "the top-level audit fixture is outside the record manifest package roots, so this layer alone neither accepts nor rejects it; it is pinned separately by research/t16-owner-audit-seed67/SOURCES.json inputs.data_phases_sha256",
+      "vendored_phase_copies_pinned": [
+        "research/complex-sw4-frame8/vendor/main/research/community-k492-audit/pr622/replay/baseline558/complex-global/base/work/complex-nine-native/DATA-PHASES.json",
+        "research/complex-sw4-frame8/vendor/main/research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/complex-global/vendor531/inputs/data-base/work/complex-nine-native/DATA-PHASES.json",
+        "research/direct-delivery504-global/inputs/data-base/work/complex-nine-native/DATA-PHASES.json"
+      ],
+      "vendored_phase_copies_digest": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+      "composition_pinned_by_proof_supplements": true
+    },
+    "input_pin_layer": {
+      "pins_from": "research/t16-owner-audit-seed67/SOURCES.json inputs.data_phases_sha256",
+      "composition": {
+        "script": "research/community-batch1099-audit/check_frontier1094.py",
+        "pin_line": 19,
+        "geometry_line": 21,
+        "order": "hash pin before geometry()/X2"
+      },
+      "owner_audit": {
+        "script": "research/t16-owner-audit-seed67/verify.py",
+        "pin_line": 359,
+        "geometry_line": 362,
+        "order": "hash pin before geometry()/X2"
+      }
+    },
+    "executed": {
+      "mutation": "one integer token 131072 -> 13 at byte offset 1153 (recipes[0].idle_children[1].orthogonal_axes[0]); equals the in-memory M1 fixture; tracked files untouched, scratch tree deleted",
+      "byte_delta": 4,
+      "runs": [
+        {
+          "label": "composition_m1_mutated_pinned_input",
+          "entrypoint": "research/community-batch1099-audit/check_frontier1094.py",
+          "exit_code": 1,
+          "traceback_frames": [
+            12,
+            19
+          ],
+          "fail_marker": []
+        },
+        {
+          "label": "owner_audit_m1_mutated_pinned_input",
+          "entrypoint": "research/t16-owner-audit-seed67/verify.py",
+          "exit_code": 1,
+          "traceback_frames": [],
+          "fail_marker": [
+            "FAIL input: DATA-PHASES hash"
+          ]
+        },
+        {
+          "label": "composition_intact_control",
+          "entrypoint": "research/community-batch1099-audit/check_frontier1094.py",
+          "exit_code": 1,
+          "traceback_frames": [
+            14,
+            22
+          ],
+          "fail_marker": []
+        },
+        {
+          "label": "owner_audit_intact_control",
+          "entrypoint": "research/t16-owner-audit-seed67/verify.py",
+          "exit_code": 1,
+          "traceback_frames": [
+            74,
+            376,
+            428
+          ],
+          "fail_marker": []
+        }
+      ]
+    },
+    "frozen_chain_layer": {
+      "binding": "emit_allcold.py records source_artifacts sha at emit time; audit_allcold.py asserts template exact_data_phase_recipe_sha256 equals the current file sha (self-consistency binding, not an external pin to the frozen digest)",
+      "semantic_gap": "no cross-child pending-axis rule (code trace)"
+    }
   },
   "control_inventory": {
     "owner_audit_controls": [
@@ -132,13 +217,13 @@
       "baseline1042-cold (or baseline reuse)",
       "rare-pattern-exchanges"
     ],
-    "selected_record_check": "scripts/verify_selected_result.py validates the selected record and its proof_supplement hashes; it imports no subprocess module and executes no composition",
+    "selected_record_check": "scripts/verify_selected_result.py validates the selected record, its certificate, the SELECTED-SOURCE package inventory and its proof_supplement hashes; it imports no subprocess module and executes no composition; the top-level audit fixture is outside its package roots (see source_bound_acceptance.record_manifest_layer)",
     "ci_workflow": ".github/workflows/community-batch1099.yml runs research/t16-owner-audit-seed67/verify.py --fetch (its pinned claim list excludes the selected supplier) and check_pr1048_counterexample.py; it does not run check_frontier1094.py",
     "x2_checked_by": "research/t16-owner-audit-seed67/verify.py geometry(), composed on CrocSwap/integer-mult-bounds#1094 by research/community-batch1099-audit/check_frontier1094.py at batch1099 review time",
     "frozen_chain": "upstream1087.tar.gz verify_t16.py stages lift16/audit_allcold/indep16; indep16 keys cells per (owner, child, port); audit_allcold asserts only len(pending) == rank per child"
   },
   "unrun_obligations": [
-    "Full make frontier1094-verify cold replay with the M1-mutated DATA-PHASES (needs the frontier1042 cold baseline; out of session budget). Acceptance of M1 by the frozen chain is established by code trace, not by execution.",
+    "Full make frontier1094-verify cold replay with the M1-mutated DATA-PHASES (needs the frontier1042 cold baseline; out of session budget), so end-to-end acceptance of a mutated pinned input is not claimed and the structural-blindness claim is limited to missing semantic recomputation. What is executed: the semantic layer accepts M1 in memory (R1-R7/X1) and rejects at X2, and the source-bound entrypoints reject the mutated pinned bytes at their source-hash pins before any semantic rule runs. The frozen chain carries no cross-child pending-axis rule (code trace); its DATA-PHASES hash handling is an emit-time self-consistency binding, not an external pin.",
     "No T8/T16 claim other than CrocSwap/integer-mult-bounds#1094 was re-audited; the historical owner-boundary-audit package was not rerun.",
     "No kappa, supplier adoption, or multiplication-theorem claim is made or tested here."
   ]
