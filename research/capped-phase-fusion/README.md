@@ -118,24 +118,17 @@ snapshots. The copied upstream CLAIM.json is immutable and contains older pendin
 language; the later completed native RESULT records this contribution's replay.
 Hosted CI and independent human review are separate from the local checks.
 
-## Sources, overlap and credit
+## Sources and overlap
 
-Prepared by **Vlado Vojdanovski with substantial OpenAI Codex assistance**,
-including separate GPT-6.1 Sol Ultra research and audit agents. New material is
+Prepared by **Vlado Vojdanovski with substantial AI assistance**. New material is
 Apache-2.0. The original manuscript and source-specific notices retain their
 licenses. This is not an official OpenAI release or endorsement.
 
 The main research snapshot was `e6f9716621f4e01fc190617934cdfaf072bd976f`;
 the publication base is recorded in SOURCES.json. Exact T74 source pins are in
-PUBLICATION-SOURCES.json and the source manifest. Credit **Rohan Arun** for
-PR1319's T74 exact fill and PR1297's four cold kernels; **mdumitrean** for PR1625's
-pivot-566 helper-donor kernel; **Jeremy Kothe** for the endpoint and outer-witness
-lineage; **Midhat / midhatn** for PR1661's endpoint-grid refinement; **philippeVV**
-for the fine-Mercator repair; **Jeremy Diviney, Thomas DiFiore, Hao Yan, eumemic,
-icekylinx / Zhihao Chen, DreamingOfClouds**, and the credited predecessor chain
-for the retained construction, recurrence, bit supplier and verification.
+PUBLICATION-SOURCES.json and the source manifest.
 The [unaltered T74 NOTICE](target002_upstream/pr1661/research/gmx-t74-p566-ep400/NOTICE)
-is included. Douglas Colkitt maintains the community repository; the original
+is included. The original
 OpenAI #109 framework and the Harvey–van der Hoeven reduction remain inputs.
 
 The in-place algebra builds on Giorgi–Grenet–Roche,
@@ -143,7 +136,7 @@ The in-place algebra builds on Giorgi–Grenet–Roche,
 and Dumas–Grenet, [*Fast in-place accumulation*](https://arxiv.org/abs/2302.13600).
 SHALLOW-TOEPLITZ.md distinguishes their results from the new parity-split,
 low-displacement and prefix-stability arguments. The Gaussian factorization
-also relates to Chafik Boukhalfa's
+also relates to
 [PR489](https://github.com/CrocSwap/integer-mult-bounds/pull/489), which already
 gives a branch-free local Gaussian inverse but leaves joint evaluation,
 routing and boundary composition open. The present package supplies a different

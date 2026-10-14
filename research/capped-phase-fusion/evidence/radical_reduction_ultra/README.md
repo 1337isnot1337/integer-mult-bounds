@@ -2,7 +2,7 @@
 
 **Status: two scoped construction refinements, one explicit conjectural route; no new final multiplication exponent.** The selected conditional exponent remains `0.001672660197076918`. The proposed target `0.00167498` below depends on a tensor-resampling lemma that is not proved here. This package does not change a selected certificate.
 
-Base checkout: `work/integer-mult-current`, commit `e6f9716621f4e01fc190617934cdfaf072bd976f`. Prepared with substantial GPT-6.1-sol assistance. Apache-2.0; original sources and contributor credit are retained by reference.
+Base checkout: `work/integer-mult-current`, commit `e6f9716621f4e01fc190617934cdfaf072bd976f`. Prepared with substantial AI assistance. Apache-2.0; original sources and contributor credit are retained by reference.
 
 ## 1. Where the present loss occurs
 
