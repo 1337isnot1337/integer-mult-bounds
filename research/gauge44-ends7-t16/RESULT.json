@@ -1,28 +1,27 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "1672800096628753/1000000000000000000",
-  "kappa_decimal": "0.001672800096628753",
-  "conservative_kappa_decimal": "0.001672800093777106",
-  "complex_lower": "10472519034783037789/6250000000000000000000",
+  "kappa": "6691209629869/4000000000000000",
+  "kappa_decimal": "0.00167280240746725",
+  "conservative_kappa_decimal": "0.001672802404615599",
+  "complex_lower": "209450670519296621327/125000000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
-    "1": 348661,
+    "1": 348662,
     "2": 62208,
     "3": 61369,
     "4": 20448,
-    "5": 11809,
-    "6": 1,
+    "5": 11808,
     "7": 51,
     "8": 1152,
+    "10": 1,
     "32": 6,
     "48": 4867
   },
   "idle_remainder_profile": {
-    "1": 2197,
+    "1": 2198,
     "3": 313,
-    "5": 1,
-    "6": 1,
     "7": 51,
+    "10": 1,
     "32": 6,
     "48": 4867
   },
@@ -32,7 +31,7 @@
   "charged_prefix_bits": 512,
   "physical_row_coefficient": 16469,
   "retained_row_coefficient": 20161,
-  "actual_73_axis_charts": 9828,
+  "actual_73_axis_charts": 9830,
   "controls": {
     "admission": 69,
     "bit_supplier": 12,
@@ -40,47 +39,47 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "74ef47a94ed6eb792d9f200ad982a00480c41d2eb9a8d62741e7a1150256db82",
+  "spec_sha256": "8c92f07bd75ce09e3cf57b042627b5786c5daecbb3e3c295f871609df2211fc9",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.536,
+      "seconds": 1.639,
       "exit_code": 0,
       "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
     },
     {
       "name": "bind8",
-      "seconds": 0.386,
+      "seconds": 0.413,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "lift16",
-      "seconds": 3.136,
+      "seconds": 3.435,
       "exit_code": 0,
-      "log_sha256": "a1fe9d7bf610cd64456dce7f411b43e6f21c45267fa13e192b62e06ab89d0a23"
+      "log_sha256": "a1b14b7eac2b2d0ef6d715978d2d4e51e1dfd4c97461cfe907842a3292998ec3"
     },
     {
       "name": "bind",
-      "seconds": 0.354,
+      "seconds": 0.425,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 6.269,
+      "seconds": 6.249,
       "exit_code": 0,
-      "log_sha256": "99a94f528bdffd5b86d2b79929d6feb196ea8154368ab712616d2b656e4c16df"
+      "log_sha256": "6691d2e3df74c1abb1df340290064a3daa6032c8456f22f1bd6d732dcd709f1e"
     },
     {
       "name": "audit",
-      "seconds": 23.622,
+      "seconds": 23.903,
       "exit_code": 0,
-      "log_sha256": "e47ad285e9c0d85d8f4f7a0e39283747519f518fd745cc2bf91a86fb049fddb0"
+      "log_sha256": "cdb0857faa24655ec7c8f803ec6660c40621bd6cc0c3cfb88a5dd16cb5624c3d"
     },
     {
       "name": "invoice",
-      "seconds": 1.459,
+      "seconds": 1.25,
       "exit_code": 0,
       "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
     },
@@ -88,23 +87,23 @@
       "name": "assembly",
       "seconds": 0.311,
       "exit_code": 0,
-      "log_sha256": "bc1e7143f1af40d51abf9111e5de735d434819ef9d06bdcbffcecc0ccac9f69b"
+      "log_sha256": "1888df83918d8d9ef13d04fbe8fa3182c565f42557d63f85bd5802ed1862f1bd"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.444,
+      "seconds": 0.41,
       "exit_code": 0,
       "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.675,
+      "seconds": 0.607,
       "exit_code": 0,
       "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent-t16",
-      "seconds": 1.009,
+      "seconds": 0.989,
       "exit_code": 0,
       "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
     }
