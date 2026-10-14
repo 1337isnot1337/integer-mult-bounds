@@ -24,7 +24,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Authenticated selected first-stage rational constants; independent recursion-tree and dynamic-programming comparisons; complete wrapper and descriptor inequalities; literal padded endpoint and semantic/source/receipt failure controls."
+      "checks": "Authenticated selected first-stage rational constants; independent recursion-tree and dynamic-programming comparisons; complete wrapper and descriptor inequalities; literal padded endpoint, countermodels to weakened mathematical premises, and semantic/source controls."
     },
     {
       "argv": [

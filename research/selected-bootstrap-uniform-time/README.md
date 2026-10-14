@@ -220,13 +220,15 @@ never executed. The checker compares the canonical regenerated JSON object
 with [RESULT.json](RESULT.json). The finite evidence includes independent
 recursion-tree sums versus dynamic programming, exact square comparisons for
 rational specializations of the all-width bound, charged padding and complete
-endpoint fixtures, factorial inequalities, and semantic/source/receipt mutants.
+endpoint fixtures, factorial inequalities, and semantic/source controls. The
+padding, incomplete-fiber and finite-spike fixtures are mathematical countermodels
+to weakened hypotheses, not reports of bugs in the selected implementation.
 The universal claim rests on the written induction and inequalities, not the
 finite sample. No full selected cold replay or hosted CI success is claimed.
 
 Observed with CPython 3.12: the scientific smoke and registered normal/optimized
 replays pass. Each replay checks 6,156 recurrence cases, 539 complete wrapper
-bills, 1,664 descriptor inequalities and 1,458 padded endpoints; all 17 controls
+bills, 1,664 descriptor inequalities and 1,458 padded endpoints; all 16 controls
 reject. The output includes `PASS_SELECTED_BOOTSTRAP_UNIFORM_TIME` and
 `PASS_REGISTERED_RESEARCH_PACKAGE`. This evidence does not measure C or sigma.
 

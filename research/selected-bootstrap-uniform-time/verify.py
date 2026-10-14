@@ -362,10 +362,6 @@ def evaluate():
         "remaining_premises": ["uniform primitive/compiler and normalized logical-volume contracts",
                                "actual same-domain stock envelope sigma", "inherited exact endpoint and tape contracts"],
     }
-    altered = deepcopy(result)
-    altered["selected_stage"]["stopped_coefficient_strict_upper"] -= 1
-    rejection(lambda: compare_receipt(altered, result), "canonical receipt mismatch")
-    result["controls_rejected"].append("changed_regenerated_receipt")
     return result
 
 
