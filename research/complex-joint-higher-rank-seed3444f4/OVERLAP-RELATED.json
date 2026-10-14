@@ -1,6 +1,6 @@
 {
   "status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE",
-  "searched_at": "2026-10-14T11:37:09.428663+00:00",
+  "searched_at": "2026-10-14T11:40:03.184604+00:00",
   "terms": [
     "higher-rank joint child",
     "same-gate quotient",
@@ -21,14 +21,14 @@
   ],
   "coverage": {
     "open_prs": {
-      "fetched_at": "2026-10-14T11:36:32.059946+00:00",
+      "fetched_at": "2026-10-14T11:38:21.188375+00:00",
       "complete_pagination": true,
-      "records": 493
+      "records": 494
     },
     "discussions": {
-      "fetched_at": "2026-10-14T11:34:15.760045+00:00",
+      "fetched_at": "2026-10-14T11:37:27.346409+00:00",
       "complete_pagination": true,
-      "records": 477
+      "records": 478
     }
   },
   "local_records": 873,
@@ -40,8 +40,9 @@
       "kind": "local-task",
       "title": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
       "path": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
-      "sha256": "86d0ea248e762fa4f1a4e62c732275da9b9cd27f19f0b9f02a3c6b6f15b812a5",
+      "sha256": "15219c60073c48d0ecf7bdc7b62ec9070078bc618ac2d96669fff0a59ef2ded6",
       "matched_terms": [
+        "higher-rank joint child",
         "frame climbs",
         "c3 gather",
         "complex-rank-shape-decoder",
@@ -54,7 +55,7 @@
         "complex-decoder-field-extension-seed44",
         "complex-frame-pair-decoders"
       ],
-      "score": 11,
+      "score": 12,
       "excerpt": "ingle binary ADD gate in A, B, or scheduled cleanup_tail where both operand registers have positive frame climbs and at least one quotient rank exceeds one. For each exact rational shear, replace the two calls of ranks r and s by one hypothetical J_{r,s} boundary of rank r+s, then compute the fixed-word ceiling and rank-one-equivalent overhead budget. The complete finite domain has 359 gates with rank sums 3 through 8.\",\n  \"ai_assistance\": \"Substantial OpenAI Codex assistance in the exact census"
     },
     {

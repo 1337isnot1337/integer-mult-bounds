@@ -109,23 +109,28 @@
         "head": "48d36a6beaadd213da453568cbb4e934705f753e",
         "item": "PR #1833",
         "scope": "hosting-boundary audit of PR #1817 retimed rank-one word; separate from a higher-rank joint child at one ADD gate."
+      },
+      {
+        "head": "1e3128bf642bbaf250b7d6b9639b2bb24b98ce5e",
+        "item": "PR #1779",
+        "scope": "diagonal rank-16 batching premise for rank-one climbs across distinct destinations; not a same-gate higher-rank pair."
       }
     ],
     "overlap_snapshot": {
       "broad_matches": [
-        "PR #1817 / Discussion #1596 on diagonal rank-one batches",
+        "PR #1817 / PR #1779 / Discussion #1596 on diagonal rank-one batching",
         "PR #1833 hosting-boundary audit of PR #1817",
         "Discussion #1622 / PR #1633 on overcomplete E8 rank normal form"
       ],
       "complete_pagination": true,
-      "discussions": 477,
-      "open_prs": 493,
+      "discussions": 478,
+      "open_prs": 494,
       "precise_matches": [
         "PR #1764 / Discussion #1765 on J2 paired-frame boundary",
         "PR #1814 / Discussion #1167 on C3 gather"
       ],
-      "scope_assessment": "All are adjacent but use different mathematical objects or parameters; no higher-rank single-gate claim appeared.",
-      "searched_at": "2026-10-14T11:37:09.428663+00:00",
+      "scope_assessment": "No higher-rank single-gate claim appeared; all exact and broad matches use distinct gate arity, rank domain, or hosting object.",
+      "searched_at": "2026-10-14T11:40:03.184604+00:00",
       "warnings": []
     },
     "selected_record": "Current selected result resolved through its selected review, source manifest, assembly certificate and reproduction command."

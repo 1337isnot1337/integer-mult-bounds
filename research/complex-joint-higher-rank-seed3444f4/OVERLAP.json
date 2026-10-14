@@ -1,6 +1,6 @@
 {
   "status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE",
-  "searched_at": "2026-10-14T11:37:09.327476+00:00",
+  "searched_at": "2026-10-14T11:39:56.768872+00:00",
   "terms": [
     "higher-rank joint child",
     "same-gate quotient",
@@ -12,14 +12,14 @@
   ],
   "coverage": {
     "open_prs": {
-      "fetched_at": "2026-10-14T11:36:32.059946+00:00",
+      "fetched_at": "2026-10-14T11:38:21.188375+00:00",
       "complete_pagination": true,
-      "records": 493
+      "records": 494
     },
     "discussions": {
-      "fetched_at": "2026-10-14T11:34:15.760045+00:00",
+      "fetched_at": "2026-10-14T11:37:27.346409+00:00",
       "complete_pagination": true,
-      "records": 477
+      "records": 478
     }
   },
   "local_records": 873,
@@ -60,6 +60,18 @@
       "excerpt": "ra frame handling, restoration, precision and hosting. It is a scoped negative for this consecutive C3 gather family; it does not rule out other arities or schedules, admit a physical supplier, or claim a new kappa.\n\n## Pins and reproduction\n\nThe package records OS-random seed `7a6da0d3a89bdb0425f85454db15342b`, `complex-mechanisms` / `complex-rank-shape-decoder`, catalogue revision 3, exact base `0b1cccf86e2f5132ed286a26ef0a681a495740ea`, selected-record and assembly hashes, and compressed/deco"
     },
     {
+      "kind": "local-task",
+      "title": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
+      "path": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
+      "sha256": "15219c60073c48d0ecf7bdc7b62ec9070078bc618ac2d96669fff0a59ef2ded6",
+      "matched_terms": [
+        "higher-rank joint child",
+        "c3 gather"
+      ],
+      "score": 2,
+      "excerpt": "#1833\",\n        \"scope\": \"hosting-boundary audit of PR #1817 retimed rank-one word; separate from a higher-rank joint child at one ADD gate.\"\n      }\n    ],\n    \"overlap_snapshot\": {\n      \"broad_matches\": [\n        \"PR #1817 / Discussion #1596 on diagonal rank-one batches\",\n        \"PR #1833 hosting-boundary audit of PR #1817\",\n        \"Discussion #1622 / PR #1633 on overcomplete E8 rank normal form\"\n      ],\n      \"complete_pagination\": true,\n      \"discussions\": 477,\n      \"open_prs\": 493,\n  "
+    },
+    {
       "number": 1765,
       "title": "HANDOFF: Joint rank-two child interface candidate (seed 0d762194)",
       "kind": "discussion",
@@ -82,17 +94,6 @@
       ],
       "score": 1,
       "excerpt": "DONE \u2014 scoped three-source, one-destination C3 gather screen. Review package: [PR #1814](https://github.com/CrocSwap/integer-mult-bounds/pull/1814), `research/complex-gather-child-seed7a6d/`.\n\nCycle seed `7a6da0d3a89bdb0425f85454db15342b`; track `complex-mechanisms`; card `complex-rank-shape-decoder`; priority revision 3; exact base `0b1cccf86e2f5132ed286a26ef0a681a495740ea`; selected-record SHA-256 `10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32`; decompressed local-word SHA-2"
-    },
-    {
-      "kind": "local-task",
-      "title": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
-      "path": "research/complex-joint-higher-rank-seed3444f4/TASK.json",
-      "sha256": "86d0ea248e762fa4f1a4e62c732275da9b9cd27f19f0b9f02a3c6b6f15b812a5",
-      "matched_terms": [
-        "c3 gather"
-      ],
-      "score": 1,
-      "excerpt": " \"PR #1764 / Discussion #1765 on J2 paired-frame boundary\",\n        \"PR #1814 / Discussion #1167 on C3 gather\"\n      ],\n      \"open_prs\": 488,\n      \"searched_at\": \"2026-10-14T11:27:30.328500+00:00\",\n      \"warnings\": []\n    },\n    \"selected_record\": \"Current selected result resolved through its selected review, source manifest, assembly certificate and reproduction command.\"\n  },\n  \"priority_revision\": 3,\n  \"schema_version\": 1,\n  \"scope_change_reason\": \"The selected rank-shape card is narrowed "
     }
   ]
 }
