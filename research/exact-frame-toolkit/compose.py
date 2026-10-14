@@ -1,5 +1,5 @@
 """compose: pre-slot k8 word + every slot of the slot recipe except those at the chosen sites + a source-holder fusion with
-FULL-cleanup restore and full read-set exchange of the copy pair at each site. Exact frames, write-back, independent audit,
+FULL-cleanup restore and full read-set exchange of the copy pair at each site. Surrogate-optimal frames, write-back, independent audit,
 interface comparison with a reference word, and kappa on any owner maps given with --host.
 
 usage: python -B compose.py PRE.json.gz OUTDIR [--sites 190:439:10:932 214:444:34:940] [--reference SEVEN_SLOT.json.gz]

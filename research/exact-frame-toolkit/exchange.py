@@ -53,7 +53,7 @@ def apply_moves(w, moves):
             B[i] = ['add', t, m['r'], a, b, []]; dele.add(pi)
         else:
             assert e[2] == m['r']; B[i] = ['add', t, m['h'], a, b, []]
-            ins[m['insert_preread_before']].append(list(m['preread']) + [[]])   # [] = no stored frame (re-solved exactly)
+            ins[m['insert_preread_before']].append(list(m['preread']) + [[]])   # [] = no stored frame (re-solved by frames.py)
     NB = []
     for i, e in enumerate(B):
         for g in ins.get(i, []): NB.append(g)

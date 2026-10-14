@@ -1,4 +1,4 @@
-"""frames: exact frame subsolver for integer-mult-bounds provider words.
+"""frames: frame subsolver for integer-mult-bounds provider words (exact surrogate certificate, true-moment interval).
 
 Model (research/frame-domain-ceiling/PROOF.md, check_duals.py): event graph with a vertex per
 scalar gate of A/B and immutable vertices for starts, the central cut and ends; each register
@@ -6,8 +6,8 @@ contributes directed edges between its consecutive occurrences; a vertex carries
 of F2^9 and every edge must be nested (F_e <= F_f); the paid profile counts the rank of each
 jump along each register chain; the recurrence moment charges a concave function of the rank.
 
-Given the gate ORDER (the scalar program), this module finds the frame assignment minimising
-the moment at a chosen endpoint b, exactly:
+Given the gate ORDER (the scalar program), this module chooses the frame assignment of the model below
+for a per-call moment at a chosen endpoint b:
   * L/U propagation (joins forward, meets backward) gives the finite domain of every variable
     vertex (dim(U/L) <= 3 in practice);
   * chain dual decomposition: every register chain is a path, every gate vertex is shared by
@@ -15,7 +15,19 @@ the moment at a chosen endpoint b, exactly:
     (= the local-polytope LP bound), a topological greedy decode gives a feasible primal, and
     an exact integer evaluation of both certifies optimality when they coincide;
   * exact variable elimination with back-pointers for small components (cross-check).
-Costs are the per-child moment lower bounds M_r(b) of the package engines, scaled to integers.
+
+What is certified (and what is not):
+  * Surrogate. Costs.c[r] = floor(2^40 * lo_r(b)), where lo_r(b) is the engines' outward lower bound of the per-child
+    moment term T_r(b) = r (m/r)^b / (m W) + 32 m^(1+b) / (1e16 W). `certified` means exact optimality for these
+    floored integer weights only: an integer weak-duality bound equal to the primal, computed in Python integers.
+  * True moment at b. optimal_frames(..., interval=True) adds a rigorous rational interval for the minimum of
+    sum_e T_rank(e)(b) over every frame assignment of the model (moment_interval): lower = exact Lagrangian bound
+    with outward-floored lower weights on a 2^-224 grid; upper = the engines' upper bound of the returned assignment.
+    Its width is computed, never assumed; a comparison is decided only when its interval excludes the other side.
+  * Not certified: the global recursive moment root or kappa (nonlinear in the global profile; recomputed by
+    kappa.py and the package chain), the ordering at another b, or any word outside this frame model.
+Float64 arrays drive only the heuristic sweeps and the decode; every bound, certificate and interval is evaluated
+from the exact integer weight tables, with float multipliers converted exactly after a finiteness check.
 """
 import gzip, json, importlib.util, sys, time, collections, math
 from fractions import Fraction as Q
@@ -42,24 +54,52 @@ def basis(F): return G.basis(F)
 def leq(F, H): return span(F) <= span(H)
 
 # ---------------------------------------------------------------- costs
-SCALE_BITS = 184   # 2^224-grid moment bounds scaled down to ~2^40 magnitudes: exact in int64/float64
+SCALE_BITS = 184   # 2^224-grid moment bounds scaled down to ~2^40 magnitudes (2^40 units; c[r] < 2^25 here)
+FINE_BITS = 224    # integer grid of the interval certificate (the engines' dyadic grid)
+FLOAT_EXACT = 1 << 53
 class Costs:
-    """per-child moment lower bound at endpoint b (both engines, conservative fallback share), as ints."""
+    """per-child moment bounds at endpoint b (both engines, conservative fallback share).
+    exact[r] / upper[r]: the outward lower / upper bound of T_r(b) (Fractions); c[r] = floor(2^unit_bits * exact[r]),
+    the integer surrogate; vec: its float64 image, exact because every c[r] is checked to be below 2^53."""
     def __init__(self, b, scale_bits=SCALE_BITS):
-        self.b = Q(b); self.scale_bits = scale_bits
+        self.b = Q(b); self.scale_bits = scale_bits; self.unit_bits = 224 - scale_bits; self.mu_shift = 0
         fl, fu = MOM2.moment(M_DIM, W_LIVE, [(1, 32 * M_DIM * M_DIM)], self.b)
-        self.exact = {0: Q(0)}; self.c = {0: 0}
+        self.exact = {0: Q(0)}; self.upper = {0: Q(0)}; self.c = {0: 0}
         for r in range(1, M_DIM):
             l, u = MOM.moment({r: 1}, M_DIM, W_LIVE, self.b, True)
-            l2, u2 = MOM2.moment(M_DIM, W_LIVE, [(r, 1)], self.b); l2 += fl / Q(10 ** 16)
-            lo = max(l, l2); self.exact[r] = lo
-            self.c[r] = (lo.numerator << (224 - scale_bits)) // lo.denominator >> 0 if False else (lo.numerator * (1 << (224 - scale_bits))) // lo.denominator
-        self.vec = np.array([self.c.get(r, 0) for r in range(0, 10)], dtype=np.float64)
+            l2, u2 = MOM2.moment(M_DIM, W_LIVE, [(r, 1)], self.b); l2 += fl / Q(10 ** 16); u2 += fu / Q(10 ** 16)
+            lo, hi = max(l, l2), min(u, u2)
+            if not 0 < lo <= hi: raise ValueError(("moment bounds out of order", r, lo, hi))
+            self.exact[r] = lo; self.upper[r] = hi
+            self.c[r] = (lo.numerator << self.unit_bits) // lo.denominator
+        for r in range(10):   # certify the float64 image before converting it
+            if not (isinstance(self.c[r], int) and 0 <= self.c[r] < FLOAT_EXACT): raise ValueError(("weight outside the exact float64 range", r, self.c[r]))
+        self.vec = np.array([self.c[r] for r in range(10)], dtype=np.float64)
+        if [int(x) for x in self.vec] != [self.c[r] for r in range(10)]: raise ValueError("inexact float64 weight image")
     def profile_cost(self, H):
         return sum(n * self.c[r] for r, n in H.items())
     def moment_exact(self, H):
         """exact lower bound of the moment of a (global) profile at b, as Fraction."""
         return sum(n * self.exact[r] for r, n in H.items())
+    def moment_upper(self, H):
+        """exact upper bound of the moment of a profile at b, as Fraction."""
+        return sum(n * self.upper[r] for r, n in H.items())
+    def fine(self, bits=FINE_BITS):
+        return FineCosts(self, bits)
+
+class FineCosts:
+    """lower weights of the interval certificate: c[r] = floor(2^bits * (exact[r] - lam*r)) <= 2^bits (T_r(b) - lam*r).
+    lam = exact[1]; any rational lam is admissible because along every register chain the ranks telescope to
+    dim(end) - dim(start): lam*rank adds the same constant to every frame assignment (and to every chain segment).
+    vec is a float64 image in 2^unit_bits units, used only by the sweeps; mu_shift converts its multipliers exactly."""
+    def __init__(self, costs, bits=FINE_BITS):
+        self.parent = costs; self.bits = bits; self.lam = costs.exact[1]; self.unit_bits = costs.unit_bits
+        self.mu_shift = bits - costs.unit_bits
+        if self.mu_shift < 0: raise ValueError("interval grid coarser than the surrogate")
+        sh = [costs.exact[r] - self.lam * r for r in range(10)]
+        self.c = {r: (x.numerator << bits) // x.denominator for r, x in enumerate(sh)}
+        self.vec = np.array([float(x * (1 << self.unit_bits)) for x in sh], dtype=np.float64)
+        if not np.all(np.isfinite(self.vec)): raise ValueError("non-finite float image")
 
 def entropy(H, m=M_DIM): return sum(n * r * math.log(m / r) for r, n in H.items())
 def solve_b(H, m=M_DIM, W=W_LIVE):
@@ -234,7 +274,8 @@ class Graph:
 class ChainDD:
     """Lagrangian dual over register chains (segments of consecutive variable vertices)."""
     def __init__(self, g: Graph, costs: Costs, var_subset=None):
-        self.g = g; self.costs = costs
+        """costs: Costs (surrogate) or FineCosts; costs.c is the exact integer weight table, costs.vec its float image."""
+        self.g = g; self.costs = costs; self.mu_shift = getattr(costs, "mu_shift", 0)
         V_ = set(var_subset) if var_subset is not None else g.varset
         self.vars = sorted(V_)
         cvec = costs.vec
@@ -354,32 +395,45 @@ class ChainDD:
             if not leq(Fprev, Fn): return None
             tot += c[len(Fn) - len(Fprev)]
         return tot
-    def dual_bound_exact(self):
-        """exact integer weak-duality bound with the current (rounded) multipliers."""
-        g = self.g; cvec = self.costs.c; total = 0
-        mu_int = {k: np.rint(v).astype(np.int64) for k, v in self.mu.items()}
+    def exact_multipliers(self):
+        """the float multipliers as exact integers on the 2^mu_shift grid (Python ints, no int64 cast).
+        Any finite integer multipliers give a valid bound: each shared vertex enters its two segments with opposite signs."""
+        out = {}
+        for k, v in self.mu.items():
+            if not np.all(np.isfinite(v)): raise ValueError(("non-finite multiplier", k))
+            out[k] = [round(Q(float(x)) * (1 << self.mu_shift)) for x in v]   # Fraction(float) is exact; round = rint
+        return out
+    def dual_bound_exact(self, mu_int=None):
+        """exact integer weak-duality bound: unary and edge costs are taken from the integer table costs.c (never from
+        the float arrays) and the multipliers from exact_multipliers(); all arithmetic is in Python integers."""
+        g = self.g; wi = self.costs.c; total = 0
+        mu_int = self.exact_multipliers() if mu_int is None else mu_int
         for s, seg in enumerate(self.segs):
-            nodes = seg["nodes"]; U = []
+            nodes = seg["nodes"]; r = seg["reg"]; f = None
             for pos, k in enumerate(nodes):
-                u = np.rint(seg["u0"][pos]).astype(np.int64)
+                dom = g.dom[k]; u = [0] * len(dom)
+                if pos == 0:
+                    dj = len(g.nodes[g.prev[k, r]][1]); u = [wi[len(F) - dj] for F in dom]
+                if pos == len(nodes) - 1:
+                    dn = len(g.nodes[g.nxt[k, r]][1]); u = [x + wi[dn - len(F)] for x, F in zip(u, dom)]
                 if k in mu_int:
-                    (s1, _), (s2, _) = self.seg_of[k]
-                    u = u + (mu_int[k] if s == s1 else -mu_int[k])
-                U.append(u)
-            f = U[0].astype(object)
-            for i in range(1, len(nodes)):
-                E = seg["E"][i - 1]; dp, dq = E.shape; nf = []
-                for b_ in range(dq):
+                    (s1, _), (s2, _) = self.seg_of[k]; m = mu_int[k]
+                    u = [x + m[a] for a, x in enumerate(u)] if s == s1 else [x - m[a] for a, x in enumerate(u)]
+                if f is None: f = u; continue
+                dp = g.dom[nodes[pos - 1]]; nf = []
+                for b_, H in enumerate(dom):
                     best = None
-                    for a in range(dp):
-                        if np.isfinite(E[a, b_]):
-                            v = f[a] + int(E[a, b_])
+                    for a, F in enumerate(dp):
+                        if f[a] is not None and leq(F, H):
+                            v = f[a] + wi[len(H) - len(F)]
                             if best is None or v < best: best = v
-                    nf.append(best if best is not None else None)
-                f = np.array([x + int(U[i][b_]) if x is not None else None for b_, x in enumerate(nf)], dtype=object)
+                    nf.append(None if best is None else best + u[b_])
+                f = nf
             total += min(x for x in f if x is not None)
-        return int(total)
-    def solve(self, max_sweeps=400, alpha=None, tol=0.0, verbose=False, time_limit=None, check_every=3):
+        return total
+    def solve(self, max_sweeps=400, alpha=None, tol=0.0, verbose=False, time_limit=None, check_every=3, gap_tol=None):
+        """gap_tol=None: the surrogate rule (stop when the integer primal is within rounding slack of the float dual).
+        gap_tol=x: stop when primal/2^mu_shift - dual <= x float units (interval certificates), or on a stall."""
         t0 = time.time(); best_assign = None; best_cost = None; last = -np.inf; hist = []; stall = 0
         self._cache = {}
         for it in range(max_sweeps):
@@ -388,8 +442,11 @@ class ChainDD:
                 dv = self.dual_value(); assign = self.decode(); pc = self.primal_cost(assign)
                 if pc is not None and (best_cost is None or pc < best_cost): best_cost, best_assign = pc, assign
                 hist.append((it, dv, pc))
-                if verbose: print(f"  sweep {it:4d} dual={dv:.1f} primal={pc} gap={None if pc is None else pc - dv:.1f}")
-                if best_cost is not None and best_cost - dv <= tol + 0.51 * len(self.vars): break   # rounding slack
+                pu = None if best_cost is None else best_cost / (1 << self.mu_shift)
+                if verbose: print(f"  sweep {it:4d} dual={dv:.6f} primal={pu} gap={None if pu is None else pu - dv:.6g}")
+                if gap_tol is None:
+                    if best_cost is not None and best_cost - dv <= tol + 0.51 * len(self.vars): break   # rounding slack
+                elif pu is not None and pu - dv <= gap_tol: break
                 stall = stall + 1 if dv - last < 1e-6 else 0
                 last = dv
                 if stall >= 3: break
@@ -461,8 +518,40 @@ def solve_component_ve(g: Graph, costs: Costs, comp, max_tuples=30_000_000):
     return total, assign
 
 # ---------------------------------------------------------------- top-level
-def optimal_frames(w, costs: Costs, verbose=False, max_sweeps=300, ve_tuples=5_000_000, check_literal=True, graph=None):
-    """exact optimal frames for the fixed gate order of w. Returns dict(cost, profile, assign, certified, parts)."""
+def moment_interval(g: Graph, costs: Costs, assign, bits=FINE_BITS, max_sweeps=600, ve_tuples=5_000_000, gap_tol=1e-9):
+    """rigorous rational interval for the per-call moment at costs.b over every frame assignment of the model g.
+
+    lower: Lagrangian (chain dual) or exact elimination bound on the FineCosts lower weights, in Python integers, plus
+           lam * (total rank, constant) and the fixed boundary edges; lower <= min_x sum_e T_rank(e)(b).
+    upper: the engines' upper bound of `assign` (sum_r H_r upper[r]); `assign`'s own lower bound is reported too.
+    The fine solves are independent of the surrogate; their decoded assignment is reported (fine_profile, fine_upper)
+    so that a surrogate optimum which is not the true optimum shows up as fine_upper < assignment_lower."""
+    fr = lambda k: assign[k] if k in g.varset else g.nodes[k][1]
+    if set(assign) != g.varset or not all(leq(fr(j), fr(k)) for (k, reg), j in g.prev.items()): raise ValueError("assignment is not a nested frame assignment of g")
+    fc = costs.fine(bits); lb = 0; fine_assign = {}; parts = []
+    for comp in g.components:
+        res = solve_component_ve(g, fc, comp, max_tuples=ve_tuples) if len(comp) <= 600 else None
+        if res is not None:
+            cost, a = res; lb += cost; fine_assign.update(a); parts.append(("ve", len(comp))); continue
+        dd = ChainDD(g, fc, var_subset=comp); r = dd.solve(max_sweeps=max_sweeps, gap_tol=gap_tol)
+        lb += r["dual_exact"]; fine_assign.update(r["assign"])
+        parts.append(("dd", len(comp), float(Q(r["gap"], 1 << bits) * (1 << costs.unit_bits)), r["sweeps"]))
+    for (k, reg), j in g.prev.items():   # boundary edges between fixed vertices
+        if k not in g.varset and j not in g.varset: lb += fc.c[len(g.nodes[k][1]) - len(g.nodes[j][1])]
+    mass = sum(len(g.nodes[ch[-1]][1]) - len(g.nodes[ch[0]][1]) for ch in g.chains if ch)
+    H, Hf = g.profile(assign), g.profile(fine_assign)
+    if sum(r * n for r, n in H.items()) != mass or sum(r * n for r, n in Hf.items()) != mass: raise ValueError("rank mass does not telescope")
+    lower = Q(lb, 1 << bits) + fc.lam * mass
+    upper, a_lower = costs.moment_upper(H), costs.moment_exact(H)
+    if lower > upper: raise ValueError("interval certificate inconsistent")
+    unit = 1 << costs.unit_bits
+    return dict(b=costs.b, lam=fc.lam, bits=bits, rank_mass=mass, lower=lower, upper=upper, assignment_lower=a_lower,
+                width_units=float((upper - lower) * unit), fine_profile=dict(sorted(Hf.items())), fine_upper=costs.moment_upper(Hf),
+                surrogate_not_minimal=costs.moment_upper(Hf) < a_lower, parts=parts)
+
+def optimal_frames(w, costs: Costs, verbose=False, max_sweeps=300, ve_tuples=5_000_000, check_literal=True, graph=None, interval=False):
+    """optimal frames of the integer surrogate for the fixed gate order of w. Returns dict(cost, profile, assign, certified,
+    parts); with interval=True also 'interval' (moment_interval: rigorous bounds for the true per-call moment at b)."""
     g = graph if graph is not None else Graph(w, check_literal=check_literal); parts = []; assign = {}; total = 0; certified = True
     if check_literal: lit = g.literal(); lit_cost = costs.profile_cost(g.profile(lit))
     else: lit = None; lit_cost = None
@@ -479,10 +568,12 @@ def optimal_frames(w, costs: Costs, verbose=False, max_sweeps=300, ve_tuples=5_0
     for (k, r), j in g.prev.items():
         if k not in g.varset and j not in g.varset: fixed += costs.c[len(g.nodes[k][1]) - len(g.nodes[j][1])]
     cost = total + fixed
-    assert cost == costs.profile_cost(H), ("component accounting mismatch", cost, costs.profile_cost(H))
-    return dict(graph=g, cost=cost, profile=H, assign=assign, certified=certified, parts=parts,
-                literal_profile=(g.profile(lit) if lit is not None else None), literal_cost=lit_cost,
-                gain=(lit_cost - cost if lit_cost is not None else None))
+    if cost != costs.profile_cost(H): raise ValueError(("component accounting mismatch", cost, costs.profile_cost(H)))
+    out = dict(graph=g, cost=cost, profile=H, assign=assign, certified=certified, parts=parts,
+               literal_profile=(g.profile(lit) if lit is not None else None), literal_cost=lit_cost,
+               gain=(lit_cost - cost if lit_cost is not None else None))
+    if interval: out["interval"] = moment_interval(g, costs, assign, ve_tuples=ve_tuples)
+    return out
 
 # ---------------------------------------------------------------- reorderings
 def move_window(gates, i):

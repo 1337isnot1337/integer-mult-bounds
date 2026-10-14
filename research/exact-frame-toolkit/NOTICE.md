@@ -20,3 +20,10 @@ The toolkit imports or ports, unchanged in substance:
 
 The k8 words used by `selftest.py` are Jeremy Kothe's mutable-leaver construction (#1004/#1005) with the #1018 slots, read
 from the retained #1042 and #1094 replay archives. No upstream file is modified.
+
+Revision 2 (2026-10-14) responds to the maintainer's review continuation point on #1186
+([batch review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient300-review.md),
+Mister-Meeseeks): it adds the true-moment interval certificate, the exact integer dual path and the qualified wording. The
+harness compensation check fixes a screen gap found by this author during a later pivot search on #1319's words; the
+program semantics it follows are those of the unchanged `independent/audit_local.py` (icekylinx, #645). Prepared with
+substantial AI assistance (Anthropic Claude, via Claude Code).

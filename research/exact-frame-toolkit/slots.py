@@ -1,5 +1,5 @@
 """slots: split a triangle-hybrid slot recipe (build_tri format, default RECIPE-SLOTS-k8.json of #1018) into its instances
-and price every instance alone and all together on the pre-slot word with the exact frame solver.
+and price every instance alone and all together on the pre-slot word with the frame solver (surrogate units).
 usage: python -B slots.py PRE_WORD.json.gz OUT.json [--recipe RECIPE.json]
 Recipe instances are partitioned by register sets {X, E, holders}; the partition must cover every recipe edit exactly once."""
 import argparse, json

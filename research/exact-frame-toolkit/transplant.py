@@ -1,5 +1,5 @@
 """transplant: put a target word's local interfaces (start_extra = entrance frames, helper_final = end frames) onto
-a donor word's scalar program, re-solve every A/B/tail frame exactly, audit, and price on the target's owner map.
+a donor word's scalar program, re-solve every A/B/tail frame (surrogate optimum), audit, and price on the target's owner map.
 Preconditions checked: the target's scalar program equals REF's (the word the donor's scalar edits were made against).
 usage: python -B transplant.py DONOR.json.gz TARGET.json.gz REF.json.gz OUTDIR --calls 144 --T 16
        --idle '{"1":360,"24":1,"48":4918}' --target-kappa 0.001675560947524449"""
@@ -18,7 +18,7 @@ if __name__ == "__main__":
     print("target scalar program == reference scalar program:", same); assert same, "target changed the scalar program; transplant does not apply"
     tl = {int(k): v for k, v in tgt['report']['local_profile'].items()}
     k0, b0 = KA.kappa(KA.global_profile([(a.calls, tl)], idle), a.T); print("target kappa reproduced:", k0 == Q(a.target_kappa), float(k0))
-    Pt = C.Pricer(tgt, b=str(b0)); print("target exact frame optimum:", Pt.base_profile, "| published", dict(sorted(tl.items())))
+    Pt = C.Pricer(tgt, b=str(b0)); print("target surrogate frame optimum:", Pt.base_profile, "| published", dict(sorted(tl.items())))
     w = copy.deepcopy(donor); w['start_extra'] = copy.deepcopy(tgt['start_extra']); w['helper_final'] = copy.deepcopy(tgt['helper_final'])
     w['report'] = dict(w['report']); w['report']['width_inventory'] = tgt['report']['width_inventory']
     P = C.Pricer(w, b=str(b0), check_literal=False); r = P.price(dict(delete=[], insert=[], tail=[], prepend=[]), want_word=True, timeout=900)

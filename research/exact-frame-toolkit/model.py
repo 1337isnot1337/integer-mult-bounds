@@ -35,11 +35,11 @@ def cone_caps(w):
 def model(word, caps, check_literal=True, tail_mutable=True):
     return F.Graph(inline(word, True), check_literal=check_literal, tail_mutable=tail_mutable, caps=caps, cut_equality=True)
 if __name__ == "__main__":
-    # usage: python -B model.py FULL-WORD.json.gz [ENDPOINT_B]   (cone caps + exact frame optimum under every audit constraint)
+    # usage: python -B model.py FULL-WORD.json.gz [ENDPOINT_B]   (cone caps + surrogate frame optimum and true-moment interval)
     from harness import DEFAULT_B
     word = json.load(gzip.open(sys.argv[1])); b = sys.argv[2] if len(sys.argv) > 2 else DEFAULT_B
     t0 = time.time(); caps, comp = cone_caps(word)
     print(f"cone caps computed in {time.time()-t0:.1f}s: {len(caps)} capped registers; cap dims {sorted(__import__('collections').Counter(len(c) for c in caps.values()).items())}; compensation gates {len(comp)}")
     costs = F.Costs(b); t0 = time.time(); g = model(word, caps)
-    r = F.optimal_frames(inline(word, True), costs, check_literal=True, graph=g)
-    print(f"full-constraint model: vars {len(g.var)} comps {len(g.components)} | literal {r['literal_cost']} optimal {r['cost']} gain {r['gain']} certified {r['certified']} | profile {dict(sorted(r['profile'].items()))} | {time.time()-t0:.1f}s")
+    r = F.optimal_frames(inline(word, True), costs, check_literal=True, graph=g, interval=True)
+    print(f"full-constraint model: vars {len(g.var)} comps {len(g.components)} | literal {r['literal_cost']} surrogate optimum {r['cost']} gain {r['gain']} certified {r['certified']} | profile {dict(sorted(r['profile'].items()))} | true-moment width {r['interval']['width_units']:.3g} units | {time.time()-t0:.1f}s")
