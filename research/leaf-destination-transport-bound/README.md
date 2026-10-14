@@ -57,6 +57,24 @@ ceil-half split) to fail.
 Longer author runs are in `logs/` (`check2.py ok` for n = 1..80, family and closed form to
 n = 512, census n = 71..128, controls).
 
+## Follow-up: attainment in every case, and multiple errors (`PROOF3.md`)
+
+**Attainment in every source-dirty case.** Lemma P only applies when the readout phase has sign +. The remaining cases are (U,V′)+, (U′,V′)+ and (U,V′)−. For these, the readout is the scratch register z_{V′} instead of y.
+- Lemma E gives the exit column along the y-keeping chain.
+- Lemma Q gives the z_{V′} row inside a sign − call.
+- Together they produce H = floor(log2 n) distinct monomials, so all four source-dirty cases are now proved.
+- `fam3.py LO HI` checks this exactly for n ≤ 128; the logs are in `logs/`.
+
+**k destination errors** (PR2067's model, one symbol per error):
+- Proved: E_k ≤ k·max(1, floor(log2 n)).
+- Proved: E_2 = 2·max(1, floor(log2 n)).
+- Proved, sharper: only 2F(⌊n/2⌋) channels can reach the maximum, which gives E_k ≤ k·fl(n) − max(0, k − 2F).
+- Exact census (`multi3.py`) for n ≤ 40: these bounds are attained. Interior cuts far exceed PR2067's endpoint counts; at n = 64 the all-errors total is 6173.
+- Conjectured, not proved: the extremal cut and the all-errors total (11·4^h − 11·3^h + 1)/6 for n = 2^h.
+- The ceil-half-split control fails.
+
+`verify.py` runs `fam3` for n ≤ 64, `multi3` for n ≤ 16, and the swap control.
+
 ## Open next questions
 
 Structured versions are in `TASK.json`.

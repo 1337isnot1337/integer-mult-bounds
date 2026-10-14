@@ -14,6 +14,7 @@ import ast
 from fractions import Fraction
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 from types import SimpleNamespace
@@ -149,6 +150,18 @@ def control_ceil_split():
     return E6, misses
 
 
+def followup_ok():
+    import subprocess
+    here = os.path.dirname(os.path.abspath(__file__))
+    for args, want in ((['fam3.py', '4', '64'], 'failures 0'), (['multi3.py', '1', '16'], 'failing sizes 0')):
+        out = subprocess.run([sys.executable, '-B', os.path.join(here, args[0])] + args[1:], cwd=here,
+                             capture_output=True, text=True, check=True).stdout
+        need(want in out.strip().splitlines()[-1], 'follow-up check %s' % args[0])
+    out = subprocess.run([sys.executable, '-B', os.path.join(here, 'multi3.py'), '2', '12', 'swap'], cwd=here,
+                         capture_output=True, text=True, check=True).stdout
+    need('failing sizes 0' not in out.strip().splitlines()[-1], 'multi-error swap control must fail')
+
+
 def main():
     need(sys.flags.optimize == 0, 'run without -O: lemmas.py uses assert')
     pinned_inputs()
@@ -157,13 +170,14 @@ def main():
     fam_closed_ok(2, 200)
     lemmas_ok(32)
     census_ok(24)
+    followup_ok()
     e7, lf = control_unreversed()
     e6, misses = control_ceil_split()
     print('controls rejected: unreversed_inverse E(7)=%d, %d lemma failures n<=8; '
           'ceil_half_split E(6)=%d, %d/36 family mismatches' % (e7, lf, e6, misses))
     print('PASS_LEAF_DESTINATION_EXACT_MAXIMUM E(n)=max(1,floor(log2 n)): check2 n=1..40, '
           'family n=2..128, closed form n=2..200, lemmas n<=32, census n<=24, '
-          'PR628 word equality n<=40; finite checks of a written proof, not independently reviewed')
+          'PR628 word equality n<=40, attainment families (all source-dirty cases) n<=64, multi-error bounds n<=16; finite checks of a written proof, not independently reviewed')
 
 
 if __name__ == '__main__':
