@@ -1,15 +1,15 @@
 {
-  "searched_at_utc": "2026-10-14T12:07:49.142276Z",
-  "method": "scripts/find_overlap.py --task complex-new-helper-inventory --refresh plus direct scans of recent comments on Discussions #1163 and #1167 and direct inspection of the nearest open PRs",
+  "searched_at_utc": "2026-10-14T12:10:58.395219Z",
+  "method": "scripts/find_overlap.py --task complex-new-helper-inventory --refresh plus direct scans of recent comments on Discussion #1163 and direct inspection of the nearest open PRs; the complete helper snapshot also searches Discussion #1167",
   "open_pr_snapshot": {
-    "fetched_at_utc": "2026-10-14T12:05:58.186452Z",
+    "fetched_at_utc": "2026-10-14T12:09:17.310497Z",
     "complete_pagination": true,
-    "records": 519
+    "records": 521
   },
   "discussion_snapshot": {
-    "fetched_at_utc": "2026-10-14T12:07:48.917467Z",
+    "fetched_at_utc": "2026-10-14T12:10:58.244053Z",
     "complete_pagination": true,
-    "records": 489
+    "records": 491
   },
   "warnings": [],
   "direct_predecessor": {
@@ -44,7 +44,7 @@
     {
       "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1163#discussioncomment-18923240",
       "scope": "same-register staggered rank-three packets with up to five live packets and 15 scratch arrays",
-      "status_at_refresh": "active claim, expires 2026-10-14T13:55Z",
+      "status_at_refresh": "released by comment 18923439 at 2026-10-14T12:05:38Z; no PR",
       "distinction": "this package uses one unchanged source and three distinct destinations, with exact commutation across intervening operations and no added scratch-array allowance"
     },
     {
