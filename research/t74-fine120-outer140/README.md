@@ -1,0 +1,15 @@
+Conditional candidate κ = **0.00167685522907132188620645677227459261951244873951047526280336519105115665521200964951578469164138454299292754381039421745513966674764384056**. This exceeds PR1479 (`0a211a4608d2c3d295f8bb94b12ca446714186ab`) by **5.115665521200964951578469164138454299292754381039421745513966674764384056E-68**.
+
+**Draft: complete new-package finite admission is pending. This is certificate refinement only; the physical construction, native words, owners and paid profile are unchanged.** It is an extremely small numerical improvement, not a new multiplication algorithm or practical speedup.
+
+PR1479's exact complex native and conservative endpoint brackets of width 10^-120 and its two finer-constant rational moment engines are retained unchanged. Both engines accept the lower endpoints and reject the next points. The old engines separately certify the containing 10^-24 brackets. The bit endpoint and surcharge remain unchanged. Credits and exact source hashes are in `evidence/pr1479-source/`.
+
+The new outer witness uses 54 bootstrap steps, eta = beta = 10^-150, target backoff 10^-153 and final κ grid 10^-140. Its decimal formatter uses the configured grid plus ten guard digits. A strict assembly replay on the previously verified, source-bound PR1464 owner/invoice receipts passed all 47 outer inequalities, conservative checks and rejection controls. This is preliminary evidence; it is not a fresh complete pipeline replay.
+
+Reproduce from this package: `python3 -B verify.py --work /absolute/new/work --base-native-from /bound/base/native --extra-native-from /bound/extra/native`. Omit the native reuse flags to regenerate the native providers. Assertions must be enabled. A separate closed-form bootstrap checker is included. Full verification will use explicit source-bound native reuse; no fresh native replay or hosted CI success is claimed. All inherited evidence, including `evidence/fine64/`, is historical; this candidate's preliminary assembly is separately named.
+
+Conditional finite construction only. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery, analytic transfer, PR559 recurrence correction and PR589 bit H1-H5 assumptions remain. No unconditional theorem, full Lean certification, global packing optimum or independent human review is claimed.
+
+Credits: Jeremy Kothe / PR1479 and PR1458 for the finer endpoint engines, PR1444/1377/1274; Rohan Arun / PR1464, PR1424, PR1319 and PR1297; Jeremy Diviney / PR1193; Thomas DiFiore / PR1148; Hao Yan and retained owner/controller lineage; eumemic and icekylinx/Zhihao Chen; retained PR547/548/559 and PR589 suppliers. Prepared by Rohan Arun with substantial OpenAI Codex assistance. Apache-2.0; all predecessor notices retained.
+
+Open next questions: lower the complete paid physical profile, or build a fully admitted alternative decoder. Finer certificates alone do not improve the construction. Mark this draft ready only after complete finite admission and independent outer checks pass.
