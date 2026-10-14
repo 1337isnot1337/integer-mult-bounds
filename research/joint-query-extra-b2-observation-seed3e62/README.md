@@ -96,6 +96,7 @@ than a complete controller cost.
   adjacent but does not study this first-cut observation.
 
 Claim and handoff: [Discussion #2074](https://github.com/CrocSwap/integer-mult-bounds/discussions/2074).
+Contribution: [PR #2079](https://github.com/CrocSwap/integer-mult-bounds/pull/2079).
 
 ## Reproduce
 
