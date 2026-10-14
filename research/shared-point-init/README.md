@@ -117,3 +117,5 @@ bit-compression screens. Prepared by Wentao Li
 ([VictorLiwentao](https://github.com/VictorLiwentao),
 [@Is__Victor](https://x.com/Is__Victor)) with substantial AI assistance, under
 Apache-2.0.
+
+Also folded here: `research/shared-point-frame-contains/` (dense `support_in` cache for `verify_frames`, same production file).
