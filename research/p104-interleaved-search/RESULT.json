@@ -1,0 +1,1028 @@
+{
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "budget": {
+    "additional_hosted_width9_helper_count_upper_bounds_at_one_percent": {
+      "saved_helpers": {
+        "H1_plus_H8": 16,
+        "H2_plus_H7": 14
+      },
+      "two_delivery_profiles": {
+        "H1_plus_H8": 5,
+        "H2_plus_H7": 5
+      }
+    },
+    "chain_profile_inputs": [
+      {
+        "a_root": 3,
+        "b_root": 113,
+        "descent": {
+          "1": 1,
+          "2": 1,
+          "4": 1
+        },
+        "injections": 14,
+        "local_tail_cleanup_delta": {
+          "1": 33,
+          "2": 19,
+          "3": -13,
+          "4": -4,
+          "5": -2
+        },
+        "residual_width_delta": {
+          "1": -5,
+          "4": 1,
+          "5": -1
+        }
+      },
+      {
+        "a_root": 4,
+        "b_root": 57,
+        "descent": {
+          "1": 2,
+          "5": 1
+        },
+        "injections": 16,
+        "local_tail_cleanup_delta": {
+          "1": 40,
+          "2": 24,
+          "3": -12,
+          "4": -6,
+          "5": -4
+        },
+        "residual_width_delta": {
+          "1": -5,
+          "4": 3,
+          "5": -3
+        }
+      }
+    ],
+    "controls": {
+      "each_delivery_local_plus_residual_mass_is_zero": true,
+      "exact_difference_is_one_rank_of_idle_child_cost": true,
+      "full_coverage_and_zero_saving_moment_cases": 8,
+      "incorrect_idle_substitution_would_pass_same_target": true,
+      "incorrectly_hosted_moment": {
+        "lower": "57891720981567734905252852423419285193104348009634088233257706783548970156305/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+        "lower_decimal": "0.999925320682633137384792",
+        "upper": "57891720981567734905252852423419285193104348009634088233257706783548970156325/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+        "upper_decimal": "0.999925320682633137384792"
+      },
+      "one_true_excess_H1_excludes_one_percent_target": true,
+      "saved_helpers_have_full_rank9_lifetimes": true,
+      "true_excess_moment": {
+        "lower": "96346108116882448203832110145750767808752820820385845656001055562602326917941235/96339018245447074592411059527228339333920627241812949280828709894583723860426752",
+        "lower_decimal": "1.00007359293840124506957",
+        "upper": "24086527029220612050958027536437691952188205205096461414000263890650581729493423/24084754561361768648102764881807084833480156810453237320207177473645930965106688",
+        "upper_decimal": "1.00007359293840124506957"
+      }
+    },
+    "fixed_bit_gain_upper_percent_decimal": "3.45361675058909225751538",
+    "fixed_bit_kappa_upper_bound": "1733427039589844234749/1001733427039589844234749",
+    "hypotheses": [
+      "Retain m=73, nine stages, four pairs, 104 ports, and all-helpers-hosted coverage.",
+      "Use the full retained local profile with sixteen deleted X/Y roles converted to dirty helpers.",
+      "Shorten eight H8 paths to H7 and charge centre COPY rank56.",
+      "The sixteen saved F2 partials each have an H2+H7 lifetime.",
+      "All remaining idle mass may be packed fractionally at rank51, even if no such owner packing exists.",
+      "Source-query formation, storage, the other six deliveries, and additional transport are uncharged.",
+      "The two-query perturbation profile is supplied by the combined delivery replay; this pricing module does not independently prove its schedule.",
+      "Two private-copy lifetimes fit the count of eight already allocated private-centre families; overlapping copies alone do not force m74. Concurrent native admission and actual public-query placement remain unproved.",
+      "The two supplied-query H_b-to-FULL rank1 boundaries are omitted unless included in an already charged query lifetime.",
+      "The fixed-bit and complex kappa caps use the retained balanced-transfer necessary inequalities."
+    ],
+    "necessary_complex_saving_for_target": "84469339952384359/49915530660047615641",
+    "optional_COPY_fallback_table": [
+      {
+        "centre_COPY_rank": 56,
+        "complex_saving_root_interval": {
+          "lower": "217870899569/125000000000000",
+          "lower_decimal": "0.001742967196552",
+          "upper": "1742967196553/1000000000000000",
+          "upper_decimal": "0.001742967196553"
+        },
+        "kappa_upper_bound": "1733427039589844234749/1001733427039589844234749",
+        "kappa_upper_bound_decimal": "0.00173042746982360296214729",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 8
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "328/9",
+          "idle_mass": "1118",
+          "local_mass": "5594",
+          "total_mass": "6712",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "115773834938015212677470049248794032622163692293682565629115918287226374900619/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "lower_decimal": "0.999842352794381570307066",
+          "upper": "57886917469007606338735024624397016311081846146841282814557959143613187450329/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "upper_decimal": "0.999842352794381570307066"
+        },
+        "name": "retained_roles_COPY56",
+        "one_percent_target_excluded": false,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "118652945456387849656082439310189002190900417726989667220827184463905805307/8141631274498794990719834883423368520933045796802852159024361375556391927808",
+          "lower_decimal": "0.0145736083416148338356415",
+          "upper": "237305890912775699312164878620378004381800835453979334441654368927811611121/16283262548997589981439669766846737041866091593605704318048722751112783855616",
+          "upper_decimal": "0.0145736083416148338356415"
+        },
+        "relative_gain_upper_percent_decimal": "3.45361675058909225751538",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 57,
+        "complex_saving_root_interval": {
+          "lower": "847593984737/500000000000000",
+          "lower_decimal": "0.001695187969474",
+          "upper": "67807518779/40000000000000",
+          "upper_decimal": "0.001695187969475"
+        },
+        "kappa_upper_bound": "67807518779/40067807518779",
+        "kappa_upper_bound_decimal": "0.00169231917037686522526826",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 7,
+          "8": 1
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "319/9",
+          "idle_mass": "1118",
+          "local_mass": "5595",
+          "total_mass": "6713",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "7236939396873536688085292995177054983092566783232091319730364287582031709909/7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "lower_decimal": "0.999990855270454286201000",
+          "upper": "115791030349976587009364687922832879729481068531713461115685828601312507358583/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_decimal": "0.999990855270454286201000"
+        },
+        "name": "retained_roles_COPY57",
+        "one_percent_target_excluded": false,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "4588511804969794893954038705121869751969913684112669677606761936029885863/5427754182999196660479889922282245680622030531201901439349574250370927951872",
+          "lower_decimal": "0.000845379442448208974217955",
+          "upper": "286781987810612180872127419070116859498119605257041854850422621001867877/339234636437449791279993120142640355038876908200118839959348390648182996992",
+          "upper_decimal": "0.000845379442448208974217955"
+        },
+        "relative_gain_upper_percent_decimal": "1.17531183765253421098632",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 58,
+        "complex_saving_root_interval": {
+          "lower": "102962883531/62500000000000",
+          "lower_decimal": "0.001647406136496",
+          "upper": "1647406136497/1000000000000000",
+          "upper_decimal": "0.001647406136497"
+        },
+        "kappa_upper_bound": "1647406136497/1001647406136497",
+        "kappa_upper_bound_decimal": "0.00164469665313794447238516",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 6,
+          "8": 2
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "310/9",
+          "idle_mass": "1118",
+          "local_mass": "5596",
+          "total_mass": "6714",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "28952056440484490335314831649217931709199611192436089150563934728849659954117/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+          "lower_decimal": "1.00013935774652700209493",
+          "upper": "28952056440484490335314831649217931709199611192436089150563934728849659954127/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+          "upper_decimal": "1.00013935774652700209493"
+        },
+        "name": "retained_roles_COPY58",
+        "one_percent_target_excluded": true,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "-52443705020739232487110161597411696467495338337325829094003449327908073859/4070815637249397495359917441711684260466522898401426079512180687778195963904",
+          "lower_decimal": "-0.0128828494567184158872056",
+          "upper": "-52443705020739232487110161597411696467495338337325829094003449327908073729/4070815637249397495359917441711684260466522898401426079512180687778195963904",
+          "upper_decimal": "-0.0128828494567184158872056"
+        },
+        "relative_gain_upper_percent_decimal": "-1.67180064354024991460031",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 59,
+        "complex_saving_root_interval": {
+          "lower": "799810849029/500000000000000",
+          "lower_decimal": "0.001599621698058",
+          "upper": "1599621698059/1000000000000000",
+          "upper_decimal": "0.001599621698059"
+        },
+        "kappa_upper_bound": "1599621698059/1001599621698059",
+        "kappa_upper_bound_decimal": "0.00159706699504047936386853",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 5,
+          "8": 3
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "301/9",
+          "idle_mass": "1118",
+          "local_mass": "5597",
+          "total_mass": "6715",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "115825421173899335673153965270910573944115821007775252088825649229484772274393/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "lower_decimal": "1.00028786022259971798887",
+          "upper": "115825421173899335673153965270910573944115821007775252088825649229484772274433/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "upper_decimal": "1.00028786022259971798887"
+        },
+        "name": "retained_roles_COPY59",
+        "one_percent_target_excluded": true,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "-433315175580823244578743408894659180995872447750944641784847880431354248461/16283262548997589981439669766846737041866091593605704318048722751112783855616",
+          "lower_decimal": "-0.0266110783558850407486291",
+          "upper": "-48146130620091471619860378766073242332874716416771626864983097825706027549/1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "upper_decimal": "-0.0266110783558850407486291"
+        },
+        "relative_gain_upper_percent_decimal": "-4.51934004100430269034094",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 60,
+        "complex_saving_root_interval": {
+          "lower": "775917327301/500000000000000",
+          "lower_decimal": "0.001551834654602",
+          "upper": "1551834654603/1000000000000000",
+          "upper_decimal": "0.001551834654603"
+        },
+        "kappa_upper_bound": "1551834654603/1001551834654603",
+        "kappa_upper_bound_decimal": "0.00154943019513130694938796",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 4,
+          "8": 4
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "292/9",
+          "idle_mass": "1118",
+          "local_mass": "5598",
+          "total_mass": "6716",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "57921308292930355002524301972474710525716598622903073787697779771785452366159/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "lower_decimal": "1.00043636269867243388280",
+          "upper": "57921308292930355002524301972474710525716598622903073787697779771785452366179/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "upper_decimal": "1.00043636269867243388280"
+        },
+        "name": "retained_roles_COPY60",
+        "one_percent_target_excluded": true,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "-109475921846448259868174361899945262686960590358764327865613660591846033581/2713877091499598330239944961141122840311015265600950719674787125185463975936",
+          "lower_decimal": "-0.0403393072550516656100527",
+          "upper": "-328427765539344779604523085699835788060881771076292983596840981775538100483/8141631274498794990719834883423368520933045796802852159024361375556391927808",
+          "upper_decimal": "-0.0403393072550516656100527"
+        },
+        "relative_gain_upper_percent_decimal": "-7.36730641172447686732784",
+        "status": "CEILING_NOT_SUPPLIER"
+      }
+    ],
+    "scenarios": [
+      {
+        "centre_COPY_rank": 56,
+        "complex_saving_root_interval": {
+          "lower": "217870899569/125000000000000",
+          "lower_decimal": "0.001742967196552",
+          "upper": "1742967196553/1000000000000000",
+          "upper_decimal": "0.001742967196553"
+        },
+        "kappa_upper_bound": "1733427039589844234749/1001733427039589844234749",
+        "kappa_upper_bound_decimal": "0.00173042746982360296214729",
+        "local_profile": {
+          "1": 2428,
+          "2": 418,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 8
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "328/9",
+          "idle_mass": "1118",
+          "local_mass": "5594",
+          "total_mass": "6712",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "115773834938015212677470049248794032622163692293682565629115918287226374900619/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "lower_decimal": "0.999842352794381570307066",
+          "upper": "57886917469007606338735024624397016311081846146841282814557959143613187450329/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "upper_decimal": "0.999842352794381570307066"
+        },
+        "name": "retained_16_dirty_roles",
+        "one_percent_target_excluded": false,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "118652945456387849656082439310189002190900417726989667220827184463905805307/8141631274498794990719834883423368520933045796802852159024361375556391927808",
+          "lower_decimal": "0.0145736083416148338356415",
+          "upper": "237305890912775699312164878620378004381800835453979334441654368927811611121/16283262548997589981439669766846737041866091593605704318048722751112783855616",
+          "upper_decimal": "0.0145736083416148338356415"
+        },
+        "relative_gain_upper_percent_decimal": "3.45361675058909225751538",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 56,
+        "complex_saving_root_interval": {
+          "lower": "107263628807/62500000000000",
+          "lower_decimal": "0.001716218060912",
+          "upper": "1716218060913/1000000000000000",
+          "upper_decimal": "0.001716218060913"
+        },
+        "kappa_upper_bound": "1716218060913/1001716218060913",
+        "kappa_upper_bound_decimal": "0.00171327770277613606061312",
+        "local_profile": {
+          "1": 2428,
+          "2": 434,
+          "3": 432,
+          "4": 142,
+          "5": 82,
+          "7": 24
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "328/9",
+          "idle_mass": "974",
+          "local_mass": "5738",
+          "total_mass": "6712",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "115783327347977389221210417047728581911922583946072498840132615042446973140399/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "lower_decimal": "0.999924330846808984620578",
+          "upper": "57891663673988694610605208523864290955961291973036249420066307521223486570219/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "upper_decimal": "0.999924330846808984620578"
+        },
+        "name": "retained_roles_plus_16_saved_F2_helpers",
+        "one_percent_target_excluded": false,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "18984093567413438447897248745206206252701559064141265204099425176672415579/2713877091499598330239944961141122840311015265600950719674787125185463975936",
+          "lower_decimal": "0.00699519282832497729763977",
+          "upper": "12656062378275625631931499163470804168467706042760843469399616784448277109/1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "upper_decimal": "0.00699519282832497729763977"
+        },
+        "relative_gain_upper_percent_decimal": "2.42831782391903518879046",
+        "status": "CEILING_NOT_SUPPLIER"
+      },
+      {
+        "centre_COPY_rank": 56,
+        "complex_saving_root_interval": {
+          "lower": "53145654041/31250000000000",
+          "lower_decimal": "0.001700660929312",
+          "upper": "1700660929313/1000000000000000",
+          "upper_decimal": "0.001700660929313"
+        },
+        "kappa_upper_bound": "1700660929313/1001700660929313",
+        "kappa_upper_bound_decimal": "0.00169777359209809937612154",
+        "local_profile": {
+          "1": 2504,
+          "2": 478,
+          "3": 407,
+          "4": 133,
+          "5": 77,
+          "7": 22
+        },
+        "m": 73,
+        "model": {
+          "R": "51",
+          "deficit": "328/9",
+          "idle_mass": "960",
+          "local_mass": "5752",
+          "total_mass": "6712",
+          "w": "832/9"
+        },
+        "moment_at_one_percent_target": {
+          "lower": "115788985266229093106790713682277970314566176612024164643752082334056744222285/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+          "lower_decimal": "0.999973193582501644652368",
+          "upper": "57894492633114546553395356841138985157283088306012082321876041167028372111163/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+          "upper_decimal": "0.999973193582501644652368"
+        },
+        "name": "saved_helpers_plus_two_query_delivery_profile",
+        "one_percent_target_excluded": false,
+        "per_call_margin_at_one_percent_target": {
+          "lower": "6725270688721686357254540554864667191584116168865357361920293355501738155/2713877091499598330239944961141122840311015265600950719674787125185463975936",
+          "lower_decimal": "0.00247810437318129435886559",
+          "upper": "40351624132330118143527243329188003149504697013192144171521760133010429463/16283262548997589981439669766846737041866091593605704318048722751112783855616",
+          "upper_decimal": "0.00247810437318129435886559"
+        },
+        "relative_gain_upper_percent_decimal": "1.50140447324977661489782",
+        "status": "CEILING_NOT_SUPPLIER"
+      }
+    ],
+    "scope": "Necessary optimistic moment screens; no supplier, native-word, owner, or kappa improvement assertion.",
+    "selected_bit_lower": "1733427039589844234749/1000000000000000000000000",
+    "selected_kappa": "836330098538459/500000000000000000",
+    "selected_private_centre_stock": {
+      "scope": "Capacity only: the eight private centres are separate from ordinary helpers. Their count is not the ambient width m. No concurrent native admission or public-query placement is established.",
+      "selected_live_families": 14336,
+      "selected_ordinary_helper_families": 480,
+      "selected_physical_families": 14826,
+      "selected_private_centre_families": 8
+    },
+    "sources": [
+      {
+        "path": "research/complex-local-word-ceiling/ceiling.py",
+        "sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc"
+      },
+      {
+        "path": "research/complex-block-rank-optimum/inputs/selected.json.gz",
+        "sha256": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219"
+      },
+      {
+        "path": "research/community-frontier1094-audit/ASSEMBLY.json",
+        "sha256": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045"
+      },
+      {
+        "path": "certificates/selected-result.json",
+        "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+      },
+      {
+        "path": "research/complex-t16-rare-pattern-exchanges/data/SPEC.json",
+        "sha256": "8cb51f25a5da4a29d3783853025b73ff1f452429d4fdb30c599e598bcab0e71d"
+      },
+      {
+        "path": "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+        "sha256": "79b3de5db3dbcb9829789ba58e9e45758926031e2a7d80667a08429d369be53b"
+      }
+    ],
+    "status": "CEILING_NOT_SUPPLIER",
+    "target_kappa": "84469339952384359/50000000000000000000"
+  },
+  "chain_input_sha256": "8d74eb0473a347d29e3f6e0dc5b9a4dea00bcf400f3725535c21e4e613a099f2",
+  "cross_checks": {
+    "delivery_pairs_belong_to_scalar_decoder": true,
+    "no_oracle_or_optimistic_ceiling_claimed_as_supplier": true,
+    "priced_single_chain_deltas_equal_replayed_deltas": true,
+    "priced_sum_equals_joint_chronological_replay": true,
+    "private_copy_peak_fits_selected_eight_centre_stock": true,
+    "retained_delivery_sources_need_raw_query_divided_by_eight": true,
+    "same_exact_104_port_puncture": true
+  },
+  "delivery": {
+    "chains": [
+      {
+        "all_live_output_query_coefficients_exact": true,
+        "all_other_query_perturbations_zero": true,
+        "contact_count": 14,
+        "local_B_tail_endpoint_cleanup_profile_delta": {
+          "1": 33,
+          "2": 19,
+          "3": -13,
+          "4": -4,
+          "5": -2
+        },
+        "pair_hamming_root_indices": [
+          3,
+          113
+        ],
+        "private_descent_mass": 7,
+        "private_descent_profile": {
+          "1": 1,
+          "2": 1,
+          "4": 1
+        },
+        "public_plus_residual_rank_mass_delta": 0,
+        "query_cleanup_count": 23,
+        "residual_width_profile_delta": {
+          "1": -5,
+          "4": 1,
+          "5": -1
+        },
+        "supplied_query_remaining_boundary_profile": {
+          "1": 1
+        },
+        "terminal_changes": [
+          {
+            "after_rank": 5,
+            "before_rank": 4,
+            "register": 325
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 450
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 580
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 581
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 582
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 583
+          }
+        ]
+      },
+      {
+        "all_live_output_query_coefficients_exact": true,
+        "all_other_query_perturbations_zero": true,
+        "contact_count": 16,
+        "local_B_tail_endpoint_cleanup_profile_delta": {
+          "1": 40,
+          "2": 24,
+          "3": -12,
+          "4": -6,
+          "5": -4
+        },
+        "pair_hamming_root_indices": [
+          4,
+          57
+        ],
+        "private_descent_mass": 7,
+        "private_descent_profile": {
+          "1": 2,
+          "5": 1
+        },
+        "public_plus_residual_rank_mass_delta": 0,
+        "query_cleanup_count": 25,
+        "residual_width_profile_delta": {
+          "1": -5,
+          "4": 3,
+          "5": -3
+        },
+        "supplied_query_remaining_boundary_profile": {
+          "1": 1
+        },
+        "terminal_changes": [
+          {
+            "after_rank": 5,
+            "before_rank": 4,
+            "register": 307
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 311
+          },
+          {
+            "after_rank": 5,
+            "before_rank": 4,
+            "register": 314
+          },
+          {
+            "after_rank": 5,
+            "before_rank": 4,
+            "register": 339
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 498
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 572
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 573
+          },
+          {
+            "after_rank": 9,
+            "before_rank": 8,
+            "register": 587
+          }
+        ]
+      }
+    ],
+    "combined_two_query_channel": {
+      "all_other_query_perturbations_zero": true,
+      "all_query_coefficients_exact": true,
+      "changed_terminal_roles": [
+        307,
+        311,
+        314,
+        325,
+        339,
+        450,
+        498,
+        572,
+        573,
+        580,
+        581,
+        582,
+        583,
+        587
+      ],
+      "external_query_registers_required": 2,
+      "global_owner_hosting_verified": false,
+      "local_B_tail_endpoint_cleanup_profile_delta": {
+        "1": 73,
+        "2": 43,
+        "3": -25,
+        "4": -10,
+        "5": -6
+      },
+      "peak_simultaneous_private_copies": 2,
+      "private_copy_lifetimes": [
+        {
+          "copy": 0,
+          "discarded_after_B_contact": 885,
+          "initialized_before_B_event": 0
+        },
+        {
+          "copy": 1,
+          "discarded_after_B_contact": 875,
+          "initialized_before_B_event": 0
+        }
+      ],
+      "private_descent_mass": 14,
+      "public_plus_residual_rank_mass_delta": 0,
+      "query_count": 2,
+      "residual_width_profile_delta": {
+        "1": -10,
+        "4": 4,
+        "5": -4
+      },
+      "supplied_query_remaining_boundary_profile": {
+        "1": 2
+      }
+    },
+    "negative_controls": {
+      "corrupt_contact_coefficient": "rejected: query perturbation endpoint mismatch",
+      "drop_query_cleanup": "rejected: query perturbation endpoint mismatch",
+      "drop_terminal_frame_overrides": "rejected: terminal frame exceeded: (('early cleanup', 55), 325)"
+    },
+    "query_input_contract": "One independent exact scalar q already available in H_b; forming q, its dirty-input compensation, and its initial boundary are not included. Its remaining H_b-to-FULL boundary is one rank-one child per query.",
+    "removed_selected_positions": [
+      3,
+      14,
+      21,
+      34,
+      39,
+      61,
+      76,
+      93
+    ],
+    "retained_role_baseline_profile_delta_from_selected": {
+      "1": 16
+    },
+    "schema": "p104-single-query-delivery-report-v1",
+    "scope": "One exact two-query delivery perturbation channel on a modified selected B schedule, with separate and joint invoices; no eight-query program or improved kappa.",
+    "source_sha256": {
+      "research/complex-block-rank-optimum/inputs/selected.json.gz": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219",
+      "research/frame-sa504/inputs/hamming/PROTOTYPE.json": "327d2a868043e846381aa58a33053c24425e8cad522ff401b10ec8af1d649a3f",
+      "research/p104-native-channel/inputs/P104-FIXTURE.json": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
+    }
+  },
+  "requested_verified_kappa_gain_achieved": false,
+  "scalar_surgery": {
+    "baseline_all_columns_pass": true,
+    "controls": {
+      "corrupted_hypothetical_query_bad_registers": [
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209
+      ],
+      "corrupted_hypothetical_query_term_and_source": [
+        0,
+        1
+      ],
+      "corrupted_hypothetical_query_with_fixed_repairs_rejected": true,
+      "corrupted_original_cut_bad_registers": [
+        113,
+        118
+      ],
+      "corrupted_original_cut_coefficient_rejected": true,
+      "omitted_final_restoration_bad_registers": [
+        115,
+        126,
+        133,
+        146,
+        151,
+        173,
+        188,
+        205
+      ],
+      "omitted_final_restoration_rejected": true,
+      "omitted_new_compensation_bad_registers": [
+        112,
+        113,
+        114,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        147,
+        148,
+        149,
+        150,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        171,
+        172,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223
+      ],
+      "omitted_new_compensation_live_dirty_entries": 6790,
+      "omitted_new_compensation_rejected": true
+    },
+    "converted_dirty_roles": 16,
+    "decoder_hamming_root_pairs": [
+      [
+        1,
+        28
+      ],
+      [
+        2,
+        47
+      ],
+      [
+        3,
+        113
+      ],
+      [
+        4,
+        57
+      ],
+      [
+        12,
+        7
+      ],
+      [
+        65,
+        0
+      ],
+      [
+        82,
+        6
+      ],
+      [
+        97,
+        5
+      ]
+    ],
+    "endpoint_role_changes": {
+      "removed_X_start_rank": [
+        1,
+        0
+      ],
+      "removed_Y_final_rank": [
+        8,
+        9
+      ]
+    },
+    "hypothetical_cut_illegal_survivor_reads_by_term": [
+      0,
+      0,
+      0,
+      0,
+      26,
+      0,
+      26,
+      28
+    ],
+    "hypothetical_query_count": 8,
+    "hypothetical_query_definition": "q_k = sum over live s of dot(root_s,b_k)*initial_X_s; endpoint coefficient is dot(root_t,a_k)/(4*dot(a_k,b_k)). A delivery source may absorb the constant 1/(4*dot(a_k,b_k)); no assembled schedule is asserted.",
+    "hypothetical_scatter_additions": 296,
+    "input_columns": 704,
+    "live_ports": 104,
+    "live_target_transfer_rank": 104,
+    "new_full_frame_restoration_additions": 779,
+    "new_zero_frame_compensation_additions": 6790,
+    "original_ports": 112,
+    "query_scale_for_delivery_output_dot_a": [
+      "-1/8",
+      "-1/8",
+      "1/8",
+      "1/8",
+      "1/8",
+      "1/8",
+      "1/8",
+      "-1/8"
+    ],
+    "removed_selected_positions": [
+      3,
+      14,
+      21,
+      34,
+      39,
+      61,
+      76,
+      93
+    ],
+    "repair_max_coefficient_denominator": 2,
+    "restoration_sources_without_retained_full_endpoint": [],
+    "retained_old_helpers": 480,
+    "scope": "Exact rational scalar identity under hypothetical pure-source query-cut access; no legal native schedule or kappa gain claimed.",
+    "sources": [
+      {
+        "path": "research/complex-block-rank-optimum/inputs/selected.json.gz",
+        "sha256": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219"
+      },
+      {
+        "path": "research/frame-sa504/inputs/hamming/PROTOTYPE.json",
+        "sha256": "327d2a868043e846381aa58a33053c24425e8cad522ff401b10ec8af1d649a3f"
+      },
+      {
+        "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+        "sha256": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
+      }
+    ],
+    "status": "PASS_CONDITIONAL_SCALAR_SURGERY",
+    "unproved_obligations": [
+      "Form and store the eight pure-source queries with restored dirty helpers.",
+      "Replace the hypothetical cut by legal native common-frame operations.",
+      "Check actual added transport, storage lifetimes, backward supplier, and whole-call hosting.",
+      "Establish a complete paid recurrence and a kappa improvement."
+    ]
+  },
+  "schema_version": 1,
+  "selected_kappa_unchanged": "836330098538459/500000000000000000",
+  "status": "VERIFIED_PARTIAL_CHECKPOINT_NOT_A_SUPPLIER"
+}

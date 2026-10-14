@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "task_id": "p104-side-correction",
+  "priority_revision": 4,
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "original_card": {
+    "id": "p104-side-correction",
+    "question": "Can the native P104 low-rank channel be completed with a legal, fully charged I-G/2 side correction?",
+    "starting_points": [
+      "research/p104-native-channel/README.md",
+      "research/p104-native-channel/PROOF.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct one side-correction word at an explicit chronological cut with the needed frames still available.",
+      "Derive a lower bound on the side correction and hosting costs that decides whether this channel can beat the selected budget."
+    ],
+    "acceptance_gate": "An exact arbitrary-input identity, source/target frame availability and restoration at the chosen cut, plus the complete channel+correction+idle/hosting bill or an explicit favorable bound. The native channel alone is not a supplier.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the P104 open next questions and its fixed local histogram; inspect why appending I-G/2 after source completion is not justified. #1991 supplies the checked native channel, not the missing correction.",
+      "scope": "Source-bound orientation only. Read the named package and review before relying on its local evidence; this command is not its replay or supplier admission."
+    },
+    "first_experiment": "Choose one exact side-correction cut and bound its allowed cost from a favorable completed moment at a declared target. Stop or hand off if the necessary source/target access cannot be justified or even the optimistic total misses the target.",
+    "bottleneck_link": "Completing an already realized changed channel tests a concrete construction opportunity, instead of refining the incumbent packing. A positive local result still needs global and all-size admission.",
+    "allowed_variations": [
+      "One correction factorization, one chronological cut, or one explicit hosting obstruction.",
+      "A changed correction schedule with an updated full bill and native frame contract."
+    ],
+    "scope_change_triggers": [
+      "Recompiling the already certified low-rank channel without closing a new obligation.",
+      "Treating a pending ancestor, local histogram or unpriced side correction as an admitted global supplier."
+    ],
+    "overlap_terms": [
+      "P104",
+      "I-G/2",
+      "side correction",
+      "native channel",
+      "1972",
+      "1991"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Construct a P104 schedule with changed chronological frame access, persistent helper routes or a rebuilt selected-word centre, then require an exact completed moment and actual full supplier/outer verification before a kappa claim.",
+  "scope_change_reason": "User explicitly requests a constructive escape from PR2082, rather than another obstruction. No task reroll. Old frozen timeline and checkpoint-preserving insertion hypotheses must change.",
+  "bottleneck_link": "P104 COPY56 can beat the selected complex budget only if a complete side correction, dirty restoration, native compilation and chronological hosting retain the saving.",
+  "budget_minutes": 60,
+  "stop_rule": "Screen complete optimistic cost first. Investigate the smallest exact constructive candidates; one bounded pivot allowed. Stop construction of a candidate when a proved identity/access or full-cost failure rules it out. Do not present partial local success as the requested verified gain.",
+  "outcome": "partial",
+  "evidence": "RESULT.json: exact conditional 704-column surgery and a combined two-query delivery channel with two simultaneous private copies; all remaining query formation, six deliveries and global admission are unproved. Requested kappa gain not achieved.",
+  "author": "David Arias",
+  "ai_assistance": "Substantial OpenAI Codex assistance and parallel mathematical research; no human review or formal proof assistant.",
+  "open_questions": [
+    {
+      "question": "Can a changed source packet prefix form all eight actual queries within the complete budget?",
+      "why_it_matters": "The current scalar cut is hypothetical and delivery starts with externally supplied queries.",
+      "first_step": "Compile one non-coordinate query with complete dirty-state replay and register lifetimes; then price all new boundary and excess work.",
+      "blocked_by": "Existing helper roles are not automatically free to hold new query values."
+    },
+    {
+      "question": "Can the other six delivery terms coexist with the checked two-query channel?",
+      "why_it_matters": "The existing joint replay covers two of eight terms and already needs overlapping private copies.",
+      "first_step": "Add one term, replay every chronological frame through tail and cleanup, and recount peak live storage.",
+      "blocked_by": "No complete legal eight-term chronology or native supplier exists in this checkpoint."
+    },
+    {
+      "question": "Can a completed local word be hosted and yield a strict new outer certificate?",
+      "why_it_matters": "A favorable packing ceiling is only a necessary screen, not an achieved exponent.",
+      "first_step": "After local completion, build actual owner windows, residual children, native recipes, reverse interface and exact moment/outer checks.",
+      "blocked_by": "Local query construction, six deliveries and workspace invoices remain open."
+    }
+  ],
+  "target": {
+    "minimum_desired_relative_kappa_gain": "1/100",
+    "selected_kappa": "836330098538459/500000000000000000",
+    "fixed_bit_outer_cap": "0.001730427469823602",
+    "acceptance": "Requested objective not achieved. An improved kappa still requires both supplier interfaces, native/frame/dirty-state/hosting invoices, two exact moment checks and outer constraints."
+  },
+  "coordination": "No public Discussion messages or new PR. Local checkpoint only; prior PR2082 remains unchanged.",
+  "optimistic_budget": "P104 retained template m73 W832 N9 has36.444... spare ranks/call before moment effects. Existing terminal corrections costing104 or208 exceed this. New timing must reuse boundary progress or replace original work.",
+  "overlap_check": {
+    "searched_at": "2026-10-14T19:12:58.117087+00:00",
+    "open_prs": 363,
+    "discussions": 750,
+    "complete_pagination": true,
+    "related_prs": [
+      1972,
+      1991,
+      2082,
+      2083,
+      2089,
+      2090
+    ]
+  },
+  "final_freshness": {
+    "main_checked_at": "2026-10-14T19:48:08.978442+00:00",
+    "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "scientific_inputs_changed": false,
+    "overlap_searched_at": "2026-10-14T19:50:44.911060+00:00",
+    "open_prs": 380,
+    "discussion_records": 780,
+    "complete_pagination": true,
+    "new_related_prs": [
+      2096,
+      2113
+    ],
+    "new_related_discussions": [
+      2107
+    ],
+    "decision": "Continue changed selected-word frame paths; new fixed-native-path retiming obstruction does not cover these fragments."
+  }
+}
