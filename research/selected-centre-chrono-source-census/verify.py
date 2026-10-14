@@ -484,6 +484,21 @@ def negative_controls(root, data, raws, local_maps):
     return done
 
 
+def render(result):
+    """Stable receipt layout: one top-level key per line, long lists one item per line."""
+    def compact(value):
+        return json.dumps(value, sort_keys=True)
+    lines = []
+    for key in sorted(result):
+        value = result[key]
+        if isinstance(value, list) and len(value) > 8:
+            body = ',\n'.join('  ' + compact(item) for item in value)
+            lines.append(f' {compact(key)}: [\n{body}\n ]')
+        else:
+            lines.append(f' {compact(key)}: {compact(value)}')
+    return '{\n' + ',\n'.join(lines) + '\n}\n'
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--root', type=Path, default=PACKAGE.parents[1])
@@ -496,7 +511,7 @@ def main():
     require(set(controls) <= set(result['controls']), 'control list drift')
     receipt = PACKAGE / 'RESULT.json'
     if args.write:
-        receipt.write_text(json.dumps(result, sort_keys=True, indent=1) + '\n', encoding='utf-8')
+        receipt.write_text(render(result), encoding='utf-8')
     else:
         canonical = json.loads(json.dumps(result, sort_keys=True))
         require(canonical == json.loads(receipt.read_text(encoding='utf-8')), 'result receipt differs')
