@@ -44,13 +44,14 @@ historical-checker change.
 
 ## Result
 
-On Linux / CPython 3.12 (see [RESULT.json](RESULT.json) for the exact
-interpreter and platform strings), five alternating fresh-process pairs timing
-only `partial_swap.shared.SharedPointCircuit(46).verify` (construction
-excluded; inlined local support checks included) gave the median wall-time
-ratio recorded in `RESULT.json`. Timing is host-descriptive and is not a
-correctness gate. Every verify receipt matches the baseline checker fieldwise
-(`roles`, `additions`, `merged_additions`, `circuit_sha256`, flags).
+On Linux / CPython 3.12.3 (Linux-6.12.94+-x86_64-with-glibc2.39), five
+alternating fresh-process pairs timing only
+`partial_swap.shared.SharedPointCircuit(46).verify` (construction excluded;
+inlined local support checks included) gave median wall time
+**2.176 → 1.050 seconds (2.07×)**. Timing is host-descriptive and is not a
+correctness gate; all samples and environment pins are in
+[RESULT.json](RESULT.json). Every verify receipt matches the baseline checker
+fieldwise (`roles`, `additions`, `merged_additions`, `circuit_sha256`, flags).
 
 ## Equivalence
 
