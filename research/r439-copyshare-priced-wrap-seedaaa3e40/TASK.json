@@ -134,7 +134,7 @@
   "expected_evidence": "Achieved. The reproducible certificate pins the base and inputs, exact 205-pair wrapper, 661-column forward/reverse boundary, semantic H2/K status, unchanged paid profile, full ADD/F/B invoices, precision guards and failure controls.",
   "success_stop_rule": "Stop after verifying this single fixed candidate; no matching reroll or optimality claim. It passes the boundary and both precision guards, so no fallback was needed.",
   "claim_expiry_utc": "2026-10-15T00:55:41Z",
-  "claim_status": "Claim posted as a reply to the PR1782 result/open-question thread in Discussion #1166: https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-18935773. It will be updated with the PR result and released on handoff.",
+  "claim_status": "DONE; scope released. Claim updated with the result and PR link at https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-18935773.",
   "verified_at_utc": "2026-10-14T23:02:00Z",
   "reproduction_commands": [
     "python3 -I -B research/r439-copyshare-priced-wrap-seedaaa3e40/verify.py",
@@ -142,7 +142,7 @@
     "python3 scripts/research_package.py --package research/r439-copyshare-priced-wrap-seedaaa3e40"
   ],
   "remaining_obligations": [
-    "Local registered runner could not run because Python 3.12 is not installed; direct verifier passed under CPython 3.14.7 and package metadata/source pins pass. Hosted registered replay remains to be observed after PR submission.",
+    "Observe the hosted registered replay and report its actual result; the local direct verifier passed under Python 3.14.7.",
     "No supplier adoption, selected-result update or kappa is claimed."
   ],
   "local_verification": {
@@ -165,5 +165,14 @@
     "live_open_pr_search": "No same-word construction; PR2033 is the nearest result but is limited to a fixed pair on the different PR1062 star-composed word and reports no saving there. PR2046 is post-merge consolidation.",
     "coordination": "Current PR1782 result thread #1166 checked; new claim is the only current priced-wrap claim. No other matching claim found.",
     "limitation": "find_overlap --refresh did not return before the bounded wait ended; its remote cache contains complete pagination at the timestamps above, and direct live REST/GraphQL checks were performed immediately before submission."
+  },
+  "publication": {
+    "status": "open",
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2191",
+    "package_commit": "4ff7b270e1123861044dfc6a59013599a7c94254",
+    "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "submitted_at_utc": "2026-10-14T23:07:10Z",
+    "head_was_package_commit_at_submission": true,
+    "hosted_checks": "pending at first observation; local registered runner unavailable because Python 3.12 is not installed"
   }
 }
