@@ -1,8 +1,9 @@
 # Restoration coalescing across a recursion batch
 
 Research note: one explicit way to eliminate restoration work, with a complete
-cost recurrence, a sharp correctness boundary, and a sharp cost boundary.
-Navinor, with help from opencode. Apache-2.0. **No new multiplication exponent.**
+cost recurrence, a sufficient correctness condition (and the exact defect
+criterion behind it), and a sharp cost boundary. Navinor, with help from
+opencode. Apache-2.0. **No new multiplication exponent.**
 
 ## Summary
 
@@ -14,24 +15,43 @@ workspace drift across the batch and replace the `r` restorations by the **one**
 composed restoration `(G_r...G_1)^{-1}` at the node exit. The question is not
 what a particular assembly does with that slack (that is assembly pricing), but
 when this rewrite is even a *valid and pass-reducing identity on the restored
-operator*. Two independent conditions decide it, both decidable exactly.
+operator*. Two independent questions decide it, both decidable exactly: the
+summed-defect criterion (exactness) and closure under cheap composition (pass
+reduction).
 
-* **Correctness (read-free batch).** The deferred single restoration returns the
-  identical observables (final data and final workspace) if and only if no child
-  reads the workspace's intermediate value to build an observable output. If the
-  workspace is write-only scratch across the batch, deferral is exact. One reader
-  child breaks it; the note gives a concrete counterexample over Gaussian
-  rationals.
+* **Correctness (vanishing defect; read-free is sufficient, not necessary).**
+  The deferred single restoration returns the identical observables (final data
+  and final workspace) exactly when the summed defect vanishes,
+  `sum_i B_i (G_{i-1}...G_1 - I) = 0` (diagonal readers here; `P_0 = I`). A
+  batch in which no child reads the workspace's intermediate value into an
+  observable makes every term vanish separately, so read-free is a clean
+  **sufficient** condition — but it is **not necessary**: nonzero readers can
+  cancel. The note's own reader example only shows one reader child *can* break
+  deferral. Exact nonzero-reader counterexamples where deferral is valid are in
+  [#1199](https://github.com/CrocSwap/integer-mult-bounds/pull/1199) (five
+  children reading and negating the workspace with coefficients `[1,1,1,-1,1]`,
+  restoration `5 -> 1`),
+  [#1203](https://github.com/CrocSwap/integer-mult-bounds/pull/1203) (distinct
+  outputs: per-reader condition `H_i(P_{i-1} - I) = 0`; one shared output at
+  batch exit: only the summed defect must vanish), and
+  [#1205](https://github.com/CrocSwap/integer-mult-bounds/pull/1205) (the
+  terminal summed-defect theorem and the prefix theorem `B_i(P_{i-1} - I) = 0`
+  per child, which still does not require `B_i = 0`).
 
-* **Cost (composable family).** Deferral removes restoration work only when the
-  individual restoration operators are closed under a composition that stays
-  cheap to apply. Diagonal unit phases compose to a diagonal unit phase and
-  permutations compose to a permutation, so a batch of `r` such restorations
-  collapses from `r` passes to `1` pass. When the restorations are a *mixture*
-  (a phase, a Walsh transform, a permutation), the composed restoration is a
-  dense linear map; applying it once costs `N^2` scalar multiplications against
-  `16` for the three structured eager restorations in the tested batch, so
-  deferral *loses*. Structure, not the number of restorations alone, decides.
+* **Cost (composable family; density is not application cost).** Deferral
+  removes restoration passes when the individual restoration operators are
+  closed under a composition that stays cheap to apply: unit phases -> one phase
+  pass, permutations -> one routing pass (`r -> 1`). Matrix density of the
+  composed product is **not** an application-cost statement: the composed
+  restoration retains its factorization into its cheap factors, and applying
+  those factors sequentially costs exactly the eager sum. For the heterogeneous
+  mix (a phase, a Walsh transform, a permutation) the composed restoration is
+  dense, yet its retained factorization is verified to cost the same `16`
+  multiplications as the three structured eager restorations at `N = 8`;
+  deferral costs *more* only when no cheap factorization is retained and the
+  dense product must be applied directly (`64` vs `16` multiplications at
+  `N = 8` — a statement about direct dense application). Structure, not the
+  number of restorations alone, decides.
 
 Both facts are checked by one exact stdlib program over Gaussian rationals.
 Nothing here changes the selected frontier, `upstream/`, or the assembly.
@@ -47,7 +67,7 @@ python3 -I -O -B research/restoration-coalescing/verify.py
 Expected first line:
 
 ```
-PASS_RESTORATION_COALESCING phase=3->1(x3) perm=3->1 hetero_dense=True reader_diverges=True
+PASS_RESTORATION_COALESCING phase=3->1(x3) perm=3->1 hetero_dense=True reader_diverges=True reader_cancels_5to1=True hetero_mults=eager16|factorized16|dense64
 ```
 
 The command recomputes the certificate and compares every field with
@@ -143,13 +163,20 @@ R(N, {k_i}) =  sum_i  (k_i/m)^sigma / W   +  Restore(N)  +  O(r)  +  unchanged
                                  ^ was r * Restore(N) in the inherited rule
 ```
 
-**Heterogeneous family.** `Restore_composed(N) = Theta(N^2)` (a dense
-matrix-vector product), against `sum_i` of the structured eager restorations.
-At `N = 8` the exact counts are `64` dense multiplications versus `16` across
-the three structured restorations, so the deferred rule is `4x` more expensive
-and is rejected. The obstruction is structural: composing a phase with a Walsh
-transform with a permutation destroys the structure that made each individual
-restoration cheap. Deferral does **not** remove work here.
+**Heterogeneous family.** The composed restoration `G_1^{-1}...G_r^{-1}` is a
+dense matrix here (64 of 64 entries nonzero at `N = 8`), but density of the
+matrix is not a statement about application cost. The composed operator
+*retains its factorization* into the three cheap structured inverses; applying
+them sequentially costs exactly the eager sum — `16` multiplications at
+`N = 8`, verified against the exact dense product on every basis column — so
+with the factorization retained deferral is multiplication-neutral (`16` vs
+`16`) and pass-neutral (three factor applications, nothing collapses to one
+pass). Deferral costs *more* only when no cheap factorization is retained and
+the dense product must be applied directly: `64` vs `16` multiplications at
+`N = 8`, `4x`. In this example deferral is therefore rejected as a pass
+reduction (nothing to save), not because dense entries imply quadratic
+application cost; the `64` vs `16` pair is a statement about **direct dense
+application** only.
 
 This is a complete invoice for the restoration term only. It is not a transfer
 into the tight fixed-tape overhead allowance, and it makes no claim that the
@@ -169,17 +196,37 @@ and checks, on the actual vectors:
    composed restoration is verified to be a permutation and applied as one
    routing pass. Restoration passes `3 -> 1`; moves `24 -> 8`; multiplications
    `0 -> 0`.
-3. **Reader negative control (correctness).** A single reader child is inserted.
-   The final workspace is still restored to `w0`, but the data output of the
-   deferred scheme differs from eager by an explicit nonzero Gaussian-rational
-   vector. This is a concrete counterexample: the read-free condition is
-   necessary, not a stylistic choice.
-4. **Heterogeneous negative control (cost).** A phase, a Walsh transform and a
-   permutation compose to a dense operator (64 of 64 entries nonzero). The
-   structured-form detector self-checks each cheap application against the exact
-   dense product on the standard basis before using it, so the low cost figures
-   are certified against the exact operator rather than assumed. Deferred `64`
-   multiplications beat nothing: the eager structured sum is `16`.
+3. **Reader example (sufficiency, not necessity).** A single reader child is
+   inserted. The final workspace is still restored to `w0`, but the data output
+   of the deferred scheme differs from eager by an explicit nonzero
+   Gaussian-rational vector, and the exact summed defect is nonzero. This is a
+   concrete counterexample to *unrestricted* deferral — one reader child **can**
+   break it, so read-free is sufficient. It is **not** evidence that read-free is
+   necessary.
+4. **Nonzero-reader cancellation (necessity fails).** Five reader children, each
+   reading and negating the workspace with coefficients `[1,1,1,-1,1]` (the
+   counterexample shape of
+   [#1199](https://github.com/CrocSwap/integer-mult-bounds/pull/1199)). Every
+   child reads `W`, four of them after nonidentity drift, yet the exact summed
+   defect `sum_i B_i (G_{i-1}...G_1 - I)` is verified to be the zero matrix and
+   deferred equals eager on both observables for the tested `w0`. The
+   restoration bill falls from five negations to one (`5 -> 1`). The
+   checker computes the defect matrix as exact Gaussian rationals and asserts
+   it vanishes, so the cancellation is an algebraic identity on all workspace
+   coordinates, not a coincidence on one vector.
+5. **Heterogeneous composition (cost; density is not application cost).** A
+   phase, a Walsh transform and a permutation compose to a dense operator (64 of
+   64 entries nonzero). The structured-form detector self-checks each cheap
+   application against the exact dense product on the standard basis before
+   using it, so the low cost figures are certified against the exact operator
+   rather than assumed. Direct dense application of the composed product is `64`
+   multiplications against the eager structured sum `16`: the `64` vs `16` pair
+   is a statement about **direct dense application**. Applying the same exact
+   composed restoration through its **retained factorization** (the three
+   structured inverses in sequence, self-checked against the dense product on
+   every basis column) costs exactly `16` — the eager sum — so deferral with the
+   factorization retained is multiplication-neutral here, and costs more only
+   when no cheap factorization is retained.
 
 For each batch the composed restoration is *derived* from the exact dense
 product `G_1^{-1} ... G_r^{-1}` and then checked to agree with it, so a
@@ -217,9 +264,10 @@ not a replacement or a re-derivation of either.
 This note asks a different question at a different layer: **as an operator
 identity, when does replacing `r` restorations by one composed restoration
 preserve the observables and actually remove passes?** Its two answers — the
-read-free condition (correctness) and the composable-family condition (cost) —
-are exact algebraic facts about the restored operator, independent of any
-assembly, kappa ceiling, hosting lemma, or T37 payload. The cost unit here is a
+summed-defect criterion (correctness; read-free is one sufficient case) and the
+composable-family condition (cost) — are exact algebraic facts about the
+restored operator, independent of any assembly, kappa ceiling, hosting lemma, or
+T37 payload. The cost unit here is a
 coefficient/routing pass (a diagonal unit phase is one `Scan`, a permutation is
 one `Route`, per the retained recurrence vocabulary), not the rank mass those
 assembly notes count. So there is no contradiction with the "mass-neutral"
@@ -231,13 +279,58 @@ archives, no pinned engines); those notes give the assembly-level ceiling
 effect. Both are needed before deferral can be placed in a real supplier call.
 Where thakrarsagar's note shows the T37 slack is consolidation in shared
 windows, this note shows exactly which restoration families admit a genuine
-`r -> 1` pass reduction at all, and which (heterogeneous) make it worse.
+`r -> 1` pass reduction at all, and which (heterogeneous) leave nothing to
+collapse — costing more only under direct dense application of the product.
 
 This is a second, independent treatment of the restoration question using a
 meaningfully different method (exact Gaussian-rational operator algebra and
 structure detection, versus assembly-level pricing on frozen payloads), as the
 sprint invites. It does not claim priority on "restoration deferral" and does not
 reproduce either note's numbers.
+
+## Correction after review (read-free is sufficient, not necessary)
+
+The original version of this note claimed the read-free condition was
+*necessary and sufficient*, and treated density of the composed heterogeneous
+product as proof that deferred application costs more. Both claims were wrong;
+the corrected statements are the ones above. The evidence:
+
+* **[CrocSwap/integer-mult-bounds#1199](https://github.com/CrocSwap/integer-mult-bounds/pull/1199)**
+  (thakrarsagar) gives an exact nonzero-reader counterexample in the shape the
+  checker now replays: five children that each read and negate the workspace
+  with reader coefficients `[1,1,1,-1,1]` share one final restoration
+  (five negations -> one) with identical observables. Its exact interval
+  criterion `E_ab = sum_{i=a}^{b-1} b_i (p_i - 1)` (and the general linear form
+  `sum B_i (P_i - I) = 0`) replaces the iff, and its checkpoint planner shows
+  intermediate observation points can force the restoration bill back up.
+* **[CrocSwap/integer-mult-bounds#1203](https://github.com/CrocSwap/integer-mult-bounds/pull/1203)**
+  (mightyOil) separates the two observation contracts: with distinct outputs
+  the exact all-input condition is `H_i (P_{i-1} - I) = 0` per reader; with one
+  shared output observed only at batch exit only the summed defect must vanish.
+  Its example `G_1 = swap(0,1)`, `G_2 = G_3 = I`, readers `0, e_0, e_1` has
+  nonzero readers whose defects cancel exactly.
+* **[CrocSwap/integer-mult-bounds#1205](https://github.com/CrocSwap/integer-mult-bounds/pull/1205)**
+  (adamgall) states the terminal theorem for the additive model exactly —
+  agreement for every dirty input iff `sum_i B_i (P_{i-1} - I) = 0`, with
+  `P_j = G_j ... G_1`, `P_0 = I` — and the prefix theorem
+  `B_i (P_{i-1} - I) = 0` per child, which still does not require `B_i = 0`.
+  Its census of 46,656 three-child tuples finds 7,712 terminal-safe tuples
+  containing a nonzero reader.
+
+The correction was requested in the batch review comment on this pull request
+([comment](https://github.com/CrocSwap/integer-mult-bounds/pull/1155#issuecomment-6161612247),
+[batch review record](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient300-review.md)).
+The original evidence is untouched and still runs: the reader example shows
+only that one reader *can* break deferral, and the `64` vs `16` pair counts
+**direct dense application**. The checker now additionally verifies the exact
+summed-defect criterion on both reader examples and the retained-factorization
+cost of the heterogeneous composition (`16` factorized = eager `16` against
+`64` direct dense at `N = 8`). Remaining open: the checkpoint/partition
+optimum over intermediate observation points (priced by
+[CrocSwap/integer-mult-bounds#1199](https://github.com/CrocSwap/integer-mult-bounds/pull/1199)
+for its own model, not derived here), and the question of when a dense
+composition whose factors are *discarded* must be paid as `N^2` — this note
+answers only that direct dense application is the expensive case.
 
 ## Attribution
 
@@ -260,7 +353,8 @@ The sibling recursive-interface note
 Douglas R. Colkitt with Codex) prices a *spectral-split residual encoder* and its
 own per-stream dirty restoration. This note is a different object (restoration
 coalescing across a batch, not encoded hosting), reaches a different and
-independent boundary (read-free + composable family), and does not rely on its
+independent boundary (vanishing summed defect + composable family), and does not
+rely on its
 conclusions. Where both charge a "restoration" pass, the accounting vocabulary is
 shared but the mechanisms are distinct. This encoder-free coalescing result,
 exact checker and scoped recurrence were developed by Navinor with help from

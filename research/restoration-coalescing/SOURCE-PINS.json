@@ -15,6 +15,21 @@
       "git_ref": "refs/remotes/origin/research/seed51-clean-residual-dilation",
       "commit": "d0e4f1eb295e5cce508dc76c6937290a9175e42b",
       "relationship": "cited as distinct predecessor; not depended on for any identity or number"
+    },
+    "PR1199 (thakrarsagar, reader-restoration-cuts-seed53)": {
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1199",
+      "commit": "85ac2880ea5bda44f28632b71ffa2b4e35ec6b7d",
+      "relationship": "source of the nonzero-reader counterexample shape (coefficients [1,1,1,-1,1], restorations 5->1) replayed in case reader_cancellation, and of the interval defect criterion; cited for the correction that read-free is sufficient, not necessary"
+    },
+    "PR1203 (mightyOil, invariant-reader-restoration)": {
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1203",
+      "commit": "38459854fd5bb93099871a84324413bd0e338d8e",
+      "relationship": "cited for the distinct-output criterion H_i(P_{i-1}-I)=0 versus the shared-output summed-defect criterion; not depended on for any number"
+    },
+    "PR1205 (adamgall, observer-safe-restoration)": {
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1205",
+      "commit": "e2008d7ffcad464da7ec21c69e8d8a8c91de4930",
+      "relationship": "cited for the terminal theorem sum_i B_i(P_{i-1}-I)=0 and the prefix theorem B_i(P_{i-1}-I)=0 in the additive model; not depended on for any number"
     }
   },
   "selected_result_at_base": {

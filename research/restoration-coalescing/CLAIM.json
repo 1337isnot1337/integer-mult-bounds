@@ -8,7 +8,7 @@
   "base_commit": "ce7ad1b6ab09452c3478723a2e96ed5ff212dc08",
   "branch": "research/agent-13-recursive-seed53",
   "object_investigated": "Elimination of per-child dirty-workspace restoration across one recursion batch by deferring it to a single composed restoration at the node exit.",
-  "proposed_method": "Exact Gaussian-rational operator algebra at N=8: eager (restore after every child) vs deferred (restore once at exit). Two conditions decided exactly: read-free batch (correctness) and composable restoration family (cost).",
+  "proposed_method": "Exact Gaussian-rational operator algebra at N=8: eager (restore after every child) vs deferred (restore once at exit). Two questions decided exactly: the summed-defect criterion sum_i B_i (G_{i-1}...G_1 - I) = 0 for exact observables (read-free batches are SUFFICIENT, not necessary) and composable restoration family / retained factorization (cost).",
   "parameter_range": "N=8 coefficient positions (e=3); r=3 children per node; restoration families: diagonal unit phases (a in {1,2,3} via i^(a*popcount)), cyclic permutations (shifts {1,2,4}), and a heterogeneous mix (phase+Walsh+permutation).",
   "candidates_considered": [
     "Coalesce per-child dirty-workspace restoration across a batch (chosen)",
@@ -26,6 +26,14 @@
   "pinned_coordination_issue": "none reachable; claim recorded locally",
   "expected_finish": "same session; verification reserved for the final quarter",
   "status": "completed",
-  "result": "Scoped research note: a complete restoration cost recurrence plus a sharp correctness boundary (read-free batch) and a sharp cost boundary (composable restoration family). Two positive cases (phase 3->1 passes / 24->8 mults; permutation 3->1 passes) and two negative controls (reader divergence; heterogeneous dense composition 64 vs 16 mults). No new kappa; selected frontier and upstream/ unchanged.",
+  "result": "Scoped research note: a complete restoration cost recurrence plus (corrected) the exact terminal-observation criterion sum_i B_i (G_{i-1}...G_1 - I) = 0 for the observables, with read-free batches as a sufficient, not necessary, condition, and a cost boundary (pass reduction r->1 exactly when the restorations collapse under composition to one cheap pass; deferral costs more only when no cheap factorization is retained and the dense product is applied directly). Two positive cases (phase 3->1 passes / 24->8 mults; permutation 3->1 passes), one example where a single reader breaks deferral, one exact nonzero-reader cancellation case (5 reader children, coefficients [1,1,1,-1,1], summed defect exactly zero, restorations 5->1), and the heterogeneous example: composed product dense (64/64 nonzero) yet its retained factorization costs the eager sum 16 mults at N=8 (verified against the dense product on every basis column), against 64 mults for DIRECT dense application. No new kappa; selected frontier and upstream/ unchanged.",
+  "post_review_correction": {
+    "trigger": "Batch review follow-up on https://github.com/CrocSwap/integer-mult-bounds/pull/1155#issuecomment-6161612247 (record: https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient300-review.md)",
+    "corrected_claims": [
+      "Correctness: read-free is SUFFICIENT, not necessary. The exact terminal-observation criterion is vanishing summed defect sum_i B_i (G_{i-1}...G_1 - I) = 0; nonzero-reader counterexamples: https://github.com/CrocSwap/integer-mult-bounds/pull/1199, https://github.com/CrocSwap/integer-mult-bounds/pull/1203, https://github.com/CrocSwap/integer-mult-bounds/pull/1205. Prefix/adaptive observation requires each prefix defect B_i (P_{i-1} - I) to vanish (https://github.com/CrocSwap/integer-mult-bounds/pull/1205).",
+      "Cost: matrix density of the composed product is not an application-cost statement. A dense phase/Walsh/permutation product retains its cheap factorization; sequential factor application costs the eager sum (verified 16 = 16 mults at N=8). Deferral costs more only when no cheap factorization is retained and the dense product must be applied directly; the 64 vs 16 numbers at N=8 are kept as a statement about DIRECT dense application only."
+    ],
+    "unchanged": "The original reader counterexample (one reader can break deferral) and the original heterogeneous direct-dense counts (64 vs 16 at N=8) still run unchanged; only their scope is corrected."
+  },
   "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1155"
 }

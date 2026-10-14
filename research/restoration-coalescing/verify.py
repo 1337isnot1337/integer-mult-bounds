@@ -11,7 +11,7 @@ Run:
     python3 -I -O -B research/restoration-coalescing/verify.py
 
 Expected first line:
-    PASS_RESTORATION_COALESCING phase=... perm=... hetero=... reader=...
+    PASS_RESTORATION_COALESCING phase=... perm=... hetero_dense=... reader_diverges=... reader_cancels_5to1=... hetero_mults=...
 
 `--write PATH` emits the deterministic certificate JSON to PATH.
 `--json` prints the full certificate to stdout.
@@ -363,10 +363,36 @@ def build_hetero_children(n, e):
 
 
 def build_reader_children(n, e):
-    """One scratch-only child then one READER child (reads W into D)."""
+    """One scratch-only child then one READER child (reads W into D).
+
+    This is a counterexample to *unrestricted* deferral: one reader child CAN
+    break the rewrite.  It is not a proof that read-free is necessary; see
+    build_reader_cancellation_children for an exact nonzero-reader batch on
+    which deferral is valid (as in PR1199/PR1203/PR1205)."""
     a_list = [1, 1]
     children = build_phase_children(n, e, a_list)
     children[1]["kind"] = "reader"
+    return children
+
+
+def build_reader_cancellation_children(n, e):
+    """Five READER children that each read and negate the workspace.
+
+    Exact nonzero-reader counterexample in the shape of PR1199: reader
+    coefficients [1,1,1,-1,1], scratch G_i = -I for every child.  Read-free
+    fails outright (every child reads W, four of them after nonidentity drift),
+    yet the summed defect vanishes and deferral is exact: both schemes add
+    3*w0 to the data and restore W, while the restoration bill falls from
+    five negations to one."""
+    coeffs = [G(1), G(1), G(1), G(-1), G(1)]
+    children = []
+    for c in coeffs:
+        neg = [G(-1) for _ in range(n)]
+        Gmat = mat_diag(neg)                     # negation is its own inverse
+        B = [c for _ in range(n)]
+        apply_inv = lambda v, ph=neg: apply_diag(v, ph)
+        children.append(make_child(B, [G(0)] * n, Gmat, Gmat, apply_inv,
+                                   "reader", ("diag", neg)))
     return children
 
 
@@ -454,6 +480,49 @@ def direct_composed_inverse(children):
     return inv
 
 
+def summed_defect(children):
+    """Exact terminal-observation criterion for this note's additive model.
+
+    Under eager restoration every reader reads the node-entry workspace w0.
+    Under deferral reader i reads the drifted P_{i-1} w0, with
+    P_{i-1} = G_{i-1} ... G_1 and P_0 = I.  The final data therefore differ by
+
+        M w0,   M = sum_{reader i} Diag(B_i) (P_{i-1} - I).
+
+    The deferred scheme returns the same observables for every w0 exactly when
+    M is the zero matrix (the final workspace is restored by the single
+    composed restoration in both schemes).  This is the summed-defect criterion
+    of PR1199/PR1203/PR1205.  Read-free batches make every term vanish
+    separately and are therefore SUFFICIENT; nonzero-reader batches can cancel
+    and are not excluded, so read-free is NOT necessary."""
+    n = len(children[0]["B"])
+    P = mat_identity(n)                       # P_0 = I (drift before child 1)
+    M = [[G(0) for _ in range(n)] for _ in range(n)]
+    for child in children:
+        if child["kind"] == "reader":
+            B = child["B"]
+            for x in range(n):
+                for y in range(n):
+                    cell = P[x][y] - (G(1) if x == y else G(0))
+                    M[x][y] = M[x][y] + B[x] * cell
+        P = mat_mul(child["G"], P)             # P_i = G_i P_{i-1}
+    return M
+
+
+def apply_factorized(v, children):
+    """Apply the exact composed restoration G_1^{-1} ... G_r^{-1} through its
+    RETAINED factorization: the cheap structured inverses applied one after
+    another (G_r^{-1} first, ..., G_1^{-1} last).  The cost is the sum of the
+    factor costs, not N^2: a dense composed product retains its factors, and
+    density of the matrix is not a statement about application cost."""
+    total = {"passes": 0, "mults": 0, "adds": 0, "moves": 0}
+    out = list(v)
+    for child in reversed(children):
+        out, c = child["apply_inverse"](out)
+        _acc(total, c)
+    return out, total
+
+
 # --------------------------------------------------------------------------
 # Main verification.
 # --------------------------------------------------------------------------
@@ -512,22 +581,66 @@ def verify():
         "observables_equal": True,
     }
 
-    # ---- Case 3 (negative control, correctness): reader child breaks deferral. ----
+    # ---- Case 3 (correctness): one reader child CAN break deferral. ----
+    # This is a counterexample to unrestricted deferral, hence a proof that
+    # read-free is SUFFICIENT.  It is not evidence that read-free is necessary:
+    # Case 5 gives an exact nonzero-reader batch on which deferral is valid
+    # (the counterexamples of PR1199/PR1203/PR1205).
     reader_children = build_reader_children(n, e)
     reader_defer, _ = compose_structured(reader_children)
     D_e3, W_e3, _ = batch.run_eager(w0, reader_children)
     D_d3, W_d3, _ = batch.run_deferred(w0, reader_children, reader_defer)
     need(_veceq(W_d3, w0), "reader: final workspace should still be restored")
-    need(not _veceq(D_e3, D_d3), "reader: deferral should CHANGE the data output")
+    need(not _veceq(D_e3, D_d3), "reader: this example should CHANGE the data output")
     diff = _vecsub(D_e3, D_d3)
     need(any(not c.is_zero() for c in diff), "reader: expected nonzero discrepancy")
+    M3 = summed_defect(reader_children)
+    need(mat_nnz(M3) > 0, "reader: summed defect should be nonzero in this example")
     cert["cases"]["reader_negative"] = {
         "observables_equal": False,
         "discrepancy_nonzero": True,
+        "summed_defect_nonzero": True,
         "discrepancy": [c.key() for c in diff],
     }
 
-    # ---- Case 4 (negative control, cost): heterogeneous composition is dense. ----
+    # ---- Case 5 (correctness): nonzero readers that cancel exactly. ----
+    # PR1199's counterexample shape: five reader children, each reading and
+    # negating the workspace, coefficients [1,1,1,-1,1].  Read-free fails
+    # outright, yet the summed defect is exactly the zero matrix and deferral
+    # is valid: both schemes add 3*w0 to the data and restore W.  The
+    # restoration bill falls from five negations to one.  This falsifies the
+    # "read-free is necessary" direction of the note's original iff.
+    cancel_children = build_reader_cancellation_children(n, e)
+    cancel_defer, cancel_desc = compose_structured(cancel_children)
+    Mc = summed_defect(cancel_children)
+    need(mat_nnz(Mc) == 0, "cancellation: summed defect should vanish exactly")
+    D_e5, W_e5, cost_e5 = batch.run_eager(w0, cancel_children)
+    D_d5, W_d5, cost_d5 = batch.run_deferred(w0, cancel_children, cancel_defer)
+    need(_veceq(D_e5, D_d5), "cancellation: data mismatch under deferral")
+    need(_veceq(W_d5, w0), "cancellation: workspace not restored by deferral")
+    need(cost_e5["restoration_passes"] == 5, "cancellation: eager restoration count")
+    need(cost_d5["restoration_passes"] == 1, "cancellation: deferred restoration count")
+    cert["cases"]["reader_cancellation"] = {
+        "children": 5,
+        "reader_coefficients": ["1", "1", "1", "-1", "1"],
+        "readers_nonzero": True,
+        "summed_defect_zero": True,
+        "observables_equal": True,
+        "eager_restoration_passes": cost_e5["restoration_passes"],
+        "deferred_restoration_passes": cost_d5["restoration_passes"],
+    }
+
+    # ---- Case 4 (cost): heterogeneous composition is dense, and density of
+    # the composed matrix is NOT an application-cost statement. ----
+    # The composed inverse of a phase/Walsh/permutation mix is dense (all N^2
+    # entries nonzero).  Applying that dense product DIRECTLY costs N^2 = 64
+    # multiplications against 16 for the three structured eager restorations,
+    # so direct dense deferral loses 64 vs 16 at N = 8.  But the composed
+    # operator retains its factorization into the three cheap structured
+    # inverses; applied sequentially it costs exactly the eager sum (16) and
+    # matches the dense product on every basis column.  Deferral therefore
+    # costs more only when no cheap factorization is retained and the dense
+    # product must be applied directly.
     hetero = build_hetero_children(n, e)
     comp_inv4 = direct_composed_inverse(hetero)
     hetero_defer, hetero_desc = compose_structured(hetero)
@@ -538,8 +651,23 @@ def verify():
     for c in hetero:
         _, rc = c["apply_inverse"](list(w0))
         _acc(eager_struct_cost, rc)
-    # deferred restoration cost = one application of the composed inverse
+    # deferred restoration cost, DIRECT dense application of the composed product
     _, dcost = hetero_defer(list(w0))
+    # deferred restoration cost, RETAINED factorization: sequential application
+    # of G_3^{-1}, G_2^{-1}, G_1^{-1}, self-checked against the dense product
+    # on the standard basis before its cost is trusted.
+    fac_w, fac_cost = apply_factorized(w0, hetero)
+    need(_veceq(fac_w, mat_vec(comp_inv4, w0)),
+         "hetero: factorized application != dense product on w0")
+    for x in range(n):
+        basis = [G(1) if y == x else G(0) for y in range(n)]
+        a, _ = apply_factorized(basis, hetero)
+        b = mat_vec(comp_inv4, basis)
+        need(_veceq(a, b), "hetero: factorized application != dense product on basis")
+    need(fac_cost["mults"] == eager_struct_cost["mults"],
+         "hetero: retained factorization should cost exactly the eager sum")
+    need(dcost["mults"] > fac_cost["mults"],
+         "hetero: direct dense application should exceed factorized application")
     nnz = mat_nnz(comp_inv4)
     is_dense = nnz == n * n
     D_e4, W_e4, cost_e4 = batch.run_eager(w0, hetero)
@@ -548,7 +676,7 @@ def verify():
     need(_veceq(W_d4, w0), "hetero: workspace not restored by deferral")
     need(is_dense, "hetero: composed inverse should be dense")
     need(dcost["mults"] >= eager_struct_cost["mults"],
-         "hetero: expected no mult elimination for dense composition")
+         "hetero: direct dense application eliminates no multiplications")
     cert["cases"]["hetero_negative"] = {
         "children": len(hetero),
         "composed_form": hetero_desc["form"],
@@ -556,6 +684,9 @@ def verify():
         "composed_inverse_dense": is_dense,
         "eager_structured_mults": eager_struct_cost["mults"],
         "deferred_dense_mults": dcost["mults"],
+        "deferred_factorized_mults": fac_cost["mults"],
+        "deferred_factorized_passes": fac_cost["passes"],
+        "factorized_matches_dense": True,
         "observables_equal": True,
         "mult_elimination": False,
     }
@@ -563,7 +694,9 @@ def verify():
     cert["dimension_N"] = n
     cert["e"] = e
     cert["summary"] = (
-        "phase=PASS perm=PASS hetero_dense=CONFIRMED reader_diverges=CONFIRMED"
+        "phase=PASS perm=PASS hetero_dense=CONFIRMED "
+        "reader_diverges=CONFIRMED reader_cancels=CONFIRMED "
+        "factorized_matches_dense=CONFIRMED"
     )
     return cert
 
@@ -586,6 +719,7 @@ def main():
     phase = cert["cases"]["phase"]
     perm = cert["cases"]["perm"]
     reader = cert["cases"]["reader_negative"]
+    cancel = cert["cases"]["reader_cancellation"]
     hetero = cert["cases"]["hetero_negative"]
 
     line = (
@@ -594,7 +728,12 @@ def main():
         f"(x{phase['mult_ratio']}) "
         f"perm={perm['eager_restoration_passes']}->{perm['deferred_restoration_passes']} "
         f"hetero_dense={hetero['composed_inverse_dense']} "
-        f"reader_diverges={reader['observables_equal'] == False}"
+        f"reader_diverges={reader['observables_equal'] == False} "
+        f"reader_cancels_5to1="
+        f"{cancel['observables_equal'] and cancel['deferred_restoration_passes'] == 1} "
+        f"hetero_mults=eager{hetero['eager_structured_mults']}"
+        f"|factorized{hetero['deferred_factorized_mults']}"
+        f"|dense{hetero['deferred_dense_mults']}"
     )
     committed = ROOT / "CERTIFICATE.json"
     if args.write is None and committed.exists():
