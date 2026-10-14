@@ -87,3 +87,16 @@ Status: `expected/` is frozen from the complete run1 (all steps finished; the k 
 | `joint2` with target holders (+2,940 per word) and `fusion2.py` (10,603 generalised fusions on JFX) | — | **partial**: stopped before completion | none found |
 
 **Conclusion (scoped):** on these words, no further width-neutral source-holder fusion, read exchange or triangle slot of the searched families gains. The remaining κ gains in the lineage come from other mechanisms, such as #1274's helper-donor cold kernels and #1252/#1268's idle-pair exchanges. Scripts `joint2.py` and `fusion2.py` extend #1186's exact-frame toolkit (credit mdumitrean #1186/#1195), which is not re-vendored here.
+
+## 10. Extension-ring E8: copy-cost floors over every decoder (`s5-extension-ring-floors/`, `verify.sh` ALL MATCH)
+This follows up §4, where S1 obtained x_K = 1 only under the full-rank-totals premise. Here every F2 decoder on the orthogonality pattern is covered: any number of totals, asymmetric pairings, no star premise. Costs are #446 Theorem C costs Σ_j β_j.
+- **Eisenstein / Witting (40 lines, w = 4): Σβ ≥ 40 = v for every decoder, so it is excluded** (checked plus proof).
+  - Sum-rank step: Σβ ≥ rank(G∘N), where N counts the totals covering each pair.
+  - If every line lattice span(T) ∩ E8 has odd determinant, G∘N reduces mod 2 to an invertible block-diagonal matrix. The Witting line lattices are A2 (det 3); the Hermitian diagonal 2+ω is a unit at the inert prime 2.
+  - Real E8 escapes this because its line lattices are √2·Z (det 2). That is consistent with 72 < 120.
+- **Hurwitz (10 lines, w = 2): minimum over all decoders = 10 = v, so it is excluded** (checked plus a König/rank proof). The reduced SAT is UNSAT at cost ≤ 9, and the frame decoder attains 10.
+- **Gaussian (60 lines, w = 4): Σβ ≥ 40 for every decoder (x_K ≥ 2/3, checked).** Not yet excluded: the float screen says x = 42/60 would still beat bit E8's ceiling (X* 6.33e-3), while 43/60 would not (5.66e-3).
+  - How the 40 is proved: 640 twelve-line cliques each force B[C,C] = I₁₂, and hits ≤ 192·rank holds on all 2271² flat pairs.
+  - The 2-adic method caps at 12, and an LP over clique families stays at 40.
+  - The best known decoder costs 60. A decoder at ≤ 42 would need ≥ 16 totals with at most 10 of full rank.
+  - **Open:** close the window 40–42. A pending SAT (`gauss_c15.py`) would show that every 15-total decoder costs exactly 60.

@@ -1,0 +1,19 @@
+Gauss v 60 w 4 nonorth degree [44]
+Eisen v 40 w 4 nonorth degree [27]
+Hurwitz v 10 w 2 nonorth degree [8]
+PASS eisen.gram: hE sesquilinear, diag 2+w (norm 3), 27 non-orthogonal pairs per line all of norm 1
+PASS eisen.linelattice: every line lattice <r, rho r> has Gram [[2,-1],[-1,2]] (det 3, odd)
+PASS eisen.krank: rank_K hE[R,A] == pairing rank on 200 random (R,A)
+PASS eisen.reduction: (hE o N) mod 2 has F4-rank 40 for 50 random admissible N
+PASS eisen.sumrank: sum_j rank >= rank(hE o N) on 20 random term families
+RESULT eisen: every decoder (any number of totals, asymmetric) has sum_j beta_j >= 40 = v  =>  x_K >= 1
+PASS hurwitz.structure: v 10, w 2, 5 orthogonal pairs (perfect matching), any two lines span H^2
+PASS hurwitz.costformula: exact pairing rank == formula on all 3025 (R,A) with |R|,|A| <= 2
+PASS hurwitz.sat: 2g + |rho| + |gamma| <= 9 is UNSAT for every g = 0..4 (CaDiCaL, no proof log)
+PASS hurwitz.attained: frame decoder (5 orthogonal pairs) is a valid decoder of cost 10
+RESULT hurwitz: min over all decoders of sum_j beta_j = 10 = v  =>  x_K = 1
+PASS gauss.pi: unit graph has 6144 five-cliques and a partition into 12 of them -> mod-pi bound <= 12
+PASS gauss.ranks: certified (mod p) pairing-rank lower bounds for all 2271x2271 flat pairs, histogram [5450, 369780, 2631390, 2150820, 1]
+PASS gauss.hits: hit(X,Y) <= 192 * rank(X,Y) on every flat pair (exact hits, certified ranks)
+RESULT gauss: every decoder has sum_j beta_j >= 12*640/192 = 40  =>  x_K >= 2/3 (threshold to exclude: 43)
+calibration (no flat constraint) SAT
