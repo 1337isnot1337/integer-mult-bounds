@@ -300,8 +300,6 @@ def semantic_controls(bit, assembly, predicates):
     fixed_bound = Fraction(predicates[0]["fixed_bad_fraction"])
     controls.append(reject_control("adaptive_edge_at_fixed_edge_charge", lambda: require(
         selected_bad <= fixed_bound, "adaptive edge violates its claimed density")))
-    # Restoration alone does not reject this selector: both maps really are identity.
-    require(all(tuple(row) == row for row in rows), "identity row-map control")
     tampered = deepcopy(bit)
     tampered["nine"]["profile"]["42"] -= 1
     controls.append(reject_control("omitted_selected_edge", lambda: selected_facts(tampered, assembly)))

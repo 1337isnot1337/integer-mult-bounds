@@ -128,8 +128,12 @@ whole group and on low classes, so it preserves this equal-fiber statement.
 The role factor `28425` is independent and cancels. These statements hold for
 **every eligible prime q and every w>=1**, not just the small test rings.
 
-Fix any invocation's ancestor prefix and any one of its edge occurrences.
-The source's bad-minor set has fraction at most `b=2*64^3/q < 10^-16`.
+Fix an odd prime `q>2^80` before choosing input widths, avoiding the fixed
+rational denominators and rank witnesses of the selected geometry, as required
+by the inherited cover contract. This is what **eligible** means here; the
+finite profile alone does not certify that prime-selection contract. Fix any
+invocation's ancestor prefix and any one of its edge occurrences. The source's
+bad-minor set then has fraction at most `b=2*64^3/q < 10^-16`.
 By the theorem, this remains its frequency at the invocation. Sum costs over
 edge occurrences and then ancestor prefixes. Linearity of a finite sum, not
 independence of bad events, gives the surcharge. There is no need to bound the
