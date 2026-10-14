@@ -23,7 +23,7 @@ if __name__ == "__main__":
     ap.add_argument("pre"); ap.add_argument("outdir"); ap.add_argument("--sites", nargs="+", default=["190:439:10:932", "214:444:34:940"])
     ap.add_argument("--recipe", default=str(SL.REC)); ap.add_argument("--reference"); ap.add_argument("--host", action="append", default=[])
     a = ap.parse_args(); os.makedirs(a.outdir, exist_ok=True); sites = [tuple(map(int, s.split(':'))) for s in a.sites]
-    P = C.Pricer(a.pre); inst = SL.split(P.base, json.load(open(a.recipe))); cbe = []; xs = set()
+    P = C.Pricer(a.pre); inst = SL.split(P.base, json.load(open(a.recipe, encoding="utf-8"))); cbe = []; xs = set()
     for (t, A, H, p) in sites:
         e, h = cb2_edit(P.base, t, A, H, p); cbe.append(e); xs.add(A); print(f"site t={t} A={A} H={H} pair ({h},{A}): {len(e['delete'])} deletes {len(e['insert'])} inserts {len(e['prepend'])} prepends")
     keep = [x for x in inst if x['X'] not in xs]; print("kept slots:", [x['X'] for x in keep])
@@ -40,4 +40,4 @@ if __name__ == "__main__":
     for hspec in a.host:
         calls, T, idle = hspec.split(':', 2); k, _ = KA.price(prof, int(calls), int(T), {int(q): n for q, n in json.loads(idle).items()})
         kap[hspec] = str(k); print(f"kappa on host {calls} calls / T{T}: {k} = {float(k):.18f}")
-    json.dump(dict(edits=ed, profile=prof, delta=r['delta'], audit=ok, sha=sha, interfaces_same=same, kappa=kap, sites=sites, kept_slots=[x['X'] for x in keep]), open(os.path.join(a.outdir, "COMPOSE.json"), "w"), indent=1)
+    json.dump(dict(edits=ed, profile=prof, delta=r['delta'], audit=ok, sha=sha, interfaces_same=same, kappa=kap, sites=sites, kept_slots=[x['X'] for x in keep]), open(os.path.join(a.outdir, "COMPOSE.json"), "w", encoding="utf-8", newline="\n"), indent=1)

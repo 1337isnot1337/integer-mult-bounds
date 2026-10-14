@@ -22,8 +22,8 @@ def union(parts):
     return ed
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__); ap.add_argument("pre"); ap.add_argument("out"); ap.add_argument("--recipe", default=str(REC)); a = ap.parse_args()
-    P = C.Pricer(a.pre); rc = json.load(open(a.recipe)); inst = split(P.base, rc); out = {}
+    P = C.Pricer(a.pre); rc = json.load(open(a.recipe, encoding="utf-8")); inst = split(P.base, rc); out = {}
     r = P.price(union(inst)); out['all'] = r; print("all slots:", r['status'], r.get('delta'), r.get('profile'), flush=True)
     for x in inst:
         r = P.price(union([x])); out['single_%d' % x['X']] = r; print(f"slot X={x['X']}: {r['status']} delta {r.get('delta')} {r.get('profile')}", flush=True)
-    json.dump(dict(out=out, inst=inst), open(a.out, "w"))
+    json.dump(dict(out=out, inst=inst), open(a.out, "w", encoding="utf-8", newline="\n"))

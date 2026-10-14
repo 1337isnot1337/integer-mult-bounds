@@ -21,7 +21,7 @@ def run(name, script, *args, spec=SPEC16, discover=False):
     if discover: env.update(WITNESS_DISCOVER='1', WITNESS_RECORD=str(work / 'WITNESS-RECORD.jsonl'))
     with log.open('w') as s:
         rc = subprocess.run([sys.executable, '-B', str(source / 'code/run_portable.py'), str(script), *map(str, args)], env=env, stdout=s, stderr=subprocess.STDOUT).returncode
-    if rc: raise RuntimeError(name + ' failed:\n' + log.read_text()[-6000:])
+    if rc: raise RuntimeError(name + ' failed:\n' + log.read_text(encoding='utf-8', errors='replace')[-6000:])
     print('PASS', name, 'discover' if discover else 'strict', round(time.monotonic() - t0, 2), flush=True)
 code, t16 = PKG / 'code', PKG / 't16'
 run('restore-parent', code / 'restore_parent.py', '--source', source, '--baseline', baseline, '--out', work / 'parent558', spec=SPEC8)

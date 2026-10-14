@@ -5,6 +5,7 @@ import gzip, json, collections, copy, hashlib, subprocess, sys, tempfile, os
 import frames as F
 from word import recount
 from paths import AUDIT_LOCAL as AUD
+from compat import child_env
 def write_back(word, g, assign):
     w2 = copy.deepcopy(word)
     for k in g.var:
@@ -22,11 +23,11 @@ def canon(w): return json.dumps(w, sort_keys=True, separators=(",", ":")).encode
 def audit(w, keep=None):
     d = tempfile.mkdtemp(prefix="eft-audit-"); p = os.path.join(d, "FULL-WORD.json.gz")
     open(p, "wb").write(gzip.compress(canon(w), mtime=0))
-    r = subprocess.run([sys.executable, "-B", AUD, "--word", p, "--output", os.path.join(d, "AUDIT.json")], capture_output=True, text=True)
+    r = subprocess.run([sys.executable, "-B", AUD, "--word", p, "--output", os.path.join(d, "AUDIT.json")], capture_output=True, text=True, encoding="utf-8", errors="replace", env=child_env())
     ok = r.returncode == 0
     msg = (r.stdout + r.stderr).strip().splitlines()[-1][:160] if (r.stdout + r.stderr).strip() else ""
     if keep:
         import shutil; shutil.copy(p, keep)
-    rep = json.load(open(os.path.join(d, "AUDIT.json"))) if ok else msg
+    rep = json.load(open(os.path.join(d, "AUDIT.json"), encoding="utf-8")) if ok else msg
     import shutil; shutil.rmtree(d, ignore_errors=True)
     return ok, rep, hashlib.sha256(canon(w)).hexdigest()

@@ -14,9 +14,9 @@ def main():
     def run(label, script, *args):
         t = time.monotonic(); cmd = [sys.executable, "-B", str(SRC / "code/run_portable.py"), str(script), *map(str, args)]
         with (out / (label + ".log")).open("w") as f: rc = subprocess.call(cmd, env=env, stdout=f, stderr=subprocess.STDOUT)
-        steps.append(dict(step=label, exit_code=rc, seconds=round(time.monotonic() - t, 1))); (out / "STEPS.json").write_text(json.dumps(steps, indent=2))
+        steps.append(dict(step=label, exit_code=rc, seconds=round(time.monotonic() - t, 1))); (out / "STEPS.json").write_text(json.dumps(steps, indent=2), encoding="utf-8", newline="\n")
         print(("PASS" if rc == 0 else "FAIL"), label, f"{time.monotonic()-t:.0f}s", flush=True)
-        if rc: print((out / (label + ".log")).read_text()[-1500:]); sys.exit(1)
+        if rc: print((out / (label + ".log")).read_text(encoding="utf-8", errors="replace")[-1500:]); sys.exit(1)
     local = out / "local"
     run("native", UP / "code/hpe_audit_and_transport.py", "--raw", word, "--routing", ROUTING, "--out", local)
     run("ledgers", UP / "code/hpe_emit_local.py", local)

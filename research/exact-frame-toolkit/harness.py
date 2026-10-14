@@ -15,12 +15,13 @@ Every candidate reported with a negative delta, and every word returned with wan
 through the unchanged audit_local.py (exact rational endpoints in both orientations, frames, cones); a rejection becomes
 status 'audit-rejected'.  Pricing: frames.optimal_frames with tails, recomputed cone caps and cut equality.  `delta` is in
 surrogate units (frames.Costs); with Pricer(..., interval=True) each result also carries rigorous true-moment bounds."""
-import copy, gzip, hashlib, json, resource, signal, sys
+import copy, gzip, hashlib, json, sys
 from fractions import Fraction as Q
 import frames as F
 from word import inline, recount
 from model import cone_caps
 from exchange import coef_mod
+from compat import Timeout, deadline, peak_rss_gib
 V = 112; PR = 2147483629
 # Cost weights are the per-rank moment lower bounds at an endpoint b near the frontier root (override with IMB_B or the
 # b argument). Deltas compare per-call moments at this b only; kappa is never inferred from them (kappa.py, package chain).
@@ -89,8 +90,6 @@ def program_violation(w):
     early = set(ids)
     if any(any(q in low or q in ports for q in regs(e)) for i, e in enumerate(w['cleanup']) if i not in early): return 'full cleanup reads a low end'
     return None
-class Timeout(Exception): pass
-def _alarm(sig, frm): raise Timeout()
 class Pricer:
     def __init__(self, base_path, b=None, check_literal=True, interval=False):
         import os; b = b or os.environ.get("IMB_B", DEFAULT_B)
@@ -109,18 +108,17 @@ class Pricer:
         why = program_violation(w1)
         if why: return dict(status="rule:" + why)
         if not exact_same(w, w1, npre): return dict(status="inexact")
-        signal.signal(signal.SIGALRM, _alarm); signal.alarm(timeout)
         try:
-            caps, comp = cone_caps(w1)
-            if comp != self.compensation: return dict(status="compensation-changed")
-            ent = set(map(int, w1['start_extra'])); low = set(map(int, w1['helper_final']))
-            if any(e[2] in ent | low for e in comp): return dict(status="compensation-touches-residual")
-            g = F.Graph(inline(w1, True), check_literal=False, tail_mutable=True, caps=caps, cut_equality=True)
-            r = F.optimal_frames(inline(w1, True), self.costs, check_literal=False, graph=g, interval=self.interval)
+            with deadline(timeout):
+                caps, comp = cone_caps(w1)
+                if comp != self.compensation: return dict(status="compensation-changed")
+                ent = set(map(int, w1['start_extra'])); low = set(map(int, w1['helper_final']))
+                if any(e[2] in ent | low for e in comp): return dict(status="compensation-touches-residual")
+                g = F.Graph(inline(w1, True), check_literal=False, tail_mutable=True, caps=caps, cut_equality=True)
+                r = F.optimal_frames(inline(w1, True), self.costs, check_literal=False, graph=g, interval=self.interval)
         except F.Infeasible as e: return dict(status="infeasible", why=str(e.args[0][:3]) if e.args else "")
         except ValueError as e: return dict(status="error:" + str(e)[:80])
         except Timeout: return dict(status="timeout")
-        finally: signal.alarm(0)
         out = dict(status="ok" if r["certified"] else "uncertified", delta=r["cost"] - self.base_cost, profile=dict(sorted(r["profile"].items())))
         if self.interval: out.update(self.compare(r["profile"], r["interval"]))
         if want_word or out["delta"] < 0:
@@ -129,7 +127,8 @@ class Pricer:
             ok, rep, sha = audit(word); out["audit"] = ok
             if not ok: out["status"] = "audit-rejected"; out["why"] = rep
             if want_word: out["word"] = word
-        if resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024 ** 3 > 6: out["rss_exit"] = True
+        rss = peak_rss_gib()
+        if rss is not None and rss > 6: out["rss_exit"] = True   # peak above 6 GiB: recycle this worker
         return out
     def compare(self, profile, iv):
         """true-moment comparison with the base at b (units of 2^-unit_bits moment).

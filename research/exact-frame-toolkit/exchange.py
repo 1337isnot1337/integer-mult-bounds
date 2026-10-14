@@ -85,7 +85,7 @@ if __name__ == "__main__":
     # self-check: regenerate the published SW4 word (d232183f) from the promoted word (0390ec65) with our own move generator
     from paths import ROOT; VAL = str(ROOT / "research/complex-sw4-frame8-validation/platforms/macos")
     prom = json.load(gzip.open(VAL + "/promoted/FULL-WORD.json.gz")); sw4 = json.load(gzip.open(VAL + "/sw4/FULL-WORD.json.gz"))
-    rec = json.load(open(ROOT / "research/gauge44-frames-x/construction/sw4/SW4-RECIPE-P6k4.json"))
+    rec = json.load(open(ROOT / "research/gauge44-frames-x/construction/sw4/SW4-RECIPE-P6k4.json", encoding="utf-8"))
     print("promoted sha", hashlib.sha256(json.dumps(prom, sort_keys=True, separators=(',', ':')).encode()).hexdigest()[:8], "recipe input", rec['input_sha256'][:8], "| sw4 sha", hashlib.sha256(json.dumps(sw4, sort_keys=True, separators=(',', ':')).encode()).hexdigest()[:8], "recipe output", rec['output_sha256'][:8])
     pairs = copy_pairs(prom); print("copy pairs on promoted word:", len(pairs), "| with movable reads:", sum(1 for h, (r, i) in pairs.items() if movable_reads(prom, h, r, i)))
     # our moves for the four published pairs (full exchange of all movable reads)

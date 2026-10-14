@@ -9,7 +9,7 @@ from pathlib import Path
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def rebind_plan(plan, local, code_dir, spec_path, T):
     reg = plan["provider_registry"]["gauge44"]; V = 112
-    c = json.load(gzip.open(local / "CANONICAL-WORD.json.gz")); checks = json.loads((local / "LOCAL-CHECKS.json").read_text())
+    c = json.load(gzip.open(local / "CANONICAL-WORD.json.gz")); checks = json.loads((local / "LOCAL-CHECKS.json").read_text(encoding="utf-8"))
     widths = [len(c["frames"][c["final"][r]]) - len(c["frames"][c["start"][r]]) for r in range(2 * V, 2 * V + c["R"])]
     assert widths == reg["widths"], "helper widths differ: owner map cannot be reused"
     assert c["ports"] == reg["ports"] and c["centers"] == reg["centers"], "ports/centres differ"
@@ -34,17 +34,17 @@ def rebind_plan(plan, local, code_dir, spec_path, T):
     plan.pop("runtime_source_plan_sha256", None)
     return idle, old_local, new_local
 def strip_spec(spec_path, plan_path):
-    spec = json.loads(Path(spec_path).read_text()); spec["data"]["plan_sha256"] = sha(plan_path)
+    spec = json.loads(Path(spec_path).read_text(encoding="utf-8")); spec["data"]["plan_sha256"] = sha(plan_path)
     for k in ("expected_profile", "artifact_semantic_sha256", "phase_edges", "native_negative_controls"): spec["providers"]["gauge44"].pop(k, None)
     for k in list(spec["expected"].keys()):
         if k != "gain_baseline_kappa": spec["expected"].pop(k)
-    Path(spec_path).write_text(json.dumps(spec, indent=1) + "\n")
+    Path(spec_path).write_text(json.dumps(spec, indent=1) + "\n", encoding="utf-8", newline="\n")
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); ap.add_argument("src"); ap.add_argument("local"); ap.add_argument("out")
     ap.add_argument("--plan", default="data/PLAN.json"); ap.add_argument("--spec", default="data/SPEC.json"); ap.add_argument("--T", type=int, default=8)
     a = ap.parse_args(); src, local, out = Path(a.src).resolve(), Path(a.local).resolve(), Path(a.out).resolve()
     assert not out.exists(); shutil.copytree(src, out)
-    plan = json.loads((out / a.plan).read_text())
+    plan = json.loads((out / a.plan).read_text(encoding="utf-8"))
     idle, old, new = rebind_plan(plan, local, out / "code", out / a.spec, a.T)
-    (out / a.plan).write_text(json.dumps(plan, indent=2) + "\n"); strip_spec(out / a.spec, out / a.plan)
+    (out / a.plan).write_text(json.dumps(plan, indent=2) + "\n", encoding="utf-8", newline="\n"); strip_spec(out / a.spec, out / a.plan)
     print("rebound", a.plan, "| T", a.T, "| idle", dict(sorted(idle.items())), "| old local", old, "| new local", new, "| plan sha", sha(out / a.plan)[:12])

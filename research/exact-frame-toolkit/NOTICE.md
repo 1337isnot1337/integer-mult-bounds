@@ -27,3 +27,8 @@ Mister-Meeseeks): it adds the true-moment interval certificate, the exact intege
 harness compensation check fixes a screen gap found by this author during a later pivot search on #1319's words; the
 program semantics it follows are those of the unchanged `independent/audit_local.py` (icekylinx, #645). Prepared with
 substantial AI assistance (Anthropic Claude, via Claude Code).
+
+Revision 3 (2026-10-14) makes the toolkit run on Windows. It answers woklerx's independent audit of revision 2
+([#1186 comment](https://github.com/CrocSwap/integer-mult-bounds/pull/1186#issuecomment-6169503528)), which found that
+`harness.py` imported the Unix-only `resource` module. Prepared with substantial AI assistance (Anthropic Claude, via
+Claude Code).

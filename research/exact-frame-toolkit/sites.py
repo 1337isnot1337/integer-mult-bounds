@@ -11,4 +11,4 @@ if __name__ == "__main__":
         for c in sub:
             r = R.repair(c); res.append(r); b = r['best']
             print(f"   p={c['p']} rest={c['rest']} repairs={r['nrepairs']} tried={r['tried']} best={None if not b else (b['delta'], b['steps'], b['profile'])}", flush=True)
-    json.dump(res, open(out, "w"))
+    json.dump(res, open(out, "w", encoding="utf-8", newline="\n"))

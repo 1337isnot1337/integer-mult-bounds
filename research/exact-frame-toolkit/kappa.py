@@ -7,11 +7,12 @@ usage: python -B kappa.py --local '{"1":2412,"2":418,"3":432,"4":142,"5":82,"8":
 import argparse, collections, importlib.util, json
 from fractions import Fraction as Q
 from paths import MULTICOLD, PR589_EXPECTED
+import compat   # refuses python -O: the asserts below are the outer-assembly checks
 
 def _load(n, p):
     sp = importlib.util.spec_from_file_location(n, p); m = importlib.util.module_from_spec(sp); sp.loader.exec_module(m); return m
 M, B2, A = [_load("eft_" + n, MULTICOLD / "engines" / (n + ".py")) for n in ("moment", "base_two_moment", "outer")]
-C_BIT_589 = Q(json.loads(PR589_EXPECTED.read_text())["nine"]["bit_lower"])
+C_BIT_589 = Q(json.loads(PR589_EXPECTED.read_text(encoding="utf-8"))["nine"]["bit_lower"])
 M_DIM = 73
 
 def live_deficit(T): return 896 * T, 320 * T

@@ -3,6 +3,7 @@ independent recount does (research/pr699-frame-retiming/independent_frames.py, p
 usage: python -B word.py FULL-WORD.json.gz   (prints the recount and the Graph's literal profile)"""
 import gzip, json, collections, functools, sys, time
 import frames as F
+import compat   # refuses python -O: recount's monotonicity asserts are checks
 V = 112
 
 @functools.lru_cache(None)

@@ -18,6 +18,7 @@ from paths import ROOT
 import numpy as np
 import harness as C, kappa as KA, slots as SL, frames as F, writeback as WB
 from word import inline
+from compat import child_env
 SEVEN = ("research/community-frontier1094-audit/selected-replay.tar.gz", "candidate/strict/global/base/providers/gauge44/FULL-WORD.json.gz",
          "c2b294300760e1fd6eeab8c22c4d13e4633dca40e52cac8da0d68163a76e3ca8")
 PRE = ("research/community-frontier1042-audit/selected-replay.tar.gz", "chain/frames/FULL-WORD.json.gz",
@@ -29,16 +30,18 @@ def check(name, ok, detail=""):
 def extract(spec, d):
     archive, member, payload_sha = spec
     with tarfile.open(ROOT / archive) as t:
-        m = t.getmember(member); assert m.isfile(); raw = t.extractfile(m).read()
-    assert hashlib.sha256(gzip.decompress(raw)).hexdigest() == payload_sha, ("payload pin", member)
+        m = t.getmember(member)
+        if not m.isfile(): raise RuntimeError(f"archive member is not a regular file: {member}")
+        raw = t.extractfile(m).read()
+    if hashlib.sha256(gzip.decompress(raw)).hexdigest() != payload_sha: raise RuntimeError(f"payload pin mismatch: {member}")
     p = Path(d) / (payload_sha[:8] + ".json.gz"); p.write_bytes(raw); return str(p)
 def prof(w): return {int(k): v for k, v in w['report']['local_profile'].items()}
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter); ap.add_argument("--quick", action="store_true"); a = ap.parse_args()
     t0 = time.time(); d = tempfile.mkdtemp(prefix="eft-selftest-"); seven, pre = extract(SEVEN, d), extract(PRE, d)
-    rep = json.loads((ROOT / "research/community-frontier1094-audit/REPLAY.json").read_text())
+    rep = json.loads((ROOT / "research/community-frontier1094-audit/REPLAY.json").read_text(encoding="utf-8"))
     k, _ = KA.kappa(rep['complex_profile'], 16); check("kappa T16 = #1094 selected", k == Q(rep['kappa']), str(k))
-    cp = json.loads((ROOT / "certificates/checkpoints/frontier942.json").read_text()); asm = json.loads((ROOT / cp['certificate']).read_text())
+    cp = json.loads((ROOT / "certificates/checkpoints/frontier942.json").read_text(encoding="utf-8")); asm = json.loads((ROOT / cp['certificate']).read_text(encoding="utf-8"))
     k, _ = KA.kappa(asm['complex_profile'], 37); check("kappa T37 = #942 checkpoint", k == Q(cp['kappa']), str(k))
     W7 = C.load(seven); P7 = C.Pricer(seven, interval=True); p7 = {r: n for r, n in prof(W7).items() if r != 8}; iv7 = P7.base_interval
     check("seven-slot frames: surrogate optimum = published profile", P7.base_certified and P7.base_profile == p7, str(P7.base_profile))
@@ -67,7 +70,7 @@ if __name__ == "__main__":
     w1 = C.compile_edits(P7.base, ed); rp = P7.price(ed); ok1, rep1, _ = WB.audit(w1)
     check("control: port write undone in an early tail", C.exact_same(P7.base, w1, 0) and rp['status'] == 'compensation-changed' and not ok1 and 'endpoint failure' in str(rep1),
           f"screen passes, harness {rp['status']}, audit_local: {str(rep1)[:60]}")
-    P = C.Pricer(pre, interval=True); inst = SL.split(P.base, json.load(open(SL.REC)))
+    P = C.Pricer(pre, interval=True); inst = SL.split(P.base, json.load(open(SL.REC, encoding="utf-8")))
     sr = [P.price(SL.union([x])) for x in inst]; singles = [x['delta'] for x in sr]; allr = P.price(SL.union(inst))
     check("each slot -1788", singles == [-1788] * 7 and all(x['status'] == 'ok' and x['audit'] for x in sr), str(singles))
     check("all seven slots -12516, profile = seven-slot word", allr['delta'] == -12516 and allr['profile'] == p7 and allr['audit'], str(allr['profile']))
@@ -80,9 +83,9 @@ if __name__ == "__main__":
             best = min((R.repair(c)['best'] or {'delta': 0, 'steps': ()} for c in cs if (c['t'], c['A'], c['H']) == (t, A, H)), key=lambda b: b['delta'])
             check(f"fusion t={t} A={A} H={H} -3957 with exchange of {h}", best['delta'] == -3957 and best['steps'] == (("exchange", h),), str((best['delta'], best['steps'])))
         out = Path(d) / "compose"; idle = json.dumps(rep['idle_remainder_profile'])
-        r = subprocess.run([sys.executable, "-B", str(Path(__file__).with_name("compose.py")), pre, str(out), "--reference", seven, "--host", f"144:16:{idle}"], capture_output=True, text=True)
+        r = subprocess.run([sys.executable, "-B", str(Path(__file__).with_name("compose.py")), pre, str(out), "--reference", seven, "--host", f"144:16:{idle}"], capture_output=True, text=True, encoding="utf-8", errors="replace", env=child_env())
         print(r.stdout.strip().splitlines()[-1] if r.stdout.strip() else r.stderr[-800:])
-        cj = json.loads((out / "COMPOSE.json").read_text()) if (out / "COMPOSE.json").exists() else {}
+        cj = json.loads((out / "COMPOSE.json").read_text(encoding="utf-8")) if (out / "COMPOSE.json").exists() else {}
         check("composition -16854, audit PASS, interfaces unchanged", cj.get('delta') == -16854 and cj.get('audit') is True and cj.get('interfaces_same') is True, str(cj.get('profile')))
         check("composition kappa on #1094 owners", list(cj.get('kappa', {}).values()) == ["26136826794529/15625000000000000"], str(cj.get('kappa')))
     print(f"{'SELFTEST PASS' if not failures else 'SELFTEST FAIL ' + str(failures)} in {time.time()-t0:.0f}s"); sys.exit(1 if failures else 0)

@@ -4,11 +4,12 @@ Per site (t, H, A): drop_restore, drop_donation, flip_donation_sign, keep_fused_
 usage: python -B controls.py BASE_PRE.json.gz COMPOSED.json.gz COMPOSE.json OUT.json"""
 import copy, gzip, json, os, subprocess, sys, tempfile
 from paths import AUDIT_LOCAL; AUD = str(AUDIT_LOCAL)
+from compat import child_env
 FULL = [256, 128, 64, 32, 16, 8, 4, 2, 1]
 def load(p): return json.loads(gzip.decompress(open(p, 'rb').read()))
 def audit(w, d):
     p = os.path.join(d, "W.json.gz"); open(p, "wb").write(gzip.compress(json.dumps(w, separators=(',', ':')).encode(), mtime=0))
-    a = subprocess.run([sys.executable, "-B", AUD, "--word", p, "--output", os.path.join(d, "A.json")], capture_output=True, text=True)
+    a = subprocess.run([sys.executable, "-B", AUD, "--word", p, "--output", os.path.join(d, "A.json")], capture_output=True, text=True, encoding="utf-8", errors="replace", env=child_env())
     lines = (a.stdout + a.stderr).strip().splitlines(); msg = lines[-1] if lines else ""
     return ("PASS" if a.returncode == 0 else "REJECT"), msg[-150:]
 def drop_cleanup(w, ci):
@@ -23,7 +24,7 @@ def base_to_out(base, ed):
         if i < len(base['B']) and i not in dele: out += 1
     return m
 if __name__ == "__main__":
-    base, w0, comp, outp = load(sys.argv[1]), load(sys.argv[2]), json.load(open(sys.argv[3])), sys.argv[4]
+    base, w0, comp, outp = load(sys.argv[1]), load(sys.argv[2]), json.load(open(sys.argv[3], encoding="utf-8")), sys.argv[4]
     ed = comp['edits']; pos = base_to_out(base, ed); res = []; d = tempfile.mkdtemp(prefix="eft-controls-")
     st, msg = audit(w0, d); res.append(dict(name="honest", outcome=st, msg=msg)); print("honest", st, flush=True); assert st == "PASS", msg
     for (t, A, H, p) in comp['sites']:
@@ -38,5 +39,5 @@ if __name__ == "__main__":
         w = copy.deepcopy(w0); drop_cleanup(w, ci); del w['B'][di]; muts['drop_donation_and_restore'] = w
         for name, w in muts.items():
             st, msg = audit(w, d); res.append(dict(name=f"{name}@{t}", outcome=st, msg=msg)); print(f"{name}@{t}", st, msg[-100:], flush=True)
-    json.dump(res, open(outp, "w"), indent=1)
+    json.dump(res, open(outp, "w", encoding="utf-8", newline="\n"), indent=1)
     print("honest PASS; rejected", sum(1 for c in res[1:] if c['outcome'] == 'REJECT'), "of", len(res) - 1)

@@ -14,14 +14,18 @@ gauge44-lineage local words (X4, U8, the k8 leaver words and their slot, end and
 - **admission drivers** that reuse unchanged upstream packages: native local chain, PLAN/SPEC rebinding, discovery → unpin →
   freeze, T16 discovery, and negative controls.
 
-Pure Python 3.11+ with NumPy. No C++ compiler, Boost, LP/MILP solver or network access is needed. Upstream sources are
+Pure Python 3.11+ with NumPy, on Linux, macOS and Windows (see Revision 3). No C++ compiler, Boost, LP/MILP solver or
+network access is needed. Upstream sources are
 imported unchanged from this checkout through `paths.py`; set `IMB_ROOT` to use another checkout.
 
 ## Check the installation
 
 ```sh
 python -B research/exact-frame-toolkit/selftest.py          # about 2 minutes; --quick (about 30 s) skips the search and composition steps
+python -B research/exact-frame-toolkit/portability.py       # the same selftest through the Windows code paths, on any OS
 ```
+
+Do not run the toolkit with `-O` or `PYTHONOPTIMIZE`: its assert statements are checks, so it refuses to start.
 
 It uses only files already on main: the seven-slot k8 word and the pre-slot word from the #1094/#1042 replay archives,
 #1094's replay receipt (`research/community-frontier1094-audit/REPLAY.json`) and #942's checkpoint
@@ -61,6 +65,8 @@ Expected final line: `SELFTEST PASS`. The steps are:
 | `native.py` | PR635's native local chain (transport audit, ledgers, local replay, wrappers, phases) for a FULL-WORD. |
 | `rebind.py`, `unpin.py`, `t16_discover.py` | Rebind an owner package's PLAN to a new local with unchanged widths; remove re-derived SPEC keys; T16 discovery run. |
 | `controls.py` | Per-site negative controls (drop restore, drop/flip donation, keep fused read, drop both), judged by `audit_local.py`. |
+| `compat.py` | Platform-dependent pieces: the per-pricing wall-clock deadline, peak memory, the sweep's process start method, the subprocess environment, and the `-O` refusal. |
+| `portability.py` | Runs the Windows code paths of `compat.py` on any OS, then the selftest in the same process. |
 
 ## Typical workflow
 
@@ -168,6 +174,27 @@ above, which turned up during a later pivot search on #1319's words. The changes
 All previous selftest values reproduce unchanged. A side-by-side run of `repair.py` on the pre-slot word with both revisions
 is recorded in `REVISION2-REGRESSION.json`. It finds the same two gains and the same 3763 evaluations, and the nine fusions
 that only revision 1 counts as feasible are all programs that `audit_local` rejects.
+
+## Revision 3 (2026-10-14): Windows
+
+woklerx's independent audit of revision 2 could not run the selftest on Windows, because `harness.py` imported the
+Unix-only `resource` module (and its per-pricing timeout used SIGALRM, which Windows also lacks). `compat.py` now holds
+the platform-dependent pieces:
+
+- **Deadline.** POSIX keeps SIGALRM. Elsewhere a watchdog thread interrupts the main thread and the interrupt becomes the
+  same `Timeout`; a real Ctrl+C still raises KeyboardInterrupt. The watchdog acts a few milliseconds late, which only
+  matters for deadlines far below the default 90 s.
+- **Peak memory.** The 6 GiB worker-recycle flag (`rss_exit`) now reads `ru_maxrss` in the right unit on each POSIX system;
+  on Linux it used to compare KiB as if they were bytes, so it never fired. Windows has no `resource` module and skips the
+  flag; `--max-tasks-per-child` still recycles the workers there.
+- **Workers.** `repair.py` uses fork where available, else spawn (`EFT_START_METHOD` overrides).
+- **Text files and subprocesses.** UTF-8 everywhere, LF line endings for the JSON outputs (so outputs are byte-identical
+  across systems), and `audit_local.py`/`compose.py` run in UTF-8 mode without `PYTHONOPTIMIZE`.
+- **No `-O`.** The asserts in `kappa.py` (the 47 outer constraints), `word.py` and the archive pins are checks, so importing
+  the toolkit under `-O` raises an error instead of silently skipping them.
+
+`frames.py` is unchanged, so woklerx's audit of its elimination and dual routines still applies byte for byte. No search
+result, price or certificate changes; see `PORTABILITY.json` for the checks of this revision.
 
 ## Open next questions
 

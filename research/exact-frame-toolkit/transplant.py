@@ -31,4 +31,4 @@ if __name__ == "__main__":
     k1, _ = KA.kappa(KA.global_profile([(a.calls, prof)], idle), a.T)
     print(f"kappa on target owners: {k1} = {float(k1):.18f}  vs target {a.target_kappa}  delta {float(k1 - Q(a.target_kappa)):+.3e}")
     open(os.path.join(a.outdir, "FULL-WORD.json.gz"), "wb").write(gzip.compress(json.dumps(W, separators=(',', ':')).encode(), mtime=0))
-    json.dump(dict(profile=prof, audit=ok, sha=sha, interfaces_identical=sameif, kappa=str(k1), target_kappa=a.target_kappa), open(os.path.join(a.outdir, "RESULT.json"), "w"), indent=1)
+    json.dump(dict(profile=prof, audit=ok, sha=sha, interfaces_identical=sameif, kappa=str(k1), target_kappa=a.target_kappa), open(os.path.join(a.outdir, "RESULT.json"), "w", encoding="utf-8", newline="\n"), indent=1)
