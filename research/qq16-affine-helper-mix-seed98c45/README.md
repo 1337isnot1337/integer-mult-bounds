@@ -26,9 +26,10 @@ The exact route lemma is pinned to PR #2104 head
 `4bdc574da394a39f955e8cf4637075649c43a632`, `PROOF.md` SHA-256
 `9c2ad4600d65dd3354db4bae5ac78d13fedf2da6e500224fafaeed596846c887`.
 Its source-specific verifier ran locally on Python 3.14 against the exact
-base. Hosted CI for that predecessor was pending at handoff. Full argument
-and scope limits are in [PROOF.md](PROOF.md); original source and selected
-witness remain unchanged.
+base. At the last successful status check at 19:52Z, that PR was open with
+hosted checks pending; the later refresh hit the GitHub API rate limit, so
+current hosted status is unverified. Full argument and scope limits are in
+[PROOF.md](PROOF.md); original source and selected witness remain unchanged.
 
 ## Attribution and limits
 

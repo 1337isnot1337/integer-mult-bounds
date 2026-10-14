@@ -3,7 +3,7 @@
   "no_kappa_change": true,
   "outcome": "negative-result",
   "remaining_limits": [
-    "Uses the exact route-rank theorem in open PR #2104; its hosted checks were pending at handoff.",
+    "Uses the exact route-rank theorem in open PR #2104; its hosted checks were pending at 19:52Z and the later status refresh failed on API rate limit.",
     "No native helper implementation, complete physical cost, supplier admission, precision proof, or global controller."
   ],
   "reproduction": "python3 -I -O -B research/qq16-affine-helper-mix-seed98c45/verify.py",

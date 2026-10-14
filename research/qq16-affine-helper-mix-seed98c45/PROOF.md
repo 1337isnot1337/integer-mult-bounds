@@ -35,7 +35,9 @@ cross-Gram identity coefficient is `192 I_8`; it also checks the actual
 ordinary column norms and Gram. The local source-specific verifier from that
 exact PR head was run read-only against this base with Python 3.14. It printed
 `PASS_QQ16_EXTRA_QUERY_RESIDUAL rank_stack>=144|G|/7 missing_A>=ceil(32|G|/7) no_new_kappa`.
-Hosted CI for PR #2104 was still pending at this package's handoff.
+At the last successful hosted-status check at 19:52Z, PR #2104 was open and
+its checks were pending. A later status refresh hit the GitHub API rate limit,
+so its current hosted status is unverified.
 
 For `N=|G|`, those exact route facts imply
 
