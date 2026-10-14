@@ -15,3 +15,9 @@ Predecessors / distinction: Open draft PR #1764 and Discussion #1765 cover the 5
 Expected artifact: source-pinned exact verifier, per-shape census, full cost ledger and a reproducible conditional profile or bounded obstruction. No new `kappa` or selected-result change.
 
 Claim expires: 2026-10-14T13:20:00Z.
+
+## Handoff
+
+The bounded screen is complete. Draft PR [#1836](https://github.com/CrocSwap/integer-mult-bounds/pull/1836) contains the 359-row census, exact fixed-word profiles and ceiling brackets, four mutation controls, and the complete optimistic cost ledger. The extension improves the PR #1764 conditional profile ceiling by at least 5.956346700%; 43 rank-one-equivalent extra child costs per local call fit the 5% increment and 44 fail. One such adapter for each joint boundary does not fit.
+
+The original comment was updated in place at [Discussion #1167, comment #18922740](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18922740). Remaining obligations are an admitted `J_{r,s}` supplier, actual source/copy/precision/restoration/hosting costs, and full selected-supplier assembly. Hosted PR checks were still pending at handoff. No selected-result change or new `kappa` is claimed.
