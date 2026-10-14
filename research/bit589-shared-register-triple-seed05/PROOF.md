@@ -1,13 +1,16 @@
-# Exact finite census argument
+# Exact finite census on a fixed single-move-option product
 
 ## Claim and scope
 
-For the one seed-selected A-section triple `(927, 928, 930)` in the pinned
-PR589 `v=111`, `R=439` word, every assignment of its individually legal
-PR1345 frame/slot options either violates the full register-chain nesting
-condition, preserves the original paid profile, or strictly raises its exact
-moment cost. The census has no improving or unresolved assignment. The claim
-concerns this tuple and this word only.
+For the seed-selected A-section triple `(927, 928, 930)` in the pinned
+PR589 `v=111`, `R=439` word, let `D_i` denote the frozen `(slot, frame)`
+choices certified for moving operation `i` **individually** by the PR1345
+atlas on the unchanged word. Every tuple in `D_927 x D_928 x D_930`,
+under the verifier's specified deterministic reinsertion, either fails the
+full chain-nesting replay, preserves the paid profile, or strictly raises
+its exact moment cost. There are no improvements or unresolved tuples in
+**this fixed product**. No completeness for jointly enabled frames or
+commutation-dependent placements is asserted.
 
 ## Fixed inputs
 
@@ -36,20 +39,27 @@ distinct legal frame for each member. Sort by `(option product, operation
 indices)`. This gives 200 tuples; seed `5 mod 200` selects index 5,
 `(927, 928, 930)`.
 
-The selected operations all write register 325 at frame 282, from sources 256,
-442 and 392. Their complete option-domain sizes are 7, 6 and 5, so the joint
-domain has exactly 210 assignments. No random sampling is used within the
-selected tuple.
+The selected operations all write register 325 at frame 282, from sources
+256, 442 and 392. Their frozen **single-move** option lists contain 7, 6
+and 5 entries, so the Cartesian product has exactly 210 tuples. This is
+complete enumeration of the specified product, not a proof that the product
+contains every globally legal triple placement. In particular, the atlas
+single-move lists need not include choices enabled only after another move,
+and alternative commutations/reinsertions are outside this finite model.
+No random sampling is used within the selected product.
 
 ## Classification and pricing
 
-For each Cartesian-product assignment, the pinned PR1345 chain scorer checks
-whether the simultaneous transports are compatible with the complete
-register-chain nesting constraints. If it returns no score, the reconstructed
-word is also replayed and required to fail the full map check. Otherwise, the
-verifier constructs the candidate word, preserving the selected gates and
-operands, rebuilds the C section, and computes the exact paid profile by
-replaying all 661 registers.
+For each Cartesian-product tuple, the verifier reinserts the three selected
+A operations according to the fixed key `(slot - 0.5, original_index)`,
+while all other A operations retain their original index order; the C section
+is then rebuilt. The pinned PR1345 chain scorer checks nesting for precisely
+this joint reconstruction. If it returns no score, the reconstructed word
+is also replayed and required to fail the full map check. Otherwise, the
+candidate preserves the selected gates and operands, and the exact paid
+profile is computed by replaying all 661 registers. This reconstruction
+does not enumerate other commutation schedules with potentially different
+legal frame options.
 
 It then prices the profile difference against the original using the pinned
 rank-cost intervals. The independently aggregated profile interval must be
@@ -69,7 +79,9 @@ rejects a word with the selected A ADD omitted. These controls check the input
 identity and coverage paths used by this finite verifier; they do not turn the
 census into a formal proof of all PR589 transports.
 
-Other triples, four-way changes, cross-section triples, gate-order or
-structural changes, and other supplier words remain open. No optimum theorem,
+Jointly enabled placements not present in the fixed single-move option
+lists, alternative admissible gate commutations/reinsertions, other triples,
+four-way changes, cross-section triples, structural changes, and other
+supplier words remain open. No optimum theorem,
 new supplier admission, or new `kappa` is claimed. Inherited PR589/compiler,
 realization, hosting, precision/tape, and analytic assumptions are unchanged.

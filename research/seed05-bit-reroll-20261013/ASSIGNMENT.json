@@ -65,10 +65,12 @@
     ],
     "common_register": 325,
     "seed_rule": "seed 5 selects index 5 from 200 eligible frame-sensitive A triples sorted by exact option product then operation indices",
-    "complete_assignment_domain": "7*6*5=210 simultaneous slot/frame assignments",
-    "method": "Use PR1345 pinned exact legal options and its exact full-chain moment scorer at PR589 bit c. Reprice every joint assignment. Replay all candidates and price any profile-changing candidate; no assumption that a better profile exists."
+    "method": "Enumerate the frozen Cartesian product, use deterministic reinsertion and PR1345 pinned full-chain moment scorer at PR589 bit c, then full replay each jointly nestable candidate; no exhaustive guarantee for jointly enabled frame/commutation options.",
+    "fixed_single_move_option_product": "D_927 x D_928 x D_930; 7*6*5=210 tuples from frozen individually legal PR1345 single-move (slot,frame) lists",
+    "covers_jointly_enabled_new_frame_options": false,
+    "covers_other_admissible_commutation_orders": false
   },
-  "expected_deliverable": "Source-pinned exact census for one seed-selected three-transport shared-register interaction; result may be a scoped negative. No kappa or supplier-admission claim.",
+  "expected_deliverable": "Source-pinned exact census over one seed-selected fixed 210-tuple single-move-option product; no claim of completeness for broader joint options. No kappa or supplier-admission claim.",
   "expected_finish_utc": "2026-10-14T00:57:05Z",
   "coordination": "No pinned sprint coordination issue found; local claim recorded.",
   "recent_overlap_refresh": {
@@ -165,6 +167,7 @@
     "command": "python3 -I -B research/bit589-shared-register-triple-seed05/verify.py",
     "expected_output": "PASS_PR589_A_TRIPLE_TRANSPORT seed=5 ops=927,928,930 assignments=210 valid=164 ties=100 losses=64 incompatible=46 controls=3 no_new_kappa",
     "local_result": "PASS on CPython 3.14.7; 210 assignments classified; full replay and all three controls passed",
-    "pr": "pending final overlap refresh and submission"
+    "pr": "pending final overlap refresh and submission",
+    "scope": "Fixed product of three single-move option lists and deterministic reinsertion only; 210 tuples, no jointly enabled or alternate commutation completeness."
   }
 }

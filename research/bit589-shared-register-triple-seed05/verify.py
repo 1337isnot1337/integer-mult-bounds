@@ -214,7 +214,7 @@ def verify():
     domains = [opts[i] for i in triple]
     need([len(x) for x in domains] == [7, 6, 5], "complete individual option counts")
     joint_count = math.prod(len(x) for x in domains)
-    need(joint_count == 210, "complete joint option product")
+    need(joint_count == 210, "complete fixed single-move option product")
 
     word = ns["w"]
     wlib = ns["wlib"]
@@ -331,7 +331,11 @@ def verify():
             "shared_register": 325,
             "individual_option_domains": [[[q, frame] for q, frame in opts[i]] for i in triple],
             "joint_assignments": joint_count,
-            "complete_coverage": True
+            "option_source": "fixed PR1345 individually legal single-move option lists on unchanged PR589 word",
+            "joint_construction": "Cartesian product of frozen option lists, then deterministic reinsertion by (slot - 0.5, original_index) and full-chain replay",
+            "complete_fixed_option_product_coverage": True,
+            "all_jointly_enabled_frame_options_covered": False,
+            "all_alternative_commutation_schedules_covered": False
         },
         "summary": counts,
         "baseline_paid_profile": profile_payload(baseline),
@@ -345,7 +349,7 @@ def verify():
             "mutated_source_operand": "rejected",
             "omitted_A_ADD": "rejected"
         },
-        "scope": "Exact negative result for one seed-selected three-transport A-section tuple on a pinned PR589 word; not an exclusion of other triples, other move classes, or a better bit supplier."
+        "scope": "Exact negative result only for the 210-tuple Cartesian product of fixed individually legal single-move options for one A-section triple on a pinned PR589 word and a deterministic reinsertion order; no exclusion of jointly enabled frame/commutation options, other triples, other move classes, or a better bit supplier."
     }
 
 

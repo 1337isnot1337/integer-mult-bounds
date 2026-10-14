@@ -118,7 +118,11 @@
       ]
     ],
     "joint_assignments": 210,
-    "complete_coverage": true
+    "option_source": "fixed PR1345 individually legal single-move option lists on unchanged PR589 word",
+    "joint_construction": "Cartesian product of frozen option lists, then deterministic reinsertion by (slot - 0.5, original_index) and full-chain replay",
+    "complete_fixed_option_product_coverage": true,
+    "all_jointly_enabled_frame_options_covered": false,
+    "all_alternative_commutation_schedules_covered": false
   },
   "summary": {
     "joint_chain_invalid": 46,
@@ -5502,5 +5506,5 @@
     "mutated_source_operand": "rejected",
     "omitted_A_ADD": "rejected"
   },
-  "scope": "Exact negative result for one seed-selected three-transport A-section tuple on a pinned PR589 word; not an exclusion of other triples, other move classes, or a better bit supplier."
+  "scope": "Exact negative result only for the 210-tuple Cartesian product of fixed individually legal single-move options for one A-section triple on a pinned PR589 word and a deterministic reinsertion order; no exclusion of jointly enabled frame/commutation options, other triples, other move classes, or a better bit supplier."
 }

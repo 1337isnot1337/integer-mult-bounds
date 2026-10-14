@@ -21,7 +21,9 @@ Expected result:
 PASS_PR589_A_TRIPLE_TRANSPORT seed=5 ops=927,928,930 assignments=210 valid=164 ties=100 losses=64 incompatible=46 controls=3 no_new_kappa
 ```
 
-The replay checks all 210 assignments and all 164 assignments that pass the
-chain nesting scorer against the full 661-register map. It also rechecks the
+The replay checks all 210 tuples in the fixed Cartesian product of three
+individually legal PR1345 single-move option lists; all 164 tuples that pass
+the chain-nesting scorer are replayed against the full 661-register map.
+It does not certify all jointly enabled frames or alternative commutations. It also rechecks the
 three controls named in the README and compares the entire generated result to
 `RESULT.json`. Repository diff whitespace validation is `git diff --check`.
