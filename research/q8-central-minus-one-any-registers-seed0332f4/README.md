@@ -158,13 +158,23 @@ source or assembly input.
 
 ## Overlap and attribution
 
-The fresh pre-claim scan at 2026-10-14 17:42 UTC covered 359 open PRs and 670
-Discussion records with complete pagination and no warnings. It found Q8
-PR #1925 as the exact finite-width predecessor, [Q8 PR #1822](https://github.com/CrocSwap/integer-mult-bounds/pull/1822) on a different
-two-role repeated central-commutator target, and recent S3, order-21 and
-binary-tetrahedral claims on different groups/target tuples. The local
-overlap receipt records the full relevant output and limits. The claim is
-Discussion #2034.
+The pre-claim scan at 2026-10-14 17:42 UTC covered 359 open PRs and 670
+Discussion records with complete pagination and no warnings; it is retained
+as `OVERLAP-CLAIM.json`. The final pre-submission refresh at 18:02 UTC covered
+367 open PRs and 682 Discussion records, also with complete pagination and no
+warnings. Its body search returned 207 possible matches and saved the top 100.
+The exact Q8 predecessor is PR #1925; [Q8 PR #1822](https://github.com/CrocSwap/integer-mult-bounds/pull/1822)
+studies a different two-role repeated central-commutator target. Recent S3,
+order-21 and binary-tetrahedral claims use different groups or target tuples.
+The refreshed discussion snapshot includes this cycle's claim and finding;
+no competing claim on these twelve central-`-1` tuples was found. See
+`OVERLAP.json` for the refresh and `OVERLAP-CLAIM.json` for the claim-time
+snapshot. The claim is Discussion #2034.
+
+Upstream `main` at submission was `fcea6916f3af98346ff13581ac7626718b7e55a2`.
+Its selected-record SHA-256 and task-catalogue SHA-256 are unchanged from this
+cycle's pinned base `c676548106012571fefa1dce0ec16f1bcfe11dce`; the recorded
+research base remains the exact commit above.
 
 The exact predecessor heads are PR #1925 `009ed860f34ed5d7b0d626098ce93c4c2a7eb4df`
 (merged as `1ff5f7bc448445516944f10c8e7834db371103aa`) and PR #1822

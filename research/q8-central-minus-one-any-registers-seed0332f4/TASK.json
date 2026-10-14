@@ -43,8 +43,13 @@
   ],
   "optimistic_cost": {"direct_paid_calls": 4, "candidate_threshold": 3, "required_saving_percent": 25, "helper_calls": 0, "frame_changes": 0, "copies": 0, "restoration_calls": 0, "recursive_children": 0, "hosting_precision": 0, "supplier_mapping": "not established; no kappa claim"},
   "overlap_snapshot": "research/q8-central-minus-one-any-registers-seed0332f4/OVERLAP.json",
-  "final_overlap_refreshed_at": "2026-10-14T17:42:07.544858Z",
-  "overlap_coverage": {"open_prs": 359, "discussions": 670, "complete_pagination": true, "warnings": []},
+  "claim_overlap_snapshot": "research/q8-central-minus-one-any-registers-seed0332f4/OVERLAP-CLAIM.json",
+  "claim_overlap_refreshed_at": "2026-10-14T17:42:07.544858Z",
+  "final_overlap_refreshed_at": "2026-10-14T18:02:35.738895Z",
+  "overlap_coverage": {"open_prs": 367, "discussions": 682, "complete_pagination": true, "warnings": []},
+  "overlap_matches_total": 207,
+  "overlap_display_limit": 100,
+  "pre_submit_main": "fcea6916f3af98346ff13581ac7626718b7e55a2",
   "open_questions": [
     {"question": "Can the same trace-plus-central-coefficient method yield sharp call floors for other central elements in nonabelian characteristic-two group algebras?", "why_it_matters": "This may identify target families where one augmentation layer and a rank-one idempotent constraint suffice to close a finite-call gap uniformly in dirty workspace.", "first_step": "Choose one new finite group and target tuple only after a fresh overlap refresh; derive its first-order coefficient matrices and central second-order term before any state search.", "blocked_by": "No transfer from the Q8 identities to another group or the selected physical supplier is proved."}
   ]
