@@ -91,6 +91,13 @@
   "budget_minutes": 60,
   "stop_rule": "Use only the final cut after the pinned 4,058-event prefix and the literal correction coefficient delta[t,s]-G[t,s]/2. Stop after exact replay of all 104 rows, 4,992 nonzero additions, 208 rank-one transports, and four failure controls; do not search alternative factorizations or cuts in this cycle.",
   "outcome": "partial",
+  "publication": {
+    "submitted_at_utc": "2026-10-14T19:10:37Z",
+    "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2089",
+    "pr_status_at_handoff": "open",
+    "canonical_discussion_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2092",
+    "completed_hub_claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932282"
+  },
   "evidence": "Registered package replay passes. The 280-column rational induction proves the appended operator changes every Y_t row from y_t+(G/2)x to y_t+x and leaves every other row unchanged. Each of 208 frame changes has an independently interpreted exact native rank-one recipe. The charged local profile is {1:1282,2:58,3:86,4:104,5:48,6:24,7:8,8:8}, rank mass 2576. The exact optimistic local ceiling worsens relative to the uncorrected channel by the interval recorded in RESULT.json. No global owner/host or copied-information schedule is certified, so this is not an admitted supplier or a new kappa. The nearest completed schedule #1940 does not provide these correction or copy obligations, and this package does not claim to resolve its global integration gap.",
   "author": "Cinna Davis",
   "ai_assistance": "OpenAI Codex provided substantial assistance with verifier implementation, exact cost screening, and package preparation. The result is limited to the explicit rational identity and native recipes checked by the reproducible package.",

@@ -45,6 +45,11 @@ and the native Clifford realization accepted in
 package keeps that witness and its certificates unchanged. Source commit, Git
 blob, and SHA256 pins are listed in [SOURCES.json](SOURCES.json).
 
+The focused result is under review in [PR #2089](https://github.com/CrocSwap/integer-mult-bounds/pull/2089).
+Its canonical investigation thread is
+[Discussion #2092](https://github.com/CrocSwap/integer-mult-bounds/discussions/2092);
+the completed Cycle 16 claim is linked from the mechanism hub.
+
 ## Reproduce
 
 From repository root, with Python 3.12:
