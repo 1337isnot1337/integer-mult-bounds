@@ -55,4 +55,7 @@ regenerated independent price receipt and the top README section. Prepared by G.
 assistance. Apache-2.0. The ten seven-dimensional ends are the joins that the chain's own cone rule (audit_local.py)
 forces inside the eight-dimensional ends of research/gauge44-slots-unpromo-arcflow's word, and the frames are chosen by the
 exact PR864 model; everything else is the #1005/#1018 chain's, with research/gauge44-slots-arcflow's owner-search tools,
-retained unchanged with their notices.
+retained unchanged with their notices. The whole-head driver `verify_chain.py` and `wholehead/check_independent.py` (October 14) run the
+chain's own reproduction scripts and the four packages' own verifiers, and apply Josie Elliston's owner audit
+(research/t16-owner-audit-seed67) and Sagar Thakrar's pricing (research/pending-claims-independent-pricing) unchanged;
+`wholehead/` holds that run's receipts.

@@ -2,7 +2,7 @@
   "CONSTRUCTION.md": "7d96eb958a6b4274ea4c4c539b585f8ae2e89363b76aef930f90d2d513e164ea",
   "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
   "LOCAL-VALIDATION.json": "f81fbd98eb608b8119f03f89a5692bcd610845fc97022337931586d8582b706e",
-  "NOTICE.md": "2545fd369ed30d6d7768476c2112407384945b6b6a92dd6420803ff5be03abe5",
+  "NOTICE.md": "587d25e62233f4a72bcdb270e893bf0331f934bb039310716d7de5c91fa6f7ef",
   "PROOF-NOTE-BARCH.md": "c24f211b09358b25d6cf47dd18e4bbd8bcf4ecf279e6f1c6c90613cfa230818d",
   "PROOF-NOTE-BIT.md": "dd771adb12f6f0bef0e2931c28b21b243b04d5f512370cbad1207275c342aaf7",
   "PROOF-NOTE-FRAMES-X4.md": "39c50420ebb6e8813706a49b2cf759f277c4afac9f6780fc0a7ac6a5fb86e036",
@@ -12,9 +12,9 @@
   "PROOF-NOTE-P6N.md": "cef8fad3d6644b4376ed15c4c5c46c68324009ab8f42d10bfa2da4b505b2c26d",
   "PROOF-NOTE-PROMO.md": "c170e5196d3081f86ac377c6fe614ca17f6281972837580275ce5af41cbc64ae",
   "PROOF-NOTE-SW4.md": "d7bb225f1a7f9fd363e819a67e92a5fe14c0942f6c3616d73609cc48042daf3d",
-  "README.md": "b609a037b11b3955f60f2a058a089ecd2616500477c797a45d9186c2e3e5dc7b",
+  "README.md": "c9ed5b1035d0b125ae638f02ae309dc3e1690d2f16da4d4b7cc13c5addefe816",
   "RESULT.json": "ec3188bf920da7e8ff13482a2fac726a3679263fd9ef3a1b1ea1f7cd894df76e",
-  "SOURCES.json": "0497da4eb4d55489b0218b71a41f8c3b56231c0362ae2f6a1ecd204b7f8058a7",
+  "SOURCES.json": "376dba283fafff988c708ee5b49f44bf98ad12fa8328084fd531cb68fa29424f",
   "UPSTREAM-NOTICE.md": "a75967ebc34e3bf2ff2c25c08e6c7f1a61b0c0d171cfd1b62196ae2caaf2c610",
   "code/assemble.py": "4c270a996b380ab712f72b81173ab24f1c73203a33578f261bfbaa7e67d75aec",
   "code/assembly_controls.py": "e4c0f7828af64fdaef1896e4448d0212bd3041805097140b8cfafd098f8a6162",
@@ -172,6 +172,11 @@
   "independent/price_profile.py": "d2f548ad6b99f64a8ca5fbaf822a89560bb99359957ce3420b497f6a46fc0acf",
   "independent/review_guards.py": "b83164d6c0122a055b3281f3381b305683a875760a2d727dd0188bb2aa59d67d",
   "inputs/PR589-EXPECTED.json": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
+  "verify_chain.py": "a62e7b7469ad70b851c7fe6584ab766d74905cc05669dc70d5857e562cfb3d48",
   "verify_global.py": "16bd5e54598592e92e210f99065348c5df261b8350fdc688072ce053d15b088a",
-  "verify_manifest.py": "723d726dbbe5b65a49caecae0f1aab664a1413fb639abfd3e826a5a538e14e5b"
+  "verify_manifest.py": "723d726dbbe5b65a49caecae0f1aab664a1413fb639abfd3e826a5a538e14e5b",
+  "wholehead/INDEPENDENT.json": "ab1e43b44ae709fc08db3032c4ebf9a9d4a64ddbd772ac63d8afc27e0017dae4",
+  "wholehead/RESULT.json": "7b73d6f2a314a155a04696968fbff85412dc4196796d8ae5ff6a2b022c9c4fc9",
+  "wholehead/STAGES.json": "8cb9103d56aae0f7d0aa17c59237efff2a3cdd7bd9369e58b22fc4f5acf0cade",
+  "wholehead/check_independent.py": "040f1e4b860a07245bdc0dce47daa0e4f5a66e31b2cc3088ccfcdce937e74c9d"
 }

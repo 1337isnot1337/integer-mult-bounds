@@ -60,6 +60,44 @@ This is a finite conditional witness on a pending construction (#1005/#1018, #11
 inherited: all-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery,
 analytic transfer and the bit H1–H5 interfaces. No optimality beyond the stated moves is claimed.
 
+## Whole-head replay of the four packages (follow-up to the third 100-PR round)
+
+The batch review of October 13 left the whole-head supplier review of PR #1175's four packages open ("bind its exact
+native providers, physical owner allocation and admission evidence, then reconcile changed predecessor blobs"). This
+package therefore carries one driver that replays the whole head from a single reconstruction of the k8 chain and writes
+one source-bound receipt, and the branch is rebased on main so that only the four packages differ from it.
+
+```sh
+# cold (40 minutes here): rebuilds the k8 chain with research/gauge44-leaver8's scripts and main's vendored PR635 supplier,
+# then arcflow -> unpromo -> deepen and t16 on it, the three recounts, the four price receipts and the independent check
+python3 -B research/gauge44-slots-deepen-arcflow/verify_chain.py --main . --work /tmp/wholehead1175
+# or on a completed scripts/verify_frontier1042.py replay (its receipt is checked): --baseline1042 /tmp/frontier1042
+# PASS_WHOLE_HEAD_GAUGE44_SLOTS_ARCFLOW_CHAIN {'arcflow': '0.001674083482880778', 'unpromo': '0.001674576537247681',
+#                                              'deepen': '0.001675338871723469', 't16': '0.001674087289164567'}
+```
+
+- **Exact native providers.** Each package's `data/PLAN.json` binds its provider by the content and semantic SHA256 of
+  the seven native local artifacts and by both orientation programs; the driver rebuilds the locals of all three words
+  (the slot word `c2b29430…`, the restored word `4ffb07de…`, the deepened word `6ace902a…`) with the PR635 supplier and
+  records that the rebuilt identities equal the bound ones (`wholehead/RESULT.json`, `packages.*.provider_*`).
+- **Physical owner allocation.** The three T8 maps are recounted with the standard library, and all four maps pass Josie
+  Elliston's independent owner/event-window audit (research/t16-owner-audit-seed67: rules R1–R7, X1, X2) with its mutation
+  controls, applied unchanged by `wholehead/check_independent.py`; on the deepened map the `prefix_gap` control has no
+  instance (every occupied bin is full), which the receipt records. Sagar Thakrar's code-disjoint pricing
+  (research/pending-claims-independent-pricing) certifies each complex endpoint and reproduces each κ from the profile.
+- **Admission evidence.** Every stage (scripts with SHA256, logs with SHA256, timings) and every JSON/gz/log artifact of the
+  run is listed in `wholehead/RESULT.json`; `wholehead/STAGES.json` and `wholehead/INDEPENDENT.json` are copies of the
+  run's receipts. The strict replays (69 admission controls, 12 bit-supplier controls, 15 controller mutations each; six
+  independent T16 controls for the T16 map) are the packages' own, rerun inside the driver.
+- **Predecessor blobs.** The branch is rebased on main (`0b1cccf8`); its only difference from main is the four packages.
+  The comparisons in the four READMEs cite the #1055 chain's final head (research/gauge44-slots-t16 at
+  0.001672251604432734); main retains that package at its reviewed head, κ 0.001672188119205421, and the selected result
+  is now Rohan Arun's #1094 (research/complex-t16-rare-pattern-exchanges, κ 0.001672660197076918, T = 16 on the same slot
+  word). Against #1094 this package is **+0.1601%** (research/gauge44-slots-unpromo-arcflow +0.1146%,
+  research/gauge44-slots-t16-arcflow +0.0853%, research/gauge44-slots-arcflow +0.0851%). The T16 lever of #1094 (rare-pattern
+  exchanges on the slot word's inventory) is not composed here: on the deepened word's inventory the T8 map already has no
+  small remainder, so no replica count can lower its idle cost further.
+
 ---
 
 # Predecessor: research/gauge44-slots-unpromo-arcflow's README (its top section, then research/gauge44-slots-arcflow's and research/gauge44-slots's, unchanged)
