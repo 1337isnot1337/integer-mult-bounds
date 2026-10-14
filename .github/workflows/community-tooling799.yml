@@ -1,8 +1,8 @@
 name: Community exact tooling and scoped audits
 on:
   workflow_dispatch:
+  # Keep these path-scoped checks available on contributor fork branches.
   push:
-    branches: [main]
     paths:
       - 'research/clifford-state-performance/**'
       - 'research/gram-prefix-performance/**'
