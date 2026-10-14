@@ -1,0 +1,38 @@
+[
+  {
+    "name": "fine-engine-oracle",
+    "exit_code": 0,
+    "seconds": 11.921951229000115,
+    "log_sha256": "ea6df7be568d6461ac54e0d56754797de0f70f2f1ecc335114791445b75795d3"
+  },
+  {
+    "name": "retained-provider-and-parent-admission",
+    "exit_code": 0,
+    "seconds": 141.8041229219998,
+    "log_sha256": "cdf3315263df90f032f2b0ac822507c6fbee03f980edd8083513f229fb3c1b24"
+  },
+  {
+    "name": "reconstruct-owners",
+    "exit_code": 0,
+    "seconds": 9.641582373000347,
+    "log_sha256": "363a74def2d33de399e70eab63d987832b079286cb7c58f9ffa87e186ae761f5"
+  },
+  {
+    "name": "lift-parent",
+    "exit_code": 0,
+    "seconds": 8.297225083999365,
+    "log_sha256": "9578ab17094f120d54af46f9e0601714c09a2978faa0d7949823099d06d931d4"
+  },
+  {
+    "name": "strict-t74",
+    "exit_code": 0,
+    "seconds": 322.9919627980016,
+    "log_sha256": "6e5c1096b9518ab11a019566ee5be5a9c46dd340ac137156d1adf29e124def40"
+  },
+  {
+    "name": "geometry-controls",
+    "exit_code": 0,
+    "seconds": 61.04217024500031,
+    "log_sha256": "0a3ecf05cfa2bebb61fffd2fbb4b244c03d742069e2705d02512699bbf4b01f9"
+  }
+]
