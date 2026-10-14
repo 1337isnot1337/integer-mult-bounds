@@ -62,6 +62,11 @@ def ga_mul(a: int, b: int) -> int:
 def q8_axioms() -> str:
     need(all(GROUP_MUL[ONE][g] == g and GROUP_MUL[g][ONE] == g
              for g in range(8)), "Q8 identity")
+    for g in range(8):
+        need(any(GROUP_MUL[g][h] == ONE and GROUP_MUL[h][g] == ONE
+                 for h in range(8)), f"Q8 inverse for {g}")
+        need(GROUP_MUL[MINUS_ONE][g] == GROUP_MUL[g][MINUS_ONE],
+             f"Q8 central minus-one at {g}")
     need(GROUP_MUL[I][I] == MINUS_ONE and GROUP_MUL[J][J] == MINUS_ONE,
          "Q8 square relations")
     need(GROUP_MUL[I][J] == K and GROUP_MUL[J][I] == (MINUS_ONE ^ K),
