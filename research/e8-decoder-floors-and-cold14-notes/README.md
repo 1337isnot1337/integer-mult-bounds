@@ -157,7 +157,7 @@ This answers §10's open question G2.
 
 **SAT (checked, no proof logs).** On the complement of each orbit representative (45, 54 and 56 lines), c = 14 is **UNSAT** with all three of CaDiCaL 1.5.3, Glucose 4 and MapleChrono, in 5–123 s. Calibrations: c = 15 is SAT on every O, and on all 60 lines c = 14 is UNSAT and c = 15 is SAT. The previous monolithic encoding ran for 18 h without an answer.
 
-**Group-free cross-check** (every 3-flat individually): **in progress**, 7/1,500 UNSAT so far, none SAT (`logs/prove_all.partial.log`).
+**Group-free cross-check** (every 3-flat individually, no symmetry used): **complete: all 1,500 UNSAT** ("ALL AS EXPECTED", `logs/prove_all.log`).
 
 **Side lemma (argued).** For a c-total decoder and any family of flats, at most c − minrank(pattern on the complement of their union) totals have R_j inside the union (and likewise for A_j).
 
