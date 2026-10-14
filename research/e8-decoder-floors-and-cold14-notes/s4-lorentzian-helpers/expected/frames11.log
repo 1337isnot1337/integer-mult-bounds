@@ -1,0 +1,6 @@
+n=11 v=220 4-frames=1926540 good=20790 types(line sizes)={(2, 2, 3, 3): 6930, (3, 3, 3, 3): 13860}
+  example [(0, 1, 2), (0, 3, 4), (1, 2), (3, 4)]
+  example [(0, 1, 2), (0, 3, 4), (1, 3, 5), (2, 4, 5)]
+cell-perp {t,e} contains 56 lines; t-perp 115
+pairs per good frame: [0, 2]; pairs in total: 55
+NO partition into good 4-frames: every good frame holds an even number of pairs, 55 is odd

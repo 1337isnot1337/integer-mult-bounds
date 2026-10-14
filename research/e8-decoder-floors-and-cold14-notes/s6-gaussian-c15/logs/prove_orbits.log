@@ -1,0 +1,21 @@
+all 60 lines  c=14 UNSAT 5.6s
+all 60 lines  c=15 SAT 1.3s
+|H|=15 |O|=45 c=14 cadical153  UNSAT 6.9s clique-gauge 12  [1/18]
+|H|=15 |O|=45 c=15 cadical153  SAT 2.5s clique-gauge 12  [2/18]
+|H|=15 |O|=45 c=14 glucose4    UNSAT 11.6s clique-gauge 12  [3/18]
+|H|=15 |O|=45 c=15 glucose4    SAT 4.1s clique-gauge 12  [4/18]
+|H|= 4 |O|=56 c=14 cadical153  UNSAT 7.4s clique-gauge 12  [5/18]
+|H|= 4 |O|=56 c=14 glucose4    UNSAT 21.4s clique-gauge 12  [6/18]
+|H|=15 |O|=45 c=15 maplechrono SAT 37.8s clique-gauge 12  [7/18]
+|H|= 4 |O|=56 c=15 cadical153  SAT 1.2s clique-gauge 12  [8/18]
+|H|=15 |O|=45 c=14 maplechrono UNSAT 57.6s clique-gauge 12  [9/18]
+|H|= 4 |O|=56 c=15 maplechrono SAT 41.5s clique-gauge 12  [10/18]
+|H|= 6 |O|=54 c=14 cadical153  UNSAT 4.9s clique-gauge 12  [11/18]
+|H|= 6 |O|=54 c=14 glucose4    UNSAT 13.1s clique-gauge 12  [12/18]
+|H|= 4 |O|=56 c=14 maplechrono UNSAT 122.7s clique-gauge 12  [13/18]
+|H|= 6 |O|=54 c=15 cadical153  SAT 4.5s clique-gauge 12  [14/18]
+|H|= 6 |O|=54 c=15 glucose4    SAT 2.3s clique-gauge 12  [15/18]
+|H|= 6 |O|=54 c=14 maplechrono UNSAT 77.9s clique-gauge 12  [16/18]
+|H|= 6 |O|=54 c=15 maplechrono SAT 55.1s clique-gauge 12  [17/18]
+|H|= 4 |O|=56 c=15 glucose4    SAT 227.2s clique-gauge 12  [18/18]
+ALL AS EXPECTED

@@ -1,0 +1,1 @@
+n=11: 1 copies of each of the 220 lines partitioned into 22 independent slots (2 per centre) VERIFIED exactly => sum_i rank(R(e_i) & L) >= (1/2)|L| for every live set L; slot sizes [10]

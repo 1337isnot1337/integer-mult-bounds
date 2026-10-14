@@ -1,0 +1,4 @@
+n=8 v=120 4-frames=122850 good=9450 types(line sizes)={(0, 0, 0, 0): 9450}
+cell-perp {t,e} contains 30 lines; t-perp 63
+partition into good 4-frames: OPTIMAL
+  verified partition of 120 lines into 30 good 4-frames; frame types {(0, 0, 0, 0): 30}

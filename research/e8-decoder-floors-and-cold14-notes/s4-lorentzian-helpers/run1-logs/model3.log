@@ -1,0 +1,13 @@
+E8 #555 calibrated model target a = 1.8058e-03
+I_{11,1} 220/110 (best; no improving puncture): x=1/2 X*=7.1715e-03 | rho* abs 2.66 rel 3.34
+   rho skel_cells  = 3.577: a_est abs 1.5796e-03  rel 1.7300e-03  (E8 1.8058e-03)
+   rho skel_pairs2 = 3.327: a_est abs 1.6537e-03  rel 1.8112e-03  (E8 1.8058e-03)
+   rho E8_shipped  = 3.955: a_est abs 1.4795e-03  rel 1.6203e-03  (E8 1.8058e-03)
+   rho rho_dim     = 5.207: a_est abs 1.2246e-03  rel 1.3388e-03  (E8 1.8058e-03)
+   rho three       = 3.000: a_est abs 1.7162e-03  rel 1.8751e-03  (E8 1.8058e-03)
+I_{11,1} punctured 210/109 (pair-label total at 9): x=109/210 X*=6.3495e-03 | rho* abs 2.38 rel 2.84
+   rho skel_cells  = 3.577: a_est abs 1.4954e-03  rel 1.6377e-03  (E8 1.8058e-03)
+   rho skel_pairs2 = 3.327: a_est abs 1.5655e-03  rel 1.7146e-03  (E8 1.8058e-03)
+   rho E8_shipped  = 3.955: a_est abs 1.4006e-03  rel 1.5339e-03  (E8 1.8058e-03)
+   rho rho_dim     = 5.207: a_est abs 1.1646e-03  rel 1.2673e-03  (E8 1.8058e-03)
+   rho three       = 3.000: a_est abs 1.6246e-03  rel 1.7751e-03  (E8 1.8058e-03)

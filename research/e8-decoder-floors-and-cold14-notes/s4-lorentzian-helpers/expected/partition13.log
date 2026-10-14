@@ -1,0 +1,1 @@
+n=13: 3 copies of each of the 364 lines partitioned into 91 independent slots (7 per centre) VERIFIED exactly => sum_i rank(R(e_i) & L) >= (3/7)|L| for every live set L; slot sizes [12]
