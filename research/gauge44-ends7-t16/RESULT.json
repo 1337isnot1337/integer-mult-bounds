@@ -1,16 +1,16 @@
 {
   "status": "PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY",
-  "kappa": "20909978171633/12500000000000000",
-  "kappa_decimal": "0.00167279825373064",
-  "conservative_kappa_decimal": "0.001672798250878991",
-  "complex_lower": "335120239297214267789/200000000000000000000000",
+  "kappa": "1672800096628753/1000000000000000000",
+  "kappa_decimal": "0.001672800096628753",
+  "conservative_kappa_decimal": "0.001672800093777106",
+  "complex_lower": "10472519034783037789/6250000000000000000000",
   "bit_lower": "1733427039589844234749/1000000000000000000000000",
   "complex_profile": {
     "1": 348661,
-    "2": 62209,
-    "3": 61370,
+    "2": 62208,
+    "3": 61369,
     "4": 20448,
-    "5": 11808,
+    "5": 11809,
     "6": 1,
     "7": 51,
     "8": 1152,
@@ -19,8 +19,8 @@
   },
   "idle_remainder_profile": {
     "1": 2197,
-    "2": 1,
-    "3": 314,
+    "3": 313,
+    "5": 1,
     "6": 1,
     "7": 51,
     "32": 6,
@@ -32,7 +32,7 @@
   "charged_prefix_bits": 512,
   "physical_row_coefficient": 16469,
   "retained_row_coefficient": 20161,
-  "actual_73_axis_charts": 9824,
+  "actual_73_axis_charts": 9828,
   "controls": {
     "admission": 69,
     "bit_supplier": 12,
@@ -40,71 +40,71 @@
     "controller_mutations": 15
   },
   "t8_kappa": "167112035308811/100000000000000000",
-  "spec_sha256": "7ada24af1ac56959d5121c765cebd14f3f175880dfc1e0bfd4ba12a3f1ccc217",
+  "spec_sha256": "74ef47a94ed6eb792d9f200ad982a00480c41d2eb9a8d62741e7a1150256db82",
   "stages": [
     {
       "name": "restore-parent",
-      "seconds": 1.479,
+      "seconds": 1.536,
       "exit_code": 0,
       "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
     },
     {
       "name": "bind8",
-      "seconds": 0.39,
+      "seconds": 0.386,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "lift16",
-      "seconds": 3.113,
+      "seconds": 3.136,
       "exit_code": 0,
-      "log_sha256": "f0f39d78d53970eeb2a06f990d2500111526c1a8b32b1086b7937a0d8898efe8"
+      "log_sha256": "a1fe9d7bf610cd64456dce7f411b43e6f21c45267fa13e192b62e06ab89d0a23"
     },
     {
       "name": "bind",
-      "seconds": 0.361,
+      "seconds": 0.354,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 6.061,
+      "seconds": 6.269,
       "exit_code": 0,
-      "log_sha256": "77b0c1673c2e445cc22f25266c1f0fe6003a106589b839a75389797fab473635"
+      "log_sha256": "99a94f528bdffd5b86d2b79929d6feb196ea8154368ab712616d2b656e4c16df"
     },
     {
       "name": "audit",
-      "seconds": 22.967,
+      "seconds": 23.622,
       "exit_code": 0,
-      "log_sha256": "cf0f64c24b474c40e53a8f4245d3cb92870130a9a94ab4d6a83e9ce8d92cc80c"
+      "log_sha256": "e47ad285e9c0d85d8f4f7a0e39283747519f518fd745cc2bf91a86fb049fddb0"
     },
     {
       "name": "invoice",
-      "seconds": 1.342,
+      "seconds": 1.459,
       "exit_code": 0,
       "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
     },
     {
       "name": "assembly",
-      "seconds": 0.346,
+      "seconds": 0.311,
       "exit_code": 0,
-      "log_sha256": "2b397c231efb0fa69d774d7cb8e2337459fe6fdd1eea24d6a5c466e1abe5b5fc"
+      "log_sha256": "bc1e7143f1af40d51abf9111e5de735d434819ef9d06bdcbffcecc0ccac9f69b"
     },
     {
       "name": "admission-controls",
-      "seconds": 0.43,
+      "seconds": 0.444,
       "exit_code": 0,
       "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
     },
     {
       "name": "bit-supplier-controls",
-      "seconds": 0.638,
+      "seconds": 0.675,
       "exit_code": 0,
       "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent-t16",
-      "seconds": 1.078,
+      "seconds": 1.009,
       "exit_code": 0,
       "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
     }
