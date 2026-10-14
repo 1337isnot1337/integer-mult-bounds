@@ -129,7 +129,10 @@ The structured list is in [TASK.json](TASK.json).
    deep-copying JSON trees for mutation controls? There are ten distinct
    `audit_allcold.py` hashes, plus other `reject()` helpers. First step: profile
    each on its own committed fixture and add a hash only when it has byte-identical
-   receipts. Blocker: many need a long cold upstream replay first.
+   receipts. Blocker: many need a long cold upstream replay first. The concurrent
+   mutant-coverage audit [PR1959](https://github.com/CrocSwap/integer-mult-bounds/pull/1959)
+   lists the same nine hashes as its open question 1, for coverage rather than
+   speed. One per-hash fixture could serve both questions.
 3. **The remaining 9 s.** These are spent mainly in `audit()` itself: 16 passes
    over 69,120 helper roles. Reducing that would need an adapter that changes
    audit code, with its own equivalence argument.
@@ -148,6 +151,15 @@ The audited code is from the retained gauge44 / PR1087 lineage:
 Earlier opt-in, byte-identical replay adapters set the pattern followed here:
 PR1880 (joint-dual scans), PR1874 (PR589 hashing), PR1646 (phase recipes) and
 `frontier1042-lec-parallel`.
+
+Related, concurrent: Josie Elliston's
+[PR1959](https://github.com/CrocSwap/integer-mult-bounds/pull/1959) runs the same
+pinned audit in-process on the same archived template. It records which assertion
+rejects each shipped control and new semantic mutants, and its harness uses the
+checked `marshal` copy from this package. The two are complementary. This package
+shows that the shipped controls depend on real copies for isolation (the
+identity-copier control). PR1959 maps which of the audit's assertions those controls
+reach.
 
 Prepared by jackmgaller with substantial Claude Code (Claude Opus 5.5) assistance.
 New files are Apache-2.0.
