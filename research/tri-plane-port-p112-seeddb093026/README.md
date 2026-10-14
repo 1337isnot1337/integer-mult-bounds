@@ -1,6 +1,6 @@
 # Exact tri-plane pairing factorization for selected P112
 
-**New algebraic decoder mechanism; no new supplier or kappa.** This package replaces the matched rank-2 grouping with 37 mutually orthogonal 3-planes and one residual line for the exact 112 selected PR1094 labels. The resulting F2 factorization reproduces the complete selected pairing matrix. Its B14 copied-information invoice is 85, down from 126 for the known matched 2-plane factorization.
+**New algebraic decoder mechanism; no new supplier or kappa.** Submitted as [PR #2041](https://github.com/CrocSwap/integer-mult-bounds/pull/2041). This package replaces the matched rank-2 grouping with 37 mutually orthogonal 3-planes and one residual line for the exact 112 selected PR1094 labels. The resulting F2 factorization reproduces the complete selected pairing matrix. Its B14 copied-information invoice is 85, down from 126 for the known matched 2-plane factorization.
 
 The construction does not meet the `a = 1/99` planning target even under the favorable three-unpaid-coordinate coverage law. Its exact fixed-word ceiling is `a = 0.010012347901`, just below `1/99`; the local `kappa` planning cap is `0.009913094550`. The screen assigns all idle mass optimistically at rank 51 and omits the physical tri-plane route, endpoint-translation multiplicity, hosting, frame/restoration schedule, precision and bit-side assembly. Those costs can only lower the attainable ceiling. No selected result, supplier or multiplication bound changes.
 

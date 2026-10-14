@@ -100,5 +100,13 @@
       "reference": "PR #1348",
       "role": "Coverage-law threshold analysis, no tri-plane construction."
     }
-  ]
+  ],
+  "submission": {
+    "status": "open pull request",
+    "pr_number": 2041,
+    "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2041",
+    "branch": "research/tri-plane-p112-seeddb093026",
+    "submission_base_commit": "c676548106012571fefa1dce0ec16f1bcfe11dce",
+    "upstream_push": "403; pushed through the existing account fork"
+  }
 }
