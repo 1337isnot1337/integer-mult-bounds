@@ -52,5 +52,6 @@
   "pre_submit_main": "fcea6916f3af98346ff13581ac7626718b7e55a2",
   "open_questions": [
     {"question": "Can the same trace-plus-central-coefficient method yield sharp call floors for other central elements in nonabelian characteristic-two group algebras?", "why_it_matters": "This may identify target families where one augmentation layer and a rank-one idempotent constraint suffice to close a finite-call gap uniformly in dirty workspace.", "first_step": "Choose one new finite group and target tuple only after a fresh overlap refresh; derive its first-order coefficient matrices and central second-order term before any state search.", "blocked_by": "No transfer from the Q8 identities to another group or the selected physical supplier is proved."}
-  ]
+  ],
+  "submission": {"type": "focused_pull_request", "number": 2047, "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2047", "state_at_handoff": "OPEN", "head_commit": "d6705eccbb3b3641bf3c1f1f2882fadaa0e69f35", "base_branch": "main", "base_commit_at_submission": "fcea6916f3af98346ff13581ac7626718b7e55a2"}
 }
