@@ -1,134 +1,82 @@
-# Fixed-tape proof toolkit
+# Finite multitape controller and proof toolkit
 
-Reusable, kernel-checked Lean infrastructure for finite multitape programs,
-dirty workspace, subroutine scheduling, and asymptotic cost transfer. This
-contribution leaves the selected supplier profiles and kappa unchanged.
+A self-contained Mathlib-based Lean contribution for actual fixed finite
+multitape executions, exact costs, dirty parking, compiler simulation and
+canonical binary output. This extends the preceding generic toolkit in PR1641.
+All imports are bundled modules, Mathlib or Lean; no personal Lean library is
+needed. The selected supplier profiles and kappa are unchanged.
 
-The main assembly theorem, `VerifiedPipeline.compile_completed_frame`, turns
-**every actual halted execution of a fixed finite heterogeneous TM2 program**
-into a literal absolute-coordinate multitape execution. If the program's
-maximum statement depth is at most `D` and the source takes `n` steps, the
-physical execution takes at most `2*D*n` transitions and retains the encoded
-final stacks. Each tape has a finite observation footprint of at most `t+1`
-cells that suffices to replay the completed computation with the **same actual
-time**, despite arbitrary changes to cells outside that footprint.
+`Absolute.ParkingController.boundary_machine_correct` constructs one fixed
+five-tape, four-symbol, 90-state controller. For EVERY active bit list x, inactive
+bit list y, absolute parking head h and arbitrary ancestor cell function, it
+pushes y, moves x, executes a real bit-flip child, moves the result back, pops y,
+and genuinely halts in exactly **6|x|+5|y|+18** physical transitions. The complete
+inactive stream, parking tape and all heads return literally; IO/temp return to
+marked-empty. Empty and unequal-length streams are included. It starts with the
+explicit marked-stream convention (separator at −1); MarkerLifecycle separately
+proves real charged marker installation/removal in two steps per operation.
 
-The implementation includes the transition tables and simulation proofs; the
-conclusion is not an assumed compiler, routing gadget, or arithmetic oracle.
-Input parsing, reversal, padding, and canonical-output conversion are separate
-programs whose costs must be supplied when applying the theorem to another I/O
-convention. The toolkit does not establish the fast multiplication theorem.
+`ParkingController.wrapper_correct` lets contributors substitute any ACTUAL
+verified child execution, including a length-changing one. Input x, output z,
+parked y and child time t give exact cost **2|x|+2|z|+5|y|+16+t**. Its premises
+include the full physical child entry/return bank and true halt; arithmetic or
+recursive correctness is not assumed inside the closed bit-flip theorem.
 
-## What contributors can use
+ParkFootprints proves every actual push/pop prefix stays at or above the
+appropriate parking/stream marker and preserves the entire old ancestor prefix.
+Completed routines have actual finite FootprintedRuns with the same exact cost.
+MarkedStreamFootprints supplies analogous real-copy/flip bounds and idle-tape
+facts. Arbitrary dirty ancestors do not add runtime.
 
-| Module | Checked interface |
-|---|---|
-| `Model` | Fixed finite state/alphabet/tape types; literal write/unit-move steps; exact runs and stack-tape primitives |
-| `Locality` | Finite transition table; scanned-symbol-only decisions; exact all-cell locality; deterministic executions |
-| `Composition` | Concrete finite sum-control composition with one charged, stationary handoff |
-| `Absolute` | Exact-cost realization in the absolute integer-head/cell semantics used by multiplication work |
-| `Trace` | Unit-speed head reach; sharp write cone; protected regions; whole idle tapes |
-| `FrameRule` | Actual finite read/write footprints; lockstep dirty-data simulation; completed runs include terminal observations |
-| `TM2Compiler` | Finite syntax-address control; every source macro is charged at most twice its statement depth |
-| `TM2HeterogeneousCompiler` | Dependent stack alphabets embedded in a finite tagged sum; typed-tag preservation and exact output decoding |
-| `Complexity` | Runtime witnesses tied to actual execution, halt and output; concrete quadratic bounds imply standard Big-O |
-| `AsymptoticTransport` | Completed source contracts compile at explicit cost; fixed or uniformly bounded depth; independently charged adapters |
-| `SubroutineContracts` | Fixed finite-stage scheduler, literal handoffs, exact sum of stage costs plus handoffs, volume invoice and spectator prefixes |
-| `VerifiedPipeline` | Compiler, physical runtime, encoded output and completed dirty-frame theorem assembled without an extra assumption |
-| `Examples` | A concrete three-tape/four-symbol copy program, universally correct on arbitrary dirty tapes in one actual step |
+`OutputNormalization.compiled_fixedWidth` is an actual two-stack finite TM2
+program compiled to real multitape transitions. From the actual MSB-first list
+`(fixedBits w n).reverse`, with n<2^w, it empties the source and emits canonical
+`Nat.bits` before any existing output suffix in at most **10(w+1)** physical
+transitions. The source takes exactly w+1 macrosteps, including EOF. Pure binary
+lemmas are extracted from our Problem1.8 proof and independently checked using
+only Mathlib. Upstream already has normalization; this supplies lightweight
+interoperability with this toolkit, not new normalization mathematics. An
+origin-anchored upstream buffer adapter or LSB-to-MSB reversal is additional work.
 
-The complete interfaces and worked application patterns are in [API.md](API.md).
-[PROOF.md](PROOF.md) states the mathematical scope and assembly argument.
-[FRONTIER.md](FRONTIER.md) pins the nearby PRs and explains the contribution's
-relation to the current transfer frontier.
+The retained `VerifiedPipeline.compile_completed_frame` turns actual halted
+fixed heterogeneous TM2 executions into absolute-coordinate multitape runs with
+charged bounded overhead and same-cost finite-frame replay. API.md maps the
+compiler, frame, locality, trace, scheduler and asymptotic interfaces.
 
-## Reproduce
+## Verification
 
-The inexpensive registered replay uses standard-library Python only:
-
-```sh
-python3 -I -B research/multitape-proof-toolkit/verify.py --out ../toolkit-finite-result
-```
-
-It checks the exact source inventory, finite dirty-copy/dispatch/write-move/tag
-fixtures, and report-consumer corruption controls. Its result explicitly says
-`kernel_check: not_run`. It does not replace the formal replay below.
-
-The full formal replay requires the pinned **Lean 4.34.1** and the cached exact
-Mathlib/dependency revisions in `lean/lake-manifest.json`. With that environment
-already installed:
+Lean 4.34.1 and Mathlib d13f23b723b8a846827a245b89c10fc7d3f11612 are pinned in
+lean/lean-toolchain and lean/lake-manifest.json. With that separately installed
+environment, run from this package:
 
 ```sh
-python3 -I -B research/multitape-proof-toolkit/replay.py \
-  --lean /path/to/lean-4.34.1/bin/lean \
-  --cache-project /path/to/project-with-the-pinned-lake-packages \
-  --out ../toolkit-kernel-result
+python3 -I -B verify.py
+python3 -I -B replay.py --out /tmp/fresh-toolkit-check --cache-project /path/to/pinned/cache --lean /path/to/lean
 ```
 
-For a fresh environment, `cd research/multitape-proof-toolkit/lean`, then use
-the pinned `lean-toolchain`, `lake update`, and `lake exe cache get` to install
-dependencies before replay. These setup commands can use the network; the
-replay itself does not download anything. `--cache-project` can then name this
-`lean` directory. Derived `.lake` and `__pycache__` directories are not package
-sources. The source manifest otherwise checks an exact file inventory.
+The first command verifies immutable source hashes, finite controls and report
+rejection controls; it does not run Lean. The second rebuilds EVERY module into
+a new external directory and audits ALL declarations by their defining module,
+including private/global/generated helpers. Only propext, Classical.choice and
+Quot.sound are allowed. Real Lean fixtures test private/global coverage and
+reject unused private axioms, public axioms and unproved private theorems. It
+also checks exact declaration inventory against expected/AXIOMS.json. The cache
+supplies only pinned Mathlib dependency libraries; no existing toolkit artifact
+is imported by the fresh build. Outputs must stay outside the package.
 
-Every package proof module is rebuilt serially into a **new external output
-directory**. The audit enumerates declarations by their **defining module**,
-including private and globally named helpers, compares the exact pinned
-`expected/AXIOMS.json` inventory, and collects transitive axioms
-for every one. It rejects locally declared axioms and dependencies beyond
-`propext`, `Classical.choice`, and `Quot.sound`. Actual Lean fixtures verify
-private/global ownership coverage and rejection of public axioms, unused
-private axioms, and a private unproved theorem. No missing compiler, empty
-report, skipped module, or parser-only path can count as formal success.
-
-`VALIDATION.json` records the completed local validation. Hosted CI and external
-human review are separate from that evidence. Generic registered-package replay
-checks the source/finite layer; Lean needs the dedicated formal environment.
-The ready CI recipe is [ci/formal.yml](ci/formal.yml); copy it to the displayed
-workflow path to activate it. No hosted run is claimed by this package.
-
-## Applying this to the multiplication frontier
-
-1. Implement a concrete finite program or source TM2 routine. Keep unbounded
-   words on tapes/stacks, not in the control register.
-2. Prove its actual execution, halt, and output contract. Instantiate the
-   compiler with a fixed syntax-depth bound.
-3. Compose concrete tape-compatible stages with the scheduler. Its `k` is fixed
-   before input quantifiers; count every one of its `k` handoffs.
-4. Protect dirty ancestors using an actual footprint or checked idle-table
-   certificate. Idle writes alone do not imply that dirty symbols are unread.
-5. Charge each I/O adapter separately and use the asymptotic transfer theorems
-   only after both source and adapter bounds have been established.
-
-This provides formal reusable implications for other contributors' program,
-footprint, and cost certificates. It is independent of any numerical supplier
-search or claimed exponent improvement.
+VALIDATION.json binds the final proof/auditor sources and independent audit.
+MANIFEST.json hashes every shipped source and document; an external upload
+receipt separately binds that complete manifest. Finite simulations support
+interface review; universal proof evidence is the Lean kernel/axiom audit.
+Hosted CI and independent human review are not claimed. ci/formal.yml is an
+optional dedicated workflow recipe; generic VERIFY.json runs only Python checks.
 
 ## Open next questions
 
-- Instantiate the completed-frame rule on the concrete park/call/restore
-  controller from PR1379. First supply its literal table and actual visited
-  cells; its physical stream moves and recursive caller are not this toolkit's
-  generic theorem. This would replace endpoint-only restoration with a usable
-  completed-runtime guarantee.
-- Supply charged serialized-input and canonical-output adapters for the
-  upstream `x#y` or Mathlib tagged-pair conventions. Start with one fixed parser
-  and a padding/reversal loop; the physical program and uniform cost proofs are
-  required before claiming I/O interoperability.
-- Extend the fixed-stage scheduler to a concrete recursive dispatcher with
-  explicit on-tape call-stack control. Start with a single size-decreasing
-  two-child caller; proving its row routing and parameter-independent overhead
-  is a separate construction.
+1. Connect an arithmetic child using its actual physical Runs/Halts contract.
+2. Implement and charge the upstream origin-anchored buffer-to-stack adapter.
+3. Assemble on-tape recursive control, physical row routing and the recurrence.
 
-These next steps are recorded structurally in `TASK.json` so other contributors
-can locate the precise interfaces and continue with their own computation.
-
-## Credit
-
-New proof implementations and replay tooling were prepared with substantial
-OpenAI Codex assistance and three parallel Codex agents. The machine vocabulary
-builds on Mathlib's tapes and TM2. The inspected absolute-coordinate convention
-and the motivating frontier are credited in [NOTICE.md](NOTICE.md) and
-[FRONTIER.md](FRONTIER.md). Original upstream sources are not changed or
-silently replaced. New work is Apache-2.0.
+The supplied theorems are sufficient and universal at their stated interfaces;
+the package does not assert the complete fast multiplication theorem.
+See PROOF.md, API.md, FRONTIER.md and NOTICE.md for scope and attribution.

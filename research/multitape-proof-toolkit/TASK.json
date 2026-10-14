@@ -1,37 +1,36 @@
 {
   "scope_status": "changed",
   "author": "Submitting contributor; prepared with OpenAI Codex assistance.",
-  "actual_scope": "Universal finite multitape compiler/frame/scheduler theorems and a complete replay/audit toolkit; no selected-profile or kappa change.",
+  "actual_scope": "Reusable finite multitape compiler/frame theory, actual all-length park/call/restore controller and footprint proofs, and a charged canonical-output converter; no selected-profile or kappa change.",
   "schema_version": 1,
-  "bottleneck_link": "Fixed-tape all-size transfer and restoration must be justified before finite supplier improvements imply a complete runtime theorem; PR1379 names the frame/composition boundary.",
+  "bottleneck_link": "PR1379 gives literal parking/return tables and a written all-length invoice; the package supplies actual finite control, exact Lean Runs/Halts, whole-bank restoration and every-prefix parking footprint proofs.",
   "ai_assistance": "Substantial OpenAI Codex assistance in theorem design, implementation, review and packaging, with three parallel Codex agents. No independent human review claimed.",
-  "base_commit": "81e81af67714bdc8d1693b0bf5c29468b92f62ff",
+  "base_commit": "858771bcca3b8dd5d4ef4aa682a13cc9b7e23920",
   "outcome": "completed",
   "stop_rule": "Finish after the frozen assembly and every package declaration pass independent fresh kernel/axiom checks, required negative controls and upload preflight; do not search for a new kappa.",
-  "budget_minutes": 60,
   "open_questions": [
     {
-      "why_it_matters": "Connects proved primitive restoration to same-cost completed child execution.",
-      "blocked_by": "Concrete physical stream moves and recursive caller certificates are not supplied by the generic theorem.",
-      "first_step": "Provide the PR1379 controller table and exact actual visited cells for one child.",
-      "question": "Instantiate completed dirty frames on a literal park/call/restore controller."
+      "question": "Connect a verified multiplication child to the literal caller.",
+      "why_it_matters": "Lets checked arithmetic routines use the supplied physical park/call/restore wrapper and its exact cost.",
+      "first_step": "Prove actual childInput-to-childOutput Runs and Halts for the concrete child and apply ParkingController.wrapper_correct.",
+      "blocked_by": "The supplied closed child flips bits; arithmetic correctness of a replacement remains its own proof."
     },
     {
-      "why_it_matters": "Connects compiled routines to the upstream or Mathlib multiplication I/O statements.",
-      "blocked_by": "Actual adapter programs and input-independent cost proofs are required.",
-      "first_step": "Implement one fixed parser plus a padding or reversal loop and prove its local steps.",
-      "question": "Prove charged serialized-input and canonical-output adapters."
+      "question": "Connect origin-anchored upstream output to the canonical stack converter.",
+      "why_it_matters": "Relates existing multiplication output conventions to Nat.bits with charged real transitions.",
+      "first_step": "Prove the physical upstream buffer-to-stack input adapter; apply OutputNormalization.compiled_fixedWidth to the actual MSB-first list.",
+      "blocked_by": "Origin anchoring, input parsing and any needed LSB-to-MSB reversal must be implemented and charged."
     },
     {
-      "why_it_matters": "Lets finite supplier certificates feed a complete physical recursive execution.",
-      "blocked_by": "Row routing, concrete recursion control, and its uniform cost argument.",
-      "first_step": "Implement a two-child caller with an on-tape call stack and explicit head/frame boundaries.",
-      "question": "Extend the finite scheduler to a concrete size-decreasing recursive caller."
+      "question": "Assemble an actual size-decreasing recursive multiplier.",
+      "why_it_matters": "Turns finite supplier certificates into complete recursive physical execution.",
+      "first_step": "Prove on-tape call-stack control, row routing and its recurrence using the provided frame/cost boundaries.",
+      "blocked_by": "The fixed-stage wrapper does not itself implement dynamic recursion or prove the fast multiplication theorem."
     }
   ],
   "task_id": "uniform-transfer-audit",
   "evidence": "VALIDATION.json records fresh exact-version serial module rebuilding, complete defining-module axiom coverage, real negative fixtures and source/finite controls.",
-  "scope_change_reason": "The user explicitly requested a broad reusable theory and proof-infrastructure contribution instead of numerical kappa optimization; the package proves finite compiler, completed-frame, and fixed-stage cost implications together.",
+  "scope_change_reason": "The user explicitly requested reusable proofs and infrastructure rather than numerical optimization. This extension of PR1641 instantiates the generic toolkit on real parking primitives and an actual child, and extracts pure Problem1.8 output lemmas without any personal-library import.",
   "original_card": {
     "id": "uniform-transfer-audit",
     "question": "Can one exact all-size/compiler, precision, hosting or restoration implication be proved or falsified?",

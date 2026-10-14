@@ -55,3 +55,23 @@ meet that boundary. Every handoff is charged explicitly.
 - Treat the finite reference fixtures as implementation controls, and the
   complete `replay.py` run as the kernel/axiom evidence.
 
+
+## Concrete reusable construction extension
+
+| Need | Interface | Actual conclusion |
+|---|---|---|
+| Tag distinct finite controls | `Absolute.ControlEmbedding.lift_runs`, `lift_halts` | Same physical execution and cost |
+| Marked-stream local representation | `Absolute.MarkedStreams.cellView`, `Physical`, `bank2_step` | Literal write/unit-move semantics, arbitrary past |
+| Transfer and real child | `Absolute.MarkedStreams.move_runs`, `flip_runs` | Exact2n+2 transitions and head-restored output |
+| Push/pop | `Absolute.ParkStack.push_correct`, `pop_correct` | Exact2n+2 /3n+5 and full literal banks |
+| Initialize/remove markers | `Absolute.MarkerLifecycle.marker_run`, `install_remove_cells` | Real two-step operations; full-cell restoration under blank marker sites |
+| Reusable caller | `Absolute.ParkingController.wrapper_correct` | Actual changing-length child gives cost2|x|+2|z|+5|y|+16+t and true halt |
+| Closed finite controller | `Absolute.ParkingController.boundary_machine_correct` | Real bit-flip child, every length, exact6|x|+5|y|+18, full endpoint |
+| Copy/flip observed regions | `Absolute.MarkedStreams.move_footprints`, `flip_footprints` | Actual bounded FootprintedRuns and spectator footprints |
+| Parking observed regions | `Absolute.ParkFootprints.pop_completed_footprint`, `push_completed_footprint` | Actual finite footprints, marker floors, old-prefix preservation |
+| Canonical output | `OutputNormalization.compiled_normalize`, `compiled_output`, `compiled_fixedWidth` | Actual compiled source empty/output and physical bound10(input.length+1) |
+
+Names are taken from actual defining modules; inspect exact binders before use.
+The controller assumes marked word banks; the output converter assumes the
+compiler's stack representation and a real MSB-first input list. Neither hides
+a buffer placement or reversal cost.

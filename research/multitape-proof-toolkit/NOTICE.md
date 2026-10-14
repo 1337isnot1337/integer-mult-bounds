@@ -24,3 +24,21 @@ The package proves its displayed universal sufficient machine/transfer results.
 It changes no supplier, selected record or kappa and does not represent a
 formal verification of the full fast multiplication theorem. Local kernel
 checks, hosted CI, public submission and external human review are distinct.
+
+## Parking and binary-proof reuse
+
+ParkStack modifies the Apache-2.0 PR64 TapeStack.lean/TapeStackPush.lean primitives
+by rfu08, pinned at bce54fb3f895cbe5cd4c0eb477c3afeed100190f: actual optional
+halting, generic physical tape selection, absolute cells/heads and arbitrary past.
+The root LICENSE retains the upstream Apache-2.0 text. PR1379 by commdata2338
+(head3a45bd089ad56c38b55da8d80d7b056f2d90e5fa) supplies the written caller/table
+lineage; the tagged assembly and trace proof are supplied here.
+
+BinaryCanonicalOutput narrows fixed-width binary lemmas from our independently
+formalized Problem1.8 output adapter. The portable module contains the pure
+proofs and their Mathlib imports; personal RAM/TM modules are not shipped/imported.
+PORTING.json records canonical and portable source hashes and exact import rewrites.
+
+Platypii is reference-only: no platypii implementation or proof source is copied.
+Its existing normalize_exists/carryOut_exec overlap is acknowledged in FRONTIER.md.
+No upstream normalization novelty or complete fast multiplication result is claimed.

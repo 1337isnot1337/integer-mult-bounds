@@ -106,3 +106,28 @@ family has an explicit common overhead; this alone does not make an
 input-dependent family into one fixed machine. No fast multiplication program,
 new kappa, selected supplier admission, or whole recursive implementation is
 deduced from the toolkit in isolation.
+
+## Concrete boundary proof
+
+The child-independent closed construction fixes 5 tapes, 4 symbols and 90 states
+before choosing x,y,h,past. Its finite sum tags each primitive phase; a 6-stage
+physical scheduler includes an initial halted stage and 5 real routines.
+Actual stage costs are 0,2|y|+2,2|x|+2,2|x|+2,2|x|+2,3|y|+5; 5 stationary
+handoffs yield6|x|+5|y|+18. Every boundary is literal equality of all tape cells
+and integer heads. The final stage halts with no next transition. The generic
+wrapper has an explicit actual child execution premise, but the bit-flip
+instance discharges it using its concrete table, not an oracle.
+
+The arbitrary ancestor function is used only below the old parking separator.
+Direct actual-transition phase invariants bound parking, output and temporary
+heads for EVERY execution prefix. Bit branches cannot cross preserved separator
+cells. Induction decorates the real Runs proof with finite observed footprints;
+the write-frame theorem and marker invariance preserve the entire old prefix.
+
+Canonical normalization consumes the actual MSB input, skips its leading zero
+bits, pushes remaining bits and charges EOF. This reverses order through actual
+push operations. A six-value finite register tracks only seen-one and an optional
+held bit; width and n are proof parameters, not machine registers. Source length+1
+steps compile with overhead10. The pure fixedBits/trim proof establishes Nat.bits.
+The theorem reads the actual output stack and preserves any old suffix; it makes
+no assertion about an origin-anchored upstream output tape.
