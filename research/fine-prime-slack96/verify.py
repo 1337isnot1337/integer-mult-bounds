@@ -50,7 +50,7 @@ def main():
         raw=urllib.request.urlopen(base+'MANIFEST.json').read();assert hashlib.sha256(raw).hexdigest()==info['manifest_sha256'];(dependency/'MANIFEST.json').write_bytes(raw)
     for n,h in dpins.items():assert sha(dependency/n)==h,n
     assert sha(P/'inputs/SPEC.json')==sha(dependency/'new/SPEC.json')
-    run('inherited-outer',dependency/'outer/run_outer.py',work/'inherited-outer')
+    run('inherited-outer',P/'replay_outer.py',dependency,work/'inherited-outer')
     run('supplier',dependency/'verify.py','--work',work/'supplier','--audit-shards','1')
     result=read(work/'supplier/RESULT.json');asm=read(work/'supplier/strict/ASSEMBLY.json');spec=read(P/'inputs/SPEC.json');bj=read(P/'inputs/B.json')
     assert result['status']=='PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION'
