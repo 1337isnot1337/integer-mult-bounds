@@ -27,14 +27,26 @@ audits one hosted residual: one invocation residual factor of width `w` hosted
 on a block `S'` of an idle family's pending set `S`, moved from the invocation
 to the idle child's advance.
 
-**Finding 1 (operator gauges, exact).** The hosting move leaves the complete
-operator unchanged exactly when the moved factor is the advance's own factor on
-`S'`, no non-commuting touch of the host occurs strictly between the residual
-application and the advance, and hosted blocks are disjoint (order preserved).
-Each dropped gauge has a smallest counterexample as composed linear maps
-(3x3 shears): an escaping block gives a different endpoint, an out-of-window
-touch that does not commute with the moved factor breaks the composition, and
-overlapping blocks are order-dependent.
+**Finding 1 (operator gauges, exact; sufficient hypotheses).** The hosting move
+leaves the complete operator unchanged whenever the moved factor is the
+advance's own factor on `S'`, no touch of the host occurs strictly between the
+residual application and the advance (more generally, every such touch commutes
+with the moved factor), and hosted blocks are disjoint (order preserved). These
+are the inherited hosting interface's sufficient legality hypotheses, not a
+necessary condition for operator equality, and no necessity claim is proved
+here for any class. Exact 3x3 counterexample over Q, kept as the regression
+control `cancellation-equality-not-rejected` in `verify.py`: `R = I + E01`,
+`T = I + E12`, `T^{-1} = I - E12`. Both `T` and `T^{-1}` fail to commute with
+`R`, yet moving `R` across the consecutive touches `T, T^{-1}` preserves the
+complete operator, `T^{-1} T R = R T^{-1} T = R`. Cancellation routes like this
+one are not closed by this receipt. Each dropped hypothesis still has a
+smallest counterexample as composed linear maps (3x3 shears): an escaping block
+gives a different endpoint, a single out-of-window touch that does not commute
+with the moved factor breaks the composition, and the exhibited overlapping
+blocks are order-dependent. Those controls show the hypotheses cannot simply be
+deleted; they do not establish necessity. The tiny cut examples below
+(including the 156 restored-host regions) and the selected no-touch hosting
+rule remain valid as they stand.
 
 **Finding 2 (credit binding on the smallest complete instances).** With hosts
 restored and the clean scatter `Y' = Y + S X` demanded at height 0 (PR 1664's
@@ -70,6 +82,10 @@ PR 1664's section 7 warning.
 
 ## What this does not establish
 
+- Finding 1's operator-level hypotheses are sufficient only. A necessity claim
+  would have to be restricted to a stated class and proved there; any such
+  class must provably exclude cancellation examples such as the `T, T^{-1}`
+  control above, which this receipt deliberately leaves open.
 - No bank-tile physics: the replaced bank write/clear mass is not modeled; the
   claim "one bank tile of width `w` eliminated" is compared only through the
   credit shape `w*|a-b|` per host row.

@@ -15,8 +15,10 @@ for restored hosts and clean scatter Y' = Y + S X at height 0.
 
 This script implements (C-down) and the crossing feasibility condition exactly,
 and audits the *credit binding* of the idle-axis hosted-residual mechanism
-(research/idle-axis-hosting/PROOF.md): which entry/exit gauges make a hosting
-move operator-identical, and how much mass a hosted pending factor may claim
+(research/idle-axis-hosting/PROOF.md): which entry/exit gauges *suffice* to make
+a hosting move operator-identical (sufficient legality hypotheses of the
+inherited interface; not claimed necessary -- see the cancellation control
+below), and how much mass a hosted pending factor may claim
 credit for.  All checks are exact rational arithmetic; entry rows are
 identity-basis rows (arbitrary dirty content), so row equality covers every
 dirty input by linearity.
@@ -211,6 +213,9 @@ def check_operator_gauges():
     The hosted version applies I_mu' (the advance off the hosted block) followed
     by the moved factor; the gauges make that equal the original advance I_mu.
     Controls: escape, overlap order dependence, out-of-window touch.
+    The gauges are sufficient legality hypotheses only: each control shows one
+    hypothesis cannot simply be deleted, not that any of them is necessary for
+    operator equality (see check_cancellation_control).
     """
     d = 3
     moved = shear(d, 0, 2)        # hosted pending factor on S'={0}
@@ -230,16 +235,58 @@ def check_operator_gauges():
     # overlap: two moved factors on overlapping blocks do not commute
     m1, m2 = shear(d, 0, 1), shear(d, 1, 0)
     report("gauge-overlap-order-refuted", matmul(m1, m2) != matmul(m2, m1),
-           "overlapping hosted blocks are order-dependent: disjointness (count "
-           "each pending factor once) is required for an order-free composition")
+           "the exhibited overlapping hosted blocks are order-dependent; "
+           "disjointness (count each pending factor once) is the inherited "
+           "interface's sufficient premise for an order-free composition")
     # out-of-window touch: an intervening touch T between the residual write at
     # I1 and the advance at I_mu; hosting moves the factor past T
     T = shear(d, 2, 0)
     total_orig_w = matmul(ip, matmul(T, moved))
     total_hosted_w = matmul(imu, T)
     report("gauge-window-refuted", total_orig_w != total_hosted_w,
-           "an intervening touch that does not commute with the moved factor "
-           "breaks the composition: the window condition is required")
+           "a single intervening touch that does not commute with the moved "
+           "factor breaks the composition: the no-touch window is a sufficient "
+           "premise, not a necessary one (see the cancellation control)")
+
+
+def commute(a, b):
+    return matmul(a, b) == matmul(b, a)
+
+
+def check_cancellation_control():
+    """Regression control: the sufficient-only hypotheses must NOT reject a
+    genuine equality (reviewer's counterexample, PR 1837 comment 6173237648).
+
+    Over Q take R = I + E01, T = I + E12, T^{-1} = I - E12.  Both T and T^{-1}
+    fail to commute with R, so the sufficient window premise ("no intervening
+    touch of the host", or "every intervening touch commutes with the moved
+    factor") is not met in this instance; yet moving R across the consecutive
+    touches T, T^{-1} preserves the complete operator:
+
+        T^{-1} T R = R T^{-1} T = R.
+
+    This is a genuine equality (the touches cancel as a composite), checked
+    below with this package's composed-linear-map machinery (exact integer
+    arithmetic on these entries).  The corrected condition is sufficient only,
+    so it must accept this instance rather than reject it: premise failure is
+    not an operator change, and cancellation-based routes stay open.
+    """
+    d = 3
+    r = shear(d, 0, 1)                    # R = I + E01
+    t = shear(d, 1, 2)                    # T = I + E12
+    tinv = eye(d)
+    tinv[1][2] = -1                       # T^{-1} = I - E12
+    premise_met = commute(r, t) and commute(r, tinv)
+    lhs = matmul(matmul(tinv, t), r)      # T^{-1} T R
+    rhs = matmul(r, matmul(tinv, t))      # R T^{-1} T
+    report("cancellation-touches-noncommuting", not premise_met,
+           "T = I + E12 and T^{-1} = I - E12 each fail to commute with "
+           "R = I + E01, so the sufficient window premise is not met here")
+    report("cancellation-equality-not-rejected", (not premise_met) and lhs == rhs == r,
+           "T^{-1} T R = R T^{-1} T = R = [[1,1,0],[0,1,0],[0,0,1]] exactly, so the "
+           "sufficient-only condition must NOT reject this instance: absence of "
+           "individually noncommuting touches is sufficient, not necessary, and "
+           "cancellation-based routes remain open")
 
 
 def check_engine_canonical():
@@ -351,6 +398,7 @@ def main():
     check_smallest_falsifier()
     print("--- operator gauges ---")
     check_operator_gauges()
+    check_cancellation_control()
     print("--- credit accounting ---")
     check_engine_canonical()
     check_prepositioned_dirt()
