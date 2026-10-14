@@ -26,8 +26,8 @@ def load(n):
  s=importlib.util.spec_from_file_location(n,P/'engines'/(n+'.py'));m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
 M,B,A=[load(n)for n in ('moment','base_two_moment','outer')]
 def dec(x):
- with localcontext()as ctx:ctx.prec=505;return str(Decimal(x.numerator)/Decimal(x.denominator))
-import sys as _sys;_sys.path.insert(0,str(Path(__file__).resolve().parent));import fine_moment as BF,fine_mercator as MF,fine_cache as FC
+ with localcontext()as ctx:ctx.prec=70;return str(Decimal(x.numerator)/Decimal(x.denominator))
+import sys as _sys;_sys.path.insert(0,str(Path(__file__).resolve().parent));import fine_moment as BF,fine_mercator as MF
 from witness import SPEC,DISPATCH,CALL_ORDER,COUNTS,PIDS,X,DISCOVER,pin,SPOT,spot_widths,GEO,REPLICAS,CALLS,DATA,DEFICIT,PAYLOAD,PARENT_LIVE,PARENT_PHYSICAL,PARENT_IDLE,PARENT_HELPERS
 # Cited bit supplier: PR589's tune/EXPECTED.json (merged on main as research/e8-bit-p111-tuned/tune/EXPECTED.json).
 BIT_PATH=Path(__file__).resolve().parents[1]/'inputs/PR589-EXPECTED.json'
@@ -192,20 +192,14 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
   assert m*W-sum(r*n for r,n in h.items())==deficit and m*m>2*max(h)**2
   rows=[]
   def certify(z,accept,eM,eB):
-   if eM is MF:   # finer engines: memoised across stages and prefetched concurrently (fine_cache.py); results are the engines' own outputs
-    l,u=FC.moment('fine_mercator',h,m,W,z,bad);ll,uu=FC.moment('fine_moment',None,m,W,z,False,list(h.items()))
-    if bad:
-     fl,fu=FC.moment('fine_moment',None,m,W,z,False,[(1,32*m*m*sum(h.values()))]);ll+=fl/10**16;uu+=fu/10**16
-   else:
-    l,u=eM.moment(h,m,W,z,bad);ll,uu=eB.moment(m,W,list(h.items()),z)
-    if bad:
-     fl,fu=eB.moment(m,W,[(1,32*m*m*sum(h.values()))],z);ll+=fl/10**16;uu+=fu/10**16
+   l,u=eM.moment(h,m,W,z,bad);ll,uu=eB.moment(m,W,list(h.items()),z)
+   if bad:
+    fl,fu=eB.moment(m,W,[(1,32*m*m*sum(h.values()))],z);ll+=fl/10**16;uu+=fu/10**16
    assert (u<1 and uu<1)if accept else(l>1 and ll>1)
    rows.append(dict(side=side,surcharge=bad,endpoint=str(z),accept=accept,mercator=[str(l-1),str(u-1)],base_two=[str(ll-1),str(uu-1)]))
   coarse=Q((lower*10**24).__floor__(),10**24)   # retained engines certify the inherited 1e-24 bracket containing the endpoint
   certify(coarse,True,M,B);certify(coarse+Q(1,10**24),False,M,B)
   if digits>24:   # finer-constant copies of both engines certify the 1e-digits bracket (accept at the endpoint, reject at endpoint+1e-digits)
-   FC.prefetch([dict(name=nm,H=hh,m=m,W=W,z=zz,bad=bb,entries=ee) for zz in (lower,lower+Q(1,10**digits)) for nm,hh,bb,ee in [('fine_mercator',h,bad,None),('fine_moment',None,False,list(h.items()))]+([('fine_moment',None,False,[(1,32*m*m*sum(h.values()))])] if bad else [])])
    certify(lower,True,MF,BF);certify(lower+Q(1,10**digits),False,MF,BF)
   return rows
  bitH={int(r):n for r,n in bit['profile'].items()}

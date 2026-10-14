@@ -1,8 +1,8 @@
 """Higher-precision independent base-two moment enclosure (same algorithm as base_two_moment.py, finer constants)."""
 from fractions import Fraction as Q
-GRID = 10**430
-LOG_TERMS = 450
-EXP_TERMS = 120
+GRID = 10**550
+LOG_TERMS = 600
+EXP_TERMS = 150
 def require(c, msg):
     if not c: raise ValueError(msg)
 def log_unit(x):

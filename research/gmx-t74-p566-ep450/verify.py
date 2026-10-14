@@ -22,6 +22,8 @@ old=P/'vendor/pr1297'
 for n in ['PLAN.json','OWNERS.json.gz','GLOBAL-TEMPLATE.json.gz','DISPATCH.json','SPEC.json']:assert rd(P/'inputs'/n)==rd(old/n),n
 env['FINE_ENGINE_CACHE']=str(work/'fine-cache')
 run('fine-engine-oracle',P/'code/oracle_check.py')
+run('fine-log-enclosure-oracle',P/'log_enclosure_audit.py','--out',work/'LOG-ENCLOSURE.json')
+run('rounded-exponential-reference-controls',P/'rounded_exp_audit.py','--out',work/'ROUNDED-EXP.json')
 opts=[]
 for key,path in [('base',a.base_native_from),('extra',a.extra_native_from)]:
  if path:opts.extend(['--'+key+'-native-from',path.resolve()])
