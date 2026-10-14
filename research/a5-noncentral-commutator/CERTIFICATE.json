@@ -1,0 +1,157 @@
+{
+  "arithmetic": "Each group-algebra element is a 60-bit coefficient vector. Multiplication XORs left translates; matrices use exact 2x2 multiplication over F2[A5].",
+  "arithmetic_controls": {
+    "GL2_F2_elements_checked_for_conjugation_closure": 6,
+    "binary_2x2_matrices_exhaustively_checked_for_projectors": 16,
+    "dense_products_checked_against_slow_convolution": 32,
+    "distinct_paid_operations": 24,
+    "group_basis_products_checked": 3600,
+    "rank_one_idempotents_found": 6,
+    "two_sided_inverse_products_checked": 48
+  },
+  "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+  "cost": {
+    "direct_upper_bound": 8,
+    "saving_fraction": "1/8",
+    "saving_target_calls": 1,
+    "tested_threshold": 7
+  },
+  "minimum_paid_calls": 8,
+  "model": {
+    "a_image_list_zero_based": [
+      1,
+      2,
+      3,
+      4,
+      0
+    ],
+    "b_image_list_zero_based": [
+      1,
+      2,
+      0,
+      3,
+      4
+    ],
+    "commutator_image_list_zero_based": [
+      3,
+      0,
+      2,
+      1,
+      4
+    ],
+    "commutator_noncentral_witness": "ca != ac",
+    "commutator_order": 3,
+    "commutator_shortest_word": "abAB",
+    "formal_ring": "F2[A5]",
+    "free_scalar_GL2_normalized_by_conjugating_projectors": true,
+    "group": "A5",
+    "group_order": 60,
+    "inverse_shortest_word": "baBA",
+    "paid_call_alphabet_size": 24,
+    "paid_labels": [
+      "a",
+      "A",
+      "b",
+      "B"
+    ],
+    "rank_one_idempotents": [
+      [
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0
+      ]
+    ],
+    "roles": 2
+  },
+  "result": "NO_WORD_OF_LENGTH_AT_MOST_SEVEN",
+  "search": {
+    "best_word": null,
+    "direct_eight_call_word": [
+      [
+        3,
+        "a"
+      ],
+      [
+        3,
+        "b"
+      ],
+      [
+        3,
+        "A"
+      ],
+      [
+        3,
+        "B"
+      ],
+      [
+        0,
+        "b"
+      ],
+      [
+        0,
+        "a"
+      ],
+      [
+        0,
+        "B"
+      ],
+      [
+        0,
+        "A"
+      ]
+    ],
+    "method": "exact radius-3 prefix-state set against every radius-4 suffix word",
+    "negative_control_one_role_target_in_radius3": false,
+    "prefix_state_sha256_sorted_matrix_bytes": "4fd10e80fc67523b039c5ef0e18f7df635b5c59f4b7c40a5d6ca43dc95a37d91",
+    "prefix_suffix_matches": 0,
+    "prefix_unique_state_counts_by_exact_minimum_depth": [
+      1,
+      24,
+      400,
+      6051
+    ],
+    "prefix_unique_states_total": 6476,
+    "suffix_matrix_stream_sha256": "f5d972f406f6c4de1b18b939228494d65813c195d3ca81d537de3e968dc39dae",
+    "suffix_nodes_total": 346201,
+    "suffix_ordered_words_visited_by_depth": [
+      1,
+      24,
+      576,
+      13824,
+      331776
+    ]
+  },
+  "seed": "105bdc7c008d8e95710ae18653b8a901",
+  "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+}

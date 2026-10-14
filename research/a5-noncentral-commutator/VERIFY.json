@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Regenerate the exact A5 group-algebra search certificate; validate the 24-call inverse alphabet and free GL2 normalization; check the direct eight-call witness and the complete 3+4 meet-in-the-middle exclusion, including the one-role negative control.",
+      "timeout_seconds": 120
+    }
+  ],
+  "inputs": [
+    "docs/research/agent-task-catalog.json",
+    "certificates/selected-result.json",
+    "docs/research/community-batch1099-review.md",
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/bit-three-register-lower-bound/README.md",
+    "research/bit-dihedral-commutator/README.md",
+    "AGENTS.md",
+    "autoresearch.md",
+    "CONTRIBUTING.md"
+  ]
+}

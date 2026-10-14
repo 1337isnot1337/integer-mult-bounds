@@ -1,0 +1,48 @@
+{
+  "refresh": {
+    "prs": {
+      "fetched_at": "2026-10-14T08:55:19.786365Z",
+      "complete_pagination": true,
+      "records": 433
+    },
+    "discussions": {
+      "fetched_at": "2026-10-14T08:34:22.130980Z",
+      "complete_pagination": true,
+      "records": 383,
+      "refresh_error": "GitHub GraphQL API rate limit already exceeded; complete cache only"
+    }
+  },
+  "a5_exact_term_refresh": "2026-10-14T08:39:23Z; zero matches for A5 two-register group algebra, diag ab ba target, A5 register mechanism, five-cycle three-cycle paid calls. Final cached broad scan also found no A5 claim.",
+  "closest_scopes": [
+    {
+      "ref": "research/bit-dihedral-commutator; Discussion #1738",
+      "difference": "UT3(F2) central commutator; third dirty role question"
+    },
+    {
+      "ref": "Discussion #1163 comment #18919621",
+      "difference": "F2[S5], longest element on one role; not the A5 commutator inverse-pair target"
+    },
+    {
+      "ref": "Discussion #1317",
+      "difference": "broad binary affine arbitrary-register bound"
+    },
+    {
+      "ref": "Discussion #1700",
+      "difference": "four-register rational bit mechanism"
+    },
+    {
+      "ref": "Discussion #1727",
+      "difference": "four-register AGL2 mixed targets"
+    },
+    {
+      "ref": "PR #1716",
+      "difference": "three-register restricted AGL2 target triple"
+    }
+  ],
+  "submission": {
+    "branch": "codex/a5-noncentral-commutator-105bdc7c",
+    "fork": "1337isnot1337/integer-mult-bounds",
+    "pull_request": "not_created",
+    "error": "GitHub GraphQL API rate limit already exceeded for user ID 164028474"
+  }
+}
