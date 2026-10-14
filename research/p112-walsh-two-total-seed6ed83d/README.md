@@ -51,11 +51,12 @@ The first command writes `RESULT.json`; the next two recompute and validate it. 
 ## Overlap and contribution boundary
 
 - **PR #1197**, merged at head `a0935afff6cc5540a582c5881bc8d5f98b587357`, proves the two-extra-total floor for rank-one additions, off-column readers and disjoint supports. Its remaining coupled rank-two, overlapping-support case includes this parameter family. This package searches only its finite Walsh subfamily.
-- **PR #1923**, open at head `0d33d6020aa50d383067510df78dcc0515bba4f4`, searches 29,524 rational Householder gauges of one fixed symmetric ten-term witness and finds invoice 82 throughout. Here `D` and `T` use an asymmetric rank-two shear with independently chosen character planes, followed by four nonorthogonal basis changes. The factor matrices are not one common orthogonal gauge of that fixed symmetric witness.
+- **PR #1923**, merged at head `0d33d6020aa50d383067510df78dcc0515bba4f4`, searches 29,524 rational Householder gauges of one fixed symmetric ten-term witness and finds invoice 82 throughout. Here `D` and `T` use an asymmetric rank-two shear with independently chosen character planes, followed by four nonorthogonal basis changes. The parameterizations differ; this package does not claim that their candidate sets are disjoint.
 - **PR #2022**, open at head `92ee132d0baf07f7ddf0fbbcd12756be8429bbf7`, gives a broader at-most-eleven-total cost floor and cost-40 witnesses for its fixed Eisenstein decoder. This package makes no competing optimum claim; its added evidence is the exact profile census for the stated asymmetric family.
 - **PR #2021** concerns masked two-column completion rank, not this all-pairs ten-term factor invoice.
+- Active adjacent claims checked in the final board scan: #2003 studies a paired-tetrad masked decoder, #1952 a cyclic masked rank-three child profile, and #1987 a Karatsuba block inside the selected local word. They change different exactness, factor-count, or source-interface assumptions. #1693 is completed by PR #1703 and concerns retiming the selected word.
 
-The exact overlap snapshot and live claim are recorded in [Discussion #2028](https://github.com/CrocSwap/integer-mult-bounds/discussions/2028). The scoped claim is not a novelty certificate for other coefficient families.
+The final overlap refresh at 17:53:48–17:55:25 UTC had complete pagination, no warnings, 364 open PRs and 680 Discussion records. No competing Walsh-shear claim appeared. The live claim and its intermediate result are recorded in [Discussion #2028](https://github.com/CrocSwap/integer-mult-bounds/discussions/2028). The scoped claim is not a novelty certificate for other coefficient families.
 
 ## Open next questions
 

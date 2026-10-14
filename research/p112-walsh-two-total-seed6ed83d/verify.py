@@ -212,6 +212,12 @@ def compute():
     geometry.check_geometry(data)
     rows, profile_counts, by_basis, chars = candidate_rows(data)
     ctrl = controls(data, chars)
+    selected_sha = hashlib.sha256(
+        (ROOT / "certificates/selected-result.json").read_bytes()
+    ).hexdigest()
+    require(selected_sha ==
+            "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+            "selected record differs from the accepted seed's exact input")
     pinned_ceiling = json.loads((ROOT / "research/complex-local-word-ceiling/RESULT.json").read_text())
     selected_profile = {int(r): n for r, n in pinned_ceiling["selected"]["local_profile_per_call"].items()}
     selected_center = pinned_ceiling["model"]["centre_per_call"]
@@ -254,7 +260,7 @@ def compute():
         "seed": "6ed83d31ab93b3878e4fc74abdee2988",
         "task": "complex-rank-shape-decoder",
         "base_commit": "ec8707299e2f40918f5f96cdab99ee49cdbabcf0",
-        "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+        "selected_record_sha256": selected_sha,
         "model": {
             "geometry": "P112, XX^T=2G, exact all-pairs identity",
             "identity": "D=[X,XU], T=[X(I-VU^T),XV]",

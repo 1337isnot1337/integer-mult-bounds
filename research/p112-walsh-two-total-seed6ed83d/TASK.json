@@ -71,5 +71,38 @@
   "method": "Enumerate all 56 ordered distinct Walsh-character pairs independently for U and V. For each of identity, E12(+1), E12(\u22121), E21(+1), and E21(\u22121), set U_new=U M and V_new=V M^{-T}; verify U_new V_new^T=UV^T and the 8-dimensional factor identity exactly. Compute all ten support-pairing ranks with binary elimination, cross-check each against the pinned P112 geometry routine, census profiles, and price each profile with the pinned exact ceiling implementation.",
   "nearest_overlap": "PR1197 leaves the coupled full-rank overlapping-support case open and includes this subfamily. PR1923 searches a fixed symmetric witness Householder orbit (invoice 82). PR2022 reports a broader at-most-eleven-total floor and cost-40 witnesses for its fixed decoder. This work adds only a profile census for an asymmetric finite subfamily. PR2021 is masked completion rank, not this all-pairs factor invoice.",
   "favorable_budget": "A hypothetical ten-rank-one center invoice gives a ceiling near 0.004256765, above the selected 5% threshold 0.001774557. Actual domain census: ten-term histogram {8:8,9:2}, center 82; selected noncenter local mass 5522 is retained, giving ceiling upper 0.000834274164362. The ceiling allows fractional rank-51 idle packing and waives source, frame, adapter, restoration, hosting, precision, and interface costs.",
-  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2028"
+  "coordination": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2028",
+  "final_overlap_check": {
+    "open_prs": 364,
+    "discussions": 680,
+    "complete_pagination": true,
+    "warnings": [],
+    "searched_at": "2026-10-14T17:55:25Z",
+    "nearest_open_prs": {
+      "2022": {
+        "head": "92ee132d0baf07f7ddf0fbbcd12756be8429bbf7",
+        "scope": "at-most-eleven-total floor and cost-40 witnesses for its fixed Eisenstein decoder"
+      },
+      "2021": {
+        "head": "9943467c4b24d2050275a202e3866cfc522afbe7",
+        "scope": "masked two-column completion rank"
+      }
+    },
+    "nearest_merged_prs": {
+      "1197": {
+        "head": "a0935afff6cc5540a582c5881bc8d5f98b587357",
+        "scope": "coupled rank-two overlapping lifts remain open outside its covered cases"
+      },
+      "1923": {
+        "head": "0d33d6020aa50d383067510df78dcc0515bba4f4",
+        "scope": "Householder gauges of one fixed symmetric ten-term witness"
+      }
+    },
+    "adjacent_claims": [
+      "2003 paired-tetrad masked decoder",
+      "1952 cyclic masked rank-three child profile",
+      "1987 Karatsuba block in selected local word"
+    ],
+    "exact_walsh_shear_competitor_found": false
+  }
 }
