@@ -92,9 +92,9 @@
   "method_and_domain": "Enumerate all six rank-one idempotents in M2(F2) and all 24 factors. Verify D_N(si)^2=I. Build exact group-algebra matrix balls B0..B4 over the faithful 120-element permutation model of S5, then use inverse-prefix lookup from B0..B3 against B0..B4 to decide whether any word of length <=7 equals the fixed target.",
   "expected_evidence": "Exact group multiplication table, factor involution checks, complete B3/B4 state counts/digests, a 7-call-or-shorter witness if one exists, exact eight-call positive control, wrong-generator and dropped-factor controls, and full factor-cost ledger. If no shorter word exists, report only the scoped exact minimum eight in this formal model.",
   "claim_expiry_utc": "2026-10-15T01:11:01Z",
-  "claim_status": "The claim is posted in the mechanism-proposals hub Discussion #1167: https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18935952. It remains active until the bounded search package is handed off.",
+  "claim_status": "FINDING / HANDOFF posted to Discussion #1167 at https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18936078; claim released after exact result and PR #2196 were posted.",
   "remaining_obligations": [
-    "The registered CPython 3.12 package replay remains unrun locally because python3.12 is unavailable; observe the hosted package check after publication.",
+    "Observe the hosted PR checks; the registered CPython 3.12 package replay is unavailable locally.",
     "No native supplier, selected-result or kappa improvement is claimed."
   ],
   "local_verification": {
@@ -107,7 +107,8 @@
       "wrong-generator mutation differs"
     ],
     "registered_runner": "not yet run locally: repository runner requires Python 3.12; python3.12 is unavailable",
-    "package_metadata": "PASS_PACKAGE_METADATA_AND_PINS (check-only; not a mathematical acceptance check)"
+    "package_metadata": "PASS_PACKAGE_METADATA_AND_PINS (check-only; not a mathematical acceptance check)",
+    "hosted_checks": "All reported checks were QUEUED at PR head 3cdb6abcd702bc946ed9ba6d81413a81c75a12e6 when checked; no hosted pass is claimed."
   },
   "final_overlap_refresh": {
     "cached_complete_snapshot": {
@@ -135,10 +136,14 @@
     }
   },
   "publication": {
-    "status": "verified local package; ready to publish",
+    "status": "open focused PR; hosted checks queued at last observation",
     "path": "research/s5-inverse-fivecycle-seed52bf211c/",
     "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
-    "seed": "52bf211cbbc5cdf54a9c9460f2174659"
+    "seed": "52bf211cbbc5cdf54a9c9460f2174659",
+    "commit": "3cdb6abcd702bc946ed9ba6d81413a81c75a12e6",
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2196",
+    "discussion_handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18936078",
+    "head_status": "MERGEABLE; merge state UNSTABLE because all hosted checks were QUEUED when observed at 2026-10-14T23:20Z"
   },
-  "verified_at_utc": "2026-10-14T23:19:17Z"
+  "verified_at_utc": "2026-10-14T23:21:21Z"
 }
