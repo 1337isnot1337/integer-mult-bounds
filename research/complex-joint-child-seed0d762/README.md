@@ -78,6 +78,10 @@ The recipe pins the decompressed source word SHA256 `c2b294300760e1fd6eeab8c22c4
 
 In this worktree, direct replay passed under Python 3.14.7 both normally and with `-I -O`. Python 3.12 is not installed locally, so the registered `research_package.py --package` mathematical replay was not run here. `--check-only` passed its metadata and source-pin checks; it is not a mathematical acceptance check.
 
+## Review status
+
+Draft review is at [PR #1764](https://github.com/CrocSwap/integer-mult-bounds/pull/1764); the result handoff is [Discussion #1765](https://github.com/CrocSwap/integer-mult-bounds/discussions/1765). The draft status reflects the unproved physical `J2` supplier and its overheads.
+
 ## Scope and predecessors
 
 The selected word comes from `research/gauge44-slots` and is the word selected by the current result. Earlier frame coalescing changes the dimension jump within one register. This mechanism instead joins quotient calls across two register lanes at a shared gate or a common terminal boundary. It leaves the source frames, scalar word, fixed coverage identity, and owner map unchanged. The frozen provider mixture bound in `research/heterogeneous-owner-assembly` does not include this joint boundary contract. PR #1348 changes coverage thresholds, which is also a different mechanism.
