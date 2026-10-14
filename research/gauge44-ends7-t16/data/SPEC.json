@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "13e5dc5ef8f4708136811fa9ccad9cbd71e76c310b62c8518f4786ddea481fd3",
-    "plan_sha256": "553af6c54a7c825646eeaf0dc8ebe9ba849d301e24809af6f74993f9da8c5fd2"
+    "owners_sha256": "54bf0f96e43bac35922a1a3d3f14d5c024ecab3f3369b291e8d26cf682dbd221",
+    "plan_sha256": "0f7063dc605404e99b5794a1c4aa31bbc62f43731842b61ddfdfe76dfe0399e9"
   },
   "dispatch": [
     [
@@ -1940,7 +1940,7 @@
       "gauge44": 144
     },
     "mutations_rejected": 15,
-    "actual_73column_sigmas": 9830,
+    "actual_73column_sigmas": 9825,
     "cross_replica_helper_roles": 58201,
     "idle_remainders": 7438,
     "idle_remainder_profile": {
@@ -1948,9 +1948,9 @@
       "2": 2,
       "3": 314,
       "7": 51,
-      "12": 1,
-      "28": 2,
-      "32": 4,
+      "8": 1,
+      "28": 1,
+      "32": 5,
       "48": 4867
     },
     "global_profile": {
@@ -1960,17 +1960,16 @@
       "4": 20448,
       "5": 11808,
       "7": 51,
-      "8": 1152,
-      "12": 1,
-      "28": 2,
-      "32": 4,
+      "8": 1153,
+      "28": 1,
+      "32": 5,
       "48": 4867
     },
-    "conservative_kappa_decimal": "0.001672790198454118",
-    "kappa_decimal": "0.001672790201305759",
-    "complex_lower": "1675593117053342042737/1000000000000000000000000",
-    "conservative_complex_lower": "837796557096068367369/500000000000000000000000",
-    "kappa": "1672790201305759/1000000000000000000"
+    "conservative_kappa_decimal": "0.001672792607722578",
+    "kappa_decimal": "0.001672792610574223",
+    "complex_lower": "335119106880496544633/200000000000000000000000",
+    "conservative_complex_lower": "837797765770636639909/500000000000000000000000",
+    "kappa": "1672792610574223/1000000000000000000"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",
