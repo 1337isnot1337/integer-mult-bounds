@@ -183,38 +183,57 @@ def check_product_equivalence() -> dict:
 
 
 def check_transition_cache_foil(optimized) -> dict:
-    """A poisoned transition cache must fail the nested-rank require."""
+    """A poisoned transition memo must violate the nested-rank require."""
+    from audit_joint_frames import zero, sub, rank
+
+    # Live path succeeds on the historical control.
     graph = optimized.build(8, retain_graph=True)
-    # Live path succeeds.
     optimized.verify_invocation_frames(graph)
-    # Inject a wrong cached answer by monkeypatching rank temporarily is heavy;
-    # instead verify that a same-rank unequal frame pair is not treated as equal
-    # by interning: distinct matrices get distinct indices.
-    from audit_joint_frames import zero
 
     Z = zero(8)
     I = eye(8)
     require(Z != I, "control frames must differ")
-    # Corrupt the committed certificate pin in a temp copy and ensure restore works.
-    cert = ROOT / "certificates/ternary-side.json"
-    original = cert.read_bytes()
-    try:
-        with tempfile.TemporaryDirectory() as tmp:
-            mutant = Path(tmp) / "ternary-side.json"
-            text = original.decode()
-            mutant.write_text(
-                text.replace(OPTIMIZED_SHA256, "0" * 64),
-                encoding="utf-8",
-            )
-            bad = json.loads(mutant.read_text())
-            require(
-                bad["source_sha256"]["scripts/experiments/ternary_side.py"] != OPTIMIZED_SHA256,
-                "temp pin mutant not applied",
-            )
-            require(cert.read_bytes() == original, "working certificate must stay untouched")
-    finally:
-        require(cert.read_bytes() == original, "certificate corruption escaped")
-    return {"cache_foil": "certificate_temp_mutant_rejected", "identity": "Z_ne_I"}
+    exact = (rank(sub(I, Z)), rank(I) - rank(Z))
+    require(exact[0] == abs(exact[1]), "exact Z→I transition must be nested")
+
+    # Identity-then-value interning (same shape as production).
+    frame_list = []
+    frame_by_value = {}
+    frame_by_identity = {}
+    transitions = {}
+
+    def intern(frame):
+        prior = frame_by_identity.get(id(frame))
+        if prior is not None:
+            return prior[1]
+        index = frame_by_value.get(frame)
+        if index is None:
+            index = len(frame_list)
+            frame_list.append(frame)
+            frame_by_value[frame] = index
+        frame_by_identity[id(frame)] = (frame, index)
+        return index
+
+    def transition(old, new):
+        key = (intern(old), intern(new))
+        answer = transitions.get(key)
+        if answer is None:
+            answer = (rank(sub(new, old)), rank(new) - rank(old))
+            transitions[key] = answer
+        return answer
+
+    # Equal values share one index; unequal values do not.
+    require(intern(Z) == intern(zero(8)), "equal frames must share an intern index")
+    require(intern(Z) != intern(I), "unequal frames must get distinct intern indices")
+    require(transition(Z, I) == exact, "memoized transition must match exact ranks")
+
+    # Poison the memo: claim a zero climb for Z→I.
+    key = (intern(Z), intern(I))
+    transitions[key] = (0, exact[1] if exact[1] else 1)
+    a, change = transition(Z, I)
+    require(a != abs(change), "poisoned nested-rank answer must fail a==abs(change)")
+    require((a, change) != exact, "poisoned answer must differ from the exact transition")
+    return {"cache_foil": "poisoned_transition_rejected", "identity": "Z_ne_I"}
 
 
 def main() -> None:

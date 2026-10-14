@@ -21,7 +21,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 420,
-      "checks": "Exact baseline copy of the base-commit ternary_side.py; identical h=8 and h=9 verify_invocation_frames evidence versus baseline and the committed ternary-side controls; cleared-product and transition-cache mutation foils reject; certificate differs from base only in the ternary_side.py source pin."
+      "checks": "Exact baseline copy of the base-commit ternary_side.py; identical h=8 and h=9 verify_invocation_frames evidence versus baseline and the committed ternary-side controls; cleared-product scale-omission foil and poisoned transition-memo foil reject; certificate differs from base only in the ternary_side.py source pin."
     },
     {
       "argv": [
