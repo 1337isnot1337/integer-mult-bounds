@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "status": "PASS_SIX_SOURCE_DUO_ADD16_MINIMUM",
+  "domain": "six read-only sources; singleton/DUO complete calls; one restored dirty connector; paired readouts",
+  "censuses": [
+    {
+      "n": 5,
+      "unit_steps": 10,
+      "unit_words": 945,
+      "full_coverage_unit_words": 0,
+      "max_unit_coverage": 31,
+      "profile_max_four": 0,
+      "profile_max_six": 0,
+      "full_cover_table_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "n": 6,
+      "unit_steps": 12,
+      "unit_words": 10395,
+      "full_coverage_unit_words": 0,
+      "max_unit_coverage": 49,
+      "profile_max_four": 0,
+      "profile_max_six": 0,
+      "full_cover_table_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "n": 6,
+      "unit_steps": 14,
+      "unit_words": 945945,
+      "full_coverage_unit_words": 0,
+      "max_unit_coverage": 59,
+      "profile_max_four": 945945,
+      "profile_max_six": 0,
+      "full_cover_table_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "n": 6,
+      "unit_steps": 16,
+      "unit_words": 54864810,
+      "full_coverage_unit_words": 7480,
+      "max_unit_coverage": 64,
+      "profile_max_four": 47297250,
+      "profile_max_six": 7567560,
+      "full_cover_table_sha256": "251100fa9f200ddb24cefac8a6b8255cfa43d1f3bd7e4bc3f45120d4f3aa7262",
+      "primary_individually_removable_triples_checked": 10240,
+      "primary_retained_coverage_maximum": 63
+    }
+  ],
+  "small_duo_positive_controls": {
+    "3": {
+      "calls": 5,
+      "adds": 6,
+      "coverage": 8
+    },
+    "4": {
+      "calls": 6,
+      "adds": 8,
+      "coverage": 16
+    },
+    "5": {
+      "calls": 10,
+      "adds": 12,
+      "coverage": 32
+    }
+  },
+  "deadline_control_rejected": true,
+  "audit": {
+    "full_unit_words": 7480,
+    "full_unit_codes_sha256": "251100fa9f200ddb24cefac8a6b8255cfa43d1f3bd7e4bc3f45120d4f3aa7262",
+    "full_cover_multiplicity_profiles": {
+      "2,2,2,2,4,4": 7480
+    },
+    "unit_orbits": 251,
+    "orbit_size_histogram": {
+      "8": 1,
+      "16": 33,
+      "32": 217
+    },
+    "cyclic_deletion_patterns": 352,
+    "tested_orbit_deletions": 86900,
+    "retained_coverage_histogram": {
+      "43": 151,
+      "44": 457,
+      "45": 640,
+      "46": 1689,
+      "47": 1372,
+      "48": 5235,
+      "49": 3059,
+      "50": 5729,
+      "51": 6779,
+      "52": 11081,
+      "53": 17290,
+      "54": 5585,
+      "55": 9414,
+      "56": 5472,
+      "57": 7656,
+      "58": 3481,
+      "60": 1313,
+      "63": 497
+    },
+    "max_coverage": 63,
+    "max_witness": {
+      "unit_labels": [
+        0,
+        1,
+        0,
+        2,
+        0,
+        1,
+        0,
+        3,
+        2,
+        4,
+        3,
+        5,
+        3,
+        4,
+        3,
+        5
+      ],
+      "hidden_prefixes": [
+        0,
+        7,
+        9
+      ],
+      "steps": [
+        2,
+        1,
+        4,
+        1,
+        2,
+        9,
+        20,
+        8,
+        32,
+        8,
+        16,
+        8,
+        33
+      ],
+      "calls": 13,
+      "adds": 16,
+      "prefixes": [
+        0,
+        2,
+        3,
+        7,
+        6,
+        4,
+        13,
+        25,
+        17,
+        49,
+        57,
+        41,
+        33
+      ],
+      "coverage": 63,
+      "missing_masks": [
+        12
+      ]
+    },
+    "incumbent_steps": [
+      2,
+      16,
+      8,
+      16,
+      1,
+      4,
+      48,
+      4,
+      3,
+      4,
+      32,
+      8,
+      4,
+      16
+    ],
+    "incumbent": {
+      "calls": 14,
+      "adds": 16,
+      "prefixes": [
+        0,
+        2,
+        18,
+        26,
+        10,
+        11,
+        15,
+        63,
+        59,
+        56,
+        60,
+        28,
+        20,
+        16
+      ],
+      "coverage": 64,
+      "missing_masks": []
+    },
+    "positive_full_column_dimensions": [
+      1,
+      2,
+      3
+    ],
+    "positive_full_input_columns": [
+      70,
+      140,
+      210
+    ],
+    "behavioral_mutations_rejected": [
+      "drop_readout",
+      "move_readout",
+      "shrink_duo",
+      "drop_source"
+    ],
+    "batch_at_minimum_add_budget": {
+      "root_queries": 140,
+      "adds": 142,
+      "source_calls": 14,
+      "source_adds": 16,
+      "readouts": 126
+    }
+  },
+  "conclusions": {
+    "minimum_source_adds_for_universality": 16,
+    "minimum_source_calls_with_at_most_16_adds": 14,
+    "excluded_cells": [
+      [
+        12,
+        14
+      ],
+      [
+        12,
+        16
+      ],
+      [
+        13,
+        14
+      ],
+      [
+        13,
+        16
+      ]
+    ],
+    "minimum_all_63_row_batch_adds": 142,
+    "minimum_batch_queries_at_142_adds": 140,
+    "higher_add_pareto_cells_settled": false,
+    "physical_supplier_or_kappa_claim": false
+  }
+}

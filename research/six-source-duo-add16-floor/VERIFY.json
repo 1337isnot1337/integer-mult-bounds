@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/duo-toggle-connector/CERTIFICATE.json",
+    "research/universal-connector-six-source/EXPECTED.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticate frozen live inputs; compile two C++17 enumerators with warnings as errors; completely replay 945, 10395, 945945 and 54864810 word domains and compare full cover tables byte-for-byte; independently audit all 251 orbits and 86900 legal hidden triples; verify all dirty input columns, four behavioral mutations, predecessor positives, sharp 63/64 near miss and rejection of a timed-out census; compare the complete RESULT receipt."
+    }
+  ],
+  "native_environment": "C++17 compiler required; tested Ubuntu 24.04 with g++ 13.3.0. CXX may name g++/clang++. No native dependency is installed by this package. audit.py alone is portable but does not rebuild the complete census."
+}
