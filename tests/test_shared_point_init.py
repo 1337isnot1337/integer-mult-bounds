@@ -63,7 +63,7 @@ class SharedPointInitTests(unittest.TestCase):
     def test_production_digest_pin(self):
         self.assertEqual(
             sha256((ROOT / "scripts/shared_point_circuit.py").read_bytes()).hexdigest(),
-            "bd43e419a5bf8e5c380c72c8207b289962c896a19c6456f473c8805ae73f17ef",
+            "62fd003319ebb0cbf01493fad1e1e0332bc0b0a4169b6c138200a1f3bd86c7b8",
         )
 
 

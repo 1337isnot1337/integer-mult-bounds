@@ -8,9 +8,9 @@ looking up merge keys with repeated attribute access. Profiling on the
 historical full-size circuit (`h=46`) shows construction wall time dominated by
 that merge/lookup loop. Open
 [CrocSwap/integer-mult-bounds#2039](https://github.com/CrocSwap/integer-mult-bounds/pull/2039)
-left this object as an explicit next question after shipping partial-swap verify
-digests (stated on the producer fork; this package applies the same construction
-rewrite to the canonical `scripts/shared_point_circuit.py`).
+noted construction cost on the partial-swap producer fork; this package
+rewrites the canonical `scripts/shared_point_circuit.py` constructor (the
+partial-swap `__init__` copy remains a separate follow-up).
 
 This change pre-sorts `local.active` and `local.outputs` once, unpacks children
 directly, binds hot lists/dicts locally, and keeps the historical node-allocation
@@ -18,8 +18,9 @@ order. Every structural field (`args`, `core`, `union`, `provenance`, `outputs`,
 `active`, `merged_additions`, `additions`) and every verify receipt
 (`circuit_sha256`, roles, flags) stays identical. The bit-compression
 certificate does not list `scripts/shared_point_circuit.py` in `source_sha256`.
-`SharedPointCircuit.verify` is intentionally untouched (open
-[#1994](https://github.com/CrocSwap/integer-mult-bounds/pull/1994)).
+Production `verify` keeps the merged hand-rolled digests from
+[CrocSwap/integer-mult-bounds#1994](https://github.com/CrocSwap/integer-mult-bounds/pull/1994);
+this package only rewrites `__init__` merge/lookup construction.
 
 ## Reproduce
 
@@ -49,7 +50,7 @@ historical-checker change.
 On Linux / CPython 3.12.3 (Linux-6.12.94+-x86_64-with-glibc2.39), five
 alternating fresh-process pairs timing only `SharedPointCircuit(46)` construction
 (verify excluded from the timer; nested `ExclusionCircuit(45)` construction
-included) gave median wall time **0.856 → 0.601 seconds (1.42×)**. Timing is
+included) gave median wall time **0.649 → 0.438 seconds (1.48×)**. Timing is
 host-descriptive and is not a correctness gate; all samples and environment pins
 are in [RESULT.json](RESULT.json). Every verify receipt matches the baseline
 checker fieldwise (`roles`, `additions`, `merged_additions`, `circuit_sha256`,
