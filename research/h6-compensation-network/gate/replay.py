@@ -53,7 +53,7 @@ def main():
         pins[name] = dict(commit=base, sha256=digest)
     (HERE/'PINS.json').write_text(json.dumps(dict(base=base, files=pins,
         scope='Complete declared predecessor inventory, all tracked immutable prior audit artifacts, new runtime e8_sections/Clifford exact source and frame notes.'), indent=2, sort_keys=True)+'\n')
-    workspace = Path(tempfile.mkdtemp(prefix='h6-successor-clean-', dir='/private/tmp'))
+    workspace = Path(tempfile.mkdtemp(prefix='h6-successor-clean-'))
     exported = workspace/'minimal-source-tree'
     unrelated = workspace/'unrelated-cwd'
     unrelated.mkdir()

@@ -1,12 +1,13 @@
 # Validation and scope
 
-Exact runtime: Python3.12.14, NumPy2.3.5, isolated/optimized/no-bytecode mode.
+Exact runtime: Python 3.12.14, NumPy 2.3.5, isolated/optimized/no-bytecode mode.
 On Ross's Mac the tested interpreter is
 `/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`.
 
 ```sh
 python3 -I -O -B research/h6-compensation-network/verify.py
 python3 -I -O -B research/h6-compensation-network/gate/replay.py
+python3 -I -O -B research/h6-compensation-network/ci.py
 make selected-record-check
 git ls-remote origin refs/heads/main
 ```
@@ -24,6 +25,22 @@ rejects changed canonical proof data and duplicate JSON keys, while accepting
 different gzip headers with identical mathematical contents. Large generated
 arrays remain in compressed artifacts with readable summary descriptors;
 generators and independent replayers use the same documented format.
+
+The dedicated hosted hook uses Ubuntu 24.04, Python 3.12, pinned NumPy 2.3.5,
+full Git history and the repository's pinned checkout/setup actions. `ci.py`
+runs the successor gate in a disposable export, so environment/timing receipts
+do not rewrite the checked-out evidence. The workflow checks the original
+checkout unchanged and runs selected-record integrity with assertions enabled.
+Its path selectors cover every one of the 90 inherited inputs.
+
+Before publishing that hook, the exact CI entry point passed in a real Linux
+container with Python 3.12.15 and NumPy 2.3.5, including all 12 steps and 19
+corruption controls, followed by selected-record integrity. The repository
+was mounted read-only. The tested official Python image digest was
+`sha256:a6e34c598f2467ed0e9a8d349809fcd8b5c603269512df273a0bb1784edc11b1`.
+This is local Linux evidence, separate from a completed GitHub Actions run.
+The successor now uses the default temporary directory; frozen predecessor
+gate files remain unchanged.
 
 The final selected-record check passed for
 `836330098538459/500000000000000000`. Remote main remained
@@ -62,7 +79,8 @@ prior exhaustive958,521,600-entry pairing receipt is retained immutable
 input evidence. Nominal planning roots and exact-child finite-grid closure
 are not promoted to those stronger obligations.
 
-All changes are confined to this new package. Prior audit, frozen H6/PR606,
+Research changes remain in this package; the dedicated H6 workflow supplies
+the hosted replay hook. Prior audit, frozen H6/PR606,
 `upstream/`, selected certificate and imported exact lowerer remain unchanged.
 These local validation runs preceded the subsequent user-requested PR
 submission. No merge, supplier admission or frontier adoption is claimed.

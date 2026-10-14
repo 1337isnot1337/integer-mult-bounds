@@ -2,6 +2,7 @@
   "assert_nodes_by_new_script": {
     "research/h6-compensation-network/artifact.py": 0,
     "research/h6-compensation-network/bank_physical/review.py": 0,
+    "research/h6-compensation-network/ci.py": 0,
     "research/h6-compensation-network/coefficient_horner.py": 0,
     "research/h6-compensation-network/construction/network.py": 0,
     "research/h6-compensation-network/contract/replay.py": 0,
@@ -22,12 +23,13 @@
   "audit_script_sha256": {
     "research/h6-compensation-network/artifact.py": "0158703d7eabbf06c649303b55410ff23ca9623eb601c4776c3047e8c819eb11",
     "research/h6-compensation-network/bank_physical/review.py": "7f6b2a36aa11b3597f643ae4b927ff439550c34975e0f710e5089d858885e844",
+    "research/h6-compensation-network/ci.py": "d26fc4a0e2091f24314902012dace7559c7bbf17ae7674f36dd7613e32096df4",
     "research/h6-compensation-network/coefficient_horner.py": "bfc3e4133827cea57b0d483804f280a5c89a7186f72e25f251932288f592966f",
     "research/h6-compensation-network/construction/network.py": "e1bd9e43179835d16f9ec561ecd61585cf320a71550da49646f5d62da744b4f1",
     "research/h6-compensation-network/contract/replay.py": "08315d54466064669c5d9c8ff51246aa040227b88ec64488552e5c08469bd3e3",
     "research/h6-compensation-network/finite_grid.py": "dee24203dd924a8101b2a3d8fe1f36b55488dd06ac5a744e5c868c69646e91a8",
     "research/h6-compensation-network/gate/controls.py": "0237bc45881497cf44dd55c59d5bcce75451bd7d29a565d7159a41989466f1e2",
-    "research/h6-compensation-network/gate/replay.py": "9946940d5ebd0d810fb2779ae74da98328b1a7b587a4b4b5a38f7eac5d7a45c7",
+    "research/h6-compensation-network/gate/replay.py": "c88a78d0caeff1aa394982f484bbaed346d7fc708b2787e9e30dcfd9d0b7e721",
     "research/h6-compensation-network/independent/bucketed.py": "95a99bb2e051247488ce2da787ed220166d9aa91d10234a93334123be948ade1",
     "research/h6-compensation-network/independent/routes.py": "7e984b3858662f47ca8cc4ae05e92a74f24c161fbf2f885aee926dac0bed301a",
     "research/h6-compensation-network/k_encoder/network.py": "93370ed7b44811a2ab87fcb7b185800b533566577eb80f586e4f487419b8faa2",
@@ -57,21 +59,21 @@
     },
     {
       "expected_error": "K exact check at original line 44",
-      "log_sha256": "80298f84af1fbd410675357a80698f025b0f418153e485187e0a884c6cb721ca",
+      "log_sha256": "562bf76605831ca402355d911978fb926ead07cefcc4174938c65909bdb7af5e",
       "name": "K-polynomial-coefficient",
       "returncode": 1,
       "status": "DETECTED"
     },
     {
       "expected_error": "e8_sections.py",
-      "log_sha256": "b09fd358ce1d84f768f52a86627c174d5d23c09626add5012480d38c2b7f6348",
+      "log_sha256": "53dc5b547e3d6f2e8f0ce0233bd20dfc5bf92632b73d3dd20505d2686e59f5a6",
       "name": "transitive-source-mutation",
       "returncode": 1,
       "status": "DETECTED"
     }
   ],
-  "cwd": "/private/tmp/h6-successor-clean-1m_fic19/unrelated-cwd",
-  "elapsed_seconds": 45.577,
+  "cwd": "/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/h6-successor-clean-ygtaq_ko/unrelated-cwd",
+  "elapsed_seconds": 51.714,
   "environment": {
     "executable": "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
     "isolated": true,
@@ -80,7 +82,7 @@
     "optimized": true,
     "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
   },
-  "export": "/private/tmp/h6-successor-clean-1m_fic19/minimal-source-tree",
+  "export": "/var/folders/3v/9244hdf12cj1k9jjspv9wh2h0000gn/T/h6-successor-clean-ygtaq_ko/minimal-source-tree",
   "git_provenance": {
     "checks_disabled": false,
     "git_dir": "/Users/ross/git/math/h6-audit-20261014/.git",

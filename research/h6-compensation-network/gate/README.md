@@ -8,7 +8,8 @@ python3 -I -O -B research/h6-compensation-network/gate/replay.py
 unified verifier is available. It records `PREFLIGHT.json`; it does not claim
 the complete package has replayed.
 
-The gate creates a fresh minimal file export under `/private/tmp` and runs
+The gate creates a fresh minimal file export under the platform's default
+temporary directory and runs
 from an unrelated directory. Its `PINS.json` includes the declared predecessor
 inventory, every tracked file in the immutable prior independent audit, and
 the new `e8_sections.py`, retained exact Clifford compiler and frame notes.

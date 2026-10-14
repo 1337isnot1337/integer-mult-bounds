@@ -265,8 +265,22 @@ Use Python 3.11+ with NumPy; the audited runtime is Python 3.12.14/NumPy 2.3.5.
 ```sh
 python3 -I -O -B research/h6-compensation-network/verify.py
 python3 -I -O -B research/h6-compensation-network/gate/replay.py
+python3 -I -O -B research/h6-compensation-network/ci.py
 make selected-record-check
 ```
+
+The dedicated `H6 compensation network` workflow uses Ubuntu 24.04,
+Python 3.12, pinned NumPy 2.3.5 and full Git history. Its `ci.py` entry point
+copies the pinned source closure and package into a disposable export, then
+runs the complete successor gate. Generated environment/timing receipts stay
+inside that export, while the original checkout is checked unchanged. Gzip
+mathematical equality still uses canonical decompressed payloads. Temporary
+directories use the platform default rather than a macOS-specific path.
+
+This job covers the successor's finite replay and retained predecessor
+evidence; it does not rerun the prior billion-pair audit or admit the all-size
+supplier. Hosted job status on PR1830 is separate from the committed local
+receipts. The generic research jobs alone do not execute this package.
 
 Keep full Git history: the gate checks inherited blobs at `92d165a6`.
 For the optional complete predecessor audit, first fetch its pinned published
