@@ -19,49 +19,75 @@ from exclusion_circuit import ExclusionCircuit
 
 class SharedPointCircuit:
     def __init__(self,h,circuit=None,point_order=None):
+        """Merge equal pair-star sums across common-point groups.
+
+        Tooling note (partial-swap / skip-strip replay): the merge/lookup loop
+        keeps the historical node-allocation order and output keys, but
+        pre-sorts the local active set and output items once, unpacks child
+        mappings without a per-node generator, and binds hot attributes locally.
+        ``merged_additions``, topology and ``circuit_sha256`` are unchanged.
+        See ``research/partial-swap-init/``.
+        """
         assert h>=6 and h!=9, 'The ambient form I-J/9 must be nondegenerate'
         self.h=h
         self.local=circuit or ExclusionCircuit(h-1)
         assert self.local.n==h-1, 'Pair circuit has the wrong ground size'
         self.inputs=list(combinations(range(h),3))
         self.variables={t:i+1 for i,t in enumerate(self.inputs)}
-        self.args=[None]*(len(self.inputs)+1)
+        nin=len(self.inputs)
+        self.args=[None]*(nin+1)
         self.core=[0]+[sum(1<<i for i in t) for t in self.inputs]
         self.union=list(self.core)
-        self.provenance=[None]*len(self.args)
+        self.provenance=[None]*(nin+1)
         self.points=[point_order(h,i) if point_order else [j for j in range(h) if j!=i] for i in range(h)]
+        local_inputs=self.local.inputs
         self.pair_ids=[{tuple(sorted(points[k] for k in pair)):i+1
-                       for i,pair in enumerate(self.local.inputs)} for points in self.points]
+                       for i,pair in enumerate(local_inputs)} for points in self.points]
         lookup={};self.outputs={};self.merged=0
+        local_args=self.local.args
+        active_sorted=sorted(self.local.active)
+        outputs_items=sorted(self.local.outputs.items())
+        variables=self.variables
+        core=self.core;union=self.union;args=self.args;provenance=self.provenance
+        append_args=args.append;append_core=core.append
+        append_union=union.append;append_prov=provenance.append
         for common in range(h):
             mapping={}
-            for node in sorted(self.local.active):
-                if self.local.args[node] is None:
-                    a,b=self.local.inputs[node-1]
-                    t=tuple(sorted((common,self.points[common][a],self.points[common][b])))
-                    mapping[node]=self.variables[t]
+            pts=self.points[common]
+            bit=1<<common
+            for node in active_sorted:
+                ab=local_args[node]
+                if ab is None:
+                    a,b=local_inputs[node-1]
+                    mapping[node]=variables[tuple(sorted((common,pts[a],pts[b])))]
                     continue
-                a,b=(mapping[x] for x in self.local.args[node])
-                core=self.core[a]&self.core[b];union=self.union[a]|self.union[b]
-                assert core&(1<<common)
-                key=(core,union)
-                if core.bit_count()>=2 and key in lookup:
-                    mapping[node]=lookup[key];self.merged+=1
-                    continue
-                new=len(self.args);mapping[node]=new
-                self.args.append((a,b));self.core.append(core);self.union.append(union)
-                self.provenance.append((common,node))
-                if core.bit_count()>=2:lookup[key]=new
-            for pair,node in sorted(self.local.outputs.items()):
-                t=tuple(sorted((common,*(self.points[common][x] for x in pair))))
-                self.outputs[common,t]=mapping[node]
-        self.active=set();stack=list(self.outputs.values())
+                a=mapping[ab[0]];b=mapping[ab[1]]
+                cval=core[a]&core[b];uval=union[a]|union[b]
+                assert cval&bit
+                if cval.bit_count()>=2:
+                    key=(cval,uval)
+                    hit=lookup.get(key)
+                    if hit is not None:
+                        mapping[node]=hit;self.merged+=1
+                        continue
+                    new=len(args);mapping[node]=new
+                    append_args((a,b));append_core(cval);append_union(uval)
+                    append_prov((common,node));lookup[key]=new
+                else:
+                    new=len(args);mapping[node]=new
+                    append_args((a,b));append_core(cval);append_union(uval)
+                    append_prov((common,node))
+            outs=self.outputs
+            for pair,node in outputs_items:
+                outs[common,tuple(sorted((common,*(pts[x] for x in pair))))]=mapping[node]
+        self.active=set();stack=list(self.outputs.values());active=self.active
         while stack:
             n=stack.pop()
-            if n in self.active:continue
-            self.active.add(n)
-            if self.args[n]:stack.extend(self.args[n])
-        self.additions=sum(self.args[n] is not None for n in self.active)
+            if n in active:continue
+            active.add(n)
+            edge=args[n]
+            if edge:stack.extend(edge)
+        self.additions=sum(args[n] is not None for n in active)
 
     @lru_cache(maxsize=16384)
     def support_in(self,node,common):

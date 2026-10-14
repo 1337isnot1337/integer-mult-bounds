@@ -16,7 +16,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 from partial_swap import shared as production  # noqa: E402
 
 ORIGINAL_SHA256 = "81e9af92cdf38243a540cdcff2062778e449467848d444da37a9553c12ca4c34"
-OPTIMIZED_SHA256 = "b27c8bfe1de3f7d2d5fb19ac742adf11597c2aaa7add68430443119997e646e8"
+OPTIMIZED_SHA256 = "7290bd639600aecff11941d3faf95c9ce95589125cc6a7f7440fb86af7a0f17c"
 
 
 def load_baseline():

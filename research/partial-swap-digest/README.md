@@ -81,13 +81,7 @@ controls. Support and topology checks remain the historical `assert` gates.
    **Blocked by:** Pin repair outside `certificates/partial-swap-network.json`
    is outside this tooling change.
 
-2. **Question:** Is `partial_swap.shared.SharedPointCircuit.__init__`
-   merge/lookup construction worth a separate identical-receipt rewrite?
-   **Why it matters:** Large partial-swap / skip-strip builds still spend
-   substantial wall time constructing the shared-point DAG.
-   **First step:** Profile `SharedPointCircuit(46).__init__` alone after this
-   digest change.
-   **Blocked by:** Out of this session’s stop rule.
+2. **Answered in-tree:** `partial_swap.shared.SharedPointCircuit.__init__` merge/lookup rewrite lands in the same production file as `research/partial-swap-init/` (identical DAG/`circuit_sha256`; one re-pin).
 
 ## Overlap and credit
 
