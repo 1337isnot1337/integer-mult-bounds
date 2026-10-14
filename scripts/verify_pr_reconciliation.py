@@ -8,6 +8,8 @@ import hashlib
 import tempfile
 import json
 import zipfile
+import subprocess
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
@@ -625,7 +627,10 @@ def main():
         runpy.run_path(str(historical_five), run_name='__main__')
     reconciliation92 = ROOT / 'research/community-reconciliation92-audit/verify.py'
     if reconciliation92.exists():
-        runpy.run_path(str(reconciliation92), run_name='__main__')
+        # The original checker binds the pre-PR154 Makefile. Reuse the
+        # authenticated isolated replay rather than weakening that pin.
+        subprocess.run([sys.executable, '-B', str(ROOT / 'scripts/replay_historical_check.py'),
+                        'reconciliation92'], cwd=ROOT, check=True)
     third100 = ROOT / 'research/community-reconciliation-third100-audit/verify.py'
     if third100.exists():
         runpy.run_path(str(third100), run_name='__main__')
