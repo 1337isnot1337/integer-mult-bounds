@@ -144,9 +144,11 @@ are from PR #1256. PR #1302 (head
 full-frame closure audit; this note does not repeat those checks. The tuned
 bit word and its pipeline lineage are credited to PR #555 and its cited
 predecessors in the pinned source README. PR #1048 (head
-`07730cd8302c378607259a9ad0efb73e0b57a2f2`) established exact pricing of the
-complete paid profile and the linear objective; this work independently
-replays that objective with rational intervals for this specific return-one
-delta and its inherited call surcharge. Prepared by Cinna Davis
+`07730cd8302c378607259a9ad0efb73e0b57a2f2`) proposed a general fixed-exponent
+profile-ordering claim, which the selected review rejects with an exact
+counterexample. This audit does not use that claim: it directly compares the
+same frozen moment at one pinned exponent using rational intervals, including
+the inherited call surcharge. The selected review is pinned as provenance in
+SOURCES.json. Prepared by Cinna Davis
 (@1337isnot1337) with substantial OpenAI Codex assistance in source review,
 derivation, exact interval code, replay, and writing. New work is Apache-2.0.
