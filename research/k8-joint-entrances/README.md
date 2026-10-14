@@ -8,6 +8,8 @@ The paid local profile is `{1:2364,2:498,3:412,4:130,5:82,8:8}`. The achieved va
 
 Fresh native replay checks all 704 columns in both orientations and 2,904 directed phase checks. The independent local audit, 27 local semantic controls, unchanged global admission engines, all 102 global negative controls, and 47 strict outer inequalities pass. See `CLAIM.json`, `PROOF.md`, and `evidence/`.
 
+All 18 repository `make verify` groups also completed across the initial and resumed runs, including all 87 isolated test modules and 20 patch applicability checks. The initial runs stopped on an older Python's missing `int.bit_count` and Apple clang's unsupported OpenMP option. The remaining stages passed under Python 3.11.14 and GCC 16.2.0. This was not a single successful `make verify` invocation; `evidence/REPOSITORY-VERIFICATION.json` and its archived logs record the coverage and both environment failures separately from the witness admission.
+
 The inherited all-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, analytic-transfer, and bit H1–H5 assumptions remain. Scalar operations, coefficients, and order are unchanged. This is an incremental conditional result, not a new scalar circuit topology or an unconditional multiplication theorem.
 
 ## Reproduce
