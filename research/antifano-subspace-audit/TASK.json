@@ -60,13 +60,13 @@
   "coordination": {
     "handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-18934590",
     "claim_posted": false,
-    "reason": "The invoked engineering-mode skill forbids human-directed external messages. Read-only overlap and board checks were performed; communication text remains a local draft. No retrospective reservation is claimed."
+    "reason": "No advance claim was posted. This package answers the unreserved independent-check handoff. The donor explicitly requested upstream PR publication in a follow-up; publication reports the completed evidence without a retrospective reservation."
   },
   "freshness": {
     "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
     "priority_revision": 4,
-    "checked_at_utc": "2026-10-14T23:02:26Z",
-    "overlap": "Final find_overlap.py refresh for anti-Fano, tied_min and subspace audit; complete pagination over 435 open PRs and 876 discussion records, fetched 23:01:00Z and 23:02:25Z. Only source PR2111, source PR2162, the independent-check request and this local package matched. No code diffs or arbitrary nested files were searched; this is not proof of novelty. Canonical main and both predecessor heads were unchanged.",
+    "checked_at_utc": "2026-10-14T23:11:12Z",
+    "overlap": "Pre-PR find_overlap.py refresh for anti-Fano, tied_min and subspace audit; complete pagination over 436 open PRs and 877 discussion records, fetched 23:09:46Z and 23:11:11Z. Only source PR2111, source PR2162, the independent-check request and this local package matched. No code diffs or arbitrary nested files were searched; this is not proof of novelty. Canonical main and both predecessor heads were unchanged.",
     "predecessor_heads_rechecked": true
   },
   "environment": {
