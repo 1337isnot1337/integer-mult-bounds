@@ -22,7 +22,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Authenticate original sources; reconstruct R, actual owner routes and the three-port kernel; replay every ordered local call and ordinary tail event; compare canonical receipt; reject nine semantic/source controls."
+      "checks": "Authenticate original sources; reconstruct R, actual owner routes and the three-port kernel; replay every ordered local call and ordinary tail event; compare canonical receipt; reject eight semantic/source controls."
     }
   ]
 }

@@ -231,12 +231,12 @@ certificate. `--emit-result NEW_PATH` explicitly creates an external receipt
 and refuses to overwrite an existing file. Compression/container hashes are
 only immutable-source authentication, not regenerated mathematical equality.
 
-Expected status: `PASS_QQ16_B2_OBSERVATION_KERNEL`. Nine controls reject changed
+Expected status: `PASS_QQ16_B2_OBSERVATION_KERNEL`. Eight controls reject changed
 dependency coefficients, a changed chart axis, omitted A cancellation, a
 missing negative bridge, endpoint type confusion, replacement of the new
-read by a detecting B0 read, payload-only routing, altered source bytes and
-a corrupted canonical receipt. The B0 control confirms an escape for this
-witness, not sufficiency of B0 for the whole controller.
+read by a detecting B0 read, payload-only routing and altered source bytes.
+The B0 control confirms an escape for this witness, not sufficiency of B0
+for the whole controller.
 
 `SELECTION.json` preserves the single independent chooser draw, seed
 `20e7cbb51ab8b49eac12de2f825e100a`, track `independent-verification`.

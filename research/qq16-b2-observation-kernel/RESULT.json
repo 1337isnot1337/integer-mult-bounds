@@ -312,8 +312,7 @@
     "old-Y endpoint mislabeled as completed-X",
     "B0 observation detects this witness",
     "owner action replaced by payload-only action",
-    "source-byte mutation",
-    "canonical receipt mutation"
+    "source-byte mutation"
   ],
   "schema": "qq16-b2-observation-kernel-v1",
   "scope": "Fixed first pair and ordinary schedule; exact B2 pre-read added. No changed feedback, native read, supplier, new kappa, or formal-kernel claim.",

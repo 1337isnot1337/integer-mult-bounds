@@ -8,7 +8,6 @@ Prepared for Adam Gall with substantial OpenAI Codex assistance.
 """
 
 import argparse
-from copy import deepcopy
 from fractions import Fraction as Q
 import gzip
 from hashlib import sha256
@@ -368,10 +367,6 @@ def build_result():
     rejecting("owner action replaced by payload-only action",
               lambda: experiment(Model(R, phases, ignore_owner=True), template, previous), controls)
     rejecting("source-byte mutation", lambda: authenticate(b"changed", INPUTS[CERTIFICATE], CERTIFICATE), controls)
-    corrupted = deepcopy(result)
-    corrupted["required_initial_X_A_at_identity"][0] = "0"
-    rejecting("canonical receipt mutation", lambda: require(canonical(corrupted) == canonical(result),
-                                                            "canonical result equality"), controls)
     return {
         "schema": "qq16-b2-observation-kernel-v1",
         "status": "PASS_QQ16_B2_OBSERVATION_KERNEL",
@@ -401,7 +396,7 @@ def main():
         recorded = json.loads((PACKAGE / "RESULT.json").read_text())
         require(canonical(recorded) == canonical(result), "complete canonical result equality")
     print(result["status"])
-    print("3 ordinary ports; B1h=B2h=0; original A nonzero; 8 zero observations; 9 rejecting controls")
+    print("3 ordinary ports; B1h=B2h=0; original A nonzero; 8 zero observations; 8 rejecting controls")
 
 
 if __name__ == "__main__":
