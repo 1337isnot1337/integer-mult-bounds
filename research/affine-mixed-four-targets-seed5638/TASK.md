@@ -50,12 +50,27 @@ target controls. Keep all claims scoped to this tuple and paid alphabet.
 
 ## Nearest work and claim status
 
-The live overlap refresh at 08:02 UTC covered all 411 open PRs and 359
-Discussions with complete pagination and no warnings. It found PR #1711
-(two-register `h,h` and `h,h^-1` under the four-label alphabet), PR #1716
-(three-register `(a,b,h)` under `{a,b,t_x}`), PR #1705 (four linear
-coordinate-SWAP targets in `F2[GL2(F2)]`), and Discussion #1715 (label
-saturation for four linear SWAP targets). These differ in target tuple,
-operation alphabet, or register count from this mixed affine tuple.
-Discussion claim #1727 was posted at 08:04 UTC and expires at 08:55 UTC:
+The final pre-submission refresh at 08:28 UTC covered all 419 open PRs and
+375 Discussions with complete pagination and no warnings. Direct predecessor
+PR #1333 (closed, head `7f25b6d0e1d7e995d4d2840f231d98b1a1a9fec2`) proves the
+six-call cost when every rank-one affine displacement is paid; this cycle
+restricts to `{a,b,t_x,t_y}`. Open PR #1711 uses two affine targets; PR #1716
+uses a restricted three-register AGL2 triple. Active Discussion #1738 concerns
+a three-register UT3 central pair with `{x,y}`, a different group, target, and
+search method. Cycle 1's PR #1733 is a rational address-frame obstruction and
+does not overlap this binary-affine label restriction. Discussion #1317 is
+the completed coordination thread for PR #1333. This cycle's claim #1727 was
+posted at 08:04 UTC and expires at 08:55 UTC:
 https://github.com/CrocSwap/integer-mult-bounds/discussions/1727.
+
+## Outcome and handoff
+
+The full rank-one affine alphabet has optimum six calls for this target by PR
+#1333. In the fixed four-label subalphabet `{a,b,t_x,t_y}`, the q=6 strict-drop
+search and q=7 six-drop/one-neutral search both have empty terminal frontiers.
+Together with the displacement-rank floor and direct ten-call word, the
+restricted-alphabet minimum lies in `[8,10]`; q=8 and q=9 remain open. The
+exact package is `research/affine-mixed-four-targets-seed5638/`, submitted as
+open PR #1745:
+https://github.com/CrocSwap/integer-mult-bounds/pull/1745. No kappa change or
+physical supplier admission is claimed.

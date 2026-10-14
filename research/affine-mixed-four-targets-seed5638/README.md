@@ -96,6 +96,7 @@ certificate SHA-256.
 * Selected-result SHA-256: 10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32
 * Source hashes: SOURCES.json
 * Active claim: https://github.com/CrocSwap/integer-mult-bounds/discussions/1727
+* Review PR: https://github.com/CrocSwap/integer-mult-bounds/pull/1745 (open)
 
 The final pre-submission overlap scan completed at 2026-10-14 08:28:13 UTC: it
 covered 419 open PRs and 375 Discussions with complete pagination and no warnings. Direct predecessor [PR #1333](https://github.com/CrocSwap/integer-mult-bounds/pull/1333)
