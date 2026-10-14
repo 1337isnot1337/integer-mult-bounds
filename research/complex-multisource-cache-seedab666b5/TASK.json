@@ -116,6 +116,11 @@
   "expected_evidence": "Exact endpoint verifier for one and 69 sequential groups, exact direct/cached rank bill, dirty-helper and omitted-restore negative controls, and the C.ceiling profile screen; stop short of supplier or kappa claims.",
   "stop_rule": "Complete the exact protocol and endpoint checks, then decide from the selected-word compatibility scan whether a source-level integration is feasible. If compatibility or the fully charged interface fails, report that bounded obstruction and do not switch to another mechanism in this cycle.",
   "budget_minutes": 60,
+  "submission": {
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2045",
+    "head_commit": "922a5489a91977ce403c32f72ecee7f49f885eb3",
+    "status_at_handoff": "open; hosted checks were pending at 2026-10-14 18:03 UTC"
+  },
   "outcome": "completed",
   "evidence": "verify.py exactly checks integer-linear endpoints for one and 69 groups, source immutability, clean restoration, gate counts, rank profile and outward-rational ceiling brackets. Dirty scratch, omitted restore and output aliasing are rejected.",
   "author": "Cinna Davis",
