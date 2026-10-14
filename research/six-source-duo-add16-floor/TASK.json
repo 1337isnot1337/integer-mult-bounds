@@ -40,22 +40,16 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Resolve the released six-source DUO (13,16) handoff by an exhaustive expansion census, and certify the minimum source calls at W<=16 in the inherited complete-call dirty-connector model.",
-  "scope_change_reason": "The original card asks for a new operation family. This continues PR2128 using the existing DUO alphabet, with an exact lower bound for its six-source witness; no new operation or implementation admission is claimed.",
-  "bottleneck_link": "Scoped connector-interface side result: 14 source calls are necessary at the minimum universal source-add budget 16, hence the predecessor all-63-row (140 queries,142 adds) point is optimal at that add budget. This closes four named cells but does not supply a physical compiler/supplier or improve the selected kappa.",
+  "actual_scope": "Independently rebuild the known unrestricted 14-point F2^6 difference-basis minimum and apply it, with source-add census controls, to prove the global six-source DUO batch optimum (140 queries,142 adds). Retain the exact (13,16) word/deletion census as a separate restricted cross-check.",
+  "scope_change_reason": "The original card asks for a new operation family. This continues PR2128 within the existing DUO alphabet. After completing the 16-add handoff, a literature checkpoint identified Gavrylkiv 2017 Table 3 and prompted a bounded independent affine-basis-normalized census; neither the old basis value nor the predecessor witness is claimed as new.",
+  "bottleneck_link": "The declared abstract connector tariff is now closed: the predecessor simultaneously attains the minimum batch query count and add count, so larger source-add budgets cannot buy a better query/add point under these rules. Future progress needs physical implementation or a changed observation/connector contract; no selected exponent improvement follows.",
   "budget_minutes": 70,
-  "stop_rule": "First wave limited to 20 minutes, three local CPU workers and 1 GiB aggregate process RSS, stopping on a witness, complete exhaustion or deadline. Exhaustion occurred in about three seconds. Publication requires complete independent enumeration and literal unpruned deletion replay. Stop this investigation after resolving the claimed cells; higher-add searches need a separate scoped round.",
-  "outcome": "negative-result",
-  "evidence": "Two code-disjoint C++ enumerators enumerate all 54,864,810 normalized positive-even 16-step words and agree byte-for-byte on 7,480 full covers. Python partitions them into 251 complete dihedral/relabeling orbits and checks all 86,900 legal three-midpoint deletions without the native removability prune: maximum 63/64. A sharp near miss, the predecessor 14-call positive word, inherited singleton censuses, all 70/140/210 dirty input columns, four behavioral mutations and deadline rejection are checked. RESULT.json and FULL-COVERS.bin retain exact receipts; README proves the reduction and limits.",
+  "stop_rule": "Each of two first waves was limited to 20 minutes and 1 GiB aggregate process RSS. The restricted search used three local CPU workers and exhausted in 3.097 seconds; the unrestricted basis follow-up used two and exhausted in 2.077 seconds, including its launcher. Incomplete receipts reject. The investigation stops after independent reconstruction, dirty-column replay, complete batch accounting and publication; no higher-add blind search.",
+  "outcome": "completed",
+  "evidence": "Two independent implementations enumerate all 36,288,252 affine-basis-normalized 13-point sets and agree on the entire coverage histogram: maximum 63/64, with 4,200 attaining normalized sets. This independently reproduces the lower bound reported in Gavrylkiv 2017 Table 3; the predecessor 14-point witness is a positive control. A separate pair enumerates all 54,864,810 normalized 16-add unit words and agrees on the complete 7,480-word table; a literal Python audit checks 86,900 legal midpoint triples over 251 complete orbits. Both native basis enumerations pass complete UBSan runs. Full replay checks 256 affine normalization controls, all 70/140/210 dirty input columns, four behavioral mutants, three deadline gates and exact query/add lower bounds. The only abstract Pareto point is (140,142); no physical supplier or kappa claim.",
   "author": "Tairitsu-Aya",
   "ai_assistance": "Substantial OpenAI Codex assistance with source reading, mathematics, implementation, verification and writing for Tairitsu-Aya. Both algorithms and the audit have the same author/assistant; no independent human or formal-kernel review is claimed.",
   "open_questions": [
-    {
-      "question": "Independently validate the published unrestricted 14-point difference-basis minimum and its implication for the entire six-source DUO batch budget.",
-      "why_it_matters": "The 2017 published value would eliminate higher-add 12/13-call searches as well; a complete independently checked finite reduction avoids wasting computation on them.",
-      "first_step": "Normalize any spanning 13-point set to contain zero and the six basis vectors, then exhaust the 36,288,252 ways to choose six remaining points with two independent coverage computations.",
-      "blocked_by": "The restricted 16-add census does not itself establish completeness of that larger domain; the normalization and batch implications need review."
-    },
     {
       "question": "Can a selected physical supplier implement a complete DUO call under its real frame, access, scratch-restoration and precision obligations?",
       "why_it_matters": "The abstract connector point affects the multiplication construction only after all implementation costs and admissibility obligations are charged.",
@@ -102,9 +96,23 @@
       }
     },
     "warnings": [],
-    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."
+    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+    "submission_supplement": {
+      "checked_at": "2026-10-14T21:16:10Z",
+      "duo_discussion_threads": 9,
+      "discussion_search_complete": true,
+      "comment_coverage": "Last ten comments per thread; older hub histories truncated. Full prior snapshot at21:06 separately recorded.",
+      "pr_searches": [
+        "DUO",
+        "Gavrylkiv"
+      ],
+      "matching_new_claim_found": false,
+      "nearest_predecessor_head": "697369a971eed02c0fbcd75ebefec9f59945f08e",
+      "limitations": "Search coverage is not a novelty guarantee; the underlying 14-point result is already published."
+    }
   },
   "upstream_checkpoint": {
+    "checked_at": "2026-10-14T21:16:10Z",
     "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
     "priority_revision": 4,
     "selected_changed": false,
@@ -112,8 +120,37 @@
   },
   "literature_checkpoint": {
     "source": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Gavrylkiv/gav4.pdf",
-    "location": "Table 3, page 8",
+    "author": "Volodymyr Gavrylkiv",
+    "title": "Bases in Dihedral and Boolean Groups",
+    "year": 2017,
+    "location": "Table3, page8",
     "reported_value": "r[(C2)^6]=14",
-    "scope": "Stronger known group-theoretic result; this package initially replays only the 16-add restricted domain. Broader independent validation is a follow-up."
+    "scope": "Known unrestricted value independently reproduced here. The verifier has no network dependency or reliance on a downloaded table."
+  },
+  "validation": {
+    "complete_four_census_first_replay": {
+      "python": "3.12.3",
+      "os": "Ubuntu24.04",
+      "compiler": "g++13.3.0",
+      "wall_seconds": 13.31,
+      "peak_rss_kib": 120300,
+      "cpu_affinity": [
+        1
+      ]
+    },
+    "windows": "Python3.12.9 optimized portable restricted audit and metadata only; full native replay unavailable.",
+    "sanitizers": "Both unrestricted native enumerators completely replay under -fsanitize=undefined -fno-sanitize-recover=all.",
+    "independent_human_or_formal_kernel_review": false,
+    "registered_full_replay": {
+      "python": "3.12.3",
+      "os": "Ubuntu24.04",
+      "compiler": "g++13.3.0",
+      "wall_seconds": 13.38,
+      "peak_rss_kib": 120360,
+      "cpu_affinity": [
+        1
+      ]
+    },
+    "isolated_export_checks": "Ten passed, including complete Git-free replay without source mutation, optimized portable audit, missing/drifted input, corrupted table, count-preserving audit receipt, false theorem receipt, absent compiler and exclusive output creation/rejection."
   }
 }

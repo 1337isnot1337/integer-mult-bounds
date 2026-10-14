@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild both complete six-source censuses, then audit all hidden boundaries.
+"""Rebuild four complete censuses and certify the six-source DUO batch optimum.
 
 Requires Python 3.12 and a C++17 compiler (g++ or clang++). No downloads, network,
 Git calls, producer imports, or writes to the package during default replay.
@@ -44,8 +44,8 @@ def execute(args, timeout=120):
     return result
 
 
-def audit_module():
-    spec = importlib.util.spec_from_file_location("duo_add16_literal_audit", PACKAGE / "audit.py")
+def local_module(filename):
+    spec = importlib.util.spec_from_file_location("duo_add16_" + filename[:-3], PACKAGE / filename)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
@@ -57,13 +57,14 @@ def run():
     require(compiler is not None, "A C++17 compiler is required: set CXX to the g++ or clang++ executable. audit.py alone does not rebuild the complete census.")
     old = json.loads((ROOT / "research/universal-connector-six-source/EXPECTED.json").read_bytes())
     expected_controls = {(row["sources"], row["length"]): row for row in old["censuses"]}
-    module = audit_module()
+    module = local_module("audit.py")
+    basis = local_module("basis.py")
     saved_table = (PACKAGE / "FULL-COVERS.bin").read_bytes()
     with tempfile.TemporaryDirectory(prefix="duo-add16-") as directory:
         temp = Path(directory).resolve()
         require(temp.is_relative_to(Path(tempfile.gettempdir()).resolve()), "isolated temporary build root")
         binaries = []
-        for filename in ("enumerate_rgs.cpp", "enumerate_partitions.cpp"):
+        for filename in ("enumerate_rgs.cpp", "enumerate_partitions.cpp", "basis13_recursive.cpp", "basis13_bitset.cpp"):
             target = temp / (filename[:-4] + (".exe" if os.name == "nt" else ""))
             compiled = subprocess.run([compiler, "-std=c++17", "-O3", "-Wall", "-Wextra", "-Werror",
                                        "-Wpedantic", str(PACKAGE / filename), "-o", str(target)],
@@ -100,6 +101,15 @@ def run():
                 record["primary_individually_removable_triples_checked"] = a["tested_deletion_sets"]
                 record["primary_retained_coverage_maximum"] = a["max_screened_retained_coverage"]
             records.append(record)
+        unrestricted = [execute([binary, 120]) for binary in binaries[2:]]
+        basis_receipt = basis.audit(*unrestricted, module.word_stats(module.INCUMBENT)["prefixes"], expected_controls)
+        for binary in binaries[2:]:
+            try:
+                execute([binary, "0.000000001"])
+            except ValueError as error:
+                require("incomplete native census" in str(error), "basis deadline control failed for wrong reason")
+            else:
+                raise ValueError("deadline-truncated basis census was incorrectly accepted")
         # An incomplete but well-formed native receipt must not be accepted.
         interrupted = temp / "interrupted.bin"
         try:
@@ -117,19 +127,23 @@ def run():
         tiny[str(n)] = {key: stats[key] for key in ("calls", "adds", "coverage")}
     return {
         "schema_version": 1,
-        "status": "PASS_SIX_SOURCE_DUO_ADD16_MINIMUM",
+        "status": "PASS_SIX_SOURCE_DUO_GLOBAL_OPTIMUM",
         "domain": "six read-only sources; singleton/DUO complete calls; one restored dirty connector; paired readouts",
         "censuses": records,
         "small_duo_positive_controls": tiny,
         "deadline_control_rejected": True,
         "audit": module.compute(saved_table),
+        "unrestricted_basis": basis_receipt,
         "conclusions": {
             "minimum_source_adds_for_universality": 16,
             "minimum_source_calls_with_at_most_16_adds": 14,
+            "minimum_paired_universal_source_calls_any_add_budget": 14,
             "excluded_cells": [[12, 14], [12, 16], [13, 14], [13, 16]],
             "minimum_all_63_row_batch_adds": 142,
             "minimum_batch_queries_at_142_adds": 140,
-            "higher_add_pareto_cells_settled": False,
+            "minimum_all_63_row_batch_queries": 140,
+            "unique_batch_pareto_point": [140, 142],
+            "higher_add_pareto_cells_settled": True,
             "physical_supplier_or_kappa_claim": False,
         },
     }
@@ -145,8 +159,9 @@ def main():
             handle.write(json.dumps(result, indent=2) + "\n")
     else:
         require(result == json.loads((PACKAGE / "RESULT.json").read_text(encoding="utf-8")), "exact complete result receipt")
-    print("PASS_SIX_SOURCE_DUO_ADD16_MINIMUM: 54864810 unit words, 7480 covers, 251 orbits; k_min=14 at W<=16")
-    print("Both complete native enumerations, unpruned orbit deletions, full dirty columns and controls passed.")
+    print("PASS_SIX_SOURCE_DUO_GLOBAL_OPTIMUM: 54864810 unit words, 7480 covers, 251 orbits; k_min=14")
+    print("Four native enumerations, 36288252 unrestricted normalized 13-sets, dirty columns and controls passed.")
+    print("Global all-63-row DUO batch optimum: 140 queries and 142 adds, attained simultaneously.")
 
 
 if __name__ == "__main__":
