@@ -1,0 +1,161 @@
+{
+  "modules": [
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeModel20261013",
+      "canonical_sha256": "B146114096ACB2D2E501FC4A1419B7814439FA62A9627CE67309D908A147CC5E",
+      "portable_module": "MultitapeToolkit.Model",
+      "portable_sha256": "F3F2F16E6864933D5D356FEF67D1C5A836049C0751794563903BCD58AC7EB952",
+      "direct_imports": [
+        "Mathlib.Computability.TuringMachine.Tape",
+        "Mathlib.Data.Fintype.Basic"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeLocality20261014",
+      "canonical_sha256": "4E5DF1BDD9764D335424ACB2A3AAD8364F647892E632D8B09AEC85E45CFB5B31",
+      "portable_module": "MultitapeToolkit.Locality",
+      "portable_sha256": "AF1E96FAB58BEF059F92CB8E2C9643DD89C8E31D8372A2DB89BE8DD645109E43",
+      "direct_imports": [
+        "MultitapeToolkit.Model",
+        "Mathlib.Data.Fintype.BigOperators",
+        "Mathlib.Data.Fintype.Prod",
+        "Mathlib.Data.Fintype.Option",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeComposition20261014",
+      "canonical_sha256": "1D5AFF66D4202B4B257A323C81E16E84EE1D3B3820139A08BAC1F24D5E47BDAA",
+      "portable_module": "MultitapeToolkit.Composition",
+      "portable_sha256": "915C444939AB85FC7189533C616AFD749A0B454929908FE48E4AA8209A5B40FA",
+      "direct_imports": [
+        "MultitapeToolkit.Model",
+        "Mathlib.Data.Fintype.Sum"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeAbsolute20261014",
+      "canonical_sha256": "EC2859BE9F1AF651C87ADDEF262465D6BA2D07E3B38C402ED9F77ABBBD05B495",
+      "portable_module": "MultitapeToolkit.Absolute",
+      "portable_sha256": "DB54FB8A563EF6980ECC1B8F2D3324EB19265C4F2588092872BB3E63284318CE",
+      "direct_imports": [
+        "MultitapeToolkit.Locality"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeTrace20261014",
+      "canonical_sha256": "4BD6891364300FC045140AD412FFD2E43D74656FE16FC3B8DD18654A9971FA35",
+      "portable_module": "MultitapeToolkit.Trace",
+      "portable_sha256": "7CFD5A716E6331008278D7C1075C6132643620B497B00B32606D29C7B9647BE0",
+      "direct_imports": [
+        "MultitapeToolkit.Absolute",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.TM2MultitapeCompiler20261013",
+      "canonical_sha256": "5714D3F76E647B6436BE601B6E41FFD056945966DB11A2FE69A61E1C8E85EC9D",
+      "portable_module": "MultitapeToolkit.TM2Compiler",
+      "portable_sha256": "55E97C388EE50E4D8FE7A2898BB9E72FE9E9E95B36042CF19025D5E1C5B849B9",
+      "direct_imports": [
+        "MultitapeToolkit.Model",
+        "Mathlib.Computability.TuringMachine.StackTuringMachine",
+        "Mathlib.Data.Fintype.Sum",
+        "Mathlib.Data.Finset.Lattice.Fold",
+        "Lean.Elab.Tactic.Omega"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.TM2HeterogeneousCompiler20261014",
+      "canonical_sha256": "2570707C7EA9344245AF70C49D9AAAE087B08D2528994A4BE109D82DEC0FA60E",
+      "portable_module": "MultitapeToolkit.TM2HeterogeneousCompiler",
+      "portable_sha256": "413C070B55E456A485EC34B74B926BA386311A09C99C2A4DBD3F4D9BD0E27B0F",
+      "direct_imports": [
+        "MultitapeToolkit.TM2Compiler",
+        "Mathlib.Data.Fintype.Sigma"
+      ],
+      "portability_change": null
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeComplexity20261013",
+      "canonical_sha256": "A03E1AE9FCD1BC7B4BAF2B7728F15BB9E47C0C77198A2182ECFDDA1360D23592",
+      "portable_module": "MultitapeToolkit.Complexity",
+      "portable_sha256": "41015D6976279AB1851818552BE3B30845E48DA26AADFBAB429A1AB9555B3887",
+      "direct_imports": [
+        "MultitapeToolkit.Model",
+        "Mathlib.Analysis.Asymptotics.Defs",
+        "Mathlib.Order.Filter.AtTopBot.Basic",
+        "Mathlib.Tactic.Linarith",
+        "Mathlib.Tactic.Ring"
+      ],
+      "portability_change": "One norm/cast proof expression adjusted: explicit real inequality cast followed by Real.norm_eq_abs; theorem unchanged. No extra import."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeFrameRule20261014",
+      "canonical_sha256": "E5AA9EC056340C67BC6E382EEE0A859E6903D9944D3A0E021F2A24A12459CB66",
+      "portable_module": "MultitapeToolkit.FrameRule",
+      "portable_sha256": "3C84A50612CB477E0C17527693920F0BE53B4E31B9A0F21A97A8E0A1467A8855",
+      "direct_imports": [
+        "MultitapeToolkit.Trace",
+        "Mathlib.Data.Finset.Card"
+      ],
+      "portability_change": "Namespaces/imports only."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeAsymptoticTransport20261014",
+      "canonical_sha256": "3260BA047B8A166B5489A44CCFAB5338541F8F5EBF72E89178C511AE60ED17B7",
+      "portable_module": "MultitapeToolkit.AsymptoticTransport",
+      "portable_sha256": "956540F392AB63AFB04C5FD0DEF339CBE8F463265811005F0349A5FFA67153BB",
+      "direct_imports": [
+        "MultitapeToolkit.Complexity",
+        "Mathlib.Analysis.Asymptotics.Ring",
+        "MultitapeToolkit.TM2HeterogeneousCompiler"
+      ],
+      "portability_change": "Explicit Mathlib.Analysis.Asymptotics.Ring import added for IsBigO.trans/const_mul_left in4.34; body unchanged."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeSubroutineContracts20261014",
+      "canonical_sha256": "85B3BBBC0904B586E14FBB2159DA1DBF811CF12725CDD81C04223E883F1DCC16",
+      "portable_module": "MultitapeToolkit.SubroutineContracts",
+      "portable_sha256": "672A734318628FF80BB397C8DCA2147693706939490E2365CCF666473806D396",
+      "direct_imports": [
+        "MultitapeToolkit.Trace",
+        "Mathlib.Algebra.BigOperators.Fin",
+        "Mathlib.Algebra.Order.BigOperators.Group.Finset",
+        "Mathlib.Data.Fintype.Prod"
+      ],
+      "portability_change": "Namespaces/imports only."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeVerifiedPipeline20261014",
+      "canonical_sha256": "55C4E245F54682FD4DBAA0757FFBFCE197D2CFA861C0C170FC7984E4367CECED",
+      "portable_module": "MultitapeToolkit.VerifiedPipeline",
+      "portable_sha256": "A69A1C05ECA319D9B475779D80C2417891D99783011153EEE089664E2A850AC8",
+      "direct_imports": [
+        "MultitapeToolkit.AsymptoticTransport",
+        "MultitapeToolkit.FrameRule"
+      ],
+      "portability_change": "Namespaces/imports only."
+    },
+    {
+      "canonical_module": "Mathproof.Computability.MultitapeToolkitExamples20261014",
+      "canonical_sha256": "B8385F9318D3CD9E6B6E6DF20C7689CD7B9DB6A882113E941A423DF004E989DB",
+      "portable_module": "MultitapeToolkit.Examples",
+      "portable_sha256": "66B6631F6B6FCBC1214F1C53A710496286C2D880792D8A15D536B0C1E92E3BA5",
+      "direct_imports": [
+        "MultitapeToolkit.FrameRule"
+      ],
+      "portability_change": "Namespaces/imports only."
+    }
+  ],
+  "publication_lean": "4.34.1",
+  "publication_mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "schema_version": 1,
+  "development_lean": "4.33.0"
+}

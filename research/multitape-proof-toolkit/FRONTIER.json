@@ -1,0 +1,30 @@
+{
+  "base_commit": "81e81af67714bdc8d1693b0bf5c29468b92f62ff",
+  "relevant_prs": [
+    {
+      "number": 1379,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1379",
+      "head": "3a45bd089ad56c38b55da8d80d7b056f2d90e5fa"
+    },
+    {
+      "number": 1608,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1608",
+      "head": "26e984849677a26109f2d05393d6de6cd9e50f5f"
+    },
+    {
+      "number": 1610,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1610",
+      "head": "985fd79ffea7ae7375fe6aa3ce9940b125c7dca2"
+    },
+    {
+      "number": 1611,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1611",
+      "head": "156cc788b5a8122b19686f015e5654b117e4389d"
+    }
+  ],
+  "latest_created_pr": 1616,
+  "repository": "CrocSwap/integer-mult-bounds",
+  "retrieved_utc": "2026-10-14T04:04:09Z",
+  "schema_version": 1,
+  "coverage": "Latest30 PRs plus focused public searches and pinned primary sources; partial public discussion page coverage; no novelty guarantee."
+}

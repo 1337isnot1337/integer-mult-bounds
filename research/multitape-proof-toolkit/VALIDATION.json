@@ -1,0 +1,136 @@
+{
+  "actual_axiom_report_sha256": "ab5cfaa892fa6072a4a036af7ff290f33851277e1969837b8a0bad4e54f4ddf3",
+  "actual_lean_ownership_and_axiom_controls": [
+    "CoverageFixture",
+    "UnusedPrivateAxiom",
+    "PublicAxiom",
+    "PrivateUnprovedTheorem"
+  ],
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "audit_report_corruptions_rejected": 11,
+  "auditor_source_sha256": "68966f329982188c49a37c51753271ebc1c0afd321195e4aa595562275912aaa",
+  "compiler_python": "3.12.14",
+  "declarations": 562,
+  "dependency_revisions": {
+    "Cli": "e92c9f15fdfacc8536f31cfb3b7ad26c3c8cd204",
+    "LeanSearchClient": "ddf04cf3949fa556442341e87d47f9f6e6074707",
+    "Qq": "6a489d9af5d0c47e5b259e2e8bcdfc1811b5a259",
+    "aesop": "355695d523e41d0554926416cba2a2b3544fbbc9",
+    "batteries": "f2effa3d803fda822b1f97b806c47cf2adfbcbc2",
+    "importGraph": "e928b72544873815af278d38681b31c0293588e3",
+    "mathlib": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "plausible": "118aa17ee84656b8bd727fef7c458ee8c833385c",
+    "proofwidgets": "106ff4fafc74ef4ac99d81dbf3ab399118f497a5"
+  },
+  "expected_axiom_inventory_sha256": "3d3b6edc7a810489f17b504516c078c5395bae16359d2810074b5dc4514dc82c",
+  "fast_multiplication_theorem": "not_claimed",
+  "finite_controls": {
+    "charged_two_stage_pipelines": 64,
+    "literal_dirty_copies": 320,
+    "terminal_observation_fixture": 1,
+    "typed_word_roundtrips": 93,
+    "write_before_move_cases": 336
+  },
+  "hosted_ci": "not_run",
+  "independent_human_review": "not_claimed",
+  "kappa_change": false,
+  "lean_version": "4.34.1",
+  "modules": [
+    {
+      "artifact_sha256": "fb61f7841f068fbeafa5bc1d1ed9c46366c45ef65dc7c0b66512f838972b8e18",
+      "module": "MultitapeToolkit.Model",
+      "source_sha256": "f3f2f16e6864933d5d356fef67d1c5a836049c0751794563903bcd58ac7eb952"
+    },
+    {
+      "artifact_sha256": "0cb388e8f82b1808910c1f9b64182d17317df8e9dbe37c9fba8fa528ea52bdad",
+      "module": "MultitapeToolkit.Locality",
+      "source_sha256": "af1e96fab58bef059f92cb8e2c9643dd89c8e31d8372a2db89be8dd645109e43"
+    },
+    {
+      "artifact_sha256": "7a308f141d57affc4b4769248a4a16a9017bda21761c4123e8f83b2b56e5c9fe",
+      "module": "MultitapeToolkit.Composition",
+      "source_sha256": "915c444939ab85fc7189533c616afd749a0b454929908fe48e4aa8209a5b40fa"
+    },
+    {
+      "artifact_sha256": "ee690ceb6d99a4d7837f15c3ca5c6c4f405eafa74ff358a368cb56bbdbdbdcdd",
+      "module": "MultitapeToolkit.Absolute",
+      "source_sha256": "db54fb8a563ef6980ecc1b8f2d3324eb19265c4f2588092872bb3e63284318ce"
+    },
+    {
+      "artifact_sha256": "185b1a22a476c060541dcc62feed80937341ffdc1a561813aad61dddc8f60fa7",
+      "module": "MultitapeToolkit.Trace",
+      "source_sha256": "7cfd5a716e6331008278d7c1075c6132643620b497b00b32606d29c7b9647be0"
+    },
+    {
+      "artifact_sha256": "6906c4671ec09dddd7a72cfff75a818bb1b0a269d389b48c4a26f6cdf4a5ca45",
+      "module": "MultitapeToolkit.Complexity",
+      "source_sha256": "41015d6976279ab1851818552be3b30845e48da26aadfbab429a1ab9555b3887"
+    },
+    {
+      "artifact_sha256": "914159b2b1ef7d6505370cde3feec3552eac2458a91ea8949519dc3427a4a6d4",
+      "module": "MultitapeToolkit.TM2Compiler",
+      "source_sha256": "55e97c388ee50e4d8fe7a2898bb9e72fe9e9e95b36042cf19025d5e1c5b849b9"
+    },
+    {
+      "artifact_sha256": "47f234086833b3c4c9c8b337b6ffe0fe72ca4e4fbbeb5359d351f7bff57e1ed2",
+      "module": "MultitapeToolkit.TM2HeterogeneousCompiler",
+      "source_sha256": "413c070b55e456a485ec34b74b926ba386311a09c99c2a4dbd3f4d9bd0e27b0f"
+    },
+    {
+      "artifact_sha256": "e1ab9c6c1a78030bcb3a138d8ee8631228e0f7ca2ec602f582923da032520d5e",
+      "module": "MultitapeToolkit.FrameRule",
+      "source_sha256": "3c84a50612cb477e0c17527693920f0be53b4e31b9a0f21a97a8e0a1467a8855"
+    },
+    {
+      "artifact_sha256": "9173e3e5e8c3ba023c9f6583a7ce6c3b0837f4aa978b64ffcaf80d2db5f650c0",
+      "module": "MultitapeToolkit.AsymptoticTransport",
+      "source_sha256": "956540f392ab63afb04c5fd0def339cbe8f463265811005f0349a5ffa67153bb"
+    },
+    {
+      "artifact_sha256": "0ef6ab96d104335d02d4f07e93dd08676573a4944d728b5a014ea0115ee348c1",
+      "module": "MultitapeToolkit.SubroutineContracts",
+      "source_sha256": "672a734318628ff80bb397c8dca2147693706939490e2365ccf666473806d396"
+    },
+    {
+      "artifact_sha256": "3b16a08c3096853e9c257f051fd09f482347d05498828acae7006f400b266b91",
+      "module": "MultitapeToolkit.VerifiedPipeline",
+      "source_sha256": "a69a1c05eca319d9b475779d80c2417891d99783011153eee089664e2a850ac8"
+    },
+    {
+      "artifact_sha256": "a14a75b762d06a07972f567e33bafea8c298e834a3d6c99251d04079e7639b0b",
+      "module": "MultitapeToolkit.Examples",
+      "source_sha256": "66b6631f6b6fcbc1214f1c53a710496286c2d880792d8a15d536b0c1e92e3ba5"
+    },
+    {
+      "artifact_sha256": "dfcfc19a290c04d2070e6c1ebff511f24085460126b97635a4fff3d105a75028",
+      "module": "MultitapeToolkit",
+      "source_sha256": "5e9088434dd30851e727b0a64bba9b3c532022dc519362d6c4ffaaf5f35c3fb5"
+    }
+  ],
+  "private_declarations": 58,
+  "receipt_replay_driver_sha256": "ea03c1f19e5959a87cbb5ffad4de45dd1783567c7459e87a6852e0757177ea98",
+  "receipt_scope": "Exact proof-module and auditor sources below; complete final distribution is separately bound by MANIFEST.json and the upload replay receipt. Compiler artifacts and negative fixtures are retained outside the source package.",
+  "schema_version": 1,
+  "source_and_metadata_controls": {
+    "full_upstream_git_registered_replay": "not_run",
+    "git_blob_and_sha256_matches": true,
+    "optimized_python": "PASS",
+    "original_task_card_exact": true,
+    "pinned_source_rows": 6,
+    "python": "3.12.14",
+    "source_corruptions_rejected": [
+      "missing_file",
+      "altered_source",
+      "unlisted_file",
+      "unlisted_manifest"
+    ],
+    "status": "PASS_METADATA_SNAPSHOT_PINS_AND_SOURCE_CONTROLS",
+    "upstream_schema_validator": "validate(check_pins=False) plus independently checked exact pinned snapshot blobs"
+  },
+  "status": "PASS_FRESH_KERNEL_AND_COMPLETE_AXIOM_AUDIT",
+  "theorems": 316
+}
