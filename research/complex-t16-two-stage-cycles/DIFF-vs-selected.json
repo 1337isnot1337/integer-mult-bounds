@@ -1,0 +1,2032 @@
+[
+ {
+  "index": 224,
+  "before": {
+   "child": 2,
+   "copy": 1258,
+   "family": 10218,
+   "helper": 224,
+   "offset": 0,
+   "owner_replica": 11,
+   "port": 26,
+   "replica": 0,
+   "stage": 0,
+   "time": 0,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 116,
+   "family": 1124,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 1,
+   "port": 4,
+   "replica": 0,
+   "stage": 0,
+   "time": 0,
+   "width": 7
+  }
+ },
+ {
+  "index": 824,
+  "before": {
+   "child": 0,
+   "copy": 113,
+   "family": 1121,
+   "helper": 344,
+   "offset": 0,
+   "owner_replica": 1,
+   "port": 1,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 9
+  },
+  "after": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 344,
+   "offset": 31,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 9
+  }
+ },
+ {
+  "index": 909,
+  "before": {
+   "child": 0,
+   "copy": 105,
+   "family": 329,
+   "helper": 429,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 105,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  },
+  "after": {
+   "child": 0,
+   "copy": 58,
+   "family": 282,
+   "helper": 429,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 58,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  }
+ },
+ {
+  "index": 910,
+  "before": {
+   "child": 0,
+   "copy": 104,
+   "family": 328,
+   "helper": 430,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 104,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  },
+  "after": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 430,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  }
+ },
+ {
+  "index": 911,
+  "before": {
+   "child": 0,
+   "copy": 103,
+   "family": 327,
+   "helper": 431,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 103,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  },
+  "after": {
+   "child": 2,
+   "copy": 45,
+   "family": 381,
+   "helper": 431,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 45,
+   "replica": 8,
+   "stage": 0,
+   "time": 1,
+   "width": 4
+  }
+ },
+ {
+  "index": 1170,
+  "before": {
+   "child": 0,
+   "copy": 115,
+   "family": 1123,
+   "helper": 210,
+   "offset": 0,
+   "owner_replica": 1,
+   "port": 3,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  },
+  "after": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 210,
+   "offset": 22,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  }
+ },
+ {
+  "index": 1172,
+  "before": {
+   "child": 0,
+   "copy": 102,
+   "family": 326,
+   "helper": 212,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 102,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  },
+  "after": {
+   "child": 6,
+   "copy": 876,
+   "family": 6924,
+   "helper": 212,
+   "offset": 22,
+   "owner_replica": 7,
+   "port": 92,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  }
+ },
+ {
+  "index": 1241,
+  "before": {
+   "child": 0,
+   "copy": 58,
+   "family": 282,
+   "helper": 281,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 58,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  },
+  "after": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 281,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 9
+  }
+ },
+ {
+  "index": 1375,
+  "before": {
+   "child": 2,
+   "copy": 45,
+   "family": 381,
+   "helper": 415,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 45,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 4
+  },
+  "after": {
+   "child": 0,
+   "copy": 708,
+   "family": 5636,
+   "helper": 415,
+   "offset": 9,
+   "owner_replica": 6,
+   "port": 36,
+   "replica": 1,
+   "stage": 0,
+   "time": 2,
+   "width": 4
+  }
+ },
+ {
+  "index": 1664,
+  "before": {
+   "child": 0,
+   "copy": 1434,
+   "family": 11066,
+   "helper": 224,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 90,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 112,
+   "family": 1120,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 1,
+   "port": 0,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 1665,
+  "before": {
+   "child": 0,
+   "copy": 1433,
+   "family": 11065,
+   "helper": 225,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 89,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 114,
+   "family": 1122,
+   "helper": 225,
+   "offset": 9,
+   "owner_replica": 1,
+   "port": 2,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 1666,
+  "before": {
+   "child": 0,
+   "copy": 1432,
+   "family": 11064,
+   "helper": 226,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 88,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 2,
+   "copy": 1258,
+   "family": 10218,
+   "helper": 226,
+   "offset": 9,
+   "owner_replica": 11,
+   "port": 26,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 1697,
+  "before": {
+   "child": 0,
+   "copy": 117,
+   "family": 1125,
+   "helper": 257,
+   "offset": 0,
+   "owner_replica": 1,
+   "port": 5,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 102,
+   "family": 326,
+   "helper": 257,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 102,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 9
+  }
+ },
+ {
+  "index": 1724,
+  "before": {
+   "child": 0,
+   "copy": 1424,
+   "family": 11056,
+   "helper": 284,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 80,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 105,
+   "family": 329,
+   "helper": 284,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 105,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 1725,
+  "before": {
+   "child": 0,
+   "copy": 1423,
+   "family": 11055,
+   "helper": 285,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 79,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 104,
+   "family": 328,
+   "helper": 285,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 104,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 1747,
+  "before": {
+   "child": 0,
+   "copy": 1422,
+   "family": 11054,
+   "helper": 307,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 78,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 103,
+   "family": 327,
+   "helper": 307,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 103,
+   "replica": 9,
+   "stage": 0,
+   "time": 3,
+   "width": 7
+  }
+ },
+ {
+  "index": 2010,
+  "before": {
+   "child": 0,
+   "copy": 102,
+   "family": 326,
+   "helper": 90,
+   "offset": 9,
+   "owner_replica": 0,
+   "port": 102,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 4
+  },
+  "after": {
+   "child": 0,
+   "copy": 102,
+   "family": 326,
+   "helper": 90,
+   "offset": 0,
+   "owner_replica": 0,
+   "port": 102,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 4
+  }
+ },
+ {
+  "index": 2256,
+  "before": {
+   "child": 0,
+   "copy": 105,
+   "family": 329,
+   "helper": 336,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 105,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 105,
+   "family": 329,
+   "helper": 336,
+   "offset": 7,
+   "owner_replica": 0,
+   "port": 105,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  }
+ },
+ {
+  "index": 2264,
+  "before": {
+   "child": 0,
+   "copy": 104,
+   "family": 328,
+   "helper": 344,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 104,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 104,
+   "family": 328,
+   "helper": 344,
+   "offset": 7,
+   "owner_replica": 0,
+   "port": 104,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  }
+ },
+ {
+  "index": 2266,
+  "before": {
+   "child": 0,
+   "copy": 103,
+   "family": 327,
+   "helper": 346,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 103,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 103,
+   "family": 327,
+   "helper": 346,
+   "offset": 7,
+   "owner_replica": 0,
+   "port": 103,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 9
+  }
+ },
+ {
+  "index": 2351,
+  "before": {
+   "child": 0,
+   "copy": 58,
+   "family": 282,
+   "helper": 431,
+   "offset": 9,
+   "owner_replica": 0,
+   "port": 58,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 4
+  },
+  "after": {
+   "child": 0,
+   "copy": 58,
+   "family": 282,
+   "helper": 431,
+   "offset": 4,
+   "owner_replica": 0,
+   "port": 58,
+   "replica": 0,
+   "stage": 1,
+   "time": 4,
+   "width": 4
+  }
+ },
+ {
+  "index": 7287,
+  "before": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 87,
+   "offset": 9,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 10,
+   "stage": 1,
+   "time": 15,
+   "width": 8
+  },
+  "after": {
+   "child": 8,
+   "copy": 1335,
+   "family": 10631,
+   "helper": 87,
+   "offset": 40,
+   "owner_replica": 11,
+   "port": 103,
+   "replica": 10,
+   "stage": 1,
+   "time": 15,
+   "width": 8
+  }
+ },
+ {
+  "index": 9374,
+  "before": {
+   "child": 0,
+   "copy": 1434,
+   "family": 11066,
+   "helper": 254,
+   "offset": 7,
+   "owner_replica": 12,
+   "port": 90,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 1434,
+   "family": 11066,
+   "helper": 254,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 90,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  }
+ },
+ {
+  "index": 9375,
+  "before": {
+   "child": 0,
+   "copy": 1433,
+   "family": 11065,
+   "helper": 255,
+   "offset": 7,
+   "owner_replica": 12,
+   "port": 89,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 1433,
+   "family": 11065,
+   "helper": 255,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 89,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  }
+ },
+ {
+  "index": 9376,
+  "before": {
+   "child": 0,
+   "copy": 1432,
+   "family": 11064,
+   "helper": 256,
+   "offset": 7,
+   "owner_replica": 12,
+   "port": 88,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 1432,
+   "family": 11064,
+   "helper": 256,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 88,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  }
+ },
+ {
+  "index": 9391,
+  "before": {
+   "child": 0,
+   "copy": 1423,
+   "family": 11055,
+   "helper": 271,
+   "offset": 7,
+   "owner_replica": 12,
+   "port": 79,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  },
+  "after": {
+   "child": 0,
+   "copy": 1423,
+   "family": 11055,
+   "helper": 271,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 79,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  }
+ },
+ {
+  "index": 9403,
+  "before": {
+   "child": 2,
+   "copy": 1258,
+   "family": 10218,
+   "helper": 283,
+   "offset": 7,
+   "owner_replica": 11,
+   "port": 26,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  },
+  "after": {
+   "child": 2,
+   "copy": 1258,
+   "family": 10218,
+   "helper": 283,
+   "offset": 0,
+   "owner_replica": 11,
+   "port": 26,
+   "replica": 8,
+   "stage": 3,
+   "time": 19,
+   "width": 9
+  }
+ },
+ {
+  "index": 12066,
+  "before": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 66,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 10,
+   "stage": 2,
+   "time": 25,
+   "width": 9
+  },
+  "after": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 66,
+   "offset": 13,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 10,
+   "stage": 2,
+   "time": 25,
+   "width": 9
+  }
+ },
+ {
+  "index": 13664,
+  "before": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 224,
+   "offset": 0,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1433,
+   "family": 11065,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 89,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  }
+ },
+ {
+  "index": 13665,
+  "before": {
+   "child": 0,
+   "copy": 849,
+   "family": 6561,
+   "helper": 225,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 65,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1432,
+   "family": 11064,
+   "helper": 225,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 88,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  }
+ },
+ {
+  "index": 13666,
+  "before": {
+   "child": 0,
+   "copy": 848,
+   "family": 6560,
+   "helper": 226,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 64,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1423,
+   "family": 11055,
+   "helper": 226,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 79,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  }
+ },
+ {
+  "index": 13669,
+  "before": {
+   "child": 2,
+   "copy": 773,
+   "family": 5813,
+   "helper": 229,
+   "offset": 0,
+   "owner_replica": 6,
+   "port": 101,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1422,
+   "family": 11054,
+   "helper": 229,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 78,
+   "replica": 0,
+   "stage": 4,
+   "time": 28,
+   "width": 7
+  }
+ },
+ {
+  "index": 14144,
+  "before": {
+   "child": 0,
+   "copy": 1752,
+   "family": 13736,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 15,
+   "port": 72,
+   "replica": 8,
+   "stage": 4,
+   "time": 29,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1434,
+   "family": 11066,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 90,
+   "replica": 8,
+   "stage": 4,
+   "time": 29,
+   "width": 7
+  }
+ },
+ {
+  "index": 14147,
+  "before": {
+   "child": 2,
+   "copy": 1580,
+   "family": 12892,
+   "helper": 227,
+   "offset": 0,
+   "owner_replica": 14,
+   "port": 12,
+   "replica": 8,
+   "stage": 4,
+   "time": 29,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1424,
+   "family": 11056,
+   "helper": 227,
+   "offset": 0,
+   "owner_replica": 12,
+   "port": 80,
+   "replica": 8,
+   "stage": 4,
+   "time": 29,
+   "width": 7
+  }
+ },
+ {
+  "index": 17947,
+  "before": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 187,
+   "offset": 7,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 10,
+   "stage": 3,
+   "time": 37,
+   "width": 9
+  },
+  "after": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 187,
+   "offset": 0,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 10,
+   "stage": 3,
+   "time": 37,
+   "width": 9
+  }
+ },
+ {
+  "index": 22346,
+  "before": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 266,
+   "offset": 9,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 4,
+   "stage": 2,
+   "time": 46,
+   "width": 9
+  },
+  "after": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 266,
+   "offset": 22,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 4,
+   "stage": 2,
+   "time": 46,
+   "width": 9
+  }
+ },
+ {
+  "index": 22894,
+  "before": {
+   "child": 2,
+   "copy": 1580,
+   "family": 12892,
+   "helper": 334,
+   "offset": 7,
+   "owner_replica": 14,
+   "port": 12,
+   "replica": 12,
+   "stage": 2,
+   "time": 47,
+   "width": 9
+  },
+  "after": {
+   "child": 2,
+   "copy": 1580,
+   "family": 12892,
+   "helper": 334,
+   "offset": 0,
+   "owner_replica": 14,
+   "port": 12,
+   "replica": 12,
+   "stage": 2,
+   "time": 47,
+   "width": 9
+  }
+ },
+ {
+  "index": 23744,
+  "before": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 224,
+   "offset": 0,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 11,
+   "stage": 3,
+   "time": 49,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 849,
+   "family": 6561,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 65,
+   "replica": 11,
+   "stage": 3,
+   "time": 49,
+   "width": 7
+  }
+ },
+ {
+  "index": 25184,
+  "before": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 224,
+   "offset": 18,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 1,
+   "stage": 5,
+   "time": 52,
+   "width": 7
+  },
+  "after": {
+   "child": 2,
+   "copy": 773,
+   "family": 5813,
+   "helper": 224,
+   "offset": 9,
+   "owner_replica": 6,
+   "port": 101,
+   "replica": 1,
+   "stage": 5,
+   "time": 52,
+   "width": 7
+  }
+ },
+ {
+  "index": 28186,
+  "before": {
+   "child": 2,
+   "copy": 773,
+   "family": 5813,
+   "helper": 346,
+   "offset": 7,
+   "owner_replica": 6,
+   "port": 101,
+   "replica": 6,
+   "stage": 1,
+   "time": 58,
+   "width": 9
+  },
+  "after": {
+   "child": 2,
+   "copy": 773,
+   "family": 5813,
+   "helper": 346,
+   "offset": 0,
+   "owner_replica": 6,
+   "port": 101,
+   "replica": 6,
+   "stage": 1,
+   "time": 58,
+   "width": 9
+  }
+ },
+ {
+  "index": 28207,
+  "before": {
+   "child": 0,
+   "copy": 708,
+   "family": 5636,
+   "helper": 367,
+   "offset": 9,
+   "owner_replica": 6,
+   "port": 36,
+   "replica": 6,
+   "stage": 1,
+   "time": 58,
+   "width": 7
+  },
+  "after": {
+   "child": 2,
+   "copy": 1580,
+   "family": 12892,
+   "helper": 367,
+   "offset": 9,
+   "owner_replica": 14,
+   "port": 12,
+   "replica": 6,
+   "stage": 1,
+   "time": 58,
+   "width": 7
+  }
+ },
+ {
+  "index": 29505,
+  "before": {
+   "child": 4,
+   "copy": 1344,
+   "family": 11200,
+   "helper": 225,
+   "offset": 25,
+   "owner_replica": 12,
+   "port": 0,
+   "replica": 13,
+   "stage": 2,
+   "time": 61,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 848,
+   "family": 6560,
+   "helper": 225,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 64,
+   "replica": 13,
+   "stage": 2,
+   "time": 61,
+   "width": 7
+  }
+ },
+ {
+  "index": 31914,
+  "before": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 234,
+   "offset": 0,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 2,
+   "stage": 5,
+   "time": 66,
+   "width": 9
+  },
+  "after": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 234,
+   "offset": 22,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 2,
+   "stage": 5,
+   "time": 66,
+   "width": 9
+  }
+ },
+ {
+  "index": 32384,
+  "before": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 224,
+   "offset": 0,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 10,
+   "stage": 5,
+   "time": 67,
+   "width": 7
+  },
+  "after": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 224,
+   "offset": 25,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 10,
+   "stage": 5,
+   "time": 67,
+   "width": 7
+  }
+ },
+ {
+  "index": 33216,
+  "before": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 96,
+   "offset": 17,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 9,
+   "stage": 6,
+   "time": 69,
+   "width": 9
+  },
+  "after": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 96,
+   "offset": 9,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 9,
+   "stage": 6,
+   "time": 69,
+   "width": 9
+  }
+ },
+ {
+  "index": 34306,
+  "before": {
+   "child": 8,
+   "copy": 1335,
+   "family": 10631,
+   "helper": 226,
+   "offset": 40,
+   "owner_replica": 11,
+   "port": 103,
+   "replica": 15,
+   "stage": 1,
+   "time": 71,
+   "width": 7
+  },
+  "after": {
+   "child": 0,
+   "copy": 1752,
+   "family": 13736,
+   "helper": 226,
+   "offset": 9,
+   "owner_replica": 15,
+   "port": 72,
+   "replica": 15,
+   "stage": 1,
+   "time": 71,
+   "width": 7
+  }
+ },
+ {
+  "index": 34423,
+  "before": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 343,
+   "offset": 16,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 15,
+   "stage": 1,
+   "time": 71,
+   "width": 7
+  },
+  "after": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 343,
+   "offset": 9,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 15,
+   "stage": 1,
+   "time": 71,
+   "width": 7
+  }
+ },
+ {
+  "index": 34871,
+  "before": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 311,
+   "offset": 7,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 0,
+   "stage": 7,
+   "time": 72,
+   "width": 8
+  },
+  "after": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 311,
+   "offset": 0,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 0,
+   "stage": 7,
+   "time": 72,
+   "width": 8
+  }
+ },
+ {
+  "index": 41360,
+  "before": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 80,
+   "offset": 23,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 7,
+   "stage": 2,
+   "time": 86,
+   "width": 9
+  },
+  "after": {
+   "child": 4,
+   "copy": 1568,
+   "family": 12992,
+   "helper": 80,
+   "offset": 16,
+   "owner_replica": 14,
+   "port": 0,
+   "replica": 7,
+   "stage": 2,
+   "time": 86,
+   "width": 9
+  }
+ },
+ {
+  "index": 42432,
+  "before": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 192,
+   "offset": 15,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 0,
+   "stage": 8,
+   "time": 88,
+   "width": 9
+  },
+  "after": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 192,
+   "offset": 8,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 0,
+   "stage": 8,
+   "time": 88,
+   "width": 9
+  }
+ },
+ {
+  "index": 42816,
+  "before": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 96,
+   "offset": 26,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 8,
+   "stage": 8,
+   "time": 89,
+   "width": 9
+  },
+  "after": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 96,
+   "offset": 18,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 8,
+   "stage": 8,
+   "time": 89,
+   "width": 9
+  }
+ },
+ {
+  "index": 43287,
+  "before": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 87,
+   "offset": 4,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 6,
+   "stage": 3,
+   "time": 90,
+   "width": 8
+  },
+  "after": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 87,
+   "offset": 40,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 6,
+   "stage": 3,
+   "time": 90,
+   "width": 8
+  }
+ },
+ {
+  "index": 44384,
+  "before": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 224,
+   "offset": 7,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 5,
+   "stage": 4,
+   "time": 92,
+   "width": 7
+  },
+  "after": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 224,
+   "offset": 25,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 5,
+   "stage": 4,
+   "time": 92,
+   "width": 7
+  }
+ },
+ {
+  "index": 44429,
+  "before": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 269,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 5,
+   "stage": 4,
+   "time": 92,
+   "width": 9
+  },
+  "after": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 269,
+   "offset": 0,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 5,
+   "stage": 4,
+   "time": 92,
+   "width": 9
+  }
+ },
+ {
+  "index": 45231,
+  "before": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 111,
+   "offset": 14,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 4,
+   "stage": 5,
+   "time": 94,
+   "width": 9
+  },
+  "after": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 111,
+   "offset": 0,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 4,
+   "stage": 5,
+   "time": 94,
+   "width": 9
+  }
+ },
+ {
+  "index": 45356,
+  "before": {
+   "child": 6,
+   "copy": 876,
+   "family": 6924,
+   "helper": 236,
+   "offset": 22,
+   "owner_replica": 7,
+   "port": 92,
+   "replica": 4,
+   "stage": 5,
+   "time": 94,
+   "width": 9
+  },
+  "after": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 236,
+   "offset": 22,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 4,
+   "stage": 5,
+   "time": 94,
+   "width": 9
+  }
+ },
+ {
+  "index": 48000,
+  "before": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 0,
+   "offset": 12,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 9
+  },
+  "after": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 0,
+   "offset": 4,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 9
+  }
+ },
+ {
+  "index": 48340,
+  "before": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 340,
+   "offset": 24,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 8
+  },
+  "after": {
+   "child": 14,
+   "copy": 221,
+   "family": 1229,
+   "helper": 340,
+   "offset": 17,
+   "owner_replica": 1,
+   "port": 109,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 8
+  }
+ },
+ {
+  "index": 48397,
+  "before": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 397,
+   "offset": 18,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 4
+  },
+  "after": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 397,
+   "offset": 9,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 1,
+   "stage": 8,
+   "time": 100,
+   "width": 4
+  }
+ },
+ {
+  "index": 49167,
+  "before": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 207,
+   "offset": 22,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 7,
+   "stage": 3,
+   "time": 102,
+   "width": 9
+  },
+  "after": {
+   "child": 6,
+   "copy": 818,
+   "family": 6866,
+   "helper": 207,
+   "offset": 13,
+   "owner_replica": 7,
+   "port": 34,
+   "replica": 7,
+   "stage": 3,
+   "time": 102,
+   "width": 9
+  }
+ },
+ {
+  "index": 57189,
+  "before": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 69,
+   "offset": 35,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 13,
+   "stage": 6,
+   "time": 119,
+   "width": 4
+  },
+  "after": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 69,
+   "offset": 18,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 13,
+   "stage": 6,
+   "time": 119,
+   "width": 4
+  }
+ },
+ {
+  "index": 59327,
+  "before": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 287,
+   "offset": 23,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 11,
+   "stage": 8,
+   "time": 123,
+   "width": 9
+  },
+  "after": {
+   "child": 14,
+   "copy": 1239,
+   "family": 10087,
+   "helper": 287,
+   "offset": 9,
+   "owner_replica": 11,
+   "port": 7,
+   "replica": 11,
+   "stage": 8,
+   "time": 123,
+   "width": 9
+  }
+ },
+ {
+  "index": 59589,
+  "before": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 69,
+   "offset": 0,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 7,
+   "stage": 5,
+   "time": 124,
+   "width": 4
+  },
+  "after": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 69,
+   "offset": 27,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 7,
+   "stage": 5,
+   "time": 124,
+   "width": 4
+  }
+ },
+ {
+  "index": 60126,
+  "before": {
+   "child": 8,
+   "copy": 1688,
+   "family": 14120,
+   "helper": 126,
+   "offset": 39,
+   "owner_replica": 15,
+   "port": 8,
+   "replica": 15,
+   "stage": 5,
+   "time": 125,
+   "width": 9
+  },
+  "after": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 126,
+   "offset": 13,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 15,
+   "stage": 5,
+   "time": 125,
+   "width": 9
+  }
+ },
+ {
+  "index": 62008,
+  "before": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 88,
+   "offset": 4,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 13,
+   "stage": 7,
+   "time": 129,
+   "width": 9
+  },
+  "after": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 88,
+   "offset": 0,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 13,
+   "stage": 7,
+   "time": 129,
+   "width": 9
+  }
+ },
+ {
+  "index": 62515,
+  "before": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 115,
+   "offset": 13,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 4,
+   "stage": 8,
+   "time": 130,
+   "width": 4
+  },
+  "after": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 115,
+   "offset": 9,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 4,
+   "stage": 8,
+   "time": 130,
+   "width": 4
+  }
+ },
+ {
+  "index": 64355,
+  "before": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 35,
+   "offset": 21,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 6,
+   "stage": 7,
+   "time": 134,
+   "width": 9
+  },
+  "after": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 35,
+   "offset": 13,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 6,
+   "stage": 7,
+   "time": 134,
+   "width": 9
+  }
+ },
+ {
+  "index": 65096,
+  "before": {
+   "child": 15,
+   "copy": 1470,
+   "family": 11998,
+   "helper": 296,
+   "offset": 17,
+   "owner_replica": 13,
+   "port": 14,
+   "replica": 14,
+   "stage": 7,
+   "time": 135,
+   "width": 8
+  },
+  "after": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 296,
+   "offset": 40,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 14,
+   "stage": 7,
+   "time": 135,
+   "width": 8
+  }
+ },
+ {
+  "index": 67233,
+  "before": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 33,
+   "offset": 30,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 6,
+   "stage": 8,
+   "time": 140,
+   "width": 9
+  },
+  "after": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 33,
+   "offset": 22,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 6,
+   "stage": 8,
+   "time": 140,
+   "width": 9
+  }
+ },
+ {
+  "index": 68285,
+  "before": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 125,
+   "offset": 39,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 7,
+   "stage": 8,
+   "time": 142,
+   "width": 9
+  },
+  "after": {
+   "child": 13,
+   "copy": 789,
+   "family": 6389,
+   "helper": 125,
+   "offset": 31,
+   "owner_replica": 7,
+   "port": 5,
+   "replica": 7,
+   "stage": 8,
+   "time": 142,
+   "width": 9
+  }
+ }
+]

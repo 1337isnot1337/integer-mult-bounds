@@ -1,0 +1,68 @@
+[
+  {
+    "name": "restore-parent",
+    "seconds": 1.621,
+    "exit_code": 0,
+    "log_sha256": "fc3a01967636bd3173ee7e5049fae45b890e1fad4564b6acdd6aaca30a4e4ea5"
+  },
+  {
+    "name": "bind8",
+    "seconds": 0.324,
+    "exit_code": 0,
+    "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
+  },
+  {
+    "name": "lift16",
+    "seconds": 3.096,
+    "exit_code": 0,
+    "log_sha256": "26b34e9b7a60e6e9c9c22b675e873e44caf092732be4b1e8ee92e38f0741daae"
+  },
+  {
+    "name": "bind",
+    "seconds": 0.547,
+    "exit_code": 0,
+    "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
+  },
+  {
+    "name": "emit",
+    "seconds": 6.629,
+    "exit_code": 0,
+    "log_sha256": "1cbcde5eab27a47e03a8b36fabc6133c35405f9ea511e7f0ffaf041d7ee68d81"
+  },
+  {
+    "name": "audit",
+    "seconds": 26.433,
+    "exit_code": 0,
+    "log_sha256": "706ddef2bd7b407a3df7e722cd2aa34cfc882d25789ade62bb36c8893da33f67"
+  },
+  {
+    "name": "invoice",
+    "seconds": 1.016,
+    "exit_code": 0,
+    "log_sha256": "8f7074e3f78a103318ded6362c8e9bc8fc0e8c1ea3b510e63b9b84b181452cb3"
+  },
+  {
+    "name": "assembly",
+    "seconds": 0.305,
+    "exit_code": 0,
+    "log_sha256": "e58bab1b21ff2b9b13f33aa3ac3e002dde63dd69b0a04277d741e2c0dca94c15"
+  },
+  {
+    "name": "admission-controls",
+    "seconds": 0.547,
+    "exit_code": 0,
+    "log_sha256": "051d242318154827c1672ffbb63ad2bdc8ecc4033be650b791dd69cd57d716b3"
+  },
+  {
+    "name": "bit-supplier-controls",
+    "seconds": 0.839,
+    "exit_code": 0,
+    "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
+  },
+  {
+    "name": "independent-t16",
+    "seconds": 1.104,
+    "exit_code": 0,
+    "log_sha256": "9a822ed55b91969189acb1bb1bbdcebafc800855952fbd5e91c5d977c29cbbf9"
+  }
+]

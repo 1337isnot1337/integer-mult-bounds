@@ -1,0 +1,301 @@
+{
+  "tool": "search/chain2.py (imports search/chain.py and search/lib.py)",
+  "environment": "CPython 3.12.14 + numpy (uv run -q --no-project --python 3.12 --with numpy), Linux x86_64, MemoryMax=5G scope, one worker",
+  "objective": "Relaxed surrogate E = sum over (owner, child, port) bins of f ln f for free capacity f > 1; candidate cycles found by a max-plus DP over (hand width, hand time) states, then replayed exactly with the seed67 auditor geometry and priced with the pinned exact engines. E is only a search heuristic; kappa comes from the exact engines.",
+  "runs": [
+    {
+      "name": "stage-A",
+      "argv": [
+        "search/chain2.py",
+        "search",
+        "<PR1407 data/OWNERS.json.gz>",
+        "<out>/s1",
+        "6"
+      ],
+      "start_owner_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
+      "relaxed_zero_or_positive_first_cycles": 378494,
+      "exact_first_cycles_tried": 8785,
+      "result": "Two cycles through X=(owner 12, child 4, port 0). Cycle 1 (gain 0): free 3 of bin (0,0,103) moves to X. Cycle 2: free 3 of bin (0,0,104) joins it, X free 6. dE = 6 ln 2 = 4.158883.",
+      "moves": [
+        [
+          25184,
+          [
+            12,
+            4,
+            0
+          ],
+          [
+            6,
+            2,
+            101
+          ]
+        ],
+        [
+          13669,
+          [
+            6,
+            2,
+            101
+          ],
+          [
+            12,
+            0,
+            78
+          ]
+        ],
+        [
+          1747,
+          [
+            12,
+            0,
+            78
+          ],
+          [
+            0,
+            0,
+            103
+          ]
+        ],
+        [
+          911,
+          [
+            0,
+            0,
+            103
+          ],
+          [
+            0,
+            2,
+            45
+          ]
+        ],
+        [
+          431,
+          [
+            0,
+            2,
+            45
+          ],
+          [
+            12,
+            4,
+            0
+          ]
+        ],
+        [
+          29505,
+          [
+            12,
+            4,
+            0
+          ],
+          [
+            7,
+            0,
+            64
+          ]
+        ],
+        [
+          13666,
+          [
+            7,
+            0,
+            64
+          ],
+          [
+            12,
+            0,
+            79
+          ]
+        ],
+        [
+          1725,
+          [
+            12,
+            0,
+            79
+          ],
+          [
+            0,
+            0,
+            104
+          ]
+        ],
+        [
+          910,
+          [
+            0,
+            0,
+            104
+          ],
+          [
+            12,
+            4,
+            0
+          ]
+        ]
+      ],
+      "idle_remainder_profile": {
+        "1": 2277,
+        "3": 375,
+        "6": 1,
+        "16": 3,
+        "48": 4866
+      },
+      "kappa_decimal": "0.001672683095046622",
+      "seconds": 14
+    },
+    {
+      "name": "stage-B",
+      "argv": [
+        "search/chain2.py",
+        "search",
+        "<out>/s1.OWNERS.json.gz",
+        "<out>/s2",
+        "6"
+      ],
+      "exact_first_cycles_tried": 1,
+      "result": "One strictly improving 7-move cycle through X'=(6,0,36) that passes X=(12,4,0): free 3+3+6 in bins (0,0,105), (0,0,58), (12,4,0) become 8+1+3 in bins (0,0,58), (12,4,0), (6,0,36). dE = 2.589139.",
+      "moves": [
+        [
+          28207,
+          [
+            6,
+            0,
+            36
+          ],
+          [
+            14,
+            2,
+            12
+          ]
+        ],
+        [
+          14147,
+          [
+            14,
+            2,
+            12
+          ],
+          [
+            12,
+            0,
+            80
+          ]
+        ],
+        [
+          1724,
+          [
+            12,
+            0,
+            80
+          ],
+          [
+            0,
+            0,
+            105
+          ]
+        ],
+        [
+          909,
+          [
+            0,
+            0,
+            105
+          ],
+          [
+            0,
+            0,
+            58
+          ]
+        ],
+        [
+          1241,
+          [
+            0,
+            0,
+            58
+          ],
+          [
+            12,
+            4,
+            0
+          ]
+        ],
+        [
+          431,
+          [
+            12,
+            4,
+            0
+          ],
+          [
+            0,
+            2,
+            45
+          ]
+        ],
+        [
+          1375,
+          [
+            0,
+            2,
+            45
+          ],
+          [
+            6,
+            0,
+            36
+          ]
+        ]
+      ],
+      "idle_remainder_profile": {
+        "1": 2278,
+        "3": 374,
+        "8": 1,
+        "16": 3,
+        "48": 4866
+      },
+      "kappa_decimal": "0.001672684510394236",
+      "output_equals_data_OWNERS_content": true,
+      "seconds": 16
+    },
+    {
+      "name": "post-check-two-stage",
+      "argv": [
+        "search/chain2.py",
+        "search",
+        "data/OWNERS.json.gz",
+        "<out>/s3",
+        "6"
+      ],
+      "relaxed_zero_or_positive_first_cycles": 389658,
+      "exact_first_cycles_tried": 27567,
+      "exact_second_cycles": 12816,
+      "result": "NONE (bounded: at most 3 first cycles per X, 200 second cycles each)"
+    },
+    {
+      "name": "post-check-one-stage",
+      "argv": [
+        "search/chain.py",
+        "search",
+        "data/OWNERS.json.gz",
+        "<out>/c3",
+        "1",
+        "6"
+      ],
+      "relaxed_candidates": 2256,
+      "result": "no improving chain found at depth 6 (first 5000 candidates replayed)"
+    }
+  ],
+  "composition_with_pr2077": {
+    "argv": [
+      "search/compose.py",
+      "search",
+      "<PR1407 data/OWNERS.json.gz>",
+      "<PR2077 data/OWNERS.json.gz>"
+    ],
+    "result": "All 15 non-empty subsets of PR2077's four relocations (rows 2010, 4474, 34306, 46308) are illegal placements on PR1407's map. PR1407 already moved row 34306 out of bin (11,8,103) to (15,0,72), so the capacity PR2077's width-seven vacancy path uses is not there; PR2077's gain and PR1407's gain are alternatives, not additive."
+  },
+  "scope": "A heuristic search record. It is not an optimum proof; the post-checks are bounded passes."
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "task_id": "selected-packing",
+  "priority_revision": 4,
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "original_card": {
+    "id": "selected-packing",
+    "question": "Is there a genuinely unsearched, explicitly bounded improvement to the selected packing?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/heterogeneous-owner-assembly/README.md",
+      "research/complex-local-word-ceiling/README.md"
+    ],
+    "methods": [
+      "Search a named unclaimed canonical candidate domain with a reproducible partition.",
+      "Prove a stronger scoped relaxation or exact optimum for one named residual subproblem."
+    ],
+    "acceptance_gate": "Check live PR overlap first, price both suppliers and distinguish a search best from an optimum. Report the word's packing cap from ceiling.ceiling() and the fraction of it realized; label packing gains as such.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Locate the selected packing source in the review and check live PRs for the same residual problem.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Define an unclaimed canonical domain and a favorable bound before starting a new search.",
+    "bottleneck_link": "An actual paid-profile gain can improve the frontier up to the other supplier cap.",
+    "allowed_variations": [
+      "One bounded residual packing instance or exact relaxation.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Rerunning an existing search with only a different seed as a separate mathematical contribution."
+    ],
+    "overlap_terms": [
+      "T16",
+      "owner exchange",
+      "packing"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Review-and-compose of the two open T16 owner-map PRs on the selected PR1094 supplier (PR1407, PR2077), then a bounded two-stage ejection-cycle search on PR1407's map: 16 whole-helper placements (14 net row relocations) replace idle residuals 3+3+3 by 1+8, with widths, call order and windows unchanged.",
+  "scope_change_reason": "Self-selected, not drawn by scripts/choose_research_task.py: the session started as a review of PR1407 and PR2077 and whether their moves compose (they do not: every PR2077 subset is illegal or audit-rejected on PR1407's map). The closest catalogue card is selected-packing; the work builds on an unmerged PR (PR1407), so it is a successor search on a pending owner map rather than on the selected packing itself.",
+  "bottleneck_link": "Strictly decreases the complete complex moment of the binding complex supplier while preserving rank mass 1041408, deficit 5120, the local gauge44 supplier and the 144-call chronology.",
+  "budget_minutes": 90,
+  "stop_rule": "Retain the first strictly improving witness from each search stage; stop after the unchanged strict replay, the independent seed67 audit and pricing, and one further depth-6 pass that finds no improving one- or two-stage cycle.",
+  "outcome": "completed",
+  "evidence": "Unchanged PR1087 strict T16 replay passes all 11 stages with controls 69/12/6/15 and kappa 0.001672684510394236 (conservative 0.001672684507542306), +3.69e-9 over PR1407 and +1.4536e-5 relative over the selected record. Seed67 auditor R1-R7, X1, X2 and its 11 controls pass; the PR1069 sweep certifies the endpoint. Conditional on PR1407 and on the selected PR1094 inherited assumptions.",
+  "author": "Philippe Van Velzen",
+  "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance: PR review, composition test, search implementation, replay and packaging. No independent human review claimed.",
+  "open_questions": [
+    {
+      "question": "Is there an improving ejection cycle of depth above 6, or with three or more stages, on this map?",
+      "why_it_matters": "Depth-6 one- and two-stage cycles are exhausted here, which is a search limit, not an optimum proof.",
+      "first_step": "Raise DEPTH in search/chain2.py to 8 on data/OWNERS.json.gz under a memory cap and record the candidate count.",
+      "blocked_by": "Max-plus path tables grow with depth; no bound on the gain of longer cycles is known."
+    },
+    {
+      "question": "What is the best attainable idle-residual profile for the selected supplier's T16 windows?",
+      "why_it_matters": "A certified relaxation bound would show how much κ remains in owner packing at all.",
+      "first_step": "Solve the bin-level LP relaxation over (owner, child, port) bins with the family-per-time constraint.",
+      "blocked_by": "No certified relaxation for the joint family/time constraints exists yet."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "pr": 1407,
+  "repository": "CrocSwap/integer-mult-bounds",
+  "author": "pai-scaffolde",
+  "state_when_packaged": "open (not merged)",
+  "head_commit": "d8640f5b7ae99b43f5d56146cb94ca62b8b3835d",
+  "head_parent": "bce54fb3f895cbe5cd4c0eb477c3afeed100190f",
+  "package": "research/astra-ultra-hosting-20261013",
+  "files": {
+    "data/OWNERS.json.gz": {"git_blob": "814d8e8e2d7240d4131748853138c2a80eb10ee0", "sha256": "28bc3da38d97d0cc87ec2526c8163943fc3c0929352a06c407ad5d7232962e72"},
+    "data/PLAN.json": {"git_blob": "2e0a52de4dad2a9faf1f1a377c357f2c11a96f9c", "sha256": "7219f10a14948b94f2c04f4b28357b52c6f6c0ec1028835747df30bf2fa879c9"},
+    "data/SPEC.json": {"git_blob": "be24d1f6f85f6369bf9cdecb31a12842aaa86d8b", "sha256": "fb7295932dc80856f6452a1876c983860b8bc4509b885e2d4e4dc79751312810"},
+    "RESULT.json": {"git_blob": "6505aafdcafeb1bcd37aa2ccbf0bd9c5eeab99e0", "sha256": "6be31e95e41bcc83577b364b01a0339d16a8f6f09277b9d8d964c0ea4c1f158c"}
+  },
+  "pr1407_owners_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
+  "pr1407_kappa": "836340409246491/500000000000000000",
+  "pr1407_kappa_decimal": "0.001672680818492982",
+  "pr1407_idle_remainder_profile": {"1": 2277, "3": 377, "16": 3, "48": 4866},
+  "changed_rows": 23,
+  "relocated_rows": [909, 910, 911, 1241, 1375, 1724, 1725, 1747, 13666, 13669, 14147, 25184, 28207, 29505],
+  "how_used": "This package does not need PR1407 to be merged. It ships the complete candidate map and verifies it against the merged selected PR1094 archive. The dependency is checked by content: verify.py undoes the 23 rows in DIFF-vs-pr1407.json and requires the canonical-JSON SHA256 of the result to equal pr1407_owners_content_sha256 (PR1407 PLAN.assignment_content_sha256). If PR1407 changes its map, this package must be rebased; if PR1407 is rejected for a reason that also applies to its moves, this candidate falls with it."
+}
