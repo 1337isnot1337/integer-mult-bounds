@@ -47,6 +47,16 @@
       "id": "Active three-register auxiliary-bank claim checked 2026-10-14",
       "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932466",
       "scope_used": "Three invertible 3x3 targets with arbitrary auxiliary registers; different role count and target."
+    },
+    {
+      "id": "Odd-denominator arbitrary-register call floor",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2110",
+      "repository": "CrocSwap/integer-mult-bounds",
+      "status_at_check": "open",
+      "head_commit": "c717f528a72014503d28558bd5254f011edbf23a",
+      "discussion_handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932673",
+      "scope_used": "Uniform k>=mW floor when one odd q clears the frame lattice and each qC_i mod 2 is invertible. Its stated open question leaves even-denominator frames and singular cleared targets out of scope and suggests a dyadic example.",
+      "distinction": "This package uses a denominator-four address lattice and four 2x2 rank-two targets. At the minimal target clearing q=2, every qC_i mod 2 has rank one, so the odd-lattice theorem hypothesis fails. This package checks every six-call word for this one dyadic instance; it proves no general even-denominator theorem."
     }
   ]
 }

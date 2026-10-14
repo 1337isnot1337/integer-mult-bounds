@@ -42,6 +42,15 @@ def det3(a):
             + a[0][2] * (a[1][0] * a[2][1] - a[1][1] * a[2][0]))
 
 
+def rank2_mod2(a):
+    entries = [[int(a[i][j]) & 1 for j in range(2)] for i in range(2)]
+    if not any(value for row in entries for value in row):
+        return 0
+    determinant = (entries[0][0] * entries[1][1] -
+                   entries[0][1] * entries[1][0]) & 1
+    return 1 if determinant == 0 else 2
+
+
 def linear_combo(coefficients, matrices):
     return [[sum((coefficients[k] * matrices[k][i][j] for k in range(len(matrices))),
                  Fraction(0)) for j in range(2)] for i in range(2)]
@@ -127,7 +136,23 @@ def rational_model():
              "target coordinate and legal direct pair")
         need(det2(target) == half, "rank-two target determinant")
         targets.append(target)
-    return frames, coordinates, target_coordinates, targets
+    need(all((4 * value).denominator == 1
+             for frame in frames.values() for row in frame for value in row),
+         "frame denominator-four clearing")
+    need(any((2 * value).denominator != 1 for row in frames["R"] for value in row),
+         "R requires an even frame-clearing denominator")
+    need(any((value).denominator != 1 for target in targets
+             for row in target for value in row),
+         "target clear denominator is not one")
+    cleared_target_ranks = []
+    for target in targets:
+        cleared = scale2(Fraction(2), target)
+        need(all(value.denominator == 1 for row in cleared for value in row),
+             "target denominator-two clearing")
+        need(det2(cleared) == 2 and rank2_mod2(cleared) == 1,
+             "target clearing is singular of rank one modulo two")
+        cleared_target_ranks.append(rank2_mod2(cleared))
+    return frames, coordinates, target_coordinates, targets, tuple(cleared_target_ranks)
 
 
 def rank4(matrix):
@@ -298,7 +323,7 @@ def exact_six_search(projector_list, target):
 
 
 def main():
-    frames, coordinates, target_coordinates, targets = rational_model()
+    frames, coordinates, target_coordinates, targets, target_clear_ranks = rational_model()
     masks, visible_floor, minimizers, no_r_floor = first_order_screen(target_coordinates)
     ps = projectors()
     target = target_poly(target_coordinates)
@@ -340,6 +365,9 @@ def main():
             "extended_lattice_basis": ["A", "P", "R"],
             "label_coordinates": {key: list(value) for key, value in coordinates.items()},
             "address_relation": "4R=2A-B+4P; B=2A+4P-4R; Q=3A+3P-4R",
+            "frame_clear_denominator": 4,
+            "minimal_target_clear_denominator": 2,
+            "target_clear_mod2_ranks": list(target_clear_ranks),
             "rank_one_idempotents": len(ps),
             "paid_factor": "I+([F]-1)N for a label F and any rank-one idempotent N in M4(F2)",
             "target": "diag([A+P],[A+Q],[B+P],[B+Q])",
@@ -375,6 +403,7 @@ def main():
         "controls": {
             "direct_eight_call_word": "PASS",
             "dropped_output_mutation_detected": "PASS",
+            "even_denominator_target_clear_mod2_singular": "PASS",
         },
         "selected_supplier_or_kappa_claimed": False,
     }
