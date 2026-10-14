@@ -38,6 +38,10 @@ PASS_IDENTICAL_LEECH_MINOR_PRODUCTION_RECEIPTS
 Default verify is read-only. Use `--write-certificate` only after editing the
 production source. Timing is host-descriptive and is not a correctness gate.
 
+On Linux / CPython 3.12.3, five alternating fresh-process pairs gave median
+**leech-only 5.579 → 1.043 s (5.35×)** and **complete audit 9.465 → 4.213 s
+(2.25×)**. Samples are in [`RESULT.json`](RESULT.json).
+
 ## Why the byte lanes are equivalent
 
 Coordinates of every Leech sample vector lie in `[-4,4]`. For each coordinate
