@@ -90,6 +90,35 @@ class HistoricalReplay(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'prefix changed'):
                 checker.authenticated_input(root, config, inputs)
 
+    def test_skip_clone_frozen_source_replay_binding(self):
+        config = checker.CONFIG['skip-clones']
+        predecessor = (ROOT / config['input']).read_bytes()
+        pins = json.loads((ROOT / config['manifest']).read_bytes())
+        self.assertEqual(hashlib.sha256(predecessor).hexdigest(), config['sha256'])
+        self.assertEqual(pins['files'][config['path']], config['sha256'])
+        self.assertEqual(checker.authenticated_input(ROOT, config), predecessor)
+        suite = checker.CONFIG['skip-clones-tests']
+        self.assertEqual(suite['sha256'], config['sha256'])
+        self.assertEqual(suite['commands'], config['commands'][-1:])
+
+    def test_skip_clone_overlay_rejects_unknown_live_and_corrupt_baseline(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.fixture(td)
+            original = (inputs / 'old.txt').read_bytes()
+            (root / 'baseline.txt').write_bytes(original)
+            current = hashlib.sha256((root / 'input.txt').read_bytes()).hexdigest()
+            config.update(input='baseline.txt', input_from_root=True,
+                          accepted_live_sha256=[current])
+            self.assertEqual(checker.authenticated_input(root, config, inputs), original)
+            (root / 'input.txt').write_bytes(b'unreviewed source edit\\n')
+            with self.assertRaisesRegex(ValueError, 'Unrecognized live source update'):
+                checker.authenticated_input(root, config, inputs)
+            (root / 'input.txt').write_bytes(original)
+            self.assertEqual(checker.authenticated_input(root, config, inputs), original)
+            (root / 'baseline.txt').write_bytes(b'changed frozen evidence\\n')
+            with self.assertRaisesRegex(ValueError, 'Changed historical input'):
+                checker.authenticated_input(root, config, inputs)
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):

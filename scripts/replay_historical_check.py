@@ -48,6 +48,34 @@ CONFIG = {
 }
 
 
+# Keep PR53's frozen source pin intact while replaying against the reviewed
+# successor of the faster exclusion support-mask checker. Original exact bytes
+# are retained by the linked baseline package (Wentao Li / VictorLiwentao).
+# Dennis with substantial OpenAI Codex assistance; Apache-2.0.
+CONFIG['skip-clones'] = {
+    'manifest': 'research/skip-clones/SOURCE.json',
+    'field': 'files',
+    'path': 'scripts/exclusion_circuit.py',
+    'input_from_root': True,
+    'input': 'research/exclusion-embedding-masks/baseline.py',
+    'sha256': 'b253f9d7318becda1c1f3b24e2287ed44a9c27fcea00cf9d531afb950d0457a0',
+    'accepted_live_sha256': [
+        'f9fbcd6e85e442cbd0926ac0887414e20735b2dc923d2d5822c803ceb46726d3',
+    ],
+    'commands': [
+        ['research/skip-clones/producer.py'],
+        ['research/skip-clones/witness.py', '--output',
+         'research/skip-clones/certificate.json'],
+        ['-m', 'unittest', 'discover', '-s', 'tests',
+         '-p', 'test_skip_clones.py', '-v'],
+    ],
+}
+CONFIG['skip-clones-tests'] = {
+    **CONFIG['skip-clones'],
+    'commands': [CONFIG['skip-clones']['commands'][-1]],
+}
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -67,7 +95,13 @@ def authenticated_input(root, config, inputs=INPUTS):
         require(entry.get('representation') == 'bytes', 'Expected exact byte representation')
         entry = entry.get('sha256')
     require(entry == config['sha256'], 'Missing or changed predecessor source pin')
-    data = safe_path(inputs, config['input']).read_bytes()
+    # A replay must not hide an unrelated live source mutation.
+    if 'accepted_live_sha256' in config:
+        live = hashlib.sha256(safe_path(root, config['path']).read_bytes()).hexdigest()
+        require(live in (config['sha256'], *config['accepted_live_sha256']),
+                'Unrecognized live source update: ' + config['path'])
+    input_root = root if config.get('input_from_root') else inputs
+    data = safe_path(input_root, config['input']).read_bytes()
     require(hashlib.sha256(data).hexdigest() == entry, 'Changed historical input')
     if config.get('preserve_prefix'):
         require(data.endswith(b'\n') and safe_path(root, config['path']).read_bytes().startswith(data),
