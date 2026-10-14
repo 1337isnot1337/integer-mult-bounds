@@ -1,0 +1,18 @@
+{
+  "status": "DRAFT_EXACT_OUTER_DISCOVERY_PENDING_COMPLETE_FINITE_ADMISSION",
+  "kappa": "1676855229071321886206381217337893/1000000000000000000000000000000000000",
+  "kappa_decimal": "0.001676855229071321886206381217337893",
+  "baseline_pr": 1377,
+  "baseline_head": "7b6b538212812e01c45a51966837598a197a799b",
+  "baseline_kappa": "0.001676855229071321886144",
+  "gain_decimal": "6.2381217337893E-23",
+  "gain_percent": "3.720131365928413856100710806264046962683959403705199425271207855028249E-18",
+  "construction_improvement": false,
+  "outer_refinement": {
+    "grid_digits": 36,
+    "margin_digits": 40,
+    "bootstrap_steps": 12
+  },
+  "scope": "Conditional finite construction only. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery, analytic transfer, PR559 recurrence correction and PR589 bit H1-H5 assumptions remain. No unconditional theorem, full Lean certification, or global packing claim.",
+  "verification": "Exact discovery using verified PR1319 owner/invoice receipts passes both moment engines and 47 outer inequalities. Full new-package finite replay and independent outer checks pending. Native providers are unchanged and will be explicitly source-bound reused."
+}
