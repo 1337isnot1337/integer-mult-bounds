@@ -23,6 +23,8 @@ For two rank-8 calls versus one rank-8 broadcast plus a rank-one correction, the
 
 The finite fixture establishes an exact interface identity, not that any selected T16 pair has this source relation. PR1707 (Cinna Davis, head `3d2e634e046ac4fbf07ddbfb0e59da4cf9907f4e`) supplies the predecessor common-A broadcast construction for identical source values. The current rank-one output-panel difference claim in Discussion #1166 comment 18922942 changes the output tensors; this package changes the source panels. The separate three-frame screen and its rejected shared-call assumption are recorded in [PIVOT.md](PIVOT.md).
 
+**Overlap disposition.** The final complete refresh (2026-10-14 13:21 UTC; 541 open PRs and 528 Discussion records) surfaced open PR1838 at head `e495653a48e46f4b5cd177d8cd890b7a01e404dc`. Its general same-frame `F` / `F+H` construction for rank-one bilinear `H` contains this source-delta identity as a specialization. This package's literal dirty-scratch CNOT invoice on a 3x3 map is supplementary implementation evidence; PR1838 already has its own exact dirty-state receipt. Since the mechanism is not distinct, this package is retained as a reproducible local handoff and no duplicate PR is opened. It does not claim to materially extend PR1838's center-rank result.
+
 Selected-record provenance is pinned in [SOURCES.json](SOURCES.json), and the review/certificate/reproduction pointers are checked by the verifier. The selected result remains unchanged. No native supplier, selected occurrence, complete outer composition, or new `kappa` is claimed.
 
 ## Reproduce

@@ -61,5 +61,19 @@
       "first_step": "Trace one selected pair of complete centre calls from the pinned emitted local program and express their source relation over the exact input rows.",
       "blocked_by": "No eligible selected occurrence, owner/host receipt, or native precision and tape invoice has been established."
     }
-  ]
+  ],
+  "overlap_disposition": {
+    "checked_at_utc": "2026-10-14T13:21:57Z",
+    "complete_refresh": {
+      "open_prs": 541,
+      "discussion_records": 528
+    },
+    "preexisting_result": {
+      "pr": 1838,
+      "head": "e495653a48e46f4b5cd177d8cd890b7a01e404dc",
+      "title": "Add exact rank-one center-difference sharing mechanism",
+      "relationship": "The general F/F+H rank-one bilinear difference construction contains this source-delta identity as a specialization."
+    },
+    "disposition": "No standalone PR: the mechanism is not distinct. Keep the exhaustive 3x3 dirty-scratch CNOT invoice as a reproducible local supplement; do not claim a material extension of PR1838."
+  }
 }
