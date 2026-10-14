@@ -49,9 +49,14 @@ There are three central opportunities:
 | Supplier interface lemma | Admit a promising word excluded by today's contract | One exact replacement implication, including dirty inputs and its implementation cost |
 
 For example, [the helper-star package](../../research/r439-bsection-stars-seed01/README.md)
-reduces scalar additions but keeps its paid profile and carries an H2/K interface
-gap. A useful next question is whether one changed helper operation has a valid
-replacement interface. Another addition-count reduction alone does not answer it.
+reduces scalar additions while failing the original H2/K syntax. The retained
+[semantic-D evidence map](../../research/r439-semantic-d-navigation/README.md)
+links the replacement lemma (#1194), its application to the changed-A word
+(#1311), and that word's complete finite nine-stage hosted invoice (#1806).
+For the exact 10,652-ADD word, the remaining step is supplier-admission review
+under the inherited physical/all-size premises; its paid profile is unchanged.
+For a different helper operation, first identify which hypothesis or boundary
+the existing contract does not cover.
 
 The historical 71-record heterogeneous-owner catalogue excludes the selected k8
 provider. The [source-bound applicability receipt](../../research/selected-k8-catalogue-scope/README.md)
