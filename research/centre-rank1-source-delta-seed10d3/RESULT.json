@@ -1,0 +1,65 @@
+{
+  "status": "PASS_SOURCE_DELTA_FANOUT",
+  "seed": "10d3ef274e33f1db0aaecb961566139c",
+  "track": "recursive-interfaces",
+  "task_id": "centre-path-sharing",
+  "priority_revision": 3,
+  "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+  "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+  "object": {
+    "field": "F2",
+    "dimension": 3,
+    "matrix_row_masks": [3, 6, 7],
+    "matrix_rank": 3,
+    "direction": 1,
+    "direction_image": 5,
+    "source_relation": "x1 = x0 + alpha*direction",
+    "targets": 2
+  },
+  "identity": "L(x0 + alpha*v) = L(x0) + alpha*L(v)",
+  "dirty_state_coverage": {
+    "x0_values": 8,
+    "alpha_values": 2,
+    "target0_values": 8,
+    "target1_values": 8,
+    "private_dirty_values": 4,
+    "total_states": 4096,
+    "source_and_target_preservation": true
+  },
+  "literal_dirty_scratch_circuit": {
+    "scratch_registers": 1,
+    "scratch_is_arbitrary_and_restored": true,
+    "baseline_cnot": 44,
+    "candidate_cnot": 28,
+    "saved_cnot": 16,
+    "correction_cnot_included": 2,
+    "second_private_dirty_bit_untouched": true
+  },
+  "negative_controls": [
+    "omitted correction",
+    "stale alpha",
+    "wrong direction image"
+  ],
+  "cost": {
+    "baseline": "2*B8 + 2*U",
+    "candidate": "B8 + B1 + 2*U + Delta",
+    "moment_child_price": "Br=(r/73)^(1-a)",
+    "selected_complex_a": "67018507072324140917/40000000000000000000000",
+    "favorable_rank_mass_margin_approx": 6.972176283896,
+    "break_even": "Delta < B8-B1",
+    "delta_includes": [
+      "source-delta extraction and access",
+      "coefficient preparation for L(v)",
+      "dispatch and correction fusion",
+      "frame, hosting, restoration, and precision costs",
+      "any output arithmetic beyond the two ordinary target updates"
+    ],
+    "screen_only": true
+  },
+  "not_established": [
+    "an eligible occurrence in the selected T16 supplier",
+    "a complete selected-provider cost below the break-even margin",
+    "a new selected kappa or frontier"
+  ],
+  "reproduce": "python3 -B research/centre-rank1-source-delta-seed10d3/verify.py"
+}

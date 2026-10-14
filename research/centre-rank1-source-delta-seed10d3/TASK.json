@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_id": "centre-path-sharing",
+  "priority_revision": 3,
+  "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+  "original_card": {
+    "id": "centre-path-sharing",
+    "question": "Can the 64-per-call centre path (eight rank-8 COPY/ERASE totals through the private temporary) be shared across calls or shrunk?",
+    "starting_points": [
+      "research/complex-local-word-ceiling/README.md",
+      "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Derive a fully charged favorable relaxation for sharing one centre path across k calls, including restoration, hosting and precision.",
+      "Prove a lower bound on copied information per call for the selected decoder contract."
+    ],
+    "acceptance_gate": "Show the changed centre charge and copy profile per call with every added restoration or hosting cost charged, and its ceiling via ceiling.ceiling(centre=...).",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Write the per-call centre charge and copy children for sharing across k = 2 calls, charge the sharing overhead, and screen it; stop this route if even the ideal sharing gains under 10%. Ideal budgets: free 2.80x, shared by two 1.90x (levers.py).",
+    "bottleneck_link": "The centre path consumes 64 of about 99.6 unpaid coordinates per call, i.e. about 64% of the raw deficit.",
+    "allowed_variations": [
+      "One sharing pattern across a fixed number of calls.",
+      "One reduced copied-total contract for the existing decoder.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Removing copies without a replacement contract for the decoder's copied totals."
+    ],
+    "overlap_terms": [
+      "centre path",
+      "copied totals",
+      "private temporary",
+      "shared centre",
+      "batching"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Two dirty output panels share one exact linear centre evaluation when their source panels differ by a specified one-dimensional direction; one charged rank-one correction supplies the second panel.",
+  "scope_change_reason": "PR1708 already constructs identical-source two-panel fanout, and current pairwise-frame claims cover other selected-centre sharing. This changes the source premise to x1=x+alpha*v and tests an explicit rank-one source-side correction, distinct from output-tensor differences.",
+  "bottleneck_link": "The selected complex local profile pays eight rank-8 centre children per call (64 rank-mass units). A reusable source-delta fanout can replace two rank-8 evaluations by one rank-8 broadcast plus a rank-one correction, if an actual selected source relation and its complete overhead fit the moment margin.",
+  "budget_minutes": 60,
+  "stop_rule": "Exhaust the exact n=m=3 fixture over all inputs, target dirt, and private dirt. Stop the construction if the correction cannot be fused into the existing second-target update or if all additional source, coefficient, dispatch, frame, hosting, restoration, and precision charges reach the approximately 6.972-rank-mass break-even margin. Do not search other operators or panel counts.",
+  "outcome": "completed",
+  "evidence": "Exact identity L(x+alpha*v)=L(x)+alpha*L(v), literal dirty-scratch CNOT schedules with invoices 44 versus 28, complete comparison on all 4096 states for one full-rank 3x3 map, and three rejecting negative controls. The rank-child screen is a favorable local planning margin only; no selected occurrence or kappa is established.",
+  "author": "Cinna Davis",
+  "ai_assistance": "Substantial OpenAI Codex assistance in the construction, verifier, exact dirty-state enumeration, cost screen, and exposition.",
+  "open_questions": [
+    {
+      "question": "Does any exact pair of selected T16 source panels satisfy x1=x0+alpha*v for a fixed direction v with a charged rank-one correction?",
+      "why_it_matters": "Such an occurrence would turn the abstract source-delta construction into a candidate local-profile reduction on the selected supplier.",
+      "first_step": "Trace one selected pair of complete centre calls from the pinned emitted local program and express their source relation over the exact input rows.",
+      "blocked_by": "No eligible selected occurrence, owner/host receipt, or native precision and tape invoice has been established."
+    }
+  ]
+}

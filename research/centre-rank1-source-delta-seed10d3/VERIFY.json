@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "docs/research/community-batch1099-review.md",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+    "scripts/research_baseline.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "selected-record bindings; full-rank 3x3 positive instance; all 4096 source, target-dirt, and private-dirt states; source and private-state preservation; omitted, stale, and wrong-column correction controls; planning margin sanity"
+    }
+  ]
+}
