@@ -24,5 +24,6 @@ all-history novelty claim. It is scoped to the actual H6 geometry, legal
 full-edge/bucket words, universal exact frame family and their explicit cost.
 
 Remote main was separately verified unchanged at
-`0b1cccf86e2f5132ed286a26ef0a681a495740ea`. No external claim, Discussion
-comment or PR was posted.
+`0b1cccf86e2f5132ed286a26ef0a681a495740ea`. This refresh preceded the
+subsequent user-requested PR submission. The newer submission snapshot is
+retained separately in `overlap-submission.json`.

@@ -57,4 +57,5 @@ are not promoted to those stronger obligations.
 
 All changes are confined to this new package. Prior audit, frozen H6/PR606,
 `upstream/`, selected certificate and imported exact lowerer remain unchanged.
-No Discussion post, PR, merge or remote publication was performed.
+These local validation runs preceded the subsequent user-requested PR
+submission. No merge, supplier admission or frontier adoption is claimed.

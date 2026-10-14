@@ -1,0 +1,15 @@
+--- executed-export/research/h6-compensation-network/README.md
++++ post-execution-current/research/h6-compensation-network/README.md
+@@ -17,6 +17,12 @@
+ ## Exact inputs and attribution
+ 
+ - Discussion: [H6 discussion 1167](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussion-11011604).
++- Originating H6 exchange: [request for the exact model](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914564),
++  [DreamingOfClouds's model disclosure](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914612)
++  and [pinned script publication](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914905).
++  This submission responds to that exchange's unpriced compensation and
++  helper-loading question. It also credits the later independent
++  [PR1698 arithmetic handoff](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18918248).
+ - Inherited local base: `92d165a607454e457c42180c10d79821df6d84d7`.
+ - Selected-main snapshot: `0b1cccf86e2f5132ed286a26ef0a681a495740ea`.
+ - H6 fork source: `b496aed769dd724cd1ff6b921cade626562be27b`, retained

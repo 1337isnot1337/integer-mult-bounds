@@ -55,21 +55,21 @@
     },
     {
       "expected_error": "K exact check at original line 44",
-      "log_sha256": "f939c12b7d25e388960dcd917a43496030145dc104fbd3251ecb839989dcfb03",
+      "log_sha256": "f447bb9a77fe4501ca798bc0cc027f8d26938051cd23dd250f5fa4002a9262eb",
       "name": "K-polynomial-coefficient",
       "returncode": 1,
       "status": "DETECTED"
     },
     {
       "expected_error": "e8_sections.py",
-      "log_sha256": "d4650006734d41ef7cf3f730f6b963a6dfadc48d36ebaf85da77b0326111b670",
+      "log_sha256": "018051b049c42383702e8a268815ec0c739d18f978c5e7af8658a45ddaabc91f",
       "name": "transitive-source-mutation",
       "returncode": 1,
       "status": "DETECTED"
     }
   ],
-  "cwd": "/private/tmp/h6-successor-clean-mhmnuchm/unrelated-cwd",
-  "elapsed_seconds": 58.707,
+  "cwd": "/private/tmp/h6-successor-clean-y7i6p4wk/unrelated-cwd",
+  "elapsed_seconds": 43.462,
   "environment": {
     "executable": "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
     "isolated": true,
@@ -78,7 +78,7 @@
     "optimized": true,
     "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
   },
-  "export": "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree",
+  "export": "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree",
   "git_provenance": {
     "checks_disabled": false,
     "git_dir": "/Users/ross/git/math/h6-audit-20261014/.git",
@@ -181,7 +181,7 @@
   ],
   "specification_sha256": {
     "research/h6-compensation-network/SOURCES.json": "96c29a8c93b4e48bf6c23e85be0a644def3e1ef97b13171b644f5b5488c5751c",
-    "research/h6-compensation-network/TASK.json": "f25eba4ada146117a9f75d8e8592a0e14b6896be4add8029cd143a6d3abfa813",
+    "research/h6-compensation-network/TASK.json": "bcee489d0872388922e2017a57b0bf866c46515b11063e725ec5497321908c31",
     "research/h6-compensation-network/contract/THEOREM.md": "9752a525d22d815341b70143a06221ad4b3aec0ae8a6447786d88d0291fef45f",
     "research/h6-compensation-network/physical_compiler/UNIVERSAL-THEOREM.md": "549b239364e2a65355b8e7d91db66b083ce963040d1bb0749026061d73c72844",
     "research/h6-compensation-network/routes/BUCKETED-SCHEMA.json": "376b0fe2128c12a1409792de7d0917da86f27e933b4d010c5a8322689b24ac8f"

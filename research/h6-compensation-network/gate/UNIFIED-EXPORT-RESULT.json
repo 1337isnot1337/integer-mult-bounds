@@ -31,14 +31,14 @@
     },
     {
       "log": "checks/independent-bucketed.py.txt",
-      "log_sha256": "aa92dded570158436d2ed80f5703eaa9f654068135c493ce1fbad1952de2c35b",
+      "log_sha256": "587b0817407a15f37e21291ed0406380efcd333b6cffc586ac164a823d8a8d8c",
       "script": "independent/bucketed.py",
       "sha256": "e4da7836c6945a3238341ba2ddc0faef31843b4a81d4cb41463f82772cb68375",
       "status": "PASS"
     },
     {
       "log": "checks/independent-routes.py.txt",
-      "log_sha256": "52d04336c5c6317fd610c9e73b99e565838d38f077761dfb2c09ae5d5ff7aae5",
+      "log_sha256": "523be4b5230f236c2233cfc675ae0c40ef85c081b3180efa547df4b33171e200",
       "script": "independent/routes.py",
       "sha256": "18ef179235ebd6277e7b5f031622a66c5d2944fd5b9f21f14f9a510570c89456",
       "status": "PASS"
@@ -79,7 +79,7 @@
       "status": "PASS"
     }
   ],
-  "elapsed_seconds": 54.383,
+  "elapsed_seconds": 40.207,
   "hosted_CI": false,
   "inherited_files_checked": 90,
   "inherited_pins_sha256": "da9da6aa6b382f64e7257db88070d1ded8bc4a5012a011e545902787e5cacebf",

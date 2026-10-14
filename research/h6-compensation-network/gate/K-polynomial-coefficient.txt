@@ -1,7 +1,7 @@
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
-  File "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree/research/h6-compensation-network/k_encoder/network.py", line 65, in polynomial_certificate
+  File "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree/research/h6-compensation-network/k_encoder/network.py", line 65, in polynomial_certificate
     require(A.shape == (816, 816) and np.array_equal(got, wanted), 'K exact check at original line 44')
-  File "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree/research/h6-compensation-network/k_encoder/network.py", line 20, in require
+  File "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree/research/h6-compensation-network/k_encoder/network.py", line 20, in require
     raise ValueError(message)
 ValueError: K exact check at original line 44

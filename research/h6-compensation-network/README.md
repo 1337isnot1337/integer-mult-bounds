@@ -17,6 +17,12 @@ have separate reproducible checks.
 ## Exact inputs and attribution
 
 - Discussion: [H6 discussion 1167](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussion-11011604).
+- Originating H6 exchange: [request for the exact model](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914564),
+  [DreamingOfClouds's model disclosure](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914612)
+  and [pinned script publication](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18914905).
+  This submission responds to that exchange's unpriced compensation and
+  helper-loading question. It also credits the later independent
+  [PR1698 arithmetic handoff](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18918248).
 - Inherited local base: `92d165a607454e457c42180c10d79821df6d84d7`.
 - Selected-main snapshot: `0b1cccf86e2f5132ed286a26ef0a681a495740ea`.
 - H6 fork source: `b496aed769dd724cd1ff6b921cade626562be27b`, retained
@@ -34,6 +40,11 @@ supplies its immutable exhaustive pairing receipt. This extension, including
 the contract, routing, exact physical family and adversarial checks, was
 developed with substantial OpenAI Codex assistance and ten specialist agents.
 Their reviews are delegated machine reviews, not human peer review. Apache-2.0.
+
+The combined submission introduces the independent audit at `92d165a6` and
+the network extension at `4372734b`. The extension keeps that audit and the
+imported H6 predecessor byte-for-byte unchanged. Their local-only publication
+fields describe the preparation snapshot, before this submission was requested.
 
 ## Complete legal chronology
 
@@ -211,6 +222,25 @@ then establish bit-supplier and analytic transfer. The complete word's
 nominal failure already follows without those additional positive costs.
 No new selected κ, frontier move, hosted CI or all-size supplier claim is made.
 
+## Open next questions
+
+1. Can a network mix source channels while sharing K and compensation target
+   chronology? This is needed to reduce the complete lane inventory by orders
+   of magnitude. Start with two actual source-label fibers and emit the combined
+   K/compensation word, checking every dirty column and both orientations. The
+   blocker is that the cheap standalone mask routes scatter at nonzero target
+   frames while the current K word scatters at zero.
+2. Can that fused word retain a private-copy bill below the fixed doubled-center
+   model? Start by listing its actual copy chains, source/target paths and helper
+   banks, then run the exact invoice before scaling the search. The current
+   two-full-chain C=27,744 model is excluded at the stated targets for every odd
+   L≥3; this does not exclude different factorizations or shared schedules.
+3. Can the exact recipe families become an immutable bank/controller/tape
+   program with an approximate-child precision proof? Start by lowering one
+   emitted8-port word end to end. The finite exact-child grid ledger closes
+   denominator growth locally; it does not yet bound approximate child errors
+   or establish all-size bit/analytic transfer.
+
 ## Reproduce
 
 Use Python 3.11+ with NumPy; the audited runtime is Python 3.12.14/NumPy 2.3.5.
@@ -220,6 +250,18 @@ python3 -I -O -B research/h6-compensation-network/verify.py
 python3 -I -O -B research/h6-compensation-network/gate/replay.py
 make selected-record-check
 ```
+
+Keep full Git history: the gate checks inherited blobs at `92d165a6`.
+For the optional complete predecessor audit, first fetch its pinned published
+source commit, which is separate from this branch's ancestry:
+
+```sh
+git fetch https://github.com/DreamingOfClouds/integer-mult-bounds.git b496aed769dd724cd1ff6b921cade626562be27b
+python3 -I -O -B research/h6-independent-audit/verify.py
+```
+
+That predecessor command includes the exhaustive958,521,600-pair replay;
+the network package's commands retain its committed receipt instead.
 
 The export gate relocates the minimal 90-file inherited closure plus this
 package, runs from an unrelated directory, checks original Git blobs before
@@ -233,5 +275,6 @@ file export, not a bundled standalone Git database.
 `RESULT.json` is the unified receipt and `gate/RESULT.json` records the fresh
 export and semantic corruption controls. The prior exhaustive 958,521,600
 pairing audit is immutable input evidence, not rerun here. `overlap.json`
-is a fresh repository discussion/PR inventory; phrase nonmatches are not
-novelty evidence. All work remains local; no external post or PR was created.
+is a repository discussion/PR inventory; phrase nonmatches are not
+novelty evidence. The local validation snapshot predates PR submission.
+Submission does not imply hosted CI, supplier admission or frontier adoption.

@@ -1,8 +1,8 @@
 Traceback (most recent call last):
-  File "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree/research/h6-compensation-network/verify.py", line 72, in <module>
+  File "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree/research/h6-compensation-network/verify.py", line 72, in <module>
     main()
-  File "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree/research/h6-compensation-network/verify.py", line 29, in main
+  File "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree/research/h6-compensation-network/verify.py", line 29, in main
     need(sha(ROOT/name) == pin['sha256'], 'Frozen source binding: '+name)
-  File "/private/tmp/h6-successor-clean-mhmnuchm/minimal-source-tree/research/h6-compensation-network/verify.py", line 16, in need
+  File "/private/tmp/h6-successor-clean-y7i6p4wk/minimal-source-tree/research/h6-compensation-network/verify.py", line 16, in need
     raise ValueError(message)
 ValueError: Frozen source binding: research/niemeier-lattices/code/e8_sections.py
