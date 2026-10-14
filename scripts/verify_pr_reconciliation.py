@@ -33,6 +33,37 @@ def check_batch1047_file(item):
     require(original.endswith(b'\n') and current.startswith(original), 'Historical Makefile content changed')
 
 
+def check_frontier890_file(item):
+    """Authenticate the exact spectrum pin refresh accepted in 02c46c7e.
+
+    Preserve the frozen frontier890 receipt. Sagar Thakrar's refresh changed
+    only the single_intersection.py source digest in SOURCE.json and RESULT.json;
+    every other byte, including all 41 mathematical cases, must still match.
+    Dennis with substantial OpenAI Codex assistance; Apache-2.0.
+    """
+    name = item['integrated_path']
+    current = (ROOT / name).read_bytes()
+    if hashlib.sha256(current).hexdigest() == item['integrated_sha256']:
+        return
+    predecessors = {
+        'research/single-intersection-spectrum-audit/RESULT.json':
+            '9cb2210e148b2cce3fe59cf529fbf99f3b663dc7673db2e3969246595692f580',
+        'research/single-intersection-spectrum-audit/SOURCE.json':
+            '610fb9887add31b4f597a39dc58b3beff0e14c91a5fd7ee340c3b2e7d4b0fb4c',
+    }
+    require(name in predecessors and item['integrated_sha256'] == predecessors[name],
+            'Changed integrated file: ' + name)
+    old = b'08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d'
+    new = b'6874d41b75590369182ed61e0c6da5b547e035e0e43b50ea2b39e1f3861dca6d'
+    source = 'scripts/experiments/single_intersection.py'
+    require(hashlib.sha256((ROOT / source).read_bytes()).hexdigest().encode() == new,
+            'Changed spectrum successor source')
+    require(json.loads(current)['source_sha256'][source].encode() == new
+            and current.count(new) == 1, 'Changed spectrum source pin')
+    require(hashlib.sha256(current.replace(new, old)).hexdigest() == predecessors[name],
+            'Changed spectrum evidence beyond the accepted source pin')
+
+
 def check_family_decision(item, decision):
     """Bind projected ledger state to its authoritative, pinned family decision."""
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
@@ -416,8 +447,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete review')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_frontier890_file(item)
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing scope or adaptation reason')
         print('PASS frontier890 batch: reviewed sources, finite replays, scoped claims and closure bindings')

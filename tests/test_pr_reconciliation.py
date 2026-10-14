@@ -121,6 +121,71 @@ class FamilyDecision(unittest.TestCase):
             checker.main()
 
 
+class SpectrumRefresh(unittest.TestCase):
+    def setUp(self):
+        coverage = json.loads((ROOT / 'research/community-frontier890-audit/CONTENT-COVERAGE.json').read_bytes())
+        self.items = [deepcopy(item) for row in coverage['pull_requests'].values()
+                      for item in row['files'] if item.get('integrated_path') in {
+                          'research/single-intersection-spectrum-audit/RESULT.json',
+                          'research/single-intersection-spectrum-audit/SOURCE.json'}]
+        self.old = b'08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d'
+        self.new = b'6874d41b75590369182ed61e0c6da5b547e035e0e43b50ea2b39e1f3861dca6d'
+
+    def test_exact_accepted_refresh_and_original_bytes_pass(self):
+        self.assertEqual(len(self.items), 2)
+        for item in self.items:
+            checker.check_frontier890_file(item)
+            current = (ROOT / item['integrated_path']).read_bytes()
+            original = current.replace(self.new, self.old)
+            self.assertEqual(sha256(original).hexdigest(), item['integrated_sha256'])
+            with patch.object(Path, 'read_bytes', return_value=original):
+                checker.check_frontier890_file(item)
+
+    def test_any_other_proof_or_metadata_edit_is_rejected(self):
+        for item in self.items:
+            current = (ROOT / item['integrated_path']).read_bytes()
+            for mutated in (current.replace(b'"assignment_seed": 65', b'"assignment_seed": 66'),
+                            current + b' ', current.replace(self.new, b'0' * 64),
+                            current + self.new):
+                self.assertNotEqual(mutated, current)
+                original_read = Path.read_bytes
+                def read(path):
+                    return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+                with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+                    checker.check_frontier890_file(item)
+
+    def test_changed_mathematical_case_is_rejected(self):
+        item = next(item for item in self.items if item['integrated_path'].endswith('RESULT.json'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutated = current.replace(b'"binary_rank": 3,', b'"binary_rank": 4,', 1)
+        self.assertNotEqual(current, mutated)
+        original_read = Path.read_bytes
+        def read(path):
+            return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+        with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(ValueError, 'beyond'):
+            checker.check_frontier890_file(item)
+
+    def test_forged_historical_pin_is_rejected(self):
+        for item in self.items:
+            item['integrated_sha256'] = '0' * 64
+            with self.assertRaisesRegex(ValueError, 'Changed integrated file'):
+                checker.check_frontier890_file(item)
+
+    def test_successor_helper_drift_is_rejected(self):
+        original_read = Path.read_bytes
+        def read(path):
+            return b'changed helper' if path == ROOT / 'scripts/experiments/single_intersection.py' else original_read(path)
+        with patch.object(Path, 'read_bytes', read):
+            for item in self.items:
+                with self.assertRaisesRegex(ValueError, 'Changed spectrum successor source'):
+                    checker.check_frontier890_file(item)
+
+    def test_unrelated_file_changes_still_fail(self):
+        item = {'integrated_path': 'CONTRIBUTING.md', 'integrated_sha256': '0' * 64}
+        with self.assertRaisesRegex(ValueError, 'Changed integrated file'):
+            checker.check_frontier890_file(item)
+
+
 class ReviewCompletion(unittest.TestCase):
     def setUp(self):
         self.decision = {
