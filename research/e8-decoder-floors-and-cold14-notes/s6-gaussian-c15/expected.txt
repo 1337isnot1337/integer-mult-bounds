@@ -1,0 +1,12 @@
+Gauss Counter(...)            (flats.py; includes 1500 dimension-3 flats: 60 of size 15, 480 of size 6, 960 of size 4)
+group order on lines 11520
+orbits on 3-flats: [(15, 60), (4, 960), (6, 480)] total 1500
+ALL AS EXPECTED
+all 60 lines  c=14 UNSAT
+all 60 lines  c=15 SAT
+|H|= 4 |O|=56 c=14 {cadical153,glucose4,maplechrono} UNSAT   (clique-gauge 12)
+|H|= 4 |O|=56 c=15 {cadical153,glucose4,maplechrono} SAT
+|H|= 6 |O|=54 c=14 ... UNSAT ; c=15 ... SAT
+|H|=15 |O|=45 c=14 ... UNSAT ; c=15 ... SAT
+rank_F2 check: W,U columns 15  betas [4, 4, ..., 4]  sum 60
+FULL=1: ALL AS EXPECTED   (1500 of 1500 3-flats, c=14 UNSAT on every complement)

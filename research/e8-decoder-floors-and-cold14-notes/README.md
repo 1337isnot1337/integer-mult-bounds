@@ -147,3 +147,18 @@ The right family is the span of reads `x += λ·y` wherever y holds a multiple o
 E4's control recovers 566 plus new exact two-value variants at −1,850. A reversed-constraint bug in gencomp3 was found and fixed mid-run, and the affected results were rerun.
 
 **Not covered:** the rest of E1 and E4, three-value holders, multi-deletions across different values, A-section edits, and the extra word. The negative results suggest further supplier gains need changes outside B-local kernels, such as the A-section or the parent/centre interface.
+
+## 13. Gaussian E8: every 15-total decoder costs exactly 60 (`s6-gaussian-c15/`, 2026-10-14)
+This answers §10's open question G2.
+
+**Reduction (argued).** Take a valid 15-total decoder B = W·Uᵀ over F2. If supp(Wx) lies in a 3-flat H for some x ≠ 0, then on O = the lines outside H we get W[O]x = 0. So B[O,O] has rank ≤ 14 and still obeys the decoder pattern. It therefore suffices to show that the induced pattern on O has F2 minrank ≥ 15 for every 3-flat H; the U side follows by transposition. Then every total spans K⁴, so β_j = 4 and the cost is 60.
+
+**Symmetry (checked).** The 60 complex reflections preserve the lines and their non-orthogonality, and generate a group of order **11,520**. The 1,500 3-flats fall into **3 orbits**: 60 of size 15, 480 of size 6 and 960 of size 4.
+
+**SAT (checked, no proof logs).** On the complement of each orbit representative (45, 54 and 56 lines), c = 14 is **UNSAT** with all three of CaDiCaL 1.5.3, Glucose 4 and MapleChrono, in 5–123 s. Calibrations: c = 15 is SAT on every O, and on all 60 lines c = 14 is UNSAT and c = 15 is SAT. The previous monolithic encoding ran for 18 h without an answer.
+
+**Group-free cross-check** (every 3-flat individually): **in progress**, 7/1,500 UNSAT so far, none SAT (`logs/prove_all.partial.log`).
+
+**Side lemma (argued).** For a c-total decoder and any family of flats, at most c − minrank(pattern on the complement of their union) totals have R_j inside the union (and likewise for A_j).
+
+**Consequence:** a Gaussian decoder costing ≤ 42, which would beat real E8, needs **≥ 16 totals**. The lower bound of 40 from §10 is unchanged. The 16-total case is being checked with this multi-flat argument.
