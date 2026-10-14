@@ -145,5 +145,24 @@
       "score": 1,
       "excerpt": "fferent R439 lineage (post-PR915/PR967), and\n  **#1045** crosses PR941's disjoint-pair floor with a four-helper fusion. Different words, different\n  accounting, different move classes.\n* Those results are cited from their own packages and were **not** re-run here.\n\n## Scope and limits\n\n* Finite, exact audit of two specific words and one move class. Not an optimality theorem over bit\n  words, and **not** an exclusion of three-or-more-move escapes of the plateau.\n* The two-move search is complete "
     }
-  ]
+  ],
+  "subsequent_review": {
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2077#issuecomment-6176996271",
+    "reviewer": "philippeVV",
+    "disclosed_ai_assistance": "substantial Claude assistance",
+    "scope": "Reviewer-reported CPython3.12 full strict and registered replay, metadata check, separate seed67 owner audit; no blocking finding",
+    "same_supplier_predecessor": {
+      "pr": 1407,
+      "kappa": "0.001672680818492982",
+      "overlapping_rows": [
+        2010,
+        34306
+      ],
+      "composition": "not valid as written; needs a new combined assignment and complete replay",
+      "head": "d8640f5b7ae99b43f5d56146cb94ca62b8b3835d",
+      "package": "research/astra-ultra-hosting-20261013",
+      "owners_sha256": "28bc3da38d97d0cc87ec2526c8163943fc3c0929352a06c407ad5d7232962e72",
+      "owners_git_blob": "814d8e8e2d7240d4131748853138c2a80eb10ee0"
+    }
+  }
 }

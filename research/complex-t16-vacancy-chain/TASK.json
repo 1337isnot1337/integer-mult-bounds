@@ -46,15 +46,15 @@
   "budget_minutes": 60,
   "stop_rule": "Retain one four-placement witness; stop after independent ownership, both exact arithmetic engines, complete strict controller/invoice replay and focused packaging.",
   "outcome": "completed",
-  "evidence": "All eleven strict stages pass, with 102 negative controls and conditional kappa 0.001672664045494084, above selected PR1094. Higher pending T74 claims remain distinct.",
+  "evidence": "All eleven strict stages pass, with 102 negative controls and conditional kappa 0.001672664045494084, above selected PR1094 but below the earlier same-supplier PR1407 packing. This is a compact four-row alternative. Independent reviewer-reported CPython3.12 and seed67 audit passes are linked in VALIDATION.json.",
   "author": "George Lydakis",
   "ai_assistance": "Substantial OpenAI Codex assistance, including coordination with Ody, source review, search, implementation and validation. No independent human review claimed.",
   "open_questions": [
     {
-      "question": "Can another bounded vacancy-path grammar improve the selected whole-helper packing?",
-      "why_it_matters": "The witness changes the binding paid profile, but is not an optimum proof.",
-      "first_step": "Freeze a small path grammar and exact owner windows, reject infeasible family assignments before strict replay.",
-      "blocked_by": "No additional positive candidate or certified bound on that wider grammar."
+      "question": "Can a bounded vacancy path improve PR1407 without undoing its existing gains?",
+      "why_it_matters": "PR1407 is a stronger packing of the same supplier, and overlaps this witness at rows and bins.",
+      "first_step": "Freeze the exact PR1407 owner map, inspect overlapping rows2010/34306 and bins, then nominate a bounded path with exact family and window checks.",
+      "blocked_by": "No combined assignment or new positive candidate has been admitted."
     }
   ]
 }

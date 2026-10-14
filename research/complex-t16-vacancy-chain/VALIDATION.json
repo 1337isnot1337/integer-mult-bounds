@@ -30,5 +30,20 @@
     "home_override": false,
     "cold_ancestry_rebuilt": false
   },
-  "optimized_mode_controls": "build.py and verify.py reject -O before reading data or launching a verifier"
+  "optimized_mode_controls": "build.py and verify.py reject -O before reading data or launching a verifier",
+  "external_review_report": {
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2077#issuecomment-6176996271",
+    "reviewer": "philippeVV",
+    "disclosed_ai_assistance": "substantial Claude assistance",
+    "scope": "Reviewer-reported CPython3.12 full strict and registered replay, metadata check, separate seed67 owner audit; no blocking finding",
+    "same_supplier_predecessor": {
+      "pr": 1407,
+      "kappa": "0.001672680818492982",
+      "overlapping_rows": [
+        2010,
+        34306
+      ],
+      "composition": "not valid as written; needs a new combined assignment and complete replay"
+    }
+  }
 }

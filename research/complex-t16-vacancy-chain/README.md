@@ -6,16 +6,25 @@ The unchanged PR1094 supplier admits conditional
 word, helper widths, 144-call order, physical stock, native supplier and bit
 supplier stay fixed. Complete strict supplier replay passes.
 
-This improves the selected PR1094 benchmark. It is not the largest number
-reported in pending submissions: PR1992 and PR2044 report larger conditional
-values for the different T74 supplier and fine-prime transfer. No global packing
-optimum, practical speedup, or unconditional multiplication theorem is claimed.
+This improves the selected PR1094 benchmark, but is not the best known packing
+of that supplier. [PR1407](https://github.com/CrocSwap/integer-mult-bounds/pull/1407)
+already reports **κ = 0.001672680818492982** for the same unchanged PR1094
+supplier. This package provides a compact four-row alternative. PR1992 and
+PR2044 report still larger conditional values for the different T74 supplier
+and fine-prime transfer. No global packing optimum, practical speedup, or
+unconditional multiplication theorem is claimed.
 
 ## Construction and exact saving
 
 The moves below are packing assignments, not new chronological scalar gates.
 All source and destination slices are suffixes; other placements stay fixed.
 The exact before/after rows are in `MOVES.json`.
+
+Each assignment reserves a disjoint slice of its owner's pending prefix for
+the whole schedule. Prefix coverage is checked over the union of those slices;
+offsets need not increase with call time. For example, calls at times4 and9 use
+offsets40 and44. The unchanged 144-call chronology and strict owner windows,
+not the order of the move list below, govern execution.
 
 | Helper, call (stage, replica), time | Old owner bin and offset | New owner bin and offset |
 |---|---|---|
@@ -94,6 +103,14 @@ Kothe's owner-packing lineage, Hao Yan / FanPUYen's PR858 T16 controller,
 PR1018 including PR987, PR1005, NewBArch's PR869, and PR799/741/685/645/589.
 The exact arithmetic engines retain their original authors and source notices.
 
+[philippeVV's independent review](https://github.com/CrocSwap/integer-mult-bounds/pull/2077#issuecomment-6176996271)
+reports a full CPython3.12 strict replay, registered replay and metadata-check
+pass, plus a separate seed67 owner audit with eleven rejection controls. The
+review discloses substantial Claude assistance. It identifies the stronger
+same-supplier PR1407 result and overlapping owner rows2010 and34306 and bins;
+the two patches cannot be composed as written. Any combined candidate needs a
+new owner assignment and complete replay.
+
 The changed hypothesis is vacancy propagation through an occupied full bin,
 followed by filling the new eight-slot suffix. Direct relocation and a single
 blocking-role swap miss the first path. This is a bounded witness, not a claim
@@ -102,8 +119,9 @@ that broader packing searches or other suppliers are exhausted. See
 
 ## Open next questions
 
-Can vacancy paths expose other useful combinations of whole-helper residuals?
-A first step is a bounded search over a declared path grammar with exact family
-and window constraints, followed by the same complete invoice. This witness
-does not establish that such a path exists or that the current packing is
-optimal. Larger gains likely require a changed local supplier or interface.
+Can a vacancy path improve the stronger PR1407 owner map without undoing its
+existing gains? A first step is to freeze that exact map and a bounded path
+grammar, check the overlapping rows and bins, then apply exact family/window
+constraints and the complete invoice. This witness does not establish that
+such a path exists or that either packing is optimal. Larger gains likely
+require a changed local supplier or interface.
