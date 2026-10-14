@@ -42,7 +42,10 @@ The [review through #2027](community-efficient1000-review.md) leaves the selecte
   against that witness before designing a full schedule.
 - **Selected proof obligation:** [#1990's stock audit](../../research/selected-bootstrap-stock-audit/README.md)
   leaves the actual selected reserve coefficient unknown. Derive one source-bound
-  stage envelope rather than recomputing the already checked headrooms.
+  stage envelope rather than recomputing the already checked headrooms. The
+  [bootstrap obligation map](selected-bootstrap-scope-map.md) separates newer
+  conditional BIT coefficient proposals, time and fresh-field implications,
+  and the remaining implementation premises. These are not supplier admission.
 
 The new fixed-word frame bounds (#1995/#2013), Eisenstein additive pairing
 bound (#2017), and bounded register census (#1974) narrow particular search
