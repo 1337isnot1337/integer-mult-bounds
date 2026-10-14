@@ -1,0 +1,18 @@
+# R8 progress
+- Tue Oct 13 20:42:47 EDT 2026 started
+- FINDING: #1324, #1305 (and #1280) CLOSED by author 23:22Z as INVALID (idle-overlay moves axes between idle children of different (pair,side) families; DATA-PHASES fix each family's Z4 multiplier). Flagged by rohanarun #1286. Overlay-free: #1261, #1274.
+- Valid frontier therefore: #1319 rohanarun 0.001676855229071321 (four kernels exact fill, 74 replicas), #1377 jk2 regrid ...886144, #1424 rohanarun draft regrid ...886206. Retarget: beat #1319 construction (κ > 0.0016768552290713219), lever = more helper-donor cold kernels; NO idle overlay.
+- [setup] worktree ~/imb-r8 = pr1319 head 603defe5. Final #1297 words rebuilt to $SP/r8/words/{base,extra}.json.gz (recount matches published profiles). Pricer (r7/tk harness, IMB_ROOT=~/imb-r6c) reproduces -11676 for 555/567 kernels on PR1286 input word (positive control).
+- [running] tools/relations.py: generalized census (all 376 registers with early uses; two-shock + one-shock helper/hook + 'free' deletions), then tools/price_all.py exact pricing.
+- [result] full-deletion census on final #1297 base word: 376 pivots, 254 relation candidates at 48 pivots (131 hook, 87 two-shock, 36 helper); exact pricing: 99 ok all delta 0, 80 infeasible (frame/cone), 75 inexact mod p. ZERO gains.
+- [control] same census on PR1286 input word restricted to 531/543/555/567 recovers exactly PR1297's 5+5 relations, all -11676 (matches SEARCH-RESULT.json).
+- [running] subsets-of-early-uses census on base (~1950 jobs).
+- [tool] tools/relations2.py = family G (cuts after ANY read of ANY register h, or at B start; hooks around ANY early add gate, any reader/donor; one- and two-shock; all subsets of early uses), solved by hashing images in V/<d>. Contains PR1297's family (control: all 10 original relations recovered, +2 new on 1286 word). 
+- [running] G on final base word: 1952 (pivot,subset) jobs -> 9916 candidates at 248 pivots (7632 two, 2116 hook, 168 helper); exact pricing in progress (cands/G-base-sub-price.log).
+- [result] G census on final base word fully priced: 9916 cands -> 1435 ok (1311 delta 0, 124 delta +4913), 7287 infeasible (exact frame solver/cone caps), 1194 inexact mod p. ZERO negative-delta (gaining) kernels. Extra word pricing running (same scalar program, different frames/entrances).
+- [tool] tools/relations3.py: any-type 2-shock (cut+cut, hook+hook, cut+hook) and 3-shock census via Gaussian quotient hashing. K=2 subsets on base: 23139 cands; 15507 new beyond G (11220 hook+hook, 4229 cut+cut, 58 hook+cut). Pricing on base running (cands/K2-base-new-price.log). Extra-word full pricing paused (CPU).
+- [result] K2 (any-type 2-shock) on base: first 9601/15507 priced (no timeouts): 1407 ok (1230 Δ0, 177 Δ+4913), 8125 infeasible, 69 inexact, 0 gains. Remainder resumed with 30 s timeout.
+- [result] 3-shock spot (554,448): 12 cands, all infeasible. Full 3-shock ~4 CPU-min/pivot -> not run.
+- [mechanism] kernel 555 gain = climb merging at read-into targets 187/483 ((1,1)->2, (1,2)->3).
+- [notes] draft at $SP/r8/notes/README.md, scripts in notes/scripts.
+- [final] K2 on base: 13402/15507 priced: 4346 ok (4169 Δ0, 177 Δ+4913), 8808 infeasible, 248 inexact, 0 gains; 2105 unpriced (budget). Extra-word pricing not completed. No admissible negative-cost kernel found -> NEGATIVE RESULT, notes at $SP/r8/notes/README.md. No branch/commit (nothing to realise).
