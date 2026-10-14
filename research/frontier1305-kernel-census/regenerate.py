@@ -7,12 +7,16 @@ input word (positive control); price.py, deletion.py and retime.py with the #118
 idle_optimum.py on a completed #1305 verify run.  Cost weights use IMB_B = 0.001679979627113687, the certified complex
 lower endpoint of #1305's profile (kappa itself is never taken from these weights).
 
-usage: python3 -B regenerate.py --toolkit <PR #1186 checkout>/research/exact-frame-toolkit --out NEW_DIR [--workers 12]
+The toolkit must be PR #1186 revision 2 (head 3855fd41): its MANIFEST.json and every file it lists are checked first.
+
+usage: python3 -B regenerate.py --toolkit <PR #1186 checkout at 3855fd41>/research/exact-frame-toolkit --out NEW_DIR [--workers 12]
        [--idle-run <#1305 verify work dir> --idle-owners <#1305 package>/OWNERS.json.gz]
 """
-import argparse, filecmp, os, subprocess, sys, time
+import argparse, filecmp, hashlib, json, os, subprocess, sys, time
 from pathlib import Path
 PKG = Path(__file__).resolve().parent
+TOOLKIT = dict(pr=1186, head='3855fd413a3ccfc31988033801b9648c25aee783', tree='b34052ebbe42f863436c264eaadb494e20764ac3',
+               manifest_sha256='0c390838893e3170169657220bbf56132df0372f77b87059f7bb0b601971249f')
 IMB_B = '0.001679979627113687'
 WORDS = dict(base=PKG / 'inputs/BASE-WORD.json.gz', extra=PKG / 'inputs/EXTRA-WORD.json.gz', control=PKG / 'inputs/CONTROL-WORD.json.gz')
 ap = argparse.ArgumentParser(); ap.add_argument('--toolkit', type=Path, required=True); ap.add_argument('--out', type=Path, required=True)
@@ -27,6 +31,9 @@ def run(*args):
         rc = subprocess.run([sys.executable, '-B', *map(str, args)], env=env, stdout=f, stderr=subprocess.STDOUT).returncode
     assert rc == 0, (args, log.read_text()[-3000:]); print('PASS', Path(args[0]).name, Path(str(args[-1])).name if not str(args[-1]).startswith('-') else '', f'{time.time()-t0:.0f}s', flush=True)
 W = str(a.workers); T = a.toolkit.resolve()
+sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
+assert sha(T / 'MANIFEST.json') == TOOLKIT['manifest_sha256'], 'toolkit is not PR #1186 revision 2 (MANIFEST.json differs)'
+for name, h in json.loads((T / 'MANIFEST.json').read_text()).items(): assert sha(T / name) == h, ('toolkit file drift', name)
 for w in ('base', 'extra'):
     for rule in ('tail', 'first'):
         run(PKG / 'census.py', WORDS[w], out / f'CENSUS-{w}-{rule}.json', '--workers', W, '--restore', rule)

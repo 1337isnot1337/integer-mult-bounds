@@ -2,10 +2,13 @@
   "status": "NO_GAIN_IN_SEARCHED_FAMILIES",
   "kappa_claim": null,
   "frontier": {
-    "highest_open_claim": "PR #1324 kappa 0.001677380107853623 (head 43c19465), same #1297 words/owners/dispatch blobs; validated locally (verify.py PASS, fresh native replays, 156 s)",
-    "previous": "PR #1305 kappa 0.001677162029073474 (head a96a5d95), validated locally (127 s)",
-    "words": "PR #1297 head 4abf710a",
-    "selected": "PR #1094 kappa 0.001672660197076918 (main bce54fb3)"
+    "note": "Updated 2026-10-14. #1305 and #1324 were withdrawn by their author: their idle overlays move axes across Z4 families that the retained recipes fix. #1297's two words are also those of #1319's T74 exact fill. Later kernels in richer families were found on them: #1625 (pivot 566, this author) and #1672 (pivot 554). Both lie outside the two families searched here.",
+    "words": "PR #1297 head 4abf710a (same blobs in #1305, #1324 and #1319)",
+    "selected": "PR #1094 kappa 0.001672660197076918 (main)",
+    "historical": {
+      "pr1324": "kappa 0.001677380107853623 (head 43c19465), withdrawn",
+      "pr1305": "kappa 0.001677162029073474 (head a96a5d95), withdrawn"
+    }
   },
   "cost_weights_b": "0.001679979627113687 (certified complex lower endpoint of #1305 profile)",
   "kappa_scale": {
@@ -86,6 +89,11 @@
     "control": {
       "matches": 10,
       "delta": -11707,
+      "true_delta_units": [
+        -11707.881657641952,
+        -11707.881657641952
+      ],
+      "audit_local": true,
       "deletion": [
         "infeasible",
         "infeasible"
@@ -103,6 +111,32 @@
       "improvable_groups": 0,
       "donors": 3251,
       "receivers": 5025
+    },
+    "intervals": {
+      "prices-base-tail": {
+        "bounded": 32,
+        "max_gain_units_ceil": "0.000001"
+      },
+      "prices-base-first": {
+        "bounded": 52,
+        "max_gain_units_ceil": "0.000001"
+      },
+      "retime-base": {
+        "bounded": 635,
+        "max_gain_units_ceil": "0.000001"
+      },
+      "prices-extra-tail": {
+        "bounded": 32,
+        "max_gain_units_ceil": "0.000001"
+      },
+      "prices-extra-first": {
+        "bounded": 52,
+        "max_gain_units_ceil": "0.000001"
+      },
+      "retime-extra": {
+        "bounded": 635,
+        "max_gain_units_ceil": "0.000001"
+      }
     }
   },
   "deletion_screen_top": [
@@ -236,5 +270,18 @@
     }
   ],
   "scope": "Finite searched families on the two fixed #1297/#1305 local words: #1297 two-shock helper-donor relations (end-of-early-cleanup and before-first-write restorations) over all 306 early-read helper pivots, and exact single/joint re-timings of the early reads of the 152 pivots with a positive deletion price. Exact frame model of PR #1186 (cone caps, tail-mutable frames, cut equality). Uncompensated deletion prices are a screen, not a bound. Idle part: #1305 selection versus the exact optimum of the donor-star class admitted by its verify_idle_overlay.py. Not an impossibility theorem for other kernel families, other words or other hosting.",
-  "robustness": "Verdicts and profiles of all 61 + 292 + 803 base-word candidates are identical at #1324 endpoint weights b = 0.001680198439292940."
+  "robustness": "Verdicts and profiles of all 61 + 292 + 803 base-word candidates are identical at #1324 endpoint weights b = 0.001680198439292940.",
+  "true_moment_bound": {
+    "max_gain_units_ceil": "0.000001",
+    "candidates_bounded": 1438,
+    "statement": "No priced or re-timed candidate without a surrogate gain can lower the per-call moment at b below the base word's surrogate-optimal frames by more than 1e-6 units (one unit = 2^-40 of the per-call moment). The exact rational bounds, about 1e-11 units, are rounded up to the 1e-6 grid. Every such candidate has an unchanged paid profile, so its realized true delta is exactly 0.",
+    "method": "PR #1186 revision 2 Pricer(interval=True): chain-dual or exact-elimination lower bound on floor(2^224 (lo_r - lam r)) in Python integers plus lam * (rank mass), against the engines' upper bound of the base assignment",
+    "toolkit": {
+      "pr": 1186,
+      "head": "3855fd413a3ccfc31988033801b9648c25aee783",
+      "tree": "b34052ebbe42f863436c264eaadb494e20764ac3",
+      "manifest_sha256": "0c390838893e3170169657220bbf56132df0372f77b87059f7bb0b601971249f"
+    },
+    "revision1_verdicts_unchanged": true
+  }
 }
