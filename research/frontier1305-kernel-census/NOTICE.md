@@ -15,3 +15,5 @@ pricing harness of PR #1186 (research/exact-frame-toolkit), which is not vendore
 New files: Marius-Paul Dumitrean, Apache-2.0, prepared with substantial AI assistance (Anthropic Claude, via Claude Code).
 
 Revision 2 (2026-10-14) answers the maintainer's review continuation point on #1337 (Mister-Meeseeks, [batch review](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient400-review.md)). It re-prices the evidence with PR #1186 revision 2's true-moment interval certificate (head 3855fd41). Prepared with substantial AI assistance (Anthropic Claude, via Claude Code).
+
+Revision 3 (2026-10-14) re-pins `regenerate.py` to PR #1186 revision 3 (head c37dfb07) and moves `deletion.py` to that toolkit's `compat.deadline`; the evidence is unchanged. Prepared with substantial AI assistance (Anthropic Claude, via Claude Code).

@@ -1,6 +1,6 @@
 """price.py: frame pricing of census matches on one word with PR #1186 revision 2's harness: static program rules, map screen,
 unchanged derived compensation, cone caps, tail-mutable surrogate-optimal frames, cut equality, audit_local on negative
-deltas, and true-moment interval bounds (bounds.py).  Needs research/exact-frame-toolkit of PR #1186 (revision 2).
+deltas, and true-moment interval bounds (bounds.py).  Needs research/exact-frame-toolkit of PR #1186 (revision 3, pinned by regenerate.py).
 usage: price.py TOOLKIT_DIR WORD.json.gz CENSUS.json OUT.json [--workers N]"""
 import argparse, json, os, resource, sys, time, multiprocessing as mp
 ap = argparse.ArgumentParser(); ap.add_argument('toolkit'); ap.add_argument('word'); ap.add_argument('census'); ap.add_argument('out')

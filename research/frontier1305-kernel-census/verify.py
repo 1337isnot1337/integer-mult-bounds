@@ -17,12 +17,13 @@ Checks:
   7. failure controls: a one-byte input change, a changed early-read coefficient, a forged negative price, a priced edit
      absent from the census and a forged true-gain bound are each rejected at the intended check.
 Coverage: this script recounts and binds the stored evidence; it does not rerun the frame optimization or the interval
-certificates.  regenerate.py reruns every price with PR #1186 revision 2 and compares the evidence byte for byte.
+certificates.  regenerate.py reruns every price with PR #1186 revision 3 and compares the evidence byte for byte.
 """
 import collections, copy, gzip, hashlib, json, sys
 from fractions import Fraction
 from pathlib import Path
-assert __debug__, 'assertions are the checks; do not run with -O'
+if not __debug__:
+    raise SystemExit('verify.py: assertions are the checks; do not run with -O')
 PKG = Path(__file__).resolve().parent
 sys.path.insert(0, str(PKG))
 import census  # noqa: E402

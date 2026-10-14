@@ -4,13 +4,14 @@ compensating kernel adds gates, so (cost after deletion - base cost) bounds belo
 keeps the remaining frame structure ONLY when the deletion leaves the map-derived constraints (cone caps, cut equality)
 unchanged; it does not in general: on #1297's input word the uncompensated deletion of pivot 555/567 is frame-infeasible while
 the exact kernels gain.  usage: deletion.py TOOLKIT WORD OUT [--workers N]"""
-import argparse, json, signal, sys, time, multiprocessing as mp
+import argparse, json, sys, time, multiprocessing as mp
 ap = argparse.ArgumentParser(); ap.add_argument('toolkit'); ap.add_argument('word'); ap.add_argument('out'); ap.add_argument('--workers', type=int, default=12)
 ap.add_argument('--pivots', nargs='*', type=int); a = ap.parse_args()
 sys.path.insert(0, a.toolkit)
 import harness as H, frames as F
 from word import inline
 from model import cone_caps
+from compat import Timeout, deadline
 P = None
 def init():
     global P; P = H.Pricer(a.word, check_literal=True)
@@ -18,16 +19,15 @@ def run(q):
     w = P.base; B = w['B']; first = next((i for i, g in enumerate(B) if g[1] == q), len(B))
     dele = [i for i in range(first) if B[i][0] == 'add' and B[i][2] == q]
     w1 = H.compile_edits(w, dict(delete=dele))
-    signal.signal(signal.SIGALRM, H._alarm); signal.alarm(300)
     try:
-        caps, comp = cone_caps(w1)
-        g = F.Graph(inline(w1, True), check_literal=False, tail_mutable=True, caps=caps, cut_equality=True)
-        r = F.optimal_frames(inline(w1, True), P.costs, check_literal=False, graph=g)
+        with deadline(300):
+            caps, comp = cone_caps(w1)
+            g = F.Graph(inline(w1, True), check_literal=False, tail_mutable=True, caps=caps, cut_equality=True)
+            r = F.optimal_frames(inline(w1, True), P.costs, check_literal=False, graph=g)
         res = dict(status='ok' if r['certified'] else 'uncertified', delta=r['cost'] - P.base_cost, profile=dict(sorted(r['profile'].items())))
     except F.Infeasible as e: res = dict(status='infeasible')
-    except H.Timeout: res = dict(status='timeout')
+    except Timeout: res = dict(status='timeout')
     except ValueError as e: res = dict(status='error:' + str(e)[:60])
-    finally: signal.alarm(0)
     return dict(pivot=q, early=len(dele), targets=[B[i][1] for i in dele], **res)
 if __name__ == '__main__':
     init(); B = P.base['B']; first = {}

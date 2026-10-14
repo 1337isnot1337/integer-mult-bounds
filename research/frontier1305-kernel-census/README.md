@@ -17,7 +17,7 @@ These validations predate the withdrawal of #1305 and #1324; they are kept as hi
 
 ## Searched families and results
 
-Pricing uses PR #1186's harness at revision 2 (head `3855fd41`):
+Pricing uses PR #1186's harness, pinned at revision 3 (head `c37dfb07`; its pricing code is revision 2's, `3855fd41`):
 - the auditor's static program rules;
 - an exact program-map screen;
 - an unchanged derived compensation;
@@ -76,11 +76,11 @@ python3 -B research/frontier1305-kernel-census/verify.py
 python3 scripts/research_package.py --package research/frontier1305-kernel-census
 ```
 
-**Coverage.** `verify.py` recounts and binds the stored evidence. It does not rerun the frame optimization or the interval certificates. `regenerate.py` reruns all of them; it needs PR #1186's toolkit at revision 2 (head `3855fd41`) and checks the toolkit's pinned `MANIFEST.json` and every file it lists. With 12 workers it takes about 10 minutes. Two consecutive regenerations reproduced `evidence/` byte for byte. Against revision 1's evidence, 8 of 15 files are byte-identical. The other 7 differ only by the added bound fields: no verdict, delta or profile changed.
+**Coverage.** `verify.py` recounts and binds the stored evidence. It does not rerun the frame optimization or the interval certificates. `regenerate.py` reruns all of them; it needs PR #1186's toolkit at revision 3 (head `c37dfb07`) and checks the toolkit's pinned `MANIFEST.json` and every file it lists. With 12 workers it takes about 10 minutes. Two consecutive regenerations reproduced `evidence/` byte for byte. Against revision 1's evidence, 8 of 15 files are byte-identical. The other 7 differ only by the added bound fields: no verdict, delta or profile changed.
 
 ```sh
 python3 -B research/frontier1305-kernel-census/regenerate.py \
-  --toolkit <checkout of PR #1186 at 3855fd41>/research/exact-frame-toolkit --out /absolute/new/dir --workers 12 \
+  --toolkit <checkout of PR #1186 at c37dfb07>/research/exact-frame-toolkit --out /absolute/new/dir --workers 12 \
   [--idle-run <#1305 verify work dir> --idle-owners <#1305 package>/OWNERS.json.gz]
 ```
 
@@ -95,6 +95,20 @@ the optimality claim to the integer objective.
 - **Narrowed wording.** "Exactly optimal" now reads as surrogate-optimal plus the stated true-moment bound.
 - **Coverage.** The distinction between the recount (`verify.py`) and the full regeneration (`regenerate.py`) is stated.
 - **Frontier text.** It records the withdrawal of #1305 and #1324.
+
+## Revision 3 (2026-10-14)
+
+PR #1186 revision 3 (head `c37dfb07`) made the toolkit portable. It changed only timeouts, memory readings, the worker
+start method and text encoding; `frames.py` and the pricing code are unchanged. This revision follows it, so that
+`regenerate.py` keeps working if #1186 merges as is.
+
+- `regenerate.py` now pins revision 3's `MANIFEST.json`.
+- `deletion.py` used the harness's private SIGALRM handler, which revision 3 replaced with `compat.deadline`. It now
+  uses `deadline` and `Timeout` from the toolkit's `compat.py`.
+- `verify.py` and `regenerate.py` now refuse to run under `-O`. Before, `verify.py`'s guard was itself an `assert`,
+  which `-O` strips, and `regenerate.py` had none.
+- A fresh regeneration with revision 3 (12 workers, about 8 minutes) reproduced all 16 evidence files byte for
+  byte. No verdict, price, bound or tally changes; `RESULT.json` changes only in its toolkit pin.
 
 ## Open next questions
 

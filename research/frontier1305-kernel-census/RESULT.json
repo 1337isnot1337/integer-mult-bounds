@@ -278,10 +278,16 @@
     "method": "PR #1186 revision 2 Pricer(interval=True): chain-dual or exact-elimination lower bound on floor(2^224 (lo_r - lam r)) in Python integers plus lam * (rank mass), against the engines' upper bound of the base assignment",
     "toolkit": {
       "pr": 1186,
-      "head": "3855fd413a3ccfc31988033801b9648c25aee783",
-      "tree": "b34052ebbe42f863436c264eaadb494e20764ac3",
-      "manifest_sha256": "0c390838893e3170169657220bbf56132df0372f77b87059f7bb0b601971249f"
+      "head": "c37dfb077ad77ef391cefa56c98db87a40b7e28c",
+      "tree": "389ebe11c44f6aa58fd026d84ebfa79d4afe69be",
+      "manifest_sha256": "658331a6f03d1ca4eb0ae7f186b0da2aa694d70619af3c83a77e051cca85fd8e"
     },
-    "revision1_verdicts_unchanged": true
+    "revision1_verdicts_unchanged": true,
+    "earlier_toolkit": {
+      "pr": 1186,
+      "head": "3855fd413a3ccfc31988033801b9648c25aee783",
+      "manifest_sha256": "0c390838893e3170169657220bbf56132df0372f77b87059f7bb0b601971249f",
+      "evidence": "byte-identical (revision 2 of this package)"
+    }
   }
 }
