@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "query": {
+    "command": "python3 scripts/find_overlap.py --refresh --task bit-new-register-model --all-terms --limit 35 'fifth rational frame' 'index-four rational address lattice' 'six-call four-role' '4R=2A-B+4P' '388800 words'",
+    "terms": [
+      "three-register",
+      "nonabelian",
+      "group algebra",
+      "fifth rational frame",
+      "index-four rational address lattice",
+      "six-call four-role",
+      "4R=2A-B+4P",
+      "388800 words"
+    ],
+    "checked_at_utc": "2026-10-14T19:33:21Z"
+  },
+  "coverage": {
+    "open_prs": {
+      "fetched_at_utc": "2026-10-14T19:31:27Z",
+      "complete_pagination": true,
+      "records": 373
+    },
+    "discussions": {
+      "fetched_at_utc": "2026-10-14T19:33:20Z",
+      "complete_pagination": true,
+      "records": 767
+    }
+  },
+  "result": {
+    "possible_matches": 0,
+    "novelty_certified": false,
+    "active_adjacent_claims": [
+      {
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2095",
+        "scope": "Four-role A4 commutator target; different finite nonabelian group and target."
+      },
+      {
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932466",
+        "scope": "Three 3x3 targets with an auxiliary bank; different role count and target."
+      },
+      {
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932183",
+        "scope": "Seven-query noncommuting decoder factorization; different source, operation and target."
+      }
+    ],
+    "self_predecessor": "Cycle 21 PR #2085 and its explicit open-next question in Discussion #2091."
+  },
+  "limits": "The refresh paginated all then-open PRs and Discussions, but the helper searches PR descriptions, discussion claims, and local package READMEs rather than arbitrary code diffs or every nested file. A zero-match report is a lead, not proof of novelty. Live heads and discussion claims must be checked again immediately before submission."
+}
