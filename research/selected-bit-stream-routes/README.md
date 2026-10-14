@@ -116,7 +116,7 @@ hash against its retained receipt. It writes no repository artifacts.
 Prepared by Jose Manuel (`@jmbarrancoml`) with substantial OpenAI Codex
 assistance in mathematics, implementation and prose. We retain credit for
 Nick Petalas's carry lowering, Adam Gall's stock/borrowing boundary,
-eumemic's PR589 word, DreamingOfClouds' punctured interface and chain,
+DreamingOfClouds' PR589 tuning of eumemic's PR555 word, the punctured interface and chain,
 DaysSky's hosting theorem, Zhihao Chen's rational geometry, Dylan Crow's
 Hamming E8 producer and Jacob Sussman's E8/frame interfaces. We preserve
 their source notices. Apache-2.0; no independent human review claimed.
