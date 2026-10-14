@@ -11,12 +11,11 @@
     "1": 348661,
     "2": 62210,
     "3": 61370,
-    "4": 20448,
+    "4": 20449,
     "5": 11808,
     "7": 51,
-    "8": 1153,
-    "28": 1,
-    "32": 5,
+    "8": 1152,
+    "32": 6,
     "48": 4867
   },
   "order": [
@@ -85647,15 +85646,15 @@
     }
   },
   "source_plan_sha256": "3b47f5027c4f047883c23a41e4578b0fd5c85cdc01fb5a14a6f23eabbe12acbc",
-  "assignment_sha256": "54bf0f96e43bac35922a1a3d3f14d5c024ecab3f3369b291e8d26cf682dbd221",
+  "assignment_sha256": "51aac3f46fd19ff923b6431da3d59585baa1d0e553893692d7d56b1371860f00",
   "source_owners_sha256": "93fdab52291d9ea20d7caec2760cf4ad0cf0f491bad380db93d48b6cdef36045",
-  "assignment_content_sha256": "fc5880818f5fac22bd45359f7b7645ef75adb07b75c7f2003abc25ffc4bff443",
+  "assignment_content_sha256": "72d8c3a8aef91d47e66c4499783b5372eda6e6c9231c79ad5b4cec4b01ff7b29",
   "replica_lift": {
     "groups": 2,
     "source_replicas": 8,
     "replicas": 16,
     "parent_template_content_sha256": "8904bbbf46dfbf1c6df0e43479a23913fc59a410e879188112e88f16c850ede8",
-    "owners_file_sha256": "54bf0f96e43bac35922a1a3d3f14d5c024ecab3f3369b291e8d26cf682dbd221",
+    "owners_file_sha256": "51aac3f46fd19ff923b6431da3d59585baa1d0e553893692d7d56b1371860f00",
     "window_semantics": "strict physical source-event touch intervals, including bridges",
     "schedule_content_sha256": "ef9b70f30251e90ca15f54e7802cedf9b2d23bdc150e8f2bc18c916d0f2f2312"
   }

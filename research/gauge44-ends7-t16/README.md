@@ -1,10 +1,10 @@
-# Rank-seven helper ends + sixteen replicas with Child 15 Replica 6 multi-donor CP-SAT re-packing: conditional κ = 0.001672792610574223
+# Rank-seven helper ends + sixteen replicas with cross-replica helper exchange: conditional κ = 0.001672796162698078
 
-- **κ = 0.001672792610574223** (conservative 0.001672792607722578), exact rational 1672792610574223 / 1000000000000000000 (= 1672792610574223 / 10^18), T16.
-  This strictly improves upon Breakthrough 10 (κ = 0.001672790201305759) by +2.409268464e-9 (+0.00014%),
-  and the PR #1104 baseline (κ = 0.001672691689152441) by +1.009214174e-7 (+0.00603%), breaking the 1e-7 barrier.
+- **κ = 0.001672796162698078** (conservative 0.001672796159846427), exact rational 836398081349039 / 500000000000000000 (= 836398081349039 / 5*10^17), T16.
+  This strictly improves upon Breakthrough 11 (κ = 0.001672792610574223) by +3.552123855e-9 (+0.00021%),
+  and the PR #1104 baseline (κ = 0.001672691689152441) by +1.044735413e-7 (+0.00625%).
 - **Frozen packing:** RankSevenEnds laneG_4; owner SHA-256
-  54bf0f96e43bac35922a1a3d3f14d5c024ecab3f3369b291e8d26cf682dbd221.
+  51aac3f46fd19ff923b6431da3d59585baa1d0e553893692d7d56b1371860f00.
   The historical material below is provenance, not the binding word/map/result. Only the two-stage ends7/T16
   replay below binds this package; using unchanged #1018 locals is incorrect.
 - **Mechanism (credit: #1030, AlexS / Scale, 
@@ -17,7 +17,7 @@ esearch/complex-rank7-end-pair).** #1030 lets U8's helpers 588/589
   9-pair whole-helper exchange across child 15 ports 94..111, followed by a CP-SAT optimal 27-role concentration
   partition across ports 94..101, 108 (data/OWNERS.json.gz, frozen), a Child 2 Port 90 remainder-8 polarization to remainder 0,
   a Child 15 Port 94 remainder-4 polarization to remainder 0 (polarize_child15_p94.py),
-  a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), a global CP-SAT re-packing of 81 roles across 21 non-full ports on Child 15 eliminating intermediate remainders 6, 12, 16 (repack_child15_special.py), and an exact 4-way whole-helper shuffle across Ports 104, 106, 88, and (13, 7) extinguishing remainders 8 and 24 to reach full capacity and idle (polarize_child15_p104_p106.py), an exact 3-way whole-helper consolidation extinguishing remainder 28 in Ports 109 and 111 into full remainder-32 idle bins while packing Port 106 to remainder 24 via donor exchange with Replica 4 Port 80 (repack_b7.py), an optimal CP-SAT re-packing across 25 ports on Child 15 Replica 6 extinguishing remainder 24 and concentrating remainder 2 mass into full capacity (repack_b9.py), an optimal CP-SAT remainder polarization across 25 ports on Child 15 Replica 6 extinguishing remainder 11 into remainder 12 and concentrating remainder 2 mass into full capacity (repack_b10.py), and an optimal multi-donor CP-SAT re-packing across 24 ports on Child 15 Replica 6 extinguishing remainder 12, reducing remainder 28, and creating an additional full remainder-32 idle bin (repack_b11.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
+  a Child 15 Port 98 remainder-28 polarization to remainder 32 (polarize_child15_p98.py), a global CP-SAT re-packing of 81 roles across 21 non-full ports on Child 15 eliminating intermediate remainders 6, 12, 16 (repack_child15_special.py), and an exact 4-way whole-helper shuffle across Ports 104, 106, 88, and (13, 7) extinguishing remainders 8 and 24 to reach full capacity and idle (polarize_child15_p104_p106.py), an exact 3-way whole-helper consolidation extinguishing remainder 28 in Ports 109 and 111 into full remainder-32 idle bins while packing Port 106 to remainder 24 via donor exchange with Replica 4 Port 80 (repack_b7.py), an optimal CP-SAT re-packing across 25 ports on Child 15 Replica 6 extinguishing remainder 24 and concentrating remainder 2 mass into full capacity (repack_b9.py), an optimal CP-SAT remainder polarization across 25 ports on Child 15 Replica 6 extinguishing remainder 11 into remainder 12 and concentrating remainder 2 mass into full capacity (repack_b10.py), an optimal multi-donor CP-SAT re-packing across 24 ports on Child 15 Replica 6 extinguishing remainder 12, reducing remainder 28, and creating an additional full remainder-32 idle bin (repack_b11.py), and an exact cross-replica whole-helper exchange between Child 15 Replica 4 Port 79 and Replica 6 Ports 94 and 97 extinguishing both remainder 28 and remainder 8 simultaneously while creating an additional empty idle port (repack_b12.py), strictly minimizing the concave complex moment M(z). Search over every helper: see construction/ends7/README.md.
 ## Verification (two commands)
 
 ```sh
