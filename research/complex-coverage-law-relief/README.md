@@ -39,15 +39,65 @@ is optimistic only.
 
 Two targets:
 
-- **T1 (headline):** `a = 1/99`, equivalently `κ = 0.01` under the retained
-  transfer `κ = a/(1+a)`.
-- **T2 (unbinding):** `a = κ_bit/(1 − κ_bit)` with `κ_bit =
-  1733427039589844234749/10^24`, the bit saving pinned by
-  `scripts/research_baseline.py` at the base commit. This is where the complex
-  side would stop binding over that bit supplier. The incumbent ceiling
-  `a* = 0.001690054109088696` (κ ≈ 0.00168720) is below T2, so **pure repacking
-  of the selected word cannot unbind the complex side**; an interface change is
-  required even for the near target.
+- **T1 (headline):** `a = 1/99`, a chosen planning target. Its `κ = 0.01`
+  caption is **defined** under the retained planning transfer `κ = a/(1+a)`,
+  not derived; the T1/coverage arithmetic below stands on its own either way.
+- **T2 (complex-unbinding, re-derived from the coupled assembly):**
+  `a = c_bit/(1 − β) = 1733427039589844234749/(10^24 − 1)`, i.e.
+  `0.001733427039589844234749001733…`, where `c_bit =
+  1733427039589844234749/10^24 = 0.001733427039589844234749` is the pinned
+  PR589 bit supplier's moment endpoint in `a`-units (`bit_saving` in
+  `scripts/research_baseline.py`, `bit_lower` in the pinned assembly
+  certificate — a supplier saving, **not** a kappa) and `β = 10^-24` is the
+  assembly's transfer factor on the complex endpoint. This is the point where
+  the assembly's binding step flips and the complex side stops binding over
+  that bit supplier; the exact conversion chain is in
+  [The T2 conversion chain](#the-t2-conversion-chain-coupled-assembly) below.
+  The retired pre-review value `a = κ_bit/(1 − κ_bit) = 0.001736437026484097`
+  applied a second `a = κ/(1−κ)` conversion to the `a`-unit bit endpoint; it is
+  defined, not derived, and overshoots the flip point by 0.1736%. The incumbent
+  ceiling `a* = 0.001690054109088696` is below the corrected T2, so **pure
+  repacking of the selected word cannot unbind the complex side**; an interface
+  change is required even for the near target.
+
+## The T2 conversion chain (coupled assembly)
+
+Pinned sources: the selected record's assembly certificate
+`research/community-frontier1094-audit/ASSEMBLY.json` (the bit endpoint is the
+PR589 supplier, cited unchanged) and the selected outer reduction
+`research/pending-claims-independent-pricing/arith.py` (`kappa_from`), whose
+`kappa_equals_record` gate in
+`research/community-batch1099-audit/check_frontier1094.py` binds that assembly
+to `certificates/selected-result.json`. This package re-implements the reduction
+code-disjoint and reproduces the record exactly.
+
+1. Supplier endpoints in `a`-units (moment endpoints, certified per side: the
+   bit side carries its bad-residue surcharge inside the moment, the complex
+   side has no surcharge): complex `b = 67018507072324140917/(4·10^22) =
+   0.001675462676808103522925` and bit `c_bit =
+   1733427039589844234749/10^24 = 0.001733427039589844234749`.
+2. Binding step: `s = min(c_bit, (1−β)·b) − 10^−27` with `β = η = 10^−24`; the
+   binding label is *bit* iff `c_bit ≤ (1−β)·b`, else *complex*. The selected
+   record takes the complex branch: `s = (1−β)·b − 10^−27`.
+3. Bootstrap: `a ← s(1−s+a)` from `384599/10^10`, seven steps. The fixed point
+   is exactly `s` (the error contracts by the factor `s` per step;
+   `s − a₇ ≈ 6.07·10^−23`).
+4. Outer reduction: `q = a₇(1−2η)`; `κ` is the largest `10^-18` grid point
+   strictly below `(1−η)·q/(1+q)`. This yields
+   `836330098538459/(5·10^17) = 0.001672660197076918`, the selected record's
+   kappa.
+
+The complex side unbinds exactly when the min in step 2 flips to the bit
+branch: `(1−β)·b ≥ c_bit`, i.e. `b ≥ c_bit/(1−β)`. The `10^−27` shave, the
+bootstrap, the `(1−2η)`/`(1−η)` factors and the grid floor all act strictly
+after the min, so none of them moves the flip point. The threshold is
+`c_bit/(1−β) = 1733427039589844234749/(10^24 − 1)`, whose decimal expansion is
+the period-24 repeat `0.001733427039589844234749 001733427039589844234749 …`.
+The retired double conversion
+`κ_bit/(1−κ_bit) = 1733427039589844234749/998266572960410155765251 =
+0.0017364370264840967545358…` treated the `a`-unit endpoint as a kappa and
+inverted a second time; it is kept in the certificate as `retired_a_T2` for
+traceability and is not used as a threshold.
 
 ## Results (all brackets certified with exact rational intervals)
 
@@ -55,12 +105,12 @@ Positive control: `a* = 0.001690054109088696` reproduces
 https://github.com/CrocSwap/integer-mult-bounds/pull/1240's grid ceiling
 `a < 0.001690054109089` to within one 1e-15 grid step.
 
-| Lever (others at the selected line) | T2: unbinding (`a = 0.001736437026484097`) | T1: `a = 1/99` |
+| Lever (others at the selected line) | T2: complex-unbinding (`a = 1733427039589844234749/(10^24 − 1)`) | T1: `a = 1/99` |
 |---|---|---|
-| unpaid coordinates per family `u` | `u* ∈ (1.009826689, 1.009826689)`; least integer 2 | `u* ∈ (2.804078009, 2.804078010)`; least integer 3 |
-| centre charge `c` (from 64) | `c* ∈ (63.021698514, 63.021698515)`: met iff `c ≤ c*` | **impossible**: sup `a* = 0.004711142955614` at `c = 0` |
-| families per replica `F` (stages 9) | least met `F = 906` (905 fails) | least met `F = 3093` (3092 fails) |
-| paid-word count scale `s` | met iff `s ≤ 0.969437086` | met iff `s ≤ 0.049110034` |
+| unpaid coordinates per family `u` | `u* ∈ (1.009188952, 1.009188953)`; least integer 2 | `u* ∈ (2.804078009, 2.804078010)`; least integer 3 |
+| centre charge `c` (from 64) | `c* ∈ (63.085188751, 63.085188752)`: met iff `c ≤ c*` | **impossible**: sup `a* = 0.004711142955614` at `c = 0` |
+| families per replica `F` (stages 9) | least met `F = 905` (904 fails) | least met `F = 3093` (3092 fails) |
+| paid-word count scale `s` | met iff `s ≤ 0.971370799` | met iff `s ≤ 0.049110034` |
 
 Pair points at `F = 896`:
 
@@ -76,9 +126,9 @@ coordinates (integer 3 at `c = 64`), or a 3.45× larger template (3093 families
 per replica at 9 stages), or a paid word at most 4.911% of its current counts
 (a 95.1% reduction, consistent with CrocSwap/integer-mult-bounds#1240's
 independently derived "about 95% lower fully priced local excess spend").
-Centre-charge relief alone cannot reach T1 at any `c ≥ 0`. T2 is much nearer:
-about 1% more unpaid coordinates, or one unit off the 64 centre charge, or 906
-families, or a 3.06% paid-count cut.
+Centre-charge relief alone cannot reach T1 at any `c ≥ 0`. T2 is nearer:
+about 0.92% more unpaid coordinates, or one unit off the 64 centre charge
+(`c* ≈ 63.085`), or 905 families, or a 2.86% paid-count cut.
 
 ## D/E diagnostic
 
@@ -111,8 +161,17 @@ is the acceptance test.
   CrocSwap/integer-mult-bounds#1012's identity is re-checked only at the
   selected point; a realized `u ≥ 3` would itself be a changed interface
   contract needing its own admission.
-- `κ = a/(1+a)` is the retained planning transfer, not a theorem; T2 uses the
-  bit supplier pinned at the base commit, and any bit-side improvement moves it.
+- `κ = a/(1+a)` is the retained planning transfer, not a theorem. Only T1's
+  `κ = 0.01` caption uses it, as a defined label; T2 uses no κ-conversion at
+  all: it is the binding-flip point `c_bit/(1−β)` of the pinned assembly's
+  binding step (derived in
+  [The T2 conversion chain](#the-t2-conversion-chain-coupled-assembly)), and it
+  moves with any bit-side improvement to `c_bit` or change of `β`.
+- The T2 derivation is exact under the pinned assembly's reduction
+  (`research/pending-claims-independent-pricing/arith.py`); a different coupling
+  or surcharge model would move the flip point. The threshold is on the
+  complex-side moment endpoint `a`, so reading the levers against it assumes the
+  levered call keeps the same endpoint semantics.
 - All inherited all-size/compiler, common-label/mutable-source, whole-call
   hosting, precision/tape, analytic-transfer and bit H1–H5 assumptions remain.
   This is not a full Lean multiplication theorem.
@@ -166,7 +225,8 @@ Expected final line:
 PASS_COMPLEX_COVERAGE_LAW_RELIEF
 ```
 
-Add `--out /new/file.json` for the complete certificate (model, targets, every
+Add `--out /new/file.json` for the complete certificate (model, the replayed
+coupled-assembly chain, targets with the derived and retired T2 values, every
 threshold bracket as exact fractions, pair points, D/E diagnostics, check log).
 Failure controls: `unpaid = 0`, halving-guard `R = 52`, a negative centre charge
 and an over-paid word are rejected; one extra rank-1 child lowers the ceiling;

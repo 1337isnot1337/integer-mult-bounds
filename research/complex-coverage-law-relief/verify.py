@@ -31,9 +31,14 @@ relaxation (relax(a_t) > 1 at target a_t) falsifies every construction with thos
 interface parameters; a passing one is optimistic only (no realizability claim).
 
 This package computes certified brackets for a* and for the exact interface
-thresholds that put a* above two targets: a = 1/99 (headline planning target)
-and a = kappa_bit/(1 - kappa_bit) (the retained-transfer unbinding target where
-the complex side would stop binding over the pinned bit supplier).
+thresholds that put a* above two targets: a = 1/99 (headline planning target,
+chosen; its kappa = 0.01 label is defined under the retained planning transfer
+kappa = a/(1+a), not derived) and a = c_bit/(1 - beta), the complex-unbinding
+threshold RE-DERIVED from the coupled assembly's binding step (see
+assembly_reduction below): the complex side unbinds over the pinned bit
+supplier exactly when the assembly's min flips to the bit branch.  The retired
+value kappa_bit/(1 - kappa_bit) applied a second a = kappa/(1-kappa) conversion
+to the bit supplier's a-unit endpoint and is recorded here only as retired.
 
 Exact rational intervals: ln via atanh chains, exp by Taylor series with a
 geometric tail bound, outward rounding to 2^-PREC.  Standard library only.
@@ -41,6 +46,7 @@ Contributor: Navinor, with help from opencode.  Apache-2.0.
 """
 import argparse
 import json
+from pathlib import Path
 from fractions import Fraction as Q
 from functools import lru_cache
 from math import isqrt
@@ -57,10 +63,33 @@ WORD_MASS = sum(r * n for r, n in WORD.items())  # 5586
 # CrocSwap/integer-mult-bounds#1240 reports the incumbent ceiling as
 # a < 0.001690054109089 (positive control).
 REF_CEILING = Q(1690054109089, 10 ** 15)
-# scripts/research_baseline.py at the base commit: bit_saving = 1733427039589844234749/10^24.
-KAPPA_BIT = Q(1733427039589844234749, 10 ** 24)
-A_T1 = Q(1, 99)  # headline target
-A_T2 = KAPPA_BIT / (1 - KAPPA_BIT)  # unbinding target, retained kappa = a/(1+a)
+# scripts/research_baseline.py at the base commit exports bit_saving =
+# 1733427039589844234749/10^24: the pinned PR589 bit supplier's moment endpoint
+# in a-units (a supplier saving, NOT a kappa).
+BIT_ENDPOINT = Q(1733427039589844234749, 10 ** 24)
+# Coupled-assembly chain pinned by the selected record.  The pinned assembly
+# certificate research/community-frontier1094-audit/ASSEMBLY.json holds the two
+# supplier moment endpoints and the assembled kappa; the selected outer
+# reduction is research/pending-claims-independent-pricing/arith.py:kappa_from
+# (gated on the record by
+# research/community-batch1099-audit/check_frontier1094.py).  It is pure
+# rational arithmetic and is re-implemented code-disjoint in
+# assembly_reduction() below, not imported.
+ASSEMBLY = Path(__file__).resolve().parents[1] / 'community-frontier1094-audit' / 'ASSEMBLY.json'
+BETA = Q(1, 10 ** 24)   # transfer factor on the complex endpoint in the binding step
+ETA = Q(1, 10 ** 24)    # outer-reduction factors
+SHAVE = Q(1, 10 ** 27)
+BOOT_A0 = Q(384599, 10 ** 10)
+BOOT_STEPS = 7
+A_T1 = Q(1, 99)  # headline planning target (chosen; kappa = 0.01 only under the
+                 # retained planning transfer kappa = a/(1+a), defined not derived)
+# T2 re-derived from the assembly's binding step: the complex side unbinds iff
+# c_bit <= (1 - BETA) b, i.e. at b = c_bit/(1 - BETA).  No kappa conversion
+# enters; the shave, bootstrap and outer factors act strictly after the min.
+A_T2 = BIT_ENDPOINT / (1 - BETA)
+# Retired pre-review value: a second a = kappa/(1-kappa) conversion applied to
+# the a-unit bit endpoint.  Not a derived unbinding threshold.
+A_T2_RETIRED = BIT_ENDPOINT / (1 - BIT_ENDPOINT)
 
 
 def require(ok, why):
@@ -230,6 +259,27 @@ def de_diagnostic(local, unpaid=UNPAID0, centre=CENTRE0, families=FAMILIES0, sta
     return d, lo, hi
 
 
+def assembly_reduction(b, c, grid=Q(1, 10 ** 18)):
+    """Code-disjoint replay of the pinned selected outer reduction (arith.kappa_from).
+
+    Binding step: s = min(c, (1 - BETA) b) - SHAVE, binding label 'bit' iff
+    c <= (1 - BETA) b (else 'complex').  Bootstrap: a <- s (1 - s + a) from
+    BOOT_A0 for BOOT_STEPS steps (fixed point is exactly s).  Outer reduction:
+    q = a (1 - 2 ETA); kappa = the largest grid point strictly below
+    (1 - ETA) q / (1 + q).  Returns (kappa, margin, binding).
+    """
+    s = min(c, (1 - BETA) * b) - SHAVE
+    a = BOOT_A0
+    for _ in range(BOOT_STEPS):
+        a = (1 - s) * s + s * a
+    q = a * (1 - 2 * ETA)
+    margin = (1 - ETA) * q / (1 + q)
+    t = margin / grid
+    k = (-((-t.numerator) // t.denominator) - 1) * grid
+    require(k < margin <= k + grid, 'grid reduction')
+    return k, margin, ('bit' if c <= (1 - BETA) * b else 'complex')
+
+
 class Report:
     def __init__(self):
         self.lines = []
@@ -247,6 +297,18 @@ def frac_str(x):
 
 def dec(x, digits=15):
     return f'{float(x):.{digits}f}'
+
+
+def dec_exact(x, digits=30):
+    """First `digits` decimal digits of the nonnegative rational x (exact long division)."""
+    r = Q(x)
+    require(r >= 0, 'dec_exact domain')
+    out = []
+    for _ in range(digits):
+        d = int(r * 10)
+        out.append(str(d))
+        r = r * 10 - d
+    return '0.' + ''.join(out)
 
 
 def run(out_path):
@@ -268,10 +330,55 @@ def run(out_path):
     rep.cert['incumbent_ceiling'] = {'a_lo': frac_str(lo), 'a_hi': frac_str(hi),
                                     'decimal': dec(hi, 18), 'pr1240_reported': dec(REF_CEILING, 15)}
 
-    # --- targets: T2 (unbinding) is the nearer goal, above the incumbent packing ceiling.
+    # --- coupled-assembly chain: reproduce the pinned record kappa and binding label.
+    assembly = json.loads(ASSEMBLY.read_text(encoding='utf-8'))
+    b_complex = Q(assembly['complex_lower'])  # complex endpoint, a-units (no surcharge)
+    c_bit = Q(assembly['bit_lower'])          # bit endpoint, a-units (surcharge inside)
+    rep.check(c_bit == BIT_ENDPOINT, 'ASSEMBLY_BIT_PIN',
+              f'ASSEMBLY bit endpoint = research_baseline.py bit_saving = {frac_str(BIT_ENDPOINT)} (a-units, not a kappa)')
+    k_rec, _, bind_rec = assembly_reduction(b_complex, c_bit)
+    rep.check(k_rec == Q(assembly['kappa']) and bind_rec == assembly['binding'] == 'complex',
+              'ASSEMBLY_CHAIN_REPLAY',
+              f'kappa {frac_str(k_rec)} = pinned record; binding {bind_rec}; s = (1-beta) b - 1e-27 (complex branch)')
+    rep.cert['assembly_chain'] = {
+        'complex_endpoint': frac_str(b_complex), 'bit_endpoint': frac_str(c_bit),
+        'beta': frac_str(BETA), 'eta': frac_str(ETA), 'shave': frac_str(SHAVE),
+        'bootstrap_start': frac_str(BOOT_A0), 'bootstrap_steps': BOOT_STEPS,
+        'record_kappa': frac_str(k_rec), 'binding': bind_rec,
+        'chain': 's = min(c_bit,(1-beta)b) - shave; a <- s(1-s+a) x7 from 384599/10^10; '
+                 'q = a(1-2 eta); kappa = largest 1e-18 grid point below (1-eta) q/(1+q)',
+    }
+
+    # --- T2 re-derived from the binding step: the complex side unbinds iff
+    # c_bit <= (1 - BETA) b, i.e. at b = c_bit/(1 - BETA).  The shave, bootstrap
+    # and outer factors act strictly after the min and do not move the flip point.
+    rep.check((1 - BETA) * A_T2 == BIT_ENDPOINT, 'T2_BINDING_FLIP_IDENTITY',
+              f'(1-beta) * a_T2 = c_bit exactly: a_T2 = {frac_str(A_T2)}')
+    _, _, bind_lo = assembly_reduction(A_T2 - Q(1, 10 ** 18), c_bit)
+    _, _, bind_hi = assembly_reduction(A_T2, c_bit)
+    rep.check(bind_lo == 'complex' and bind_hi == 'bit', 'T2_BINDING_FLIP_POINT',
+              f'binding flips between a_T2 - 1e-18 ({bind_lo}) and a_T2 ({bind_hi})')
+    rep.check(A_T2 < A_T2_RETIRED and (1 - BETA) * A_T2_RETIRED != BIT_ENDPOINT,
+              'T2_RETIRED_DOUBLE_CONVERSION',
+              f'retired a = kappa_bit/(1-kappa_bit) = {frac_str(A_T2_RETIRED)} overshoots the flip by '
+              f'{dec_exact((A_T2_RETIRED / A_T2 - 1) * 100, 6)}% (second conversion on an a-unit endpoint)')
+
+    # --- targets: T2 (complex-unbinding, derived) is the nearer goal, above the incumbent packing ceiling.
     rep.check(0 < A_T2 < A_T1 and A_T2 > REF_CEILING, 'TARGETS',
-              f'a_T1=1/99={dec(A_T1)} a_T2={frac_str(A_T2)}={dec(A_T2, 18)}')
-    rep.cert['targets'] = {'a_T1': '1/99', 'a_T2': frac_str(A_T2), 'kappa_bit': frac_str(KAPPA_BIT)}
+              f'a_T1=1/99={dec(A_T1)} a_T2={frac_str(A_T2)}={dec_exact(A_T2, 18)}')
+    rep.cert['targets'] = {
+        'a_T1': '1/99',
+        'a_T1_label': 'chosen planning target; kappa = 0.01 only under the retained planning transfer '
+                      'kappa = a/(1+a) (defined, not derived)',
+        'a_T2': frac_str(A_T2), 'a_T2_decimal': dec_exact(A_T2, 30),
+        'a_T2_derivation': 'c_bit/(1-beta): flip of the coupled assembly binding step '
+                           's = min(c_bit, (1-beta) b); the complex side unbinds iff (1-beta) b >= c_bit. '
+                           'Derived from the pinned chain, not a kappa conversion',
+        'bit_endpoint': frac_str(BIT_ENDPOINT), 'beta': frac_str(BETA),
+        'retired_a_T2': frac_str(A_T2_RETIRED), 'retired_a_T2_decimal': dec_exact(A_T2_RETIRED, 18),
+        'retired_note': 'pre-review value applied a second a = kappa/(1-kappa) conversion to the a-unit '
+                        'bit endpoint; defined-not-derived and superseded',
+    }
 
     # --- unpaid-coordinate threshold u* (continuous bracket + least integer).
     u_res = {}
@@ -386,6 +493,7 @@ def run(out_path):
     if out_path:
         with open(out_path, 'w', encoding='utf-8') as fh:
             json.dump({'status': 'PASS_COMPLEX_COVERAGE_LAW_RELIEF', 'model': rep.cert['model'],
+                       'assembly_chain': rep.cert['assembly_chain'],
                        'targets': rep.cert['targets'], 'incumbent_ceiling': rep.cert['incumbent_ceiling'],
                        'unpaid_thresholds': rep.cert['unpaid_thresholds'],
                        'centre_thresholds': rep.cert['centre_thresholds'],
