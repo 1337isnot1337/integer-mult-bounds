@@ -42,7 +42,9 @@ PYTHONINTMAXSTRDIGITS=0 python3 -B research/fine-endpoint300-t74-k554/verify.py 
 4. runs the patched package's own `verify_release.py`. That covers the fresh native supplier admission, the strict T74 admission with both 1e-300 endpoint brackets, the regenerated outer ledger compared byte for byte, the independent balance derivation, the schedule, gauge-free and fine-padding checks, and PR1673's 19 evidence replays;
 5. binds the release receipt to CLAIM.json and requires a strict gain over PR1839.
 
-`--arithmetic-only` regenerates and compares only the outer artifacts. The receipts from the full run are in `evidence/`.
+`--arithmetic-only` regenerates and compares only the outer artifacts.
+
+**Evidence.** `evidence/RELEASE-RECEIPT.json` is `PASS_RELEASE` with fresh native replays of all four words. It comes from the patched package's own `verify_release.py`, run on the overlay-patched tree; that tree's MANIFEST `b24c5072…` equals `overlay/MANIFEST.json`. `evidence/SUPPLIER-RESULT.json` is `PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION`. `evidence/ASSEMBLY-ENDPOINTS.json` holds the coarse and 1e-300 accept/reject moment rows on both the native and conservative sides.
 
 ## Scope
 
