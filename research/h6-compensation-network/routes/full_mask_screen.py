@@ -6,9 +6,13 @@ import json
 from pathlib import Path
 import sys
 import numpy as np
-import fiber
 
 sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent))
+import fiber
+from artifact import write_receipt
 
 
 def main():
@@ -59,7 +63,8 @@ def main():
         limitation='The lower bound applies only to the emitted per-source, complete-target-mask chain architecture with ordinary helpers. It does not lower-bound circuits using coordinate/K mixing, sparse corrections, cross-channel cancellation, private copies, alternative flags, or other hierarchical factorizations.',
         composition_caveat='Neither these mask paths nor the small-k routes can be freely appended to the unchanged K macro; target starting frames and all center-copy descents must be priced.')
     destination=Path(__file__).with_name('FULL-MASK-SCREEN.json')
-    destination.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    write_receipt(destination, result, fields=['labels', 'label_multiplicities',
+        'neighbor_label_counts', 'cap_span_witness_label_indices'])
     print(json.dumps({key:result[key] for key in ('status','required_distinct_ordinary_helper_lanes','helper_rank_transition_mass','per_source_label_neighbor_count_histogram')},sort_keys=True))
 
 

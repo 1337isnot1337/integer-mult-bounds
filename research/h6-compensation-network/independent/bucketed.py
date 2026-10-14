@@ -12,6 +12,9 @@ import numpy as np
 sys.dont_write_bytecode=True
 HERE=Path(__file__).resolve().parent
 PKG=HERE.parent;ROOT=PKG.parents[1]
+storage_spec=importlib.util.spec_from_file_location('independent_receipt_storage',PKG/'artifact.py')
+storage=importlib.util.module_from_spec(storage_spec);storage_spec.loader.exec_module(storage)
+load_receipt=storage.load_receipt
 sys.path.insert(0,str(ROOT/'research/niemeier-lattices/code'))
 import e8_cubed as geometry
 import e8_sections as sections
@@ -20,6 +23,17 @@ k=importlib.util.module_from_spec(spec);spec.loader.exec_module(k)
 
 def need(value,message):
  if not value:raise ValueError(message)
+
+def proof_payload_binding(path,receipt):
+ """Bind reconstructed proof fields canonically, independently of gzip bytes."""
+ descriptor=json.loads(path.read_text()).get('proof_data')
+ if descriptor is None:return None
+ need(descriptor['format']=='canonical-json-gzip-v1','proof payload format')
+ fields=descriptor['fields'];need(fields==sorted(set(fields)),'proof field inventory')
+ payload=(json.dumps({field:receipt[field] for field in fields},sort_keys=True,separators=(',',':'))+'\n').encode()
+ digest=hashlib.sha256(payload).hexdigest()
+ need(digest==descriptor['canonical_sha256'],'independent canonical reconstructed proof binding')
+ return digest
 
 def span(words):
  piv={}
@@ -191,7 +205,8 @@ def main():
     else:raise ValueError('wrong source negative control accepted')
  schema=json.loads((PKG/'routes/BUCKETED-SCHEMA.json').read_text());labels,counts=np.unique(addresses,return_counts=True)
  parity=np.array([x.bit_count()%2 for x in range(1<<17)],dtype=np.uint8);R=0;edges=0
- fullscreen=json.loads((PKG/'routes/FULL-MASK-SCREEN.json').read_text())
+ fullscreen=load_receipt(PKG/'routes/FULL-MASK-SCREEN.json')
+ cap_proof_sha256=proof_payload_binding(PKG/'routes/FULL-MASK-SCREEN.json',fullscreen)
  need(fullscreen['labels']==labels.tolist(),'full cap witness label inventory')
  for i,label in enumerate(labels):
   neighbor=parity[np.bitwise_and(labels,label)]==0
@@ -206,10 +221,11 @@ def main():
   if key in schema:need(schema[key]==value,'full schema arithmetic '+key)
  full['status']='PASS_FULL_COMPRESSED_SCHEMA_ARITHMETIC_AND_CAP_WITNESSES'
  full['full_opcode_stream_executed']=False
+ full['canonical_cap_proof_sha256']=cap_proof_sha256
  out={'status':'PASS_INDEPENDENT_BUCKETED_COMPLETE_K_FIXTURES_AND_FULL_SCHEMA','factor':factor,'fixtures':receipts,'negative_controls':controls,
       'full_schema':full,'elapsed_seconds':time.monotonic()-started,
       'scope':'Fully emitted 8/32-port bucketed complete K plus compensation words, exact arbitrary-dirt and frame replay in both orientations. Full-size counts and finite factor proof only; no execution of billion-event stream, physical compiler, helper-bank admission, precision or kappa claim.',
-      'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),PKG/'k_encoder/network.py',PKG/'routes/BUCKETED-SCHEMA.json',ROOT/'research/niemeier-lattices/code/e8_sections.py',ROOT/'research/niemeier-lattices/code/e8_cubed.py')}}
+      'source_sha256':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),PKG/'artifact.py',PKG/'k_encoder/network.py',PKG/'routes/BUCKETED-SCHEMA.json',ROOT/'research/niemeier-lattices/code/e8_sections.py',ROOT/'research/niemeier-lattices/code/e8_cubed.py')}}
  (HERE/'RESULT.json').write_text(json.dumps(out,sort_keys=True,indent=2)+'\n');print(json.dumps({'status':out['status'],'elapsed_seconds':out['elapsed_seconds'],'fixtures':receipts,'full_schema':full},sort_keys=True))
 
 if __name__=='__main__':main()

@@ -46,6 +46,23 @@ the network extension at `4372734b`. The extension keeps that audit and the
 imported H6 predecessor byte-for-byte unchanged. Their local-only publication
 fields describe the preparation snapshot, before this submission was requested.
 
+## Evidence layout
+
+The readable JSON receipts contain counts, paths, scope and source bindings.
+Large coefficient matrices, target lists and cap witnesses are stored in
+lossless `*-DATA.json.gz` artifacts. Each summary's `proof_data` descriptor
+names its artifact, fields and SHA-256 of the canonical decompressed JSON.
+Complete construction fixtures are also compressed. Gzip headers and streams
+do not determine mathematical equality, following `CONTRIBUTING.md`.
+
+`artifact.py` reconstructs the original fields and checks their canonical
+bindings. The independent interpreters still check every actual coefficient,
+dirty column and frame; compression does not replace those checks.
+`PACKAGING.json` binds all eight migrated data/fixture payloads to their
+unchanged values at submitted head `4dfc6d0c7b90da60caf2e1d880eb2c56483409ab`.
+Route and fixture generators emit this representation directly. The old
+expanded files are omitted from the final PR diff.
+
 ## Complete legal chronology
 
 Write `A=I-K`, `P_s=span(p_s)` and `Q_t=p_t^⊥`, using the actual 17-bit

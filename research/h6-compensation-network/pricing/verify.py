@@ -18,6 +18,8 @@ sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
 PACKAGE = HERE.parent
+sys.path.insert(0, str(PACKAGE))
+from artifact import load_receipt
 
 
 def load(name, path):
@@ -122,7 +124,8 @@ def nominal_root(row):
 
 
 def partial_profile(path):
-    result = json.loads(path.read_text())
+    result = load_receipt(path)
+    proof_descriptor = json.loads(path.read_text()).get('proof_data')
     require(result.get('full_forward_and_same_order_dual_checks') is True,
             'partial route must have both arbitrary-dirt orientations')
     profiles = []
@@ -156,6 +159,7 @@ def partial_profile(path):
             target_pressure_scaled_1e24={name: scaled(*oracle.pressure(terms, m, target/(1-target)))
                                        for name, target in targets.items()}))
     return dict(path=str(path.relative_to(ROOT)), sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
+        proof_data_descriptor=proof_descriptor,
         status=result['status'], role_profiles=[dict(role=role, count=count, path=profile)
                                                for role, count, profile in profiles],
         local_transition_rank_mass=mass, helper_count=result['helper_count'], invoices=out,
@@ -190,7 +194,7 @@ def main():
             'independent K weighted-primitive recount in both orientations')
     k_bound = max(k_forward,k_dual)
     bucket_path = PACKAGE / 'routes/FULL-MASK-SCREEN.json'
-    bucket = json.loads(bucket_path.read_text())
+    bucket = load_receipt(bucket_path)
     lanes = bucket['required_distinct_ordinary_helper_lanes']
     require(lanes == 227312640 and bucket['every_target_mask_span_dimension'] == 16,
             'full bucket compensation lane inventory')
@@ -264,6 +268,7 @@ def main():
     require(census['compensation_nonzeros'] == R and census['exceptional_abs_t_3_pairs'] == R3,
             'full census binds scalar counts')
     names = ['research/h6-independent-audit/invoice/verify.py',
+        'research/h6-compensation-network/artifact.py',
         'research/h6-compensation-network/contract/THEOREM.md',
         'research/h6-compensation-network/construction/network.py',
         'research/h6-compensation-network/routes/FULL-MASK-SCREEN.json',
@@ -278,6 +283,8 @@ def main():
             total_per_invocation=24*R+6*R3,
             scope='Contract emission bound for compensation alone; excludes K, adapters, controller routing, tape, precision and all-size compilation. These scalar primitives are not extra Fourier children.'),
         source_hashes={name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in names},
+        proof_data_bindings={str(path.relative_to(ROOT)):json.loads(path.read_text()).get('proof_data')
+            for path in [bucket_path]+[ROOT/item['path'] for item in partials]},
         K_scalar_recount=dict(feature_nonzeros=k_word['feature_nonzeros'],
             forward=k_forward,dual=k_dual,max_orientation=k_bound,
             scalar_ADDs=k_word['K_full_scalar_additions']),

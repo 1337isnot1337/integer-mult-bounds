@@ -11,12 +11,19 @@ make selected-record-check
 git ls-remote origin refs/heads/main
 ```
 
-The unified receipt is `RESULT.json`, with eleven step logs in `checks/`.
+The unified receipt is `RESULT.json`, with twelve step logs in `checks/`.
 The relocation/corruption receipt is `gate/RESULT.json`. It records the
 tested implementation/specification hashes, exact inherited Git-blob pins,
 semantic controls, environment and elapsed time. New checks are explicit
 exceptions and stay active under `-O`; the pinned lowerer's legacy asserts
 are disabled, while the independent wrapper guards remain active.
+
+The revised evidence layout also checks lossless migration of eight complete
+data/fixture payloads from submitted baseline `4dfc6d0c`. The storage reader
+rejects changed canonical proof data and duplicate JSON keys, while accepting
+different gzip headers with identical mathematical contents. Large generated
+arrays remain in compressed artifacts with readable summary descriptors;
+generators and independent replayers use the same documented format.
 
 The final selected-record check passed for
 `836330098538459/500000000000000000`. Remote main remained

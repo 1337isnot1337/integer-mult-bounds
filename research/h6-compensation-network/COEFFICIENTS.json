@@ -1261,6 +1261,6 @@
     "live_temporary_reuse": "coefficient stream already live",
     "missing_halving": "wrong coefficient rejected"
   },
-  "k_receipt_sha256": "736edf172002a1e6a07261112ecbbc597c9c996f5c7fa8681de1c87bf9bf7eaa",
+  "k_receipt_sha256": "da53bec0e3a8d027249e5bdfed341bd503d50502ddb63f1777afa5dc97739841",
   "scope": "Every scalar coefficient in the complete word has an explicit same-frame private Horner stream and count, active under -O. Temporary starts cleared, ends erased, and no Fourier child runs within it. These scalar primitive counts precede real component doubling. Common-grid/tape and propagated child approximation admission remain separate."
 }

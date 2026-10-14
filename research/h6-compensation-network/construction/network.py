@@ -15,6 +15,8 @@ import sys
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[3]
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE.parent))
+from artifact import write_gzip_json
 INPUT = ROOT / "research/niemeier-lattices/code/e8_cubed.py"
 sys.path.insert(0, str(INPUT.parent))
 import e8_cubed as geometry
@@ -269,10 +271,10 @@ def main():
             record = run_fixture(fixture)
             if n == 8:
                 record["negative_controls"] = controls(fixture, packed)
-            fixture_path = HERE / f"fixture-{n}-{'composed' if include_k else 'compensation'}.json"
-            fixture_path.write_text(json.dumps(fixture, indent=2, sort_keys=True) + "\n")
+            fixture_path = HERE / f"fixture-{n}-{'composed' if include_k else 'compensation'}.json.gz"
+            digest = write_gzip_json(fixture_path, fixture)
             record["fixture"] = fixture_path.name
-            record["fixture_sha256"] = hashlib.sha256(fixture_path.read_bytes()).hexdigest()
+            record["fixture_canonical_sha256"] = digest
             records.append(record)
     receipt = dict(status="PASS_FINITE_FULL_EDGE_SCHEMA_FIXTURES", python=platform.python_version(),
                    generator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

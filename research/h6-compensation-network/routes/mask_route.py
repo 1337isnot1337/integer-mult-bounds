@@ -11,9 +11,13 @@ import json
 from pathlib import Path
 import sys
 import numpy as np
-import fiber
 
 sys.dont_write_bytecode = True
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+sys.path.insert(0, str(HERE.parent))
+import fiber
+from artifact import write_receipt
 
 
 def main():
@@ -167,7 +171,7 @@ def main():
         generator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         scope='Complete actual I-K contribution of selected label-fiber columns, including all targets and exceptional pairs. Standalone exact scalar/frame word; no unpriced K composition, full supplier invoice, or kappa claim.',
         composition_caveat='Targets acquire different mask subspaces before their final caps. The unchanged K macro starts targets atzero and cannot simply follow this word; K must be fused with priced private center-copy chains or a different schedule.')
-    (out/f'MASK-{k}-RESULT.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+    write_receipt(out/f'MASK-{k}-RESULT.json', result, fields=['target_ports', 'coefficient_numerators'])
     print(json.dumps({key:result[key] for key in ('status','groups','helper_count','edge_baseline_helper_count','expanded_event_count','source_paths','target_paths','helper_paths','total_local_transition_rank')},sort_keys=True))
 
 

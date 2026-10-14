@@ -66,7 +66,7 @@ def main():
     check_bindings(exported, pins)
     scripts = sorted(target.rglob('*.py'))
     script_hashes = {str(path.relative_to(exported)): sha(path) for path in scripts}
-    specifications = ['TASK.json', 'SOURCES.json', 'routes/BUCKETED-SCHEMA.json',
+    specifications = ['TASK.json', 'SOURCES.json', 'PACKAGING.json', 'routes/BUCKETED-SCHEMA.json',
                       'contract/THEOREM.md', 'physical_compiler/UNIVERSAL-THEOREM.md']
     specification_hashes = {str((target/name).relative_to(exported)): sha(target/name)
                             for name in specifications if (target/name).exists()}

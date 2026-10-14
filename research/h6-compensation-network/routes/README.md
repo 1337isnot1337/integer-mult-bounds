@@ -91,7 +91,9 @@ payload. Coefficients use exact integer numerator over 48 throughout.
 `full_mask_screen.py` examines all **14,670 distinct source/target labels**.
 For each target, its incident source-address set spans exactly its entire
 rank-16 cap. Sixteen exact independent source-label witnesses for every cap
-are retained in `FULL-MASK-SCREEN.json`.
+are retained in the compressed data artifact referenced by
+`FULL-MASK-SCREEN.json`. The summary retains the counts and scoped argument;
+its `proof_data` field binds the canonical decompressed witness arrays.
 
 Consequently the complete-mask frame is the target cap. Distinct labels have
 distinct caps; all these caps have dimension 16 and therefore form an antichain.

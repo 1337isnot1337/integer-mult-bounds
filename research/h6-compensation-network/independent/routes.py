@@ -8,7 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bucketed as b
 
 def replay(path,P,addresses):
- result=json.loads(path.read_text());S=result['source_ports'];T=result['target_ports'];ns=len(S);nh=result['helper_count'];nt=len(T)
+ result=b.load_receipt(path);S=result['source_ports'];T=result['target_ports'];ns=len(S);nh=result['helper_count'];nt=len(T)
+ proof_sha256=b.proof_payload_binding(path,result)
  raw=P[T]@P[S].T;b.need(not (raw%4).any(),'route integral pairings');t=raw//4
  expected=4*t-t*t*t
  for row,target in enumerate(T):
@@ -62,13 +63,15 @@ def replay(path,P,addresses):
          'source_ports':ns,'target_ports':nt,'ordinary_helpers':nh,'all_input_columns':ns+nh+nt,
          'event_count':sum(counts.values()),'ADD_count':counts['add'],'CLIMB_count':counts['climb'],
          'transition_rank':mass,'arbitrary_dirt_forward_and_same_order_dual':'PASS',
-         'expanded_sha256':digest.hexdigest(),'receipt_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
+         'expanded_sha256':digest.hexdigest(),'receipt_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+         'canonical_receipt_proof_sha256':proof_sha256}
 
 def main():
  started=time.monotonic();roots,_,ports,profiles=b.geometry.construct_shell();P=ports[(profiles&4)==0,:16].astype(np.int64)
  _,addresses,_=b.geometry.binary_labels(roots,P)
  results=[replay(b.PKG/'routes'/name,P,addresses) for name in ('RESULT.json','MASK-2-RESULT.json','MASK-4-RESULT.json')]
  out={'status':'PASS_ALL_THREE_STORED_ROUTE_NETWORKS','routes':results,'elapsed_seconds':time.monotonic()-started,
+      'storage_source_sha256':hashlib.sha256((b.PKG/'artifact.py').read_bytes()).hexdigest(),
       'scope':'Fully stored finite route streams and all independent source/target/helper columns, scalar and common-frame chronology. Standalone compensation blocks; no free K composition, full circuit or supplier admission.'}
  (Path(__file__).with_name('ROUTES.json')).write_text(json.dumps(out,indent=2,sort_keys=True)+'\n');print(json.dumps(out,sort_keys=True))
 if __name__=='__main__':main()

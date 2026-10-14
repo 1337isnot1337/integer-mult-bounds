@@ -29,7 +29,7 @@ def main():
         need(sha(ROOT/name) == pin['sha256'], 'Frozen source binding: '+name)
     logs = HERE/'checks'
     logs.mkdir(exist_ok=True)
-    scripts = ['contract/replay.py', 'construction/network.py', 'k_encoder/network.py',
+    scripts = ['artifact.py', 'contract/replay.py', 'construction/network.py', 'k_encoder/network.py',
                'coefficient_horner.py', 'independent/bucketed.py', 'independent/routes.py',
                'physical_compiler/compile.py', 'physical_compiler/universal.py',
                'pricing/verify.py', 'bank_physical/review.py', 'finite_grid.py']

@@ -12,6 +12,9 @@ import numpy as np
 
 sys.dont_write_bytecode = True
 ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from artifact import write_receipt
+
 SOURCE = ROOT / 'research/niemeier-lattices/code/e8_cubed.py'
 sys.path.insert(0, str(SOURCE.parent))
 import e8_cubed as e
@@ -210,7 +213,7 @@ def main():
                 target_rejects_v=b, u_label=word, v_label=v, joint_frame=list(joint),
                 statement='Any common frame after target287 acquires v contains v and cannot lie in target295 cap. This rejects chaining all label fibers at their original line frame; it does not reject different routes.')),
         scope='Complete actual I-K contribution of eight source columns to all their allowed targets, with exact arbitrary-dirt and frame replay. Local shared word only; not the all-port sum, a full supplier invoice, or a kappa claim.')
-    (out/'RESULT.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+    write_receipt(out/'RESULT.json', result, fields=['target_ports', 'coefficient_numerators'])
     print(json.dumps({key: result[key] for key in ('status','helper_count','edge_baseline_helper_count','expanded_event_count','total_local_transition_rank')}, sort_keys=True))
 
 

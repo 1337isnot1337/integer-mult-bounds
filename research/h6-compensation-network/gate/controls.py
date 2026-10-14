@@ -14,6 +14,8 @@ sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parent
 PACKAGE = HERE.parent
 ROOT = PACKAGE.parents[1]
+sys.path.insert(0, str(PACKAGE))
+from artifact import load_gzip_json
 
 
 def need(ok, message):
@@ -49,7 +51,7 @@ def main():
         else:
             raise ValueError('Negative control accepted: ' + name)
 
-    fixture = json.loads((PACKAGE / 'construction/fixture-8-compensation.json').read_text())
+    fixture = load_gzip_json(PACKAGE / 'construction/fixture-8-compensation.json.gz')
     c.run_fixture(fixture)
     for name, phase, action, reason in [
         ('missing_dirty_prefix', 'dirt_prefix', 'remove', 'forward all-basis'),
