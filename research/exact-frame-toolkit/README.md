@@ -193,6 +193,10 @@ the platform-dependent pieces:
 - **No `-O`.** The asserts in `kappa.py` (the 47 outer constraints), `word.py` and the archive pins are checks, so importing
   the toolkit under `-O` raises an error instead of silently skipping them.
 
+On a GitHub Actions Windows runner (Windows Server 2025, Python 3.12.10, NumPy 2.5.4) the full selftest and
+`portability.py` pass and `-O` is refused. The spawn-mode `repair.py --interval` sweep of the pre-slot word matches the
+macOS sweep in all 2,405 records. It takes about 60 minutes on the runner's 4 CPUs, against 8 here.
+
 `frames.py` is unchanged, so woklerx's audit of its elimination and dual routines still applies byte for byte. No search
 result, price or certificate changes; see `PORTABILITY.json` for the checks of this revision.
 
