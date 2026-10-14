@@ -134,9 +134,10 @@ maintainer acceptance are separate.
   all-input argument.
 - **George Lydakis (lydakis), PR2077** contributed the vacancy-chain idea of
   propagating free capacity through occupied bins, which is the ancestor of
-  these cycles. Its four moves do **not** compose with PR1407. PR1407 already
-  moved row 34306 out of bin (11,8,103), and all 15 subsets of PR2077's moves
-  are illegal on PR1407's map. The two gains are alternatives.
+  these cycles. Its four moves do **not** compose with PR1407: all 15 subsets
+  of PR2077's literal moves are illegal on PR1407's map for lack of capacity.
+  PR1407 already placed row 7287 into bin (11,8,103) and filled bin (13,15,14)
+  with rows 45356 and 60126. The two gains are alternatives.
 - **Rohan Arun and Jeremy Kothe**: the PR1050–PR1094 owner-packing line and the
   selected PR1094 supplier and map.
 - **Josie Elliston**: the seed67 owner auditor (PR1091), used in `check.py` and

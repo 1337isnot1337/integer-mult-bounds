@@ -295,7 +295,7 @@
       "<PR1407 data/OWNERS.json.gz>",
       "<PR2077 data/OWNERS.json.gz>"
     ],
-    "result": "All 15 non-empty subsets of PR2077's four relocations (rows 2010, 4474, 34306, 46308) are illegal placements on PR1407's map. PR1407 already moved row 34306 out of bin (11,8,103) to (15,0,72), so the capacity PR2077's width-seven vacancy path uses is not there; PR2077's gain and PR1407's gain are alternatives, not additive."
+    "result": "All 15 non-empty subsets of PR2077's four relocations (rows 2010, 4474, 34306, 46308) are illegal placements on PR1407's map. PR1407 already placed row 7287 into bin (11,8,103) and filled bin (13,15,14) with rows 45356 and 60126, so the capacity PR2077's moves need is not there (only PR2077's literal targets were tested); PR2077's gain and PR1407's gain are alternatives, not additive."
   },
   "scope": "A heuristic search record. It is not an optimum proof; the post-checks are bounded passes."
 }

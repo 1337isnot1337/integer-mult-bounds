@@ -30,6 +30,11 @@ supplier**, with no new mechanism.
 It claims no packing optimum and no unconditional theorem. All PR1094 inherited
 assumptions remain.
 
+
+Packing ceiling: with the PR1240 local-word ceiling endpoint
+a_hi = 0.001690054109089, this candidate realises 0.167% of the endpoint gap
+(PR1407: 0.142%).
+
 ## Dependency on PR1407
 
 This candidate **builds on open PR1407** (pai-scaffolde, head
@@ -47,8 +52,9 @@ falls with it. If PR1407 changes its map, this package needs a rebase.
 
 PR2077 (lydakis) is an **alternative**, not an ancestor. Its vacancy-chain idea
 inspired the cycles, but none of its four moves compose with PR1407: all 15
-subsets are illegal on PR1407's map, because PR1407 already moved row 34306
-out of bin (11,8,103).
+subsets are illegal on PR1407's map for lack of capacity. PR1407 already
+placed row 7287 into bin (11,8,103) and filled bin (13,15,14) with rows 45356
+and 60126. Only PR2077's literal targets were tested.
 
 ## Provenance
 
