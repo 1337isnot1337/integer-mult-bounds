@@ -313,8 +313,8 @@ def run(data, pr1918):
             == ('forward', 0, 'backward', 1) and owners[i][:224] == owners[j][:224]
         if same_block:
             # Exact left-kernel witnesses for the cleanest dependent class (same 224 owners,
-            # no intervening schedule event on the replica) under PR1918's own statistic:
-            # rows restricted to the pair's source-data owners (roles 0..111).
+            # no intervening schedule event on the replica) under PR1918's column restriction:
+            # rows restricted to roles 0..111 variables (b1 writes, not reads, this block).
             vrows = variants['pair_roles_0_111_owners']
             kern = kernel_q(vrows)
             require(len(kern) == 16 - ranks['pair_roles_0_111_owners'], 'kernel dimension')
@@ -325,7 +325,7 @@ def run(data, pr1918):
                 require(not total, 'kernel witness does not annihilate rows')
             require(rank_q(variants['formal'])[0] == 16, 'formal same-block rank')
             # Exact structural identity: on the shared data block D, backward centre k is
-            # 1/4 of forward centre k; the rank-16 separation is carried by the target block.
+            # 1/4 of forward centre k; outside D the rows differ (b1 reads T, f0 reads helper roles).
             d_cols, t_cols = set(owners[i][:112]), set(owners[i][112:224])
             for k in range(8):
                 f_d = restrict([rows_by_call[i][k]], d_cols)[0]
@@ -334,10 +334,16 @@ def run(data, pr1918):
                         'backward1 centre D-part is not 1/4 of forward0 centre D-part')
             require(not any(restrict(rows_by_call[i], t_cols)), 'forward0 centre reads target block')
             require(rank_q(restrict(rows_by_call[j], t_cols))[0] == 8, 'backward1 target-block rank')
+            # Specialization check: zero only the target-block variables (helpers and every
+            # other owner stay formal). The forward0 centre also reads helper-role owners, so
+            # this is recorded separately from the roles 0..111 restriction.
+            t_zero = [{c: q for c, q in row.items() if c not in t_cols} for row in rows]
+            rank_t_zero = rank_q(t_zero)[0]
             witnesses.append({'calls': [i, j], 'replica': ordered[i]['replica'],
                               'unmodelled_between': between['bridge'] + between['idle_cover_sweep'],
                               'rank_pair_roles_0_111_owners': ranks['pair_roles_0_111_owners'],
                               'rank_pair_roles_0_223_owners': ranks['pair_roles_0_223_owners'],
+                              'rank_target_block_zeroed_others_formal': rank_t_zero,
                               'left_kernel_over_16_rows': [{str(k): str(v) for k, v in sorted(w.items())} for w in kern]})
         pairs.append([i, j, ''.join(code[t] for t in tags), len(data_set[i] & data_set[j]),
                       len(write_set[i] & read_set[j]), len(supp[i] & supp[j])]
@@ -371,6 +377,7 @@ def run(data, pr1918):
                               f"/same_replica={ordered[rec[0]]['replica'] == ordered[rec[1]]['replica']}"
                               f"/unmodelled_between={rec[-2] + rec[-1]}" for rec in data_pairs)
     supp_sizes = Counter(len(r) for r in all_rows)
+    block_0_111_by_class = Counter(f"{rec[2]}/rank_roles_0_111={rec[8]}" for rec in pairs)
     return {
         'status': STATUS,
         'scope': ('Calls-only common-frame scalar projection (PR1918 extended to all 144 selected calls): '
@@ -403,6 +410,7 @@ def run(data, pr1918):
         'deficient_pairs_formal_or_pair_local': deficient,
         'diagnostic_specializations_not_template_semantics': diagnostics,
         'forward0_backward1_same_block_pairs_data_only_kernels': witnesses,
+        'roles_0_111_block_rank_by_dependency_class': dict(sorted(block_0_111_by_class.items())),
         'pair_fields': ['call_i', 'call_j', 'classes(D=shared roles0-111 owner, W=write->later read, S=shared formal support)',
                         'shared_data_owners', 'write_to_later_read_owners', 'shared_formal_support_vars',
                         'rank_formal', 'rank_pair_roles_0_223_owners', 'rank_pair_roles_0_111_owners',
@@ -414,7 +422,7 @@ def run(data, pr1918):
         'controls': ['pr1918_rank16_and_source_maps', 'duplicated_rows_rank8', 'reversed_order_rows_rank8',
                      'forward_centre_inputs_equal_word_centers', 'perturbed_coefficient_changes_or_rejects',
                      'omitted_backward_gather_changes_receipt', 'omitted_final_clear_rejected',
-                     'archive_and_member_pin_corruption_rejected'],
+                     'pin_hash_sensitivity_to_bitflip'],
     }
 
 
@@ -436,14 +444,16 @@ def load(root):
 def negative_controls(root, data, raws, local_maps):
     """Each mutation below must be rejected or must change the receipt."""
     done = []
-    # (1) archive/member pin corruption.
+    # (1) pin hash sensitivity: a one-bit flip of the archive or a member changes its
+    # SHA256, so load() would reject it. Rejection by load() itself is exercised by the
+    # external scratch-copy controls recorded in the README.
     blob = bytearray((root / ARCHIVE).read_bytes())
     blob[len(blob) // 2] ^= 1
     require(sha(bytes(blob)) != PINS[ARCHIVE], 'corrupted archive accepted')
     raw = bytearray(raws['program'])
     raw[-5] ^= 1
     require(sha(bytes(raw)) != MEMBERS['program'][1], 'corrupted member accepted')
-    done.append('archive_and_member_pin_corruption_rejected')
+    done.append('pin_hash_sensitivity_to_bitflip')
     # (2) perturbed scalar coefficient before the centre cut in the backward program.
     program = [list(e) for e in data['program']['backward']]
     start = program.index(['phase', 'A'])
@@ -522,6 +532,7 @@ def main():
           f"pair_local_rank_hist={result['dependent_pair_rank_histograms']['pair_roles_0_223_owners']} "
           f"deficient_formal_or_pair_local={len(result['deficient_pairs_formal_or_pair_local'])} "
           f"f0_b1_same_block_data_only_ranks={sorted(Counter(w['rank_pair_roles_0_111_owners'] for w in result['forward0_backward1_same_block_pairs_data_only_kernels']).items())} "
+          f"f0_b1_target_zeroed_ranks={sorted(Counter(w['rank_target_block_zeroed_others_formal'] for w in result['forward0_backward1_same_block_pairs_data_only_kernels']).items())} "
           f"controls={len(result['controls'])}")
 
 
