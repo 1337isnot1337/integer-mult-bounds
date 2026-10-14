@@ -9,10 +9,11 @@ $$
 **+9.705×10⁻⁸ (0.00579%) over #1148's joint-entrance witness 0.001675560947524449**, and above that word's fixed-family
 all-replica ceiling 0.001675568675201533. It is an exponent saving, not a measured runtime.
 
-**This package builds on the unmerged #1148** (Thomas DiFiore): it is branched from #1148's head `f1d8dc59` and uses its
-joint-entrance word, owners, parent geometry and admission driver unchanged. The pull request therefore contains #1148's
-commits until #1148 is merged; only `research/k8-source-holder-fusions/` is new. The branch base is #1148's head `e7d0d016`;
-the files consumed here are byte-identical at its earlier head `f1d8dc59`.
+**This package builds on the unmerged #1148** (Thomas DiFiore). It uses #1148's joint-entrance word, owners, parent
+geometry and admission driver unchanged. The pull request therefore contains #1148's commits until #1148 is merged; only
+`research/k8-source-holder-fusions/` is new. The branch now merges #1148's current head `506ea08d`, so the five inherited
+package directories are blob-identical to #1148's head; see [Whole-head binding](#whole-head-binding). The files consumed
+here are byte-identical at #1148's heads `f1d8dc59`, `e7d0d016` and `506ea08d`.
 
 ## What changes
 
@@ -57,6 +58,48 @@ the package engines' discovery → freeze protocol before the strict run.
 The same two-site change was also admitted strictly on earlier hosts: 0.001672756914849856 on #1094's T16 owners (selected
 record), 0.001674194854569677 on #1129's T37 owners, and 0.001675218651386511 on #1148's three-demotion word. These are
 recorded in [SEARCH.json](SEARCH.json) and are not separate claims.
+
+## Whole-head binding
+
+This section answers the maintainer's whole-head supplier continuation point. The record is
+[`evidence/WHOLE-HEAD-BINDING.json`](evidence/WHOLE-HEAD-BINDING.json), produced by the standard-library `binding.py`
+from a fresh `verify.py` run on this head (fresh parent geometry, fresh native chain, strict T16 admission). Its `stable`
+section holds every field that must be identical on any fresh run. A second, independent fresh run reproduced it exactly:
+
+```sh
+python -B research/k8-source-holder-fusions/binding.py --work /absolute/completed/verify/work \
+  --check research/k8-source-holder-fusions/evidence/WHOLE-HEAD-BINDING.json
+```
+
+Expected line: `PASS_K8_SOURCE_HOLDER_FUSIONS_WHOLE_HEAD_BINDING 0.001675658002271934 trees checked: 5`.
+
+- **Native provider.** The rebuilt word's payload equals `FULL-WORD.json.gz` and the recipe output `bd8a8dc5…`. The PR635
+  native chain runs all five steps (native, ledgers, local replay, wrappers, phases). Its semantic identities equal the seven
+  bound in `PLAN.json.gz`. The receipt lists the content hash of every native artifact and of the provider directory the
+  strict run bound. Paid profile `{1:2358,2:504,3:408,4:134,5:80,8:8}`; 480 widths, 112 ports, eight centres.
+- **Physical owner allocation.** The owners are #1148's `research/k8-joint-entrances/OWNERS.json.gz` (`7755af41…`), copied
+  unchanged. The PLAN payload is `4a9e68c0…` and the SPEC is `SPEC.json`. T=16 replicas, M=73, live 14336, deficit 5120.
+  The strict run's independent owner/profile audit gives `PASS_INDEPENDENT_ASYNC_OWNERS_AND_PROFILE`: 69,120 hosted
+  residuals, 704 owners per call, rank mass 1,041,408 and physical width 14826. The emitted hosting template hashes to
+  `9a77a95a…` once its `async_schedule.source_plan_sha256` field is excluded. That field is the runtime PLAN hash, which
+  binds `CLIFFORD-REVIEW.json`'s elapsed seconds and so changes on every run.
+- **Admission.** `PASS_CHANGED_LOCAL_INTERFACES_STRICT_T16_ADMISSION` at κ 0.001675658002271934. The run also records:
+  - the complex and bit endpoints;
+  - 69 admission, 12 bit-supplier, six independent-T16 and 15 controller controls rejected, plus 10 fusion controls;
+  - 47 strict outer inequalities;
+  - every stage log hash.
+- **Predecessor reconciliation.** Between #1148's `e7d0d016` (the old branch base) and its current head `506ea08d`, the
+  only inherited changes are in `research/k8-joint-entrances`: `MANIFEST.json` and `README.md` were modified, and four
+  repository-verification records were added under `evidence/`. This package consumes none of them; its consumed files
+  (`SOURCE-PINS.json`) are unchanged. After the merge, the tree ids of all five inherited directories equal #1148's head.
+
+Not covered here: the inherited packages' own claims. Their whole-head review is #1148's. This package's verifier
+executes the following #1148 code paths:
+- `k8-eight-ends-t16/verify.py`, completely, for the parent geometry;
+- `k8-eight-ends/replay_native.py`, for this word;
+- `k8-three-demotions/run_global.py`, with `k8-joint-entrances`' owners.
+
+The `k8-joint-entrances/verify.py` command needs a C++ compiler and Boost headers. It was not rerun here.
 
 ## Search and limitations
 
