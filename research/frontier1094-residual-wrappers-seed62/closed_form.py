@@ -118,18 +118,6 @@ def frame_column(U, x):
     return {y: v for y, v in col.items() if v != (0, 0)}, r
 
 
-def frame_column_adjoint(U, x):
-    """column x of T_U^-1 = T_U^dagger (T_U is unitary): entry y is conj(T_U[x, y])."""
-    r = len(U)
-    out = {}
-    for y in range(DIM):
-        col, e = frame_column(U, y)
-        if x in col:
-            re, im = col[x]
-            out[y] = (re, -im)
-    return out, r
-
-
 def monomial_apply(m, col):
     Q, a, G, b, p = m['quadratic_rows'], m['linear_Z4'], m['matrix_rows'], m['offset'], m['phase']
     out = {}

@@ -46,7 +46,8 @@ MEMBERS = dict(adapters='global/base/providers/gauge44/RESIDUAL-ADAPTERS.json',
                checks='global/base/providers/gauge44/WRAPPER-CHECKS.json',
                decoy='global/base/split-centres/RESIDUAL-ADAPTERS.json',
                twin='global8/base/providers/gauge44/RESIDUAL-ADAPTERS.json',
-               audit='global/audit/OWNERS-AND-PROFILE.json')
+               audit='global/audit/OWNERS-AND-PROFILE.json',
+               invoice='global/audit/PREFIX-AND-INVOICE.json')
 ARTIFACT = 'providers/gauge44/RESIDUAL-ADAPTERS.json'
 
 
@@ -90,10 +91,18 @@ def bind(R, archive_bytes=None, member_overrides=None):
     audit = R.strict_loads(got['audit'])
     need(audit['source_artifacts'][ARTIFACT] == sha(got['adapters']), 'B residual adapters pinned by the owner audit')
     need(sha(got['decoy']) != audit['source_artifacts'][ARTIFACT], 'B the split-centres decoy differs by digest')
+    # the certificate's fresh invoice pins every provider file's bytes, WRAPPER-CHECKS.json included
+    asm = R.strict_loads((ROOT / R.CASES['certificate']).read_bytes())
+    need(sha(got['invoice']) == asm['input_sha256']['fresh_invoice'], 'B fresh invoice bound by the certificate')
+    inv_art = R.strict_loads(got['invoice'])['providers']['gauge44']['artifacts']
+    need(inv_art['RESIDUAL-ADAPTERS.json'] == sha(got['adapters']), 'B residual adapters pinned by the fresh invoice')
+    need(inv_art['WRAPPER-CHECKS.json'] == sha(got['checks']), 'B wrapper checks pinned by the fresh invoice')
     adapters = R.strict_loads(got['adapters'])
     checks = R.strict_loads(got['checks'])
     binding.update(residual_adapters_sha256=sha(got['adapters']), wrapper_checks_sha256=sha(got['checks']),
-                   wrapper_checks_pinned_by_owner_audit=any(k.endswith('WRAPPER-CHECKS.json') for k in audit['source_artifacts']),
+                   wrapper_checks_pinned_by='certificate input_sha256.fresh_invoice -> PREFIX-AND-INVOICE providers.gauge44.artifacts '
+                                            '(bytes only; no chain code checks its status or content)',
+                   wrapper_checks_in_owner_audit=any(k.endswith('WRAPPER-CHECKS.json') for k in audit['source_artifacts']),
                    global8_twin_byte_identical=got['twin'] == got['adapters'])
     return data, adapters, checks, binding
 
@@ -111,6 +120,9 @@ def inventory(A, word, programs, adapters):
     frames = word['frames']
     need(adapters['status'] == 'RESIDUAL_ADAPTER_RECIPES' and set(adapters) == {'recipes', 'status'}, 'I record file shape')
     rec = adapters['recipes']
+    base = {'entrance_rank', 'frame', 'left', 'rank', 'right', 'vectors'}
+    for k, r in rec.items():
+        need(set(r) == (base | {'terminal', 'terminal_rank', 'terminal_vectors'} if ':' in k else base), 'I record keys ' + k)
     starts = {str(word['start'][r]) for r in range(2 * v, n) if word['start'][r] != 0 and word['final'][r] == 1}
     ends = {'%d:%d' % (word['start'][r], word['final'][r]) for r in range(2 * v, n) if word['final'][r] != 1}
     need(set(rec) == starts | ends, 'I the 36 keys are the word\'s entering and hyperplane-ending helpers')
@@ -137,10 +149,12 @@ def inventory(A, word, programs, adapters):
                     if isinstance(a, list) and a[0] == 'L':
                         touches.setdefault(a[1], []).append(i)
         res = [e for e in prog if e[0] == 'residual_adapter']
+        need(all(e[1] in ('pre', 'post') and len(e) in (4, 5) for e in res), 'I residual events are pre or post: ' + o)
         pre = Counter(e[2] for e in res if e[1] == 'pre')
         post = Counter(e[2] for e in res if e[1] == 'post')
         wrapped = {r for r in range(2 * v, n) if word['start'][r] != 0 or word['final'][r] != 1}
-        need(set(pre) == set(post) == wrapped and set(pre.values()) == set(post.values()) == {1}, 'I one pre and one post per wrapped helper: ' + o)
+        need(set(pre) == set(post) == wrapped and set(pre.values()) == set(post.values()) == {1}
+             and len(res) == 2 * len(wrapped), 'I one pre and one post per wrapped helper: ' + o)
         for e in res:
             r = e[2]
             key = str(e[3]) if len(e) == 4 else '%d:%d' % (e[3], e[4])
@@ -170,7 +184,7 @@ def calibrate(R, adapters):
         d, dens, nz = B.matrix_digest_1415(f['entrance'], f['terminal'])
         need(d == f['left']['matrix_sha256'] and dens == f['left']['denominator_exponents'] and nz == f['left']['nonzero_entries'],
              'FX kernel B reproduces #1415 pair %d' % f['pair'])
-    out['pr1415'] = 'kernel B reproduces the three operator digests of T_U o T_E^-1'
+    out['pr1415'] = 'kernel B reproduces the three operator digests of T_U o T_E^-1 (frame operator at ranks 1 and 8, and its conjugate transpose)'
     pairs = R.lean_fixtures()
     rec = adapters['recipes']
     for key, k in (('3:998', 2), ('2:999', 3)):
@@ -181,21 +195,39 @@ def calibrate(R, adapters):
     return out
 
 
+def cross_check(A, word, adapters):
+    """kernel B's monomial and F_w against kernel A's on every column of sample records (the frame operator is
+    calibrated on #702 / #1415 separately)."""
+    rec = adapters['recipes']
+    for k in ('2', '423', '0:124', '0:1000', '3:998'):
+        for side in ('left', 'right'):
+            m = rec[k][side]
+            cols = A.columns(A.run(A.monomial(m), A.radix(0)), A.radix(0))
+            for x in range(B.DIM):
+                need(B.monomial_apply(m, {x: (1, 0)}) == cols.get(x, {}), 'FX kernel B monomial = kernel A: ' + k)
+    for w in (1, 4, 8, 9):
+        cols = A.columns(A.run(A.fourier(w), A.radix(w)), A.radix(w))
+        for x in (0, 1, 77, 300, 511):
+            col, e = B.fourier_apply(w, {x: (1, 0)}, 0)
+            need(e == w and col == cols.get(x, {}), 'FX kernel B F_w = kernel A')
+    return 'kernel B monomials (10, all columns) and F_w (w = 1, 4, 8, 9) equal kernel A'
+
+
 def evaluate(A, word, adapters):
     frames = word['frames']
-    out = {}
+    nA = nB = 0
     Ks = Counter()
     for k, r in sorted(adapters['recipes'].items()):
         E, U = end_of(k)
         w = len(frames[U]) - len(frames[E])
-        need(B.wrapper_identity(frames[E], frames[U], r['left'], r['right'], w) is None, 'E kernel B ' + k)
+        nB += B.wrapper_identity(frames[E], frames[U], r['left'], r['right'], w) is None
         lhs = A.canonical_frame(frames[E]) + A.monomial(r['right']) + A.fourier(w) + A.monomial(r['left'])
         rhs = A.canonical_frame(frames[U])
-        need(A.same_operator(lhs, rhs), 'E kernel A ' + k)
+        nA += A.same_operator(lhs, rhs)
         Ks[max(A.c_gates(lhs), A.c_gates(rhs))] += 1
-        out[k] = 'EXACT'
-    return dict(records=len(out), columns=B.DIM, global_phase_included=True, both_kernels=True,
-                K_histogram={str(k): x for k, x in sorted(Ks.items())})
+    need(nA == nB == len(adapters['recipes']), 'E both kernels accept every record')
+    return dict(records=len(adapters['recipes']), kernel_A_exact=nA, kernel_B_exact=nB, columns=B.DIM,
+                global_phase_included=True, K_histogram={str(k): x for k, x in sorted(Ks.items())})
 
 
 def _mut(m, field, fn):
@@ -223,7 +255,8 @@ def controls(A, word, adapters, checks):
         'cz_term': lambda L, R_, w: (_mut(L, 'quadratic_rows', cz), R_, w),
         'translation': lambda L, R_, w: (L, _mut(R_, 'offset', lambda b: b ^ 256), w),
         'swapped_wrappers': lambda L, R_, w: (R_, L, w),
-        'width_off_by_one': lambda L, R_, w: (L, R_, w - 1 if w > 1 else w + 1),
+        'width_minus_one': lambda L, R_, w: (L, R_, w - 1),
+        'width_plus_one': lambda L, R_, w: (L, R_, w + 1),
         'transposed_matrix': lambda L, R_, w: (_mut(L, 'matrix_rows', lambda G: [sum(((G[j] >> i) & 1) << j for j in range(9)) for i in range(9)]), R_, w),
     }
     out = {}
@@ -289,6 +322,7 @@ def main():
     data, adapters, checks, binding = bind(R)
     inv = inventory(A, data['word'], data['programs'], adapters)
     cal = calibrate(R, adapters)
+    cal['kernel_B_vs_kernel_A'] = cross_check(A, data['word'], adapters)
     ev = evaluate(A, data['word'], adapters)
     ctrl = controls(A, data['word'], adapters, checks)
     result = dict(status='PASS_FRONTIER1094_RESIDUAL_WRAPPERS_EXACT', binding=binding, inventory=inv, calibration=cal,

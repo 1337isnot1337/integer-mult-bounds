@@ -15,12 +15,14 @@
   "review_sha256": "cb0e10a8b284f176526c17177e91186ce09aa3e88b4f6acc561051daa072b0d0",
   "slot_pins_sha256": "55dd229684febecb80638eff9c6b3986623e8539c6c956753b350209c3e0efe2",
   "template_sha256": "9c4c51425251389ee9a747c465814cd07c64812c15b7aeef704dad7d65395a74",
-  "wrapper_checks_pinned_by_owner_audit": false,
+  "wrapper_checks_in_owner_audit": false,
+  "wrapper_checks_pinned_by": "certificate input_sha256.fresh_invoice -> PREFIX-AND-INVOICE providers.gauge44.artifacts (bytes only; no chain code checks its status or content)",
   "wrapper_checks_sha256": "0ae753d6fa6e922d8b8180da602828f6cb3f444fcd124d019acee74e145c0836"
  },
  "calibration": {
+  "kernel_B_vs_kernel_A": "kernel B monomials (10, all columns) and F_w (w = 1, 4, 8, 9) equal kernel A",
   "lean_pairs": "records 3:998 and 2:999 equal Exact.lean pair 2 and pair 3 field by field",
-  "pr1415": "kernel B reproduces the three operator digests of T_U o T_E^-1",
+  "pr1415": "kernel B reproduces the three operator digests of T_U o T_E^-1 (frame operator at ranks 1 and 8, and its conjugate transpose)",
   "pr702": "kernel B reproduces all 14 frame-kernel digests"
  },
  "controls": {
@@ -39,7 +41,8 @@
   "swapped_wrappers": "rejected 36/36",
   "translation": "rejected 36/36",
   "transposed_matrix": "rejected 36/36",
-  "width_off_by_one": "rejected 36/36"
+  "width_minus_one": "rejected 36/36",
+  "width_plus_one": "rejected 36/36"
  },
  "evaluation": {
   "K_histogram": {
@@ -47,9 +50,10 @@
    "8": 6,
    "9": 22
   },
-  "both_kernels": true,
   "columns": 512,
   "global_phase_included": true,
+  "kernel_A_exact": 36,
+  "kernel_B_exact": 36,
   "records": 36
  },
  "inventory": {

@@ -41,7 +41,12 @@ class Binding(unittest.TestCase):
 
     def test_binding_recorded(self):
         self.assertEqual(BINDING['residual_adapters_sha256'], RESULT['binding']['residual_adapters_sha256'])
-        self.assertFalse(BINDING['wrapper_checks_pinned_by_owner_audit'])
+        self.assertFalse(BINDING['wrapper_checks_in_owner_audit'])
+        self.assertIn('fresh_invoice', BINDING['wrapper_checks_pinned_by'])
+
+    def test_invoice_pin_mismatch_rejected(self):
+        with self.assertRaisesRegex(V.Reject, 'pinned by the fresh invoice|bound by the certificate'):
+            V.bind(R, member_overrides={'invoice': V.MEMBERS['audit']})
 
 
 class Inventory(unittest.TestCase):
@@ -96,8 +101,12 @@ class Kernels(unittest.TestCase):
             self.assertFalse(A.same_operator(A.canonical_frame(FRAMES[E]) + A.monomial(r['right']) + A.fourier(w)
                                              + A.monomial(bad), A.canonical_frame(FRAMES[U])))
 
+    def test_kernel_b_monomial_and_fourier_match_kernel_a(self):
+        self.assertIn('equal kernel A', V.cross_check(A, WORD, ADAPTERS))
+
     def test_lean_pairs_are_records(self):
         cal = V.calibrate(R, ADAPTERS)
+        cal['kernel_B_vs_kernel_A'] = V.cross_check(A, WORD, ADAPTERS)
         self.assertEqual(cal, RESULT['calibration'])
 
     def test_kernel_b_imports_only_the_standard_library(self):
@@ -122,8 +131,8 @@ class Controls(unittest.TestCase):
                                          + A.monomial(r['left']), A.canonical_frame(FRAMES[1])))
 
     def test_result_reports_all_records_exact(self):
-        self.assertEqual(RESULT['evaluation']['records'], 36)
-        self.assertTrue(RESULT['evaluation']['both_kernels'])
+        ev = RESULT['evaluation']
+        self.assertEqual((ev['records'], ev['kernel_A_exact'], ev['kernel_B_exact']), (36, 36, 36))
 
 
 if __name__ == '__main__':
