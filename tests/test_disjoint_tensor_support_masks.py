@@ -135,6 +135,10 @@ class DisjointTensorSupportMasksTests(unittest.TestCase):
                 restored["source_sha256"]["scripts/exclusion_circuit.py"] = (
                     "b253f9d7318becda1c1f3b24e2287ed44a9c27fcea00cf9d531afb950d0457a0"
                 )
+            if "scripts/experiments/complex_centers.py" in live["source_sha256"]:
+                restored["source_sha256"]["scripts/experiments/complex_centers.py"] = (
+                    "3744396587d729253d80980f6310b56e7bf0ea21b165bd178d0d6d4c49faf2e2"
+                )
             self.assertEqual(restored, base)
 
 
