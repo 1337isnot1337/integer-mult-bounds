@@ -47,7 +47,7 @@ def main():
  bad=copy.deepcopy(asm);bad['bootstrap'][-1]['cutoff_log2']='0';reject('missing_cutoff',bad)
  bad=copy.deepcopy(asm);bad['bootstrap']=bad['bootstrap'][:-1];reject('omitted_bootstrap_step',bad)
  bad=copy.deepcopy(asm);bad['complex_lower']=str(Q(bad['complex_lower'])+Q(1,10**24));reject('changed_inherited_endpoint',bad)
- predecessor=read(Path(__file__).resolve().parent/'evidence/PR1458-ASSEMBLY.json');require(Q(asm['kappa'])>Q(predecessor['kappa']),'gain over PR1458');result['absolute_gain']=str(Q(asm['kappa'])-Q(predecessor['kappa'])
+ predecessor=read(Path(__file__).resolve().parent/'evidence/PR1458-ASSEMBLY.json');require(Q(asm['kappa'])>Q(predecessor['kappa']),'gain over PR1458');result['absolute_gain']=str(Q(asm['kappa'])-Q(predecessor['kappa']))
  out=dict(status='PASS_INDEPENDENT_CLOSED_FORM_BOOTSTRAP_AND_GRID',**result,rejected=controls,inputs={str(p):hashlib.sha256(p.read_bytes()).hexdigest()for p in [a.assembly,a.legacy,a.spec]},scope='Independent closed-form bootstrap and seven work margins; retained assembly supplies the 47-slack and two-engine refined-endpoint replay. No new construction, native replay or unconditional theorem.')
  require(not a.out.exists(),'output already exists');a.out.write_text(json.dumps(out,indent=2)+'\n');print(out['status'],out['kappa'])
 if __name__=='__main__':main()
