@@ -117,6 +117,15 @@ def repository_file(relative, expected=None):
         require(digest(data) == expected, "repository pin differs: " + relative)
     return data
 
+def package_file(relative, expected):
+    require(type(relative) is str, "invalid package path")
+    path = (HERE / relative).resolve()
+    require(path.is_relative_to(HERE.resolve()) and path.is_file(),
+            "missing package file: " + relative)
+    data = path.read_bytes()
+    require(digest(data) == expected, "package pin differs: " + relative)
+    return data
+
 def check(pins):
     require(pins.get("schema") == "integer-mult-frontier1042-capsule-closure-v1",
             "unsupported pins schema")
@@ -137,7 +146,7 @@ def check(pins):
         require(outer_data == roots[inner], "promoted receipt differs from capsule: " + outer)
         promoted_hashes[outer] = digest(outer_data)
     selected_pin = pins["selected_record"]
-    selected = strict_json(repository_file(selected_pin["path"], selected_pin["sha256"]), selected_pin["path"])
+    selected = strict_json(package_file(selected_pin["path"], selected_pin["sha256"]), selected_pin["path"])
     require(selected.get("audited_source_head") == pins["audited_source_head"], "audited source head differs")
     require(selected.get("kappa") == pins["kappa"] and selected.get("decimal") == pins["decimal"],
             "published selected value differs")
@@ -175,10 +184,14 @@ def check(pins):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path)
+    ap.add_argument("--check", action="store_true",
+                    help="require byte equality with the committed RESULT.json")
     args = ap.parse_args()
     pins = strict_json((HERE / "PINS.json").read_bytes(), "PINS.json")
     receipt = check(pins)
     raw = (json.dumps(receipt, indent=2) + "\n").encode()
+    if args.check:
+        require(raw == (HERE / "RESULT.json").read_bytes(), "committed receipt differs")
     if args.out:
         args.out.write_bytes(raw)
     print(raw.decode(), end="")

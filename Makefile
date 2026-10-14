@@ -619,6 +619,14 @@ frontier1042-verify: selected-record-check
 	@work=$$(mktemp -d "$${TMPDIR:-/tmp}/integer-mult-frontier1042.XXXXXX"); \
 	python3 -B scripts/verify_frontier1042.py --work "$$work/replay"
 
+# Historical publication evidence; the live pointer has its own selected-record-check target.
+.PHONY: frontier1042-capsule-closure-verify
+frontier1042-capsule-closure-verify:
+	python3 -B research/frontier1042-capsule-closure-seed75/verify.py --check
+	python3 -O -B research/frontier1042-capsule-closure-seed75/verify.py --check
+	python3 -B research/frontier1042-capsule-closure-seed75/test_package.py
+	python3 -O -B research/frontier1042-capsule-closure-seed75/test_package.py
+
 # Independent verification: code-disjoint T37 moment endpoints and kappa reduction (no new kappa).
 .PHONY: t37-endpoints-independent-verify
 t37-endpoints-independent-verify:
