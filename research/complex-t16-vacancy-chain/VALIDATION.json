@@ -29,5 +29,6 @@
     "stage_seconds_sum": 13.674,
     "home_override": false,
     "cold_ancestry_rebuilt": false
-  }
+  },
+  "optimized_mode_controls": "build.py and verify.py reject -O before reading data or launching a verifier"
 }

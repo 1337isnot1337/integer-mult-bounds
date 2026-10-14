@@ -5,6 +5,9 @@ import gzip
 import hashlib
 import json
 
+if not __debug__:
+    raise RuntimeError('Assertions must remain enabled')
+
 P = Path(__file__).resolve().parent
 BASE = 'research/complex-t16-rare-pattern-exchanges'
 

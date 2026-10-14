@@ -11,7 +11,8 @@ import sys
 import tarfile
 import tempfile
 
-assert __debug__, 'Assertions must remain enabled'
+if not __debug__:
+    raise RuntimeError('Assertions must remain enabled')
 P=Path(__file__).resolve().parent
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 
