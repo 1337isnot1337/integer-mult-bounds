@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "base_commit": "bce54fb3f895cbe5cd4c0eb477c3afeed100190f",
+  "assignment_seed": 58,
+  "model": {
+    "group": "S3",
+    "row_order": [
+      "012",
+      "021",
+      "102",
+      "120",
+      "201",
+      "210"
+    ],
+    "generators": {
+      "a_(12)": [
+        1,
+        0,
+        2
+      ],
+      "b_(23)": [
+        0,
+        2,
+        1
+      ],
+      "c_(13)": [
+        2,
+        1,
+        0
+      ]
+    },
+    "reader": "sum of the six current workspace rows",
+    "call": "COPY one row; ADD the other five; right-translate by a transposition",
+    "coordinate_swap_word": "3 signed ADD + 1 NEG"
+  },
+  "short_word_census": {
+    "max_length": 4,
+    "reduced_words_checked": 45,
+    "reduced_words_by_length": [
+      3,
+      6,
+      12,
+      24
+    ],
+    "identity_words_by_length": [
+      0,
+      0,
+      0,
+      12
+    ],
+    "length_four_identity_words": [
+      "abac",
+      "abcb",
+      "acab",
+      "acbc",
+      "babc",
+      "baca",
+      "bcac",
+      "bcba",
+      "caba",
+      "cacb",
+      "cbab",
+      "cbca"
+    ],
+    "shortest_witness": "abac",
+    "all_length_four_identities_use_all_three_generators": true
+  },
+  "regular_action_cost": {
+    "right_transposition": {
+      "cycle_lengths": [
+        2,
+        2,
+        2
+      ],
+      "logical_swaps": 3,
+      "add_ops": 9,
+      "neg_ops": 3
+    },
+    "right_three_cycle": {
+      "cycle_lengths": [
+        3,
+        3
+      ],
+      "logical_swaps": 4,
+      "add_ops": 12,
+      "neg_ops": 4
+    }
+  },
+  "invoice": {
+    "dispatch": {
+      "leaf": 1,
+      "macro": 1,
+      "root": 1,
+      "pair_count": 7,
+      "echo_count": 13
+    },
+    "macro_A": {
+      "word": "aba",
+      "endpoint": "c",
+      "local_cost": 58
+    },
+    "macro_B": {
+      "word": "c",
+      "endpoint": "c",
+      "local_cost": 20
+    },
+    "pair_A_B": {
+      "eager": {
+        "copy": 4,
+        "add": 74,
+        "neg": 18,
+        "dispatch": 7,
+        "total": 103
+      },
+      "carried": {
+        "copy": 4,
+        "add": 56,
+        "neg": 12,
+        "dispatch": 7,
+        "total": 79
+      },
+      "saved_primitives": 24
+    },
+    "two_direction_echo_A_B_B_A": {
+      "eager": {
+        "copy": 8,
+        "add": 148,
+        "neg": 36,
+        "dispatch": 13,
+        "total": 205
+      },
+      "carried": {
+        "copy": 8,
+        "add": 112,
+        "neg": 24,
+        "dispatch": 13,
+        "total": 157
+      },
+      "saved_primitives": 48
+    }
+  },
+  "controls": {
+    "workspace_vectors_checked": 729,
+    "single_coordinate_reader_changes": true,
+    "sign_character_multiplier_under_transposition": -1,
+    "identity_B_terminal_repair": {
+      "logical_swaps": 3,
+      "add_ops": 9,
+      "neg_ops": 3,
+      "eager_and_terminal_prices_tie": true
+    },
+    "wrong_B_three_cycle_terminal_repair": {
+      "logical_swaps": 4,
+      "add_ops": 12,
+      "neg_ops": 4
+    }
+  },
+  "scope": "Exact six-row typed interface only; no supplier admission and no new kappa."
+}

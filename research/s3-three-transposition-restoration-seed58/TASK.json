@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task_id": "persistent-boundary",
+  "priority_revision": 2,
+  "base_commit": "bce54fb3f895cbe5cd4c0eb477c3afeed100190f",
+  "original_card": {
+    "id": "persistent-boundary",
+    "question": "Can a specified pair of consecutive calls eliminate a restoration that the next call reconstructs?",
+    "starting_points": [
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Write typed entry/exit contracts and a contracting multitype recurrence.",
+      "Derive a lower bound for the compulsory transitions of one proposed typed interface."
+    ],
+    "acceptance_gate": "Show actual eliminated work and legal composition; changing a scalar recurrence into a matrix is insufficient.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Find a concrete consecutive-call boundary in the selected review and list its entry/exit obligations.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Specify two call types and one operation actually removed by composition; derive the normalized recurrence.",
+    "bottleneck_link": "Eliminating compulsory boundary work can lower recursive cost beyond packing gains.",
+    "allowed_variations": [
+      "A two-type pilot or one explicit deferred restoration."
+    ],
+    "scope_change_triggers": [
+      "Rewriting the old scalar recurrence as a matrix without eliminating work."
+    ],
+    "overlap_terms": [
+      "persistent boundary",
+      "deferred restoration",
+      "multitype"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "A two-call typed boundary in the six-row right-regular S3 action: macro A has frame word aba=c and macro B has frame c. Both expose the trivial-character reader sum(W); A and B compose to identity, so their two separate canonical-frame restorations are unnecessary. The full two-direction echo A,B,B,A is priced as well.",
+  "scope_change_reason": "Refined the card to the shortest reduced relation using all three S3 transpositions and the invariant trivial-character reader. This differs from the active two-generator sign-character claim in discussion 1381 and the order-four cyclic-frame work in PR1391. Each coordinate exchange is explicitly implemented and priced as 3 signed ADD plus 1 NEG, using the operation sequence independently checked in PR1391.",
+  "bottleneck_link": "This gives an exact local example where a typed exit frame is consumed by the next call, removing paid boundary restoration. No selected supplier or multiplication exponent follows until a real supplier admits this contract.",
+  "budget_minutes": 60,
+  "stop_rule": "Exhaust all reduced words of length at most four over the three transpositions; verify both macro orders and the two-direction echo on every workspace vector in {-1,0,1}^6; stop after the invariant and non-invariant reader controls pass. Do not search larger words or infer a supplier admission.",
+  "outcome": "completed",
+  "evidence": "Exact regular-S3 checker covers 45 reduced words, finds 12 length-four identities, all using all three transpositions, and verifies the shortest witness aba=c followed by c. Each right-transposition has three disjoint row exchanges, each implemented by 3 signed ADD + 1 NEG (9 ADD + 3 NEG total). Including every leaf, macro and parent dispatch, the complete pair vector invoice is 103 eager versus 79 carried; the two-direction echo invoice is 205 versus 157. All 729 bounded dirty vectors preserve the reader output and return the workspace. Coordinate, sign-character, identity-B and wrong-B controls pass.",
+  "author": "Cinna Davis",
+  "ai_assistance": "Substantial OpenAI Codex assistance: task selection, mathematical formulation, implementation, verification, and writing. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Does any actual selected-supplier call pair expose this invariant-reader and S3 frame contract?",
+      "why_it_matters": "Only a physical supplier binding with complete child and hosting costs could transfer this local restoration saving into a recursive supplier profile.",
+      "first_step": "Pin one candidate supplier's ordered call trace, extract its six-row frame maps and reader, and test the typed A/B endpoint identities before pricing the full family.",
+      "blocked_by": "No selected-supplier source or physical owner map implementing these call types is identified in this package."
+    }
+  ]
+}

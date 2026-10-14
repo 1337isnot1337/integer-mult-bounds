@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/heterogeneous-owner-assembly/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Reconstruct S3, exhaust all reduced words through length four, verify right-regular swap costs and both carried echo directions on all 729 {-1,0,1}^6 workspace vectors, then reject coordinate-reader, sign-character, identity-B and wrong-B controls."
+    }
+  ]
+}
