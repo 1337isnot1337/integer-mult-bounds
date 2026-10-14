@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-new-helper-inventory",
+  "priority_revision": 3,
+  "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+  "original_card": {
+    "id": "complex-new-helper-inventory",
+    "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
+    "starting_points": [
+      "research/complex-local-word-ceiling/README.md",
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "Propose a changed helper inventory and derive an optimistic exact moment.",
+      "Design a small completed instance and independently verify its endpoint and rank bill."
+    ],
+    "acceptance_gate": "A new physically realizable contract outside the frozen catalogue whose per-call profile, screened with ceiling.ceiling(), beats the selected word's packing ceiling; a lower cap does not establish identical circuitry or order attainable optima, and is insufficient to pass the stronger-budget target under this model.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin.",
+    "bottleneck_link": "Packing of the selected word is capped at +0.87% (ceiling model); only a lower local excess spend or a changed coverage law raises the cap.",
+    "allowed_variations": [
+      "Narrow to one changed boundary or helper type with explicit counts.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Mixing only providers already inside the pinned catalogue."
+    ],
+    "overlap_terms": [
+      "helper inventory",
+      "heterogeneous-owner",
+      "mutable leaver"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "For the pinned selected gauge44 word, group rank-one climbs into the 369 chronological same-(phase,register) triple windows. Allow at most five simultaneously live rank-three packets, hence 15 additional scalar scratch arrays; find the exact maximum interval schedule and screen the full per-call rank profile with all scratch inventory and dirty-state costs set to zero.",
+  "scope_change_reason": "The unchanged eight-array, late-output interface is covered by the fixed-block moment optimum. This task changes that restriction by adding a bounded scratch inventory for staggered outputs, rather than reclassifying climbs within the proved interface.",
+  "bottleneck_link": "The selected complex supplier is the binding side, and its local rank-one profile dominates the local excess cost. Even an optimistic temporal aggregation must raise the per-call packing ceiling by at least 5 percent to justify constructing a changed helper interface.",
+  "budget_minutes": 60,
+  "stop_rule": "Exhaust the exact source-derived triple windows with scratch packet capacity K=1,3,5. Screen K=5 with zero scratch initialization, frame, dirty-state, restoration, hosting, precision, and controller costs. Stop if the exact ceiling remains below 1.05 times the selected-word ceiling; do not construct a physically incomplete route.",
+  "outcome": "negative-result",
+  "evidence": "RESULT.json pins the 369 candidate intervals. Exact integral time-line flow selects at most 85 triples with K=5 (15 arrays), yielding profile {1:2157,2:418,3:517,4:142,5:82,8:8}. With all scratch costs omitted, the exact ceiling bracket is [107/62500,1713/1000000], below the 5 percent target 35491136290869/20000000000000000. Exhaustive small interval controls validate the maximum-cardinality flow model.",
+  "author": "OpenAI Codex autonomous research for Cinna Davis",
+  "ai_assistance": "Substantial OpenAI Codex assistance in scope selection, exact cost screening, implementation, verification, and writing. No independent human review is claimed.",
+  "assignment": {
+    "seed": "4c02737e0fc701ea05e30cbadaa396a9",
+    "track": "complex-mechanisms",
+    "task_id": "complex-new-helper-inventory",
+    "priority_revision": 3,
+    "catalogue_sha256": "6686ad58f1fbdbc87134a78901b60fd53a20d3984355e91defbbebc9e9fa8075",
+    "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+    "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+    "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1163#discussioncomment-18923240",
+    "claim_expires_utc": "2026-10-14T13:55:00Z",
+    "overlap_refresh": {
+      "open_prs_fetched_at": "2026-10-14T11:51:41.279268Z",
+      "open_prs_records": 499,
+      "discussions_fetched_at": "2026-10-14T11:53:40.664654Z",
+      "discussion_records": 484,
+      "complete_pagination": true,
+      "nearest": [
+        "PR1836: two positive operand climbs at one ADD gate; this task uses one register across staggered events and adds scratch arrays.",
+        "Discussion #1167 comment 18920760: rank-one batch on distinct destination columns; this task is a same-register temporal packet.",
+        "PR1814: consecutive C3 gather windows with distinct destinations; this task is a distinct helper inventory and time-line domain."
+      ]
+    },
+    "triage": [
+      {
+        "scope": "One early-output feedback use per output port in each of the 12 selected blocks.",
+        "result": "Even deleting 48 rank-one children at zero cost gives a packing ceiling of 0.001706 on the 1e-6 grid, less than a 5 percent gain over the selected-word ceiling; not pursued."
+      }
+    ]
+  },
+  "open_questions": [],
+  "no_open_questions_reason": "The exact favorable ceiling already rejects the declared K<=5 inventory before construction. Work with more than 15 scratch arrays changes this capped mechanism and needs a separately justified seed and screen."
+}

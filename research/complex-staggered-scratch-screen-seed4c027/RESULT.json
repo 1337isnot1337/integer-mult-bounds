@@ -1,0 +1,102 @@
+{
+  "archive_sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+  "base_commit": "0b1cccf86e2f5132ed286a26ef0a681a495740ea",
+  "baseline_ceiling_upper": "1690054109089/1000000000000000",
+  "baseline_profile": {
+    "1": 2412,
+    "2": 418,
+    "3": 432,
+    "4": 142,
+    "5": 82,
+    "8": 8
+  },
+  "candidate_triples": 369,
+  "capacities": [
+    {
+      "ceiling_grid_bracket": [
+        "847/500000",
+        "339/200000"
+      ],
+      "certificate_batch_indices_sha256": "2b4c57c94f87aa74a84e7bf0bab44d40d9d8c0dfa65ee705e15e8f6a3bae8d10",
+      "idle_mass": "1646",
+      "local_mass": "5586",
+      "rank_profile_zero_scratch_cost": {
+        "1": 2361,
+        "2": 418,
+        "3": 449,
+        "4": 142,
+        "5": 82,
+        "8": 8
+      },
+      "replaced_rank1_children": 51,
+      "scratch_arrays": 3,
+      "selected_triples": 17,
+      "simultaneous_packets": 1
+    },
+    {
+      "ceiling_grid_bracket": [
+        "1703/1000000",
+        "213/125000"
+      ],
+      "certificate_batch_indices_sha256": "aa6791b5215d9619e9e0dbe777399c37da25dd4a1a9e5f8e4c6ba5ac79344b90",
+      "idle_mass": "1646",
+      "local_mass": "5586",
+      "rank_profile_zero_scratch_cost": {
+        "1": 2259,
+        "2": 418,
+        "3": 483,
+        "4": 142,
+        "5": 82,
+        "8": 8
+      },
+      "replaced_rank1_children": 153,
+      "scratch_arrays": 9,
+      "selected_triples": 51,
+      "simultaneous_packets": 3
+    },
+    {
+      "ceiling_grid_bracket": [
+        "107/62500",
+        "1713/1000000"
+      ],
+      "certificate_batch_indices_sha256": "032d6b7cd92afb3a8aecb4e4b7ff17368bdf519f213ab529f5362b47e9b2e46e",
+      "idle_mass": "1646",
+      "local_mass": "5586",
+      "rank_profile_zero_scratch_cost": {
+        "1": 2157,
+        "2": 418,
+        "3": 517,
+        "4": 142,
+        "5": 82,
+        "8": 8
+      },
+      "replaced_rank1_children": 255,
+      "scratch_arrays": 15,
+      "selected_triples": 85,
+      "simultaneous_packets": 5
+    }
+  ],
+  "conclusion": "With at most 15 scratch arrays, even zero-cost scratch accounting leaves the exact per-call ceiling below the required 5 percent gain.",
+  "five_percent_target_a": "35491136290869/20000000000000000",
+  "interval_convention": "inclusive local-program event indexes; buffers release after the last event",
+  "limitations": [
+    "The interval model assumes each selected triple can be served by a rank-three packet; no scalar endpoint construction is claimed.",
+    "Scratch access, arbitrary dirty-state closure, frame transitions, restoration, hosting, precision and controller compatibility are omitted, all favorably.",
+    "The result is only the finite source-pinned same-register triple family and packet capacities one through five.",
+    "No new kappa, supplier admission, universal impossibility or PR is claimed."
+  ],
+  "member": "candidate/strict/global/base/providers/gauge44/LOCAL-PROGRAMS.json.gz",
+  "member_sha256": "241fde27d4e43f5a9cb6b128f9f76c5131a53d09f0371676163f914d0b0fef3a",
+  "packet_outputs": 3,
+  "priority_revision": 3,
+  "scratch_initialization_frame_cost_dirty_restoration_hosting": "all omitted (zero-cost favorable relaxation)",
+  "seed": "4c02737e0fc701ea05e30cbadaa396a9",
+  "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+  "status": "PASS_STAGGERED_SCRATCH_SCREEN",
+  "target_relaxation_interval": [
+    "115812532637463218217042742370101935058768885106591018933031480402185119879069/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+    "1809570822460362784641292849532842735293263829790484670828616881284142498111/1809251394333065553493296640760748560207343510400633813116524750123642650624"
+  ],
+  "task_id": "complex-new-helper-inventory",
+  "track": "complex-mechanisms"
+}
