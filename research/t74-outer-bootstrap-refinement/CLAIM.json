@@ -1,5 +1,5 @@
 {
-  "status": "DRAFT_EXACT_OUTER_DISCOVERY_PENDING_COMPLETE_FINITE_ADMISSION",
+  "status": "PASS_T74_EXACT_FILL_COMPLETE_FINITE_ADMISSION",
   "kappa": "1676855229071321886206381217337893/1000000000000000000000000000000000000",
   "kappa_decimal": "0.001676855229071321886206381217337893",
   "baseline_pr": 1377,
@@ -14,5 +14,5 @@
     "bootstrap_steps": 12
   },
   "scope": "Conditional finite construction only. All-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery, analytic transfer, PR559 recurrence correction and PR589 bit H1-H5 assumptions remain. No unconditional theorem, full Lean certification, or global packing claim.",
-  "verification": "Exact discovery using verified PR1319 owner/invoice receipts passes both moment engines and 47 outer inequalities. Full new-package finite replay and independent outer checks pending. Native providers are unchanged and will be explicitly source-bound reused."
+  "verification": "Complete new-package finite admission passed, including source-bound reuse of the byte-unchanged PR1297 native providers, retained-provider/parent admission, owner reconstruction, parent lift, strict T74 controller/invoice/moment/outer replay, geometry controls and separate closed-form bootstrap audit. No fresh native replay or hosted CI success is claimed."
 }
