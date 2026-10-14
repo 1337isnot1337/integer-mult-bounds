@@ -1,17 +1,17 @@
 {
   "schema_version": 1,
-  "refreshed_utc": "2026-10-14T20:51:12Z",
+  "refreshed_utc": "2026-10-14T20:54:54Z",
   "command": "python3 scripts/find_overlap.py --refresh --all-terms 'six-source' 'TRIO' '12-call' 'weight-3' --limit 20",
   "coverage": {
     "open_pull_requests": {
-      "fetched_at_utc": "2026-10-14T20:49:15Z",
+      "fetched_at_utc": "2026-10-14T20:52:59Z",
       "complete_pagination": true,
-      "records": 398
+      "records": 399
     },
     "discussions": {
-      "fetched_at_utc": "2026-10-14T20:51:12Z",
+      "fetched_at_utc": "2026-10-14T20:54:54Z",
       "complete_pagination": true,
-      "records": 814
+      "records": 816
     }
   },
   "exact_all_terms_matches": 0,
