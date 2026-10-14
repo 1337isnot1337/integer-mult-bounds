@@ -127,19 +127,24 @@
   "verification": {
     "interpreter": "CPython 3.14.7",
     "direct_verifier": "PASS_QQ16_MAP_PARITY_FLOOR ports=8 maps=3650 frame_checks=29200 lines=144 cover_maps=288 no_kappa",
-    "registered_runner": "Python 3.12 unavailable locally; package metadata/source pins checked separately."
+    "registered_runner": "Python 3.12 unavailable locally; package metadata/source pins checked separately.",
+    "hosted_checks": "Queued at initial PR head as of 2026-10-14T23:40:37Z; no hosted result claimed."
   },
   "discussion_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2192#discussioncomment-18936199",
   "discussion_hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18936193",
   "claim_expiry_utc": "2026-10-15T01:31:04Z",
   "publication": {
-    "status": "locally verified; ready for focused PR",
+    "status": "open focused PR; hosted checks queued at initial head",
     "path": "research/qq16-map-parity-floor-seed-ed361f3c/",
     "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
-    "seed": "ed361f3c876dd81e664556c9f95bd36e"
+    "seed": "ed361f3c876dd81e664556c9f95bd36e",
+    "pr_number": 2204,
+    "pr_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2204",
+    "initial_pr_head": "385a85609729f6b8953ae27a0e6219cf6dff5449",
+    "opened_at_utc": "2026-10-14T23:40:30Z"
   },
   "remaining_obligations": [
-    "Publish the focused package PR and update the claim with the PR link and hosted-check status.",
+    "Hosted CI and registered Python 3.12 replay remain pending; update the claim if they produce a material result.",
     "No alternate state layout, physical supplier mapping, selected-result change or kappa improvement is claimed."
   ]
 }
