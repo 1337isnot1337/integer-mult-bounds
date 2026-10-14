@@ -69,6 +69,14 @@
     "track": "bit-mechanisms"
   },
   "stop_rule": "Stop after deriving the J/J^2 equations, exactly minimizing the rank/trace lower bound over every S_Q in M4(F2), verifying the direct eight-call word, and running the parity-mask control. The bound applies to words of every length; do not expand the address alphabet or claim a kappa.",
+  "submission": {
+    "base_head_at_open": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "canonical_discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2091",
+    "head_at_open": "5bd8849cc1b0b55e139f29b463fa06f49842e8ae",
+    "hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932269",
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2085",
+    "status": "open; focused research package submitted from the authorized fork"
+  },
   "task_id": "bit-new-register-model",
   "upstream_refresh": {
     "canonical_main_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",

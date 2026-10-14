@@ -150,10 +150,12 @@ The selected baseline replay passed and confirms the complex primitive still
 binds. This result is only a scoped bit-side cost floor; no supplier mapping
 or selected κ change follows.
 
-The claim is Discussion [#1167, comment 18931816](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931816).
-Its initial target list was withdrawn before implementation because it lacked
-the stated direct bill; the corrected target and result are recorded in
-[comment 18931944](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931944).
+The canonical investigation and handoff is [Discussion #2091](https://github.com/CrocSwap/integer-mult-bounds/discussions/2091).
+The focused package is submitted in [PR #2085](https://github.com/CrocSwap/integer-mult-bounds/pull/2085).
+The hub pointer is [#1167 comment 18932269](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18932269).
+The earlier #1167 claim at [comment 18931816](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931816)
+was corrected because its proposed first target did not have the stated direct
+bill; the correction remains at [comment 18931944](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931944).
 
 ## Reproduce
 
