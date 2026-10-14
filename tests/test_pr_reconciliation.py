@@ -198,6 +198,17 @@ class AssertionSafetyRefresh(unittest.TestCase):
         for item in self.items:
             checker.check_batch932_file(item)
 
+    def test_historical_adapter_cannot_be_disabled(self):
+        item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutated = current.replace(b"path.name == 'test_skip_clones.py'", b'False')
+        self.assertNotEqual(current, mutated)
+        original_read = Path.read_bytes
+        def read(path):
+            return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+        with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+            checker.check_batch932_file(item)
+
     def test_assertion_guard_removal_and_other_byte_edits_fail(self):
         original_read = Path.read_bytes
         for item in self.items:

@@ -67,11 +67,13 @@ def check_frontier890_file(item):
 
 
 def check_batch932_file(item):
-    """Bind the exact assertion-safety update accepted in 2b7dc6cf.
+    """Bind exact assertion-safety and historical replay runner successors.
 
     Credit woklerx for keeping assertions enabled in child research processes.
     These two exact successor blobs are an explicit maintenance adaptation,
     not permission to change any other bytes or the frozen batch932 receipt.
+    Also authenticate the exact PR53 replay adapter and its test from c58c1778;
+    this extension retains the earlier assertion guard and every module.
     """
     name = item['integrated_path']
     digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
@@ -80,12 +82,15 @@ def check_batch932_file(item):
     successors = {
         'scripts/run_isolated_tests.py': (
             '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
-            'b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8'),
+            ('b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8',
+             '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331')),
         'tests/test_isolated_test_runner.py': (
             '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
-            '8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067'),
+            ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
+             '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522')),
     }
-    require(name in successors and successors[name] == (item['integrated_sha256'], digest),
+    require(name in successors and successors[name][0] == item['integrated_sha256']
+            and digest in successors[name][1],
             'Changed integrated file: ' + name)
 
 
