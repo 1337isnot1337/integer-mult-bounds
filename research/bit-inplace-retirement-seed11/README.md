@@ -57,20 +57,26 @@ and `g_a(0)=0`. Dividing the raw moment change by `64^a` gives
 
 ```text
 Q_r = 1 + 5^(1-a) - 7^(1-a) + (r+1)^(1-a) - r^(1-a)
-    = integral_0^1 t^(-a) dt - integral_5^7 t^(-a) dt
-      + integral_r^(r+1) t^(-a) dt.
+    = (1-a) * [integral_0^1 t^(-a) dt - integral_5^7 t^(-a) dt
+               + integral_r^(r+1) t^(-a) dt].
 ```
 
+The factor `1-a` is essential: the derivative of `t^(1-a)` is
+`(1-a)*t^(-a)`. The integrals converge even at `r=0` because `a<1`.
 On `0 <= r <= 56`, the last integral is at least `57^(-a)` and the middle
-integral is at most `2*5^(-a)`. Therefore
+integral is at most `2*5^(-a)`. Multiplying the integral bound by the
+positive factor gives
 
 ```text
-Q_r >= 1/(1-a) + 57^(-a) - 2*5^(-a) > 0.
+Q_r >= (1-a)*[1/(1-a) + 57^(-a) - 2*5^(-a)]
+    = 1 + (1-a)*(57^(-a) - 2*5^(-a))
+    >= 1 - (1-a)*(57/25)^a > 0.
 ```
 
-For the strict inequality, AM-GM reduces it to
-`1/(1-a) > (57/25)^a`. This follows from `-ln(1-a)>a` and
-`ln(57/25)<1` (since `57/25 < 8/3 < e`). Thus the raw moment strictly
+For the penultimate inequality, AM-GM gives
+`2*5^(-a) <= 57^(-a) + (57/25)^a`. For the final strict inequality,
+`-ln(1-a)>a` and `ln(57/25)<1` (because `57/25 < 8/3 < e`),
+so `(1-a)*(57/25)^a < 1`. Thus the raw moment strictly
 increases throughout the stated domain. For `r>0`, the complete profile adds
 one call; for `r=0`, it adds two. The inherited surcharge consequently also
 increases. The complete bill is strictly worse for every `0<a<1` and every
