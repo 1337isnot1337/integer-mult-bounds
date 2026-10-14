@@ -1,0 +1,168 @@
+{
+  "assert_nodes_by_new_script": {
+    "research/h6-compensation-network/bank_physical/review.py": 0,
+    "research/h6-compensation-network/coefficient_horner.py": 0,
+    "research/h6-compensation-network/construction/network.py": 0,
+    "research/h6-compensation-network/contract/replay.py": 0,
+    "research/h6-compensation-network/gate/controls.py": 0,
+    "research/h6-compensation-network/gate/replay.py": 0,
+    "research/h6-compensation-network/independent/bucketed.py": 0,
+    "research/h6-compensation-network/independent/routes.py": 0,
+    "research/h6-compensation-network/k_encoder/network.py": 0,
+    "research/h6-compensation-network/physical_compiler/compile.py": 0,
+    "research/h6-compensation-network/physical_compiler/universal.py": 0,
+    "research/h6-compensation-network/pricing/verify.py": 0,
+    "research/h6-compensation-network/routes/fiber.py": 0,
+    "research/h6-compensation-network/routes/full_mask_screen.py": 0,
+    "research/h6-compensation-network/routes/mask_route.py": 0
+  },
+  "audit_script_sha256": {
+    "research/h6-compensation-network/bank_physical/review.py": "c452daeee217b45b433f68a35be0305a84fd338a0966bac5c35490dacf99114e",
+    "research/h6-compensation-network/coefficient_horner.py": "bfc3e4133827cea57b0d483804f280a5c89a7186f72e25f251932288f592966f",
+    "research/h6-compensation-network/construction/network.py": "083fb6db39826bdee5bad0a43cee33ec67945d1569c9d881b645ff9ea7b97498",
+    "research/h6-compensation-network/contract/replay.py": "08315d54466064669c5d9c8ff51246aa040227b88ec64488552e5c08469bd3e3",
+    "research/h6-compensation-network/gate/controls.py": "0591007d6a81254dd8fe92073dad197f9d63dadd3460d2315c13b0884ede1ecc",
+    "research/h6-compensation-network/gate/replay.py": "a26e0e5dda067fab2e55d0d2245179da946c67a81d4609dd5e1e559de3d028aa",
+    "research/h6-compensation-network/independent/bucketed.py": "e4da7836c6945a3238341ba2ddc0faef31843b4a81d4cb41463f82772cb68375",
+    "research/h6-compensation-network/independent/routes.py": "affcd6b71157342ee62d660cf1f25b1de202fb0ed7b64e63ad6ddddd8fdf3fc5",
+    "research/h6-compensation-network/k_encoder/network.py": "93370ed7b44811a2ab87fcb7b185800b533566577eb80f586e4f487419b8faa2",
+    "research/h6-compensation-network/physical_compiler/compile.py": "71b60d2959238fe064645c4ea6b56fa464d72e04d21c09f40b1c31c2732fa885",
+    "research/h6-compensation-network/physical_compiler/universal.py": "165555cf3d84b28a1a555120ec597ae55098ccdf56c7ecef01f54c12a37bdcfe",
+    "research/h6-compensation-network/pricing/verify.py": "27e517821411e667712e6f8039e90c46d7d14fd6c3c5303d3218aaa74a1c23bd",
+    "research/h6-compensation-network/routes/fiber.py": "12c1cdf1e7e35c0e60a664aa4b7385919e352943499491c6e12e62e5f27a9cd2",
+    "research/h6-compensation-network/routes/full_mask_screen.py": "e8c72c0993d20d69e92385dbaa9caf831d1efca0e60dba333d153f8725154d7e",
+    "research/h6-compensation-network/routes/mask_route.py": "16897f1c770b24bd8aca77530debb3b42b1a08bda685a58c64b696167f4c63c5"
+  },
+  "base": "92d165a607454e457c42180c10d79821df6d84d7",
+  "checks": [
+    {
+      "expected_error": null,
+      "log_sha256": "edbcb40c1d3b0ec97279262a1f9ca3112e619fddead67602cd510e564b2f2191",
+      "name": "independent-corruption-controls",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "expected_error": "K exact check at original line 44",
+      "log_sha256": "ce44bc0808d4814ab2bbc4622e289bd3f51d9ebab37e7d87ad7b32fe60c80bef",
+      "name": "K-polynomial-coefficient",
+      "returncode": 1,
+      "status": "DETECTED"
+    },
+    {
+      "expected_error": "Frozen source binding: research/niemeier-lattices/code/e8_sections.py",
+      "name": "transitive-source-mutation",
+      "status": "DETECTED"
+    }
+  ],
+  "cwd": "/private/tmp/h6-successor-clean-29znu16d/unrelated-cwd",
+  "elapsed_seconds": 2.219,
+  "environment": {
+    "executable": "/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "isolated": true,
+    "no_bytecode": true,
+    "numpy": "2.3.5",
+    "optimized": true,
+    "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+  },
+  "export": "/private/tmp/h6-successor-clean-29znu16d/minimal-source-tree",
+  "git_provenance": {
+    "checks_disabled": false,
+    "git_dir": "/Users/ross/git/math/h6-audit-20261014/.git",
+    "mode": "EXACT_BASE_BLOBS_AND_EXPLICIT_READ_ONLY_SOURCE_OBJECT_DATABASE"
+  },
+  "inherited_pinned_files": 90,
+  "limits": [
+    "The file export has complete pinned runtime/evidence source closure, while Git provenance reads the exact original object database.",
+    "The prior 958521600-entry exhaustive audit is immutable retained evidence, not replayed here.",
+    "No billion-event full word, hosted CI, selected supplier cold replay, admission or new kappa claim."
+  ],
+  "pins_sha256": "da9da6aa6b382f64e7257db88070d1ded8bc4a5012a011e545902787e5cacebf",
+  "semantic_negative_controls": [
+    {
+      "name": "missing_dirty_prefix",
+      "reason": "forward all-basis arbitrary-dirt mismatch",
+      "status": "DETECTED"
+    },
+    {
+      "name": "missing_dirty_cleanup",
+      "reason": "forward all-basis arbitrary-dirt mismatch",
+      "status": "DETECTED"
+    },
+    {
+      "name": "wrong_compensation_edge_coefficient",
+      "reason": "forward all-basis arbitrary-dirt mismatch",
+      "status": "DETECTED"
+    },
+    {
+      "name": "illegal_ordinary_frame_descent",
+      "reason": "step 232: nonnested ordinary transition",
+      "status": "DETECTED"
+    },
+    {
+      "name": "noncommon_current_frame",
+      "reason": "step 36: unequal current frames",
+      "status": "DETECTED"
+    },
+    {
+      "name": "wrong_target_bucket_label",
+      "reason": "actual target bucket label",
+      "status": "DETECTED"
+    },
+    {
+      "name": "wrong_private_copy_rank",
+      "reason": "K exact check at original line 143",
+      "status": "DETECTED"
+    },
+    {
+      "name": "wrong_helper_stock",
+      "reason": "complete helper stock",
+      "status": "DETECTED"
+    },
+    {
+      "name": "omitted_helper_pad",
+      "reason": "complete helper pad",
+      "status": "DETECTED"
+    },
+    {
+      "name": "wrong_private_center_C",
+      "reason": "private center C bill",
+      "status": "DETECTED"
+    },
+    {
+      "name": "double_Horner_doubling",
+      "reason": "Horner weighted coefficient",
+      "status": "DETECTED"
+    },
+    {
+      "name": "missing_Horner_halving",
+      "reason": "Horner weighted coefficient",
+      "status": "DETECTED"
+    },
+    {
+      "name": "missing_Horner_temporary_erase",
+      "reason": "coefficient stream remains live",
+      "status": "DETECTED"
+    },
+    {
+      "name": "double_primitive_encoding",
+      "reason": "scalar encoding charge",
+      "status": "DETECTED"
+    },
+    {
+      "name": "missing_address_movement_charge",
+      "reason": "movement-inclusive bound",
+      "status": "DETECTED"
+    },
+    {
+      "name": "physical_global_phase",
+      "signed_tableau_unchanged": true,
+      "status": "DETECTED"
+    },
+    {
+      "name": "physical_fourier_rank",
+      "status": "DETECTED"
+    }
+  ],
+  "status": "PASS_SUCCESSOR_PREFLIGHT"
+}
