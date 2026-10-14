@@ -3,7 +3,7 @@ DYAD 2^800 outward rounding, 800 Mercator terms (tail bounded by the next term),
 from fractions import Fraction as F
 from functools import lru_cache
 DYAD = 1 << 800
-LOGN = 800
+LOGN = 801
 EXPN = 70
 def floor(x): return F(x.numerator*DYAD//x.denominator, DYAD)
 def ceil(x): return -floor(-x)

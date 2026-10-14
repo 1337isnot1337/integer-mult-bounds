@@ -15,6 +15,7 @@ def run(name,script,*args):
  t=time.monotonic();log=work/(name+'.log')
  with log.open('w') as f:r=subprocess.run([sys.executable,'-B',str(script),*map(str,args)],cwd=work,env=env,stdout=f,stderr=subprocess.STDOUT)
  stages.append(dict(name=name,exit_code=r.returncode,seconds=time.monotonic()-t,log_sha256=sha(log)));(work/'STAGES.json').write_text(json.dumps(stages,indent=2));assert r.returncode==0,(name,log.read_text()[-5000:]);print('PASS',name,flush=True)
+run('fine-log-enclosure-oracle',P/'log_enclosure_audit.py','--out',work/'LOG-ENCLOSURE.json')
 old=P/'vendor/pr1297'
 # The pinned input witness must be the exact retained predecessor, not merely a similar profile.
 for n in ['PLAN.json','OWNERS.json.gz','GLOBAL-TEMPLATE.json.gz','DISPATCH.json','SPEC.json']:assert rd(P/'inputs'/n)==rd(old/n),n
