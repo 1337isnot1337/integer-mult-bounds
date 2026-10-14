@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "task_id": "p104-side-correction",
+  "priority_revision": 4,
+  "base_commit": "7c1e7811c730b17fe0eeef6c82ef011318b0465e",
+  "original_card": {
+    "id": "p104-side-correction",
+    "question": "Can the native P104 low-rank channel be completed with a legal, fully charged I-G/2 side correction?",
+    "starting_points": [
+      "research/p104-native-channel/README.md",
+      "research/p104-native-channel/PROOF.md",
+      "docs/research/community-efficient1000-review.md"
+    ],
+    "methods": [
+      "Construct one side-correction word at an explicit chronological cut with the needed frames still available.",
+      "Derive a lower bound on the side correction and hosting costs that decides whether this channel can beat the selected budget."
+    ],
+    "acceptance_gate": "An exact arbitrary-input identity, source/target frame availability and restoration at the chosen cut, plus the complete channel+correction+idle/hosting bill or an explicit favorable bound. The native channel alone is not a supplier.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read the P104 open next questions and its fixed local histogram; inspect why appending I-G/2 after source completion is not justified. #1991 supplies the checked native channel, not the missing correction.",
+      "scope": "Source-bound orientation only. Read the named package and review before relying on its local evidence; this command is not its replay or supplier admission."
+    },
+    "first_experiment": "Choose one exact side-correction cut and bound its allowed cost from a favorable completed moment at a declared target. Stop or hand off if the necessary source/target access cannot be justified or even the optimistic total misses the target.",
+    "bottleneck_link": "Completing an already realized changed channel tests a concrete construction opportunity, instead of refining the incumbent packing. A positive local result still needs global and all-size admission.",
+    "allowed_variations": [
+      "One correction factorization, one chronological cut, or one explicit hosting obstruction.",
+      "A changed correction schedule with an updated full bill and native frame contract."
+    ],
+    "scope_change_triggers": [
+      "Recompiling the already certified low-rank channel without closing a new obligation.",
+      "Treating a pending ancestor, local histogram or unpriced side correction as an admitted global supplier."
+    ],
+    "overlap_terms": [
+      "P104",
+      "I-G/2",
+      "side correction",
+      "native channel",
+      "1972",
+      "1991"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Append the exact sparse I-G/2 correction after PR1972 has restored all helpers and returned its 104 sources to F9: lift each target from its final rank-8 hyperplane to F9, add its 48 off-diagonal source terms, and restore the target frame.",
+  "scope_change_reason": "The initially priced shared-query cut was rejected because all eight Q registers still contain independent dirty inputs there. The terminal source/target cut is a distinct legal cut: every source is in F9, every target is in its final rank-8 hyperplane, and all helper restoration has completed.",
+  "bottleneck_link": "Closes the exact local I-G/2 operation missing from the P104 G/2 channel while charging only its added rank-one frame excursions; full global hosting and all-size supplier admission remain separate.",
+  "budget_minutes": 60,
+  "stop_rule": "Test this one terminal sparse-scatter construction only. Stop after the 104x104 exact identity, arbitrary-input restoration, native phase replay, and favorable local moment screen are verified, or on a concrete frame/cost failure; do not pivot again within this seed.",
+  "outcome": "completed",
+  "evidence": "RESULT.json: 104x104 exact I-G/2 correction with 4,992 scalar additions and 208 rank-one transitions, which attains the exact terminal path floor; complete 9,258-event replay restores all 280 arbitrary input columns, retains max prefix L1=106, passes 208 phase-exact native transitions and three negative controls. Candidate profile {1:1282,2:58,3:86,4:104,5:48,6:24,7:8,8:8}; exact selected-model relaxation at selected a is below one. No global owner map, all-size lift, recursive precision admission or new kappa. The final overlap check found an earlier active claim for the exact same terminal construction; this result will be handed off rather than submitted as a duplicate PR.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Substantial OpenAI Codex assistance. No independent human review or proof assistant is claimed.",
+  "open_questions": [
+    {
+      "question": "Can the corrected 104-port word be hosted chronologically with the inherited 72 dirty roles, and lifted to all sizes with admitted precision?",
+      "why_it_matters": "A finite exact correction and favorable local profile are not a global recursive supplier or a new kappa.",
+      "first_step": "Assign owners to the completed corrected word, charge every residual child and precision term, then compare the actual complete moment against the selected supplier.",
+      "blocked_by": "PR1972's P104 channel still has no reviewed chronological global owner map, all-size lift or recursive precision certificate."
+    }
+  ],
+  "canonical_discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931718"
+}

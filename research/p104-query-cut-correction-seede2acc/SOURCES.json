@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "base_commit": "7c1e7811c730b17fe0eeef6c82ef011318b0465e",
+  "files": [
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "input",
+      "git_blob": "ae6a99f28aa468649eb66a361e764d769363bf11",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "e8870e5917057d59b730eb14721a778639eca050",
+      "sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7"
+    },
+    {
+      "path": "research/complex-local-word-ceiling/ceiling.py",
+      "usage": "input",
+      "git_blob": "6c0f54527d879396f689523bfde19928a9b6157c",
+      "sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc"
+    },
+    {
+      "path": "research/p104-native-channel/compile.py",
+      "usage": "input",
+      "git_blob": "840d7608d6795d12ba174620279f88d8a6f727b4",
+      "sha256": "9d2fc2d81962ddb0b4dd7d6482d9918a87a6b05759690317dea79939ca5656a3"
+    },
+    {
+      "path": "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+      "usage": "input",
+      "git_blob": "86beaf424e9f0f800ae3a62797d94ec9386b7706",
+      "sha256": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e"
+    },
+    {
+      "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+      "usage": "input",
+      "git_blob": "2e16f99b295bb386fd13bd8fbd57b42ef54143a9",
+      "sha256": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
+    },
+    {
+      "path": "research/p104-native-channel/vendor/clifford_exact.py",
+      "usage": "input",
+      "git_blob": "166841a037f069249f6f7f6dedb89248812f59e2",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
+    },
+    {
+      "path": "research/p104-native-channel/vendor/native_verify.py",
+      "usage": "input",
+      "git_blob": "2c209dfa9cfade3bc20ac5fc9d876b433a147f8c",
+      "sha256": "3049471905b47b385c88378a1a3be7a18b8858aadd035b8a6da2f4a03b470f38"
+    }
+  ],
+  "predecessors": [
+    {
+      "pr": 1972,
+      "head": "fd82d172f46933fd253c2c6de4bd5eaff5429cfd",
+      "role": "Rohan Arun: finite P104 G/2 channel, source gather, dirty-helper restoration and original frame word; side correction was missing."
+    },
+    {
+      "pr": 1940,
+      "head": "a9b7dfe2809092a9a4c90784d12bb60061e995e8",
+      "role": "Adam Gall: P104 32-chain target-order schedule retained by PR1972."
+    },
+    {
+      "pr": 1071,
+      "head": "ce9531beba1ce115fdcdc44925ded995a29b8bac",
+      "role": "Josie Elliston lineage: P104 fixture and E8 port geometry."
+    },
+    {
+      "pr": 1862,
+      "head": "bb29ea73ad9be9a0c3d53cdcb1d22b2ee9ffe42f",
+      "role": "Independent exact Gaussian interpreter retained through the pinned P104 native verifier."
+    }
+  ],
+  "disclosure": "The terminal sparse I-G/2 correction, its native rank-one transports and independent replay were prepared with substantial OpenAI Codex assistance. The full G/2 channel, schedule, fixture, compiler and Gaussian checker retain their predecessor attribution above. No independent human review or proof assistant is claimed.",
+  "overlap": {
+    "checked_utc": "2026-10-14T19:04:10Z",
+    "open_prs": {
+      "records": 354,
+      "fetched_utc": "2026-10-14T19:01:09Z",
+      "complete_pagination": true
+    },
+    "discussions": {
+      "threads": 190,
+      "live_rest_paginated": true,
+      "checked_utc": "2026-10-14T19:04:10Z",
+      "cached_comments_records": 725,
+      "cached_comments_fetched_utc": "2026-10-14T18:46:22Z",
+      "newer_graphql_comment_refresh": "rate limited"
+    },
+    "active_exact_overlap": {
+      "discussion": 1167,
+      "comment_id": 18931718,
+      "seed": "749717109203f916f620456c85e26673",
+      "author": "1337isnot1337",
+      "expiry_utc": "2026-10-14T19:45:00Z"
+    },
+    "other_predecessors": [
+      1972,
+      1762,
+      1728
+    ],
+    "difference_and_handoff": "The active claim describes the same terminal cut, 4,992 coefficients and 208 rank-one transitions, so there is no distinct mathematical mechanism to justify another PR. This completed package adds the exact 9,258-event arbitrary-input/helper replay, 208 phase-exact native transition checks, and a proof the terminal frame-path rank floor is 208. Publish as a branch handoff and release the duplicate claim.",
+    "limits": "Complete live open-PR pagination and top-level Discussion listing; current #1167 comments fetched directly and earlier complete comment/reply cache through 18:46Z. GitHub GraphQL refresh was rate-limited. No literature novelty search."
+  },
+  "upstream_checkpoint": {
+    "fetched_utc": "2026-10-14T19:00:43Z",
+    "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "priority_revision": 4,
+    "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+    "catalogue_sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7",
+    "relevant_change": "Since assignment base 7c1e7811c730b17fe0eeef6c82ef011318b0465e, canonical main added looping-agent upstream checkpoints and discussion usability guidance; selected record, catalogue priorities and P104 card stayed unchanged. Read current AGENTS.md/autoresearch.md and rebased the isolated branch to this commit. The package scientific input pins intentionally retain assignment base 7c1e7811.",
+    "branch_base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2"
+  },
+  "canonical_discussion": {
+    "number": 1167,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18931718",
+    "status": "handoff to the earlier exact-overlap claim; separate #2080 thread released"
+  }
+}

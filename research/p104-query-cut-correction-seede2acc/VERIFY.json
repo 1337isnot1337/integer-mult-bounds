@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/p104-native-channel/compile.py",
+    "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+    "research/p104-native-channel/inputs/P104-FIXTURE.json",
+    "research/p104-native-channel/vendor/clifford_exact.py",
+    "research/p104-native-channel/vendor/native_verify.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Reconstruct all 120 E8 roots and 104 live ports; exact G and I-G/2; replay 280 arbitrary input rows through the entire corrected frame word; check 208 native rank-one transitions including phase; verify exact paid histogram and selected-model relaxation; reject a wrong correction coefficient, missing target descent and mutated native phase."
+    }
+  ]
+}

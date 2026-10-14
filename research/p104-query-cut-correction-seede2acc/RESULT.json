@@ -1,0 +1,111 @@
+{
+  "correction": {
+    "added_rank_profile": {
+      "1": 208
+    },
+    "corrected_program_events": 9258,
+    "corrected_program_sha256": "dfca4c64370e9b93fefbda916ab9ea396da0b838d16d45b530979b92b864eb06",
+    "new_copies": 0,
+    "new_helper_restoration": 0,
+    "new_helpers": 0,
+    "path_floor_reason": "Every nonzero source ADD needs the common rank-9 source frame; each rank-8 target starts and ends at rank 8, so its nested transport path has paid rank at least 1+1.",
+    "scalar_additions": 4992,
+    "target_transitions": 208,
+    "terminal_frame_path_floor": 208
+  },
+  "cut": {
+    "each_query_retains_its_independent_initial_input": true,
+    "excluded_dirty_query_cut_index": 3642,
+    "helpers_restored_before_correction": true,
+    "index": 4058,
+    "source_frame_rank": 9,
+    "target_frame_rank": 8
+  },
+  "geometry": {
+    "all_exact_coefficients": "+/-1/2",
+    "coordinate_rank": 8,
+    "correction_nonzeros": 4992,
+    "gram_rank": 8,
+    "off_diagonal_nonzeros_per_row": 48,
+    "ports": 104,
+    "roots": 120
+  },
+  "optimistic_selected_coverage_screen": {
+    "a_ceiling": [
+      "3246394165033/1000000000000000",
+      "1623197082517/500000000000000"
+    ],
+    "kappa_ceiling": "1623197082517/501623197082517",
+    "limitation": "Same coverage-law substitution with fractionally repacked rank-<=51 idle mass; not a realized owner map, global supplier, precision proof, all-size lift or new kappa.",
+    "model": {
+      "centre_per_call": 64,
+      "idle_mass": "4656",
+      "idle_rank_cap": 51,
+      "live_families": "896/9",
+      "m": 73,
+      "stages": 9
+    },
+    "moment_at_selected_a": [
+      "115517220671611740511830989782661327089010188153543066537257854440348579789611/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "57758610335805870255915494891330663544505094076771533268628927220174289894815/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+    ],
+    "selected_a": "836330098538459/499163669901461541",
+    "selected_kappa": "836330098538459/500000000000000000"
+  },
+  "provenance": {
+    "predecessor_head": "fd82d172f46933fd253c2c6de4bd5eaff5429cfd",
+    "predecessor_pr": 1972,
+    "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+    "source_fixture_sha256": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4",
+    "source_witness_sha256": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e"
+  },
+  "replay": {
+    "base": {
+      "max_prefix_l1": "106",
+      "profile": {
+        "1": 1074,
+        "2": 58,
+        "3": 86,
+        "4": 104,
+        "5": 48,
+        "6": 24,
+        "7": 8,
+        "8": 8
+      },
+      "rank_mass": 2368,
+      "scalar": {
+        "add": 2624,
+        "copy": 8,
+        "erase": 8,
+        "zero": 8
+      }
+    },
+    "controls": {
+      "missing_target_descent": "REJECTED",
+      "wrong_correction_coefficient": "REJECTED",
+      "wrong_native_phase": "REJECTED"
+    },
+    "corrected": {
+      "max_prefix_l1": "106",
+      "profile": {
+        "1": 1282,
+        "2": 58,
+        "3": 86,
+        "4": 104,
+        "5": 48,
+        "6": 24,
+        "7": 8,
+        "8": 8
+      },
+      "rank_mass": 2576,
+      "scalar": {
+        "add": 7616,
+        "copy": 8,
+        "erase": 8,
+        "zero": 8
+      }
+    }
+  },
+  "scope": "Exact finite 104-port terminal I-G/2 correction appended after the pinned G/2 channel. The sparse output correction adds only rank-one target frame excursions; complete multiplication admission remains open.",
+  "status": "PASS_TERMINAL_P104_SIDE_CORRECTION_FRAME_MODEL"
+}
