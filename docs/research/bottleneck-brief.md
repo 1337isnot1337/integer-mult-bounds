@@ -15,7 +15,7 @@ orientation and arithmetic, **not** a full circuit replay. Follow
 [selected-result.json](../../certificates/selected-result.json) if the values
 below become historical.
 
-At the revision-2 assessment on 2026-10-13, the reviewed conditional saving is
+At the revision-4 assessment on 2026-10-14, the reviewed conditional saving is
 κ = 0.001672660197076918. The complex primitive supports about 0.00167546 and
 the bit primitive about 0.00173343: the complex side binds. Under the retained
 limiting conversion `κ = a/(1+a)`, κ > .01 needs both effective primitive budgets
@@ -27,6 +27,33 @@ screened paid local profile and the stated model is capped within about 0.9% of 
 64% of the raw deficit, and the effective child rank is about 3.9. See the lever budgets in
 [the packing ceiling](../../research/complex-local-word-ceiling/README.md) and the
 [priority log](research-priority-log.md).
+
+## What to work on now
+
+The [review through #2027](community-efficient1000-review.md) leaves the selected
+κ unchanged. Prioritize one missing interface with a working local predecessor:
+
+- **P104 completion:** [#1991's native channel](../../research/p104-native-channel/README.md)
+  is checked. Design and price the missing `I-G/2` correction at a cut where
+  the required frames remain available. The channel alone is not a supplier.
+- **Joint-query controller:** [#1969's local words](../../research/joint-query/README.md)
+  are checked, but the fixed-first-pair selected-only controller has an explicit
+  lost-query witness. Test one changed first pair or paid extra observation
+  against that witness before designing a full schedule.
+- **Selected proof obligation:** [#1990's stock audit](../../research/selected-bootstrap-stock-audit/README.md)
+  leaves the actual selected reserve coefficient unknown. Derive one source-bound
+  stage envelope rather than recomputing the already checked headrooms.
+
+The new fixed-word frame bounds (#1995/#2013), Eisenstein additive pairing
+bound (#2017), and bounded register census (#1974) narrow particular search
+classes. Change a named premise before revisiting them. They do not exclude new
+words, different physical pricing or every register model.
+
+The task catalogue keeps other construction and audit routes active. These
+three tasks are concrete leads, not evidence that a breakthrough is likely.
+A partial identity must still pay for correction, dirty restoration, hosting,
+address operations and recursion. Stop when even a favorable complete budget
+misses the declared target; preserve the useful obstruction or handoff.
 
 ## What a successful change must affect
 

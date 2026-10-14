@@ -23,9 +23,19 @@ def require(ok, message):
         raise ValueError(message)
 
 
-def relative_file(root, name):
+def canonical_relative_path(name):
+    # Git's changed paths use one repository-relative POSIX spelling. Accepting
+    # aliases here would let a declared input evade the planner's exact match.
+    require(isinstance(name, str), "canonical relative path must be a string")
     path = PurePosixPath(name)
-    require(not path.is_absolute() and ".." not in path.parts, "invalid relative path: " + name)
+    require(bool(path.parts) and not path.is_absolute() and ".." not in path.parts
+            and "\\" not in name and path.as_posix() == name,
+            "use a canonical repository-relative POSIX path: " + name)
+    return path
+
+
+def relative_file(root, name):
+    canonical_relative_path(name)
     result = root / name
     require(result.resolve().is_relative_to(root.resolve()) and result.is_file()
             and not result.is_symlink(), "missing or external file: " + name)
@@ -244,6 +254,10 @@ def plan(root, changed):
         manifest = json.loads(path.read_text(encoding="utf-8"))
         # Parse only for selection; validate fully in the isolated replay job.
         inputs = manifest.get("inputs", [])
+        require(isinstance(inputs, list), "declare input paths for CI invalidation")
+        for name in inputs:
+            # Do not require existence: a deleted input must still trigger replay.
+            canonical_relative_path(name)
         if (changed.intersection(inputs) or any(p.startswith(package + "/") for p in changed)
                 or replay_changed):
             packages.append(package)

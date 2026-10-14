@@ -22,16 +22,40 @@
       "-s",
       "tests",
       "-p",
-      "test_research_package*.py"
+      "test_research_replay_selection.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_research_onboarding.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-B",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests",
+      "-p",
+      "test_research_git_batch.py"
     ]
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 0.944,
-  "status": "failed",
+  "seconds": 20.845,
+  "status": "passed",
   "exit_codes": [
     0,
-    5
+    0,
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -8057,6 +8081,6 @@
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/selected/bit/kchron_p12.json": "0fab548e84cf5ca7c04e8bd19b5810850463f36e0f92180efe73aeff17105e39",
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/references/pr168-v4/research/paired-cube-bit/check_paired_cube_bit.py": "4d7c86cd999a1519e0dfb6dcf33a8f26e442a353c3665a0f06881216a260fbf3"
   },
-  "log_sha256": "13c04597bc8c94df0339e5fb93355fa3324945c787c162de6832eef899d2ead3",
+  "log_sha256": "2e85036bde57e9e09553a99e524574ba82d36c5c6b191321c73a5d4490b37ef9",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }

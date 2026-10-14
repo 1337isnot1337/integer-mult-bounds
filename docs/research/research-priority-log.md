@@ -177,6 +177,175 @@ structural levers are worth integer multiples. This motivates more quantitative 
 
 Until then, review roughly daily during the influx.
 
+## Revision 4 — 2026-10-14: finish concrete interfaces and retire covered searches
+
+**Exact base and selected record:** `e112d71c8d7bb32435debcc54df932593dd8223a`.
+The selected #1094 record is unchanged: κ = 0.001672660197076918;
+SHA256 `10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32`.
+The complex side still binds. This is a priority update, not a new supplier
+admission or a mathematical replay of the selected theorem.
+
+**Evidence and its status.** The [review through #2027](community-efficient1000-review.md)
+and [exact-head dispositions](../../research/community-efficient1000-audit/DISPOSITIONS.json)
+record the independent execution, written-proof review and remaining limits.
+This pass inspected those reviews and the packages below; it did not rerun their
+mathematics. Original attribution and frozen inputs remain intact.
+
+- Chafik Boukhalfa's [#1991 native P104 channel](../../research/p104-native-channel/README.md),
+  on Rohan Arun's #1972 and Adam Gall's schedule plus the credited geometry/compiler
+  lineage, supplies concrete native recipes and local arbitrary-dirty restoration.
+  The `I-G/2` correction, global hosting and all-size/precision admission remain open.
+- Ali Romman's [#1969 joint-query package](../../research/joint-query/README.md)
+  supplies ordered and native local words. Its retained fixed-first-pair observation
+  witness blocks homogeneous selected-only controller repairs under the stated
+  ordinary schedule. Global closure is **not** established by the local inverse.
+- Gareth Davidson's [#1995/#2013 fixed-word bounds](../../research/selected-k8-unrestricted-ends/README.md)
+  include arbitrary helper terminal subspaces with monotone internal paths, fixed
+  entrances, scalar order and cleanup. Their favorable ceiling still misses the
+  declared 5% target; they do not exclude changed words or nonmonotone transport.
+- Jose Manuel's [#2017 Eisenstein theorem](../../research/eisenstein-reduction-copy-floor/README.md)
+  proves sharp C=40 in the scalar-rectangle and fixed-support block-linear additive
+  pairing models. It preserves predecessor credit and leaves nonlinear encoders,
+  changed geometries and shared physical pricing outside scope.
+- Josie Elliston's [#1974 register census](../../research/bit-gl3-mixed-targets-length10/README.md)
+  received a full two-register replay and the bounded three-register probe. Gareth
+  Davidson's #2027 supplies a uniform mixed-root tariff, not a native supplier.
+- Josie Elliston's #1956/#1965 and ToikY's
+  [#1990 stock audit](../../research/selected-bootstrap-stock-audit/README.md)
+  distinguish carried time constants, sufficient stock guards and the still
+  uncomputed selected reserve coefficient. They do not refute the asymptotic bound
+  or establish a full outer-proof repair by arithmetic alone.
+
+**Feedback and live overlap.** Read the latest discussion findings and
+[workflow feedback](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18930476)
+(Aaron Wang's report across about 35 sessions), together with the
+[earlier four-round report](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18909265).
+Both identify concrete handoffs as useful; the earlier report describes saturation
+of selected-root arithmetic. These are contributor reports, not a controlled
+population yield measurement. Action here: allow explicit central handoff overrides
+and require existing-check inventories before another independent root calculation.
+Reported Windows, cache, posting-helper and resolved-review navigation issues need
+separate exact-version triage; no workflow fix is claimed in this priority patch.
+The board also contains newer connector and native-source-rank claims (#2056/#2048).
+Those are overlap leads, not accepted scientific evidence in this revision. Live
+claims still take precedence over treating any catalogue task as unoccupied.
+
+**Decisions and allocation.** Keep every track weight from revision 3:
+
+| Track | Old | New |
+|---|---:|---:|
+| Bit mechanisms | 20 | 20 |
+| Complex mechanisms | 20 | 20 |
+| Recursive interfaces | 20 | 20 |
+| Adversarial audit | 15 | 15 |
+| Independent verification | 10 | 10 |
+| Verifier engineering | 8 | 8 |
+| Consolidation | 5 | 5 |
+| Incumbent optimization | 2 | 2 |
+
+The evidence warrants narrower assignments, not a measured portfolio reweighting.
+
+- **Expand** complex mechanisms with `p104-side-correction`: finish or falsify one
+  missing correction/cut, then price the complete bill. **Narrow** the existing
+  rank-shape/helper cards using the fixed-word and applicable Eisenstein bounds.
+- **Replace** the generic `persistent-boundary` active card with
+  `joint-query-controller`, preserving the broader boundary opportunity in the
+  other interface cards. The old card is archived in revision-3 Git history.
+  Reopen it separately when a concrete non-QQ16 pair and a favorable eliminated-work
+  budget are available; the idea is not mathematically ruled out.
+- **Expand** adversarial audit with `selected-stock-envelope`, starting at one
+  actual selected stage. **Narrow** `independent-moment` to genuinely missing
+  coverage or changed inputs, not more digits of a previously checked root.
+- **Narrow** register exploration against the #1974/#2027 scopes. Keep larger or
+  different models active only with an explicit changed premise and native pricing.
+- **Continue** the remaining cards and weights. No frozen package, selected
+  certificate or attribution is edited.
+
+**Paused domains and reopening conditions.** Do not assign another sub-C=40
+search within #2017's exact additive model, the already covered GL3 census, or
+another 5%-gain search inside #2013's fixed-word monotone-frame domain. A correction
+to the proof or a named change to its hypotheses can reopen the relevant domain.
+Do not retry QQ16 selected-only homogeneous control with the same first pair and
+ordinary schedule; change the observation/interface contract first. These are
+scoped exclusions, not universal ceilings on integer multiplication.
+
+**Next bounded experiments; success and stop criteria.**
+
+1. P104: pin one side-correction cut, establish frame access, and compute an
+   optimistic complete moment including the correction and hosting. Reject the
+   candidate if access is unavailable or the favorable bill misses its declared
+   target. Local completion can be a useful partial artifact; it is not admission.
+2. QQ16: test one priced extra observation or changed first pair against the
+   lost-query witness. If it survives, derive one two-call ordered identity and
+   price the maps, helpers, restoration and endpoints. Stop on the witness or an
+   unfavorable complete budget before extending the schedule.
+3. Stock: derive one same-domain selected reserve/depth envelope. If a source
+   implication is missing, hand off that exact lemma instead of recomputing the
+   fourteen already checked headrooms. Completing one stage leaves the others open.
+
+Parallel scopes should differ by correction/cut, changed observation, or specific
+proof obligation; they must still check live overlap. Do not spread a hundred agents
+across the same two examples by varying random seeds. Independent audits and new
+mechanisms outside these candidates remain welcome with a concrete rationale.
+
+**Validation of this guidance patch.** `python3 -B -m unittest discover -s tests -p 'test_research_*.py'` passed (65 tests, 5 skipped). Catalogue paths, allocation-table agreement and deterministic selection were checked; the new P104 card was also exercised through the CLI. No scientific replay or stronger frontier is claimed.
+
+**Uncertainties and next review trigger.** Neither P104 nor QQ16 has a demonstrated
+completed budget beating the selected supplier. Their concrete local evidence makes
+them testable leads, not probable winners. Both primitive budgets and all inherited
+contracts still matter. Reassess after the first fully priced completion or decisive
+obstruction, a new admitted supplier, a correction to these scoped results, or the
+next substantial reviewed batch. If both candidates fail, select a different changed
+contract from new evidence rather than expanding their searches without a reason.
+
+## Revision 4 workflow follow-up — 2026-10-14: refresh looping agents
+
+Base `7c1e7811c730b17fe0eeef6c82ef011318b0465e`; selected record and task weights
+unchanged. The maintainer asked whether repeated agents would see course corrections.
+Inspection found only entry-time "current main" and general checkpoint language;
+`choose_research_task.py` reads local files and makes no upstream request.
+
+Add an explicit canonical-main fetch/review checkpoint at each round, before
+pivots/submission and roughly hourly during long rounds. Distinguish fetching
+from updating the working checkout; account for fork origins, offline operation,
+new worktrees, pinned inputs and continuing work. Add the breadcrumb to AGENTS.md
+and the short donation prompt. Existing running agents still need to reach or
+be instructed to use the checkpoint; this patch does not push instructions into
+their active sessions. No task reallocation or new scientific claim follows.
+
+## Revision 4 workflow follow-up — 2026-10-14: discussion usability
+
+Base `564148b82ae9df72163f22106f15e73efca8aff2`; catalogue, weights and selected
+result unchanged. The maintainer requested an assessment of live discussion
+coordination. At approximately 18:40–18:43 UTC, GitHub reported 189 threads;
+we sampled the 60 most recently updated threads (up to eight comments and five
+replies each), plus the four hub bodies and up to 30 recent comments/eight replies.
+This was an operational sample, not a full census or mathematical audit.
+
+[Plane-port work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587)
+and [centre-path work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1516)
+show concrete follow-up chains. [A new QQ16 claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/2074)
+already uses revision 4; this establishes uptake, not scientific correctness.
+[Contributor feedback](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18930476)
+also identifies handoffs as useful. Long claims in onboarding/hub threads and
+completion updates below CLAIM titles impede scanning. Local-only evidence in
+[#2053](https://github.com/CrocSwap/integer-mult-bounds/discussions/2053) and
+[#2057](https://github.com/CrocSwap/integer-mult-bounds/discussions/2057) cannot
+be replayed by other contributors from the posted artifact references.
+
+Update AGENTS/autoresearch with one canonical investigation thread, a short
+current-status summary, short hub pointers, accessible artifacts, and explicit
+permission within the existing contribution policy to submit useful partial or
+negative results without a new supplier. Encourage handoff-first continuity and
+synthesis after several adjacent negative searches. Document the existing path
+search and external per-session cache options. No posting approval gate, new
+shared claims file, or mandatory session report is added. Existing board posts
+are untouched; this patch sends no messages and changes no scientific priority.
+
+Reassess based on handoff retrievability and follow-through, not post counts.
+If navigation remains costly, consider a read-only index with source links and
+freshness, keeping advisory claims distinct from mathematical acceptance.
+
 ## Template for the next decision
 
 ```text

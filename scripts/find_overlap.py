@@ -26,10 +26,21 @@ def now():
 
 
 def gh_json(args, payload=None):
+    # --slurp is absent from older gh releases. Normalize it here so callers
+    # keep their nested-page contract. @json emits one compact array per page
+    # and escapes embedded newlines in PR titles and bodies.
+    paginated = "--paginate" in args
+    if paginated:
+        args = [arg for arg in args if arg != "--slurp"] + ["--jq", "@json"]
     result = subprocess.run(
         ["gh", "api", *args], input=None if payload is None else json.dumps(payload),
         text=True, encoding="utf-8", capture_output=True, timeout=90, check=True,
     )
+    if paginated:
+        pages = [json.loads(line) for line in result.stdout.split("\n") if line]
+        if not pages or not all(isinstance(page, list) for page in pages):
+            raise ValueError("expected one JSON array per REST page")
+        return pages
     value = json.loads(result.stdout)
     if isinstance(value, dict) and value.get("errors"):
         raise ValueError("GitHub GraphQL errors: " + json.dumps(value["errors"]))

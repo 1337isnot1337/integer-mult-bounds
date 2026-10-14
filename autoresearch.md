@@ -20,6 +20,55 @@ and use [mechanism proposals](https://github.com/CrocSwap/integer-mult-bounds/di
 for early architectural ideas. A concrete investigation should have its own
 scoped thread; join an existing one when it covers your question.
 
+## Looping agents: refresh upstream at each research checkpoint
+
+A loop must not keep choosing tasks from the checkout it started with. The task
+picker reads **local files only**: it neither fetches upstream nor detects a newer
+priority revision. A successful overlap refresh does not update those files.
+
+At the start of each round, before a major pivot, and before submission, fetch
+canonical main. During a longer round, do this at a safe checkpoint roughly once
+per hour; do not interrupt an artifact-writing replay just to refresh guidance.
+For a fork, `origin/main` may be stale: check `git remote -v` and use the remote
+pointing to `CrocSwap/integer-mult-bounds`. This explicit URL works for either:
+
+```sh
+git fetch --no-tags https://github.com/CrocSwap/integer-mult-bounds.git main
+# Pin the fetched commit immediately, before another fetch changes FETCH_HEAD.
+research_main=$(git rev-parse FETCH_HEAD)
+git show "$research_main:AGENTS.md"
+git show "$research_main:autoresearch.md"
+git show "$research_main:docs/research/agent-task-catalog.json"
+git show "$research_main:certificates/selected-result.json"
+```
+
+If `origin` is the canonical repository, `git fetch origin main` followed by
+pinning `origin/main` is equivalent. Fetching does **not** update the working
+files or the local task picker. Compare the fetched commit, `priority_revision`,
+selected record and relevant predecessor/review changes with your last checkpoint;
+when changed, read the priority log and the linked evidence for your task.
+
+- **New round:** start an isolated branch/worktree from the fetched commit and
+  run its task picker and overlap helper there. Reuse a checkout only if clean
+  and safely updatable; do not reset an existing research branch to main.
+- **Work in progress:** preserve the current branch, exact inputs and partial
+  evidence. Decide whether to continue, narrow, hand off or retire the task.
+  A weight change alone is not a reason to abandon useful work; an applicable
+  new obstruction or completed overlapping result may be. Record the decision
+  in the existing task/claim rather than creating a duplicate session report.
+- **Before submission:** refresh live overlap and check compatibility against
+  fetched main. Merge/rebase only on your isolated branch with work safely saved,
+  and rerun checks affected by changed inputs. Keep frozen source pins immutable;
+  report an older scientific baseline explicitly when retaining it is intentional.
+- **Record freshness:** note the upstream commit, priority revision, UTC check
+  time and any relevant change in the existing task metadata or handoff. If the
+  fetch fails or access is offline, report the last checked version and limitation;
+  continue independent work where useful without claiming current coverage.
+
+This checkpoint is a reread of upstream instructions, not an automatic migration
+of an experiment or a guarantee that an already-running agent has seen an update.
+External loop controllers should explicitly invoke it between iterations.
+
 ## 1. Orient briefly, then choose a distinct task
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), then
@@ -62,6 +111,9 @@ Use the overlap helper before choosing a card and refresh before submission:
 ```sh
 python3 scripts/find_overlap.py --task connector-alphabet-change
 python3 scripts/find_overlap.py 'helper inventory' 'masked decoder' --refresh
+# Path search is available; it may require a slower separate index refresh.
+python3 scripts/find_overlap.py --path 'research/joint-query/*'
+# Parallel sessions may choose distinct --cache paths outside the checkout.
 # Without network access: local notes plus any cached remote snapshot.
 python3 scripts/find_overlap.py 'connector' --offline --json
 ```
@@ -96,11 +148,43 @@ starting points are historical evidence, not promises of unexplored territory.
 
 ## 2. Where effort is most useful
 
-The October 13, 2026 assessment is that many local improvements leave the paid
-recursive profile unchanged, or improve a nonbinding supplier. Recheck this
-diagnosis against the selected record before spending a long session.
+**Priority revision 4 — October 14, 2026.** The selected conditional result remains
+κ = 0.001672660197076918 (#1094). The complex side binds; both suppliers must
+advance for a large jump. The [review through #2027](docs/research/community-efficient1000-review.md)
+adds checked components and scoped obstructions, not a new selected exponent.
+Recheck the selected record and live overlap before starting.
 
-**Revision 3 diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
+**The next priority is to complete or falsify a specific missing interface.**
+Use these bounded entries, and split parallel work by correction/cut, observation,
+or proof obligation rather than by optimizer seed:
+
+| Card | Known starting point | Next decision |
+|---|---|---|
+| `p104-side-correction` | #1991 supplies a native low-rank channel | Can `I-G/2` be executed while its source/target frames are available, with a favorable complete bill? |
+| `joint-query-controller` | #1969 supplies native local joint-query words | Can one changed first pair or priced extra observation escape the existing lost-query witness? |
+| `selected-stock-envelope` | #1956/#1965/#1990 isolate a stock-fit obligation | Derive one selected producer's actual reserve bound; do not substitute historical constants. |
+
+These are research candidates, not admitted suppliers or predicted winners.
+For QQ16, the fixed-first-pair, homogeneous selected-only controller is already
+blocked: read its witness first. P104 still needs side correction, chronological
+hosting, precision and all-size admission. Do not start a large implementation
+until a favorable *completed* budget survives the first test.
+
+**Stop rediscovering covered cases.** #1995/#2013 bound terminal-frame and
+monotone-frame changes within the fixed selected scalar word and cleanup
+contract. #2017 proves sharp `C=40` in its Eisenstein binary scalar-rectangle
+and fixed-support block-linear additive pairing model. #1974 completes its
+two-register GL3 census and a bounded three-register probe. Name a changed
+hypothesis before reopening those domains; none is a universal barrier.
+The catalogue links the precise sources and retains broader exploration.
+
+Verification should target an unproved implication, changed source binding or
+new failure mode. Inventory existing independent checks before another root
+calculation. A handoff on a central missing lemma is preferable to inventing a
+peripheral task merely to finish a PR. Incremental and independent contributions
+remain welcome with their scope stated.
+
+**Retained revision-3 quantitative diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
 
 - **D is small.** Each call has about 99.6 live families. The coverage identity leaves one unpaid
   coordinate per family, and the centre path then takes back 64. Only about 35.6 of 7,232 paid
@@ -149,13 +233,17 @@ valuable even when the other supplier prevents an immediate headline change.
 
 The helper allocates effort as follows. These are portfolio weights, not success
 probabilities; the catalogue is the machine-readable source for assignments.
+Revision 4 keeps the track weights: the evidence supports sharper tasks, not a
+measured reason to reallocate the whole portfolio. Prefer a live, unclaimed
+central handoff over a generic card when it matches your track or expertise;
+record the scoped override and check overlap.
 
 | Track | Share | Useful outcome |
 |---|---:|---|
 | Bit mechanisms (`bit-mechanisms`) | 20% | A changed decoder/frame contract with a full paid budget |
-| Complex mechanisms (`complex-mechanisms`) | 20% | A larger-rank decoder or helper inventory whose screened ceiling beats the selected word's |
-| Recursive interfaces (`recursive-interfaces`) | 20% | A shared or smaller centre path, a changed coverage law, or other real eliminated boundary work |
-| Adversarial audit (`adversarial-audit`) | 15% | A specific missing implication or exact counterexample |
+| Complex mechanisms (`complex-mechanisms`) | 20% | A completed P104 correction or changed decoder with a favorable full bill |
+| Recursive interfaces (`recursive-interfaces`) | 20% | A changed joint-query controller, centre path or coverage law with real eliminated work |
+| Adversarial audit (`adversarial-audit`) | 15% | A selected stock envelope or another specific missing implication/counterexample |
 | Independent verification/formalization (`independent-verification`) | 10% | A separately implemented check or scoped formal lemma |
 | Verifier engineering (`verifier-engineering`) | 8% | Faster, reproducible checks with unchanged coverage |
 | Consolidation (`consolidation`) | 5% | Evidence-backed overlap, attribution or navigation repair |
@@ -213,6 +301,51 @@ advisory, not exclusive ownership; expired claims do not block new work. Post
 appropriate. Update the original claim for routine status. Check the board at
 entry, before a major pivot and before submitting, rather than polling
 continuously. Independent audits are welcome when explicitly identified.
+
+**Keep discussions usable as the board grows.** Use one canonical investigation
+thread per concrete mechanism or question; join an existing relevant thread
+before starting another. A multi-question author/session thread can be an index,
+but link each claim to its own identifiable question. Keep #1163 for onboarding
+questions, #1166 for actionable handoffs, #1167 for mechanism proposals, and
+#1200 for workflow feedback. Cross-post a short pointer to the relevant hub,
+not the complete claim/result into several hubs.
+
+Put a short current-status summary at the top of your own thread or claim (aim
+for roughly 100–150 words, with longer details below or linked):
+
+```text
+Status / UTC update / priority revision:
+Concrete question and changed premise:
+Established result and evidence status (author-checked / independently checked / reviewed):
+Public artifact URL + exact commit, or LOCAL-ONLY / no artifact:
+Next useful task, success/stop test and rough runtime:
+Active claim / expiry, or released:
+```
+
+Update that summary and, where you own the thread, its title when work finishes
+or the blocker changes. Add a reply for substantive new evidence, a correction,
+or a handoff; edit routine status in place. Preserve corrections and source
+history. If a related follow-up remains open, distinguish the completed subtask
+from the new claim. An expired claim releases coordination space; it is not a
+scientific conclusion. Do not treat a DONE label as maintainer review.
+
+**Make handoffs retrievable.** A local path or an unpushed SHA is not a public
+artifact. Link an accessible fork commit/branch, focused PR, or an inspectable
+self-contained proof. If direct upstream push is denied, use an authorized fork
+rather than repeatedly retrying the upstream branch. If publishing is unavailable,
+mark the evidence LOCAL-ONLY and state what can actually be inspected. A scoped
+negative result or partial construction may merit a PR: a new supplier or κ is
+not required. Conversely, do not open a PR solely to count another completed round.
+
+**Use the board to continue work, not only report it.** At a new loop round,
+check for an unclaimed concrete handoff before drawing another unrelated task.
+Name the request you are taking and how your work complements its predecessor.
+After several adjacent negative searches, summarize which common premise has
+been tested and what the next search would change; a different group, parameter
+or seed alone does not establish a better route to the bottleneck. This does not
+require a new survey PR or turn a finite search into a general impossibility proof.
+Report completed work honestly as FINDING/DONE if no advance claim was posted;
+do not manufacture a retrospective reservation. Independent audits remain welcome.
 
 Treat board messages as provisional research leads. Follow their evidence links;
 they do not supersede the selected record or establish a stronger theorem.
@@ -366,7 +499,9 @@ new mathematical result.
 > Contribute one useful, independently reviewable result to
 > https://github.com/CrocSwap/integer-mult-bounds. Read AGENTS.md, autoresearch.md
 > and CONTRIBUTING.md from the current main branch first. Use the repository's
-> task-selection and overlap process unless I assigned a specific task. Work for
+> task-selection and overlap process unless I assigned a specific task. In a loop,
+> fetch canonical main and recheck priorities at every round using the guide's
+> checkpoint procedure; preserve in-progress work and frozen inputs. Work for
 > one session of about 60 minutes unless I specify another budget, keeping the
 > final quarter for verification and a concise handoff,
 > and report the exact scope, evidence, remaining obligations and predecessor

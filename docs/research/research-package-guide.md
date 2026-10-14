@@ -76,7 +76,10 @@ venv. Other dependencies, native/Lean builds and long replays need a dedicated
 workflow or the package's existing reproducible environment.
 
 Declare every external proof-relevant input in `inputs`; package-local changes
-already trigger replay. The generic hook does not infer transitive imports.
+already trigger replay. Use canonical repository-relative POSIX paths, such as
+`research/example/input.json`, with forward slashes and no leading `./`, repeated
+slashes or dot components. The planner rejects aliases because Git reports the
+canonical path when a dependency changes. The generic hook does not infer transitive imports.
 Each command has a maximum 600-second timeout and the package total is at most
 1200 seconds. A timeout fails and terminates the local process group. These
 bounds limit a verification job, not the mathematical search budget.

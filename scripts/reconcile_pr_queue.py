@@ -95,7 +95,7 @@ def build():
             continue
         text = p.read_text()
         for number in set(re.findall(r'(?:pull/|\bPR\s*#?|#)([0-9]+)\b', text)):
-            mentions[int(number)].append(str(p.relative_to(ROOT)))
+            mentions[int(number)].append(p.relative_to(ROOT).as_posix())
 
     decisions = load('research/pr-reconciliation-20261012/decisions.json')['decisions']
     ending_path = 'research/pr-reconciliation-20261012/ending-snapshot.json'
@@ -180,6 +180,7 @@ def build():
         'research/community-efficient700-audit/DISPOSITIONS.json',
         'research/community-efficient800-audit/DISPOSITIONS.json',
         'research/community-efficient900-audit/DISPOSITIONS.json',
+        'research/community-efficient1000-audit/DISPOSITIONS.json',
     ) if (ROOT / p).exists()]
     family_path = family_paths[-1] if family_paths else None
     for family_path in family_paths:
