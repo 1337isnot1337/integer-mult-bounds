@@ -48,7 +48,7 @@ rows = []
 for h in (8, 9):
     graph = mod.build(h, retain_graph=True)
     record = mod.verify_invocation_frames(graph)
-    rows.append(dict(h=h, **record))
+    rows.append(record)
 elapsed = time.perf_counter() - t0
 print(json.dumps(dict(mode=mode, seconds=elapsed, rows=rows), sort_keys=True))
 '''
