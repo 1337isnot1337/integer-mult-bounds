@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "scripts/experiments/ternary_side.py",
+    "scripts/audit_ternary_side.py",
+    "scripts/audit_joint_frames.py",
+    "scripts/experiments/disjoint_tensor.py",
+    "scripts/exclusion_circuit.py",
+    "certificates/ternary-side.json",
+    "tests/test_ternary_side.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Exact baseline copy of the base-commit ternary_side.py; identical h=8 and h=9 verify_invocation_frames evidence versus baseline and the committed ternary-side controls; cleared-product and transition-cache mutation foils reject; certificate differs from base only in the ternary_side.py source pin."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 420,
+      "checks": "Same equivalence and pin discipline under -O (require() gates, not assert)."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_ternary_frame_cleared_cache.py",
+        "-v"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Focused cleared-cache package controls (baseline bytes, h=8 frame identity, cleared-product sample, pin-only certificate diff)."
+    }
+  ]
+}
