@@ -54,7 +54,10 @@ prod (1 + eps_i) = 1 + sum eps_i + sum_{i<j} eps_i eps_j    (mod J^3 M_r)
 is exact and is checked on seeded random words (same-label pairs already
 vanish identically because `([a]+1)^2 = ([b]+1)^2 = 0`). But after reduction
 the whole layer equation collapses entrywise to `sum_i N_i = I_r`, nothing
-more. The verifier machine-checks the equivalence
+more (for a target that restores a role with the identity boundary, the
+right-hand side is the target's own z-coefficient matrix instead: `diag(I_4,0)`
+at `r = 5` with one restored fifth role, whose target augmentation is zero).
+The verifier machine-checks the equivalence
 (`layer check holds  <=>  sum N_i = I_r`) on 200/200 random instances, and
 the search below confirms it exhaustively on its own domain: every one of the
 5,771,556 balanced labelings passed the layer check, because the sampler
@@ -93,7 +96,10 @@ and `r = 2` (`q = 6` balanced, 3,254 witnesses); a strict-relaxation honesty
 control exhibits a layer-feasible word that fails full equality; conjugation
 of `N` by `GL_r(F2)` preserves the idempotent family; and two hand-derived
 pins (`([a]+1)^2 = 0`; `([a]+1)([b]+1)([a]+1) = [aba]+[ab]+[ba]+[b]`) bind
-the group algebra implementation.
+the group algebra implementation. A restored-role regression control pins the
+corrected `r = 5` sign quotient: the fifth role's target augmentation is zero,
+`sum N_i = diag(I_4, 0)`, and an `I_5` total fails the endpoint layer equation
+(see open question 2).
 
 ## Reproduce
 
@@ -153,8 +159,16 @@ profile or kappa follows; the selected frontier is unchanged.
 2. **The same balanced question at `r = 5` with one restored dirty extra.**
    Smallest falsifying instance of "workspace cheapens the tariff". First
    step: rerun the conditioned sampler at `r = 5`, target
-   `diag([S],[S],[S],[S],1)`, `sum N_i = I_5` (the sign-quotient lemma is
-   register-count independent). Blocked by: nothing; it is open compute.
+   `diag([S],[S],[S],[S],1)`, conditioning on `sum N_i = diag(I_4, 0)`:
+   the restored fifth role carries the identity boundary, so its target
+   augmentation is zero and the sign quotient (register-count independent)
+   forces the fifth diagonal entry of `sum N_i` to be 0. The earlier
+   `sum N_i = I_5` wording was wrong and would exclude every solution to that
+   endpoint: the four disjoint `aba`/`bab` control word with the fifth role
+   restored realizes `diag([S],[S],[S],[S],1)` exactly and has
+   `sum N_i = diag(I_4, 0) != I_5`, so an `I_5`-conditioned sampler rejects
+   it. `verify.py` and `test_verify.py` pin the corrected condition by exact
+   check. Blocked by: nothing; it is open compute.
 
 ## Credit and license
 

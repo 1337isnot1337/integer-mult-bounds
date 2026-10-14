@@ -58,7 +58,7 @@
   {
    "question": "Does the balanced-profile obstruction at r = 4 persist at r = 5 with one restored dirty extra register?",
    "why_it_matters": "It is the smallest falsifying instance of 'workspace cheapens the tariff' for four SWAP targets and tests whether register growth changes the picture.",
-   "first_step": "Rerun the same conditioned search at r = 5 with target diag([S] x 4, 1) and the identical sum N_i = I_5 reduction, which the sign-quotient lemma still justifies.",
+   "first_step": "Rerun the same conditioned search at r = 5 with target diag([S] x 4, 1), conditioning on sum N_i = diag(I_4, 0): the restored fifth role carries the identity boundary, so its target augmentation is zero and the sign quotient forces diag(I_4, 0), not I_5 (corrected after review follow-up; the earlier I_5 wording would exclude every solution to that endpoint).",
    "blocked_by": "The r = 5 balanced question itself is open; only the r = 4 balanced domain was searched here."
   }
  ]

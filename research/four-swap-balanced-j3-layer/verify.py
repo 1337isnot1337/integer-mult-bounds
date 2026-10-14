@@ -303,6 +303,47 @@ def layer_value_ok(r, labels, mats, k):
     return all(RED[a ^ b] == 0 for a, b in zip(lhs, tgt))
 
 
+# ------------------------------------------------------- sign quotient (exact)
+def _m2_vec(g, v):
+    """Action of g in GL_2(F2) on column vector v (bit0 = x, bit1 = y)."""
+    x = bin((g & 3) & v).count("1") & 1
+    y = bin(((g >> 2) & 3) & v).count("1") & 1
+    return x | (y << 1)
+
+
+def perm_sign(g):
+    """Sign of g: parity of its permutation of the 3 nonzero vectors of F2^2."""
+    vecs = (1, 2, 3)
+    perm = [vecs.index(_m2_vec(g, v)) for v in vecs]
+    return sum(1 for i, j in itertools.combinations(range(3), 2)
+               if perm[i] > perm[j]) & 1
+
+
+def zcoef(x):
+    """z-coefficient of the sign-quotient image rho(x) in F2[z]/(z^2)."""
+    c = 0
+    for i in range(6):
+        if (x >> i) & 1:
+            c ^= perm_sign(ELEMS[i])
+    return c
+
+
+def zcoef_mR(r, x):
+    """Entrywise z-coefficient matrix of rho applied to x in M_r(R)."""
+    out = 0
+    for e in range(r * r):
+        if zcoef(x[e]):
+            out |= 1 << e
+    return out
+
+
+def diag_m(r, k):
+    n = 0
+    for p in range(k):
+        n |= 1 << (p * r + p)
+    return n
+
+
 # ------------------------------------------------------------------- controls
 def direct_control_words():
     """(r, labels, mats, k): known direct words realizing diag([S]^k, 1..)."""
@@ -437,6 +478,54 @@ def run_controls():
             equiv += 1
     assert equiv == 200, "layer check must be equivalent to sum N_i = I_r"
     lines.append("j2_eq_j3=1 layer_iff_sum=200/200")
+    # Restored-role sign quotient (review follow-up on
+    # https://github.com/CrocSwap/integer-mult-bounds/pull/1755): at r = 5 with
+    # endpoint diag([S],[S],[S],[S],1) the fifth role is restored with the
+    # identity boundary, so its target augmentation is zero and the quotient
+    # forces sum N_i = diag(I_4, 0), NOT I_5.  Conditioning on I_5 would
+    # exclude every solution to that endpoint.  Exact checks below: the
+    # permutation sign agrees with the J^2 = J^3 reduction, the endpoint's
+    # z-coefficient matrix is diag(I_4,0) with a zero fifth diagonal entry, a
+    # 12-call disjoint witness realizes the endpoint with sum N_i =
+    # diag(I_4,0) != I_5, forcing the total to I_5 breaks the endpoint layer
+    # equation, and the r = 5 layer equation stays equivalent to
+    # sum N_i = diag(I_4,0) on 200/200 random instances.
+    assert all(perm_sign(g) == (0 if RED[gplus(g)] == 0 else 1) for g in ELEMS), \
+        "sign quotient must match the J^2 = J^3 reduction"
+    zt = zcoef_mR(5, target(5, 4))
+    assert zt == diag_m(5, 4) and not (zt >> 24) & 1, \
+        "fifth role's target augmentation must be zero"
+    labels5 = (A, B, A) * 2 + (B, A, B) * 2
+    mats5 = (idem(5, 1, 1),) * 3 + (idem(5, 2, 2),) * 3 + \
+            (idem(5, 4, 4),) * 3 + (idem(5, 8, 8),) * 3
+    assert word_value(5, labels5, mats5) == target(5, 4), \
+        "restored-role control word must realize diag([S],[S],[S],[S],1)"
+    total5 = 0
+    for n in mats5:
+        total5 ^= n
+    assert total5 == zt and total5 != ident_m(5), \
+        "I_5 conditioning must overconstrain the restored-role endpoint"
+    assert layer_value_ok(5, labels5, mats5, 4), "witness must pass the layer check"
+    forced5 = total5 ^ idem(5, 16, 16)
+    assert forced5 == ident_m(5)
+    assert not layer_value_ok(5, labels5 + (A,), mats5 + (idem(5, 16, 16),), 4), \
+        "an I_5 total must fail the endpoint layer equation"
+    rng = random.Random(20261016)
+    idems5 = rank_one_idempotents(5)
+    equiv5 = 0
+    for _ in range(200):
+        q = rng.randrange(2, 8)
+        labels = tuple((A, B)[rng.randrange(2)] for _ in range(q))
+        mats = tuple(rng.choice(idems5) for _ in range(q))
+        total = 0
+        for n in mats:
+            total ^= n
+        if layer_value_ok(5, labels, mats, 4) == (total == zt):
+            equiv5 += 1
+    assert equiv5 == 200, \
+        "r=5 layer check must be equivalent to sum N_i = diag(I_4,0)"
+    lines.append("r5_restored_role=1 fifth_role_zcoef=0 i5_overconstrains=1 "
+                 "layer_iff_sum_diagI4zero=200/200")
     return lines, r1, r2
 
 

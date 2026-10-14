@@ -104,5 +104,74 @@ class SearchControls(unittest.TestCase):
         self.assertNotEqual(V.word_value(2, labels, mats), V.target(2, 2))
 
 
+class RestoredRoleSignQuotient(unittest.TestCase):
+    """Regression control for the review follow-up on
+    https://github.com/CrocSwap/integer-mult-bounds/pull/1755.
+
+    At r = 5 with endpoint diag([S],[S],[S],[S],1) the fifth role is restored
+    with the identity boundary: its target augmentation is zero, so the sign
+    quotient forces sum N_i = diag(I_4, 0), not I_5.  Conditioning on I_5
+    would exclude every solution to that endpoint.  Hand derivation: rho([g])
+    = 1 + sign(g) z is the sign quotient F2[G] -> F2[z]/(z^2) with z^2 = 0,
+    every paid factor 1 + ([g]+1) N reduces to 1 + z N (a and b are odd), so
+    the word reduces to 1 + z sum N_i while the endpoint reduces to
+    1 + z diag(I_4, 0); comparing z-coefficients gives sum N_i = diag(I_4,0).
+    """
+
+    def setUp(self):
+        V.build()
+
+    def test_sign_quotient_is_permutation_sign(self):
+        # The quotient is determined by the permutation sign of GL_2(F2) on
+        # the three nonzero vectors: even elements (identity, the two
+        # 3-cycles) reduce to 0, odd ones (the three transpositions, incl.
+        # a, b, S) to z.  This must agree with the J^2 = J^3 reduction.
+        for g in V.ELEMS:
+            self.assertEqual(V.RED[V.gplus(g)] == 0, V.perm_sign(g) == 0)
+        self.assertEqual([V.perm_sign(g) for g in (V.A, V.B, V.S)], [1, 1, 1])
+        self.assertEqual(V.perm_sign(V.IDE), 0)
+
+    def test_fifth_role_target_augmentation_is_zero(self):
+        zt = V.zcoef_mR(5, V.target(5, 4))
+        self.assertEqual(zt, V.diag_m(5, 4), "endpoint z-coefficient is diag(I_4,0)")
+        self.assertEqual((zt >> 24) & 1, 0, "fifth role's augmentation must be zero")
+        self.assertNotEqual(zt, V.ident_m(5), "I_5 must not be the forced condition")
+        self.assertEqual(zt ^ V.ident_m(5), 1 << 24, "they differ only in the (5,5) entry")
+        # The retained r = 4 statement is unchanged: all four roles swapped.
+        self.assertEqual(V.zcoef_mR(4, V.target(4, 4)), V.ident_m(4))
+
+    def test_endpoint_witness_and_i5_overconstraint(self):
+        labels = (V.A, V.B, V.A) * 2 + (V.B, V.A, V.B) * 2
+        mats = (V.idem(5, 1, 1),) * 3 + (V.idem(5, 2, 2),) * 3 + \
+               (V.idem(5, 4, 4),) * 3 + (V.idem(5, 8, 8),) * 3
+        self.assertEqual(V.word_value(5, labels, mats), V.target(5, 4),
+                         "12-call disjoint word must realize the endpoint")
+        total = 0
+        for n in mats:
+            total ^= n
+        self.assertEqual(total, V.diag_m(5, 4))
+        self.assertNotEqual(total, V.ident_m(5),
+                            "I_5 conditioning would reject this solution")
+        self.assertTrue(V.layer_value_ok(5, labels, mats, 4))
+        # Forcing the total to I_5 must break the endpoint layer equation.
+        self.assertEqual(total ^ V.idem(5, 16, 16), V.ident_m(5))
+        self.assertFalse(V.layer_value_ok(5, labels + (V.A,),
+                                          mats + (V.idem(5, 16, 16),), 4))
+
+    def test_layer_iff_sum_is_diag_i4_zero(self):
+        rng = random.Random(20261016)
+        idems = V.rank_one_idempotents(5)
+        zt = V.diag_m(5, 4)
+        for _ in range(200):
+            q = rng.randrange(2, 8)
+            labels = tuple((V.A, V.B)[rng.randrange(2)] for _ in range(q))
+            mats = tuple(rng.choice(idems) for _ in range(q))
+            total = 0
+            for n in mats:
+                total ^= n
+            self.assertEqual(V.layer_value_ok(5, labels, mats, 4), total == zt,
+                             "r=5 layer check must be equivalent to sum N_i = diag(I_4,0)")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
