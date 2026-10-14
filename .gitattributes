@@ -151,3 +151,6 @@ research/p111-minrank-proof-reconciliation/vendor/pr620/geo.py -text -whitespace
 research/community-batch1099-audit/** -text -whitespace
 research/community-frontier1094-audit/** -text -whitespace
 research/gmx-t74-ep200r/** -text -whitespace
+
+# Preserve the exact source and witness bytes checked by the outer210 manifest.
+research/t74-repaired-outer210/** -text
