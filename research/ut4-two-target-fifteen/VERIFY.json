@@ -25,7 +25,7 @@
         "large"
       ],
       "timeout_seconds": 600,
-      "checks": "GL2 orbit coverage (length 7) and exhaustive (4,7,4) split with recorded counts and no formal solution (about 25 CPU-minutes, parallelized over all cores: needs 4 or more cores to finish within the timeout)"
+      "checks": "GL2 orbit coverage (length 7) and exhaustive (4,7,4) split with recorded counts and no formal solution (about 21 CPU-minutes on an Apple M-series core, parallelized over all cores: needs 4 or more comparable cores to finish within the timeout)"
     },
     {
       "argv": [

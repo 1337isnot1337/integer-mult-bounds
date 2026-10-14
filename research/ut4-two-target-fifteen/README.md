@@ -77,7 +77,8 @@ I found no gap. This is one reader's check, not an independent formalization.
 
 ## Evidence and controls
 
-- `verify.py` (standard library; about 5 minutes on 10 cores, `--workers N` to change):
+- `verify.py` (standard library; 243 s wall and about 30 CPU-minutes on a 10-core Apple M-series machine, Python 3.12;
+  `--workers N` to change, `--part small|large` to split as in `VERIFY.json`):
   - the vendored #1690 module's hash;
   - the quotient homomorphism on all 4,096 pairs;
   - GL2(F2) orbit coverage of all zero-sum middle sequences of length 6 and 7;
@@ -102,6 +103,7 @@ I found no gap. This is one reader's check, not an independent formalization.
   reimplementation.
 - Unit tariff only. A weighted tariff can make a word longer than 15 calls cheaper, and nothing here covers that.
 - No rational-frame identity, physical compiler, supplier profile or κ change. No proof-assistant or human review.
+- The registered `--part large` replay took 149 s wall and 21 CPU-minutes here (`--part small`: 86 s, 9 CPU-minutes). It fits its 600 s timeout only on 4 or more cores of comparable speed.
 
 ## Reproduce
 
