@@ -256,8 +256,8 @@ ToikY supplied PR1990's independent stock-fit audit and explicit H2/H3 limits.
 Rohan Arun supplied the reviewed PR185 completed-leaf argument and selected
 PR1094 assembly; Jeremy Kothe supplied PR1087's frozen selected producer.
 The stopped recurrence and three-stage row/weighted-atom proofs retain their
-original repository lineage; eumemic's PR589/PR555 BIT supplier is used through
-its authenticated selected receipt. These predecessor constructions and the
+original repository lineage; DreamingOfClouds's PR589 BIT supplier, on eumemic's
+PR555 base, is used through its authenticated selected receipt. These constructions and the
 weighted-induction method are not claimed as new.
 
 Prepared by Adam Gall with substantial OpenAI Codex assistance. Apache-2.0.
