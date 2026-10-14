@@ -119,6 +119,67 @@ class HistoricalReplay(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Changed historical input'):
                 checker.authenticated_input(root, config, inputs)
 
+    def multi_fixture(self, temporary):
+        root, inputs, config, paths = self.fixture(temporary)
+        original = b'second historical dependency\n'
+        (inputs / 'second.txt').write_bytes(original)
+        (root / 'second.py').write_bytes(b'current optimized dependency\n')
+        digest = hashlib.sha256(original).hexdigest()
+        pins = json.loads((root / 'manifest.json').read_bytes())
+        pins['files']['second.py'] = digest
+        (root / 'manifest.json').write_text(json.dumps(pins))
+        config['additional_inputs'] = [dict(
+            manifest='manifest.json', field='files', path='second.py',
+            input='second.txt', sha256=digest)]
+        return root, inputs, config, paths + ['second.py']
+
+    def test_multiple_overlays_preserve_live_bytes_and_each_output_gate(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.multi_fixture(td)
+            before = {name: (root / name).read_bytes() for name in paths}
+            target = Path(td) / 'copy'
+            expected = checker.materialize(root, target, config, paths, inputs)
+            self.assertEqual((target / 'input.txt').read_bytes(), (inputs / 'old.txt').read_bytes())
+            self.assertEqual((target / 'second.py').read_bytes(), (inputs / 'second.txt').read_bytes())
+            checker.verify_unchanged(target, expected)
+            for name in ('input.txt', 'second.py', 'unrelated.py'):
+                original = (target / name).read_bytes()
+                (target / name).write_bytes(original + b'corruption')
+                with self.subTest(path=name), self.assertRaisesRegex(ValueError, 'Replay changed'):
+                    checker.verify_unchanged(target, expected)
+                (target / name).write_bytes(original)
+            self.assertEqual({name: (root / name).read_bytes() for name in paths}, before)
+
+    def test_corrupt_additional_input_rejects_before_copy(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.multi_fixture(td)
+            (inputs / 'second.txt').write_bytes(b'corrupt baseline')
+            target = Path(td) / 'copy'
+            with self.assertRaisesRegex(ValueError, 'Changed historical input'):
+                checker.materialize(root, target, config, paths, inputs)
+            self.assertFalse(target.exists())
+
+    def test_duplicate_and_untracked_dependencies_reject_before_copy(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.multi_fixture(td)
+            target = Path(td) / 'copy'
+            with self.assertRaisesRegex(ValueError, 'not tracked'):
+                checker.materialize(root, target, config, paths[:-1], inputs)
+            config['additional_inputs'].append(dict(config['additional_inputs'][0]))
+            with self.assertRaisesRegex(ValueError, 'Duplicate'):
+                checker.materialize(root, target, config, paths, inputs)
+            self.assertFalse(target.exists())
+
+    def test_all_split_skip_dependencies_match_frozen_manifest(self):
+        config = checker.CONFIG['split-skip']
+        entries = [config, *config['additional_inputs']]
+        self.assertEqual({entry['path'] for entry in entries}, {
+            'scripts/audit_fused_block.py', 'scripts/exclusion_circuit.py',
+            'scripts/shared_point_circuit.py'})
+        for entry in entries:
+            with self.subTest(path=entry['path']):
+                checker.authenticated_input(ROOT, entry)
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):
