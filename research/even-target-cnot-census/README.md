@@ -75,34 +75,69 @@ hitting `T_t` has even length. (Odd lengths are therefore never searched.)
 over `F_2`. (For SWAP targets the corresponding identity is
 `sum_i N_i = D_t`; that premise is gone here.)
 
-## 3. Written free-layer system (degree 1-3)
+## 3. Free-layer system (degree 1-3): screening filter, not necessary
 
-Expand `prod_i (I + E_i) = [c] I_r` with `E_i = ([g_i]+1) N_i` in the free
-filtered algebra `F = F_2<x,y>/(x^2, y^2)`; here `x = [a]+1`, `y = [b]+1`
-and `[c]+1 = x + y + xy`. The kernel of `F -> F_2[G]` up to degree 3 is
-spanned by
+**Correction** (review of
+https://github.com/CrocSwap/integer-mult-bounds/pull/1763). An earlier
+version of this section claimed the degree 1-3 system below as "necessary
+conditions for any hitting word". That claim is false. Counterexample: at
+`r = 1` set every projector to `[1]` and take the word `b a b a`. Each call
+is then `I + ([g]+1)[1] = [g]`, so the word value is `[baba] = [(ba)^2] =
+[ab] = [c]`, an exact target word; but the claimed condition `sum_ba = 0`
+fails, because the word has three ordered b-before-a pairs and `sum_ba =
+[1]`. The package's own engine confirms it:
+`formal_is_target(formal_word_value(word,1),1)` is `True` while
+`layer_ok_even_target(word,1)` is `False` (regression
+`test_layer_counterexample_baba` in `test_verify.py`).
+
+Where the old derivation went wrong: it expanded `prod_i (I + E_i) = [c] I_r`
+with `E_i = ([g_i]+1) N_i` in the free filtered algebra
+`F = F_2<x,y>/(x^2, y^2)`, `x = [a]+1`, `y = [b]+1`, `[c]+1 = x + y + xy`, and
+matched degrees 1-3 against the kernel elements
 
 ```
 R = xyx + yxy + x + y          (from [S]+1 = xyx+xy+yx+y = yxy+yx+xy+x)
 Z = z + z^2 + z^3,  z = x+y+xy (from [c]^3 = 1),
 ```
 
-with `R` carrying degrees 3 and 1, and `Z` carrying degrees 1, 2, 4, 5, 6.
-Matching degrees 1-3 of `sum_S E_S - (x+y+xy) I_r = mu R + nu Z` gives, with
-`lam = mu + nu`:
+claiming the kernel of `F -> F_2[G]` up to degree 3 is spanned by `R` and `Z`.
+But `Z` carries degrees up to 6, and its truncation to degree at most 3,
+`x + y + yx`, maps to `[ba] + [e] != 0`: it is not in the kernel. Up to degree
+3 the kernel is 1-dimensional, spanned by `R` alone (the seven monomial
+images `1, x, y, xy, yx, xyx, yxy` have rank 6 over `F_2`; both facts are
+machine-checked in `test_verify.py`). Matching degrees 1-3 is therefore
+justified only when the word length is `q <= 3`, where the difference
+`prod_i (I + E_i) - I - (x+y+xy) I_r` itself has degree at most 3. For
+`q >= 4` kernel elements of degree 4 and higher absorb the low-degree
+mismatch, which is exactly what happens for `b a b a`.
+
+**Corrected statement (class: words of length `q <= 3`).** For a hitting
+word of length at most 3, the difference lies in `<R> tensor M_r(F_2)` and
+comparing degrees 1-3 gives, for some `lam in M_r(F_2)`:
 
 ```
 sum_a N_i        = sum_b N_i        = I_r + lam
-sum_{ab-pairs} N_i N_j               = I_r + nu
+sum_{ab-pairs} N_i N_j               = I_r
 sum_{ba-pairs} N_i N_j               = 0
-sum_{aba-triples} N_i N_j N_k        = lam + nu
-sum_{bab-triples} N_i N_j N_k        = lam + nu
+sum_{aba-triples} N_i N_j N_k        = lam
+sum_{bab-triples} N_i N_j N_k        = lam
 ```
 
-These are necessary conditions for any hitting word; `lam, nu in M_r(F_2)`
-are free a priori. `verify.py` checks the system on every attaining word
-(`t = 1, 2, 3, 4`) and rejects it on a wrong-target control. The system
-alone does not exclude `q < 2t`; the meets below do.
+The counterexample `b a b a` has length 4 and lies outside this class. An
+exhaustive check over all 1898 words of length 1-3 at `r = 1, 2` finds
+exactly one hitting word, and it satisfies this system (`test_verify.py`).
+No claim is made for words of length 4 or more.
+
+**What remains of the old system.** `layer_ok_even_target` keeps the looser
+old form (`sum_ab = I_r + nu`, `sum_ba = 0`, triples `lam + nu`) as a
+screening filter only. It accepts every attaining word used here
+(`word_even`, `t = 1, 2, 3, 4`) and rejects the wrong-target control, but it
+rejects genuine target words (the counterexample above) and accepts
+non-target words (at `r = 2`, `a b` on one projector passes the filter and
+is not a target), so it is neither necessary nor sufficient and is never
+used to exclude candidates. All exclusions below come from L1', the `q = 1`
+direct check and the meets; the reported minima are unchanged if the filter
+is made vacuous (`test_minima_do_not_rely_on_layer_condition`).
 
 ## 4. Meets and their completeness
 
@@ -150,14 +185,18 @@ inputs are unchanged.
   (480 generators) and measure the depth-3 ball before any deeper search.
   **Blocker.** Ball growth: the `r = 5` depth-3 ball should exceed the
   `r = 4` count of 3.6e6 states by at least an order of magnitude.
-- **Question.** Can the free-layer system of section 3 exclude `q < 2t` at
-  general `t = r` in writing, without a meet?
+- **Question.** Can a written degree-complete kernel analysis exclude
+  `q < 2t` at general `t = r`, without a meet? (The degree 1-3 free-layer
+  system of section 3 cannot: it is necessary only for words of length
+  `q <= 3`.)
   **Why it matters.** A written exclusion removes the exponential meet from
-  the even-target line. **First step.** Extract rank constraints on the
-  `(q_a, q_b)` idempotent multisets summing to `I_r + lam` and test them on
-  the `t = 4` attaining data first. **Blocker.** The kernel correction pair
-  `(lam, nu)` is free in `M_r(F_2)`; bounding it uniformly is the missing
-  step.
+  the even-target line. **First step.** Compute the kernel of
+  `F -> F_2[G]` in degree 4 (the smallest case where the low-degree matching
+  breaks) and re-derive conditions on the degree 1-4 layer sums there.
+  **Blocker.** From `q = 4` on, kernel elements of degree 4 and higher
+  absorb the low-degree mismatch (the `b a b a` counterexample of section 3
+  is the smallest instance); controlling those higher-degree kernel terms is
+  the missing step.
 
 ## Reproduce
 

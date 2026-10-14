@@ -40,13 +40,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Formal F2[GL2(F2)] rank-one-idempotent register model with free scalar GL_r(F2) mixing, but with the even order-3 target class: T_t = diag([c],...,[c]), c = ab = (ba)^2, at exactly r = t registers (t = 1, 2, 3, 4), all registers arbitrary dirty inputs restored exactly. Exact paid-call minimum; complete exclusion of every shorter even length; written sign-quotient and free-layer invariants; two engines (natural image and formal coefficients).",
+  "actual_scope": "Formal F2[GL2(F2)] rank-one-idempotent register model with free scalar GL_r(F2) mixing, but with the even order-3 target class: T_t = diag([c],...,[c]), c = ab = (ba)^2, at exactly r = t registers (t = 1, 2, 3, 4), all registers arbitrary dirty inputs restored exactly. Exact paid-call minimum; complete exclusion of every shorter even length; written sign-quotient invariants plus a free-layer screening system that is necessary only for words of length at most 3 (see README section 3); two engines (natural image and formal coefficients).",
   "scope_change_reason": "Refinement inside the card's allowed variation (fixed larger register count, specified nonabelian family F2[GL2(F2)]). The target element class is changed from the predecessor line's transposition (SWAP) targets to even order-3 targets: the sign quotient maps [c] to 1, so the inherited invariant flips from sum_i N_i = D_t to sum_i N_i = 0 and no predecessor conclusion transfers. This is not the excluded three-register abelian model.",
   "bottleneck_link": "Side result on the nonbinding bit side: no paid profile, supplier or moment changes. It prices the even-target tariff of an explicit nonabelian register alphabet, one input to whether any small-width completed saving could change the bit primitive; a q < 2t word would have been such a mechanism, and its absence through t = 4 narrows where one could live.",
   "budget_minutes": 60,
   "stop_rule": "Stop after the complete t = 4 decision (all shorter even lengths excluded or a formal witness found), one calibration against the predecessor's recorded ball counts, and the written-invariant checks; do not extend to t = 5 in this session.",
   "outcome": "completed",
-  "evidence": "RECEIPT.json: minima q*(t) = 2t for t = 1, 2, 3, 4 (2, 4, 6, 8); all meets nat_hits = 0 for every shorter even length; t = r = 4 exact-depth ball-value counts 240 / 32,651 / 3,639,920 match PR1705's recorded calibration; engine B agrees with engine A on every small meet; attaining words verified exactly in M_r(F2[G]) with drop-one-call mutations failing; free-layer system holds on all attaining words and is rejected on a wrong-target control. Final line: PASS_EVEN_TARGET_CNOT_CENSUS t1r1_min=2 t2r2_min=4 t3r3_min=6 t4r4_upper=8 t4r4_excluded={2: 0, 4: 0, 6: 0} balls4=240,32651,3639920 pr1705_ball_match=True no_new_kappa.",
+  "evidence": "RECEIPT.json: minima q*(t) = 2t for t = 1, 2, 3, 4 (2, 4, 6, 8); all meets nat_hits = 0 for every shorter even length; t = r = 4 exact-depth ball-value counts 240 / 32,651 / 3,639,920 match PR1705's recorded calibration; engine B agrees with engine A on every small meet; attaining words verified exactly in M_r(F2[G]) with drop-one-call mutations failing; free-layer screening system holds on the checked attaining words and is rejected on a wrong-target control, but is not necessary for hitting words (r = 1 b a b a counterexample; README section 3). Final line: PASS_EVEN_TARGET_CNOT_CENSUS t1r1_min=2 t2r2_min=4 t3r3_min=6 t4r4_upper=8 t4r4_excluded={2: 0, 4: 0, 6: 0} balls4=240,32651,3639920 pr1705_ball_match=True no_new_kappa.",
   "author": "Aaron Wang",
   "ai_assistance": "with help from opencode",
   "open_questions": [
@@ -57,10 +57,10 @@
       "blocked_by": "Ball growth: the r = 5 depth-3 ball is expected to exceed the r = 4 depth-3 count of 3.6e6 states by at least an order of magnitude."
     },
     {
-      "question": "Can the written free-layer system (sum_a = sum_b, sum_ba = 0, sum_aba = sum_bab = lam + nu) exclude q < 2t at general t = r in writing, without a meet?",
+      "question": "Can a written degree-complete kernel analysis exclude q < 2t at general t = r, without a meet? (The degree 1-3 free-layer system cannot: it is necessary only for words of length at most 3.)",
       "why_it_matters": "A written exclusion would remove the exponential meet from the even-target line entirely.",
-      "first_step": "Extract rank constraints from the layer system on (q_a, q_b) multisets of rank-one idempotents summing to I_r + lam, and test them against the t = 4 attaining data first.",
-      "blocked_by": "The kernel correction pair (lam, nu) is free in M_r(F2); bounding it uniformly is the missing step."
+      "first_step": "Compute the kernel of F -> F2[G] in degree 4 (the smallest case where the low-degree matching breaks) and re-derive conditions on the degree 1-4 layer sums there.",
+      "blocked_by": "From q = 4 on, kernel elements of degree 4 and higher absorb the low-degree mismatch (the r = 1 b a b a counterexample is the smallest instance); controlling those higher-degree kernel terms is the missing step."
     }
   ]
 }

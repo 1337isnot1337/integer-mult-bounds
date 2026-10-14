@@ -20,8 +20,11 @@ Engines:
   B  formal coefficients in M_r(F2[G]) (independent small-ball cross-check
      and exact acceptance of every attaining word).
 
-The written free-layer system (README section 3) is checked on every
-attaining word.  Final line starts with PASS_EVEN_TARGET_CNOT_CENSUS.
+The written free-layer system (README section 3) is asserted as a screening
+filter on the attaining words only; it is NOT a necessary condition (the
+r=1 word b a b a is a target word it rejects) and NOT sufficient (r=2 word
+a b on one projector passes and is not a target).  README section 3 states
+the corrected scope.  Final line starts with PASS_EVEN_TARGET_CNOT_CENSUS.
 """
 
 from __future__ import annotations
@@ -400,11 +403,16 @@ def formal_meet_count(gens, r: int, k: int, target_gi: int):
 
 
 # ---------------------------------------------------------------------------
-# Written free-layer system (README section 3).  For a word w with letters
-# g_i in {a,b} and idempotents N_i, expand prod (I + E_i) = T in the free
-# filtered algebra F_2<x,y>/(x^2, y^2); the kernel of F -> F_2[G] up to the
-# needed degree is spanned by R = xyx + yxy + x + y and Z = z + z^2 + z^3
-# with z = x + y + xy.  Matching degrees 1..3 gives the system below.
+# Free-layer sums (README section 3).  For a word w with letters g_i in
+# {a,b} and idempotents N_i, expand prod (I + E_i) = T in the free filtered
+# algebra F_2<x,y>/(x^2, y^2).  Matching degrees 1..3 against the kernel of
+# F -> F_2[G] is valid only for words of length q <= 3: up to degree 3 that
+# kernel is 1-dimensional, spanned by R = xyx + yxy + x + y alone, since
+# Z = z + z^2 + z^3 (z = x + y + xy) carries degrees up to 6 and its
+# degree <= 3 truncation is not in the kernel.  The checks below are
+# screening filters only -- not necessary (r=1 b a b a is a target word they
+# reject) and not sufficient (r=2 a b on one projector passes and is not a
+# target).  See README section 3.
 # ---------------------------------------------------------------------------
 
 def layer_sums(word, r: int):
@@ -432,7 +440,10 @@ def layer_sums(word, r: int):
 
 
 def layer_ok_even_target(word, r: int) -> bool:
-    """Necessary conditions for a word to hit T = [c] I_r."""
+    """Screening filter for words hitting T = [c] I_r (README section 3).
+
+    Not necessary and not sufficient; never use it to exclude candidates.
+    """
     s = layer_sums(word, r)
     ident = mat_ident(r)
     if s["sum_a"] != s["sum_b"]:
@@ -449,7 +460,11 @@ def layer_ok_even_target(word, r: int) -> bool:
 
 
 def layer_ok_swap_target(word, r: int) -> bool:
-    """Necessary conditions for a word to hit T = [S] I_r."""
+    """Layer conditions for the SWAP target T = [S] I_r.
+
+    Used here only as a rejection control; necessity is not established
+    (same degree-matching caveat as README section 3).
+    """
     s = layer_sums(word, r)
     ident = mat_ident(r)
     if (s["sum_a"] ^ s["sum_b"]) != ident:
