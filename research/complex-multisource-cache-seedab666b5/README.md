@@ -48,7 +48,7 @@ It uses eight additions and returns `h` to zero. The sources remain unchanged. U
 
 ## Scope and open obligation
 
-This is distinct from the one-source/two-output inequality in `research/complex-clean-cache-seed9df789`, which explicitly leaves multi-source coded scratch open. Open PR #1972 is a P104 dirty-restored gather/query channel with 72 arbitrary dirty helpers and COPY56; it uses a different boundary and does not establish this clean three-source contract.
+This is distinct from the one-source/two-output inequality in `research/complex-clean-cache-seed9df789`, which explicitly leaves multi-source coded scratch open. Open PR #1972 is a P104 dirty-restored gather/query channel with 72 arbitrary dirty helpers and COPY56; it uses a different boundary and does not establish this clean three-source contract. Active Discussion #2032 screens three-source nonconsecutive gathers into one destination in the selected k8 word by replacing gathered rank sums; this package instead constructs a clean coded line, fans it to two output registers, and exactly restores it. It does not search event chronology or claim selected-word occurrence.
 
 No actual selected-word event bundle is identified. In particular, rank counts alone do not prove that the selected supplier has 69 sets of three source channels with matching two output interfaces and legal chronological placement. The result should be treated as a new local helper mechanism with a conditional profile screen, not as a replacement supplier, admitted construction, precision certificate or κ improvement. Integrating even one block into the pinned selected event word requires a source-level compatible window and an actual hosted endpoint proof.
 
