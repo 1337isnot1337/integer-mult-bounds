@@ -118,7 +118,7 @@
   "budget_minutes": 60,
   "submission": {
     "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2045",
-    "head_commit": "922a5489a91977ce403c32f72ecee7f49f885eb3",
+    "head_at_pull_request_creation": "922a5489a91977ce403c32f72ecee7f49f885eb3",
     "status_at_handoff": "open; hosted checks were pending at 2026-10-14 18:03 UTC"
   },
   "outcome": "completed",
