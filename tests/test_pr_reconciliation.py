@@ -186,6 +186,47 @@ class SpectrumRefresh(unittest.TestCase):
             checker.check_frontier890_file(item)
 
 
+class AssertionSafetyRefresh(unittest.TestCase):
+    def setUp(self):
+        coverage = json.loads((ROOT / 'research/community-batch932-audit/CONTENT-COVERAGE.json').read_bytes())
+        self.items = [deepcopy(item) for row in coverage['pull_requests'].values()
+                      for item in row['files'] if item.get('integrated_path') in {
+                          'scripts/run_isolated_tests.py', 'tests/test_isolated_test_runner.py'}]
+
+    def test_exact_accepted_successors_pass(self):
+        self.assertEqual(len(self.items), 2)
+        for item in self.items:
+            checker.check_batch932_file(item)
+
+    def test_assertion_guard_removal_and_other_byte_edits_fail(self):
+        original_read = Path.read_bytes
+        for item in self.items:
+            current = (ROOT / item['integrated_path']).read_bytes()
+            mutations = [current + b' ']
+            if item['integrated_path'].startswith('scripts/'):
+                mutations.append(current.replace(b"env.pop('PYTHONOPTIMIZE', None)", b'pass'))
+            for mutated in mutations:
+                self.assertNotEqual(current, mutated)
+                def read(path):
+                    return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+                with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+                    checker.check_batch932_file(item)
+
+    def test_forged_predecessor_and_cross_file_successor_fail(self):
+        for item in self.items:
+            item['integrated_sha256'] = '0' * 64
+            with self.assertRaises(ValueError):
+                checker.check_batch932_file(item)
+        other = (ROOT / self.items[1]['integrated_path']).read_bytes()
+        with patch.object(Path, 'read_bytes', return_value=other), self.assertRaises(ValueError):
+            checker.check_batch932_file(self.items[0])
+
+    def test_unrelated_file_still_needs_exact_bytes(self):
+        item = {'integrated_path': 'CONTRIBUTING.md', 'integrated_sha256': '0' * 64}
+        with self.assertRaises(ValueError):
+            checker.check_batch932_file(item)
+
+
 class ReviewCompletion(unittest.TestCase):
     def setUp(self):
         self.decision = {

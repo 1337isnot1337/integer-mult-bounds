@@ -64,6 +64,29 @@ def check_frontier890_file(item):
             'Changed spectrum evidence beyond the accepted source pin')
 
 
+def check_batch932_file(item):
+    """Bind the exact assertion-safety update accepted in 2b7dc6cf.
+
+    Credit woklerx for keeping assertions enabled in child research processes.
+    These two exact successor blobs are an explicit maintenance adaptation,
+    not permission to change any other bytes or the frozen batch932 receipt.
+    """
+    name = item['integrated_path']
+    digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+    if digest == item['integrated_sha256']:
+        return
+    successors = {
+        'scripts/run_isolated_tests.py': (
+            '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
+            'b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8'),
+        'tests/test_isolated_test_runner.py': (
+            '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
+            '8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067'),
+    }
+    require(name in successors and successors[name] == (item['integrated_sha256'], digest),
+            'Changed integrated file: ' + name)
+
+
 def check_family_decision(item, decision):
     """Bind projected ledger state to its authoritative, pinned family decision."""
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
@@ -474,8 +497,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete review')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_batch932_file(item)
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing scope or adaptation reason')
         print('PASS batch932 batch: reviewed sources, finite replays, scoped claims and closure bindings')
