@@ -46,13 +46,14 @@ historical-checker change.
 
 ## Result
 
-On Linux / CPython 3.12 (see [RESULT.json](RESULT.json) for the pinned host),
-five alternating fresh-process pairs timing `build(..., retain_graph=True)` plus
-`verify_invocation_frames` for `h=8` and `h=9` give the recorded median ratio.
-Timing is host-descriptive and is not a correctness gate. Every orientation
-receipt matches the baseline checker fieldwise. Restoring the old
-`ternary_side.py` pin recovers the base ternary-side certificate byte-for-byte
-after that single substitution.
+On Linux / CPython 3.12.3 (Linux-6.12.94+-x86_64-with-glibc2.39), five
+alternating fresh-process pairs timing `build(..., retain_graph=True)` plus
+`verify_invocation_frames` for `h=8` and `h=9` gave median wall time
+**13.578 → 4.733 seconds (2.87×)**. Timing is host-descriptive and is not a
+correctness gate; all samples and environment pins are in
+[RESULT.json](RESULT.json). Every orientation receipt matches the baseline
+checker fieldwise. Restoring the old `ternary_side.py` pin recovers the base
+ternary-side certificate byte-for-byte after that single substitution.
 
 ## Equivalence
 
