@@ -95,7 +95,9 @@ def main():
     durations = json.loads(durations_path.read_text()) if durations_path.exists() else {}
     # Longest first, using the previous run's times.
     queue = sorted(groups, key=lambda g: -durations.get(g, 0))
-    env = {k: v for k, v in os.environ.items() if k not in ('MAKEFLAGS', 'MFLAGS', 'MAKELEVEL')}
+    # Preserve assertion-based checks in every Python descendant of make.
+    env = {k: v for k, v in os.environ.items()
+           if k not in ('MAKEFLAGS', 'MFLAGS', 'MAKELEVEL', 'PYTHONOPTIMIZE')}
     # Keep nested worker counts bounded; actual memory use depends on the groups.
     env.setdefault('JOBS', '4')
     make = os.environ.get('MAKE', 'make')
