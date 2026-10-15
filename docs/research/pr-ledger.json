@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1633,
-    "partially_reviewed": 268,
+    "incorporated": 1636,
+    "partially_reviewed": 265,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "5c08e01f4c31535374c6c7752c04eacaa67891e8b03e15b5179e5cf0fe0ae50e",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "f1b6c32e1a62d65b9f17ed385a713663259fa73dd0d38b794abe70da0e8dbf7d",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106957,21 +106957,23 @@
         {
           "head": "50e12c263fa443ba587fd6b205f2fc2825d10de1",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang's bounded dense-polar search reproduces predecessor positive controls and exhaustively prices all1056861 nonempty subsets of the declared ternary-three/D4/D5 line sets with their fixed Gram decoders and pairings. Reviewed enumeration, rational basis conversion and binary support-rank pricing; complete regenerated evidence matches the source except interpreter version. Seeded puncture/basis searches remain bounded, and E7/E8 are positive controls. No gain was found in the tested small-T domain; the T-squared law, alternate pairings/factorizations and supplier claims are not established.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/polar-law-small-t-screen"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "50e12c263fa443ba587fd6b205f2fc2825d10de1",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -107911,16 +107913,20 @@
       "integration_location": [
         "research/five-plane-port-p112-seed1f7fdfe4"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a1e92b12583667a99965ede6120cee9dc9892262",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2297"
+      },
       "reviewed_head": "49f9c1a08bf1fe67a62bd6d2825aa0d03e1b1518",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2297.json",
@@ -108301,16 +108307,20 @@
       "integration_location": [
         "research/cycle47-shared-frame-correction"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a1e92b12583667a99965ede6120cee9dc9892262",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2308"
+      },
       "reviewed_head": "7653e0cc72527c1e7fc02499122d383713ee9d54",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2308.json",
@@ -108531,16 +108541,20 @@
       "integration_location": [
         "research/certified-gaussian-recovery"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a1e92b12583667a99965ede6120cee9dc9892262",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2313"
+      },
       "reviewed_head": "190637e62401516c72b267859c0dd51cac607f6d",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2313.json",
@@ -110666,21 +110680,23 @@
         {
           "head": "b9293bb14d40f8e820ce5efd99939278e5871c56",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Jose Manuel's joined full-ring preparation/control/generic-child executor. Reviewed the descriptor-only embedded-field identity, complementary-projector composition, digit-swap/ADD/sign leaves, frozen global field ages, fresh-stock recursion and payload-stack restoration. Normal and optimized full replays cover1456542 distinct opaque records at both residual/final endpoints,872 children including one real internal caller over48 GL2 classes, nonbinary spectators and six rejecting controls. Sequential payload volume is charged; host control metadata/arithmetic and selected GL64 family/owner/hosting execution remain separate obligations. No binary transition-table compiler, fast supplier admission or kappa claim; predecessor and concurrent verification credit retained.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-joined-dispatch"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "b9293bb14d40f8e820ce5efd99939278e5871c56",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -111085,7 +111101,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1257,
-    "OPEN": 327
+    "MERGED": 1260,
+    "OPEN": 324
   }
 }
