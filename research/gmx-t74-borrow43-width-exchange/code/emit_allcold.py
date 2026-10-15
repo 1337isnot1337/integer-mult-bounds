@@ -29,6 +29,7 @@ parent=read(BASE/'split-centres/GLOBAL-TEMPLATE.json.gz');t=copy.deepcopy(parent
 assert(len(canon['start']),len(ph['recipes']))==(2*V+R0,V)
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 provider_files=('CANONICAL-WORD.json.gz','LOCAL-PROGRAMS.json.gz','LOCAL-CHECKS.json','INDEPENDENT-LOCAL-REPLAY.json','RESIDUAL-ADAPTERS.json','CLIFFORD-RECIPES.json','CLIFFORD-REVIEW.json')
+zero_labels={}
 registry={};source_artifacts={'work/complex-nine-native/DATA-PHASES.json':sha(BASE/'work/complex-nine-native/DATA-PHASES.json')}
 for provider_id in sorted(plan['provider_registry']):
  assert provider_id in PIDS
@@ -40,6 +41,7 @@ for provider_id in sorted(plan['provider_registry']):
  assert(pc['v'],pc['h'],pc['ports'])==(V,9,canon['ports'])
  assert len(pc['centers'])==len(pc['center_frames'])==len(canon['centers'])==8
  assert [pc['frames'][f]for f in pc['center_frames']]==[canon['frames'][f]for f in canon['center_frames']]
+ zero_labels[provider_id]=sorted(pc.get('zero_buffers',[]));assert len(set(zero_labels[provider_id]))==len(zero_labels[provider_id])
  R=pc['R'];assert type(R)is int and R>0 and all(x['R']==R for x in registry.values()),'providers disagree on helper count R'
  assert replay['status']=='PASS_INDEPENDENT_LOCAL_SCALAR_FRAME_AND_WRAPPER_REPLAY'
  assert replay['canonical_word_sha256']==sha(directory/'CANONICAL-WORD.json.gz')and replay['local_programs_sha256']==sha(directory/'LOCAL-PROGRAMS.json.gz')
@@ -93,11 +95,13 @@ for old in parent['idle_children']:
   if left:
    f=rep*(8*V)+(2*pairs[i]+side[i])*V+port;newidle.append(dict(child=i,port=port,replica=rep,replicas=1,family=f,rank=left,hosted=len(u),pending_offset=len(u)));paid[left]+=1
 assert M*DATA-sum(r*n for r,n in paid.items())==DEFICIT
-C=len(canon['centers']);physical=DATA+C+R+2
+C=len(canon['centers']);Z=max(map(len,zero_labels.values()),default=0);physical=DATA+C+R+Z+2
 assert parent['physical']-parent['live']==C+R0+2
 # Local circuits, exact phase recipes, normalized wrappers and data routes stay
 # byte-identical; only full-family helper placement and idle remainders change.
-t.update(version='round20-R%d-asynchronous-whole-owner-v1'%R,live=DATA,physical=physical,idle_children=newidle,private_namespace={'centers':[DATA,DATA+C],'reserved_tableau':[DATA+C,DATA+C+R],'coefficient':[physical-2,physical]})
+t.update(version='round20-R%d-asynchronous-whole-owner-v1'%R,live=DATA,physical=physical,idle_children=newidle,private_namespace={'centers':[DATA,DATA+C],'reserved_tableau':[DATA+C,DATA+C+R],'zero_buffers':[DATA+C+R,DATA+C+R+Z],'coefficient':[physical-2,physical]})
+# Each complete call owns this disjoint FULL-frame bank until every Z is cleared and released.
+t['private_zero_buffer_lowering']=dict(families=[DATA+C+R,DATA+C+R+Z],provider_maps={pid:{str(z):DATA+C+R+j for j,z in enumerate(labels)}for pid,labels in zero_labels.items()},frame='FULL',allocation='clear',release='clear',scope='reused only between complete serialized local invocations')
 t['hosting']=dict(rule='one-helper-per-physical-family-per-complete-invocation',max_helpers_per_physical_family_per_call=1,scope='asynchronously interleaved data replicas; each whole helper occurs once per(stage,invocation replica)',pooled_slots=roles,banks=[0]*9,owner_map_sha256=hashlib.sha256(MAP.read_bytes()).hexdigest(),idle_remainder_semantics='Each idle_children item acts once, on its explicit replica/family, at pending_offset with the stated rank; replicas=1.')
 t['route_semantics']['helper']='Whole physical family may belong to another replica; actual orthogonal port basis followed by residual/spectator coordinate permutation. Entering helpers have paid wrappers around the complete invocation; at most one helper and no active data wire uses that family in that invocation. Route[4,child,offset,width,spectators], width9 route[3,child,offset].'
 t['bank_padding']['families']=[];t['bank_padding']['children']=[];t['cover_final_correction']['families']=[0,DATA];t['cover_final_correction']['charged_calls_per_cover']=DATA

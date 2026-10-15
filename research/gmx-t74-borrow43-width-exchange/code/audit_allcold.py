@@ -77,7 +77,8 @@ for p in provider_ids:
 parent_canon=read(BASE/'split-centres/CANONICAL-WORD.json.gz')
 assert [canon['frames'][f]for f in canon['center_frames']]==[parent_canon['frames'][f]for f in parent_canon['center_frames']]
 assert required_artifacts<=set(summary['source_artifacts'])
-prank={e['child']:e['rank']for e in parent['idle_children']};M=73;T=REPLICAS;DATA=8*T*V;PHYSICAL=DATA+CENTRES+R+2;CALLS=CALLS;HOSTED=CALLS*R
+zero_labels={pid:sorted(p['canonical'].get('zero_buffers',[]))for pid,p in providers.items()};Z=max(map(len,zero_labels.values()),default=0)
+prank={e['child']:e['rank']for e in parent['idle_children']};M=73;T=REPLICAS;DATA=8*T*V;PHYSICAL=DATA+CENTRES+R+Z+2;CALLS=CALLS;HOSTED=CALLS*R
 # The selected map is an input to check, not a claim from the emitter.
 
 assert len(DISPATCH)==CALLS and Counter(DISPATCH.values())==COUNTS
@@ -129,7 +130,8 @@ def audit(t):
   assert e['time']==block
  assert t['bank_padding']==dict(parent['bank_padding'],families=[],children=[])
  assert t['cover_final_correction']==dict(parent['cover_final_correction'],families=[0,DATA],charged_calls_per_cover=DATA)
- assert t['private_namespace']=={'centers':[DATA,DATA+CENTRES],'reserved_tableau':[DATA+CENTRES,DATA+CENTRES+R],'coefficient':[DATA+CENTRES+R,PHYSICAL]}
+ assert t['private_namespace']=={'centers':[DATA,DATA+CENTRES],'reserved_tableau':[DATA+CENTRES,DATA+CENTRES+R],'zero_buffers':[DATA+CENTRES+R,DATA+CENTRES+R+Z],'coefficient':[DATA+CENTRES+R+Z,PHYSICAL]}
+ assert t['private_zero_buffer_lowering']==dict(families=[DATA+CENTRES+R,DATA+CENTRES+R+Z],provider_maps={pid:{str(z):DATA+CENTRES+R+j for j,z in enumerate(labels)}for pid,labels in zero_labels.items()},frame='FULL',allocation='clear',release='clear',scope='reused only between complete serialized local invocations')
  # Actual physical touch intervals include every individual bridge.
  pairs={};sides={};windows={};last={};callpos={};stagepair={e['stage']:e['pair']for e in parent['recipe']if e['kind']=='local'}
  for pos,e in enumerate(t['execution_schedule']):
@@ -198,6 +200,8 @@ reject('owner in private namespace',lambda q:q['calls'][0]['owners'][(2*V)].__se
 reject('wrong residual width',lambda q:enter(q)[1].__setitem__(3,enter(q)[1][3]-1))
 reject('wrong spectator coordinate',lambda q:enter(q)[1][4].__setitem__(0,72))
 reject('omit idle remainder',lambda q:q['idle_children'].pop())
+reject('omit private zero buffers',lambda q:q['private_namespace'].__setitem__('zero_buffers',[DATA+CENTRES+R,DATA+CENTRES+R]))
+reject('private buffer aliases data',lambda q:q['private_zero_buffer_lowering']['provider_maps'][provider_ids[0]].__setitem__(str(zero_labels[provider_ids[0]][0]),0))
 def swap_pooled_times(q):
  ps=q['hosting']['pooled_slots'];j=next(k for k in range(1,len(ps))if ps[k]['time']!=ps[0]['time']and ps[k]['width']==ps[0]['width']);ps[0]['time'],ps[j]['time']=ps[j]['time'],ps[0]['time']
 reject('pooled slots exchange invocation time (equal widths)',swap_pooled_times)

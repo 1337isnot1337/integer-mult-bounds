@@ -2,7 +2,7 @@
   "status": "PASS_INDEPENDENT_EXACT_BORROWING_WORD",
   "input_file": "w0.json.gz",
   "content_sha256": "0c3f353c53a8572d0a1a85bbe87e114475ff5ec6c4aeced09025de97b70d6611",
-  "compressed_sha256": "6368a29ea2afe82d5ea75e37b1b3312085668222a535f871038b87ec039426d2",
+  "compressed_sha256": "301a64f15825b8db55a7b249dec6010b749b0f681aed8836a008f1ed218cb667",
   "v": 112,
   "h": 9,
   "R": 480,
@@ -38,6 +38,6 @@
     "sections_match_minus_removed": true
   },
   "checked_columns": 662,
-  "elapsed_seconds": 0.6409999999741558,
+  "elapsed_seconds": 0.6400000000139698,
   "scope": "Exact free-operator-algebra replay (every remaining input is an independent column): K_G warps with G invertible, G(from)=to, symplectic form fixing L_0/L_FULL and sending L_from to L_to (rank 0), literal frame chain with warps, relaxed fixed initial compensation, derived inverse-reverse cleanup at FULL with inverse warps and private zero buffers. No Clifford phase/Gaussian product, no owner admission, no repricing."
 }

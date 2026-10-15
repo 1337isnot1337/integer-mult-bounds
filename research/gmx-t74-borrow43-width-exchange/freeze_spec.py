@@ -26,6 +26,7 @@ for key in ('complex_lower','conservative_complex_lower','kappa','kappa_decimal'
 spec['expected']['assembly_controls_rejected'] = 32 + sum(17 + len(p['inventory'])*(len(p['inventory'])-1) + len(spec['width_spot_helpers']) for p in spec['providers'].values())
 from collections import Counter
 spec['expected']['provider_counts'] = dict(Counter(p for s,r,p in spec['dispatch']))
-spec['expected']['mutations_rejected'] = 15
+controller = json.loads((a.discovery/'global/audit/ASYNC-AUDIT.json').read_text())
+spec['expected']['mutations_rejected'] = len(controller['mutations_rejected'])
 a.spec.write_text(json.dumps(spec, indent=2)+'\n')
 print('Frozen exact witness for strict replay:', assembly['kappa_decimal'])

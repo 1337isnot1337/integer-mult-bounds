@@ -27,6 +27,7 @@ from pathlib import Path
 
 V, H, M, T, R = 112, 9, 73, 37, 480
 EXPECTED_IDLE = None
+ZERO_BUFFERS = 0
 
 
 def require(condition, message):
@@ -62,6 +63,10 @@ def basis(vectors):
 
 
 def local_inventory(word, replay):
+    global ZERO_BUFFERS
+    zs=word.get('zero_buffers',[])
+    require(len(zs)==len(set(zs)) and all(2*V<=z<2*V+R for z in zs),'private cleanup buffer labels')
+    ZERO_BUFFERS=max(ZERO_BUFFERS,len(zs))
     require((word['v'], word['h'], word['R']) == (V, H, R), 'local supplier dimensions')
     frames = [basis(frame) for frame in word['frames']]
     n = 2 * V + R
@@ -185,7 +190,7 @@ def check_pending_axes(context):
 
 def check_roles(context, roles):
     c = context
-    live, physical = T * 8 * V, T * 8 * V + 8 + R + 2
+    live, physical = T * 8 * V, T * 8 * V + 8 + R + ZERO_BUFFERS + 2
     require(len(roles) == 9 * T * R, 'complete helper role count')
     helpers, families, used = defaultdict(set), defaultdict(set), defaultdict(set)
     charts, chart_cache = set(), {}
@@ -253,7 +258,7 @@ def check_roles(context, roles):
                 orthogonal_port_bases=len(c['bases']), actual_73_axis_charts=len(charts), checked_slice_prefixes=len(c['windows']) * V,
                 local_profiles=c['local_profiles'], width_inventories=c['width_inventories'],
                 idle=dict(sorted(idle.items())), profile=dict(sorted(profile.items())), live=live, physical=physical,
-                rank_mass=mass, deficit=320*T, namespace={'data':[0,live], 'centres':[live,live+8], 'tableau':[live+8,live+8+R], 'coefficient':[live+8+R,physical]},
+                rank_mass=mass, deficit=320*T, namespace={'data':[0,live], 'centres':[live,live+8], 'tableau':[live+8,live+8+R], 'zero_buffers':[live+8+R,live+8+R+ZERO_BUFFERS], 'coefficient':[live+8+R+ZERO_BUFFERS,physical]},
                 local_prefix_bits=localbits, local_prefix_from_native_receipt=True, local_profile_recounted=True,
                 prefix_formula=dict(local_scalar=localbits, input_l2=(M + 1) // 2, invocations=len(c['order']), bridges=c['bridges'], margin=4),
                 prefix_bits=prefix, charged_prefix_bits=payload, physical_stock_bits=stock.bit_length(),

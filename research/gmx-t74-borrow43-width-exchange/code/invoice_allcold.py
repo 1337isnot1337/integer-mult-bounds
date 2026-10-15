@@ -44,6 +44,8 @@ def recount_provider(local_dir, registry):
     assert registry['v']==v and registry['R']==helpers and registry['h']==h
     assert registry['ports']==w['ports'] and registry['centers']==w['centers']
     assert replay['v']==v and replay['helpers']==helpers
+    zero_labels=sorted(w.get('zero_buffers',[]));zero_buffers=len(zero_labels)
+    assert len(set(zero_labels))==zero_buffers
     n=2*v+helpers
     widths = [len(w['frames'][w['final'][r]])-len(w['frames'][w['start'][r]]) for r in range(2*v, 2*v+helpers)]  # HPE: |final|-|start|
     terminal_codim = sum(h-len(w['frames'][w['final'][r]]) for r in range(2*v, 2*v+helpers))  # HPE: 0 for FULL-ended helpers
@@ -61,14 +63,17 @@ def recount_provider(local_dir, registry):
         env = {('L', r): Q(1) for r in range(n)}
         peak = Q(1)
         real = macros = workops = 0
+        zero_clears=zero_peak=warp_events=0
         paid = Counter()
         wrappers = {'pre': set(), 'post': set()}
         warp_classes = set(); zlive = set()   # BW: PR2226 warps / private zero buffers (rank zero, price zero)
         for event in events:
             tag = event[0]
+            assert not zlive or tag in ('scalar','warp','zero_buffer'), 'a child cannot observe a private cleanup buffer'
             if tag == 'climb':
                 paid[event[5]] += 1
             elif tag == 'warp':
+                warp_events+=1
                 # BW: rank-zero monomial logical reference change K_G^{+-1} of one register (PR2226): no paid rank, no coefficient work,
                 # coefficient norms are unchanged by a unit-phase permutation.  Frames and exact columns are bound by the hash-checked replay.
                 _, register, op, f0, f1 = event
@@ -77,9 +82,11 @@ def recount_provider(local_dir, registry):
                 warp_classes.add((1 if op > 0 else -1, abs(op), f0, f1))
             elif tag == 'zero_buffer':
                 _, kind, z = event
+                assert z in zero_labels
+                zero_clears+=1  # allocation and release each lower to an actual real/imaginary CLEAR
                 if kind == 'alloc':
                     assert ('Z', z) not in env and z in ends
-                    env[('Z', z)] = Q(0); zlive.add(z)
+                    env[('Z', z)] = Q(0); zlive.add(z);zero_peak=max(zero_peak,len(zlive))
                 else:
                     assert kind == 'free' and z in zlive
                     del env[('Z', z)]; zlive.remove(z)
@@ -142,7 +149,7 @@ def recount_provider(local_dir, registry):
         assert wrappers['pre'] == wrappers['post'] == set(wrapped)
         # BW: every emitted warp class has an exact rank-zero recipe (lowered, then independently rechecked on all 512 columns)
         # and every zero buffer was freed; a word without warps carries neither.
-        assert not zlive
+        assert not zlive and zero_clears==2*zero_buffers and zero_peak==zero_buffers
         assert {op for _, op, _, _ in warp_classes} == {x['op'] for x in w.get('warps', [])}
         warp_recipes = read(local_dir/'CLIFFORD-RECIPES.json').get('warps', [])
         assert warp_classes == {(x['sign'], x['op'], x['old'], x['new']) for x in warp_recipes} and all(x['rank'] == 0 for x in warp_recipes)
@@ -156,10 +163,12 @@ def recount_provider(local_dir, registry):
         assert bits == prior['prefix_bits_upper']
         assert real == checks[orientation]['real_component_primitive_bound']
         assert macros == checks[orientation]['scalar_macros']
+        assert warp_events==checks[orientation].get('warp_events',0)
         assert dict(paid) == {int(r): count for r, count in checks[orientation]['paid_profile'].items()}
         assert dict(paid) == {int(r): count for r, count in replay['paid_profiles'][orientation].items()}
         local[orientation] = dict(
-            events=len(events), macros=macros, real_component_primitives=real,
+            events=len(events), macros=macros+zero_clears, real_component_primitives=real+2*zero_clears,
+            warp_events=warp_events,literal_scalar_macros=macros,literal_real_component_primitives=real,private_zero_buffer_clears=zero_clears,private_zero_buffer_peak=zero_peak,
             prefix_l1=str(peak), prefix_bits=bits,
             coefficient_work_primitive_count=workops, all_exact_columns=n,
             dirty_helper_columns=helpers, all_dirty_helper_columns_restored=True,
@@ -172,13 +181,16 @@ def recount_provider(local_dir, registry):
     assert checks['forward']['paid_profile'] == checks['backward']['paid_profile']
     macro_bound = max(row['macros'] for row in local.values())
     compiler = 64*(m+1)**3
-    adapters = 16*(macro_bound+children+n+centres)+64*m
+    # A rank-zero warp is still an actual unit-phase permutation circuit.
+    # Charge one complete monomial routing reserve for every literal event.
+    warp_bound=max(row['warp_events']for row in local.values())
+    adapters = 16*(macro_bound+warp_bound+children+n+centres+zero_buffers+2)+64*m
     primitive_bound = max(row['real_component_primitives'] for row in local.values())+adapters*compiler
 
     assert widths==registry['widths']
     artifacts={f.name:filehash(f) for f in local_dir.iterdir() if f.is_file()}
     phase_review=read(local_dir/'CLIFFORD-REVIEW.json')
-    return dict(local=local,helpers=helpers,centres=centres,v=v,h=h,n=n,
+    return dict(local=local,helpers=helpers,centres=centres,v=v,h=h,n=n,zero_buffers=zero_buffers,
                 entering_helpers=entering,entrance_rank=sum(len(w['frames'][f]) for f in w['start'][2*v:]),
                 terminal_codimension=terminal_codim, hyperplane_ended_helpers=len(ends),  # HPE: always reported (0 for FULL-ended words)
                 **({'cold_hyperplane_ended_helpers': cold_ends} if cold_ends else {}),  # COLD-HPE: absent without cold ends
@@ -216,7 +228,7 @@ def run(base, hosted, audit, out, retained_invoice=None):
     # envelope keeps its own helper count R0 from the parent split-centres word.
     assert len({p['helpers'] for p in providers.values()})==1,'providers disagree on helper count R'
     v,h,m,centres=112,9,73,8
-    helpers=next(iter(providers.values()))['helpers']; n=2*v+helpers
+    helpers=next(iter(providers.values()))['helpers'];zero_buffers=max(p['zero_buffers']for p in providers.values()); n=2*v+helpers
     assert all((p['v'],p['h'],p['centres'],p['n'])==(v,h,centres,n) for p in providers.values())
     parent_helpers=read(local_dir/'CANONICAL-WORD.json.gz')['R']
     stages,replicas,blocks_per_stream=GEO['stages'],REPLICAS,GEO['pairs']
@@ -278,7 +290,7 @@ def run(base, hosted, audit, out, retained_invoice=None):
     mass,profile=owners['rank_mass'],owners['paid_profile']
     assert m*live-mass==owners['deficit']==DEFICIT
     assert mass==sum(int(r)*count for r,count in profile.items())
-    assert physical==live+helpers+centres+2
+    assert physical==live+helpers+centres+zero_buffers+2
     assert live==owners['live'] and physical==owners['physical']
     assert live<=parent_live and physical<=parent_physical
     assert not template['bank_padding']['families']
@@ -321,9 +333,9 @@ def run(base, hosted, audit, out, retained_invoice=None):
         selected_real_component_primitives=scalar,selected_coefficient_work_primitive_count=coefficient_work,
         selected_scalar_macros=macros,global_prefix_bits=required_prefix,charged_prefix_bits=payload,
         complete_invocation_sweeps=call_count,bridge_sweeps=bridge_sweeps,row_prefix_extra=2*payload,
-        helpers=helpers,centres=centres,live=live,physical=physical,
+        helpers=helpers,centres=centres,private_zero_buffers=zero_buffers,live=live,physical=physical,
         physical_stock_identity=dict(data_and_owner_families=live,local_helpers=helpers,
-                                     private_centres=centres,coefficient_work=2),
+                                     private_centres=centres,private_zero_buffers=zero_buffers,coefficient_work=2),
         local_adapters=adapters,local_primitive_bound=primitive_bound,
         wrapper_elementary_factors_charged=wrapper_factors,factors_per_wrapper=factors_per_wrapper,
         compiler=compiler,unhosted_pervertex=parent_pervertex,hosted_rebased_pervertex=rebased,

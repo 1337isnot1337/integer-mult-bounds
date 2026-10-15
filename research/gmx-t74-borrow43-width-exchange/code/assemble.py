@@ -76,7 +76,13 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
  assert invoice['complete_invocation_sweeps']==invoice['bridge_sweeps']==CALLS
  assert invoice['live']==owner['live'] and invoice['physical']==owner['physical']
  assert invoice['centres']==8
- assert invoice['physical_stock_identity']==dict(data_and_owner_families=DATA,local_helpers=R,private_centres=8,coefficient_work=2)
+ assert invoice['physical_stock_identity']==dict(data_and_owner_families=DATA,local_helpers=R,private_centres=8,private_zero_buffers=invoice['private_zero_buffers'],coefficient_work=2)
+ assert invoice['private_zero_buffers']==max(p['zero_buffers']for p in invoice['providers'].values())
+ for p in invoice['providers'].values():
+  for z in p['local'].values():
+   assert z['private_zero_buffer_peak']==p['zero_buffers'] and z['private_zero_buffer_clears']==2*p['zero_buffers']
+   assert z['macros']==z['literal_scalar_macros']+z['private_zero_buffer_clears']
+   assert z['real_component_primitives']==z['literal_real_component_primitives']+2*z['private_zero_buffer_clears']
  assert sum(invoice['physical_stock_identity'].values())==invoice['physical']
  assert invoice['controller_audit_sha256']==owner['controller_audit_sha256']
  for pid,p in invoice['providers'].items():
@@ -110,7 +116,7 @@ def assemble(owner,invoice,owner_sha,invoice_sha):
    peak=Q(z['prefix_l1']);assert z['prefix_bits']==peak.numerator.bit_length()-peak.denominator.bit_length()+1
    assert peak==Q(pinned['prefix_l1'])
   assert p['compiler']==64*74**3
-  assert p['local_adapters']==16*(max(z['macros']for z in p['local'].values())+p['children']+2*112+R+8)+64*73
+  assert p['local_adapters']==16*(max(z['macros']for z in p['local'].values())+max(z['warp_events']for z in p['local'].values())+p['children']+2*112+R+8+p['zero_buffers']+2)+64*73
   assert p['local_primitive_bound']==max(z['real_component_primitives']for z in p['local'].values())+p['local_adapters']*p['compiler']
  calls=invoice['selected_calls'];assert len(calls)==CALLS
  assert [(c['stage'],c['replica'])for c in calls]==CALL_ORDER
