@@ -22,11 +22,11 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
    span dimension **244 = 510 − 266**. So the first-order solution space is exactly gauge + torus: the pool is
    infinitesimally rigid at the Fano collapse. Every δ′_t with |D(t)| = 2 vanishes on gauge and torus. Hence
    **all 30 of the 30 harmonic lines are immovable, for every admissible φ and every field of characteristic 2**, and
-   Corollary J cannot certify anything on the pool.
+   Corollary J cannot be applied to the pool as a whole (sub-pools: item 4).
 2. **Dual witnesses.** `data/flows.json` gives one explicit Lemma F flow for each harmonic line. Each flow is a set
    of 10–14 incidence edges whose (J1) rows sum to δ′_t. As Lemma F predicts, every flow has an even number of edges.
    Checking the flows needs no elimination.
-3. **Smallest immovable sub-configuration (exhaustive), and minimal atoms (search).**
+3. **Minimal immovable sub-configurations: exhaustive up to 5 lines, search beyond.**
    - **Exact minimum (exhaustive).** No sub-configuration of the pool with at most 3 lines is jet-immovable. The
      immovable 4-line sub-configurations form **exactly one orbit** under the order-48 signed-permutation group.
      - *Method:* `lib/small.py` tests all 842 520 four-line subsets that contain one representative of each of the
