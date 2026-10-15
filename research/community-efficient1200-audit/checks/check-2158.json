@@ -3,11 +3,15 @@
   "head": "8051d06df24704915fa7a6ec930a2c103a9f66f5",
   "commands": [
     [
+      "env",
+      "TMPDIR=/private/tmp",
       "/tmp/pr-efficient200-venv/bin/python",
       "-B",
       "research/invoice-mutant-coverage/verify.py"
     ],
     [
+      "env",
+      "TMPDIR=/private/tmp",
       "/tmp/pr-efficient200-venv/bin/python",
       "-B",
       "-m",
@@ -21,10 +25,10 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 0.191,
-  "status": "failed",
+  "seconds": 300.077,
+  "status": "budget_deferred",
   "exit_codes": [
-    1
+    null
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -4310,6 +4314,6 @@
     "research/native-complex-moment552/inputs/PR558-INVOICE.json": "4b6977a049663ab958bd9a48c2864f7a7bddb26aef03e14f3068aede020ef76f",
     "research/native-complex-moment552/inputs/PR552-INVOICE.json": "4ac060dbf2ea2624dd1f4bda23bdb81c0a3013dfe49b77c092b631885529947f"
   },
-  "log_sha256": "213905d1ebfe153d4a33351c81e1bd2a2da8a41a7284eec5d309a19885e9c82e",
+  "log_sha256": "fcd7d1e30d50ddd3617fe0a9c41d43a775d1c954301f8e1a486f18b0311036d8",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }
