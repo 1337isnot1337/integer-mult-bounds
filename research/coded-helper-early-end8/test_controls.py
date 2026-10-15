@@ -21,7 +21,8 @@ def main(output):
     base = ROOT/'research/complex-k492-owner-repair'
     route = base/'vendor/multicold/vendor/pr558/vendor/pr552/complex-local/inputs/phase-baseline/CANONICAL-WORD.json.gz'
     require(__debug__, 'Native controls require assertions')
-    audit = runpy.run_path(str(base/'code/hpe_audit_and_transport.py'))['run']
+    auditor = ROOT/'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
+    audit = runpy.run_path(str(auditor))['run']
     source = output/'early8/positive-ck.json.gz'
     word = read(source)
     premix_count = len(expected['new_constructions']['positive-ck']['internal_premix'])

@@ -13,7 +13,8 @@ k492 transport auditor used by changed-word tooling.
 SELECTED-SOURCE-bound
 `research/complex-sw4-frame8/local/hpe_audit_and_transport.py` copies are intentionally
 left pairwise so the selected inventory stays untouched. Dependent packages that
-previously live-pinned the k492 path retarget to that sw4 transport.
+previously live-pinned the k492 path retarget **pin inventory and execution** to that
+sw4 transport (including coded-helper / global-screen / factory5 loaders).
 
 ## Reproduce
 

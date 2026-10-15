@@ -18,7 +18,8 @@ ROUTING = BASE / 'vendor/multicold/vendor/pr558/vendor/pr552/complex-local/input
 
 def main(out):
     require(__debug__, 'Native auditor requires enabled assertions')
-    audit = runpy.run_path(str(BASE / 'code/hpe_audit_and_transport.py'))['run']
+    auditor = ROOT / 'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
+    audit = runpy.run_path(str(auditor))['run']
     receipts, constructions = {}, {}
     for name in ('positive-ck', 'positive-jp8', 'negative-ck', 'negative-jp8'):
         source = HERE / 'vendor/pr855/words' / (name + '.json.gz')
