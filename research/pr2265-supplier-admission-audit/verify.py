@@ -198,6 +198,7 @@ def replay_restoration(trace):
     returned exactly to its own label, and every owned private array returned to zero.
     """
     active = trace['active_registers']
+    public = set(active)
     val = {r: {(r, ()): Q(1)} for r in active}
     frame = {r: rref(trace['endpoints'][str(r)]['initial']) for r in active}
     private = set()
@@ -259,7 +260,7 @@ def replay_restoration(trace):
             val[r] = {}
         elif kind == 'zero_buffer':
             _, r, common, role = e
-            need(r not in val and role in frame, ('fresh zero buffer', i))
+            need(r not in val and role in public, ('fresh zero buffer for a public role', i))
             val[r], frame[r] = {}, rref(common)
             private.add(r)
         elif kind == 'zero_reframe':
