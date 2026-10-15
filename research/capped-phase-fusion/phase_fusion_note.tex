@@ -14,7 +14,7 @@
 \newcommand{\plog}{\operatorname{polylog}}
 \newcommand{\file}[1]{\href{#1}{\texttt{\detokenize{#1}}}}
 \title{Capped phase-cell fusion in the conditional multiplication reduction}
-\author{Research note prepared with OpenAI Codex assistance}
+\author{Vlado Vojdanovski, with substantial AI assistance}
 \date{13 October 2026}
 \begin{document}
 \maketitle
@@ -83,7 +83,7 @@ Each axis eventually exceeds every fixed polynomial in $p$. Choose
 \]
 The spare power $r_0$ is not the growth rate of $u$: it only provides the eventual bound $u\leq p^{r_0}$. Let $W=O(\sqrt p\,\plog p)$ dominate both physical Gaussian bandwidths, and let $A=C_Ap^3$ be a sufficiently large fixed-constant locality radius. The dense tensor path uses the dyadic $L$-point cores, not a simultaneous padding of $(L+2A)^g$.
 
-Global one-axis coefficient preprocessing is polynomial in $s_i,t_i,p$ and hence $n^{o(1)}$. Local pages regenerated for each coarse block have polynomial cost in $p$ and are charged to that block's superpolynomial $L^g$ payload. These are two different charges.
+Global one-axis coefficient preprocessing is polynomial in $s_i,t_i,p$ and hence $n^{o(1)}$. Local pages regenerated for each coarse block have polynomial cost in $p$ and are charged to that block's superpolynomial $L^g$ payload. These are two different charges. Partition the $D$ axes into balanced groups of between $g/2$ and $g$ axes, by evenly splitting into $\lceil D/g\rceil$ consecutive groups. Since $\beta<\epsilon$, all groups have $\Theta(g)$ axes eventually; the final group therefore has the same setup amortization.
 
 \section{Dimension-preserving local linear circuits}
 
@@ -135,6 +135,26 @@ Using supplier stopping exponent $10^{-9}$ gives a strict leaf saving above $a_{
 \]
 for a complete global selected-bit call, including all exposure/restoration. The retained supplier implements $H_0=H/2$; multiplying by $2^g$ costs one shift scan and $O(g)$ guard bits. The full circuit therefore costs the same bound up to polylogarithms. The derivations and restrictions are in \file{TENSOR-COMPILER.md}, \file{SUPPLIER-SUPPORT-AUDIT.md}, and \file{SUPPORT-ROUTER.md}.
 
+The recurrence used here is the \emph{mixed weighted-tree} recurrence of
+\file{../../notes/endpoint-gauge-complex.tex} and
+\file{../../notes/batched-complex-rows.tex}, rather than a uniform-depth
+rank-one expansion. For T74 its children have widths
+$r\lfloor e/73\rfloor$, with multiplicities $H_r$ and normalized volume
+weight $1/66304$. The strict moment
+$\Psi(1-b_T)=\sum_r(H_r/66304)(r/73)^{1-b_T}<1$ bounds weighted widths
+at every depth, including unequal stopping depths. Internal work has
+exponent $1-a_T>1-b_T$, so its moment is also strict; leaf work has
+exponent $1-(1-10^{-9})b_T<1-a_T<1-q_T$.
+Integer remainders have fewer than 73 axes and belong to the fixed
+per-node overhead. Product row stock uses the maximal-child depth,
+not $\log_{73} e$. Its finite invoice has stock 2644 bits and row
+coefficient $19545<20161$. Using the full depth-dependent product stock
+gives $R(h)\leq3h/128+O(\log(h+1)+\log\log(p+2))\leq h/16$
+above a fixed polylogarithmic tail. Processing that tail individually
+adds only polylogarithmic work per group. The complete derivation,
+source binding and independently executable controls are in
+\file{review20261014/REVIEW-RESPONSE.md}.
+
 \section{The two actual Gaussian operators}
 
 \subsection{Narrow compression and target-grid completion}
@@ -149,6 +169,13 @@ Let $E$ inject source coordinate $j$ at target coordinate $q_j$. On the full dya
  H_{\rm aug}=EHC+(I-EC).
 \]
 It is permutation-similar to $H\oplus I$, so it inherits row dominance and inverse bounds. Its physical target bandwidth is at most $2w+2$, since $q$ increments by one or two. Its inverse on selected rows is $EH^{-1}C$. A diagonal normalization on selected rows, zero on holes, followed by the increasing $q$-image extraction gives exactly the retained compression approximation.
+
+For an explicit contraction constant with the new bound $16p$, take
+$j_{\rm scale}=\lceil\log_2(128p)\rceil$ in the retained scalar normalization.
+This preserves even the stronger norm allowance $1/8$. Relative to the
+historical $32p$ choice, its extra two scaling bits per axis are compensated
+by one exact global $2^{2D}$ shift. The added $O(D)=o(p)$ scalar exponent
+and linear scan cost are already within the stated normalization bill.
 
 \subsection{Broad expansion}
 The broad forward matrix is distinct:
@@ -251,7 +278,7 @@ For one sparse axis, $U_i=E_i\times[L]^{g-1}$ is a complete rectangle wholly pre
 \[
  O\bigl(V(dg/B)W\plog p\bigr).
 \]
-Every group also has a fixed number of full scans costing $O(V)$. Membership calculations use $O(g(\log s)^2\plog p)=o(p)$ bit operations per $p$-bit record. Detailed fixed-tape extraction and batching are in \file{PHASE-LAYOUT-AUDIT.md}.
+Every group also has a polylogarithmic number of full scans costing $O(V\plog p)$, including the dense circuit's diagonal scans. Membership calculations use $O(g(\log s)^2\plog p)=o(p)$ bit operations per $p$-bit record. Detailed fixed-tape extraction and batching are in \file{PHASE-LAYOUT-AUDIT.md}.
 
 \section{Core faces, ordered embedding, and precision}
 

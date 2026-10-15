@@ -102,6 +102,23 @@ Let tau=1-a. The retained stopped branching argument gives O(V h^(1-q) polylog p
 
 Therefore the entire selected-bit call, including support-local exposure/restoration, costs O(V g^(1-q) polylog p). The old V p^(1-a) term was the full-span exposure estimate. It is not needed for this support-local call family.
 
+For the T74 specialization, "stopped branching" specifically means the mixed
+weighted-tree argument in `notes/endpoint-gauge-complex.tex` (the rows/stopping
+paragraph) and `notes/batched-complex-rows.tex`. Its children have unequal
+widths `r floor(e/73)`, with weights `H_r/66304`. The uniform `e/73` tree cited
+in some historical compact-control notes does not by itself justify using
+the mixed moment endpoint. The mixed proof bounds weighted widths by depth,
+not by assuming equal leaf depth; see
+`review20261014/REVIEW-RESPONSE.md` for its explicit derivation.
+
+The actual T74 stock is 2644 bits and its row coefficient is 19545, below the
+retained 20161 allowance. The row reservation must use the complete
+depth-dependent product stock. A conservative bound is
+`R(h)<=3h/128+O(log(h+1)+loglog(p+2))<=h/16` above a fixed polylogarithmic
+tail. A one-row-chunk estimate is not valid for this supplier. Processing
+that tail individually adds only polylogarithmic work per group. No power
+of g or p is changed by these fixed supplier-dependent constants.
+
 ## 7. Precision, normalization and validity boundary
 
 The compact address operations only permute coefficient encodings. Their temporary binary combinations are address-control arithmetic, not coefficient values. The accepted whole-child semantic guard remains linear in selected width. Completed deferred phases act on disjoint selected bits, and the sum of their widths is g; only one current phase contributes unfinished internal excess. Thus its arithmetic guard is O(g), independently of the total address width and of the number of coarse labels.

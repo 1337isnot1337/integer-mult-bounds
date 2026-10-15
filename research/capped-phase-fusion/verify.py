@@ -36,6 +36,8 @@ CHECKS=[
  ('evidence/phase_layout_audit_ultra/check_union.py','evidence/phase_layout_audit_ultra/UNION-CONTROLS.json'),
  ('evidence/phase_layout_audit_ultra/check_q_embedding.py','evidence/phase_layout_audit_ultra/Q-EMBEDDING-CONTROLS.json'),
  ('evidence/phase_layout_audit_ultra/check_capped_layout.py','evidence/phase_layout_audit_ultra/CAPPED-LAYOUT-CONTROLS.json'),
+ ('review20261014/check_review.py','review20261014/CONTROL-REPLAY.json'),
+ ('review20261014/independent/check_original_outer.py','review20261014/independent/ORIGINAL-OUTER-CONTROLS.json'),
 ]
 def read(p): return json.loads(p.read_text())
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()

@@ -22,6 +22,8 @@ The proof's earlier numerical specializations remain valid historical cases.
 “Independent” in this package means separate agent implementations/reviews,
 not an independent human referee or a proof-assistant verification.
 
+The [14 October review response](review20261014/REVIEW-RESPONSE.md) addresses the inherited supplier admission and the outer proof separately. It includes a complete written outer review, pinned external checks reused from PR2044, fresh semantic regeneration and mutation controls on our actual supplier, and the corrected mixed-rank recurrence. The bound is unchanged.
+
 ## Exact paid inputs and result
 
 | Quantity | Value |
@@ -88,7 +90,11 @@ The first command after installation is the bounded outer-proof evidence replay,
 not a cold native-supplier replay. The native run already completed with all 12
 top-level stages passing, 319680 owners, prefix 1441 charged at 2048, physical row
 coefficient 19545 below 20161, and rejected controls: 114 admission, 12 bit,
-15 controller, 8 independent owner, 6 geometry. The retained compact RESULT
+23 controller, 8 independent owner, 6 geometry. The historical compact RESULT
+and binding incorrectly label the controller count as 15; the actual controller
+audit rejects 23 distinct mutations (7 global plus 8 for each of 2 providers).
+The historical bytes are preserved; the new supplement records the correction.
+The retained compact RESULT
 and [native binding](frontier_fusion/NATIVE-ADMISSION-BINDING.json) record it.
 
 To reproduce the full native dependency, obtain the exact source commit
@@ -104,7 +110,16 @@ python3 -B research/capped-phase-fusion/verify.py \
   --native-work /absolute/new-native-work
 ```
 
-The second command binds a completed external native run to this package's
+After the second command, replay the new admission supplement on the same completed run:
+
+```sh
+python3 -B research/capped-phase-fusion/review20261014/native_validation.py \
+  --native-source /absolute/pr1661/research/gmx-t74-p566-ep400 \
+  --native-work /absolute/new-native-work \
+  --output /absolute/new-native-supplement.json
+```
+
+The package verifier binds a completed external native run to this package's
 source and mathematical result. It compares regenerated proof-relevant content;
 fresh timings and log bytes need not match the historical run. The full 121 MB
 assembly and vendor tree are not duplicated here. The receipt capsule adds canonical hashes for 46 JSON receipts. The 58 hashes

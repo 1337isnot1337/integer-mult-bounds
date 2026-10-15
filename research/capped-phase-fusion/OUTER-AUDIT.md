@@ -1,5 +1,7 @@
 # Phase-cell fusion: outer assembly audit
 
+Historical uncapped assembly snapshot. Its prospective status and weaker numerical case below are retained as provenance. For the current capped/T74 theorem, mixed-width recurrence and completed outer review, use [phase_fusion_note.tex](phase_fusion_note.tex) and [the 14 October response](review20261014/REVIEW-RESPONSE.md). The current proof pays the complete depth-dependent product row stock and a polylogarithmic number of scans per group.
+
 Status: assembly audit in progress. The exact arithmetic in this directory is a **conditional target**, not a replacement of the selected certificate. The remaining proof interfaces are recorded explicitly below.
 
 ## Conditional transfer statement

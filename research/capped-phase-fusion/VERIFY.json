@@ -14,7 +14,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 600,
-      "checks": "Exact source-bound outer ledger, tensor/Toeplitz/Gaussian/layout identities and deliberate rejecting controls; not a cold native replay."
+      "checks": "23 exact replays: source-bound outer ledger, tensor/Toeplitz/Gaussian/layout identities, two independent outer/schedule reviews and deliberate rejecting controls. Native supplement requires a separate source-bound complete native run."
     }
   ]
 }
