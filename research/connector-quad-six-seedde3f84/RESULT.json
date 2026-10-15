@@ -111,7 +111,7 @@
     "sources": 5
   },
   "operation": "Q_S: z += sum(B_j*x_j for j in S), exactly one root transition and four charged B-map additions",
-  "runner_sha256": "76f7d8c4079f246ec45206d47295e47119bda841460e9deedf0ceca4a7ff2d08",
+  "runner_sha256": "f958532504cb407341821fe17dae34ef34de5a57f82a283e711f9557b82b0844",
   "schema_version": 1,
   "scope": "one four-source bundle plus the minimal parity-allowed singleton profile, with two readouts per nonzero output mask",
   "six_source_minimal_profile": {

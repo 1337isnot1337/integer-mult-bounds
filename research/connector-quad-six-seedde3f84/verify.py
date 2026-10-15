@@ -31,7 +31,8 @@ def check_pins() -> dict[str, str]:
     manifest = read_json(HERE / "SOURCES.json")
     digests = {}
     for row in manifest["files"]:
-        data = (ROOT / row["path"]).read_bytes()
+        source = HERE / "task-catalog-snapshot.json" if row["path"] == "docs/research/agent-task-catalog.json" else ROOT / row["path"]
+        data = source.read_bytes()
         sha256 = hashlib.sha256(data).hexdigest()
         need(sha256 == row["sha256"], "source SHA256 mismatch: " + row["path"])
         need(git_blob_sha1(data) == row["git_blob"], "source Git blob mismatch: " + row["path"])

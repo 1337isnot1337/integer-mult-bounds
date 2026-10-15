@@ -73,3 +73,5 @@ The verifier checks every live source SHA-256 and Git blob, exhausts all distinc
 ## Open next questions
 
 This one-Q4 six-source family has a scoped cost obstruction. Any different operation arity, output-readout contract, or physical Q4 implementation is a separate hypothesis requiring a fresh budget and overlap check; no additional question is left open within this package's stated scope.
+
+Maintainer integration note: the historical task catalogue is retained as `task-catalog-snapshot.json` and checked against its original SHA-256 and Git blob. The live research priorities have advanced; all mathematical inputs remain checked at their original paths.
