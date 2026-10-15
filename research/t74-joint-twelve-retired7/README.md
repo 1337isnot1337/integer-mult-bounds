@@ -63,7 +63,7 @@ Without `--source`, the 491 pinned PR2679 files are downloaded and authenticated
 - runs the complete admission: owner reconstruction, parent lift, rebind, discovery/unpin/freeze at PR2751's 24-digit endpoint
   precision, the outer ledger and the package's own `verify_release.py` (strict T74 replay and all controls).
 
-Expected result: `PASS_T74_JOINT_TWELVE_COLD_COMPLETE_RELEASE 0.001717794984118634663826…99989…` (see `evidence/retired7/`).
+Expected result: `PASS_T74_JOINT_TWELVE_COLD_COMPLETE_RELEASE 0.0017177949841186346638269999999999999999999998999999999999999999999999` (recorded cold run of the committed package: 411 s; see `evidence/retired7/FULL-REPLAY-RESULT.json`).
 `--prepared-native-cache` is not supported: `REUSE-PINS.json` is PR2751's and describes PR2751's cache.
 
 To regenerate all four words (PR2751's two, then this package's two through the declared stages) from source:
