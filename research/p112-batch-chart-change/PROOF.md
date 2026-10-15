@@ -33,7 +33,9 @@ PR1714 alephnan; rechecked here by an independent stdlib construction):
   `E_k = supp(X e_k)`. Rechecked: 503 of 511 binary functionals have
   complement rank 8 and eight have rank 7 with coordinate-line kernels.
 * (P) *Pair lemma.* `rank b|(U x W) >= 8` for any two such spans U, W.
-  Rechecked: all 64 ordered pairs `(E_i, E_j)` have F2 rank 8.
+  Rechecked: all 64 ordered pairs `(E_i, E_j)` have F2 rank 8. The cases
+  involving V (`V x H_k`, rank 8; `V x V`, rank 9) follow from
+  nondegeneracy of b (Gram rank 9, checked).
 * Consequently every root-code support span has dimension >= 8. Taking
   U = W in (P) gives `rank <= dim U`.
 
@@ -61,7 +63,7 @@ summand s. The price of a term is the rank of Gamma on the two union
 spans. `verify.py` checks that the single-V and V (+) V computations
 agree on its fixtures.
 
-## 2. PR1714's per-term step fails under a changed chart
+## 2. PR1714's per-term step does not extend to changed charts
 
 PR1714 section 3 shows that every active term costs at least eight "even
 when the chosen blocks have different call indices". That uses the
@@ -91,8 +93,9 @@ make all 64 exceptional cross pairs rank 7**.
 The fixed-seed sample has 162 charts, including the identity and the
 targeted chart. Its observed counts are 0, 16, 24, 28, 32, 36, 40 and 64.
 Direct 56 x 56 F2 ranks agree with the formula on 1,600 chart/pair
-instances. This is **a concrete counterexample to the per-term step**,
-not to PR1714's theorem, which assumes the common chart.
+instances. So the per-term step **does not extend** to changed charts.
+This is not an error in PR1714, which asserts the step only under its
+common chart.
 
 ## 3. Theorem A (isometric charts): the minimum is still 128
 
@@ -171,6 +174,17 @@ submatrix and (P). Count (2) does not depend on prices. Thus
     total >= 8(16 - mu) + c01 r01 + c10 r10
           >= 128 + (c01 + c10 - 8) mu + c01 (r01 - mu) + c10 (r10 - mu)
           >= 128.  QED
+
+**Corollary B' (invertible charts in the V (+) V reading).** Let phi be
+any linear bijection of V, isometric or not. Keep b as each call's own
+pairing and take the cross forms `beta01(x,y) = b(x, phi y)` and
+`beta10(x,y) = b(phi x, y)`. For hyperplanes U, W,
+`rank b|(U x phi W) >= dim U + dim W - 9 = 7`, so `c01, c10 >= 7` and
+Proposition B gives the floor 128. More generally, any cross forms with
+`rank beta01 + rank beta10 >= 12` qualify: restricting a form to a pair of
+hyperplanes lowers its rank by at most 2, so `c01 + c10 >= 12 - 4 = 8`.
+Only the single-V reading of a non-isometric chart, where call 2's own
+pairing changes, is left open by this route.
 
 This is **only a sufficient condition**. The zero form beta = 0 has
 `c01 = c10 = 0` but still obeys the floor:
@@ -256,6 +270,12 @@ form, or every decoder, obeys the floor.
   interface.
 * General k, C != I_2, outside-code overcomplete factors, masked
   identities and temporal relations. Non-isometric charts in the single-V
-  model change call 2's own demand price, so they are out of scope here.
+  model change call 2's own demand price, so they are out of scope here
+  (their V (+) V reading is covered by Corollary B').
 * Any physical meaning. Chart conversions are granted free. A real
   interface would have to pay for them, and that would only raise costs.
+  The floor is internal to PR1714's algebraic separate-total objective;
+  it is not a lower bound for arbitrary interacting circuits.
+
+Prepared by thakrarsagar with substantial AI assistance from Claude
+(Anthropic, Claude Opus 5.5). Apache-2.0.

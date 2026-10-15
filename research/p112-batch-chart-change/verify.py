@@ -691,6 +691,7 @@ def run():
         "seed": SAMPLE_SEED + 1, "forms": len(forms), "min_cost_by_family": xmin,
         "forms_meeting_sufficient_condition": xsuff, "min_proposition_d_bound": dmin,
         "status": "finite search; no sub-128 decoder found; not an impossibility theorem"}
+    require(dmin == 128, "Proposition D minimum over the finite search")
 
     controls = []
 
@@ -702,11 +703,20 @@ def run():
             return
         raise CheckFailure("negative control did not fail: " + name)
 
+    # Over F2 the anisotropic "transvection" x -> x + b(x,a)a is singular
+    # (it sends a to 0), so it is not a chart at all; record that as a
+    # positive fact.  The isometry controls use an invertible shear instead,
+    # so that they exercise the pairing-preservation branch of is_isometry.
     aniso = next(v for v in range(1, 512) if form.b(v, v) == 1)
-    bad_phi = transvection(form, aniso)
-    must_fail("anisotropic transvection rejected as isometry",
+    require(f2_rank(transvection(form, aniso)) == 8, "anisotropic map is singular")
+    bad_phi = next(phi for phi in ([(1 << m) ^ ((1 << l) if m == k else 0) for m in range(9)]
+                                   for k in range(9) for l in range(9) if k != l)
+                   if any(form.b(phi[r], phi[c]) != form.b(1 << r, 1 << c)
+                          for r in range(9) for c in range(9)))
+    require(f2_rank(bad_phi) == 9, "shear is invertible")
+    must_fail("invertible non-isometric shear rejected by pairing check",
               lambda: require(is_isometry(form, bad_phi), "isometry"))
-    must_fail("non-isometric chart changes call-2 own pairing",
+    must_fail("invertible non-isometric chart changes call-2 own pairing",
               lambda: require(all(form.b(apply(bad_phi, coords[i]), apply(bad_phi, coords[j]))
                                   == form.b(coords[i], coords[j])
                                   for i in range(112) for j in range(112)), "own pairing"))
@@ -732,7 +742,7 @@ def run():
     return out
 
 
-EXPECTED_RECEIPT_SHA256 = "69c25811d4c0efc989d07fecd1e3cf6afab0ec24c9a773e095e84973e97ccd46"
+EXPECTED_RECEIPT_SHA256 = "92d4555bb78cbcc7b0945391416ea1a5df4fafaabc356e735406c96844bbf2bd"
 
 
 def main():
