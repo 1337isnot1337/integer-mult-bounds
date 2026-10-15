@@ -1,20 +1,26 @@
-# T16 owner map from a global class-level repack and evacuation LNS on the selected supplier
+# T16 owner map from a class-level re-solve and guided realisation on the selected supplier, with a proved packing ceiling
 
 On the unchanged selected PR1094 supplier, this owner map admits conditional
-**κ = 0.001673341928508063** (conservative surcharge 0.001673341925655596).
-That is **+4.0757e-4 relative** (+6.817e-7) over the selected record
-0.001672660197076918 and +6.611e-7 over open PR1407 (0.001672680818492982).
-Against this PR's earlier versions it is +6.574e-7 over the first
-(0.001672684510394236), +6.390e-7 over the second (0.001672702955495933) and
-+2.878e-7 (+1.7200e-4 relative) over the third (0.001673054161426948). The
-local gauge44 word, helper widths, 144-call order, windows, physical stock,
-native supplier and PR589 bit supplier are unchanged. The unchanged PR1087
-strict replay passes.
+**κ = 0.001673614205725695** (conservative surcharge 0.001673614202872892).
+That is **+5.7035e-4 relative** (+9.540e-7) over the selected record
+0.001672660197076918 and +9.334e-7 over open PR1407 (0.001672680818492982).
+Against this PR's earlier versions it is +9.297e-7 over the first
+(0.001672684510394236), +9.113e-7 over the second (0.001672702955495933),
++5.600e-7 over the third (0.001673054161426948) and +2.723e-7 (+1.6271e-4
+relative) over the fourth (0.001673341928508063). The local gauge44 word, helper
+widths, 144-call order, windows, physical stock, native supplier and PR589 bit
+supplier are unchanged. The unchanged PR1087 strict replay passes.
+
+This version also adds a **proved packing ceiling** (`PROOF.md`,
+`ceiling_bound.py`): on this supplier no legal owner map can have more than
+4,887 completely idle cap-48 bins (this map: 4,880; selected: 4,866), and the
+search surrogate `Σ f ln f` is at most 908,139.013 (this map: 907,271.883).
+This bounds the surrogate, not κ.
 
 **Scope.** This is a conditional T16 packing on the same supplier, with no new
 mechanism. The map is stated and verified **only against the merged selected
-PR1094 map**: `DIFF-vs-selected.json` changes 1,638 of its 69,120 rows
-(1,415 helpers move to another bin; 223 more rows only change their slice
+PR1094 map**: `DIFF-vs-selected.json` changes @CHG@ of its 69,120 rows
+(@REL@ helpers move to another bin; @OFF@ more rows only change their slice
 offset). It depends on no open PR. It claims no packing optimum and no
 unconditional multiplication theorem.
 
@@ -28,10 +34,14 @@ unconditional multiplication theorem.
 3. κ 0.001673054161426948: a global class-level repack followed by the same
    cycle/LNS loop, then a class-level min-diff re-assignment (1,661 changed
    rows, 1,435 relocations).
-4. This version, κ 0.001673341928508063: version 3's shipped map continued
-   with a new LNS neighbourhood (evacuation of nearly empty bins), then the
-   same class-level min-diff re-assignment. Unlike version 3, the idle profile
-   again majorizes the selected one (`PROOF.md`).
+4. κ 0.001673341928508063: version 3's map continued with an evacuation LNS
+   neighbourhood (nearly empty bins re-packed), then the same min-diff
+   (1,638 changed rows, 1,415 relocations).
+5. This version, κ 0.001673614205725695: version 4's map improved by
+   class-level re-solves of a window model warm-started from the current map,
+   each realised on concrete bins by a guided CP-SAT neighbourhood, then the
+   same class-level min-diff re-assignment. The idle profile still majorizes the
+   selected one (`PROOF.md`). New: a proved packing ceiling.
 
 ## Construction
 
@@ -60,7 +70,8 @@ Version 2's loop (ejection cycles plus CP-SAT LNS) had slowed to steps of about
 
 ### κ search (`search/`, `SEARCH.json`)
 
-Steps 1–3 are version 3's search; steps 4–5 are new in this version.
+Steps 1–3 are version 3's search, steps 4–5 version 4's, and steps 6–7 are
+new in this version.
 Starting from version 2's raw search output (content `a7e8f0ca…`):
 
 1. **Stage 1** (`glob.py`): CP-SAT over pattern counts and flows per class,
@@ -90,68 +101,102 @@ Starting from version 2's raw search output (content `a7e8f0ca…`):
    mix. Strict-replayed checkpoints: 0.001673243717212927,
    0.001673272876788591, 0.001673312438393585, 0.001673322090452138 and
    0.001673341928508063 (surrogate 906,774).
+6. **Class-level re-solve** (`winlp.py`, new). The window model of the global
+   repack, as an IP over (capacity, window) classes: pattern counts per class,
+   flows of each (call, width) to each class, time and width balance, and
+   aggregate R4 cuts (for each group of classes that share physical families
+   and each call, at most one helper per family). A full solve gives a target
+   class solution. Each step then re-solves the model warm-started from the
+   current map, frees only a random subset of 12–24 classes drawn from those
+   that differ from the target (all others fixed to the current map), and
+   requires a minimum surrogate gain (`GAIN`) at a penalty per unit of change
+   (`PEN`).
+7. **Guided realisation** (`lns2.py`, mode `guide`, new). The class solution
+   of step 6 is realised on concrete bins by a CP-SAT neighbourhood made of
+   the bins holding helpers whose class (call, width) count must drop, plus
+   the bins whose pattern count must drop. CP-SAT maximises the surrogate
+   exactly over that neighbourhood, and the result is kept only if the exact κ
+   rises. `gloop.sh` repeats this toward one fixed target; `sloop.sh` loops
+   steps 6–7. Two short `loopy.sh` runs first took version 4's map to
+   0.001673344533458160 (not strict-replayed); strict-replayed checkpoints
+   from there:
+   0.001673373170972473 (`gloop.sh`), 0.001673393061983855,
+   0.001673535326871893 and 0.001673614205725695 (`sloop.sh`, two loops whose
+   best maps were synchronised; surrogate 907,271.88).
 
-The search was **stopped while still improving** (near the end it still found
-gains every 10–20 minutes). It is a finite heuristic, not an optimum. The
+The search was **stopped while still improving** (the class-level loop was
+still finding gains when it was stopped). It is a finite heuristic, not an
+optimum. The
 session's loop scripts compared κ strings in one place; `lns.py` and the loops
 now compare κ as `Decimal` (the native assembler can drop trailing zeros, e.g.
 `0.0016732131191366` for `0.001673213119136600`).
 
-**Heuristic ceiling (not a proof).** `winbound.py` groups bins by class and
-drops the per-bin constraints. In the session, this relaxation gave an
-optimistic ceiling of about 908.1k surrogate units, which by the near-linear
-κ–surrogate relation corresponds to roughly κ ≈ 0.0016741 (this map: about
-906.8k). This number is **not certified**: the κ–surrogate relation is only
-approximate, and a rerun of the shipped script for the third version (one
-CP-SAT worker, 900 s) did not close its bound (it stopped at 983k). It is
-reported only as a rough sense of how much room the surrogate may leave;
-`aggbound.py` is a coarser variant that ignores calls and windows entirely.
+**Proved ceiling.** The earlier text here reported a heuristic ceiling of
+"about 908.1k surrogate units" from `winbound.py` that could not be reproduced.
+This version replaces it with a proof (`PROOF.md`, "A proved packing ceiling";
+checked by `ceiling_bound.py`, which `verify.py` runs). The proof uses integer
+weights `a(w) = ⌊7w/9⌋` per helper and `A(c) = ⌊7c/9⌋` per bin. Every bin's
+helpers weigh at most `A(c)`, and total bin weight minus total helper weight
+is 180,832 for every map. So **at most 4,887 cap-48 bins can be empty**, and
+an exact knapsack over the per-bin slack gives **`Σ f ln f ≤ 4,887 · 48 ln 48 +
+17 ln 17 = 908,139.013`** for every legal map. This map is at 4,880 empty cap-48
+bins and 907,271.883. The bound is on the surrogate, not on κ. Pricing the
+bound-attaining idle multiset `{1:2431, 17:1, 48:4887}` with the pinned
+engines gives κ 0.001674088611862992 (`check.py`). This is only an indication
+of the remaining room (4.744e-7 above this map); it is not a κ bound.
+`winbound.py` and `aggbound.py` remain as search tools only.
 
 ### Min-diff re-assignment
 
 Given the selected map A and the search output F, find a legal map with F's
 idle profile (hence F's κ) that keeps as many placements of A as possible. A
 placement is `(bin, call, width)`, since helpers of one call and width are
-interchangeable. The raw search output F relocates 62,678 rows against A
-(66,211 changed rows). This version reuses version 3's class-level tools:
+interchangeable. The raw search output F relocates 63,109 rows against A
+(66,449 changed rows). This version reuses the class-level tools of versions 3
+and 4:
 
-1. `mindiff_cls1.py` (HiGHS): a class-level MIP over the same pattern counts
-   and flows as the repack, with the idle profile fixed to F's, maximising the
-   flow of A's (class, call, width) placements that stays in place. HiGHS
-   solved it to optimality in 247 s: 68,087 placements' worth of flow (1,033
-   relocations) at the tie-broken optimum, 48 classes changed. Every legal map
-   with F's profile is feasible for this relaxation, so the reported dual bound
-   implies at least 1,002 relocations for any such map once the tie-break
+1. `mindiff_cls1.py` (HiGHS, 1,800 s, warm-started from F): a class-level MIP
+   over pattern counts and flows, with the idle profile fixed to F's,
+   maximising the flow of A's (class, call, width) placements that stays in
+   place. It stopped at the time limit with 67,539 placements' worth of flow
+   (1,581 relocations) and 58 classes changed. The dual bound implies at least
+   1,548 relocations for any legal map with F's profile once the tie-break
    weight (at most 0.001 per bin, 32,256 bins) is discounted. That is a
    solver-reported bound, not an independently checked certificate.
-2. `mindiff_cls2.py` (CP-SAT pass, then HiGHS pass, per changed class):
-   realise each class's stage-1 solution on its 224 bins, keeping as many of
-   A's placements as possible; unchanged classes keep A. Stage 1 is a
-   relaxation, and class 9 (capacity 16) was proven infeasible: its stage-1
-   solution used eleven bins holding four width-4 helpers each, which need
-   four distinct calls per bin, while the class's calls other than 5, 6 and 8
-   have only four width-4 helpers between them (so at most four such bins).
-   Fixing class 9 to A, as version 3 did for its unrealisable classes, makes
-   stage 1 infeasible here (A's class 9 has six bins with residual 7; the
-   target profile has only three), and fixing it to F's class values raises
-   the stage-1 optimum from 1,033 to 1,456 relocations. Instead, a new `BAN`
-   option of `mindiff_cls1.py` forbids that one pattern in class 9; stage 1
-   re-solved to the same optimum (1,033), and all 47 changed classes were
-   realised (5 class results reused with `mindiff_reuse.py`). Result: 1,518
-   relocations.
-3. `mindiff_lns.py` (version 2's LNS, F = the raw search output) and
-   `mindiff_lns2.py`: 1,518 → 1,496 (`mindiff_lns.py`, the better of seeds 1
-   and 2), then rounds of `mindiff_lns2.py` (any legal
-   placement inside the neighbourhood, two seeds per round, the better one
-   kept): 1,478, 1,459, 1,435, 1,415. It was stopped at the two-hour min-diff
-   budget while still gaining about 20 relocations per round.
-4. `realize.py` keeps A's helper labels and offsets where possible:
-   **1,415 relocations and 223 offset-only changes (1,638 changed rows)**,
-   against 62,678 relocations in the raw search output.
+2. `mindiff_cls2.py` (CP-SAT pass, then HiGHS pass, per changed class)
+   realised 56 of the 58 classes. Two stage-1 class solutions could not be
+   realised, because stage 1 does not see that several helpers of one width in
+   a bin need distinct calls:
+   - Class 9 (capacity 16, calls 0–8) had the same unrealisable pattern as in
+     version 4: fourteen bins with four width-4 helpers, while only calls 5, 6
+     and 8 have more than two width-4 helpers.
+   - Class 25 (capacity 32, calls 51–112) needed five (7, 7, 9, 9) bins and
+     one (7, 8, 8, 9) bin. The class's 7s come from calls 92 (6), 98 (4) and
+     99 (1), and its only 8s from calls 92 and 102. So the (7, 8, 8, 9) bin's 7
+     is not from call 92. That leaves at most four 7-pairs with distinct calls,
+     not five.
 
-This is a heuristic too. The relocation count is not proven minimal; the gap
-to the solver-reported relaxation bound (1,002) is large because stage 1 is a
-loose relaxation of the bin-level problem.
+   Both patterns were forbidden with `BAN`. Stage 1 was re-solved twice with
+   `KEEP` (all other classes fixed to the previous stage-1 solution) and
+   `FREE` (the classes sharing calls with the banned one): first class 9 with
+   13 overlapping cap-16 classes (optimal at once, same 1,581), then class 25
+   with 20 overlapping cap-32 classes (optimal, 1,583). `mindiff_reuse.py`
+   kept the class results that did not change. All 58 classes were realised;
+   the merge gives 2,210 relocations.
+3. `mindiff_lns.py` (two seeds): 2,210 → 2,183. One round of
+   `mindiff_lns2.py` (two seeds, the better one kept): 2,170. It was stopped
+   at the two-hour min-diff budget. The stage-1 solve took half of that
+   budget, and the LNS was gaining only a few relocations per round.
+4. `realize.py` keeps A's helper labels and offsets where possible:
+   **2,170 relocations and 367 offset-only changes (2,537 changed rows)**,
+   against 63,109 relocations in the raw search output.
+
+This is a heuristic too. The relocation count is not proven minimal. Most of
+the gap to the class-level count (1,583) comes from realising the class
+solutions on concrete bins (stage 2 loses about 630 placements), so stage 1
+is a loose relaxation here. The diff is larger than version 4's (1,415)
+because the new profile is further from the selected one (14 more empty cap-48
+bins instead of 8, 270 fewer residuals 3 instead of 205).
 
 ## Exact profile change
 
@@ -162,32 +207,37 @@ loose relaxation of the bin-level problem.
 | version 1 of this PR | `{1:2278, 3:374, 8:1, 16:3, 48:4866}` | 0.001672684510394236 |
 | version 2 of this PR | `{1:2280, 2:1, 3:363, 7:3, 16:4, 48:4866}` | 0.001672702955495933 |
 | version 3 of this PR | `{1:2346, 2:3, 3:154, 5:9, 7:36, 8:2, 16:7, 28:1, 39:1, 40:1, 41:2, 44:41, 48:4829}` | 0.001673054161426948 |
-| this package | `{1:2355, 2:2, 3:172, 7:3, 16:11, 48:4874}` | 0.001673341928508063 |
+| version 4 of this PR | `{1:2355, 2:2, 3:172, 7:3, 16:11, 48:4874}` | 0.001673341928508063 |
+| this package | `{1:2392, 2:8, 3:107, 4:1, 7:5, 16:1, 48:4880}` | 0.001673614205725695 |
+| proved bound (not a map) | at most 4,887 empty cap-48 bins; `Σ f ln f ≤ 908,139.013` | — |
 
 Compared with the selected map, the idle profile changes by
-`{1:+79, 2:+2, 3:-205, 7:-4, 16:+11, 48:+8}`. Eight more bins are completely
-idle than in the selected map (version 3 had 37 fewer), 205 residuals 3 and
-four residuals 7 are gone, and eleven residuals 16 appear. The full paid
-profile is
-`{1:349683, 2:60194, 3:62380, 4:20448, 5:11808, 7:3, 8:1152, 16:11, 48:4874}`.
+`{1:+116, 2:+8, 3:-270, 4:+1, 7:-2, 16:+1, 48:+14}`. Fourteen more bins are
+completely idle than in the selected map (version 4: eight), 270 residuals 3
+and two residuals 7 are gone. The full paid profile is
+`{1:349720, 2:60200, 3:62315, 4:20449, 5:11808, 7:5, 8:1152, 16:1, 48:4880}`.
 Rank mass is still 1,041,408 and the deficit is still 5,120. Cross-replica
-helper roles go from 57,480 to 57,419. With equal residual totals (237,024), the
-new residual vector majorizes the selected one again (version 3's did not), so
-Karamata's inequality gives the strict decrease of the complex moment for any
-strictly concave per-residual weight; `check.py` asserts the majorization
-mechanically, and the value of κ still comes from the exact engines and the
-strict replay (`PROOF.md`).
+helper roles go from 57,480 to 57,420. With equal residual totals (237,024), the
+new residual vector majorizes the selected one, so Karamata's inequality gives
+the strict decrease of the complex moment for any strictly concave
+per-residual weight. `check.py` asserts the majorization mechanically, and the
+value of κ still comes from the exact engines and the strict replay
+(`PROOF.md`).
 
-`SPEC.expected.actual_73column_sigmas` is **10006** (selected: 10002; the raw
-search output had 10649). This value is not a tuning knob. The strict audit
+`SPEC.expected.actual_73column_sigmas` is **10011** (selected: 10002; the raw
+search output had 10564). This value is not a tuning knob. The strict audit
 counts the distinct orthogonal 73-column charts that the realized owner
 chronology uses. `assemble.py` pins that count against SPEC exactly, and an
 `understated_actual_chart_types` mutation control guards it. It depends on the
 map, so the strict verifier recomputes it on every replay.
 
-Packing ceiling: with the PR1240 local-word ceiling endpoint
-a_hi = 0.001690054109089, this map realises **4.688%** of the complex endpoint
-gap (version 3: 2.709%; version 2: 0.294%; version 1: 0.167%; PR1407: 0.142%).
+Fraction of the complex endpoint gap: with the PR1240 local-word ceiling
+endpoint a_hi = 0.001690054109089, this map realises **6.560%** of the complex
+endpoint gap (version 4: 4.688%; version 3: 2.709%; version 2: 0.294%;
+version 1: 0.167%; PR1407: 0.142%). The idle multiset that attains the proved
+surrogate bound would, if a legal map realised it, price at κ
+0.001674088611862992, or 9.822% of that gap. That number is indicative, not a
+bound (`PROOF.md`).
 
 ## Reproduce
 
@@ -214,7 +264,7 @@ python3.12 -I -B research/complex-t16-two-stage-cycles/verify.py --work /abs/fre
    archived files, overlays only the three data files, and extracts the selected
    R480 gauge44 provider from `selected-replay.tar.gz` (`LOCAL-PINS.json`). It
    then runs the unchanged `verify_t16.py`, which covers all 11 stages and
-   69/12/6/15 rejecting controls, and requires `actual_73_axis_charts` = 10006.
+   69/12/6/15 rejecting controls, and requires `actual_73_axis_charts` = 10011.
 4. It runs `check.py`, an independent check adapted from the session's
    `checkmap.py`. That check uses the seed67 owner auditor (R1–R7, X1, X2 and
    11 controls) on both the selected and the candidate map. It also prices with
@@ -224,6 +274,12 @@ python3.12 -I -B research/complex-t16-two-stage-cycles/verify.py --work /abs/fre
    zero-padded vectors), and `verify.py` requires that result. All κ decimals
    are compared as `Decimal`, never as strings, because the native assembler
    drops trailing zeros.
+   It also prices the idle multiset that attains the proved surrogate bound
+   (`indicative_ceiling_price`, indicative only).
+5. It runs `ceiling_bound.py`, the proved packing ceiling (`PROOF.md`): it
+   derives the bins and helper widths from `data/`, checks Theorems 1–3 with
+   exact integer arithmetic (standard library only, under a second), and
+   reports this map's empty cap-48 bins and surrogate against the bound.
 
 The full replay takes about 60 s and stays under 1 GB of RAM. `evidence/`
 holds the receipts of the local run.
@@ -237,38 +293,47 @@ quality. The min-diff step, from the search output F (content SHA256 in
 ```sh
 S=research/complex-t16-two-stage-cycles/search; W=<work dir>; F=<search output F>
 PY="uv run -q --no-project --python 3.12"; HI="--with scipy --with highspy"
-stage2() {   # stage-1 json, cache dir; the two halves ran in parallel
+stage2() {   # stage-1 json, cache dir, CP-SAT limit, HiGHS limit; the two halves ran in parallel
   for h in 0/2 1/2; do
-    $PY --with ortools python -I $S/mindiff_cls2.py $S $1 $2 60 150 $h cp
-    $PY $HI python -I $S/mindiff_cls2.py $S $1 $2 60 150 $h hi
+    $PY --with ortools python -I $S/mindiff_cls2.py $S $1 $2 $3 $4 $h cp
+    $PY $HI python -I $S/mindiff_cls2.py $S $1 $2 $3 $4 $h hi
   done; }
-$PY $HI python -I $S/mindiff_cls1.py $S $F $W/c1.json 1800 $F            # optimal, 247 s, 1,033
-stage2 $W/c1.json $W/cache                                               # class 9 infeasible
-BAN='[[9,[4,0,0,0,0]]]' $PY $HI python -I $S/mindiff_cls1.py $S $F $W/c1c.json 1200 $F   # optimal, 1,033
-python3 $S/mindiff_reuse.py $W/c1.json $W/c1c.json $W/cache $W/cache2    # 5 of 47 reused
-stage2 $W/c1c.json $W/cache2                                             # all realised
-$PY python -I $S/mindiff_cls2.py $S $W/c1c.json $W/cache2 $W/cls.json merge   # 1,518 relocations
-$PY $HI python -I $S/mindiff_lns.py $S $F $W/cls.json $W/l1.json 40 2 300 30     # 1,496 (seed 1: 1,501)
-$PY $HI python -I $S/mindiff_lns2.py $S $W/l1.json $W/l2.json 20 11 80 60         # 1,478
-$PY $HI python -I $S/mindiff_lns2.py $S $W/l2.json $W/l3.json 25 13 80 60         # 1,459 (seed 12: 1,468)
-$PY $HI python -I $S/mindiff_lns2.py $S $W/l3.json $W/l4.json 20 22 80 60         # 1,435 (seed 21: 1,446)
-$PY $HI python -I $S/mindiff_lns2.py $S $W/l4.json $W/l5.json 18 32 80 60         # 1,415 (seed 31: 1,419)
-$PY python -I $S/realize.py $S $W/l5.json $W/OWNERS.json.gz
-$PY python -I $S/buildcand.py $S $W/OWNERS.json.gz $W/pkg 10006
+$PY $HI python -I $S/mindiff_cls1.py $S $F $W/c1.json 1800 $F       # time limit: 1,581 (bound: >= 1,548)
+stage2 $W/c1.json $W/cache 60 150                                    # classes 9 and 25 not realised
+# (class 25 alone with 300 s / 900 s limits: no solution; it is infeasible, see above)
+BAN='[[9,[4,0,0,0,0]]]' KEEP=$W/c1.json FREE='[9,0,18,27,36,90,99,108,117,126,135,45,54,63]' \
+  $PY $HI python -I $S/mindiff_cls1.py $S $F $W/c1b.json 900          # optimal, 1,581
+python3 $S/mindiff_reuse.py $W/c1.json $W/c1b.json $W/cache $W/cache2  # 53 of 58 reused
+stage2 <c1b.json with "changed" restricted to [0,9,18,27]> $W/cache2 60 300   # realised
+BAN='[[9,[4,0,0,0,0]],[25,[0,0,1,2,1]]]' KEEP=$W/c1b.json \
+  FREE='[25,7,16,34,38,43,52,56,61,65,79,88,97,106,110,115,119,124,128,133,137]' \
+  $PY $HI python -I $S/mindiff_cls1.py $S $F $W/c1c.json 600          # optimal, 1,583
+python3 $S/mindiff_reuse.py $W/c1b.json $W/c1c.json $W/cache2 $W/cache3   # 55 of 58 reused
+stage2 $W/c1c.json $W/cache3 60 300                                  # classes 16, 25, 52: realised
+$PY python -I $S/mindiff_cls2.py $S $W/c1c.json $W/cache3 $W/cls.json merge   # 2,210 relocations
+$PY $HI python -I $S/mindiff_lns.py $S $F $W/cls.json $W/l1.json 40 1 300 30      # 2,183 (seed 2: 2,183)
+$PY $HI python -I $S/mindiff_lns2.py $S $W/l1.json $W/l2.json 20 12 80 60         # 2,170 (seed 11: 2,176)
+$PY python -I $S/realize.py $S $W/l2.json $W/OWNERS.json.gz
+$PY python -I $S/buildcand.py $S $W/OWNERS.json.gz $W/pkg 10011   # count read from the native audit
 ```
 
-The search steps of this version ran as follows (bash `$RANDOM` seeds, so
-not replayable bit for bit; the single evacuation solve's exact seed and `NB`
-were not logged):
+The search steps of this version ran as follows (bash `$RANDOM` seeds in
+places, wall-clock limits, and two loops whose best maps were copied between
+them by hand-run sync steps, so not replayable bit for bit; which full-model
+target file each loop used was not logged):
 
 ```sh
 S=research/complex-t16-two-stage-cycles/search
-PY="uv run -q --no-project --python 3.12 --with numpy --with ortools"
-# one evacuation solve from version 3's map (the session's solve had 102 bins)
-NB=<n> NW=2 $PY python -I $S/lns.py $S <version 3 data/OWNERS.json.gz> <out>/t 1 <seed> 60 evac
-# then the loop, restarted from each strict-replayed best
-RUN=<memory cap prefix> NB=200 $S/loopy.sh <dir> <best so far> 2 <seed>
+PY="uv run -q --no-project --python 3.12 --with numpy --with scipy --with ortools"
+# full class-level window + R4 model, hinted with a current map: a target class solution
+$PY python -I $S/winlp.py $S <map> ip <TL> 1 2 <target.json>
+# guided realisation toward one target (first checkpoint), then the re-solve loop
+RUN=<memory cap prefix> $S/gloop.sh <dir> <version 4 map> <target.json> 2 <seed> <iters>
+RUN=<memory cap prefix> $S/sloop.sh <dir> <best so far> <target.json> <seed> <iters>
 ```
+
+Version 4's search steps (evacuation solve and `loopy.sh`) are described in
+`SEARCH.json` (`fourth_version`).
 
 ## Assumptions retained
 
@@ -305,15 +370,23 @@ assistance. No independent human review is claimed. New material is Apache-2.0.
 The structured versions are in `TASK.json`:
 
 - **Continue the κ search.** It stopped while still improving. The first step
-  is to rerun `search/loopy.sh` from `data/OWNERS.json.gz` under a memory cap
-  (or a new global repack from it), strict-replay each new best, and rerun the
-  min-diff step on the result.
-- **A certified packing bound.** The class-level relaxation (`winbound.py`)
-  gives only an uncertified surrogate ceiling. A bound stated directly in the
-  exact cost (or a proven κ–surrogate inequality) would show how much κ owner
-  packing can still give on this supplier.
-- **A smaller diff.** The min-diff map (1,415 relocations) is not proven
-  minimal for its profile; the solver-reported relaxation bound is 1,002, and
-  the LNS polish was still improving when stopped. Longer `mindiff_lns2.py`
-  runs, or Gale–Ryser constraints in `mindiff_cls1.py` so that stage 1 stops
-  proposing unrealisable class patterns, may shrink it.
+  is to rerun `search/sloop.sh` from `data/OWNERS.json.gz` toward a full
+  `winlp.py` target under a memory cap, strict-replay each new best, and rerun
+  the min-diff step on the result. The proved ceiling leaves at most seven more
+  empty cap-48 bins and 867 surrogate units.
+- **A κ ceiling for owner packing.** The proved ceiling bounds the surrogate
+  (908,139.013) and the number of empty cap-48 bins (4,887), not κ. Pricing
+  the bound-attaining idle multiset gives κ 0.001674088611862992, but that is
+  not a bound. A κ bound needs either a majorization argument (does the
+  bound-attaining multiset majorize every attainable idle vector?) or the
+  relaxation stated in the exact per-residual cost.
+- **Is the ceiling attainable?** The window + R4 class model reaches it
+  (solver-reported), but no concrete map is known with more than 4,880 empty
+  cap-48 bins.
+- **A smaller diff.** The min-diff map (2,170 relocations) is not proven
+  minimal for its profile. The solver-reported relaxation bound is 1,548, and
+  the stage-1 solution itself needs 1,583. Distinct-call (Gale–Ryser)
+  constraints in `mindiff_cls1.py` would stop stage 1 from proposing
+  unrealisable class patterns; this version needed `BAN` for two classes.
+  Stage-2 realisation that also trades placements between classes, and longer
+  `mindiff_lns2.py` runs, may shrink it.

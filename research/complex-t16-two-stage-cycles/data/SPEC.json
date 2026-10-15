@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "ea7514736ad205562831072ef8312ea2d26fe2d3483d7c60e07d1fc734cd942a",
-    "plan_sha256": "7bd8905460cec231dc4d5039deaf30d6065b3ddbbe86728de9b75bf85d772a94"
+    "owners_sha256": "551fd1b3a75fa5fd67cfd8c00a6c77c2f893a5120cb0c0dd8a7699f25e9bddba",
+    "plan_sha256": "67173cd2e38296699e596714deb8b98e199bcb3390b49c2218887011a07f23da"
   },
   "dispatch": [
     [
@@ -1931,9 +1931,9 @@
   },
   "expected": {
     "gain_baseline_kappa": "0.001636241501576388",
-    "complex_lower": "1676146695051222742471/1000000000000000000000000",
-    "conservative_complex_lower": "104759168261824104661/62500000000000000000000",
-    "kappa": "1673341928508063/1000000000000000000",
+    "complex_lower": "83820994293071721251/50000000000000000000000",
+    "conservative_complex_lower": "335283976599811653119/200000000000000000000000",
+    "kappa": "334722841145139/200000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
@@ -1941,32 +1941,33 @@
     "mutations_rejected": 15,
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
-    "actual_73column_sigmas": 10006,
-    "cross_replica_helper_roles": 57419,
-    "idle_remainders": 7417,
+    "actual_73column_sigmas": 10011,
+    "cross_replica_helper_roles": 57420,
+    "idle_remainders": 7394,
     "idle_remainder_profile": {
-      "1": 2355,
-      "2": 2,
-      "3": 172,
-      "7": 3,
-      "16": 11,
-      "48": 4874
+      "1": 2392,
+      "2": 8,
+      "3": 107,
+      "4": 1,
+      "7": 5,
+      "16": 1,
+      "48": 4880
     },
     "global_profile": {
-      "1": 349683,
-      "2": 60194,
-      "3": 62380,
-      "4": 20448,
+      "1": 349720,
+      "2": 60200,
+      "3": 62315,
+      "4": 20449,
       "5": 11808,
-      "7": 3,
+      "7": 5,
       "8": 1152,
-      "16": 11,
-      "48": 4874
+      "16": 1,
+      "48": 4880
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001673341925655596",
-    "kappa_decimal": "0.001673341928508063"
+    "conservative_kappa_decimal": "0.001673614202872892",
+    "kappa_decimal": "0.001673614205725695"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",

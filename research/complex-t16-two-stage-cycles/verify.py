@@ -1,5 +1,6 @@
 """Reconstruct the T16 owner map from the selected PR1094 map and DIFF-vs-selected.json, run the
-unchanged strict T16 admission, then the independent seed67 owner audit, exact pricing and PR1069 sweep."""
+unchanged strict T16 admission, then the independent seed67 owner audit, exact pricing and PR1069 sweep,
+and finally the proved packing ceiling (ceiling_bound.py)."""
 from decimal import Decimal
 from pathlib import Path
 import argparse
@@ -18,8 +19,8 @@ if not __debug__:
 P = Path(__file__).resolve().parent
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 CONTROLS = dict(admission=69, bit_supplier=12, independent_t16=6, controller_mutations=15)
-KAPPA_DECIMAL = '0.001673341928508063'
-SIGMAS = 10006
+KAPPA_DECIMAL = '0.001673614205725695'
+SIGMAS = 10011
 
 
 def run(main, work):
@@ -87,10 +88,19 @@ def run(main, work):
     assert Decimal(check['price_new']['kappa_decimal']) == Decimal(result['kappa_decimal']) == Decimal(KAPPA_DECIMAL)
     assert check['majorization']['candidate_majorizes_selected'] is True
     assert check['changed_rows'] == mod.CHANGED_ROWS and len(check['relocated_rows']) == mod.RELOCATED_ROWS
+
+    # 4. Proved packing ceiling (PROOF.md): exact integer checks, standard library only.
+    subprocess.run([sys.executable, '-I', '-B', str(P/'ceiling_bound.py'), '--data', str(P/'data'),
+                    '--out', str(work/'CEILING.json')], env=env, check=True)
+    ceiling = json.loads((work/'CEILING.json').read_text())
+    assert ceiling['theorem1']['slack_total'] == 180832 and ceiling['theorem1']['max_empty_cap48'] == 4887
+    assert Decimal(ceiling['theorem3']['bound_decimal']) == Decimal('908139.013')
+    assert ceiling['this_map']['empty_cap48'] == check['candidate']['idle'].get('48', check['candidate']['idle'].get(48))
     for name, h in pins.items():
         assert sha(main/name) == h
     print('PASS_T16_OWNER_MAP', result['kappa_decimal'], result['idle_remainder_profile'],
-          'changed', check['changed_rows'], 'relocated', len(check['relocated_rows']))
+          'changed', check['changed_rows'], 'relocated', len(check['relocated_rows']),
+          'ceiling: empty cap-48 <=', ceiling['theorem1']['max_empty_cap48'], 'E <=', ceiling['theorem3']['bound_decimal'])
 
 
 if __name__ == '__main__':

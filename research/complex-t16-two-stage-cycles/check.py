@@ -25,6 +25,7 @@ if not __debug__:
     raise RuntimeError('Assertions must remain enabled')
 P = Path(__file__).resolve().parent
 SELECTED_KAPPA = '0.001672660197076918'
+INDICATIVE_CEILING_KAPPA = '0.001674088611862992'
 
 
 def load(name, path):
@@ -134,6 +135,17 @@ def run(main, replay, out_path):
     # Compare kappa decimals as Decimal, never as strings: the native assembler drops trailing zeros.
     assert Decimal(pc['kappa_decimal']) == Decimal(spec['expected']['conservative_kappa_decimal'])
     out['rel_gain'] = str((Q(pn['kappa'])-Q(ps['kappa']))/Q(ps['kappa']))
+    # Indicative only (PROOF.md, "A proved packing ceiling"): price the idle multiset that attains the proved surrogate
+    # bound {1: 2431, 17: 1, 48: 4887} in place of the selected idle remainders. This is not a kappa bound.
+    ceiling_idle = Counter({1: 2431, 17: 1, 48: 4887})
+    base = Counter(a.as_profile(selplan['profile']))
+    base.subtract(old['idle'])
+    ceiling_profile = +(base+ceiling_idle)
+    assert sum(r*n for r, n in ceiling_profile.items()) == 1041408
+    pi = price(ceiling_profile)
+    assert Decimal(pi['kappa_decimal']) == Decimal(INDICATIVE_CEILING_KAPPA)
+    out['indicative_ceiling_price'] = dict(idle={str(k): v for k, v in sorted(ceiling_idle.items())},
+                                           kappa_decimal=pi['kappa_decimal'], complex_lower=pi['endpoint'])
 
     if replay is not None:
         rep = json.loads((replay/'REPLAY.json').read_text())
