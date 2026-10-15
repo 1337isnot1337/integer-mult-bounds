@@ -83,7 +83,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2321](https://github.com/CrocSwap/integer-mult-bounds/pull/2321) | Hope7Happiness | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2322](https://github.com/CrocSwap/integer-mult-bounds/pull/2322) | Vlado-V | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2329](https://github.com/CrocSwap/integer-mult-bounds/pull/2329) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2332](https://github.com/CrocSwap/integer-mult-bounds/pull/2332) | commdata2338 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2332](https://github.com/CrocSwap/integer-mult-bounds/pull/2332) | commdata2338 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2336](https://github.com/CrocSwap/integer-mult-bounds/pull/2336) | antunishdPursuit | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2337](https://github.com/CrocSwap/integer-mult-bounds/pull/2337) | SHIN09-git | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
 | [#2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |

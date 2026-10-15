@@ -2293,7 +2293,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2304,7 +2304,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2332.json"
+        "research/community-efficient1300-audit/packets/2332.json",
+        "research/community-efficient1300-audit/checks/check-2332.json"
       ]
     },
     {
@@ -2358,10 +2359,10 @@
           "login": "navinor",
           "name": "Aaron Wang"
         },
-        "headRefOid": "856cd7603ba679aa56294e53d60840061d176778",
+        "headRefOid": "564a72e7e2110190fe1dcb0e778e15be4e558ebc",
         "isDraft": false
       },
-      "reviewed_head": "856cd7603ba679aa56294e53d60840061d176778",
+      "reviewed_head": "564a72e7e2110190fe1dcb0e778e15be4e558ebc",
       "current_head": "856cd7603ba679aa56294e53d60840061d176778",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
