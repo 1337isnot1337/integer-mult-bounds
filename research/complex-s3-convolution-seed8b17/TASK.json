@@ -131,5 +131,16 @@
     "final_exact_term_other_matches": 0,
     "final_exact_term_search_note": "Only this claim matched the exact S3 terms; no other PR or discussion matched."
   },
-  "completed_at_utc": "2026-10-15T00:27:44Z"
+  "completed_at_utc": "2026-10-15T00:28:49Z",
+  "submission": {
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2224",
+    "state_at_recording": "open; mergeable; 61 hosted checks queued",
+    "head_commit": "b767ef166b6871c6965dce9b463432c665130024",
+    "updated_at_utc": "2026-10-15T00:28:49Z",
+    "remaining_obligations": [
+      "Hosted Python 3.12 registered replay",
+      "Selected-provider support mapping and complete implementation invoice",
+      "Exact division/precision implementation"
+    ]
+  }
 }
