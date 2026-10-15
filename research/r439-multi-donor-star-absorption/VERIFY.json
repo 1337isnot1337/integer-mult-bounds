@@ -19,7 +19,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Pin verification, complete multi-donor/multi-writer RREF and 890 dual-hyperplane witnesses across pr967/pr1062/pr1122, affine solution exhaustion on the 5 solvable edges, two-leaf and cross-centre chaining exclusions, 661-column forward/reverse literal COPY/ERASE and H2-tw/H4-tw/K-tw checks, xcheck_p.py owner check, and 8 negative controls."
+      "checks": "Pin verification, complete multi-donor/multi-writer RREF and 890 dual-hyperplane witnesses across pr967/pr1062/pr1122, affine solution exhaustion on the 5 solvable edges, two-leaf and cross-centre star-leaf-injection chaining exclusions, 661-column forward/reverse literal COPY/ERASE and H2-tw/H4-tw/K-tw checks, xcheck_p.py owner check, and 9 negative controls plus 1 positive valid-dual check."
     },
     {
       "argv": [

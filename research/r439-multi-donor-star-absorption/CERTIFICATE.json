@@ -9493,8 +9493,16 @@
       "paid profile changed from H2 to 2*H1"
     ],
     [
+      "valid_dual_hyperplane_witness",
+      "pass: target parity 1; orthogonal to 9 pool donors"
+    ],
+    [
       "corrupted_dual_hyperplane_witness",
-      "bad dual fails target parity"
+      "dual fails target parity"
+    ],
+    [
+      "corrupted_dual_orthogonality_witness",
+      "dual not orthogonal to donor (1276,262)"
     ],
     [
       "untwisted_d_splice_with_absorbed_a",

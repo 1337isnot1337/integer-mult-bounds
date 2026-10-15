@@ -41,7 +41,11 @@ class MultiDonorStarAbsorptionTests(unittest.TestCase):
             self.assertEqual(wrep["composed_all_5"]["net_add_delta"], -3)
             self.assertEqual(wrep["composed_gain1_3"]["paid_mass"], 5129)
             self.assertEqual(wrep["composed_all_5"]["paid_mass"], 5129)
+        by_name = dict(rep["controls"])
         self.assertGreaterEqual(len(rep["controls"]), 8)
+        self.assertTrue(by_name["valid_dual_hyperplane_witness"].startswith("pass: target parity 1; orthogonal to"))
+        self.assertEqual(by_name["corrupted_dual_hyperplane_witness"], "dual fails target parity")
+        self.assertTrue(by_name["corrupted_dual_orthogonality_witness"].startswith("dual not orthogonal to donor ("))
 
     def test_independent_dual_hyperplane_oracle_all_three_words(self):
         cert = json.loads((HERE / "CERTIFICATE.json").read_text(encoding="utf-8"))

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
 # Prepared by Aaron Wang, with help from opencode.
-"""Complete multi-donor, multi-writer helper-star absorption linear system and gain-0 chaining under fixed frames.
+"""Complete multi-donor, multi-writer helper-star absorption linear system and star-leaf-injection gain-0 chaining census under fixed frames.
 
 On the three pinned R439 helper-star words:
   - pr967:  research/r439-helper-stars-seed19/candidate.json.gz (11,783 ADDs, 221 star edges, 157 centres)
@@ -21,11 +21,14 @@ For every star centre a and every pre-first-read A write cluster W(a) (1 <= |W(a
        delta (-1 for the three PR1868 single-writer edges; 0 for 264^=536 and 326^=530).
   4. Tests cross-centre chaining by adjoining all leaf basis vectors {e_{b'} : (a', b') in E} of any unread
      star centre a' in P_mono(a), proving 0 additional solvable edges or two-leaf subsets on all three words.
+     Only these original star-leaf vectors are adjoined: intermediate defect vectors of in-flight multi-write
+     corrections at other centres (twist plus partial donor-toggle sums, generally different vectors) are
+     not modelled.
   5. Reconstructs and checks the composed 3-edge (-3 ADDs) and 5-edge (3 gain-1 + 2 gain-0, -3 ADDs) words
      on all 661 formal columns in both forward and reverse directions through the literal COPY/ERASE stream,
      verifies H2-tw / H4-tw / K-tw, runs the unchanged xcheck_p.py owner checker, and computes exact F/B
      precision envelopes and paid profiles.
-  6. Runs 8 negative/boundary controls. All checks use explicit ValueError guards so -O never weakens them.
+  6. Runs 9 negative/boundary controls and 1 positive valid-dual check. All checks use explicit ValueError guards so -O never weakens them.
 """
 import argparse
 import copy
@@ -251,6 +254,74 @@ def solve_or_dual(target_vec, pivots, pool):
     for _, _, _, vec in pool:
         need((dual_mask & vec).bit_count() & 1 == 0, "dual functional not orthogonal to donor pool")
     return False, None, dual_bits
+
+
+def build_mono_pool(w, a):
+    """Rebuild the real monotone_all donor pool P_mono(a), exactly as analyze_single_word does.
+
+    Returns [(i, r, r in S_i, val_i[r]), ...] over pre-first-read writes i to centre a.
+    """
+    v, R = w["v"], w["R"]
+    n = 2 * v + R
+    fs = [frozenset(f) for f in w["frames"]]
+    cur = list(w["start"])
+    for f, d, ss in w["D"]:
+        for r in (d, *ss):
+            cur[r] = f
+    val = [1 << r for r in range(n)]
+    a_vals_before = []
+    pre_frames = []
+    for f, d, ss in w["A"]:
+        pre_frames.append(list(cur))
+        for r in (d, *ss):
+            cur[r] = f
+        a_vals_before.append(list(val))
+        acc = 0
+        for s in ss:
+            acc ^= val[s]
+        val[d] ^= acc
+    nxt = list(w["final"])
+    next_touch = [[0] * n for _ in range(len(w["A"]))]
+    for sec in ("C", "B"):
+        for f, d, ss in reversed(w[sec]):
+            for r in (d, *ss):
+                nxt[r] = f
+    for i in range(len(w["A"]) - 1, -1, -1):
+        f, d, ss = w["A"][i]
+        next_touch[i] = list(nxt)
+        for r in (d, *ss):
+            nxt[r] = f
+    first_read = len(w["A"])
+    for i, (_, _, ss) in enumerate(w["A"]):
+        if a in ss:
+            first_read = i
+            break
+    pool = []
+    for i in range(first_read):
+        f_i, d_i, ss_i = w["A"][i]
+        if d_i != a:
+            continue
+        for r in range(n):
+            if r == a or (v <= r < 2 * v):
+                continue
+            f_pre = pre_frames[i][r]
+            f_nxt = next_touch[i][r]
+            if (fs[f_pre] <= fs[f_i]) and (fs[f_i] <= fs[f_nxt]):
+                pool.append((i, r, r in ss_i, a_vals_before[i][r]))
+    return pool
+
+
+def dual_witness_verdict(dual_bits, target_mask, pool):
+    """Real dual-hyperplane predicate over a donor pool: target parity first, then
+    orthogonality to every pool vector. Returns a pass summary, or raises ValueError
+    at the first failed check (never unconditionally)."""
+    dmask = 0
+    for b in dual_bits:
+        dmask |= 1 << b
+    need((dmask & target_mask).bit_count() & 1 == 1, "dual fails target parity")
+    for i, r, _, vec in pool:
+        need((dmask & vec).bit_count() & 1 == 0, f"dual not orthogonal to donor ({i},{r})")
+    return f"pass: target parity 1; orthogonal to {len(pool)} pool donors"
 
 
 def verify_twisted_contract(w_parent, w_abs, omitted_edges):
@@ -634,23 +705,42 @@ def run_controls(w1062, cert_pr1062, owner_mod):
         lambda: need(own_early["profile"] == EXPECTED_PROFILE, "paid profile changed from H2 to 2*H1"),
     )
 
-    # 7. Corrupted multi-bit dual hyperplane witness rejected
+    # 7. Real target-parity/donor-orthogonality dual predicate over the actual P_mono(a)
+    #    donor pool of the chosen witness centre: the certified valid dual passes both
+    #    checks, and corrupted duals fail the same predicate at a specific check
+    #    (target parity or donor orthogonality) -- never an unconditional throw.
     multi_dual = next(d for d in cert_pr1062["modes"]["monotone_all"]["dual_witnesses"] if len(d["dual_support"]) >= 2)
-    bad_bits = multi_dual["dual_support"][:-1]
+    valid_bits = list(multi_dual["dual_support"])
     target_mask = 0
     for b in multi_dual["leaves"]:
         target_mask |= (1 << b)
+    pool = build_mono_pool(w1062, multi_dual["center"])
+    controls.append(["valid_dual_hyperplane_witness", dual_witness_verdict(valid_bits, target_mask, pool)])
 
     def check_bad_dual():
-        # Re-verify against target_mask and donor pool of multi_dual["center"]
-        dmask = 0
-        for b in bad_bits:
-            dmask |= (1 << b)
-        need((dmask & target_mask).bit_count() & 1 == 1, "bad dual fails target parity")
-        # If target parity still 1, it must fail orthogonality on at least one donor in P_mono(a)
-        raise ValueError("corrupted dual witness rejected")
+        # Shipped corruption: drop the last support bit; fails the predicate at its
+        # first failed check (target parity on the pinned witness).
+        dual_witness_verdict(valid_bits[:-1], target_mask, pool)
 
     expect_reject("corrupted_dual_hyperplane_witness", check_bad_dual)
+
+    # Parity-preserving corruption: add a pool-carried non-leaf bit, so the dual keeps
+    # target parity 1 and must be rejected by the donor-orthogonality check itself.
+    n_regs = 2 * w1062["v"] + w1062["R"]
+    extra = next(
+        (
+            b
+            for b in range(n_regs)
+            if b not in valid_bits and b not in multi_dual["leaves"] and any((vec >> b) & 1 for _, _, _, vec in pool)
+        ),
+        None,
+    )
+    need(extra is not None, "no pool bit available for a parity-preserving dual corruption")
+
+    def check_bad_dual_orthogonal():
+        dual_witness_verdict(sorted(valid_bits + [extra]), target_mask, pool)
+
+    expect_reject("corrupted_dual_orthogonality_witness", check_bad_dual_orthogonal)
 
     # 8. Original untwisted D spliced with absorbed A' and C fails helper restoration
     w_untwisted_d = apply_absorptions(w1062, [(506, 374, 288, [69])])
