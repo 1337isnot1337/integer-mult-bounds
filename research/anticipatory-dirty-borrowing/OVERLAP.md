@@ -40,3 +40,10 @@ updated PR620 body. PR2219 changes a P104 private descent, with its public
 helper still allocated; it does not reuse restored P112 cold helpers or alter
 the reference as this witness does. PR2220 refines outer numerical slacks on
 an unchanged supplier and supplies no competing structural component here.
+
+The immediate submission refresh covered 460 open PRs, including
+this campaign's separate decoder submissions #2222 and #2225. Their presence
+is recorded as related work, not as independent priority evidence.
+
+New PR2224 gives a rational S3 convolution bilinear block and an ideal local
+profile screen. It does not change helper references or give this alias word.

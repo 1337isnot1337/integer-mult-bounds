@@ -1,9 +1,27 @@
 {
   "retrieved_utc": "2026-10-15",
-  "open_count": 457,
-  "source_snapshot_sha256": "d64ae32401bc80c93e686131d9e6dc3f24dfc8c95a38b810f64649a5331d9688",
+  "open_count": 460,
+  "source_snapshot_sha256": "b0d5af84b8f99aa91da6c6cda02fd0c5697f6b3e93e7ae9fc9081ecbe56bba18",
   "coverage": "all open titles/bodies including drafts; detailed related claims; no all-diff review",
   "open_prs": [
+    {
+      "number": 2225,
+      "title": "Research: complementary even-subset dyadic kernels and exact support spans (no new kappa)",
+      "head": "79b4285db8d278357ac3b6cf5d05ecc137de2499",
+      "body_sha256": "e7ce2bf61d113809c8f638a3e1bde07237eea5fa638d2fb76a6f6bcc57cf75f3"
+    },
+    {
+      "number": 2224,
+      "title": "Research: exact rank-nine S3 convolution block screen",
+      "head": "de6310e495c94c7553dc353b7a58aa117af4271b",
+      "body_sha256": "56b52e4b6114b602ff354abee7c377aded1545d0bdfd049bcf3b699fb8c68050"
+    },
+    {
+      "number": 2222,
+      "title": "Research: dyadic norm-six lattice decoder and 49-bit chart (no new kappa)",
+      "head": "82cf756186c0fc2c542fcd06e486c575d97ffc5c",
+      "body_sha256": "209064acff76e1f5c483c0afb4caf9df5f9e57a61c66165e64d6307b45b9b39c"
+    },
     {
       "number": 2220,
       "title": "Conditional \u03ba = 0.001679754956125544521335670993920702576998311438502580295460327520162864548260325638826305656132844: recertified 1e-60000 supplier endpoint, fixed-grid-maximum kappa C - 1/F - B at 1e-60080 slacks (PR2180 / PR2161 retune)\u2026",
@@ -13,7 +31,7 @@
     {
       "number": 2219,
       "title": "Record P104 private descent fanout reuse construction",
-      "head": "121b7f1c8b664ae41820e35ba2201423ab21db8b",
+      "head": "3f913bc17276b68f0c9008a1202b6ce588e77ff6",
       "body_sha256": "3fd8fd292a91af66e17bddff823127f13489a6c1659f7898749122ed05fe82e8"
     },
     {
