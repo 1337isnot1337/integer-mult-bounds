@@ -65,21 +65,21 @@ class OverlapTests(unittest.TestCase):
             calls.append(variables)
             if 'repository(owner:' in query:
                 return {"repository": {"discussions": page([
-                    {"id": "D", "number": 1, "title": "thread", **comment("topic")}
+                    {"id": "D", "number": 1, "title": "thread", **comment("topic"),
+                     "comments": page([
+                         {"id": "C", **comment("first claim"),
+                          "replies": page([comment("early reply")], True)}
+                     ], True)}
                 ] if variables["cursor"] is None else [], variables["cursor"] is None)}}
             if "... on DiscussionComment" in query:
                 return {"node": {"replies": page([comment("late reply claim")])}}
-            if variables["cursor"] is None:
-                return {"node": {"comments": page([
-                    {"id": "C", **comment("first claim"), "replies": page([comment("early reply")], True)}
-                ], True)}}
             return {"node": {"comments": page([
                 {"id": "C2", **comment("late claim"), "replies": page([])}
             ])}}
         with patch.object(overlap, "graphql", side_effect=api):
             records = overlap.fetch_discussions()
         self.assertEqual(len(records), 5)
-        self.assertEqual(len(calls), 5)
+        self.assertEqual(len(calls), 4)
         self.assertIn("late reply claim", [r["body"] for r in records])
         self.assertIn("late claim", [r["body"] for r in records])
 

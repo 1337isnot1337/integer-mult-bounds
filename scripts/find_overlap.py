@@ -127,9 +127,14 @@ def fetch_discussions():
     while True:
         result = graphql('''query($cursor:String) {
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
-            discussions(first:50,after:$cursor) {
+            discussions(first:10,after:$cursor) {
               pageInfo {hasNextPage endCursor}
-              nodes {id number title body url updatedAt}
+              nodes {id number title body url updatedAt comments(first:25) {
+                pageInfo {hasNextPage endCursor}
+                nodes {id body url updatedAt replies(first:10) {
+                  pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
+                }}
+              }}
             }
           }
         }''', {"cursor": cursor})["repository"]["discussions"]
@@ -137,18 +142,11 @@ def fetch_discussions():
             common = {"number": discussion["number"], "title": discussion["title"]}
             records.append({**common, "kind": "discussion", "body": discussion["body"],
                             "url": discussion["url"], "updated_at": discussion["updatedAt"]})
-            comment_cursor = None
+            # Batch small first pages without a process/API round trip for
+            # every discussion. The worst-case nested node count is only
+            # 10 + 10*25 + 10*25*10 = 2760; busy threads still page fully.
+            connection = discussion["comments"]
             while True:
-                connection = graphql('''query($id:ID!, $cursor:String) {
-                  node(id:$id) { ... on Discussion {
-                    comments(first:100,after:$cursor) {
-                      pageInfo {hasNextPage endCursor}
-                      nodes {id body url updatedAt replies(first:100) {
-                        pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
-                      }}
-                    }
-                  }}
-                }''', {"id": discussion["id"], "cursor": comment_cursor})["node"]["comments"]
                 for comment in connection["nodes"]:
                     records.append({**common, "kind": "discussion-comment", "body": comment["body"],
                                     "url": comment["url"], "updated_at": comment["updatedAt"]})
@@ -168,7 +166,17 @@ def fetch_discussions():
                         }''', {"id": comment["id"], "cursor": replies["pageInfo"]["endCursor"]})["node"]["replies"]
                 if not connection["pageInfo"]["hasNextPage"]:
                     break
-                comment_cursor = connection["pageInfo"]["endCursor"]
+                connection = graphql('''query($id:ID!, $cursor:String) {
+                  node(id:$id) { ... on Discussion {
+                    comments(first:100,after:$cursor) {
+                      pageInfo {hasNextPage endCursor}
+                      nodes {id body url updatedAt replies(first:100) {
+                        pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
+                      }}
+                    }
+                  }}
+                }''', {"id": discussion["id"],
+                       "cursor": connection["pageInfo"]["endCursor"]})["node"]["comments"]
         if not result["pageInfo"]["hasNextPage"]:
             return records
         cursor = result["pageInfo"]["endCursor"]
