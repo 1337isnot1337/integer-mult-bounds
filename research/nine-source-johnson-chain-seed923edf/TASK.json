@@ -83,9 +83,18 @@
       "scope_key": "0e34adbc1dd119161c3a"
     }
   ],
-  "claim_status": "local-only-unposted-graphql-refresh-hung",
+  "claim_status": "local-only-unposted; result submitted as PR #2296",
   "claim_expiry_utc": "2026-10-15T05:45:00Z",
   "claim_text_path": "CLAIM.md",
+  "submission": {
+    "pull_request": 2296,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2296",
+    "state": "OPEN",
+    "head": "b4af93f238e69ccf000eb9e90030be4c01cda391",
+    "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "mergeable": true,
+    "hosted_checks": "queued at initial submission check"
+  },
   "overlap_snapshot": {
     "checked_at_utc": "2026-10-15T03:44:32Z",
     "open_prs": 511,

@@ -1,10 +1,13 @@
 # Cycle 32 local research claim
 
-**Status:** LOCAL-ONLY; the authenticated GraphQL overlap refresh hung and was
-stopped after about two minutes, and the final pre-submission retry produced
-no output before timing out after 50 seconds at 03:56 UTC on 2026-10-15. A prior
-direct REST Discussions comment attempt returned 404. No public claim was
-posted.
+**Status:** RESULT SUBMITTED as [PR #2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296).
+The PR was open and mergeable at head `b4af93f238e69ccf000eb9e90030be4c01cda391`
+against base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`; hosted checks were
+queued when checked. The public Discussion claim remains local-only: the
+authenticated GraphQL overlap refresh hung and was stopped after about two
+minutes, the final pre-submission retry produced no output before timing out
+after 50 seconds at 03:56 UTC on 2026-10-15, and a prior direct REST Discussions
+comment attempt returned 404. No public claim was posted.
 
 - **Track / task / seed:** `recursive-interfaces` / `connector-alphabet-change` /
   `923edf31ad6e8cfdc58bb11a6c6d6b3d`.
@@ -45,7 +48,8 @@ posted.
   unpriced, so no recursive supplier or kappa is claimed.
 - **Expected evidence:** A standalone verifier, exact source/readout word,
   arbitrary dirty-state replay, lower-bound argument, negative controls,
-  complete provenance pins, and a focused package PR if overlap remains clear.
+  complete provenance pins, and a focused package PR. Submitted as PR #2296;
+  hosted checks were queued when checked.
 - **Relevant work and distinction:** Open PR #2208 (head
   `28480ef4fdb4caeab89765ea56595bf1f6f37688`) develops all-word two-root
   dirty-connector bounds and an exact minimum-read compiler for supplied source
@@ -62,7 +66,8 @@ posted.
   04:00 UTC found no `J(9,5)`, exact five-mask or "nine-source Johnson-chain"
   match. The complete cached snapshot covered 511 open PRs and 990 Discussions
   (PR data 03:42 UTC; Discussion data 03:26 UTC, 2026-10-15).
-- **Expiry:** 2026-10-15 05:45 UTC.
+- **Expiry:** The local claim is released on completion; the recorded planning
+  expiry was 2026-10-15 05:45 UTC.
 
 The selected conditional result is `836330098538459/500000000000000000` at
 this base, reviewed in `docs/research/community-batch1099-review.md`; the
