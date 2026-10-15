@@ -12,3 +12,13 @@ PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 2400 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p112-shared-correction-cost-audit', '--check-only']
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2389 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/qq16-adaptive-coordinate-reads', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2391 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/selected-centre-quarter-native', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2392 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p104-no-relay-cover-audit', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2393 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p104-y0-source-acquisition', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2395 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p112-cross-form-rank-tradeoff', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)

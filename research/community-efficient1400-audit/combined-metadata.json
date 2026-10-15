@@ -84,8 +84,68 @@
         "--check-only"
       ],
       "exit_code": 0
+    },
+    {
+      "number": 2389,
+      "head": "aed06c8f8d60ce97b7eb3a7c6c17ad12cbe1e863",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/qq16-adaptive-coordinate-reads",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2391,
+      "head": "5efcbb6058d27aa8b988db8f18c7b678166b2783",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/selected-centre-quarter-native",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2392,
+      "head": "2134975a339ccb6d011e2794d0382e2895fdf8e8",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p104-no-relay-cover-audit",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2393,
+      "head": "8b3e3a22c9e957990863ef60a561072dfcf08271",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p104-y0-source-acquisition",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2395,
+      "head": "361de309e5fc05f83862f0b6c611210eda9837a1",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-cross-form-rank-tradeoff",
+        "--check-only"
+      ],
+      "exit_code": 0
     }
   ],
-  "log_sha256": "82fed10c4a19751d6b63f14b682523b0719f686f540ea5bf64c7f56d50b79dfd",
+  "log_sha256": "772d60cebe9af790d1ff2a84c818b0c0136c6ca80e0137c6610af25bd93046ea",
   "scope": "Registered metadata/source-pin preflight only; mathematical execution is in separate check receipts."
 }

@@ -43,6 +43,84 @@
       "actual": "327d2a868043e846381aa58a33053c24425e8cad522ff401b10ec8af1d649a3f"
     },
     {
+      "number": 2389,
+      "path": "research/community-frontier1042-audit/selected-replay.tar.gz",
+      "expected": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+      "actual": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754"
+    },
+    {
+      "number": 2389,
+      "path": "research/joint-query/certificate.json.gz",
+      "expected": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+      "actual": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7"
+    },
+    {
+      "number": 2389,
+      "path": "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+      "expected": "9e13e73ebf3192a6548798c2f1d13bd4d83957e8db0dc34de12b1a5311a52a75",
+      "actual": "9e13e73ebf3192a6548798c2f1d13bd4d83957e8db0dc34de12b1a5311a52a75"
+    },
+    {
+      "number": 2389,
+      "path": "research/joint-query/evidence/QQ16-SELECTED-WITNESS.json",
+      "expected": "e35e5868a1322e406191079c0675975b139692ba50b1e2e5fb8a40b6480519f4",
+      "actual": "e35e5868a1322e406191079c0675975b139692ba50b1e2e5fb8a40b6480519f4"
+    },
+    {
+      "number": 2391,
+      "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
+      "expected": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+      "actual": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
+    },
+    {
+      "number": 2391,
+      "path": "research/frontier1094-recipes-exact-seed76/clifford.py",
+      "expected": "d5e42ddabd141b7bfbd70fe13908f3c3a06aeccebeab90623596bfb1988b97fb",
+      "actual": "d5e42ddabd141b7bfbd70fe13908f3c3a06aeccebeab90623596bfb1988b97fb"
+    },
+    {
+      "number": 2391,
+      "path": "research/joint-query/evidence/BRIDGE-REVIEW.md",
+      "expected": "d01b5f4959f7c91f835496d050dfae3eeab9dee2f581571c316a42571eaa1cd3",
+      "actual": "d01b5f4959f7c91f835496d050dfae3eeab9dee2f581571c316a42571eaa1cd3"
+    },
+    {
+      "number": 2391,
+      "path": "research/joint-query/evidence/QQ16-COVER-ACTION-ADDENDUM.md",
+      "expected": "4bb4a68d8b4811b6d8364150612056bc124d38f1974d6f603dae68a99c4682fb",
+      "actual": "4bb4a68d8b4811b6d8364150612056bc124d38f1974d6f603dae68a99c4682fb"
+    },
+    {
+      "number": 2392,
+      "path": "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+      "expected": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e",
+      "actual": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e"
+    },
+    {
+      "number": 2392,
+      "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+      "expected": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4",
+      "actual": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
+    },
+    {
+      "number": 2393,
+      "path": "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
+      "expected": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e",
+      "actual": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e"
+    },
+    {
+      "number": 2393,
+      "path": "research/p104-native-channel/inputs/P104-FIXTURE.json",
+      "expected": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4",
+      "actual": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
+    },
+    {
+      "number": 2395,
+      "path": "research/p112-single-lift/reference-geometry.json",
+      "expected": "4f44af368e046002553d632ee90c6470990827cea3fae41f0f54018522d7a080",
+      "actual": "4f44af368e046002553d632ee90c6470990827cea3fae41f0f54018522d7a080"
+    },
+    {
       "number": 2397,
       "path": "research/universal-connector-boundary/CERTIFICATE.json",
       "expected": "e733746ba3e5151c829b4e8728bfff5ae3ed24d8d203eb77c735d20758e8266a",
