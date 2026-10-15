@@ -32,6 +32,20 @@ domain, with exact arithmetic:
 This is a finite census, not a proof of `cost >= v` at T = 3 and not a general statement about
 classical configurations.
 
+**Nearest overlapping work (found at the pre-submission overlap refresh; credit below).**
+[PR 2274](https://github.com/CrocSwap/integer-mult-bounds/pull/2274) (thakrarsagar, claim
+[#1163 comment 18936306](https://github.com/CrocSwap/integer-mult-bounds/discussions/1163#discussioncomment-18936306))
+already treats **the same object** (Desargues 10_3 and Pappus 9_3 as T = 3 decoder atoms) by a
+different method: frame-universal char-2 (CR2) certificates, which give `cost >= v` for every
+configuration of non-incident pairs in a certified frame, **conditional on Lemma CR2 of #2162**,
+plus exact pairing-cost minima only for the 18 enumerable non-CR2 instances of one special
+Pappus frame. This package is an independent, unconditional corroboration by direct exact
+enumeration of raw pairing costs over all admissible `B`: it carries no CR2 premise, covers
+1.3M small sub-configuration instances across both geometries (including the exhaustive
+`v <= 4` census and tight-atom counts that PR 2274 does not compute), and adds the full
+pair-set landscape. Neither result implies the other; PR 2274's frame-conditional coverage is
+far broader in `v`.
+
 ## Model
 
 The model is exactly the one of
@@ -149,7 +163,13 @@ are DreamingOfClouds' ([#2111](https://github.com/CrocSwap/integer-mult-bounds/p
 [#2162](https://github.com/CrocSwap/integer-mult-bounds/pull/2162),
 [comment 18932893](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-18932893)
 item 4); the Hesse-configuration experiment of #2111 section G7 is the model precedent for
-drawing configurations from a classical geometry's point/line pairs. The two control fixtures
+drawing configurations from a classical geometry's point/line pairs. **thakrarsagar's
+[PR 2274](https://github.com/CrocSwap/integer-mult-bounds/pull/2274)**
+(`research/three-total-classical-configs`, claim
+[#1163 comment 18936306](https://github.com/CrocSwap/integer-mult-bounds/discussions/1163#discussioncomment-18936306))
+covers the same Pappus/Desargues object by frame-universal CR2 certificates conditional on
+#2162's Lemma CR2; this package is a method-independent corroboration on its own bounded
+domain, and that predecessor is not superseded by it. The two control fixtures
 are vendored unmodified from the #2111 head `98da76c2839ba38538b510420dec54546ccabf0b`
 (`research/three-total-decoders/data/cex_wholeTS_v9.json`, git blob
 `a843cce049a2aadd5352763edeedd911cc2ebd1e`, SHA-256
