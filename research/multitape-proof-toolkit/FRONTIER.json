@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "repository": "CrocSwap/integer-mult-bounds",
+  "refresh": {
+    "main": "8e22a9d9f621c72ab5b299061c2be4c7f638fd3c",
+    "retrieved": "2026-10-15T20:59:08.669Z",
+    "cutoff": "2026-10-14T00:00:00Z",
+    "pages": 19,
+    "complete": true,
+    "prs": 1898,
+    "hits": 1744,
+    "latest": 2767,
+    "scope": "All updated metadata since cutoff; actual source review recorded separately. No novelty completeness claim."
+  },
+  "scope": "All updated metadata retrieved; only the selected actual sources in reviews were compared. Not exhaustive semantic coverage, complete diffs, historical work or Discussions.",
+  "reviewed_prs": [
+    {
+      "number": 2411,
+      "title": "[Lean] Link an end-to-end proof of multiplication below n log n",
+      "head": "c284cdf993353b61e9582607e9322ec65746c50f",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2411"
+    },
+    {
+      "number": 2235,
+      "title": "Add verified multitape foundations, compilers, dirty-frame callers and quadratic multiplication output",
+      "head": "e5a5d0651003e8774e98121250203b35c236b02b",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2235"
+    },
+    {
+      "number": 2636,
+      "title": "Implement linear aggregate padding on fixed bit tapes",
+      "head": "c1e173b7af38603bc7660a8829e75006e93645d3",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2636"
+    },
+    {
+      "number": 2635,
+      "title": "Implement finite two-tape control for nested parking frames",
+      "head": "1662dda699d9ea57b3fb13a23873b087d765149f",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2635"
+    },
+    {
+      "number": 2531,
+      "title": "Decode HPE Lean recipe literals as UTF-8 on Windows",
+      "head": "2dfb25cd3c762a2b24ba732a28bb21e4d331687a",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2531"
+    },
+    {
+      "number": 2439,
+      "title": "[Lean] Execute paid exponent widening and half-source addition",
+      "head": "4bbcd5ec320eff1deb0240fcc8a12e5919564741",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2439"
+    },
+    {
+      "number": 2438,
+      "title": "[Lean] Return reusable dyadic output with paid copy and sign split",
+      "head": "3e4399b276d663f8716b17c7758b597f96503675",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2438"
+    },
+    {
+      "number": 2425,
+      "title": "[Lean] Decode compact bytes and recover the L450 source operator",
+      "head": "8ac792828e70a90beda501749608d31ef7d9250a",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2425"
+    },
+    {
+      "number": 2418,
+      "title": "[Lean] Pay positioned paired-track acquisition and global return",
+      "head": "ddaf7234581133ec0c15496f4dfc65570aef401c",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2418"
+    },
+    {
+      "number": 2410,
+      "title": "[Lean] Check original PR1942 chart witnesses and strict envelope",
+      "head": "4c07034bcda475ba4063d3a137c0815291a7480c",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2410"
+    },
+    {
+      "number": 2404,
+      "title": "Formalize normal-class rank and complete count/price bounds in Lean",
+      "head": "d7db77c9e3f19fd1196393c045e597539fdcfc8a",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2404"
+    },
+    {
+      "number": 2371,
+      "title": "[Lean] Bind exact L450 fragment bytes to checked chart payload",
+      "head": "5bbe542064308dbc10f50582c05116ebd0925223",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2371"
+    }
+  ],
+  "novelty_claim": false,
+  "discussion_scope": "Public first-page index, start-here1163 and handoff1166 read; not all comments or historical discussions."
+}
