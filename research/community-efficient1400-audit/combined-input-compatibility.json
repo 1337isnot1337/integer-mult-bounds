@@ -37,6 +37,42 @@
       "actual": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
     },
     {
+      "number": 2384,
+      "path": "research/community-frontier1042-audit/selected-replay.tar.gz",
+      "expected": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+      "actual": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754"
+    },
+    {
+      "number": 2384,
+      "path": "research/joint-query/certificate.json.gz",
+      "expected": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+      "actual": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7"
+    },
+    {
+      "number": 2384,
+      "path": "research/joint-query/evidence/CONSERVED-QQ16.md",
+      "expected": "60f0de3a7205ba5046b5ae7ffa8bf2b1ea42ea46b498face0a77966b59e7f3fb",
+      "actual": "60f0de3a7205ba5046b5ae7ffa8bf2b1ea42ea46b498face0a77966b59e7f3fb"
+    },
+    {
+      "number": 2384,
+      "path": "research/joint-query/evidence/JOINT-QUERY-TRANSFER.md",
+      "expected": "9e13e73ebf3192a6548798c2f1d13bd4d83957e8db0dc34de12b1a5311a52a75",
+      "actual": "9e13e73ebf3192a6548798c2f1d13bd4d83957e8db0dc34de12b1a5311a52a75"
+    },
+    {
+      "number": 2384,
+      "path": "research/joint-query/evidence/QQ16-COVER-ACTION-ADDENDUM.md",
+      "expected": "4bb4a68d8b4811b6d8364150612056bc124d38f1974d6f603dae68a99c4682fb",
+      "actual": "4bb4a68d8b4811b6d8364150612056bc124d38f1974d6f603dae68a99c4682fb"
+    },
+    {
+      "number": 2384,
+      "path": "research/joint-query/evidence/QQ16-SELECTED-WITNESS.json",
+      "expected": "e35e5868a1322e406191079c0675975b139692ba50b1e2e5fb8a40b6480519f4",
+      "actual": "e35e5868a1322e406191079c0675975b139692ba50b1e2e5fb8a40b6480519f4"
+    },
+    {
       "number": 2385,
       "path": "research/direct-delivery504-global/inputs/hamming/PROTOTYPE.json",
       "expected": "327d2a868043e846381aa58a33053c24425e8cad522ff401b10ec8af1d649a3f",
@@ -161,6 +197,48 @@
       "path": "research/paired-plane-scalar-mask-obstruction/README.md",
       "expected": "355f6e6b61a858c75143f0ac2c2338af089e2e9390c8caa7ecd4ebc71dd4019c",
       "actual": "355f6e6b61a858c75143f0ac2c2338af089e2e9390c8caa7ecd4ebc71dd4019c"
+    },
+    {
+      "number": 2407,
+      "path": "research/e8-bit-carrier-skeleton/code/bit/export_records.py",
+      "expected": "8a5999601f917dbb492bb9ae9a344611f18cc7cedc53dc3c76496a369e530eb3",
+      "actual": "8a5999601f917dbb492bb9ae9a344611f18cc7cedc53dc3c76496a369e530eb3"
+    },
+    {
+      "number": 2407,
+      "path": "research/e8-bit-p111-tuned/code/xcheck_p.py",
+      "expected": "af3decc877e27c00001cf56f50c6c09566e8e101297ab34c7860aed96a06d80e",
+      "actual": "af3decc877e27c00001cf56f50c6c09566e8e101297ab34c7860aed96a06d80e"
+    },
+    {
+      "number": 2407,
+      "path": "research/r439-bsection-stars-seed01/candidate.json.gz",
+      "expected": "b452d2c2b0b2a546d1105b1da9769aa78e5c54d6f00e97b30c77e3f54ce445ee",
+      "actual": "b452d2c2b0b2a546d1105b1da9769aa78e5c54d6f00e97b30c77e3f54ce445ee"
+    },
+    {
+      "number": 2415,
+      "path": "research/four-swap-full-occupancy/README.md",
+      "expected": "82bdfbfb517505ef6783cb82e2718975876276075fe3dba26959df514f984f60",
+      "actual": "82bdfbfb517505ef6783cb82e2718975876276075fe3dba26959df514f984f60"
+    },
+    {
+      "number": 2415,
+      "path": "research/symmetric-adjacent-cut-bound/PROOF.md",
+      "expected": "008be68867a8e85f4e18455d206e03f20aebfc28e9f08efba576180e7e1edc50",
+      "actual": "008be68867a8e85f4e18455d206e03f20aebfc28e9f08efba576180e7e1edc50"
+    },
+    {
+      "number": 2419,
+      "path": "research/community-frontier1042-audit/selected-replay.tar.gz",
+      "expected": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+      "actual": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754"
+    },
+    {
+      "number": 2419,
+      "path": "research/joint-query/certificate.json.gz",
+      "expected": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7",
+      "actual": "a5ed85fac5ebf3c091482a113ab0d351eb5a7892fe2841a35e16017ec1ff49f7"
     }
   ],
   "mismatches": []

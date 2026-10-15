@@ -38,6 +38,18 @@
       "exit_code": 0
     },
     {
+      "number": 2384,
+      "head": "b9ef408b1cb0fcd34ab1f1bdbe645573d5de188f",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/qq16-66port-second-axis",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
       "number": 2385,
       "head": "3fa1c93c8c66ada108336b99add7db927ea9fa1f",
       "command": [
@@ -45,42 +57,6 @@
         "scripts/research_package.py",
         "--package",
         "research/p112-coefficient-copy-floor",
-        "--check-only"
-      ],
-      "exit_code": 0
-    },
-    {
-      "number": 2397,
-      "head": "5a306ee4115848883ff297adbec59e81ab85f14b",
-      "command": [
-        "/tmp/pr-efficient200-venv/bin/python",
-        "scripts/research_package.py",
-        "--package",
-        "research/seven-source-18event-connector",
-        "--check-only"
-      ],
-      "exit_code": 0
-    },
-    {
-      "number": 2398,
-      "head": "8051d99dfd91a788d25bfc92c3863a33c658a5a9",
-      "command": [
-        "/tmp/pr-efficient200-venv/bin/python",
-        "scripts/research_package.py",
-        "--package",
-        "research/p112-overcomplete-factor-spaces",
-        "--check-only"
-      ],
-      "exit_code": 0
-    },
-    {
-      "number": 2400,
-      "head": "ca5baa17182636a35536c1605a2d2da550e715b7",
-      "command": [
-        "/tmp/pr-efficient200-venv/bin/python",
-        "scripts/research_package.py",
-        "--package",
-        "research/p112-shared-correction-cost-audit",
         "--check-only"
       ],
       "exit_code": 0
@@ -144,8 +120,80 @@
         "--check-only"
       ],
       "exit_code": 0
+    },
+    {
+      "number": 2397,
+      "head": "5a306ee4115848883ff297adbec59e81ab85f14b",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/seven-source-18event-connector",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2398,
+      "head": "8051d99dfd91a788d25bfc92c3863a33c658a5a9",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-overcomplete-factor-spaces",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2400,
+      "head": "ca5baa17182636a35536c1605a2d2da550e715b7",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-shared-correction-cost-audit",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2407,
+      "head": "4944211cee666eb8631b990cb0f33cfa68666485",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/r439-single-copy-interleaving",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2415,
+      "head": "7b9997ba2ca13be75dfc423642e2ce6b8ed18d6e",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/gl2-swap-cut-corollary",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2419,
+      "head": "e2d7d53f92e84ce092cf33e5ab8ff89063d6ecb4",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/qq16-readset-matroid-independent",
+        "--check-only"
+      ],
+      "exit_code": 0
     }
   ],
-  "log_sha256": "772d60cebe9af790d1ff2a84c818b0c0136c6ca80e0137c6610af25bd93046ea",
+  "log_sha256": "b00255508a766ef334c93b67266cea782d31aefd400d1188bc015503700cd06d",
   "scope": "Registered metadata/source-pin preflight only; mathematical execution is in separate check receipts."
 }

@@ -716,7 +716,9 @@ Original contributor commits and predecessor notices are preserved. These are sc
 
 - **navinor** — [#2379](https://github.com/CrocSwap/integer-mult-bounds/pull/2379), [#2391](https://github.com/CrocSwap/integer-mult-bounds/pull/2391).
 - **theon199** — [#2382](https://github.com/CrocSwap/integer-mult-bounds/pull/2382).
-- **commdata2338** — [#2383](https://github.com/CrocSwap/integer-mult-bounds/pull/2383), [#2385](https://github.com/CrocSwap/integer-mult-bounds/pull/2385), [#2389](https://github.com/CrocSwap/integer-mult-bounds/pull/2389), [#2392](https://github.com/CrocSwap/integer-mult-bounds/pull/2392), [#2393](https://github.com/CrocSwap/integer-mult-bounds/pull/2393), [#2395](https://github.com/CrocSwap/integer-mult-bounds/pull/2395), [#2397](https://github.com/CrocSwap/integer-mult-bounds/pull/2397), [#2398](https://github.com/CrocSwap/integer-mult-bounds/pull/2398), [#2400](https://github.com/CrocSwap/integer-mult-bounds/pull/2400).
+- **commdata2338** — [#2383](https://github.com/CrocSwap/integer-mult-bounds/pull/2383), [#2384](https://github.com/CrocSwap/integer-mult-bounds/pull/2384), [#2385](https://github.com/CrocSwap/integer-mult-bounds/pull/2385), [#2389](https://github.com/CrocSwap/integer-mult-bounds/pull/2389), [#2392](https://github.com/CrocSwap/integer-mult-bounds/pull/2392), [#2393](https://github.com/CrocSwap/integer-mult-bounds/pull/2393), [#2395](https://github.com/CrocSwap/integer-mult-bounds/pull/2395), [#2397](https://github.com/CrocSwap/integer-mult-bounds/pull/2397), [#2398](https://github.com/CrocSwap/integer-mult-bounds/pull/2398), [#2400](https://github.com/CrocSwap/integer-mult-bounds/pull/2400).
+- **RossRichardson** — [#2407](https://github.com/CrocSwap/integer-mult-bounds/pull/2407), [#2415](https://github.com/CrocSwap/integer-mult-bounds/pull/2415).
+- **thakrarsagar** — [#2419](https://github.com/CrocSwap/integer-mult-bounds/pull/2419).
 
 Pending contributors and their obligations are listed in the review. A hold is not a rejection.
 
