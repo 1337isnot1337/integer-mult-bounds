@@ -88,6 +88,13 @@ fails each native formal-column check. The uncut failure can be reproduced
 using `--candidate data/optimum.json.gz --recipe data/optimum-recipe.json
 --expect-prefix-rejection`, with those artifact paths prefixed by this package.
 
+The [dedicated CI workflow](../../.github/workflows/r420-forest-cut-budget.yml)
+requires finite reconstruction, all controls, the pinned Lean proof and both
+native replay modes in one Linux job. It checks the submitted PR head and
+retains its file inventory, environment, logs and native receipts as artifacts.
+[Review coverage](REVIEW.md) maps these checks to the complete submitted
+package and records the local follow-up to PR #774.
+
 ## Why the transformation works
 
 Let K_i be the helper support of target i's original compensation. Choose
