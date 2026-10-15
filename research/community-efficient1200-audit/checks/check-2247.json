@@ -19,10 +19,11 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 300.041,
-  "status": "budget_deferred",
+  "seconds": 603.225,
+  "status": "passed",
   "exit_codes": [
-    null
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -344,6 +345,8 @@
     "research/root-unit-decoder-lemmas/lib/fx.py": "3048fc357bda78b0ba2a92fdd43c07bc75a1d620f2da63bec22bf56b4b2231fd",
     "research/root-unit-decoder-lemmas/lib/dyadic.py": "5fabeeda7023c78b00c7796af6f4b92717652f6452bc76d442ed111d4be51e8d"
   },
-  "log_sha256": "3bb8c638fc5c877ad14ae4c311bcccd2bc196431ee1e796c518df3995184f895",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "0bf7ac7add53f06b1194b0369db7aaa442e695caf91110b51a351de02779ee1e",
+  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification.",
+  "resumed_successful_prefix_commands": 0,
+  "original_receipt": "/tmp/pr-efficient1200/prior-revisions/long-replay-2247/check-2247.json"
 }
