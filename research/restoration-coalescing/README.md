@@ -41,7 +41,11 @@ reduction).
 * **Cost (composable family; density is not application cost).** Deferral
   removes restoration passes when the individual restoration operators are
   closed under a composition that stays cheap to apply: unit phases -> one phase
-  pass, permutations -> one routing pass (`r -> 1`). Matrix density of the
+  pass, permutations -> one routing pass (`r -> 1`). The pass statement is
+  priced under an explicit descriptor hypothesis in the recurrence below:
+  composing `r` descriptors is charged `r * c_desc` (`c_desc = O(1)` for the
+  succinct parameter-tuple descriptors, `c_desc = Theta(N)` for full length-`N`
+  descriptor tables). Matrix density of the
   composed product is **not** an application-cost statement: the composed
   restoration retains its factorization into its cheap factors, and applying
   those factors sequentially costs exactly the eager sum. For the heterogeneous
@@ -144,24 +148,63 @@ eager   :  r * Restore(N)
 deferred:  1 * Restore_composed(N)
 ```
 
-**Composable family (phases, or permutations).** `Restore_composed(N) =
-Restore(N)`, because the composition stays in the family. The node saves
+**Composable family (phases, or permutations).** The composition stays in the
+family: the composed restoration is again one phase descriptor (one `Scan(N, p)`)
+or one permutation descriptor (one routing pass), so the applied restoration is
+one pass once the composed descriptor exists. Forming that descriptor is the
+composition step, and its cost depends on how a descriptor is represented; the
+recurrence below states the representation it prices.
+
+**Descriptor hypothesis (the representation behind the `O(r)` term).** A
+restoration descriptor is a fixed-size parameter tuple, not an arbitrary
+`N`-entry table:
+
+* phase: `G = diag(omega^(a * chi(x)))` for a per-node character
+  `chi : {0..N-1} -> Z/q` fixed once (the checker's shape is
+  `chi(x) = popcount(x)`, `q = 4`), with one stored exponent `a`;
+* permutation: a rotation `x -> x + s (mod N)` (the checker's shape), or any
+  dihedral map `x -> +-x + s (mod N)` with a constant-size tuple.
+
+Composing `r` descriptors in either family then combines `r` tuples
+(`a <- sum_i a_i`; `s <- sum_i s_i` mod `N`): `O(r)` tuple operations,
+`c_desc = O(1)` per descriptor, and the product stays in the family. Applying
+the composed descriptor is exactly one pass, `Scan(N, p)` (`N` phase
+multiplications) or one routing pass (`N` moves, `0` multiplications), each pass
+priced as `Restore(N)`. The node pays
 
 ```
-(r - 1) * Restore(N)  =  (r - 1) * Scan(N, p)
+eager   :  r * Restore(N)  +  0
+deferred:  1 * Restore(N)  +  r * c_desc
 ```
 
-plus the `O(r)` bookkeeping of composing `r` phase/permutation descriptors,
-which is not an `N`-volume pass. Over a recursion with `r` children per node and
-`d` levels, the total restoration overhead falls by the same factor `r`
-(`sum_nodes r*Scan -> sum_nodes 1*Scan`), while every child term
-`(k/m)^sigma / W` is untouched. The full node recurrence, restoring only the
-changed term, is
+and saves
 
 ```
-R(N, {k_i}) =  sum_i  (k_i/m)^sigma / W   +  Restore(N)  +  O(r)  +  unchanged
+(r - 1) * Restore(N)  -  r * c_desc  =  (r - 1) * Scan(N, p)  -  r * c_desc
+```
+
+so composition is charged, not absorbed. Over a recursion with `r` children per
+node and `d` levels, the restoration *pass* overhead falls by the same factor `r`
+(`sum_nodes r*Scan -> sum_nodes 1*Scan`) plus the added composition charge
+`sum_nodes r * c_desc`, while every child term `(k/m)^sigma / W` is untouched.
+The full node recurrence, restoring only the changed term and charging
+composition, is
+
+```
+R(N, {k_i}) =  sum_i  (k_i/m)^sigma / W   +  Restore(N)  +  r * c_desc  +  unchanged
                                  ^ was r * Restore(N) in the inherited rule
 ```
+
+with `c_desc = O(1)` under the descriptor hypothesis.
+
+**Outside the hypothesis (general descriptors).** For arbitrary per-position
+unit phases or arbitrary permutations stored as full length-`N` tables there is
+no succinct composition: forming the composed descriptor must read `r` tables of
+`N` entries, so the composition bill is `Theta(r * N)` (and `N` storage), not
+`O(r)`; the applied restoration is still one pass. The recurrence holds there
+with `r * c_desc` replaced by `Theta(r * N)`. The `O(r)` term is claimed only
+under the descriptor hypothesis; the general descriptor case is recorded at its
+`Theta(r * N)` charge, not as `O(r)`.
 
 **Heterogeneous family.** The composed restoration `G_1^{-1}...G_r^{-1}` is a
 dense matrix here (64 of 64 entries nonzero at `N = 8`), but density of the
@@ -230,7 +273,15 @@ and checks, on the actual vectors:
 
 For each batch the composed restoration is *derived* from the exact dense
 product `G_1^{-1} ... G_r^{-1}` and then checked to agree with it, so a
-composition-order bug cannot silently flatter the result. Controls that must
+composition-order bug cannot silently flatter the result. What this establishes
+is instance-level: exact observables and exact costs at `N = 8` for `r = 3`
+(phase batch, rotation batch, heterogeneous mix), `r = 2` (single reader) and
+`r = 5` (cancellation batch), with every composition performed as an exact
+dense product. It does not establish the recurrence for arbitrary `r` and `N`:
+the `O(r)` descriptor composition and the one-pass composed application are the
+charges of the descriptor hypothesis above (an implementation hypothesis about
+a succinct descriptor representation, not a tested identity), and outside that
+hypothesis the recorded charge is `Theta(r * N)`. Controls that must
 fail do fail: no "no candidate" claim, no impossibility theorem, no optimality
 claim for the eager rule.
 
@@ -331,6 +382,23 @@ optimum over intermediate observation points (priced by
 for its own model, not derived here), and the question of when a dense
 composition whose factors are *discarded* must be paid as `N^2` — this note
 answers only that direct dense application is the expensive case.
+
+## Correction after review (composition and routing are charged)
+
+A second review pass
+([comment](https://github.com/CrocSwap/integer-mult-bounds/pull/1155#issuecomment-6197859152),
+[batch review record](https://github.com/CrocSwap/integer-mult-bounds/blob/main/docs/research/community-efficient1100-review.md))
+found the cost recurrence pricing `r`-descriptor composition at `O(r)` and the
+composed restoration at one `Scan`/routing pass with no descriptor
+representation behind those terms, and the explicit `N = 8` matrix tests as the
+only evidence. The recurrence now states the descriptor hypothesis (fixed-size
+parameter tuples; `O(r)` tuple composition; one-pass application once the
+composed descriptor is formed) and charges composition explicitly as
+`r * c_desc`; the general full-length-descriptor case is recorded at its
+`Theta(r * N)` composition bill instead of `O(r)`; and the evidence section
+separates what the `N = 8` checker establishes from the priced general
+recurrence. No verified algebraic content or cost number from the first
+correction or from the original cases changed.
 
 ## Attribution
 
