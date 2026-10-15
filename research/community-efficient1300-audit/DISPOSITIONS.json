@@ -1736,20 +1736,24 @@
       },
       "reviewed_head": "16319e3f12fc95d5820a3f1802e2976949c92933",
       "current_head": "16319e3f12fc95d5820a3f1802e2976949c92933",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/ut4-mixed-weighted-boundary"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b5785f599904861edcc11d7011c3643d24322ecc",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2314"
+      },
       "scope": "Gareth Davidson's exact weighted UT4 extension: full 421,888-word expansion excludes the two five-middle-call fourteen-call splits; inherited thirteen-call positive-control census reproduces its exact transcript. Reviewed common-orientation compression from at most one excess span dimension, which extends the finite exclusion to arbitrary restored dirty workspace. Direct tariff is sharp only on beta <= 2 min(alpha,gamma); the outside-cone lower envelope is not asserted attained. Complete registered census and independent algebra/gap controls pass.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2314.json",
@@ -1805,20 +1809,24 @@
       },
       "reviewed_head": "1b732744b66cc3461559d52349ae07fa31d444f8",
       "current_head": "1b732744b66cc3461559d52349ae07fa31d444f8",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected1094-windows-manifest-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b5785f599904861edcc11d7011c3643d24322ecc",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2316"
+      },
       "scope": "Jose Carlos Gonzalez Roque's isolated portability audit reproduces both actual PR1094 manifest guards rejecting Windows path spelling despite identical bytes. The two in-memory as_posix repairs retain all 192 file hashes and reject 391 corruptions. Maintainer replay verifies POSIX execution and Windows serialization models; author's native-Windows evidence is retained separately. Frozen selected sources are unchanged; no installed repair or complete Windows supplier replay is claimed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2316.json",
@@ -1843,15 +1851,17 @@
       "current_head": "139779c86ba8215910117ddb383e4df007b23dcf",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/fiveswap-alt13-commuting-screen"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang's fully occupied coordinate-SWAP screen: commuting rank-one idempotents are equal or mutually orthogonal; the sign quotient forces exactly one spanning frame with odd multiplicities, and each coordinate needs at least three CNOT letters. Thus direct 3t is exact in this commuting family. Complete thirteen-position subset/exact-cover check and direct fifteen-call control pass with assertions enabled. General noncommuting thirteen-call words and partially occupied targets remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1875,20 +1885,24 @@
       },
       "reviewed_head": "5b800ec52af93ef62adf610f52c9488e71054619",
       "current_head": "5b800ec52af93ef62adf610f52c9488e71054619",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/q8-inverse-label-pair-census"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b5785f599904861edcc11d7011c3643d24322ecc",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2318"
+      },
       "scope": "Aaron Wang's complete two-role F2[Q8] idempotent-coupling census: all 64 diagonal target pairs have exact independent direct tariffs in both positive-only and unit-priced-inverse alphabets. Independent quaternion group/ring engines reproduce full shorter-word balls through depths five and three; 128 attaining words and 372 omission controls pass. Free scalar GL2 normalization and coupling closure reviewed; no assertion for extra roles, nilpotent couplings, or native implementation.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2318.json",
@@ -2011,20 +2025,24 @@
       },
       "reviewed_head": "b065a51249198a23e24195023f4b2e83eda1dd9c",
       "current_head": "b065a51249198a23e24195023f4b2e83eda1dd9c",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/register-pairing-compression"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b5785f599904861edcc11d7011c3643d24322ecc",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2323"
+      },
       "scope": "Gareth Davidson's uniform dirty-pairing compression: choosing a complement to U intersect ann(V) gives FG=I and preserves every ordered contraction, hence the full noncommutative product and restored dirty endpoint. Exact finite checks cover 4,775 subspace pairs, all 2,401 rank-one pairs and 18,176 faithful columns. Minimality is only for factorwise contraction-preserving replacements. UT4 three-role cost-25 handoff uses credited PR2175/2314 span/census premises; it is not a constructed cheaper word or supplier.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2323.json",
@@ -2089,15 +2107,17 @@
       "current_head": "fb7d64cd4a51c49bc56920305b0aca64011a420c",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-coordinate-tap-kernel"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "commdata2338's QQ16 coordinate-access obstruction: new disjoint three-port witness defeats U2-to-T21 while preserving PR2268's old-witness separation positive control. All 768 single taps fail; 192 exact parity minors establish eight hidden original-A dimensions after any one source exclusion. The written codimension argument gives at least 9-k hidden dimensions for k<=8 fixed coordinate reads under the stated homogeneous controller contract. Source-bound complete-tail replay and thirteen controls pass. Dense queries, changed F0, physical/native tariff and full recovery at nine ports remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2123,15 +2143,17 @@
       "current_head": "367a8539770166d3ccd555583b41e96097178a3e",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/complex-grid-prefix-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "AAAmirinu's independent exact-grid primitive audit of Jose Manuel's pinned PR2287: reviewed quantified Horner, C-kernel prefix, normalization, divisibility and shift-extent lemmas, with exact signed-word, Gaussian quarter-grid and nested-return checks. Every primitive intermediate is compared with a separate integer/rational oracle; guard mutations are rejected. This validates the arithmetic bridge conditional on complete-program prefix/reserve premises, not those premises, a physical compiler, or supplier admission. PR1282 prefix-analysis and PR2287 construction credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2155,20 +2177,24 @@
       },
       "reviewed_head": "6b2717ce2bbb13c2152e64efea48867b78840bbb",
       "current_head": "6b2717ce2bbb13c2152e64efea48867b78840bbb",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-shear-prefix-cost"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b5785f599904861edcc11d7011c3643d24322ecc",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2328"
+      },
       "scope": "commdata2338's sharp QQ16 initial-prefix tariff: comparing zero character to frequency 256 gives a rank-16 endpoint difference, so any scalar-scratch circuit in the atomic single-field native-line model needs sixteen calls. Legal equal-frame owned-C0 prefix attains the bound; exact replay covers 512 characters, all 712 formal fields, native recipes, separate address convolution and fourteen controls. Scope excludes later B1 fusion, owner mixing and split native wrappers; inherited core boundary and full-supplier obligations remain explicit.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2328.json",
@@ -2339,15 +2365,17 @@
       "current_head": "856cd7603ba679aa56294e53d60840061d176778",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/fstar-cert-census-seed298df375"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang's bounded F-star falsifier study covers exactly 196 declared seeded three-total decoders, not all decoders. Maintainer independently reconstructed and retained every factor, label-support, selected subset and triangular order witness, verified the threshold for all 196, and compared both regenerated JSON artifacts with the original head. A small README clarification distinguishes regenerated witnesses from stored summaries and tightens the trivial seven-line upper cap. F-star, exact larger-instance cert values and general supplier consequences remain unproved.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2407,7 +2435,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2418,7 +2446,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2337.json"
+        "research/community-efficient1300-audit/packets/2337.json",
+        "research/community-efficient1300-audit/checks/check-2337.json"
       ]
     },
     {
@@ -2579,7 +2608,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2590,7 +2619,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2342.json"
+        "research/community-efficient1300-audit/packets/2342.json",
+        "research/community-efficient1300-audit/checks/check-2342.json"
       ]
     },
     {
@@ -2611,19 +2641,22 @@
       "current_head": "d81abe6253a63e50ccb38aa79f08ef1407ff3f6d",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/bit2234-body-stock-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Conditional body-dependent PR2234 reserve: complete-row divisibility, monotone inequality selection, sharp uniform cutoff 245773 and an equality fixed-point counterexample at width 273158. Independent integer-product and full sub-2^20 audit required; physical caller contracts remain explicit assumptions.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2343.json"
+        "research/community-efficient1300-audit/packets/2343.json",
+        "research/community-efficient1300-audit/checks/check-2343.json"
       ]
     },
     {
