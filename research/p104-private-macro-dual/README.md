@@ -163,7 +163,7 @@ python3 -I -O -B research/p104-private-macro-dual/test_verify.py
 python3 scripts/research_package.py --package research/p104-private-macro-dual
 ```
 
-The direct replay takes about 16 seconds locally on native CPython 3.12.7.
+The direct replay takes about 16 seconds locally on native CPython 3.12.14.
 Expected marker:
 `PASS_P104_PRIVATE_MACRO_DUAL inputs=280 private=8 native=1410 rank_mass=2368 controls=7 no_new_kappa`.
 
