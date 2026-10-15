@@ -8,7 +8,7 @@ import build_word,word_patch
 CASES=[('gauge44','base','eeb6a236'),('extra','extra','cd417b90')]
 def content(p):return hashlib.sha256(gzip.decompress(Path(p).read_bytes())).hexdigest()
 def refit_apply(word0,patch):
-    """WildIdeas frame refit: replace exactly the listed gate frames (gates unchanged) and the local profile."""
+    """frame refit: replace exactly the listed gate frames (gates unchanged) and the local profile."""
     import copy
     w=copy.deepcopy(word0)
     for sec,i,fr in patch['frames']:

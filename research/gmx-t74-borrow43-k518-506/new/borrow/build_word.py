@@ -28,7 +28,7 @@ def main(canon,blocksf,witf,out,base_name):
         elif g[0]=='add':cl.append(['add',buf(g[1]),buf(g[2]),-g[3],g[4],full])
         else:cl.append(['scale',buf(g[1]),g[3],g[2],full])
     word['cleanup']=cl
-    # claimed report: profile from Borrow's witness replay, inventory counted here
+    # claimed report: profile from the borrow witness replay, inventory counted here
     word['report']['local_profile']=wit['replay']['local_profile']
     end_dim=lambda r:(len(word['helper_final'][str(r)]) if str(r) in word['helper_final'] else w['h'])
     st_dim=lambda r:len(word['start_extra'].get(str(r),[]))

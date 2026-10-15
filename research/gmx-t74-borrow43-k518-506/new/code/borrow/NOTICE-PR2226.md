@@ -9,7 +9,7 @@ of PR2226's `operators.py`, `replay.py` and `NOTICE.md`.  `bw_gauss.py` is a por
 apply_mono, coord, frame, check) and adds a decoder from a serialized `clifford_exact` monomial to its exact 512 x 512
 Gaussian matrix.
 
-What this chain adds (the P3 native realisation, with the Borrow campaign's explicit chronological BORROW-WORD as input):
+What this chain adds (the P3 native realisation, with the borrowing work's explicit chronological BORROW-WORD as input):
 warp events and zero buffers in `LOCAL-PROGRAMS`, warp recipes in `CLIFFORD-RECIPES.json` (lowered with the unchanged
 `lower_child`, rank zero, then compared with the exact numpy column product), logical K_G recipes in
 `RESIDUAL-ADAPTERS.json`, an independent local replay in both orientations that checks every warp product on all 512
