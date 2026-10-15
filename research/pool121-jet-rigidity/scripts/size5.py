@@ -1,5 +1,5 @@
 """Exhaustive classification of inclusion-minimal jet-immovable 5-line sub-configurations of the pool -> data/size5.json.
-Usage: TMPDIR=/some/tmp python3 -I -B scripts/size5.py   (needs cc; about 7 min: 67 s enumeration, the rest CR2 DFS)
+Usage: TMPDIR=/some/tmp python3 -I -B scripts/size5.py   (needs cc; about 9 min: 67 s enumeration, the rest CR2 DFS)
 All 5-subsets through one representative of each harmonic-line orbit (order-48 group) are tested; immovable subsets
 that contain an immovable 4-subset are dropped (inclusion-minimality); the rest are grouped into orbits.
 Written for this package (thakrarsagar, with AI assistance from Claude Opus 5.5). Apache-2.0."""

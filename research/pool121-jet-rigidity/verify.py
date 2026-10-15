@@ -1,6 +1,6 @@
 """Replay: first-order jet rigidity of the #2111 121-line pool (#1166 OPEN ENDS item 5b).
 Usage (from the repository root): python3 -I -B research/pool121-jet-rigidity/verify.py [--full]
---full also re-runs the exhaustive 5-line enumeration (~70 s) and the CR2 DFS on its orbits (~5 min).
+--full also re-runs the exhaustive 5-line enumeration (~70 s) and the CR2 DFS on its orbits (~7 min; 534 s total measured).
 Exit 0 and a final 'PASS' line iff every check passes and every negative control fails as it must.
 Stdlib only; no compiler needed (the exact minimum costs are recomputed in Python, independently of c/enumall.c).
 Written for this package (thakrarsagar, with AI assistance from Claude Opus 5.5). Apache-2.0."""
@@ -190,7 +190,8 @@ def main():
         ok5 &= o['cr2'] == 'none over GF(2),GF(4),GF(8),GF(16)'
     check('G13 size-5 classification (data/size5.json): %d orbits, distinct, immovable (A = B), inclusion-minimal '
           '(A and B), exact min cost recomputed in Python = stored enumall value, all >= v; distribution of '
-          'min cost - v: %s; %d tight orbits (cost = v = 5), B-dependent jet passes on %d of %d of their minimisers'
+          'min cost - v: %s; %d tight orbits (cost = v = 5), B-dependent jet passes on %d of %d of their minimisers (consistency only, not a certificate); '
+          'completeness and non-CR2 labels are recomputed only with --full'
           % (len(s5['orbits']), dict(sorted(dist.items())), t5, bdep[1], bdep[0]),
           ok5 and len(canon5) == len(s5['orbits']) and t5 > 0 and bdep[0] == bdep[1])
     check('G13 consistency: the greedy v=5 atoms of data/atoms.json are among the classified orbits',

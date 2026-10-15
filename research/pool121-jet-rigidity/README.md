@@ -23,6 +23,10 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
    infinitesimally rigid at the Fano collapse. Every δ′_t with |D(t)| = 2 vanishes on gauge and torus. Hence
    **all 30 of the 30 harmonic lines are immovable, for every admissible φ and every field of characteristic 2**, and
    Corollary J cannot be applied to the pool as a whole (sub-pools: item 4).
+   *Scope note (from review):* the pool's incidence digraph is not strongly connected. It has one 70-line strong
+   component holding all 30 harmonic lines, plus 51 singleton components, which #2111 Lemma SCC/Peel strip. So the
+   real test object is the 70-line core, and cost(pool) ≥ 51 + cost(core). The rigidity statement holds on the core
+   (all 30 harmonic lines lie in it); the Q4 comparison below is stated for the whole pool.
 2. **Dual witnesses.** `data/flows.json` gives one explicit Lemma F flow for each harmonic line. Each flow is a set
    of 10–14 incidence edges whose (J1) rows sum to δ′_t. As Lemma F predicts, every flow has an even number of edges.
    Checking the flows needs no elimination.
@@ -53,9 +57,21 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
      - *CR2:* none of the 353 orbits is CR2 over GF(2), GF(4), GF(8) or GF(16).
      - *Exact minimum cost:* C `enumall.c` and the Python enumerator agree. The distribution of cost − v is
        {0: 4, 1: 103, 2: 184, 3: 55, 4: 7}. So **(A) holds on every minimal immovable sub-configuration with at most
-       5 lines**, and **4 orbits are tight (cost = v = 5)**. These four are unit-world configurations on which
-       first-order jets and CR2 (up to GF(16)) both fail, yet cost = v exactly. Each has 9 free incidences and 2
-       harmonic lines, both immovable. Their 6 minimisers all pass the B-dependent jet test.
+       5 lines**, and **4 orbits are tight (cost = v = 5)**. On these four the B-independent jet (Corollary J)
+       fails and CR2 is excluded over GF(2^k), k ≤ 4, yet cost = v exactly. Each has 9 free incidences and 2
+       harmonic lines, both immovable. The B-dependent jet was checked only on their 6 minimisers (all pass); that
+       is a consistency check, not a certificate.
+     - **Correction after review (SCC/Peel reduction, not replayed by `verify.py`).** These four tight orbits are
+       *not* uncertified. Each contains a unit line (|π| = 1 or |σ| = 1) and has a non-strongly-connected incidence
+       digraph, so #2111's proven Lemma SCC / Lemma Peel reduce (A) on them to proper components, which are
+       jet-movable by inclusion-minimality; Corollary J then gives cost ≥ v. An independent reviewer script reports
+       that the same reduction covers 242 of the 353 five-line orbits and 39 of the 42 stored atoms, and that the
+       **111 strongly connected** minimal 5-line orbits all have slack ≥ 1 ({1: 19, 2: 66, 3: 25, 4: 1}). Only
+       3 of the 42 stored atoms (and the 4-line orbit) are strongly connected. These reduction counts are reviewer
+       evidence, not part of the default replay.
+     - *Minimiser counts* below and in the atom table are taken over in-block free entries only; off-diagonal
+       entries at D-empty incidences never enter a block (#2111) and are fixed. With them free, each tight orbit
+       has 4 minimisers.
      - *The 4 tight orbits*, with pool line indices of one representative each:
 
      | rep (pool lines) | lines (p ; q) | orbit size | minimisers |
@@ -74,7 +90,7 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
      deletion of an atom is jet-certifiable.
    - **Properties of every one of the 42 stored atoms:**
      - It is **not CR2** over GF(2), GF(4), GF(8) or GF(16) (exhaustive DFS, vendored #2162 `cr2.py`), so neither
-       char-2 certificate applies.
+       char-2 certificate is found (CR2 excluded over GF(2^k), k ≤ 4 only).
      - Its exact minimum cost is **v + 1 to v + 5** for the 42 stored atoms. The tight 5-line orbits above were not
        reached by the greedy passes. Two independent enumerations agree on both the minimum and the
        number of minimisers: the vendored C `enumall.c` (generator) and a separate Python enumerator
@@ -135,7 +151,8 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
 
 **Reading.** On the pool, the first-order char-2 jet is blocked everywhere by small, local Lemma F flows on 4–10 lines.
 It is not blocked by a global phenomenon. Every inclusion-minimal immovable sub-configuration with at most 5 lines, and every
-stored atom, still satisfies (A); all but 4 orbits do so with slack. So the failure belongs to the
+stored atom, still satisfies (A); all but 4 orbits do so with slack, and those 4 are already certified by
+#2111 Lemma SCC/Peel plus Corollary J on their components. So the failure belongs to the
 certificate, not to (A). Jet failure is **not** evidence against (A).
 
 ## Reproduce
@@ -154,7 +171,7 @@ The exit code is 0. Any failed check prints `FAIL` and exits 1.
 
 To regenerate the data (needs `cc`; deterministic for seed 43):
 - `TMPDIR=/some/tmp python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py` takes about 30 s.
-- `scripts/size5.py` takes about 9 min.
+- `scripts/size5.py` takes about 9 min; `verify.py --full` took 534 s on a shared 4-CPU machine. All replays used Python 3.14 (VERIFY.json records 3.12 as the declared floor).
 
 **Checks** (`verify.py`):
 - V0: hashes of the vendored files.
@@ -208,11 +225,12 @@ To regenerate the data (needs `cc`; deterministic for seed 43):
 
 The structured versions are in `TASK.json`.
 
-1. **A certificate for the 4 tight 5-line orbits** (cost = v; neither first-order jets nor CR2 up to GF(16) apply).
-   *Why it matters:* these are the smallest exact test cases where a new lower-bound technique must succeed with no
-   slack. The answer to "is every minimal atom at cost ≥ v + 1?" is **no**. *First step:* try CR2 over GF(32) and
-   GF(64), and the B-dependent split/perfect-split bound of #2162 §3, on these four. *Blocked by:* nothing; not run in
-   this session.
+1. **A direct certificate for the strongly connected immovable atoms** (the 4-line orbit, the 111 strongly
+   connected minimal 5-line orbits, and 3 of the 42 stored atoms; all have cost ≥ v + 1, and none is CR2 over
+   GF(2^k), k ≤ 4). The 4 tight 5-line orbits are not targets: SCC/Peel plus Corollary J already certify them.
+   *Why it matters:* these are the smallest unit-world cases that neither SCC/Peel nor first-order jets nor CR2
+   (k ≤ 4) reduce. *First step:* add an SCC/Peel classification to `verify.py`, then try CR2 over GF(32)/GF(64) and
+   the #2162 §3 split/perfect-split bound (under audit in #2330) on them. *Blocked by:* nothing; not run here.
 2. **Jets around other char-2 base points**, such as partial GF(4) realisations with a different vanishing diagonal
    set. *Why it matters:* the rigidity here is specific to the φ-collapse. *First step:* enumerate the
    incidence-preserving GF(4) base points of the 4-line atom and run (J1)/(J2) around each. *Blocked by:* the order
@@ -241,5 +259,10 @@ The structured versions are in `TASK.json`.
   - **RossRichardson**: #2176 (jf0).
   - **petalas**: #2193 and #2206.
 - Concurrent work: a sibling local session works on OPEN ENDS item 5a (`cex_min_1`), which is a different object.
+  Related open PRs on the #2162 tools inherited here: #2330 (theon199, audit of the #2162 §3 split min-max),
+  #2340 (navinor, MAS edge form of Theorem B2(iii) is false) and #2334 (ROTl24, counterexample to the B2
+  acyclic-edge strengthening). None concerns the pool or the jet test.
+- The SCC/Peel correction and the 70-line core decomposition came from an independent adversarial review in this
+  sprint loop.
 - Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
   See `NOTICE.md` for the vendored files.

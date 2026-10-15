@@ -61,9 +61,9 @@
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5): code, search, and drafting; directed and submitted by thakrarsagar.",
   "open_questions": [
     {
-      "question": "Which certificate proves cost >= v on the 4 tight 5-line orbits (cost = v exactly; jet-immovable; not CR2 up to GF(16))?",
-      "why_it_matters": "They are the smallest exact unit-world test cases where any new lower-bound technique for (A) must succeed with zero slack; 'every minimal atom has cost >= v+1' is false.",
-      "first_step": "Run CR2 over GF(32)/GF(64) and the #2162 section-3 split/perfect-split bound on the four representatives in data/size5.json.",
+      "question": "Which certificate proves cost >= v directly on the strongly connected minimal immovable atoms (the 4-line orbit, 111 strongly connected 5-line orbits, 3 of 42 stored atoms)? The 4 tight 5-line orbits are already certified by #2111 Lemma SCC/Peel plus Corollary J on components.",
+      "why_it_matters": "They are the smallest unit-world cases not reduced by SCC/Peel, first-order jets or CR2 over GF(2^k), k <= 4; all have slack >= 1.",
+      "first_step": "Add an SCC/Peel classification to verify.py, then run CR2 over GF(32)/GF(64) and the #2162 section-3 split bound (under audit in #2330) on them.",
       "blocked_by": "Nothing; not run in this session."
     },
     {
