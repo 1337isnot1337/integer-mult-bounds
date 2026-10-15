@@ -451,6 +451,8 @@
     "pairwise_differences_at_most": "k*(k-1)/2",
     "required_nonzero_rows": 15,
     "minimum_source_calls": 6,
-    "witness_attains": 6
+    "witness_attains": 6,
+    "minimum_target_readouts": 30,
+    "minimum_total_root_calls": 36
   }
 }

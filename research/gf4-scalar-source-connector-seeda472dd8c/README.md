@@ -65,6 +65,12 @@ all 594 closed source words of lengths 1 through 5; the largest observed
 coverage is 7 masks. This finite census is a control; the pair-count argument
 is the general lower bound for this fixed two-source target family.
 
+The full call count is also optimal in this alphabet. With `B_0=B_1=0`, an
+arbitrary dirty connector must leave every target unchanged, so each nonzero
+row's distinct `A_r` target update must occur an even number of times. Since
+every nonzero target row must be realized, this requires at least 30 readouts.
+The six source events plus those 30 readouts attain the 36-call lower bound.
+
 ## Complete cost comparison
 
 The complete source-event price `c_Bj` includes source access, the full `B_j`
@@ -125,7 +131,8 @@ selector scope key `ff4f5113ed2256ab19ed`, at exact base
 `10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32`.
 Scope is refined from the card's one-extra-operation prompt to a single-source
 scalar family over `GF(4)`, two sources, and the full 15-row target family.
-The live claim is [Discussion #2262](https://github.com/CrocSwap/integer-mult-bounds/discussions/2262).
+The live claim is [Discussion #2262](https://github.com/CrocSwap/integer-mult-bounds/discussions/2262);
+the focused contribution is [PR #2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266).
 
 The fixed binary dirty connector begins with Ross Richardson's
 [PR #943](https://github.com/CrocSwap/integer-mult-bounds/pull/943). Nearby

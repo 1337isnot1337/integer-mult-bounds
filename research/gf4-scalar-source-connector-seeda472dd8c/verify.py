@@ -197,6 +197,9 @@ def main():
     need(cost["serial_event_descriptor_bits"] == desc_old == 342, "baseline descriptor bits")
     need(cost["descriptor_saving_bits"] == desc_old - desc_new == 168, "descriptor delta")
     need(cert["lower_bound"]["minimum_source_calls"] == 6, "certified lower bound")
+    need(cert["lower_bound"]["minimum_target_readouts"] == 30 and
+         cert["lower_bound"]["minimum_total_root_calls"] == 36,
+         "full-query lower bound")
 
     print("PASS_GF4_SCALAR_SOURCE_CONNECTOR targets=15 source_calls=6 minimum=6 readouts=30 "
           "short_closed_words=594 max_short_cover=7 dirty_cases=%d scalar_ops=4_vs_32 "

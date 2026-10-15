@@ -52,7 +52,7 @@
   "budget_minutes": 60,
   "stop_rule": "Finish the exact two-source GF(4) pair-difference construction and lower bound; replay all length-one GF(4)-linear maps and dirty scalars for the 15 rows; verify the 48-to-6 source-child cost, event descriptor price, and failure controls. Do not search larger fields or source counts in this cycle.",
   "outcome": "completed",
-  "evidence": "CERTIFICATE.json gives a six-event closed path, six distinct prefixes, all 15 unique nonzero differences, the target boundary pairs and 36-event schedule. verify.py checks the k>=6 counting bound, exhausts 594 closed paths of lengths 1..5 (maximum coverage 7), replays 245760 dirty scalar cases, and checks omission/wrong-pair/readout controls. independent.py separately executes the literal stream on the same 245760 states. Complete cost comparison: 6 versus 48 B events; 4L versus 32L scalar XORs; 174 versus 342 descriptor bits under the stated prefix-record encoding. The predecessor baseline passed: PASS_UNIVERSAL_CONNECTOR_BOUNDARY pairings=945 max_coverage=31 queries=74 leaves=182.",
+  "evidence": "CERTIFICATE.json gives a six-event closed path, six distinct prefixes, all 15 unique nonzero differences, the target boundary pairs and 36-event schedule. verify.py checks the k>=6 counting bound, exhausts 594 closed paths of lengths 1..5 (maximum coverage 7), replays 245760 dirty scalar cases, and checks omission/wrong-pair/readout controls. independent.py separately executes the literal stream on the same 245760 states. Complete cost comparison: 6 versus 48 B events; 4L versus 32L scalar XORs; 174 versus 342 descriptor bits under the stated prefix-record encoding. The predecessor baseline passed: PASS_UNIVERSAL_CONNECTOR_BOUNDARY pairings=945 max_coverage=31 queries=74 leaves=182. The full model also needs at least 30 target readouts by dirty-connector cancellation, so the 36 total root calls are optimal in the stated alphabet.",
   "author": "OpenAI Codex",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematical derivation, exact enumeration, verifier implementation, cost accounting, and package preparation.",
   "open_questions": [
@@ -85,5 +85,6 @@
       "extension-field connector"
     ],
     "nearest_new_overlap": "PR #2259: four-source aligned F2 coefficient-stream fusion for a single physical target; distinguished in README.md by operation, field, source count, output family, and cost objective."
-  }
+  },
+  "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2266"
 }
