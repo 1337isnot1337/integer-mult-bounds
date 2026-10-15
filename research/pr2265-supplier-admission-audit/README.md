@@ -113,7 +113,7 @@ Each control must be rejected by the named check:
 
 ## Scope, inherited assumptions, unresolved obligations
 
-- This is a finite data audit at one point: #2265's final point and PR2260's shipped word. It is not a proof of the capped-fusion theorem, of the all-size compiler, or of any multiplication theorem. #2284's "modern outer" point was not audited.
+- This is a finite data audit at one point: #2265's final point and PR2260's shipped word. It is not a proof of the capped-fusion theorem, of the all-size compiler, or of any multiplication theorem. #2284's "modern outer" point was not audited. Its `outer/ENDPOINT.json` at head `e71574b9` has a different schema (an 8-digit endpoint with no surcharge_weight) and a different profile (93-row owner delta, a rank-40 child), so the keys are not identical.
 - The replay is limited to PR2260's event model:
   - It checks the literal events under PR2260's documented semantics: free reference-change symbols, GF(2) frames, destructive COPY/CLEAR. It was written after reading PR2260's description and its row interpreter, so it is an independent *implementation* of the same model, not an independent model.
   - The native Clifford lowering, phases, the lambda-fold lift and the physical charts are not rechecked.
