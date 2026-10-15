@@ -32,6 +32,11 @@ All twelve packing candidates pass complete strict local admission, controller/i
 [Integration receipt](docs/research/community-batch1099-integration.json) ·
 [PR ledger](docs/research/pr-ledger.md) · [Contributors](CONTRIBUTORS.md)
 
+Later rounds through #2027 leave κ unchanged; the latest is the
+[review through #2027](docs/research/community-efficient1000-review.md), and
+[current status](docs/research/current-status.md)
+lists all ten.
+
 ```sh
 # Also requires a C++17 compiler and Boost headers.
 python3 -m pip install numpy sympy scipy

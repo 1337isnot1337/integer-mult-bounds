@@ -8,6 +8,24 @@ Cold replay: `make frontier1094-verify`. This local review explicitly reuses the
 
 #1048 remains open for the documented pricing and exact-certification corrections; no negative theorem from that proposal is accepted. Other historical deferrals, including #946, remain unchanged.
 
+**Reviews since the #1094 selection.** Ten integration rounds published after the #1094 selection review the remaining open PRs,
+including older ones, through #2027. None changes the selected κ;
+they retain scoped constructions, negative results, audits and tooling with individual credit.
+Read the latest round first, and use the [PR ledger](pr-ledger.md) for a specific PR.
+
+| Review | Frozen PR selection | Disposition |
+| --- | --- | --- |
+| [efficient100](community-efficient100-review.md) | #697–#814 | 83 merged; 17 follow-ups |
+| [efficient200](community-efficient200-review.md) | #815–#1095 | 76 merged; 24 follow-ups |
+| [efficient300](community-efficient300-review.md) | #1100–#1208 | 69 merged; 31 follow-ups |
+| [efficient400](community-efficient400-review.md) | #1209–#1343 | 85 merged; 15 follow-ups |
+| [efficient500](community-efficient500-review.md) | #803, #1344–#1466 | 89 merged; 11 follow-ups |
+| [efficient600](community-efficient600-review.md) | #797, #1026, #1468–#1600 | 78 merged; 15 follow-ups |
+| [efficient700](community-efficient700-review.md) | #1601–#1726 | 79 merged; 21 pending |
+| [efficient800](community-efficient800-review.md) | #1729–#1862 | 85 merged; 15 pending |
+| [efficient900](community-efficient900-review.md) | #1863–#1951 | 56 merged; 12 pending |
+| [efficient1000](community-efficient1000-review.md) | #1952–#2027 | 44 merged; 2 pending |
+
 > **Below this point every section is a historical snapshot.** Inside them, “current,”
 > “selected,” “latest” and “next” refer to that snapshot's own checkpoint. The authoritative
 > record is [selected-result.json](../../certificates/selected-result.json), and live research
