@@ -97,6 +97,27 @@ An audit must check D's complete matrix, including the target identity
 block and zero source block; the individual new injection rows need not
 equal the original rows.
 
+The block calculation alone does not justify reordering the framed stream.
+Apply the chronological substitution bridge of woklerx's
+[#1194](../r439-semantic-d-contract-seed10/PROOF.md), also used by Arham Tahir's
+[#1311](../r439-abc-semantic-bridge/README.md): replace the candidate's D with
+the original D to obtain a proof-only virtual word. Here that word is literally
+the original R420 word, so the unchanged checker passes all original H1–H5
+and U/J/K/C conditions, including the separately checked J=I. The actual D
+and original D are legal source-free prefixes at the common zero frame,
+with equal complete binary operators and equal exit frames. Their matrix
+equality holds over every compatible F2 module, including streams. The same
+chronological continuation therefore receives identical values and frames;
+no later operation is moved or treated as a frame-free stream operator.
+
+`test_semantic_bridge.py` checks this splice, all 660 boundary columns, frames
+and complete paid paths with the pinned original checker. It records exactly
+the original syntactic H2 and K_equals_D failures on the actual word, and
+rejects missing restoration, scalar-neutral frame changes and forbidden target
+feedback. Only the actual D is executed and priced; the virtual D is a proof
+device. This is a concrete application of the credited conditional bridge,
+not a new all-size realization theorem.
+
 All new operands start at frame zero, so every new XOR is legal there
 without a climb. The replacement preserves helpers, retained totals,
 stage count, hosting demand, and paid-rank profile. The inherited

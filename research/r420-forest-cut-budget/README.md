@@ -68,7 +68,10 @@ PASS_R420_TARGET_FOREST D=19922->15025 ADDs=26916->22019 saved=4897 columns=660 
 
 This reconstructs both words, compact recipes and the budget certificate,
 compares canonical JSON rather than gzip container bytes, runs the independent
-checker, and executes 23 adversarial and positive tests. The checker imports no constructor
+checker, and executes 37 adversarial and positive tests. These include an
+independent exhaustive audit of 620 small ancestor states (7,904 cut choices),
+the semantic-D substitution premises, and historical source-pin controls.
+The checker imports no constructor
 or budget implementation: it derives K from A/scatter/B, checks every input
 column, exact frame spans and COPY/ERASE lifetimes, the 7,140 non-tree cycle
 inequalities, both positive-prefix passes, and a separate budget recurrence.
@@ -117,6 +120,13 @@ checker is patched. The semantic replacement checks the actual D operator
 and retains all other interface requirements. The native stream admits it
 using existing common-frame XOR operations.
 
+Following woklerx's [#1194](https://github.com/CrocSwap/integer-mult-bounds/pull/1194)
+and Arham Tahir's [#1311](https://github.com/CrocSwap/integer-mult-bounds/pull/1311),
+`test_semantic_bridge.py` now checks the chronological substitution argument:
+restoring the original D makes the candidate exactly the original checked word;
+the actual D supplies identical values and frames to that unchanged continuation.
+This applies their conditional interface argument, without claiming supplier adoption.
+
 ## Formal scope and remaining work
 
 [Forest.lean](Forest.lean), compiled with Lean 4.21.0, proves generic XOR
@@ -141,10 +151,18 @@ is claimed.
 
 Base commit: `66849e1475c930fd7732b1a0067ffee7e1e95f60`.
 PR543 source head: `2065fe4f72a914d907f1046603f5a36f17018535`.
-The selected frontier at this base remains #626 with #543,
+The historical selected frontier at this base was #626 with #543,
 κ = `51110230636731/31250000000000000`. Source and comparison pins are in
 [SOURCES.json](SOURCES.json); the local seed-6 bit-track claim, alternatives
 and completed search scope are in [CLAIM.json](CLAIM.json).
+
+The branch now incorporates canonical `main` at
+`0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`, whose selected result is #1094,
+κ = `836330098538459/500000000000000000`, with the PR589/555 R439 bit supplier.
+Our scientific baseline remains the pinned R420 word. The old selected-record
+hash is checked against `certificates/checkpoints/k492626.json`, which retains
+the identical #626 bytes; the live selection and all frozen certificates stay
+unchanged. [REVIEW.md](REVIEW.md) records the upstream comparison and adopted ideas.
 
 Concurrent [#713](https://github.com/CrocSwap/integer-mult-bounds/pull/713)
 (Scott Woolsey Biggart) and
@@ -172,6 +190,17 @@ arborescence to optimize a parity table. This package specializes those
 ideas to a fixed dirty-helper compensation shear, charges preparation and
 restoration, and certifies the actual R420 circuit and its budget tradeoff.
 It makes no literature-wide priority claim.
+
+## Open next questions
+
+- Can this exact R420 word receive a complete hosted-parent/whole-owner invoice?
+  First bind its native receipts to a hosted exporter and account for every
+  changed operation. Local semantic substitution is checked; full hosting,
+  precision/tape and outer assembly remain blockers to supplier admission.
+- Does the fixed-tree budget method answer a new precision question on R439?
+  First compare Gareth Davidson's merged [#915](https://github.com/CrocSwap/integer-mult-bounds/pull/915)
+  target compensation and existing invoices. A port needs a distinct question:
+  reducing frame-zero ADDs alone preserves the paid profile and does not raise κ.
 
 Prepared by Anthony (@anthonylei), with substantial OpenAI Codex assistance
 across independent research, implementation, formalization and adversarial

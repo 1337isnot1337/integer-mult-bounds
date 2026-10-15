@@ -23,14 +23,23 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def check_source_pins(root=ROOT):
+    pins = json.loads((HERE / "SOURCES.json").read_text())
+    for relative, expected in pins["repository_inputs_sha256"].items():
+        # The original selected record is now retained as an exact checkpoint.
+        resolved = ("certificates/checkpoints/k492626.json"
+                    if relative == "certificates/selected-result.json" else relative)
+        path = root / resolved
+        require(path.is_file(), "missing pinned input: " + resolved)
+        require(hashlib.sha256(path.read_bytes()).hexdigest() == expected,
+                "pinned input changed: " + resolved)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lean", type=Path, help="optional Lean 4.21.0 executable")
     args = parser.parse_args()
-    pins = json.loads((HERE / "SOURCES.json").read_text())
-    for relative, expected in pins["repository_inputs_sha256"].items():
-        require(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected,
-                "pinned input changed: " + relative)
+    check_source_pins()
     source = load_source()
     result = solve_budget(source, seed=6)
     expected = json.loads((HERE / "data/budget.json").read_text())
@@ -48,11 +57,16 @@ def main():
         [sys.executable, "-B", HERE / "verify.py", "--candidate", HERE / "data/optimum.json.gz",
          "--recipe", HERE / "data/optimum-recipe.json", "--expect-prefix-rejection"],
         [sys.executable, "-B", HERE / "test_verify.py"],
+        [sys.executable, "-B", HERE / "test_reproduce.py"],
+        [sys.executable, "-B", HERE / "test_budget.py"],
+        [sys.executable, "-B", HERE / "test_semantic_bridge.py"],
     ]
     for command in commands:
         completed = subprocess.run(list(map(str, command)), env=env, capture_output=True,
                                    text=True, timeout=120, check=False)
         require(completed.returncode == 0, completed.stdout + completed.stderr)
+        if command[2].name.startswith("test_"):
+            print(completed.stdout + completed.stderr, end="", flush=True)
     if args.lean:
         version = subprocess.run([str(args.lean), "--version"], capture_output=True,
                                  text=True, timeout=30, check=True).stdout

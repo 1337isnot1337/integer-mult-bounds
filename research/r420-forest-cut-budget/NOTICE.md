@@ -41,3 +41,12 @@ Brugière's tree-based parity synthesis (arXiv:2104.00934), classical
 minimum-spanning-tree optimality, and reversible binary-matrix circuit
 synthesis. The claim is a concrete repository contribution and restricted
 certificate, not invention of these general techniques.
+
+The upstream-integration follow-up applies woklerx's PR1194 semantic-D
+contract and chronological substitution bridge, source head
+`2e39c98238f543d988f9efc1b076590a4b780dca`, and Arham Tahir's PR1311 concrete
+bridge audit, source head `a2875c1834b9c9ef42a84eda4890d5462cc98fa5`.
+Their proof and predecessor checker remain unchanged. The new R420 tests
+check the premises of that argument; they do not claim its invention or
+full supplier admission. Gareth Davidson's PR915 R439 target compensation
+is the retained precedent for any future selected-supplier transfer.

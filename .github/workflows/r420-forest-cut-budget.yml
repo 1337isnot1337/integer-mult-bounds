@@ -6,14 +6,14 @@ on:
       - 'research/r420-forest-cut-budget/**'
       - 'research/e8-bit-r420/**'
       - 'research/e8-bit-carrier-skeleton/**'
-      - 'certificates/selected-result.json'
+      - 'certificates/checkpoints/k492626.json'
       - '.github/workflows/r420-forest-cut-budget.yml'
   push:
     paths:
       - 'research/r420-forest-cut-budget/**'
       - 'research/e8-bit-r420/**'
       - 'research/e8-bit-carrier-skeleton/**'
-      - 'certificates/selected-result.json'
+      - 'certificates/checkpoints/k492626.json'
       - '.github/workflows/r420-forest-cut-budget.yml'
   workflow_dispatch:
 

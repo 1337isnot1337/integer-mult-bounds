@@ -4,8 +4,10 @@ The [review continuation](https://github.com/CrocSwap/integer-mult-bounds/pull/7
 requests both finite and formal coverage of the constrained forest construction.
 The reviewed construction is commit `50f8c366f27a9083e0655593a1be3d6810d1f053`,
 whose complete diff from `66849e1475c930fd7732b1a0067ffee7e1e95f60` adds the
-22 files below. This follow-up adds CI and documentation; the construction,
-proof, source pins and frozen certificates are unchanged.
+22 files below. The initial follow-up added CI and documentation. The later
+upstream integration below adds verification and a credited written interface
+argument; the construction, Lean proof, source hashes and frozen certificates
+are unchanged.
 
 ## Coverage of the submitted package
 
@@ -51,9 +53,70 @@ frames, global invoices or multiplication. The executable checks supply the
 concrete finite evidence. In particular, 15,025 is optimal only over cuts of
 the fixed oriented seed-6 tree; the 15,023 rewire demonstrates the boundary.
 
-Full changed-word hosted-parent/whole-owner reconstruction, semantic-interface
-integration, global invoices and outer assembly remain open, as disclosed in
+Full changed-word hosted-parent/whole-owner reconstruction, maintained supplier
+adoption of semantic D, global invoices and outer assembly remain open, as disclosed in
 the original submission. Repository-wide verification and native replay of
 the separate 15,023 scope-control word were not run. No new κ or completed
 supplier admission follows from this coverage. This follow-up is Codex-assisted
 verification and written review, not independent human peer review.
+
+## Integration with refreshed upstream
+
+Canonical `main` at `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2` was merged
+without conflicts in `ce12313f`. This brings in 1,817 upstream commits since
+the scientific base `66849e1475c930fd7732b1a0067ffee7e1e95f60`. The original
+R420 inputs and certificates remain the research baseline. The updated root
+guidance has `priority_revision: 4`; the selected record is now #1094 with
+PR589/555's R439 bit supplier, and the complex side binds the selected κ.
+The selected record, manifest and review were read through its declared paths.
+The pre-submission upstream check recorded at `2026-10-15T04:46:45Z` found the same canonical
+head, selected record and priority revision.
+
+The final live overlap search completed at `2026-10-15T04:47:26Z`, using
+`target forest`, `cut budget`, `semantic D` and `H2-sem`: 527 open PRs,
+1,022 discussion/comment/reply records and 1,537 local notes, with complete
+remote pagination and no warnings. It searches titles/bodies/comments and
+local notes, not arbitrary diffs, so it is not a novelty certificate. The
+discussion start-here #1163 was read. Pending #794 at
+`6be7364e0245c5a1c931cb1c43b3da991b755850` and #2191 at
+`c368d1b1f59c28b7a837fd6d080bd57703266d2c`, plus discussion #1796's R439
+hosted invoice, reinforce the distinction between a local identity, pricing
+and supplier admission. Their changed circuits are not imported here.
+
+| Upstream work | Decision for this PR |
+| --- | --- |
+| Oscar Fennell #759, `467b9da6fe130a12d0d6edda310cd6b0efd22a7e` | Retain the original credit for forest factoring and the 14,921 floor. Our additional result remains the 15,025 optimum over this fixed tree's budgeted cuts. |
+| Scott Woolsey Biggart #733, `dfe84e09298abc5c5e0074afda59a821e10abfb4` | Its broader two-sided basis saves more ADDs. Preserve the narrower untouched-helper class and avoid an overall-record claim. |
+| Gareth Davidson #915, `e9daefe320a0043000bd9746664ed02c3287d056` | R439 target compensation already exists. Defer a port until it answers a distinct precision or hosting question. |
+| woklerx #1194, `2e39c98238f543d988f9efc1b076590a4b780dca`; Arham Tahir #1311, `a2875c1834b9c9ef42a84eda4890d5462cc98fa5` | Apply their chronological semantic-D bridge to the frozen R420 word. Document its conditional proof and execute the original checker on the actual and virtual words. |
+| Aaron Wang #1782, `1cfe5e10ce38b04209699c1a6b0e62b87e21833f`; Wentao Li (@VictorLiwentao) #1805, `b34e0620bd92af49c9095e0eeb885f601fffd137` | Keep semantic admission, actual local price and full hosted adoption separate. Do not treat endpoint equality as an integer-prefix bound. |
+
+The merge exposed one replay failure: `certificates/selected-result.json`
+now contains #1094. `reproduce.check_source_pins` explicitly resolves that
+historical input to `certificates/checkpoints/k492626.json`, whose SHA256 is
+the original `b3bf402f31a69bde0629936a9b569bed48281568d7b16d5fba120b5311ea1f53`.
+No expected hash changes. Missing or corrupt checkpoints fail without a
+fallback to the live selection. CI watches the actual checkpoint dependency.
+
+| Added check | Coverage and limitation |
+| --- | --- |
+| `test_reproduce.py` (4 tests) | A newer live selection stays untouched; missing/corrupt historical checkpoints and changes to each of the other 13 pinned inputs fail. |
+| `test_budget.py` (4 tests) | Independently reconstructs unsigned reverse-tail magnitudes and literally executes every cut assignment for 620 recorded states with at most eight descendant edges: 7,904 assignments, 44 infeasible states and 62 states requiring cuts. Checks minimum cost and attaining witnesses; rejects underpricing, false infeasibility and a nonattaining witness. It imports no recurrence and makes no exhaustive claim about the remaining 104 states. |
+| `test_semantic_bridge.py` (6 tests) | Pins the original source/checker, reports the two exact legacy syntactic failures, checks the original-D splice, all 660 dirty boundary columns and frames, and unchanged complete paths/profile. Missing restoration, cancelling illegal frame changes and cancelling target feedback are rejected. This applies #1194/#1311; it does not formalize their bridge in Lean or rebuild hosting. |
+
+All 37 tests run through the bounded reproduction command. The frozen
+15,025-XOR word, 724-state certificate and Lean file remain unchanged. The
+small exhaustive oracle supplements the two complete recurrences; it does
+not replace their full fixed-tree optimality argument. See the README's
+**Open next questions** for bounded follow-ups.
+
+Post-merge verification passed on macOS arm64 with the same Python/Clang/
+Boost/Lean versions listed above: combined reconstruction and all 37 tests,
+seven Lean axiom reports, selected and uncut native modes at 5/9/11 stages,
+`scripts/verify_selected_result.py`, `scripts/research_baseline.py`, Python
+syntax, actionlint 1.7.12 and `git diff --check`. The baseline command checks
+selected bindings/arithmetic only. Both new mathematical suites also pass
+under Python `-O`, and an independent Codex read-through found no concrete
+bugs. All original data, source hashes, claim, validation and Lean files were
+compared byte-for-byte with the original submission. No current-frontier cold
+replay or whole-repository suite was run: this PR does not change that supplier.
