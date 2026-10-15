@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/tri-plane-port-p112-seeddb093026/CANDIDATE.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate source bytes; exact original/new mask rank certificates, rational scalar endpoint and full port-space cost; eight semantic controls; receipt equality."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent source-bound reconstruction with a distinct elimination method; both exact ranks, every rational endpoint coefficient and dirty source column; nine controls."
+    }
+  ]
+}
