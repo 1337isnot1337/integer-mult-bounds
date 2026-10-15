@@ -215,18 +215,26 @@ def run_command(argv, cwd, timeout):
     # Keep explicit manifest options (including deliberate -O controls) intact.
     env = os.environ.copy()
     env.pop("PYTHONOPTIMIZE", None)
-    # A timeout ends the whole local process group, including child solvers.
+    # Own a group for POSIX cleanup of this command and its descendants.
     process = subprocess.Popen(argv, cwd=cwd, env=env, start_new_session=True)
     try:
-        code = process.wait(timeout=timeout)
-    except subprocess.TimeoutExpired:
+        try:
+            code = process.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            raise ValueError("verification timed out") from None
+        require(code == 0, f"verification command exited {code}")
+    finally:
         if hasattr(os, "killpg"):
-            os.killpg(process.pid, signal.SIGKILL)
-        else:  # Windows has no process groups to signal; end the whole child tree instead.
+            # The leader may have exited while descendants still hold the group.
+            # Signal it on success, failure and interruption, not only timeout.
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass  # A completely finished group needs no cleanup.
+        elif process.poll() is None:
+            # Windows taskkill can address the tree only while its leader exists.
             subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True)
         process.wait()
-        raise ValueError("verification timed out")
-    require(code == 0, f"verification command exited {code}")
 
 
 def run_package(root, package, install=False):

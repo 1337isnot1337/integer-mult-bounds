@@ -81,7 +81,15 @@ already trigger replay. Use canonical repository-relative POSIX paths, such as
 slashes or dot components. The planner rejects aliases because Git reports the
 canonical path when a dependency changes. The generic hook does not infer transitive imports.
 Each command has a maximum 600-second timeout and the package total is at most
-1200 seconds. A timeout fails and terminates the local process group. These
+1200 seconds. On POSIX, the launcher terminates the command's local process
+group on every exit, including success, failure, timeout and interruption, so
+background solver processes in that group cannot continue into another replay.
+Verification commands must wait for all proof-relevant children and propagate
+their failures before returning; cleanup is not evidence that unfinished checks
+passed. Descendants that deliberately detach into another group/session are
+outside this cleanup contract. On Windows, tree cleanup uses `taskkill` while
+the leader is still running; cleanup after leader exit needs a separate native
+lifetime mechanism and is not provided here. A timeout still fails. These
 bounds limit a verification job, not the mathematical search budget.
 
 The [registered-package workflow](../../.github/workflows/research-packages.yml)
