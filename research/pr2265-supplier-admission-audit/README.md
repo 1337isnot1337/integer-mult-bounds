@@ -31,9 +31,13 @@ class each:
 
 | Class | Count | Premises |
 |---|---:|---|
-| COVERED (checked by #2265 or a PR2260 check it reruns; independently re-confirmed here) | 6 | A3 hosting 72x436, C1 bit endpoint, D1 73²>2·48², D2 W/mass/deficit, D3 q<a_eff<b<c, D4 endpoint and kappa |
-| TRUE-unencoded (true under an independent exact check; not a #2265 ledger row) | 4 | A1 call closure, A2 restoration replay, B2 C_0<2^210000, B3 row 16467<20161 |
-| INHERITED-traced (statement located; interface premise not checkable from finite data here) | 5 | A4 serialization windows, B1 semantic guard units, C2 equal-chunk interchange, C3 C_1=1, D5 surcharge portability |
+| COVERED (checked by #2265 or a PR2260 check it reruns; independently re-confirmed here) | 9 | A2 restoration replay, A3 hosting 72x436, B2 C_0<2^210000, B3 row 16467<20161, C1 bit endpoint, D1 73²>2·48², D2 W/mass/deficit, D3 q<a_eff<b<c, D4 endpoint and kappa |
+| TRUE-unencoded (true under an independent exact check; not checked by #2265 or a check it reruns) | 1 | A1 call closure |
+| INHERITED-traced (statement located; interface premise not checkable from finite data here) | 5 | A4 serialization windows, B1 semantic guard units, C2 equal-chunk interchange, C3 C_1=1, D5 endpoint admissibility (surcharge envelope or PR559 license) |
+
+A2, B2 and B3 are COVERED because #2265's `verify.py` reruns PR2260's `local/verify.py`
+(both restoration replays) and `local/invoice.py` (#2265 `verify.py:43`, `:68-69`).
+This audit re-confirms them with independent code.
 | MISSING-PROOF / FALSE | 0 | none |
 
 What the independent checks establish:
@@ -59,32 +63,37 @@ What the independent checks establish:
 
 ### New observations (not defects)
 
-1. **One borrowed source is a data input.** 43 of the 44 borrowed sources are helper inputs. The other is register 73, the X-side data input, borrowed for removed alias 653. Prose in both PRs speaks of dirty *helper* borrowing.
+1. **One borrowed source is a data input.** 43 of the 44 borrowed sources are helper inputs. The other is register 73, the X-side data input, borrowed for removed alias 653.
+   - The pair originates in PR2226's 80-alias witness (head `dacaf3d8`, `research/anticipatory-dirty-borrowing/WITNESS.json`) and is carried into PR2260.
+   - PR2260's model already covers it: `PROOF-LOCAL.md:22` treats all "660 independent public/data/helper inputs" as arbitrary. Only helper-specific wording elsewhere (for example PR2226's "high helpers can use distinct retired fields" and the outer's "dirty helper/spectator coordinates") is imprecise. This is a precision note, not a gap.
    - This stays inside the call.
    - In the forward orientation it is returned to its input.
    - In the backward orientation it ends as the declared shear column X_73 − Y_185.
    - So the "completed call" premise holds for this word, but a reader should not take "borrowed = helper" literally.
-2. **Unit question for the guard (B1).** In the selected lineage the prefix allowance is a *fixed* 512-bit count, compared with a lambda-free prefix (`docs/research/community-batch952-review.md:51`, `scripts/verify_frontier1094.py:94`, `direct-delivery504-global/code/invoice_final.py:238-241`). PR2260 instead declares the 512 payload a *per-lambda* coefficient, with guard 244·lambda (`finite-invoice.json` precision_units).
-   - Under the fixed-bit reading, 244·lambda < 512 only for lambda ≤ 2.
-   - Under PR2260's per-lambda reading, its row formula `2*stock_bits + 9909 + 252 + 2*payload` still counts `2*payload = 1024` as fixed. If that term scaled, row < 20161 would need lambda ≤ 4.
-   - Neither PR defines lambda here or says how the row allowance scales with it.
-   - For #2265 the PR1673 outer needs only an O(g) supplier guard constant (review, lines 73–78). The question bears mainly on PR2260's own balanced-prefix outer, whose degree gap uses 20161. It is an open interface question, not a counterexample.
+2. **Guard units (B1) are a lineage-wide question, not a PR2260 gap.** Both self-consistent readings pass at the supplier: under the lineage's fixed-bit rule the prefix is 248 < 512, and under PR2260's per-lambda rule it is 244·lambda < 512·lambda.
+   - The only PR2260-specific point: `finite-invoice.json` states "Payload512 is a per-lambda magnitude coefficient, not a fixed bit count", and no retained-lineage source for that convention was located. The selected lineage compares a lambda-free prefix with a fixed 512 (`docs/research/community-batch952-review.md:51`, `scripts/verify_frontier1094.py:94-96`, `direct-delivery504-global/code/invoice_final.py:238-241`).
+   - Mixed readings only matter if units are combined inconsistently. Against a fixed 512, PR2260's literal prefix 207 + 37·lambda fits for lambda ≤ 8 (its relaxed bound 244·lambda for lambda ≤ 2). If the row term 2·payload = 1024 scaled with lambda, row < 20161 would need lambda ≤ 4.
+   - The same mixed readings bind the selected #1094 equally or more tightly: its row 16469 would need lambda ≤ 4, and its 397-bit prefix with the 37-bit conversion scaled would need lambda ≤ 4. `verify.py` checks all five thresholds exactly.
+   - The outer consumes 20161 as a fixed degree gap (PR2260 `PROOF.md:104-105`). For #2265 the PR1673 outer needs only an O(g) supplier guard constant (review, lines 73–78).
 3. **Identical invoice fields are explained, not copied.** PR2260's physical_stock_bits 2641, row 16467 and required_C0_bits 200012 equal direct-delivery504's exactly. The reason is that both stocks (7682 and 7745 families) have the same bit length after multiplying by |O(73,2)|, and the C_0 field is dominated by 2^100000.
-4. **Surcharge portability.** The conservative surcharge used by #2265's endpoint comes from the vendored `moment.py`. Its own comment calls the envelope "only conditionally portable to the new cover". Neither PR proves that portability; it is inherited.
+4. **Endpoint admissibility is a disjunction (D5).** The bad-residue surcharge only lowers C, and #2265 also certifies the native moment below one at C (1 − 8.39e-12). C is therefore admissible if *either* the retained envelope 32 m ΣH / 10^16 W is an adequate bad-residue bound for the PR2260 cover, *or* the PR559 native-complex license applies to it; the selected lineage uses that license (compare `research/audit-frontier890-endpoint-seed73/AUDIT.md` F3–F5). Neither disjunct is proved for the PR2260 cover; it is inherited. The comment "only conditionally portable to the new cover" in the engine PR2260 vendors (base `research/frame-domain-ceiling/engines/moment.py:62`) refers to that package's cover, not to PR2260's.
 
 ## Reproduce
 
 From the repository root, after `git fetch origin pull/2260/head pull/2265/head`.
-The verifier attempts this fetch itself if the pinned heads are absent.
+The verifier attempts this fetch itself if the pinned heads are absent, and falls back to
+fetching the two pinned SHAs directly if a PR head has moved (GitHub serves PR-network
+commits by SHA). Offline replay needs the pinned commits already present.
 
 ```sh
 python3 -B research/pr2265-supplier-admission-audit/verify.py
 ```
 
-Expected output, in about 3 seconds with stdlib only (Python ≥ 3.11):
+Expected output, in about 3 seconds with stdlib only. Tested under Python 3.14 only; the
+package runner's registered interpreter (3.12) was not available locally.
 
 ```
-PASS_PR2265_SUPPLIER_ADMISSION_AUDIT controls_rejected 13 of 13
+PASS_PR2265_SUPPLIER_ADMISSION_AUDIT controls_rejected 15 of 15
 ```
 
 The full receipt is compared with [EXPECTED.json](EXPECTED.json). Use `--write` to regenerate it.
@@ -95,10 +104,10 @@ Each control must be rejected by the named check:
 
 - **Borrowed source.** Moved to a removed alias, or to register 2000 outside the call.
 - **Events.** One ADD reads a removed alias.
-- **Replay.** One logical monomial warp is dropped, or one helper ADD coefficient is doubled.
+- **Replay.** Forward: one logical monomial warp is dropped, or one helper ADD coefficient is doubled. Backward: one dual monomial symbol is inverted.
 - **Owner rows.** One row overlaps the previous block, or one row is placed on its call's active data family.
 - **Halving guard.** A mass-preserving child rank 52 (48 + 4 → 52) is introduced.
-- **Row guard.** The payload is scaled by lambda = 5.
+- **Invoice data.** The guard coefficient is changed to 245, or the row coefficient to 16466.
 - **Endpoint.** It is raised by one 1e-200 grid step.
 - **Kappa.** It is raised by 1e-240.
 - **Bit endpoint.** It is set equal to b, or raised by 1e-18.
@@ -107,12 +116,14 @@ Each control must be rejected by the named check:
 
 - Base commit: `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. Base-tree inputs are pinned in [SOURCES.json](SOURCES.json):
   - `research/e8-bit-p111-tuned/tune/EXPECTED.json` (sha256 `b9f0e5ca…`);
-  - `research/direct-delivery504-global/evidence/audit/PREFIX-AND-INVOICE.json` (sha256 `ce1bfa49…`).
+  - `research/direct-delivery504-global/evidence/audit/PREFIX-AND-INVOICE.json` (sha256 `ce1bfa49…`);
+  - `scripts/verify_frontier1094.py` (sha256 `c7e20f59…`), read as text for the #1094 prefix and row constants.
 - PR2260 head `fde6b107e26a14da5bac5b66913c914708ea6901` and PR2265 head `49ce38fee91f33edb54645724e7be9530f5631f6`. The 18 blobs read from these heads are SHA-256 pinned in `verify.py` (`PINS`). Examples: forward trace `a9d513bc…`, OWNERS `892b49f9…`, HOSTED-PARENT `f713f8e6…`, ENDPOINT `aefecb3b…`, LEDGER `df357ddc…`.
 - No code from either PR is imported or executed. The vendored copy of PR2260 inside #2265 is byte-identical to PR2260's head, verified with `diff -r` during the audit.
 
 ## Scope, inherited assumptions, unresolved obligations
 
+- The audited line is PR2260/#2265 (kappa ≈ 0.0016834). It is not the leading open conditional claim: newer open PRs (#2284 at 0.00168357; #2288, #2302 and #2309 at ≈ 0.001696, T74 lineage) are not covered.
 - This is a finite data audit at one point: #2265's final point and PR2260's shipped word. It is not a proof of the capped-fusion theorem, of the all-size compiler, or of any multiplication theorem. #2284's "modern outer" point was not audited. Its `outer/ENDPOINT.json` at head `e71574b9` has a different schema (an 8-digit endpoint with no surcharge_weight) and a different profile (93-row owner delta, a rank-40 child), so the keys are not identical.
 - The replay is limited to PR2260's event model:
   - It checks the literal events under PR2260's documented semantics: free reference-change symbols, GF(2) frames, destructive COPY/CLEAR. It was written after reading PR2260's description and its row interpreter, so it is an independent *implementation* of the same model, not an independent model.
@@ -123,20 +134,20 @@ Each control must be rejected by the named check:
 
 ## Open next questions
 
-1. **Guard units (B1).**
-   - *Question:* is the retained row allowance 20161 per-lambda or absolute, given PR2260's per-lambda payload?
-   - *Why it matters:* under the lineage's fixed-bit reading, PR2260's 244·lambda guard fits 512 only for lambda ≤ 2. Under a per-lambda reading of `2*payload`, the row guard holds only for lambda ≤ 4.
-   - *First step:* locate the retained interface's definition of lambda and of the row coefficient in the selected lineage (direct-delivery504 / PR523 invoice notes), then restate PR2260's row in matching units.
-   - *Blocker:* the definition of lambda in the all-size compiler is spread over historical notes.
-2. **Surcharge portability (D5).**
-   - *Question:* does the bad-residue surcharge envelope "32 m ΣH / 10^16 W" port to the PR2260 cover?
-   - *Why it matters:* #2265's endpoint C is certified against the conservative moment, so C depends on this envelope.
-   - *First step:* find the derivation of the envelope in `research/frame-domain-ceiling` and list its cover-specific hypotheses.
-   - *Blocker:* the derivation may only be in older PR discussions.
+1. **Payload unit convention (B1).**
+   - *Question:* where does the retained lineage define whether the 512-bit payload and the 20161 row allowance scale with lambda? PR2260 asserts a per-lambda payload without a located source.
+   - *Why it matters:* both self-consistent readings pass, but mixed readings give lambda ≤ 4 thresholds for PR2260 and for the selected #1094 alike (lambda ≤ 8 or ≤ 2 for PR2260's prefix against a fixed 512).
+   - *First step:* locate the all-size compiler's definition of lambda and of the row coefficient (direct-delivery504 / PR523 invoice notes), then restate both rows in matching units.
+   - *Blocker:* the definition of lambda is spread over historical notes.
+2. **Endpoint admissibility for the PR2260 cover (D5).**
+   - *Question:* does either disjunct hold for the PR2260 cover: the bad-residue envelope "32 m ΣH / 10^16 W" is adequate, or the PR559 native-complex license applies?
+   - *Why it matters:* #2265 certifies C under both the native and the conservative moment, so one of the two is needed.
+   - *First step:* list the cover-specific hypotheses of the PR559 exact-cover argument (`research/complex-multicold/vendor/pr559/PROOF.md`) and of the envelope derivation, and test them against PR2260's cover.
+   - *Blocker:* the envelope derivation may only be in older PR discussions.
 3. **Data-input borrow.**
-   - *Question:* should PR2260's prose state that one alias borrows the public X_73 input?
-   - *Why it matters:* the outer's interface sentence speaks of dirty helper/spectator coordinates only. Data borrowing is invisible at the call boundary, but the prose should match the data.
-   - *First step:* a one-line note in PR2260's PROOF-LOCAL.
+   - *Question:* should the helper-specific prose in PR2226/PR2260 say that one alias (653, from PR2226's witness) borrows the public X_73 input?
+   - *Why it matters:* PR2260's model (`PROOF-LOCAL.md:22`) already covers it and data borrowing is invisible at the call boundary, but helper-only wording elsewhere does not match the data.
+   - *First step:* a one-line note next to the helper-borrowing sentences.
    - *Blocker:* none.
 
 ## Credit
@@ -145,13 +156,16 @@ The audited and predecessor work is by:
 
 - PR #2265: DreamingOfClouds, the outer retune.
 - PR #2260 and #2284: Dugongue, the selective-borrowing supplier and owners.
-- PR #2226: Cinna Davis / 1337isnot1337, the borrowing architecture.
+- PR #2226: Cinna Davis / 1337isnot1337, the borrowing architecture and the 80-alias witness containing the X_73 borrow.
 - PR #1673: Vlado-V, the capped phase-cell fusion outer and its substitution review.
 - PR #2220: jeremykothe2, the retune ledger.
 - PR #2180 / #2161: dataisfire.
-- PR #1786 and #1758.
+- PR #1758: jeremykothe2 (gauge-free interiors).
+- PR #1786: chafreaky (Chafik Boukhalfa).
 - The e8-bit-p111-tuned and direct-delivery504 packages.
 
-Concurrent related audit: #2286, which covers the T74 side-condition inventory and states that supplier admission was not checked there.
+Concurrent related audit: #2286, which covers the T74 side-condition inventory and states that supplier admission was not checked there. #2286 was opened from the same GitHub account (thakrarsagar) by a different, concurrent sprint session.
+
+Reviewer fixes in this revision (internal sprint review): the guard-unit observation was rescoped as lineage-wide, A2/B2/B3 were reclassified as COVERED, D5 was restated as a disjunction, the X_73 borrow was credited to PR2226, a tautological control was replaced by two invoice-data mutations, and a backward-orientation replay control was added.
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Independent supplier-admission audit of the PR2265 substitution, traced into PR2260.
 
-Reads pinned Git blobs of PR2260 (head fde6b107) and PR2265 (head 49ce38fe) plus two
-files of the base checkout, checks their SHA-256 pins, and re-derives the
+Reads pinned Git blobs of PR2260 (head fde6b107) and PR2265 (head 49ce38fe) plus
+three files of the base checkout, checks their SHA-256 pins, and re-derives the
 supplier-admission premises with independent stdlib code.  It imports and executes no
 code from either PR.  All acceptance arithmetic is exact (int / Fraction) except the
 moment signs, which use correctly rounded `decimal` ln/exp at 320 digits with an
@@ -10,6 +10,7 @@ explicit error bound (see `moment`).  Negative controls must be rejected by the 
 check functions.
 
 Prerequisite (once):  git fetch origin pull/2260/head pull/2265/head
+(if a PR head has moved, fetch the pinned SHAs instead: git fetch origin <C2260> <C2265>)
 Run from the repository root:  python3 -B research/pr2265-supplier-admission-audit/verify.py
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic,
@@ -58,6 +59,7 @@ LOCAL_PINS = {
     'research/e8-bit-p111-tuned/tune/EXPECTED.json': 'b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4',
     'research/direct-delivery504-global/evidence/audit/PREFIX-AND-INVOICE.json':
         'ce1bfa49be88ae67a404f606a11db2232b7e1f2610d4418058e39749d86d8478',
+    'scripts/verify_frontier1094.py': 'c7e20f59968ed5736fb859735de4de207de3418083e37012310ebcded946b949',
 }
 
 
@@ -83,6 +85,10 @@ def ensure_commits():
         subprocess.run(['git', '-C', str(ROOT), 'fetch', '--no-tags', '--quiet', 'origin',
                         'refs/pull/2260/head', 'refs/pull/2265/head'], capture_output=True)
     if not present():
+        # Fallback if a PR head has moved: GitHub serves PR-network commits by SHA.
+        subprocess.run(['git', '-C', str(ROOT), 'fetch', '--no-tags', '--quiet', 'origin', C2260, C2265],
+                       capture_output=True)
+    if not present():
         raise SystemExit('pinned PR heads unavailable; run `git fetch origin pull/2260/head pull/2265/head`')
 
 
@@ -99,11 +105,11 @@ def blob(commit, path):
     return data
 
 
-def local_file(path):
+def local_file(path, raw=False):
     data = (ROOT / path).read_bytes()
     if sha(data) != LOCAL_PINS[path]:
         raise SystemExit(f'pin mismatch for {path}')
-    return json.loads(data)
+    return data.decode() if raw else json.loads(data)
 
 
 def text_pin(text, phrase):
@@ -370,7 +376,7 @@ def row_guard(stock_bits, payload_bits):
     return row
 
 
-def check_constants(invoice, trace, old, payload=512):
+def check_constants(invoice, trace, old, lineage1094, payload=512):
     need(orthogonal_count(3) == group_order(3) == 6 and orthogonal_count(5) == group_order(5) == 720,
          '|O(n,2)| formula on brute-forced small cases')
     m = 73
@@ -409,14 +415,26 @@ def check_constants(invoice, trace, old, payload=512):
     need(ideal + blocks + conv == coeff, 'guard identity at lambda = 1')
     retained_fixed = ideal + conv + 72 + 72 + 4   # direct-delivery504 code/invoice_final.py fixed-bit prefix rule
     need(retained_fixed < payload, 'retained fixed-bit prefix rule also holds at lambda = 1')
-    # Unit question: if the row term 2*payload scaled with lambda, the row guard would hold only up to lam_max.
+    # Unit question (lineage-wide, not a PR2260 gap).  Both self-consistent readings pass at the
+    # supplier: fixed rule 248 < 512, per-lambda rule 244*lambda < 512*lambda.  The thresholds below
+    # only matter for mixed readings, and they bind the selected #1094 equally or more tightly.
     lam_max = max(k for k in range(1, 64) if not rejected(lambda: row_guard(stock.bit_length(), payload * k)))
-    # Fixed-bit reading of the retained allowance (selected lineage: 512 bits, e.g. verify_frontier1094.py:94):
-    # the per-lambda guard coeff*lambda fits a fixed 512-bit payload only up to lam_fixed.
-    lam_fixed = max(k for k in range(1, 64) if coeff * k < payload)
+    lam_fixed = max(k for k in range(1, 64) if coeff * k < payload)                    # relaxed bound 244*lambda
+    lam_literal = max(k for k in range(1, 64) if ideal + blocks + conv * k < payload)  # literal 207 + 37*lambda
+    need((lam_max, lam_fixed, lam_literal) == (4, 2, 8), 'PR2260 mixed-reading lambda thresholds 4, 2, 8')
+    # Selected #1094 (scripts/verify_frontier1094.py:94-96): prefix 397 (fixed 37 conversion), charged 512, row 16469.
+    for phrase in ("final['prefix_bits'] == 397", "final['charged_prefix_bits'] == 512",
+                   "final['physical_row_coefficient'] == 16469"):
+        need(phrase in lineage1094, ('#1094 constant', phrase))
+    lam_1094_row = max(k for k in range(1, 64) if 16469 - 2 * payload + 2 * payload * k < 20161)
+    lam_1094_prefix = max(k for k in range(1, 64) if 397 - conv + conv * k < payload)
+    need((lam_1094_row, lam_1094_prefix) == (4, 4), '#1094 mixed-reading lambda thresholds 4, 4')
     return dict(guard_lambda_max_if_payload_fixed_bits=lam_fixed,physical=physical, group_bits=group.bit_length(), stock_bits=stock.bit_length(), row=row,
                 required_C0_bits=c0_bits, literal_bits=literal.bit_length(), guard_coefficient=coeff,
-                retained_fixed_bit_prefix=retained_fixed, row_lambda_max_if_payload_scaled=lam_max)
+                retained_fixed_bit_prefix=retained_fixed, row_lambda_max_if_payload_scaled=lam_max,
+                guard_lambda_max_literal_prefix_fixed_bits=lam_literal,
+                selected1094_row_lambda_max_if_payload_scaled=lam_1094_row,
+                selected1094_prefix_lambda_max_if_conversion_scaled=lam_1094_prefix)
 
 
 # ---------------------------------------------------------------- moments (decimal, bounded error)
@@ -547,6 +565,7 @@ def main():
     spec, endpoint, ledger = J(C2265, 'SPEC.json'), J(C2265, 'ENDPOINT.json'), J(C2265, 'outer/LEDGER.json')
     bit_main = local_file('research/e8-bit-p111-tuned/tune/EXPECTED.json')
     old = local_file('research/direct-delivery504-global/evidence/audit/PREFIX-AND-INVOICE.json')
+    lineage1094 = local_file('scripts/verify_frontier1094.py', raw=True)
     texts = {k: v.decode() for k, v in inp.items() if k[1].endswith(('.md', '.tex'))}
 
     out = dict(status=None, pr2260=C2260, pr2265=C2265)
@@ -563,7 +582,7 @@ def main():
     need((hosting['original_rank_mass'], hosting['hosted'], hosting['residual_mass']) == (387072, 254088, 132984),
          'factor partition 387072 = 254088 hosted + 132984 residual (PR2260 PROOF.md)')
     out['A_owner_hosting'] = hosting
-    out['B_constants'] = check_constants(invoice, fwd, old)
+    out['B_constants'] = check_constants(invoice, fwd, old, lineage1094)
     out['C_bit'] = check_bit(spec, bit2260, bit_main)
     out['D_endpoint'] = check_endpoint(spec, endpoint, ledger, hosting['profile'])
     out['trace'] = check_trace(texts)
@@ -622,9 +641,15 @@ def main():
         e['profile'] = p
         check_endpoint(s, e, ledger, p)
 
-    def row_payload_scaled_beyond_lambda_max():
-        lam = out['B_constants']['row_lambda_max_if_payload_scaled'] + 1
-        row_guard(out['B_constants']['stock_bits'], 512 * lam)
+    def invoice_guard_coefficient_245():
+        inv = copy.deepcopy(invoice)
+        inv['global_precision_guard_coefficient'] = 245
+        check_constants(inv, fwd, old, lineage1094)
+
+    def invoice_row_coefficient_16466():
+        inv = copy.deepcopy(invoice)
+        inv['finite']['physical_row_coefficient'] = 16466
+        check_constants(inv, fwd, old, lineage1094)
 
     def endpoint_plus_one_grid_step():
         e = copy.deepcopy(endpoint)
@@ -653,6 +678,12 @@ def main():
         del t['events'][i]
         replay_restoration(t)
 
+    def backward_replay_inverts_one_dual_monomial_symbol():
+        t = copy.deepcopy(bwd)
+        i = next(i for i, e in enumerate(t['events']) if e[0] == 'dual_monomial')
+        t['events'][i][2] = -t['events'][i][2]
+        replay_restoration(t)
+
     def replay_doubles_one_add_coefficient():
         t = copy.deepcopy(fwd)
         i = next(i for i, e in enumerate(t['events']) if e[0] == 'add' and str(e[1]) in t['helper_widths'])
@@ -660,9 +691,11 @@ def main():
         replay_restoration(t)
 
     controls = {}
-    for fn in (replay_drops_one_monomial_warp, replay_doubles_one_add_coefficient, alias_source_is_removed_alias, alias_source_outside_call, event_reads_removed_alias,
+    for fn in (replay_drops_one_monomial_warp, replay_doubles_one_add_coefficient,
+               backward_replay_inverts_one_dual_monomial_symbol, alias_source_is_removed_alias,
+               alias_source_outside_call, event_reads_removed_alias,
                owner_block_overlap, owner_on_active_data_family, halving_child_rank_52,
-               row_payload_scaled_beyond_lambda_max, endpoint_plus_one_grid_step, kappa_plus_1e_240,
+               invoice_guard_coefficient_245, invoice_row_coefficient_16466, endpoint_plus_one_grid_step, kappa_plus_1e_240,
                bit_endpoint_equal_to_b, bit_endpoint_plus_1e_18):
         controls[fn.__name__] = rejected(fn)
     out['negative_controls'] = controls

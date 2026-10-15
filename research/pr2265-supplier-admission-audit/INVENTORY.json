@@ -1,8 +1,14 @@
 {
  "schema": "pr2265-supplier-admission-inventory/1",
  "audited": {
-  "pr2265": {"head": "49ce38fee91f33edb54645724e7be9530f5631f6", "package": "research/selective-borrowing-outer-retune"},
-  "pr2260": {"head": "fde6b107e26a14da5bac5b66913c914708ea6901", "package": "research/selective-borrowing-kappa"},
+  "pr2265": {
+   "head": "49ce38fee91f33edb54645724e7be9530f5631f6",
+   "package": "research/selective-borrowing-outer-retune"
+  },
+  "pr2260": {
+   "head": "fde6b107e26a14da5bac5b66913c914708ea6901",
+   "package": "research/selective-borrowing-kappa"
+  },
   "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2"
  },
  "classes": {
@@ -23,7 +29,7 @@
    "consumed_by_outer": "theorem hypothesis only: vendor/pr1673/capped-phase-fusion/phase_fusion_note.tex:63 and :443; INDEPENDENT-SUBSTITUTION-REVIEW.md:51-58, :80-81. No ledger row.",
    "check_here": "verify.py check_alias_closure + check_owner_hosting",
    "class": "TRUE-unencoded",
-   "finding": "Both orientations of the local word touch only the 660 public arrays of the call (224 data, 436 helpers) and the 76 owned private arrays. No event references a removed alias or any register outside the call. The 44 borrowed sources are 43 helper inputs plus one public data input: register 73, an X-side source for removed alias 653. Handoffs occur exactly at the 44 borrowed sources, and each has paid rank 0. Every one of the 31392 owner rows lies in an inherited pending child of the same hosted parent. Within each child the rows form disjoint exact prefixes, and no row uses an active data family of its own call.",
+   "finding": "Both orientations of the local word touch only the 660 public arrays of the call (224 data, 436 helpers) and the 76 owned private arrays. No event references a removed alias or any register outside the call. The 44 borrowed sources are 43 helper inputs plus one public data input: register 73, an X-side source for removed alias 653. Handoffs occur exactly at the 44 borrowed sources, and each has paid rank 0. Every one of the 31392 owner rows lies in an inherited pending child of the same hosted parent. Within each child the rows form disjoint exact prefixes, and no row uses an active data family of its own call. The data-input borrow (removed alias 653 <- source 73) originates in PR2226's 80-alias WITNESS (head dacaf3d8, research/anticipatory-dirty-borrowing/WITNESS.json) and is carried into PR2260. PR2260 PROOF-LOCAL.md:22 already treats all 660 public/data/helper inputs as arbitrary, so this is covered by PR2260's stated model; only helper-specific wording elsewhere is imprecise. It is a precision note, not a gap.",
    "residual_inheritance": "The all-size realization of this finite closure (lambda-fold lift, physical tape and route) is inherited from PR2260 PROOF.md:49-52."
   },
   {
@@ -32,12 +38,13 @@
    "statement": "Arbitrary dirty helper and spectator coordinates are restored, together with the same normalized global transform, at each completed-call boundary.",
    "stated_in_2265": "README.md:34; README.md:42",
    "stated_in_2260": "PROOF.md:5-7; PROOF-LOCAL.md:27-46 (two replays: emitting replay and local/check_trace.py)",
-   "consumed_by_outer": "INDEPENDENT-SUBSTITUTION-REVIEW.md:51-58; phase_fusion_note.tex:443-444. No ledger row.",
+   "consumed_by_outer": "INDEPENDENT-SUBSTITUTION-REVIEW.md:51-58; phase_fusion_note.tex:443-444. No ledger row; covered by the PR2260 check that #2265 reruns.",
    "check_here": "verify.py replay_restoration: an independently written exact replay over a free group of reference-change symbols with rational coefficients, with GF(2) frames compared by reduced basis.",
-   "class": "TRUE-unencoded",
+   "class": "COVERED",
    "finding": "All 660 public columns end at the declared endpoint in both orientations: forward Y_i += X_i, backward X_i -= Y_i, all other columns returned to their own input label with an empty word. All 76 owned private arrays end at zero. The paid transport profile equals {1:2424,2:418,3:429,4:141,5:42,8:8}. In the forward orientation all 44 borrowed sources return to their input. In the backward orientation 43 do, and register 73 ends as the declared shear column X_73 - Y_185.",
    "independence_note": "The replay was written for this audit after reading PR2260's row-interpreter semantics (PROOF-LOCAL.md:27-46, local/check_trace.py). No PR2260 code is imported or executed, but the event semantics model is PR2260's. It is a third replay of the same model, not a different model.",
-   "residual_inheritance": "The lambda-fold tensor lift (PROOF-LOCAL.md:102-107) and native Clifford lowering (PROOF-LOCAL.md:70-100) are not rechecked."
+   "residual_inheritance": "The lambda-fold tensor lift (PROOF-LOCAL.md:102-107) and native Clifford lowering (PROOF-LOCAL.md:70-100) are not rechecked.",
+   "class_note": "#2265 verify.py reruns PR2260's local/verify.py (both restoration replays) (#2265 verify.py:43, :68-69); re-confirmed here by independent code."
   },
   {
    "id": "A3-whole-call-hosting",
@@ -70,8 +77,8 @@
    "consumed_by_outer": "No #2265 ledger row. PR1673 requires only a fixed supplier-dependent constant in O(g) (INDEPENDENT-SUBSTITUTION-REVIEW.md:73-78) under the C_1 = 1 semantic-guard hypothesis (phase_fusion_note.tex:63).",
    "check_here": "verify.py check_constants",
    "class": "INHERITED-traced",
-   "finding": "The arithmetic holds: 244 = 63 + 144 + 37, the inequality 207 + 37*lambda <= 244*lambda is equivalent to lambda >= 1 (tight at 1), and 244 < 512. The retained fixed-bit rule of direct-delivery504 (local + 37 + calls + bridges + 4) gives 248 < 512. The value 63 is PR2260's P_binary_upper and is taken from its precision receipts, not recomputed.",
-   "open_unit_question": "In the selected lineage the prefix allowance is a fixed 512-bit count, compared with a lambda-free prefix: docs/research/community-batch952-review.md:51-56, scripts/verify_frontier1094.py:94, research/direct-delivery504-global/code/invoice_final.py:238-241. PR2260 instead declares payload 512 a per-lambda coefficient, with guard 244*lambda. Under the fixed-bit reading, 244*lambda < 512 holds only for lambda <= 2. Under the per-lambda reading, PR2260's row formula 2*stock_bits + 9909 + 252 + 2*payload still counts 2*payload = 1024 as a fixed term; if it scaled, row < 20161 would hold only for lambda <= 4. Neither PR2260 nor #2265 defines lambda or says how the row allowance scales with it. This is an open interface question, not a counterexample. For #2265 the PR1673 outer only needs an O(g) supplier guard constant (review:73-78), so it bears more on PR2260's own balanced-prefix outer, whose degree gap uses 20161."
+   "finding": "The arithmetic holds: 244 = 63 + 144 + 37, the literal prefix 207 + 37*lambda <= 244*lambda is equivalent to lambda >= 1 (tight at 1), and 244 < 512. The retained fixed-bit rule of direct-delivery504 (local + 37 + calls + bridges + 4) gives 248 < 512. Both self-consistent readings therefore pass: fixed-bit 248 < 512 and per-lambda 244*lambda < 512*lambda. The value 63 is PR2260's P_binary_upper and is taken from its precision receipts, not recomputed.",
+   "open_unit_question": "Lineage-wide unit question, not a PR2260 guard gap. In the selected lineage the prefix allowance is a fixed 512-bit count compared with a lambda-free prefix (docs/research/community-batch952-review.md:51-56, scripts/verify_frontier1094.py:94-96, research/direct-delivery504-global/code/invoice_final.py:238-241). PR2260 states 'Payload512 is a per-lambda magnitude coefficient, not a fixed bit count' (finite-invoice.json precision_units) with no located retained-lineage source for that convention; this is the only PR2260-specific point. Mixed readings only: against a fixed 512, PR2260's literal prefix 207 + 37*lambda fits for lambda <= 8 (its relaxed bound 244*lambda for lambda <= 2); if the row term 2*payload scaled with lambda, row < 20161 would need lambda <= 4. The same mixed readings bind the selected #1094 equally or more tightly: its row 16469 would need lambda <= 4, and its 397-bit prefix with the 37 conversion scaled would need lambda <= 4. The outer consumes 20161 as a fixed degree gap (PR2260 PROOF.md:104-105). For #2265 the PR1673 outer needs only an O(g) supplier guard constant (review:73-78)."
   },
   {
    "id": "B2-C0",
@@ -79,11 +86,12 @@
    "statement": "PR2260's fresh constant satisfies C_0 < 2^210000.",
    "stated_in_2265": "README.md:36, :41",
    "stated_in_2260": "PROOF.md:38-39, :45-49; PROOF-LOCAL.md:137-150; finite-invoice.json",
-   "consumed_by_outer": "No #2265 ledger row. It changes a constant only (README.md:36; phase_fusion_note.tex:443).",
+   "consumed_by_outer": "No #2265 ledger row; covered by the PR2260 check that #2265 reruns. It changes a constant only (README.md:36; phase_fusion_note.tex:443).",
    "check_here": "verify.py check_constants",
-   "class": "TRUE-unencoded",
+   "class": "COVERED",
    "finding": "Recomputed with the retained formula: required_C0_bits = bit_length(32*73*(|O(73,2)|*73*7168 + 2^100000)^2) = 200012 < 210000, and the tape bound 2*total+18 < 2^210000.",
-   "residual_inheritance": "The retained formula and the active-depth recurrence (PROOF.md:45-49) are inherited conventions."
+   "residual_inheritance": "The retained formula and the active-depth recurrence (PROOF.md:45-49) are inherited conventions.",
+   "class_note": "#2265 verify.py reruns PR2260's local/invoice.py and requires equality with finite-invoice.json (#2265 verify.py:43, :68-69); re-confirmed here by independent code."
   },
   {
    "id": "B3-row-coefficient",
@@ -91,11 +99,12 @@
    "statement": "PR2260's new row coefficient satisfies 16467 < 20161.",
    "stated_in_2265": "README.md:36",
    "stated_in_2260": "PROOF.md:40; PROOF-LOCAL.md:198; finite-invoice.json finite",
-   "consumed_by_outer": "No #2265 ledger row. It changes a constant only.",
+   "consumed_by_outer": "No #2265 ledger row; covered by the PR2260 check that #2265 reruns. It changes a constant only.",
    "check_here": "verify.py check_constants",
-   "class": "TRUE-unencoded",
+   "class": "COVERED",
    "finding": "Recomputed: physical families 7168 + 492 + 75 + 8 + 2 = 7745, where 75 is the trace's zero-buffer count; stock bits 2641; row = 2*2641 + 9909 + 252 + 1024 = 16467. The value is identical to direct-delivery504's (PREFIX-AND-INVOICE.json) together with physical_stock_bits 2641 and required_C0_bits 200012. This is explained, not copied: both stocks have the same bit length because 7682 and 7745 both lie in [2^12, 2^13), and the C0 field is dominated by 2^100000.",
-   "group_order_check": "The formula 2^(k^2) prod_{j=1..k} (2^(2j)-1) for |O(2k+1,2)| matches brute force for n = 3 and 5."
+   "group_order_check": "The formula 2^(k^2) prod_{j=1..k} (2^(2j)-1) for |O(2k+1,2)| matches brute force for n = 3 and 5.",
+   "class_note": "#2265 verify.py reruns PR2260's local/invoice.py and requires equality with finite-invoice.json (#2265 verify.py:43, :68-69); re-confirmed here by independent code."
   },
   {
    "id": "C1-bit-endpoint",
@@ -177,26 +186,26 @@
   {
    "id": "D5-surcharge",
    "group": "D",
-   "statement": "The conservative moment uses PR2260's retained bad-residue surcharge 32*m*sum(H)/(10^16*W)*m^b.",
+   "statement": "The endpoint C is admissible for the PR2260 cover: either the retained bad-residue surcharge 32*m*sum(H)/(10^16*W)*m^b is an adequate bound for that cover, or the PR559 native-complex license (surcharge omitted) applies to it.",
    "stated_in_2265": "certify_endpoint.py:5-6, :23; ENDPOINT.json surcharge_weight",
-   "stated_in_2260": "arithmetic/vendor/moment.py:61-65 (vendored from base research/frame-domain-ceiling/engines/moment.py)",
+   "stated_in_2260": "arithmetic/vendor/moment.py:61-65, vendored verbatim from base research/frame-domain-ceiling/engines/moment.py:62",
    "consumed_by_outer": "certify_endpoint.py conservative moment",
    "check_here": "verify.py check_endpoint",
    "class": "INHERITED-traced",
-   "finding": "The weight is 32*73*255500/(10^16*7168) = 5329/640000000000000, and the arithmetic is true. The vendored engine's own comment calls this envelope 'only conditionally portable to the new cover'. Its portability to the PR2260 cover is therefore an inherited condition, and neither PR proves it."
+   "finding": "The weight is 32*73*255500/(10^16*7168) = 5329/640000000000000, and the arithmetic is true. The surcharge only lowers C, and #2265 also certifies the native moment below one at C (1 - 8.39e-12), so C is valid under either disjunct: the envelope is adequate for the PR2260 cover, or the PR559 native-complex license applies to it (the selected lineage uses that license; cf. research/audit-frontier890-endpoint-seed73/AUDIT.md F3-F5). The comment 'only conditionally portable to the new cover' sits in the base-tree frame-domain-ceiling engine and refers to that package's cover, not to PR2260's. Neither PR proves either disjunct for the PR2260 cover; it is inherited."
   }
  ],
  "summary": {
   "FALSE": 0,
   "MISSING-PROOF": 0,
-  "COVERED": 6,
-  "TRUE-unencoded": 4,
+  "COVERED": 9,
+  "TRUE-unencoded": 1,
   "INHERITED-traced": 5,
   "new_observations": [
-   "One of the 44 borrowed sources is the public data input X_73, not a helper. It is restored in the forward orientation and ends as the declared shear column in the backward orientation.",
-   "If payload were per-lambda, the row formula would need lambda <= 4 (unit question).",
+   "One of the 44 borrowed sources is the public data input X_73 (removed alias 653), not a helper. It is restored in the forward orientation and ends as the declared shear column in the backward orientation. The pair originates in PR2226's WITNESS and is within PR2260's stated model (PROOF-LOCAL.md:22); precision note on helper-specific prose only.",
+   "Guard units: both self-consistent readings pass (fixed 248 < 512; per-lambda 244*lambda < 512*lambda). Mixed readings give lambda thresholds 8 (literal prefix), 2 (relaxed 244*lambda) and 4 (scaled row) for PR2260, and 4 and 4 for the selected #1094, so this is a lineage-wide question. PR2260's per-lambda payload convention has no located retained source.",
    "The row/C0/stock-bit fields identical to direct-delivery504 are explained by equal stock bit length.",
-   "The surcharge envelope is flagged 'only conditionally portable' in the vendored engine."
+   "Endpoint admissibility is a disjunction: surcharge envelope adequate for the PR2260 cover, or the PR559 native-complex license applies; neither is proved for this cover."
   ]
  }
 }

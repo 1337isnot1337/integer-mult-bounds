@@ -72,12 +72,15 @@
   "group_bits": 2628,
   "guard_coefficient": 244,
   "guard_lambda_max_if_payload_fixed_bits": 2,
+  "guard_lambda_max_literal_prefix_fixed_bits": 8,
   "literal_bits": 35282,
   "physical": 7745,
   "required_C0_bits": 200012,
   "retained_fixed_bit_prefix": 248,
   "row": 16467,
   "row_lambda_max_if_payload_scaled": 4,
+  "selected1094_prefix_lambda_max_if_conversion_scaled": 4,
+  "selected1094_row_lambda_max_if_payload_scaled": 4,
   "stock_bits": 2641
  },
  "C_bit": {
@@ -95,24 +98,26 @@
   "next_grid_conservative_minus_one": "3.157248e-202"
  },
  "inventory_classes": {
-  "COVERED": 6,
+  "COVERED": 9,
   "INHERITED-traced": 5,
-  "TRUE-unencoded": 4
+  "TRUE-unencoded": 1
  },
  "negative_controls": {
   "alias_source_is_removed_alias": "every borrowed source is a live public input array of the same call",
   "alias_source_outside_call": "every borrowed source is a live public input array of the same call",
+  "backward_replay_inverts_one_dual_monomial_symbol": "('endpoint column not restored/sheared', 70)",
   "bit_endpoint_equal_to_b": "rate ordering q < a_eff < b < c",
   "bit_endpoint_plus_1e_18": "conservative bit moment below one at c",
   "endpoint_plus_one_grid_step": "moments below one at C",
   "event_reads_removed_alias": "event add touches register 597 outside the call",
   "halving_child_rank_52": "halving guard m^2 > 2 rmax^2",
+  "invoice_guard_coefficient_245": "per-lambda guard 244 < payload",
+  "invoice_row_coefficient_16466": "recomputed finite fields equal the invoice",
   "kappa_plus_1e_240": "kappa = C - 1e-246 - 1e-222",
   "owner_block_overlap": "assigned blocks are disjoint and form an exact prefix",
   "owner_on_active_data_family": "helper family is not an active data family of its call",
   "replay_doubles_one_add_coefficient": "('endpoint column not restored/sheared', 115)",
-  "replay_drops_one_monomial_warp": "('endpoint column not restored/sheared', 22)",
-  "row_payload_scaled_beyond_lambda_max": "row guard 2*stock_bits + 9909 + 252 + 2*payload < 20161"
+  "replay_drops_one_monomial_warp": "('endpoint column not restored/sheared', 22)"
  },
  "pr2260": "fde6b107e26a14da5bac5b66913c914708ea6901",
  "pr2265": "49ce38fee91f33edb54645724e7be9530f5631f6",
