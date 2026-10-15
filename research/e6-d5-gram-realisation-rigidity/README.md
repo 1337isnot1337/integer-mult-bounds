@@ -20,7 +20,17 @@ realisations of rank `≤ T` (`T = dim span r_t`) and `G` the Gram matrix. The
 and has dimension `2v − 1`. #2277 proves E6 `≥ 36` and D5 `≥ 20` (dense
 pairing, factors in `col M` / `row M`, any number of terms) for the scaled-Gram
 realisations `D₁ G D₂` only; E6 and D5 have no `T`-frame (`α_⊥ = 4`), so its
-realisation-free Theorem 4′ / Lemma 5.2 certificate gives nothing for them.
+realisation-free Lemma 5.2 certificate gives nothing for them. #2277 §5 opens
+with "Fix a unit with a T-frame", but the proofs of the Theorem 4′ inequality and
+of the Lemma 5.1 rank invariance use only an F₂ rank factorisation of `B_d` and
+the term count from `N = Σ x_j y_jᵀ`; only Lemma 5.2 uses the frame. Theorem C
+below uses only Theorem 4′, Lemma 5.1, Lemma OC and the Theorem 7.4 count, so it
+applies to D5 despite the missing frame.
+
+"Cost" and "floor 20" throughout mean #2277's algebraic decoder cost
+`Σ_j rank_F₂ B_d[R_j, A_j]` only. As in #2277's scope, this excludes copy,
+hosting, restoration and every supplier or assembly cost, so the floor is not a
+complete multiplication cost.
 
 ## Results
 
@@ -29,9 +39,16 @@ realisation-free Theorem 4′ / Lemma 5.2 certificate gives nothing for them.
 | **E6** | 36 | 6 | **71** | 71 | smooth point; local component = scaling orbit (**locally rigid**) |
 | **D5** | 20 | 5 | **55** | 39 | not rigid: every rank-5 realisation is edge-supported (Theorem D), i.e. a scaling of an explicit **16-parameter non-Gram family** or a boundary point of it; no rank-4 realisation (Theorem E); floor 20 everywhere |
 | E7 (control) | 63 | 7 | 125 | 125 | locally rigid |
-| E8 (control, `--e8`, ~140 s) | 120 | 8 | 239 | 239 | locally rigid |
+| E8 (control, `--e8`, ~140 s) | 120 | 8 | 239 | 239 | locally rigid (not new: subsumed by #1212 Theorem 1, global uniqueness up to the torus on P120 = E8) |
 | D6 (control) | 30 | 6 | 84 | 59 | smooth; edge family realises all 25 extra directions |
 | D4 (control) | 12 | 4 | 44 | 23 | edge family gives only 9 of the 21 extra directions (rest not integrated here) |
+
+Every entry of the `dim T_G V_U` column is certified exactly: a prime-rank upper
+bound matched by an explicit lower-bound span (E6, D5, E7, E8, D6), or an exact
+`Fraction` rank (D4). The D4 family-plus-orbit span 32 is also an exact
+`Fraction` rank. The new results are E6 (local rigidity), D5 (Theorems B–E) and
+the D6/D4 controls; E7 is a first-order control, and E8 only re-confirms
+#1212.
 
 **Theorem A (E6 local rigidity) — PROVEN from CHECKED data.** The Zariski
 tangent space of `V_E6` at `G` has dimension 71. Hence `G` is a nonsingular
@@ -174,11 +191,13 @@ has dense-pairing cost `≥ 20`** for decoders with `col P ⊆ col M` and
 `col Q ⊆ row M`, which includes all square decoders. The bound is attained.
 Realisations of rank `> 5` remain outside, as in #2277 §6.
 
-**Robustness observation (CHECKED).** The E6 count is insensitive to small
-pattern deletions. Removing one orthogonal pair, or up to 10 of the 15
-orthogonality constraints of one line (in the verifier's order), leaves
-dimension 71. Each further removal adds 2, reaching 81 when line 0 is
-unconstrained.
+**Robustness observation.** CHECKED: removing one orthogonal pair from the E6
+pattern leaves the tangent dimension at exactly 71, and removing all 15
+orthogonality constraints of line 0 gives exactly 81. NOT CERTIFIED (scratch
+observation only, not replayed by verify.py): for partial removals at line 0,
+the dimension stays 71 for the first 10 removals in the verifier's pair order
+and then rises by 2 per removal. The threshold depends on the removal order;
+an independent reviewer found 73 already at 10 removals in another ordering.
 
 ## Reproduce
 
@@ -191,14 +210,16 @@ python3 scripts/research_package.py --package research/e6-d5-gram-realisation-ri
 
 **Negative controls (each must fail its acceptance test; verify.py asserts that
 they do):**
-- E6 with the 15 orthogonality constraints of line 0 removed is not rigid
-  (81 > 71).
-- D5 with one orthogonal pair removed has tangent 57 ≠ 55, which shows the
-  count depends on the pattern.
+- E6 with the 15 orthogonality constraints of line 0 removed is not rigid:
+  its tangent is exactly 81 > 71. The prime upper bound 81 is matched by the
+  orbit plus the free first-order moves of `x_0` and `y_0`.
+- D5 with one orthogonal pair removed has tangent exactly 57 ≠ 55 (exact
+  `Fraction` rank), which shows the count depends on the pattern.
 - A sign error in `y_{ij-}` breaks the pattern zeros.
 - The inadmissible `a = −b` on one edge gives a zero diagonal and 6 deficient
   classes, so Lemma S fails.
-- Half the family (`b` frozen) together with the orbit spans only 49 < 55.
+- Half the family (`b` frozen) together with the orbit spans exactly 49 < 55
+  (exact `Fraction` rank).
 - The Theorem D construction applied to a rank-5 non-realisation (4 orthogonal
   zeros broken) fails.
 - Positive control: the Gram parameters give 0 scaling violations.
@@ -216,12 +237,16 @@ they do):**
   hypotheses are inherited from #2277 Theorem 4′. Arbitrary `B`, factors
   outside `col M`, and realisations of rank `> T` are not covered.
 - **Inherited:** #2277 Lemma 5.1, Theorem 4′, Lemma OC and the Theorem 7.4
-  argument. These are PROVEN in the open PR #2277 (head `ca7f9992`) and are not
-  re-proved here; only their hypotheses for the D5 family are checked.
-- Prime ranks are used only in the safe direction (`rank_p ≤ rank_Q`). All
-  other acceptance checks use exact integer, `Fraction` or `F₂` arithmetic.
-  This is a finite exact certificate combined with written proofs. It is not
-  a formalisation.
+  argument. These are proven in the draft, unmerged PR #2277 (head
+  `ca7f9992`) and are not re-proved here; only their hypotheses for the D5
+  family are checked. Theorem C and the Corollary are conditional on them.
+- Prime ranks are used only in the safe direction (`rank_p ≤ rank_Q`), and
+  each one is matched by a bound in the other direction. All other acceptance
+  checks, including the negative controls, use exact integer, `Fraction` or `F₂`
+  arithmetic. Proof-relevant intermediate steps use `assert`, so verify.py
+  refuses to run under `python -O`. This is a finite exact certificate combined
+  with written proofs. It is not a formalisation.
+- VERIFY.json declares the generic replay interpreter (3.12, required by the package tooling), but every run recorded here used CPython 3.14 (stdlib only); 3.12 itself was not tested.
 - D5 is not a frontier unit. Nothing here changes a supplier, a call profile
   or κ.
 
@@ -256,13 +281,16 @@ The structured list is in [TASK.json](TASK.json):
   Provenance pins are in [SOURCES.json](SOURCES.json). The package has no live
   input files: every unit is rebuilt from Cartan matrices or coordinates.
 - Definitions, Theorem 4′, Lemma 5.1, Lemma 7.1, Theorem 7.4 and OQ4 are from
-  **#2277** and **#2228** (DreamingOfClouds), cited at #2277 head
+  **#2277** (draft) and **#2228** (DreamingOfClouds), cited at #2277 head
   `ca7f99921f03398d303bba90245d3ee2e38e95c3`.
 - **#2338** (Theorem R) concerns F₂ pairing-table rigidity, which is a
   different object.
-- The tangent-versus-torus rigidity method on rank-8 units comes from **#1212,
-  #1292, #1389, #1399, #1425**, with the audit in **#1367**. The model comes
-  from **#2125** and **#1590**.
+- The tangent-versus-torus rigidity method on rank-8 units comes from **#1212**
+  (burntout76; its Theorem 1 already proves global uniqueness up to the torus
+  for rank-≤8 P120 = E8 and P112 realisations), **#1292** (navinor), and
+  **#1389, #1399, #1425** (JosieElliston), with the audit in **#1367**
+  (1337isnot1337). The model comes from **#2125** and **#1590**
+  (DreamingOfClouds).
 - The E6 screens are **#2137, #2232, #2240, #2247** (1337isnot1337) and
   **#2272** (navinor). EdDiboi contributed the local E6 seven-term audit (#1166).
   The first-order jet method follows the earlier loop PR **#2351**.

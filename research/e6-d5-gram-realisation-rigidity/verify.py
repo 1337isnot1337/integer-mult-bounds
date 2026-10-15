@@ -15,8 +15,12 @@ rank_p(A mod p) <= rank_Q(A) (a nonzero minor mod p is a nonzero integer).  So
     from above, and
   * a prime rank of an explicit family of rational tangent vectors bounds
     their rational SPAN from below.
-The two bounds meet, so every dimension asserted below is exact over Q (and
-over every field of characteristic 0).
+Every load-bearing dimension is certified either by such a matching pair of
+bounds or by an exact Fraction rank (rank_frac, tangent_exact); it is then exact
+over Q (and over every field of characteristic 0).  Negative controls whose
+exact value would need the unsafe direction of a prime rank are computed with
+rank_frac or with an explicit lower-bound family.  Proof-relevant intermediate
+checks use assert, so the script refuses to run under python -O.
 """
 import itertools
 import sys
@@ -265,6 +269,13 @@ def e6_in_e8_coordinates():
     return X, [list(x) for x in X]
 
 
+def tangent_exact(X, Y, pairs):
+    """Exact dim T_M V over Q (Fraction elimination; small units only)."""
+    v, T = len(X), len(X[0])
+    assert rank_frac(X) == T and rank_frac(Y) == T
+    return 2 * v * T - rank_frac(tangent_system(X, Y, pairs)) - T * T
+
+
 def tangent_upper_ambient(X, pairs, p, T):
     """Same tangent space with X = Y of rank T inside K^n (n > T), positive
     definite form: the kernel of (dX, dY) -> dX X^T + X dY^T is T^2 + 2 v (n - T)
@@ -434,6 +445,8 @@ def d5_normal_form(M, check_pattern=True):
 
 def modp(x, p=P1):
     x = F(x)
+    if x.denominator % p == 0:
+        raise ValueError("denominator divisible by p")
     return x.numerator * pow(x.denominator, p - 2, p) % p
 
 
@@ -498,6 +511,8 @@ def bd_block_rank(G, R, A):
 
 # ---------------------------------------------------------------- main
 def main(argv):
+    if not __debug__:
+        raise SystemExit("verify.py relies on assert for proof-relevant intermediate checks; run without -O")
     t_start = time.time()
     print("== Part A: E6 first-order rigidity at the Gram point ==")
     X6, Y6 = simple_root_unit("E", 6)
@@ -620,9 +635,11 @@ def main(argv):
     print("== Controls (dimension changes / non-rigid units) ==")
     X4, Y4 = dn_unit(4)
     r4 = rigidity_report("D4", X4, Y4)
-    f4 = rank_mod(family_tangent_vectors(4) + orbit_tangent_vectors(mat(X4, Y4)), 144, P1)
-    check("D4 control (has a 4-frame): tangent 44 > orbit 23 (not rigid); edge family covers only 23+9=32",
-          r4["upper"] == [44] and r4["orbit"] == 23 and f4 == 32, "family+orbit span %d" % f4)
+    f4 = rank_frac(family_tangent_vectors(4) + orbit_tangent_vectors(mat(X4, Y4)))
+    e4 = tangent_exact(X4, Y4, orth_pairs(mat(X4, Y4)))
+    check("D4 control (has a 4-frame): tangent 44 > orbit 23 (not rigid; exact Fraction rank); "
+          "edge family + orbit spans exactly 32 (exact)",
+          r4["upper"] == [44] and e4 == 44 and r4["orbit"] == 23 and f4 == 32, "family+orbit span %d" % f4)
     X6d, Y6d = dn_unit(6)
     r6 = rigidity_report("D6", X6d, Y6d)
     f6 = rank_mod(family_tangent_vectors(6) + orbit_tangent_vectors(mat(X6d, Y6d)), 900, P1)
@@ -639,20 +656,30 @@ def main(argv):
         check("E8 control: tangent 239 = 2v-1", r8["upper"] == [239] and r8["orbit"] == 239)
 
     print("== Negative controls (each must FAIL the corresponding acceptance test) ==")
-    # Removing a single orthogonal pair (or up to 10 of the 15 at line 0, in this
-    # order) leaves E6 first-order rigid -- the zero pattern is redundant at first
-    # order -- so the perturbation that must break rigidity removes all 15
-    # orthogonality constraints of line 0 (row and column).
+    # Removing a single orthogonal pair leaves E6 first-order rigid (checked
+    # below), so the perturbation that must break rigidity removes all 15
+    # orthogonality constraints of line 0 (row and column).  (Partial removals
+    # at line 0 were explored in scratch only; the outcome depends on the
+    # removal order and is NOT certified here.)
     one = rigidity_report("E6-minus-one-pair", X6, Y6, drop={orth_pairs(G6)[0]})
     check("E6 robustness: one orthogonal pair removed, still 71", one["upper"] == [71])
     drop0 = {(0, s) for s in range(36) if s != 0 and G6[0][s] == 0}
     rn = rigidity_report("E6-line0-unconstrained", X6, Y6, drop=drop0)
     neg1 = rn["upper"][0] == rn["orbit"]
-    check("NEG E6 pattern with the 15 orthogonality constraints of line 0 removed is NOT rigid (81 > 71)",
-          not neg1 and rn["upper"] == [81], "tangent upper %d vs orbit %d" % (rn["upper"][0], rn["orbit"]))
+    # exact lower bound: orbit + free first-order moves of x_0 and y_0 (dX = E_0 u, dY = E_0 w);
+    # these vectors vanish on every remaining constrained pair because no pair involves line 0.
+    free0 = [[(Y6[s][a] if t == 0 else 0) for t in range(36) for s in range(36)] for a in range(6)]
+    free0 += [[(X6[t][a] if s == 0 else 0) for t in range(36) for s in range(36)] for a in range(6)]
+    pairs_rn = orth_pairs(G6, drop0)
+    low_rn = rank_mod(orbit_tangent_vectors(G6) + free0, 36 * 36, P1)
+    check("NEG E6 pattern with the 15 orthogonality constraints of line 0 removed: rigidity certificate fails; "
+          "tangent exactly 81 > 71 (prime upper bound 81 matched by orbit + free line-0 moves, prime lower bound 81)",
+          not neg1 and rn["upper"] == [81] and low_rn == 81 and all(in_pattern(z, 36, pairs_rn) for z in free0),
+          "tangent upper %d, explicit lower %d, orbit %d" % (rn["upper"][0], low_rn, rn["orbit"]))
     rd = rigidity_report("D5-minus-one-pair", X5, Y5, drop={orth_pairs(G5)[0]})
-    check("NEG D5 pattern with one orthogonal pair removed: tangent 57 != 55 (dimension is pattern-sensitive)",
-          rd["upper"] == [57])
+    ed = tangent_exact(X5, Y5, orth_pairs(G5, {orth_pairs(G5)[0]}))
+    check("NEG D5 pattern with one orthogonal pair removed: tangent exactly 57 != 55 (exact Fraction rank)",
+          rd["upper"] == [57] and ed == 57)
     Xb, Yb = d5_family(D5_POINTS["pt1"], sign_bug=True)
     Mb = mat(Xb, Yb)
     check("NEG D5 family with sign error in y_{ij-} violates the pattern zeros",
@@ -663,8 +690,9 @@ def main(argv):
     extra = [w for w in classes if rank_frac([Xc[t] for t in range(v5) if w >> t & 1]) < 5]
     check("NEG inadmissible a=-b on edge 01: zero diagonal entry and extra deficient classes",
           any(Mc[t][t] == 0 for t in range(v5)) and len(extra) > 5, "%d deficient classes" % len(extra))
-    a_only = rank_mod(fam[0::2] + orbit5, v5 * v5, P1)
-    check("NEG half family (b frozen, 10 a-directions) + orbit spans < 55: the lower bound is not automatic",
+    a_only = rank_frac(fam[0::2] + orbit5)
+    check("NEG half family (b frozen, 10 a-directions) + orbit spans < 55 (exact Fraction rank): "
+          "the lower bound is not automatic",
           a_only < 55, "span %d" % a_only)
 
     Mbad = mat(*d5_family(D5_POINTS["pt2"]))
