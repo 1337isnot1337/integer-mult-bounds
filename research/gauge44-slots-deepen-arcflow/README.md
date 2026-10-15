@@ -98,6 +98,31 @@ python3 -B research/gauge44-slots-deepen-arcflow/verify_chain.py --main . --work
   exchanges on the slot word's inventory) is not composed here: on the deepened word's inventory the T8 map already has no
   small remainder, so no replica count can lower its idle cost further.
 
+## Packing caps and realised fractions (`CLAIM.json`)
+
+`autoresearch.md` asks a complex κ claim within the hosted nine-stage model to report its paid local profile's packing
+cap (research/complex-local-word-ceiling, Douglas Colkitt's #1240) and the fraction realised, and the queue-ceiling
+census (#1264; Aaron Wang's screen of the uncovered sixteen) asks for its field names in a result file. `CLAIM.json`
+records both for all four packages; `wholehead/claim_caps.py --main .` recomputes it (standard library, 20 s).
+
+| Package | word | κ | model cap | realised | below cap | stock-feasible optimum |
+|---|---|---:|---:|---:|---:|---|
+| research/gauge44-slots-arcflow | `c2b29430…` | 0.001674083482880778 | 0.0016872026 | 0.99222 | 0.78% | no (`{48:2469}` would be) |
+| research/gauge44-slots-t16-arcflow | `c2b29430…` | 0.001674087289164567 | 0.0016872026 | 0.99223 | 0.78% | no |
+| research/gauge44-slots-unpromo-arcflow | `4ffb07de…` | 0.001674576537247681 | 0.0016828484 | 0.99508 | 0.49% | no (`{48:2445}` would be) |
+| **research/gauge44-slots-deepen-arcflow** | `6ace902a…` | **0.001675338871723469** | 0.0016832052 | 0.99533 | 0.47% | **yes** (`{48:2460}`) |
+
+Two readings of this table matter for the census. First, the PR title's κ is this package's recorded κ (`RESULT.json`,
+`data/SPEC.json`, `construction/deepen/DEEPEN-PINS-k8.json`); the census row for #1175 read research/gauge44-slots-arcflow's
+README alone, hence its "title κ differs from the package" note. Second, the model cap is packing-independent and lets
+idle mass sit in rank-51 children; the retained template's idle bins have ranks 8, 16, 32 and 48, so a rank-48 child is the
+cheapest host that exists, and on the deepened word the map reaches exactly that: every idle unit is in a rank-48 child.
+Its remaining 0.47% to the model cap is the rank-48/rank-51 idealisation, not unrealised packing. The slot word has a
+higher model cap but realises less of it because the cap ignores widths, and its 240 width-9 helpers lack partners — a
+concrete instance of the census's own caution that comparing caps does not compare attainable optima. Within this model
+nothing is left on these words; the +0.47–0.78% between the realised values and the caps is not reachable by hosting,
+owner or idle repacking, and κ above the W1 cap 0.0016873 needs a changed local word, coverage law or template.
+
 ---
 
 # Predecessor: research/gauge44-slots-unpromo-arcflow's README (its top section, then research/gauge44-slots-arcflow's and research/gauge44-slots's, unchanged)

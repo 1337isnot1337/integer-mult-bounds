@@ -59,3 +59,4 @@ retained unchanged with their notices. The whole-head driver `verify_chain.py` a
 chain's own reproduction scripts and the four packages' own verifiers, and apply Josie Elliston's owner audit
 (research/t16-owner-audit-seed67) and Sagar Thakrar's pricing (research/pending-claims-independent-pricing) unchanged;
 `wholehead/` holds that run's receipts.
+`CLAIM.json` and `wholehead/claim_caps.py` (October 15) report each package's packing cap under research/complex-local-word-ceiling (Douglas Colkitt, #1240) in the field names of research/complex-queue-ceiling-census (#1264) and Aaron Wang's research/complex-queue-ceiling-uncovered.
