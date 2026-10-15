@@ -15,7 +15,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 600,
-      "checks": "Full exhaustive Q=7 R/X census, Q=8/Q=9 floors, champion identity, certificate match, source pins"
+      "checks": "Full exhaustive Q=7 R-spectrum + min-X census, tariff floor from spectrum, Q=8/Q=9 floors, champion identity, certificate match, source pins"
     },
     {
       "argv": [
@@ -27,7 +27,7 @@
         "--quick"
       ],
       "timeout_seconds": 180,
-      "checks": "Champion/min-R quick replay under PYTHONOPTIMIZE; admission via need() not assert"
+      "checks": "Champion/spectrum-floor quick replay under PYTHONOPTIMIZE; admission via need() not assert"
     },
     {
       "argv": [
@@ -36,8 +36,8 @@
         "-B",
         "{package}/independent.py"
       ],
-      "timeout_seconds": 120,
-      "checks": "Separate column-image champion replay and tariff arithmetic"
+      "timeout_seconds": 180,
+      "checks": "Separate column-image champion replay, independent Q=7 R-spectrum census, tariff arithmetic"
     },
     {
       "argv": [

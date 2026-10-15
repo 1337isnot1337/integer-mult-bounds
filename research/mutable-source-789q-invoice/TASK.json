@@ -46,7 +46,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after exact Q=7 minimum, Q=8/Q=9 lower bounds, independent replay and certificate; no physical supplier search.",
   "outcome": "completed",
-  "evidence": "CERTIFICATE.json exhaustive Q=7 R/X census; champion 7/82/6 tariff 442; Q=8 R>=74 floor 452; Q=9 floor 466; independent column-image replay.",
+  "evidence": "CERTIFICATE.json exhaustive Q=7 R-spectrum {82,88} plus min-X on R=82; champion 7/82/6 tariff 442; Q=8 R>=74 floor 452; Q=9 floor 466; independent spectrum+column-image replay.",
   "author": "Wentao Li",
   "ai_assistance": "Substantial AI assistance for derivation, census implementation, checking and writing.",
   "open_questions": [

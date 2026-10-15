@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Independent column-image replay of the 7Q champion and tariff arithmetic.
+"""Independent column-image replay, Q=7 R-spectrum census, and tariff arithmetic.
 
 Does not import model.py or verify.py. Wentao Li + AI, Apache-2.0.
 """
 from __future__ import annotations
 
 import json
+from collections import Counter
 from itertools import combinations
 from pathlib import Path
 
@@ -41,6 +42,35 @@ def even_R(slots):
     if any(best[mask] >= 99 for mask in range(1, 32)):
         return None
     return sum(best[1:])
+
+
+def census_q7_R_spectrum():
+    """Independent exhaustive even-subset R over all distinct 6-nonzero slot sets."""
+    hist = Counter()
+    covering = 0
+    for nonzero in combinations(range(1, 32), 6):
+        total = even_R((0,) + nonzero)
+        if total is None:
+            continue
+        covering += 1
+        hist[total] += 1
+    attainable = sorted(hist)
+    if attainable != [82, 88]:
+        fail(f"R spectrum {attainable}")
+    if dict(hist) != {82: 97216, 88: 486080}:
+        fail(f"R histogram {dict(hist)}")
+    if covering != 583296:
+        fail(f"covering count {covering}")
+    # Tariff floors from spectrum alone (X>=0 on R=88; R=82 needs separate X layer).
+    if invoice(7, 88, 0) != 442:
+        fail("R=88 X=0 floor")
+    if invoice(7, 82, 6) != 442:
+        fail("R=82 X=6 floor")
+    # Intermediate R in {83..87} with X=0 would undercut 436; spectrum excludes them.
+    for r in range(83, 88):
+        if invoice(7, r, 0) < 436 and r in hist:
+            fail(f"intermediate R={r} present")
+    return attainable, covering, dict(hist)
 
 
 def path_x(closed):
@@ -136,15 +166,39 @@ def main():
         fail("cert Q8")
     if cert["Q9"]["tariff_lower_bound"] != 466:
         fail("cert Q9")
+    spectrum = cert["Q7"]["R_spectrum_distinct_slots"]
+    if spectrum["attainable_R"] != [82, 88]:
+        fail("cert R spectrum")
+    if spectrum["histogram"] != {"82": 97216, "88": 486080}:
+        fail("cert R histogram")
+    if cert["Q7"]["tariff_floor_from_spectrum"]["min_tariff"] != 442:
+        fail("cert spectrum tariff floor")
+    attainable, covering, hist = census_q7_R_spectrum()
+    if attainable != spectrum["attainable_R"]:
+        fail("independent/cert spectrum drift")
+    if {str(k): v for k, v in hist.items()} != spectrum["histogram"]:
+        fail("independent/cert histogram drift")
+    if covering != spectrum["covering_sets"]:
+        fail("independent/cert covering drift")
+    controls = 0
     try:
         replay((0, 1, 2, 6, 12, 24, 16))
         fail("unclosed path should fail")
     except SystemExit as exc:
         if "FAIL_INDEPENDENT" not in str(exc):
             raise
+        controls += 1
     if invoice(7, 82, 4) == 442:
         fail("undercount must not match champion")
-    print("PASS_INDEPENDENT_789Q_INVOICE", "champion=442 floors=452,466 controls=2")
+    controls += 1
+    if controls != 2:
+        fail(f"expected 2 negative controls, got {controls}")
+    print(
+        "PASS_INDEPENDENT_789Q_INVOICE",
+        "champion=442 floors=452,466",
+        f"R_spectrum={attainable}",
+        f"controls={controls}",
+    )
     return 0
 
 

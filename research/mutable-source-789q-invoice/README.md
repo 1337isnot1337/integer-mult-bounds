@@ -15,19 +15,22 @@ word with `Q ∈ {7,8,9}` beats the sharp six-query endpoint tariff **436**.
 | Q | Exact / bound | R | X | Abstract tariff | vs 436 |
 |---|---|---:|---:|---:|---|
 | 6 (PR1898 endpoint) | exact | 96 | 8 | **436** | — |
-| **7 (this)** | **exact minimum** | **82** | **6** | **442** | **+6** |
+| **7 (this)** | **exact minimum** (R∈{82,88}) | **82** | **6** | **442** | **+6** |
 | 8 | lower bound | ≥74 | ≥0 | **≥452** | +≥16 |
 | 9 | lower bound | ≥62 | ≥0 | **≥466** | +≥30 |
 | 10 (PR1370 four-X) | attained | 62 | 4 | 512 | +76 |
 
-The seven-query minimum is exhaustive: every 6-subset of nonzero F₂⁵ points is
-scored for even-subset readout cost (minimum `R=82`, 97,216 covering sets), and
-every full-rank Hamiltonian closing of those sets is scored for path-local
-source-XOR cost (no set has `X<6`; 14,595 attain `X=6`). Champion path
-`[0,1,2,6,12,24,16,0]` attains `7 Q / 82 R / 6 X` and replays on arbitrary dirty
-formal rows. The eight-query bound is the exhaustive minimum `R=74` over all
-distinct 7-nonzero slot sets (`X≥0`). Nine queries cannot undercut 436 because
-already `R≥62` forces tariff `≥466`.
+The seven-query minimum is certificate-closed. Every 6-subset of nonzero F₂⁵
+points is scored for even-subset readout cost: covering sets attain only
+`R∈{82,88}` (97,216 / 486,080; none in `{83..87}`). Under tariff
+`38Q+2R+2X`, beating 436 needs `R+X<85`, so the excluded intermediate band
+cannot undercut even at `X=0`, and `R=88` already forces tariff `≥442`. On the
+`R=82` layer, every full-rank Hamiltonian closing is scored for path-local
+source-XOR cost (no set has `X<6`; 14,595 attain `X=6`), so that layer is also
+`≥442`. Champion path `[0,1,2,6,12,24,16,0]` attains `7 Q / 82 R / 6 X` and
+replays on arbitrary dirty formal rows. The eight-query bound is the
+exhaustive minimum `R=74` over all distinct 7-nonzero slot sets (`X≥0`). Nine
+queries cannot undercut 436 because already `R≥62` forces tariff `≥466`.
 
 This does **not** price arbitrary XOR-interleaved words outside path-local
 compute/uncompute lowering, nor claim a physical supplier tariff or new κ.
@@ -48,7 +51,7 @@ Expected:
 
 ```text
 PASS_MUTABLE_SOURCE_789Q_INVOICE Q6=436 Q7=442 Q8_floor=452 Q9_floor=466 no_new_kappa
-PASS_INDEPENDENT_789Q_INVOICE champion=442 floors=452,466 controls=1
+PASS_INDEPENDENT_789Q_INVOICE champion=442 floors=452,466 R_spectrum=[82, 88] controls=2
 PASS_REGISTERED_RESEARCH_PACKAGE research/mutable-source-789q-invoice outcome=completed
 ```
 
@@ -68,7 +71,9 @@ Default verify is read-only and compares the fresh census to
 |---|---|
 | 6Q/10Q comparator invoices | `model.minimum_word_6q`, `model.four_x_ten_q` |
 | Exact min R at Q=7 | exhaustive `combinations(range(1,32),6)` in `verify.py` |
-| Exact min X among those sets | exhaustive full-rank path orders; no `X<6` |
+| Attainable R spectrum `{82,88}` | same census; histogram in `CERTIFICATE.json`; rechecked by `independent.py` |
+| Exact min X among R=82 sets | exhaustive full-rank path orders; no `X<6` |
+| Exact min tariff 442 / no beat 436 | spectrum floors + min-X layer; machine-checked in `verify.py` |
 | Champion identity + tariff 442 | `path_word` + formal dirty replay; `independent.py` column image |
 | Q=8 R≥74 | exhaustive distinct 7-nonzero slot sets |
 | Q=9 tariff ≥466 | `R≥62` for 31 masks |
