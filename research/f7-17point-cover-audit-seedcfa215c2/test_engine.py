@@ -86,12 +86,18 @@ class TestSharpRows(unittest.TestCase):
         self.assertFalse(cover17.surviving_rows(7, 10, 7, 3, 0)["feasible"])
 
     def test_min_excess_census_narrows_116(self):
-        # Census: min excess of 11-sets is >= 3 as well (k=11 budgets 0,1,2
-        # empty).  The surviving (11,6) rows are then e_ex in 3..6.
+        # Census (SIDON-RECEIPT.json, raw {0,3} domain complete): min excess
+        # of 11-sets in F2^6 is >= 5 (k=11 budget-4 walk: zero leaves across
+        # all 62 sub-shards).  The surviving (11,6) rows are then (5,1),(6,0).
         rows = cover17.surviving_rows(7, 11, 6, 3, 0)
         self.assertEqual(
             {(r["e_ex"], r["b_ex"], r["c"]) for r in rows["rows"]},
             {(3, 3, 1), (4, 2, 1), (5, 1, 1), (6, 0, 1)},
+        )
+        rows = cover17.surviving_rows(7, 11, 6, 5, 0)
+        self.assertEqual(
+            {(r["e_ex"], r["b_ex"], r["c"]) for r in rows["rows"]},
+            {(5, 1, 1), (6, 0, 1)},
         )
 
     def test_odd_translation_mirror(self):

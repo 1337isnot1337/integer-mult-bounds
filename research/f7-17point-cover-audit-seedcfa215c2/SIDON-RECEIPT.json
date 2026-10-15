@@ -2,6 +2,12 @@
   "controls": {
     "small_space_agreement": "enumerate_sets == naive brute force on the even subgroup < 32: k=4 420/420, k=5 840/840, k=6 168/168"
   },
+  "k11_raw_budget4": {
+    "complete": true,
+    "domain": "11-sets through {0,3} (complete by GL(6,2) transitivity), sub-sharded by the smallest free element",
+    "sub_shards": 62,
+    "total_hist": {}
+  },
   "shard_e03": {
     "k10_budget0": {
       "count": 0,
@@ -17,6 +23,22 @@
       "count": 0,
       "first": null,
       "seconds": 264.0
+    },
+    "k10_budget3": {
+      "count": 149990400,
+      "first": [
+        0,
+        3,
+        5,
+        6,
+        9,
+        17,
+        33,
+        58,
+        65,
+        92
+      ],
+      "seconds": 3381.2
     },
     "k11_budget2": {
       "count": 0,

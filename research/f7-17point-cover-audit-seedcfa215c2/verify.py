@@ -70,10 +70,15 @@ def main():
     )
 
     # 4. sharp 17-point row table with the min-excess census filter
+    #    (10-set floor e_ex >= 3; 11-set floor e_ex >= 5, both raw-domain
+    #    complete by GL(6,2) transitivity)
     table = {}
     for s, t in ((9, 8), (8, 9), (10, 7), (7, 10), (11, 6), (6, 11)):
         sharp = cover17.sharp_rows(7, s, t)
-        filt = cover17.surviving_rows(7, s, t, 3, 0) if s >= t else cover17.surviving_rows(7, s, t, 0, 3)
+        if (s, t) in ((10, 7), (7, 10)):
+            filt = cover17.surviving_rows(7, s, t, 3, 0) if s >= t else cover17.surviving_rows(7, s, t, 0, 3)
+        else:
+            filt = cover17.surviving_rows(7, s, t, 5, 0) if s >= t else cover17.surviving_rows(7, s, t, 0, 5)
         table[f"{s}_{t}"] = {
             "sharp_feasible": sharp["feasible"],
             "rows_after_min_excess": len(filt["rows"]),
@@ -82,8 +87,8 @@ def main():
     assert table["8_9"]["sharp_feasible"] is False
     assert table["10_7"]["rows_after_min_excess"] == 0
     assert table["7_10"]["rows_after_min_excess"] == 0
-    assert table["11_6"]["rows_after_min_excess"] == 4
-    assert table["6_11"]["rows_after_min_excess"] == 4
+    assert table["11_6"]["rows_after_min_excess"] == 2
+    assert table["6_11"]["rows_after_min_excess"] == 2
     print("ROWS17 " + json.dumps(table, sort_keys=True), flush=True)
 
     # 5. exact n = 5 set-level controls (community facts)
@@ -104,6 +109,16 @@ def main():
     )
     assert "k10_budget2" in zeros and "k11_budget2" in zeros, zeros
     print(f"RECEIPT zeros={zeros} k9={receipt['shard_e03']['k9_budget0']['count']}", flush=True)
+    k11 = receipt["k11_raw_budget4"]
+    assert k11["complete"] is True and k11["sub_shards"] == 62, k11
+    assert k11["total_hist"] == {}, k11["total_hist"]
+    prog11 = json.loads((HERE / "RAW11-PROGRESS.json").read_text(encoding="utf-8"))
+    assert prog11["complete"] is True and prog11["total_hist"] == {}
+    print(
+        "K11 census complete: 62/62 sub-shards, level3=0 level4=0"
+        " (zero 11-sets of excess <= 4 through {0,3})",
+        flush=True,
+    )
 
     if full:
         for key, k, budget in (

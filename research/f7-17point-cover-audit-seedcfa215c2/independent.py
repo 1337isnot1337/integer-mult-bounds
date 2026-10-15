@@ -55,6 +55,16 @@ def small_group_budget_agreement():
                 "agree": agree,
             }
             assert agree, (k, budget)
+            # histogram path (used by the canonical-domain census)
+            hist, examples = search17.hist_sets(sub, k, budget, fixed=(0,))
+            slow_hist = {}
+            for c in slow:
+                e = excess_of(c)
+                slow_hist[e] = slow_hist.get(e, 0) + 1
+            assert hist == slow_hist, (k, budget, hist, slow_hist)
+            for e, pts in examples.items():
+                assert excess_of(pts) == int(e), (k, budget, e)
+            out[f"k{k}_budget{budget}"]["hist_agree"] = True
     return out
 
 
@@ -193,6 +203,51 @@ def receipt_consistency():
         ok = first is not None and 1 in first and all(p in search17.ODD for p in first)
         out[key] = {"count": count, "first_valid": ok}
         assert ok, (key, first)
+    # the completed k=11 raw walk: 62/62 sub-shards, empty histogram
+    k11 = receipt.get("k11_raw_budget4", {})
+    prog = json.loads((HERE / "RAW11-PROGRESS.json").read_text(encoding="utf-8"))
+    ok = (
+        k11.get("complete") is True
+        and k11.get("sub_shards") == 62
+        and k11.get("total_hist") == {}
+        and prog.get("complete") is True
+        and prog.get("total_hist") == {}
+        and len(prog.get("shards", {})) == 62
+    )
+    assert ok, (k11, prog.get("complete"), len(prog.get("shards", {})))
+    out["k11_raw_budget4"] = {
+        "complete": True,
+        "sub_shards": 62,
+        "level3": 0,
+        "level4": 0,
+        "progress_agrees": True,
+    }
+    # extension-collision floors on the recorded examples, consistent with
+    # the census floors: every one-point extension of the excess-3 10-set
+    # example adds >= 2 collisions (min 11-set excess >= 5); every extension
+    # of the Sidon 9-set example adds >= 3 (min 10-set excess >= 3).
+    ex10 = receipt["shard_e03"]["k10_budget3"]["first"]
+    supp10 = {ex10[i] ^ ex10[j] for i in range(10) for j in range(i)}
+    floors = []
+    for p in search17.EVEN:
+        if p in ex10:
+            continue
+        coll = sum(1 for q in ex10 if (p ^ q) in supp10)
+        floors.append(coll)
+    assert min(floors) >= 2, min(floors)
+    ex9 = receipt["shard_e03"]["k9_budget0"]["first"]
+    supp9 = {ex9[i] ^ ex9[j] for i in range(9) for j in range(i)}
+    floors9 = []
+    for p in search17.EVEN:
+        if p in ex9:
+            continue
+        coll = sum(1 for q in ex9 if (p ^ q) in supp9)
+        floors9.append(coll)
+    assert min(floors9) >= 3, min(floors9)
+    out["extension_floors"] = {
+        "excess3_10set_example_min_coll": min(floors),
+        "sidon9_example_min_coll": min(floors9),
+    }
     return out
 
 

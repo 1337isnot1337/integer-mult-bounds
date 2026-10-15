@@ -2,7 +2,7 @@
 
 **Set-level finite result: the audited claim is established for four of the six
 counting-feasible 17-point splits. The splits `(10,7)/(7,10)` are excluded
-exactly; the splits `(11,6)/(6,11)` are reduced to four explicit surviving
+exactly; the splits `(11,6)/(6,11)` are reduced to two explicit surviving
 rows. No new kappa.**
 
 [PR 2542](https://github.com/CrocSwap/integer-mult-bounds/pull/2542) (Aaron
@@ -28,17 +28,19 @@ This package audits the claim against that table:
 >
 > **2. An exact Sidon/near-Sidon census of the even group `E = F2^6` shows
 > minimum pair-sum excess `>= 3` for 10-point sets** (10-sets of excess
-> `<= 2` do not exist at all: `F2^6` has no Sidon 10-set), and `>= 3` for
-> 11-point sets. The shards through `{0, 3}` are existence-complete by
-> `GL(6,2)` transitivity and invariance.
+> `<= 2` do not exist at all: `F2^6` has no Sidon 10-set), and **`>= 5` for
+> 11-point sets** (the completed budget-4 walk finds zero 11-sets of excess
+> `<= 4`). The shards through `{0, 3}` are existence-complete by `GL(6,2)`
+> transitivity and invariance.
 >
 > **3. Consequence: `(10,7)/(7,10)` are excluded exactly** (the only identity
 > row left at `e_ex >= 3` attains `c = 0`, not a profile value). **`(11,6)/(6,11)`
-> are reduced to four rows** `(3,3),(4,2),(5,1),(6,0)`, each with one shared
-> sum and `A_x = B_x = 1` there. PR 2542's literal claim is therefore proved
-> for the splits that its length-18 exclusion needed and for the
+> are reduced to two rows** `(5,1),(6,0)`, each with one shared sum and
+> `A_x = B_x = 1` there; the `(3,3)` and `(4,2)` rows are demoted by the
+> completed k = 11 census. PR 2542's literal claim is therefore proved for
+> the splits that its length-18 exclusion needed and for the
 > length-20-relevant splits; the length-22-relevant `(11,6)/(6,11)` rows
-> remain open.
+> `(5,1),(6,0)` remain open.
 
 The recorded gap `20 <= f(7) <= 24` is unchanged; no word-level census is
 performed here. The repeated-state L = 20 **word** census (splits
@@ -151,27 +153,32 @@ even subgroup at budgets 0/1/2 and against a second code path):
 | 10-sets, excess 0 (Sidon) | 0 |
 | 10-sets, excess `<= 1` | 0 |
 | 10-sets, excess `<= 2` | 0 |
+| 10-sets, excess `<= 3` | 149,990,400 |
 | 11-sets, excess `<= 2` | 0 |
+| 11-sets, excess `<= 4` (complete budget-4 walk, 62/62 sub-shards) | 0 |
 | 7-sets in the odd coset through `{1}`, excess 0 | 34,122,816 |
 
-So the minimum pair-sum excess of a 10-point subset of `F2^6` is `>= 3`
-(`F2^6` has no Sidon 10-set) and likewise for 11-point subsets. Exact `n = 5`
+So the minimum pair-sum excess of a 10-point subset of `F2^6` is exactly `3`
+(`F2^6` has no Sidon 10-set; the floor is attained 149,990,400 times through
+`{0, 3}`) and the minimum for 11-point subsets is `>= 5`. Exact `n = 5`
 controls reproduce the community facts: zero nine-point covers (max 29/32,
 all `C(31,8) = 7,888,725` sets) and 99,200 ten-point covers (all
 `C(31,9) = 20,160,075` sets).
 
 ## The resulting row table
 
-* `(9,8)/(8,9)`: dead in the identity (PR 2542's own rows, re-derived).
-* `(10,7)/(7,10)`: **excluded exactly.** The identity rows all need
+* `(9,8)/(8,9)`: **PROVEN dead** in the identity (PR 2542's own rows,
+  re-derived).
+* `(10,7)/(7,10)`: **PROVEN excluded exactly.** The identity rows all need
   `e_ex + b_ex <= 3`; the census forces `e_ex >= 3`, leaving only `(3,0)`,
   where `shared = 0` and `c = 0` is not a profile value (`{3,4,5,6,8}`).
-* `(11,6)/(6,11)`: **reduced to four rows** `(3,3),(4,2),(5,1),(6,0)` (the
-  census forces `e_ex >= 3`; `b_ex = 6 - e_ex`), each with `shared = 1` and
-  `A_x = B_x = 1` at the unique shared sum, and the cross-sum collisions
-  forced to exactly two doubled odd masks. A follow-up census level
-  (`k = 11` at budgets 3 and 4) is recorded in `SIDON-RECEIPT.json` as it
-  completes and narrows these rows further.
+* `(11,6)/(6,11)`: the identity reduces them to the row class
+  `(e_ex, b_ex, c) = (e, 6-e, 1)` with `shared = 1` and `A_x = B_x = 1` at
+  the unique shared sum (checked). The completed k = 11 census (min excess
+  `>= 5`) **demotes `(3,3)` and `(4,2)`**; the rows **`(5,1),(6,0)` remain
+  OPEN**, each with two doubled odd masks forced by the shared sum. A
+  further census level (k = 11 at budgets 5 and 6) decides them; see the
+  open questions.
 
 An odd translation swaps `E` and `O` while preserving `S + S`, so `(s,t)` and
 `(t,s)` are one question (machine-checked in `test_engine.py`).
@@ -179,7 +186,7 @@ An odd translation swaps `E` and `O` while preserving `S + S`, so `(s,t)` and
 ## Scope and remaining obligations
 
 A finite set-level audit inside PR943's abstract interface. What was **not**
-checked: realizability of the four surviving `(11,6)` rows (the joint
+checked: realizability of the two surviving `(11,6)` rows (the joint
 `(A, B)` tree needs stabilizer canonical forms; the `GL(6,2)`-invariance
 lemma here reduces the domain to `0, 3 in A` but does not canonicalize pairs),
 the 18-/19-point cover questions (`r((C2)^7)`), and every word-level question
@@ -188,15 +195,18 @@ instantiation in the selected supplier, no kappa claim.
 
 ## Open next questions
 
-1. **Do 17-point covers with split `(11,6)/(6,11)` exist?** Why it matters:
-   it decides the last open family of the audited claim and whether `|P| = 17`
-   is possible at all at `L = 22`. First step: row-restricted joint search —
-   enumerate 11-sets of `E` at the row's excess/collision shape (the receipt
-   sizes the domain) and run a constrained B-side DFS (6-sets of the odd
-   coset) forced to cover `E \\ {0} \\ supp(A)` with the exact shared-sum and
-   cross-coverage constraints, sharded and resumable. Blocked by: the B side
-   has ~3.1e8 Sidon 6/7-sets and cannot be enumerated outright; stabilizer
-   canonical forms for the pair `(A, B)` are not implemented.
+1. **Do 17-point covers with split `(11,6)/(6,11)` exist?** The two
+   surviving rows are `(5,1)` and `(6,0)`, each with `shared = 1`,
+   `A_x = B_x = 1` at the shared sum. Why it matters: it decides the last
+   open family of the audited claim and whether `|P| = 17` is possible at
+   all at `L = 22`. First step: a k = 11 budget-5/6 census of the same raw
+   `{0, 3}` domain (the budget-4 walk took 54 minutes and is resumable per
+   sub-shard) demotes `(5,1)` and `(6,0)` one by one; surviving rows then
+   need a row-restricted joint search (11-sets at the row's excess/collision
+   shape plus a constrained B-side DFS forced to cover
+   `E \\ {0} \\ supp(A)`). Blocked by: the B side has ~3.1e8 Sidon 6/7-sets
+   and cannot be enumerated outright; stabilizer canonical forms for the
+   pair `(A, B)` are not implemented.
 2. **Is `r((C2)^7) = 20`?** (PR 2542's open question 2, sharpened by PR 2634.)
    First step: extend the sharp-row machinery and the min-excess census to
    `k = 18/19` splits. Blocked by: the same joint-tree growth.
