@@ -4,6 +4,7 @@
 Douglas Colkitt, with OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
+from contextlib import closing
 import hashlib
 import json
 from pathlib import Path
@@ -12,7 +13,7 @@ import shutil
 import subprocess
 import tempfile
 
-from research_package import ROOT, git, relative_file
+from research_package import ROOT, git, git_blobs, relative_file
 
 
 def create(root, slug, task_id, author, sources=(), base="HEAD", budget=60):
@@ -32,14 +33,14 @@ def create(root, slug, task_id, author, sources=(), base="HEAD", budget=60):
     card = cards[0]
     inventory = []
     names = sorted(set([catalog_path, "certificates/selected-result.json", *sources]))
-    for name in names:
-        live = relative_file(root, name).read_bytes()
-        pinned = git(root, "show", commit + ":" + name)
-        if live != pinned:
-            raise ValueError("source has uncommitted changes or differs from chosen base: " + name)
-        inventory.append({"path": name, "usage": "input" if name in sources else "provenance",
-                          "git_blob": git(root, "rev-parse", commit + ":" + name).decode().strip(),
-                          "sha256": hashlib.sha256(pinned).hexdigest()})
+    with closing(git_blobs(root, [commit + ":" + name for name in names])) as objects:
+        for index, (blob, pinned) in enumerate(objects):
+            name = names[index]
+            live = relative_file(root, name).read_bytes()
+            if live != pinned:
+                raise ValueError("source has uncommitted changes or differs from chosen base: " + name)
+            inventory.append({"path": name, "usage": "input" if name in sources else "provenance",
+                              "git_blob": blob, "sha256": hashlib.sha256(pinned).hexdigest()})
     task = {"schema_version": 1, "task_id": task_id, "priority_revision": catalog["priority_revision"],
             "base_commit": commit, "original_card": card, "scope_status": "unchanged",
             "actual_scope": card["question"], "scope_change_reason": None,
