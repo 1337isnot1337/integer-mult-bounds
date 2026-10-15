@@ -2684,20 +2684,24 @@
       },
       "reviewed_head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
       "current_head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-low-alias-borrowing"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a535b43d6296b4b70d3298f98e485677273cfba1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2339"
+      },
       "scope": "Sagar Thakrar's T74 low-alias local construction and independent audit. Reviewed all40 files, anticipatory correction structure, exact free-group forward/dual maps, nested frames, private cleanup and rebuilt profiles. Primary replay passes both80-alias words with28 controls each and exact model-price/cap checks; full NumPy rebuild reproduces both words' decompressed bytes and both witnesses exactly, including320 Gaussian handoff/exit products on512 columns and23 inherited rejection controls per word. Each word uses400 helpers,624 independent dirty inputs,44 cleanup buffers and local mass5264. The sixteen-helper obstruction is scoped to fixed words/schedule/lender conditions; corrected that wording and separated icekylinx from Zhihao Chen in attribution. Model prices are not constructed suppliers; native lowering, owner fill, physical buffer/compensation charges and outer admission remain open. No kappa change. Cinna Davis,Jeremy Kothe,Dugongue,Vlado Vojdanovski,Rohan Arun,mdumitrean,Ali Romman,Thomas DiFiore and retained compiler/ceiling lineage credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2339.json",

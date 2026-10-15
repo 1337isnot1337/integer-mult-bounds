@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "f1a0b38b7189ad9dcff29671e318c657fbaed862",
+  "checked_commit": "a535b43d6296b4b70d3298f98e485677273cfba1",
   "merged_prs": [
     1763,
     2046,
@@ -54,6 +54,7 @@
     2336,
     2337,
     2338,
+    2339,
     2340,
     2341,
     2342,
@@ -78,7 +79,7 @@
     2376,
     2377
   ],
-  "changed_files": 917,
+  "changed_files": 957,
   "resolved_files": [
     {
       "number": 2259,
@@ -244,6 +245,16 @@
       "number": 2315,
       "path": "research/t74-borrow43-independent-check/words_check.receipt.json",
       "sha256": "4e6200c99e9ba251562ec365b724170c900d72a6ba5f8fa4343d34cb99bcdecc"
+    },
+    {
+      "number": 2339,
+      "path": "research/t74-low-alias-borrowing/README.md",
+      "sha256": "5d8e237cc1ddcc970e545f53af82641888a5d90ccca08d9bd082dae3845cd707"
+    },
+    {
+      "number": 2339,
+      "path": "research/t74-low-alias-borrowing/check_ext.py",
+      "sha256": "2c9cac635dfeb615803f46486e52762b2981e8503d99089f3b4e64e4d1e6fc25"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
