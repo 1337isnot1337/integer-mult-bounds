@@ -102,6 +102,9 @@ the per-package fresh checkout, environment and 30-minute job bound are retained
 Changing either workflow selects all registered packages. Selection is never
 truncated: more than 256 batches fails explicitly. The ordinary planner CLI keeps
 its flat matrix format unless `--matrix-batch-size 256` is requested.
+This is a matrix-count bound, not a promise that the largest grouping fits every
+GitHub execution limit; the 1 MB job-output limit (estimated in UTF-16) and other
+platform limits still apply. The current 450-package matrix is well below it.
 
 ## Optional workflow feedback
 
