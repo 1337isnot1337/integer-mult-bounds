@@ -29,6 +29,7 @@ EXPECTED = {
     "distinct_min_R": 92,
     "valid_one_repeat_walks": 4530960,
     "rank4_one_repeat_walks": 3749760,
+    "valid_rank_lt4_walks": 781200,
     "covering_pairs": 59996160,
     "min_R": 112,
     "histogram": {"112": 59996160},
@@ -164,7 +165,9 @@ def _work_dbls(dbls):
     """Census one-repeat (2,6) duals for a chunk of doubled labels."""
     valid = 0
     rank4 = 0
+    rank_lt4 = 0
     covering = 0
+    covering_rank_lt4 = 0
     hist = Counter()
     sum_e_bad = 0
     inside_cover = 0
@@ -180,6 +183,12 @@ def _work_dbls(dbls):
                     continue
                 valid += 1
                 if rank_labels != 4:
+                    # Admit rank<4 lemma: dual never covers for any σ.
+                    rank_lt4 += 1
+                    e = even_table(slots)
+                    for sigma in range(1, 32):
+                        if dual_R_short_long(e, sigma) is not None:
+                            covering_rank_lt4 += 1
                     continue
                 rank4 += 1
                 e = even_table(slots)
@@ -201,7 +210,17 @@ def _work_dbls(dbls):
                     hist[112] += 1
                     if champ is None:
                         champ = ((0, sigma), slots)
-    return valid, rank4, covering, hist, sum_e_bad, inside_cover, champ
+    return (
+        valid,
+        rank4,
+        rank_lt4,
+        covering,
+        covering_rank_lt4,
+        hist,
+        sum_e_bad,
+        inside_cover,
+        champ,
+    )
 
 
 def census_one_repeat_26(workers=None):
@@ -210,13 +229,16 @@ def census_one_repeat_26(workers=None):
     chunks = [list(range(1, 32))[i::n] for i in range(n)]
     with Pool(n) as pool:
         parts = pool.map(_work_dbls, chunks)
-    valid = rank4 = covering = sum_e_bad = inside_cover = 0
+    valid = rank4 = rank_lt4 = covering = covering_rank_lt4 = 0
+    sum_e_bad = inside_cover = 0
     hist = Counter()
     champ = None
-    for v, r4, c, h, bad, inside, ch in parts:
+    for v, r4, rlt, c, c_lt, h, bad, inside, ch in parts:
         valid += v
         rank4 += r4
+        rank_lt4 += rlt
         covering += c
+        covering_rank_lt4 += c_lt
         sum_e_bad += bad
         inside_cover += inside
         hist.update(h)
@@ -224,6 +246,9 @@ def census_one_repeat_26(workers=None):
             champ = ch
     need(valid == EXPECTED["valid_one_repeat_walks"], "valid walk count")
     need(rank4 == EXPECTED["rank4_one_repeat_walks"], "rank4 walk count")
+    need(rank_lt4 == EXPECTED["valid_rank_lt4_walks"], "rank<4 walk count")
+    need(valid == rank4 + rank_lt4, "valid partition rank4+rank<4")
+    need(covering_rank_lt4 == 0, "rank<4 never covers")
     need(covering == EXPECTED["covering_pairs"], "covering count")
     need(sum_e_bad == 0, "every rank-4 one-repeat has Σe=40")
     need(inside_cover == 0, "sigma in span never covers")
@@ -239,6 +264,8 @@ def census_one_repeat_26(workers=None):
         "Q": 8,
         "valid_one_repeat_walks": valid,
         "rank4_one_repeat_walks": rank4,
+        "valid_rank_lt4_walks": rank_lt4,
+        "covering_rank_lt4": covering_rank_lt4,
         "covering_pairs": covering,
         "attainable_R": sorted(hist),
         "histogram": {str(r): hist[r] for r in sorted(hist)},

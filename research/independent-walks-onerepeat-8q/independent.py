@@ -90,7 +90,9 @@ def tariff(q, r, x):
 def _work(dbls):
     valid = 0
     rank4 = 0
+    rank_lt4 = 0
     covering = 0
+    covering_rank_lt4 = 0
     hist = Counter()
     for dbl in dbls:
         for others in combinations([x for x in range(1, 32) if x != dbl], 3):
@@ -102,6 +104,11 @@ def _work(dbls):
                     continue
                 valid += 1
                 if rank_labels != 4:
+                    rank_lt4 += 1
+                    e = even_table(slots)
+                    for sigma in range(1, 32):
+                        if dual_short(e, sigma) is not None:
+                            covering_rank_lt4 += 1
                     continue
                 rank4 += 1
                 e = even_table(slots)
@@ -121,7 +128,7 @@ def _work(dbls):
                         fail(f"outside R={r}")
                     covering += 1
                     hist[112] += 1
-    return valid, rank4, covering, hist
+    return valid, rank4, rank_lt4, covering, covering_rank_lt4, hist
 
 
 def census():
@@ -129,25 +136,34 @@ def census():
     chunks = [list(range(1, 32))[i::n] for i in range(n)]
     with Pool(n) as pool:
         parts = pool.map(_work, chunks)
-    valid = rank4 = covering = 0
+    valid = rank4 = rank_lt4 = covering = covering_rank_lt4 = 0
     hist = Counter()
-    for v, r4, c, h in parts:
+    for v, r4, rlt, c, c_lt, h in parts:
         valid += v
         rank4 += r4
+        rank_lt4 += rlt
         covering += c
+        covering_rank_lt4 += c_lt
         hist.update(h)
-    return valid, rank4, covering, hist
+    return valid, rank4, rank_lt4, covering, covering_rank_lt4, hist
 
 
 def main():
     cert = json.loads(CERT_PATH.read_text(encoding="utf-8"))
     claim = cert["claim"]
 
-    valid, rank4, covering, hist = census()
+    valid, rank4, rank_lt4, covering, covering_rank_lt4, hist = census()
     if valid != claim["valid_one_repeat_walks"]:
         fail(f"valid {valid}")
     if rank4 != claim["rank4_one_repeat_walks"]:
         fail(f"rank4 {rank4}")
+    expected_lt4 = claim.get("valid_rank_lt4_walks", 781200)
+    if rank_lt4 != expected_lt4:
+        fail(f"rank_lt4 {rank_lt4}")
+    if valid != rank4 + rank_lt4:
+        fail("valid != rank4+rank_lt4")
+    if covering_rank_lt4 != 0:
+        fail(f"rank<4 covered {covering_rank_lt4}")
     if covering != claim["one_repeat_covering"]:
         fail(f"covering {covering}")
     if min(hist) != 112 or set(hist) != {112} or hist[112] != covering:
@@ -180,6 +196,8 @@ def main():
         f"covering={covering}",
         f"valid={valid}",
         f"rank4={rank4}",
+        f"rank_lt4={rank_lt4}",
+        "covering_rank_lt4=0",
         "one_repeat_min_R=112",
         f"tariff_floor={floor}",
         "distinct_26_min_R=92",

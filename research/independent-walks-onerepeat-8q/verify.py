@@ -75,6 +75,11 @@ def build_certificate():
         census["rank4_one_repeat_walks"] == EXPECTED["rank4_one_repeat_walks"],
         "rank4",
     )
+    need(
+        census["valid_rank_lt4_walks"] == EXPECTED["valid_rank_lt4_walks"],
+        "rank_lt4",
+    )
+    need(census["covering_rank_lt4"] == 0, "rank<4 never covers")
 
     champ = champion_analysis()
     need(champ["tariff_floor_at_X0"] == EXPECTED["tariff_floor_at_X0"], "tariff floor")
@@ -105,6 +110,8 @@ def build_certificate():
             "one_repeat_min_R": 112,
             "valid_one_repeat_walks": EXPECTED["valid_one_repeat_walks"],
             "rank4_one_repeat_walks": EXPECTED["rank4_one_repeat_walks"],
+            "valid_rank_lt4_walks": EXPECTED["valid_rank_lt4_walks"],
+            "covering_rank_lt4": 0,
             "distinct_partition_26_min_R": 92,
             "tariff_floor_at_X0": EXPECTED["tariff_floor_at_X0"],
             "endpoint_Q6_tariff": EXPECTED["endpoint_tariff_Q6"],
@@ -118,7 +125,9 @@ def build_certificate():
                 "dirt; dual even-parity readout) has R=112 exactly (covering "
                 "59996160; spectrum {112}). Only rank-4 longs cover, always "
                 "with Σe=40 and σ outside the long span (16 choices), so "
-                "R=2·40+32=112 by the rank-4-outside identity. Distinct-label "
+                "R=2·40+32=112 by the rank-4-outside identity; all 781200 "
+                "rank<4 valid longs are admitted with covering_rank_lt4=0. "
+                "Distinct-label "
                 "(2,6) floor R=92 is not improved. At X=0 the abstract tariff "
                 "is already 528>436 under (b,a,x)=(38,2,2). Leave-alones "
                 "through #2846 and pending independent-walks-8q are not "
@@ -147,6 +156,17 @@ def compare_certificate(live, pinned):
         live["one_repeat_2_plus_6"]["covering_pairs"]
         == pinned["one_repeat_2_plus_6"]["covering_pairs"],
         "covering drift",
+    )
+    need(
+        live["one_repeat_2_plus_6"]["valid_rank_lt4_walks"]
+        == pinned["one_repeat_2_plus_6"]["valid_rank_lt4_walks"],
+        "rank_lt4 drift",
+    )
+    need(
+        live["one_repeat_2_plus_6"]["covering_rank_lt4"]
+        == pinned["one_repeat_2_plus_6"]["covering_rank_lt4"]
+        == 0,
+        "rank_lt4 cover drift",
     )
     need(
         live["one_repeat_2_plus_6"]["histogram"]

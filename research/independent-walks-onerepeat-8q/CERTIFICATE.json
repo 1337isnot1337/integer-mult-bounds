@@ -12,13 +12,15 @@
     "one_repeat_min_R": 112,
     "valid_one_repeat_walks": 4530960,
     "rank4_one_repeat_walks": 3749760,
+    "valid_rank_lt4_walks": 781200,
+    "covering_rank_lt4": 0,
     "distinct_partition_26_min_R": 92,
     "tariff_floor_at_X0": 528,
     "endpoint_Q6_tariff": 436,
     "undercuts_436_after_complete_bill": false,
     "beats_distinct_92": false,
     "answers_independent_walks_8q_oq1_onerepeat": true,
-    "oq_answer": "Every covering one-repeat partitioned dual on shape (2,6) (short walk (0,\u03c3); long walk of length 6 whose five nonzero slots contain exactly one repeated nonzero label; independent dirt; dual even-parity readout) has R=112 exactly (covering 59996160; spectrum {112}). Only rank-4 longs cover, always with \u03a3e=40 and \u03c3 outside the long span (16 choices), so R=2\u00b740+32=112 by the rank-4-outside identity. Distinct-label (2,6) floor R=92 is not improved. At X=0 the abstract tariff is already 528>436 under (b,a,x)=(38,2,2). Leave-alones through #2846 and pending independent-walks-8q are not reopened.",
+    "oq_answer": "Every covering one-repeat partitioned dual on shape (2,6) (short walk (0,\u03c3); long walk of length 6 whose five nonzero slots contain exactly one repeated nonzero label; independent dirt; dual even-parity readout) has R=112 exactly (covering 59996160; spectrum {112}). Only rank-4 longs cover, always with \u03a3e=40 and \u03c3 outside the long span (16 choices), so R=2\u00b740+32=112 by the rank-4-outside identity; all 781200 rank<4 valid longs are admitted with covering_rank_lt4=0. Distinct-label (2,6) floor R=92 is not improved. At X=0 the abstract tariff is already 528>436 under (b,a,x)=(38,2,2). Leave-alones through #2846 and pending independent-walks-8q are not reopened.",
     "no_new_kappa": true
   },
   "one_repeat_2_plus_6": {
@@ -26,6 +28,8 @@
     "Q": 8,
     "valid_one_repeat_walks": 4530960,
     "rank4_one_repeat_walks": 3749760,
+    "valid_rank_lt4_walks": 781200,
+    "covering_rank_lt4": 0,
     "covering_pairs": 59996160,
     "attainable_R": [
       112

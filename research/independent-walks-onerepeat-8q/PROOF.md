@@ -59,8 +59,9 @@ R = 2 · Σ_{v ∈ V \ {0}} e_long[v] + 32 = 2·40 + 32 = 112.
 on every one-repeat rank-4 long (machine-checked: zero inside-span covers).
 
 **Lemma (rank-3 never covers).** If the four distinct nonzero labels have rank
-`<4`, no `σ` yields a covering dual (machine-checked on all `781200` rank-3
-valid walks).
+`<4`, no `σ` yields a covering dual. Admitted in `model.py` /
+`independent.py` census: every valid rank`<4` long is dual-scanned for all
+`σ`, with `valid_rank_lt4_walks=781200` and `covering_rank_lt4=0`.
 
 ## Census
 
