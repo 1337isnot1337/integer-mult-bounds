@@ -112,6 +112,22 @@
     "PR1020": {
       "head": "bf4ee95df4ee6e3101a88f5d015c8aa85b688b6d",
       "role": "fixed p=26 puncture and prior decoder"
+    },
+    "PR2228": {
+      "head": "ad1757e319225f3a5b86e3d3fa72897bd9f6db40",
+      "status": "open; general dense root-code floor, adjacent framework"
+    },
+    "PR2232": {
+      "head": "3391f27dd0f226f0e1ead8b2b829eb6d3ec567d3",
+      "status": "open; distinct E6 rank-four projected-Gram adapted-pairing screen"
     }
+  },
+  "final_overlap_snapshot": {
+    "open_prs": 470,
+    "open_prs_fetched_at": "2026-10-15T01:23:58Z",
+    "discussions": 931,
+    "discussions_fetched_at": "2026-10-15T01:27:13Z",
+    "complete_pagination": true,
+    "warnings": []
   }
 }

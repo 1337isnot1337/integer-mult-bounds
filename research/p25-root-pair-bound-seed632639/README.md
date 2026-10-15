@@ -100,9 +100,16 @@ copy-floor lineage through 24 punctures, retained in
 handle one fixed p=26 paired-normal object, with PR1020 head
 `bf4ee95df4ee6e3101a88f5d015c8aa85b688b6d` credited for its puncture and
 baseline decoder. This result covers the p=25 root-pair family as a whole; it
-does not audit or extend that fixed p=26 completion. The active ten-term P112
-gauge and rank-six schedule claims were checked before the scope claim and use
-different objects.
+does not audit or extend that fixed p=26 completion. The pre-submission refresh
+also found open PR #2232 (head `3391f27dd0f226f0e1ead8b2b829eb6d3ec567d3`), an
+E6 rank-four projected-Gram screen with an adapted pairing. It uses 36 E6 lines
+and four-term projections, not the E8 p=25 root-pair support family here. Open
+PR #2228 (head `ad1757e319225f3a5b86e3d3fa72897bd9f6db40`) gives a general dense
+root-code floor and lists E8, P112 and P104 cases; its broader framework is
+adjacent, while this package contributes the exact p=25 extremal-mask census
+and an eight-term dual-root COPY bound. No claim is made that this result
+exceeds the broader root-code theorem. The active ten-term P112 gauge, cyclic
+mask and rank-six schedule claims use different objects.
 
 The scope claim and handoff are tracked at
 [Discussion #1167 comment 18937692](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18937692).
