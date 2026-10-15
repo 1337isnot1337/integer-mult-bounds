@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "657e006c17f2e01b7efcac1835c8854f23adbad8165601c0d7c64d56622a6f05",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "3ce64f05e82df3a489582b2b11810514520f90d349c0c88aefacd3b072e07e8a",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106550,7 +106550,7 @@
       "closure": null,
       "reviewed_head": "fde6b107e26a14da5bac5b66913c914708ea6901",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Fresh registered replay fails only the frozen actual_factors_sha256 commitment. Local/native, owners/charts, separate invoice and exact outer pass; every other independent receipt field matches. Regenerated payload matches PR2265 independently published canonical pin, but old compressed commitment remains unrecovered. Requested original payload/canonical source-bound repair: https://github.com/CrocSwap/integer-mult-bounds/pull/2260#issuecomment-6203453534. Optional Lean kernel audit not freshly rerun.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -106558,7 +106558,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2260.json"
+        "research/community-efficient1300-audit/packets/2260.json",
+        "research/community-efficient1300-audit/checks/check-2260.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -106690,7 +106691,7 @@
       "closure": null,
       "reviewed_head": "49ce38fee91f33edb54645724e7be9530f5631f6",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full finite supplier/200-digit endpoint/54-row retuned outer replay passes48.655s, with explicit canonical-payload comparison replacing unreproducible predecessor gzip commitment. Supplier70files exact2260. New endpoint, binding, outer arithmetic and parameter proofs reviewed. Complete shared PR1673 capped-fusion, PR1758 accretive Toeplitz/union and PR1786 fine-padding analytic/tape dependency audit remains pending; finite replays alone do not establish these. Original2260 commitment remains unresolved.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -106698,7 +106699,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2265.json"
+        "research/community-efficient1300-audit/packets/2265.json",
+        "research/community-efficient1300-audit/checks/check-2265.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [

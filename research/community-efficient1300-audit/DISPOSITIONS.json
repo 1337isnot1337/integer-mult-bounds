@@ -213,7 +213,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Fresh registered replay fails only the frozen actual_factors_sha256 commitment. Local/native, owners/charts, separate invoice and exact outer pass; every other independent receipt field matches. Regenerated payload matches PR2265 independently published canonical pin, but old compressed commitment remains unrecovered. Requested original payload/canonical source-bound repair: https://github.com/CrocSwap/integer-mult-bounds/pull/2260#issuecomment-6203453534. Optional Lean kernel audit not freshly rerun.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -224,7 +224,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2260.json"
+        "research/community-efficient1300-audit/packets/2260.json",
+        "research/community-efficient1300-audit/checks/check-2260.json"
       ]
     },
     {
@@ -320,7 +321,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full finite supplier/200-digit endpoint/54-row retuned outer replay passes48.655s, with explicit canonical-payload comparison replacing unreproducible predecessor gzip commitment. Supplier70files exact2260. New endpoint, binding, outer arithmetic and parameter proofs reviewed. Complete shared PR1673 capped-fusion, PR1758 accretive Toeplitz/union and PR1786 fine-padding analytic/tape dependency audit remains pending; finite replays alone do not establish these. Original2260 commitment remains unresolved.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -331,7 +332,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2265.json"
+        "research/community-efficient1300-audit/packets/2265.json",
+        "research/community-efficient1300-audit/checks/check-2265.json"
       ]
     },
     {
