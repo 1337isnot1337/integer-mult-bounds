@@ -13,7 +13,7 @@ def main():
         original={name:(t/name).read_bytes() for name in ('SOURCES.json','BASE-SELECTED.json','EXPECTED.json')}
         v.P=t;controls=[]
         for label,name,change in (
-            ('missing source pin','SOURCES.json',lambda x:x['files'].pop(v.OLD+'independent.py')),
+            ('missing source pin','SOURCES.json',lambda x:x['files'].pop(v.OLD+'CERTIFICATE.json')),
             ('changed source hash','SOURCES.json',lambda x:x['files'].__setitem__(v.OLD+'CERTIFICATE.json','0'*64)),
             ('changed selected context','BASE-SELECTED.json',lambda x:x.__setitem__('kappa','1/2')),
             ('floating count','EXPECTED.json',lambda x:x.__setitem__('exact_minors',4030.0))):
