@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1155–#2490**, excluding prior same-head dispositions. Baseline `28f54620ff770dd051d5df35882bd84303d13c6f`. Complete Git differences determine changed-file coverage.
 
-**61 ready; 41 observed merged; 39 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**61 ready; 61 observed merged; 39 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
