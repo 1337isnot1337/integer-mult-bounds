@@ -43,7 +43,9 @@
   "claim": {
     "discussion": 1167,
     "comment": 18936581,
-    "expires_utc": "2026-10-15T01:59:31Z"
+    "expires_utc": "2026-10-15T01:59:31Z",
+    "handoff_comment": 18936901,
+    "released": true
   },
   "overlap_at_claim": {
     "live_scope_check": "No open PR match for P104 fanout-helper reuse; PR #2152 head pinned above; no competing helper-7 private-descent claim found on the hub.",
@@ -95,6 +97,14 @@
     "helper_restoration_additions_before": 31,
     "helper_restoration_additions_after": 30,
     "direct_private_contact_additions": 3
+  },
+  "submission": {
+    "pull_request": 2219,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2219",
+    "status_at_submission": "open",
+    "base": "main",
+    "discussion_handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18936901",
+    "scope_correction": "The checked source is PR #2152 fanout.py before the separate coalesced.py rechart; the initial claim said coalesced."
   },
   "cost_screen": {
     "scope": "Necessary m=73, P104, COPY56, 832-family, nine-stage balanced-transfer profile model with fractional rank-51 residual packing.",

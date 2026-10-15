@@ -17,6 +17,8 @@ selected-threshold moment is still above one and the optimistic complex-side
 cap remains below the selected κ. This is a local cost reduction, not a new
 supplier or κ result.
 
+The contribution is packaged in [PR #2219](https://github.com/CrocSwap/integer-mult-bounds/pull/2219).
+
 ## Pins and coordination
 
 - Cycle seed: `915fa969cacecdfec5dcd7a95a4bf0a0`
