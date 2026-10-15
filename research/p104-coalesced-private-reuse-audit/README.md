@@ -1,6 +1,8 @@
-# Coalesced P104 word with private-descent reuse
+# Independent corroboration of coalesced P104 private reuse
 
 **A finite composition improvement, not a new selected exponent or an admitted supplier.**
+
+**Publication checkpoint.** [Gareth Davidson / PR #2305](https://github.com/CrocSwap/integer-mult-bounds/pull/2305), pinned at `335e78619a17b7c418e11306f86a72fd366de35b`, published the same retained-boundary construction after this study's local result was saved. This submission is therefore **independent corroboration, not a new composition or priority claim**. It uses a separately written rational-row/frame interpreter, reproduces the original-word control and also records a released-boundary companion. The public profiles, full width vector, complete native receipt, owner-assignment hash and four exact cost/root/threshold intervals agree with the pinned PR2305 receipt. The shared frozen native, geometry, hosting and interval components are inherited, not independently reimplemented.
 
 This successor combines David Arias's complete forward word and its 339 common-frame changes in [PR #2152](https://github.com/CrocSwap/integer-mult-bounds/pull/2152) with [1337isnot1337's private-descent reuse in PR #2219](https://github.com/CrocSwap/integer-mult-bounds/pull/2219). PR #2219 explicitly left the coalesced variant untested. All 339 frame changes survive the composition.
 
@@ -92,7 +94,7 @@ Positive optimistic ceilings are not achieved gains. Both concrete invoices have
 CPython 3.12, standard library only; no network, Git checkout, optional optimizer or GPU is needed for the direct replay:
 
 ```sh
-python -I -O -B research/p104-coalesced-private-reuse/verify.py
+python -I -O -B research/p104-coalesced-private-reuse-audit/verify.py
 ```
 
 The package may also be copied anywhere and run by its absolute path. Inputs unpack to temporary storage. Source hashes are checked before execution and again afterward; the default command only reads package files and compares the recomputed receipt with RESULT.json.
@@ -100,7 +102,7 @@ The package may also be copied anywhere and run by its absolute path. Inputs unp
 In a repository checkout, the registered check is:
 
 ```sh
-python -B scripts/research_package.py --package research/p104-coalesced-private-reuse
+python -B scripts/research_package.py --package research/p104-coalesced-private-reuse-audit
 ```
 
 Expected marker: `PASS_P104_COALESCED_PRIVATE_REUSE`, with 735 columns, 339 preserved frame changes, five rejecting semantic controls and native=True. The native checker additionally rejects an incorrect global phase in each variant.
@@ -123,8 +125,8 @@ The unchanged widths establish applicability of the same **conditional packing i
 
 ## Credit and assistance
 
-David Arias / PR #2152 supplies the full P104 forward construction, the coalesced charts, native replay pipeline and conditional hosting invoice. 1337isnot1337 / PR #2219 supplies the helper-7 private-descent idea and its original-word realization. Rohan Arun / #1972, Chafik Boukhalfa / #1991 and Adam Gall / #1940 supply the preceding channel and schedule. Josie Elliston, Ali Romman, icekylinx, Jeremy Kothe, Hao Yan and the retained geometry/compiler/owner lineage keep their source-specific attribution. Douglas Colkitt's exact ceiling engine and its existing AI-assistance notice remain unchanged.
+David Arias / PR #2152 supplies the full P104 forward construction, the coalesced charts, native replay pipeline and conditional hosting invoice. Cinna Davis / 1337isnot1337 / PR #2219 supplies the helper-7 private-descent idea and its original-word realization. Rohan Arun / #1972, Chafik Boukhalfa / #1991 and Adam Gall / #1940 supply the preceding channel and schedule. Josie Elliston, Ali Romman, icekylinx, Jeremy Kothe, Hao Yan and the retained geometry/compiler/owner lineage keep their source-specific attribution. Douglas Colkitt's exact ceiling engine and its existing AI-assistance notice remain unchanged.
 
 The successor composition, independent rational-row interpreter, tests and write-up were prepared for SHIN09-git with substantial OpenAI Codex assistance. Apache-2.0; source licenses and notices are retained inside the source export. No independent human review or literature-priority guarantee is claimed.
 
-Entry overlap covered 508 open PR records and 996 Discussion body/comment/reply records with complete pagination, plus 1,536 local notes/metadata records; the subsequent scoped search included this draft and counted 1,538. Searches cover metadata and local notes rather than every code diff. The closest matching work was #2219 itself, which explicitly left this combination untested. Freshness and final overlap are recorded in TASK.json. Evidence is local-only until published.
+Entry overlap covered 508 open PR records and 996 Discussion body/comment/reply records with complete pagination, plus 1,536 local notes/metadata records; the subsequent scoped search included this draft and counted 1,538. Searches cover metadata and local notes rather than every code diff. The closest matching work was #2219 itself, which explicitly left this combination untested. Freshness and final overlap are recorded in TASK.json. The publication refresh found #2305, so this package is offered as corroborating evidence with explicit shared-component limits; no advance public claim is fabricated.

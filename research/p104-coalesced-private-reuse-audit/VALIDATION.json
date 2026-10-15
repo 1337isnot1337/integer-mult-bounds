@@ -15,14 +15,14 @@
       "-B",
       "scripts/research_package.py",
       "--package",
-      "research/p104-coalesced-private-reuse"
+      "research/p104-coalesced-private-reuse-audit"
     ],
     "child_command": [
       "python",
       "-I",
       "-O",
       "-B",
-      "research/p104-coalesced-private-reuse/verify.py"
+      "research/p104-coalesced-private-reuse-audit/verify.py"
     ],
     "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
     "verifier_seconds": 161.896,
@@ -78,5 +78,19 @@
       "construction.py",
       "verify.py"
     ]
+  },
+  "original_package_name": "p104-coalesced-private-reuse",
+  "publication_replay": {
+    "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
+    "verified_at_utc": "2026-10-15T05:51:36.804702+00:00",
+    "verifier_seconds": 184.527,
+    "command": [
+      "python",
+      "-B",
+      "scripts/research_package.py",
+      "--package",
+      "research/p104-coalesced-private-reuse-audit"
+    ],
+    "core_payload_unchanged": true
   }
 }

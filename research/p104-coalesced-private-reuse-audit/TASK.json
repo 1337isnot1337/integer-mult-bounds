@@ -46,7 +46,7 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Compose PR2152's 339 coalesced frame changes with PR2219's helper-7 private-descent reuse; certify the exact 735-input forward map, native operators, unchanged-boundary conditional invoice and a separate released-boundary variant.",
+  "actual_scope": "Independent corroboration of the retained-boundary P104 composition also reported by PR2305, using our prior separately written rational-row/frame checker; include original-word positive control and a released-boundary companion.",
   "scope_change_reason": "A fresh overlap review found existing P104 correction constructions and cut obstructions. PR2219 explicitly left the coalesced word untested. The session therefore follows that concrete compatibility handoff instead of reconstructing the already published native G/2 channel or repeating a cut theorem.",
   "bottleneck_link": "The complex supplier binds. This composition lowers its local recursive moment under unchanged public boundary widths, but the checked conditional local-plus-idle invoice still misses the selected bound. It closes a reusable finite compatibility question, not supplier admission.",
   "budget_minutes": 60,
@@ -85,7 +85,7 @@
     "2152": "05f7aad0f08992ee48ec2dd93e896d9a4567847d",
     "2219": "3f913bc17276b68f0c9008a1202b6ce588e77ff6"
   },
-  "publication_status": "LOCAL-ONLY; no Discussion claim or PR has been posted for this successor",
+  "publication_status": "Authorized for PR submission; no advance Discussion reservation was posted.",
   "overlap": {
     "entry_open_prs": {
       "records": 508,
@@ -167,6 +167,61 @@
       "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2245#discussioncomment-18940216",
       "updated_at": "2026-10-15T04:01:08Z",
       "distinction": "A prefix-pooled shared-correction-space boundary in the frozen PR1972 trace; not the PR2152 coalesced forward word or helper-7 private-descent composition."
+    },
+    "publication_checkpoint": {
+      "searched_at": "2026-10-15T05:49:12.094616+00:00",
+      "coverage": {
+        "open_prs": {
+          "fetched_at": "2026-10-15T05:44:09.658360+00:00",
+          "complete_pagination": true,
+          "records": 546
+        },
+        "discussions": {
+          "fetched_at": "2026-10-15T05:49:12.018057+00:00",
+          "complete_pagination": true,
+          "records": 1052
+        }
+      },
+      "terms": [
+        "coalesced",
+        "reuse"
+      ],
+      "matches_total": 13,
+      "local_records": 1538,
+      "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+      "finding": "PR2305 and Discussion2299 report the same retained-boundary composition. This contribution is reclassified as independent corroboration, with explicit common-component limits and a distinct directory.",
+      "reviewed_remote_matches": [
+        {
+          "kind": "discussion",
+          "number": 2299,
+          "title": "DONE: P104 private reuse composes with coalesced frames; owner invoice still loses",
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2299"
+        },
+        {
+          "kind": "pr",
+          "number": 2305,
+          "title": "Compose P104 private descent reuse with coalesced frames",
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2305"
+        },
+        {
+          "kind": "pr",
+          "number": 2219,
+          "title": "Record P104 private descent fanout reuse construction",
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2219"
+        },
+        {
+          "kind": "discussion-comment",
+          "number": 2218,
+          "title": "FINDING / RELEASED: P104 (97,5) corrected delayed echo passes scalar checks but loses cost screen",
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2218#discussioncomment-18937292"
+        },
+        {
+          "kind": "discussion-comment",
+          "number": 1167,
+          "title": "Larger κ: proposals that change the current cost structure",
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18936581"
+        }
+      ]
     }
   },
   "upstream_checkpoint": {
@@ -194,5 +249,38 @@
     "source_heads_unchanged": true
   },
   "finished_at_utc": "2026-10-15T04:18:39.722084+00:00",
-  "validation_receipt": "VALIDATION.json"
+  "validation_receipt": "VALIDATION.json",
+  "concurrent_result_comparison": {
+    "peer_pr": 2305,
+    "peer_head": "335e78619a17b7c418e11306f86a72fd366de35b",
+    "peer_receipt_sha256": "580adb3de7037acc6f7e41cc186e8a210463afaa696d57892643d55acd0040c8",
+    "matched_fields": {
+      "public_profile": true,
+      "private_profile": true,
+      "scalar_adds": true,
+      "public_registers": true,
+      "public_widths": true,
+      "native_receipt": true,
+      "owner_assignment": true,
+      "residual_invoice": true,
+      "baseline_ideal_kappa": true,
+      "baseline_ideal_root_interval": true,
+      "baseline_ideal_selected_moment": true,
+      "retained_ideal_kappa": true,
+      "retained_ideal_root_interval": true,
+      "retained_ideal_selected_moment": true,
+      "baseline_hosted_kappa": true,
+      "baseline_hosted_root_interval": true,
+      "baseline_hosted_selected_moment": true,
+      "retained_hosted_kappa": true,
+      "retained_hosted_root_interval": true,
+      "retained_hosted_selected_moment": true
+    },
+    "independence": "Our rational-row/frame interpreter and scientific receipt were committed at ba7577148cbfe04e89892157780aa7fa2a372ac1 before inspecting PR2305. Both studies share frozen predecessor data, native compiler/interpreter, owner checker and interval engine; this is not independent verification of those common components."
+  },
+  "publication_directory_change": {
+    "from": "p104-coalesced-private-reuse",
+    "to": "p104-coalesced-private-reuse-audit",
+    "reason": "Avoid colliding with PR2305's independently submitted package path."
+  }
 }
