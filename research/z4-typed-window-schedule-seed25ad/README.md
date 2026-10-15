@@ -263,7 +263,11 @@ direct predecessor). The sharp overhead budgets are
 technique and the published `D/E` are `research/selected-suppliers-de-diagnostic`
 (Navinor) and the pricing model is Douglas Colkitt's
 `research/complex-local-word-ceiling`; the immutable-window sentence is the
-PR #386 bit geometry (Dylan Crow lineage) pinned in
+bit-geometry artifact `PR386-BIT-GEOMETRY.txt` in
+[PR 386](https://github.com/CrocSwap/integer-mult-bounds/pull/386) by Zhihao Chen
+(jacklightChen, with OpenAI Codex assistance), whose local E8 bit word is Dylan
+Crow's from [PR 370](https://github.com/CrocSwap/integer-mult-bounds/pull/370)
+(with Anthropic Claude assistance), pinned in
 `research/split-centres-global`. Adjacent same-day work is distinguished, not
 overlapped: PR #2500 (typed contract vs recursive children), PR #2491 and PR
 #2543 (unitary paired cycles for the full dirty reader), PR #2502 (carry
