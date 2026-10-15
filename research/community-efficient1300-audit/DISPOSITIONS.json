@@ -952,20 +952,24 @@
       },
       "reviewed_head": "325601ad64b58f10c6fda659851e3acd43bb10b7",
       "current_head": "325601ad64b58f10c6fda659851e3acd43bb10b7",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-side-condition-coverage-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5ad5a20696c612dcbc1dae3d7c97a9e47f6de3e5",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2286"
+      },
       "scope": "Sagar Thakrar\u2019s T74 prose-side-condition inventory and independent symbolic review. Reviewed the exact evaluator, ledger transcription, classification gates and flagged source context; full source-bound replay authenticates32 files and554 quotations,133 condition keys,49 recomputed ledger checks and122 symbolic/source checks. Complete110-file Python inventory supports the reference scan. Extraction completeness and load-bearing classifications remain a documented reading audit, with58 non-exponent obligations unproved. Flags stale margins, a false optional halo branch and the disabled bracket; preserves Philippe Van Velzen\u2019s priority and Rohan Arun\u2019s reconciliation credit. No supplier admission or new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2286.json",
@@ -1701,20 +1705,24 @@
       },
       "reviewed_head": "00de1b48c3155846ee340993eeb9e9d7daf157af",
       "current_head": "00de1b48c3155846ee340993eeb9e9d7daf157af",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/pr2265-supplier-admission-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5ad5a20696c612dcbc1dae3d7c97a9e47f6de3e5",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2311"
+      },
       "scope": "Sagar Thakrar\u2019s independent finite supplier-premise audit of PR2260/2265. Reviewed the free-word rational replay, same-call namespace,31392 owner rows, residual histogram, finite constants and320-digit moment error allowance. Both full orientations and15 semantic controls pass; maintainer independently verifies all1377 frame bases. The audit identifies the X73 data borrow and separates9 covered,1 namespace-only unencoded and5 inherited premises. Native Clifford lowering,63-bit bound,time windows,guard units,compiler and endpoint-license applicability remain unproved here. No candidate or frontier admission; Dugongue,Cinna Davis,DreamingOfClouds and outer-lineage credits retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2311.json",
@@ -2514,8 +2522,8 @@
       },
       "reviewed_head": "217ba488beeb20d65a3f677df46de9793b954c50",
       "current_head": "217ba488beeb20d65a3f677df46de9793b954c50",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         ".github/workflows",
         "research/selected1094-windows-successor",
@@ -2527,15 +2535,19 @@
         "tests/test_isolated_test_runner.py",
         "tests/test_pr_reconciliation.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5ad5a20696c612dcbc1dae3d7c97a9e47f6de3e5",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2336"
+      },
       "scope": "Dennis/antunishdPursuit\u2019s opt-in selected-final-stage Windows successor, using Jose Manuel\u2019s two path-key fixes. Reviewed exact-source in-memory compilation, assertion retention,105-file typed comparisons and linked invoice/log hashes. Fresh macOS replay passes all11 strict stages and16 rejecting controls, with102 byte-identical outputs; native Windows42-second evidence remains author-reported. Archived PR1042 inputs are used, not a cold ancestry replay. Retained newer main historical pins and ledger decisions in shared ancestor files; no selected-source or kappa change. Rohan Arun,Jeremy Kothe,Douglas Colkitt and JosieElliston credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2336.json",
@@ -3707,7 +3719,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Revision requested: actual p25-root-pair-bound-seed632639 check_pins passes original bytes and rejects only the proposed production replacement. Also migrate newly integrated cycle47 runtime model binding. Preserve historical baselines or update and replay consumers; full optimization review remains pending. Comment: https://github.com/CrocSwap/integer-mult-bounds/pull/2375#issuecomment-6202510366",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,

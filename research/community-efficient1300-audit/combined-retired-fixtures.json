@@ -1,0 +1,47 @@
+{
+  "retired": [
+    {
+      "number": 2336,
+      "head": "217ba488beeb20d65a3f677df46de9793b954c50",
+      "files": 33567,
+      "logical_bytes": 1624487952,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    },
+    {
+      "number": 2320,
+      "head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
+      "files": 8094,
+      "logical_bytes": 361301362,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    },
+    {
+      "number": 2377,
+      "head": "5d444eee7dedd997c6094776fbb32ed19831e241",
+      "files": 8100,
+      "logical_bytes": 361658306,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    },
+    {
+      "number": 2373,
+      "head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
+      "files": 8385,
+      "logical_bytes": 410112044,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    },
+    {
+      "number": 2355,
+      "head": "e4807b8c8cc42235d3794314f44d9210ac9c38de",
+      "files": 8332,
+      "logical_bytes": 404584903,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    },
+    {
+      "number": 2046,
+      "head": "d3d309b3595c37e081e28bfcf24aa278a8404b59",
+      "files": 10607,
+      "logical_bytes": 622928063,
+      "scope": "Retired exact Git-reconstructible temporary fixture after terminal checks and observed merge; all source commits, check receipts, logs and review evidence retained."
+    }
+  ],
+  "utc": "2026-10-15T21:20:28.759503+00:00"
+}

@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1175–#2377**, excluding prior same-head dispositions. Baseline `7b39515117fe26e75d16c268877391f1bdaa5640`. Complete Git differences determine changed-file coverage.
 
-**69 ready; 66 observed merged; 31 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**69 ready; 69 observed merged; 31 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -114,7 +114,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2361](https://github.com/CrocSwap/integer-mult-bounds/pull/2361) | thakrarsagar | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2363](https://github.com/CrocSwap/integer-mult-bounds/pull/2363) | mason-hale | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2374](https://github.com/CrocSwap/integer-mult-bounds/pull/2374) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2375](https://github.com/CrocSwap/integer-mult-bounds/pull/2375) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2375](https://github.com/CrocSwap/integer-mult-bounds/pull/2375) | VictorLiwentao | Revision requested: actual p25-root-pair-bound-seed632639 check_pins passes original bytes and rejects only the proposed production replacement. Also migrate newly integrated cycle47 runtime model binding. Preserve historical baselines or update and replay consumers; full optimization review remains pending. Comment: https://github.com/CrocSwap/integer-mult-bounds/pull/2375#issuecomment-6202510366 |
 
 ## Evidence and limits
 
