@@ -170,6 +170,18 @@
       "exit_code": 0
     },
     {
+      "number": 2412,
+      "head": "7452a6ce9b79dee2e2b0d2a8819c4d4099d302e2",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/hpe-transport-integer-production",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
       "number": 2415,
       "head": "7b9997ba2ca13be75dfc423642e2ce6b8ed18d6e",
       "command": [
@@ -194,6 +206,6 @@
       "exit_code": 0
     }
   ],
-  "log_sha256": "b00255508a766ef334c93b67266cea782d31aefd400d1188bc015503700cd06d",
+  "log_sha256": "fe1a3a3b6502e77222e5fac24709cfa36328a7b2961069410e594a0775352aeb",
   "scope": "Registered metadata/source-pin preflight only; mathematical execution is in separate check receipts."
 }

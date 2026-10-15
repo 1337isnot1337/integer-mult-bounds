@@ -217,6 +217,24 @@
       "actual": "b452d2c2b0b2a546d1105b1da9769aa78e5c54d6f00e97b30c77e3f54ce445ee"
     },
     {
+      "number": 2412,
+      "path": "research/community-frontier1042-audit/selected-replay.tar.gz",
+      "expected": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754",
+      "actual": "22c3f4dce4b897a1d423d1388801933e288b6a6b1906cb15e1b16a5eb68db754"
+    },
+    {
+      "number": 2412,
+      "path": "research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/complex-local/inputs/phase-baseline/CANONICAL-WORD.json.gz",
+      "expected": "e070ae2c78b4a1b644b418774af62b40d8d16e6ba89602f0474afb557d507c37",
+      "actual": "e070ae2c78b4a1b644b418774af62b40d8d16e6ba89602f0474afb557d507c37"
+    },
+    {
+      "number": 2412,
+      "path": "research/hpe-audit-fast-seed93/hpe_audit_fast.py",
+      "expected": "cc265f0094f74a89155948ab1a7442d6be4a730142614f647c259ec0c8ef6321",
+      "actual": "cc265f0094f74a89155948ab1a7442d6be4a730142614f647c259ec0c8ef6321"
+    },
+    {
       "number": 2415,
       "path": "research/four-swap-full-occupancy/README.md",
       "expected": "82bdfbfb517505ef6783cb82e2718975876276075fe3dba26959df514f984f60",

@@ -26,6 +26,8 @@ PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 2407 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/r439-single-copy-interleaving', '--check-only']
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2412 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/hpe-transport-integer-production', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 2415 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/gl2-swap-cut-corollary', '--check-only']
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 2419 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/qq16-readset-matroid-independent', '--check-only']
