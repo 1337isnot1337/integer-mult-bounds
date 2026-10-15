@@ -124,10 +124,6 @@ def run(W, G, I, seed, perturb=False):
     Z = shift_mat(W)
     ranks = {'diag': [], 'sub': [], 'sup': [], 'pivot': [], 'pivot_inv': []}
     S = {(p, q): blk(ST, p, q) for p in range(G) for q in range(G)}
-    for p in range(G):
-        for q in range(G):
-            if abs(p - q) > 1:
-                assert all(x == 0 for r in S[(p, q)] for x in r) or True   # far blocks are tiny/zero or ignored by the tridiagonal solve below (checked via full solve)
     gens = {}
     def represent(name, M):
         D = stein(M, Z); gs, hs = rank_factor(D)

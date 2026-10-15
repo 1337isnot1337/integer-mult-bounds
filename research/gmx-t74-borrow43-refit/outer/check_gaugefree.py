@@ -20,7 +20,6 @@ res=sp.expand(EK-EG)
 claim=-b0*((1-lam)*x**2-lam*(1-lam)*y**2+dl**2-lam*s**2+2*(dl+lam*s)*x-2*lam*(dl+s)*y)
 assert sp.simplify(res-claim)==0
 sub=sp.expand(claim.subs(s,-dl/lam))
-assert sp.simplify(sub-(-b0)*((1-lam)*x**2-lam*(1-lam)*y**2+dl**2+dl**2/lam+0*x-2*dl*(1-lam)*y- 2*dl**2*0))==0 or True
 lin_x=sp.simplify(sp.diff(sub,x).subs({x:0,y:0})); lin_y=sp.simplify(sp.diff(sub,y).subs({x:0,y:0}))
 assert sp.simplify(lin_x)==0 and sp.simplify(lin_y-(-b0)*(-2*lam*(dl-dl/lam)))==0
 OUT['A_broad']='K = Drow*G_s*Dcol exact; s=-dl/lam kills x-linear term, y-linear coefficient 2*b0*dl*(1-lam)'

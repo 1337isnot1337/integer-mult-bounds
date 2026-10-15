@@ -94,7 +94,7 @@ In the regime of the note a = pi alpha^2 >= 1 is fixed independently of W (alpha
 ## 7. Ledger consequence
 
 tau_eff = 2 + delta (delta = 1e-3080): c = (3 - tau_eff)/2 = 1/2 - delta/2. Balance: main = fused Gaussian = boundary - slack with xi = epsilon - c + kappa; the union row xi + 1/2 - epsilon has the same exponent as the boundary row (both epsilon + 1/2 - xi), so both bind at kappa + 1e-3080 together with main and the Gaussian row;
-with the chirp-only guard of GAUGEFREE-INTERIORS.md: xi = 0.50167, xi - 1/2 = 0.00167 > 0 (cap holds), beta = 0.99665, union tag work per visit 1 - beta = 0.00335 > 0. kappa = 0.00167974550880...; +1.40e-6 over the structured-boundary balance with the linear guard (kappa 0.0016783441717...; that was +2.20e-7 over k = 5, tau_eff = 2.1567081).
+(pkg8-era numbers, superseded by outer/FINE-PADDING-COMPOSITION.md) with the chirp-only guard of GAUGEFREE-INTERIORS.md: xi = 0.50167, xi - 1/2 = 0.00167 > 0 (cap holds), beta = 0.99665, union tag work per visit 1 - beta = 0.00335 > 0. kappa = 0.00167974550880...; +1.40e-6 over the structured-boundary balance with the linear guard (kappa 0.0016783441717...; that was +2.20e-7 over k = 5, tau_eff = 2.1567081).
 
 ## 8. What is not proved
 

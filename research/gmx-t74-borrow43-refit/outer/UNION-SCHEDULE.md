@@ -104,7 +104,7 @@ Header and tag work: the flag header has g bits and g log L bits of coordinates 
 
 ## 4. Consequence for the ledger
 
-Rows: main `eps q`; fused Gaussian `1 - eps + q beta`; boundary `c + xi - eps` with `c = (3 - tau)/2`, `tau_eff = 2 + 1e-3080` (structured boundary solves, outer/STRUCTURED-BOUNDARY.md; this document's schedule is independent of the boundary exponent);
+Rows: main `eps q`; fused Gaussian `1 - eps + q beta`; boundary `c + xi - eps` with `c = (3 - tau)/2`, `tau` = the explicit Strassen exponent 45/16, c = 3/32, in the ledger (the structured-boundary solves of outer/STRUCTURED-BOUNDARY.md, tau_eff = 2 + 1e-3080, are historical and not used for kappa; this document's schedule is independent of the boundary exponent);
 union `xi + 1/2 - eps`; guard `beta = 1 - xi - r - zeta` (linear gauge; in this package the guard is the chirp-only `beta = 1 - (2 xi - eps) - r - zeta`, see Section 5b); `xi > 1/2`. Balance set: main = fused Gaussian = boundary - slack, which gives
 `eps = (1 + q + q (c - s - r - zeta))/(1 + q)^2`, `xi = eps (1 + q) - c + s`. The union row is far above kappa at this point (saving about 0.080 here).
 Rejecting controls in the ledger: reinstating the old row `1 - eps - beta - 1/2 + xi` at the new point fails (it is about -0.125); the full-key sort row fails; the four inherited controls fail.
@@ -118,7 +118,7 @@ that the number of record moves is within `3 * sum|F| * (ceil(log2 g) + 2 ceil(l
 
 ## 5b. Rows that depend on beta, re-verified at the balance of this package
 
-At the fine-prime-padding point (outer/FINE-PADDING-COMPOSITION.md; Strassen boundary c = 3/32, theta ~ p^-2): epsilon = 1 - 1.0009765625e-3080, beta = 1 - 3.0029296875e-3080, xi = 0.90792965...; every row is regenerated exactly by `check_ledger.py` and re-derived by `independent_check.py` (all strictly above kappa or strictly positive):
+At the fine-prime-padding point (outer/FINE-PADDING-COMPOSITION.md; Strassen boundary c = 3/32, theta ~ p^-2): epsilon = 1 - 1.0009765625e-3080, beta = 1 - 3.0029296875e-3080, xi = 0.90794631...; every row is regenerated exactly by `check_ledger.py` and re-derived by `independent_check.py` (all strictly above kappa or strictly positive):
 group scans 1-eps+beta = 1 - 2.001953125e-3080 (saving far above kappa); union xi+1/2-eps = 0.4079 (boundary = main + 1e-3080 binds; the union is no longer binding; the old row 1-eps-beta-1/2+xi = -0.5921 fails: rejecting control, so the radix schedule is still essential);
 cap xi-1/2 = 0.4079 > 0 and eps-xi > 0.092; group positive and below dimension (eps-beta = 2.001953125e-3080 > 0); support router span 1-beta = 3.0029296875e-3080 > 0 (the supplier's total moved support O(g polylog p) = o(p) holds eventually, with exponent margin 3.0029296875e-3080);
 gauge/guard 1-(2xi-2)-r-beta = 0.184 (fine theta; the linear guard 1-xi-r-beta is negative: rejecting control); group key fits the record (eps-beta = 2.001953125e-3080); membership arithmetic 1-beta-2(1-eps) = 1.0009765625e-3080; union tag work per visit 1-beta = 3.0029296875e-3080 (the old test 1-2beta is negative and not used); union header 1-beta; core-face corrections eps+beta+48-128+2 < 0.

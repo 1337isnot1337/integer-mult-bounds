@@ -25,7 +25,7 @@ Write delta = 1 - epsilon, beta = 1 - 3 delta, xi = epsilon(1+q) - c + s (bounda
 
 The window for beta is non-empty for every delta > 0, and beta = 1 - 3 delta lies in it (the Gaussian row exceeds main by delta(1 - 2q)). The only lower bound on delta is **delta > r0 = 1e-3080**, a free strict slack of the proof. So PR1786's 1e-7 is an explicit interior point, not a limit; its kappa is q - 1.68e-10 only because delta = 1e-7. In this package delta = 1.0009765625e-3080 = (1025/1024) 1e-3080 (the smallest ratio that keeps the gamma spare power 1 - epsilon - r0 = r0/1024 > 0 and puts C - epsilon q below 1/F):
 
-    epsilon = 1 - 1.0009765625e-3080, beta = 1 - 3.0029296875e-3080, xi = 0.90792965478815...,
+    epsilon = 1 - 1.0009765625e-3080, beta = 1 - 3.0029296875e-3080, xi = 0.9079463109...,
     kappa = 0.0016797549561255445213356709939207025769983114385025802954603275201628645...
 
 which is q - 1.70e-3083 (q = b - 1e-3080 = 0.00167975495612554452133567099392070257699831143850258029546032752016286...). Exact sweep (`outer/independent_check.py`): delta in {1e-7, 1e-12, 1e-30, 1e-60, 1.0009765625e-3080, 1.1e-3080 ... } all satisfy every row; delta = r0 is rejected by `global_gamma_power_slack`; beta below the Gaussian window or at the membership edge is rejected (ledger controls `beta_below_gaussian_window`, `beta_above_membership_window`, `epsilon_equals_one`, `epsilon_not_above_r0_slack`).
@@ -34,9 +34,9 @@ which is q - 1.70e-3083 (q = b - 1e-3080 = 0.00167975495612554452133567099392070
 
 ## 3. Does composing with the rest of the stack relax anything further? (answer: no, nothing is left to relax)
 
-* The binding rows at this point are main = epsilon q; boundary = main + s and union = main + s + 13/32, all other rows have positive margins >= 1e-3080. Nothing but delta moves kappa.
-* Structured boundary / k5 boundary: boundary row non-binding, no effect on kappa (only on xi, which is free in (1/2, epsilon)). Using c = 1/2 would give xi = 0.5 and the same kappa; it would add the unproved structured-stability claim for nothing.
-* The router row a_eff = (q+b)/2 > epsilon q by 5e-65 + q delta; using the true bit endpoint there would not change kappa (main binds).
+* The binding rows at this point are main = epsilon q; boundary = main + s and union = main + s + 13/32, all other rows have strictly positive margins; the smallest non-main margin rows above kappa are global_coordinate_router (1.00e-3022), fused_gaussian (1.00e-3022) and group_bit_router (1.00e-3022), and the smallest strict checks overall are stop_positive = 1e-3086, global_gamma_power_slack = 9.77e-3084, lambda_above_tau = 2.5e-3081, lambda_above_internal = 2.5e-3081, lambda_prime_above_lambda = 2.5e-3081. They are positive but NOT all >= 1e-3080 (an earlier version of this sentence claimed so; corrected after the PR2286 audit). Nothing but delta moves kappa.
+* Structured boundary / k5 boundary: boundary row non-binding, no effect on kappa (only on c). xi is not free: the ledger fixes xi = epsilon (1 + q) - c + s, which is 0.9079463109 at the explicit Strassen boundary c = 3/32. Using c = 1/2 would give xi = epsilon (1 + q) - 1/2 + s = 5.016963e-1 with the same kappa (xi = 0.5 itself is excluded by the cap xi > 1/2); it would add the unproved structured-stability claim for nothing.
+* The router row a_eff = (q+b)/2 > epsilon q by about 1.00e-3022 (global_coordinate_router row); using the true bit endpoint there would not change kappa (main binds).
 * Therefore kappa = epsilon q - 1e-3022 with epsilon the only free quantity, and it is already within q delta = 1.70e-3083 of the ceiling q.
 
 ## 4. Obligations (same as PR1786 sec. 8, with sharper asymptotics)
@@ -49,3 +49,13 @@ which is q - 1.70e-3083 (q = b - 1e-3080 = 0.00167975495612554452133567099392070
 ## 5. Executable support
 
 `outer/check_ledger.py` (exact, 62 strict checks (including improvement over the exact kappas of PR1828, PR1839, PR1875, PR1876 and PR1897), 17 rejecting controls, improvement over PR1786's exact kappa and PR1758), `outer/independent_check.py` (independent balance derivation, the epsilon-free sweep), `outer/check_fine_padding.py` (PR1786's finite prime witnesses, underflow control, power relations), `outer/check_gaugefree.py` (PR1758 identities).
+
+## 4. Audit notes (PR2286 and philippeVV; none changes kappa)
+
+Credit: the side-condition audit of PR2286 (thakrarsagar) and the related checks of philippeVV (PR1897 / PR2044 comments) found the following text defects, corrected in this package.
+
+* The minimum-margin sentence of Section 3 and the aside on xi were wrong as written (corrected above, numbers from `outer/LEDGER.json`).
+* HALO theorem branch. `vendor/pr1673/capped-phase-fusion/HALO-THEOREM.md` line 205 states `K0^2 = o(p)`; at this point K0 = O(g h) = p^(beta + 1 - epsilon) and the statement needs 2(beta + 1 - epsilon) < 1, which is false here. The branch of the theorem that this package uses is the explicit-metadata branch (the theorem's own metadata term, lines 32 and 44 of that file), which holds: it is dominated by the ledger row `microbox_face_corrections` (margin 7.700e1). The `K0^2 = o(p)` branch is not used. The vendored file is left verbatim.
+* The PR1786 p^10 umbrella (`vendor/pr1786/FINE-PRIME-PADDING.md`, `check_fine_padding.py` norm_power = 10) is now tied to THETA_POWER in `outer/check_ledger.py` (`halo_umbrella` in `LEDGER.json`): budget 2 THETA_POWER + 2 + 1/2 = 13/2 < 10, margin 7/2; the check would fail from THETA_POWER = 15/4.
+* The two vacuous `or True` guards (`outer/struct_check.py` in the far-block loop and `outer/check_gaugefree.py` line 23) are deleted; nothing depended on them and both scripts still pass.
+* Stale digits of xi and of the superseded pkg8-era / PR1673-era numbers are regenerated from the ledger where they are stated for the current point; text marked pkg8-era or superseded is historical.

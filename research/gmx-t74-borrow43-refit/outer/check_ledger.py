@@ -235,10 +235,17 @@ for kind in ['struct_boundary_radix_union']:
         assert failed,(kind,name)
         controls[kind][name]=failed
     assert 'old_g_factor_union_row_above_kappa' in controls[kind]['old_g_factor_union_row'] and 'unnecessary_full_key_sort_above_kappa' in controls[kind]['full_key_sort']
+# PR1786 p^10 umbrella (vendor/pr1786/FINE-PRIME-PADDING.md, "a conservative common eventual bound p^10", and check_fine_padding.py norm_power = 10) tied to THETA_POWER:
+# the inverse-norm bound ||K^-1|| = O(alpha^5 rho^2 theta^-2 exp(a rho/3)) has theta^-2 <= 16 p^(2*THETA_POWER) (theta >= 1/(4 p^THETA_POWER)), an exponential factor <= p^2 eventually,
+# alpha^5 polylogarithmic; a further half power is allowed for the polylogarithmic and bounded-constant factors of the augmented matrices. The umbrella must exceed that budget.
+UMBRELLA_POWER=10
+def umbrella_margin(theta_power):return UMBRELLA_POWER-(2*theta_power+2+Q(1,2))
+assert umbrella_margin(THETA_POWER)>0 and umbrella_margin(Q(15,4))<=0   # control: the umbrella would fail silently for THETA_POWER >= 3.75
+HALO_UMBRELLA={'umbrella_power':UMBRELLA_POWER,'theta_power':THETA_POWER,'exponent_budget':2*THETA_POWER+2+Q(1,2),'margin':umbrella_margin(THETA_POWER),'fails_from_theta_power':Q(15,4)}
 out={'status':'PASS_FINE_PRIME_PADDING_EXACT_ARITHMETIC',
      'scope':'Conditional fine-prime padding composition. Fresh native admission is required by verify.py. The cited prime theorem, written gauge-free theorem and inherited all-size interfaces are not proved by this arithmetic. No independent human review is claimed.',
      'geometry_changes':{'theta_power':THETA_POWER,'halo_power':HALO_POWER,'core_power':CORE_POWER,'matrix_exponent':STRASSEN_TAU},
-     'complex_lower_short':b,'complex_lower_pinned':certified_complex,
+     'halo_umbrella':HALO_UMBRELLA,'complex_lower_short':b,'complex_lower_pinned':certified_complex,
      'native_moment':native,'profile':profile,'m':m,'W':W,
      'online_final_kappa':online,'rows':rows,'rejecting_controls':controls,
      'pr1673_kappa':Q('0.001677160151714381'),'improvement_over_pr1673':rows['struct_boundary_radix_union']['kappa']-Q('0.001677160151714381'),

@@ -27,4 +27,4 @@ The square exponent tau = 2.372864 above is replaced by the rectangular-batching
 
 ## Superseded again in pkg7
 
-The boundary exponent is now tau_eff = 2 + 1e-3080 from structured solves (outer/STRUCTURED-BOUNDARY.md); the fallback is the k = 5 batching of outer/RECT-BOUNDARY.md.
+Historical (not used for kappa): the structured solves of outer/STRUCTURED-BOUNDARY.md give tau_eff = 2 + 1e-3080; the ledger uses the explicit Strassen boundary tau = 45/16 (c = 3/32); the fallback is the k = 5 batching of outer/RECT-BOUNDARY.md.
