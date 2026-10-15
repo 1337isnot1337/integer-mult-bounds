@@ -710,6 +710,16 @@ The following contributions are retained at their original heads with source not
 
 The six pending contributions are credited in the pilot ledger; pending review is not rejection. Predecessor attribution, including R420, K492, PR628 and PR673 lineage, remains in each package.
 
+## Efficient thirteenth 100-PR round: #1175–#2377
+
+Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1300-review.md).
+
+- **1337isnot1337** — [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258).
+- **navinor** — [#2293](https://github.com/CrocSwap/integer-mult-bounds/pull/2293), [#2340](https://github.com/CrocSwap/integer-mult-bounds/pull/2340).
+- **ROTl24** — [#2334](https://github.com/CrocSwap/integer-mult-bounds/pull/2334).
+
+Pending contributors and their obligations are listed in the review. A hold is not a rejection.
+
 ## Efficient twelfth 100-PR round: #654–#2257
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1200-review.md).
