@@ -44,6 +44,9 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
 - **Selected proof obligations:** refresh stock/precision/hosting handoffs and
   prove or falsify one specific unreviewed implication. Recomputing already
   checked headrooms is not new coverage.
+  The [bootstrap obligation map](selected-bootstrap-scope-map.md) separates
+  conditional BIT coefficient proposals, time and fresh-field implications,
+  and the remaining implementation premises. These are not supplier admission.
 
 These pending proposals have not been independently replayed for this guidance
 update and are not new admitted suppliers. Pin and check the dependencies needed
