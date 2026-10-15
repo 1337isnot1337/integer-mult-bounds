@@ -90,13 +90,19 @@ planning cap; it is not a new supplier or exponent result.
 - Selected source-manifest SHA-256: `79b3de5db3dbcb9829789ba58e9e45758926031e2a7d80667a08429d369be53b`.
 - The selected-record reproduction command is `make frontier1094-verify`; it was not rerun because this package does not alter the selected source chain.
 
-PR717/PR968 and [the frame-pair package](../complex-frame-pair-decoders/PROOF.md)
-establish the exact eight-term copy floor through 24 punctures. PR1619 prices
-that range. PR1624 and [Discussion #1570](https://github.com/CrocSwap/integer-mult-bounds/discussions/1570)
-handle one fixed p=26 paired-normal object. This result covers the p=25
-root-pair family as a whole; it does not audit or extend that fixed p=26
-completion. The active ten-term P112 gauge and rank-six schedule claims were
-checked before the scope claim and use different objects.
+PR717 head `4a97676294f9fa413b65986e9984fddeda71e4cc` and PR968 head
+`6a99e7240b961ac5e115ae6aa0301ec7c4a45d77` establish the exact eight-term
+copy-floor lineage through 24 punctures, retained in
+[the frame-pair package](../complex-frame-pair-decoders/PROOF.md). PR1619 head
+`6c96bc1a0e374a713e9ae493228247f49be49dd5` prices that range. PR1624 head
+`712a9b9aa8802d0135a578c0debee7b56c8e492f` and
+[Discussion #1570](https://github.com/CrocSwap/integer-mult-bounds/discussions/1570)
+handle one fixed p=26 paired-normal object, with PR1020 head
+`bf4ee95df4ee6e3101a88f5d015c8aa85b688b6d` credited for its puncture and
+baseline decoder. This result covers the p=25 root-pair family as a whole; it
+does not audit or extend that fixed p=26 completion. The active ten-term P112
+gauge and rank-six schedule claims were checked before the scope claim and use
+different objects.
 
 The scope claim and handoff are tracked at
 [Discussion #1167 comment 18937692](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18937692).

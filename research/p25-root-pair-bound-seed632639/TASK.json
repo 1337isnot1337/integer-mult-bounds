@@ -91,5 +91,27 @@
       "reference": "PR2061, PR2062, PR2228; Discussions #1622, #1952, #2119",
       "relation": "Nearby overcomplete, masked, root-unit, and phase-schedule scopes checked and distinguished before claiming."
     }
-  ]
+  ],
+  "predecessor_heads": {
+    "PR717": {
+      "head": "4a97676294f9fa413b65986e9984fddeda71e4cc",
+      "merge_commit": null
+    },
+    "PR968": {
+      "head": "6a99e7240b961ac5e115ae6aa0301ec7c4a45d77",
+      "merge_commit": "55645f9d4d806d67875c1c8b9840b0b039ece22e"
+    },
+    "PR1619": {
+      "head": "6c96bc1a0e374a713e9ae493228247f49be49dd5",
+      "merge_commit": "cf162d9439aa654c013cc288869ae6dd18ca3e0d"
+    },
+    "PR1624": {
+      "head": "712a9b9aa8802d0135a578c0debee7b56c8e492f",
+      "merge_commit": "299eb8effe080183313757ac36e76c1b98ed9fae"
+    },
+    "PR1020": {
+      "head": "bf4ee95df4ee6e3101a88f5d015c8aa85b688b6d",
+      "role": "fixed p=26 puncture and prior decoder"
+    }
+  }
 }
