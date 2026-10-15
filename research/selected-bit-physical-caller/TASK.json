@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 5,
+  "base_commit": "31452ecd309f32a97e2e84214719b21297a59018",
+  "selection_seed": "131b49a6b7aac7cc0c24c8bae642ffb8",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": ["certificates/selected-result.json", "research/owner-boundary-audit/README.md"],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": ["python3", "-B", "research/owner-boundary-audit/verify.py"],
+      "expected": "PASS_PR626_NEXT_TOUCH_BOUNDARY_AUDIT",
+      "inspect": "Identify why the timing-only omission passes but the full production controller still rejects it.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one current supplier obligation and trace whether its acceptance depends on an independent check.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": ["Audit one named current condition using a new semantic counterexample."],
+    "scope_change_triggers": ["Reporting the historical timing-only diagnostic as a new current acceptance bug."],
+    "overlap_terms": ["owner boundary", "bridge omission", "hosting"]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Construct a source-level fixed-tape lowering of PR2753's p=1 caller, integrate shared numerical banks into its actual Frame, and implement stream-role parking and finite residual continuations.",
+  "scope_change_reason": "The source-bound audit identifies physical caller lowering as an explicit remaining obligation. The user requests a central mathematical contribution; I address that obligation with a construction and scoped executable checks rather than an acceptance-counterexample audit.",
+  "bottleneck_link": "Replace depth-dependent logical frame tapes and generator continuation with fixed roles, charged parking and finite return state while retaining the all-size caller's endpoint and baseline toll.",
+  "budget_minutes": 180,
+  "stop_rule": "Provide the source-level lowering, prove its fixed-role and movement bounds, verify the changed return boundaries and state the unimplemented whole-controller replay and stronger supplier obligations.",
+  "outcome": "partial",
+  "evidence": "PROOF.md gives the whole-caller compilation argument. Executable checks cover actual Frame substitution, finite residual reconstruction, 1500 nested role/Word checkpoints and a complete small recursive payload with shared numerical banks. The latter retains the logical payload scheduler.",
+  "author": "Jose Manuel (jmbarrancoml)",
+  "ai_assistance": "Substantial OpenAI Codex assistance, including mathematical and source-analysis subagents. No independent human or proof-assistant verification claimed.",
+  "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18958887",
+  "freshness": {
+    "canonical_main": "28f54620ff770dd051d5df35882bd84303d13c6f",
+    "upstream_checked_utc": "2026-10-15T22:36Z",
+    "overlap_checked_utc": "2026-10-15T22:39:24Z",
+    "coverage": "733 open PRs, 1447 Discussion records and 1987 local records; complete pagination and no warnings. No competing physical caller or finite-continuation completion appeared. The three pinned source PRs remain unchanged and have no comments or reviews. Metadata coverage excludes arbitrary diffs and unpublished work. Guidance, priority 5 and the selected record remain unchanged.",
+    "complementary_work": "PR2776 handles ordered unit shears; PR2781/2796/2801 handle numerical lifetime allowances. Petalas's outer-wrapper claim is separate. These pending claims are not imported proof dependencies."
+  },
+  "open_questions": [
+    {
+      "question": "Generate and execute the complete fixed-role controller on a small payload.",
+      "why_it_matters": "The current evidence verifies separate executable boundaries and a source-level compilation proof, not a generated whole-caller transition table.",
+      "first_step": "Implement the finite instruction word and canonical ports in PROOF sections 2 through 6, then replace the GL2 model's logical scheduler.",
+      "blocked_by": "Whole-controller code generation and replay remain unimplemented."
+    },
+    {
+      "question": "Supply the stronger H2 route and leaf primitives.",
+      "why_it_matters": "The physical lowering retains the p=1 baseline and does not establish an exponent improvement.",
+      "first_step": "Price the complete source-bound primitive, including generated coefficients, scans and restoration.",
+      "blocked_by": "The retained route and leaf routines still use O(wV) work."
+    },
+    {
+      "question": "Compose the physical reserve with the outer stock wrapper.",
+      "why_it_matters": "Compatible stock capacity and a caller reserve do not establish the outer multiplication transfer.",
+      "first_step": "Coordinate with the outer-wrapper author and join its padding/restoration ledger to the physical caller contract.",
+      "blocked_by": "Separate outer-wrapper and supplier-transfer obligations."
+    }
+  ]
+}

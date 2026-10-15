@@ -1,0 +1,27 @@
+{
+  "frame": {
+    "sha256": "bafe9397fdad657a89da48fd8147ccf45d5df8d8195b8877c1c117408539ed84",
+    "cases": ["normal", "constructor_failure", "child_failure"],
+    "scope": "Actual selected descriptor and Frame boundary with controlled 23-bit child bodies"
+  },
+  "continuation": {
+    "sha256": "1ba9ee03c8ebdcf320a18539f04ea11682b25804196164e5da3ce44921f28337",
+    "trace_cases": 36,
+    "compared_events": 16362,
+    "serialized_return_cursors": 180,
+    "nested_frames": 1500,
+    "maximum_allocated_index_slots": 3,
+    "permanent_stream_roles": 4,
+    "scope": "Residual event refinement and nested role/numerical checkpoint protocol, not a whole selected payload replay"
+  },
+  "nested": {
+    "sha256": "c6097f7da02444c18d777e77fc4f16caf01a4de79bc8060ad0c996e2cd6956d6",
+    "complete_addresses": 9216,
+    "internal_calls": 12,
+    "internal_returns": 12,
+    "residuals": 156,
+    "separate_child_arenas": 0,
+    "payload_sha256": "68477c468bd70d3488f9e1afbfa576aab2fa9db44949874ab873d64c22853b46",
+    "scope": "Complete q=2 dimension2 recursive model with shared numerical banks and the retained logical payload scheduler"
+  }
+}
