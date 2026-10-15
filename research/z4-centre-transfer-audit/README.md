@@ -103,6 +103,15 @@ deleted rank-eight children. A full map without that cost link is insufficient.
 The missing native refinement is the blocker; further moment digits do not
 resolve it. Structured details are in `TASK.json`.
 
+Concurrent [PR2491](https://github.com/CrocSwap/integer-mult-bounds/pull/2491),
+by ywz65 at `c25a4ce22a887daf8cba8b3cfad72796752ab2ee`, reports a direct
+unitary paired-cycle obstruction for one full selected dirty reader. Its
+README and PR description were read during submission screening, but its
+certificate was not replayed here. It addresses the actual-reader embedding;
+this audit addresses the separate implication from a typed word to a changed
+recursive tariff. Follow-up should coordinate with its paid nonunitary or
+changed-cut alternatives and still provide the complete cost correspondence.
+
 ## Credit and coordination
 
 Aaron Wang (navinor), with opencode assistance, supplied PR2464's scalar and

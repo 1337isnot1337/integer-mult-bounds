@@ -62,5 +62,11 @@
       "first_step": "Name two calls, exact source/sink embeddings, native child maps, full prefix and continuation, and emit the complete before/after child ledger with restoration and extra accesses.",
       "blocked_by": "No such native source-to-child mapping is supplied by the audited PR2464 head."
     }
-  ]
+  ],
+  "concurrent_context": {
+    "pr": 2491,
+    "head": "c25a4ce22a887daf8cba8b3cfad72796752ab2ee",
+    "author": "ywz65",
+    "scope": "Reported native unitary-reader obstruction; context read but not replayed; not a proof premise."
+  }
 }
