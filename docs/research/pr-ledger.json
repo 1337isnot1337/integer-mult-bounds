@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1648,
-    "partially_reviewed": 253,
+    "incorporated": 1649,
+    "partially_reviewed": 252,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "fe5ef541c77b57955f55cc86b5fc3b7f715940128af37edce553fa8eeac313c1",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "b465f4a27cb9aa051de9572f2f0ad8cc11e9524338db08c89de7ea671756b38b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107174,16 +107174,20 @@
       "integration_location": [
         "research/overcomplete-and-realisation-floors"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "645d1c51506b944803eb943144ceaab746e770c1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2277"
+      },
       "reviewed_head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2277.json",
@@ -111214,7 +111218,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1272,
-    "OPEN": 312
+    "MERGED": 1273,
+    "OPEN": 311
   }
 }

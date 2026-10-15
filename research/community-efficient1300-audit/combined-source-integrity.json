@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "1d284023ad6db0ff6c0f9a441833ed6a62f4abe3",
+  "checked_commit": "645d1c51506b944803eb943144ceaab746e770c1",
   "merged_prs": [
     1763,
     2046,
@@ -13,6 +13,7 @@
     2272,
     2273,
     2274,
+    2277,
     2279,
     2280,
     2282,
@@ -73,7 +74,7 @@
     2376,
     2377
   ],
-  "changed_files": 719,
+  "changed_files": 860,
   "resolved_files": [
     {
       "number": 2259,
@@ -179,6 +180,26 @@
       "number": 2336,
       "path": "tests/test_pr_reconciliation.py",
       "sha256": "1c8bee17d401cd37a9fd06676e08e7c5a56fe1c6c494f94f4cd112051d5ec5a0"
+    },
+    {
+      "number": 2277,
+      "path": "research/overcomplete-and-realisation-floors/MANIFEST.sha256",
+      "sha256": "456632ef5720956ff0f240d52766170a0281a98f1f33296a9bcc2cb63c56ba44"
+    },
+    {
+      "number": 2277,
+      "path": "research/overcomplete-and-realisation-floors/README.md",
+      "sha256": "4128824937445ed3de10307da5cf1347a499da33f7ca8cdcf5297426a22b191a"
+    },
+    {
+      "number": 2277,
+      "path": "research/overcomplete-and-realisation-floors/SOURCES.json",
+      "sha256": "420c9dd771fd6ee1d616d00d6860eb856a164f4e43fe04d7909f9c216cdd492d"
+    },
+    {
+      "number": 2277,
+      "path": "research/overcomplete-and-realisation-floors/checks/c3_realisation_free_floors.py",
+      "sha256": "1f936d69afee4b0b45089c6ff80b7b74223bd374e9f02085255056320a6693f7"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",

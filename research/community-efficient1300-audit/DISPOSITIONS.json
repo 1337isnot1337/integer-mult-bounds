@@ -693,20 +693,24 @@
       },
       "reviewed_head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
       "current_head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/overcomplete-and-realisation-floors"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "645d1c51506b944803eb943144ceaab746e770c1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2277"
+      },
       "scope": "DreamingOfClouds\u2019s overcomplete and realization-free decoder floors. Reviewed the free-rectangle counterexample to Conjecture ID(a), support-rank/frame-intersection arguments and complete E6/D5 term-count proofs. Exact replay covers the6728-term frame-unit identity, all9 unit censuses,5504660 E6 seven-sets,1473 regenerated SAT inputs,9 shipped models and44 shipped DRAT proofs. Corrected only an overbroad class-description sentence/output label and regenerated hashes; census arithmetic is unchanged. Unshipped1418 shared-B/floor proofs andtwo E6 Gamma proofs remain author-recorded, and Lean source is retained without a fresh kernel claim. P112\u2019s historical56 floor is superseded by the separately reviewed PR2338 scope; no supplier or kappa change. Prior free-rectangle,rank and independent E6 contributions retain credit.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2277.json",
