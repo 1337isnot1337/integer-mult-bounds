@@ -16,6 +16,8 @@ sp.loader.exec_module(engine)
 
 
 def price(profile):
+    if not __debug__:
+        raise RuntimeError('Assertions are required')
     def moment(a):
         costs = [(n, engine.child_cost(int(r), 73, a)) for r, n in profile.items()]
         return (sum(n*c[0] for n, c in costs)/66304,

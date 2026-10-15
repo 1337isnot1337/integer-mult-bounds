@@ -8,7 +8,7 @@ _sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'source-partner-lifet
 from build import HERE,build,read,write,need
 
 def full(work,fill,resume_parent=False):
- assert __debug__, 'Assertions are required'
+ if not __debug__:raise RuntimeError('Assertions are required')
  if resume_parent:
   p=work/'build/derivative'
   need(p.is_dir() and not (work/'STAGES.json').exists(),'resume only at in-progress first parent stage')

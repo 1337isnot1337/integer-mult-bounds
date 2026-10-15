@@ -14,6 +14,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+from fractions import Fraction as Q
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -24,7 +25,8 @@ from price import price
 
 
 def verify(work):
-    assert __debug__, 'Assertions are required'
+    if not __debug__:
+        raise RuntimeError('Assertions are required')
     for name, digest in read(HERE/'INPUTS.json').items():
         need(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest, 'input pin '+name)
     work.mkdir(parents=True, exist_ok=False)
@@ -46,6 +48,18 @@ def verify(work):
     need(sum(int(rank)*n for rank, n in h.items()) == 4816512, 'rank mass')
     endpoint = price(h)
     need(endpoint == read(HERE/'evidence/MOMENT.json')['endpoint'], 'exact moment enclosure')
+    claim = read(HERE/'CLAIM.json')
+    ledger = read(HERE/'evidence/OUTER-LEDGER.json')
+    full = read(HERE/'evidence/FULL-RESULT.json')
+    row = ledger['rows']['struct_boundary_radix_union']
+    k, previous = Q(claim['kappa']), Q(read(SOURCE/'CLAIM.json')['kappa'])
+    need(previous < k < Q(endpoint['lower']), 'strict improved outer claim below certified endpoint')
+    need(k == Q(row['kappa']['rational']) == Q(full['kappa']), 'claim, ledger and full receipt binding')
+    need(Q(claim['gain_over_pr2530']) == k-previous, 'exact improvement')
+    need(ledger['profile'] == full['global_profile'] == h and ledger['W'] == 66304, 'outer literal profile binding')
+    need(len(row['strict_checks']) == 63 and all(Q(v['rational']) > 0 for v in row['strict_checks'].values()), '63 positive exact outer inequalities')
+    need(full['status'] == 'PASS_RESIDUAL_EXCHANGE_COMPLETE_FINITE_ADMISSION_AND_OUTER' and all(s['exit_code'] == 0 for s in full['stages']), 'recorded complete replay status')
+    need(full['candidate_fill_sha256'] == hashlib.sha256((HERE/'evidence/CANDIDATE-FILL.json.gz').read_bytes()).hexdigest(), 'full receipt literal witness binding')
     fill = read(fillpath)
     sp = importlib.util.spec_from_file_location('literal_windows', p/'vendor/build_parent.py')
     mod = importlib.util.module_from_spec(sp)
@@ -70,8 +84,8 @@ def verify(work):
         rejected.append(dict(control=label, reason=result.stderr[-400:]))
     write(fillpath, fill)
     result = dict(status='PASS_LITERAL_OWNERS_AND_EXACT_MOMENT', roles=len(fill['rows']),
-                  profile=h, endpoint=endpoint, rejected=rejected,
-                  scope='Strict owner windows, widths, capacities, distinct families and exact moment. Native, global and outer admission require cold_replay.py.')
+                  profile=h, endpoint=endpoint, rejected=rejected, recorded_outer_kappa=str(k),
+                  scope='Strict owner windows, widths, capacities, distinct families, exact moment and arithmetic bindings to committed outer/full receipts. Repeating native, global and outer admission requires cold_replay.py.')
     write(work/'RESULT.json', result)
     print(result['status'], flush=True)
 

@@ -1,10 +1,11 @@
 # A half-stage timing shift improves the PR2530 owner fill
 
-The literal candidate has complex moment endpoint
-`0.001713785146530231242301`, exceeding PR2530's certified complex endpoint
-by `0.000000047224982726895549`. Full native/global/outer admission is running;
-this endpoint alone is not yet an admitted new outer κ. This package does not
-change the maintainer-selected frontier.
+The complete finite replay certifies conditional **κ ≈ 0.001713785146530231**,
+exceeding PR2530 by **0.000000047224982726895549** (about 0.00276%).
+The exact rational claim is in `CLAIM.json`, with complete admission in
+`evidence/FULL-RESULT.json`. The complex endpoint is
+`0.001713785146530231242301`; the final outer κ is slightly below it.
+This package does not change the maintainer-selected frontier.
 
 The new lever is invocation priority. Keep PR2530's two complete 422-helper
 words, 74 replicas, 666 invocations, dimension 73, live width 66304 and rank
@@ -50,9 +51,15 @@ is a separate admission gate.
 - `evidence/OWNER-RESULT.json`, `PROFILE.json` and `MOMENT.json` record direct
   exact checks; `ORDER-SCREEN.json` records the bounded capacity search.
 - The direct verifier also rejects missing-role, outside-window and duplicate
-  physical-family mutations. Full admission requires `cold_replay.py` below.
+  physical-family mutations, and refuses an optimized interpreter that could
+  disable assertions.
+- `evidence/FULL-RESULT.json` records the passing retained parent, both fresh
+  native chains, reconstruction/lift, discovery, strict admission, geometry
+  controls and outer replay. All 63 strict outer inequalities are positive;
+  all 17 outer rejecting controls, six geometry controls and 19 outer evidence
+  replays pass. `OUTER-LEDGER.json` and `FROZEN-SPEC.json` bind the final supplier.
 
-This is a conditional finite construction candidate, with inherited all-size,
+This is a conditional finite construction, with inherited all-size,
 compiler, mutable-source/common-label, precision/tape, analytic and bit
 interfaces. It is not a complete multiplication theorem or independent human
 review. Neither the restricted packing search nor the 42-order screen proves
@@ -88,6 +95,23 @@ Logs and receipts remain in the selected workspace. The special
 fresh parent process after restarting its driver; it waits for the complete
 parent result and verifies both native input bindings. It skips no parent
 proof obligation.
+
+`ENVIRONMENT.json` records the exact local run, including SymPy 1.13.2 / SciPy
+1.12.0 for the already running retained parent, and SymPy 1.14.0 / SciPy 1.15.3
+for the new native and global/outer checks. The strict supplier receipt retains
+its historical κ interface (`0.001710853111879197`); the final quoted κ is the
+separately replayed outer-ledger result. Inherited `outer/OUTER-CLAIM.json`
+metadata inside the recovered old package is historical; use this package's
+`CLAIM.json` and fresh `evidence/OUTER-LEDGER.json`.
+
+The registered standard-library check is:
+
+```powershell
+py -3.12 -B scripts/research_package.py --package research/source-partner-residual-exchanges
+```
+
+It checks metadata, exact source pins and the literal/moment verifier. Full
+native/global/outer replay remains the separate command above.
 
 ## Optional search reproduction
 
