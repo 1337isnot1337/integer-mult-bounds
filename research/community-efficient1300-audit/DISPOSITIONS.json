@@ -468,7 +468,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Reviewed independent audit PR2315 reproduces both symbolic borrowed words,437-helper fill and moment, but does not establish native Clifford phases/lowering, X2 pending-axis disjointness and73-column charts, or outer/assembly proofs. Clarify and bind76 cleanup buffers in physical accounting and replace stale pre-borrow admission receipts. These remain explicit review obligations, not a mathematical rejection.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1872,19 +1872,23 @@
       "current_head": "4a2f20ea339e30348448096ca789d0efe55df9bb",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/t74-borrow43-independent-check"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar's independent audit of PR2269's borrowed T74 words,437-helper fill and moment. Reviewed exact free-group replay in both orientations, binary symplectic/rank-zero handoffs, chronological windows and disjoint slices, full profile composition and rigorous800-bit atanh/exp bounds. Complete primary and resolved replays pass both words,291042 owner rows,1332 rebuilt windows,149184 bins,130-digit root bracket,positive controls and targeted rejections. Corrected contributor identity conflation and TASK bracket wording; regenerated receipts have identical mathematical results. Native Clifford phases/lowering, X2 across shared physical families,73-column charts,cleanup-buffer placement and outer/assembly proofs remain open; no supplier or kappa admission. Jeremy Kothe,Cinna Davis,Dugongue,Rohan Arun,mdumitrean,icekylinx,Zhihao Chen and retained lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2315.json"
+        "research/community-efficient1300-audit/packets/2315.json",
+        "research/community-efficient1300-audit/checks/check-2315-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2315.json"
       ]
     },
     {

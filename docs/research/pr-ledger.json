@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "bc609a41495b600880f738f677686b4f325bc4adf405e664f50491a2ebdb4fdc",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "d30837b8b2ab0a353be459ac0711550a8d0851b6f4108139185bd70f6614a443",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106882,7 +106882,7 @@
       "closure": null,
       "reviewed_head": "b479fc5567bc09ab9185bffe89b62594f36d74e5",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Reviewed independent audit PR2315 reproduces both symbolic borrowed words,437-helper fill and moment, but does not establish native Clifford phases/lowering, X2 pending-axis disjointness and73-column charts, or outer/assembly proofs. Clarify and bind76 cleanup buffers in physical accounting and replace stale pre-borrow admission receipts. These remain explicit review obligations, not a mathematical rejection.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -108684,25 +108684,29 @@
         {
           "head": "4a2f20ea339e30348448096ca789d0efe55df9bb",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sagar Thakrar's independent audit of PR2269's borrowed T74 words,437-helper fill and moment. Reviewed exact free-group replay in both orientations, binary symplectic/rank-zero handoffs, chronological windows and disjoint slices, full profile composition and rigorous800-bit atanh/exp bounds. Complete primary and resolved replays pass both words,291042 owner rows,1332 rebuilt windows,149184 bins,130-digit root bracket,positive controls and targeted rejections. Corrected contributor identity conflation and TASK bracket wording; regenerated receipts have identical mathematical results. Native Clifford phases/lowering, X2 across shared physical families,73-column charts,cleanup-buffer placement and outer/assembly proofs remain open; no supplier or kappa admission. Jeremy Kothe,Cinna Davis,Dugongue,Rohan Arun,mdumitrean,icekylinx,Zhihao Chen and retained lineage credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-borrow43-independent-check"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "4a2f20ea339e30348448096ca789d0efe55df9bb",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2315.json"
+        "research/community-efficient1300-audit/packets/2315.json",
+        "research/community-efficient1300-audit/checks/check-2315-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2315.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
