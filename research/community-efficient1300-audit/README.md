@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1175–#2377**, excluding prior same-head dispositions. Baseline `7b39515117fe26e75d16c268877391f1bdaa5640`. Complete Git differences determine changed-file coverage.
 
-**33 ready; 28 observed merged; 67 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**33 ready; 33 observed merged; 67 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -90,16 +90,16 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2339](https://github.com/CrocSwap/integer-mult-bounds/pull/2339) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2341](https://github.com/CrocSwap/integer-mult-bounds/pull/2341) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2342](https://github.com/CrocSwap/integer-mult-bounds/pull/2342) | theon199 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2344](https://github.com/CrocSwap/integer-mult-bounds/pull/2344) | AAAmirinu | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2344](https://github.com/CrocSwap/integer-mult-bounds/pull/2344) | AAAmirinu | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2345](https://github.com/CrocSwap/integer-mult-bounds/pull/2345) | AAAmirinu | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2346](https://github.com/CrocSwap/integer-mult-bounds/pull/2346) | alephnan | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2346](https://github.com/CrocSwap/integer-mult-bounds/pull/2346) | alephnan | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2348](https://github.com/CrocSwap/integer-mult-bounds/pull/2348) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2349](https://github.com/CrocSwap/integer-mult-bounds/pull/2349) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2350](https://github.com/CrocSwap/integer-mult-bounds/pull/2350) | EdDiboi | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2350](https://github.com/CrocSwap/integer-mult-bounds/pull/2350) | EdDiboi | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2351](https://github.com/CrocSwap/integer-mult-bounds/pull/2351) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2353](https://github.com/CrocSwap/integer-mult-bounds/pull/2353) | kumagi | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2354](https://github.com/CrocSwap/integer-mult-bounds/pull/2354) | kyzer1023 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2356](https://github.com/CrocSwap/integer-mult-bounds/pull/2356) | theon199 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2353](https://github.com/CrocSwap/integer-mult-bounds/pull/2353) | kumagi | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2354](https://github.com/CrocSwap/integer-mult-bounds/pull/2354) | kyzer1023 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2356](https://github.com/CrocSwap/integer-mult-bounds/pull/2356) | theon199 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2357](https://github.com/CrocSwap/integer-mult-bounds/pull/2357) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2358](https://github.com/CrocSwap/integer-mult-bounds/pull/2358) | AAAmirinu | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2359](https://github.com/CrocSwap/integer-mult-bounds/pull/2359) | AAAmirinu | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
