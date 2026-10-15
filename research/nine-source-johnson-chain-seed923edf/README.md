@@ -9,9 +9,11 @@ stars cost 60 calls. The construction uses only the existing singleton
 connector alphabet and makes no supplier or multiplication-bound claim.
 
 **Handoff:** [PR #2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296)
-is open at head `b4af93f238e69ccf000eb9e90030be4c01cda391` against the exact
-base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. It was mergeable when checked;
-hosted checks were queued. The public Discussion claim remains unposted because
+is open against the exact base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`.
+At the initial submission check, head `b4af93f238e69ccf000eb9e90030be4c01cda391`
+was mergeable and hosted checks were queued. The subsequent handoff metadata
+update advanced the branch; consult the PR for its current head and checks.
+The public Discussion claim remains unposted because
 the authenticated GraphQL route did not complete and the prior REST comment
 route returned 404; the local claim and PR preserve the coordination record.
 

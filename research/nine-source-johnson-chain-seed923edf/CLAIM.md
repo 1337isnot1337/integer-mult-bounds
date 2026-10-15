@@ -2,8 +2,10 @@
 
 **Status:** RESULT SUBMITTED as [PR #2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296).
 The PR was open and mergeable at head `b4af93f238e69ccf000eb9e90030be4c01cda391`
-against base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`; hosted checks were
-queued when checked. The public Discussion claim remains local-only: the
+against base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2` at the initial
+submission check; hosted checks were queued. The subsequent handoff metadata
+update advanced the branch; consult the PR for its current head and checks. The
+public Discussion claim remains local-only: the
 authenticated GraphQL overlap refresh hung and was stopped after about two
 minutes, the final pre-submission retry produced no output before timing out
 after 50 seconds at 03:56 UTC on 2026-10-15, and a prior direct REST Discussions
