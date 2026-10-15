@@ -64,6 +64,13 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 
 ## Evidence and limits
 
+Later source navigation (2026-10-15): the
+[T74 local-search retention receipt](../../research/t74-local-search-retention/README.md)
+maps PR1957's retained partial review to its unchanged toolkit in PR2142 and
+the later public I-resolve sentinel-cost correction. It records exact source
+trees and the differing search domains; it does not complete the outstanding
+full census, independently replay those solvers or change this frozen disposition.
+
 `packets/` records exact heads and every changed blob. `checks/` retains commands, input/log hashes, environment, duration and coverage. Dedicated Lean replays are distinct from Python checks. Written arguments, exact finite certificates, historical receipts and supplier-admission obligations remain separate.
 
 Initial 300-second command limits are triage budgets. Supplemental runs and fixture repairs retain their original unsuccessful receipts. Missing unchanged dependencies are hydrated from the reviewed Git head without weakening source pins. A timeout is not a mathematical rejection.
