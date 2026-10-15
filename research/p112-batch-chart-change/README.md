@@ -1,0 +1,187 @@
+# P112 two-call batch under changed cross-call label charts (PR1714 open question 3)
+
+**Scoped negative result and research note. No new supplier and no κ claim.
+The selected frontier is unchanged.**
+
+Merged PR1714 (`research/p112-batch-centre-floor`, alephnan) proves a 64k
+root-code copy floor for k independent P112 calls. It assumes that all
+calls share **one common label chart**, and its open question 3 asks
+whether changing cross-call charts can help. This package changes exactly
+that premise for k = 2 and C = I_2. Call 2's labels are re-charted by an
+isometry φ of the label form, so call 2's own pairing is unchanged.
+Conversions are granted free. All other parts of PR1714's model are kept:
+root-code factors, ordinary transpose, the all-pairs endpoint and the
+separate-total union price.
+
+## What was learned
+
+1. **PR1714's per-term step really fails under a changed chart.** That
+   step is "every active term costs ≥ 8, even across call indices". A
+   *pure cross term* has its reader in call 1 and its source in call 2.
+   Under φ it costs 7 exactly when `b(v_i, φ v_j) = 0`, where
+   `H_i = v_i^⊥` are the eight exceptional label hyperplanes. The
+   transvection `t_u` with isotropic u makes exactly s² ordered pairs
+   rank 7, where s = #{k : b(v_k,u) = 1}.
+   - All 255 isotropic transvections were checked. The s² census is 0 for
+     15 vectors, 16 for 224 vectors and 64 for 16 vectors.
+   - Some isometric charts therefore make **all 64** exceptional cross
+     pairs rank 7.
+   - A seeded sample of 162 charts in O(V,b) gives rank-7 pair counts
+     {0, 16, 24, 28, 32, 36, 40, 64}.
+   - 1,600 direct 56×56 F2 ranks agree with the formula.
+2. **The two-call floor still holds: Theorem A.** For every isometric chart,
+   every exact root-code factorization costs at least **128**. Equality
+   holds only when there are no pure cross terms. The proof splits terms
+   into non-pure terms, which cost ≥ 8 by PR1714's pair lemma, and pure
+   cross terms, which cost ≥ 7. A Schur-complement count gives
+   `|N| ≥ 16 − min(r01, r10)`. Hence
+   `cost ≥ 128 + 6·min + 7·(r01 + r10 − 2·min) ≥ 128`. A rank-7 term saves
+   one unit locally, but costs a whole extra term. See [PROOF.md](PROOF.md).
+3. **General cross forms give a sufficient condition only.** In a V⊕V
+   model with arbitrary cross forms, `c01 + c10 ≥ 8` suffices for the
+   128 floor (Proposition B). The zero cross form has c = 0, yet it still
+   obeys the floor by a separate additivity argument (Proposition C). In
+   this "β = 0 pitfall", the cheap-looking Schur pattern has 16 free pure
+   cross terms. Its both-call terms cost 16 each, so the replayed total is
+   exactly 128.
+
+No exact decoder costing ≤ 127 was found in any model. That is a statement
+about the fixtures and the finite search below, not an impossibility
+theorem for general cross forms.
+
+| Exact fixture (full 224×224 all-pairs replay) | Chart / form | Cost | Theorem A bound |
+|---|---|---|---|
+| Standard decoder, 16 terms | all 162 sampled isometric charts, β = 0 | 128 | 128 |
+| One-cross decoder, 16 N terms + 1 rank-7 pure term | targeted transvection | 135 | 135 (tight) |
+| Same decoder | common chart | 136 | — |
+| Two-cross decoder, 15 N terms + 2 rank-7 pure terms | targeted transvection | 135 | 134 |
+| Schur pattern R01 = R10 = I, 8 N terms + 16 pure terms | targeted transvection | 188 | 176 |
+| Schur pattern | β = 0 | 128 (8×16 + 16×0) | Proposition C |
+
+The **cross-form search** is finite and fixed-seed (20261016). Its domain is
+the three coordinate decoder families crossed with β = 0, the targeted
+chart, and 48 random cross-form pairs. The minimum cost found is 128 for
+each family. This search is weak: 49 of the 50 forms already meet the
+Proposition B condition. The PROOF.md remark proves that these families
+cost ≥ 128 for every cross form. Other decoders were not searched.
+
+## Reproduce
+
+Python ≥ 3.12, standard library only. From the repository root:
+
+```sh
+python3 -I -O -B research/p112-batch-chart-change/verify.py
+```
+
+Expected result: the command prints a JSON receipt and
+`receipt_sha256 e31f54d7482a12cd7e59ccf0f91539bb096f4973b947eb650666d7e88c047977`,
+then `PASS_P112_BATCH_CHART_CHANGE`. It takes about 16 s on one CPU and
+needs well under 100 MB. Package metadata check:
+`python3 scripts/research_package.py --package research/p112-batch-chart-change --check-only`.
+
+**Method.** The verifier builds P112 independently as the norm-4 shell of
+{x ∈ Z⁸ : x mod 2 ∈ RM(1,3)}, checking reflection closure and
+`XᵀX = 56I`. It then cross-checks this geometry against the pinned data file
+`research/p112-single-lift/reference-geometry.json`
+(sha256 `4f44af36…a080`). That check matches the 112 lines and confirms the
+reference doubled roots are the 120 doubled E8 lines. It also checks
+`q·q' = 2x·x'` on 12,544 entries. The labels satisfy `B = 1 + x·x'/2 mod 2`
+with rank 9, and `B = cᵀGc` holds on all 120² entries. The verifier
+rechecks the finite support premises: 503/8 rational ranks over all 511
+functionals, and all 64 common-chart pairs at rank 8.
+
+The verifier then checks the chart facts and four exact decoders by full
+all-pairs Gaussian-integer replay (200,704 entries). It prices them by
+F2 ranks of union-support pairings in two independent ways: by the span
+basis in V⊕V, and by the direct single-V union matrix. It also checks that
+the chart model equals the cross-form model with
+`β01 = Gφ, β10 = φᵀG`. No predecessor code is imported or executed.
+
+**Negative controls (all must fail and do).** The verifier runs seven
+internal controls:
+
+1. An anisotropic transvection is rejected as a chart.
+2. A non-isometric chart changes call 2's own pairing.
+3. The all-ones C endpoint mutation is rejected against I₂, although it
+   is exact for its own C.
+4. A Hermitian-only decoder `(i, i)` is rejected under the ordinary
+   transpose, while `(i, −i)` passes.
+5. Cross-call crosstalk passes a diagonal-only check but fails the
+   all-pairs check.
+6. A corrupted rank claim, rank 8 for the targeted rank-7 pair, is
+   detected.
+7. A corrupted fixture cost, 127, is detected.
+
+On-disk mutation replays in a scratch tree also gave `FAIL`, while the
+unmutated scratch replay passed. The three mutations were:
+
+- flipping a decoder sign, which fails with "one-cross decoder exact";
+- changing the sample size, which fails with "receipt digest mismatch";
+- corrupting one reference-geometry row, which fails with
+  "same live lines".
+
+## Scope, inherited assumptions, unresolved obligations
+
+- Base commit `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. Source pins are in
+  [SOURCES.json](SOURCES.json); the selected record is pinned as
+  provenance only.
+- **Inherited:** PR1714's model, including root-code factors, the
+  separate-total union price, the all-pairs endpoint and ordinary transpose.
+  The finite support and pair lemmas come from PR845, PR1098 and PR1714;
+  their finite premises are rechecked here, and their written arguments
+  are cited.
+- **Scope:** k = 2, C = I₂, call 1 fixed, and call 2 re-charted by φ ∈ O(V,b)
+  with free conversions. Charging conversions could only raise costs.
+  The general cross-form statements are a sufficient condition plus the
+  β = 0 case; neither is an "iff".
+- **Not covered:** general k, C ≠ I₂, outside-code overcomplete factors,
+  masked identities, temporal relations, non-isometric charts in the
+  single-V model, the exact minimum for arbitrary cross forms, and any
+  physical or legal interface realizing a cross form.
+- PROOF.md is a written proof checked by the author with AI assistance.
+  It is not a Lean proof or independent human review. Finite replays
+  certify only the stated fixtures and samples.
+
+## Open next questions
+
+1. **Is 128 the minimum for every general cross form?** This matters
+   because a sub-128 form would locate the cross-call pairing a sharing
+   interface would need to realize. The first step is to search low-rank
+   cross forms (rank ≤ 3 on hyperplane pairs) against *non-coordinate*
+   decoders with mixed spans, using this verifier's exact pricing. The
+   blocker is the lack of a mechanism; any hit would be only a
+   model-sharpness control until a legal, priced interface exists.
+2. **Does Theorem A extend to k ≥ 3?** This matters because batching more
+   calls is the natural sharing route. The first step is to bound
+   `rank(I − R)` for zero-diagonal block R by pure-term ranks, then test
+   k = 3 coordinate fixtures. The blocker is that the two-block Schur
+   count does not generalize directly.
+3. **Can non-isometric charts with an explicitly priced demand change
+   help?** They alter call 2's own pairing. The first step is to state the
+   changed within-call price and recheck the pair lemma. The blocker is
+   the need for a new legal demand contract; per PR1714, relabelling is
+   not free.
+
+## Credit
+
+- **alephnan (PR1714)**: the common-chart batch coupling-rank law, the
+  pair-lemma use and open question 3.
+- **Mihir Srivastava (PR845)**: the support classification.
+- **Adam Gall (PR1098)**: independent corroboration of that
+  classification.
+- **woklerx (PR1077/PR1180)** and **themilkman216 (PR968)**: root-code
+  floors.
+- **Douglas Colkitt**: the complex-local-word-ceiling lever screen and the
+  research-package generator.
+- Related concurrent work, not built on here: **DreamingOfClouds (PR2228,
+  PR2277)** on one-call root-code floors, and PR1708/PR1748 (1337isnot1337,
+  ToikY) on physical sharing.
+- The `research/p112-single-lift/reference-geometry.json` data file is
+  used only for comparison. It is credited to Mihir Srivastava's package,
+  which snapshots **DreamingOfClouds' PR717** arrays. Joel Pulikkan /
+  GamingPuzzled (PR620) and the lineage in that package's NOTICE.md keep
+  their credit.
+- Selected-construction credit is unchanged: Rohan Arun, Jeremy Kothe,
+  Hao Yan and the lineage in the selected review.
+
+Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
