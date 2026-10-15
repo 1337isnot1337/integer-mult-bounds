@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "number": 2379,
+      "head": "d01f1b65f9aef2791ae01d5efd871436f9d7e19b",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/antifano-tied-min-cost12-seed22ae1f95",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2382,
+      "head": "2d7807f60f19146947ad24cb22719d4048a92be3",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-joint-loss-boundary-seed49",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2383,
+      "head": "41f3d517b521500b114f3491f5f5b68a0550f410",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p104-private-code-relay-floor",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2385,
+      "head": "3fa1c93c8c66ada108336b99add7db927ea9fa1f",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-coefficient-copy-floor",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2397,
+      "head": "5a306ee4115848883ff297adbec59e81ab85f14b",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/seven-source-18event-connector",
+        "--check-only"
+      ],
+      "exit_code": 0
+    },
+    {
+      "number": 2398,
+      "head": "8051d99dfd91a788d25bfc92c3863a33c658a5a9",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-overcomplete-factor-spaces",
+        "--check-only"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "log_sha256": "3d3b4213ca0642afd189f722a9932a5e0412e7e1e9d08d9e5acd76daf7456b4c",
+  "scope": "Registered metadata/source-pin preflight only; mathematical execution is in separate check receipts."
+}

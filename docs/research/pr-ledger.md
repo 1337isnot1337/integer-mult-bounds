@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **1962**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2059**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 1654 |
-| partially reviewed | 247 |
+| partially reviewed | 344 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -1079,7 +1079,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1152](https://github.com/CrocSwap/integer-mult-bounds/pull/1152) | chafreaky | partially reviewed | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
 | [#1153](https://github.com/CrocSwap/integer-mult-bounds/pull/1153) | Scratch-net | incorporated | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
 | [#1154](https://github.com/CrocSwap/integer-mult-bounds/pull/1154) | Dugongue | partially reviewed | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
-| [#1155](https://github.com/CrocSwap/integer-mult-bounds/pull/1155) | navinor | partially reviewed | [record 1](../../research/community-efficient1100-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient300-audit/DISPOSITIONS.json) |
+| [#1155](https://github.com/CrocSwap/integer-mult-bounds/pull/1155) | navinor | partially reviewed | [record 1](../../research/community-efficient1100-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1400-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient300-audit/DISPOSITIONS.json) |
 | [#1156](https://github.com/CrocSwap/integer-mult-bounds/pull/1156) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
 | [#1157](https://github.com/CrocSwap/integer-mult-bounds/pull/1157) | rohanarun | partially reviewed | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
 | [#1158](https://github.com/CrocSwap/integer-mult-bounds/pull/1158) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient300-audit/DISPOSITIONS.json) |
@@ -1834,7 +1834,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2159](https://github.com/CrocSwap/integer-mult-bounds/pull/2159) | RossRichardson | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2160](https://github.com/CrocSwap/integer-mult-bounds/pull/2160) | commdata2338 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2161](https://github.com/CrocSwap/integer-mult-bounds/pull/2161) | dataisfire | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
-| [#2162](https://github.com/CrocSwap/integer-mult-bounds/pull/2162) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
+| [#2162](https://github.com/CrocSwap/integer-mult-bounds/pull/2162) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
 | [#2163](https://github.com/CrocSwap/integer-mult-bounds/pull/2163) | AgoraPluribusMichael | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2166](https://github.com/CrocSwap/integer-mult-bounds/pull/2166) | petalas | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2167](https://github.com/CrocSwap/integer-mult-bounds/pull/2167) | waynenilsen | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
@@ -1898,7 +1898,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2239](https://github.com/CrocSwap/integer-mult-bounds/pull/2239) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2240](https://github.com/CrocSwap/integer-mult-bounds/pull/2240) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2241](https://github.com/CrocSwap/integer-mult-bounds/pull/2241) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
-| [#2244](https://github.com/CrocSwap/integer-mult-bounds/pull/2244) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
+| [#2244](https://github.com/CrocSwap/integer-mult-bounds/pull/2244) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
 | [#2246](https://github.com/CrocSwap/integer-mult-bounds/pull/2246) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2247](https://github.com/CrocSwap/integer-mult-bounds/pull/2247) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2248](https://github.com/CrocSwap/integer-mult-bounds/pull/2248) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
@@ -2005,3 +2005,100 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2375](https://github.com/CrocSwap/integer-mult-bounds/pull/2375) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1300-audit/DISPOSITIONS.json) |
 | [#2376](https://github.com/CrocSwap/integer-mult-bounds/pull/2376) | commdata2338 | incorporated | [record 1](../../research/community-efficient1300-audit/DISPOSITIONS.json) |
 | [#2377](https://github.com/CrocSwap/integer-mult-bounds/pull/2377) | yssite | incorporated | [record 1](../../research/community-efficient1300-audit/DISPOSITIONS.json) |
+| [#2378](https://github.com/CrocSwap/integer-mult-bounds/pull/2378) | AAAmirinu | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2379](https://github.com/CrocSwap/integer-mult-bounds/pull/2379) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2381](https://github.com/CrocSwap/integer-mult-bounds/pull/2381) | jgilfoil | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2382](https://github.com/CrocSwap/integer-mult-bounds/pull/2382) | theon199 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2383](https://github.com/CrocSwap/integer-mult-bounds/pull/2383) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2384](https://github.com/CrocSwap/integer-mult-bounds/pull/2384) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2385](https://github.com/CrocSwap/integer-mult-bounds/pull/2385) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2386](https://github.com/CrocSwap/integer-mult-bounds/pull/2386) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2387](https://github.com/CrocSwap/integer-mult-bounds/pull/2387) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2388](https://github.com/CrocSwap/integer-mult-bounds/pull/2388) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2389](https://github.com/CrocSwap/integer-mult-bounds/pull/2389) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2390](https://github.com/CrocSwap/integer-mult-bounds/pull/2390) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2391](https://github.com/CrocSwap/integer-mult-bounds/pull/2391) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2392](https://github.com/CrocSwap/integer-mult-bounds/pull/2392) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2393](https://github.com/CrocSwap/integer-mult-bounds/pull/2393) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2394](https://github.com/CrocSwap/integer-mult-bounds/pull/2394) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2395](https://github.com/CrocSwap/integer-mult-bounds/pull/2395) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2396](https://github.com/CrocSwap/integer-mult-bounds/pull/2396) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2397](https://github.com/CrocSwap/integer-mult-bounds/pull/2397) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2398](https://github.com/CrocSwap/integer-mult-bounds/pull/2398) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2399](https://github.com/CrocSwap/integer-mult-bounds/pull/2399) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2400](https://github.com/CrocSwap/integer-mult-bounds/pull/2400) | commdata2338 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2402](https://github.com/CrocSwap/integer-mult-bounds/pull/2402) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2404](https://github.com/CrocSwap/integer-mult-bounds/pull/2404) | bitplane | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2405](https://github.com/CrocSwap/integer-mult-bounds/pull/2405) | jmbarrancoml | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2406](https://github.com/CrocSwap/integer-mult-bounds/pull/2406) | jeremydiviney | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2407](https://github.com/CrocSwap/integer-mult-bounds/pull/2407) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2409](https://github.com/CrocSwap/integer-mult-bounds/pull/2409) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2411](https://github.com/CrocSwap/integer-mult-bounds/pull/2411) | platypii | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2412](https://github.com/CrocSwap/integer-mult-bounds/pull/2412) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2413](https://github.com/CrocSwap/integer-mult-bounds/pull/2413) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2414](https://github.com/CrocSwap/integer-mult-bounds/pull/2414) | bitplane | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2415](https://github.com/CrocSwap/integer-mult-bounds/pull/2415) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2416](https://github.com/CrocSwap/integer-mult-bounds/pull/2416) | ToikY | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2419](https://github.com/CrocSwap/integer-mult-bounds/pull/2419) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2420](https://github.com/CrocSwap/integer-mult-bounds/pull/2420) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2421](https://github.com/CrocSwap/integer-mult-bounds/pull/2421) | starship-s | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2422](https://github.com/CrocSwap/integer-mult-bounds/pull/2422) | bitplane | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2423](https://github.com/CrocSwap/integer-mult-bounds/pull/2423) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2427](https://github.com/CrocSwap/integer-mult-bounds/pull/2427) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2428](https://github.com/CrocSwap/integer-mult-bounds/pull/2428) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2429](https://github.com/CrocSwap/integer-mult-bounds/pull/2429) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2430](https://github.com/CrocSwap/integer-mult-bounds/pull/2430) | starship-s | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2431](https://github.com/CrocSwap/integer-mult-bounds/pull/2431) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2432](https://github.com/CrocSwap/integer-mult-bounds/pull/2432) | bitplane | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2433](https://github.com/CrocSwap/integer-mult-bounds/pull/2433) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2435](https://github.com/CrocSwap/integer-mult-bounds/pull/2435) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2437](https://github.com/CrocSwap/integer-mult-bounds/pull/2437) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2440](https://github.com/CrocSwap/integer-mult-bounds/pull/2440) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2441](https://github.com/CrocSwap/integer-mult-bounds/pull/2441) | bitplane | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2442](https://github.com/CrocSwap/integer-mult-bounds/pull/2442) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2443](https://github.com/CrocSwap/integer-mult-bounds/pull/2443) | starship-s | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2444](https://github.com/CrocSwap/integer-mult-bounds/pull/2444) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2445](https://github.com/CrocSwap/integer-mult-bounds/pull/2445) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2446](https://github.com/CrocSwap/integer-mult-bounds/pull/2446) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2447](https://github.com/CrocSwap/integer-mult-bounds/pull/2447) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2448](https://github.com/CrocSwap/integer-mult-bounds/pull/2448) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2449](https://github.com/CrocSwap/integer-mult-bounds/pull/2449) | jmbarrancoml | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2450](https://github.com/CrocSwap/integer-mult-bounds/pull/2450) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2451](https://github.com/CrocSwap/integer-mult-bounds/pull/2451) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2452](https://github.com/CrocSwap/integer-mult-bounds/pull/2452) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2453](https://github.com/CrocSwap/integer-mult-bounds/pull/2453) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2454](https://github.com/CrocSwap/integer-mult-bounds/pull/2454) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2455](https://github.com/CrocSwap/integer-mult-bounds/pull/2455) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2456](https://github.com/CrocSwap/integer-mult-bounds/pull/2456) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2457](https://github.com/CrocSwap/integer-mult-bounds/pull/2457) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2458](https://github.com/CrocSwap/integer-mult-bounds/pull/2458) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2459](https://github.com/CrocSwap/integer-mult-bounds/pull/2459) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2460](https://github.com/CrocSwap/integer-mult-bounds/pull/2460) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2461](https://github.com/CrocSwap/integer-mult-bounds/pull/2461) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2462](https://github.com/CrocSwap/integer-mult-bounds/pull/2462) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2464](https://github.com/CrocSwap/integer-mult-bounds/pull/2464) | navinor | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2465](https://github.com/CrocSwap/integer-mult-bounds/pull/2465) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2466](https://github.com/CrocSwap/integer-mult-bounds/pull/2466) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2467](https://github.com/CrocSwap/integer-mult-bounds/pull/2467) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2468](https://github.com/CrocSwap/integer-mult-bounds/pull/2468) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2469](https://github.com/CrocSwap/integer-mult-bounds/pull/2469) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2470](https://github.com/CrocSwap/integer-mult-bounds/pull/2470) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2471](https://github.com/CrocSwap/integer-mult-bounds/pull/2471) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2472](https://github.com/CrocSwap/integer-mult-bounds/pull/2472) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2473](https://github.com/CrocSwap/integer-mult-bounds/pull/2473) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2474](https://github.com/CrocSwap/integer-mult-bounds/pull/2474) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2475](https://github.com/CrocSwap/integer-mult-bounds/pull/2475) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2476](https://github.com/CrocSwap/integer-mult-bounds/pull/2476) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2477](https://github.com/CrocSwap/integer-mult-bounds/pull/2477) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2478](https://github.com/CrocSwap/integer-mult-bounds/pull/2478) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2479](https://github.com/CrocSwap/integer-mult-bounds/pull/2479) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2480](https://github.com/CrocSwap/integer-mult-bounds/pull/2480) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2481](https://github.com/CrocSwap/integer-mult-bounds/pull/2481) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2482](https://github.com/CrocSwap/integer-mult-bounds/pull/2482) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2483](https://github.com/CrocSwap/integer-mult-bounds/pull/2483) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2484](https://github.com/CrocSwap/integer-mult-bounds/pull/2484) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2485](https://github.com/CrocSwap/integer-mult-bounds/pull/2485) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2486](https://github.com/CrocSwap/integer-mult-bounds/pull/2486) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2487](https://github.com/CrocSwap/integer-mult-bounds/pull/2487) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2489](https://github.com/CrocSwap/integer-mult-bounds/pull/2489) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
+| [#2490](https://github.com/CrocSwap/integer-mult-bounds/pull/2490) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1400-audit/DISPOSITIONS.json) |
