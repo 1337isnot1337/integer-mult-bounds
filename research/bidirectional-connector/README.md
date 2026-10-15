@@ -501,10 +501,10 @@ signed triangle and explicitly limited secondary extensions/cross-checks.
 plus the PR9 review response. Inspected nearby work includes PR1811,1707,1708,
 1717,1719,1954,1968,1972,2045,2050,2060 and Discussion2053; their targets or
 allowed resources differ. Historical no-match reports are not novelty proofs. A fresh canonical-main and
-live-overlap checkpoint is recorded in TASK.json for this draft submission.
+live-overlap checkpoint is recorded in TASK.json for this submission.
 The scientific package and review corrections are archived in Math PR9/PR11.
-This package is submitted as a draft for the user's upstream review; it does
-not change the selected frontier.
+The user has explicitly approved submission of this package for upstream
+mathematical review. The selected frontier is unchanged.
 
 ## Open next questions
 

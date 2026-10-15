@@ -44,7 +44,7 @@
   "scope_change_reason": "The user explicitly requested considerable additional progress along this path. Further source-word brute force has less than three percent query headroom in the n9 minimum-B class; a paid parent-cache interface offers a larger algebraic resource trade. Extra rows and transfers are explicit, not free. No supplier replacement, physical memory-time theorem or exponent improvement follows.",
   "bottleneck_link": "A caller must admit expensive generic B maps, cheaper A maps, paid aligned full-row transfers, offline targets and extra arbitrary dirty parent stock. The retained selected interface has sparse targets and different ownership; no qualifying dispatched occurrence is established.",
   "budget_minutes": 240,
-  "stop_rule": "Prepare and validate this scoped upstream draft PR for user review. Do not mark ready, merge, post Discussion messages or expand the research scope.",
+  "stop_rule": "Submit the explicitly approved PR title and body to CrocSwap/integer-mult-bounds for review, then stop. No merge, unrelated PR changes or Discussion messages are authorized.",
   "outcome": "completed",
   "evidence": "Exact all-word proofs and source-bound receipts; signed triangle and prefix-height checks; native 73-call domains plus inherited PR1 census; independent n5/n6 incidence/difference engines cross-check PR2; n9 restricted gap below2.98%; benchmark source bindings now tested with a drift failure control; reviewer literal counterexample rejects unrestricted transfer-optimality interpretation. Prior native/benchmark results retained unchanged; current validation recorded below.",
   "author": "conorholds, with OpenAI Codex assistance",
@@ -65,7 +65,7 @@
   ],
   "scope_key": "ff4f5113ed2256ab19ed",
   "selector_nonce": "4097e9f6a5c8e30cb7274114770e40f8",
-  "local_claim_only": "User requests a draft PR against CrocSwap/integer-mult-bounds for review; no Discussion messages or merge are authorized.",
+  "local_claim_only": "User explicitly approved the upstream PR process using the reviewed draft; authorization is limited to publishing this contribution for review.",
   "overlap": {
     "coverage": "498 open PRs and 484 discussion/comment/reply records, complete pagination; 871 local records; no warnings",
     "checked_at": "2026-10-14T11:52:12Z",
@@ -457,7 +457,7 @@
     }
   },
   "draft_submission": {
-    "status": "prepared_for_user_review",
+    "status": "user_approved_upstream_submission",
     "target_repository": "CrocSwap/integer-mult-bounds",
     "target_branch": "main",
     "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
@@ -508,5 +508,89 @@
       },
       "distinction": "No exact overlap found for the all-word priced bounds or signed zero-sum triangle in the inspected records; not a novelty certificate. PR2065 and PR2182 supply credited endpoint/two-call baselines; DUO/TRIO papers change the source alphabet; common-A broadcast changes output-map sharing."
     }
+  },
+  "upstream_submission": {
+    "approval": "User explicitly instructed: go ahead and do the PR process upstream now; follow their guidelines and use the approved draft.",
+    "repository": "CrocSwap/integer-mult-bounds",
+    "pull_request": 2208,
+    "reuse_existing_pr": "Reopen the existing closed PR to avoid a duplicate contribution.",
+    "approved_title": "Research: all-word dirty-connector bounds and signed triangle (no new \u03ba)",
+    "approved_body_sha256": "e727a3747cc71dca5198c05c826fb9cb5db8678dd5769044654639c35faaebc4",
+    "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "latest_overlap_refresh": {
+      "checked_at": "2026-10-15T01:03:16.293608+00:00",
+      "previous_discussion_snapshot": "2026-10-14T23:58:06.140108+00:00",
+      "updated_discussions": [
+        1163,
+        1166,
+        1167,
+        1587,
+        2179,
+        2205,
+        2209,
+        2211,
+        2218,
+        2221,
+        2223
+      ],
+      "coverage": {
+        "open_prs": {
+          "records": 465,
+          "fetched_at": "2026-10-15T01:03:08.511203+00:00",
+          "complete_pagination": true
+        },
+        "discussions": {
+          "records": 924,
+          "fetched_at": "2026-10-15T01:03:16.257821+00:00",
+          "complete_pagination": true
+        }
+      },
+      "limits": "Complete prior snapshot plus full reload of every discussion updated since prior fetch; deleted untouched threads are not independently re-enumerated.",
+      "primary_term_matches": [
+        {
+          "kind": "discussion-comment",
+          "number": 1317,
+          "title": "Binary affine addresses: exact paid-call floor with arbitrary dirty registers",
+          "hits": [
+            "all-word"
+          ],
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1317#discussioncomment-18912673"
+        },
+        {
+          "kind": "discussion-comment",
+          "number": 1929,
+          "title": "Round 2: ten independently seeded parallel research instances",
+          "hits": [
+            "all-word"
+          ],
+          "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1929#discussioncomment-18925900"
+        }
+      ],
+      "reviewed_heads": {
+        "2227": "514f75b9f311438aaef07cd577a39cd330cf4330",
+        "2201": "21fee7f7fb9ed42298ee998dbc120e684ca7fb71",
+        "2182": "dc252de1cc594829c3031abdb4de104713bc474a",
+        "2128": "697369a971eed02c0fbcd75ebefec9f59945f08e",
+        "2156": "05b4672fa4450ef50b06315e3a0893d4ba43d42d",
+        "2146": "302b0e87d9328fabc2a670248afb357bbb44041b",
+        "2134": "388a63c83cf24c3355be9798bde5a381188dadb3",
+        "2065": "2721b1e31d718a6e70266a99521f629ce2e1d259",
+        "2063": "4caa7660fa4a31c4cfeaf177fabc3b56549dd065"
+      },
+      "additional_reviewed_heads": {
+        "2229": "b4eab83755969d406edba9f25b7890e4db4c4931",
+        "2230": "daae61425c07268ecfe220f7996415105c466ef1"
+      },
+      "additional_distinctions": {
+        "2229": "Seven-source sparse-mask census at exactly fourteen toggles, rather than all nonzero masks and all-word priced bounds.",
+        "2230": "Packets heterogeneous output events while retaining both paid child calls; no reduction of the counted A/B child evaluations."
+      }
+    },
+    "verification_reuse": "Scientific files and reference fixtures are byte-identical to the previously passing Math archive; only README and TASK publication metadata changed.",
+    "not_authorized": [
+      "Merge",
+      "Unrelated PR changes",
+      "Discussion posts or other messages"
+    ]
   }
 }
