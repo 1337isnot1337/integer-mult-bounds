@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Hash pins of the vendored #2162/#2111 files; exact Desargues/Pappus realisations; search-free check of 372 frame-universal char-2 certificates plus 1793 special-realisation certificates; replayed exhaustive exclusions and an independent constructive Desargues count with a positive control; 740 + 2000 sampled decoder configurations (CR2 rechecks; non-CR2 DFS re-run; witness costs; pure-Python exhaustion for f <= 18); controls tied_min, the six-line atom and cex_min_1; six negative controls that must be rejected."
+    }
+  ]
+}
