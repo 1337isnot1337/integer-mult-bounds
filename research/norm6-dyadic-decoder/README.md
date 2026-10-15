@@ -1,13 +1,13 @@
-# A dyadic norm-six cubic decoder in binary dimension49
+# A dyadic norm-six cubic decoder in binary dimension 49
 
-**Algebraic component; no supplier or new kappa.** For the26208000 antipodal
+**Algebraic component; no supplier or new kappa.** For the 26208000 antipodal
 minimum-vector lines of an extremal48-dimensional even unimodular lattice,
 we give norm-one labels in F2^49 and the fitting kernel
 
     K(x,y) = ((x dot y)^3 - 4(x dot y))/192.
 
-It has diagonal1 and vanishes on every forbidden distinct binary pairing.
-An explicit19648-term factorization uses only dyadic runtime coefficients.
+It has diagonal 1 and vanishes on every forbidden distinct binary pairing.
+An explicit 19648-term factorization uses only dyadic runtime coefficients.
 The integer-valued cubic (u^3-u)/3 removes the apparent odd denominator.
 The algebraic separate-copy support bill is at most962752; this is not a
 physical copy invoice. [PROOF.md](PROOF.md) proves the identities and label

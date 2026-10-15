@@ -5,18 +5,18 @@ complete supplier or an improved multiplication exponent.
 
 ## Source geometry
 
-Let L be an even integral positive definite unimodular lattice of dimension48
-and minimum6. Choose one vector from each antipodal pair of minimum vectors.
+Let L be an even integral positive definite unimodular lattice of dimension 48
+and minimum 6. Choose one vector from each antipodal pair of minimum vectors.
 Nebe's introduction to *A fourth extremal even unimodular lattice of dimension
 48*, [arXiv:1312.3780](https://arxiv.org/abs/1312.3780), records the known
-extremal48 lattices and their52416000 minimum vectors. We use the exact Gram
+extremal48 lattices and their 52416000 minimum vectors. We use the exact Gram
 matrix in the [Nebe-Sloane P48p catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/P48p.html).
 The catalogue is retained byte for byte in sources/. Positive definiteness,
 evenness, and determinant1 are checked locally. The minimum and complete shell
 count remain dependencies on the published lattice result; no complete shell
 enumeration is claimed.
 
-For distinct antipodal representatives x,y, integrality and minimum6 give
+For distinct antipodal representatives x,y, integrality and minimum 6 give
 
     ||x-y||^2 = 12-2<x,y> >=6,
     ||x+y||^2 = 12+2<x,y> >=6.
@@ -26,7 +26,7 @@ pairing is6. The kernel
 
     K(x,y) = (<x,y>^3 -4<x,y>)/192
 
-has diagonal1. Its off-diagonal values are0 at pairings -2,0,2; values1/64,
+has diagonal 1. Its off-diagonal values are0 at pairings -2,0,2; values1/64,
 -1/64 at -1,1; and -5/64,5/64 at -3,3. Every entry is dyadic.
 
 ## Binary labels
@@ -35,12 +35,12 @@ Unimodularity makes the integral Gram matrix G invertible modulo2. Evenness
 makes its reduction alternating. The even-weight subspace of F2^49 has a
 nondegenerate alternating restriction of the standard dot product. A checked
 symplectic congruence provides an isometry R from the lattice coefficient
-space modulo2 to this even-weight subspace. Let w be the49-coordinate all-one
+space modulo2 to this even-weight subspace. Let w be the 49-coordinate all-one
 vector and put
 
     q_x = w + R(x mod2).
 
-Then q_x has norm1 and
+Then q_x has norm 1 and
 
     q_x dot q_y = 1+<x,y> mod2.
 
@@ -76,9 +76,9 @@ scalar product is therefore (t^3-4t)/3. Scaling the target coefficients by
 by3 only describe precomputed integral feature values. This avoids an
 unproved assumption that a rational basis inverse is dyadic.
 
-There are19648 explicit terms. A rational cubic-feature rank bound of19600
+There are 19648 explicit terms. A rational cubic-feature rank bound of19600
 also follows by absorbing the linear term into the trace of cubic tensors on
-the norm-six sphere. We use the explicit19648-term factorization, so no
+the norm-six sphere. We use the explicit 19648-term factorization, so no
 dyadic lattice-basis reduction is needed for this component.
 
 Each source support spans at most49 binary dimensions. The separate-copy
@@ -90,7 +90,7 @@ physical copy implementation, helper assignment, or precision proof.
 
 The package checks the exact48-dimensional Gram, reconstructs its positive
 LDL factorization, checks the full binary coordinate isometry, and compares
-all19648 expanded polynomial monomials with an independently expanded cube.
+all 19648 expanded polynomial monomials with an independently expanded cube.
 It also checks676 pairings of26 actual norm-six vectors and38 additional
 feature cases. Three corruptions reject an omitted cubic feature, wrong
 normalization and a damaged binary chart. These finite checks support the
@@ -107,5 +107,5 @@ model above. It must then receive a controller, ownership and precision proof.
 The bit supplier also has to improve: its reviewed endpoint0.0017334270395898442
 is below this campaign's final-kappa target. The candidate lattice kernel does
 not settle that rail. Direct dualization would have a much larger rational
-address dimension, so its cost must not be assumed to match the49-bit complex
+address dimension, so its cost must not be assumed to match the 49-bit complex
 geometry.
