@@ -38,9 +38,8 @@ must still match the base bytes. Timing is host-descriptive and is not a
 correctness gate.
 
 On Linux / CPython 3.12.3, five alternating fresh-process pairs gave median
-**screen-only 0.559 → 0.041 s (≈13.6×)** and **complete certificate 0.568 →
-0.054 s (≈10.5×)** in the orientation profile; retained samples are written by
-`benchmark.py` into [`RESULT.json`](RESULT.json).
+**screen-only 0.661 → 0.044 s (15.05×)** and **complete certificate 0.608 →
+0.060 s (10.07×)**. Retained samples are in [`RESULT.json`](RESULT.json).
 
 ## Why the orbits are equivalent
 
