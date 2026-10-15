@@ -404,7 +404,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2267.json"
+        "research/community-efficient1300-audit/packets/2267.json",
+        "research/community-efficient1300-audit/checks/check-2267.json"
       ]
     },
     {
@@ -423,20 +424,24 @@
       },
       "reviewed_head": "daf44bfc752a5e89127defa1cb296210708cf7e6",
       "current_head": "daf44bfc752a5e89127defa1cb296210708cf7e6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-ordinary-source-tap-seed3794b3"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "31452ecd309f32a97e2e84214719b21297a59018",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2268"
+      },
       "scope": "Cinna Davis's paired ordinary-source tap adds two same-frame scalar additions to the QQ16 interface. Reviewed exact rational full-tail replay: one pinned hidden witness yields34 selected outputs,4 history values and65 completed-X values, including final11*f37, while no-tap and wrong-source controls stay zero and wrong-sign breaks sum preservation. The inherited eight-direction family retains rank8 only at B1; global injectivity, its full tail, precision/hosting and supplier admission remain open. Historical task-context pins are Git-bound, live transitive dependencies declared and a slower-host timeout retained; no mathematical receipt or kappa change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2268.json",
@@ -615,19 +620,22 @@
       "current_head": "67294e7dd5bc7caa0d253b74e1d39c376ca99663",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/three-total-classical-configs"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar\u2019s Desargues/Pappus structured-frame audit. Reviewed the frame-universal characteristic-two substitution and zero-pattern proofs, exact realizations, 372 generic and 1793 special certificates, independent Desargues exclusion counts and all 18 small non-CR2 pairing minima with fresh exhaustive C replay. Independently reconstructed all twelve special signatures. Seventy larger sampled instances remain unresolved; CR2 consequences retain their inherited lemma and no universal decoder floor, supplier or kappa is claimed. DreamingOfClouds and earlier decoder work credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2274.json"
+        "research/community-efficient1300-audit/packets/2274.json",
+        "research/community-efficient1300-audit/checks/check-2274.json"
       ]
     },
     {
@@ -1986,19 +1994,25 @@
       "current_head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        "research/copied-fixed",
+        "research/data-corner-performance",
+        "research/data-corner-production",
+        "tests/test_data_corner_production.py"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Wentao Li\u2019s production cached-column update for the historical data-corner checker. Reviewed invariant pivot eligibility and update order, exact baseline retention and downstream archived/live pin separation. Full normal and optimized comparisons cover4073300 pairs with4073290 good and10 fallback cases, identical complete receipts and a rejecting column-fill mutant. Both modes also pass ten wiring/kernel/determinant/source controls. Certificate changes only the production-source digest; author1.54x benchmark remains attributed, not independently retimed. No selected frontier change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2320.json",
+        "research/community-efficient1300-audit/checks/check-2320-supplement.json",
         "research/community-efficient1300-audit/checks/check-2320.json"
       ]
     },
@@ -3005,20 +3019,24 @@
       },
       "reviewed_head": "491c44a70d2316589a56e8c4b80817c4a0b6cbc4",
       "current_head": "491c44a70d2316589a56e8c4b80817c4a0b6cbc4",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/pool121-jet-rigidity"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "31452ecd309f32a97e2e84214719b21297a59018",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2351"
+      },
       "scope": "Sagar Thakrar's characteristic-two jet-rigidity audit: reviewed rational/gauge-to-F2 reduction, uniform-order rigidity proof and polynomial order-two test, plus independent elimination, dual flows and finite enumeration. Full replay verifies rank266/kernel244, all30 immovable harmonic lines,42 searched minimal atom orbits and the complete353 five-line orbit classification over24643710 subsets, with exhaustive non-CR2 checks over GF(2/4/8/16), exact costs and rejecting controls. Larger atom searches are not exhaustive; SCC/Peel figures remain author-recorded, and inherited Corollary J/VCR2 implications are explicitly conditional. No supplier or kappa change; DreamingOfClouds and other predecessor credit retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2351.json",
@@ -3734,7 +3752,7 @@
       "reviewed_head": "5d444eee7dedd997c6094776fbb32ed19831e241",
       "current_head": "5d444eee7dedd997c6094776fbb32ed19831e241",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research",
         "scripts/research_package.py",

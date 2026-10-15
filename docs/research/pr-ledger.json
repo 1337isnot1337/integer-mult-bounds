@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1640,
-    "partially_reviewed": 261,
+    "incorporated": 1642,
+    "partially_reviewed": 259,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "01d460f420cadc5fd837459249a2340535dad1c0197cde907c171b3532fe4b1c",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "3ab62532a650dc10769a38f405ba52c1af95b6704085d9442b62306e7963a0d3",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106793,7 +106793,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2267.json"
+        "research/community-efficient1300-audit/packets/2267.json",
+        "research/community-efficient1300-audit/checks/check-2267.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -106827,16 +106828,20 @@
       "integration_location": [
         "research/qq16-ordinary-source-tap-seed3794b3"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "31452ecd309f32a97e2e84214719b21297a59018",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2268"
+      },
       "reviewed_head": "daf44bfc752a5e89127defa1cb296210708cf7e6",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2268.json",
@@ -107064,25 +107069,28 @@
         {
           "head": "67294e7dd5bc7caa0d253b74e1d39c376ca99663",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sagar Thakrar’s Desargues/Pappus structured-frame audit. Reviewed the frame-universal characteristic-two substitution and zero-pattern proofs, exact realizations, 372 generic and 1793 special certificates, independent Desargues exclusion counts and all 18 small non-CR2 pairing minima with fresh exhaustive C replay. Independently reconstructed all twelve special signatures. Seventy larger sampled instances remain unresolved; CR2 consequences retain their inherited lemma and no universal decoder floor, supplier or kappa is claimed. DreamingOfClouds and earlier decoder work credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/three-total-classical-configs"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "67294e7dd5bc7caa0d253b74e1d39c376ca99663",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2274.json"
+        "research/community-efficient1300-audit/packets/2274.json",
+        "research/community-efficient1300-audit/checks/check-2274.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -108842,25 +108850,31 @@
         {
           "head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Wentao Li’s production cached-column update for the historical data-corner checker. Reviewed invariant pivot eligibility and update order, exact baseline retention and downstream archived/live pin separation. Full normal and optimized comparisons cover4073300 pairs with4073290 good and10 fallback cases, identical complete receipts and a rejecting column-fill mutant. Both modes also pass ten wiring/kernel/determinant/source controls. Certificate changes only the production-source digest; author1.54x benchmark remains attributed, not independently retimed. No selected frontier change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/copied-fixed",
+        "research/data-corner-performance",
+        "research/data-corner-production",
+        "tests/test_data_corner_production.py"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2320.json",
+        "research/community-efficient1300-audit/checks/check-2320-supplement.json",
         "research/community-efficient1300-audit/checks/check-2320.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
@@ -110168,16 +110182,20 @@
       "integration_location": [
         "research/pool121-jet-rigidity"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "31452ecd309f32a97e2e84214719b21297a59018",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2351"
+      },
       "reviewed_head": "491c44a70d2316589a56e8c4b80817c4a0b6cbc4",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2351.json",
@@ -111107,7 +111125,7 @@
         "scripts/research_package.py",
         "tests/test_research_process_tree.py"
       ],
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "closure": {
         "kind": "merged",
         "merge_commit": "8e22a9d9f621c72ab5b299061c2be4c7f638fd3c",
@@ -111142,7 +111160,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1263,
-    "OPEN": 321
+    "MERGED": 1266,
+    "OPEN": 318
   }
 }
