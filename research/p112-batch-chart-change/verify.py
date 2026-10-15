@@ -446,6 +446,48 @@ def schur_decoder():
     return terms
 
 
+def schur_generic_decoder():
+    """Q_N = [I; -I] M M^{-1} [I, -I] with M the upper-triangular all-ones
+    matrix (M^{-1} = I - superdiagonal), so the eight both-call terms have
+    non-coordinate columns; plus 16 coordinate pure cross terms."""
+    terms = []
+    for k in range(8):
+        a = vec([(i, 1) for i in range(k + 1)] + [(8 + i, -1) for i in range(k + 1)])
+        col = [(k, 1)] + ([(k + 1, -1)] if k < 7 else [])
+        c = vec(col + [(8 + i, -t) for i, t in col])
+        terms.append((a, c))
+    for k in range(8):
+        terms.append((unit(k), unit(8 + k)))
+        terms.append((unit(8 + k), unit(k)))
+    return terms
+
+
+def call_spans(live, coords, coef):
+    col = block_column(live, coef)
+    return [f2_basis([coords[r - 112 * s] for r in range(112 * s, 112 * s + 112)
+                      if col[r] != ZERO]) for s in range(2)]
+
+
+def form_rank(beta, u, w):
+    return f2_rank([sum(beta.b(x, y) << n for n, y in enumerate(w)) for x in u])
+
+
+def prop_d_bound(live, coords, terms, costs, b01, b10):
+    """Proposition D: total >= 128 - sum_double min(8, rho01 + rho10) + sum_pure cost."""
+    bound = 128
+    for (a, c), cost in zip(terms, costs):
+        kind = classify(a, c)
+        if kind != "N":
+            bound += cost
+            continue
+        ua, wc = call_spans(live, coords, a), call_spans(live, coords, c)
+        if ua[0] and wc[0] and ua[1] and wc[1]:
+            rho = form_rank(b01, ua[0], wc[1]) + form_rank(b10, ua[1], wc[0])
+            require(cost >= max(8, 16 - rho), "double-term price bound")
+            bound -= min(8, rho)
+    return bound
+
+
 def batch_cost(live, coords, pair, terms):
     return [term_cost(live, coords, pair, a, c) for a, c in terms]
 
@@ -619,22 +661,35 @@ def run():
     for t in range(CROSS_FORM_SAMPLES):
         forms.append(("random", Form([rng2.getrandbits(9) for _ in range(9)]),
                       Form([rng2.getrandbits(9) for _ in range(9)])))
-    families = {"schur": sch, "one_cross": one, "two_cross": two}
-    xmin, xsuff = {}, 0
+    gen = schur_generic_decoder()
+    ok, n = exact_check(live, gen, target)
+    require(ok, "generic Schur-pattern decoder exact")
+    entries += n
+    out["full_matrix_entries_checked"] = entries
+    families = {"schur": sch, "one_cross": one, "two_cross": two, "schur_generic": gen}
+    xmin, xsuff, dmin = {}, 0, None
     for name, b01, b10 in forms:
         pair = union_pairing(form, ("cross", b01, b10))
         c01, c10 = cross_min(b01), cross_min(b10)
         for fam, terms in families.items():
-            cost = sum(batch_cost(live, coords, pair, terms))
+            costs = batch_cost(live, coords, pair, terms)
+            cost = sum(costs)
             require(cost >= 128, "cross-form family below 128 (would be a model-sharpness hit)")
             xmin[fam] = min(xmin.get(fam, cost), cost)
+            bound = prop_d_bound(live, coords, terms, costs, b01, b10)
+            require(cost >= bound, "Proposition D bound")
+            dmin = bound if dmin is None else min(dmin, bound)
         if c01 + c10 >= 8:
             xsuff += 1
+    fixtures["schur_generic_targeted_chart"] = lower_bound_report(
+        gen, batch_cost(live, coords, pair_t, gen), 7)
+    fixtures["schur_generic_beta0_cost"] = sum(
+        batch_cost(live, coords, union_pairing(form, ("beta0",)), gen))
     out["cross_form_search"] = {
-        "domain": "3 exact decoder families x (beta=0, targeted chart, %d seeded random "
+        "domain": "4 exact decoder families x (beta=0, targeted chart, %d seeded random "
                   "cross-form pairs)" % CROSS_FORM_SAMPLES,
         "seed": SAMPLE_SEED + 1, "forms": len(forms), "min_cost_by_family": xmin,
-        "forms_meeting_sufficient_condition": xsuff,
+        "forms_meeting_sufficient_condition": xsuff, "min_proposition_d_bound": dmin,
         "status": "finite search; no sub-128 decoder found; not an impossibility theorem"}
 
     controls = []
@@ -677,7 +732,7 @@ def run():
     return out
 
 
-EXPECTED_RECEIPT_SHA256 = "e31f54d7482a12cd7e59ccf0f91539bb096f4973b947eb650666d7e88c047977"
+EXPECTED_RECEIPT_SHA256 = "69c25811d4c0efc989d07fecd1e3cf6afab0ec24c9a773e095e84973e97ccd46"
 
 
 def main():

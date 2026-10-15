@@ -43,7 +43,13 @@ separate-total union price.
    obeys the floor by a separate additivity argument (Proposition C). In
    this "β = 0 pitfall", the cheap-looking Schur pattern has 16 free pure
    cross terms. Its both-call terms cost 16 each, so the replayed total is
-   exactly 128.
+   exactly 128. More generally, Proposition D holds for **any** cross
+   forms:
+   `total ≥ 128 − Σ_double min(8, ρ01+ρ10) + Σ_pure price`.
+   A sub-128 decoder in any cross-form model therefore needs pure terms in
+   both directions, so that min(r01, r10) ≥ 1. It also needs "double"
+   terms, which touch both calls on both sides, whose cross-form ranks
+   strictly exceed what the pure terms pay.
 
 No exact decoder costing ≤ 127 was found in any model. That is a statement
 about the fixtures and the finite search below, not an impossibility
@@ -57,13 +63,16 @@ theorem for general cross forms.
 | Two-cross decoder, 15 N terms + 2 rank-7 pure terms | targeted transvection | 135 | 134 |
 | Schur pattern R01 = R10 = I, 8 N terms + 16 pure terms | targeted transvection | 188 | 176 |
 | Schur pattern | β = 0 | 128 (8×16 + 16×0) | Proposition C |
+| Non-coordinate Schur pattern `[I;−I]MM⁻¹[I,−I]` + 16 pure terms | targeted transvection / β = 0 | 192 / 140 | 176 / Prop. C |
 
 The **cross-form search** is finite and fixed-seed (20261016). Its domain is
-the three coordinate decoder families crossed with β = 0, the targeted
-chart, and 48 random cross-form pairs. The minimum cost found is 128 for
-each family. This search is weak: 49 of the 50 forms already meet the
-Proposition B condition. The PROOF.md remark proves that these families
-cost ≥ 128 for every cross form. Other decoders were not searched.
+four exact decoder families: three coordinate families and the
+non-coordinate Schur pattern. Each was crossed with β = 0, the targeted
+chart, and 48 random cross-form pairs. The minimum cost found is 128, and
+the minimum Proposition D bound is also 128. This search is weak: 49 of
+the 50 forms already meet the Proposition B condition. The PROOF.md
+remark proves that the coordinate families cost ≥ 128 for every cross
+form. No other decoders were searched.
 
 ## Reproduce
 
@@ -74,8 +83,8 @@ python3 -I -O -B research/p112-batch-chart-change/verify.py
 ```
 
 Expected result: the command prints a JSON receipt and
-`receipt_sha256 e31f54d7482a12cd7e59ccf0f91539bb096f4973b947eb650666d7e88c047977`,
-then `PASS_P112_BATCH_CHART_CHANGE`. It takes about 16 s on one CPU and
+`receipt_sha256 69c25811d4c0efc989d07fecd1e3cf6afab0ec24c9a773e095e84973e97ccd46`,
+then `PASS_P112_BATCH_CHART_CHANGE`. It takes about 19 s on one CPU and
 needs well under 100 MB. Package metadata check:
 `python3 scripts/research_package.py --package research/p112-batch-chart-change --check-only`.
 
@@ -90,8 +99,8 @@ with rank 9, and `B = cᵀGc` holds on all 120² entries. The verifier
 rechecks the finite support premises: 503/8 rational ranks over all 511
 functionals, and all 64 common-chart pairs at rank 8.
 
-The verifier then checks the chart facts and four exact decoders by full
-all-pairs Gaussian-integer replay (200,704 entries). It prices them by
+The verifier then checks the chart facts and five exact decoders by full
+all-pairs Gaussian-integer replay (250,880 entries). It prices them by
 F2 ranks of union-support pairings in two independent ways: by the span
 basis in V⊕V, and by the direct single-V union matrix. It also checks that
 the chart model equals the cross-form model with
@@ -113,9 +122,11 @@ internal controls:
 7. A corrupted fixture cost, 127, is detected.
 
 On-disk mutation replays in a scratch tree also gave `FAIL`, while the
-unmutated scratch replay passed. The three mutations were:
+unmutated scratch replay passed. The four mutations were:
 
 - flipping a decoder sign, which fails with "one-cross decoder exact";
+- breaking the inverse M⁻¹ in the non-coordinate Schur decoder, which
+  fails with "generic Schur-pattern decoder exact";
 - changing the sample size, which fails with "receipt digest mismatch";
 - corrupting one reference-geometry row, which fails with
   "same live lines".
@@ -132,8 +143,9 @@ unmutated scratch replay passed. The three mutations were:
   are cited.
 - **Scope:** k = 2, C = I₂, call 1 fixed, and call 2 re-charted by φ ∈ O(V,b)
   with free conversions. Charging conversions could only raise costs.
-  The general cross-form statements are a sufficient condition plus the
-  β = 0 case; neither is an "iff".
+  The general cross-form statements are Proposition B, a sufficient
+  condition, and Proposition D, a lower bound with necessary conditions
+  for going below 128; neither is an "iff".
 - **Not covered:** general k, C ≠ I₂, outside-code overcomplete factors,
   masked identities, temporal relations, non-isometric charts in the
   single-V model, the exact minimum for arbitrary cross forms, and any
@@ -146,9 +158,11 @@ unmutated scratch replay passed. The three mutations were:
 
 1. **Is 128 the minimum for every general cross form?** This matters
    because a sub-128 form would locate the cross-call pairing a sharing
-   interface would need to realize. The first step is to search low-rank
-   cross forms (rank ≤ 3 on hyperplane pairs) against *non-coordinate*
-   decoders with mixed spans, using this verifier's exact pricing. The
+   interface would need to realize. Proposition D narrows the search to
+   decoders with pure terms in both directions and double terms whose
+   cross-form ranks exceed the pure payments. The first step is to search
+   low-rank cross forms (rank ≤ 3 on hyperplane pairs) against such
+   *non-coordinate* decoders, using this verifier's exact pricing. The
    blocker is the lack of a mechanism; any hit would be only a
    model-sharpness control until a legal, priced interface exists.
 2. **Does Theorem A extend to k ≥ 3?** This matters because batching more

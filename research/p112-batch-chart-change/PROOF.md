@@ -190,6 +190,39 @@ This is the "beta = 0 pitfall": the cheap-looking Schur pattern
 costs exactly `8 * 16 + 0 = 128`, because each both-call term costs 16.
 The verifier replays it exactly.
 
+**Proposition D (any cross forms; necessary conditions for going below
+128).** Call a non-pure term *double* if `a^0, c^0, a^1, c^1` are all
+nonzero. For such a term, let rho01_j be the rank of beta01 from the
+call-1 reader span to the call-2 source span. Let rho10_j be the rank of
+beta10 from the call-2 reader span to the call-1 source span. Then every
+exact k = 2 root-code factorization satisfies
+
+    total >= 128 - sum_{double j} min(8, rho01_j + rho10_j) + sum_{pure j} price_j.   (4)
+
+*Proof.* Let n_s count the terms with `a^s != 0 != c^s`. Diagonal block s
+of (0) is `I_8`, so `n_s >= 8`. Every non-pure term counts in n_0 or n_1,
+and the d double terms count in both. Hence the non-double non-pure terms
+number at least `16 - 2d`, and each costs at least 8 by (P).
+
+A double term's union matrix is `[[G00, B01], [B10, G11]]`. Here G00 and
+G11 are within-call blocks of rank at least 8 each. B01 and B10 are its
+cross blocks, of ranks rho01_j and rho10_j. Subadditivity of rank gives a
+price of at least `max(8, 16 - rho01_j - rho10_j)`. Summing,
+
+    total >= 8(16 - 2d) + sum_double max(8, 16 - rho01_j - rho10_j) + sum_pure,
+
+which is (4). QED
+
+Corollaries:
+
+* Proposition C is the case beta = 0, where every rho is 0.
+* A sub-128 decoder in any cross-form model needs two things. First,
+  `mu = min(r01, r10) >= 1`; otherwise (2) gives `|N| >= 16` and the
+  total is at least 128. Second, it needs double terms whose cross-form
+  ranks strictly exceed what the pure terms pay. In the verifier,
+  inequality (4) is checked on four exact families, 50 forms each. Its
+  minimum value is 128 there.
+
 **Remark (coordinate families, every cross form).** In the two-cross and
 Schur-pattern families, each both-call term pairs `H_p (+) H_q` with
 itself. G restricted to `H_p x H_p` is invertible by (P). The Schur
@@ -201,11 +234,19 @@ with all forms restricted to the relevant hyperplanes. The two pure terms
 on the same pair cost `rank beta01 + rank beta10`. Each such group
 therefore costs at least 16, and both families cost >= 128 for every
 cross form. In the one-cross family, mu = 0. Its cost is
-`128 + rank beta01|(H_p x H_q)`. The verifier checks this on beta = 0, the targeted chart
-and 48 seeded random cross-form pairs. All but beta = 0 meet the
-sufficient condition of Proposition B. That makes this a weak finite
-search; it does **not** show that every cross form, or every decoder,
-obeys the floor.
+`128 + rank beta01|(H_p x H_q)`.
+
+The verifier checks these families, plus a non-coordinate Schur pattern
+`[I;-I] M M^{-1} [I,-I]` with M upper-triangular all-ones, on three kinds
+of cross form:
+
+* beta = 0;
+* the targeted chart;
+* 48 seeded random cross-form pairs.
+
+All but beta = 0 meet the sufficient condition of Proposition B. That
+makes this a weak finite search; it does **not** show that every cross
+form, or every decoder, obeys the floor.
 
 ## 5. What is not proved
 

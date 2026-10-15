@@ -51,14 +51,14 @@
   "budget_minutes": 60,
   "stop_rule": "Stop at 2026-10-15T04:19:33Z; package the rank-7 finding plus the scoped bound if the proof is not checked, or an exact isometric-chart k=2 decoder of cost <= 127 if one appears. At most one evidence-driven pivot (none used).",
   "outcome": "negative-result",
-  "evidence": "verify.py (exact F2/integer/Gaussian-integer arithmetic): independent P112 construction cross-checked against research/p112-single-lift/reference-geometry.json; 511-functional support premise; all 255 isotropic transvections and a 162-chart fixed-seed sample of O(V,b); 1,600 direct pure-cross ranks; four exact all-pairs decoders (200,704 entries); cross-form model checks; seven negative controls. PROOF.md: Theorem A (isometric charts, min 128, equality only without pure cross terms), Proposition B (c01+c10>=8 sufficient), Proposition C (beta=0).",
+  "evidence": "verify.py (exact F2/integer/Gaussian-integer arithmetic): independent P112 construction cross-checked against research/p112-single-lift/reference-geometry.json; 511-functional support premise; all 255 isotropic transvections and a 162-chart fixed-seed sample of O(V,b); 1,600 direct pure-cross ranks; five exact all-pairs decoders (250,880 entries); cross-form model checks; seven negative controls. PROOF.md: Theorem A (isometric charts, min 128, equality only without pure cross terms), Proposition B (c01+c10>=8 sufficient), Proposition C (beta=0), Proposition D (any cross forms: total >= 128 - sum_double min(8, rho01+rho10) + sum_pure price; necessary conditions for sub-128).",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5): proof drafting, verifier code, controls and documentation, directed and submitted by thakrarsagar. Not human peer review or a formal proof.",
   "open_questions": [
     {
       "question": "Is the k=2 root-code minimum 128 for every general cross form (beta01, beta10) in the V(+)V model, or does some form admit an exact decoder of cost <= 127?",
       "why_it_matters": "Proposition B only covers c01+c10>=8 and beta=0; a sub-128 form would locate exactly which cross-call pairing a sharing interface must realize (and then price).",
-      "first_step": "Search low-rank cross forms (rank <= 3 on hyperplane pairs) against non-coordinate decoders with mixed hyperplane spans, replaying exact all-pairs identities with this verifier's pricing.",
+      "first_step": "Use Proposition D's necessary conditions (pure terms in both directions; double terms whose cross-form ranks exceed pure payments) to search low-rank cross forms against non-coordinate decoders with mixed spans, replaying exact all-pairs identities with this verifier's pricing.",
       "blocked_by": "No mechanism yet; any hit is a model-sharpness control only until a legal, priced cross-call delivery interface realizes the form."
     },
     {
