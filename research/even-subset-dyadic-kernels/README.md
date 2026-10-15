@@ -7,7 +7,7 @@ the kernel has unit diagonal and vanishes on forbidden distinct pairings.
 
 The explicit binomial-basis incidence factorization is dyadic. Every degree-j
 feature has support spanning exactly n-j binary coordinates. For(25,6),
-there are177100 ports and2625 features, with algebraic support-rank sum58100.
+there are 177100 ports and 2625 features, with algebraic support-rank sum 58100.
 That is an algebraic bound, not an admitted physical copy invoice.
 [PROOF.md](PROOF.md) proves the whole family and its support frames.
 
@@ -22,7 +22,7 @@ python3 scripts/research_package.py --package research/even-subset-dyadic-kernel
 Expected: `PASS_EVEN_SUBSET_DYADIC_KERNELS` and
 `PASS_REGISTERED_RESEARCH_PACKAGE`. The read-only verifier checks every
 ordered pair and every actual feature support in three complete small
-families;15 larger invoices; dyadic coefficients through k24; and three
+families;15 larger invoices; dyadic coefficients through k=24; and three
 mathematical failure controls. Checks remain active under Python optimization.
 No selected cold replay, physical supplier or hosted CI is claimed.
 

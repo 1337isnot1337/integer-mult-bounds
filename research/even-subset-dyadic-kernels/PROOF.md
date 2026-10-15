@@ -46,13 +46,13 @@ Thus the algebraic separate-encoder support-rank sum is
     C = sum_(j:c_j!=0) (n-j) binomial(n,j).
 
 No compiler or physical copy tree is inferred from that sum. At(n,k)=(25,6),
-V=177100, c_1=1/16,c_2=-1/8,c_3=1/8, there are2625 features and C=58100.
+V=177100, c_1=1/16,c_2=-1/8,c_3=1/8, there are 2625 features and C=58100.
 
 ## What the finite checks cover
 
 The exact receipt records every count. The verifier checks all ordered
 port pairs and every actual feature-support span for(9,4),(11,6),(11,8).
-It checks the complete interpolation at all possible intersections in15 larger
+It checks the complete interpolation at all possible intersections in 15 larger
 cases, plus dyadic coefficient controls through k=24. The proof above covers
 all admissible odd n and even k; the finite cases are regression evidence.
 Three explicit corruptions reject a wrong diagonal normalization, omission
