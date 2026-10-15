@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #654–#2257**, excluding prior same-head dispositions. Baseline `b5ea56e0a5ac4552166253b1fa4be0753bb38c30`. Complete Git differences determine changed-file coverage.
 
-**66 ready; 64 observed merged; 34 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**66 ready; 66 observed merged; 34 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -92,7 +92,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2162](https://github.com/CrocSwap/integer-mult-bounds/pull/2162) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2167](https://github.com/CrocSwap/integer-mult-bounds/pull/2167) | waynenilsen | Default replay omits the n=4 two-clean-ancilla census. Complete the declared full replay (approximately 2.7 hours) and retain its exact terminal digests before accepting the full stated scope. |
 | [#2168](https://github.com/CrocSwap/integer-mult-bounds/pull/2168) | dataisfire | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
-| [#2173](https://github.com/CrocSwap/integer-mult-bounds/pull/2173) | Gonzalo-Mier | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
+| [#2173](https://github.com/CrocSwap/integer-mult-bounds/pull/2173) | Gonzalo-Mier | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2180](https://github.com/CrocSwap/integer-mult-bounds/pull/2180) | dataisfire | Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes. |
 | [#2183](https://github.com/CrocSwap/integer-mult-bounds/pull/2183) | petalas | Resolve the documented replay entrypoint and exact mathematical scope. |
 | [#2184](https://github.com/CrocSwap/integer-mult-bounds/pull/2184) | dataisfire | Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes. |

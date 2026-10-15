@@ -10,3 +10,4 @@ PASS_P104_OPTIMISTIC_ROLE_THRESHOLDS appended_and_F9_profiles_agree selected_min
 PASS_P104_TERMINAL_FULL_CHART_FUSION_SCREEN targets=104 transport_rank_increase=104 adapter_rank_increase=104 added_rank_mass=208
 PASS_P104_TERMINAL_SOURCE_FRAME_DETOUR targets=104 exact_phase_checked=104 rank_mass_increase=208 profile_matches_direct_F9=True
 ['/tmp/pr-efficient200-venv/bin/python', '-B', 'research/p104-side-correction-rank-obstruction/verify_existing_delivery_span.py']
+PASS_P104_NO_FIXED_TRAJECTORY_SIDE_CORRECTION_DELIVERY targets=104 y_reads=0 span_ranks={74:12,75:24,76:32,77:24,78:12} target_carrier_span_ranks={177: 12, 178: 24, 179: 32, 180: 24, 181: 12} correction_rows_in_pooled_span=0 snapshot_word_adds=1352 corrected_rank_mass=2576 unit_rows_outside_spans=104

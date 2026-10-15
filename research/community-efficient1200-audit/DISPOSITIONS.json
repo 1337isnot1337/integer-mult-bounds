@@ -673,20 +673,24 @@
       },
       "reviewed_head": "05f7aad0f08992ee48ec2dd93e896d9a4567847d",
       "current_head": "05f7aad0f08992ee48ec2dd93e896d9a4567847d",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-interleaved-search"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "cf6b1cc6d201f4962db061eccbb7cd72ff850844",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2152"
+      },
       "scope": "Complete finite 735-column P104 forward fanout, native phase and 75,888 owner-placement certificates, with cheaper coalesced frames. Exact interval budgets reject the actual packing and a one-percent gain even under favorable relaxed packing; no global supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2152.json",
@@ -1093,20 +1097,24 @@
       },
       "reviewed_head": "a655734277aa5f2ad74bcba29e093f6dd3b84a68",
       "current_head": "a655734277aa5f2ad74bcba29e093f6dd3b84a68",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-delayed-precision"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "cf6b1cc6d201f4962db061eccbb7cd72ff850844",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2166"
+      },
       "scope": "Full signed-dyadic all-cut precision replay for the completed delayed-query word obtains P=131072, absolute defect coefficient 1394705 and weighted coefficient 2134050. The 39-bit feedback implication retains completed-child output-error hypotheses and does not replace production precision.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2166.json",
@@ -1320,7 +1328,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,

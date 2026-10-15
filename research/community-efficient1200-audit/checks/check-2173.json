@@ -20,11 +20,12 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 301.258,
-  "status": "budget_deferred",
+  "seconds": 627.443,
+  "status": "passed",
   "exit_codes": [
     0,
-    null
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -321,6 +322,8 @@
     "research/p104-native-channel/inputs/LOWRANK-WITNESS.json": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e",
     "research/p104-native-channel/inputs/P104-FIXTURE.json": "516c06f6ec3cb84be588c546108de897650288576dd5fbf5fe44b9c5546ad8a4"
   },
-  "log_sha256": "c4c94e947bddbc87ee0c4c9fea4f3baaf366d87be2e77e8350c4d5ab9273325e",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "f5520d2ac240dc9a181c2c72f146d04b1bc40bb4d6aa0a90e15bf4f1ec248a2d",
+  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification.",
+  "resumed_successful_prefix_commands": 1,
+  "original_receipt": "/tmp/pr-efficient1200/prior-revisions/long-replay-2173/check-2173.json"
 }
