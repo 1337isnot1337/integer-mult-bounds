@@ -233,10 +233,23 @@ Let D denote the serialized frozen/current directory volume. We have
 
     D=O_q(CH(h+1)(w+1)).
 
-The producer needs O_q(D) movement plus polynomial cardinality setup. It keeps
-one serialized old tuple, one fixed-dimensional high odometer, and separate
-binary counts. Computing CH costs O_q(w log(C+1)+w²); ripple counting costs
-O(CH+log(CH+1)). These counts do not share the residue arena's width.
+We keep one serialized old tuple, one fixed-dimensional high odometer, and
+separate binary counts. Computing CH, including a fresh copy of C, costs
+O_q(w³+w log(C+1)). Each of the m² calls to digit_suffix reconstructs the
+radix exponent with w full-width divisions; each division costs O_q(w²).
+The Natural multiplications alone account for O_q(w log(C+1)+w²).
+We correct the missing cubic term following ywz65's
+[PR2590 audit](https://github.com/CrocSwap/integer-mult-bounds/pull/2590),
+head `8803e0ced7d5cc8a6db1b11157742f70981f4f42`.
+
+Ripple counting costs O(CH+log(CH+1)). These counts do not share the residue
+arena's width. For canonical cardinality inputs, we can absorb the corrected
+setup into D: w²<=q^w<=qH and log2(C+1)<=C give
+w³+w log2(C+1)=O_q(CH(w+1))=O_q(D). The audit proves the complete producer's
+Theta_q(D) source-meter bound under that input contract. We charge disposal
+of the returned directory and Count separately. If an h countdown uses the
+root index-word extent, retain its scan cost until the root coupling bounds
+that extent by O(w).
 
 For the route, include the decoration and key movement:
 

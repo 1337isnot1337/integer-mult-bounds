@@ -17,6 +17,11 @@ root coupling, we obtain O_q(V) directory work and O_q(wV) routing. We include
 live directories in parking volume; earlier literal parking constants need
 corresponding directory terms.
 
+We incorporated ywz65's [PR2590 cost correction](https://github.com/CrocSwap/integer-mult-bounds/pull/2590):
+the unchanged exponent-reconstruction loops add a cubic setup term in w.
+We retain the final directory-volume bound under its stated input contract
+and the payload-volume implication under the original root coupling.
+
 ## Evidence and scope
 
 We execute these complete finite domains:

@@ -38,9 +38,11 @@ We distinguish the PR2473 audit of the
 unchanged PR2449 local ADD invoice under its callback tariff from this
 implementation; we do not adopt its numerical constant.
 commdata2338's PR2386/2399 sharpen request counts and completed leaf/header
-substitution. At publication, ywz65 is auditing PR2501's AtomSwap/Sign costs
-and ownership under a separate claim. We treat those pending results as
-provisional and retain the pinned dependency scope.
+substitution. We credit ywz65's completed PR2566 audit of PR2501's AtomSwap/Sign
+costs and ownership, and PR2590 for identifying the cubic exponent-reconstruction
+term omitted from our intermediate cardinality setup bill. We corrected that
+bill and retained the source and final volume bounds. We preserve the audit's
+canonical-input contract and its exclusion of returned directory/Count disposal.
 
 We claim no new multiplication exponent, selected-frontier change, full selected
 GL64 payload execution or new Lean verification.
