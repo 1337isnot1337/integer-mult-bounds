@@ -5,13 +5,42 @@
   "predecessor_pr": 2530,
   "predecessor_head": "b4012098048e12500b2d33d2e84be281915a27ac",
   "object": "The complete 422-helper source-partner word, its 74-replica diagonal order and fixed physical owner stock",
-  "question": "Can a bounded exact local repacking of complete helper roles concentrate residual ranks enough to strictly improve the predecessor's complete recursive moment?",
-  "scope_status": "refined",
-  "scope_change_reason": "The user explicitly requests a new kappa. This initially tests the predecessor's stated small fixed-word packing gap, rather than the catalogue's new-inventory mechanism gate. A construction is accepted only after literal role admission and the applicable complete native/global/outer replay.",
+  "question": "Can a half-step invocation priority change create a complete owner fill with a strictly improved recursive moment on the fixed PR2530 words?",
+  "scope_status": "changed",
+  "scope_change_reason": "Fixed-order local exchanges failed; a 42-order max-flow screen found a half-step stage-2 priority shift with zero rank-eight capacity loss, versus114 in the predecessor. The single bounded pivot changes chronology and rehosts all whole calls, with unchanged local words.",
   "method": "250 local whole-bin exchanges followed by one global restricted-pattern nomination with interval and max-flow cuts; exact literal admission and complete replay required",
-  "bounded_domain": "Local: 250 neighbourhoods of at most24 bins, three seconds each. Global: the16 source-supported patterns, fixed666-call chronology, at most25 cut rounds with12-second MIP nominations; no fixed-word optimality claim.",
+  "bounded_domain": "42 explicit diagonal/tie/half-stage order screens; realize the stage-2 plus-half priority order using16 pinned patterns and at most40 checkpointed interval/flow-cut feasibility rounds. No optimum claimed.",
   "success": "A literal feasible owner fill and strictly improved exact endpoint/outer kappa under unchanged local suppliers",
   "stop_rule": "About 60 minutes total, reserving the final quarter for verification; do not represent a search failure or floating-point nomination as a new bound",
-  "overlap": "PR2530 explicitly names residual concentration as an open next question. Full live overlap refresh running; this session claims no exclusive reservation or novelty from missing text matches.",
-  "credit": "zxv / PR2530 and Jeremy Kothe, Tekalign, Vlado Vojdanovski, Cinna Davis and the retained supplier/native/outer authors; new work with substantial OpenAI Codex assistance"
+  "overlap": "Full cached PR/discussion refresh completed earlier in the session; active discussions and the newest open PRs were checked again at the refresh checkpoint. PR2530 names diagonal order and residual concentration as an open question. PR2559 uses evacuation on a different local word. No missing text match is treated as proof of novelty.",
+  "credit": "zxv / PR2530 and Jeremy Kothe, Tekalign, Vlado Vojdanovski, Cinna Davis and the retained supplier/native/outer authors; new work with substantial OpenAI Codex assistance",
+  "outcome": "Literal witness and exact moment endpoint pass; full native/global/outer replay in progress",
+  "upstream_refresh": {
+    "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "checked_utc": "2026-10-15T14:39:20Z",
+    "decision": "Continue pinned PR2530 scientific baseline; canonical guidance unchanged; PR2559 improves lower PR2526 lineage and does not dominate PR2530."
+  },
+  "research_stop": "No additional search after the accepted timing nomination; continue only its verification and packaging",
+  "evidence": [
+    "evidence/CANDIDATE-FILL.json.gz",
+    "evidence/CANDIDATE-ORDER.json",
+    "evidence/OWNER-RESULT.json",
+    "evidence/PROFILE.json",
+    "evidence/MOMENT.json",
+    "evidence/ORDER-SCREEN.json"
+  ],
+  "open_next_questions": [
+    {
+      "question": "Does the stage-4 half-step order yield a better complete fill?",
+      "why_it_matters": "Its width-8 capacity screen is also lossless.",
+      "first_step": "Realize all five widths and check its literal profile.",
+      "blocked_by": "A complete physical allocation is missing."
+    },
+    {
+      "question": "Can exact residual concentration improve the stage-2 fill?",
+      "why_it_matters": "The current nomination is a restricted feasibility solution.",
+      "first_step": "Optimize the accepted pattern stock under fixed strict windows.",
+      "blocked_by": "Full physical realization and exact moment comparison are required."
+    }
+  ]
 }

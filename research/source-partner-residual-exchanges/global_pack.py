@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-# Nomination only; build.py independently verifies the emitted witness.
+# Nomination only; the immutable predecessor reconstruct.py checks the witness.
 from common import *
 from collections import Counter,defaultdict
 import numpy as np
@@ -17,7 +17,8 @@ baseline=json.loads((BASE/'baseline-packing.json').read_text());pats.update((r,t
 pats=sorted(pats);vars=[(g,p) for g in range(len(groups)) for p in range(len(pats)) if pats[p][0]==D['windows'][groups[g]][0]]
 vr=defaultdict(list)
 for i,(g,p) in enumerate(vars):vr[g].append((i,p))
-# Fix rank8 full. Feasible assignment must avoid overload on every interval.
+# Necessary interval and flow constraints prune nominations; realization and
+# the independent original literal checker remain mandatory acceptance gates.
 rr=[];cc=[];vv=[];lo=[];hi=[]
 def constraint(items,l,h):
  row=len(lo)
@@ -29,12 +30,23 @@ for j,w in enumerate(ws):constraint([(i,pats[p][1][j]) for i,(g,p) in enumerate(
 a=.0017137379215475043
 def phi(r):return r*math.expm1(-a*math.log(r))/a if r else 0.
 obj=np.array([phi(pats[p][2]) for g,p in vars]);cuts=set()
+base_score=sum(n*phi(baseline['patterns'][p][2]) for g,p,n in baseline['solution'])
+constraint(list(enumerate(obj)), -np.inf, base_score-0.01)
+checkpoint=BASE/'CUT-CHECKPOINT.json.gz'
+start_round=0
+if checkpoint.exists():
+ state=json.loads(gzip.decompress(checkpoint.read_bytes()));rr=state['rr'];cc=state['cc'];vv=state['vv'];lo=state['lo'];hi=state['hi'];cuts=set(map(tuple,state['cuts']));start_round=state['next_round']
+ print('RESUMED',start_round,'constraints',len(lo),flush=True)
+upper=np.array([112 if sum(pats[p][1])<=len(D['windows'][groups[g]][1]) else 0 for g,p in vars])
 # Also ensure each group/time never needs more than112 roles: cumulative all width interval Hall bound per physical family.
-for round in range(25):
+for round in range(start_round,40):
  mat=coo_matrix((vv,(rr,cc)),shape=(len(lo),len(vars))).tocsr()
- res=milp(obj,integrality=np.ones(len(vars)),bounds=Bounds(0,112),constraints=LinearConstraint(mat,lo,hi),options={'time_limit':12,'mip_rel_gap':0})
- print('ROUND',round,'status',res.status,'obj',res.fun,'vars',len(vars),'cuts',len(cuts),flush=True)
- if res.x is None:raise RuntimeError(res.message)
+ res=milp(np.zeros(len(vars)),integrality=np.ones(len(vars)),bounds=Bounds(0,upper),constraints=LinearConstraint(mat,lo,hi),options={'time_limit':30,'mip_rel_gap':0})
+ score=float(obj@res.x) if res.x is not None else None
+ print('ROUND',round,'status',res.status,'obj',score,'vars',len(vars),'cuts',len(cuts),flush=True)
+ if res.x is None:
+  (BASE/'STOP.json').write_text(json.dumps(dict(round=round,status=int(res.status),reason=res.message)))
+  print('STOP_NO_FEASIBLE_INCUMBENT',res.message,flush=True);break
  xx=np.rint(res.x).astype(int);counts=np.zeros((len(groups),len(ws)),dtype=int)
  for i,(g,p) in enumerate(vars):counts[g]+=xx[i]*np.array(pats[p][1])
  added=0
@@ -76,5 +88,6 @@ for round in range(25):
  for i,(g,p) in enumerate(vars):
   if xx[i] and pats[p][2]:histogram[pats[p][2]]+=int(xx[i])
  print('IDLE',dict(sorted(histogram.items())),flush=True)
- (BASE/'interval-packing-neworder.json').write_text(json.dumps(dict(groups=groups,patterns=pats,solution=[[g,p,int(xx[i])] for i,(g,p) in enumerate(vars) if xx[i]],counts=counts.tolist(),round=round,added=added,obj=res.fun)))
+ (BASE/'interval-packing-neworder.json').write_text(json.dumps(dict(groups=groups,patterns=pats,solution=[[g,p,int(xx[i])] for i,(g,p) in enumerate(vars) if xx[i]],counts=counts.tolist(),round=round,added=added,obj=score)))
+ checkpoint.write_bytes(gzip.compress(json.dumps(dict(rr=rr,cc=cc,vv=vv,lo=lo,hi=hi,cuts=list(cuts),next_round=round+1)).encode(),mtime=0))
  if not added:break
