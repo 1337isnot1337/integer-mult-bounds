@@ -738,6 +738,7 @@ Original contributor commits and predecessor notices are preserved. These are sc
 - **jerrylin-23** — [#2365](https://github.com/CrocSwap/integer-mult-bounds/pull/2365).
 - **RossRichardson** — [#2367](https://github.com/CrocSwap/integer-mult-bounds/pull/2367).
 - **starship-s** — [#2368](https://github.com/CrocSwap/integer-mult-bounds/pull/2368).
+- **yssite** — [#2377](https://github.com/CrocSwap/integer-mult-bounds/pull/2377).
 
 Pending contributors and their obligations are listed in the review. A hold is not a rejection.
 

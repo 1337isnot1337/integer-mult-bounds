@@ -286,7 +286,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Requested revision: rejection control catches its own identical-output failure; production rewrite breaks executable historical source pins. Preserve historical baselines and demonstrate affected replays.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -297,7 +297,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2263.json"
+        "research/community-efficient1300-audit/packets/2263.json",
+        "research/community-efficient1300-audit/checks/check-2263.json"
       ]
     },
     {
@@ -646,7 +647,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Requested revision: production mutants rewrite breaks the historical RREF adapter input pin; preserve executable historical baseline and replay affected consumers with #2263.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -657,7 +658,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2276.json"
+        "research/community-efficient1300-audit/packets/2276.json",
+        "research/community-efficient1300-audit/checks/check-2276.json"
       ]
     },
     {
@@ -679,7 +681,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -690,7 +692,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2277.json"
+        "research/community-efficient1300-audit/packets/2277.json",
+        "research/community-efficient1300-audit/checks/check-2277.json"
       ]
     },
     {
@@ -1982,7 +1985,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1993,7 +1996,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2320.json"
+        "research/community-efficient1300-audit/packets/2320.json",
+        "research/community-efficient1300-audit/checks/check-2320.json"
       ]
     },
     {
@@ -2288,7 +2292,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Requested revision: executed Clifford oracle is demoted from source input to provenance, and kernel-drift test redirected to README. Preserve pinned runtime source and prior control coverage.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2299,7 +2303,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2329.json"
+        "research/community-efficient1300-audit/packets/2329.json",
+        "research/community-efficient1300-audit/checks/check-2329.json"
       ]
     },
     {
@@ -2554,7 +2559,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2565,7 +2570,9 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2338.json"
+        "research/community-efficient1300-audit/packets/2338.json",
+        "research/community-efficient1300-audit/checks/check-2338-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2338.json"
       ]
     },
     {
@@ -3010,7 +3017,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2351.json"
+        "research/community-efficient1300-audit/packets/2351.json",
+        "research/community-efficient1300-audit/checks/check-2351.json"
       ]
     },
     {
@@ -3346,7 +3354,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3357,7 +3365,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2361.json"
+        "research/community-efficient1300-audit/packets/2361.json",
+        "research/community-efficient1300-audit/checks/check-2361.json"
       ]
     },
     {
@@ -3677,20 +3686,24 @@
       },
       "reviewed_head": "157143ab500812dd16cf50d12c1e5749bd6ea482",
       "current_head": "157143ab500812dd16cf50d12c1e5749bd6ea482",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "936fac15b1b1b59dc5285c713a77f9f3c07b2906",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2376"
+      },
       "scope": "Six-contract QQ16 navigation map distinguishing witness separation, intermediate-cut recovery and final-record obstruction. Complete text and pinned source links reviewed, including the 252-pair fork catalogue. Historical pending labels describe the author checkpoint; #1969/#2079/#2093/#2174/#2346 are now incorporated. Author replay claims remain attributed, not new maintainer executions; no completed supplier or exponent change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2376.json",
@@ -3715,19 +3728,24 @@
       "current_head": "5d444eee7dedd997c6094776fbb32ed19831e241",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Linux process-tree tests require a live Linux runner; macOS skips are not acceptance evidence.",
+      "integration_location": [
+        "docs/research",
+        "scripts/research_package.py",
+        "tests/test_research_process_tree.py"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "yssite's process-group cleanup fix, building on Paul Romeo's runner: reviewed all success, error, timeout and interruption paths and explicit Windows/detached-session limits. Both normal and optimized portable suites pass (62 executed cases each); all seven original process-tree scenarios pass with a documented native macOS observation adapter and unchanged production code. The original runner fails exactly the three newly fixed lifetime cases. Linux-only skips are not counted as execution; no maintainer Linux replay claimed. Verification commands must still await proof-relevant children and propagate their failures.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2377.json",
+        "research/community-efficient1300-audit/checks/check-2377-supplement.json",
         "research/community-efficient1300-audit/checks/check-2377.json"
       ]
     }

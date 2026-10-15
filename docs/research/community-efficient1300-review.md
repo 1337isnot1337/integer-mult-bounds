@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1175–#2377**, excluding prior same-head dispositions. Baseline `7b39515117fe26e75d16c268877391f1bdaa5640`. Complete Git differences determine changed-file coverage.
 
-**61 ready; 60 observed merged; 39 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**62 ready; 61 observed merged; 38 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -71,6 +71,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2368](https://github.com/CrocSwap/integer-mult-bounds/pull/2368) | starship-s | starship-s's QQ16 obstruction after an invertible paired A-to-T shear even with the dense initial B0 ordinary record. Reviewed ordered logger/shear equations and graph intersection with the actual three-query image: at least ceil(32N/7) original selected dimensions remain invisible. The verifier binds actual forward/backward routes, Gram/trace premises and arbitrary-formal-h retained tail; noncommuting rational fixtures and six controls pass. Transient F0 records, later ordinary reads, feedback into ordinary state and different dense observations are excluded. Native pricing and supplier admission are not claimed. |
 | [#2373](https://github.com/CrocSwap/integer-mult-bounds/pull/2373) | bitplane | Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed the complete payload and all 661 dirty columns in both directions, with literal COPY restoration and unchanged MOVE paths. Newly compiled legality and 5/9/11-stage engines pass all formal columns and 96 bridge plus five native controls. Complete binary-record binding catches phase relabeling that the mathematical engines intentionally ignore. Reviewed read-only relocation tests and a limited read-permission Linux workflow; maintainer execution was macOS, not hosted Linux. Old H2/K/H5 flags remain false; global hosting, replacement-contract admission and kappa remain separate, with circuit/compiler lineage credited. |
 | [#2376](https://github.com/CrocSwap/integer-mult-bounds/pull/2376) | commdata2338 | Six-contract QQ16 navigation map distinguishing witness separation, intermediate-cut recovery and final-record obstruction. Complete text and pinned source links reviewed, including the 252-pair fork catalogue. Historical pending labels describe the author checkpoint; #1969/#2079/#2093/#2174/#2346 are now incorporated. Author replay claims remain attributed, not new maintainer executions; no completed supplier or exponent change. |
+| [#2377](https://github.com/CrocSwap/integer-mult-bounds/pull/2377) | yssite | yssite's process-group cleanup fix, building on Paul Romeo's runner: reviewed all success, error, timeout and interruption paths and explicit Windows/detached-session limits. Both normal and optimized portable suites pass (62 executed cases each); all seven original process-tree scenarios pass with a documented native macOS observation adapter and unchanged production code. The original runner fails exactly the three newly fixed lifetime cases. Linux-only skips are not counted as execution; no maintainer Linux replay claimed. Verification commands must still await proof-relevant children and propagate their failures. |
 
 ## Remaining review
 
@@ -78,14 +79,14 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | --- | --- | --- |
 | [#1175](https://github.com/CrocSwap/integer-mult-bounds/pull/1175) | gvconly | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2260](https://github.com/CrocSwap/integer-mult-bounds/pull/2260) | Dugongue | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2263](https://github.com/CrocSwap/integer-mult-bounds/pull/2263) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2263](https://github.com/CrocSwap/integer-mult-bounds/pull/2263) | VictorLiwentao | Requested revision: rejection control catches its own identical-output failure; production rewrite breaks executable historical source pins. Preserve historical baselines and demonstrate affected replays. |
 | [#2265](https://github.com/CrocSwap/integer-mult-bounds/pull/2265) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2267](https://github.com/CrocSwap/integer-mult-bounds/pull/2267) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2268](https://github.com/CrocSwap/integer-mult-bounds/pull/2268) | 1337isnot1337 | The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred. |
 | [#2269](https://github.com/CrocSwap/integer-mult-bounds/pull/2269) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2274](https://github.com/CrocSwap/integer-mult-bounds/pull/2274) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2276](https://github.com/CrocSwap/integer-mult-bounds/pull/2276) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2277](https://github.com/CrocSwap/integer-mult-bounds/pull/2277) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2276](https://github.com/CrocSwap/integer-mult-bounds/pull/2276) | VictorLiwentao | Requested revision: production mutants rewrite breaks the historical RREF adapter input pin; preserve executable historical baseline and replay affected consumers with #2263. |
+| [#2277](https://github.com/CrocSwap/integer-mult-bounds/pull/2277) | DreamingOfClouds | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
 | [#2281](https://github.com/CrocSwap/integer-mult-bounds/pull/2281) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2284](https://github.com/CrocSwap/integer-mult-bounds/pull/2284) | Dugongue | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2286](https://github.com/CrocSwap/integer-mult-bounds/pull/2286) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
@@ -99,22 +100,21 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2311](https://github.com/CrocSwap/integer-mult-bounds/pull/2311) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2312](https://github.com/CrocSwap/integer-mult-bounds/pull/2312) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2315](https://github.com/CrocSwap/integer-mult-bounds/pull/2315) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2320](https://github.com/CrocSwap/integer-mult-bounds/pull/2320) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2320](https://github.com/CrocSwap/integer-mult-bounds/pull/2320) | VictorLiwentao | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
 | [#2322](https://github.com/CrocSwap/integer-mult-bounds/pull/2322) | Vlado-V | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2329](https://github.com/CrocSwap/integer-mult-bounds/pull/2329) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2329](https://github.com/CrocSwap/integer-mult-bounds/pull/2329) | VictorLiwentao | Requested revision: executed Clifford oracle is demoted from source input to provenance, and kernel-drift test redirected to README. Preserve pinned runtime source and prior control coverage. |
 | [#2336](https://github.com/CrocSwap/integer-mult-bounds/pull/2336) | antunishdPursuit | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338) | DreamingOfClouds | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2339](https://github.com/CrocSwap/integer-mult-bounds/pull/2339) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2341](https://github.com/CrocSwap/integer-mult-bounds/pull/2341) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2348](https://github.com/CrocSwap/integer-mult-bounds/pull/2348) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2349](https://github.com/CrocSwap/integer-mult-bounds/pull/2349) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2351](https://github.com/CrocSwap/integer-mult-bounds/pull/2351) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2357](https://github.com/CrocSwap/integer-mult-bounds/pull/2357) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2361](https://github.com/CrocSwap/integer-mult-bounds/pull/2361) | thakrarsagar | Resolve the documented replay entrypoint and exact mathematical scope. |
+| [#2361](https://github.com/CrocSwap/integer-mult-bounds/pull/2361) | thakrarsagar | The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred. |
 | [#2363](https://github.com/CrocSwap/integer-mult-bounds/pull/2363) | mason-hale | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2374](https://github.com/CrocSwap/integer-mult-bounds/pull/2374) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2375](https://github.com/CrocSwap/integer-mult-bounds/pull/2375) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2377](https://github.com/CrocSwap/integer-mult-bounds/pull/2377) | yssite | Linux process-tree tests require a live Linux runner; macOS skips are not acceptance evidence. |
 
 ## Evidence and limits
 

@@ -89,5 +89,19 @@
     "original_sha256": "f3d7b48df3996f784cb13d6bb4786b8b04107680f05d90e5f3b4ed75ba99b119",
     "resolved_sha256": "8170d0fa25d93437dbfcf0426c136020d2f83efa4831e77773d7607e62dc62fb",
     "reason": "Add explicit maintainer general-rank proof supplement resolving historical general-t/dirty-extra questions; finite census and code unchanged."
+  },
+  {
+    "number": 2376,
+    "path": "docs/research/bottleneck-brief.md",
+    "original_sha256": "58b7927b4a4ae99f2e1714c68d5bef4467973e4258e051148b5b858dfbad720b",
+    "resolved_sha256": "88fd63f43163334da00009353de6c586cbff6f93eda084aa6022055cad1e4571",
+    "reason": "Preserve the newer revision-5 research direction while adding the scoped QQ16 navigation link."
+  },
+  {
+    "number": 2376,
+    "path": "docs/research/qq16-controller-scope-map.md",
+    "original_sha256": "a52695808567a0786cf0c2fc256f5d67b94ebc443d82138a3d45afa2ffd42a71",
+    "resolved_sha256": "0d2b0f0203001afa85785b5113281fc413e0e926e8e05e5bbec59ee7bee7629f",
+    "reason": "Clarify incorporated research status while preserving dated original source/replay statements and credit."
   }
 ]

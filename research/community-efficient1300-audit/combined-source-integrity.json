@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "6b6b3ab304ca60eab7493e73f264fd23c146be4c",
+  "checked_commit": "936fac15b1b1b59dc5285c713a77f9f3c07b2906",
   "merged_prs": [
     1763,
     2046,
@@ -61,9 +61,10 @@
     2365,
     2367,
     2368,
-    2373
+    2373,
+    2376
   ],
-  "changed_files": 568,
+  "changed_files": 570,
   "resolved_files": [
     {
       "number": 2259,
@@ -129,6 +130,16 @@
       "number": 1763,
       "path": "research/even-target-cnot-census/README.md",
       "sha256": "8170d0fa25d93437dbfcf0426c136020d2f83efa4831e77773d7607e62dc62fb"
+    },
+    {
+      "number": 2376,
+      "path": "docs/research/bottleneck-brief.md",
+      "sha256": "88fd63f43163334da00009353de6c586cbff6f93eda084aa6022055cad1e4571"
+    },
+    {
+      "number": 2376,
+      "path": "docs/research/qq16-controller-scope-map.md",
+      "sha256": "0d2b0f0203001afa85785b5113281fc413e0e926e8e05e5bbec59ee7bee7629f"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
