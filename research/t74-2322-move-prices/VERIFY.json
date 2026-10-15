@@ -25,6 +25,17 @@
       ],
       "timeout_seconds": 300,
       "checks": "Separate implementation: both providers' profiles equal the reports; exact PR2312->PR2322 change set; 33 (1,1,1,1) helpers and 12 free (5,1,1,1) X registers. Expect PASS_T74_INDEPENDENT_RECOUNT."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/merge_mechanism.py",
+        "--fetch"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Mechanism of the 26 PR2339 target merges (both providers), frame-0 lender census on the PR2322 words, and LP prices of lender take-over variants. Expect PASS_T74_MERGE_MECHANISM."
     }
   ]
 }

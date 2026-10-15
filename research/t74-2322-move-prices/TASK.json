@@ -50,7 +50,7 @@
   "budget_minutes": 90,
   "stop_rule": "Stop after the certified cap, exact decomposition of the two realized changes, prices of four move types, an independent recount and the site census; no handoff construction in this session.",
   "outcome": "completed",
-  "evidence": "move_prices.py: per-register recount of 8 pinned words (each equal to its reported profile and inventory), exact decompositions PR2312->PR2322 and PR2269->PR2339, LP prices, calibration (LP +1.96e-7 vs realized +1.69e-7), certified cap b < 0.001697195759 for every legal whole-helper fill of the PR2322 words (PR2374 not rejected). independent_recount.py (separate implementation by an AI reviewer subagent) reproduces profiles, the change set and the site lists.",
+  "evidence": "move_prices.py: per-register recount of 8 pinned words (each equal to its reported profile and inventory), exact decompositions PR2312->PR2322 and PR2269->PR2339, LP prices, calibration (LP +1.96e-7 vs realized +1.69e-7), certified cap b < 0.001697195759 for every legal whole-helper fill of the PR2322 words (PR2374 not rejected). independent_recount.py (separate implementation by an AI reviewer subagent) reproduces profiles, the change set and the site lists. merge_mechanism.py: all 26 PR2339 target merges come from removed helpers' early gates replaced by frame-0 initial corrections; frame-0 lender census {4:32, 7:8, 8:8, 9:240}; rank-zero aliases lose even with merge credit; higher-rank take-overs priced.",
   "author": "Sagar Thakrar",
   "ai_assistance": "Prepared with substantial AI assistance: Claude Code (Anthropic, Claude Opus 5.5) wrote move_prices.py and this text; a separate Claude subagent wrote independent_recount.py from a plain-language rule statement without access to the package code. No independent human review is claimed.",
   "open_questions": [
@@ -61,10 +61,10 @@
       "blocked_by": "PR2374 dropped alias 653 when moving 651 to lender 530; lender/lifetime conflicts are unchecked here."
     },
     {
-      "question": "Can the 26 (1,1)->(2) target-climb merges that accompany PR2339's low aliases be obtained without the width-9 low-lender inventory change?",
-      "why_it_matters": "On their own they are worth +2.94e-6 on the PR2322 words, far above any remaining owner-fill gain, while the low-alias inventory change is what makes PR2339 lose.",
-      "first_step": "Diff the B-gate frames on those 26 targets between the PR2269 and PR2339 words to see whether the merge comes from the anticipatory initial corrections or from the removed helpers.",
-      "blocked_by": "PR1995/PR2013 bound frame freedom within a fixed scalar word; a changed premise (anticipatory corrections) is needed and its native lowering (PR2394) is only partly done."
+      "question": "Can a frame-0 lender ending at dimension 7 or 8 take over a removed width-8 helper's role (higher-rank handoff), with the role's gate frames raised to contain the lender's frame?",
+      "why_it_matters": "Rank-zero anticipatory aliases (width-4 -> 9 lenders) lose even with the target merges credited; the 16 frame-0 lenders ending at dimension 7-8 are priced at up to +1.43e-6 per take-over on the PR2322 words before frame-raising costs.",
+      "first_step": "Build one such word with the PR2339 builder relaxing its condition (d), then recount it with move_prices.py's recount to price the actual reshape of the role and its partners.",
+      "blocked_by": "The handoff is outside the rank-zero K_G contract of PR2226/PR2339; legality, frame raising and native lowering are unproven."
     },
     {
       "question": "Which other (lender shape, partner shape) handoff patterns occurring in the PR2322 words have positive prices?",

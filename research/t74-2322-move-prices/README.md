@@ -74,6 +74,45 @@ If each extra handoff reproduced PR2322's reshapes, k handoffs would add k × 4.
 lender count. Whether any of them admits a coherent rank-zero handoff (frame availability, lifetimes,
 warp images, native lowering) is **not checked here**.
 
+## Follow-up: where the target merges come from (`merge_mechanism.py`)
+
+**Mechanism.** Checked on all 26 merged targets in both providers:
+
+- In the PR2269 words each merged target climbs through exactly one intermediate frame that the PR2339
+  words skip. For example, target 114 goes through dims [1,2,6,7,8] in PR2269 and [2,6,7,8] in PR2339.
+- Every gate on the target at that skipped frame comes from a helper that PR2339 removes (608/609/610/612
+  for target 114).
+- Each merged target receives PR2339's anticipatory initial corrections, which run at frame 0 and pay
+  nothing. In all, 26 of the 32 corrected targets merge.
+
+So a merge is the removed helper's early interaction, replaced by a free frame-0 correction from a frame-0
+lender.
+
+**Lenders.** A frame-0 lender that takes over a FULL-ending role must climb to FULL (dimension 9 = H).
+Its width therefore becomes 9, and widths can never exceed 9.
+
+On the PR2322 words, the frame-0 helpers end at dimensions {4: 32, 7: 8, 8: 8, 9: 240}. The 32 that end
+at dimension 4 are exactly the PR2226 lenders 273..394, which are PR2339's lenders. The 8 + 8 that end at
+7 or 8 would hand off at dimension 7–8 into first frames of dimension 4–5. PR2339's handoff screen found
+that this fails the rank-zero condition; that finding is inherited here, not re-proved.
+
+Prices on the PR2322 words (LP-ceiling differences):
+
+| lender take-over | status | db per alias | with one merge credited |
+|---|---|---|---|
+| width-4 → 9 (PR2339 pattern) | rank-zero, realizable | −1.91e-7 | −7.8e-8 |
+| width-5 → 9 | no such frame-0 lender | −1.91e-7 | −7.8e-8 |
+| width-7 (end dim 7) → 9 | outside rank-zero | +8.5e-7 | +9.6e-7 |
+| width-8 (end dim 8) → 9 | outside rank-zero | **+1.43e-6** | +1.54e-6 |
+
+**Answer to the second open question.** Under rank-zero anticipatory borrowing, the target merges come
+only with the width-4 → 9 lender change, and every such alias loses even with a full merge credited. The
+merges cannot be separated from that change by choosing a different lender. The positive rows are a price
+tag on a *changed handoff premise*: lenders ending at dimension 7–8, with 16 frame-0 candidates
+(572–575, 580–583, 311, 327, 498, 500, 501, 510, 512, 513). Those prices are optimistic. They omit any
+cost of raising the borrowed role's gate frames to contain the lender's frame, which also moves partner
+climbs.
+
 ## Reproduce
 
 From the repository root, standard library only:
@@ -81,6 +120,7 @@ From the repository root, standard library only:
 ```sh
 python3 -I -B research/t74-2322-move-prices/move_prices.py --fetch          # ~16 s
 python3 -I -B research/t74-2322-move-prices/independent_recount.py          # ~10 s
+python3 -I -B research/t74-2322-move-prices/merge_mechanism.py              # ~11 s
 ```
 
 `--fetch` fetches `refs/pull/{2312,2322,2269,2339}/head` from the canonical repository if the pinned
@@ -90,6 +130,7 @@ is blob- and sha256-pinned.
 Expected final lines:
 - `PASS_T74_MOVE_PRICES cap=0.001697195759 handoff_db=+4.272e-08 low_alias_db=-1.906e-07 high_alias_net=0 sites=33/12`
 - `PASS_T74_INDEPENDENT_RECOUNT`
+- `PASS_T74_MERGE_MECHANISM merged=26 lenders_end4=32 pr2339_alias_db=-7.792e-08 takeover8_db=+1.427e-06`
 
 `vendor/pr2387/` holds byte copies of this author's PR2387 `ceiling_lp.py` and `fill_check80.py` and the
 iteration-3 enclosure code, all pinned. `move_prices.py` patches one line of `local_recount` at load time,
@@ -115,12 +156,12 @@ This is a pricing screen on fixed, pinned words:
   register, with partners 648/649/650/652? The first step is to rerun PR2322's handoff generator with
   653 as the target role. Its price is +4.27e-8. PR2374 dropped alias 653, so its lender conflict is the
   blocker to check.
-- **Target merges without low aliases.** The +2.94e-6 from the 26 (1,1)→(2) target merges dwarfs the
-  owner-fill race. Can those merges be obtained without the width-9 low-lender inventory change? The
-  first step is to identify which B-gate frames changed on those targets in the PR2339 words, and
-  whether the anticipatory initial corrections (PR2394 lowers their prefix natively) can be kept with
-  the original helpers. Note that #1995/#2013 bound frame freedom inside a fixed scalar word, so this
-  needs a changed premise.
+- **Higher-rank lender take-over.** *(This replaces the earlier "target merges without low aliases"
+  question; the answer above closes it for rank-zero borrowing.)* Can a lender that ends at dimension 7
+  or 8 take over a removed width-8 helper's role if the role's gate frames are raised to contain the
+  lender's frame? There are 16 frame-0 candidates on the PR2322 words, priced at up to +1.43e-6 each
+  before frame-raising costs. The first step is to build one such word with the PR2339 builder,
+  relaxing condition (d), then recount it with `move_prices.py`'s recount to get the real reshape cost.
 - **More handoff patterns.** Which X shapes other than (5,1,1,1), and which partner shapes, give
   positive prices? The first step is to tabulate prices for every (lender shape, partner shape) pair
   that occurs in the words.
