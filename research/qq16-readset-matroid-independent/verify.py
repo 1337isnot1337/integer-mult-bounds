@@ -66,6 +66,18 @@ CLAIMS = {
 }
 
 
+# PR2384 (commdata2338, head b9ef408b1cb0fcd34ab1f1bdbe645573d5de188f): a
+# second-chart-axis hidden input on the unread ports.  Only its finite source
+# facts are rechecked here; its zero-observation proof is inherited.
+WITNESS_2384 = {
+    "ports": [44, 49, 58, 70],
+    "coefficients": [-1, -1, -1, 1],
+    "chart_axis_index": 1,
+    "axes": [25, 145, 4, 4],
+    "B0h_identity_owner": [-1, 0, -1, 0, 0, -1, 0, -1],
+}
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -236,7 +248,7 @@ def dot(u, v):
 
 
 # --------------------------------------------------------------- the check
-def compute(packet, phases):
+def compute(packet, phases, witness_2384=WITNESS_2384):
     A, T, U, R, axes, owners = parse(packet, phases)
     col = {p: [R[k][p] for k in range(8)] for p in range(112)}
 
@@ -270,7 +282,7 @@ def compute(packet, phases):
     for v in K:
         require(all(x == 0 for x in matvec(RC, v)), "kernel vector")
     support = sorted(C[j] for j in range(len(C)) if any(v[j] != 0 for v in K))
-    witness = {str(C[j]): next(i for i, v in enumerate(K) if v[j] != 0)
+    nuisance = {str(C[j]): next(i for i, v in enumerate(K) if v[j] != 0)
                for j in range(len(C)) if C[j] in support}
     coloops = sorted(set(C) - set(support))
     for q in coloops:
@@ -347,7 +359,26 @@ def compute(packet, phases):
     # ker(H|V) = ker L = K and rank(H|V) = dim V - dim K on the whole owner set.
     rank_H_V = dim_V - len(K) if independent else None
 
+    # (e) PR2384's witness against the classification (PR2389 open question 1)
+    wit = witness_2384
+    w_axes = [phases["recipes"][p]["idle_children"][0]["orthogonal_axes"][wit["chart_axis_index"]]
+              for p in wit["ports"]]
+    w_relation = [sum(R[k][p] * x for p, x in zip(wit["ports"], wit["coefficients"]))
+                  for k in range(8)]
+    w_b0_identity = [sum(R[k][p] * x * (b & 1) for p, x, b in
+                         zip(wit["ports"], wit["coefficients"], w_axes)) for k in range(8)]
+    w_hits = sorted({p for S in optimal_sets for p in S} & set(wit["ports"]))
+    witness = {
+        "ports": wit["ports"],
+        "axes_from_source": w_axes,
+        "column_relation": w_relation,
+        "B0h_identity_owner": w_b0_identity,
+        "support_within_nuisance": set(wit["ports"]) <= set(support),
+        "optimal_sets_reading_support": w_hits,
+    }
+
     return {
+        "pr2384_witness_check": witness,
         "ordinary_gram_is_48I": gram(U) == scalar(48),
         "selected_gram_is_4I": gram(A) == scalar(4),
         "rank_R_U": rank_RU,
@@ -360,7 +391,7 @@ def compute(packet, phases):
         "unread_group_rank": rank_RC,
         "K_dimension": len(K),
         "nuisance_coordinates": support,
-        "nuisance_witness_kernel_basis_index": witness,
+        "nuisance_witness_kernel_basis_index": nuisance,
         "coloop_ports": coloops,
         "eligible_ports": candidates,
         "complement_ranks": {str(x): ranks[x] for x in candidates},
@@ -423,6 +454,13 @@ def check(res, claims=CLAIMS):
     require(len(nonzero) == claims["port77_swap_count"], "nonzero alpha count")
     require(sorted(int(p) for p in nonzero) == sorted(res["port77_swaps"]),
             "swap set equals support of the relation")
+    w = res["pr2384_witness_check"]
+    require(w["support_within_nuisance"] and not w["optimal_sets_reading_support"],
+            "PR2384 witness unread by all optimal sets")
+    require(w["axes_from_source"] == WITNESS_2384["axes"], "PR2384 second-axis source binding")
+    require(all(x == 0 for x in w["column_relation"]), "PR2384 column relation sum r_p c_p = 0")
+    require(w["B0h_identity_owner"] == WITNESS_2384["B0h_identity_owner"]
+            and any(w["B0h_identity_owner"]), "PR2384 nonzero target at identity owner")
     # checked last so that perturbation controls report a semantic failure first
     require(res["registered_routes_checked"] == 96 * 8, "registered common-axis route binding")
     require(res["ordinary_gram_is_48I"] and res["selected_gram_is_4I"], "Gram identities")
@@ -434,8 +472,9 @@ def controls(packet, phases):
 
     def reject(name, make):
         try:
-            p2, ph2, cl2 = make()
-            check(compute(p2, ph2), cl2)
+            made = make()
+            p2, ph2, cl2 = made[:3]
+            check(compute(p2, ph2, *made[3:]), cl2)
         except (ValueError, TypeError, ZeroDivisionError) as exc:
             names[name] = "%s: %s" % (type(exc).__name__, exc)
             return
@@ -477,6 +516,16 @@ def controls(packet, phases):
         ("omission 77 replaced by 76",
          {"optimal_omissions": sorted([p for p in CLAIMS["optimal_omissions"] if p != 77] + [76])}),
     ]
+    def witness_moved():
+        moved = dict(WITNESS_2384, ports=[44, 49, 58, 1])
+        return packet, phases, CLAIMS, moved
+
+    def witness_sign():
+        flipped = dict(WITNESS_2384, coefficients=[-1, -1, -1, -1])
+        return packet, phases, CLAIMS, flipped
+
+    reject("PR2384 witness port 70 moved to mandatory port 1", witness_moved)
+    reject("PR2384 witness coefficient sign flipped", witness_sign)
     reject("perturbed R entry (row 0, port 1)", perturbed_R)
     reject("perturbed R entry (row 3, port 77), Gram-only detection", perturbed_R_gram_only)
     reject("swapped first axes of ports 77 and 6", swapped_axis)
@@ -497,7 +546,9 @@ def receipt():
         "status": "PASS_QQ16_READSET_INDEPENDENT",
         "source_sha256": dict(PINS, **{ARCHIVE + "!" + MEMBER: MEMBER_SHA256}),
         "audited_heads": {"PR2389": "aed06c8f8d60ce97b7eb3a7c6c17ad12cbe1e863",
-                          "PR2354": "308ebc7405303bb7ed91b012bb705949c6091a16"},
+                          "PR2354": "308ebc7405303bb7ed91b012bb705949c6091a16",
+                          "PR2384": "b9ef408b1cb0fcd34ab1f1bdbe645573d5de188f"},
+        "pr2384_witness_claim": WITNESS_2384,
         "claims_compared": CLAIMS,
         "computed": res,
         "rejected_controls": ctl,
@@ -520,10 +571,13 @@ def main(argv=None):
         require(stored == text, "RESULT.json differs from fresh replay")
     r = rec["computed"]
     print("PASS_QQ16_READSET_INDEPENDENT rank_H_V=%d optimal_sets=%d mandatory=%d "
-          "nuisance=%d swaps77=%d owner_minor=%dx%d controls=%d no_new_kappa"
+          "nuisance=%d swaps77=%d owner_minor=%dx%d pr2384_witness_unread_by_all=%s "
+          "controls=%d no_new_kappa"
           % (r["H_on_V_rank"], r["optimal_read_set_count"], len(r["mandatory_ports"]),
              len(r["nuisance_coordinates"]), len(r["port77_swaps"]),
-             len(r["owner_minor_rows"]), len(r["owner_axes"]), len(rec["rejected_controls"])))
+             len(r["owner_minor_rows"]), len(r["owner_axes"]),
+             not r["pr2384_witness_check"]["optimal_sets_reading_support"],
+             len(rec["rejected_controls"])))
 
 
 if __name__ == "__main__":

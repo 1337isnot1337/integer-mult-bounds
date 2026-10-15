@@ -10,7 +10,12 @@ This package rechecks the finite claims of
 hidden-input family. It reads only main's pinned sources and uses different
 methods from both PRs. Every compared claim is reproduced and **no discrepancy
 was found**. The package also contains a written audit of PR2389's adaptive
-transcript-fiber argument (section 4).
+transcript-fiber argument (section 4). Section 5 records one consequence, which
+is conditional on PR2384. PR2384's second-axis witness lies inside the 29
+nuisance ports, so **none of the 45 optimal sets reads it**. If PR2384's
+zero-observation proof holds, an adaptive reader that is exact on both hidden
+families needs at least 67 reads on every path. That is a partial answer to
+PR2389's open question 1.
 
 | claim (source) | this check |
 |---|---|
@@ -22,6 +27,7 @@ transcript-fiber argument (section 4).
 | 29 nuisance coordinates C - {77}; 77 is the only coloop of R_C | reproduced |
 | port 77 swaps for exactly 44 ports; the 45 omissions listed in PR2389 RESULT | reproduced (same list) |
 | dual vector w = (-1,0,1,0,1,0,1,0) up to sign, w r_77 = -4, alpha_p in {±1/2} on 44 ports | reproduced |
+| PR2384 witness: ports 44, 49, 58, 70; chart axis 1 = (25,145,4,4); Σ r_p c_p = 0; B0 h(I) = (-1,0,-1,0,0,-1,0,-1) | finite source facts reproduced; zero-observation proof inherited |
 
 ## Reproduce
 
@@ -34,7 +40,7 @@ python3 -I -B research/qq16-readset-matroid-independent/verify.py
 Expected output (the run also checks byte-equality with `RESULT.json`):
 
 ```text
-PASS_QQ16_READSET_INDEPENDENT rank_H_V=66 optimal_sets=45 mandatory=22 nuisance=29 swaps77=44 owner_minor=47x47 controls=10 no_new_kappa
+PASS_QQ16_READSET_INDEPENDENT rank_H_V=66 optimal_sets=45 mandatory=22 nuisance=29 swaps77=44 owner_minor=47x47 pr2384_witness_unread_by_all=True controls=12 no_new_kappa
 ```
 
 Tests: `python3 -B -m unittest research/qq16-readset-matroid-independent/test_verify.py`
@@ -62,7 +68,9 @@ Base commit: `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2` (priority revision 4).
 No code from PR2354 or PR2389 is imported, copied or executed. Their READMEs and
 RESULT files were read to state the audited claims (the `CLAIMS` constant in
 `verify.py`, used only for comparison) and to locate the source members and
-the owner-column convention. Rank is computed by fraction-free Bareiss
+the owner-column convention. The `WITNESS_2384` constant (ports,
+coefficients, axes and B0 h(I)) is taken from PR2384's description and is also
+compared only, never used as an input. Rank is computed by fraction-free Bareiss
 elimination over Z. Kernels use exact `Fraction` reduced row echelon form.
 
 ## 1. Family and objects (as defined by PR2389, not re-derived)
@@ -170,6 +178,45 @@ is a written check, not a formal proof.
   `owner_right_matrix_columns` are elements of G in the same representation as
   d in f_b(d).
 
+## 5. Consequence for PR2389 open question 1 (conditional on PR2384)
+
+PR2389 asks whether a hidden input supported on C - {77} can defeat all 45 sets
+at once. [PR2384](https://github.com/CrocSwap/integer-mult-bounds/pull/2384)
+(commdata2338, head `b9ef408b1cb0fcd34ab1f1bdbe645573d5de188f`) builds an
+input w with h_p(d) = c_p bit_0(d b'_p), where b'_p is chart axis 1, on the
+ports 44, 49, 58, 70 with c = (-1,-1,-1,1).
+
+Rechecked here from main's sources:
+
+* chart axis 1 of these ports is (25, 145, 4, 4);
+* Σ r_p c_p = 0;
+* B0 h(I) = (-1,0,-1,0,0,-1,0,-1), which is nonzero;
+* all four ports lie in C - {77}, so **none of the 45 optimal sets reads any of
+  them**.
+
+*Not* rechecked: PR2384's proof that every other permitted observation of w
+vanishes (B_s h = 0 for every owner, ordered F0/B1 and the retained tail), and
+the P_{0,A} equivalence.
+
+**Corollary (written proof, conditional).** Assume PR2384's zero-observation
+claim, the same side-effect-free read contract as PR2389, and that the
+permitted observations are linear in the input. Then every deterministic
+reader that is exact on all inputs c + t w (c ∈ V, t ∈ Q) makes **at least 67
+distinct reads on every terminal path**. The same holds almost surely for
+zero-error randomized readers, by the countable intersection in (A3).
+
+*Proof.* Fix an input c + t w with read set S. Adding any v ∈ V with v_S = 0
+leaves the transcript unchanged. By section 4 this gives K_S ⊆ K, so
+|S| ≥ 66. If |S| = 66, then S is one of the 45 sets and misses supp w. The
+inputs c + t w and c + (t+1) w then give identical reads on S. Their other
+permitted observations are zero for both, so the transcripts and outputs agree.
+Their targets differ by -P_{0,A} B0 h_w ≠ 0, a contradiction. ∎
+
+This does not show that 67 reads suffice. Reading one of the four ports returns
+the array c_p f_{b_p} + t w_p g_p, which may carry two scalars, so the
+one-scalar-per-read accounting needs re-examination. It is not a native cost,
+supplier or κ statement.
+
 ## Negative controls (all rejected; reasons are in `RESULT.json`)
 
 1. R entry (row 0, port 1) +1: port 1 becomes swappable, giving the wrong set
@@ -182,6 +229,9 @@ is a written check, not a formal proof.
 4. Identity owner only (empty registry): owner-function independence fails.
 5. Coloop claimed at 78. 6. Set count 46. 7. Unique optimal set. 8. 65-read
    threshold. 9. Mandatory port 109 dropped. 10. Omission 77 replaced by 76.
+11. PR2384 witness port 70 moved to mandatory port 1: a set now reads the
+    witness.
+12. PR2384 witness coefficient sign flipped: the column relation fails.
 
 ## Scope, inherited assumptions, unresolved obligations
 
@@ -189,7 +239,8 @@ is a written check, not a formal proof.
   adaptive theorem and is not a full QQ16, supplier or multiplication theorem.
   No κ change. The selected frontier is untouched.
 * Inherited: the definitions of H, f_b and the observation contract from
-  PR2389/PR2354, and the items in (A5).
+  PR2389/PR2354, and the items in (A5). The section 5 corollary also inherits
+  PR2384's zero-observation proof for its witness.
 * Unresolved: an independent check of the P_{0,A} equivalence and of the full
   ordered native schedule (PR2354/PR2389 do not replay it either). A Python
   3.12 run of the generic hook is also outstanding.
@@ -198,11 +249,12 @@ is a written check, not a formal proof.
 
 Structured versions are in [TASK.json](TASK.json).
 
-1. **Do the 29 nuisance ports C - {77} carry a second hidden family that
-   defeats all 45 sets?** All optimal sets omit the same 29 ports. First step:
-   search ker R_U for vectors supported on C - {77} plus a second axis group
-   that survive the ordered F0/B1 maps. PR2384's second-axis witness is the
-   template. Blocker: native ordered maps beyond this family.
+1. **What is the exact adaptive read threshold for arbitrary QQ16 inputs?**
+   Section 5 gives at least 67, conditional on PR2384. First step: enumerate
+   all chart-axis witnesses supported on C - {77} (axes 1..7, as in PR2384's
+   discovery scan) and compute the combined family's rank. Blocker: reads that
+   return multi-function arrays need a re-priced oracle model, and PR2384's
+   zero-observation proof needs an independent check.
 2. **Which structured owner class certifies bit-function independence?** Route
    owners reach rank 44 only. Identify the non-route registered maps that
    supply the missing 3 directions, and explain the determinant 2^62. This is

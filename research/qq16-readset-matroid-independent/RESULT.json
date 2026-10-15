@@ -1,6 +1,7 @@
 {
  "audited_heads": {
   "PR2354": "308ebc7405303bb7ed91b012bb705949c6091a16",
+  "PR2384": "b9ef408b1cb0fcd34ab1f1bdbe645573d5de188f",
   "PR2389": "aed06c8f8d60ce97b7eb3a7c6c17ad12cbe1e863"
  },
  "claims_compared": {
@@ -6380,6 +6381,42 @@
    90,
    91
   ],
+  "pr2384_witness_check": {
+   "B0h_identity_owner": [
+    -1,
+    0,
+    -1,
+    0,
+    0,
+    -1,
+    0,
+    -1
+   ],
+   "axes_from_source": [
+    25,
+    145,
+    4,
+    4
+   ],
+   "column_relation": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "optimal_sets_reading_support": [],
+   "ports": [
+    44,
+    49,
+    58,
+    70
+   ],
+   "support_within_nuisance": true
+  },
   "rank_R_U": 8,
   "registered_routes_checked": 768,
   "route_owner_count": 768,
@@ -6421,8 +6458,41 @@
   ],
   "unread_group_rank": 8
  },
+ "pr2384_witness_claim": {
+  "B0h_identity_owner": [
+   -1,
+   0,
+   -1,
+   0,
+   0,
+   -1,
+   0,
+   -1
+  ],
+  "axes": [
+   25,
+   145,
+   4,
+   4
+  ],
+  "chart_axis_index": 1,
+  "coefficients": [
+   -1,
+   -1,
+   -1,
+   1
+  ],
+  "ports": [
+   44,
+   49,
+   58,
+   70
+  ]
+ },
  "rejected_controls": {
   "65-read threshold claim": "ValueError: rank H|V",
+  "PR2384 witness coefficient sign flipped": "ValueError: PR2384 column relation sum r_p c_p = 0",
+  "PR2384 witness port 70 moved to mandatory port 1": "ValueError: PR2384 witness unread by all optimal sets",
   "coloop moved from 77 to 78": "ValueError: coloop port",
   "identity owner only (no registered owners)": "ValueError: owner bit functions independent",
   "mandatory port 109 dropped": "ValueError: mandatory ports",

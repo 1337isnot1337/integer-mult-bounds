@@ -45,15 +45,15 @@
   "budget_minutes": 90,
   "stop_rule": "Stop at 09:14Z experiment deadline; if G/f_b could not be rebuilt from main sources by 08:55Z, inherit rank 66 (labelled); any mismatch reported as a concrete discrepancy only. Both were rebuilt in time; no pivot used.",
   "outcome": "completed",
-  "evidence": "verify.py (stdlib, exact) reproduces every compared PR2389/PR2354 finite claim from main's pinned sources: 47 first-axis groups, axis-2 group of 30 ports with rank 8, group rank sum 74, dim V 88, ker(H|V)=ker R_C of dimension 22, rank(H|V)=66 via a 47x47 0/1 owner minor of determinant 2^62 on identity + 46 registered owners, exactly 45 optimal sets, 22 mandatory ports, 29 nuisance coordinates, coloop 77, 44 port-77 swaps, dual vector (-1,0,1,0,1,0,1,0) with w r_77=-4. 10 negative controls are rejected. No discrepancy found. The written audit of the adaptive argument is in README.md.",
+  "evidence": "verify.py (stdlib, exact) reproduces every compared PR2389/PR2354 finite claim from main's pinned sources: 47 first-axis groups, axis-2 group of 30 ports with rank 8, group rank sum 74, dim V 88, ker(H|V)=ker R_C of dimension 22, rank(H|V)=66 via a 47x47 0/1 owner minor of determinant 2^62 on identity + 46 registered owners, exactly 45 optimal sets, 22 mandatory ports, 29 nuisance coordinates, coloop 77, 44 port-77 swaps, dual vector (-1,0,1,0,1,0,1,0) with w r_77=-4. 12 negative controls are rejected. No discrepancy found. Conditional corollary (section 5): PR2384's second-axis witness (ports 44,49,58,70; relation and B0h(I) rechecked from source) lies in the 29 nuisance ports, so none of the 45 sets reads it; assuming PR2384's zero-observation proof, readers exact on both families need >= 67 reads on every path. The written audit of the adaptive argument is in README.md.",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, model Claude Opus 5.5): derivation, implementation, checking and writing. No code from PR2354 or PR2389 was imported or copied; their READMEs/RESULTs were read to state the audited claims and to locate the source members. No independent human review is claimed.",
   "open_questions": [
     {
-      "question": "Is the 45-set classification stable under the full ordered QQ16 observation contract, i.e. do any of the 29 nuisance coordinates C-{77} carry a second hidden-input family that defeats all 45 sets at once?",
-      "why_it_matters": "All 45 optimal sets omit exactly the same 29 ports; one witness supported there would make every family-optimal set insufficient for arbitrary QQ16 inputs.",
-      "first_step": "Search ker R_U vectors supported on C-{77} union a second axis group for a target that is nonzero after the ordered F0/B1 maps (PR2384's second-axis witness is the nearest template).",
-      "blocked_by": "Requires the native ordered maps beyond the first-axis family; this package does not replay them."
+      "question": "What is the exact adaptive read threshold for arbitrary QQ16 inputs in PR2389's oracle contract? Section 5 gives at least 67, conditional on PR2384's zero-observation proof.",
+      "why_it_matters": "It determines whether any family-optimal 66-port controller can be repaired by one extra read or needs a different access pattern before native pricing.",
+      "first_step": "Enumerate chart-axis witnesses supported on C-{77} (axes 1..7, as in PR2384's discovery scan) and compute the rank of the combined family with multi-function reads accounted per scalar.",
+      "blocked_by": "Reads returning arrays with two independent owner functions need a re-priced oracle model; PR2384's zero-observation proof is not independently checked."
     },
     {
       "question": "Which structured owner class certifies independence of the 47 first-axis bit functions? On the 768 registered route owners alone the rank is 44 (45 with the identity); the certificate needs 29 non-route registered owners.",

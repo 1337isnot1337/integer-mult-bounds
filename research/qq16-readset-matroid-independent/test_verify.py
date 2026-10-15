@@ -34,13 +34,15 @@ class ReadSetVerification(unittest.TestCase):
                              cwd=ROOT, capture_output=True, text=True, timeout=300)
         self.assertEqual(out.returncode, 0, out.stderr)
         self.assertIn("PASS_QQ16_READSET_INDEPENDENT rank_H_V=66 optimal_sets=45 "
-                      "mandatory=22 nuisance=29 swaps77=44 owner_minor=47x47 controls=10",
+                      "mandatory=22 nuisance=29 swaps77=44 owner_minor=47x47 "
+                      "pr2384_witness_unread_by_all=True controls=12",
                       out.stdout)
 
     def test_receipt_contents(self):
         rec = json.loads((HERE / "RESULT.json").read_text(encoding="utf-8"))
         res = rec["computed"]
-        self.assertEqual(len(rec["rejected_controls"]), 10)
+        self.assertEqual(len(rec["rejected_controls"]), 12)
+        self.assertEqual(res["pr2384_witness_check"]["optimal_sets_reading_support"], [])
         self.assertEqual(res["optimal_read_set_count"], 45)
         self.assertEqual(len({tuple(s) for s in res["optimal_read_sets"]}), 45)
         mandatory = set(res["mandatory_ports"])
