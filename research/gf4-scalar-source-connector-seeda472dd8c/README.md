@@ -137,9 +137,18 @@ and higher-arity source bundles in [PR #2249](https://github.com/CrocSwap/intege
 Those bundle several sources per event or change the source-count domain. This
 construction keeps one source per event and changes the coefficient alphabet.
 The paired-output packet in [PR #2230](https://github.com/CrocSwap/integer-mult-bounds/pull/2230)
-changes output events instead. The fresh full overlap snapshot and targeted
-field-term scan are recorded in [TASK.json](TASK.json); overlap results are
-leads, not proof of novelty.
+changes output events instead. The latest live overlap also found new
+[PR #2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259), which
+fuses four aligned `F2[C2^2]` source contributions into a single physical
+stream event and proves a data-traffic/head-return saving for one target. That
+uses a four-source bundled event and identity coefficient frame. This package
+uses one source per event with a nonbinary `GF(4)` coefficient, covers all 15
+two-source target rows, and proves the exact six-event difference cover for
+arbitrary fixed linear maps and dirty connector/targets. The mechanisms,
+domains, cost terms, and evidence differ; no supplier or `kappa` comparison is
+claimed. The fresh full overlap snapshot and targeted field-term scan are
+recorded in [TASK.json](TASK.json); overlap results are leads, not proof of
+novelty.
 
 The live selected result remains the maintainer-reviewed conditional
 construction at `kappa = 836330098538459/500000000000000000` on base
