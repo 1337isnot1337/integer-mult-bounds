@@ -3,9 +3,7 @@
   "status": "ready",
   "python": "3.12",
   "requirements": [],
-  "inputs": [
-    "research/community-efficient800-audit/DISPOSITIONS.json"
-  ],
+  "inputs": [],
   "commands": [
     {
       "argv": [

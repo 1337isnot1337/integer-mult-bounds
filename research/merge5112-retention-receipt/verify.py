@@ -27,6 +27,14 @@ def git(*args):
     return p.stdout.decode("utf-8", errors="replace")
 
 
+def git_bytes(*args):
+    p = subprocess.run(["git", "-C", str(ROOT)] + list(args), capture_output=True,
+                       stdin=subprocess.DEVNULL, timeout=120)
+    if p.returncode != 0:
+        raise SystemExit("git failed: " + " ".join(args) + ": " + p.stderr.decode()[:200])
+    return p.stdout
+
+
 def tree(commit):
     out = {}
     for line in git("ls-tree", "-r", commit).splitlines():
@@ -136,7 +144,11 @@ def controls(facts, receipt):
 
 
 def source_pins():
-    """Re-check the package's own SOURCES.json pins against Git and disk."""
+    """Re-check the package's own SOURCES.json pins against the recorded Git snapshot.
+
+    Each row is bound through its git blob at SOURCES.json's base_commit, so the
+    historical bytes replay even after the live files advance. Only rows declared
+    as live inputs are additionally required to match the working tree."""
     sources = json.loads((ROOT / PACKAGE / "SOURCES.json").read_text(encoding="utf-8"))
     errors = []
     for row in sources["files"]:
@@ -144,10 +156,10 @@ def source_pins():
         obj = git("rev-parse", f"{sources['base_commit']}:{name}").strip()
         if obj != row["git_blob"]:
             errors.append("blob pin mismatch: " + name)
-        data = (ROOT / name).read_bytes()
+        data = git_bytes("cat-file", "blob", obj)
         if hashlib.sha256(data).hexdigest() != row["sha256"]:
             errors.append("sha256 pin mismatch: " + name)
-        if row["usage"] == "input" and row["sha256"] != hashlib.sha256(data).hexdigest():
+        if row["usage"] == "input" and data != (ROOT / name).read_bytes():
             errors.append("input drift: " + name)
     return errors
 
