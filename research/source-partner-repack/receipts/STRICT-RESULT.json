@@ -1,53 +1,53 @@
 {
   "status": "PASS_STRICT_MIXED_T74_EXACT_FILL",
-  "kappa": "855426229412693/500000000000000000",
-  "kappa_decimal": "0.001710852458825386",
+  "kappa": "855549709458781/500000000000000000",
+  "kappa_decimal": "0.001711099418917562",
   "steps": [
     {
       "name": "bind",
-      "seconds": 0.9184109630004968,
+      "seconds": 0.821535756999765,
       "exit_code": 0,
       "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
     },
     {
       "name": "emit",
-      "seconds": 31.768406324000352,
+      "seconds": 31.071721827000147,
       "exit_code": 0,
-      "log_sha256": "50f45940691c5ac5e6ab989a0f0f7cbd2c30dae47366fa37efd162871f97e3a2"
+      "log_sha256": "e998d37873e5294877e7f5477f734731099dc31854f325565893fb5fcb3e5487"
     },
     {
       "name": "audit",
-      "seconds": 111.38687175199993,
+      "seconds": 111.91748668900073,
       "exit_code": 0,
-      "log_sha256": "35a19bcf8b53a6856c462d8b3422e7c43d588f5025d7c2e30d9870c6775562ae"
+      "log_sha256": "66295fdc184ed8edfe7af3b682e417fb16dc2d116ee662b7535b565e6d5282b1"
     },
     {
       "name": "invoice",
-      "seconds": 4.187014184999498,
+      "seconds": 4.002705766999497,
       "exit_code": 0,
       "log_sha256": "f19044ed6212a3ce16158f10ddd163423a3af1198f64a9f06321290491949d3f"
     },
     {
       "name": "assembly",
-      "seconds": 0.650203674000295,
+      "seconds": 0.5608298550014297,
       "exit_code": 0,
-      "log_sha256": "694ae2bf50766b51cc55ec7ec76fc92dbff7231818439541f005b13ea82c77bb"
+      "log_sha256": "3486906ab7f9132af1b1f6e07c2576db3d8f089261ffc1fe03a0899f4a76c2bd"
     },
     {
       "name": "admission",
-      "seconds": 1.6298051079993456,
+      "seconds": 1.489372200001526,
       "exit_code": 0,
       "log_sha256": "40f0c35552fb10f02288ae8d2c6b9f902050fb370c0a19b7b88c977d0d44dab1"
     },
     {
       "name": "bit",
-      "seconds": 1.0697224470004585,
+      "seconds": 1.0293101179995574,
       "exit_code": 0,
       "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
     },
     {
       "name": "independent",
-      "seconds": 5.040291999999681,
+      "seconds": 4.856863872000758,
       "exit_code": 0,
       "log_sha256": "d2c176fb1b9778e4fb8b98b6272d5f713d676ea3fed84da20213eca036bb58fe"
     }
@@ -63,7 +63,7 @@
     "checked_whole_helper_widths": 281052,
     "checked_busy_family_windows": 281052,
     "orthogonal_port_bases": 112,
-    "actual_73_axis_charts": 3586,
+    "actual_73_axis_charts": 7462,
     "checked_slice_prefixes": 149184,
     "local_profiles": {
       "gauge44": {
@@ -100,28 +100,21 @@
       }
     },
     "idle": {
-      "1": 21987,
-      "3": 6659,
-      "5": 423,
-      "7": 81,
-      "8": 102,
-      "14": 2,
-      "16": 90,
-      "32": 25,
-      "48": 26492
+      "1": 21978,
+      "3": 6612,
+      "5": 524,
+      "8": 124,
+      "48": 26540
     },
     "profile": {
-      "1": 1599741,
+      "1": 1599732,
       "2": 420912,
-      "3": 219779,
+      "3": 219732,
       "4": 78588,
-      "5": 17739,
-      "7": 5409,
-      "8": 102,
-      "14": 2,
-      "16": 90,
-      "32": 25,
-      "48": 26492
+      "5": 17840,
+      "7": 5328,
+      "8": 124,
+      "48": 26540
     },
     "live": 66304,
     "physical": 66814,
@@ -205,9 +198,9 @@
       "gauge44": 249
     },
     "input_sha256": {
-      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/PLAN.json": "04cea6b40e9cca9e57f864af5d3731dfb87df73100a1ea629a93e9c865baac5a",
-      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/DISPATCH.json": "fd8132ec8957b908ee6d871216848f18bafc6bd9304acd6185519ee26d97b1ca",
-      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/OWNERS.json.gz": "7956b71bac3f216cad0d311e3c6ecc6fb320a816f86e9149e6d077e3be85e87f",
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/PLAN.json": "a6f3a07b29766b356068358dffc010594999ab0d810a6a96a64b4e1fd1f7f248",
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/DISPATCH.json": "f2d326c6ee562ff229b67657e199b8c09083b65bdad8258e3e6143921a82ac35",
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/OWNERS.json.gz": "a28018ee2390de3043d822f6e6b95112499643fe641a8e287bba9d42d05f5383",
       "${REPLAY_ROOT}/parent/layout/demotions1148-round43/baseline-replay/parent/t16/global8/base/split-centres/GLOBAL-TEMPLATE.json.gz": "ab8448de2036a23d9b55a196a8846512dc24fdf09855c1e0f0caa5b7a6965f7b",
       "${REPLAY_ROOT}/native-base/local/CANONICAL-WORD.json.gz": "5cb67b30586a7b500ae93279f8a3ae5a202bc719df92fad8a0779ee2cb9b028e",
       "${REPLAY_ROOT}/parent/layout/source_partners/native-extra/local/CANONICAL-WORD.json.gz": "9a6b9b1f71cc758ba1a33d133711f9f7a394804dcedcacb8ee5c027f561c77b4"

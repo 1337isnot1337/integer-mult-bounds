@@ -44,27 +44,27 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Explicit user assignment: beat the latest claimed kappa. Improve PR2530's whole-helper owner fill on its unchanged words and diagonal call order (PR2530 open question 1).",
-  "scope_change_reason": "PR2530 lists the owner fill of its changed words as its first open question (relaxed estimate about 4.9e-7 above its realization); this package attacks exactly that, with no change to words, order or windows.",
-  "bottleneck_link": "Empty rank-16 and rank-8 bins at the start of the diagonal order are the costliest idle children; repacking moves their idle into cheaper remainders.",
+  "actual_scope": "Explicit user assignment: beat the latest claimed kappa. On PR2530's unchanged words, shift its diagonal call order (stage>=1 calls delayed by four key units) and nominate/realize a whole-helper fill for the new windows with PR2530's own search code (PR2530 open question 1).",
+  "scope_change_reason": "PR2530 lists diagonal-order variants and a sharper fill as its first open question (relaxed estimate 4.9e-7 above its realization); this package screens order variants and ships the best, with no change to the local words.",
+  "bottleneck_link": "The diagonal order's first rank-16/rank-8 windows can draw only on the first few calls; delaying stage>=1 calls removes those forced holes.",
   "budget_minutes": 60,
-  "stop_rule": "Literal whole-owner fill, complete native/global/outer replay, strict improvement over PR2530.",
+  "stop_rule": "Literal whole-owner fill for the shifted order, complete native/global/outer replay, strict improvement over PR2530.",
   "outcome": "completed",
   "evidence": "CLAIM.json, PROFILE.json, evidence/, receipts/; full replay command in README.",
   "author": "Rohan Arun, with AI assistance (Claude, Anthropic)",
   "ai_assistance": "Claude (Anthropic, Opus 5.5) performed the search, packaging and checks at the user's direction. No independent human review.",
   "open_questions": [
     {
-      "question": "How much of the remaining relaxed gap is forced by the diagonal windows?",
-      "why_it_matters": "The window-free pattern LP still sits above this fill.",
-      "first_step": "Add interval (Hall) cuts per width to the pattern LP for these windows and compare with this fill.",
-      "blocked_by": "No window-aware exact ceiling yet."
+      "question": "Can other order families close the remaining gap to the window-free LP cap?",
+      "why_it_matters": "This package is about 2e-7 below b < 0.0017142284.",
+      "first_step": "Screen non-uniform per-stage shifts and late-order variants with the pattern MILP.",
+      "blocked_by": "Each order needs a literal fill and a full replay."
     },
     {
-      "question": "Can a different call order remove the start-of-order holes?",
-      "why_it_matters": "Most remaining idle cost sits in the first rank-16 and rank-8 windows.",
-      "first_step": "Screen diagonal-order variants with a fast fill heuristic, then repack the best.",
-      "blocked_by": "Each order needs its own literal fill and full replay."
+      "question": "Can the remaining 124 empty rank-8 bins be filled?",
+      "why_it_matters": "They are the largest remaining idle cost.",
+      "first_step": "Exact repacking of the windows holding them.",
+      "blocked_by": "A short large-neighbourhood run found no gain."
     }
   ]
 }

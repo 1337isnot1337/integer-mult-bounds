@@ -33,7 +33,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Rebuild PR2530 derivative with its own build.py, substitute the repacked owner fill, literal reconstruct.py (windows, bins, prefixes, families), three rejecting physical controls, exact outer-claim and profile bindings. Full native/global/outer replay is full_replay.py."
+      "checks": "Rebuild PR2530 derivative with its own build.py, substitute the shifted diagonal order (checked permutation and key) and the owner fill, literal reconstruct.py (windows recomputed from the order, bins, prefixes, families), three rejecting physical controls, exact outer-claim and profile bindings. Full native/global/outer replay is full_replay.py."
     }
   ]
 }

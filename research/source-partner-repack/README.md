@@ -1,37 +1,43 @@
-# Repacked owner fill on PR2530's source-partner words: conditional κ = 0.0017137844912361143
+# Shifted diagonal order and repacked owner fill on PR2530's source-partner words: conditional κ = 0.0017140322985876819
 
-**Credit first: PR2530 (zxv, with OpenAI Codex).** The eight source-partner aliases, the 422-helper words, the diagonal call order and windows, and the whole native/global/outer pipeline are PR2530's (`research/source-partner-lifetimes`). They rest on PR2462 and its lineage (Jeremy Kothe and the authors credited there). This package changes **only the owner fill**, which was PR2530's first open question.
+**Credit first: PR2530 (zxv, with OpenAI Codex).** The eight source-partner aliases, the 422-helper words, the diagonal call order and windows, and the whole native/global/outer pipeline are PR2530's (`research/source-partner-lifetimes`). They rest on PR2462 and its lineage (Jeremy Kothe and the authors credited there). This package changes **only the physical call order and the owner fill** (PR2530's first open question: diagonal-order variants and a sharper fill). The local words, providers and every pipeline stage are unchanged.
 
 ## Result
 
-Conditional **κ = 0.0017137844912361143131449999999999999999999998999999999999999999999999**. The exact rational is in [CLAIM.json](CLAIM.json).
+Conditional **κ = 0.0017140322985876819089159999999999999999999998999999999999999999999999**. The exact rational is in [CLAIM.json](CLAIM.json).
 
-- Exceeds PR2530 (0.0017137379215475043467…) by **4.656969e-08**.
-- The certified complex endpoint is 342756898247222862629/200000000000000000000000, at the same 1e-24 endpoint grid and outer settings as PR2530.
+- Exceeds PR2530 (0.0017137379215475043467…) by **2.943770e-07**.
+- The certified complex endpoint is 428508074646920477229/250000000000000000000000, at the same 1e-24 endpoint grid and outer settings as PR2530.
 
 ## What changed
 
-PR2530's fill leaves idle `{1:21976, 3:6662, 5:440, 8:114, 16:172, 32:3, 48:26488}`. Most of the expensive part sits at the start of the diagonal order:
+**Order.** PR2530 sorts calls by `(4*stage + replica, stage, replica)`. This package delays every call with stage ≥ 1 by four key units: `(4*stage + replica + 4*[stage ≥ 1], stage, replica)`.
 
-- the rank-16 window (replica 0, child 0) is completely empty;
-- (1, 2) is half empty;
-- a rank-8 window is empty.
+- Each replica still runs its nine stages in order, and its thirty source events keep their order.
+- The windows are recomputed from the order by the package's own `vendor/build_parent.py` (`actual_windows`).
+- The shift lengthens the first rank-16 windows, which in the diagonal order could draw only on the first few calls. Window (0, 0) was [0, 5]; it now spans the first eleven calls.
+- Under PR2530's order those windows forced 172 empty rank-16 bins and 114 empty rank-8 bins. Here no rank-16 bin is left empty.
 
-These first windows can draw only on the first few calls, so the shortfall cannot be fixed inside them alone. The repacking moves single 9s into some of those bins (rank-16 → remainder 7). It pays for them by emptying (9,9,9)+5 rank-32 bins and re-concentrating idle elsewhere, so the moment drops.
+**Fill.** The fill was nominated with PR2530's own search: the pattern MILP with interval and max-flow cuts (`search/interval_pack.py`) and the flow realization (`search/realize_pack.py`), both unchanged and run on the shifted order. It was then verified literally.
 
-- New idle: **`{1:21987, 3:6659, 5:423, 7:81, 8:102, 14:2, 16:90, 32:25, 48:26492}`**.
-- Local profile and width inventory per call are unchanged: `{1:2369, 2:632, 3:320, 4:118, 5:26, 7:8}` and `{4:33, 5:9, 7:62, 8:78, 9:240}`.
-- Rank mass, live stock, deficit, call order and windows are unchanged.
+- Idle remainders: `{1:21976, 3:6662, 5:440, 8:114, 16:172, 32:3, 48:26488}` before, **`{1:21978, 3:6612, 5:524, 8:124, 48:26540}`** now.
+- Unchanged: the local profile `{1:2369, 2:632, 3:320, 4:118, 5:26, 7:8}`, the width inventory `{4:33, 5:9, 7:62, 8:78, 9:240}`, rank mass, live stock and deficit.
 - Global profile: [PROFILE.json](PROFILE.json).
 
-**Method** (offline; only the result is shipped and verified literally). I used large-neighbourhood search with an exact CP-SAT subproblem (OR-tools 9.15):
+**Screened variants** (pattern MILP estimates of the root, same search code):
 
-- Each step frees every role in about 80 bins: holes plus donor bins of time-overlapping windows.
-- It re-solves their placement exactly under the package's own owner rules: each role inside its window, bin capacity and prefix packing, and one role per call and physical family.
-- It minimises the idle moment weight at fixed a.
-- A step is applied only on strict improvement. The search starts from PR2530's own fill.
+| Order key | Estimated root |
+| --- | --- |
+| 4·stage + replica (PR2530) | 0.00171373562 |
+| 3·stage + replica | 0.00169750271 |
+| 5·stage + replica | 0.00171362710 |
+| 6·stage + replica | 0.00171291702 |
+| 8·stage + replica | 0.00170301749 |
+| 4·stage + replica + 4·[stage ≥ 1] (**this package**) | **0.00171403230** |
+| 4·stage + replica + 8·[stage ≥ 1] | 0.00171365295 |
+| 4·stage + replica + 16·[stage ≥ 1] | 0.00168480138 |
 
-The pattern LP of PR2387/PR2442 (thakrarsagar) caps any whole-helper fill of these words at b < 0.0017142284. Further repacking or a different order may still help.
+The pattern LP of PR2387/PR2442 (thakrarsagar) caps any whole-helper fill of these words at b < 0.0017142284, whatever the order.
 
 ## Reproduction
 
@@ -40,7 +46,7 @@ python3 -B research/source-partner-repack/verify.py            # bounded: build,
 python3 -B research/source-partner-repack/full_replay.py --work /fresh/absolute/dir
 ```
 
-`build.py` runs PR2530's unchanged `build.py`, including its own word regeneration and checks. It then substitutes `evidence/repack-fill.json.gz` and re-runs the package's own `reconstruct.py` and `lift_parent.py`.
+`build.py` runs PR2530's unchanged `build.py`, including its own word regeneration and checks. It then substitutes `evidence/repack-order.json` (checked to be the shifted-diagonal permutation of the same 666 calls) and `evidence/repack-fill.json.gz`, and re-runs the package's own `reconstruct.py` and `lift_parent.py`.
 
 `full_replay.py` runs the same stages as PR2530's: retained parent, natives, rebind, discovery, strict global admission, geometry controls, exact outer ledger, independent balance and the nineteen outer evidence replays. It can reuse a completed retained-parent directory and native directories, each status- and hash-checked; the defaults are fresh.
 
@@ -48,8 +54,8 @@ Receipts are in `receipts/`: the full replay and its stages, and the bounded run
 
 ## Open next questions
 
-- **How much of the remaining relaxed gap is forced by the diagonal windows?** The window-free pattern LP (b < 0.0017142284) ignores time windows. Adding per-width interval (Hall) cuts for these windows would give a window-aware ceiling to compare with this fill.
-- **Can a different call order remove the start-of-order holes?** Most of the remaining idle cost sits in the first rank-16 and rank-8 windows of the diagonal order. Screening order variants needs a fast fill heuristic per order, then a literal fill and a full replay.
+- **Can other order families close the remaining gap?** This package is about 2e-7 below the window-free LP cap of 0.0017142284. Non-uniform shifts per stage and late-order variants are untested.
+- **Can the remaining 124 empty rank-8 bins be filled?** A large-neighbourhood exact repack of the shifted-order fill found no gain in a short run.
 
 ## Scope
 
@@ -57,7 +63,7 @@ This is a conditional finite construction, exactly as PR2530. These obligations 
 
 ## Credits
 
-- PR2530 (zxv): source-partner lifetimes, the diagonal order and the whole package this one builds on.
+- PR2530 (zxv): source-partner lifetimes, the diagonal order, the pattern search and realization code, and the whole package this one builds on.
 - PR2462, PR2447, PR2435 and the T74 line (Jeremy Kothe).
 - PR2436 (tekuuu).
 - PR2322 (Vlado Vojdanovski).
@@ -65,4 +71,4 @@ This is a conditional finite construction, exactly as PR2530. These obligations 
 - PR2387, PR2442 and PR2466 (thakrarsagar): the pattern-LP ceiling and owner-optimality method.
 - Everyone credited in the source package's READMEs and notices.
 
-New here: the repacked fill and this wrapper, by Rohan Arun with AI assistance (Claude). Apache-2.0.
+New here: the shifted order, the screening, the resulting fill and this wrapper, by Rohan Arun with AI assistance (Claude). Apache-2.0.
