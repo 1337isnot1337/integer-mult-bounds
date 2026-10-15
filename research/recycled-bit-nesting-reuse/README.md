@@ -51,7 +51,7 @@ The init kernel time went from 15.66 s to 1.90 s (8.2x). The sample basis + null
 | Deterministic sample: 400 ledger moves (`random.Random(1)`), 709 keys, 345 annihilators. Basis + null, rep 1 / rep 2 | 4.50 s / 3.88 s | 1.25 s / 1.11 s (3.5-3.6x) | basis and null maps identical |
 | Same sample, `inside` dot products | 0.024 / 0.034 s | 0.024 / 0.025 s | — |
 | Full-key audit (one process, both kernels on every call): basis of all 86,789 distinct ledger-move keys, then the annihilator of all 85,017 distinct targets | `null_exact`: 145,513 calls, 381.0 s; `prim`: 1,683,853 calls, 70.6 s | 48.7 s (7.8x); 3.6 s (19.6x) | all 145,513 + 1,683,853 identical (complete, not time-stopped) |
-| Full `--all` replay, `VERIFY_JOBS=3`, back-to-back runs while the audit process was also running: nesting-stage wall / whole-run wall / user CPU | 410 s / 427.7 s / 825 s | 226 s / 243.5 s / 369 s (1.81x stage wall, 2.24x CPU) | both runs printed the same five PASS lines with kappa=472154791/10^12, and both matched the committed certificate |
+| Full `--all` replay, `VERIFY_JOBS=3`, back-to-back runs while the audit process was also running: nesting-stage wall / whole-run wall / user CPU | 410 s / 427.7 s / 825 s | 226 s / 243.5 s / 369 s (1.81x stage wall, 2.24x CPU; a second, more loaded fast run took 284 s, 1.44x). This is one before/after pair on a loaded host; the before-run is `VERIFY_NULL=reference` on the patched `verify.py`, which installs the original PR97 kernel | both runs printed the same five PASS lines with kappa=472154791/10^12, and both matched the committed certificate |
 
 **Profile of the stage (before).** The cProfile figures are inflated by profiling overhead. Of `Exact.__init__`
 (about 160 s unprofiled), `Frames.dims` takes the largest share: about 52% of the profile, almost all of it
@@ -64,8 +64,9 @@ The new kernel removes most of that time. It does not touch `dims`, which this p
 **Negative result for the first hypothesis (basis reuse from `late_frames`).** The planned mechanism was to seed
 `Exact`'s basis memo from the `exact_basis` cache that `check_lifted.late_frames` builds and then throws away.
 That cache holds 2,230 keys. The ledger moves use 86,789 distinct keys (n 64,042; v 11,374; sigma 8,181;
-out 1,771; c 1,396; ret 23; '0' 1; F 1), so the cache covers 2.6% of them. Reuse alone cannot materially shorten the
-stage, so that mechanism was dropped. This is the one pivot recorded in TASK.json.
+out 1,771; c 1,396; ret 23; '0' 1; F 1), so the cache covers 2.6% of them. Key count is not cost, so the cost bound is this: every `exact_basis` result the cache could supply was computed
+inside `late_frames`, whose total is about 25.5 s per process (unprofiled). Reuse therefore saves at most about
+6% of the 410 s stage, so that mechanism was dropped. This is the one pivot recorded in TASK.json.
 
 ## Reproduce
 
@@ -107,8 +108,28 @@ which must fail:
 * CI wall time was not measured. The full runs used `VERIFY_JOBS=3` on a loaded host, so no CI speedup factor is
   claimed. Sibling PR #2361 (CI selection) would run this job less often. The speedup still matters for
   `make verify`, scheduled runs and relevant PRs.
-* Historical receipts under `research/community-efficient1000-audit/checks/` record the old `verify.py` sha
-  (`a5508f42...`) as snapshots. No live verifier re-hashes them. They are left unchanged as historical evidence.
+* Historical receipts record the old pins as snapshots: 52 JSON files across
+  `research/community-efficient{200,...,1000}-audit/` contain both the base `verify.py` sha (`a5508f42...`) and the
+  base `certificate.json` sha (`4004ea4c...`). No live verifier, test, script or workflow re-hashes them
+  (`research/pr946-pin-migration` scans its own pinned base commit). They are left unchanged as historical evidence.
+* Trusted base: in the default (fast) mode, acceptance of the exact rational nesting check now depends on the new
+  `null_exact_ff`, not on the reviewed PR97 kernel. Its equivalence rests on (a) the proof sketch above and
+  (b) the recorded complete audit on the pinned input. The end-to-end replay does not detect an *incomplete*
+  kernel by itself: a reviewer mutant that dropped the last null vector still passed, because `inside()` only
+  becomes more permissive (a perturbed entry, by contrast, fails PR97 `exact_basis`). The package check
+  (`research/recycled-bit-nesting-reuse/verify.py`) is the guard, and CI runs it only when this package changes.
+  Maintainers may wish to run `VERIFY_NULL=audit` periodically or add a fail-closed completeness guard (Open next
+  question 4).
+* `sources()` of `recycled-bit-integration` does not pin `references/partial-gauge/pr97/linalg.py` or
+  `check_lifted.py` (pre-existing). This package's SOURCES.json pins them at the base bytes; widening the
+  certificate pins is left out of this focused change.
+* Editing the live `recycled-bit-integration` verifier and its own certificate pin follows the precedent of
+  6fd436d0d (the cherry-pick of PR218), and needs maintainer acceptance. Base pins of the two modified files:
+  `verify.py` `a5508f42...` -> current pin in `certificate.json`; `certificate.json` base `4004ea4c...`.
+* Python: all checks ran on Python 3.14.4. The registered Python 3.12 replay in VERIFY.json was not run locally
+  (no 3.12 on the host); CI 3.11/3.13 were not run locally either.
+* The wrappers materialise their input (`[list(r) for r in A]`, `list(r)`) before the type check, so one-shot
+  iterables are handled like the reference; every call site in this path passes lists.
 
 ## Open next questions
 
@@ -125,12 +146,17 @@ which must fail:
    `research/gauge-recycling/verify.py`, `check_lifted.py` itself) benefit from the same installer? *Why:* the
    kernel is shared. *First step:* profile `make verify-bit-reuse-147` and check its share of `null_exact`.
    *Blocked by:* each verifier pins its own sources, so each would need its own pin update and review.
+4. *Question:* should `null_fast` fail closed on an incomplete or wrong kernel? *Why:* the end-to-end replay
+   tolerates a dropped null vector (see Scope). *First step:* assert that each output row annihilates `A` and that
+   `len(out) >= k - rank_mod(A, Q31)` (rank mod p is at most rank over Q, and the outputs are independent by their
+   free-column structure), then measure the overhead. *Blocked by:* nothing; it changes `verify.py` and its pin again.
 
 ## Credit
 
 * `research/recycled-bit-integration`: Douglas Colkitt, with OpenAI Codex assistance. It composes Thomas Marchand
-  (#146), William Porter (#147), gupt1156 (#148) and DaysSky (#150), per its `SOURCE.json`.
-* PR97 `check_lifted.py` / `linalg.py`: Swapnil Jain.
+  (#146), William Porter (#147), Rohan Gupta / gupt1156 (#148) and DaysSky (#150), per its `SOURCE.json`.
+* PR97 snapshot (Zhihao Chen / jacklightChen; imported under `references/partial-gauge/pr97`): `check_lifted.py` /
+  `linalg.py` frame/lifted checking sources by Swapnil Jain.
 * Fork-pool parallelization of this stage: Joel Pulikkan / GamingPuzzled (PR218, cherry-picked as 6fd436d0d).
 * Related verifier speedups with an exact method: CubeJerry (PR1461, annihilator containment for the h=10/12
   audits) and RichardHoekstra (PR239, `rational_span_frames` nondegeneracy).

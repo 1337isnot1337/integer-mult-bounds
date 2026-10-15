@@ -122,12 +122,14 @@ def install_null_kernel(folder, mode=None):
     def integral(A, k):
         return all(len(r) == k and all(type(x) is int for x in r) for r in A)
     def null_fast(A, k):
+        A = [list(r) for r in A]  # materialise once, so one-shot iterables are not consumed by the type check
         return null_exact_ff(A, k) if integral(A, k) else ref_null(A, k)
     def null_audit(A, k):
         out = ref_null(A, k)
         assert null_fast(A, k) == out, ('null_exact kernel mismatch', A, k)
         return out
     def prim_fast(r):
+        r = list(r)
         for x in r:
             if type(x) is not int: return ref_prim(r)
         g = gcd(*r)
