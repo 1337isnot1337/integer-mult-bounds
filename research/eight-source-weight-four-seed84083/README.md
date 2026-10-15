@@ -1,6 +1,7 @@
 # Eight-source weight-four shell: two-sweep obstruction
 
-**Exact scoped negative result; no new construction or kappa.** Among the
+**PR [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283) is
+open. Exact scoped negative result; no new construction or kappa.** Among the
 40,320 source words consisting of one complete eight-source sweep followed by
 a permutation sweep, the greatest number of distinct weight-four masks
 available as XORs of two source-prefix parities is **23 of 70**. Sixty-eight
@@ -155,3 +156,13 @@ At this base the selected conditional value is
 `docs/research/community-batch1099-review.md`. The selected reproduction is
 `make frontier1094-verify`; it was resolved and pinned but not rerun for this
 connector-level experiment.
+
+## Submission handoff
+
+Submitted in PR [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283)
+from branch `codex/imb-cycle31`. The contribution commit is
+`15fdf88a084dda4715324bf06d086d2f0bbfd02c`. The original Discussion claim was
+not posted because the authenticated GraphQL route was rate-limited and the
+REST Discussions route returned 404; this package is the local claim and
+handoff record. Remaining obligations are maintainer review and the hosted
+Python 3.12 replay. No merge or frontier change was made.

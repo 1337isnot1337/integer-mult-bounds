@@ -133,5 +133,18 @@
       "Discussion #2262: active GF(4) scalar-source claim",
       "Discussion #2275: active seven-source paired-call root-count claim"
     ]
+  },
+  "handoff": {
+    "status": "submitted",
+    "pull_request_number": 2283,
+    "pull_request_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2283",
+    "pull_request_state_at_submission": "open",
+    "branch": "codex/imb-cycle31",
+    "contribution_commit": "15fdf88a084dda4715324bf06d086d2f0bbfd02c",
+    "discussion_claim": "local-only; the GraphQL rate limit prevented posting and REST Discussions returned 404",
+    "remaining_obligations": [
+      "maintainer review",
+      "hosted Python 3.12 replay"
+    ]
   }
 }
