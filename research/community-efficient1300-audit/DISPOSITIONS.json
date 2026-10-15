@@ -2472,7 +2472,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3505,15 +3505,18 @@
       "current_head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        ".github/workflows",
+        "research/r439-deferred-native"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed complete payload, all661dirtycolumns in bothdirections, literalCOPYrestoration and unchangedMOVEpaths; newly compiled legality and5/9/11-stage engines pass all formalcolumns and96bridge+5nativecontrols. Completebinaryrecord binding catches phase relabeling that the mathematical engines intentionallyignore. Reviewed read-only relocation tests and limited read-permission Linuxworkflow; maintainer execution was macOS, not hostedLinux. OldH2/K/H5flags remainfalse; globalhosting, replacement-contractadmission and kappa remainseparate, with circuit/compiler lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
