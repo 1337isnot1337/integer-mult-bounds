@@ -46,7 +46,7 @@
   "budget_minutes": 90,
   "stop_rule": "Stop adding items at 2026-10-15T07:18:18Z; priority S6 > S4 > S3 > S5; stop expanding on a FALSE item. All four items completed.",
   "outcome": "completed",
-  "evidence": "verify.py prints PASS_PR2298_FORMAT_RECOVERY_AUDIT: S6 steps hold for all b>=25 (binding row 2dp^2<TL), far below b>=2^24 and the d>=2 cutoff; S4 lemmas proved and exhaustively checked on small signed grids against an independent Fraction reference; S3a/S3b/S5 finite-checked; 19 mutation controls detected. No FALSE item, no substantive GAP; four clarifications recorded in README.",
+  "evidence": "verify.py prints PASS_PR2298_FORMAT_RECOVERY_AUDIT: S6 steps hold for all b>=25 under the auditor's sufficient inequalities (binding row 2dp^2<TL; per-row least values asserted), far below b>=2^24 and the d>=2 cutoff; S4 lemmas proved and exhaustively checked on small signed grids against an independent Fraction reference; S3a/S3b and the S5 chirp/twist identity finite-checked; 17 mutation controls detected plus 4 hypothesis-sensitivity checks. No FALSE item, no substantive GAP; four clarifications recorded in README. Row 6.15 and the gamma remark overlap concurrent PR #2365 (jerrylin-23, items 5-6) and serve as an independent cross-check.",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for analysis, code and text; reviewed by thakrarsagar.",
   "open_questions": [
@@ -68,5 +68,9 @@
       "first_step": "Formalise rows 6.8 and 6.15.",
       "blocked_by": "Time; needs a small exponential-bound tactic."
     }
+  ],
+  "concurrent_work": [
+    "jerrylin-23: Discussion #2291 and PR #2365 (head 24746e536dfa5e632d4f3036a477ec4f1b7bb0e6), sections 1-2 parameter domain incl. gamma<b/4 and 448b2^(-b+gamma)<1/2; overlaps row 6.15 and the gamma remark",
+    "mason-hale: PR #2313, small-box numerical execution"
   ]
 }

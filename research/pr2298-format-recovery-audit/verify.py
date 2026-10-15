@@ -25,6 +25,12 @@ import sys
 
 FAILURES = []
 S6_CONTROLS = {}
+S6_SENSITIVITY = {}
+# Least value of each S6 row predicate (asserted, so a changed row derivation
+# cannot silently move the published cutoff).
+# Order: 6.1, 6.2a, 6.2b, 6.4, 6.5, 6.6a, 6.6b, 6.7, 6.8, 6.9, 6.11, 6.14, 6.15.
+S6_EXPECTED_LEAST = [2, 2, 2, 3, 2, 3, 1, 3, 25, 4, 3, 2, 19]
+S6_EXPECTED_CUTOFF = 25
 
 PROOF_SHA256 = "4afeb1708cf9568a9cd25afc72b159d5b06d151a6a6aba567a50970b38a1f513"
 
@@ -37,8 +43,9 @@ def check(cond, label):
 
 # ---------------------------------------------------------------------------
 # P1. Section 6: disk-margin / error step table with explicit least-b cutoffs.
-# H2 (imported verbatim from section 2, not re-audited):
-#   p = 6b, h = 2^-p, T = 2^L, b/2 <= L, T < 2^b (so L < b), S < T,
+# H2 (section 2 conclusions plus the section 6 restatement, not re-audited):
+#   p = 6b, h = 2^-p, T = 2^L, b/2 <= L, T < 2^b (so L < b; restated in
+#   section 6, section 2 itself says log2 T <= b), S < T,
 #   gamma <= b/4, d <= b^(1/12), d >= 2 (p >= 2^40), r = 2^ell >= 2.
 # Inherited units (named, not re-derived): one component truncation toward
 # zero has error < sqrt2*h; a computed unit-phase product has error < 4h and
@@ -106,8 +113,10 @@ def p1_section6():
     #     norm <= 1) + 4 (untwist) < 6TL; with M <= T: T(3L+2)+12 < 6TL, T=2^L
     rows.append(("6.5 E_ring + 12 < 6TL", "L",
                  least_L(lambda L: (1 << L) * (3 * L + 2) + 12 < 6 * (1 << L) * L, 300)))
-    # 6.6 chirp: 4 (pre) + 4 (chirp operand phase error) + 4 (conj(a)x operand)
-    #     + 6TL (scalar conv) + 4 (post) < 8TL  <=>  TL > 8
+    # 6.6 chirp: 4 (pre-multiplication by conj(a), which is also the error of
+    #     the conj(a)x operand) + 4 (chirp operand a) + 6TL (scalar conv)
+    #     + 4 (post) = 6TL + 12 < 8TL; the row keeps 16 as a generous budget
+    #     (one spare phase unit), which needs TL > 8
     rows.append(("6.6 6TL + 16 < 8TL  (chirp err < 8TLh)", "L",
                  least_L(lambda L: 6 * (1 << L) * L + 16 < 8 * (1 << L) * L, 300)))
     # 6.6 output norm .6 + 8TL h < 1  <=  20 b < 2^(5b)
@@ -145,11 +154,11 @@ def p1_section6():
     def final_ok(b, p, g):
         return 448 * b * 2 < 1 << max(0, p - 5 * b - g) if p - 5 * b - g > 0 else False
     check(all(final_ok(b, 6 * b, b // 4) for b in range(19, 2048)), "6.15 positive")
-    S6_CONTROLS["S6 p lowered to 5b+floor(b/4)"] = not any(final_ok(b, 5 * b + b // 4, b // 4) for b in range(1, 2048))
+    S6_SENSITIVITY["S6 p lowered to 5b+floor(b/4)"] = not any(final_ok(b, 5 * b + b // 4, b // 4) for b in range(1, 2048))
     # 6.1 needs d >= 2: with d = 1 (ell = L) sqrt2*ell < L never holds.
-    S6_CONTROLS["S6 d=1 in row 6.1"] = not any(2 * L * L < L * L for L in range(1, 5000))
-    S6_CONTROLS["S6 gamma raised to b"] = not any(final_ok(b, 6 * b, b) for b in range(1, 2048))
-    S6_CONTROLS["S6 drop the factor S<2^b (S<2^(2b))"] = not all(
+    S6_SENSITIVITY["S6 d=1 in row 6.1"] = not any(2 * L * L < L * L for L in range(1, 5000))
+    S6_SENSITIVITY["S6 gamma raised to b"] = not any(final_ok(b, 6 * b, b) for b in range(1, 2048))
+    S6_SENSITIVITY["S6 drop the factor S<2^b (S<2^(2b))"] = not all(
         Fr(28 * (1 << (2 * b - 1)) * (1 << (2 * (b - 1))) * (b - 1) << (2 * b + 4 + b // 4), 1 << (6 * b))
         < Fr(1, 2) for b in range(19, 64))
     need = []
@@ -158,6 +167,20 @@ def p1_section6():
         need.append(bb)
         print(f"  S6 {name:44s} least {var} = {val:3d}  -> b >= {bb}")
     b_s6 = max(need)
+    check([val for _, _, val in rows] == S6_EXPECTED_LEAST, "S6 per-row least values")
+    check(b_s6 == S6_EXPECTED_CUTOFF, "S6 cutoff == 25")
+    # Implementation controls that run the least_L / least_b machinery itself.
+    # (a) A non-eventual row (6.6 with no slack: 8TL + 16 < 8TL) must be
+    #     rejected by least_L's scan-top check.
+    n0 = len(FAILURES)
+    least_L(lambda L: 8 * (1 << L) * L + 16 < 8 * (1 << L) * L, 300)
+    S6_CONTROLS["S6 machinery: non-eventual row 6.6"] = len(FAILURES) > n0
+    del FAILURES[n0:]
+    # (b) A changed row 6.8 derivation (exponent 13/12 -> 3/2) is still a true
+    #     eventual inequality but moves the least b, which the asserted
+    #     per-row table must reject.
+    S6_CONTROLS["S6 machinery: row 6.8 exponent 3/2"] = (
+        least_b(*exp_condition(144, Fr(3, 2), Fr(1, 2))) != S6_EXPECTED_LEAST[8])
     p_d2 = 1 << 40
     b_d2 = cdiv(p_d2, 6)
     check(b_s6 < (1 << 24) < b_d2, "S6 cutoffs below the regime")
@@ -641,6 +664,13 @@ def main():
     for name, detected in controls.items():
         print(f"  control {name:38s} {'DETECTED' if detected else 'NOT DETECTED'}")
         check(detected, f"control {name}")
+    # Hypothesis-sensitivity checks: each weakened H2 premise makes the stated
+    # sufficient bound fail.  They are true by construction and do not exercise
+    # the cutoff machinery, so they are not counted as mutation controls.
+    for name, fails in S6_SENSITIVITY.items():
+        print(f"  sensitivity {name:34s} {'BOUND FAILS' if fails else 'BOUND STILL HOLDS'}")
+        check(fails, f"sensitivity {name}")
+    print(f"  {len(controls)} mutation controls, {len(S6_SENSITIVITY)} hypothesis-sensitivity checks")
     if FAILURES:
         print("FAIL", FAILURES[:10])
         return 1
