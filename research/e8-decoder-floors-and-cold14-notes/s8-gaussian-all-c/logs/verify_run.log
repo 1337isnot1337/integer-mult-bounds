@@ -1,0 +1,19 @@
+PASS gauss.ranks: certified (mod p) pairing-rank lower bounds for all 2271x2271 flat pairs, histogram [5450, 369780, 2631390, 2150820, 1]
+PASS gauss.hits: hit(X,Y) <= 192 * rank(X,Y) on every flat pair (exact hits, certified ranks)
+RESULT gauss: every decoder has sum_j beta_j >= 12*640/192 = 40  =>  x_K >= 2/3 (threshold to exclude: 43)
+PASS facet1: hits <= 192*rank on all 5157441 flat pairs
+PASS facet2: hits <= 128*rank + 128 on all 5157441 flat pairs
+max hits by certified rank: {0: 0, 1: 192, 2: 384, 3: 512, 4: 640}
+tight pairs (hits = 128 rank + 128): [(('dim3/15lines', 'dim3/15lines', 2), 900), (('dim3/15lines', 'dim3/15lines', 3), 60), (('dim3/15lines', 'dim4/60lines', 3), 60), (('dim4/60lines', 'dim3/15lines', 3), 60), (('dim4/60lines', 'dim4/60lines', 4), 1)]
+c = 15: cost >= 45  (> 42: excluded)
+c = 16: cost >= 44  (> 42: excluded)
+c = 17: cost >= 43  (> 42: excluded)
+c = 18: cost >= 42
+c = 19: cost >= 41
+PASS clique/line incidence M (640 x 60) has exact rank 60; M(1/2) = 6
+PASS every tight flat pair t has 1 - h_t = M x_t with x_t pairwise-orthogonal lines: [((15, 15, 2, 2), 900), ((15, 15, 3, 1), 60), ((15, 60, 3, 1), 60), ((60, 15, 3, 1), 60), ((60, 60, 4, 0), 1)]
+RESULT c18: M mu = 6*1 has the unique rational solution mu = 1/2 (non-integral) => no 18-total decoder costs <= 42
+RESULT tight c=19: cost = 41 would need mu = 7/12 (non-integral) => cost >= 42
+RESULT tight c=20: cost = 40 would need mu = 2/3 (non-integral) => cost >= 41
+c = 21 dumbbell cover: cost 42 min clique hits 12 max 16 PASS
+work dir: /private/tmp/claude-501/-Users-joelpulikkan-integer-mult-bounds/3231f0a2-7112-4dee-8ef4-f1fca97ae281/scratchpad/s8/vw

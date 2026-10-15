@@ -192,4 +192,26 @@ Together with §13, a Gaussian E8 decoder that beats real E8 (cost ≤ 42) needs
 - Side result: at most 2 totals can have a side of dim ≤ 2.
 - Related scoped results: #767, #2066.
 
-**Open:** c ≥ 17. The same machinery applies, with 3a + p ≥ 26 − k and level tables at rank ≤ 17 − |J|.
+**Caveat (found in §15):** the fast canonical key in `levels2.py` can overflow int64 for k > 10, so in principle a pruning could be wrong. No mismatch was observed, and §15's Theorem 1 re-proves the c = 16 result independently (cost ≥ 44) without level tables or SAT.
+
+## 15. Gaussian E8 for every c: cost ≥ max(40, 60 − c), and c = 18 excluded (`s8-gaussian-all-c/`; `verify.sh` about 6 min, exact arithmetic)
+- **Theorem 1 (checked).**
+  - On all 2271² flat pairs, the maximum clique hits by rank are 0, 192, 384, 512 and 640 for ranks 0–4. Their concave envelope has two facets: h ≤ 192·R and **h ≤ 128·R + 128**.
+  - Summing the second facet over the c totals: 7680 ≤ 128·cost + 128·c, so **cost ≥ 60 − c**.
+  - Hence every decoder with c ≤ 17 costs ≥ 43. This **settles c = 17** and re-proves §14 (c = 16 gives ≥ 44) without SAT.
+- **Theorem 2 (checked): c = 18 is excluded.**
+  - At c = 18 and cost ≤ 42, every clique is hit exactly 12 times and every total is tight.
+  - All 1,081 tight flat pairs miss exactly the cliques M·x_t, where x_t is a set of pairwise-orthogonal lines.
+  - So Mμ = 6·**1** with μ integral. M is the 640×60 clique/line incidence matrix, of exact rank 60, so μ = ½·**1**: a contradiction.
+- **Theorem 3 (checked): the tight face cost = 60 − c never occurs.** It would need μ = (c − 12)/12. Hence c = 19 requires cost ≥ 42 (only cost = 42 is open) and c = 20 requires cost ≥ 41.
+- **Facts for all c (argued).**
+  - Cost-0 totals can be dropped, so WLOG c ≤ 42.
+  - At most 3 totals are full rank and at most 6 have β ≥ 3.
+  - At most 2(c − 18) totals have rank 1.
+- **Why counting alone stops here.**
+  - The LP over cliques of every size, lines, flat complements and a free c-term gives exactly max(40, 60 − c).
+  - An **integral** cover exists from c = 21: 21 dumbbells (ℓ^⊥, m^⊥) with ℓ ⊥ m, of total cost 42, hit every clique 12–16 times (checked).
+  - So excluding c ≥ 21 needs the F2 decoder pattern itself, not counting.
+  - CP-SAT covering ILPs for c = 19 and c = 20 returned UNKNOWN.
+
+**Status of the Gaussian question.** A Gaussian E8 decoder that beats real E8 (cost ≤ 42) needs **19 ≤ c ≤ 42** totals of nonzero cost. At c = 19 only cost exactly 42 is open, and at c = 20 only 41–42.
