@@ -16,9 +16,10 @@ complete dirty bill?
 | Clean shadow (illegal) | **71** | 88 | **420** | yes (not legal) |
 
 Dirty shadow collapses to even-subset by sym-diff with the snapshot index.
-Independent dual same-walk equals even-subset by triangle inequality. A
-dirt-free shadow would undercut, but inherits dirt under PR1898 and fails the
-dirty bill.
+Independent dual same-walk equals even-subset: each covering set computes
+`Σ min_a (e[a]+e[a⊕m])` and checks the even-subset triangle inequality
+(machine-checked on all `583296` covering lists). A dirt-free shadow would
+undercut, but inherits dirt under PR1898 and fails the dirty bill.
 
 ## Reproduction
 

@@ -17,7 +17,7 @@
     "hypothetical_clean_tariff_at_X6": 420,
     "endpoint_Q6_tariff": 436,
     "answers_cr7q_oq1": true,
-    "oq1_answer": "A priced shadow snapshot with inherited correlated dirt collapses to even-subset cost R>=82 via sym-diff with the snapshot index (spectrum {82,88} on all 583296 covering distinct-6 sets). Two independently dirty connectors on the same walk likewise cannot beat R=82. A dirt-free shadow would reach R=71 and tariff 420<436, but cannot scrub inherited connector dirt under the PR1898 contract; shadow-only reads leave odd dirt. After a complete dirty bill, legal multi-connector alphabets stay at tariff >=442 and do not undercut the six-query endpoint 436.",
+    "oq1_answer": "A priced shadow snapshot with inherited correlated dirt collapses to even-subset cost R>=82 via sym-diff with the snapshot index (spectrum {82,88} on all 583296 covering distinct-6 sets). Two independently dirty connectors on the same walk likewise cannot beat R=82: dual R is computed as \u03a3_m min_a (e[a]+e[a\u2295m]) and the even-subset triangle inequality is verified on every covering set (matches_even=triangle_holds=583296). A dirt-free shadow would reach R=71 and tariff 420<436, but cannot scrub inherited connector dirt under the PR1898 contract; shadow-only reads leave odd dirt. After a complete dirty bill, legal multi-connector alphabets stay at tariff >=442 and do not undercut the six-query endpoint 436.",
     "no_new_kappa": true
   },
   "champion": {

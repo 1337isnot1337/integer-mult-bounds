@@ -40,13 +40,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Price one multi-connector / shadow-snapshot readout alphabet at Q=7 in the PR1898 alphabet: prove legal dirty-shadow and dual same-walk collapse to even-subset R>=82 (tariff 442), show illegal clean-shadow would reach R=71 (tariff 432), answering #2715 OQ1 (cr7q multi-connector).",
+  "actual_scope": "Price one multi-connector / shadow-snapshot readout alphabet at Q=7 in the PR1898 alphabet: prove legal dirty-shadow and dual same-walk collapse to even-subset R>=82 (tariff 442), show illegal clean-shadow would reach R=71 (tariff 420), answering #2715 OQ1 (cr7q multi-connector).",
   "scope_change_reason": "The drawn connector-alphabet card is redirected to the explicit multi-connector open question left by #2715 on the #1898 lineage, which is the nearest priced obstruction outside leave-alone tooling hosts and the hard leave-alones through #2715.",
   "bottleneck_link": "A priced multi-connector readout alphabet decides whether seven queries can undercut the six-query endpoint by dual-row cheaper readouts at the #2643 XOR floor.",
   "budget_minutes": 60,
   "stop_rule": "Stop after dirty-shadow collapse, dual triangle identity, clean-shadow counterfactual census, tariff consequence, package tests; no shared-XOR reopening and no host screens.",
   "outcome": "completed",
-  "evidence": "CERTIFICATE.json distinct-6 dirty-shadow matches even {82:97216,88:486080}; clean counterfactual {71:97216,80:486080}; dual triangle; champion dirty=82 clean=71; independent checker; corruption controls.",
+  "evidence": "CERTIFICATE.json distinct-6 dirty-shadow matches even {82:97216,88:486080}; clean counterfactual {71:97216,80:486080}; dual min_a cost + triangle verified on all 583296 covering sets; champion dirty=82 clean=71; independent checker; corruption controls.",
   "author": "Wentao Li",
   "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
   "open_questions": [

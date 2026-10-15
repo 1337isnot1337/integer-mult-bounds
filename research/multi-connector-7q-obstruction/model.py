@@ -151,15 +151,39 @@ def even_triangle_holds(even):
     return True
 
 
-def dual_independent_from_even(even):
-    """Dual-indep R from a precomputed even-subset table (incl. even[0]=0).
+def dual_and_triangle_from_even(even):
+    """One 31×32 pass: (Σ_m min_a (e[a]+e[a⊕m]), triangle_holds).
 
-    By the even-subset triangle inequality, min_a e[a]+e[a⊕m] = e[m], so the
-    dual total equals the single-connector even total on every covering list.
+    Dual cost is computed directly (not copied from Σ e[m]). Triangle is
+    e[m] <= e[a]+e[a⊕m] for every covered a,m. With e[0]=0 the choice a=m
+    always achieves e[m], so triangle forces dual == Σ e[m] on covering lists.
     """
-    if not even_triangle_holds(even):
-        return None
-    return sum(even[1:])
+    if any(even[m] >= 99 for m in range(1, 32)):
+        return None, False
+    total = 0
+    triangle = True
+    for m in range(1, 32):
+        best = 99
+        em = even[m]
+        for a in range(32):
+            c0 = even[a]
+            c1 = even[a ^ m]
+            if c0 < 99 and c1 < 99:
+                cost = c0 + c1
+                if cost < best:
+                    best = cost
+                if em > cost:
+                    triangle = False
+        if best >= 99:
+            return None, False
+        total += best
+    return total, triangle
+
+
+def dual_independent_from_even(even):
+    """Dual-indep R = Σ_{m=1}^{31} min_a (e[a] + e[a⊕m]) from even table."""
+    dual_r, _triangle = dual_and_triangle_from_even(even)
+    return dual_r
 
 
 def dual_independent_same_walk_R(slots):
@@ -219,38 +243,45 @@ def path_X(closed):
 
 
 def enumerate_distinct6_multi_connector():
-    """One pass: even, dirty-shadow min, clean-shadow min; dual via triangle lemma."""
+    """One pass: even, dirty-shadow, clean-shadow, and dual-indep (real min_a)."""
     hist_even = Counter()
     hist_dirty = Counter()
+    hist_dual = Counter()
     hist_clean = Counter()
     covering = 0
     dirty_matches = 0
     dual_matches = 0
     triangle_ok = 0
-    witnesses = {"even": {}, "dirty": {}, "clean": {}}
+    witnesses = {"even": {}, "dirty": {}, "dual": {}, "clean": {}}
     for nonzero in combinations(range(1, 32), 6):
         slots = (0,) + nonzero
         info = mask_best_bundle(slots)
-        even_r = total_or_none(info["even"])
+        even = info["even"]
+        even_r = total_or_none(even)
         if even_r is None:
             continue
         dirty_vals = [total_or_none(info["dirty"][k]) for k in range(7)]
         clean_vals = [total_or_none(info["clean"][k]) for k in range(7)]
         need(all(v is not None for v in dirty_vals), "dirty uncovered")
         need(all(v is not None for v in clean_vals), "clean uncovered")
+        dual_r, tri_ok = dual_and_triangle_from_even(even)
+        need(dual_r is not None, "dual uncovered")
         dirty_r = min(dirty_vals)
         clean_r = min(clean_vals)
         covering += 1
         hist_even[even_r] += 1
         hist_dirty[dirty_r] += 1
+        hist_dual[dual_r] += 1
         hist_clean[clean_r] += 1
         if dirty_r == even_r and all(v == even_r for v in dirty_vals):
             dirty_matches += 1
-        # Dual-indep equals even by triangle inequality (checked on fixtures outside).
-        dual_matches += 1
-        triangle_ok += 1
+        if dual_r == even_r:
+            dual_matches += 1
+        if tri_ok:
+            triangle_ok += 1
         witnesses["even"].setdefault(even_r, slots)
         witnesses["dirty"].setdefault(dirty_r, slots)
+        witnesses["dual"].setdefault(dual_r, slots)
         witnesses["clean"].setdefault(clean_r, slots)
     return {
         "covering_sets": covering,
@@ -272,13 +303,13 @@ def enumerate_distinct6_multi_connector():
             },
         },
         "dual_independent": {
-            "attainable_R": sorted(hist_even),
-            "histogram": {str(r): hist_even[r] for r in sorted(hist_even)},
-            "min_R": min(hist_even) if hist_even else None,
+            "attainable_R": sorted(hist_dual),
+            "histogram": {str(r): hist_dual[r] for r in sorted(hist_dual)},
+            "min_R": min(hist_dual) if hist_dual else None,
             "matches_even_on_covering": dual_matches,
             "triangle_holds_on_covering": triangle_ok,
             "first_witnesses": {
-                str(r): list(slots) for r, slots in witnesses["even"].items()
+                str(r): list(slots) for r, slots in witnesses["dual"].items()
             },
         },
         "clean_shadow_counterfactual": {

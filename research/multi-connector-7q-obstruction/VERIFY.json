@@ -15,7 +15,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 240,
-      "checks": "Dirty-shadow/even/clean distinct-6 census, dual triangle fixtures, one-repeat layers, dirt obstruction, champion, certificate match, source pins"
+      "checks": "Dirty-shadow/even/clean distinct-6 census; dual min_a cost + triangle on every covering set; one-repeat layers; dirt obstruction; champion; certificate match; source pins"
     },
     {
       "argv": [
@@ -36,7 +36,7 @@
         "{package}/independent.py"
       ],
       "timeout_seconds": 240,
-      "checks": "Separate multi-connector census, repeat layers, champion, tariff arithmetic"
+      "checks": "Separate multi-connector census with real dual min_a + triangle, repeat layers, champion, tariff arithmetic"
     },
     {
       "argv": [

@@ -228,11 +228,14 @@ def build_certificate():
                 "to even-subset cost R>=82 via sym-diff with the snapshot index "
                 "(spectrum {82,88} on all 583296 covering distinct-6 sets). "
                 "Two independently dirty connectors on the same walk likewise "
-                "cannot beat R=82. A dirt-free shadow would reach R=71 and tariff "
-                "420<436, but cannot scrub inherited connector dirt under the "
-                "PR1898 contract; shadow-only reads leave odd dirt. After a "
-                "complete dirty bill, legal multi-connector alphabets stay at "
-                "tariff >=442 and do not undercut the six-query endpoint 436."
+                "cannot beat R=82: dual R is computed as Σ_m min_a (e[a]+e[a⊕m]) "
+                "and the even-subset triangle inequality is verified on every "
+                "covering set (matches_even=triangle_holds=583296). A dirt-free "
+                "shadow would reach R=71 and tariff 420<436, but cannot scrub "
+                "inherited connector dirt under the PR1898 contract; shadow-only "
+                "reads leave odd dirt. After a complete dirty bill, legal "
+                "multi-connector alphabets stay at tariff >=442 and do not "
+                "undercut the six-query endpoint 436."
             ),
             "no_new_kappa": True,
         },

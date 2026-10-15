@@ -21,6 +21,28 @@ def fail(message):
     raise SystemExit(f"FAIL_INDEPENDENT: {message}")
 
 
+def dual_and_triangle(even):
+    """One pass: (Σ_m min_a (e[a]+e[a⊕m]), triangle_holds). Not a Σ e copy."""
+    total = 0
+    triangle = True
+    for m in range(1, 32):
+        best = 99
+        em = even[m]
+        for a in range(32):
+            c0 = even[a]
+            c1 = even[a ^ m]
+            if c0 < 99 and c1 < 99:
+                cost = c0 + c1
+                if cost < best:
+                    best = cost
+                if em > cost:
+                    triangle = False
+        if best >= 99:
+            return None, False
+        total += best
+    return total, triangle
+
+
 def bundle(slots):
     n = len(slots)
     even = [99] * 32
@@ -62,9 +84,10 @@ def bundle(slots):
     even_r = sum(even[1:])
     dirty_rs = [sum(dirty[k][1:]) for k in range(n)]
     clean_rs = [sum(clean[k][1:]) for k in range(n)]
-    # Dual-indep equals even by triangle inequality on even-subset costs.
-    dual = even_r
-    return even_r, dirty_rs, clean_rs, dual
+    dual, tri = dual_and_triangle(even)
+    if dual is None:
+        return None
+    return even_r, dirty_rs, clean_rs, dual, tri
 
 
 def tariff(q, r, x):
@@ -76,11 +99,12 @@ def distinct6():
     covering = 0
     dirty_eq = 0
     dual_eq = 0
+    triangle_ok = 0
     for nonzero in combinations(range(1, 32), 6):
         got = bundle((0,) + nonzero)
         if got is None:
             continue
-        e, ds, cs, du = got
+        e, ds, cs, du, tri = got
         covering += 1
         he[e] += 1
         dmin = min(ds)
@@ -92,6 +116,8 @@ def distinct6():
             dirty_eq += 1
         if du == e:
             dual_eq += 1
+        if tri:
+            triangle_ok += 1
     if covering != 583296:
         fail(f"covering {covering}")
     if dict(he) != {82: 97216, 88: 486080}:
@@ -106,6 +132,8 @@ def distinct6():
         fail(f"match dirty={dirty_eq}")
     if dual_eq != covering:
         fail(f"match dual={dual_eq}")
+    if triangle_ok != covering:
+        fail(f"triangle={triangle_ok}")
     return covering
 
 
@@ -120,7 +148,7 @@ def one_repeat(kind):
         got = bundle(tuple(slots))
         if got is None:
             return
-        e, ds, cs, du = got
+        e, ds, cs, du, _tri = got
         if kind == "even":
             total = e
         elif kind == "dirty":
@@ -164,8 +192,8 @@ def main():
     got = bundle(CHAMPION)
     if got is None:
         fail("champion uncovered")
-    e, ds, cs, du = got
-    if e != 82 or min(ds) != 82 or du != 82 or min(cs) != 71:
+    e, ds, cs, du, tri = got
+    if e != 82 or min(ds) != 82 or du != 82 or min(cs) != 71 or not tri:
         fail(f"champion scores {got}")
     if tariff(7, 82, 6) != 442 or tariff(7, 71, 6) != 420:
         fail("tariff")

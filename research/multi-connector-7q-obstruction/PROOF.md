@@ -61,6 +61,12 @@ symmetric difference on one connector) yields `e[m] ≤ e[a] + e[a ⊕ m]`. The
 bound is achieved at `a = m`. Therefore the dual-independent total equals
 `R_even` on every covering list: **no improvement**.
 
+**Census (machine-checked).** On all `583296` covering distinct-6 sets,
+`dual_independent_from_even` computes `Σ_m min_a (e[a]+e[a⊕m])` directly
+(not by copying `Σ e[m]`), the triangle inequality is verified on each even
+table, and both match even-subset (spectrum `{82,88}`;
+`matches_even_on_covering = triangle_holds_on_covering = 583296`).
+
 ## Counterfactual: dirt-free shadow
 
 If the snapshot were somehow dirt-free while retaining `σ`, primary would still
