@@ -140,12 +140,12 @@ class OverlapPathIndexTests(unittest.TestCase):
                          "https://github.com/CrocSwap/integer-mult-bounds/pull/8")
         self.assertTrue(unjoined[0]["truncated"])
 
-    def test_fetch_pr_files_paginates_and_flags_truncation(self):
+    def test_fetch_pr_files_paginates_and_flags_shortfall(self):
         def page(rows, more):
             return {"repository": {"pullRequests": {
                 "pageInfo": {"hasNextPage": more, "endCursor": "next"},
-                "nodes": [{"number": n, "files": {
-                    "pageInfo": {"hasNextPage": trunc},
+                "nodes": [{"number": n, "headRefOid": "abc", "changedFiles": len(paths), "files": {
+                    "pageInfo": {"hasNextPage": False},
                     "nodes": [{"path": p} for p in paths]}}
                     for n, paths, trunc in rows]}}}
         pages = [page([(1, ["a.txt", "b.txt"], False)], True),
@@ -160,7 +160,8 @@ class OverlapPathIndexTests(unittest.TestCase):
         page = {"repository": {"pullRequests": {
             "pageInfo": {"hasNextPage": False, "endCursor": None},
             "nodes": [{"number": 376, "files": None},
-                      {"number": 9, "files": {"pageInfo": {"hasNextPage": False},
+                      {"number": 9, "headRefOid": "abc", "changedFiles": 1,
+                       "files": {"pageInfo": {"hasNextPage": False},
                                               "nodes": [{"path": "ok.md"}, None]}}]}}}
         with patch.object(overlap, "graphql", return_value=page):
             rows = overlap.fetch_pr_files()
@@ -171,7 +172,8 @@ class OverlapPathIndexTests(unittest.TestCase):
     def test_fetch_pr_files_retries_transient_page_failures(self):
         page = {"repository": {"pullRequests": {
             "pageInfo": {"hasNextPage": False, "endCursor": None},
-            "nodes": [{"number": 1, "files": {"pageInfo": {"hasNextPage": False},
+            "nodes": [{"number": 1, "headRefOid": "abc", "changedFiles": 1,
+                       "files": {"pageInfo": {"hasNextPage": False},
                                               "nodes": [{"path": "a.md"}]}}]}}}
         boom = subprocess.CalledProcessError(1, "gh api graphql")
         with patch.object(overlap, "graphql", side_effect=[boom, boom, page]) as call, \
