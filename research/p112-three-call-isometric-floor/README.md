@@ -1,6 +1,6 @@
 # Three independently recharted P112 calls still pay 192
 
-**Scoped negative result / research note. No new supplier or kappa.**
+**Independent proof / scoped negative result. No new supplier or kappa.**
 
 Three independent P112 all-pairs demands cannot share away their separate-total
 copy bill by using different **isometric binary label charts**. For arbitrary
@@ -14,6 +14,18 @@ This changes the two-call premise of Sagar Thakrar's pending [PR2294](https://gi
 which explicitly leaves `k >= 3` open. It does **not** repeat its chart sample
 or claim the one-call support census as new. The new ingredient is the
 six-order triangular deletion lemma in [PROOF.md](PROOF.md), section 3.
+
+**Concurrent overlap, discovered before submission:** DreamingOfClouds'
+[PR2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338), head
+`82700676e1d42acf98dc1921cb6ef82551620008`, states a broader all-batch theorem
+for symmetric charts in section 3.4, using normal classes and an additional
+frame lemma. The core proof and verifier here were completed before reading
+that submission (retained in commit `9df32e528da547a1c1cb51cbd480f88f8b7d197e`).
+This package supplies an **independent, frame-lemma-free proof for three
+Gram-root-code calls**, an attained general counting bound, and direct
+all-pairs/mutation evidence. Its scope and surplus bound are narrower than
+the concurrent theorem's. No first-closure or stronger-floor claim is made;
+the concurrent theorem and its full package have not been audited here.
 
 ## Statement and evidence
 
@@ -149,7 +161,9 @@ ledger; arbitrary diffs are not searched. The canonical claim is
 The final refresh at 05:54 UTC covered **550 open PRs and 1,058 Discussions**
 with complete pagination and no warnings. Main and PR2294's pinned head were
 unchanged. Other three-mode matches concern coordinates within one call,
-not three independent calls. No competing matching result was identified.
+not three independent calls. A subsequent newest-PR check at 05:56 UTC found
+PR2338; its batching proof was read before submission, and the independent
+contribution and narrower scope are stated above.
 Full task, stopping rule, final freshness and verification evidence are in
 [TASK.json](TASK.json).
 
@@ -184,3 +198,6 @@ Douglas Colkitt / PR1240 for the centre-sharing motivation and package tools.
 The retained selected construction remains Rohan Arun's PR1094 on Jeremy
 Kothe's PR1087 and the cumulative k8/T16 lineage, with the DreamingOfClouds
 PR589 / eumemic PR555 bit supplier. No predecessor code or data is vendored.
+DreamingOfClouds / concurrent PR2338 receives credit for the broader all-batch
+symmetric-chart statement, independently developed using normal classes and
+its frame lemma; the present argument does not use that result as a premise.

@@ -163,5 +163,17 @@
     "warnings": [],
     "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
     "assessment": "Only predecessor PR2294, its released claim, our own claim/package, and unrelated one-call three-coordinate-mode results match. No competing three-call P112 isometric-chart proof was identified in the searched coverage."
+  },
+  "contribution_status": "Independent proof / verification of a three-call floor also covered by concurrent PR2338; attained general triangular-count lemma; no first-closure claim.",
+  "late_overlap": {
+    "checked_utc": "2026-10-15T05:56:42Z",
+    "pr": 2338,
+    "head": "82700676e1d42acf98dc1921cb6ef82551620008",
+    "files_read": [
+      "research/decoder-floors-frontier-format/README.md, especially section 3.4"
+    ],
+    "comparison": "PR2338 states a stronger all-k symmetric-chart result using hyperplane normal classes and an additional frame lemma. This package independently proves the k=3 Gram-root-code floor by a six-order triangular deletion argument, without that frame lemma, and certifies its sharp n+(2/3)p count, full all-pairs fixtures and failure controls. No audit of all PR2338 claims is made.",
+    "core_commit_before_reading": "9df32e528da547a1c1cb51cbd480f88f8b7d197e",
+    "decision": "Retain one focused contribution as a meaningfully different independent proof/certificate package; update framing and credit before submitting."
   }
 }

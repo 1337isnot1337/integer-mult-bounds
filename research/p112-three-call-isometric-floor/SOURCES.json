@@ -43,6 +43,16 @@
       "git_blob": "177c27bd6c4f75a2524eb2e8ade74045b7abb060",
       "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/18d6ac4f864af2b71aa8cf5f4541fcfc4350e2f0/research/p112-batch-chart-change/PROOF.md",
       "usage": "Read-only cited predecessor and open question, no executable/data dependency; its mathematical two-call result is not used as an oracle in the new proof."
+    },
+    {
+      "repository": "https://github.com/CrocSwap/integer-mult-bounds",
+      "pr": 2338,
+      "commit": "82700676e1d42acf98dc1921cb6ef82551620008",
+      "path": "research/decoder-floors-frontier-format/README.md",
+      "sha256": "0a941616cd2fac679182e5bb97e9a307bf22e42ac9541bbca3fadc81b1fda2b5",
+      "git_blob": "a1751a2a0b35d8607cf901da6fae6036cdb9e1bc",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/blob/82700676e1d42acf98dc1921cb6ef82551620008/research/decoder-floors-frontier-format/README.md",
+      "usage": "Concurrent overlap, read after the core proof/verifier were completed. Section 3.4 states a broader all-k symmetric-chart theorem via normal classes and a frame lemma. No mathematical or executable dependency here; not fully audited."
     }
   ]
 }

@@ -7,6 +7,14 @@ It extends the **two-call** isometric-chart result of Sagar Thakrar's pending
 `18d6ac4f864af2b71aa8cf5f4541fcfc4350e2f0`, to **three** independent calls.
 The block-triangular averaging argument below is the new step.
 
+Concurrent [PR2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338),
+head `82700676e1d42acf98dc1921cb6ef82551620008`, section 3.4 states a broader
+all-batch symmetric-chart result via normal classes and a frame lemma. It was
+discovered during the final overlap check, after this core proof and verifier
+were completed. This is an independent, narrower proof that does not use
+that frame lemma or theorem; no first-closure claim is made. The attained
+counting lemma below concerns all pure terms, not only rank-seven terms.
+
 ## 1. Exact model and inherited finite premises
 
 Use the model of alephnan's merged PR1714
