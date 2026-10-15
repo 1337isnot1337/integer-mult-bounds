@@ -18,6 +18,78 @@
   "tampered_word_local_profile",
   "cross_child_pending_axis_alias (X2)"
  ],
+ "frame_only_diff_vs_pr2322": {
+  "base": {
+   "A_frames": 24,
+   "B_frames": 48,
+   "cleanup_frames": 0,
+   "compensation_frames": 0,
+   "cut_frames": 0,
+   "precondition_frames": 0,
+   "restore_frames": 0,
+   "start_extra": [
+    474,
+    475,
+    476,
+    477,
+    486,
+    487,
+    488,
+    489,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541
+   ]
+  },
+  "extra": {
+   "A_frames": 24,
+   "B_frames": 48,
+   "cleanup_frames": 0,
+   "compensation_frames": 0,
+   "cut_frames": 0,
+   "precondition_frames": 0,
+   "restore_frames": 0,
+   "start_extra": [
+    474,
+    475,
+    476,
+    477,
+    486,
+    487,
+    488,
+    489,
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541
+   ]
+  }
+ },
  "head": "324d7d3590dc21003940a44cb0cbdc32b3620f25",
  "inputs": {
   "324d7d3590dc:research/gmx-t74-borrow43-handoff/CLAIM.json": {
@@ -84,6 +156,11 @@
    "bytes": 70204,
    "git_blob": "29fa1b3a8b4618632116252bcbd6e2beac395d58",
    "sha256": "b678b0bad0275b6870681b40bbcaefc7e815ed36713f0318a1b236cdf7d9e0b6"
+  },
+  "324d7d3590dc:research/gmx-t74-borrow43-handoff/outer/OUTER-CLAIM.json": {
+   "bytes": 10811,
+   "git_blob": "556f72136acd4dbbbd53ba48849faacf4cf64b56",
+   "sha256": "42947f62e7caf297f3712a42299dcf13ad68169eddb10ccad95b54c30853c8bb"
   }
  },
  "namespace": {
@@ -92,8 +169,8 @@
   "zero_buffers": 78
  },
  "not_checked": [
-  "scalar/native semantics of the 24 raised entrances",
-  "invoice, precision tapes, outer ledger"
+  "legality of the 24 raised entrance frames (parent delivery at dimension 2); the change is frame-only, so the scalar replay does not test it",
+  "native lowering, invoice, precision tapes, outer ledger"
  ],
  "object": "PR2435 owner map, words and complex endpoint, independent recount",
  "python": "3.14.4",

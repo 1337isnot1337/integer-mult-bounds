@@ -28,7 +28,9 @@ library. It checks:
   * the negative controls of fill_check80, adapted to PR2435's words: mutated rows, windows, families,
     namespace, word profile and pending axes must all be rejected.
 
-Not re-checked: scalar/native semantics of the raised entrances, invoice, outer ledger, precision tapes.
+PR2435's words differ from PR2322's only in frames (24 entrances and the gate frames around them); the exact replay is
+frame-blind, so it re-confirms the unchanged scalar word but does not test the new mechanism.  Not checked: whether the
+parent delivers each raised copy buffer at its two-dimensional entrance frame; native lowering, invoice, outer.
 Prepared with substantial AI assistance (Claude Code, Anthropic); Apache-2.0.  Credits in README.md.
 Usage: python3 -I -B check_2435.py [--repo PATH] [--fetch] [--remote URL] [--out]
 """
@@ -78,8 +80,13 @@ PINS_2435 = {
     'new/borrow/receipts/AUDIT-43base.json': ('f362e0600a7f609b0b66838dfd8ab0e7334ca417', '0cc5dd843fea9296a25541287c4cef14978f47d418ed75b1e392d7cc9cce0de3'),
     'new/borrow/receipts/AUDIT-43extra.json': ('9ddcf6fcae4f4989cf84e3cf5ad99104a1c0e70e', '346558ae4cb1f80a08f80eba551705353066a2beaaf6f4f3c84b379b22cd52c7'),
     'CLAIM.json': ('98f7ddd17ac6aee5845dc60eca39fd2e0f304e16', '8b60a69829037f5c15e7102f7ac3db3592859d68581ac1be0c993b290816c6c1'),
+    'outer/OUTER-CLAIM.json': ('556f72136acd4dbbbd53ba48849faacf4cf64b56', '42947f62e7caf297f3712a42299dcf13ad68169eddb10ccad95b54c30853c8bb'),
 }
-KAPPA_2435 = Fraction('0.001698511343697629329051733814187744630805511096704593311278')   # PR2435 body, 58 digits
+HEAD_2322 = '002304ef01c4416a127916169ae6d94c1bee052b'          # PR2322 words, for the frame-only diff
+WORDS_2322 = {'base': ('research/t74-joint-owner-hillclimb/words/base.json.gz', 'f4dda9147af544ae4fe6d17582b8aa5e9916040b'),
+              'extra': ('research/t74-joint-owner-hillclimb/words/extra.json.gz', '471e4819c0c6b256e7b3999649f1391989d92e19')}
+KAPPA_2435_DEC = '0.001698511343697629329051733814187744630805511096704593311278'        # PR2435 body, 58 digits
+KAPPA_2435 = Fraction(KAPPA_2435_DEC)
 EPS = Fraction(1, 10 ** 15)
 HELPERS, REMOVED = 434, 46
 
@@ -115,6 +122,8 @@ def main():
             subprocess.run(['git', '-C', args.repo, 'fetch', '-q', args.remote, 'refs/pull/2269/head'], check=True)
         b, rec_in = FC.read_pinned(args.repo, HEAD_2435, PKG_2435, PINS_2435, 'PR2435')
         tpl = FC.template_2269(b)                       # PLAN/SPEC/ORDER/DISPATCH/CONSTRUCTION consistency
+        need(FC.parse(b, 'outer/OUTER-CLAIM.json')['kappa'].startswith(KAPPA_2435_DEC), 'R-0.pins',
+             'claimed kappa (58 digits) is not a prefix of PR2435 outer/OUTER-CLAIM.json kappa')
         spec = tpl['spec']['expected']
         words = {}
         for pid, tag in (('gauge44', 'base'), ('extra', 'extra')):
@@ -127,6 +136,32 @@ def main():
             need(dict(Counter(words[pid]['widths'])) == inv, 'R-a.word', pid + ' recounted width inventory')
         print('words: both providers recount to profile %s and width inventory %s (%d helpers, %d zero buffers)'
               % (prof, inv, HELPERS, len(words['gauge44']['buffers'])), flush=True)
+        # what PR2435 changed relative to PR2322's words: only frames (entrance raise), nothing scalar
+        if not FC.commit_present(args.repo, HEAD_2322) and args.fetch:
+            subprocess.run(['git', '-C', args.repo, 'fetch', '-q', args.remote, 'refs/pull/2322/head'], check=True)
+        need(FC.commit_present(args.repo, HEAD_2322), 'R-0.pins', 'PR2322 head absent (rerun with --fetch)')
+        frame_diff = {}
+        for tag in ('base', 'extra'):
+            rel, blob2322 = WORDS_2322[tag]
+            raw = FC.git(args.repo, 'show', HEAD_2322 + ':' + rel)
+            need(FC.blob_id(raw) == blob2322, 'R-0.pins', 'PR2322 word pin ' + tag)
+            old = json.loads(gzip.decompress(raw))
+            new = FC.parse(b, 'new/borrow/words/BORROW-WORD-43%s.json.gz' % tag)
+            strip = lambda g: g[:-1] if isinstance(g, list) and g and g[0] in ('add', 'scale') else g
+            diff = dict(start_extra=sorted(int(k) for k in set(old['start_extra']) | set(new['start_extra'])
+                                           if old['start_extra'].get(k) != new['start_extra'].get(k)))
+            for sec in ('precondition', 'compensation', 'A', 'cut', 'B', 'restore', 'cleanup'):
+                need(len(old[sec]) == len(new[sec]) and all(strip(x) == strip(y) for x, y in zip(old[sec], new[sec])),
+                     'R-c.local', tag + ': non-frame change in section ' + sec)
+                diff[sec + '_frames'] = sum(1 for x, y in zip(old[sec], new[sec]) if x != y)
+            for key in ('ports', 'centers', 'center_frames', 'target_levels', 'helper_final', 'removed',
+                        'initial_corrections', 'warps'):
+                need(old[key] == new[key], 'R-c.local', tag + ': %s changed' % key)
+            need(len(diff['start_extra']) == 24, 'R-c.local', tag + ': expected 24 raised entrances')
+            frame_diff[tag] = diff
+        print('PR2322 -> PR2435 words: only frames differ (24 start_extra entrances, %d A-gate and %d B-gate frames per '
+              'word); registers, coefficients, warps, centres, ends and cleanup identical'
+              % (frame_diff['base']['A_frames'], frame_diff['base']['B_frames']), flush=True)
         # exact word checks of this author's iteration-3 words_check.py (PR2315): warps, frames, exact replay
         WC = load('vendor/pr2315/words_check.py', 'pr2315_words_check')
         word_checks = {}
@@ -154,7 +189,8 @@ def main():
         need(rejected_flip, 'R-c.local', 'control: a flipped B coefficient was accepted by the exact replay')
         print('words (PR2315 words_check): 46 warps each (G invertible, K_G symplectic, Fourier rank 0); frames nested; '
               'exact replay forward and dual with arbitrary dirty inputs (%d independent inputs): Y += X, everything '
-              'else and the %d zero buffers restored; a flipped B coefficient is rejected'
+              'else and the %d zero buffers restored; a flipped B coefficient is rejected (the replay is frame-blind, so '
+              'it re-confirms the unchanged scalar word, not the raised entrances)'
               % (word_checks['base']['replay']['independent_inputs'], word_checks['base']['replay']['buffers']), flush=True)
         claims = dict(idle=[('new/SPEC.json idle_remainder_profile',
                              FC.as_profile(spec['idle_remainder_profile'], 'R-c.idle', 'spec')),
@@ -166,7 +202,7 @@ def main():
                                ('idle_remainders', 'new/SPEC.json', spec['idle_remainders']),
                                ('rank_mass', 'new/SPEC.json', spec['rank_mass'])])
         ctx = FC.context('pr2435-T74', tpl, HELPERS, {p: words[p]['widths'] for p in words},
-                         {p: words[p]['local'] for p in words}, claims, plan_widths=False)
+                         {p: words[p]['local'] for p in words}, claims, plan_widths=True)
         rows = FC.parse(b, 'OWNERS.json.gz')
         sched = FC.derive_schedule(ctx['T'], tpl['template'], ctx['order'])
         print('windows: %d rebuilt from %d expanded events (%d bridges) = PR2435 new/PLAN.json windows'
@@ -226,15 +262,20 @@ def main():
     except FC.CheckFailure as exc:
         print('FAIL_T74_2435_FILL_INDEPENDENT %s' % exc)
         return 1
+    except Exception as exc:   # e.g. words_check.Reject: report, never pass
+        print('FAIL_T74_2435_FILL_INDEPENDENT %s: %s' % (type(exc).__name__, exc))
+        return 1
     out = dict(object='PR2435 owner map, words and complex endpoint, independent recount', head=HEAD_2435,
                inputs=rec_in, recount=dict(idle=rec['idle'], profile=rec['profile'], roles=rec['roles'],
                                            cross_replica_roles=rec['cross_replica_roles'], rank_mass=rec['rank_mass'],
                                            deficit=rec['deficit']),
                namespace=dict(physical_pr2322_rule=geo['physical'], zero_buffers=geo['zero_buffers'], physical_charged=geo['physical'] + geo['zero_buffers']),
                charts=xg['actual_73column_charts'], controls_rejected=[c['name'] for c in rejected],
-               word_checks=word_checks,
+               word_checks=word_checks, frame_only_diff_vs_pr2322=frame_diff,
                root_bracket=[str(KAPPA_2435 - EPS), str(KAPPA_2435 + EPS)], python=sys.version.split()[0],
-               not_checked=['scalar/native semantics of the 24 raised entrances', 'invoice, precision tapes, outer ledger'])
+               not_checked=['legality of the 24 raised entrance frames (parent delivery at dimension 2); the change is '
+                            'frame-only, so the scalar replay does not test it', 'native lowering, invoice, precision '
+                            'tapes, outer ledger'])
     if args.out:
         with open(os.path.join(HERE, 'check_2435.receipt.json'), 'w') as f:
             f.write(json.dumps(out, indent=1, sort_keys=True, default=str) + '\n')

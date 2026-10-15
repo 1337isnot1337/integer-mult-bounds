@@ -45,7 +45,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after words, owner map, namespace, charts and root are checked with controls; do not re-run PR2435's native or outer pipeline.",
   "outcome": "completed",
-  "evidence": "check_2435.py: words recounted by two independent implementations and exactly replayed (forward and dual, dirty inputs, 46 warps); 289,044-role owner map passes R-a..R-g with windows rebuilt from GLOBAL-TEMPLATE; idle/profile/roles/mass equal SPEC; physical 66748+78=66826; 9129 charts equal SPEC; root within 1e-15 of kappa; 16+1 negative controls rejected.",
+  "evidence": "check_2435.py: words recounted by two independent implementations and exactly replayed (forward and dual, dirty inputs, 46 warps); 289,044-role owner map passes R-a..R-g with windows rebuilt from GLOBAL-TEMPLATE; idle/profile/roles/mass equal SPEC; physical 66748+78=66826; 9129 charts equal SPEC; root within 1e-15 of kappa; 16+1 negative controls rejected. PR2322->PR2435 words differ only in frames (24 entrances, 24 A-gate and 48 B-gate frames per word); scalar word unchanged.",
   "author": "Sagar Thakrar",
   "ai_assistance": "Prepared with substantial AI assistance: Claude Code (Anthropic, Claude Opus 5.5) wrote the adapter and text around this author's earlier checkers; a separate Claude subagent adversarially reviewed it. No independent human review is claimed.",
   "open_questions": [
@@ -57,7 +57,7 @@
     },
     {
       "question": "What justifies the two-dimensional entrance of each raised copy buffer in the parent hosting?",
-      "why_it_matters": "It is the one new obligation of PR2435 that the scalar replay and frame recount do not cover.",
+      "why_it_matters": "PR2435's change is frame-only; the entrance delivery at dimension 2 is its single new obligation, not covered by scalar replay or frame recount.",
       "first_step": "Locate the parent recipe event delivering copy-buffer content and check its frame rank.",
       "blocked_by": "Requires the native/recursive hosting model of the parent template."
     }
