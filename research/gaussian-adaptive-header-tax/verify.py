@@ -264,6 +264,19 @@ def calculate():
             'controls': 6}
 
 
+def same_receipt(actual, expected):
+    """Keep discrete proof counts distinct from JSON booleans and floats."""
+    if type(actual) is not type(expected):
+        return False
+    if isinstance(actual, dict):
+        return actual.keys() == expected.keys() and all(
+            same_receipt(value, expected[key]) for key, value in actual.items())
+    if isinstance(actual, list):
+        return len(actual) == len(expected) and all(
+            same_receipt(a, b) for a, b in zip(actual, expected))
+    return actual == expected
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--write', type=Path)
@@ -273,7 +286,7 @@ def main():
     result = calculate()
     expected = HERE / 'RESULT.json'
     if expected.exists():
-        require(result == json.loads(expected.read_text()), 'receipt mismatch')
+        require(same_receipt(result, json.loads(expected.read_text())), 'receipt mismatch')
     else:
         require(args.write is not None, 'missing committed receipt')
     if args.write:

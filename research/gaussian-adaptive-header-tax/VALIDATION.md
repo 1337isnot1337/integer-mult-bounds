@@ -42,3 +42,7 @@ freshness is bounded, and metadata search is not a novelty guarantee.
 
 Claim and completion share the predecessor investigation:
 https://github.com/CrocSwap/integer-mult-bounds/pull/888#issuecomment-6196956825
+
+The final receipt comparator also rejects JSON Boolean/integer and float/integer
+substitutions while accepting the unchanged parsed receipt. Scientific counts
+and input bytes are unchanged by this type-preserving comparison.
