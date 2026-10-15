@@ -14,8 +14,11 @@
   "budget_minutes": 60,
   "catalog_sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7",
   "claim_expires_utc": "2026-10-15T03:37:00Z",
+  "claim_released_utc": "2026-10-15T01:54:55Z",
+  "claim_status": "released",
   "discussion_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242",
-  "discussion_handoff": null,
+  "discussion_handoff": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938467",
+  "discussion_hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18938469",
   "evidence": "CERTIFICATE.json records complete raw word counts, distinct-state counts and hashes for both role domains. search.py reproduces the bitset result; verify.py independently enumerates full F2[A5] coefficient sets and checks all 16 omission/label-switch controls.",
   "final_overlap_refreshed_at": "2026-10-15T01:51:57Z",
   "open_questions": [
@@ -99,7 +102,13 @@
     }
   ],
   "priority_revision": 4,
-  "pull_request": null,
+  "pull_request": {
+    "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "number": 2246,
+    "state_at_handoff": "OPEN",
+    "submitted_head": "faac8702d85f41ef1bcf9317c97209c033476b08",
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2246"
+  },
   "schema_version": 1,
   "scope_change_reason": "Refined the card to the specified nonabelian (2,3,5) group A5 and conjugate 5-cycle targets. After the complete two-register depth-three search found no saving, used the single declared pivot of adding exactly one arbitrary dirty identity-target spectator role. No other role count or group is claimed.",
   "scope_key": "9253918d591a562947d6/debb23dbb2f81300577b",

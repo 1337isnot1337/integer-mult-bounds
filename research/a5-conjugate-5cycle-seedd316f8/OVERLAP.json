@@ -8,15 +8,6 @@
     "complete_pagination": true,
     "warnings": []
   },
-  "postclaim_refresh": {
-    "open_prs_fetched_at": "2026-10-15T01:48:30.267386Z",
-    "open_prs": 476,
-    "discussions_fetched_at": "2026-10-15T01:51:57.377200Z",
-    "discussion_comment_reply_records": 946,
-    "complete_pagination": true,
-    "warnings": [],
-    "exact_A5_match_excluding_own_claim": false
-  },
   "local_search": {
     "command": "python3 scripts/find_overlap.py --task bit-new-register-model 'A5 arbitrary dirty spectator' 'conjugate 5-cycle pair' --json --limit 100",
     "coverage": "Fresh cache, five minutes or newer; no warnings.",
@@ -92,5 +83,14 @@
     "new_exact_A5_overlap": false,
     "current_nearby_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2243",
     "disclosed_in_original_thread": true
+  },
+  "pre_submission_refresh": {
+    "open_prs_fetched_at": "2026-10-15T01:48:30.267386Z",
+    "open_prs": 476,
+    "discussions_fetched_at": "2026-10-15T01:51:57.377200Z",
+    "discussion_comment_reply_records": 946,
+    "complete_pagination": true,
+    "warnings": [],
+    "exact_A5_match_excluding_own_claim": false
   }
 }
