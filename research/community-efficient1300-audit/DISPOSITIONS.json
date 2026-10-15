@@ -52,15 +52,17 @@
       "current_head": "eee12d54ae194afd0c74689d13ef1804f8ca0ff7",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/even-target-cnot-census"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang's corrected even-order-three register census reproduces formal/natural minima through four registers and the 3,639,920-state depth-three calibration. Reviewed complete generator enumeration, formal coefficient products, inverse-tracked full balls and the corrected short-degree filter, which is not used for exclusion. Maintainer supplement proves the stronger 2t tariff for all r>=t by augmentation, rank-one natural call differences and target rank 2t; README marks former expansion questions historical. No SWAP, richer alphabet, physical supplier or kappa claim; original finite work and predecessor credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -84,20 +86,24 @@
       },
       "reviewed_head": "d3d309b3595c37e081e28bfcf24aa278a8404b59",
       "current_head": "d3d309b3595c37e081e28bfcf24aa278a8404b59",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/merge5112-retention-receipt"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2046"
+      },
       "scope": "Aaron Wang's historical retention receipt for nine PRs at merge51122344 authenticates all 77 changed content blobs, merge parents and source pins. Maintainer independently verified every reviewed head against the pinned review, authors/credit, full added-path inventories, Git modes/blobs and selected hash. README clarifies that the package itself compares blobs, not modes, and its pre-merge ledger observations are historical. Scientific correctness and fresh supplier replays are outside this provenance audit; all nine original authors retain credit.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2046.json",
@@ -2706,20 +2712,24 @@
       },
       "reviewed_head": "b599a781bfa8a8fb09a8dea7fa924edb353c21cb",
       "current_head": "b599a781bfa8a8fb09a8dea7fa924edb353c21cb",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-windows-role-adapter"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2344"
+      },
       "scope": "AAAmirinu's opt-in Windows-drive adapter authenticates all six actual input-role digests before translating only those keys into synthetic POSIX roots and invoking Adam Gall's unchanged 105-output comparator. Reviewed lexical-root and collision guards, exact typed comparison, raw invoice/log bindings and complete constructed positive/negative controls under normal and optimized Python. This maintainer replay is on macOS; author Windows path evidence is distinct from a fresh supplier run. Inner-log CRLF remains byte-exact and requires separate review; frozen supplier and selected record unchanged.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2344.json",
@@ -2776,20 +2786,24 @@
       },
       "reviewed_head": "653520d7f18f686ea3a274b4963981f5be563477",
       "current_head": "653520d7f18f686ea3a274b4963981f5be563477",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-final-record-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2346"
+      },
       "scope": "alephnan's actual-regular-cover obstruction to QQ16 final-only recovery with the specified 64 initial ordinary-query records. Source-derived centre and six distinct relative-route families give trace moments 24N and 28N; compatible constrained-image intersection yields at least ceil(8N/7) lost original selected dimensions. Reviewed the complete nineteen-event noncommutative trajectory, independent backward-centre/route oracle and factored algebra fixtures. No intervention before complete F2 is allowed; recorded B1 cuts, other query choices, arbitrary quotient owners and full native/supplier claims are excluded. Predecessor recovery and moment work credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2346.json",
@@ -3147,15 +3161,17 @@
       "current_head": "e8950db523c9682518049a42cfc28642224292ff",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-prefix-tail"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "AAAmirinu's exact P104 pooled-tail breakpoint: reviewed the nuisance-projection and rank-nullity reduction, universal determinant-minus-two/minus-one lower bounds, and 18/46-contact attaining witnesses. Complete sparse integer/eight replay tracks all dirty columns and every changed frame group with exact-cut contact checks; independent PR2367's every-cut rational implementation corroborates the same pools and ranks. Shared dimension is 99 through cut2753 and first reaches98 at2754. Snapshot pooling is a relaxation, with no chronological correction, transport-cost or supplier claim; predecessor and late-prefix handoff credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3359,20 +3375,24 @@
       },
       "reviewed_head": "24746e536dfa5e632d4f3036a477ec4f1b7bb0e6",
       "current_head": "24746e536dfa5e632d4f3036a477ec4f1b7bb0e6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/outer2298-uniform-domain"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2365"
+      },
       "scope": "Jerry Lin's uniform arithmetic-domain lemma for Jose Manuel's pinned PR2298 parameters: reviewed all integer floor/ceiling estimates, exponential-tail inductions, Gaussian and recovery inequalities, and the actual caller interval. Exact source-formula bindings and three compressed boundary fixtures with nine rejecting controls pass. The sufficient cutoff b>=2^524288 is deliberately conservative; the lemma certifies the stated scalar envelope, not full callee hypotheses, physical reserve completeness, tape implementation or multiplication admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2365.json",
@@ -3397,15 +3417,17 @@
       "current_head": "9c45d1ad463c04a4fec2c4932337cdeb6ff81bf1",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-prefix-tail-independent-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Ross Richardson's independent P104 pooled-snapshot audit reconstructs all 4,058 events, 4,059 cuts and 280 dirty columns with separate rational rows and binary elimination. Reviewed nuisance projection and rectangular rank-nullity reduction; six/three annihilator constraints yield universal rational lower bounds, and exact 18/46-contact witnesses attain shared ranks 99/98. Every-cut pool coverage, full endpoints, noncommuting frame/lifetime checks and eight controls pass. Pooling grants access across times and free nuisance subtraction; chronological correction, transport costs, native supplier and exponent claims remain open, with AAAmirinu and construction lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3431,15 +3453,17 @@
       "current_head": "e5d4d78dcfdd55d323fcbc60df477b9f25c7abff",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-shear-old-chart-kernel"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "starship-s's QQ16 obstruction after an invertible paired A-to-T shear even with the dense initial B0 ordinary record. Reviewed ordered logger/shear equations and graph intersection with the actual three-query image: at least ceil(32N/7) original selected dimensions remain invisible. The verifier binds actual forward/backward routes, Gram/trace premises and arbitrary-formal-h retained tail; noncommuting rational fixtures and six controls pass. Transient F0 records, later ordinary reads, feedback into ordinary state and different dense observations are excluded. Native pricing and supplier admission are not claimed.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [

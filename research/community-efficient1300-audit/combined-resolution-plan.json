@@ -82,5 +82,12 @@
     "original_sha256": "f6bba97550b21900daa11b07eaf91c7375312f2d702d6ad848dbbc6492a47b01",
     "resolved_sha256": "d496d70a030951cc2da96d1b92f24efababedfec429276835db039fe8b85f59c",
     "reason": "Distinguish content blobs from modes and historical ledger observations from current status; independently verified all nine review heads, authors, paths, modes and blobs in supplemental audit. Package code unchanged."
+  },
+  {
+    "number": 1763,
+    "path": "research/even-target-cnot-census/README.md",
+    "original_sha256": "f3d7b48df3996f784cb13d6bb4786b8b04107680f05d90e5f3b4ed75ba99b119",
+    "resolved_sha256": "8170d0fa25d93437dbfcf0426c136020d2f83efa4831e77773d7607e62dc62fb",
+    "reason": "Add explicit maintainer general-rank proof supplement resolving historical general-t/dirty-extra questions; finite census and code unchanged."
   }
 ]

@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1618,
-    "partially_reviewed": 283,
+    "incorporated": 1622,
+    "partially_reviewed": 279,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "cbd47cfccb1e9ce8f5a08897f45011f94b030622178bbdf65c0704c1e0791932",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "86ec3502d3660a52d54f199319111b17d09aaec4c76f59aae94c0a215cc4cac1",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -88065,21 +88065,23 @@
         {
           "head": "eee12d54ae194afd0c74689d13ef1804f8ca0ff7",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang's corrected even-order-three register census reproduces formal/natural minima through four registers and the 3,639,920-state depth-three calibration. Reviewed complete generator enumeration, formal coefficient products, inverse-tracked full balls and the corrected short-degree filter, which is not used for exclusion. Maintainer supplement proves the stronger 2t tariff for all r>=t by augmentation, rank-one natural call differences and target rank 2t; README marks former expansion questions historical. No SWAP, richer alphabet, physical supplier or kappa claim; original finite work and predecessor credit retained.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/even-target-cnot-census"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "eee12d54ae194afd0c74689d13ef1804f8ca0ff7",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -98267,16 +98269,20 @@
       "integration_location": [
         "research/merge5112-retention-receipt"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2046"
+      },
       "reviewed_head": "d3d309b3595c37e081e28bfcf24aa278a8404b59",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2046.json",
@@ -109802,16 +109808,20 @@
       "integration_location": [
         "research/selected-windows-role-adapter"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2344"
+      },
       "reviewed_head": "b599a781bfa8a8fb09a8dea7fa924edb353c21cb",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2344.json",
@@ -109894,16 +109904,20 @@
       "integration_location": [
         "research/qq16-final-record-obstruction"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2346"
+      },
       "reviewed_head": "653520d7f18f686ea3a274b4963981f5be563477",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2346.json",
@@ -110365,21 +110379,23 @@
         {
           "head": "e8950db523c9682518049a42cfc28642224292ff",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "AAAmirinu's exact P104 pooled-tail breakpoint: reviewed the nuisance-projection and rank-nullity reduction, universal determinant-minus-two/minus-one lower bounds, and 18/46-contact attaining witnesses. Complete sparse integer/eight replay tracks all dirty columns and every changed frame group with exact-cut contact checks; independent PR2367's every-cut rational implementation corroborates the same pools and ranks. Shared dimension is 99 through cut2753 and first reaches98 at2754. Snapshot pooling is a relaxation, with no chronological correction, transport-cost or supplier claim; predecessor and late-prefix handoff credit retained.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p104-prefix-tail"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "e8950db523c9682518049a42cfc28642224292ff",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -110653,16 +110669,20 @@
       "integration_location": [
         "research/outer2298-uniform-domain"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2365"
+      },
       "reviewed_head": "24746e536dfa5e632d4f3036a477ec4f1b7bb0e6",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2365.json",
@@ -110692,21 +110712,23 @@
         {
           "head": "9c45d1ad463c04a4fec2c4932337cdeb6ff81bf1",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Ross Richardson's independent P104 pooled-snapshot audit reconstructs all 4,058 events, 4,059 cuts and 280 dirty columns with separate rational rows and binary elimination. Reviewed nuisance projection and rectangular rank-nullity reduction; six/three annihilator constraints yield universal rational lower bounds, and exact 18/46-contact witnesses attain shared ranks 99/98. Every-cut pool coverage, full endpoints, noncommuting frame/lifetime checks and eight controls pass. Pooling grants access across times and free nuisance subtraction; chronological correction, transport costs, native supplier and exponent claims remain open, with AAAmirinu and construction lineage credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p104-prefix-tail-independent-audit"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "9c45d1ad463c04a4fec2c4932337cdeb6ff81bf1",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -110737,21 +110759,23 @@
         {
           "head": "e5d4d78dcfdd55d323fcbc60df477b9f25c7abff",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "starship-s's QQ16 obstruction after an invertible paired A-to-T shear even with the dense initial B0 ordinary record. Reviewed ordered logger/shear equations and graph intersection with the actual three-query image: at least ceil(32N/7) original selected dimensions remain invisible. The verifier binds actual forward/backward routes, Gram/trace premises and arbitrary-formal-h retained tail; noncommuting rational fixtures and six controls pass. Transient F0 records, later ordinary reads, feedback into ordinary state and different dense observations are excluded. Native pricing and supplier admission are not claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/qq16-shear-old-chart-kernel"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "e5d4d78dcfdd55d323fcbc60df477b9f25c7abff",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -110995,7 +111019,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1242,
-    "OPEN": 342
+    "MERGED": 1246,
+    "OPEN": 338
   }
 }

@@ -1,7 +1,8 @@
 {
   "status": "PASS",
-  "checked_commit": "34588a98dabb668d4c53e5e776cd7b3927174d26",
+  "checked_commit": "7cfd2fd64bff65b0f01771fede3d11b37c06c68e",
   "merged_prs": [
+    2046,
     2258,
     2259,
     2261,
@@ -35,15 +36,18 @@
     2335,
     2340,
     2343,
+    2344,
+    2346,
     2350,
     2353,
     2354,
     2355,
     2356,
     2359,
-    2360
+    2360,
+    2365
   ],
-  "changed_files": 364,
+  "changed_files": 402,
   "resolved_files": [
     {
       "number": 2259,
@@ -99,6 +103,11 @@
       "number": 2335,
       "path": "research/fstar-cert-census-seed298df375/README.md",
       "sha256": "a2c4485f7e611e98649bbb9f85c4a36da4a5740090c34cd1971407cc6ba4325a"
+    },
+    {
+      "number": 2046,
+      "path": "research/merge5112-retention-receipt/README.md",
+      "sha256": "d496d70a030951cc2da96d1b92f24efababedfec429276835db039fe8b85f59c"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
