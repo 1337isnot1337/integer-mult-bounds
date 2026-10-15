@@ -25,3 +25,8 @@
 24 template call omitted REJECTED
 25 template duplicate call REJECTED
 26 template helper aliases data owner ACCEPTED
+27 template idle children omitted ACCEPTED
+28 template bank padding restored REJECTED
+29 bridge coefficient sign flipped ACCEPTED
+30 bridge coefficient exceeds charged payload ACCEPTED
+31 bridge omitted REJECTED
