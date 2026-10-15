@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1636,
-    "partially_reviewed": 265,
+    "incorporated": 1638,
+    "partially_reviewed": 263,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "f1b6c32e1a62d65b9f17ed385a713663259fa73dd0d38b794abe70da0e8dbf7d",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "c6aa19ba89074e89958d225ae3f8edc0f854500ea1240cc00083d4bd0b79bfea",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106965,16 +106965,20 @@
       "integration_location": [
         "research/polar-law-small-t-screen"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "6b6b3ab304ca60eab7493e73f264fd23c146be4c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2272"
+      },
       "reviewed_head": "50e12c263fa443ba587fd6b205f2fc2825d10de1",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2272.json",
@@ -110688,16 +110692,20 @@
       "integration_location": [
         "research/selected-joined-dispatch"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "6b6b3ab304ca60eab7493e73f264fd23c146be4c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2364"
+      },
       "reviewed_head": "b9293bb14d40f8e820ce5efd99939278e5871c56",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2364.json",
@@ -111021,25 +111029,28 @@
         {
           "head": "157143ab500812dd16cf50d12c1e5749bd6ea482",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Six-contract QQ16 navigation map distinguishing witness separation, intermediate-cut recovery and final-record obstruction. Complete text and pinned source links reviewed, including the 252-pair fork catalogue. Historical pending labels describe the author checkpoint; #1969/#2079/#2093/#2174/#2346 are now incorporated. Author replay claims remain attributed, not new maintainer executions; no completed supplier or exponent change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "docs/research"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "157143ab500812dd16cf50d12c1e5749bd6ea482",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2376.json"
+        "research/community-efficient1300-audit/packets/2376.json",
+        "research/community-efficient1300-audit/checks/check-2376.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -111101,7 +111112,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1260,
-    "OPEN": 324
+    "MERGED": 1262,
+    "OPEN": 322
   }
 }

@@ -529,20 +529,24 @@
       },
       "reviewed_head": "50e12c263fa443ba587fd6b205f2fc2825d10de1",
       "current_head": "50e12c263fa443ba587fd6b205f2fc2825d10de1",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/polar-law-small-t-screen"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "6b6b3ab304ca60eab7493e73f264fd23c146be4c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2272"
+      },
       "scope": "Aaron Wang's bounded dense-polar search reproduces predecessor positive controls and exhaustively prices all1056861 nonempty subsets of the declared ternary-three/D4/D5 line sets with their fixed Gram decoders and pairings. Reviewed enumeration, rational basis conversion and binary support-rank pricing; complete regenerated evidence matches the source except interpreter version. Seeded puncture/basis searches remain bounded, and E7/E8 are positive controls. No gain was found in the tested small-T domain; the T-squared law, alternate pairings/factorizations and supplier claims are not established.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2272.json",
@@ -3405,20 +3409,24 @@
       },
       "reviewed_head": "b9293bb14d40f8e820ce5efd99939278e5871c56",
       "current_head": "b9293bb14d40f8e820ce5efd99939278e5871c56",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-joined-dispatch"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "6b6b3ab304ca60eab7493e73f264fd23c146be4c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2364"
+      },
       "scope": "Jose Manuel's joined full-ring preparation/control/generic-child executor. Reviewed the descriptor-only embedded-field identity, complementary-projector composition, digit-swap/ADD/sign leaves, frozen global field ages, fresh-stock recursion and payload-stack restoration. Normal and optimized full replays cover1456542 distinct opaque records at both residual/final endpoints,872 children including one real internal caller over48 GL2 classes, nonbinary spectators and six rejecting controls. Sequential payload volume is charged; host control metadata/arithmetic and selected GL64 family/owner/hosting execution remain separate obligations. No binary transition-table compiler, fast supplier admission or kappa claim; predecessor and concurrent verification credit retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2364.json",
@@ -3671,19 +3679,22 @@
       "current_head": "157143ab500812dd16cf50d12c1e5749bd6ea482",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "integration_location": [
+        "docs/research"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Six-contract QQ16 navigation map distinguishing witness separation, intermediate-cut recovery and final-record obstruction. Complete text and pinned source links reviewed, including the 252-pair fork catalogue. Historical pending labels describe the author checkpoint; #1969/#2079/#2093/#2174/#2346 are now incorporated. Author replay claims remain attributed, not new maintainer executions; no completed supplier or exponent change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2376.json"
+        "research/community-efficient1300-audit/packets/2376.json",
+        "research/community-efficient1300-audit/checks/check-2376.json"
       ]
     },
     {

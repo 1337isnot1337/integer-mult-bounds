@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1175–#2377**, excluding prior same-head dispositions. Baseline `7b39515117fe26e75d16c268877391f1bdaa5640`. Complete Git differences determine changed-file coverage.
 
-**60 ready; 58 observed merged; 40 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**61 ready; 60 observed merged; 39 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -70,6 +70,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2367](https://github.com/CrocSwap/integer-mult-bounds/pull/2367) | RossRichardson | Ross Richardson's independent P104 pooled-snapshot audit reconstructs all 4,058 events, 4,059 cuts and 280 dirty columns with separate rational rows and binary elimination. Reviewed nuisance projection and rectangular rank-nullity reduction; six/three annihilator constraints yield universal rational lower bounds, and exact 18/46-contact witnesses attain shared ranks 99/98. Every-cut pool coverage, full endpoints, noncommuting frame/lifetime checks and eight controls pass. Pooling grants access across times and free nuisance subtraction; chronological correction, transport costs, native supplier and exponent claims remain open, with AAAmirinu and construction lineage credited. |
 | [#2368](https://github.com/CrocSwap/integer-mult-bounds/pull/2368) | starship-s | starship-s's QQ16 obstruction after an invertible paired A-to-T shear even with the dense initial B0 ordinary record. Reviewed ordered logger/shear equations and graph intersection with the actual three-query image: at least ceil(32N/7) original selected dimensions remain invisible. The verifier binds actual forward/backward routes, Gram/trace premises and arbitrary-formal-h retained tail; noncommuting rational fixtures and six controls pass. Transient F0 records, later ordinary reads, feedback into ordinary state and different dense observations are excluded. Native pricing and supplier admission are not claimed. |
 | [#2373](https://github.com/CrocSwap/integer-mult-bounds/pull/2373) | bitplane | Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed the complete payload and all 661 dirty columns in both directions, with literal COPY restoration and unchanged MOVE paths. Newly compiled legality and 5/9/11-stage engines pass all formal columns and 96 bridge plus five native controls. Complete binary-record binding catches phase relabeling that the mathematical engines intentionally ignore. Reviewed read-only relocation tests and a limited read-permission Linux workflow; maintainer execution was macOS, not hosted Linux. Old H2/K/H5 flags remain false; global hosting, replacement-contract admission and kappa remain separate, with circuit/compiler lineage credited. |
+| [#2376](https://github.com/CrocSwap/integer-mult-bounds/pull/2376) | commdata2338 | Six-contract QQ16 navigation map distinguishing witness separation, intermediate-cut recovery and final-record obstruction. Complete text and pinned source links reviewed, including the 252-pair fork catalogue. Historical pending labels describe the author checkpoint; #1969/#2079/#2093/#2174/#2346 are now incorporated. Author replay claims remain attributed, not new maintainer executions; no completed supplier or exponent change. |
 
 ## Remaining review
 
@@ -113,7 +114,6 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2363](https://github.com/CrocSwap/integer-mult-bounds/pull/2363) | mason-hale | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2374](https://github.com/CrocSwap/integer-mult-bounds/pull/2374) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2375](https://github.com/CrocSwap/integer-mult-bounds/pull/2375) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2376](https://github.com/CrocSwap/integer-mult-bounds/pull/2376) | commdata2338 | Resolve the documented replay entrypoint and exact mathematical scope. |
 | [#2377](https://github.com/CrocSwap/integer-mult-bounds/pull/2377) | yssite | Linux process-tree tests require a live Linux runner; macOS skips are not acceptance evidence. |
 
 ## Evidence and limits
