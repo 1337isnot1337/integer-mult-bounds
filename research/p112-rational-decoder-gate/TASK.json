@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "task_id": "coverage-law-change",
+  "priority_revision": 5,
+  "base_commit": "7ef5f7150476fdf995b286b9cdbed262c631939c",
+  "original_card": {
+    "id": "coverage-law-change",
+    "question": "Can a template or call contract leave two or more unpaid coordinates per live family?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/idle-axis-hosting/PROOF.md",
+      "certificates/selected-result.json"
+    ],
+    "methods": [
+      "State a replacement for the coverage identity (mass = 72W + 64N) and the contract change that realizes it, with its implementation cost.",
+      "Find an obstruction: show which data-endpoint obligation forces exactly one unpaid coordinate in the current template."
+    ],
+    "acceptance_gate": "An explicit replacement identity, verified on a small complete instance with dirty inputs, priced with ceiling.ceiling(unpaid=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Explain where the single unpaid coordinate per family comes from in the hosted template; propose one change and price it. Ideal budget: two unpaid coordinates per family is 3.77x (levers.py).",
+    "bottleneck_link": "The deficit is one coordinate per family minus the centre charge; doubling unpaid coordinates per family scales it directly.",
+    "allowed_variations": [
+      "One template change or one endpoint-contract change.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Counting a coordinate as unpaid while leaving it unadvanced in the data endpoint.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "coverage identity",
+      "unpaid coordinate",
+      "deficit law",
+      "W - 64N"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors.",
+  "scope_change_reason": "User selected rational/block P112 decoder research after PR2532 invalidated the original binary lift. The old cover obstructs natural fractional routes; change the cover to expand actual orthogonal-group freedom instead of optimizing the invalid binary invoice.",
+  "bottleneck_link": "Provides a correct lower-rank scalar mask benchmark for cross-group fractional decoding. The explicit334 copy bill still fails the favorable coverage screen, so no native implementation campaign or improved bound is claimed.",
+  "budget_minutes": 60,
+  "stop_rule": "Retain one verified mask/cost result after exact endpoint and independent checks. Reject the explicit supplier target at zero saving; do not infer a universal rational-decoder or cover obstruction from bounded motif searches.",
+  "outcome": "partial",
+  "evidence": "CANDIDATE.json, exact identity-minor and disjoint-support proof in README, primary RESULT.json and independently implemented checker. Both original and new masks are certified.",
+  "author": "flyingviper (with OpenAI Codex)",
+  "ai_assistance": "Substantial OpenAI Codex assistance in algebra, search, implementation, writing and testing. Three AI agents split independent scalar checks, cost/mask research, and fractional/operator exploration. No independent human or proof-assistant review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a genuinely shared fractional decoder improve the new mask's334 port-space charge?",
+      "why_it_matters": "The scalar rank obstacle has fallen99 to57, but break-even requires C<2672/9 and the selected-target optimistic allowance is smaller.",
+      "first_step": "Give explicit rational source/reader factors across distinct paired components, check every constrained coefficient, then price all full port-space support pairings before native work.",
+      "blocked_by": "The supplied indicator fit and its rational diagonal gauges have charge334. No favorable full bill or actual native word is supplied."
+    },
+    {
+      "question": "Can a different mask or operator contract supply genuinely cheaper payload transport?",
+      "why_it_matters": "A scalar channel count is not a physical copy invoice; lower-rank matrices can retain the same total cost.",
+      "first_step": "Specify source/target frames, independent array payloads, storage and cleanup. Prove the exact arbitrary-dirty endpoint and an optimistic full budget.",
+      "blocked_by": "Routes, application multiplicity, ownership, precision and full supplier integration remain unproved."
+    }
+  ],
+  "selection": "Explicit user choice of new rational/block P112 decoder; no random task reassignment.",
+  "upstream_refresh": {
+    "checked_at_utc": "2026-10-15T19:54:00Z",
+    "canonical_main": "7ef5f7150476fdf995b286b9cdbed262c631939c",
+    "priority_revision": 5,
+    "decision": "Guidance and selected record unchanged; new isolated branch from canonical main.",
+    "final_checked_at_utc": "2026-10-15T20:19:11Z",
+    "final_canonical_main": "e93f2ebd9c60b79e564b07acffdbbb99b477c28c",
+    "final_decision": "Fast-forwarded isolated publication branch. Guidance, selected record and consumed source inputs are unchanged; scientific pins retained."
+  },
+  "overlap": {
+    "checked_at_utc": "2026-10-15T20:19:11Z",
+    "latest_updated_open_pr_bodies": 100,
+    "complete_pagination": false,
+    "discussions": [
+      1587,
+      2024,
+      1166,
+      1167
+    ],
+    "nearest": "PR2532 scalar-mask audit, PR2041 triad cover, PR1889 mask semantics, PR2126/2203 payload and native accounting, PR2484 exact minrank49 for a different paired-plane mask.",
+    "limits": "Latest100 updated open PR bodies, relevant live discussion pages and local README/TASK search; not exhaustive remote pagination or arbitrary diffs. No public claim posted."
+  },
+  "search": {
+    "initial_seed": 2026101501,
+    "repack_seed": 2026101502,
+    "method": "Pack disjoint orthogonal six-label sets and split each into two triads; complete the residual cover. Locally repack22 labels from a17-pair cover to obtain18pairs, one triad and one residual line.",
+    "status": "Heuristic discovery; certificate replay is exact and does not trust or rerun the heuristic search. No optimum over covers claimed."
+  },
+  "family_gate": {
+    "decision": "narrow",
+    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0.",
+    "unknown": [
+      "native caller",
+      "routes and chronological ownership",
+      "storage",
+      "dirty helper cleanup",
+      "precision",
+      "all-size admission",
+      "bit-side transfer"
+    ],
+    "next": "A cross-component rational/operator identity with a favorable fully charged budget; no expansion into physical construction for the supplied334-cost fit."
+  },
+  "validation": {
+    "environment": "3.12.14",
+    "primary": "verify.py -I -O -B",
+    "independent": "independent_check.py -I -O -B",
+    "formal_kernel": false,
+    "human_review": false
+  }
+}
