@@ -69,4 +69,3 @@ def replay(prior, model, template, h, reads, evaluation_vector, initial_sign=-1)
     require(histories == [0, 2, 4, 6, 8], "all five forward histories")
     require(trace[-1]["ordinary"] == [1, 0, 0, 0, 0, 0, 0, 0], "former-Y endpoint")
     return initial_A, H, trace
-
