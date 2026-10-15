@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Builder (NOT part of the independent audit): assembles the explicit chronological BORROW-WORD
 (canonical coordinates, literal frames, explicit warps, explicit inverse-reverse cleanup) from
-canonical word + Borrow witness, following rp.py's replay order. audit_borrow.py re-derives
+canonical word + borrow witness, following rp.py's replay order. audit_borrow.py re-derives
 everything it trusts and never imports this file."""
 import argparse,gzip,json,sys
 from fractions import Fraction as Q

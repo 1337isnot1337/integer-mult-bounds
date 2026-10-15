@@ -8,7 +8,7 @@ import build_word
 CASES=[('gauge44','base','eeb6a236'),('extra','extra','cd417b90')]
 def content(p):return hashlib.sha256(gzip.decompress(Path(p).read_bytes())).hexdigest()
 def refit_apply(word0,patch):
-    """WildIdeas frame refit: replace exactly the listed gate frames (gates unchanged) and the local profile."""
+    """frame refit: replace exactly the listed gate frames (gates unchanged) and the local profile."""
     import copy
     w=copy.deepcopy(word0)
     for sec,i,fr in patch['frames']:
@@ -26,7 +26,7 @@ for canon,wt,h in CASES:
     base=str(D/'inputs'/f'{canon}.canonical.json.gz');rec=D/'receipts'/f'AUDIT-43{wt}.json'
     patchf=D/'inputs'/f'refit_43{wt}.json'
     if patchf.exists():
-        # WildIdeas frame refit: the pinned word (check_base against the canonical base) plus the exact frame patch must equal the shipped word;
+        # frame refit: the pinned word (check_base against the canonical base) plus the exact frame patch must equal the shipped word;
         # the shipped word itself is audited independently (forward + dual free-algebra replay, no base pin because the refit changes frames inside the pinned A section)
         patch=json.loads(patchf.read_text());word0=json.loads(gzip.decompress(tmp.read_bytes()))
         refit=refit_apply(word0,patch)
