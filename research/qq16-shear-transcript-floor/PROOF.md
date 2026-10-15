@@ -203,7 +203,12 @@ background input for the stated linear interface.
 The following fourth-moment argument and numerical certificate are reused,
 with credit, from [commdata2338's PR #2189](https://github.com/CrocSwap/integer-mult-bounds/pull/2189).
 That predecessor applies its capacity bound to the unsheared first pair.
-The changed-shear implication above is the contribution here.
+The quantified changed-shear transcript implication above is the
+contribution here. Concurrent @starship-s PR #2368 independently proves
+the overlapping B0-read case using a graph intersection and the second
+moment. Its kernel is equivalent on that restriction. This package extends
+the count to arbitrary rank-d records and applies the credited fourth
+moment; it does not claim the first obstruction for the B0-read case.
 
 Here is the complete spectral implication of the finite source checks.
 Let `E_s = B_s* B_s/48` and `H = E_0+E_1+E_2`, where * denotes real
@@ -306,6 +311,6 @@ rejected.
 The local maps, selected sections, and retained tail are credited to
 Ali Romman's QQ16 package. The triple-query moment/rank input is
 credited to its pinned predecessors. This proof's contribution is the
-changed-shear invisible family and the resulting transcript floor,
+arbitrary-record transcript floor for an independently derived changed-shear family,
 including dense reads used for paired selected updates. It does not
 claim native implementability, a favorable cost, or a changed frontier.

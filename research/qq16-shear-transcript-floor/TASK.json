@@ -59,18 +59,24 @@
     "initial_nonce": "d7135726fa46715b28d9967be33fab98",
     "initial_track": "bit-mechanisms",
     "override": "Revision 4 permits a live central handoff matching available algebra/verification expertise. Taking PR2326's explicit dense-observation full-kernel question, without rerolling.",
-    "source_export": "Exact main Git commit and all tree hashes reconstructed from GitHub API; only relevant text blobs hydrated because shell networking and binary connector downloads are unavailable."
+    "source_export": "Research was completed in an exact bounded text export while shell networking was unavailable. Publication uses a valid partial clone of the same canonical main commit, with all declared text inputs hydrated."
   },
   "coordination": {
-    "status": "LOCAL-ONLY: no public claim posted",
-    "utc": "2026-10-15T06:04:46.313Z",
-    "reason": "Authorized Discussion participation is unavailable through the installed connector, and shell DNS remains disabled.",
+    "status": "PUBLICATION PREPARED: no advance public claim posted",
+    "utc": "2026-10-15T07:00:41.375119+00:00",
+    "reason": "The user enabled automatic approval review, restoring approved shell network access. A writable fork now exists; the completed finding will be posted to the existing shear Discussion after its public artifact is pushed.",
     "open_pr_snapshot": {
-      "fetched_at": "2026-10-15T06:04:46.313Z",
-      "records": 559,
+      "fetched_at": "2026-10-15T06:59:02.814348+00:00",
+      "records": 584,
       "complete_pagination": true
     },
-    "discussion_coverage": "Public web onboarding/handoff/active threads checked, but newer discussion pages are unavailable or stale; full live discussion pagination not available.",
+    "discussion_coverage": {
+      "fetched_at": "2026-10-15T07:00:41.329892+00:00",
+      "records": 1112,
+      "complete_pagination": true,
+      "warnings": [],
+      "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2205"
+    },
     "nearest_prs": [
       {
         "number": 2326,
@@ -121,9 +127,19 @@
         "number": 2346,
         "head": "653520d7f18f686ea3a274b4963981f5be563477",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2346"
+      },
+      {
+        "number": 2368,
+        "head": "e5d4d78dcfdd55d323fcbc60df477b9f25c7abff",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2368"
+      },
+      {
+        "number": 2354,
+        "head": "308ebc7405303bb7ed91b012bb705949c6091a16",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2354"
       }
     ],
-    "concurrent_work": "PR2346 discovered in final refresh; pinned proof read. It forbids pre-F2 selected interventions and tests 64 specified initial records with final-only selected observations. Our changed-shear family vanishes already at B1, whose selected values are granted free; the results do not supersede each other."
+    "concurrent_work": "PR2346 discovered in final refresh; pinned proof read. It forbids pre-F2 selected interventions and tests 64 specified initial records with final-only selected observations. Our changed-shear family vanishes already at B1, whose selected values are granted free; the results do not supersede each other. Publication refresh found PR2368. Its pinned written proof was read; it independently derives an equivalent shear kernel for the retained B0-read case, also allowing invertible pairings. This package was locally committed at 06:08 UTC before that reading. Added value is arbitrary rank-d records, the sharper fourth-moment defect and sixteen-array floor, plus separate text-source moment verification. No first-closure claim. PR2354 concerns the sharp66-port threshold of a specified common-axis family."
   },
   "verification_limitations": [
     "The prescribed research_baseline.py was attempted but cannot check the complete selected package inventory in the bounded source export. The selected record and its certificate/review were read; no baseline pass or supplier cold replay is claimed."
@@ -143,10 +159,10 @@
     }
   ],
   "upstream_checkpoint": {
-    "utc": "2026-10-15T06:04:46.313Z",
+    "utc": "2026-10-15T06:58:08Z",
     "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
     "priority_revision": 4,
-    "change": "Main unchanged; all original relevant PR heads unchanged. No source or frontier migration."
+    "change": "Canonical main unchanged at publication. Complete refreshed PR and Discussion coverage recorded above. PR2368 overlap read and credited; original relevant source heads unchanged."
   },
   "verification": {
     "environment": "Linux x86_64, CPython 3.12.3, standard library only",

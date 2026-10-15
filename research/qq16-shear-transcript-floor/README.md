@@ -14,8 +14,9 @@ Each such array has one scalar per owner. Fifteen leave at least
 the necessary total rank is `ceil(77|G|/5)`, not `16|G|`. Sixteen arrays
 is a necessary floor, not a sufficiency or cost claim.
 
-The new result is the ordered shear-kernel construction and its full-tail
-implication. The fourth-moment rank certificate is credited to
+The contribution is a quantitative transcript floor for the sheared pair,
+with an ordered kernel construction and its full-tail implication. The
+fourth-moment rank certificate is credited to
 [commdata2338's PR #2189](https://github.com/CrocSwap/integer-mult-bounds/pull/2189),
 which treated the unsheared first pair. Its finite premises are recalculated
 here by a separately implemented, exact text-source checker. The proof is
@@ -177,6 +178,20 @@ rules out one specified set of 64 initial query coordinates without a
 pre-F2 selected intervention. It grants final selected values but not a
 free B1 cut. Its family and observation contract differ from this changed
 shear result; neither result supersedes the other.
+
+Publication was delayed by shell network restrictions. During that delay,
+@starship-s published [PR #2368](https://github.com/CrocSwap/integer-mult-bounds/pull/2368),
+head `e5d4d78dcfdd55d323fcbc60df477b9f25c7abff`, with an independently
+derived graph-intersection obstruction for the shear plus the initial B0
+record. Its proof also permits an arbitrary fixed invertible pairing. We
+read that proof during the publication refresh and credit its overlapping
+changed-pair kernel and tail argument; no first-closure claim is made here.
+The original local package was committed at 06:08 UTC before that reading.
+This package adds the arbitrary rank-d transcript bound, the stronger
+`ceil(37N/5)` one-query defect and sixteen-array floor using PR #2189's
+fourth moment, and a separate exact text-source moment implementation.
+PR #2354's sharp 66-port threshold concerns its specified common-axis family
+and coordinate observations; it does not settle this transcript bound.
 
 ## Open next questions
 
