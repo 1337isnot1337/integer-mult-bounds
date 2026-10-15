@@ -11,7 +11,7 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 86.825,
+  "seconds": 161.787,
   "status": "failed",
   "exit_codes": [
     1
@@ -7838,6 +7838,8 @@
     "research/five-stage-source527-banks/loader/MANIFEST.json": "a1b6da7191f3bc0109dac63ae96122dd9f5174743909daf5e0bdcc8e9cfbbffc",
     "research/complex-factory-scale-frontier27/sources/PR924-COMPOSITION.json": "f9341322c278901c34aa55876978fe58b05e7056bb4402a3db7f9c8f16fa7d53"
   },
-  "log_sha256": "69e05df65c0f5424d3f13f4544d036529b648ab88bbfc8015d2e4eb402058a65",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "b49cf1902da2db6df28d5c919cbf036747d542c655ee3e5dd1865a3f04d420ee",
+  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification.",
+  "resumed_successful_prefix_commands": 0,
+  "original_receipt": "/tmp/pr-efficient1200/prior-revisions/long-replay-2255/check-2255.json"
 }

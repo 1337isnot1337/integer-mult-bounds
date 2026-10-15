@@ -12,4 +12,8 @@ Ran 9 tests in 44.358s
 
 OK
 ['/tmp/pr-efficient200-venv/bin/python', '-I', '-O', '-W', 'error', '-B', 'research/p104-delayed-precision/test_verify.py']
-....
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 52.188s
+
+OK
