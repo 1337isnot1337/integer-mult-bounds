@@ -1,0 +1,3 @@
+* text eol=lf
+inputs/*.patch -text
+inputs/*.tar.gz -text
