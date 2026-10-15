@@ -83,11 +83,26 @@
       "relationship": "Source lineage of the unchanged selected gauge44 construction used by the pinned ceiling model."
     }
   ],
-  "completed_at_utc": "2026-10-15T00:00:00Z",
+  "completed_at_utc": "2026-10-15T00:05:36Z",
   "freshness": {
     "canonical_main_checked_at_utc": "2026-10-15T00:02:17Z",
     "canonical_main_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
     "priority_revision": 4,
-    "relevant_change": "none; main and selected-record/catalogue hashes match the accepted assignment base"
+    "relevant_change": "none; main and selected-record/catalogue hashes match the accepted assignment base",
+    "overlap_checked_at_utc": "2026-10-15T00:03:13Z",
+    "overlap_status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE; full pagination; no exact rank-three common-sum claim found; broad matches were historical/general helper-inventory scopes",
+    "open_pr_records": 449,
+    "discussion_records": 904,
+    "relevant_overlap_warnings": []
+  },
+  "submission": {
+    "pull_request": "https://github.com/CrocSwap/integer-mult-bounds/pull/2213",
+    "state_at_recording": "open; mergeable; hosted checks queued",
+    "head_commit": "e579651e3efe9171b0429c83b5ae188537b459d6",
+    "updated_at_utc": "2026-10-15T00:05:36Z",
+    "remaining_obligations": [
+      "Hosted research package replay",
+      "Selected-provider placement and complete cost invoice remain outside this local construction"
+    ]
   }
 }
