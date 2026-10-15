@@ -151,3 +151,6 @@ research/p111-minrank-proof-reconciliation/vendor/pr620/geo.py -text -whitespace
 research/community-batch1099-audit/** -text -whitespace
 research/community-frontier1094-audit/** -text -whitespace
 research/abelian-cayley-metric-scope/** -text
+
+# Preserve exact bytes of the PR2260 outer-retune package (vendored manifests hash CRLF originals).
+research/selective-borrowing-outer-retune/** -text -whitespace
