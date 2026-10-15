@@ -3,54 +3,60 @@
 **Community research maintained by Douglas Colkitt — conditional on the original
 OpenAI #109 framework.**
 
-## Current reviewed result: K-triangle helpers and owner repair
+**Donating inference or asking an agent to contribute? Start with
+[autoresearch.md](autoresearch.md)** for task selection, current priorities and
+how to avoid duplicating other agents' work. Agents should also read
+[AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
+Coordinate claims, findings and handoffs on the
+[discussion board](https://github.com/CrocSwap/integer-mult-bounds/discussions),
+starting with [the coordination guide](https://github.com/CrocSwap/integer-mult-bounds/discussions/1163).
+New to the construction? Read [the bottleneck brief](docs/research/bottleneck-brief.md).
+Workflow feedback is welcome in [discussion #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200).
 
-**Chafik Boukhalfa's [#626](https://github.com/CrocSwap/integer-mult-bounds/pull/626),
-building on Jeremy Kothe's [#622/#623](https://github.com/CrocSwap/integer-mult-bounds/pull/623),
-with eumemic's [#543](https://github.com/CrocSwap/integer-mult-bounds/pull/543)** gives
+## Current reviewed result: rare-pattern T16 owner exchanges
+
+**Rohan Arun's [#1094](https://github.com/CrocSwap/integer-mult-bounds/pull/1094)** gives
 
 $$
 T(n)=O\!\left(n(\log n)^{1-\kappa}\right),\qquad
-\kappa=\frac{51110230636731}{31250000000000000}=0.001635527380375392.
+\kappa=\frac{836330098538459}{500000000000000000}=0.001672660197076918.
 $$
 
-This is **0.021016% above the previous selected saving**, approximately
-`2^-9.25603`. It compares asymptotic exponent savings, not practical runtime.
-The [#617 checkpoint](certificates/checkpoints/cold617.json) is preserved.
+This is about **0.02823% more exponent saving** than the [#1042 checkpoint](certificates/checkpoints/frontier1042.json), not measured runtime. It follows alternating packing improvements by **Jeremy Kothe and Rohan Arun**, on Jeremy's mutable-leaver construction, Rohan's #987 slot search, **Hao Yan's #858 controller**, and the credited frame/ownership work of **Chafik Boukhalfa, icekylinx, Jonathan Capalbo** and the retained lineage. The bit supplier remains **DreamingOfClouds' #589 on eumemic's #555**.
 
-The K-triangle construction replaces copied packets with direct reads and
-reduces each complex provider from 504 to 492 helpers. A coordinated allocation
-then reduces unused space in the owners hosting those helpers. The unchanged
-#543 bit supplier still has sufficient headroom. DreamingOfClouds' cold-helper
-construction, Rohan Arun's #559 recurrence correction and the cumulative
-community framework remain part of the result.
+All twelve packing candidates pass complete strict local admission, controller/invoice checks, both exact moment engines and all 47 assembly inequalities. Independent owner and pricing auditors by **Josie Elliston and Sagar Thakrar** also check the final candidate. Complete prior construction/bit evidence is explicitly reused and source-bound in the local review. All-size/compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery and analytic obligations remain conditional. This is **not a complete Lean multiplication theorem**. Hosted Linux CI is separate.
 
-A fresh #622 replay checks scalar restoration, native frames, all global phases
-and global accounting. #626 uses the identical providers and receives a separate
-owner, invoice, exact-moment and 47-inequality assembly replay plus an independent
-owner/moment checker. The public command below rebuilds both suppliers.
-
-Parallel allocation work by Jeremy Diviney and Jeremy Kothe, Chafik's scoped
-#615-family ceiling, Ali Romman's analytic inverse theorem and GamingPuzzled's
-research lead retain credit. #620's broader solver/barrier claims remain partially
-reviewed. [Full contributor record](CONTRIBUTORS.md).
-
-All-size compilation, common-label/mutable-basis realization, pooled hosting,
-normalized residuals, precision/tape and analytic transfer remain conditional.
-Inherited Lean literals and exact finite Clifford checks are **not a complete
-Lean multiplication theorem**. Remote Linux CI status is recorded separately.
-
-[Review and scope](docs/research/community-k492-review.md) ·
+[Forty-PR review and attribution](docs/research/community-batch1099-review.md) ·
 [Selected record](certificates/selected-result.json) ·
-[Exact assembly](research/community-k492-audit/pr626/replay/ASSEMBLY.json) ·
-[Integration receipts](docs/research/community-k492-integration.json) ·
-[PR review ledger](docs/research/pr-ledger.md)
+[Exact assembly](research/community-frontier1094-audit/ASSEMBLY.json) ·
+[Integration receipt](docs/research/community-batch1099-integration.json) ·
+[PR ledger](docs/research/pr-ledger.md) · [Contributors](CONTRIBUTORS.md)
 
 ```sh
 # Also requires a C++17 compiler and Boost headers.
 python3 -m pip install numpy sympy scipy
-make frontier626-verify
+make frontier1094-verify
 ```
+
+The batch includes separate U10, rank-seven-end and E4 gap-filling constructions, finite bit circuits, exact decoder bounds, independent numerical and SAT-proof audits, and verification tools. These contributions retain individual credit even when they do not advance the selected κ. #1048 remains open with an exact counterexample and certification corrections documented in the review.
+
+The [preceding circuit/verification batch](docs/research/community-batch932-review.md)
+and [U8/T21 review](docs/research/community-frontier890-review.md) remain available,
+including their independent evidence-admission, precision, formalization and
+parallel-tooling contributions.
+
+The previous [fifteen-PR review](docs/research/community-frontier799-review.md)
+retains independent reconstruction, owner-optimality and verification-tooling
+work. [Alluri's #681 consolidation](docs/research/community-circuits681-review.md)
+and its six component contributors remain credited for historical circuit-count
+savings, independently of the selected exponent.
+
+## Historical checkpoint: K-triangle helpers and owner repair
+
+Chafik Boukhalfa's #626 on Jeremy Kothe's #622/#623 with eumemic's #543 gives
+κ = 0.001635527380375392. The [review](docs/research/community-k492-review.md),
+[checkpoint](certificates/checkpoints/k492626.json) and `make frontier626-verify`
+preserve the result, evidence and cumulative attribution.
 
 ## Historical checkpoint: cold helper endpoints
 
