@@ -1,0 +1,127 @@
+# recycled-bit-nesting-reuse
+
+**Tooling improvement. No new bound is claimed; kappa, certificate content and predicates are unchanged.**
+
+`make verify-recycled-bit` (`python3 research/recycled-bit-integration/verify.py --all`) is the longest job in
+`verify.yml`. On main run 38506758315, job "verify (3.11, recycled-bit)", it took 657 s. Of that, 619 s was the stage
+`PASS exact rational nesting (4878 new pairs; all inherited pairs checked)`. That stage builds
+`frames147.Exact` from the pinned PR97 h=23 witness, then checks `inside` for all 202,190 ledger moves and
+`inside` plus `nondegenerate` for the 4,878 fresh moves. This package records why the stage is slow,
+refutes the first reuse idea, and documents an output-identical replacement for its main exact kernel.
+
+## What changed
+
+`research/recycled-bit-integration/verify.py` now defines `null_exact_ff` and `install_null_kernel`. Before
+`Exact` is built, `main()` replaces `linalg.null_exact` and `check_lifted.null_exact` with an integer, fraction-free
+kernel. It also replaces `frames147.prim` with an integer gcd version. These replacements happen at runtime. The
+frozen files `references/partial-gauge/pr97/{linalg,check_lifted}.py` and `research/bit-reuse-147/frames147.py`
+are byte-unchanged. Input that is not integral, or whose rows are ragged, falls back to the original function.
+`VERIFY_NULL=reference` restores the original Fraction kernel. `VERIFY_NULL=audit` runs both kernels on every call
+and asserts that their outputs are equal. The fork pool from 6fd436d0d (PR218) is kept as it was. The only other
+change is the `verify.py` entry in `research/recycled-bit-integration/certificate.json` `source_sha256`. Every other
+certificate byte, the move multiset, the predicates and the five PASS lines are the same. The run also prints one
+extra informational line, `null_exact kernel: fast`.
+
+**Why the output is identical, not merely equivalent.** `null_exact_ff` repeats the steps of PR97 `null_exact`:
+reduce each row by the earlier pivot rows, take its first nonzero entry as the pivot, then clear that column in
+the earlier rows. By induction, every stored integer row is a nonzero rational multiple of the Fraction row at the
+same step, with the pivot kept positive. So the pivot columns are the same, and the free columns come in the same
+increasing order. For each free column f, the integer vector has `x_f = lcm(pivots)` and
+`x_pc = -b[f] * lcm / b[pc]`. This is a positive multiple of the Fraction vector (`x_f = 1`, `x_pc = -b[f]/b[pc]`).
+`linalg.primitive` maps a vector to the unique primitive integer multiple with the same sign, so dividing by the
+gcd returns the same list of rows. `prim` on integer rows equals `x // gcd`. The equality was also measured: see
+below.
+
+## Measurements
+
+All runs were on one shared host (4 CPUs, Python 3.14.4, `nice -n 10`), on the pinned base input. Timings in the
+same row come from the same process, or from back-to-back runs, so they compare the same input. Other sessions
+were running on the host, so the absolute times are noisy.
+
+| Measurement | Reference (Fraction `null_exact`) | Fast (fraction-free) | Equality |
+| --- | --- | --- | --- |
+| `null_exact` calls inside `Exact.__init__` (4,473 calls; mostly `late_frames` intersections) | 23.43 s kernel time | 2.88 s (8.1x) | all 4,473 identical |
+| Deterministic sample: 400 ledger moves (`random.Random(1)`), 709 keys, 345 annihilators. Basis + null, rep 1 / rep 2 | 4.50 s / 3.88 s | 1.25 s / 1.11 s (3.5-3.6x) | basis and null maps identical |
+| Same sample, `inside` dot products | 0.024 / 0.034 s | 0.024 / 0.025 s | — |
+| Full-key audit (one process, both kernels on every call): every distinct basis key and every target annihilator of the 202,190 ledger moves | FULLKEY_REF | FULLKEY_FAST | FULLKEY_EQ |
+| Full `--all` replay, `VERIFY_JOBS=3`, wall time of the nesting stage / whole run | FULLREF | FULLFAST | five PASS lines, kappa=472154791/10^12, certificate equal |
+
+**Profile of the stage (before).** The cProfile figures are inflated by profiling overhead. Of `Exact.__init__`
+(about 160 s unprofiled), `Frames.dims` takes the largest share: about 52% of the profile, almost all of it
+mod-p `Echelon.reduce` in `rank_mod`. `late_frames` takes about 32% (unprofiled 25.5 s), mostly the Fraction
+`null_exact` in `intersect_exact`. `cobases` and `spans` take the rest. In the per-move work, a cProfile of 600
+basis and 300 null calls put about 72% of the time in `linalg.null_exact`, with Fraction arithmetic dominating.
+The new kernel removes most of that time. It does not touch `dims`, which this package leaves unchanged
+(see Open next questions).
+
+**Negative result for the first hypothesis (basis reuse from `late_frames`).** The planned mechanism was to seed
+`Exact`'s basis memo from the `exact_basis` cache that `check_lifted.late_frames` builds and then throws away.
+That cache holds 2,230 keys. The ledger moves use 86,789 distinct keys (n 64,042; v 11,374; sigma 8,181;
+out 1,771; c 1,396; ret 23; '0' 1; F 1), so the cache covers 2.6% of them. Reuse alone cannot materially shorten the
+stage, so that mechanism was dropped. This is the one pivot recorded in TASK.json.
+
+## Reproduce
+
+```sh
+python3 -B research/recycled-bit-nesting-reuse/verify.py          # ~40 s; last line PASS_RECYCLED_BIT_NULL_KERNEL
+make verify-recycled-bit                                           # full replay; five PASS lines,
+                                                                   # kappa=472154791/1000000000000
+VERIFY_NULL=audit python3 research/recycled-bit-integration/verify.py --all   # full replay, both kernels on every call
+```
+
+`verify.py` in this package is the bounded check. It runs 3,012 differential matrices: edge cases (empty input,
+k = 0/1, zero rows) and a deterministic random family (rank-deficient stacks, entries from {0,1} up to 2^80). It
+runs 20,000 `prim` rows and checks the fallback on Fraction and ragged input. It also runs these negative controls,
+which must fail:
+
+* a sign-flipped kernel row, and a doubled (non-primitive) row, differ from the reference;
+* `VERIFY_NULL=audit` raises `null_exact kernel mismatch` when the fast kernel is replaced by a sign-flipped one;
+* with the fast kernel installed, `check_moves` reports a swapped strict inclusion (non-nested move), and
+  `nondegenerate` rejects a degenerate frame (the span of 1^9 0^14, where 9*9 - 9^2 = 0);
+* the certificate pins the new `verify.py` bytes. An edited `verify.py` changes `sources()`, so
+  `assert read(dest) == cert` fails.
+
+## Scope, inherited assumptions, unresolved obligations
+
+* This is an engineering change to one replay. It makes no mathematical claim beyond "same outputs". The
+  certificate is still the conditional composed bit-register witness of `recycled-bit-integration`. Its retained
+  analytic, fixed-tape, uniform-recursion, prime and ordinary-leaf interfaces remain assumptions, as before.
+* The identity argument above is a proof sketch in this README, not a formal proof. The empirical evidence is
+  finite: the full-key audit recorded above, the init audit and the differential tests.
+* Coverage: the call set audited was {all 4,473 init calls} and {basis of every distinct key, null of every
+  distinct target} in the order described above. Bases depend only on their keys, so these are the distinct
+  `null_exact` inputs of the `--all` path. Worker processes call the same functions on the same keys.
+* CI wall time was not measured. The full runs used `VERIFY_JOBS=3` on a loaded host, so no CI speedup factor is
+  claimed. Sibling PR #2361 (CI selection) would run this job less often. The speedup still matters for
+  `make verify`, scheduled runs and relevant PRs.
+* Historical receipts under `research/community-efficient1000-audit/checks/` record the old `verify.py` sha
+  (`a5508f42...`) as snapshots. No live verifier re-hashes them. They are left unchanged as historical evidence.
+
+## Open next questions
+
+1. *Question:* can `Frames.dims` (mod-p `Echelon` rank, now the largest remaining part of `Exact.__init__`) be
+   made faster with identical ranks? *Why:* after this change it is the largest serial cost before the pool
+   starts, and the forked workers do not share it. *First step:* replace the per-row list comprehension in
+   `Echelon.reduce` with a packed-integer or batched elimination mod Q31, behind the same runtime-install and
+   audit pattern. *Blocked by:* nothing; it needs its own equality audit on all 112,920 `_rank` calls.
+2. *Question:* should the parent build the bases of shared source keys once before forking? *Why:* the 4 workers
+   rebuild overlapping source-key bases, and copy-on-write sharing would remove that duplicate work. *First step:*
+   measure the overlap of source keys across the current chunks. *Blocked by:* memory. Prebuilding all 86,789
+   bases in the parent may use more than the CI runner can spare. Measure RSS first.
+3. *Question:* do the other replays that use PR97 `null_exact` (`research/bit-reuse-147/verify.py`,
+   `research/gauge-recycling/verify.py`, `check_lifted.py` itself) benefit from the same installer? *Why:* the
+   kernel is shared. *First step:* profile `make verify-bit-reuse-147` and check its share of `null_exact`.
+   *Blocked by:* each verifier pins its own sources, so each would need its own pin update and review.
+
+## Credit
+
+* `research/recycled-bit-integration`: Douglas Colkitt, with OpenAI Codex assistance. It composes Thomas Marchand
+  (#146), William Porter (#147), gupt1156 (#148) and DaysSky (#150), per its `SOURCE.json`.
+* PR97 `check_lifted.py` / `linalg.py`: Swapnil Jain.
+* Fork-pool parallelization of this stage: Joel Pulikkan / GamingPuzzled (PR218, cherry-picked as 6fd436d0d).
+* Related verifier speedups with an exact method: CubeJerry (PR1461, annihilator containment for the h=10/12
+  audits) and RichardHoekstra (PR239, `rational_span_frames` nondegeneracy).
+
+Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
+Base commit `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. Source pins are in [SOURCES.json](SOURCES.json), and the
+replay command and inputs are in [VERIFY.json](VERIFY.json).
