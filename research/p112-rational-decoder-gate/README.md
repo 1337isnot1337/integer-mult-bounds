@@ -1,8 +1,8 @@
-# A changed P112 three-plane cover with exact scalar fitting rank 57
+# A P112 cover with minimum scalar rank 57 and sharp minimum-length cost 334
 
 **Constructive finite result and cost audit; no new supplier or kappa.** For the same 112 selected labels used by PR2041, this package supplies a different cover by 37 orthonormal triads and one residual line. Its strict scalar endpoint mask has minimum fitting rank **exactly 57**, with an explicit 57-term integral fit and a matching principal-submatrix lower bound. For the fixed cover in PR2041, PR2532 identified a rank-at-least-99 obstruction; this package also supplies a matching 99-term fit. Thus the exact fixed-mask minimum changes from **99 to 57** when the cover changes. This opens more scalar sharing without reusing the invalid binary decoder target.
 
-This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. Rational diagonal rescaling preserves the fit but does not reduce that bill. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
+This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. A follow-up theorem proves that **every exactly-57-term rational fit on this mask costs at least 334**, including asymmetric factors and arbitrary nonzero common normalization. Moreover, at **any factor count**, a rank-57 fit costs at least **308** if both factor families remain in its column and row spaces. Both floors exceed the necessary charge of at most 296. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
 
 ## Exact object and contract
 
@@ -56,7 +56,7 @@ Here both spans are equal. Each ordinary pair support touches two orthogonal non
 n_3=3,\qquad n_6=53,\qquad n_7=1,\qquad C=3\cdot3+53\cdot6+7=334.
 \]
 
-This remains true after any diagonal conjugation above. It prices these factors; it is not a lower bound for arbitrary rational decoders under this mask. The integral construction does not evade the earlier 2-integral floor of 334 for this 37-triad/one-line contract.
+This remains true after any diagonal conjugation above. The [minimum-length cost theorem](RANK-TIGHT-PROOF.md) extends this floor to every exactly-57-term rational scalar fit on this mask. This 334 bound does not bound decompositions with more terms, including overcomplete decompositions of rank-57 matrices. The additional 308 bound below has a different scope. The integral construction does not evade the earlier 2-integral floor of 334 for this 37-triad/one-line contract.
 
 The exact average unpaid dimension is
 
@@ -81,6 +81,37 @@ M(0)=\frac{5522+C+I}{73w}
 
 Every child rank is below 73, so `(r/73)^(1-a)` is nondecreasing for `a>=0`. Failure at zero rules out positive saving for the displayed profile before extra costs. This conditional screen does not establish a native implementation of the coverage law. Its necessary centre budget for any positive saving is `C < 2672/9`, hence `C<=296` for an integer invoice. Reaching the selected saving requires a substantially smaller bill, around 261 even under favorable rank-1-through-9 packing; PR2532's incumbent-tie screen is planning context, not a feasibility certificate.
 
+## Sharp cost floor for every minimum-length rational fit
+
+The follow-up starts from canonical main `936fac15b1b1b59dc5285c713a77f9f3c07b2906`
+and pins the published construction at PR2757 head
+`c8216fca1ed2a301a95e7e0b1e5844d4cfda02c6`. Its source inputs are unchanged.
+
+[RANK-TIGHT-PROOF.md](RANK-TIGHT-PROOF.md) proves a sharp floor of 334 for
+**exactly 57 nonzero rational rank-one terms**, over all fitting matrices on
+this fixed mask. The principal identity forces a zero Schur complement. Two
+additional forbidden blocks eliminate the exceptional couplings, leaving 18
+inverse paired blocks, the isolated final triad and the residual line.
+Biorthogonality and 324 checked support-pairing ranks then force every term to
+cost at least six, except at most three terms costing three. The residual
+diagonal requires a separate term costing at least seven. Hence the total is
+at least `54*6 + 3*3 + 1 = 334`, attained by the saved construction.
+
+The argument does not reduce rational coefficients modulo two and covers
+nonintegral, nonsymmetric and nongauge factorizations. It closes optimization
+at minimum factor count. For any number `m=57+s` of terms, an additional argument gives
+`C >= max(334-s, 228+3s) >= 308` if both factor families remain in the rank-57
+matrix's column and row spaces. An exact closure of 40 binary component spaces
+bounds the support patterns of discounted terms; an acyclic-subset argument
+then bounds how many discounts the extra factors can buy. The floor 308 is a
+lower bound, with no claim that it is attainable.
+
+Thus **more factors and a change of span or fitting rank are necessary for
+charge <=296**, not sufficient. Exterior factor directions may cancel in the
+sum, and fitting matrices of larger rank remain open. Changed covers and
+operator contracts also remain open. Neither theorem establishes physical
+implementation or an improved multiplication bound.
+
 ## Discovery and replay
 
 Discovery optimized the actual free mask. A bounded randomized exact-cover search, seed `2026101501`, packed orthogonal six-label sets and split each into two triads, obtaining 17 disjoint orthogonal triad pairs. A local repair, seed `2026101502`, repacked 22 ports: two six-label blocks plus ten remaining ports became three six-label blocks, one triad and one line. This produced the 18-pair cover. Attaching the residual line as above gives rank 57.
@@ -92,6 +123,9 @@ From the repository root, standard library only:
 ```sh
 python3 -I -O -B research/p112-rational-decoder-gate/verify.py
 python3 -I -O -B research/p112-rational-decoder-gate/independent_check.py
+python3 -I -O -B research/p112-rational-decoder-gate/check_rank_tight_floor.py
+python3 -I -O -B research/p112-rational-decoder-gate/independent_cost_floor.py
+python3 -I -O -B research/p112-rational-decoder-gate/check_overcomplete_closure.py
 python3 scripts/research_package.py --package research/p112-rational-decoder-gate --check-only
 python3.12 scripts/research_package.py --package research/p112-rational-decoder-gate
 ```
@@ -112,5 +146,5 @@ Prepared by flyingviper with substantial OpenAI Codex assistance in search, proo
 
 ## Open next questions
 
-1. **Can a different rational factorization exploit this mask to lower the full port-space bill?** Start with asymmetric factors, possibly more than 57 terms and mixing different orthogonal pairs. Enforce every diagonal and forbidden entry exactly before pricing whole source and reader spaces. A useful first gate is `C < 2672/9`; a selected-bound candidate needs a full moment below one near the incumbent saving, requiring roughly `C<=261` even in the favorable rank-9 relaxation. Stop a factorization family when its favorable complete invoice misses that gate. Diagonal rescaling of the saved factors costs 334 and does not reopen it.
+1. **Can a different rational factorization exploit this mask to lower the full port-space bill?** Start with at least 58 nonzero terms, and either introduce factor directions outside the fitting matrix's column/row spaces or increase the fitting rank. The cost theorems exclude every exactly-57-term rational fit and all overcomplete decompositions of rank-57 fitting matrices that retain both spans, including asymmetric ones. Enforce every diagonal and forbidden entry exactly before pricing whole source and reader spaces. A useful first gate is `C < 2672/9`; a selected-bound candidate needs a full moment below one near the incumbent saving, requiring roughly `C<=261` even in the favorable rank-9 relaxation. Stop a factorization family when its favorable complete invoice misses that gate. Diagonal rescaling of the saved factors costs 334 and does not reopen it.
 2. **Can a different block or native contract realize useful sharing with every independent payload charged?** First supply the complete operator identity, dirty-input behavior and actual occurrences, rather than charging a geometric rank once for a multi-array block. Before another construction round, update the family budget and consumer boundary: source preparation, chart conversion, routing, hosting, chronological ownership, storage, erasure/restoration, precision, all-size recursion and a compatible bit supplier remain unproved here. Their costs are unknown, not zero. This finite certificate supplies neither physical compilation nor the selected cold replay.
