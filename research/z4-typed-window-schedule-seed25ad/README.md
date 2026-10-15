@@ -115,16 +115,21 @@ At equal window width and equal alphabet, the residual fusion saving is:
 - **k=2 literal: −32 records** (the deferral is *more* expensive; see
   RESULT.json).
 - **k=5+5 persistent pair (the bounded pivot), typed windows: exactly
-  `2d = 48` records** per pair, where `d = 24`: the two calls' windows share
-  all three work octets, so per-call windows must erase and re-copy the same
-  24 source rows at the call boundary while one window pays them once. This
-  matches a scoped record lower bound: inside the X-reading window family
-  (one independent source row installed per work row), each call pays at
-  least `2d` window records, so per-call windows pay at least `4d` per pair
-  and a single window at least `2d`; the gap `2d = 48` is exactly the
-  measured residual. This is the one fusion saving that needs the deferral
-  (or an ownership-transfer rule), and it is the exact content of the
-  demotion.
+  `2d = 48` window records** per pair, where `d = 24`: the two calls' windows
+  share all three work octets, so per-call windows must erase and re-copy the
+  same 24 source rows at the call boundary while one window pays them once.
+  This matches a scoped record lower bound: inside the X-reading window
+  family (one independent source row installed per work row), each call pays
+  at least `2d` window records, so per-call windows pay at least `4d` per
+  pair and a single window at least `2d`; the gap `2d = 48` is exactly the
+  measured window-record residual. The **net** k=5+5 saving is reader-family
+  dependent: `+48` records for phase-indexed readers (1,456 separate against
+  1,408 fused) and `-56` records for fixed readers (1,616 separate against
+  1,672 fused), because the fused fixed-reader body pays 264 per-octet
+  frame-word records against the two separate calls' 160, a 104-record
+  fusion penalty that more than absorbs the 48 shared-window records. The 48
+  window records are the one fusion saving that needs the deferral (or an
+  ownership-transfer rule), and they are the exact content of the demotion.
 
 Pivot prices (k=5+5 persistent pair, same priced model):
 
@@ -141,8 +146,9 @@ The phase-indexed reader family is `research/z4-distinct-source-seed55`'s
 declared child-contract change (`C_(i,t)(D,W) = (D + Q^(-t) R_i W, P W)`); the
 fixed-reader rows use only PR #1391's certified children plus per-octet frame
 words, with the exact per-octet gap programs recorded in RESULT.json. The
-deferral's 48-record residual is the same `2d` window row-sharing in both
-families.
+deferral's 48-record window residual is the same `2d` window row-sharing in
+both families; the net saving follows the reader family (`+48` phase-indexed,
+`-56` fixed).
 
 ## The 144-primitive saving decomposes too
 
@@ -240,7 +246,7 @@ decomposition, both coverage identities, the published `D/E`, the
   left once windows are typed; it is exactly what the ERASE deferral buys.
   First step: ask the contract owner whether a temporary's erased-and-recopied
   content may pass between sequential windows, and price the alternative (48
-  records per pair at `d = 24`) against the widened window's extra live
+  window records per pair at `d = 24`) against the widened window's extra live
   families. Blocked by the pinned sentence ("windows remain sequential and
   immutable"; each call's temporary erased within that call).
 
