@@ -201,20 +201,24 @@
       },
       "reviewed_head": "37658d17bcc53ee3ff2d22fa1c2df6185152ded0",
       "current_head": "37658d17bcc53ee3ff2d22fa1c2df6185152ded0",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/k492-emitter-independent-controls"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1162"
+      },
       "scope": "Independent reconstruction of all eight historical K492 emitter-site controls, complete allocation/frame/output checks and repaired-hash semantic corruptions. Missing original external fixtures and the remaining 24 source rows are not represented as replayed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/1162.json",
@@ -1518,20 +1522,24 @@
       },
       "reviewed_head": "323703a83640f4c104469bf29db18d7d579cb587",
       "current_head": "323703a83640f4c104469bf29db18d7d579cb587",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-invoice-reference-rebinding"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2059"
+      },
       "scope": "Three-node invoice comparison authenticates both raw references on both sides before canonicalizing exactly those two links. Complete typed JSON values, unknown fields and array order remain checked; exhaustive synchronized mutation controls do not claim whole-output or supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2059.json",
@@ -1634,20 +1642,24 @@
       },
       "reviewed_head": "8344a5fc1eb643aca6a21bc745d824a38f449e39",
       "current_head": "8344a5fc1eb643aca6a21bc745d824a38f449e39",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/a7-a1-decoder-floor"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2062"
+      },
       "scope": "Fixed A7+A1 nine-normal COPY floor 72: exact binary-plane checks support the arbitrary-complex-shift kernel argument and two extremal profiles. No full supplier or universal decoder barrier.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2062.json",
@@ -1670,20 +1682,24 @@
       },
       "reviewed_head": "4caa7660fa4a31c4cfeaf177fabc3b56549dd065",
       "current_head": "4caa7660fa4a31c4cfeaf177fabc3b56549dd065",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/connector-all-tariff-optimum"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2063"
+      },
       "scope": "Exact 36-positive-tariff connector optimum: 16 componentwise minimal call vectors, with the unbounded reduction to ten-source-event paths and all 945 canonical pairings. All witnesses and independent readout costs are checked; no changed alphabet or supplier is claimed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2063.json",
@@ -1706,20 +1722,24 @@
       },
       "reviewed_head": "43ff11e0503dbc71d20e13177c144e962f521751",
       "current_head": "43ff11e0503dbc71d20e13177c144e962f521751",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/mutable-source-connectivity-bound"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2064"
+      },
       "scope": "Mutable-source connectivity lower bounds X>=2(n-k), Q>=n+k with attaining projected frontier in the stated reversible XOR/read model. These are query-tariff results, not free physical operations or an unrestricted three-resource optimum.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2064.json",
@@ -1742,20 +1762,24 @@
       },
       "reviewed_head": "2721b1e31d718a6e70266a99521f629ce2e1d259",
       "current_head": "2721b1e31d718a6e70266a99521f629ce2e1d259",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bidirectional-five-source-connector"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2065"
+      },
       "scope": "Reverse-transfer two-root connector has sharp six-transfer minimum in the exactly-two-calls-per-operator model. Moving-frame normalization, loop symmetries, two complete four-transfer censuses and the 78-call attaining word retain dirty inputs and ordered maps.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2065.json",
@@ -1778,20 +1802,24 @@
       },
       "reviewed_head": "4af8904d4a5aade6d53a823c6cae73cdfe5a6562",
       "current_head": "4af8904d4a5aade6d53a823c6cae73cdfe5a6562",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/gaussian-hyperplane-allpairs"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2066"
+      },
       "scope": "Gaussian 60-plane reciprocal-matrix parity certificate: symmetric fitted matrices force all 60 self types; one asymmetric pair has the stated remaining floor. General asymmetry is explicitly left open, not excluded by the symmetric result.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2066.json",
@@ -1814,20 +1842,24 @@
       },
       "reviewed_head": "add44e23b65926338707a0fd98215e0506c0f820",
       "current_head": "add44e23b65926338707a0fd98215e0506c0f820",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/dirty-endpoint-error-accumulation"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2067"
+      },
       "scope": "All-size endpoint error recurrence for the balanced dirty commutator, derived by completed-child suffix propagation. Target 3^h and larger scratch coefficients are distinguished; conditional precision savings retain the separate interior feedback condition.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2067.json",
@@ -1850,20 +1882,24 @@
       },
       "reviewed_head": "99ec490351de5a9417d881242a4df29b9df3ef12",
       "current_head": "99ec490351de5a9417d881242a4df29b9df3ef12",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/paired-log-universal-identity-seed83"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2068"
+      },
       "scope": "Typed noncommutative integer-polynomial certificate for the fixed paired-log inverse, using only same-stage right-inverse relations. Independent block products bind the actual forward word; neither query-rank optimality nor native pricing is inferred.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2068.json",
@@ -1886,20 +1922,24 @@
       },
       "reviewed_head": "01d7ac130222d09b4f42c180d0678148bfccdcd9",
       "current_head": "01d7ac130222d09b4f42c180d0678148bfccdcd9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-dicyclic-diagonal-seed620ca"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2069"
+      },
       "scope": "Exact F2[Dic3] three-register meet-in-the-middle census through four and five positive-generator calls, with all eligible monomial endpoints and minimum-depth representatives. This is a bounded group-algebra result, not an unrestricted lower bound.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2069.json",
@@ -1922,20 +1962,24 @@
       },
       "reviewed_head": "4d13c57fd1fd67f0b71fc340f668cd3c59ab56cd",
       "current_head": "4d13c57fd1fd67f0b71fc340f668cd3c59ab56cd",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/paired-log-phase-query-bound"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2070"
+      },
       "scope": "Causal phase-query rank bound with singular free role maps, established in a common Pauli-trivial tensor sector. The 555-event four-bank consequence concerns the explicit coherent matched-query target, not every mixed-chart inverse or alternative recursive interface.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2070.json",
@@ -1958,20 +2002,24 @@
       },
       "reviewed_head": "ac135d637e74dd11d44901bc91863f2990823e59",
       "current_head": "ac135d637e74dd11d44901bc91863f2990823e59",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bidirectional-four-shear-rigidity"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2071"
+      },
       "scope": "Four-shear signed connector rigidity: arbitrary nonzero coefficients reduce to same-port strata or two exceptional unit cases, then two exact complete censuses exclude mixed directions. Original one-way attainments and port rigidity retain predecessor credit.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2071.json",
@@ -1994,20 +2042,24 @@
       },
       "reviewed_head": "c7dddadf993c6759edb6341090565e8f99edaeb2",
       "current_head": "c7dddadf993c6759edb6341090565e8f99edaeb2",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/eisenstein-binary-rank-audit-seed77"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2075"
+      },
       "scope": "Independent Eisenstein scalar COPY40 certificate: all flat-pair binary/rational rank domination checks and exact minor bounds establish the additive scalar floor. Block-linear, nonlinear and shared physical pricing are outside scope.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2075.json",
@@ -2030,20 +2082,24 @@
       },
       "reviewed_head": "a49b52e4cf3cc6261d4a5b28693003b17cf7b36f",
       "current_head": "a49b52e4cf3cc6261d4a5b28693003b17cf7b36f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/centre-prefix-fanout-obstruction-seed2803b7"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2076"
+      },
       "scope": "Literal early centre-scatter timing test on all 704 scalar endpoints rejects each of eight proposed early moves. Controls validate chronology sensitivity; persistent storage and native-frame alternatives remain outside the result.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2076.json",
@@ -2099,20 +2155,24 @@
       },
       "reviewed_head": "b46bd807db4bdf4fa86c20881d036bba7f64dcd6",
       "current_head": "b46bd807db4bdf4fa86c20881d036bba7f64dcd6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank1-transvection-boundary-seed0410"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2078"
+      },
       "scope": "All 112-by-72 directed coordinate-transvection compatibility tests and a fully stated optimistic boundary profile screen. No single common shear works; compatible port maps are not claimed to preserve the complete supplier endpoint.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2078.json",
@@ -2135,20 +2195,24 @@
       },
       "reviewed_head": "49df8190b158e3028e702b2c6b798117006f7249",
       "current_head": "49df8190b158e3028e702b2c6b798117006f7249",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/joint-query-extra-b2-observation-seed3e62"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2079"
+      },
       "scope": "One extra B2 ordinary-source observation separates the eight previously exhibited QQ16 directions, conditional on pinned Gram identities. Its favorable profile is only a budget; whole-controller injectivity is explicitly open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2079.json",
@@ -2205,20 +2269,24 @@
       },
       "reviewed_head": "60f4e337ffba470e09727dd435b1f1be3b67d03d",
       "current_head": "60f4e337ffba470e09727dd435b1f1be3b67d03d",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-temporal-cut-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2082"
+      },
       "scope": "Saturated chronological common-frame cut bounds the frozen P104 channel by eight arrays; locally restoring added excursions require at least 96 transports. The failing moment retains a specified coverage law, not arbitrary changed inventories.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2082.json",
@@ -2241,20 +2309,24 @@
       },
       "reviewed_head": "7231ab9715308e87f8254d4bf10337e8ebde0b0f",
       "current_head": "7231ab9715308e87f8254d4bf10337e8ebde0b0f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-terminal-correction-floor"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2083"
+      },
       "scope": "Terminal P104 correction floor: all 104 incomparable target hyperplanes require transport incidence; fixed occupancy doubles the floor to 208. Disposable clean copies attain 104 only in the stated relaxation, whose physical lifecycle remains unproved.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2083.json",
@@ -2277,20 +2349,24 @@
       },
       "reviewed_head": "8001a23b003bec5dff5e61edec907b652c475932",
       "current_head": "8001a23b003bec5dff5e61edec907b652c475932",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-bit-parent-reserve"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2084"
+      },
       "scope": "Conditional selected BIT parent reserve 8194 from full-cover packet cardinality, decreasing floor-child depth and restoration-based sibling reuse. Completed-leaf and all-size realization hypotheses remain explicit; no production stock or cutoff is changed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2084.json",
@@ -2313,20 +2389,24 @@
       },
       "reviewed_head": "5302b9bad6345413a0cabb0afd926d84e44c12e3",
       "current_head": "5302b9bad6345413a0cabb0afd926d84e44c12e3",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-four-register-rational-frame-floor-seed3573e12e"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "ae997977ecc0b3c86485e9cdb020b669585459a6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2085"
+      },
       "scope": "Four-role rational additive-address target has sharp eight-call bill: exhaustive first-order rank/trace lower-bound minimization over 65,536 matrices and an exact attaining word. Arbitrary-length implication is confined to the stated four-frame alphabet.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/2085.json",
@@ -2387,15 +2467,17 @@
       "current_head": "b5ffc48e3dd5c92f591bdb4fabafa2c8e8b33970",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-bootstrap-uniform-time"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Conditional all-width lifting induction with an explicit 401501 time coefficient bound in unknown primitive constants. Padding, wrapper shifts and descriptor preparation are charged; actual implementation uniformity and stock fit remain premises.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2421,15 +2503,17 @@
       "current_head": "95669bdd93cb3707f42268f5edee48af2a611bcc",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/bit-two-copy-physical"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact physical-stream substitution with two separate reserved families, distinct rank-seven pullbacks and guarded erase in both orientations. All 661 function columns and owner charts are checked; recursive child scratch and all-size lowering remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2455,15 +2539,17 @@
       "current_head": "54d4c6f57a155552db7c15bd164d034e707b20b9",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "integration_location": [
+        "research/p104-tail-side-correction-seed749717"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Explicit terminal P104 side correction, with 4,992 scalar additions and 208 rank-one transports, restores all 280 arbitrary-input columns. Local native recipes and adverse controls are distinct from global hosting or supplier admission.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2561,15 +2647,17 @@
       "current_head": "f22626f334a06f6e842766e4a6647419e6821d2d",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-native-precision"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Native P104 finite-word Hilbert-norm bounds at every cut, including arbitrary dirty helpers and private lifetimes. Independent forward/reverse defect maps justify 450 absolute and 668 feedback coefficients; numerical children and corrected-word precision remain separate obligations.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2595,15 +2683,17 @@
       "current_head": "1d3ee0926656d5260c6cb1c0b81964ffe9fe1377",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-cover-fresh-fibers"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Conditional fresh-suffix counting theorem for one padded row product, with all-depth ancestor predictability and sibling restoration. Exact counterexamples separate endpoint restoration from fresh-field averaging; selected compiler compliance remains inherited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3059,19 +3149,22 @@
       "current_head": "b56dceffad83c88e8ad39ffd82a1bdd55c4130da",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/r439-deferred-target-basis-seed06"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Deferred target-basis block identities, full dirty endpoints and per-cut bridge across retained words, with a limited order-ideal search and unchanged paid profile. Physical bridge is explicitly argued; native hosted replay and adoption of the changed H5 interface are not admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1100-audit/packets/2115.json"
+        "research/community-efficient1100-audit/packets/2115.json",
+        "research/community-efficient1100-audit/checks/check-2115.json"
       ]
     },
     {
@@ -3530,15 +3623,17 @@
       "current_head": "3aeb63fb1f2933fef907f4f7cc6e27c41d4f8edb",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/k8-commutation-ceiling-seed26"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact dimension-multiplier lower certificate over within-segment commutation orders and legal nested frames. Independent subspace enumerators and interval propagation support the 0.7% exclusion; changed coefficients, endpoints, segment boundaries and child contracts remain outside scope.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3564,19 +3659,22 @@
       "current_head": "a79f0f91a8a8f6b8c3bd1e0b885349f73436146e",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "docs/research"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Dated P104 scope map distinguishes frozen, terminal and changed-producer premises, with an exact 328/9 retained-coverage budget calculation. Open discussions remain attributed provisional claims; this document adds no supplier or frontier result.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1100-audit/packets/2133.json"
+        "research/community-efficient1100-audit/packets/2133.json",
+        "research/community-efficient1100-audit/checks/check-2133.json"
       ]
     },
     {
