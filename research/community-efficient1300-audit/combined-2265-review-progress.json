@@ -18,5 +18,6 @@
   ],
   "provenance": "combined-2265-provenance-progress.json",
   "remaining": "Supplier-generic analytic proof/dependency audit: PR1673 shallow Toeplitz circuit compiler, union fixed-tape schedule, accretive extension and fine-prime precision/locality/assembly. See actual shared unresolved entries1673,1758,1786,2220 in central ledger. Not accepted merely because54inequalities and19finite predecessor replays pass.",
-  "selected_changed": false
+  "selected_changed": false,
+  "additional_review": "Read all SHALLOW-TOEPLITZ.md: parity triangular recursion, Schur displacement identities, bounded-generator shear compiler and prefix estimates. Found the ratio-only accretive extension statement needs scale qualification; see combined-2265-accretive-scale-review.json. The normalized application may retain the intended guard."
 }

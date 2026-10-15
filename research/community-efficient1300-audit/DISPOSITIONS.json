@@ -321,7 +321,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Full finite supplier/200-digit endpoint/54-row retuned outer replay passes48.655s, with explicit canonical-payload comparison replacing unreproducible predecessor gzip commitment. Supplier70files exact2260. New endpoint, binding, outer arithmetic and parameter proofs reviewed. Complete shared PR1673 capped-fusion, PR1758 accretive Toeplitz/union and PR1786 fine-padding analytic/tape dependency audit remains pending; finite replays alone do not establish these. Original2260 commitment remains unresolved.",
+      "unresolved_question": "Full finite supplier/200-digit endpoint/54-row retuned outer replay passes48.655s, with explicit canonical-payload comparison replacing unreproducible predecessor gzip commitment. Supplier70files exact2260. New endpoint, binding, outer arithmetic and parameter proofs reviewed. Complete shared PR1673 capped-fusion, PR1758 accretive Toeplitz/union and PR1786 fine-padding analytic/tape dependency audit remains pending; finite replays alone do not establish these. Original2260 commitment remains unresolved. General accretive Theorem4.1 needs a scale qualification (H=tI counterexample); unit-diagonal application may be unaffected. Shared correction requested at1758#issuecomment-6203527654.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
