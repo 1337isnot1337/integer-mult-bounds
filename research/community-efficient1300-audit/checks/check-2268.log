@@ -19,3 +19,9 @@ Traceback (most recent call last):
   File "/Users/colkitt/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/subprocess.py", line 1253, in _check_timeout
     raise TimeoutExpired(
 subprocess.TimeoutExpired: Command '['/tmp/pr-efficient200-venv/bin/python', '-I', '-B', '/private/tmp/pr-efficient1300/sources/2268/research/qq16-ordinary-source-tap-seed3794b3/verify_b1_tap.py']' timed out after 180 seconds
+
+RESUME: exact successful prefix retained; remaining commands budget 1800s each.
+['/tmp/pr-efficient200-venv/bin/python', '-I', '-B', 'research/qq16-ordinary-source-tap-seed3794b3/verify.py']
+PASS_QQ16_ORDINARY_SOURCE_TAP selected=34 histories=4 completedX=65
+tap=U2->T21 additions=2 children=0 tail_output_X21=11*f37 at_identity=11
+PR2216_B1_rank=8; controls=3; no_full_controller; no_kappa

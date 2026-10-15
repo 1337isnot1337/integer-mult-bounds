@@ -425,15 +425,17 @@
       "current_head": "daf44bfc752a5e89127defa1cb296210708cf7e6",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "integration_location": [
+        "research/qq16-ordinary-source-tap-seed3794b3"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Cinna Davis's paired ordinary-source tap adds two same-frame scalar additions to the QQ16 interface. Reviewed exact rational full-tail replay: one pinned hidden witness yields34 selected outputs,4 history values and65 completed-X values, including final11*f37, while no-tap and wrong-source controls stay zero and wrong-sign breaks sum preservation. The inherited eight-direction family retains rank8 only at B1; global injectivity, its full tail, precision/hosting and supplier admission remain open. Historical task-context pins are Git-bound, live transitive dependencies declared and a slower-host timeout retained; no mathematical receipt or kappa change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2900,7 +2902,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Requested revision: instrumented port-adapter replay consumes audit_hosted_k.py after the invoice manifest demotes it to provenance, so the declared-input coverage gate fails. Restore an authenticated runtime dependency and replay the affected chain; other production review remains pending.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3005,19 +3007,22 @@
       "current_head": "491c44a70d2316589a56e8c4b80817c4a0b6cbc4",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/pool121-jet-rigidity"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar's characteristic-two jet-rigidity audit: reviewed rational/gauge-to-F2 reduction, uniform-order rigidity proof and polynomial order-two test, plus independent elimination, dual flows and finite enumeration. Full replay verifies rank266/kernel244, all30 immovable harmonic lines,42 searched minimal atom orbits and the complete353 five-line orbit classification over24643710 subsets, with exhaustive non-CR2 checks over GF(2/4/8/16), exact costs and rejecting controls. Larger atom searches are not exhaustive; SCC/Peel figures remain author-recorded, and inherited Corollary J/VCR2 implications are explicitly conditional. No supplier or kappa change; DreamingOfClouds and other predecessor credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2351.json",
+        "research/community-efficient1300-audit/checks/check-2351-supplement.json",
         "research/community-efficient1300-audit/checks/check-2351.json"
       ]
     },
@@ -3201,7 +3206,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Requested revision: remaining live-pinned consumers reject the rewritten k492 auditor (actual target-forest source-check failure, baseline positive control). Three source-key-only receipt corrections are locally replayed and retained, but the production dependency migration remains incomplete.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3212,7 +3217,9 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2357.json"
+        "research/community-efficient1300-audit/packets/2357.json",
+        "research/community-efficient1300-audit/checks/check-2357-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2357.json"
       ]
     },
     {
@@ -3354,7 +3361,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3726,22 +3733,26 @@
       },
       "reviewed_head": "5d444eee7dedd997c6094776fbb32ed19831e241",
       "current_head": "5d444eee7dedd997c6094776fbb32ed19831e241",
-      "disposition": "partially_reviewed",
+      "disposition": "incorporated",
       "github_state": "OPEN",
       "integration_location": [
         "docs/research",
         "scripts/research_package.py",
         "tests/test_research_process_tree.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "8e22a9d9f621c72ab5b299061c2be4c7f638fd3c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2377"
+      },
       "scope": "yssite's process-group cleanup fix, building on Paul Romeo's runner: reviewed all success, error, timeout and interruption paths and explicit Windows/detached-session limits. Both normal and optimized portable suites pass (62 executed cases each); all seven original process-tree scenarios pass with a documented native macOS observation adapter and unchanged production code. The original runner fails exactly the three newly fixed lifetime cases. Linux-only skips are not counted as execution; no maintainer Linux replay claimed. Verification commands must still await proof-relevant children and propagate their failures.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2377.json",
