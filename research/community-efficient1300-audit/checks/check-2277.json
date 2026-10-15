@@ -5,15 +5,15 @@
     [
       "bash",
       "research/overcomplete-and-realisation-floors/verify.sh",
-      "/tmp/pr-efficient1300/output-2277/overcomplete-and-realisation-floors"
+      "/tmp/pr-efficient1300/output-2277-full"
     ]
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 300.026,
-  "status": "budget_deferred",
+  "seconds": 312.273,
+  "status": "passed",
   "exit_codes": [
-    null
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -444,6 +444,6 @@
     "research/overcomplete-and-realisation-floors/sat/cnf/rob_E8frame_7.cnf.xz": "95fa5dec8b6e74c97b0ea49154f6625cace833b1f615a9f02ed3d65382adaa62",
     "research/overcomplete-and-realisation-floors/sat/cnf/rob_P112_0.cnf.xz": "824cdf2d76150db625ac0c89452ff2ccd2a68828ae66a7042a05d0ed23fdc68d"
   },
-  "log_sha256": "19f61acaf64a4eb99a8aa5d68f07ef31863a0dd527ec79a4ba0cd5207adb657b",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "cf8d0919fffafe4ad911c24b22789090d0b3e3387e31820668b434d34355e730",
+  "scope": "Complete package replay including1473 CNF regenerations and44 shipped DRAT proofs. Unshipped1418 shared-B/floor proofs andtwo E6 Gamma proofs remain author-recorded; optional new solver runs and Lean Overcomplete.lean are not covered."
 }

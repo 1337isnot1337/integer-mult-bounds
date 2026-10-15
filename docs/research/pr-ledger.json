@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1647,
-    "partially_reviewed": 254,
+    "incorporated": 1648,
+    "partially_reviewed": 253,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "686d3c9ac61ea0f60db416fa7dcf129f26b473cd68b2ee49c752c5a747596617",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "fe5ef541c77b57955f55cc86b5fc3b7f715940128af37edce553fa8eeac313c1",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107166,25 +107166,28 @@
         {
           "head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "DreamingOfClouds’s overcomplete and realization-free decoder floors. Reviewed the free-rectangle counterexample to Conjecture ID(a), support-rank/frame-intersection arguments and complete E6/D5 term-count proofs. Exact replay covers the6728-term frame-unit identity, all9 unit censuses,5504660 E6 seven-sets,1473 regenerated SAT inputs,9 shipped models and44 shipped DRAT proofs. Corrected only an overbroad class-description sentence/output label and regenerated hashes; census arithmetic is unchanged. Unshipped1418 shared-B/floor proofs andtwo E6 Gamma proofs remain author-recorded, and Lean source is retained without a fresh kernel claim. P112’s historical56 floor is superseded by the separately reviewed PR2338 scope; no supplier or kappa change. Prior free-rectangle,rank and independent E6 contributions retain credit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/overcomplete-and-realisation-floors"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2277.json",
+        "research/community-efficient1300-audit/checks/check-2277-supplement.json",
         "research/community-efficient1300-audit/checks/check-2277.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
@@ -107565,7 +107568,7 @@
       "closure": null,
       "reviewed_head": "8c60765b5dea9d862b3b190d55da102a576031bf",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -107573,7 +107576,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2287.json"
+        "research/community-efficient1300-audit/packets/2287.json",
+        "research/community-efficient1300-audit/checks/check-2287.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -109645,16 +109649,20 @@
       "integration_location": [
         "research/decoder-floors-frontier-format"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "1d284023ad6db0ff6c0f9a441833ed6a62f4abe3",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2338"
+      },
       "reviewed_head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2338.json",
@@ -111206,7 +111214,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1271,
-    "OPEN": 313
+    "MERGED": 1272,
+    "OPEN": 312
   }
 }

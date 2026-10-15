@@ -695,19 +695,22 @@
       "current_head": "ca7f99921f03398d303bba90245d3ee2e38e95c3",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        "research/overcomplete-and-realisation-floors"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "DreamingOfClouds\u2019s overcomplete and realization-free decoder floors. Reviewed the free-rectangle counterexample to Conjecture ID(a), support-rank/frame-intersection arguments and complete E6/D5 term-count proofs. Exact replay covers the6728-term frame-unit identity, all9 unit censuses,5504660 E6 seven-sets,1473 regenerated SAT inputs,9 shipped models and44 shipped DRAT proofs. Corrected only an overbroad class-description sentence/output label and regenerated hashes; census arithmetic is unchanged. Unshipped1418 shared-B/floor proofs andtwo E6 Gamma proofs remain author-recorded, and Lean source is retained without a fresh kernel claim. P112\u2019s historical56 floor is superseded by the separately reviewed PR2338 scope; no supplier or kappa change. Prior free-rectangle,rank and independent E6 contributions retain credit.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2277.json",
+        "research/community-efficient1300-audit/checks/check-2277-supplement.json",
         "research/community-efficient1300-audit/checks/check-2277.json"
       ]
     },
@@ -997,7 +1000,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1008,7 +1011,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2287.json"
+        "research/community-efficient1300-audit/packets/2287.json",
+        "research/community-efficient1300-audit/checks/check-2287.json"
       ]
     },
     {
@@ -2614,20 +2618,24 @@
       },
       "reviewed_head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
       "current_head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/decoder-floors-frontier-format"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "1d284023ad6db0ff6c0f9a441833ed6a62f4abe3",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2338"
+      },
       "scope": "DreamingOfClouds\u2019s frontier-format decoder floors. Reviewed the rigidity encodings and gauges, support-propagation lemma, rank-eight realization floors, nine-term frame-module identity and two-call/general symmetric batching proofs. Full replay regenerates all30 rigidity instances, checks16 new UNSAT proofs and14 SAT models, plus10 block/puncture UNSAT proofs and their feasible controls. Exact support/attainer checks and the111-line source match also pass. Other P104 units, outside-factor/rank-nine cases and general multi-call GL charts remain open; unshipped working-card and slow puncture claims remain author-recorded, not newly certified. No supplier or kappa change. Sagar Thakrar\u2019s two-call priority and GamingPuzzled,bitplane and other predecessor credit retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2338.json",
