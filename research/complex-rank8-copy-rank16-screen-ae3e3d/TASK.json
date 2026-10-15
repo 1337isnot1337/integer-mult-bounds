@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 4,
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "On the selected per-call profile {1:2412, 2:418, 3:432, 4:142, 5:82, 8:8}, replace the eight rank-8 private-temporary copy children by four rank-16 block children, preserving their paid mass 64 and leaving every other profile count, the 64-per-call centre charge, 73/896/9 template, one unpaid coordinate and halving guard unchanged. Assume zero additional gathering, copying, frame, restoration, hosting or precision cost, then compute the exact ceiling interval and relative gain.",
+  "scope_change_reason": "The card calls for a small exact identity after an optimistic profile screen. This run narrows the first screen to the only existing rank-8 copy mass: pair all eight rank-8 children into four rank-16 block climbs at zero added cost. The favorable exact ceiling already misses the 5% gate, so no synthesis or decoder identity search was justified for this subroute.",
+  "bottleneck_link": "The catalogue requires at least a 5% ceiling gain from a rank-shape candidate. This screen changes only 64 of 5,586 local paid mass and gives an exact zero-overhead upper gain below 0.212%; it rejects this copy-only block route before synthesis, without ruling out larger changes to rank-1 through rank-5 children.",
+  "budget_minutes": 60,
+  "stop_rule": "Recompute the selected profile and the single rank-8-to-rank-16 replacement with the pinned exact ceiling engine at grid 1e-12. Stop this candidate if the conservative relative-gain upper endpoint is below 1/20. Do not generalize to other ranks, block identities, words, or changed coverage.",
+  "outcome": "negative-result",
+  "evidence": "CERTIFICATE.json records both certified ceiling brackets, the conservative relative-gain interval [1190479/563351370, 3571439/1690054109], the unchanged paid mass 5,586, the moved mass 64 and the strict comparison 3571439/1690054109 < 1/20. verify.py recomputes the brackets from the pinned ceiling.py and checks a baseline, full-rank-16 ideal sensitivity, and an extra-charge negative control.",
+  "author": "Cinna Davis",
+  "ai_assistance": "Substantial OpenAI Codex assistance; no independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a distinct block-frame identity reorganize a substantial part of the rank-1 through rank-5 mass into larger-rank children while preserving the selected local operator?",
+      "why_it_matters": "The zero-overhead copy-only grouping changes too little mass to approach the card threshold, while the all-mass rank-16 relaxation has a large ideal ceiling gain. A broader identity is the remaining route within this task that could matter.",
+      "first_step": "For a fresh selector seed, name one explicit chronological block and its source/target frames, count every copied direction and restoration, and screen its complete profile before synthesis.",
+      "blocked_by": "No concrete identity presently maps the rank-1 through rank-5 portions of the pinned local word into one rank-16 recursive child; the copy-only screen does not address them."
+    }
+  ],
+  "accepted_seed": "ae3e3db974aea7693960685554d84d39",
+  "catalogue_sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7",
+  "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+  "selected_method": "Evaluate a zero-overhead block-climb relaxation that replaces the selected word's eight rank-8 private-temporary copy children by four rank-16 children, leaving the rest of the local profile, centre charge, coverage law and guard unchanged.",
+  "claim_status": "No advance claim posted; this is a bounded exact screening result, not a construction or reservation."
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-local-word-ceiling/ceiling.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Recompute exact base and rank-8-to-rank-16 ceiling brackets with pinned engine; preserve paid mass; certify the conservative relative-gain interval is below 5%; validate ideal-only positive control and appended-mass negative accounting control; compare deterministic certificate bytes."
+    }
+  ]
+}

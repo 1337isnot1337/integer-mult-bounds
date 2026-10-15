@@ -1,0 +1,114 @@
+{
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "baseline": {
+    "ceiling_bracket": [
+      "1690054109/1000000000000",
+      "169005411/100000000000"
+    ],
+    "paid_mass": "5586",
+    "profile": {
+      "1": 2412,
+      "2": 418,
+      "3": 432,
+      "4": 142,
+      "5": 82,
+      "8": 8
+    }
+  },
+  "candidate": {
+    "added_gather_copy_frame_restore_host_precision_cost": 0,
+    "ceiling_bracket": [
+      "1693625547/1000000000000",
+      "423406387/250000000000"
+    ],
+    "clears_five_percent_gate": false,
+    "hypothesis": "replace all eight rank-8 private-temporary copy children by four rank-16 block children",
+    "interpretation": "Even the zero-overhead relaxation is below the task gate; no block identity was synthesized.",
+    "moved_mass": 64,
+    "paid_mass": "5586",
+    "profile": {
+      "1": 2412,
+      "16": 4,
+      "2": 418,
+      "3": 432,
+      "4": 142,
+      "5": 82
+    },
+    "relative_gain_interval": [
+      "1190479/563351370",
+      "3571439/1690054109"
+    ]
+  },
+  "catalogue_sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7",
+  "ceiling_engine_path": "research/complex-local-word-ceiling/ceiling.py",
+  "ceiling_engine_sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc",
+  "claim_status": "No advance claim posted; finding is reported after the exact first-step budget screen.",
+  "controls": {
+    "all_mass_rank16_ideal_only": {
+      "ceiling_bracket": [
+        "3909456001/1000000000000",
+        "1954728001/500000000000"
+      ],
+      "clears_five_percent_gate": true,
+      "is_construction": false,
+      "profile": {
+        "16": "2793/8"
+      },
+      "relative_gain_interval": [
+        "2219401891/1690054110",
+        "2219401893/1690054109"
+      ]
+    },
+    "append_without_removing_control": {
+      "ceiling_bracket": [
+        "842061957/500000000000",
+        "336824783/200000000000"
+      ],
+      "paid_mass": "5650",
+      "profile": {
+        "1": 2412,
+        "16": 4,
+        "2": 418,
+        "3": 432,
+        "4": 142,
+        "5": 82,
+        "8": 8
+      },
+      "rejected_as_undercharged_candidate": true
+    },
+    "rank1_mass_rank16_sensitivity_only": {
+      "ceiling_bracket": [
+        "618738609/250000000000",
+        "2474954437/1000000000000"
+      ],
+      "is_construction": false,
+      "profile": {
+        "1": 12,
+        "16": 150,
+        "2": 418,
+        "3": 432,
+        "4": 142,
+        "5": 82,
+        "8": 8
+      },
+      "relative_gain_interval": [
+        "130816721/281675685",
+        "784900328/1690054109"
+      ]
+    }
+  },
+  "kind": "scoped zero-overhead rank-shape screen",
+  "model": {
+    "centre_charge": 64,
+    "families": 896,
+    "grid": "1/1000000000000",
+    "ports": 73,
+    "stages": 9,
+    "target_relative_gain": "1/20",
+    "unpaid_coordinates_per_family": 1
+  },
+  "no_new_kappa": true,
+  "schema_version": 1,
+  "scope_limit": "Only regrouping the eight existing rank-8 children; rank-1 through rank-5 changes, actual decoder identity, altered coverage, and full supplier assembly are not covered.",
+  "selected_record_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+}
