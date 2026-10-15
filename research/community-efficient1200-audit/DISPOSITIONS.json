@@ -876,15 +876,17 @@
       "current_head": "8051d06df24704915fa7a6ec930a2c103a9f66f5",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        "research/invoice-mutant-coverage"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Adversarial 37-mutant selected finite-invoice audit: 31 rejected locally and six accepted locally but rejected by downstream assembly. Exact positive receipts and rejection sites are checked; the corpus is not a completeness proof for mutations.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1327,15 +1329,17 @@
       "current_head": "d9b784ca86fba060f0264370536ccd322c89998a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-side-correction-rank-obstruction"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact P104 correction rank 104; common-chart dirty-scratch factorization and 208-rank native endpoint transports; noncontracting fixed-interface moment; complete rational pooled-span lower bound 96 and historical upper bound 97 (subsequently attained at 96 by merged PR2251); 1352-add chronological correction replay with full endpoint phases. No fusion impossibility or admitted supplier claimed.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2386,15 +2390,17 @@
       "current_head": "149d55d90d3c0877ed3d78e1deca8eb2f72e0d00",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        "research/selected-bit-fallback-streams"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Full intermediate-permutation fallback descriptors and physical ordered-ADD adapters retain arbitrary dirty payloads, full ancestor weights and all zero slots. Small complete payload programs use charged child oracles; weighted child implementation, general frame binding and complete supplier admission remain open.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [

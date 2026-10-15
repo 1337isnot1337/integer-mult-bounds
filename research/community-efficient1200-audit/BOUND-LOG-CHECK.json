@@ -1,5 +1,5 @@
 {
   "status": "PASS",
-  "bound_terminal_receipts": 112,
-  "scope": "Every copied terminal receipt matches its retained log bytes. Running append-only logs are represented by their exact prior terminal snapshot until completion."
+  "terminal_receipts": 112,
+  "scope": "Every published check receipt with log_sha256 binds the exact retained log bytes."
 }

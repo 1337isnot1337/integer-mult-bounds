@@ -93,7 +93,7 @@
     "research/community-efficient900-audit/DISPOSITIONS.json": "2e8eb133f0edccfa204823d23ea197e8c53c5398a9f0b3559a67f4a195a8521b",
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
-    "research/community-efficient1200-audit/DISPOSITIONS.json": "dfd6664d9cf7bb9d46b8e65b4db64aa3e6a95079100e2297408820cffdd826ac",
+    "research/community-efficient1200-audit/DISPOSITIONS.json": "41d4d6933233f13ceb317097f9916691c55ab1cba675b57619ebff0ed2ad918f",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -102499,16 +102499,18 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/invoice-mutant-coverage"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "8051d06df24704915fa7a6ec930a2c103a9f66f5",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -103077,21 +103079,23 @@
         {
           "head": "d9b784ca86fba060f0264370536ccd322c89998a",
           "evidence": "research/community-efficient1200-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Exact P104 correction rank 104; common-chart dirty-scratch factorization and 208-rank native endpoint transports; noncontracting fixed-interface moment; complete rational pooled-span lower bound 96 and historical upper bound 97 (subsequently attained at 96 by merged PR2251); 1352-add chronological correction replay with full endpoint phases. No fusion impossibility or admitted supplier claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p104-side-correction-rank-obstruction"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "d9b784ca86fba060f0264370536ccd322c89998a",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -104438,16 +104442,18 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-bit-fallback-streams"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "149d55d90d3c0877ed3d78e1deca8eb2f72e0d00",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
