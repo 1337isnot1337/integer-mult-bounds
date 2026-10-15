@@ -92,9 +92,11 @@ question and stopping boundary.
 
 Base `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`, priority revision4, picker
 nonce `e50020977d372da774664ddea9ba43d9`, refined `formal-interface-lemma`.
-The initial overlap snapshot covered683 open PRs; Discussion API pagination
-was unavailable due to rate limiting, and visible #1163/#1166 pages were read
-through Curiosity Bot. This is partial coverage, not a novelty certificate.
+The initial snapshot covered683 open PRs with Discussion API rate limiting.
+The final refresh recovered complete pagination:695 open PRs at12:45:17UTC
+and1202 Discussion records at12:48:30UTC on2026-10-15. Visible #1163/#1166
+pages were also read through Curiosity Bot. The targeted search found no
+matching competing scope; metadata coverage is not a novelty certificate.
 
 Jeremy Kothe/jeremykothe2's PR593 supplies the original Clifford formulas and
 packed proof; woklerx's PR1859 supplies the stronger-premise radix question;

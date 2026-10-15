@@ -57,5 +57,18 @@
       "blocked_by": "Source correspondence here is external Python, and the standalone theorem uses Lean4.34.1 core rather than retained Lean4.21 Mathlib."
     }
   ],
-  "assignment_nonce": "e50020977d372da774664ddea9ba43d9"
+  "assignment_nonce": "e50020977d372da774664ddea9ba43d9",
+  "final_overlap": {
+    "open_prs": {
+      "fetched_at": "2026-10-15T12:45:17.252563+00:00",
+      "complete_pagination": true,
+      "records": 695
+    },
+    "discussions": {
+      "fetched_at": "2026-10-15T12:48:30.826233+00:00",
+      "complete_pagination": true,
+      "records": 1202
+    }
+  },
+  "upstream_pre_submit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2"
 }
