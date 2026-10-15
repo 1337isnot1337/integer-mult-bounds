@@ -10,6 +10,12 @@ independently replayed general lower bound.
 **Result type:** source/retention audit, not a new search or mathematical theorem.
 The selected result and every frozen predecessor remain unchanged.
 
+A final refresh reached main `1884c509efc004524786e9b7cfcc4aca572316d5`.
+The receipt rechecks all 315 files there: original paths and exact-mode/blob
+matches remain absent, and PR1957's disposition file is unchanged. The new
+efficient1100 review still leaves PR1186's mechanism/proof review pending.
+Priority revision 5 and this audit's conclusions remain compatible.
+
 ## Exact sources and retained content
 
 | Artifact and credit | Pinned commit | Named source subtree | Files at original paths on audit base |
@@ -105,6 +111,7 @@ public source objects if they are absent:
 
 ```sh
 git fetch https://github.com/CrocSwap/integer-mult-bounds.git b4560d9e7216f72b73c5aa940ac099c05e33ccf9
+git fetch https://github.com/CrocSwap/integer-mult-bounds.git 1884c509efc004524786e9b7cfcc4aca572316d5
 git fetch https://github.com/rohanarun/integer-mult-bounds.git e6a4d34874bb1aeba192c62629ebb633a6b5c424
 git fetch https://github.com/ianlibanio/integer-mult-bounds.git 0c5516bf5bfb5c9c4d09446d3b21028032060fec
 git fetch https://github.com/ianlibanio/integer-mult-bounds.git 5f2f608451252f3330e0d0d5fc7bca63be9d0400

@@ -14,6 +14,7 @@ import subprocess
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 BASE = "b4560d9e7216f72b73c5aa940ac099c05e33ccf9"
+REFRESH = "1884c509efc004524786e9b7cfcc4aca572316d5"
 P1957 = "e6a4d34874bb1aeba192c62629ebb633a6b5c424"
 OLD2142 = "0c5516bf5bfb5c9c4d09446d3b21028032060fec"
 P2142 = "5f2f608451252f3330e0d0d5fc7bca63be9d0400"
@@ -55,10 +56,11 @@ def comparison(source, target):
 
 
 def generate():
-    for commit in (BASE, P1957, OLD2142, P2142, LATER):
+    for commit in (BASE, REFRESH, P1957, OLD2142, P2142, LATER):
         if git("rev-parse", commit + "^{commit}").decode().strip() != commit:
             raise ValueError("commit identity mismatch")
     base = tree(BASE)
+    refreshed = tree(REFRESH)
     sources = {}
     bound_files = []
 
@@ -119,6 +121,15 @@ def generate():
         "schema": 1,
         "coverage": "Exact-path and exact-mode/blob retention; source-reported solver fields only. No solver replay or semantic incorporation inference.",
         "base": BASE, "sources": sources,
+        "newer_main_compatibility": {
+            "commit": REFRESH,
+            "source_path_and_blob_comparisons": {
+                name: {"original_paths_present": sorted(set(source["inventory"]) & set(refreshed)),
+                       "exact_mode_blob_matches_anywhere": [path for path, entry in source["inventory"].items()
+                                                           if entry in refreshed.values()]}
+                for name, source in sources.items()},
+            "pr1957_disposition_file_unchanged": git("show", BASE + ":research/community-efficient1000-audit/DISPOSITIONS.json") == git("show", REFRESH + ":research/community-efficient1000-audit/DISPOSITIONS.json"),
+        },
         "pr1957_disposition_at_base": disposition,
         "pr1957_tree_equal_in_pr2142": tree(P1957, A) == tree(P2142, A),
         "pr2142_changed_head": {"old": OLD2142, "new": P2142,

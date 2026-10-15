@@ -60,6 +60,8 @@
   "upstream_refresh": {
     "base_commit": "b4560d9e7216f72b73c5aa940ac099c05e33ccf9",
     "priority_revision": 5,
+    "final_main": "1884c509efc004524786e9b7cfcc4aca572316d5",
+    "final_compatibility": "All315 source paths and exact-mode/blob entries still absent; PR1957 disposition file unchanged. New efficient1100 review keeps PR1186 mechanism/proof review pending. Recorded and replayed in RECEIPT newer_main_compatibility.",
     "same_assigned_card": true,
     "read": [
       "AGENTS.md",

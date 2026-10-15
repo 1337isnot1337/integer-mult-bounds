@@ -1939,6 +1939,24 @@
       "identical_mode_and_blob_elsewhere_in_base": []
     }
   },
+  "newer_main_compatibility": {
+    "commit": "1884c509efc004524786e9b7cfcc4aca572316d5",
+    "source_path_and_blob_comparisons": {
+      "pr1957": {
+        "original_paths_present": [],
+        "exact_mode_blob_matches_anywhere": []
+      },
+      "pr2142": {
+        "original_paths_present": [],
+        "exact_mode_blob_matches_anywhere": []
+      },
+      "later_I_resolve": {
+        "original_paths_present": [],
+        "exact_mode_blob_matches_anywhere": []
+      }
+    },
+    "pr1957_disposition_file_unchanged": true
+  },
   "pr1957_disposition_at_base": {
     "number": 1957,
     "metadata": {
