@@ -57,6 +57,14 @@ observation prompted the bounded cleanup and failure-diagnostic controls. Native
 runs then passed. Linux support is implemented using an owned process session
 and killpg, but Linux execution was not available for this validation.
 
+A follow-up review found that an unexpected `communicate()` exception inside
+one worker removed its still-live child from the registry before outer cleanup.
+The registry now releases a process only after normal communication completion
+or the explicit cancellation return. A real sleeping module/solver fixture
+injects `OSError` in the worker, checks that the original exception survives,
+and observes termination of both processes before emergency release. All seven
+focused tests pass on native Windows Python 3.12.14.
+
 ## Scope and previous work
 
 This handles active module leaders and their ordinary child processes when

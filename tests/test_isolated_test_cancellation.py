@@ -183,6 +183,50 @@ class CancellationTests(unittest.TestCase):
         process.kill.assert_called_once_with()
         process.wait.assert_called_once_with(timeout=2)
 
+    def test_worker_communicate_error_keeps_live_tree_registered(self):
+        observers = []
+        real_popen = subprocess.Popen
+        children = []
+        error = OSError("injected worker pipe failure")
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            tests = root/"tests"
+            tests.mkdir()
+            module = tests/"test_a_block.py"
+            module.write_text(BLOCK)
+            (root/"solver.py").write_text(SOLVER)
+
+            class FailingCommunicate(real_popen):
+                def communicate(self, *args, **kwargs):
+                    if "unittest" in self.args:
+                        children.append(self)
+                        if not wait_for((root/"ready").exists):
+                            raise RuntimeError("real module/solver did not start")
+                        for name in ("module", "solver"):
+                            observers.append(ProcessObserver(int((root/(name+".pid")).read_text())))
+                        if not all(item.alive() for item in observers):
+                            raise RuntimeError("fixture processes not alive")
+                        raise error
+                    return super().communicate(*args, **kwargs)
+
+            try:
+                with patch.object(runner.subprocess, "Popen", FailingCommunicate):
+                    with self.assertRaises(OSError) as caught:
+                        runner.run_modules([module], tests_dir=tests, cwd=root, workers=1)
+                self.assertIs(caught.exception, error)
+                self.assertTrue(wait_for(lambda: not any(item.alive() for item in observers), 1),
+                                "worker failure removed the live tree before cleanup")
+                self.assertFalse((root/"release").exists())
+            finally:
+                (root/"release").touch()
+                if observers:
+                    self.assertTrue(wait_for(lambda: not any(item.alive() for item in observers), 20))
+                for item in observers:
+                    item.close()
+                for child in children:
+                    for stream in (child.stdout, child.stderr):
+                        stream.close()
+
     def test_output_bytes_survive_multiple_communicate_timeouts(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

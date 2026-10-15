@@ -91,20 +91,26 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                                        cwd=cwd, env=env, start_new_session=True,
                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             active.add(process)
+        finished = False
         try:
             while True:
                 try:
                     out, err = process.communicate(timeout=0.2)
+                    finished = True
                     return path, process.returncode, out, err
                 except subprocess.TimeoutExpired:
                     with lock:
                         if stopping:
                             # Failed native cleanup or an orphan can retain the
                             # pipes. Do not make cancellation wait for their EOF.
+                            finished = True
                             return path, -1, b'', b''
         finally:
-            with lock:
-                active.discard(process)
+            # An unexpected worker exception must leave a live child visible
+            # to the controlling thread's cleanup snapshot.
+            if finished:
+                with lock:
+                    active.discard(process)
 
     pool = ThreadPoolExecutor(max_workers=workers)
     try:
