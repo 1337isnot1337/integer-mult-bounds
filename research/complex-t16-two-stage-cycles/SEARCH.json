@@ -1,142 +1,276 @@
 {
- "scope": "A heuristic search record. Nothing here is an optimality proof: the kappa search is a finite LNS stopped while still improving, and the min-diff step is a finite MIP/LNS over a restricted candidate set. Every shipped number is re-derived from data/ by verify.py (strict replay, seed67 audit, exact pricing).",
- "environment": "CPython 3.12.14 via uv (uv run -q --no-project --python 3.12 --with ...), Linux x86_64, each job in a systemd scope with MemoryMax 4-6G, at most 3 workers. kappa search: numpy, ortools (CP-SAT, 2 workers per solve). min-diff: numpy, scipy, highspy 1.15.1 (HiGHS, 1 thread).",
+ "scope": "A heuristic search record. Nothing here is an optimality proof: the kappa search (global class-level repack, then ejection cycles and CP-SAT LNS) is finite and was stopped while still improving, and the min-diff step is a finite MIP/LNS. The surrogate ceiling below is not certified. Every shipped number is re-derived from data/ by verify.py (strict replay, seed67 audit, exact pricing).",
+ "environment": "CPython 3.12.14 via uv (uv run -q --no-project --python 3.12 --with ...), Linux x86_64, each job in a systemd scope with MemoryMax 4-6G, at most 2-3 workers. kappa search: numpy, ortools (CP-SAT). min-diff: numpy, scipy, highspy 1.15.1 (HiGHS, 1 thread), ortools (CP-SAT, 1 worker). ortools and highspy clash when loaded in one process, so mindiff_cls2.py runs its CP-SAT and HiGHS passes separately.",
  "lineage": {
   "pr1407_owner_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
   "first_version_owner_content_sha256": "714a63d290e2f9c8e1c14c289e67ab15593bd1487e6ad592d06c65c8d6ec1d32",
   "first_version_kappa_decimal": "0.001672684510394236",
-  "note": "The kappa search started from the first version of this package (PR1407's map plus two-stage ejection cycles; see first_version below). The min-diff step then re-assigned helpers toward the selected PR1094 map, so neither PR1407's map nor the first version is an exact ancestor of data/OWNERS.json.gz. The package is verified only against the selected map."
+  "note": "Search line: PR1407's map -> first version (two-stage cycles) -> second version's raw kappa search output (content a7e8f0ca...) -> global repack and cycle/LNS loop (this version) -> min-diff toward the selected PR1094 map. Neither PR1407's map nor the earlier versions are exact ancestors of data/OWNERS.json.gz; the package is verified only against the selected map.",
+  "second_version_owner_content_sha256": "1764f4310b7c91b69f0533b0b95fa0d4fba267d05d6e4e870aac2d4c310d4d4d",
+  "second_version_kappa_decimal": "0.001672702955495933"
  },
  "kappa_search": {
-  "tools": [
-   "search/chain2.py (imports chain.py, lib.py): one- and two-stage ejection cycles, depth 8 in this phase",
-   "search/lns.py: CP-SAT large-neighbourhood re-assignment of all helpers of a set of calls (modes set:<calls>, time, early<k>, queue) or of physical families (fam); DIV=1 keeps the surrogate objective and randomly maximises relocations to move along plateaus",
-   "search/loop3.sh: alternates chain2.py until it finds nothing, then one DIV=1 lns.py step on a random mode"
+  "observations": [
+   "kappa is close to linear in the surrogate sum f ln f over idle fragments (free capacities f > 1), so the surrogate is a usable global objective; acceptance always uses the exact engines.",
+   "Inside one physical family the bins' windows never overlap, so R4 reduces to at most one helper per bin per call.",
+   "Bins with the same capacity and the same set of allowed calls (144 classes of 224 bins) are interchangeable, so the packing becomes a class-level pattern/flow model.",
+   "Version 2's loop (chain2 ejection cycles plus CP-SAT LNS) had slowed to steps of about 1e-9 in kappa."
   ],
-  "objective": "Surrogate E = sum over (owner, child, port) bins of f ln f for free capacity f > 1 (CP-SAT scales it by 10^4 and rounds). Every candidate is audited with the seed67 rules and priced with the pinned exact engines; a step is kept only if the exact kappa rises (or, on a DIV plateau step, stays equal).",
-  "how_it_ran": "Interactively, in order: lns.py time/set neighbourhoods from the first version's map; lns.py set:0,1,2,3,4 with 400-900 s CP-SAT limits; chain2.py depth 8; then loop.sh, loop2.sh and loop3.sh runs (loop2.sh is loop3.sh with a different mode list; loop3.sh is shipped). Seeds partly come from bash $RANDOM, so the trajectory is not reproducible bit for bit.",
+  "start": "Version 2's raw kappa-search output F2 (content a7e8f0cac22527fd6f987b87c2734984add89166fd2d0306453bed99c25cee96, kappa 0.001672702955495933), not its min-diff map.",
+  "tools": [
+   "search/glob.py: stage 1, CP-SAT over pattern counts x[class, pattern] and flows y[class, call, width] with per-(class, call) Hall constraints and optional Gale-Ryser-style constraints (GR=1), maximising the scaled surrogate; options S1ONLY, HINT, FIX, FREE, FIXTO, HALL.",
+   "search/glob5.py: stage 2, per-class and per-width max-flow realisation with distinct calls per bin over 40 random width orders; unplaced helpers inserted greedily where they cost the least surrogate.",
+   "search/loopx.sh (portable copy of the session's loopX.sh): chain2.py depth 8 while it improves, else one DIV=1 lns.py plateau step on a random mode (set:0,1,2,3,4, early8, early15, time, f3, fam); keeps the best map by exact kappa (score.py).",
+   "search/lns.py: as in version 2, plus NW (CP-SAT workers per solve) and the f3 mode."
+  ],
+  "how_it_ran": "Interactively. glob.py was run several times with different time limits and options (best stage-1 objective 906,706 surrogate units; the start map had 905,605). The best stage 1 (906,706.49, CP-SAT bound 906,737.56 for that run's model, 1200 s) was realised by glob5.py; stage 2 left 80 helpers unplaced, which were inserted greedily. The realised map had kappa 0.001672432283943020, below the start, with a very different profile. loopx.sh from it (seeds from bash $RANDOM) reached 0.001672894024167899 in 43 steps; a second loopx.sh run from that map reached 0.001673054161426948. The exact flags of each glob.py run were not logged, so this phase is described, not replayable command by command.",
   "checkpoints": [
    {
-    "owner_content_sha256": "94a48bfdcdb59fb309f7c11a8e46e61e4f1e2d8fe3cdc0d6053fe04cc2f7688e",
-    "via": "lns.py (call-set neighbourhoods)",
-    "kappa_decimal": "0.001672685662094163",
-    "idle_remainder_profile": {
-     "1": 2279,
-     "2": 1,
-     "3": 371,
-     "7": 2,
-     "16": 3,
-     "48": 4866
-    },
+    "via": "glob.py stage 1 + glob5.py stage 2 (80 helpers inserted greedily)",
+    "kappa_decimal": "0.001672432283943020",
     "strict_replay": "not run"
    },
    {
-    "owner_content_sha256": "18ba2bd326387d27ff7526914a5be8c4dfe37e0278a7decd60faefbfbdab631e",
-    "via": "lns.py set:0,1,2,3,4 (CP-SAT 400 s)",
-    "kappa_decimal": "0.001672686708686457",
+    "via": "loopx.sh, step 43",
+    "owner_content_sha256": "3e94d8c68b70ca89402e1be7acbed8e19f1b3389cac4a22a39e75360211a8cfe",
+    "kappa_decimal": "0.001672894024167899",
     "idle_remainder_profile": {
-     "1": 2278,
-     "3": 372,
-     "7": 2,
-     "16": 3,
-     "48": 4866
-    },
-    "strict_replay": "PASS (11 stages, 69/12/6/15)"
-   },
-   {
-    "owner_content_sha256": "1c76875b2d6b71322963a939796099cf3d892defe52fcc08cd3b9d87ce79c4c0",
-    "via": "chain2.py depth 8",
-    "kappa_decimal": "0.001672691961154154",
-    "strict_replay": "not run"
-   },
-   {
-    "owner_content_sha256": "464f57761a713f3cdd399cad9cf826a6e19d8dd247e227da1aee4fd69ec7ce51",
-    "via": "loop2.sh then loop3.sh (chain2 + DIV lns alternation)",
-    "kappa_decimal": "0.001672699106899519",
-    "idle_remainder_profile": {
-     "1": 2281,
+     "1": 2340,
      "2": 1,
-     "3": 365,
-     "7": 2,
+     "3": 152,
+     "7": 42,
+     "8": 2,
+     "14": 16,
      "16": 4,
-     "48": 4866
+     "30": 1,
+     "39": 13,
+     "40": 1,
+     "41": 7,
+     "44": 45,
+     "48": 4808
     },
-    "strict_replay": "PASS (11 stages, 69/12/6/15)"
+    "strict_replay": "PASS (11 stages, 69/12/6/15); actual_73column_sigmas 10751"
    },
    {
-    "owner_content_sha256": "a7e8f0cac22527fd6f987b87c2734984add89166fd2d0306453bed99c25cee96",
-    "via": "loop3.sh logic, last run (about 45 min, +3.85e-9)",
-    "kappa_decimal": "0.001672702955495933",
+    "via": "loopx.sh from the previous checkpoint, step 22 (raw search output F3)",
+    "owner_content_sha256": "e442224808c877a2660fd7bd7e0c9fd060e454a48522b68bb124a4302e740760",
+    "kappa_decimal": "0.001673054161426948",
+    "conservative_kappa_decimal": "0.001673054158574889",
     "idle_remainder_profile": {
-     "1": 2280,
-     "2": 1,
-     "3": 363,
-     "7": 3,
-     "16": 4,
-     "48": 4866
+     "1": 2346,
+     "2": 3,
+     "3": 154,
+     "5": 9,
+     "7": 36,
+     "8": 2,
+     "16": 7,
+     "28": 1,
+     "39": 1,
+     "40": 1,
+     "41": 2,
+     "44": 41,
+     "48": 4829
     },
-    "strict_replay": "PASS (11 stages, 69/12/6/15); actual_73column_sigmas 10466",
-    "changed_rows_vs_selected": 30039,
-    "relocated_rows_vs_selected": 17173
+    "strict_replay": "PASS (11 stages, 69/12/6/15); actual_73column_sigmas 10614",
+    "changed_rows_vs_selected": 65902,
+    "relocated_rows_vs_selected": 61985
    }
   ],
-  "stopped": "Stopped at the end of the session's search budget while still improving; no stall criterion was met."
+  "stopped": "Stopped at the end of the session's search budget while still improving (the last loopx.sh run found its last gain 4 minutes before it was stopped)."
+ },
+ "surrogate_ceiling": {
+  "tool": "search/winbound.py (class-level relaxation without per-bin constraints); search/aggbound.py is a coarser variant ignoring calls and windows.",
+  "session_value": "About 908.1k surrogate units, roughly kappa 0.0016741 by the near-linear kappa-surrogate relation (reported from the session; not reproduced here).",
+  "rerun_for_this_package": "uv run -q --no-project --python 3.12 --with ortools python -I search/winbound.py search data/OWNERS.json.gz 900 1: FEASIBLE obj 874,218, bound 983,243 (not closed with one worker in 900 s).",
+  "status": "Heuristic and not certified: the kappa-surrogate relation is approximate and the CP-SAT bound was not reproduced."
  },
  "min_diff": {
-  "target": "F = the last kappa checkpoint (content a7e8f0ca...). Goal: a legal map with exactly F's idle remainder profile (hence F's kappa) that keeps as many (bin, call, width) placements of the selected map A as possible. Helpers of one (call, width) are interchangeable under R3-R6; realize.py restores A's helper labels and offsets where possible.",
+  "target": "F3 = the raw search output (content e442224808c877a2660fd7bd7e0c9fd060e454a48522b68bb124a4302e740760; 61,985 rows relocated against the selected map A, 8,426 of A's (bin, call, width) placements shared). Goal: a legal map with F3's idle profile (hence F3's kappa) keeping as many placements of A as possible.",
+  "dropped_routes": [
+   "Version 2's fill-fixed MIP (mindiff_mip.py fill) on F3 and on F3 with bin contents permuted inside classes by linear assignment (16,414 shared): root bounds about 45k kept placements, i.e. at least about 24k relocations within that model; stopped.",
+   "Version 2's two-fill MIP from the permuted F3: incumbent 16,558 kept after several minutes; stopped.",
+   "CP-SAT variant of the class-level stage 1 (1 worker, 150 s): no solution."
+  ],
   "stages": [
    {
     "step": 1,
-    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> fill.json fill 900 -",
-    "result": "Optimal: 67,058 of 69,120 placements of A kept, 2,062 relocations",
-    "seconds": 345
+    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I search/mindiff_cls1.py search <F3> c1.json 1500 <F3>",
+    "result": "Optimal in 981 s: kept flow 68,236 (884 relocations) at the tie-broken optimum; dual bound 68,235.58 on the objective, which implies at least 853 relocations for any legal map with F3's profile (solver-reported). 51 classes changed."
    },
    {
     "step": 2,
-    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns.py research/complex-t16-two-stage-cycles/search <F> fill.json lns.json 60 1 300 60",
-    "result": "182 relocations (gains in the first 6 iterations and iteration 59)",
-    "approx_seconds": 120
+    "argv": "for h in 0/2 1/2: mindiff_cls2.py search c1.json cache 60 150 $h cp; then the same with hi (CP-SAT with ortools, HiGHS with scipy+highspy, separate processes)",
+    "result": "Classes 4, 9, 88 and 133: no feasible realisation found (CP-SAT 60 s, HiGHS 150 s). Earlier attempts with a HiGHS-only stage 2 (90 s and 240 s limits) were superseded."
    },
    {
     "step": 3,
-    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> two.json two 2400 lns.json",
-    "result": "Time limit: 69,026 kept, 94 relocations; dual bound 69,028.56 kept (>= 92 relocations within this two-fill, A-or-F-candidate model)",
-    "seconds": 2401
+    "argv": "FIX='[4,9,88,133]' mindiff_cls1.py search <F3> c1b.json 330; stage 2 into cache2",
+    "result": "Time limit, kept flow 68,228 (bound 68,228.28); 48 classes changed; class 94 proven infeasible in stage 2, all others realised."
    },
    {
     "step": 4,
-    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search two.json any.json 15 11 80 90",
-    "result": "55 relocations (94 -> 84 -> 80 -> ... -> 55). Run with the session copy of this script, identical except for its docstring.",
-    "followup": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search any.json any2.json 15 12 160 90: no gain in 7 iterations (2 sub-MIPs proven optimal), stopped by hand",
-    "approx_seconds": 1000
+    "argv": "FIX='[4,9,88,133,94]' KEEP=c1b.json FREE=<changed classes of c1b.json except 94> mindiff_cls1.py search <F3> c1c.json 300; mindiff_reuse.py c1b.json c1c.json cache2 cache3; stage 2 into cache3",
+    "result": "kept flow 68,225 (bound 68,225.18); 47 classes changed, 34 class results reused, 13 re-solved, all realised."
    },
    {
     "step": 5,
-    "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/realize.py research/complex-t16-two-stage-cycles/search any.json OWNERS.json.gz",
-    "result": "70 changed rows: 55 relocated, 15 offset-only; idle profile and kappa equal to F"
+    "argv": "mindiff_cls2.py search c1c.json cache3 cls.json merge; realize.py search cls.json R1440.OWNERS.json.gz",
+    "result": "1,440 relocations (1,664 changed rows); strict replay PASS with actual_73column_sigmas 10055."
    },
    {
     "step": 6,
-    "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/buildcand.py research/complex-t16-two-stage-cycles/search OWNERS.json.gz pkg 10000",
-    "result": "data/OWNERS.json.gz, PLAN.json, SPEC.json; sigmas 10000 is the strict audit count for this map (a first replay with 10004 failed with expected 10004 got 10000)"
+    "argv": "mindiff_lns.py search R1440.OWNERS.json.gz cls.json lns.json 40 1 300 30",
+    "result": "1,435 relocations (one gain of 5 in 40 iterations). mindiff_lns2.py search cls.json any.json 12 11 80 60: no gain in 3 iterations, stopped."
+   },
+   {
+    "step": 7,
+    "argv": "realize.py search lns.json OWNERS.json.gz; buildcand.py search OWNERS.json.gz pkg 10055",
+    "result": "1,661 changed rows: 1,435 relocated, 226 offset-only; idle profile and kappa equal to F3; strict replay PASS, actual_73column_sigmas 10055 (read from the native audit)."
    }
   ],
   "final": {
-   "owner_content_sha256": "1764f4310b7c91b69f0533b0b95fa0d4fba267d05d6e4e870aac2d4c310d4d4d",
-   "changed_rows_vs_selected": 70,
-   "relocated_rows_vs_selected": 55,
-   "offset_only_rows": 15,
-   "kappa_decimal": "0.001672702955495933",
-   "actual_73column_sigmas": 10000,
-   "shares_with_pr1407": "2 of the 23 (bin, call, width) placements PR1407 changes; 0 identical rows",
-   "shares_with_first_version": "4 of its 37 relocated placements; 0 identical rows"
+   "owner_content_sha256": "d05a885e8cc6a38dfbc9389e61769b4cb916ee858338e3fc3d6bcff6b877569d",
+   "changed_rows_vs_selected": 1661,
+   "relocated_rows_vs_selected": 1435,
+   "offset_only_rows": 226,
+   "kappa_decimal": "0.001673054161426948",
+   "actual_73column_sigmas": 10055,
+   "cross_replica_helper_roles": 57456
   },
-  "variants_tried_and_dropped": [
-   "CP-SAT on the global fill-fixed and any-fill models, 1 worker, 300 s: 14,564 and 16,051 relocations (no proof).",
-   "HiGHS on the global any-fill (profile-count) model without warm start: no incumbent in 400 s (root LP bound 69,116 kept, i.e. >= 4 relocations; weak).",
-   "LP-guided dive on the two-fill model (fix fill bits the LP sets below 0.05 or above 0.95): infeasible.",
-   "Any-fill LNS on the remaining diff region (all legal placements of the rows involved, extra sampled bins): 190 -> 179 relocations on the session's first chain; superseded by the global two-fill MIP."
-  ]
+  "budget": "About 2.5 hours of wall time with at most two single-threaded solver processes; stopped when the LNS polish stalled."
+ },
+ "second_version": {
+  "kappa_search": {
+   "tools": [
+    "search/chain2.py (imports chain.py, lib.py): one- and two-stage ejection cycles, depth 8 in this phase",
+    "search/lns.py: CP-SAT large-neighbourhood re-assignment of all helpers of a set of calls (modes set:<calls>, time, early<k>, queue) or of physical families (fam); DIV=1 keeps the surrogate objective and randomly maximises relocations to move along plateaus",
+    "search/loop3.sh: alternates chain2.py until it finds nothing, then one DIV=1 lns.py step on a random mode"
+   ],
+   "objective": "Surrogate E = sum over (owner, child, port) bins of f ln f for free capacity f > 1 (CP-SAT scales it by 10^4 and rounds). Every candidate is audited with the seed67 rules and priced with the pinned exact engines; a step is kept only if the exact kappa rises (or, on a DIV plateau step, stays equal).",
+   "how_it_ran": "Interactively, in order: lns.py time/set neighbourhoods from the first version's map; lns.py set:0,1,2,3,4 with 400-900 s CP-SAT limits; chain2.py depth 8; then loop.sh, loop2.sh and loop3.sh runs (loop2.sh is loop3.sh with a different mode list; loop3.sh is shipped). Seeds partly come from bash $RANDOM, so the trajectory is not reproducible bit for bit.",
+   "checkpoints": [
+    {
+     "owner_content_sha256": "94a48bfdcdb59fb309f7c11a8e46e61e4f1e2d8fe3cdc0d6053fe04cc2f7688e",
+     "via": "lns.py (call-set neighbourhoods)",
+     "kappa_decimal": "0.001672685662094163",
+     "idle_remainder_profile": {
+      "1": 2279,
+      "2": 1,
+      "3": 371,
+      "7": 2,
+      "16": 3,
+      "48": 4866
+     },
+     "strict_replay": "not run"
+    },
+    {
+     "owner_content_sha256": "18ba2bd326387d27ff7526914a5be8c4dfe37e0278a7decd60faefbfbdab631e",
+     "via": "lns.py set:0,1,2,3,4 (CP-SAT 400 s)",
+     "kappa_decimal": "0.001672686708686457",
+     "idle_remainder_profile": {
+      "1": 2278,
+      "3": 372,
+      "7": 2,
+      "16": 3,
+      "48": 4866
+     },
+     "strict_replay": "PASS (11 stages, 69/12/6/15)"
+    },
+    {
+     "owner_content_sha256": "1c76875b2d6b71322963a939796099cf3d892defe52fcc08cd3b9d87ce79c4c0",
+     "via": "chain2.py depth 8",
+     "kappa_decimal": "0.001672691961154154",
+     "strict_replay": "not run"
+    },
+    {
+     "owner_content_sha256": "464f57761a713f3cdd399cad9cf826a6e19d8dd247e227da1aee4fd69ec7ce51",
+     "via": "loop2.sh then loop3.sh (chain2 + DIV lns alternation)",
+     "kappa_decimal": "0.001672699106899519",
+     "idle_remainder_profile": {
+      "1": 2281,
+      "2": 1,
+      "3": 365,
+      "7": 2,
+      "16": 4,
+      "48": 4866
+     },
+     "strict_replay": "PASS (11 stages, 69/12/6/15)"
+    },
+    {
+     "owner_content_sha256": "a7e8f0cac22527fd6f987b87c2734984add89166fd2d0306453bed99c25cee96",
+     "via": "loop3.sh logic, last run (about 45 min, +3.85e-9)",
+     "kappa_decimal": "0.001672702955495933",
+     "idle_remainder_profile": {
+      "1": 2280,
+      "2": 1,
+      "3": 363,
+      "7": 3,
+      "16": 4,
+      "48": 4866
+     },
+     "strict_replay": "PASS (11 stages, 69/12/6/15); actual_73column_sigmas 10466",
+     "changed_rows_vs_selected": 30039,
+     "relocated_rows_vs_selected": 17173
+    }
+   ],
+   "stopped": "Stopped at the end of the session's search budget while still improving; no stall criterion was met."
+  },
+  "min_diff": {
+   "target": "F = the last kappa checkpoint (content a7e8f0ca...). Goal: a legal map with exactly F's idle remainder profile (hence F's kappa) that keeps as many (bin, call, width) placements of the selected map A as possible. Helpers of one (call, width) are interchangeable under R3-R6; realize.py restores A's helper labels and offsets where possible.",
+   "stages": [
+    {
+     "step": 1,
+     "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> fill.json fill 900 -",
+     "result": "Optimal: 67,058 of 69,120 placements of A kept, 2,062 relocations",
+     "seconds": 345
+    },
+    {
+     "step": 2,
+     "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns.py research/complex-t16-two-stage-cycles/search <F> fill.json lns.json 60 1 300 60",
+     "result": "182 relocations (gains in the first 6 iterations and iteration 59)",
+     "approx_seconds": 120
+    },
+    {
+     "step": 3,
+     "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> two.json two 2400 lns.json",
+     "result": "Time limit: 69,026 kept, 94 relocations; dual bound 69,028.56 kept (>= 92 relocations within this two-fill, A-or-F-candidate model)",
+     "seconds": 2401
+    },
+    {
+     "step": 4,
+     "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search two.json any.json 15 11 80 90",
+     "result": "55 relocations (94 -> 84 -> 80 -> ... -> 55). Run with the session copy of this script, identical except for its docstring.",
+     "followup": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search any.json any2.json 15 12 160 90: no gain in 7 iterations (2 sub-MIPs proven optimal), stopped by hand",
+     "approx_seconds": 1000
+    },
+    {
+     "step": 5,
+     "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/realize.py research/complex-t16-two-stage-cycles/search any.json OWNERS.json.gz",
+     "result": "70 changed rows: 55 relocated, 15 offset-only; idle profile and kappa equal to F"
+    },
+    {
+     "step": 6,
+     "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/buildcand.py research/complex-t16-two-stage-cycles/search OWNERS.json.gz pkg 10000",
+     "result": "data/OWNERS.json.gz, PLAN.json, SPEC.json; sigmas 10000 is the strict audit count for this map (a first replay with 10004 failed with expected 10004 got 10000)"
+    }
+   ],
+   "final": {
+    "owner_content_sha256": "1764f4310b7c91b69f0533b0b95fa0d4fba267d05d6e4e870aac2d4c310d4d4d",
+    "changed_rows_vs_selected": 70,
+    "relocated_rows_vs_selected": 55,
+    "offset_only_rows": 15,
+    "kappa_decimal": "0.001672702955495933",
+    "actual_73column_sigmas": 10000,
+    "shares_with_pr1407": "2 of the 23 (bin, call, width) placements PR1407 changes; 0 identical rows",
+    "shares_with_first_version": "4 of its 37 relocated placements; 0 identical rows"
+   },
+   "variants_tried_and_dropped": [
+    "CP-SAT on the global fill-fixed and any-fill models, 1 worker, 300 s: 14,564 and 16,051 relocations (no proof).",
+    "HiGHS on the global any-fill (profile-count) model without warm start: no incumbent in 400 s (root LP bound 69,116 kept, i.e. >= 4 relocations; weak).",
+    "LP-guided dive on the two-fill model (fix fill bits the LP sets below 0.05 or above 0.95): infeasible.",
+    "Any-fill LNS on the remaining diff region (all legal placements of the rows involved, extra sampled bins): 190 -> 179 relocations on the session's first chain; superseded by the global two-fill MIP."
+   ]
+  }
  },
  "first_version": {
   "tool": "search/chain2.py (imports search/chain.py and search/lib.py)",

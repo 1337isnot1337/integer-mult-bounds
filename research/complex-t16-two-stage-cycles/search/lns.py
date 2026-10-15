@@ -3,14 +3,17 @@ Neighbourhood = a set of physical families (columns). Every bin of a chosen fami
 so R4 (one helper per family per call) is internal. Helpers of the neighbourhood are re-assigned by
 (time, width) class to bins of the neighbourhood (R5 windows / R3 active pair via Model.allowed, R6 capacity).
 Objective: maximise sum over bins of round(SC * g(free)), g(f) = f ln f; accepted only if exact kappa rises.
-argv: LIBDIR START OUT_PREFIX ITERS SEED [TL]"""
+argv: LIBDIR START OUT_PREFIX ITERS SEED [TL] [MODE] [...]
+env: NW = CP-SAT workers per solve (default 2), DIV=1 plateau step, TL2 = time limit of the DIV re-solve.
+Modes: fam (default), set:<calls>, time, early<k>, queue, tgt:..., and f3 (calls drawn from the window of a bin
+with free capacity 2, 3, 6, 7, 9 or 10; used by loopx.sh)."""
 import sys, math, json, gzip, random, time
 sys.path.insert(0, sys.argv[1]); import lib
 from collections import Counter, defaultdict
 from ortools.sat.python import cp_model
 start, outp, ITERS, SEED = sys.argv[2], sys.argv[3], int(sys.argv[4]), int(sys.argv[5])
 TL = float(sys.argv[6]) if len(sys.argv) > 6 else 30.0
-import os; DIV = os.environ.get('DIV') == '1'; TL2 = float(os.environ.get('TL2', 60))
+import os; NW = int(os.environ.get('NW', 2)); DIV = os.environ.get('DIV') == '1'; TL2 = float(os.environ.get('TL2', 60))
 rng = random.Random(SEED)
 SC = 10000
 def gi(f): return round(SC * lib.g(f))
@@ -100,7 +103,7 @@ def solve(bins, H):
         for f in ohf:
             mdl.Add(sum(ohf[f]) == N0[f] + DELTA.get(f, 0))
     mdl.Maximize(sum(obj))
-    sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = TL; sv.parameters.num_workers = 2; sv.parameters.repair_hint = True
+    sv = cp_model.CpSolver(); sv.parameters.max_time_in_seconds = TL; sv.parameters.num_workers = NW; sv.parameters.repair_hint = True
     sv.parameters.random_seed = rng.randrange(1 << 30)
     st = sv.Solve(mdl)
     info = dict(bins=len(bins), helpers=len(H), vars=len(y), status=sv.StatusName(st), obj0=obj0)
@@ -114,7 +117,7 @@ def solve(bins, H):
     mdl.Add(sum(obj) >= best)
     if best <= obj0: mdl.Maximize(sum(rng.randrange(1, 4) * v for key, v in y.items() if not cur[key]))
     else: mdl.Maximize(sum(v for key, v in y.items() if cur[key]))
-    sv2 = cp_model.CpSolver(); sv2.parameters.max_time_in_seconds = TL2; sv2.parameters.num_workers = 2
+    sv2 = cp_model.CpSolver(); sv2.parameters.max_time_in_seconds = TL2; sv2.parameters.num_workers = NW
     st2 = sv2.Solve(mdl)
     if st2 in (cp_model.OPTIMAL, cp_model.FEASIBLE): sv = sv2; info['kept'] = sv2.ObjectiveValue()
     # reconstruct
@@ -150,9 +153,10 @@ def pick_times():
                     for j in range(0, len(a), 4): QUEUE.append(set(a[j:j+5]))
             rng.shuffle(QUEUE); print('queue', len(QUEUE), flush=True)
         return QUEUE.pop()
-    fr = [k for k in m.cap if 0 < m.free(k) < m.cap[k]]
+    if MODE == 'f3': fr = [k for k in m.cap if m.free(k) in (2, 3, 6, 7, 9, 10)]
+    else: fr = [k for k in m.cap if 0 < m.free(k) < m.cap[k]]
     k0 = rng.choice(fr); al = sorted(m.allowed[k0])
-    n = rng.choice([1, 2, 2, 3, 3, 4])
+    n = rng.choice([1, 2, 2, 3, 3, 4]) if MODE != 'f3' else rng.choice([2, 3, 4, 5, 6])
     return set(rng.sample(al, min(n, len(al))))
 def nbhd_times(Ts):
     H = [i for i, z in enumerate(m.roles) if z['time'] in Ts]

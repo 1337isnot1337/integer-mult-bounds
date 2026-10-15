@@ -6,9 +6,9 @@
   "registered_replay": {
     "command": "python3.12 scripts/research_package.py --package research/complex-t16-two-stage-cycles",
     "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
-    "wall_seconds": 60,
-    "max_child_rss_mib": 520,
-    "memory_cap": "systemd scope MemoryMax=6G"
+    "wall_seconds": 42,
+    "max_child_rss_mib": 418,
+    "memory_cap": "systemd scope MemoryMax=5G"
   },
   "metadata_check": "PASS_PACKAGE_METADATA_AND_PINS",
   "pinned_inputs": 287,
@@ -29,14 +29,15 @@
     "PR1069 sweep"
   ],
   "cross_checks": [
-    "The session's own checkmap.py (separate tree, separate lib) on data/OWNERS.json.gz with this replay: seed67 audit, 11 controls, strictly-inside windows, one placement per helper and call, replay profile = audit profile, pinned-engine kappa 0.001672702955495933, PR1069 sweep all true; 70 changed rows, 55 relocated.",
-    "The raw search output F (30,039 changed rows) passed the same strict replay with actual_73column_sigmas 10466 and the same kappa and idle profile.",
-    "search/buildcand.py with actual_73column_sigmas=10000 reproduces data/PLAN.json and data/SPEC.json byte for byte."
+    "The session's own pipeline (verx.sh: buildcand.py, strict native replay, checkmap.py in a separate tree with a separate lib) on data/OWNERS.json.gz: seed67 audit, 11 controls, strictly-inside windows, one placement per helper and call, replay profile = audit profile, pinned-engine kappa 0.001673054161426948, PR1069 sweep all true; 1,661 changed rows, 1,435 relocated; actual_73column_sigmas 10055 read from the native audit (OWNERS-AND-PROFILE.json).",
+    "The raw search output F3 (65,902 changed rows, 61,985 relocated) passed the same strict replay with actual_73column_sigmas 10614 and the same kappa and idle profile; so did the intermediate min-diff map with 1,440 relocations (sigmas 10055).",
+    "search/buildcand.py with actual_73column_sigmas=10055 reproduces data/OWNERS.json.gz, data/PLAN.json and data/SPEC.json byte for byte against the session pipeline's build."
   ],
   "preparation_failures": [
-    "First strict replays of min-diff maps used the raw search's sigma count; assembly rejected them (expected 10466 got 10013; expected 10004 got 10000 for this map). SPEC pins the audited 10000.",
-    "check.py compared the conservative kappa as a string; the pinned engine prints 0.001672702952644000 and the SPEC holds 0.001672702952644. It now compares decimals.",
-    "One global two-fill MIP run in the session was killed externally (no OOM; scope ended without output) at 94 relocations; the packaged-script rerun reached the same 94 and is the one recorded."
+    "Second version: first strict replays of min-diff maps used the raw search's sigma count; assembly rejected them. SPEC now always pins the count read from the native audit.",
+    "Second version: check.py compared the conservative kappa as a string; it now compares decimals.",
+    "This version: the first class-level min-diff stage 2 could not realise classes 4, 9, 88 and 133 (no feasible solution in the time limits) and the second proved class 94 infeasible; those classes were fixed to the selected map and stage 1 re-solved (SEARCH.json min_diff).",
+    "This version: ortools and highspy cannot be imported into one process (clashing HiGHS symbols), so mindiff_cls2.py runs its CP-SAT and HiGHS passes separately."
   ],
   "reused_native_ancestry": true,
   "cold_ancestry_rebuilt": false,

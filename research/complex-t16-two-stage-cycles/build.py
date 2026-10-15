@@ -2,9 +2,10 @@
 
 The map is the selected PR1094 owner table plus the row replacements in
 DIFF-vs-selected.json. Only owner fields change; the replacements are the
-output of the search recorded in SEARCH.json (two-stage ejection cycles and
-CP-SAT LNS for kappa, then a min-diff re-assignment toward the selected map
-at the same idle profile). The derivation needs no other PR.
+output of the search recorded in SEARCH.json (a global class-level repack,
+ejection cycles and CP-SAT LNS for kappa, then a class-level min-diff
+re-assignment toward the selected map at the same idle profile). The derivation
+needs no other PR.
 """
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -19,10 +20,10 @@ P = Path(__file__).resolve().parent
 BASE = 'research/complex-t16-rare-pattern-exchanges'
 FIXED = ('stage', 'replica', 'time', 'helper', 'width')
 OWNER = ('owner_replica', 'child', 'port', 'copy', 'family', 'offset')
-CHANGED_ROWS = 70
-RELOCATED_ROWS = 55
+CHANGED_ROWS = 1661
+RELOCATED_ROWS = 1435
 SELECTED_IDLE = Counter({1: 2276, 3: 377, 7: 7, 48: 4866})
-CANDIDATE_IDLE = Counter({1: 2280, 2: 1, 3: 363, 7: 3, 16: 4, 48: 4866})
+CANDIDATE_IDLE = Counter({1: 2346, 2: 3, 3: 154, 5: 9, 7: 36, 8: 2, 16: 7, 28: 1, 39: 1, 40: 1, 41: 2, 44: 41, 48: 4829})
 
 
 def canonical(x):

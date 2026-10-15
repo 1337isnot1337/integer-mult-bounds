@@ -18,8 +18,8 @@ if not __debug__:
 P = Path(__file__).resolve().parent
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 CONTROLS = dict(admission=69, bit_supplier=12, independent_t16=6, controller_mutations=15)
-KAPPA_DECIMAL = '0.001672702955495933'
-SIGMAS = 10000
+KAPPA_DECIMAL = '0.001673054161426948'
+SIGMAS = 10055
 
 
 def run(main, work):
