@@ -1,0 +1,4 @@
+['/tmp/pr-efficient200-venv/bin/python', '-I', '-B', 'research/mixed-point-verify-masks/verify.py']
+PASS_MIXED_POINT_VERIFY_MASKS verify_cases=11 mask_cases=3994 certs=2 no_new_kappa
+controls preserved rejected h30_additions=95912
+['/tmp/pr-efficient200-venv/bin/python', '-I', '-O', '-B', 'research/mixed-point-verify-masks/verify.py']
