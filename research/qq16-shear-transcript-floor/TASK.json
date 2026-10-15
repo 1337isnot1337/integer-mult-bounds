@@ -62,9 +62,11 @@
     "source_export": "Research was completed in an exact bounded text export while shell networking was unavailable. Publication uses a valid partial clone of the same canonical main commit, with all declared text inputs hydrated."
   },
   "coordination": {
-    "status": "PUBLICATION PREPARED: no advance public claim posted",
-    "utc": "2026-10-15T07:00:41.375119+00:00",
-    "reason": "The user enabled automatic approval review, restoring approved shell network access. A writable fork now exists; the completed finding will be posted to the existing shear Discussion after its public artifact is pushed.",
+    "status": "FINDING/DONE posted; public artifact available; no advance public claim was posted",
+    "utc": "2026-10-15T07:05:00Z",
+    "reason": "The user enabled automatic approval review, restoring approved shell network access, and explicitly authorized fork, push and PR creation. The completed finding is posted in the existing shear Discussion.",
+    "finding_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2205#discussioncomment-18943100",
+    "public_artifact": "https://github.com/jgilfoil/integer-mult-bounds/tree/cee7efecb71956e65891a87724936324bc0a66ea/research/qq16-shear-transcript-floor",
     "open_pr_snapshot": {
       "fetched_at": "2026-10-15T06:59:02.814348+00:00",
       "records": 584,
@@ -159,7 +161,7 @@
     }
   ],
   "upstream_checkpoint": {
-    "utc": "2026-10-15T06:58:08Z",
+    "utc": "2026-10-15T07:05:00Z",
     "canonical_main": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
     "priority_revision": 4,
     "change": "Canonical main unchanged at publication. Complete refreshed PR and Discussion coverage recorded above. PR2368 overlap read and credited; original relevant source heads unchanged."
