@@ -5,7 +5,7 @@
   "kappa_decimal": "0.001675784247432857",
   "chain": "cold reconstruction",
   "chain_canonical_sha256": "d1bf3c6f250a61be7421ce566668092f362c465274fb472d4bb01fc80cba9b23",
-  "pr635_supplier": "/tmp/claude-0/-home-claude/c27ff1dd-a725-5f73-afca-bc06ce961094/scratchpad/wt1055/research/complex-sw4-frame8/vendor/pr635",
+  "pr635_supplier": "research/complex-sw4-frame8/vendor/pr635",
   "packages": {
     "arcflow": {
       "package": "research/gauge44-slots-arcflow",

@@ -177,7 +177,7 @@ def main():
                  if p.is_file() and p.suffix in ('.json', '.gz', '.log') and p != work / 'RESULT.json'}
     result = dict(status='PASS_WHOLE_HEAD_GAUGE44_SLOTS_ARCFLOW_CHAIN', head_package=PACKAGES['balance'],
                   kappa=packages['balance']['kappa'], kappa_decimal=packages['balance']['kappa_decimal'],
-                  chain=chain_mode, chain_canonical_sha256=cp['canonical_sha256'], pr635_supplier=str(pr635),
+                  chain=chain_mode, chain_canonical_sha256=cp['canonical_sha256'], pr635_supplier=(pr635.relative_to(root).as_posix() if pr635.is_relative_to(root) else str(pr635)),
                   packages=packages, bit_supplier=read(root / 'research/gauge44-slots/RESULT.json')['bit_supplier'],
                   independent=dict(status=ind['status'], controls_per_package={k: len(v['controls']) for k, v in ind['packages'].items()}),
                   stages=stages, artifacts=artifacts,
