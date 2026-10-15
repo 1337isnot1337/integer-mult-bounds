@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1627,
-    "partially_reviewed": 274,
+    "incorporated": 1630,
+    "partially_reviewed": 271,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "ab2748dee519508924326f9df8dfbf8b230ac975fca41760d173ea5839f17c8a",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "090fd9b46b7ef625f24816c4d42f7314a4298850bb535f496afbb0d7c3d79d55",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107757,21 +107757,23 @@
         {
           "head": "18d6ac4f864af2b71aa8cf5f4541fcfc4350e2f0",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sagar Thakrar's two-call P112 floor with independently changed isometric label charts: reviewed the Schur-complement count proving sharp total COPY128 despite actual rank-seven cross terms. Independently reconstructed geometry and exact support census, 255 transvections, direct cross-pair ranks and full ordinary/Gaussian all-pairs decoder fixtures pass. Reviewed sufficient general-cross-form conditions and the separate zero-form/double-term bounds; the seeded cross-form sample is not an impossibility theorem. Free conversions, root-code factors and separate-total union pricing are explicit premises; no physical supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p112-batch-chart-change"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "18d6ac4f864af2b71aa8cf5f4541fcfc4350e2f0",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108140,16 +108142,20 @@
       "integration_location": [
         "research/p104-coalesced-private-reuse"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e93f2ebd9c60b79e564b07acffdbbb99b477c28c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2305"
+      },
       "reviewed_head": "335e78619a17b7c418e11306f86a72fd366de35b",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2305.json",
@@ -108846,21 +108852,23 @@
         {
           "head": "0665be26c2db1bd7f393d829e786698b34b626e4",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Hanhong Zhao's sharp separate-COPY power bill for exactly the PR2021 ports(0,1), coefficient+1 nine-term completion. Reviewed the full ordinary-complex factorization reduction, all 1,022 rational character kernels and their extension to complex coefficients, support-pair ranks, duality compensation cases and majorization. The rational COPY64 attainer improves the displayed COPY65 but has sharp power bill 7*8^q+7^q+1, strictly above eight rank-eight calls for 0<q<1. All-entry/nonreal controls and detached optimized checks pass; different completions, term counts, labels or shared physical work are outside scope.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p112-two-column-copy-optimum"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "0665be26c2db1bd7f393d829e786698b34b626e4",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -109490,16 +109498,20 @@
       "integration_location": [
         "research/p104-coalesced-private-reuse-audit"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e93f2ebd9c60b79e564b07acffdbbb99b477c28c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2337"
+      },
       "reviewed_head": "b2653c1bcf8fefa474b8d5c8508bbacbbcfd42c7",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2337.json",
@@ -109712,21 +109724,23 @@
         {
           "head": "25cd637a6f7bf92669bce28836e3015cbae87167",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sricharan Vagvala's independent three-call P112 isometric-chart proof: reviewed six-order triangular deletion giving n+2p/3>=24 and sharp COPY192/power24*8^q floors. All twelve support patterns, inherited rational/complex support premises, four complete336-by336 endpoints, attained counting example, direct cross-ranks and semantic/package controls pass. The four-call truncation control prevents extending the averaging coefficient beyond its domain. Separate-total root-code factors and symmetric within-call isometries remain essential; concurrent DreamingOfClouds PR2338 and Sagar Thakrar PR2294 credited without assuming the broader pending theorem.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/p112-three-call-isometric-floor"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "25cd637a6f7bf92669bce28836e3015cbae87167",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -109867,16 +109881,20 @@
       "integration_location": [
         "research/p104-prefix-minrank"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e93f2ebd9c60b79e564b07acffdbbb99b477c28c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2345"
+      },
       "reviewed_head": "2a5fa34a967e7567abf01611f92a6ab69e8c901a",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2345.json",
@@ -111049,7 +111067,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1251,
-    "OPEN": 333
+    "MERGED": 1254,
+    "OPEN": 330
   }
 }
