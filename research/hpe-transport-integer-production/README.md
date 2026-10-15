@@ -41,11 +41,11 @@ multiplication-theorem obligations were not rerun for this isolated historical-c
 
 ## Result
 
-On Linux / CPython 3.12 with `taskset -c 0`, five alternating fresh-process
-pairs over the five honest frontier1042 layer-end words gave the median wall
-time recorded in [`RESULT.json`](RESULT.json). Timing is host-descriptive and is
-not a correctness gate. Every honest and fuzz outcome matches the pairwise
-baseline.
+On Linux / CPython 3.12.3 with `taskset -c 0`, five alternating fresh-process
+pairs over the five honest frontier1042 layer-end words gave median wall time
+**6.452 → 2.816 s (2.29×)**. Details are in
+[`RESULT.json`](RESULT.json). Timing is host-descriptive and is not a
+correctness gate. Every honest and fuzz outcome matches the pairwise baseline.
 
 ## Why the integer rows are equivalent
 
