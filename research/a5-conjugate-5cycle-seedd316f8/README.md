@@ -95,10 +95,16 @@ closest related work is PR #2196 (the inverse pair for a 5-cycle in `S5`), PR
 The present scope uses the perfect group `A5`, a `(2,3,5)` generator pair, two
 conjugate rather than inverse 5-cycles, and tests only the one-call-saving
 depth-three boundary. It does not repeat those endpoint or alphabet searches.
+The final scan also found an active Q8 three-role target claim in [Discussion
+#2243](https://github.com/CrocSwap/integer-mult-bounds/discussions/2243). That
+claim tests `diag(z,z,g)` for `g in {i,j}` against a five-call direct word; this
+package uses A5's conjugate 5-cycles, both two- and three-role models, and a
+four-call direct word.
 
 The claim is [Discussion #2242](https://github.com/CrocSwap/integer-mult-bounds/discussions/2242);
-the mechanism hub contains only a pointer. This is a finite formal word result,
-not a supplier construction or a universal impossibility theorem.
+the mechanism hub contains only pointers to the claim and the final Q8 overlap
+note. This is a finite formal word result, not a supplier construction or a
+universal impossibility theorem.
 
 ## Open next questions
 

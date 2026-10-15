@@ -9,12 +9,13 @@
     "warnings": []
   },
   "postclaim_refresh": {
-    "open_prs_fetched_at": "2026-10-15T01:40:17.897553Z",
-    "open_prs": 475,
-    "discussions_fetched_at": "2026-10-15T01:38:53.263267Z",
-    "discussion_comment_reply_records": 937,
+    "open_prs_fetched_at": "2026-10-15T01:48:30.267386Z",
+    "open_prs": 476,
+    "discussions_fetched_at": "2026-10-15T01:51:57.377200Z",
+    "discussion_comment_reply_records": 946,
     "complete_pagination": true,
-    "warnings": []
+    "warnings": [],
+    "exact_A5_match_excluding_own_claim": false
   },
   "local_search": {
     "command": "python3 scripts/find_overlap.py --task bit-new-register-model 'A5 arbitrary dirty spectator' 'conjugate 5-cycle pair' --json --limit 100",
@@ -73,8 +74,23 @@
   ],
   "active_board_check": {
     "hub": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167",
-    "latest_relevant_claim_at_preclaim_check": "Cycle 42, complex-mechanisms, complex-new-helper-inventory; different track and object.",
+    "latest_nearby_claim": {
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2243",
+      "hub_comment": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18938312",
+      "status": "active Cycle AF claim, posted 2026-10-15T01:45:46Z",
+      "scope": "Q8 three-role target diag(z,z,g), g in {i,j}, testing four calls against direct cost five.",
+      "distinction": "The present scope is A5 with x/y of orders 2/3, the conjugate 5-cycle pair diag([xy],[yx],[e]) (and the two-role restriction), and a three-call test against direct cost four. The target group, relation, endpoint profile, and bounded threshold differ."
+    },
+    "nearby_completed_claim": "Discussion #2012, scoped three-role S3 mixed-target search; different group and endpoint.",
     "own_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242",
-    "hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938133"
+    "pivot_update": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938197",
+    "hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938133",
+    "final_overlap_comment": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938443"
+  },
+  "final_exact_check": {
+    "overlap_note_posted_at": "2026-10-15T01:53:05Z",
+    "new_exact_A5_overlap": false,
+    "current_nearby_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2243",
+    "disclosed_in_original_thread": true
   }
 }

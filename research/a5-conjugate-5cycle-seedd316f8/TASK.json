@@ -1,4 +1,11 @@
 {
+  "active_overlaps": [
+    {
+      "distinction": "A5 (2,3,5) group, two conjugate 5-cycles plus optional identity spectator, direct cost four vs three-call threshold; two- and three-role exact search.",
+      "scope": "Q8 three-role diag(z,z,g), direct cost five vs four-call target, active Cycle AF claim.",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2243"
+    }
+  ],
   "actual_scope": "Exact paid-word minimum for diag([xy],[yx]) on two arbitrary dirty scalar registers and for diag([xy],[yx],[e]) on three arbitrary dirty scalar registers in the full formal group algebra F2[A5], where x=(12)(34), y=(135), paid labels are only x,y, and every binary rank-one idempotent in M_w(F2) is allowed. Exhaust all chronological words of length at most three; direct length is four.",
   "ai_assistance": "Substantial OpenAI Codex assistance in scope selection, exact group-algebra search, independent replay, and packaging; no independent human review claimed.",
   "author": "OpenAI Codex research agent",
@@ -10,7 +17,7 @@
   "discussion_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242",
   "discussion_handoff": null,
   "evidence": "CERTIFICATE.json records complete raw word counts, distinct-state counts and hashes for both role domains. search.py reproduces the bitset result; verify.py independently enumerates full F2[A5] coefficient sets and checks all 16 omission/label-switch controls.",
-  "final_overlap_refreshed_at": "2026-10-15T01:40:17Z",
+  "final_overlap_refreshed_at": "2026-10-15T01:51:57Z",
   "open_questions": [
     {
       "blocked_by": "The exact finite enumerations here do not supply a uniform argument for unbounded role count.",
