@@ -86,15 +86,17 @@
       "current_head": "d3d309b3595c37e081e28bfcf24aa278a8404b59",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/merge5112-retention-receipt"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang's historical retention receipt for nine PRs at merge51122344 authenticates all 77 changed content blobs, merge parents and source pins. Maintainer independently verified every reviewed head against the pinned review, authors/credit, full added-path inventories, Git modes/blobs and selected hash. README clarifies that the package itself compares blobs, not modes, and its pre-merge ledger observations are historical. Scientific correctness and fresh supplier replays are outside this provenance audit; all nine original authors retain credit.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2706,15 +2708,17 @@
       "current_head": "b599a781bfa8a8fb09a8dea7fa924edb353c21cb",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-windows-role-adapter"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "AAAmirinu's opt-in Windows-drive adapter authenticates all six actual input-role digests before translating only those keys into synthetic POSIX roots and invoking Adam Gall's unchanged 105-output comparator. Reviewed lexical-root and collision guards, exact typed comparison, raw invoice/log bindings and complete constructed positive/negative controls under normal and optimized Python. This maintainer replay is on macOS; author Windows path evidence is distinct from a fresh supplier run. Inner-log CRLF remains byte-exact and requires separate review; frozen supplier and selected record unchanged.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2774,15 +2778,17 @@
       "current_head": "653520d7f18f686ea3a274b4963981f5be563477",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-final-record-obstruction"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "alephnan's actual-regular-cover obstruction to QQ16 final-only recovery with the specified 64 initial ordinary-query records. Source-derived centre and six distinct relative-route families give trace moments 24N and 28N; compatible constrained-image intersection yields at least ceil(8N/7) lost original selected dimensions. Reviewed the complete nineteen-event noncommutative trajectory, independent backward-centre/route oracle and factored algebra fixtures. No intervention before complete F2 is allowed; recorded B1 cuts, other query choices, arbitrary quotient owners and full native/supplier claims are excluded. Predecessor recovery and moment work credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2985,20 +2991,24 @@
       },
       "reviewed_head": "308ebc7405303bb7ed91b012bb705949c6091a16",
       "current_head": "308ebc7405303bb7ed91b012bb705949c6091a16",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-owner-separation"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "34588a98dabb668d4c53e5e776cd7b3927174d26",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2354"
+      },
       "scope": "kyzer1023's exact whole-owner separation theorem for the credited QQ16 common-axis family: rank-74 evaluation minor and group-rank upper bound prove 66 original-A defect dimensions, giving at least 66-k surviving dimensions after k fixed coordinate reads. The 66-port complement eliminates this family, not all inputs. Reviewed rational kernel argument, actual route identities, inherited ordered-tail premises and complete receipt/integrity controls. No per-owner rank-66, arbitrary controller recovery, native execution or supplier claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2354.json",
@@ -3169,20 +3179,24 @@
       },
       "reviewed_head": "2d648618f33f51e37700f47abb424bd14ad35e16",
       "current_head": "2d648618f33f51e37700f47abb424bd14ad35e16",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-four-role-ledger-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "34588a98dabb668d4c53e5e776cd7b3927174d26",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2359"
+      },
       "scope": "AAAmirinu's independent raw-frame audit reconstructs both adopted PR2312 and PR2322 provider words using explicit GF(2)^9 subspaces. The twelve changed roles prove the rank-distribution delta, four width-four retirements and mass decrease sixteen. Actual preparation-chart mutation preserves mass and widths but changes the distribution, and stale reporting is rejected; redundant basis spellings pass. Reviewed source-manifest joins, full ambient handoff maps and normal/optimized controls. Scalar cleanup, physical phases, global hosting and moment/frontier admission remain separate, with Jeremy Kothe and Vlado Vojdanovski credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2359.json",
@@ -3205,20 +3219,24 @@
       },
       "reviewed_head": "16d4ea6c26cd45ebb9301ab90f33a73615627f8d",
       "current_head": "16d4ea6c26cd45ebb9301ab90f33a73615627f8d",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-low-alias-width-cap"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "34588a98dabb668d4c53e5e776cd7b3927174d26",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2360"
+      },
       "scope": "Jeremy Diviney's exact whole-helper packing cap for the two pinned PR2339 words on the unchanged T74 stock. Independent explicit-subspace invoice and all 1,163 integer patterns validate a rational weak-duality certificate with outward moment bounds; every fractional packing already fails at b=0.001687. Mixtures use a rigorously cheaper common-width envelope. Reviewed eight mutations and standalone export controls. Changed words, split helpers, different parent stock and complete scalar/native validity remain outside scope; predecessor method and construction credit retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2360.json",
@@ -3310,7 +3328,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3321,7 +3339,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2364.json"
+        "research/community-efficient1300-audit/packets/2364.json",
+        "research/community-efficient1300-audit/checks/check-2364.json"
       ]
     },
     {
@@ -3342,15 +3361,17 @@
       "current_head": "24746e536dfa5e632d4f3036a477ec4f1b7bb0e6",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/outer2298-uniform-domain"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Jerry Lin's uniform arithmetic-domain lemma for Jose Manuel's pinned PR2298 parameters: reviewed all integer floor/ceiling estimates, exponential-tail inductions, Gaussian and recovery inequalities, and the actual caller interval. Exact source-formula bindings and three compressed boundary fixtures with nine rejecting controls pass. The sufficient cutoff b>=2^524288 is deliberately conservative; the lemma certifies the stated scalar envelope, not full callee hypotheses, physical reserve completeness, tape implementation or multiplication admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
