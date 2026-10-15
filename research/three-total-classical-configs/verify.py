@@ -149,9 +149,12 @@ def main():
                 ok &= universal_realise(r['P'], r['L'], k, limit=200000) is None
         allex = all(r['excluded'] == list(range(1, kwant[C['name']])) and not r['timeout'] for r in recs)
         report('3 %s: frame-universal realisation exhaustively excluded over GF(2^k), k < %d, in every frame (recorded); '
-               'DFS replay on %d frames' % (C['name'], kwant[C['name']], len(sub)), ok and allex)
+               'DFS replay on %d frames%s' % (C['name'], kwant[C['name']], len(sub),
+               '; for every frame this also follows from the count below, since a GF(4)/GF(8) frame certificate would be '
+               'an exact 10_3 in PG(2,4)/PG(2,8) and GF(2) is a subfield of both' if C['name'] == 'desargues' else ''),
+               ok and allex)
     c4, c8 = desargues_exact_count(2), desargues_exact_count(3)
-    report('3 Desargues 10_3, independent constructive count: no exact realisation in PG(2,4) or PG(2,8)', c4 == 0 and c8 == 0,
+    report('3 Desargues 10_3, separately coded constructive count: no exact realisation in PG(2,4) or PG(2,8)', c4 == 0 and c8 == 0,
            'counts %d, %d' % (c4, c8))
     r = next(x for x in U['configs']['desargues'] if x['frame'] == ['P', 0, 1, 2])
     c16 = desargues_exact_count(4, a2_choices=[r['X'][3]])
@@ -211,6 +214,9 @@ def main():
     neg.append(('corrupted Desargues realisation (one coordinate +1)', check_config(Cb, 10, 3)))
     Db = [list(x) for x in D['P']]; Db[0] = [0, 0, 0]
     neg.append(('cex_min_1 realisation with a zeroed point', cr2_hyp_ok(Pc, Qc, D['k'], Db, D['Q'])))
+    r4 = U['configs']['pappus'][7]; Yb = [list(y) for y in r4['Y']]; Yb[0], Yb[3] = Yb[3], Yb[0]
+    neg.append(('Pappus frame certificate with two line vectors swapped (incidence-only corruption)',
+                universal_ok(r4['P'], r4['L'], r4['k'], r4['X'], Yb)))
     neg.append(('tied_min with a constant GF(2) assignment', cr2_hyp_ok(Pm, Qm, 1, [[1, 1, 1]] * 12, [[1, 1, 0]] * 12)))
     report('5 negative controls rejected: ' + '; '.join(nm for nm, val in neg), not any(val for nm, val in neg),
            str([nm for nm, val in neg if val]))
@@ -251,7 +257,11 @@ def main():
 
     # 7. per-instance classification on that coordinate system
     SI = json.load(open(os.path.join(PKG, 'data', 'special_instances.json')))
-    tgt = [r for r in SP['configs']['pappus']['realisations'] if any(f['k'] is None for f in r['frames'])][0]
+    tgts = [r for r in SP['configs']['pappus']['realisations'] if any(f['k'] is None for f in r['frames'])]
+    if not tgts:
+        report('7 special Pappus frame: no uncertified coordinate system recorded in data/special.json', False)
+        print('FAIL_THREE_TOTAL_CLASSICAL_CONFIGS (%d failures)' % BAD[0]); sys.exit(1)
+    tgt = tgts[0]
     P2, L2 = tgt['points'], tgt['lines']; ok = True; sc = dict(cr2=0, exact=0, skipped=0, py_exhaustive=0)
     special_mins = []
     for rec in SI['instances']:
@@ -274,15 +284,21 @@ def main():
                 '%d %s\n%d %s\n' % (len(R_[j]), ' '.join(map(str, R_[j])), len(A_[j]), ' '.join(map(str, A_[j]))) for j in range(3))
             ok &= int(subprocess.run([ENUMALL, '0'], input=inp, capture_output=True, text=True, check=True).stdout.split()[0]) == rec['min']
         sc['exact'] += 1; special_mins.append(rec['min'] - v)
-    report('7 special Pappus frame: %d sampled instances (seed %d): %d CR2-certified (rechecked), %d non-CR2 (cr2.py DFS re-run, '
-           'exhaustive) of which %d exact minima (witness costs rechecked; %d also by pure-Python exhaustion%s), %d skipped f > 26'
+    report('7 special Pappus frame: %d sampled instances (seed %d): %d CR2-certified (rechecked), %d with no CR2 realisation '
+           'over GF(2/4/8) (cr2.py DFS re-run, exhaustive) of which %d have recorded exact minima: witness costs (upper bounds) '
+           'rechecked for all; lower bounds re-derived by pure-Python exhaustion for %d (f <= 18)%s; %d skipped f > 26'
            % (len(SI['instances']), SI['seed'], sc['cr2'], sc['exact'] + sc['skipped'], sc['exact'], sc['py_exhaustive'],
-              ', all replayed with enumall' if ENUMALL else '', sc['skipped']), ok)
+              ', and for all by replaying the vendored enumall' if ENUMALL else
+              '; the other lower bounds are recorded enumall output (pass --enumall BIN to replay them)', sc['skipped']), ok)
 
-    summary = dict(CR2_certified=n_cert + sc['cr2'], non_CR2_exact=sc['exact'], skipped=sc['skipped'],
+    summary = dict(CR2_certified=n_cert + sc['cr2'], noCR2_GF2to8_exact=sc['exact'], skipped=sc['skipped'],
                    universal_frames=nframes)
     mins = special_mins
-    print('   counts %s; min(cost - v) over the non-CR2 set: %s  (%.1fs)'
+    expected = dict(CR2_certified=2652, noCR2_GF2to8_exact=18, skipped=70, universal_frames={'desargues': 221, 'pappus': 151})
+    report('8 summary equals the recorded result (counts %s, min(cost - v) = 1, no cost < v)%s' % (
+        expected, '' if ENUMALL else '; lower bounds for f = 19..26 are recorded enumall output in default mode'),
+        summary == expected and bool(mins) and min(mins) == 1)
+    print('   counts %s; min(cost - v) over the set with no CR2 realisation over GF(2/4/8) and f <= 26: %s  (%.1fs)'
           % (summary, min(mins) if mins else 'n/a',
              time.time() - T0))
     print('PASS_THREE_TOTAL_CLASSICAL_CONFIGS' if not BAD[0] else 'FAIL_THREE_TOTAL_CLASSICAL_CONFIGS (%d failures)' % BAD[0])
