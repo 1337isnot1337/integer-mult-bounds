@@ -45,21 +45,21 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors.",
+  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors. Prove the sharp334 whole-port-space floor for every exactly57-term rational fit on the changed mask. Prove a308 lower bound for any-length decompositions of rank57 fits whose factors retain both column/row spans.",
   "scope_change_reason": "User selected rational/block P112 decoder research after PR2532 invalidated the original binary lift. The old cover obstructs natural fractional routes; change the cover to expand actual orthogonal-group freedom instead of optimizing the invalid binary invoice.",
-  "bottleneck_link": "Provides a correct lower-rank scalar mask benchmark for cross-group fractional decoding. The explicit334 copy bill still fails the favorable coverage screen, so no native implementation campaign or improved bound is claimed.",
+  "bottleneck_link": "The changed cover attains scalar rank57, but every57-term fit costs334. At any factor count, rank57 fits retaining both factor spans cost at least308. Both exceed2672/9, so successful scalar sharing must use exterior factor directions or higher fitting rank.",
   "budget_minutes": 60,
   "stop_rule": "Retain one verified mask/cost result after exact endpoint and independent checks. Reject the explicit supplier target at zero saving; do not infer a universal rational-decoder or cover obstruction from bounded motif searches.",
   "outcome": "partial",
-  "evidence": "CANDIDATE.json, exact identity-minor and disjoint-support proof in README, primary RESULT.json and independently implemented checker. Both original and new masks are certified.",
+  "evidence": "CANDIDATE.json, exact identity-minor and disjoint-support proof in README, primary RESULT.json and independently implemented checker. Both original and new masks are certified. RANK-TIGHT-PROOF.md plus two independent finite-premise/fixture checkers establish the scoped minimum-length cost floor. Independently implemented40-space closures support the additional any-length, both-spans cost theorem.",
   "author": "flyingviper (with OpenAI Codex)",
   "ai_assistance": "Substantial OpenAI Codex assistance in algebra, search, implementation, writing and testing. Three AI agents split independent scalar checks, cost/mask research, and fractional/operator exploration. No independent human or proof-assistant review is claimed.",
   "open_questions": [
     {
       "question": "Can a genuinely shared fractional decoder improve the new mask's334 port-space charge?",
       "why_it_matters": "The scalar rank obstacle has fallen99 to57, but break-even requires C<2672/9 and the selected-target optimistic allowance is smaller.",
-      "first_step": "Give explicit rational source/reader factors across distinct paired components, check every constrained coefficient, then price all full port-space support pairings before native work.",
-      "blocked_by": "The supplied indicator fit and its rational diagonal gauges have charge334. No favorable full bill or actual native word is supplied."
+      "first_step": "Use at least58 terms and exterior factor directions or a higher-rank fitting matrix. Check every constrained coefficient, then price complete group-space pairings.",
+      "blocked_by": "The exact57-term floor is334; at arbitrary term count, rank57 fits retaining both canonical factor spans cost at least308. Exterior directions and higher fitting ranks remain open."
     },
     {
       "question": "Can a different mask or operator contract supply genuinely cheaper payload transport?",
@@ -99,7 +99,7 @@
   },
   "family_gate": {
     "decision": "narrow",
-    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0.",
+    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0. Sharp334 floor for all exactly57-term rational fits on this mask. Any-length rank57 decompositions retaining both factor spans cost at least308.",
     "unknown": [
       "native caller",
       "routes and chronological ownership",
@@ -109,7 +109,7 @@
       "all-size admission",
       "bit-side transfer"
     ],
-    "next": "A cross-component rational/operator identity with a favorable fully charged budget; no expansion into physical construction for the supplied334-cost fit."
+    "next": "An explicit rational fit with exterior factor directions or higher fitting rank, with full-group charge<=296; no physical expansion before that screen."
   },
   "validation": {
     "environment": "3.12.14",
@@ -117,5 +117,56 @@
     "independent": "independent_check.py -I -O -B",
     "formal_kernel": false,
     "human_review": false
+  },
+  "cost_followup": {
+    "task_id": "coverage-law-change",
+    "scope_status": "changed",
+    "base_commit": "936fac15b1b1b59dc5285c713a77f9f3c07b2906",
+    "priority_revision": 5,
+    "dependency_pr": 2757,
+    "dependency_head": "c8216fca1ed2a301a95e7e0b1e5844d4cfda02c6",
+    "candidate_sha256": "dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b",
+    "selected_by": "Explicit user choice: cheaper rational decoder sharing across paired groups",
+    "target": "Exact fit of fixed changed triad mask with full group-space pairing charge <=296; this is only a zero-saving screen, not incumbent improvement",
+    "decision": "Retain both scoped obstructions in existing focused PR2757; narrow constructive work to exterior directions or higher-rank fitting matrices.",
+    "baseline": "Published source-bound rank57 fit cost334, independently reproduced, pending maintainer review",
+    "boundary": "112 scalar data ports, full source/target group spaces; all diagonal coefficients1 and forbidden off-diagonals0; free off-diagonals algebraically corrected without claiming native realization",
+    "proved_costs": {
+      "published_factor_copy_mass": 334,
+      "break_even": "2672/9",
+      "all_exactly_57_term_fits_minimum": 334,
+      "any_length_both_canonical_spans_lower_bound": 308
+    },
+    "unknown_costs": [
+      "source preparation",
+      "native scalar scheduling and hosting",
+      "routing",
+      "dirty cleanup",
+      "storage",
+      "precision",
+      "all-size recursion",
+      "bit supplier transfer"
+    ],
+    "next_test": "At least58 terms with exterior factor directions, or a higher-rank fitting matrix. Both-canonical-span families fail the zero-saving gate.",
+    "stop_rule": "One bounded research session; retain an exact new construction or decision-changing obstruction, otherwise concise negative search handoff. Do not represent a bounded search as a universal barrier.",
+    "overlap": {
+      "open_pr_snapshot": "2026-10-15T20:57:50Z",
+      "scope": "latest100 updated open PR bodies, current-main notes and earlier pinned PR2532; no overlapping same-mask cost theorem found in bounded coverage",
+      "limitation": "Live discussion refresh stopped at HTTP406 after discussion1587; remaining cached Discussions from20:19UTC. No retry/bypass.",
+      "nearest": [
+        "PR2757 (own starting point)",
+        "PR2532 strict mask/cost audit",
+        "PR2484 other-mask rank49",
+        "PR2277 rank-T root-code floors, different contract",
+        "PR2724 nine-term rank8 realization, different contract"
+      ]
+    },
+    "started_at_utc": "2026-10-15T20:42:04.228659+00:00",
+    "upstream_refresh": {
+      "checked_at_utc": "2026-10-15T20:57:50Z",
+      "canonical_main": "8e22a9d9f621c72ab5b299061c2be4c7f638fd3c",
+      "priority_revision": 5,
+      "decision": "Fast-forwarded isolated follow-up worktree; guidance, selected record and consumed inputs unchanged. Updated registered runner replayed. Existing PR retains construction source pins."
+    }
   }
 }
