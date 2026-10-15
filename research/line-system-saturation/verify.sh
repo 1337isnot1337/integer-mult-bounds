@@ -31,7 +31,17 @@ run "c3 two-point point X* on W(2k-1,2), k = 2..5" c3_twopoint.py
 run "c4 descent E7 -> D6 -> D4, E8 -> E7" c4_descent.py
 run "c5 the 14 saved L1_CONS systems" c5_l1cons.py
 run "c6 Delsarte dual certificate, uniform-angle arithmetic, signed-graph counts" c6_delsarte_uniform.py
-EXPECT=86
+run "c7 PR2222 rank correction: binom(50,3) = 19,600 < 19,648 (maintainer review)" pr2222_rank.py
+
+# Optional (needs GAP >= 4.12 with ctbllib; set GAP=/path/to/gap): smallest nontrivial degree of Sp(10,2) = 155
+if [ -n "${GAP:-}" ]; then
+  echo "== c8 GAP: smallest nontrivial ordinary degrees of Sp(6,2), Sp(8,2), Sp(10,2) = 7, 35, 155 (ATLAS tables)"
+  "$GAP" -q -b "$HERE/checks/gap/sp2n2_degrees.g" < /dev/null 2>&1 | grep -v '^#I' | tee "$OUT/logs/gap.log" | sed 's/^/   /'
+  grep -q GAP_SP2N2_PASS "$OUT/logs/gap.log" || { echo "FAIL c8 GAP check"; exit 1; }
+else
+  echo "== c8 GAP check SKIPPED (set GAP=/path/to/gap); recorded output: checks/gap/sp2n2_degrees.out.txt"
+fi
+EXPECT=87
 npass=$(grep -c '^PASS' "$OUT/all.out"); nfail=$(grep -c '^FAIL' "$OUT/all.out")
 echo "== done in $((SECONDS - T0))s: $((npass + 2)) PASS (2 in step 0), $nfail FAIL; logs in $OUT"
 [ "$nfail" = 0 ] && [ "$npass" = "$EXPECT" ] || { echo "FAILED: expected $EXPECT assertion PASS lines after step 0, got $npass PASS / $nfail FAIL"; exit 1; }
