@@ -2,7 +2,11 @@
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -184,6 +188,108 @@ class HistoricalReplay(unittest.TestCase):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):
                 checker.authenticated_input(ROOT, config)
+
+
+class HistoricalReplayEnvironment(unittest.TestCase):
+    """Exercise the real CLI without copying or replaying the full repository."""
+
+    def sandbox(self, root, body, test_body=None):
+        config = checker.CONFIG['r420']
+        (root / 'scripts/historical-ci-inputs').mkdir(parents=True)
+        shutil.copyfile(ROOT / 'scripts/replay_historical_check.py',
+                        root / 'scripts/replay_historical_check.py')
+        shutil.copyfile(checker.INPUTS / config['input'],
+                        root / 'scripts/historical-ci-inputs' / config['input'])
+        source = root / config['path']
+        source.parent.mkdir(parents=True)
+        source.write_bytes(b'live selected record\n')
+        manifest = root / config['manifest']
+        manifest.parent.mkdir(parents=True)
+        manifest.write_text(json.dumps({'files': {config['path']: config['sha256']}}),
+                            encoding='utf-8')
+        (manifest.parent / 'verify.py').write_text(body, encoding='utf-8')
+        (manifest.parent / 'test_fixture.py').write_text(
+            test_body or 'import unittest\nclass Fixture(unittest.TestCase):\n'
+            '    def test_replay(self):\n        self.assertEqual(2 + 2, 4)\n',
+            encoding='utf-8')
+        for args in [('init', '-q'), ('add', '.'),
+                     ('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
+                      '-c', 'gc.auto=0', 'commit', '-qm', 'historical replay fixture')]:
+            subprocess.run(['git', *args], cwd=root, check=True, capture_output=True)
+
+    def run_cli(self, root, level):
+        env = dict(os.environ, PYTHONOPTIMIZE=level,
+                   HISTORICAL_REPLAY_SENTINEL='preserved')
+        return subprocess.run(
+            [sys.executable, '-B', str(root / 'scripts/replay_historical_check.py'), 'r420'],
+            cwd=root, env=env, capture_output=True, text=True, timeout=30)
+
+    def test_inherited_optimization_cannot_hide_direct_or_nested_assertions(self):
+        bodies = {
+            'direct': "assert False, 'direct historical assertion'\n",
+            'nested': ("import subprocess, sys\n"
+                       "subprocess.run([sys.executable, '-B', '-c', "
+                       "\"assert False, 'nested historical assertion'\"], check=True)\n"),
+        }
+        for kind, body in bodies.items():
+            with tempfile.TemporaryDirectory() as td:
+                root = Path(td)
+                self.sandbox(root, body)
+                for level in ('1', '2'):
+                    with self.subTest(kind=kind, level=level):
+                        result = self.run_cli(root, level)
+                        self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
+                        self.assertIn(kind + ' historical assertion', result.stderr)
+                        self.assertNotIn('PASS_HISTORICAL_CHECK', result.stdout)
+
+    def test_unittest_command_also_rejects_assertions(self):
+        body = ('import unittest\nclass Fixture(unittest.TestCase):\n'
+                "    def test_replay(self):\n        assert False, 'unittest historical assertion'\n")
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.sandbox(root, "print('PASS_FIRST_HISTORICAL_COMMAND')\n", body)
+            for level in ('1', '2'):
+                with self.subTest(level=level):
+                    result = self.run_cli(root, level)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn('PASS_FIRST_HISTORICAL_COMMAND', result.stdout)
+                    self.assertIn('unittest historical assertion', result.stderr)
+                    self.assertNotIn('PASS_HISTORICAL_CHECK', result.stdout)
+
+    def test_passing_replay_preserves_environment_overlay_and_live_bytes(self):
+        body = '''import hashlib, os, pathlib, sys
+if sys.flags.optimize != 0 or os.environ.get('PYTHONOPTIMIZE') is not None:
+    raise RuntimeError('child optimization still enabled')
+if os.environ.get('HISTORICAL_REPLAY_SENTINEL') != 'preserved':
+    raise RuntimeError('unrelated environment lost')
+root = pathlib.Path(__file__).resolve().parents[2]
+if hashlib.sha256((root / 'certificates/selected-result.json').read_bytes()).hexdigest() != %r:
+    raise RuntimeError('historical overlay lost')
+print('PASS_ASSERTION_ENABLED_HISTORICAL_CHILD')
+''' % checker.CONFIG['r420']['sha256']
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.sandbox(root, body)
+            before = {p: p.read_bytes() for p in root.rglob('*') if p.is_file()}
+            for level in ('1', '2'):
+                with self.subTest(level=level):
+                    result = self.run_cli(root, level)
+                    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                    self.assertIn('PASS_ASSERTION_ENABLED_HISTORICAL_CHILD', result.stdout)
+                    self.assertIn('PASS_HISTORICAL_CHECK r420', result.stdout)
+                    self.assertEqual({p: p.read_bytes() for p in before}, before)
+
+    def test_optimized_parent_retains_tracked_artifact_mutation_gate(self):
+        body = "from pathlib import Path\nPath(__file__).write_text('changed tracked checker\\n')\n"
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.sandbox(root, body)
+            for level in ('1', '2'):
+                with self.subTest(level=level):
+                    result = self.run_cli(root, level)
+                    self.assertNotEqual(result.returncode, 0)
+                    self.assertIn('Replay changed tracked artifact', result.stderr)
+                    self.assertNotIn('PASS_HISTORICAL_CHECK', result.stdout)
 
 
 if __name__ == '__main__':
