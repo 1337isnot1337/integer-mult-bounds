@@ -114,11 +114,15 @@ python3 -I -B research/r439-one-slot-multicolumn-interleave/search/search.py --s
 ```
 
 The runs are recorded in [SEARCH.json](SEARCH.json), each a single process
-under CPython 3.14.4. **Seed 6, 30,000 walks** gave DP optimum 84 over the
-pooled options, using a different schedule of the same cost. WITNESS.json
-itself came from an earlier exploratory pass: the same tabu walks on a cut grid
-of step 6 plus the breakpoints {7,16,29,61,63,104,105,126,136,176,182,184,192,303},
-followed by the same DP. That pass also gave 84 and was replayed in full.
+under CPython 3.14.4. **Seed 6 (30,000 walks) and seed 606 (60,000 walks)** both
+gave DP optimum 84 over their pooled options, using a different schedule of the
+same cost, and both found the same pooled per-column minima. WITNESS.json
+itself came from an earlier exploratory pass that was not packaged. That pass
+ran the same tabu move on every interval of the cut grid
+{0,6,...,210} ∪ {7,16,29,61,63,104,105,126,136,176,182,184,192,303} for columns
+0, 1, 4, 6 and 8 (seeds 6000+j), used exact single-cut costs for the other
+columns, and then ran the same DP. It also gave 84; verify.py replays its
+schedule in full.
 
 - **Exact per-column lower bounds (full range, so valid for every interval):**
   column 3 has minimum weight exactly 4; every other column needs >= 5 taps.
@@ -126,8 +130,11 @@ followed by the same DP. That pass also gave 84 and was replayed in full.
 - **Heuristic pooled per-column minima** (any interval, ignoring the slot):
   10, 14, 8, 4, 5, 11, 12, 5, 12 for columns 0..8, a sum of 81. The cheaper
   representations of columns 1, 6 and 8 have cores that collide with column 0's
-  `[42,182]` or column 4's core `[1,17]` under one slot. The DP over the pooled options
-  found nothing below 84.
+  `[42,182]` or column 4's core `[1,17]` under one slot. Column 1's cost-14 cores
+  all start at cut 18 and end at cut 126 or later. Column 6 costs 12 only at cut 6
+  or on intervals that start at cut 6 or 30 and end at cut 194 or later. Column
+  8's cost-12 cores all contain cut 136. Column 0's cost-10 cores are `[11,182]` and `[50,182]`. The DP over the
+  pooled options found nothing below 84.
 - This is a **failed search beyond 84 over a finite heuristic option pool. It is
   not a lower bound**: 84 is not claimed optimal, and the gap is between 44
   (exact) and 84.

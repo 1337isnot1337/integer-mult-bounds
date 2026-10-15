@@ -44,7 +44,7 @@
   "scope_change_reason": "The original H2/K replacement lemma is covered by retained PR1194/1311/1806, and starship-s narrowed the same card to native handoff (PR2421). PR2407 TASK.json open question 2 (coordinated one-slot multi-column interleaving) was explicitly unsearched and unclaimed; it is concrete and priced before implementation.",
   "bottleneck_link": "Finite scalar side result on the bit supplier word: every recursive rank charge and the paid histogram {1:1323,2:1342,3:79,4:44,5:102,6:11,7:19} are unchanged, so there is no kappa change and no selected-supplier admission. It shows the one-slot lifetime constraint is not what stops multi-column scatter savings on this word.",
   "budget_minutes": 90,
-  "stop_rule": "Search wall time <= 15 min (nice, single process, <1.5 GB); stop at experiment deadline minus 25 min. Packaged search: seed 6, 30,000 tabu walks, then exact DP over the pooled options; first schedule below 88 replayed in full. No claim that 84 is optimal.",
+  "stop_rule": "Search wall time <= 15 min (nice, single process, <1.5 GB); stop at experiment deadline minus 25 min. Packaged seeded search: seed 6 (30,000 tabu walks) and seed 606 (60,000 walks), each followed by an exact DP over the pooled options; both reach 84 and nothing lower. No claim that 84 is optimal.",
   "outcome": "completed",
   "evidence": "WITNESS.json (9 segments, 84 taps); verify.py full 661-dirty-column forward/backward literal replay, invoice, precision guards, byte-identical PR2407 calibration streams and 13 rejecting controls; RESULT.json receipt; search/search.py seeded search record SEARCH.json (failed search beyond 84, exact weight<=4 exclusion per column).",
   "author": "thakrarsagar",
