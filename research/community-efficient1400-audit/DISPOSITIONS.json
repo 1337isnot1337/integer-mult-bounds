@@ -20,7 +20,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -31,7 +31,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/1155.json"
+        "research/community-efficient1400-audit/packets/1155.json",
+        "research/community-efficient1400-audit/checks/check-1155.json"
       ]
     },
     {
@@ -192,15 +193,17 @@
       "current_head": "34d86fb6c128e87ec3f2841c560869c11a8e0764",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-shear-transcript-floor"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "QQ16 shear/transcript information floor: reviewed the ordered arbitrary-invertible-shear kernel, retained-tail invisibility and credited fourth-moment bound. Exact noncommuting models, all six source product tables, exported replay and corruption controls pass. At least sixteen uniform scalar owner arrays are necessary under the fixed selected-observation/transcript contract, not sufficient. Native packet interpretation and whole-supplier admission remain inherited or open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -421,7 +424,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -432,7 +435,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2387.json"
+        "research/community-efficient1400-audit/packets/2387.json",
+        "research/community-efficient1400-audit/checks/check-2387.json"
       ]
     },
     {
@@ -453,15 +457,17 @@
       "current_head": "0616027e3d31f5d50d329c6b78c4f7927cd0b2e3",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/r439-donor466-enlarged-seam"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Enlarged R439 B508 seam: reviewed forward/inverse dependence, all 1992 left cuts and eleven forced rational frames. Independent elimination, 21912 witnesses and nonlinear dirty-workspace controls pass. The sharp rank25 bound applies to these eleven wires at the specified cut; it is not global circuit optimality or a new supplier.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -756,19 +762,23 @@
       "current_head": "f43a83977530a52092e9196b060eb3c64620b8c3",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "notes/agent-52-seven-source-duo-task-card.md",
+        "research/connector-seven-source-duo"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Seven-source DUO connector: reviewed prefix-difference universality and dirty-state restoration. Both exact words, all 128 masks, 945-word predecessor histogram and mutation controls pass. The 22-call/24-add word saves two queries over the singleton baseline; the 21-call/26-add word trades a query for two adds. Annotation-only Pareto correction retains both certificates. No physical connector, optimality proof or supplier is claimed.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2396.json"
+        "research/community-efficient1400-audit/packets/2396.json",
+        "research/community-efficient1400-audit/checks/check-2396.json"
       ]
     },
     {
@@ -870,7 +880,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -881,7 +891,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2399.json"
+        "research/community-efficient1400-audit/packets/2399.json",
+        "research/community-efficient1400-audit/checks/check-2399.json"
       ]
     },
     {
@@ -943,7 +954,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -954,7 +965,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2402.json"
+        "research/community-efficient1400-audit/packets/2402.json",
+        "research/community-efficient1400-audit/checks/check-2402.json"
       ]
     },
     {
@@ -1347,15 +1359,17 @@
       "current_head": "f2c93e76f84ad4ef14441d97e731cc761db0975c",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-even-map-native-cut"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sharp QQ16 even-map native cut: reviewed the owner-covariant characteristic-vector invariant and rank24 endpoint minor through B_1_2[:80]. Exact affine one-layer replay, free noncommuting all-layer endpoint identity, 8192 native recipe columns, independent realified determinant and controls pass. The 24-line upper word is typed and restores all dirty helpers. Sharpness concerns atomic native-line count with free scalar/even-translation maps; not scalar/map cost, other map classes or a new supplier.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1455,19 +1469,23 @@
       "current_head": "71d10b283795d071c3680797f0e63856e6499fd2",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/r439-interleaved-native"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Native replay of the exact PR2407 R439 interleaving: reviewed full record/metadata binding, retained predecessor replay and unchanged native legality plus 5/9/11-stage column engines. Dedicated macOS C++/Boost replay matches all committed receipts for both schedules and four mutations, including every omitted-bridge control. Native engines ignore phase labels; the complete RAW6 hash supplies that provenance check. Finite native execution does not admit physical COPY, global hosting, recursive scratch or a new supplier.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2421.json"
+        "research/community-efficient1400-audit/packets/2421.json",
+        "research/community-efficient1400-audit/checks/check-2421-supplement.json",
+        "research/community-efficient1400-audit/checks/check-2421.json"
       ]
     },
     {
@@ -1590,15 +1608,17 @@
       "current_head": "b44ede42e5e90dedf311362f4ff23ec46b9b70c1",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/r439-two-writer-reframing"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "R439 two-writer reframing: reviewed the complete fixed-word edit domain, scalar completions and least forced carries. All 52 scalar-saving edits have genuine rational leakage and are infeasible. Supplemental audit checks all 312 exclusions, exact legal COPY spans, actual billing rejection and concavity of the two least legal profiles. README corrected to leave larger-join moment optimization of the two scalar-cost-increasing survivors open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1625,7 +1645,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1636,7 +1656,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2429.json"
+        "research/community-efficient1400-audit/packets/2429.json",
+        "research/community-efficient1400-audit/checks/check-2429.json"
       ]
     },
     {
@@ -2749,7 +2770,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Declared finite abstract-echo replay passes, but scope revision requested: conditional shared histogram/projected exponent are not an instantiated selected supplier. Reader/intertwiner realization, common-sink/window delivery and host precision remain unproved. https://github.com/CrocSwap/integer-mult-bounds/pull/2464#issuecomment-6204698882",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2890,15 +2911,17 @@
       "current_head": "baa90ee8176931e697d91a9024114ee2e9a189ea",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-future-x-query"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Future-X QQ16 local query: reviewed the residual native line after future-Y alignment and the normalized read/undo construction. Exact phase polynomials, all104 independent logical inputs, 98304 signed native kernel columns and controls pass. The word restores96 borrowed sources and returns8 owned outputs, charged192 rank-one children,576 total maps and3088 scalar allowance. Global delivery, retained-output lifetime, precision and supplier admission remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2957,15 +2980,17 @@
       "current_head": "1b2eee3bf1ec67e68c0b0fa7f47c7b2a66febe56",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-cut-retention-census"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "QQ16 cut-retention census: reviewed exact896-input constant-subspace forms, symbolic write-set survival, scalar/cover-map and same-port-span exclusions. All224 observations require120 retained copies at the first decode point and224 at the terminal; independent decoder and mutation checks pass. Changed-read32-record lead is distinct from the literal contract and later PR2480 improves it. External price3 source hash and three reproduction values were independently checked; pricing remains an inherited convention, not admitted storage or supplier cost.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3467,15 +3492,17 @@
       "current_head": "4823273c8163e4c72472bdf7d42202e2c12d2e46",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/paired-plane-minrank-bracket-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact paired-plane fitting rank49: reviewed the field-uniform I44 plus five-cycle core lower bound and 49 disjoint-support upper certificate, as well as the exact rational fractional-colouring dual. Independent mask, clique/colouring and small-field controls pass. The optional large twofold-colouring search is not needed for the supplied bound and was not rerun. This closes the stated scalar mask problem, not decoder frame cost or supplier admission; PR2471 remains credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3501,15 +3528,17 @@
       "current_head": "750c05c22b2fcc58baa1ca73bf1cbfe176c2627d",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-claim-lineage-ledger"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "T74 historical claim ledger: reviewed exact rational comparison/rounding, pinned README quote binding, complete declared release-gate parsing and315 rejection controls. Frozen95 statements and82 gates reproduce, with11 text errors and11 checked corrections. Fresh live check finds8 changed heads,7 changed bodies and4 vanished body quotes: retain as a dated snapshot, not current accusations or construction validation. No claimed kappa is independently rederived.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3535,15 +3564,17 @@
       "current_head": "4e20115fea8831128578ff9ba9b146798b4f98a3",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/gaussian-prepared-state-admission"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Immutable Gaussian prepared-state admission: reviewed the complete runtime field capture, unconditional private recertification, immutable snapshots and reconstruction before each multiplication. The original pinned source reproduces accepted stale-certificate products 1, 8 and 27 after compression scaling; fresh certification rejects the altered maps. Independent reproduction, 91 correct-product/coefficient cases and 25 rejection controls pass. This repairs the opt-in dense-reference reuse boundary, inherits its analytic proof and does not change the selected supplier.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3569,19 +3600,22 @@
       "current_head": "2f79aebb959aa9e528c5c7d5f1314b685190e11f",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/h2sem-matching-f-invoice"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "H2-sem seed7 helper matching: reviewed the disjoint dirty-helper conjugation, complete forward/reverse661-column boundaries, semantic N and unchanged5129 rank bill. Exact replay improves seed42 by14 ADDs,1576 forward-envelope units and8612 reverse-envelope units, retaining guard margins. Export/corruption controls pass. The broader256-seed screen is retained historical search evidence and was not rerun; no matching optimality, hosting or new kappa is admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2487.json"
+        "research/community-efficient1400-audit/packets/2487.json",
+        "research/community-efficient1400-audit/checks/check-2487.json"
       ]
     },
     {
@@ -3602,15 +3636,17 @@
       "current_head": "b8c02d17403be6f8babdc4d683d9cd1c52424f1f",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/complex-ceiling-domain-guard"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Physical-domain guard for the packing calculator: reviewed exact type, nonnegative charge/count, positive grid, coverage and halving checks before calling the pinned unchanged engine. The selected bracket, negative-centre counterexample, 29 rejected malformed inputs and three admissible relaxation cases pass. Opt-in engineering contribution; it neither proves physical realizability nor changes a selected input or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3636,19 +3672,22 @@
       "current_head": "9f397bb6ef45fc33bb152915aeae638db1a83d35",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/fintm2-reachable-alphabet"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "FinTM2 reachable-alphabet boundary: reviewed the all-prefix symbol invariant, complete finite state/label enumeration and fixed statement-depth primitive-action bound on source-extracted dependent stack semantics. Fresh Lean4.34.1 compilation checks all four named theorems with the retained standard axiom reports; finite models and actual corruption controls also pass. Seven external snapshots were fetched at exact commits and matched byte-for-byte. Full Mathlib-name instantiation, finite-table tape compilation and the external multiplier build remain separate written or open obligations.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2490.json",
+        "research/community-efficient1400-audit/checks/check-2490-supplement.json",
         "research/community-efficient1400-audit/checks/check-2490.json"
       ]
     }
