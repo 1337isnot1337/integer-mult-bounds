@@ -1431,15 +1431,17 @@
       "current_head": "335e78619a17b7c418e11306f86a72fd366de35b",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-coalesced-private-reuse"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Gareth Davidson's composition of David Arias's PR2152 coalesced word with Cinna Davis's PR2219 private helper reuse. Reviewed the full scalar/frame chronology and exact 735-input restoration, source-event mapping, retained public boundaries, rank-9 unused-helper charge and complete owner-window bill. Native signed Pauli/global phases, 208 adapters and 4,096 private Gaussian columns pass, with ten semantic/source controls. The H2+H7 to H9 replacement improves the finite moment but the actual conditional invoice remains below selected kappa. No new global/backward/precision/all-size supplier; all predecessor credits retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2471,15 +2473,17 @@
       "current_head": "b2653c1bcf8fefa474b8d5c8508bbacbbcfd42c7",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-coalesced-private-reuse-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "SHIN09-git's independent rational-row/frame corroboration of the coalesced private reuse in PR2305, with original-word control and a separately priced released-boundary variant. Reviewed all 339 retained chart changes, 735 independent dirty inputs, eight private lifetimes, five semantic controls and complete frozen native checks for both variants. Boundary-preserving H2+H7 to H9 agrees with PR2305; retiring the rank-9 boundary changes the owner contract and is explicitly not hosted. Exact conditional/optimistic invoices exclude a one-percent gain; no new supplier or kappa. David Arias, Cinna Davis and Gareth Davidson receive explicit credit.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2758,15 +2762,17 @@
       "current_head": "2a5fa34a967e7567abf01611f92a6ab69e8c901a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        "research/p104-prefix-minrank"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "AAAmirinu's exact early-prefix shared-space minima 104,103,102,101,100,99 on six intervals through cut2717. Reviewed the full dirty-coordinate lifting argument, rectangular kernel isomorphism, and iff projector-feasibility lower bound; all 4,059 cuts/280 columns and matching endpoint witnesses replay, with eleven optimized controls. Independently reran the separate projection generator and matched the entire contact payload. This is rational pooled information-space dimension, not a chronological correction, native transport cost or supplier; source and late-prefix handoff credits retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
