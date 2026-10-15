@@ -41,21 +41,27 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "For the twelve open T74 handoff-line conditional-kappa PRs: pin each claimed kappa, re-check every stated pairwise comparison, and map which claims have independent checks.",
+  "actual_scope": "For the T74 line (15 open conditional-kappa PRs plus the PR2265 baseline): pin each claimed kappa; transcribe and re-check the stated numbers between pinned PRs in PR bodies and pinned READMEs; parse and check the predecessor gates in every pinned verify_release.py; map which claims have independent checks.",
   "scope_change_reason": "Drawn on the consolidation track (seed 99); the concrete misleading claims are inter-PR comparison statements on the busiest open line, so the card is narrowed to that ledger.",
-  "bottleneck_link": "Reviewers of the T74 cluster need a correct pinned ordering and an honest list of what is independently verified; three comparison statements are wrong.",
+  "bottleneck_link": "Reviewers of the busiest open claim line need a correct pinned ordering, to know whether the stated comparisons (and the release gates behind them) are right, and an honest list of what is independently verified.",
   "budget_minutes": 45,
-  "stop_rule": "Stop after the pinned ledger, the comparison check (with asserted mismatch set) and the independent-check map.",
+  "stop_rule": "Stop after the pinned ledger, the statement check (asserted flagged set, controls), the gate check and the independent-check map; two adversarial review rounds folded in.",
   "outcome": "completed",
-  "evidence": "ledger.py: 12 pinned claim files; 12 stated comparisons, 9 consistent, 3 mismatches (PR2302->PR2269, PR2374->PR2312, PR2435->PR2312; each stated number is the delta to a different PR); PR2435 README quotes its own kappa as PR2374's.",
+  "evidence": "ledger.py: 16 pinned claim files; 95 statements (32 body, 63 README), 84 consistent (2 ambiguous 2269/2281 quotes), 11 flagged: wrong-target differences (PR2302; PR2374 body+README; PR2435 body+README), self-kappa quoted as predecessor's in READMEs of PR2435/PR2447/PR2474, stale 'about 1.28e-5' boilerplate in PR2288/PR2302/PR2312 READMEs; 82 release gates attributed to pinned PRs (55 exact, 17 conservative, 10 PR2265 43-digit truncation 9.7e-45 below) all pass, so no kappa or gate is affected; one gate label slip (PR2363 gate reports PR2322) in 5 scripts; 315/315 negative and 11/11 positive controls; --live drift 0 at snapshot.",
   "author": "Sagar Thakrar",
   "ai_assistance": "Prepared with substantial AI assistance: Claude Code (Anthropic, Claude Opus 5.5) wrote the ledger script and text. No independent human review is claimed.",
   "open_questions": [
     {
-      "question": "Is PR2462's owner fill exactly optimal for its words, and do its words recount to its report?",
-      "why_it_matters": "PR2462 is now the top T74 claim and has no independent check.",
-      "first_step": "Run PR2442's owner_optimum.py and PR2446's checker on PR2462's pinned files.",
-      "blocked_by": "PR2462's words and owner map must be pinned and adapted to the checker."
+      "question": "Are the owner fills of PR2436, PR2462 and PR2474 exactly optimal for their words, and do the words recount to their reports?",
+      "why_it_matters": "These are the top three T74 claims and have no independent check.",
+      "first_step": "Run PR2442's owner_optimum.py and PR2446/PR2466's checker on the pinned files.",
+      "blocked_by": "The words and owner maps must be pinned and adapted to the checker."
+    },
+    {
+      "question": "Can each claim file record its predecessors as (PR, exact kappa) so this ledger becomes automatic?",
+      "why_it_matters": "The release gates already hold these values; the text errors found here come from hand-written comparison sentences.",
+      "first_step": "Propose an optional 'predecessors' field for OUTER-CLAIM.json in the package guide.",
+      "blocked_by": "Maintainer agreement on the claim-file schema."
     }
   ]
 }
