@@ -19,14 +19,7 @@
       "usage": "provenance",
       "git_blob": "759d18d73dbab5d7620ce61395110aa57c06f901",
       "sha256": "127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866",
-      "note": "Literal-era digest retained as provenance; working production file ships packed lanes (see OPTIMIZED digest in verify.py)."
-    },
-    {
-      "path": "research/omission-lanes-production/baseline.py",
-      "usage": "input",
-      "sha256": "127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866",
-      "git_blob": "759d18d73dbab5d7620ce61395110aa57c06f901",
-      "note": "Vendored literal atlas for reference-engine comparisons."
+      "note": "Literal-era digest retained as provenance; working production file ships packed lanes (see OPTIMIZED digest in verify.py). Live equivalence uses package baseline.py plus working production path."
     },
     {
       "path": "research/r439-omission-atlas-seed81/CERTIFICATE.json",
@@ -54,10 +47,10 @@
     },
     {
       "path": "research/omission-lanes-seed92/replay.py",
-      "usage": "input",
-      "sha256": "9bfb3dfd186534467213c48c2ef88b226dc02aa6b8ab0312205b1b67a7ce928b",
-      "git_blob": "ef9456d16ff4930cfa0ed6dc338c8145c885c97a",
-      "note": "Live opt-in packed kernel (post production-wiring hygiene)."
+      "usage": "provenance",
+      "sha256": "041b36011d32d034843e279544336f696d39eaadab303cc386930db25d694024",
+      "git_blob": "851d9b715eb6b56a27a312ae0bb4129c3c9c4376",
+      "note": "Opt-in packed kernel at base_commit; working tree may carry production-wiring hygiene edits."
     }
   ]
 }

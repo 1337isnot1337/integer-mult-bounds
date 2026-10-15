@@ -22,10 +22,10 @@
     },
     {
       "path": "research/r439-omission-atlas-seed81/README.md",
-      "usage": "input",
-      "git_blob": "8b8738944916ac50ac0c03e6b1552a9e0c0ec135",
-      "sha256": "812fabd455a7d1f77331e59d57150f28ff8ddc6ff47f9a54c5b24970f6dcc00a",
-      "note": "Refreshed after production packed-lanes README note; documentation pin only."
+      "usage": "provenance",
+      "git_blob": "7a5feccdb32ebc8441317b31b7bbdfa82862a7b6",
+      "sha256": "6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f",
+      "note": "Atlas README at package base_commit; working tree may carry production packed-lanes note. This package does not execute the atlas checker."
     },
     {
       "path": "research/r439-omission-atlas-seed81/verify.py",
