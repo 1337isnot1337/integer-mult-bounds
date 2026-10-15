@@ -111,6 +111,8 @@ Use the overlap helper before choosing a card and refresh before submission:
 ```sh
 python3 scripts/find_overlap.py --task connector-alphabet-change
 python3 scripts/find_overlap.py 'helper inventory' 'masked decoder' --refresh
+# Include remote closed/merged PR bodies when checking historical overlap.
+python3 scripts/find_overlap.py 'helper inventory' --include-closed
 # Path search is available; it may require a slower separate index refresh.
 python3 scripts/find_overlap.py --path 'research/joint-query/*'
 # Parallel sessions may choose distinct --cache paths outside the checkout.
@@ -120,8 +122,15 @@ python3 scripts/find_overlap.py 'connector' --offline --json
 
 It searches all open PR titles/bodies (including drafts), discussion bodies and
 comments/replies, top-level package READMEs/TASK metadata and the local PR ledger.
-Closed PRs are represented only through local notes and the ledger. It does not
-search every code diff or nested source file. Remote pagination is complete when
+By default, closed PRs are represented only through local notes and the ledger.
+`--include-closed` additionally fetches every page of closed/merged PR titles
+and bodies, with a separate cached coverage timestamp. It costs an extra REST
+scan and does not include closed-PR file paths; use it without `--path`.
+An offline run can use that corpus only after it has been cached. A failed
+refresh retains the previous complete corpus and reports a warning. When no
+usable corpus exists, coverage is reported as missing. Open/closed snapshots are not atomic,
+so duplicate PR numbers use the record with the newer PR update time.
+The helper does not search every code diff or nested source file. Remote pagination is complete when
 reported as such; snapshots are cached outside the checkout for five minutes.
 Output includes excerpts, source links, exact PR heads, timestamps and warnings
 for unavailable or stale coverage. No matches does not establish novelty.
