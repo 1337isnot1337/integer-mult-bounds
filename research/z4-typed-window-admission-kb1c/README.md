@@ -220,23 +220,31 @@ and all six assembly probes at their exact rejection points.
 
 ## Credit and scope
 
-Mechanism and certified child family: **PR 1391 / PR 1410** (Cinna Davis
-with OpenAI Codex assistance), extending Ross Richardson's PR 1287 and Sagar
-Thakrar's PR 1227; the heterogeneous variants are PR 1768 / PR 2098. The
+Mechanism and certified child family: **https://github.com/CrocSwap/integer-mult-bounds/pull/1391 / https://github.com/CrocSwap/integer-mult-bounds/pull/1410** (Cinna Davis
+with OpenAI Codex assistance), extending Ross Richardson's
+https://github.com/CrocSwap/integer-mult-bounds/pull/1287 and Sagar Thakrar's
+https://github.com/CrocSwap/integer-mult-bounds/pull/1227; the heterogeneous
+variants are https://github.com/CrocSwap/integer-mult-bounds/pull/1768 and
+https://github.com/CrocSwap/integer-mult-bounds/pull/2098. The
 priced whole-construction instantiation and the named hosting obstruction:
-**PR 2464**; the legal typed-window schedules and the priced ledgers: **PR
-2595** (both this task's direct predecessors). The fixed-reader fusion
+**https://github.com/CrocSwap/integer-mult-bounds/pull/2464**; the legal
+typed-window schedules and the priced ledgers:
+**https://github.com/CrocSwap/integer-mult-bounds/pull/2595** (both this task's direct predecessors). The fixed-reader fusion
 tariff qualification is PR
 https://github.com/CrocSwap/integer-mult-bounds/pull/2626 (petalas,
 Discussion 2610); the typed-contract-vs-recursive-children finding is PR
 https://github.com/CrocSwap/integer-mult-bounds/pull/2500 (Discussion 2488).
-The pinned chain is Jeremy Kothe's PR 1087 package
+The pinned chain is Jeremy Kothe's
+https://github.com/CrocSwap/integer-mult-bounds/pull/1087 package
 (`research/gauge44-slots-t16`) with Hao Yan's T16 controller and the credited
 bit/complex lineage, orchestrated by Douglas Colkitt; its vendored source is
 `research/complex-k492-owner-repair/vendor/multicold` and its frozen receipts
 are `research/community-frontier1042-audit/selected-replay.tar.gz`. The
-immutable-window sentence is the PR 386 bit geometry (Dylan Crow lineage) as
-pinned in `research/split-centres-global`; the adjacent-pair owner census is
+immutable-window sentence is the bit-geometry artifact `PR386-BIT-GEOMETRY.txt`
+in https://github.com/CrocSwap/integer-mult-bounds/pull/386 by Zhihao Chen
+(jacklightChen, with OpenAI Codex assistance), whose local E8 bit word is Dylan
+Crow's from https://github.com/CrocSwap/integer-mult-bounds/pull/370 (with
+Anthropic Claude assistance), as pinned in `research/split-centres-global`; the adjacent-pair owner census is
 `research/selected-centre-adjacent-pair-seed01fcb1`; the published `D/E`
 diagnostic is `research/selected-suppliers-de-diagnostic` (Navinor) and the
 pricing model is Douglas Colkitt's `research/complex-local-word-ceiling`.
