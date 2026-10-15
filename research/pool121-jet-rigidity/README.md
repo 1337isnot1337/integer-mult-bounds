@@ -1,0 +1,155 @@
+# First-order jet rigidity of the 121-line unit-world pool (#1166 OPEN ENDS item 5b)
+
+**Status: research note / scoped negative result. No κ claim, no supplier or word change.**
+(A) at T = 3 (cost ≥ v for every exact three-total decoder) is neither proved nor refuted here.
+
+## What was asked
+
+DreamingOfClouds' OPEN ENDS post on #1166 (item 5b) proposes the #2111 121-line T = 3 pool as a test for new
+lower-bound techniques. Its best certificate is MCC 119 against v = 121. The pool consists of all (p, q) with p and q
+among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition used is that of #2111
+`checks/mcc_cex.py`, with the same line order. This package applies the B-independent first-order jet certificate of
+#2162 (Corollary J, built on Lemma VCR2 and Lemma F) to the whole pool and its sub-configurations.
+
+## What was learned (all exact over F2; `verify.py` replays everything)
+
+1. **Rigidity, so Corollary J fails on the pool.** The pool has 2646 incidences. All of them are binomial, so there
+   are no wild incidences. It has 30 harmonic lines (|D(t)| = 2). In the unit world every homomorphism
+   φ: Q* → K* into a field of characteristic 2 has φ(±1) = 1, because φ(−1)² = 1 forces φ(−1) = 1. So φP and φQ are
+   the 0/1 support vectors for every admissible φ, and the system (J1) has the same F2 coefficients for every φ and
+   every K. (J1) has **2646 rows, 510 unknowns and F2 rank 266**. The 2v + 3 = 245 explicit *trivial motions* are the
+   per-object scalings X(t) = c·1_{π(t)} and Y(s) = d·1_{σ(s)}, plus the torus X_j = Y_j = a_j. They satisfy (J1) and
+   span dimension **244 = 510 − 266**. So the first-order solution space is exactly gauge + torus: the pool is
+   infinitesimally rigid at the Fano collapse. Every δ′_t with |D(t)| = 2 vanishes on gauge and torus. Hence
+   **all 30 of the 30 harmonic lines are immovable, for every admissible φ and every field of characteristic 2**, and
+   Corollary J cannot certify anything on the pool.
+2. **Dual witnesses.** `data/flows.json` gives one explicit Lemma F flow for each harmonic line. Each flow is a set
+   of 10–14 incidence edges whose (J1) rows sum to δ′_t. As Lemma F predicts, every flow has an even number of edges.
+   Checking the flows needs no elimination.
+3. **Minimal immovable unit atoms (search).** The search runs seeded greedy single-pass deletion (seed 43). It starts
+   from each flow's support with 40 orders per harmonic line, and from the whole pool with 8 orders. Immovability is
+   upward closed, so each output is inclusion-minimal. The search found **41 orbits under the order-48
+   signed-permutation group** of inclusion-minimal sub-configurations on which Corollary J fails. They have
+   **v = 5 … 10** and 8–17 free incidences, and each has exactly one immovable harmonic line. Every one-line deletion
+   of an atom is jet-certifiable. For each atom:
+   - It is **not CR2** over GF(2), GF(4), GF(8) or GF(16) (exhaustive DFS, vendored #2162 `cr2.py`), so neither
+     char-2 certificate applies.
+   - Its exact minimum cost is **v + 1 to v + 5**. Two independent enumerations agree on both the minimum and the
+     number of minimisers: the vendored C `enumall.c` (generator) and a separate Python enumerator (`lib/indep.py`,
+     replayed in `verify.py`). So (A) holds on every atom with slack ≥ 1, and **no counterexample to (A) was found**.
+   - The **B-dependent** first-order jet (VCR2 with E = supp B, as in #2162 §5) passes on all **1301 of 1301** exact
+     minimisers.
+
+   The two 5-line atoms are much smaller than jf0..2 of #2162 (v = 9–11, non-unit). The smallest has exact minimum
+   cost 6 and a unique minimiser. Here is that atom (immovable line 4, flow
+   `(1,2),(1,3),(2,0),(2,3),(2,4),(3,0),(3,2),(4,2)`):
+
+   | t | p(t) | q(t) |
+   |---|---|---|
+   | 0 | (0,1,0) | (1,1,0) |
+   | 1 | (0,1,1) | (0,1,0) |
+   | 2 | (1,-1,-1) | (1,1,-1) |
+   | 3 | (1,-1,0) | (0,1,-1) |
+   | 4 | (1,0,1) | (1,0,1) |
+
+4. **Q4, a time-boxed failed search.** Restricting an admissible B of the pool to S gives an admissible B for S, and
+   each block rank can only drop. So cost(pool) ≥ cost(S) ≥ |S| for any Corollary-J-certifiable S. Greedy insertion
+   (16 seeded orders, replayed by `make_data.py`) found certifiable sub-pools of **103 lines** and nothing larger. A
+   1-out/2-in swap pass from a 103-line set found no improvement. That swap pass was a scratch run, not included and
+   not replayed: it is recorded evidence only. Two
+   such sub-pools are checked:
+   - the stored one, which is the pool minus the 17 lines whose point or line is (1,1,0), minus ((1,-1,0),(1,-1,0));
+   - the pool minus the 18 lines whose point is (0,1,±1).
+
+   This gives cost(pool) ≥ 103, which is weaker than Theorem U (106) and MCC (119) of #2111. **Exact side
+   statement:** the 91 non-harmonic lines are certifiable, but adding any single harmonic line to them makes that line
+   immovable.
+
+**Reading.** On the pool, the first-order char-2 jet is blocked everywhere by small, local Lemma F flows of 5–10 lines.
+It is not blocked by a global phenomenon. These atoms still satisfy (A) with slack, so the failure belongs to the
+certificate, not to (A). Jet failure is **not** evidence against (A).
+
+## Reproduce
+
+```sh
+python3 -I -B research/pool121-jet-rigidity/verify.py      # stdlib only, about 20 s; no compiler needed
+```
+
+Expected output: every line starts with `PASS`, followed by the atom table and the final line
+`PASS pool121 jet rigidity: (J1) rank 266 / solution dim 244 (= gauge + torus) / 30 of 30 harmonic lines immovable with Lemma F flows; 41 minimal immovable atom orbits (v 5..10), all non-CR2 (GF(2..16)) with exact min cost >= v + 1; Q4 search best certifiable S = 103 < 106 <= 119`.
+The exit code is 0. Any failed check prints `FAIL` and exits 1.
+
+To regenerate the data (needs `cc`; about 25 s; deterministic for seed 43):
+`TMPDIR=/some/tmp python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py`.
+
+**Checks** (`verify.py`):
+- V0: hashes of the vendored files.
+- G1/G2: the pool, harmonic lines, no wild incidences, and the order-0 collapse.
+- G3: (J1) rank, from two code-disjoint implementations. Implementation A (`lib/jet.py`) does bitmask elimination by
+  leading bit. Implementation B (`lib/indep.py`) does sparse-set Markowitz elimination and does not import A.
+- G4: the gauge + torus dimension identity and immovability.
+- G5: the flows.
+- G6: the atoms: minimality, CR2 DFS re-run (164 runs), and exact cost recomputed in Python.
+- G9: B-dependent jets on the minimisers.
+- G7: Q4 and the exact non-harmonic statement.
+- G8: positive control. `tied_min` (#2111) consists of 12 pool lines, all of them movable, so Corollary J applies,
+  as #2162 Theorem T′ states.
+
+**Negative controls** (`verify.py` asserts that each is rejected):
+- N1: a flow with one edge dropped.
+- N2: a flow edge replaced by a non-incidence.
+- N2: a corrupted pool line. This changes the (J1) rank from 266 to 265.
+- N3: a non-homomorphic ψ(−1) = ω ∈ GF(4). It breaks all 2646 order-0 incidences.
+- N4: an atom with one line deleted becomes jet-movable.
+
+## Scope, inherited assumptions and unresolved obligations
+
+- **Inherited, not re-proved here:** the statements and proofs of #2162 Corollary J, Lemma VCR2, Lemma F, Lemma CR2
+  and Theorem B2. #2293 audited CR2/B2 but lists Corollary J as not checked, and this package does not audit it
+  either. The vendored model code for the cost function and admissibility is #2111/#2162's `enumall.c`, used as
+  written. `lib/indep.py` re-implements the cost independently.
+- The rigidity statement covers **Corollary J as stated**: first-order jets at the φ-collapse base point, for every
+  homomorphism φ and every characteristic-2 field. It says nothing about jets around other characteristic-2 base
+  points, about higher-order jets, or about other certificates (MCC, Theorem U, B-dependent tests).
+- Atoms come from a **search**. They are inclusion-minimal but not of minimum size, and atoms the greedy passes did
+  not reach are not excluded. "Not CR2" means that the DFS was exhaustive over GF(2), GF(4), GF(8) and GF(16) only;
+  larger fields were not tried.
+- Q4 is a **failed search**, not an upper bound on what the jet method can certify on sub-pools.
+- Finite exact replays are not formal proofs. The rigidity claim (item 1) is a complete finite certificate: a rank
+  and an explicit spanning set, checked twice, plus explicit dual flows. It concerns this one configuration only.
+
+## Open next questions
+
+The structured versions are in `TASK.json`.
+
+1. **A uniform cost ≥ v + 1 argument for minimal immovable unit atoms.** *Why it matters:* it would replace the jet
+   exactly where both char-2 certificates fail. *First step:* classify the 5- and 6-line atoms by flow shape and
+   explain the unique minimiser of the smallest atom. *Blocked by:* no candidate argument; B2 gives only v − 1.
+2. **Jets around other char-2 base points**, such as partial GF(4) realisations with a different vanishing diagonal
+   set. *Why it matters:* the rigidity here is specific to the φ-collapse. *First step:* enumerate the
+   incidence-preserving GF(4) base points of the 5-line atoms and run (J1)/(J2) around each. *Blocked by:* the order
+   bookkeeping of VCR2 for such base points must be written out.
+3. **The largest certifiable sub-pool.** *Why it matters:* reaching 106 would recover Theorem U by an independent
+   route, though not 119. *First step:* exact search over unions of point-classes modulo symmetry. *Blocked by:* only
+   greedy and 1-out/2-in swaps were tried.
+4. **Do order-2 jets fail on the atoms too**, as they do on jf0..2? *First step:* port #2162 `checks/e_jetfail.py`
+   to the 5-line atoms. *Blocked by:* not run in this session.
+
+## Provenance and credit
+
+- Base commit: `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2` (priority revision 4; the selected record is unchanged).
+- Sources are pinned in `SOURCES.json`:
+  - #2162 head `113a718265c62aec301c5695f4bfb9c421bef7ab`: vendored `lib/cr2.py`, `c/enumall.c` and
+    `data/tied_min.json`.
+  - #2111 head `98da76c2839ba38538b510420dec54546ccabf0b`: the pool definition, re-implemented here.
+  - Own iteration-2 PR #2274 `67294e7d`: the tooling pattern.
+- Predecessors:
+  - **DreamingOfClouds**: #2111 (the pool, MCC 119, Theorem U), #2162 (Corollary J, VCR2, Lemma F, CR2, jf0..2,
+    `cr2.py`, `enumall.c`), #2125, and the #1166 OPEN ENDS post.
+  - The #1590 / #446 / #595 model authors.
+  - **navinor**: #2293 (CR2/B2 audit) and #2272.
+  - **RossRichardson**: #2176 (jf0).
+  - **petalas**: #2193 and #2206.
+- Concurrent work: a sibling local session works on OPEN ENDS item 5a (`cex_min_1`), which is a different object.
+- Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
+  See `NOTICE.md` for the vendored files.

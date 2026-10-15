@@ -154,6 +154,9 @@ def main():
           'cost(pool) >= cost(S) >= %d (restriction of an admissible B is admissible); below Theorem U 106 and MCC '
           '119; failed search for larger S' % (len(S), q4['best_harmonic'], len(S)), certA and certB and
           len(S) == 103)
+    S2 = [PA[i] for i in range(121) if PA[i][0] not in ((0, 1, -1), (0, 1, 1))]
+    check('G7 a second certifiable 103-line sub-pool: all lines whose point is not (0,1,-1) or (0,1,1) (A and B)',
+          len(S2) == 103 and not A.Jet(S2).immovable() and not B.immovable(S2))
     NH = [t for t in range(121) if t not in JA.harm]
     check('G7 exact: the 91 non-harmonic lines are certifiable, but adding any one of the 30 harmonic lines makes '
           'that line immovable (A)', not A.Jet([PA[i] for i in NH]).immovable() and all(

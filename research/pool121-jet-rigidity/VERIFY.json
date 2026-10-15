@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "(J1) rank 266 / solution dim 244 = gauge+torus / 30 of 30 immovable (two implementations), 30 Lemma F flows, 41 minimal atom orbits (minimality, non-CR2 GF(2..16), exact min cost recomputed in Python), B-dependent jet on 1301 minimisers, Q4 S=103 certifiable; positive control tied_min movable; negative controls: dropped flow edge, non-incidence edge, corrupted pool line, non-homomorphic psi(-1)=omega, atom minus a line."
+    }
+  ]
+}
