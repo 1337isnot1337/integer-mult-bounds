@@ -7,22 +7,28 @@ This package rechecks the finite claims of
 `aed06c8f8d60ce97b7eb3a7c6c17ad12cbe1e863`) and the rank premise of
 [PR2354](https://github.com/CrocSwap/integer-mult-bounds/pull/2354) (head
 `308ebc7405303bb7ed91b012bb705949c6091a16`) for the QQ16 common-first-axis
-hidden-input family. It reads only main's pinned sources and uses different
-methods from both PRs. Every compared claim is reproduced and **no discrepancy
-was found**. The package also contains a written audit of PR2389's adaptive
+hidden-input family. It reads only main's pinned sources and imports no PR code.
+The rank-66 premise is certified by a genuinely different method (owner
+bit-function independence, section 3). The 45-set classification (section 2)
+uses the same mathematical reduction as PR2389 (the support of K, the set J and
+the dual vector w), implemented independently on the 8-row R and cross-checked
+by two tests; it is independent as an implementation, not as mathematics.
+Every compared claim is reproduced and **no discrepancy was found**. The package also contains a written audit of PR2389's adaptive
 transcript-fiber argument (section 4). Section 5 records one consequence, which
-is conditional on PR2384. PR2384's second-axis witness lies inside the 29
-nuisance ports, so **none of the 45 optimal sets reads it**. If PR2384's
-zero-observation proof holds, an adaptive reader that is exact on both hidden
-families needs at least 67 reads on every path. That is a partial answer to
-PR2389's open question 1.
+is conditional on PR2384. PR2389's PR description already observes, by port
+membership, that PR2384's second-axis witness lies inside the 29 nuisance ports
+and so is unread by all 45 optimal sets. What this package adds there is a
+from-source recheck of PR2384's finite witness facts and an explicit written
+corollary: if PR2384's zero-observation proof holds, an adaptive reader that is
+exact on both hidden families needs at least 67 reads on every path. That is a
+partial answer to PR2389's open question 1.
 
 | claim (source) | this check |
 |---|---|
 | 47 first-axis groups; axis-2 group C has 30 ports and rank 8; all other groups have independent columns; rank L = 74 (PR2354) | reproduced |
 | dim V = 96 - rank R_U = 88; R_U R_U^T = 48 I; R_A R_A^T = 4 I | reproduced |
 | rank(H\|V) = 66 and ker(H\|V) = K = ker R_C, dim 22 (PR2354/PR2389) | reproduced by a **different certificate** (section 3) |
-| exactly 45 optimal 66-port read sets (PR2389) | reproduced by the **complement classification** (section 2) |
+| exactly 45 optimal 66-port read sets (PR2389) | reproduced by an independent implementation of the complement classification (section 2; same reduction as PR2389) |
 | 22 mandatory ports 1-5, 93-109 | reproduced |
 | 29 nuisance coordinates C - {77}; 77 is the only coloop of R_C | reproduced |
 | port 77 swaps for exactly 44 ports; the 45 omissions listed in PR2389 RESULT | reproduced (same list) |
@@ -68,9 +74,9 @@ Base commit: `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2` (priority revision 4).
 No code from PR2354 or PR2389 is imported, copied or executed. Their READMEs and
 RESULT files were read to state the audited claims (the `CLAIMS` constant in
 `verify.py`, used only for comparison) and to locate the source members and
-the owner-column convention. The `WITNESS_2384` constant (ports,
-coefficients, axes and B0 h(I)) is taken from PR2384's description and is also
-compared only, never used as an input. Rank is computed by fraction-free Bareiss
+the owner-column convention. The `WITNESS_2384` constant is taken from
+PR2384's description. Its ports and coefficients are inputs: they define the
+witness that is checked. Its chart axes and B0 h(I) are compared only. Rank is computed by fraction-free Bareiss
 elimination over Z. Kernels use exact `Fraction` reduced row echelon form.
 
 ## 1. Family and objects (as defined by PR2389, not re-derived)
@@ -83,7 +89,13 @@ check, all 96×8 = 768 common-axis routes are present in the packet registry.
 For every ordinary port p and stage s = 1..8, a registered owner maps p's
 8-axis chart (first axis first) onto e_{9+8(s-1)+i}.
 
-## 2. Complement classification (replaces PR2389's 67 kernel-rank checks)
+## 2. Complement classification (independent implementation of PR2389's reduction)
+
+The reduction below (supp K forces the omissions; the dual vector w decides
+the swap) is the same one PR2389's README derives. What differs is the
+implementation: it is written from main's sources, runs on the 8-row R instead
+of an 88-dimensional kernel basis, and requires a Bareiss rank test and the
+dual-vector test to agree for every candidate.
 
 Let S ⊂ U be a read set with |S| = 66 and T = U - S (|T| = 30). Write
 K_S = V ∩ {c_S = 0}. Then **K_S = ι_T(ker R_T)** because c_S = 0 leaves exactly
@@ -132,14 +144,20 @@ Observations (recorded in `RESULT.json`, not used for the claim):
 
 * On the 768 **route owners alone** the f_b have rank only **44**, and 45 with
   the identity. Route owners therefore cannot certify full bit-function
-  independence. The certificate needs other registered owners: 29 of its 46
-  non-identity rows are not routes. That does not contradict the predecessors'
+  independence, and at least 3 non-route owners are needed. The index-order
+  greedy minor above happens to use 29 non-route rows, but that is not a
+  requirement. Two local review passes (scratch scripts, not part of
+  `verify.py` or `RESULT.json`) found that the identity plus the registered
+  owners `m1` and `m4` complete the route span to rank 47, which is the
+  minimum of 3 extra owners. That does not contradict the predecessors'
   route-owner minors. They only need F_D ⊗ I_8 to be injective on the
   74-dimensional image of L (PR2354) or on L(V) (PR2389), which is weaker
   than full bit-function independence.
 * Under the transposed action convention, bit_0(d^T b) = parity(d e_0 ∧ b),
   the rank is still 47. The certificate does not depend on that convention
-  choice.
+  choice. It also does not depend on whether a registered map acts as d or
+  d^-1: each row is f_b(M) for a matrix M in G either way, because G is closed
+  under inverses.
 
 ## 4. Written audit of PR2389's adaptive argument
 
@@ -176,7 +194,9 @@ is a written check, not a formal proof.
   tail and the zero observations. So are B_s h = 0 beyond the existence of the
   768 registered routes, and the semantics that registered
   `owner_right_matrix_columns` are elements of G in the same representation as
-  d in f_b(d).
+  d in f_b(d). This last item is supported by the packet's own
+  `cover_map_semantics` field (M(g,δ)f(d,…) = f(d*g,…)) and by the identity
+  being registry entry m0, but it is kept listed as inherited.
 
 ## 5. Consequence for PR2389 open question 1 (conditional on PR2384)
 
@@ -219,6 +239,10 @@ supplier or κ statement.
 
 ## Negative controls (all rejected; reasons are in `RESULT.json`)
 
+Controls 1-4, 11 and 12 perturb the sources or the witness and test the
+mathematics. Controls 5-10 perturb only the claimed constants; they test the
+claim comparator, not the mathematics.
+
 1. R entry (row 0, port 1) +1: port 1 becomes swappable, giving the wrong set
    count (46).
 2. R entry (row 3, port 77) +1: the classification is unchanged and only the
@@ -256,8 +280,10 @@ Structured versions are in [TASK.json](TASK.json).
    return multi-function arrays need a re-priced oracle model, and PR2384's
    zero-observation proof needs an independent check.
 2. **Which structured owner class certifies bit-function independence?** Route
-   owners reach rank 44 only. Identify the non-route registered maps that
-   supply the missing 3 directions, and explain the determinant 2^62. This is
+   owners reach rank 44 only (45 with the identity). Local review passes found
+   that the identity, `m1` and `m4` supply the missing 3 directions. Next:
+   add this minimal completion to the verifier as an exact check, explain what
+   `m1` and `m4` do on the 47 axes, and explain the determinant 2^62. This is
    a small exact computation with no blocker.
 3. **Bounded-error or bounded-box readers.** The fiber argument needs exactness
    on an unbounded lattice or space. First fix a coefficient box and an input
