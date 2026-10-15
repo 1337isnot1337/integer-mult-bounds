@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #620–#2135**, excluding prior same-head dispositions. Baseline `b4560d9e7216f72b73c5aa940ac099c05e33ccf9`. Complete Git differences determine changed-file coverage.
 
-**79 ready; 40 observed merged; 21 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**79 ready; 79 observed merged; 21 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -94,29 +94,31 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 
 | PR | Contributor | Next step |
 | --- | --- | --- |
-| [#620](https://github.com/CrocSwap/integer-mult-bounds/pull/620) | GamingPuzzled | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#620](https://github.com/CrocSwap/integer-mult-bounds/pull/620) | GamingPuzzled | The revision contains 326 files across 16 distinct research sections. Finish section-level proof/source review and the declared solver replays; this collection is outside the single-package finite-check fast path. |
 | [#1155](https://github.com/CrocSwap/integer-mult-bounds/pull/1155) | navinor | The algebraic corrections pass, but README Complete cost recurrence still prices arbitrary phase/permutation descriptor composition at O(r) and one Scan/routing pass without a succinct representation or implementation hypothesis. Supply that hypothesis and charge composition/routing; the explicit N=8 matrix test does not establish the stated general recurrence. |
-| [#1175](https://github.com/CrocSwap/integer-mult-bounds/pull/1175) | gvconly | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#1186](https://github.com/CrocSwap/integer-mult-bounds/pull/1186) | mdumitrean | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#1195](https://github.com/CrocSwap/integer-mult-bounds/pull/1195) | mdumitrean | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#1175](https://github.com/CrocSwap/integer-mult-bounds/pull/1175) | gvconly | Complete the parent-source, native realization and whole-owner invoice/geometry audit for the proposed supplier. Local finite checks alone do not discharge full hosting or selected-supplier admission. |
+| [#1186](https://github.com/CrocSwap/integer-mult-bounds/pull/1186) | mdumitrean | The toolkit self-test progressed after restoring its missing exact-head assembly fixture, but declared coverage exceeded the initial command budget. Finish selftest and portability coverage and review its dual-solver certificate contract. |
+| [#1195](https://github.com/CrocSwap/integer-mult-bounds/pull/1195) | mdumitrean | Complete native whole-call and supplier-admission checks for the proposed fusion supplier; its local fusion result is not sufficient evidence for incorporation as a completed replacement. |
 | [#1337](https://github.com/CrocSwap/integer-mult-bounds/pull/1337) | mdumitrean | Census generation and stored-price binding pass, but the primary entrypoint explicitly does not replay the frame optimizations or interval certificates. Complete the pinned regenerate.py pricing replay (including the claimed idle optimum coverage) before approving the entire no-gain claim. |
-| [#1407](https://github.com/CrocSwap/integer-mult-bounds/pull/1407) | pai-scaffolde | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#1625](https://github.com/CrocSwap/integer-mult-bounds/pull/1625) | mdumitrean | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#1673](https://github.com/CrocSwap/integer-mult-bounds/pull/1673) | Vlado-V | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#1407](https://github.com/CrocSwap/integer-mult-bounds/pull/1407) | pai-scaffolde | Review the complete helper-host lifecycle and its interaction with the inherited supplier contract before integrating the proposed host construction. |
+| [#1625](https://github.com/CrocSwap/integer-mult-bounds/pull/1625) | mdumitrean | Complete the parent/candidate whole-call replay and physical-owner audit for the proposed T74 kernel supplier. |
+| [#1673](https://github.com/CrocSwap/integer-mult-bounds/pull/1673) | Vlado-V | This expanded 208-file analytic/construction submission needs a dedicated dependency audit of the outer reduction, tape/layout lemmas and full implementation assumptions. |
 | [#1755](https://github.com/CrocSwap/integer-mult-bounds/pull/1755) | navinor | The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence. |
 | [#1763](https://github.com/CrocSwap/integer-mult-bounds/pull/1763) | navinor | The corrected mathematical census and tests pass, but SOURCES.json labels the mutable task catalogue as a live input and pins bytes predating current main. Move historical assignment provenance to the pinned Git snapshot so the registered package also replays after integration. |
-| [#2031](https://github.com/CrocSwap/integer-mult-bounds/pull/2031) | DreamingOfClouds | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2044](https://github.com/CrocSwap/integer-mult-bounds/pull/2044) | jeremykothe2 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2031](https://github.com/CrocSwap/integer-mult-bounds/pull/2031) | DreamingOfClouds | Replay the pinned public D5 DRAT core proof with drat-trim and verify its binding to the already reviewed CNF encoding. Download/hash availability alone is not an independently checked unsatisfiability certificate. |
+| [#2044](https://github.com/CrocSwap/integer-mult-bounds/pull/2044) | jeremykothe2 | The proposed fine-grid kappa depends on ancestors whose full supplier admission is unresolved. Finish those dependencies before promoting the numerical witness. |
 | [#2046](https://github.com/CrocSwap/integer-mult-bounds/pull/2046) | navinor | The historical retention check reads the live efficient800 disposition file and requires its old hash. That file has advanced. Bind the historical snapshot through its recorded Git commit instead of the current ledger; preserve newer dispositions. |
-| [#2077](https://github.com/CrocSwap/integer-mult-bounds/pull/2077) | lydakis | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2081](https://github.com/CrocSwap/integer-mult-bounds/pull/2081) | Tairitsu-Aya | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2101](https://github.com/CrocSwap/integer-mult-bounds/pull/2101) | adamgall | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2111](https://github.com/CrocSwap/integer-mult-bounds/pull/2111) | DreamingOfClouds | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2077](https://github.com/CrocSwap/integer-mult-bounds/pull/2077) | lydakis | Complete T16 helper-placement physical-owner admission and the full hosted invoice; a local placement check is insufficient. |
+| [#2081](https://github.com/CrocSwap/integer-mult-bounds/pull/2081) | Tairitsu-Aya | The T16 invoice-boundary audit exceeded the 300-second batch budget. Finish the declared replay and source/owner boundary review; no mathematical failure is inferred. |
+| [#2101](https://github.com/CrocSwap/integer-mult-bounds/pull/2101) | adamgall | The fresh selected final-stage execution completed, but the full composed comparison/control replay exceeded the batch budget. Finish the 105-output comparison, role-path and authenticated-reference review before admitting the portable caller. |
+| [#2111](https://github.com/CrocSwap/integer-mult-bounds/pull/2111) | DreamingOfClouds | Review the three-total decoder reductions, exact examples and remaining lift hypotheses as separate claims, then run verify.sh including the SAT-backed groups. Recorded searches and a checked finite example must not be promoted to a universal lift theorem. |
 | [#2118](https://github.com/CrocSwap/integer-mult-bounds/pull/2118) | 1337isnot1337 | The local switch replay passes, but SOURCES marks the historical task catalogue and priority log as live inputs. Both pins differ on current main; bind the historical guidance to its Git snapshot instead of making routine priority updates invalidate this package. |
-| [#2125](https://github.com/CrocSwap/integer-mult-bounds/pull/2125) | DreamingOfClouds | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2125](https://github.com/CrocSwap/integer-mult-bounds/pull/2125) | DreamingOfClouds | Replay verify.sh and review the T-squared threshold argument separately from the finite E6/E7 examples and explicitly recorded numerical/search experiments. The finite examples alone do not prove a general characteristic threshold. |
 | [#2134](https://github.com/CrocSwap/integer-mult-bounds/pull/2134) | 1337isnot1337 | The census omits legal source-count profiles. For example singleton counts (1,1,1,2,2,6), followed by a TRIO on the three odd labels, give 16 applications with every source restored and total profile (2,2,2,2,2,6), but are rejected by PROFILES. Supply exclusions for all omitted cases or narrow the stated domain; the two-profile search does not prove the present full one-TRIO claim. |
 
 ## Evidence and limits
+
+GitHub independently shows these unmerged reviewed submissions as closed: #1155. Their unresolved review findings remain recorded; closure is not incorporation.
 
 `packets/` records exact heads and every changed blob. `checks/` retains commands, input/log hashes, environment, duration and coverage. Dedicated Lean replays are distinct from Python checks. Written arguments, exact finite certificates, historical receipts and supplier-admission obligations remain separate.
 

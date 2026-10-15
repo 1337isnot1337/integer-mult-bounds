@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #620–#2135**, excluding prior same-head dispositions. Baseline `b4560d9e7216f72b73c5aa940ac099c05e33ccf9`. Complete Git differences determine changed-file coverage.
 
-**79 ready; 66 observed merged; 21 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**79 ready; 79 observed merged; 21 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -117,6 +117,8 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2134](https://github.com/CrocSwap/integer-mult-bounds/pull/2134) | 1337isnot1337 | The census omits legal source-count profiles. For example singleton counts (1,1,1,2,2,6), followed by a TRIO on the three odd labels, give 16 applications with every source restored and total profile (2,2,2,2,2,6), but are rejected by PROFILES. Supply exclusions for all omitted cases or narrow the stated domain; the two-profile search does not prove the present full one-TRIO claim. |
 
 ## Evidence and limits
+
+GitHub independently shows these unmerged reviewed submissions as closed: #1155. Their unresolved review findings remain recorded; closure is not incorporation.
 
 `packets/` records exact heads and every changed blob. `checks/` retains commands, input/log hashes, environment, duration and coverage. Dedicated Lean replays are distinct from Python checks. Written arguments, exact finite certificates, historical receipts and supplier-admission obligations remain separate.
 
