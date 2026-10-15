@@ -252,5 +252,12 @@
       "title": "Research: extend PR #2594 to sharp growth and error bounds for the combined P104 relay word",
       "relation": "Different pinned construction, physical interface or per-target obligation; no new numerical or theorem claim imported."
     }
-  ]
+  ],
+  "publication_checkpoint": {
+    "main_commit": "1884c509efc004524786e9b7cfcc4aca572316d5",
+    "checked_at": "2026-10-15T17:00:30.890158+00:00",
+    "priority_revision": 5,
+    "compatibility": "Main advanced during publication with reviewed research imports. Relevant guidance, selected record, all three live inputs, replay runner, test files and package path are unchanged from the scientific base. The PR diff contains only this new package.",
+    "public_pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/2675"
+  }
 }
