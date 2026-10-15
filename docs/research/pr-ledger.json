@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "6c5c67cc2b5446bf19a3c0ab32172e1163f9955295780ebbddd50a0a465985f2",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "6279b51e6c14dc638ba549f20ed28642e43dff85650b1105cdec4a027a8d29c3",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -109718,25 +109718,29 @@
         {
           "head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sagar Thakrar's T74 low-alias local construction and independent audit. Reviewed all40 files, anticipatory correction structure, exact free-group forward/dual maps, nested frames, private cleanup and rebuilt profiles. Primary replay passes both80-alias words with28 controls each and exact model-price/cap checks; full NumPy rebuild reproduces both words' decompressed bytes and both witnesses exactly, including320 Gaussian handoff/exit products on512 columns and23 inherited rejection controls per word. Each word uses400 helpers,624 independent dirty inputs,44 cleanup buffers and local mass5264. The sixteen-helper obstruction is scoped to fixed words/schedule/lender conditions; corrected that wording and separated icekylinx from Zhihao Chen in attribution. Model prices are not constructed suppliers; native lowering, owner fill, physical buffer/compensation charges and outer admission remain open. No kappa change. Cinna Davis,Jeremy Kothe,Dugongue,Vlado Vojdanovski,Rohan Arun,mdumitrean,Ali Romman,Thomas DiFiore and retained compiler/ceiling lineage credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-low-alias-borrowing"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2339.json"
+        "research/community-efficient1300-audit/packets/2339.json",
+        "research/community-efficient1300-audit/checks/check-2339-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2339.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
