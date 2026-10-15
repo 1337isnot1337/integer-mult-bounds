@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "f48cb6843b871963145e41a2441e01c510949b60e5bb60349084d4ed8eaff7a6",
-    "plan_sha256": "acaf229edb1f13ce58d65b3dda898427cbabee204e629503560f1c27a2de828e"
+    "owners_sha256": "a58a75c7af8d97611c8a2ff66621ef994d39c7b2de070faee72edb4d37da2919",
+    "plan_sha256": "5ef37241652512cf133ad2dcdd33282085bd64fa6cf950110eac4bfb4876fa21"
   },
   "dispatch": [
     [
@@ -1931,9 +1931,9 @@
   },
   "expected": {
     "gain_baseline_kappa": "0.001636241501576388",
-    "complex_lower": "209435883958297284563/125000000000000000000000",
-    "conservative_complex_lower": "418871767201220928151/250000000000000000000000",
-    "kappa": "418171127598559/250000000000000000",
+    "complex_lower": "1675505578629257024283/1000000000000000000000000",
+    "conservative_complex_lower": "1675505575767758711169/1000000000000000000000000",
+    "kappa": "1672702955495933/1000000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
@@ -1942,29 +1942,31 @@
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
     "actual_73column_sigmas": 10000,
-    "cross_replica_helper_roles": 57482,
-    "idle_remainders": 7522,
+    "cross_replica_helper_roles": 57481,
+    "idle_remainders": 7517,
     "idle_remainder_profile": {
-      "1": 2278,
-      "3": 374,
-      "8": 1,
-      "16": 3,
+      "1": 2280,
+      "2": 1,
+      "3": 363,
+      "7": 3,
+      "16": 4,
       "48": 4866
     },
     "global_profile": {
-      "1": 349606,
-      "2": 60192,
-      "3": 62582,
+      "1": 349608,
+      "2": 60193,
+      "3": 62571,
       "4": 20448,
       "5": 11808,
-      "8": 1153,
-      "16": 3,
+      "7": 3,
+      "8": 1152,
+      "16": 4,
       "48": 4866
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001672684507542306",
-    "kappa_decimal": "0.001672684510394236"
+    "conservative_kappa_decimal": "0.001672702952644",
+    "kappa_decimal": "0.001672702955495933"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",

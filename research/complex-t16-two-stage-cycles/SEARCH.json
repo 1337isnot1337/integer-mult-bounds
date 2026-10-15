@@ -1,301 +1,442 @@
 {
+ "scope": "A heuristic search record. Nothing here is an optimality proof: the kappa search is a finite LNS stopped while still improving, and the min-diff step is a finite MIP/LNS over a restricted candidate set. Every shipped number is re-derived from data/ by verify.py (strict replay, seed67 audit, exact pricing).",
+ "environment": "CPython 3.12.14 via uv (uv run -q --no-project --python 3.12 --with ...), Linux x86_64, each job in a systemd scope with MemoryMax 4-6G, at most 3 workers. kappa search: numpy, ortools (CP-SAT, 2 workers per solve). min-diff: numpy, scipy, highspy 1.15.1 (HiGHS, 1 thread).",
+ "lineage": {
+  "pr1407_owner_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
+  "first_version_owner_content_sha256": "714a63d290e2f9c8e1c14c289e67ab15593bd1487e6ad592d06c65c8d6ec1d32",
+  "first_version_kappa_decimal": "0.001672684510394236",
+  "note": "The kappa search started from the first version of this package (PR1407's map plus two-stage ejection cycles; see first_version below). The min-diff step then re-assigned helpers toward the selected PR1094 map, so neither PR1407's map nor the first version is an exact ancestor of data/OWNERS.json.gz. The package is verified only against the selected map."
+ },
+ "kappa_search": {
+  "tools": [
+   "search/chain2.py (imports chain.py, lib.py): one- and two-stage ejection cycles, depth 8 in this phase",
+   "search/lns.py: CP-SAT large-neighbourhood re-assignment of all helpers of a set of calls (modes set:<calls>, time, early<k>, queue) or of physical families (fam); DIV=1 keeps the surrogate objective and randomly maximises relocations to move along plateaus",
+   "search/loop3.sh: alternates chain2.py until it finds nothing, then one DIV=1 lns.py step on a random mode"
+  ],
+  "objective": "Surrogate E = sum over (owner, child, port) bins of f ln f for free capacity f > 1 (CP-SAT scales it by 10^4 and rounds). Every candidate is audited with the seed67 rules and priced with the pinned exact engines; a step is kept only if the exact kappa rises (or, on a DIV plateau step, stays equal).",
+  "how_it_ran": "Interactively, in order: lns.py time/set neighbourhoods from the first version's map; lns.py set:0,1,2,3,4 with 400-900 s CP-SAT limits; chain2.py depth 8; then loop.sh, loop2.sh and loop3.sh runs (loop2.sh is loop3.sh with a different mode list; loop3.sh is shipped). Seeds partly come from bash $RANDOM, so the trajectory is not reproducible bit for bit.",
+  "checkpoints": [
+   {
+    "owner_content_sha256": "94a48bfdcdb59fb309f7c11a8e46e61e4f1e2d8fe3cdc0d6053fe04cc2f7688e",
+    "via": "lns.py (call-set neighbourhoods)",
+    "kappa_decimal": "0.001672685662094163",
+    "idle_remainder_profile": {
+     "1": 2279,
+     "2": 1,
+     "3": 371,
+     "7": 2,
+     "16": 3,
+     "48": 4866
+    },
+    "strict_replay": "not run"
+   },
+   {
+    "owner_content_sha256": "18ba2bd326387d27ff7526914a5be8c4dfe37e0278a7decd60faefbfbdab631e",
+    "via": "lns.py set:0,1,2,3,4 (CP-SAT 400 s)",
+    "kappa_decimal": "0.001672686708686457",
+    "idle_remainder_profile": {
+     "1": 2278,
+     "3": 372,
+     "7": 2,
+     "16": 3,
+     "48": 4866
+    },
+    "strict_replay": "PASS (11 stages, 69/12/6/15)"
+   },
+   {
+    "owner_content_sha256": "1c76875b2d6b71322963a939796099cf3d892defe52fcc08cd3b9d87ce79c4c0",
+    "via": "chain2.py depth 8",
+    "kappa_decimal": "0.001672691961154154",
+    "strict_replay": "not run"
+   },
+   {
+    "owner_content_sha256": "464f57761a713f3cdd399cad9cf826a6e19d8dd247e227da1aee4fd69ec7ce51",
+    "via": "loop2.sh then loop3.sh (chain2 + DIV lns alternation)",
+    "kappa_decimal": "0.001672699106899519",
+    "idle_remainder_profile": {
+     "1": 2281,
+     "2": 1,
+     "3": 365,
+     "7": 2,
+     "16": 4,
+     "48": 4866
+    },
+    "strict_replay": "PASS (11 stages, 69/12/6/15)"
+   },
+   {
+    "owner_content_sha256": "a7e8f0cac22527fd6f987b87c2734984add89166fd2d0306453bed99c25cee96",
+    "via": "loop3.sh logic, last run (about 45 min, +3.85e-9)",
+    "kappa_decimal": "0.001672702955495933",
+    "idle_remainder_profile": {
+     "1": 2280,
+     "2": 1,
+     "3": 363,
+     "7": 3,
+     "16": 4,
+     "48": 4866
+    },
+    "strict_replay": "PASS (11 stages, 69/12/6/15); actual_73column_sigmas 10466",
+    "changed_rows_vs_selected": 30039,
+    "relocated_rows_vs_selected": 17173
+   }
+  ],
+  "stopped": "Stopped at the end of the session's search budget while still improving; no stall criterion was met."
+ },
+ "min_diff": {
+  "target": "F = the last kappa checkpoint (content a7e8f0ca...). Goal: a legal map with exactly F's idle remainder profile (hence F's kappa) that keeps as many (bin, call, width) placements of the selected map A as possible. Helpers of one (call, width) are interchangeable under R3-R6; realize.py restores A's helper labels and offsets where possible.",
+  "stages": [
+   {
+    "step": 1,
+    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> fill.json fill 900 -",
+    "result": "Optimal: 67,058 of 69,120 placements of A kept, 2,062 relocations",
+    "seconds": 345
+   },
+   {
+    "step": 2,
+    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns.py research/complex-t16-two-stage-cycles/search <F> fill.json lns.json 60 1 300 60",
+    "result": "182 relocations (gains in the first 6 iterations and iteration 59)",
+    "approx_seconds": 120
+   },
+   {
+    "step": 3,
+    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_mip.py research/complex-t16-two-stage-cycles/search <F> two.json two 2400 lns.json",
+    "result": "Time limit: 69,026 kept, 94 relocations; dual bound 69,028.56 kept (>= 92 relocations within this two-fill, A-or-F-candidate model)",
+    "seconds": 2401
+   },
+   {
+    "step": 4,
+    "argv": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search two.json any.json 15 11 80 90",
+    "result": "55 relocations (94 -> 84 -> 80 -> ... -> 55). Run with the session copy of this script, identical except for its docstring.",
+    "followup": "uv run -q --no-project --python 3.12 --with scipy --with highspy python -I research/complex-t16-two-stage-cycles/search/mindiff_lns2.py research/complex-t16-two-stage-cycles/search any.json any2.json 15 12 160 90: no gain in 7 iterations (2 sub-MIPs proven optimal), stopped by hand",
+    "approx_seconds": 1000
+   },
+   {
+    "step": 5,
+    "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/realize.py research/complex-t16-two-stage-cycles/search any.json OWNERS.json.gz",
+    "result": "70 changed rows: 55 relocated, 15 offset-only; idle profile and kappa equal to F"
+   },
+   {
+    "step": 6,
+    "argv": "python3.12 -I research/complex-t16-two-stage-cycles/search/buildcand.py research/complex-t16-two-stage-cycles/search OWNERS.json.gz pkg 10000",
+    "result": "data/OWNERS.json.gz, PLAN.json, SPEC.json; sigmas 10000 is the strict audit count for this map (a first replay with 10004 failed with expected 10004 got 10000)"
+   }
+  ],
+  "final": {
+   "owner_content_sha256": "1764f4310b7c91b69f0533b0b95fa0d4fba267d05d6e4e870aac2d4c310d4d4d",
+   "changed_rows_vs_selected": 70,
+   "relocated_rows_vs_selected": 55,
+   "offset_only_rows": 15,
+   "kappa_decimal": "0.001672702955495933",
+   "actual_73column_sigmas": 10000,
+   "shares_with_pr1407": "2 of the 23 (bin, call, width) placements PR1407 changes; 0 identical rows",
+   "shares_with_first_version": "4 of its 37 relocated placements; 0 identical rows"
+  },
+  "variants_tried_and_dropped": [
+   "CP-SAT on the global fill-fixed and any-fill models, 1 worker, 300 s: 14,564 and 16,051 relocations (no proof).",
+   "HiGHS on the global any-fill (profile-count) model without warm start: no incumbent in 400 s (root LP bound 69,116 kept, i.e. >= 4 relocations; weak).",
+   "LP-guided dive on the two-fill model (fix fill bits the LP sets below 0.05 or above 0.95): infeasible.",
+   "Any-fill LNS on the remaining diff region (all legal placements of the rows involved, extra sampled bins): 190 -> 179 relocations on the session's first chain; superseded by the global two-fill MIP."
+  ]
+ },
+ "first_version": {
   "tool": "search/chain2.py (imports search/chain.py and search/lib.py)",
   "environment": "CPython 3.12.14 + numpy (uv run -q --no-project --python 3.12 --with numpy), Linux x86_64, MemoryMax=5G scope, one worker",
   "objective": "Relaxed surrogate E = sum over (owner, child, port) bins of f ln f for free capacity f > 1; candidate cycles found by a max-plus DP over (hand width, hand time) states, then replayed exactly with the seed67 auditor geometry and priced with the pinned exact engines. E is only a search heuristic; kappa comes from the exact engines.",
   "runs": [
-    {
-      "name": "stage-A",
-      "argv": [
-        "search/chain2.py",
-        "search",
-        "<PR1407 data/OWNERS.json.gz>",
-        "<out>/s1",
-        "6"
+   {
+    "name": "stage-A",
+    "argv": [
+     "search/chain2.py",
+     "search",
+     "<PR1407 data/OWNERS.json.gz>",
+     "<out>/s1",
+     "6"
+    ],
+    "start_owner_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
+    "relaxed_zero_or_positive_first_cycles": 378494,
+    "exact_first_cycles_tried": 8785,
+    "result": "Two cycles through X=(owner 12, child 4, port 0). Cycle 1 (gain 0): free 3 of bin (0,0,103) moves to X. Cycle 2: free 3 of bin (0,0,104) joins it, X free 6. dE = 6 ln 2 = 4.158883.",
+    "moves": [
+     [
+      25184,
+      [
+       12,
+       4,
+       0
       ],
-      "start_owner_content_sha256": "008694b29e3b513c8e88367e30ab2d231ea5a0b0dd85cc1efc372f60b9fbdf4c",
-      "relaxed_zero_or_positive_first_cycles": 378494,
-      "exact_first_cycles_tried": 8785,
-      "result": "Two cycles through X=(owner 12, child 4, port 0). Cycle 1 (gain 0): free 3 of bin (0,0,103) moves to X. Cycle 2: free 3 of bin (0,0,104) joins it, X free 6. dE = 6 ln 2 = 4.158883.",
-      "moves": [
-        [
-          25184,
-          [
-            12,
-            4,
-            0
-          ],
-          [
-            6,
-            2,
-            101
-          ]
-        ],
-        [
-          13669,
-          [
-            6,
-            2,
-            101
-          ],
-          [
-            12,
-            0,
-            78
-          ]
-        ],
-        [
-          1747,
-          [
-            12,
-            0,
-            78
-          ],
-          [
-            0,
-            0,
-            103
-          ]
-        ],
-        [
-          911,
-          [
-            0,
-            0,
-            103
-          ],
-          [
-            0,
-            2,
-            45
-          ]
-        ],
-        [
-          431,
-          [
-            0,
-            2,
-            45
-          ],
-          [
-            12,
-            4,
-            0
-          ]
-        ],
-        [
-          29505,
-          [
-            12,
-            4,
-            0
-          ],
-          [
-            7,
-            0,
-            64
-          ]
-        ],
-        [
-          13666,
-          [
-            7,
-            0,
-            64
-          ],
-          [
-            12,
-            0,
-            79
-          ]
-        ],
-        [
-          1725,
-          [
-            12,
-            0,
-            79
-          ],
-          [
-            0,
-            0,
-            104
-          ]
-        ],
-        [
-          910,
-          [
-            0,
-            0,
-            104
-          ],
-          [
-            12,
-            4,
-            0
-          ]
-        ]
+      [
+       6,
+       2,
+       101
+      ]
+     ],
+     [
+      13669,
+      [
+       6,
+       2,
+       101
       ],
-      "idle_remainder_profile": {
-        "1": 2277,
-        "3": 375,
-        "6": 1,
-        "16": 3,
-        "48": 4866
-      },
-      "kappa_decimal": "0.001672683095046622",
-      "seconds": 14
+      [
+       12,
+       0,
+       78
+      ]
+     ],
+     [
+      1747,
+      [
+       12,
+       0,
+       78
+      ],
+      [
+       0,
+       0,
+       103
+      ]
+     ],
+     [
+      911,
+      [
+       0,
+       0,
+       103
+      ],
+      [
+       0,
+       2,
+       45
+      ]
+     ],
+     [
+      431,
+      [
+       0,
+       2,
+       45
+      ],
+      [
+       12,
+       4,
+       0
+      ]
+     ],
+     [
+      29505,
+      [
+       12,
+       4,
+       0
+      ],
+      [
+       7,
+       0,
+       64
+      ]
+     ],
+     [
+      13666,
+      [
+       7,
+       0,
+       64
+      ],
+      [
+       12,
+       0,
+       79
+      ]
+     ],
+     [
+      1725,
+      [
+       12,
+       0,
+       79
+      ],
+      [
+       0,
+       0,
+       104
+      ]
+     ],
+     [
+      910,
+      [
+       0,
+       0,
+       104
+      ],
+      [
+       12,
+       4,
+       0
+      ]
+     ]
+    ],
+    "idle_remainder_profile": {
+     "1": 2277,
+     "3": 375,
+     "6": 1,
+     "16": 3,
+     "48": 4866
     },
-    {
-      "name": "stage-B",
-      "argv": [
-        "search/chain2.py",
-        "search",
-        "<out>/s1.OWNERS.json.gz",
-        "<out>/s2",
-        "6"
+    "kappa_decimal": "0.001672683095046622",
+    "seconds": 14
+   },
+   {
+    "name": "stage-B",
+    "argv": [
+     "search/chain2.py",
+     "search",
+     "<out>/s1.OWNERS.json.gz",
+     "<out>/s2",
+     "6"
+    ],
+    "exact_first_cycles_tried": 1,
+    "result": "One strictly improving 7-move cycle through X'=(6,0,36) that passes X=(12,4,0): free 3+3+6 in bins (0,0,105), (0,0,58), (12,4,0) become 8+1+3 in bins (0,0,58), (12,4,0), (6,0,36). dE = 2.589139.",
+    "moves": [
+     [
+      28207,
+      [
+       6,
+       0,
+       36
       ],
-      "exact_first_cycles_tried": 1,
-      "result": "One strictly improving 7-move cycle through X'=(6,0,36) that passes X=(12,4,0): free 3+3+6 in bins (0,0,105), (0,0,58), (12,4,0) become 8+1+3 in bins (0,0,58), (12,4,0), (6,0,36). dE = 2.589139.",
-      "moves": [
-        [
-          28207,
-          [
-            6,
-            0,
-            36
-          ],
-          [
-            14,
-            2,
-            12
-          ]
-        ],
-        [
-          14147,
-          [
-            14,
-            2,
-            12
-          ],
-          [
-            12,
-            0,
-            80
-          ]
-        ],
-        [
-          1724,
-          [
-            12,
-            0,
-            80
-          ],
-          [
-            0,
-            0,
-            105
-          ]
-        ],
-        [
-          909,
-          [
-            0,
-            0,
-            105
-          ],
-          [
-            0,
-            0,
-            58
-          ]
-        ],
-        [
-          1241,
-          [
-            0,
-            0,
-            58
-          ],
-          [
-            12,
-            4,
-            0
-          ]
-        ],
-        [
-          431,
-          [
-            12,
-            4,
-            0
-          ],
-          [
-            0,
-            2,
-            45
-          ]
-        ],
-        [
-          1375,
-          [
-            0,
-            2,
-            45
-          ],
-          [
-            6,
-            0,
-            36
-          ]
-        ]
+      [
+       14,
+       2,
+       12
+      ]
+     ],
+     [
+      14147,
+      [
+       14,
+       2,
+       12
       ],
-      "idle_remainder_profile": {
-        "1": 2278,
-        "3": 374,
-        "8": 1,
-        "16": 3,
-        "48": 4866
-      },
-      "kappa_decimal": "0.001672684510394236",
-      "output_equals_data_OWNERS_content": true,
-      "seconds": 16
+      [
+       12,
+       0,
+       80
+      ]
+     ],
+     [
+      1724,
+      [
+       12,
+       0,
+       80
+      ],
+      [
+       0,
+       0,
+       105
+      ]
+     ],
+     [
+      909,
+      [
+       0,
+       0,
+       105
+      ],
+      [
+       0,
+       0,
+       58
+      ]
+     ],
+     [
+      1241,
+      [
+       0,
+       0,
+       58
+      ],
+      [
+       12,
+       4,
+       0
+      ]
+     ],
+     [
+      431,
+      [
+       12,
+       4,
+       0
+      ],
+      [
+       0,
+       2,
+       45
+      ]
+     ],
+     [
+      1375,
+      [
+       0,
+       2,
+       45
+      ],
+      [
+       6,
+       0,
+       36
+      ]
+     ]
+    ],
+    "idle_remainder_profile": {
+     "1": 2278,
+     "3": 374,
+     "8": 1,
+     "16": 3,
+     "48": 4866
     },
-    {
-      "name": "post-check-two-stage",
-      "argv": [
-        "search/chain2.py",
-        "search",
-        "data/OWNERS.json.gz",
-        "<out>/s3",
-        "6"
-      ],
-      "relaxed_zero_or_positive_first_cycles": 389658,
-      "exact_first_cycles_tried": 27567,
-      "exact_second_cycles": 12816,
-      "result": "NONE (bounded: at most 3 first cycles per X, 200 second cycles each)"
-    },
-    {
-      "name": "post-check-one-stage",
-      "argv": [
-        "search/chain.py",
-        "search",
-        "data/OWNERS.json.gz",
-        "<out>/c3",
-        "1",
-        "6"
-      ],
-      "relaxed_candidates": 2256,
-      "result": "no improving chain found at depth 6 (first 5000 candidates replayed)"
-    }
+    "kappa_decimal": "0.001672684510394236",
+    "output_equals_data_OWNERS_content": true,
+    "seconds": 16
+   },
+   {
+    "name": "post-check-two-stage",
+    "argv": [
+     "search/chain2.py",
+     "search",
+     "data/OWNERS.json.gz",
+     "<out>/s3",
+     "6"
+    ],
+    "relaxed_zero_or_positive_first_cycles": 389658,
+    "exact_first_cycles_tried": 27567,
+    "exact_second_cycles": 12816,
+    "result": "NONE (bounded: at most 3 first cycles per X, 200 second cycles each)"
+   },
+   {
+    "name": "post-check-one-stage",
+    "argv": [
+     "search/chain.py",
+     "search",
+     "data/OWNERS.json.gz",
+     "<out>/c3",
+     "1",
+     "6"
+    ],
+    "relaxed_candidates": 2256,
+    "result": "no improving chain found at depth 6 (first 5000 candidates replayed)"
+   }
   ],
   "composition_with_pr2077": {
-    "argv": [
-      "search/compose.py",
-      "search",
-      "<PR1407 data/OWNERS.json.gz>",
-      "<PR2077 data/OWNERS.json.gz>"
-    ],
-    "result": "All 15 non-empty subsets of PR2077's four relocations (rows 2010, 4474, 34306, 46308) are illegal placements on PR1407's map. PR1407 already placed row 7287 into bin (11,8,103) and filled bin (13,15,14) with rows 45356 and 60126, so the capacity PR2077's moves need is not there (only PR2077's literal targets were tested); PR2077's gain and PR1407's gain are alternatives, not additive."
+   "argv": [
+    "search/compose.py",
+    "search",
+    "<PR1407 data/OWNERS.json.gz>",
+    "<PR2077 data/OWNERS.json.gz>"
+   ],
+   "result": "All 15 non-empty subsets of PR2077's four relocations (rows 2010, 4474, 34306, 46308) are illegal placements on PR1407's map. PR1407 already placed row 7287 into bin (11,8,103) and filled bin (13,15,14) with rows 45356 and 60126, so the capacity PR2077's moves need is not there (only PR2077's literal targets were tested); PR2077's gain and PR1407's gain are alternatives, not additive."
   },
   "scope": "A heuristic search record. It is not an optimum proof; the post-checks are bounded passes."
+ }
 }

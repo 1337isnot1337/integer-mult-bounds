@@ -1,29 +1,42 @@
 {
   "status": "LOCAL_COMPLETE_STRICT_REPLAY_PASS",
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "python": "CPython 3.12.14 (uv)",
   "platform": "Linux x86_64",
   "registered_replay": {
     "command": "python3.12 scripts/research_package.py --package research/complex-t16-two-stage-cycles",
     "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
-    "wall_seconds": 45.8,
-    "max_child_rss_mib": 418,
-    "memory_cap": "systemd scope MemoryMax=5G"
+    "wall_seconds": 60,
+    "max_child_rss_mib": 520,
+    "memory_cap": "systemd scope MemoryMax=6G"
   },
   "metadata_check": "PASS_PACKAGE_METADATA_AND_PINS",
   "pinned_inputs": 287,
   "archived_predecessor_files_checked": 179,
   "stages": 11,
-  "controls": {"admission": 69, "bit_supplier": 12, "independent_t16": 6, "controller_mutations": 15, "seed67_owner": 11},
+  "controls": {
+    "admission": 69,
+    "bit_supplier": 12,
+    "independent_t16": 6,
+    "controller_mutations": 15,
+    "seed67_owner": 11
+  },
   "exact_moment_engines": 2,
-  "independent_checks": ["build.py packing checker", "seed67 auditor R1-R7/X1/X2", "pinned-engine pricing (native + conservative)", "PR1069 sweep"],
+  "independent_checks": [
+    "build.py packing checker (idle profile, changed and relocated row counts)",
+    "seed67 auditor R1-R7/X1/X2",
+    "pinned-engine pricing (native + conservative)",
+    "PR1069 sweep"
+  ],
   "cross_checks": [
-    "Session replay.py from a PR2077 tree (sources byte-identical to PR1407's) gave the same kappa and controls.",
-    "search/chain2.py rerun from PR1407's map reproduces data/OWNERS.json.gz content in two stages (about 15 s each).",
+    "The session's own checkmap.py (separate tree, separate lib) on data/OWNERS.json.gz with this replay: seed67 audit, 11 controls, strictly-inside windows, one placement per helper and call, replay profile = audit profile, pinned-engine kappa 0.001672702955495933, PR1069 sweep all true; 70 changed rows, 55 relocated.",
+    "The raw search output F (30,039 changed rows) passed the same strict replay with actual_73column_sigmas 10466 and the same kappa and idle profile.",
     "search/buildcand.py with actual_73column_sigmas=10000 reproduces data/PLAN.json and data/SPEC.json byte for byte."
   ],
   "preparation_failures": [
-    "A first strict replay kept the inherited SPEC actual_73column_sigmas=10002; assembly rejected it (expected 10002 got 10000). The SPEC now pins the audited 10000, as PR1407's does."
+    "First strict replays of min-diff maps used the raw search's sigma count; assembly rejected them (expected 10466 got 10013; expected 10004 got 10000 for this map). SPEC pins the audited 10000.",
+    "check.py compared the conservative kappa as a string; the pinned engine prints 0.001672702952644000 and the SPEC holds 0.001672702952644. It now compares decimals.",
+    "One global two-fill MIP run in the session was killed externally (no OOM; scope ended without output) at 94 relocations; the packaged-script rerun reached the same 94 and is the one recorded."
   ],
   "reused_native_ancestry": true,
   "cold_ancestry_rebuilt": false,

@@ -18,6 +18,7 @@ import gzip
 import hashlib
 import importlib.util
 import json
+from decimal import Decimal
 import sys
 
 if not __debug__:
@@ -109,7 +110,8 @@ def run(main, replay, out_path):
     out.update(price_selected=ps, price_new=pn, price_new_conservative=pc)
     assert ps['kappa_decimal'] == SELECTED_KAPPA
     assert pn['kappa'] == spec['expected']['kappa'] and pn['endpoint'] == spec['expected']['complex_lower']
-    assert pc['kappa_decimal'] == spec['expected']['conservative_kappa_decimal']
+    # Compare as decimals: the native assembler drops trailing zeros (e.g. ...644 vs ...644000).
+    assert Decimal(pc['kappa_decimal']) == Decimal(spec['expected']['conservative_kappa_decimal'])
     out['rel_gain'] = str((Q(pn['kappa'])-Q(ps['kappa']))/Q(ps['kappa']))
 
     if replay is not None:

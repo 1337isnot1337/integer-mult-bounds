@@ -1,9 +1,10 @@
 """Reproduce the candidate owner map, PLAN and SPEC without running a packing search.
 
 The map is the selected PR1094 owner table plus the row replacements in
-DIFF-vs-selected.json. Those replacements are PR1407's owner moves composed with
-the two ejection cycles of this package (DIFF-vs-pr1407.json lists the latter
-against PR1407's own data; PR1407 is open, so its data is pinned, not required).
+DIFF-vs-selected.json. Only owner fields change; the replacements are the
+output of the search recorded in SEARCH.json (two-stage ejection cycles and
+CP-SAT LNS for kappa, then a min-diff re-assignment toward the selected map
+at the same idle profile). The derivation needs no other PR.
 """
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -18,6 +19,10 @@ P = Path(__file__).resolve().parent
 BASE = 'research/complex-t16-rare-pattern-exchanges'
 FIXED = ('stage', 'replica', 'time', 'helper', 'width')
 OWNER = ('owner_replica', 'child', 'port', 'copy', 'family', 'offset')
+CHANGED_ROWS = 70
+RELOCATED_ROWS = 55
+SELECTED_IDLE = Counter({1: 2276, 3: 377, 7: 7, 48: 4866})
+CANDIDATE_IDLE = Counter({1: 2280, 2: 1, 3: 363, 7: 3, 16: 4, 48: 4866})
 
 
 def canonical(x):
@@ -61,18 +66,18 @@ def derive(main):
     spec = json.loads((baseline/'data/SPEC.json').read_text())
     rows = [r.copy() for r in old]
     diff = json.loads((P/'DIFF-vs-selected.json').read_text())
-    assert len(diff) == 70 and len({d['index'] for d in diff}) == 70
+    assert len(diff) == CHANGED_ROWS and len({d['index'] for d in diff}) == CHANGED_ROWS
     for d in diff:
         i = d['index']
-        assert rows[i] == d['before'] and set(d['after']) == set(d['before'])
+        assert rows[i] == d['before'] and set(d['after']) == set(d['before']) and d['after'] != d['before']
         assert all(rows[i][k] == d['after'][k] for k in FIXED)
         rows[i] = d['after'].copy()
     key = lambda r: (r['owner_replica'], r['child'], r['port'])
-    assert sum(key(a) != key(b) for a, b in zip(old, rows)) == 37
+    assert sum(key(a) != key(b) for a, b in zip(old, rows)) == RELOCATED_ROWS
 
     before, after = idle(old, plan), idle(rows, plan)
-    assert before == Counter({1: 2276, 3: 377, 7: 7, 48: 4866})
-    assert after == Counter({1: 2278, 3: 374, 8: 1, 16: 3, 48: 4866})
+    assert before == SELECTED_IDLE
+    assert after == CANDIDATE_IDLE
     assert sum(r*n for r, n in before.items()) == sum(r*n for r, n in after.items())
     profile = Counter({int(k): v for k, v in plan['profile'].items()})
     profile.subtract(before)
@@ -107,4 +112,4 @@ if __name__ == '__main__':
     args.out.mkdir(parents=True, exist_ok=False)
     for name, blob in zip(('OWNERS.json.gz', 'PLAN.json', 'SPEC.json'), blobs):
         (args.out/name).write_bytes(blob)
-    print('PASS_TWO_STAGE_CYCLE_DATA_RECONSTRUCTION')
+    print('PASS_T16_OWNER_MAP_DATA_RECONSTRUCTION')

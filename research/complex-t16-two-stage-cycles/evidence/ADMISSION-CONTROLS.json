@@ -1,9 +1,9 @@
 {
   "status": "PASS_EXACT_MIXED_048_ALLCOLD_NATIVE_ASSEMBLY_ADMISSION_NEGATIVE_CONTROLS",
-  "valid_receipt_kappa": "418171127598559/250000000000000000",
+  "valid_receipt_kappa": "1672702955495933/1000000000000000000",
   "input_sha256": {
-    "owner_audit": "fd21fc35c96bba5a366d2b6fd50df3fbb96a2aee1aa0664a921ffefcdfac46c2",
-    "fresh_invoice": "89befd27319a901bad3caf05d7380386ee2be37c5c9e8ad3098b2fcb8fa76508",
+    "owner_audit": "1eac306218317ca69ceaa232855d486cc64c97238034fca7f2bd3cef8958bdb6",
+    "fresh_invoice": "193c2b6e6b421a066214ea6432d17a593b4145ba2a2bb22b0af26b17cd184153",
     "package:inputs/PR589-EXPECTED.json": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
     "engines/moment.py": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482",
     "engines/base_two_moment.py": "aee70c242a2f1d225528fabe2002e1564d1dc884797c07d28a831c7878ee9098",
