@@ -29,7 +29,7 @@ realisation-free Theorem 4′ / Lemma 5.2 certificate gives nothing for them.
 | **E6** | 36 | 6 | **71** | 71 | smooth point; local component = scaling orbit (**locally rigid**) |
 | **D5** | 20 | 5 | **55** | 39 | not rigid: every rank-5 realisation is edge-supported (Theorem D), i.e. a scaling of an explicit **16-parameter non-Gram family** or a boundary point of it; no rank-4 realisation (Theorem E); floor 20 everywhere |
 | E7 (control) | 63 | 7 | 125 | 125 | locally rigid |
-| E8 (control, `--e8`, ~145 s) | 120 | 8 | 239 | 239 | locally rigid |
+| E8 (control, `--e8`, ~140 s) | 120 | 8 | 239 | 239 | locally rigid |
 | D6 (control) | 30 | 6 | 84 | 59 | smooth; edge family realises all 25 extra directions |
 | D4 (control) | 12 | 4 | 44 | 23 | edge family gives only 9 of the 21 extra directions (rest not integrated here) |
 
@@ -160,7 +160,9 @@ triangle spans, the pairwise meets, `L_a`, the dual pairing and the
 edge-supported normal form. The inputs are the three family points and the Gram
 matrix (each with fixed non-trivial `D₁`, `D₂`) and one boundary member. The
 negative control is a rank-5 matrix that breaks 4 orthogonal zeros, and the
-construction fails on it.
+construction fails on it. As a consistency check, the tangent upper bound is
+also 55 at the three family points and at the boundary member, so these are
+smooth points of a single 55-dimensional component.
 
 **Corollary (#2277 OQ4, D5 half).** Theorem C applies verbatim to every
 edge-supported realisation, including boundary members. Lemma S needs only
@@ -182,8 +184,8 @@ unconstrained.
 
 ```sh
 python3 -I -B research/e6-d5-gram-realisation-rigidity/verify.py      # ~8 s, stdlib
-# expected last line: ALL 41 CHECKS PASSED in <t>s
-python3 -I -B research/e6-d5-gram-realisation-rigidity/verify.py --e8 # adds E8 239 = 2v-1: ALL 42 CHECKS PASSED (~145 s)
+# expected last line: ALL 42 CHECKS PASSED in <t>s
+python3 -I -B research/e6-d5-gram-realisation-rigidity/verify.py --e8 # adds E8 239 = 2v-1: ALL 43 CHECKS PASSED (~140 s)
 python3 scripts/research_package.py --package research/e6-d5-gram-realisation-rigidity --check-only
 ```
 

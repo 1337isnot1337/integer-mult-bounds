@@ -432,6 +432,17 @@ def d5_normal_form(M, check_pattern=True):
     return X, Y
 
 
+def modp(x, p=P1):
+    x = F(x)
+    return x.numerator * pow(x.denominator, p - 2, p) % p
+
+
+def tangent_upper_rational(X, Y, pairs, p=P1):
+    """tangent_upper for rational X, Y (denominators prime to p: reduction
+    Z_(p) -> F_p is a ring map, so rank_p <= rank_Q still holds)."""
+    return tangent_upper([[modp(a, p) for a in r] for r in X], [[modp(a, p) for a in r] for r in Y], pairs, p)[0]
+
+
 def scaled(M, d1, d2):
     return [[d1[t] * M[t][s] * d2[s] for s in range(len(M))] for t in range(len(M))]
 
@@ -601,7 +612,12 @@ def main(argv):
         check("Theorem D construction replayed on %s: W_e, triangles, L_a, dual pairing, edge-supported; "
               "deficient classes = axis classes; actual R(e_a), A(e_b) ranks matched 4 / unmatched 3" % name,
               sorted(dx) == sorted(dy) == sorted(w for w, _ in missing) and tab == ({4}, {3}), str(tab))
+    ups = [tangent_upper_rational(*d5_family(par), pairs5) for par in D5_POINTS.values()]
+    ups.append(tangent_upper_rational(Xbd, Ybd, pairs5))
+    check("D5 tangent upper bound 55 also at pt1-3 and at the boundary member (consistent with Theorem D: "
+          "smooth points of one 55-dimensional component)", ups == [55, 55, 55, 55], str(ups))
 
+    print("== Controls (dimension changes / non-rigid units) ==")
     X4, Y4 = dn_unit(4)
     r4 = rigidity_report("D4", X4, Y4)
     f4 = rank_mod(family_tangent_vectors(4) + orbit_tangent_vectors(mat(X4, Y4)), 144, P1)
