@@ -14,13 +14,34 @@
       "-O",
       "-B",
       "research/p112-signed-modular-production/verify.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-I",
+      "-B",
+      "research/p112-signed-modular86/verify.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-I",
+      "-B",
+      "research/p112-signed-modular86/test_package.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-I",
+      "-B",
+      "research/p112-free-sink-audit97/independent.py"
     ]
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 9.959,
+  "seconds": 23.008,
   "status": "passed",
   "exit_codes": [
+    0,
+    0,
+    0,
     0,
     0
   ],
@@ -2172,7 +2193,7 @@
     "research/p112-signed-modular86/engine.py": "b74c6dd99e9cad0eb4cb252c810acea74c1cba979c7766d194933e4bc35a35fa",
     "research/p112-signed-modular86/CLAIM.json": "ba27025f9ab46d6353d36718ef0f57aa2f8ad50b4d999f7a6b7063e24f478174",
     "research/p112-signed-modular86/VALIDATION.json": "c72b592a686b8da01ce0cddee6b0f778066197a678a734acc9edba41417a4ffe",
-    "research/p112-signed-modular86/verify.py": "a8a711517c0127c66d08e8a31f41959a13051bff64381571fa3887ff765a9923",
+    "research/p112-signed-modular86/verify.py": "093368d06df8607315c8e859ce7496bd4f61b33edd72fadbb3923381feecc379",
     "research/p112-signed-modular86/NOTICE.md": "9faa32ed0589e12c98fa9d3011aacdba247c4ca31ce18798a4d32fd4161bbd92",
     "research/copied-reversed/pr34/independent_controls.py": "f0450c9a8127b538df6cc36ed744ad707b9e72756af9ce5290023272999c5c65",
     "research/copied-reversed/pr34/certify_reversed.py": "77311474169f64a154c2435bcde9303fbc472cbd9ac4d2b39c76e7560fa9e3a3",
@@ -8509,6 +8530,6 @@
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/selected/bit/kchron_p12.json": "0fab548e84cf5ca7c04e8bd19b5810850463f36e0f92180efe73aeff17105e39",
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/references/pr168-v4/research/paired-cube-bit/check_paired_cube_bit.py": "4d7c86cd999a1519e0dfb6dcf33a8f26e442a353c3665a0f06881216a260fbf3"
   },
-  "log_sha256": "2ff24bc9767f817f3bffb3926c9d044355eeddb29c324a9d30e3af772bb3e7f9",
+  "log_sha256": "a24d189c9ab780bdc70fb45f1fef405096421eb0bc10cf87001d0b5496e2616d",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }

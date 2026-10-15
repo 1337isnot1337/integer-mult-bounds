@@ -47,9 +47,12 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 154.081,
+  "seconds": 96.152,
   "status": "failed",
   "exit_codes": [
+    0,
+    0,
+    0,
     0,
     0,
     1
@@ -1381,9 +1384,9 @@
     "research/joint-dual/PROOF.md": "ef87781965cd6d509150c6423525671a7c7d1734f334a6a3c39cc7bffdbae33a",
     "research/joint-dual/SOURCE.json": "330fac72bad557ef4ae999298121c7d63ce237e23bb3184222c9bd6b54264687",
     "research/joint-dual/README.md": "ba7d21a7f71cac74fc7c5b802c0f1f642b8130d6b484e73074f117772b8133cb",
-    "research/k8-hpe450-binding/SOURCES.json": "a387280432b52d0431c95db522868adc5ce85556ccba2b052a22c3eda804bb6c",
-    "research/k8-hpe450-binding/VERIFY.json": "e63c9fc7ba5f80478c23bce55ac8b885743b196b81b71731a1fddf5a7c3f3b1c",
-    "research/k8-hpe450-binding/RESULT.json": "1a343f661c9a47c9a5aa5ad5a4308c9f56d10c5a1934542bb5e6cbf889c8ad71",
+    "research/k8-hpe450-binding/SOURCES.json": "5e36c21a3d24b9695fa9f421b9d545c5608436ebc639847376d058528f79e2bf",
+    "research/k8-hpe450-binding/VERIFY.json": "af2ec334eb64da9a6421feb2aa4cc9ff781e6e9e29a53ff69477c3fd3904a72b",
+    "research/k8-hpe450-binding/RESULT.json": "ae6a40951dc50d0b0c2ddfbc9923d5ad6a5d6c419b2ed0a790099ff6906f3782",
     "research/k8-hpe450-binding/test_verify.py": "0504e6fbbd957ac30146db88bd53f04091557effad8e61993ea0db3ff9dce297",
     "research/k8-hpe450-binding/TASK.json": "21a252a606265c06d0d3de3bc9a47ccd85468484e27b5e2f604a948dc680f225",
     "research/k8-hpe450-binding/README.md": "d554c3cbe31fbd3dd4a38ad87dbd5e79ecbf43a7e407bf82c66a961f821d364e",
@@ -2115,9 +2118,9 @@
     "research/complex-571-hpeq5/README.md": "4000b37f6c07c09d971dc4010ceb137c13340f3a8809d3272046ccaf746c3e2b",
     "research/enlarged-positive-frame-networks/README.md": "0b89b4d34688bc1ce583b76d57d58f06c79497e10726bc7c666532034bca1ff3",
     "research/enlarged-positive-frame-networks/LICENSE-PR37.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
-    "research/k8-hpe450-forward-audit/SOURCES.json": "d05b8468f1d4f0958669019931b53590d1870e9376c44fa658e52080a6c6adc3",
-    "research/k8-hpe450-forward-audit/VERIFY.json": "47d227aa63ea40c0b0bb1b3a666344e9975e118581b31c33d59b7255013b178c",
-    "research/k8-hpe450-forward-audit/RESULT.json": "c03e6189b96fc6eeb4340c022fbb7a91bffda184b9b6022191348cd342ca77f0",
+    "research/k8-hpe450-forward-audit/SOURCES.json": "97657e6213d57d2113857ef6e49ea86fdbd60611d21992874df1d5d022fb49b8",
+    "research/k8-hpe450-forward-audit/VERIFY.json": "b8d29ebcf61293637a745bf3411b2cd89d7aa9da03303cceed77d31fdfc7a6b7",
+    "research/k8-hpe450-forward-audit/RESULT.json": "d6be43abcd499a68de864cdbf12399e7ec3c8bcf2ac91c3f005a7642dde4273d",
     "research/k8-hpe450-forward-audit/TASK.json": "d31d49c7fa00d8ee9664b28301e89ca53164cad2258952b86f38e12d30678e83",
     "research/k8-hpe450-forward-audit/README.md": "9485bc2809620110120c5809429371b5cf3e6d836ff531d413cfe065974ae1cc",
     "research/k8-hpe450-forward-audit/VALIDATION.json": "a71fedb7f17ebf5745571ce941e09219dd037c4dc3f9b42f2806f6343a7ea330",
@@ -8261,6 +8264,6 @@
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/selected/bit/kchron_p12.json": "0fab548e84cf5ca7c04e8bd19b5810850463f36e0f92180efe73aeff17105e39",
     "research/five-stage-source527-banks/loader/source_inputs/base_bit/research/paired-cube-diagonal-bit-168/references/pr168-v4/research/paired-cube-bit/check_paired_cube_bit.py": "4d7c86cd999a1519e0dfb6dcf33a8f26e442a353c3665a0f06881216a260fbf3"
   },
-  "log_sha256": "d22a8d0595dd60a65cb80c927f32950d236cea82418ed70adf13a6bf35d05ef1",
+  "log_sha256": "517ef0c99f2b0bcbc616ea0cb7565d9b0e456f81e148fbe56cd67260af7251a5",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }

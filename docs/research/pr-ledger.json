@@ -42,8 +42,8 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1672,
-    "partially_reviewed": 326,
+    "incorporated": 1675,
+    "partially_reviewed": 323,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -97,7 +97,7 @@
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
-    "research/community-efficient1400-audit/DISPOSITIONS.json": "b4251655d9cf37298b31a78bc0e55e86f39e780dc1d136a67d4a60e0e2f10004",
+    "research/community-efficient1400-audit/DISPOSITIONS.json": "6d0303fd96e63b17c0550a1b8950ec77ca8a4f87587e0ca91d001caa462f4b4c",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -112592,7 +112592,7 @@
       "closure": null,
       "reviewed_head": "dbaf88ec7165ae8547d2756407583c04b3ead27b",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Production equivalence checks pass. Two downstream input-hash receipts were stale; fresh full replays prove only the unused auditor pin was removed. Maintainer regeneration is recorded; corrected dependent checks and full changed-code review remain pending.",
+      "unresolved_question": "Integer-row equivalence passes, but integration is held for live-source and manifest repair: k8 binding/forward auditors execute a wrongly demoted input; k8-rank7 and u8-gap source checkers compare digest strings against new dict entries; frozen package manifest hashes need reconciliation. Isolated read-only test exposed the first issue. Local partial fixes are not an accepted integration. Corrected local binding and forward checks now pass, including isolated export; selected1094 extended-label replay still rejects the demoted auditor as an undeclared input.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -113338,22 +113338,31 @@
         {
           "head": "c36bb5355b97ee82bb2ee0f28b3214fa4583cafb",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Production R439 omission-atlas optimization by Wentao Li, building on Sagar Thakrar’s PR1433 and woklerx. Reviewed lane isolation, exact baseline retention and complete 5563-mutant/661-input equivalence, 7820 short-word/batch checks, corruption rejection and independent three-omission distance replay. Integration keeps the predecessor adapter tied to its hash-checked baseline instead of executing unpinned production bytes. No mathematical coverage reduction or κ change; author Linux timing is descriptive, not independently reproduced here.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/omission-lanes-production",
+        "research/omission-lanes-seed92",
+        "research/r439-omission-atlas-seed81",
+        "research/r439-three-omission-distance"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b86e0d13675d1793042a2f2317a47f816df38ea3",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2431"
+      },
       "reviewed_head": "c36bb5355b97ee82bb2ee0f28b3214fa4583cafb",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Primary production and packed-omission comparisons pass. Restore the missing unchanged distance-check package from the exact head, finish that replay, and complete changed-code and caller review.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2431.json",
@@ -113383,22 +113392,28 @@
         {
           "head": "cbede349fc764aa38379aa533befe3215916cfcd",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Gareth Davidson’s simultaneous-axis QQ16 criterion: unread source columns must satisfy a common-refinement direct-sum rank condition. Reviewed the quantified projection/kernel proof, 512 actual-owner Walsh separation certificate, sharp 66/76/84/88 port thresholds, mixed-axis recovery and credited adaptive transcript argument. Independent rational certificate checker and five entry-point controls pass; retained PR2384 bytes and logical contract explicitly credited. Family-only read lower bound, not full controller sufficiency, native cost bound or new κ.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-eight-axis-readsets"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b86e0d13675d1793042a2f2317a47f816df38ea3",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2432"
+      },
       "reviewed_head": "cbede349fc764aa38379aa533befe3215916cfcd",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2432.json",
@@ -113428,25 +113443,35 @@
         {
           "head": "d688ec0ff64f300c3ff124a60893c5c8c5e4f1c4",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Production P112 signed-determinant optimization by Wentao Li, building on woklerx’s PR1144 and Joel Pulikkan’s geometry. Reviewed prime-521 Hadamard recovery for integer square minors of dimension at most eight and row norm at most two, with unchanged rational fallback. Full 28560-case/4030-minor receipts, 19767 small signed matrices, signed boundaries and rejection controls match the retained baseline. Integration adds a pin and tamper regression before the predecessor’s optional live-production crosscheck. No κ change; author Linux timing is not independently reproduced here.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p112-free-sink-audit97",
+        "research/p112-signed-modular-production",
+        "research/p112-signed-modular86",
+        "tests/test_p112_signed_modular_production.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b86e0d13675d1793042a2f2317a47f816df38ea3",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2433"
+      },
       "reviewed_head": "d688ec0ff64f300c3ff124a60893c5c8c5e4f1c4",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2433.json",
+        "research/community-efficient1400-audit/checks/check-2433-supplement.json",
         "research/community-efficient1400-audit/checks/check-2433.json"
       ],
       "current_head_observed_in": "research/community-efficient1400-audit/DISPOSITIONS.json",
@@ -115708,7 +115733,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1296,
-    "OPEN": 386
+    "MERGED": 1299,
+    "OPEN": 383
   }
 }

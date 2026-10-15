@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "ff7c2deee12d12faf430a8715e67d4cc68c298a3",
+  "checked_commit": "b86e0d13675d1793042a2f2317a47f816df38ea3",
   "merged_prs": [
     2379,
     2382,
@@ -19,9 +19,12 @@
     2412,
     2415,
     2419,
-    2430
+    2430,
+    2431,
+    2432,
+    2433
   ],
-  "changed_files": 163,
+  "changed_files": 219,
   "resolved_files": [
     {
       "number": 2379,
@@ -37,6 +40,21 @@
       "number": 2379,
       "path": "research/antifano-tied-min-cost12-seed22ae1f95/check_certificate.py",
       "sha256": "f5baf0044c7ba33cb121608eb0f57df17078350f1f67647e49537dc0e1a1a086"
+    },
+    {
+      "number": 2431,
+      "path": "research/omission-lanes-seed92/replay.py",
+      "sha256": "36dcded72729ec726fead848ca622a262395fa8c00377bf349e122238fb0dfa8"
+    },
+    {
+      "number": 2433,
+      "path": "research/p112-signed-modular86/test_package.py",
+      "sha256": "70824ae44ac94403c54d04523fc33b1ea20addb55b2c134f7ca81ba189ece1fa"
+    },
+    {
+      "number": 2433,
+      "path": "research/p112-signed-modular86/verify.py",
+      "sha256": "093368d06df8607315c8e859ce7496bd4f61b33edd72fadbb3923381feecc379"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
