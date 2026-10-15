@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1594,
-    "partially_reviewed": 307,
+    "incorporated": 1601,
+    "partially_reviewed": 300,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "43a8b028981628696197a9444b90d74ea40cbf9e19cdf677e21e2b79e49d869c",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "86984e7c7ff1551927adb03464c7a335bb99c14181177407499408f5b79bc0d5",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107231,16 +107231,20 @@
       "integration_location": [
         "research/r439-two-center-defect-relay-seed63e9"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2280"
+      },
       "reviewed_head": "d278bdae48180553d8331107a3c977797bd72cd0",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2280.json",
@@ -107644,16 +107648,20 @@
       "integration_location": [
         "research/gl3-nilpotent-coupling-seeda9ab7bd2"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2290"
+      },
       "reviewed_head": "8839972a3cc939ebc17562473082189ea166d7de",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2290.json",
@@ -108163,16 +108171,20 @@
       "integration_location": [
         "research/qq16-selected-intervention-seed58"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2306"
+      },
       "reviewed_head": "4d6e08099c11ff06a8585d04ed59453dd5a62d7d",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2306.json",
@@ -108210,16 +108222,20 @@
       "integration_location": [
         "research/selected-fallback-laurent-audit"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2307"
+      },
       "reviewed_head": "29c9d57bd1030c6a96522ab25de7280c6764bdba",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2307.json",
@@ -108346,16 +108362,20 @@
       "integration_location": [
         "research/selected-control-uniformity"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2310"
+      },
       "reviewed_head": "a5258f548bfb6da71c3b72733fbbd2fb4995c929",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2310.json",
@@ -108518,21 +108538,23 @@
         {
           "head": "16319e3f12fc95d5820a3f1802e2976949c92933",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Gareth Davidson's exact weighted UT4 extension: full 421,888-word expansion excludes the two five-middle-call fourteen-call splits; inherited thirteen-call positive-control census reproduces its exact transcript. Reviewed common-orientation compression from at most one excess span dimension, which extends the finite exclusion to arbitrary restored dirty workspace. Direct tariff is sharp only on beta <= 2 min(alpha,gamma); the outside-cone lower envelope is not asserted attained. Complete registered census and independent algebra/gap controls pass.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/ut4-mixed-weighted-boundary"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "16319e3f12fc95d5820a3f1802e2976949c92933",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108607,21 +108629,23 @@
         {
           "head": "1b732744b66cc3461559d52349ae07fa31d444f8",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Jose Carlos Gonzalez Roque's isolated portability audit reproduces both actual PR1094 manifest guards rejecting Windows path spelling despite identical bytes. The two in-memory as_posix repairs retain all 192 file hashes and reject 391 corruptions. Maintainer replay verifies POSIX execution and Windows serialization models; author's native-Windows evidence is retained separately. Frozen selected sources are unchanged; no installed repair or complete Windows supplier replay is claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected1094-windows-manifest-audit"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "1b732744b66cc3461559d52349ae07fa31d444f8",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108697,21 +108721,23 @@
         {
           "head": "5b800ec52af93ef62adf610f52c9488e71054619",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang's complete two-role F2[Q8] idempotent-coupling census: all 64 diagonal target pairs have exact independent direct tariffs in both positive-only and unit-priced-inverse alphabets. Independent quaternion group/ring engines reproduce full shorter-word balls through depths five and three; 128 attaining words and 372 omission controls pass. Free scalar GL2 normalization and coupling closure reviewed; no assertion for extra roles, nilpotent couplings, or native implementation.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/q8-inverse-label-pair-census"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "5b800ec52af93ef62adf610f52c9488e71054619",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108875,21 +108901,23 @@
         {
           "head": "b065a51249198a23e24195023f4b2e83eda1dd9c",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Gareth Davidson's uniform dirty-pairing compression: choosing a complement to U intersect ann(V) gives FG=I and preserves every ordered contraction, hence the full noncommutative product and restored dirty endpoint. Exact finite checks cover 4,775 subspace pairs, all 2,401 rank-one pairs and 18,176 faithful columns. Minimality is only for factorwise contraction-preserving replacements. UT4 three-role cost-25 handoff uses credited PR2175/2314 span/census premises; it is not a constructed cheaper word or supplier.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/register-pairing-compression"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "b065a51249198a23e24195023f4b2e83eda1dd9c",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108928,16 +108956,20 @@
       "integration_location": [
         "research/bit2234-stock-threshold"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2324"
+      },
       "reviewed_head": "0ec8a26572069b6109decadd488b9770944a4296",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2324.json",
@@ -109057,21 +109089,23 @@
         {
           "head": "6b2717ce2bbb13c2152e64efea48867b78840bbb",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's sharp QQ16 initial-prefix tariff: comparing zero character to frequency 256 gives a rank-16 endpoint difference, so any scalar-scratch circuit in the atomic single-field native-line model needs sixteen calls. Legal equal-frame owned-C0 prefix attains the bound; exact replay covers 512 characters, all 712 formal fields, native recipes, separate address convolution and fourteen controls. Scope excludes later B1 fusion, owner mixing and split native wrappers; inherited core boundary and full-supplier obligations remain explicit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/qq16-shear-prefix-cost"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "6b2717ce2bbb13c2152e64efea48867b78840bbb",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -109154,16 +109188,20 @@
       "integration_location": [
         "research/split-minmax-audit-seed63"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9c3f39e056f10fa02273b9247b0a1556ab397a29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2330"
+      },
       "reviewed_head": "886a56719f556607e418e17a6849d37728211eb0",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2330.json",
@@ -110836,7 +110874,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1218,
-    "OPEN": 366
+    "MERGED": 1225,
+    "OPEN": 359
   }
 }
