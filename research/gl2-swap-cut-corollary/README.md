@@ -153,7 +153,7 @@ all legal words.
 `independent.py` and [REVIEW.md](REVIEW.md) give the separately implemented
 regular-action audit, its exact domain and the mathematical model review.
 `test_verify.py` exercises actual guard removal and semantic corruptions;
-it also checks equivalent coordinate order and read-only Git-free replay.
+it also checks equivalent group-basis order and read-only Git-free replay.
 Each detector must reject for the intended reason. The registered commands
 run with `-O` to ensure their checks do not rely on Python assertions.
 
