@@ -7,9 +7,9 @@ later package to an earlier package's module. Preserve full test discovery
 within each file, but do not share those imports between files.
 
 Modules are scheduled concurrently (one isolated interpreter per module,
---workers controls the width). Every module keeps the exact sequential
-command and its captured stdout/stderr bytes are replayed in sorted module
-order, so the combined receipts match a sequential run module for module.
+--workers controls the width). Every module uses the same unittest discovery
+arguments and its captured stdout/stderr bytes are replayed in sorted module
+order. A successful exit counts only after unittest has returned a result.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -17,21 +17,33 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
+COMPLETED = b'unittest completed successfully\n'
+BOOTSTRAP = '''from pathlib import Path
+import sys
+import unittest
+tests_dir, pattern, receipt = sys.argv[1:]
+sys.argv = [str(Path(unittest.__file__).with_name('__main__.py')),
+            'discover', '-s', tests_dir, '-p', pattern, '-v']
+program = unittest.main(module=None, exit=False)
+if not program.result.wasSuccessful():
+    raise SystemExit(1)
+Path(receipt).write_bytes(b'unittest completed successfully\\n')
+'''
 
 
-def module_command(python, tests_dir, name):
-    """The one command every module runs, unchanged from the sequential runner."""
-    return [python, '-m', 'unittest', 'discover', '-s', str(tests_dir), '-p', name, '-v']
+def module_command(python, tests_dir, name, receipt):
+    """Run discovery normally, then attest that the suite returned successfully."""
+    return [python, '-c', BOOTSTRAP, str(tests_dir), name, str(receipt)]
 
 
 def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
     """Run each test module in its own interpreter; return (path, code, out, err).
 
-    Results follow the input order regardless of scheduling. The per-module
-    command and byte streams are those of a sequential run; only the
-    scheduling is concurrent.
+    Results follow the input order regardless of scheduling. Each child must
+    return from unittest successfully, not merely terminate with exit code 0.
     """
     python = sys.executable if python is None else python
     tests_dir = ROOT / 'tests' if tests_dir is None else tests_dir
@@ -44,14 +56,22 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
     env = os.environ.copy()
     env.pop('PYTHONOPTIMIZE', None)
 
-    def run_one(path):
-        result = subprocess.run(module_command(python, tests_dir, path.name),
+    def run_one(indexed):
+        index, path = indexed
+        receipt = Path(completion_dir) / str(index)
+        result = subprocess.run(module_command(python, tests_dir, path.name, receipt),
                                 cwd=cwd, env=env,
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        if result.returncode == 0 and (
+                not receipt.is_file() or receipt.read_bytes() != COMPLETED):
+            return path, 1, result.stdout, result.stderr + (
+                b'Incomplete unittest run: child exited successfully before '
+                b'discovery and execution completed\n')
         return path, result.returncode, result.stdout, result.stderr
 
-    with ThreadPoolExecutor(max_workers=workers) as pool:
-        return list(pool.map(run_one, files))
+    with tempfile.TemporaryDirectory(prefix='isolated-test-completion-') as completion_dir:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            return list(pool.map(run_one, enumerate(files)))
 
 
 def main(argv=None):
