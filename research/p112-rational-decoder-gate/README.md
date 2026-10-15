@@ -2,7 +2,7 @@
 
 **Constructive finite result and cost audit; no new supplier or kappa.** For the same 112 selected labels used by PR2041, this package supplies a different cover by 37 orthonormal triads and one residual line. Its strict scalar endpoint mask has minimum fitting rank **exactly 57**, with an explicit 57-term integral fit and a matching principal-submatrix lower bound. For the fixed cover in PR2041, PR2532 identified a rank-at-least-99 obstruction; this package also supplies a matching 99-term fit. Thus the exact fixed-mask minimum changes from **99 to 57** when the cover changes. This opens more scalar sharing without reusing the invalid binary decoder target.
 
-This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. A follow-up theorem proves that **every exactly-57-term rational fit on this mask costs at least 334**, including asymmetric factors and arbitrary nonzero common normalization. Moreover, at **any factor count**, a rank-57 fit costs at least **308** if both factor families remain in its column and row spaces. Both floors exceed the necessary charge of at most 296. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
+This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. A follow-up theorem proves that **every exactly-57-term rational fit on this mask costs at least 334**, including asymmetric factors and arbitrary nonzero common normalization. Moreover, at **any factor count**, a rank-57 fit costs at least **308** if both factor families remain in its column and row spaces. A further [exterior-factor theorem](EXTERIOR-58-PROOF.md) proves that **every rational fit using at most 58 nonzero rank-one terms costs at least 297**, whether its matrix rank is 57 or 58. These floors exceed the necessary charge of at most 296. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
 
 ## Exact object and contract
 
@@ -106,11 +106,45 @@ bounds the support patterns of discounted terms; an acyclic-subset argument
 then bounds how many discounts the extra factors can buy. The floor 308 is a
 lower bound, with no claim that it is attainable.
 
-Thus **more factors and a change of span or fitting rank are necessary for
-charge <=296**, not sufficient. Exterior factor directions may cancel in the
+Thus **at least 59 factors and a change of span or fitting rank are necessary for
+charge <=296**, not sufficient; the 59-term necessity follows from the extension below. Exterior factor directions may cancel in the
 sum, and fitting matrices of larger rank remain open. Changed covers and
 operator contracts also remain open. Neither theorem establishes physical
 implementation or an improved multiplication bound.
+
+## Exterior factors: every decoder with at most 58 terms misses the gate
+
+[EXTERIOR-58-PROOF.md](EXTERIOR-58-PROOF.md) closes both matrix-rank cases
+possible with 58 terms. It permits arbitrary rational coefficients, asymmetric
+factors, exterior directions that cancel, and changes of fitting matrix:
+
+\[
+    m\le58\quad\Longrightarrow\quad C\ge297>2672/9.
+\]
+
+This floor is not claimed sharp. For rank 57, Sylvester's rank inequality forces
+one factor family to remain in the fitting matrix's span. The other has one
+exterior direction. Compressing the affected coordinates handles a sparse
+direction; a complete closure of **1,750 physical-triad spans** and **2,318
+affected-set unions** handles a dense direction. The key bound uses the union
+of every compatible cheap-source support for the same affected set.
+
+For rank 58, the Schur complement has rank one. Its permitted group blocks
+form a forest. All **314 nonempty support rectangles** localize the defect to
+either a small compression, the exceptional groups 4/24, or a residual-only
+six-neighbor case. The proof handles singular paired maps and a zero retained
+source column explicitly. It invokes the prior 40-space acyclic cost argument
+after compression; it does not reduce rational coefficients modulo two.
+
+The new [primary checker](check_exterior_58.py) and
+[independent checker](independent_exterior_58.py) reconstruct these finite
+premises using echelon bases and explicit vector sets, respectively. They do
+not execute or import one another. Separate AI agents also audited the written
+algebra. This is not independent human review or formal proof verification.
+
+Consequently the next scalar construction must use **at least 59 nonzero terms**,
+and must still escape the earlier rank-57/both-spans floor. No cheaper decoder,
+native implementation, or improved exponent is supplied by this obstruction.
 
 ## Discovery and replay
 
@@ -126,6 +160,8 @@ python3 -I -O -B research/p112-rational-decoder-gate/independent_check.py
 python3 -I -O -B research/p112-rational-decoder-gate/check_rank_tight_floor.py
 python3 -I -O -B research/p112-rational-decoder-gate/independent_cost_floor.py
 python3 -I -O -B research/p112-rational-decoder-gate/check_overcomplete_closure.py
+python3 -I -O -B research/p112-rational-decoder-gate/check_exterior_58.py
+python3 -I -O -B research/p112-rational-decoder-gate/independent_exterior_58.py
 python3 scripts/research_package.py --package research/p112-rational-decoder-gate --check-only
 python3.12 scripts/research_package.py --package research/p112-rational-decoder-gate
 ```
@@ -140,11 +176,13 @@ The primary and separately implemented checker reconstruct labels, the cover, th
 - **Cinna Davis, [PR2126](https://github.com/CrocSwap/integer-mult-bounds/pull/2126), and Jeremy Diviney (`jeremydiviney`), [PR2203](https://github.com/CrocSwap/integer-mult-bounds/pull/2203):** paired-plane scalar identity fit and native payload accounting. Their distinction between coefficient blocks, independent payloads and native occurrences is retained.
 - **Sagar Thakrar, [PR2484](https://github.com/CrocSwap/integer-mult-bounds/pull/2484), head `4823273c8163e4c72472bdf7d42202e2c12d2e46`, following ywz65's PR2471:** exact scalar minimum rank 49 on a different, fixed paired-plane mask, including disjoint-support upper and submatrix lower certificates. Those proof methods are prior work. This package supplies a different three-plane cover, its exact rank and full charge; rank 57 versus 49 does not compare complete supplier costs.
 
+- **Hanson Sun (`bbMisk`), [decoder-excess-rank](../decoder-excess-rank/README.md), following joaqcoo/PR1224:** the general Sylvester excess-rank and projection framework is prior work. The new contribution here is the source-bound cost consequence for this different full-group mask, not that rank inequality.
+
 At the scientific base the central ledger marks PR1889, PR2041, PR2126 and PR2203 incorporated as scoped results, which does not admit a new supplier. PR2532 and PR2484 are pinned pending sources for context and overlap. The selected PR1094 lineage, including Rohan Arun and Jeremy Kothe, retains credit for the labels. Native frame-distance work by icekylinx and its independent check by woklerx retain their credit through the predecessors.
 
 Prepared by flyingviper with substantial OpenAI Codex assistance in search, proof development, implementation and separate-agent checking. No independent human review, formal verification of the full theorem, selected-result change or new exponent is claimed. New work is Apache-2.0.
 
 ## Open next questions
 
-1. **Can a different rational factorization exploit this mask to lower the full port-space bill?** Start with at least 58 nonzero terms, and either introduce factor directions outside the fitting matrix's column/row spaces or increase the fitting rank. The cost theorems exclude every exactly-57-term rational fit and all overcomplete decompositions of rank-57 fitting matrices that retain both spans, including asymmetric ones. Enforce every diagonal and forbidden entry exactly before pricing whole source and reader spaces. A useful first gate is `C < 2672/9`; a selected-bound candidate needs a full moment below one near the incumbent saving, requiring roughly `C<=261` even in the favorable rank-9 relaxation. Stop a factorization family when its favorable complete invoice misses that gate. Diagonal rescaling of the saved factors costs 334 and does not reopen it.
+1. **Can a different rational factorization exploit this mask to lower the full port-space bill?** Start with at least 59 nonzero terms, and either introduce factor directions outside the fitting matrix's column/row spaces or increase the fitting rank. The cost theorems exclude every rational fit with at most 58 terms and all overcomplete decompositions of rank-57 fitting matrices that retain both spans, including asymmetric ones. Enforce every diagonal and forbidden entry exactly before pricing whole source and reader spaces. A useful first gate is `C < 2672/9`; a selected-bound candidate needs a full moment below one near the incumbent saving, requiring roughly `C<=261` even in the favorable rank-9 relaxation. Stop a factorization family when its favorable complete invoice misses that gate. Diagonal rescaling of the saved factors costs 334 and does not reopen it.
 2. **Can a different block or native contract realize useful sharing with every independent payload charged?** First supply the complete operator identity, dirty-input behavior and actual occurrences, rather than charging a geometric rank once for a multi-array block. Before another construction round, update the family budget and consumer boundary: source preparation, chart conversion, routing, hosting, chronological ownership, storage, erasure/restoration, precision, all-size recursion and a compatible bit supplier remain unproved here. Their costs are unknown, not zero. This finite certificate supplies neither physical compilation nor the selected cold replay.
