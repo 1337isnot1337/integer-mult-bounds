@@ -140,7 +140,7 @@
     "environment": "CPython 3.12.15, macOS 27.0.1 arm64",
     "registered_replay": "PASS, normal and -O with -I -Werror -B",
     "behavioral_tests": "8 passed",
-    "repository_workflow_tests": "70 passed, 3 skipped",
+    "repository_workflow_tests": "70 tests run, 3 skipped",
     "source_exports": "All five exports independently byte-compared with the pinned source Git commit.",
     "not_run": [
       "full selected supplier cold replay",
