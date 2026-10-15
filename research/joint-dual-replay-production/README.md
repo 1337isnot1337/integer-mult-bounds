@@ -37,7 +37,11 @@ PASS_IDENTICAL_JOINT_DUAL_REPLAY_PRODUCTION_RECEIPTS
 ```
 
 Default verify is read-only. Timing is host-descriptive and is not a
-correctness gate. Retained samples are in [`RESULT.json`](RESULT.json).
+correctness gate.
+
+On Linux / CPython 3.12.3, five alternating fresh-process pairs replaying both
+pinned words (`h=23` and `h=25`) gave median wall time **5.873 → 3.120 s
+(1.882×)**. Retained samples are in [`RESULT.json`](RESULT.json).
 
 ## Why the masks are equivalent
 
