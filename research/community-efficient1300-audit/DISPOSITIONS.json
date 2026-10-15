@@ -618,20 +618,24 @@
       },
       "reviewed_head": "67294e7dd5bc7caa0d253b74e1d39c376ca99663",
       "current_head": "67294e7dd5bc7caa0d253b74e1d39c376ca99663",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/three-total-classical-configs"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "1696cf14e403b3eab35cd9eab27a4c2eb4e4ae38",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2274"
+      },
       "scope": "Sagar Thakrar\u2019s Desargues/Pappus structured-frame audit. Reviewed the frame-universal characteristic-two substitution and zero-pattern proofs, exact realizations, 372 generic and 1793 special certificates, independent Desargues exclusion counts and all 18 small non-CR2 pairing minima with fresh exhaustive C replay. Independently reconstructed all twelve special signatures. Seventy larger sampled instances remain unresolved; CR2 consequences retain their inherited lemma and no universal decoder floor, supplier or kappa is claimed. DreamingOfClouds and earlier decoder work credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2274.json",
@@ -950,19 +954,23 @@
       "current_head": "325601ad64b58f10c6fda659851e3acd43bb10b7",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/t74-side-condition-coverage-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar\u2019s T74 prose-side-condition inventory and independent symbolic review. Reviewed the exact evaluator, ledger transcription, classification gates and flagged source context; full source-bound replay authenticates32 files and554 quotations,133 condition keys,49 recomputed ledger checks and122 symbolic/source checks. Complete110-file Python inventory supports the reference scan. Extraction completeness and load-bearing classifications remain a documented reading audit, with58 non-exponent obligations unproved. Flags stale margins, a false optional halo branch and the disabled bracket; preserves Philippe Van Velzen\u2019s priority and Rohan Arun\u2019s reconciliation credit. No supplier admission or new kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2286.json"
+        "research/community-efficient1300-audit/packets/2286.json",
+        "research/community-efficient1300-audit/checks/check-2286-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2286.json"
       ]
     },
     {
@@ -1695,19 +1703,22 @@
       "current_head": "00de1b48c3155846ee340993eeb9e9d7daf157af",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/pr2265-supplier-admission-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar\u2019s independent finite supplier-premise audit of PR2260/2265. Reviewed the free-word rational replay, same-call namespace,31392 owner rows, residual histogram, finite constants and320-digit moment error allowance. Both full orientations and15 semantic controls pass; maintainer independently verifies all1377 frame bases. The audit identifies the X73 data borrow and separates9 covered,1 namespace-only unencoded and5 inherited premises. Native Clifford lowering,63-bit bound,time windows,guard units,compiler and endpoint-license applicability remain unproved here. No candidate or frontier admission; Dugongue,Cinna Davis,DreamingOfClouds and outer-lineage credits retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2311.json"
+        "research/community-efficient1300-audit/packets/2311.json",
+        "research/community-efficient1300-audit/checks/check-2311.json"
       ]
     },
     {
@@ -1992,23 +2003,27 @@
       },
       "reviewed_head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
       "current_head": "2c7dfd60f7a45d7c6b433afb9d73346f13c59832",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/copied-fixed",
         "research/data-corner-performance",
         "research/data-corner-production",
         "tests/test_data_corner_production.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "1696cf14e403b3eab35cd9eab27a4c2eb4e4ae38",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2320"
+      },
       "scope": "Wentao Li\u2019s production cached-column update for the historical data-corner checker. Reviewed invariant pivot eligibility and update order, exact baseline retention and downstream archived/live pin separation. Full normal and optimized comparisons cover4073300 pairs with4073290 good and10 fallback cases, identical complete receipts and a rejecting column-fill mutant. Both modes also pass ten wiring/kernel/determinant/source controls. Certificate changes only the production-source digest; author1.54x benchmark remains attributed, not independently retimed. No selected frontier change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2320.json",
@@ -2501,19 +2516,30 @@
       "current_head": "217ba488beeb20d65a3f677df46de9793b954c50",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        ".github/workflows",
+        "research/selected1094-windows-successor",
+        "scripts/historical-ci-inputs",
+        "scripts/replay_historical_check.py",
+        "scripts/run_isolated_tests.py",
+        "scripts/verify_pr_reconciliation.py",
+        "tests/test_historical_check.py",
+        "tests/test_isolated_test_runner.py",
+        "tests/test_pr_reconciliation.py"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Dennis/antunishdPursuit\u2019s opt-in selected-final-stage Windows successor, using Jose Manuel\u2019s two path-key fixes. Reviewed exact-source in-memory compilation, assertion retention,105-file typed comparisons and linked invoice/log hashes. Fresh macOS replay passes all11 strict stages and16 rejecting controls, with102 byte-identical outputs; native Windows42-second evidence remains author-reported. Archived PR1042 inputs are used, not a cold ancestry replay. Retained newer main historical pins and ledger decisions in shared ancestor files; no selected-source or kappa change. Rohan Arun,Jeremy Kothe,Douglas Colkitt and JosieElliston credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2336.json"
+        "research/community-efficient1300-audit/packets/2336.json",
+        "research/community-efficient1300-audit/checks/check-2336.json"
       ]
     },
     {
