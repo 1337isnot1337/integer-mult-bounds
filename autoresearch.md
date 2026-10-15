@@ -277,6 +277,12 @@ have restricted scopes. Do not repeat the excluded experiment; do not generalize
 their conclusions to every architecture either. Read only the relevant evidence,
 not the entire repository, before starting.
 
+For the five-source dirty connector, consult the
+[call-count, tariff and contract map](docs/research/five-source-connector-scope-map.md)
+before repricing the original alphabet. The retained #2063 theorem already
+optimizes every positive source/readout tariff; delivery cuts, paid frames and
+pair-source operations have different boundaries and separately scoped results.
+
 For complex E8 decoder work, use the [decoder scope map](docs/research/complex-decoder-scope-map.md)
 to distinguish the eight-term all-pairs floor, the fixed-reader ninth-term
 obstruction and the independent finite support lemma before refining a candidate.
