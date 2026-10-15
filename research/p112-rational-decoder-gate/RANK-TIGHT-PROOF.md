@@ -236,3 +236,11 @@ above. The selected P112 labels, tri-plane endpoint, strict mask and full-space
 tariff retain their predecessor attribution in the package [README](README.md).
 Prepared by flyingviper with substantial OpenAI Codex assistance and separate
 AI-agent checking. New work is Apache-2.0; no independent human review is claimed.
+
+## Sharp any-length refinement
+
+The valid 308 lower bound above is superseded, in exactly the same
+both-canonical-spans scope, by [CANONICAL-SHARP-PROOF.md](CANONICAL-SHARP-PROOF.md):
+`C >= 334+2s` for `m=57+s`. Keeping the identical pure-J count in the full
+and ordinary-coordinate acyclic bounds closes the gap without new geometry.
+The historical derivation and its checkers are retained as independent premises.

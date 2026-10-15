@@ -84,6 +84,17 @@
       ],
       "timeout_seconds": 120,
       "checks": "Independent explicit-vector-set reconstruction and annihilator ranks; independently derive1750 spans,2318 affected-set unions and314 Schur rectangles with source/geometry controls. Does not import the primary checker."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/check_canonical_sharp.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent explicit-vector-set and annihilator audit of all40 spans and272 cheap rectangles, full57/restricted54 selection probabilities, exact pure-count cancellation giving334+2s, source pins and three mutation controls. Supports the written proof; not a formal kernel."
     }
   ]
 }

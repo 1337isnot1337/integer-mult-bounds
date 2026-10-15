@@ -1,8 +1,8 @@
-# A P112 cover with minimum scalar rank 57 and sharp minimum-length cost 334
+# A P112 cover with scalar rank 57 and sharp canonical-span cost 334
 
 **Constructive finite result and cost audit; no new supplier or kappa.** For the same 112 selected labels used by PR2041, this package supplies a different cover by 37 orthonormal triads and one residual line. Its strict scalar endpoint mask has minimum fitting rank **exactly 57**, with an explicit 57-term integral fit and a matching principal-submatrix lower bound. For the fixed cover in PR2041, PR2532 identified a rank-at-least-99 obstruction; this package also supplies a matching 99-term fit. Thus the exact fixed-mask minimum changes from **99 to 57** when the cover changes. This opens more scalar sharing without reusing the invalid binary decoder target.
 
-This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. A follow-up theorem proves that **every exactly-57-term rational fit on this mask costs at least 334**, including asymmetric factors and arbitrary nonzero common normalization. Moreover, at **any factor count**, a rank-57 fit costs at least **308** if both factor families remain in its column and row spaces. A further [exterior-factor theorem](EXTERIOR-58-PROOF.md) proves that **every rational fit using at most 58 nonzero rank-one terms costs at least 297**, whether its matrix rank is 57 or 58. These floors exceed the necessary charge of at most 296. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
+This is a partial result toward a rational decoder. Charging the full port spaces gives the displayed fit the profile `3 H3 + 53 H6 + H7`, of mass **334**. Even with the proposed coverage law and all additional costs set to zero, its zero-saving moment is **32871/32704 > 1**. A follow-up theorem proves that **every exactly-57-term rational fit on this mask costs at least 334**, including asymmetric factors and arbitrary nonzero common normalization. Moreover, at **any factor count**, a rank-57 fit costs at least **334** if both factor families remain in its column and row spaces: with `m=57+s` nonzero terms, the sharper bound is `C >= 334+2s`. The saved construction attains this minimum at `s=0`. A further [exterior-factor theorem](EXTERIOR-58-PROOF.md) proves that **every rational fit using at most 58 nonzero rank-one terms costs at least 297**, whether its matrix rank is 57 or 58. These floors exceed the necessary charge of at most 296. The number 57 counts rank-one scalar terms; it is not a verified number of physical child calls.
 
 ## Exact object and contract
 
@@ -56,7 +56,7 @@ Here both spans are equal. Each ordinary pair support touches two orthogonal non
 n_3=3,\qquad n_6=53,\qquad n_7=1,\qquad C=3\cdot3+53\cdot6+7=334.
 \]
 
-This remains true after any diagonal conjugation above. The [minimum-length cost theorem](RANK-TIGHT-PROOF.md) extends this floor to every exactly-57-term rational scalar fit on this mask. This 334 bound does not bound decompositions with more terms, including overcomplete decompositions of rank-57 matrices. The additional 308 bound below has a different scope. The integral construction does not evade the earlier 2-integral floor of 334 for this 37-triad/one-line contract.
+This remains true after any diagonal conjugation above. The [minimum-length cost theorem](RANK-TIGHT-PROOF.md) extends this floor to every exactly-57-term rational scalar fit on this mask. The minimum-length theorem alone does not bound decompositions with more terms. The [canonical-span refinement](CANONICAL-SHARP-PROOF.md) does: every overcomplete decomposition retaining both spans costs at least `334+2s`. Exterior directions and larger fitting ranks remain outside that refinement. The integral construction does not evade the earlier 2-integral floor of 334 for this 37-triad/one-line contract.
 
 The exact average unpaid dimension is
 
@@ -99,12 +99,16 @@ at least `54*6 + 3*3 + 1 = 334`, attained by the saved construction.
 
 The argument does not reduce rational coefficients modulo two and covers
 nonintegral, nonsymmetric and nongauge factorizations. It closes optimization
-at minimum factor count. For any number `m=57+s` of terms, an additional argument gives
-`C >= max(334-s, 228+3s) >= 308` if both factor families remain in the rank-57
-matrix's column and row spaces. An exact closure of 40 binary component spaces
-bounds the support patterns of discounted terms; an acyclic-subset argument
-then bounds how many discounts the extra factors can buy. The floor 308 is a
-lower bound, with no claim that it is attainable.
+at minimum factor count. For any number `m=57+s` of terms retaining both canonical spans, the
+[sharp refinement](CANONICAL-SHARP-PROOF.md) proves `C >= 334+2s`. It keeps the
+same pure-J term count in two acyclic-subset inequalities: one for all 57
+latent coordinates and one for the 54 ordinary coordinates. Their exact
+convex combination cancels that count. The same complete 40-space closure
+and 272 low-price rectangles suffice. This supersedes the earlier valid but
+weaker lower bound of 308; no new geometry or minimality assumption is added.
+The new independent vector-set checker validates both probability budgets,
+source pins and the affine combination; [its receipt](CANONICAL-SHARP-RESULT.json)
+is retained. The symbolic argument remains a written proof, not a proof-assistant certificate.
 
 Thus **at least 59 factors and a change of span or fitting rank are necessary for
 charge <=296**, not sufficient; the 59-term necessity follows from the extension below. Exterior factor directions may cancel in the
@@ -162,6 +166,7 @@ python3 -I -O -B research/p112-rational-decoder-gate/independent_cost_floor.py
 python3 -I -O -B research/p112-rational-decoder-gate/check_overcomplete_closure.py
 python3 -I -O -B research/p112-rational-decoder-gate/check_exterior_58.py
 python3 -I -O -B research/p112-rational-decoder-gate/independent_exterior_58.py
+python3 -I -O -B research/p112-rational-decoder-gate/check_canonical_sharp.py
 python3 scripts/research_package.py --package research/p112-rational-decoder-gate --check-only
 python3.12 scripts/research_package.py --package research/p112-rational-decoder-gate
 ```
@@ -186,3 +191,13 @@ Prepared by flyingviper with substantial OpenAI Codex assistance in search, proo
 
 1. **Can a different rational factorization exploit this mask to lower the full port-space bill?** Start with at least 59 nonzero terms, and either introduce factor directions outside the fitting matrix's column/row spaces or increase the fitting rank. The cost theorems exclude every rational fit with at most 58 terms and all overcomplete decompositions of rank-57 fitting matrices that retain both spans, including asymmetric ones. Enforce every diagonal and forbidden entry exactly before pricing whole source and reader spaces. A useful first gate is `C < 2672/9`; a selected-bound candidate needs a full moment below one near the incumbent saving, requiring roughly `C<=261` even in the favorable rank-9 relaxation. Stop a factorization family when its favorable complete invoice misses that gate. Diagonal rescaling of the saved factors costs 334 and does not reopen it.
 2. **Can a different block or native contract realize useful sharing with every independent payload charged?** First supply the complete operator identity, dirty-input behavior and actual occurrences, rather than charging a geometric rank once for a multi-array block. Before another construction round, update the family budget and consumer boundary: source preparation, chart conversion, routing, hosting, chronological ownership, storage, erasure/restoration, precision, all-size recursion and a compatible bit supplier remain unproved here. Their costs are unknown, not zero. This finite certificate supplies neither physical compilation nor the selected cold replay.
+
+## Canonical-span refinement checkpoint
+
+This refinement extends PR2757 head `2c54b99055aaa21d0bd3c8c8e4c48ce3c7fb1dd9`.
+Canonical main was refreshed to `28f54620ff770dd051d5df35882bd84303d13c6f`;
+guidance, the selected record and consumed inputs were unchanged. Two separate
+AI agents checked the proof and exact geometry, followed by the parent replay.
+The sharp 334 result closes optimization inside both canonical spans. It is
+a partial research result; the search for an exterior or changed-cover decoder
+of charge at most 296 continues under the user's explicit persistent budget.

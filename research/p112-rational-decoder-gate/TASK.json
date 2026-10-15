@@ -45,9 +45,9 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors. Prove the sharp334 whole-port-space floor for every exactly57-term rational fit on the changed mask. Prove a308 lower bound for any-length decompositions of rank57 fits whose factors retain both column/row spans. Prove that every rational scalar fit with at most58 terms costs at least297, including exterior factors and rank58 matrices.",
+  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors. Prove the sharp334 whole-port-space floor for every exactly57-term rational fit on the changed mask. Prove a sharp334+2s lower bound for any-length decompositions of rank57 fits whose factors retain both column/row spans. Prove that every rational scalar fit with at most58 terms costs at least297, including exterior factors and rank58 matrices.",
   "scope_change_reason": "User selected rational/block P112 decoder research after PR2532 invalidated the original binary lift. The old cover obstructs natural fractional routes; change the cover to expand actual orthogonal-group freedom instead of optimizing the invalid binary invoice.",
-  "bottleneck_link": "The changed cover attains scalar rank57. Exactly57 terms cost334; every fit with at most58 terms costs at least297. At any factor count, rank57 fits retaining both factor spans cost at least308. All exceed2672/9; a candidate needs at least59 terms and exterior directions or higher fitting rank.",
+  "bottleneck_link": "The changed cover attains scalar rank57. Exactly57 terms cost334; every fit with at most58 terms costs at least297. At any factor count, rank57 fits retaining both factor spans cost at least334. All exceed2672/9; a candidate needs at least59 terms and exterior directions or higher fitting rank.",
   "budget_minutes": 60,
   "stop_rule": "Retain one verified mask/cost result after exact endpoint and independent checks. Reject the explicit supplier target at zero saving; do not infer a universal rational-decoder or cover obstruction from bounded motif searches.",
   "outcome": "partial",
@@ -59,7 +59,7 @@
       "question": "Can a genuinely shared fractional decoder improve the new mask's334 port-space charge?",
       "why_it_matters": "The scalar rank obstacle has fallen99 to57, but break-even requires C<2672/9 and the selected-target optimistic allowance is smaller.",
       "first_step": "Use at least59 terms with exterior factor directions or a higher-rank fitting matrix. Enforce every constrained coefficient exactly, then price complete group-space pairings.",
-      "blocked_by": "Every fit with at most58 terms costs at least297. Rank57 fits retaining both factor spans cost at least308 at arbitrary term count. The unrestricted59-or-more-term case remains open."
+      "blocked_by": "Every fit with at most58 terms costs at least297. Rank57 fits retaining both factor spans cost at least334+2s for m=57+s at arbitrary term count. The unrestricted59-or-more-term case remains open."
     },
     {
       "question": "Can a different mask or operator contract supply genuinely cheaper payload transport?",
@@ -99,7 +99,7 @@
   },
   "family_gate": {
     "decision": "narrow",
-    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0. Sharp334 floor for all exactly57-term rational fits on this mask. Any-length rank57 decompositions retaining both factor spans cost at least308. Every fit with at most58 nonzero rational terms costs at least297.",
+    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0. Sharp334 floor for all exactly57-term rational fits on this mask. Any-length rank57 decompositions retaining both factor spans cost at least334+2s for m=57+s. Every fit with at most58 nonzero rational terms costs at least297.",
     "unknown": [
       "native caller",
       "routes and chronological ownership",
@@ -219,5 +219,21 @@
       "open_pr_coverage": "latest100 updated open PR bodies",
       "discussion_limitation": "Prior HTTP406 remains; cached discussion evidence retained without retry or bypass."
     }
+  },
+  "canonical_sharp_followup": {
+    "dependency_head": "2c54b99055aaa21d0bd3c8c8e4c48ce3c7fb1dd9",
+    "canonical_main": "28f54620ff770dd051d5df35882bd84303d13c6f",
+    "checked_at_utc": "2026-10-15T22:33:00Z",
+    "priority_revision": 5,
+    "source_compatibility": "Guidance, selected record and consumed inputs unchanged",
+    "result": "C >=334+2s for all m=57+s both-canonical-span decompositions of any rank57 fit on the fixed mask",
+    "supersedes": "The earlier308 floor in cost_followup is retained as historical provenance; the sharp minimum is334",
+    "proof": "CANONICAL-SHARP-PROOF.md",
+    "independent_checker": "check_canonical_sharp.py",
+    "receipt": "CANONICAL-SHARP-RESULT.json",
+    "review": "Two separate AI agents audited the shared classification and exact budgets; parent replay passed. No human or formal-kernel review claimed.",
+    "cost_improvement": false,
+    "selected_frontier_change": false,
+    "continuous_research": "User explicitly authorized continuing until a cheaper target is reached or stopped; this partial proof does not end the ongoing constructive search."
   }
 }
