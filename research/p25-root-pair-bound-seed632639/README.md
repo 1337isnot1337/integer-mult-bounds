@@ -115,7 +115,7 @@ The scope claim and handoff are tracked at
 [Discussion #1167 comment 18937692](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18937692).
 The focused package is submitted for review as
 [PR #2237](https://github.com/CrocSwap/integer-mult-bounds/pull/2237), head
-`593cea1911a3d7700ecc3833b7c777bbee7ecf12`.
+`2cf4b737dd3f7e4b347212015af21b04779fc99a`.
 
 ## Reproduce
 
