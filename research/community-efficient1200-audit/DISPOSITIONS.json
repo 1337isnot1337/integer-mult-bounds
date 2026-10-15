@@ -1177,21 +1177,25 @@
       },
       "reviewed_head": "e3cd8375f6cd26393914e8395fff0d813e7031df",
       "current_head": "e3cd8375f6cd26393914e8395fff0d813e7031df",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         ".gitattributes",
         "research/exact-coarse-exponential"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e83348b06435e995cd6709d9a55c90ff594da928",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2168"
+      },
       "scope": "Opt-in common-denominator Horner evaluation returns exactly the retained degree-24 polynomial plus tail dyadic interval. Differential whole-moment and 30,000-digit original-oracle checks change no engine precision, surcharge or supplier.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2168.json",
