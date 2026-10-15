@@ -145,6 +145,10 @@ class DisjointTensorSupportMasksTests(unittest.TestCase):
             if companion in restored["source_sha256"]:
                 self.assertEqual(restored["source_sha256"][companion], "eba4acc6f44c5d56aa8d225266a4a951fc1f1cb84819cdc104e1847578403878")
                 restored["source_sha256"][companion] = base["source_sha256"][companion]
+            companion = "scripts/experiments/complex_centers.py"
+            if companion in restored["source_sha256"]:
+                self.assertEqual(restored["source_sha256"][companion], "39cfcf869dc4a00dd30a1e91efb986074371621dad14b390cf1053f6aeea79bf")
+                restored["source_sha256"][companion] = base["source_sha256"][companion]
             self.assertEqual(restored, base)
 
 
