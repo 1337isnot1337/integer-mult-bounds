@@ -1,0 +1,10 @@
+c 20 cost<= 41 case -1 e1 None cols 0 feasibility form: status 2 The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None) EXCLUDED 1s
+c 20 cost<= 41 case 2 e1 100 cols 5520 feasibility form: status 2 The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None) EXCLUDED 679s
+c 20 cost<= 41 case 4 e1 84 cols 11280 feasibility form: status 1 Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) OPEN 10438s
+c 20 cost<= 41 case 5 e1 76 cols 11280 feasibility form: status 1 Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) OPEN 10442s
+c=20 cost<=41 case 10 e1 114 cols 0 -> EXCLUDED (infeasible) 0s
+c=20 cost<=41 case 11 e1 112 cols 1440 -> EXCLUDED (infeasible) 316s
+c=20 cost<=41 case 12 e1 112 cols 1440 -> EXCLUDED (infeasible) 683s
+c=20 cost<=41 case 13 e1 112 cols 1440 -> EXCLUDED (infeasible) 2932s
+c=20 cost<=41 case 9 e1 108 cols 4800 -> OPEN: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) 12882s
+c=20 cost<=41 case 6 e1 76 cols 11280 -> OPEN: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) 31851s

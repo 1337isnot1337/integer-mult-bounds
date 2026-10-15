@@ -1,0 +1,13 @@
+c 19 cost<= 42 case -1 e1 None cols 0 status 0 best 31.999999999999616 dual_bound 31.999999999999616 need 34 EXCLUDED 5s
+c 19 cost<= 42 case 10 e1 114 cols 0 status 0 best 30.0 dual_bound 30.0 need 34 EXCLUDED 4s
+c 19 cost<= 42 case 2 e1 100 cols 5520 status 0 best 31.999999999934616 dual_bound 31.999999999934616 need 34 EXCLUDED 88s
+c 19 cost<= 42 case 11 e1 112 cols 1440 status 0 best 31.000000000000007 dual_bound 31.000000000000007 need 34 EXCLUDED 84s
+c 19 cost<= 42 case 9 e1 108 cols 4800 status 0 best 31.000000000000014 dual_bound 31.000000000000014 need 34 EXCLUDED 312s
+c 19 cost<= 42 case 13 e1 112 cols 1440 status 0 best 29.999999999999993 dual_bound 29.999999999999993 need 34 EXCLUDED 264s
+c 19 cost<= 42 case 12 e1 112 cols 1440 status 0 best 31.0 dual_bound 31.0 need 34 EXCLUDED 273s
+c 19 cost<= 42 case 4 e1 84 cols 11280 status 1 best 30.999999999999915 dual_bound 33.0 need 34 EXCLUDED 1201s
+c 19 cost<= 42 case 5 e1 76 cols 11280 status 1 best 30.99999999999773 dual_bound 33.0 need 34 EXCLUDED 1202s
+c 19 cost<= 42 case 6 e1 76 cols 11280 status 1 best 30.999999999998764 dual_bound 33.0 need 34 EXCLUDED 1202s
+c 19 cost<= 42 case 14 e1 84 cols 11280 status 1 best 31.00000000000057 dual_bound 33.0 need 34 EXCLUDED 1201s
+c 19 cost<= 42 case 15 e1 70 cols 11280 status 1 best 31.000000000010186 dual_bound 32.0 need 34 EXCLUDED 1201s
+c 19 cost<= 42 case 16 e1 70 cols 11280 status 1 best 30.00000000000007 dual_bound 33.0 need 34 EXCLUDED 1201s

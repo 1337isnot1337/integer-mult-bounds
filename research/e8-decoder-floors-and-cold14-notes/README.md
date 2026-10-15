@@ -215,3 +215,15 @@ Together with §13, a Gaussian E8 decoder that beats real E8 (cost ≤ 42) needs
   - CP-SAT covering ILPs for c = 19 and c = 20 returned UNKNOWN.
 
 **Status of the Gaussian question.** A Gaussian E8 decoder that beats real E8 (cost ≤ 42) needs **19 ≤ c ≤ 42** totals of nonzero cost. At c = 19 only cost exactly 42 is open, and at c = 20 only 41–42.
+
+## 16. Gaussian E8: c = 19 excluded; c = 20 partial (`s9-gaussian-c19/`, 2026-10-15)
+- **μ-packing theorem (checked: HiGHS exact-optimal, and CP-SAT for capacities 7 and 8).** Tight totals miss exactly the cliques M·x_t (§15). Over μ ∈ ℤ≥0^60 with Mμ ≤ cap, the maximum |μ| for cap = 6..12 is **28, 32, 36, 42, 48, 52, 60**; the LP allows 5·cap. Consequences:
+  - an all-tight decoder costs ≥ 44 for every c ≤ 20;
+  - at c = 21 the requirement equals the maximum (42), which is exactly S8's 21-dumbbell cover.
+- **c = 19 is excluded (checked, HiGHS MIP dual bounds; floating point, not exact certificates).** Non-tight totals are handled by a case split over the 27 rank-maximal type orbits with deficit ≤ 256. All 20 lifted cases are excluded: each best value is ≤ 32 with a dual bound ≤ 33, against the 34 needed. **Hence no 19-total decoder costs ≤ 42.**
+- **c = 20 is partial.**
+  - At cost ≤ 41: 6 cases are excluded and cases 6 and 9 timed out.
+  - At cost ≤ 42: cases −1 and 21 are excluded; cases 19, 22 and 23 timed out, and the heavy cases (20k–54k columns) were not run.
+- **c ≥ 21 (argued, partly checked).** Counting is exhausted. However, the c = 21 covers that counting allows are **F2-infeasible** (0.1 s SAT). The minimal core is a non-orthogonal pair {a, b}: one total covers both diagonal entries while another gives only an off-diagonal entry. S9 classified the exact 2×2 support lemma into 17 minimal feasible patterns; `pair_ilp.py` (all-dumbbell plus the lemma) is written but not run.
+
+**Status of the Gaussian question:** a decoder that beats real E8 needs **20 ≤ c ≤ 42**. c = 20 is partly excluded, and c ≥ 21 has a candidate F2 route.

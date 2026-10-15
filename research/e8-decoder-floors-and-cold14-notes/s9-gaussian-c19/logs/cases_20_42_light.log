@@ -1,0 +1,5 @@
+c=20 cost<=42 case -1 e1 None cols 0 -> EXCLUDED (infeasible) 3s
+c=20 cost<=42 case 21 e1 16 cols 1440 -> EXCLUDED (infeasible) 683s
+c=20 cost<=42 case 22 e1 20 cols 4800 -> OPEN: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) 3814s
+c=20 cost<=42 case 23 e1 20 cols 4800 -> OPEN: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) 5047s
+c=20 cost<=42 case 19 e1 24 cols 5520 -> OPEN: Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) 13885s

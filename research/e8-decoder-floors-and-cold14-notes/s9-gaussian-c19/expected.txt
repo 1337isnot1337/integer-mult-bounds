@@ -1,0 +1,19 @@
+# completed parts only (non-FULL verify.sh; values recorded from the work-dir runs, not yet from a fresh verify run)
+mu-packing: cap 6  max |mu| = 28  (LP 30)
+mu-packing: cap 7  max |mu| = 32  (LP 35)
+mu-packing: cap 8  max |mu| = 36  (LP 40)
+mu-packing: cap 9  max |mu| = 42  (LP 45)
+mu-packing: cap 10  max |mu| = 48  (LP 50)
+mu-packing: cap 11  max |mu| = 52  (LP 55)
+mu-packing: cap 12  max |mu| = 60  (LP 60)
+cap 7 |mu|>= 33 INFEASIBLE
+cap 8 |mu|>= 37 INFEASIBLE
+types: 58340 (R,miss)-distinct rank-maximal types, 27 orbits, 23 non-dominated
+calibration c=21 cost<=42 case -1: FEASIBLE ; c=19 cost<=44 case -1: FEASIBLE
+identity True True
+S8 dumbbell cover, fixed orientation: False
+c = 21 dumbbell cover: cost 42 min clique hits 12 max 16 PASS
+free orientation: False
+minimal infeasible O: 2 [23, 26]
+17 minimal feasible kind-multisets:
+# case ILPs: see logs/cases_*.log (c=19: 17/20 EXCLUDED; c=20/41: -1,2 EXCLUDED; c=20/42: -1,21 EXCLUDED)
