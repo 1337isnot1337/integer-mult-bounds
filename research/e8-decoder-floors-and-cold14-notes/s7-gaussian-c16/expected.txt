@@ -1,0 +1,43 @@
+Gauss v 60 w 4 nonorth degree [np.int64(44)]
+LEVEL 1: 3 good orbit reps (3s)
+LEVEL 2: 28 good orbit reps (131s)
+LEVEL 3: 120 good orbit reps (157s)
+LEVEL 4: 368 good orbit reps
+LEVEL 5: 498 good orbit reps
+LEVEL 6: 464 good orbit reps
+LEVEL 7: 315 good orbit reps
+LEVEL 8: 206 good orbit reps
+LEVEL 9: 124 good orbit reps
+LEVEL 10: 74 good orbit reps
+LEVEL 11: 32 good orbit reps
+LEVEL 12: 24 good orbit reps
+LEVEL 13: 10 good orbit reps
+LEVEL 14: 6 good orbit reps
+LEVEL 15: 1 good orbit reps
+LEVEL 16: 0 good orbit reps
+EMPTY at level 16 => at most 15 such flats/totals for c=16, dims 3
+level sizes: {1: 3, 2: 28, 3: 120, 4: 368, 5: 498, 6: 464, 7: 315, 8: 206, 9: 124, 10: 74, 11: 32, 12: 24, 13: 10, 14: 6, 15: 1, 16: 0}
+(A) k= 1:    3 of    3 reps have an a-capable member
+(A) k= 2:   19 of   28 reps have an a-capable member
+(A) k= 3:   18 of  120 reps have an a-capable member
+(A) k= 4:    3 of  368 reps have an a-capable member
+(A) k= 5:    0 of  498 reps have an a-capable member
+(A) k= 6:    0 of  464 reps have an a-capable member
+(A) k= 7:    0 of  315 reps have an a-capable member
+(A) k= 8:    0 of  206 reps have an a-capable member
+(A) k= 9:    0 of  124 reps have an a-capable member
+(A) k=10:    0 of   74 reps have an a-capable member
+(A) k=11:    0 of   32 reps have an a-capable member
+(A) k=12:    0 of   24 reps have an a-capable member
+(A) k=13:    0 of   10 reps have an a-capable member
+(A) k=14:    0 of    6 reps have an a-capable member
+(A) k=15:    0 of    1 reps have an a-capable member
+(B) k=11: max p* = 5 (need >= 11 for cost <= 42)
+(B) k=12: max p* = 4 (need >= 10 for cost <= 42)
+(B) k=13: max p* = 3 (need >= 9 for cost <= 42)
+(B) k=14: max p* = 2 (need >= 8 for cost <= 42)
+(B) k=15: max p* = 1 (need >= 7 for cost <= 42)
+THEOREM: no Gaussian-E8 decoder with exactly 16 totals has sum beta_j <= 42
+c=16 decoder valid; betas [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4] sum 64 cheap totals 0
+LEVEL 1: 0 good orbit reps
+EMPTY at level 1 => at most 0 such flats/totals for c=15, dims 3

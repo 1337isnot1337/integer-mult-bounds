@@ -1,0 +1,15 @@
+level 1 reps 3
+level 2: candidates 178, after subset closure 178; SAT tests at rank <= 14
+  level 2 progress 50/178  good 9  (52s)
+  level 2 progress 100/178  good 16  (94s)
+  level 2 progress 150/178  good 24  (144s)
+  level 2 progress 178/178  good 28  (174s)
+LEVEL 2: 28 good orbit reps; |O| histogram [(32, 1), (33, 1), (36, 1), (40, 3), (42, 2), (44, 1), (48, 3), (49, 2), (50, 3), (51, 4), (52, 5), (53, 1), (54, 1)]
+level 3: candidates 13029, after subset closure 159; SAT tests at rank <= 13
+  level 3 progress 50/159  good 41  (312s)
+  level 3 progress 100/159  good 79  (316s)
+  level 3 progress 150/159  good 114  (319s)
+  level 3 progress 159/159  good 120  (322s)
+LEVEL 3: 120 good orbit reps; |O| histogram [(21, 1), (22, 1), (23, 2), (24, 2), (26, 1), (28, 10), (29, 10), (30, 3), (31, 1), (32, 5), (34, 1), (35, 18), (36, 11), (37, 9), (38, 5), (39, 3), (40, 2), (41, 1), (42, 4), (43, 4), (44, 9), (46, 6), (48, 6), (49, 4), (50, 1)]
+/opt/homebrew/Cellar/python@3.11/3.11.15_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 6 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

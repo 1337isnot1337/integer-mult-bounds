@@ -1,0 +1,208 @@
+level 2: 178 candidates, 28 good, 150 UNSAT prunings to recheck with glucose4
+  (0, 2) |O|=36 minrank<=14: UNSAT 10.1s
+  (0, 23) |O|=43 minrank<=14: UNSAT 12.6s
+  (0, 19) |O|=41 minrank<=14: UNSAT 14.2s
+  (0, 132) |O|=42 minrank<=14: UNSAT 14.7s
+  (0, 64) |O|=40 minrank<=14: UNSAT 24.2s
+  (0, 134) |O|=42 minrank<=14: UNSAT 16.8s
+  (0, 129) |O|=42 minrank<=14: UNSAT 27.8s
+  (0, 208) |O|=42 minrank<=14: UNSAT 14.3s
+  (0, 136) |O|=44 minrank<=14: UNSAT 16.0s
+  (0, 212) |O|=42 minrank<=14: UNSAT 14.3s
+  (0, 63) |O|=42 minrank<=14: UNSAT 32.1s
+  (0, 232) |O|=42 minrank<=14: UNSAT 9.8s
+  (0, 233) |O|=42 minrank<=14: UNSAT 15.8s
+  (15, 21) |O|=52 minrank<=14: UNSAT 19.6s
+  (15, 20) |O|=52 minrank<=14: UNSAT 23.6s
+  (0, 15) |O|=43 minrank<=14: UNSAT 54.5s
+  (15, 19) |O|=52 minrank<=14: UNSAT 26.3s
+  (0, 952) |O|=41 minrank<=14: UNSAT 29.0s
+  (15, 17) |O|=54 minrank<=14: UNSAT 32.4s
+  (15, 22) |O|=52 minrank<=14: UNSAT 28.7s
+  (15, 29) |O|=53 minrank<=14: UNSAT 17.8s
+  (15, 25) |O|=54 minrank<=14: UNSAT 23.0s
+  (15, 26) |O|=54 minrank<=14: UNSAT 23.2s
+  (15, 23) |O|=54 minrank<=14: UNSAT 35.6s
+  (15, 33) |O|=51 minrank<=14: UNSAT 28.1s
+  (15, 24) |O|=54 minrank<=14: UNSAT 39.9s
+  (15, 35) |O|=51 minrank<=14: UNSAT 29.9s
+  (15, 44) |O|=51 minrank<=14: UNSAT 15.0s
+  (15, 37) |O|=53 minrank<=14: UNSAT 20.2s
+  (15, 43) |O|=51 minrank<=14: UNSAT 26.1s
+  (15, 31) |O|=53 minrank<=14: UNSAT 47.2s
+  (15, 47) |O|=51 minrank<=14: UNSAT 13.7s
+  (15, 49) |O|=53 minrank<=14: UNSAT 15.8s
+  (15, 45) |O|=53 minrank<=14: UNSAT 36.4s
+  (15, 46) |O|=53 minrank<=14: UNSAT 27.9s
+  (15, 50) |O|=53 minrank<=14: UNSAT 25.7s
+  (15, 129) |O|=50 minrank<=14: UNSAT 23.5s
+  (15, 132) |O|=50 minrank<=14: UNSAT 24.0s
+  (15, 140) |O|=51 minrank<=14: UNSAT 20.2s
+  (15, 141) |O|=51 minrank<=14: UNSAT 20.6s
+  (15, 143) |O|=51 minrank<=14: UNSAT 22.0s
+  (15, 136) |O|=52 minrank<=14: UNSAT 42.0s
+  (15, 144) |O|=51 minrank<=14: UNSAT 23.7s
+  (15, 146) |O|=51 minrank<=14: UNSAT 14.8s
+  (15, 48) |O|=51 minrank<=14: UNSAT 73.3s
+  (15, 145) |O|=51 minrank<=14: UNSAT 30.7s
+  (15, 154) |O|=50 minrank<=14: UNSAT 18.0s
+  (15, 155) |O|=50 minrank<=14: UNSAT 19.6s
+  (15, 142) |O|=53 minrank<=14: UNSAT 55.7s
+  (15, 153) |O|=52 minrank<=14: UNSAT 24.7s
+  (15, 157) |O|=50 minrank<=14: UNSAT 20.3s
+  (15, 148) |O|=53 minrank<=14: UNSAT 41.8s
+  (15, 159) |O|=52 minrank<=14: UNSAT 18.8s
+  (15, 158) |O|=52 minrank<=14: UNSAT 29.2s
+  (15, 165) |O|=50 minrank<=14: UNSAT 24.0s
+  (15, 134) |O|=50 minrank<=14: UNSAT 102.1s
+  (15, 167) |O|=50 minrank<=14: UNSAT 19.2s
+  (15, 164) |O|=52 minrank<=14: UNSAT 36.4s
+  (15, 166) |O|=50 minrank<=14: UNSAT 30.3s
+  (15, 156) |O|=50 minrank<=14: UNSAT 55.2s
+  (15, 170) |O|=52 minrank<=14: UNSAT 25.4s
+  (15, 169) |O|=52 minrank<=14: UNSAT 26.6s
+  (15, 168) |O|=50 minrank<=14: UNSAT 55.3s
+  (15, 205) |O|=52 minrank<=14: UNSAT 28.9s
+  (15, 202) |O|=50 minrank<=14: UNSAT 40.6s
+  (15, 200) |O|=50 minrank<=14: UNSAT 45.6s
+  (15, 208) |O|=52 minrank<=14: UNSAT 29.9s
+  (15, 201) |O|=50 minrank<=14: UNSAT 48.4s
+  (15, 203) |O|=50 minrank<=14: UNSAT 44.4s
+  (15, 206) |O|=52 minrank<=14: UNSAT 37.4s
+  (15, 211) |O|=52 minrank<=14: UNSAT 24.6s
+  (15, 209) |O|=52 minrank<=14: UNSAT 38.0s
+  (15, 232) |O|=52 minrank<=14: UNSAT 26.3s
+  (15, 214) |O|=52 minrank<=14: UNSAT 44.7s
+  (15, 215) |O|=52 minrank<=14: UNSAT 42.5s
+  (15, 213) |O|=52 minrank<=14: UNSAT 51.8s
+  (15, 210) |O|=52 minrank<=14: UNSAT 68.2s
+  (15, 239) |O|=52 minrank<=14: UNSAT 18.1s
+  (15, 212) |O|=52 minrank<=14: UNSAT 73.3s
+  (15, 235) |O|=52 minrank<=14: UNSAT 46.5s
+  (15, 234) |O|=52 minrank<=14: UNSAT 62.3s
+  (15, 238) |O|=52 minrank<=14: UNSAT 50.8s
+  (15, 242) |O|=52 minrank<=14: UNSAT 45.1s
+  (15, 406) |O|=53 minrank<=14: UNSAT 23.9s
+  (15, 405) |O|=53 minrank<=14: UNSAT 32.1s
+  (15, 409) |O|=51 minrank<=14: UNSAT 15.6s
+  (15, 407) |O|=51 minrank<=14: UNSAT 27.4s
+  (15, 396) |O|=50 minrank<=14: UNSAT 51.3s
+  (15, 398) |O|=50 minrank<=14: UNSAT 44.0s
+  (15, 408) |O|=51 minrank<=14: UNSAT 25.5s
+  (15, 442) |O|=50 minrank<=14: UNSAT 16.2s
+  (15, 411) |O|=53 minrank<=14: UNSAT 25.0s
+  (15, 410) |O|=51 minrank<=14: UNSAT 30.4s
+  (15, 412) |O|=53 minrank<=14: UNSAT 31.9s
+  (15, 443) |O|=50 minrank<=14: UNSAT 30.6s
+  (15, 444) |O|=50 minrank<=14: UNSAT 31.4s
+  (15, 445) |O|=50 minrank<=14: UNSAT 41.4s
+  (15, 450) |O|=52 minrank<=14: UNSAT 41.6s
+  (15, 451) |O|=52 minrank<=14: UNSAT 38.2s
+  (15, 462) |O|=53 minrank<=14: UNSAT 27.5s
+  (15, 454) |O|=52 minrank<=14: UNSAT 38.5s
+  (15, 455) |O|=52 minrank<=14: UNSAT 42.1s
+  (15, 463) |O|=53 minrank<=14: UNSAT 36.0s
+  (15, 476) |O|=52 minrank<=14: UNSAT 22.4s
+  (15, 477) |O|=52 minrank<=14: UNSAT 25.5s
+  (15, 474) |O|=52 minrank<=14: UNSAT 42.5s
+  (15, 1129) |O|=51 minrank<=14: UNSAT 14.9s
+  (15, 481) |O|=52 minrank<=14: UNSAT 31.4s
+  (15, 1133) |O|=50 minrank<=14: UNSAT 18.2s
+  (15, 478) |O|=52 minrank<=14: UNSAT 45.4s
+  (15, 1128) |O|=51 minrank<=14: UNSAT 34.3s
+  (15, 1149) |O|=53 minrank<=14: UNSAT 24.4s
+  (15, 484) |O|=52 minrank<=14: UNSAT 55.2s
+  (15, 1160) |O|=51 minrank<=14: UNSAT 13.5s
+  (15, 1132) |O|=50 minrank<=14: UNSAT 38.9s
+  (15, 488) |O|=52 minrank<=14: UNSAT 55.9s
+  (15, 1148) |O|=53 minrank<=14: UNSAT 42.7s
+  (15, 1166) |O|=51 minrank<=14: UNSAT 28.9s
+  (15, 1167) |O|=51 minrank<=14: UNSAT 28.8s
+  (15, 1150) |O|=55 minrank<=14: UNSAT 56.3s
+  (15, 1182) |O|=53 minrank<=14: UNSAT 25.6s
+  (15, 1163) |O|=53 minrank<=14: UNSAT 46.9s
+  (15, 1180) |O|=53 minrank<=14: UNSAT 38.1s
+  (15, 1169) |O|=53 minrank<=14: UNSAT 51.4s
+  (15, 1161) |O|=51 minrank<=14: UNSAT 62.5s
+  (15, 1284) |O|=52 minrank<=14: UNSAT 19.3s
+  (15, 1276) |O|=52 minrank<=14: UNSAT 32.4s
+  (19, 21) |O|=50 minrank<=14: UNSAT 22.1s
+  (15, 1186) |O|=53 minrank<=14: UNSAT 47.7s
+  (19, 43) |O|=49 minrank<=14: UNSAT 20.5s
+  (15, 1208) |O|=50 minrank<=14: UNSAT 57.7s
+  (15, 1281) |O|=52 minrank<=14: UNSAT 43.5s
+  (19, 35) |O|=49 minrank<=14: UNSAT 39.6s
+  (19, 72) |O|=51 minrank<=14: UNSAT 6.9s
+  (19, 66) |O|=49 minrank<=14: UNSAT 18.4s
+  (19, 75) |O|=49 minrank<=14: UNSAT 8.6s
+  (15, 1209) |O|=50 minrank<=14: UNSAT 64.4s
+  (19, 79) |O|=49 minrank<=14: UNSAT 10.3s
+  (19, 88) |O|=49 minrank<=14: UNSAT 8.4s
+  (19, 67) |O|=49 minrank<=14: UNSAT 17.0s
+  (19, 44) |O|=49 minrank<=14: UNSAT 32.7s
+  (19, 64) |O|=51 minrank<=14: UNSAT 30.6s
+  (19, 129) |O|=48 minrank<=14: UNSAT 13.4s
+  (19, 149) |O|=48 minrank<=14: UNSAT 9.6s
+  (19, 150) |O|=48 minrank<=14: UNSAT 12.8s
+  (19, 161) |O|=48 minrank<=14: UNSAT 11.4s
+  (19, 83) |O|=51 minrank<=14: UNSAT 24.6s
+  (19, 134) |O|=48 minrank<=14: UNSAT 17.6s
+  (19, 160) |O|=48 minrank<=14: UNSAT 15.8s
+  (19, 154) |O|=48 minrank<=14: UNSAT 27.9s
+level 3: 159 candidates, 120 good, 39 UNSAT prunings to recheck with glucose4
+  (0, 127, 138) |O|=23 minrank<=13: UNSAT 0.1s
+  (0, 172, 690) |O|=36 minrank<=13: UNSAT 0.1s
+  (0, 172, 615) |O|=36 minrank<=13: UNSAT 0.3s
+  (0, 172, 694) |O|=38 minrank<=13: UNSAT 0.5s
+  (0, 172, 617) |O|=38 minrank<=13: UNSAT 0.5s
+  (0, 176, 617) |O|=40 minrank<=13: UNSAT 0.4s
+  (0, 173, 617) |O|=38 minrank<=13: UNSAT 0.6s
+  (0, 173, 694) |O|=38 minrank<=13: UNSAT 0.6s
+  (0, 176, 694) |O|=41 minrank<=13: UNSAT 0.4s
+  (15, 16, 27) |O|=53 minrank<=13: UNSAT 0.4s
+  (15, 16, 228) |O|=50 minrank<=13: UNSAT 0.3s
+  (15, 16, 395) |O|=50 minrank<=13: UNSAT 0.3s
+  (15, 16, 1197) |O|=50 minrank<=13: UNSAT 0.4s
+  (15, 16, 1196) |O|=52 minrank<=13: UNSAT 0.5s
+  (15, 16, 393) |O|=50 minrank<=13: UNSAT 0.7s
+  (15, 16, 1198) |O|=50 minrank<=13: UNSAT 0.5s
+  (15, 16, 1221) |O|=48 minrank<=13: UNSAT 0.3s
+  (15, 16, 1220) |O|=50 minrank<=13: UNSAT 0.4s
+  (15, 16, 1222) |O|=48 minrank<=13: UNSAT 0.3s
+  (15, 16, 131) |O|=50 minrank<=13: UNSAT 1.1s
+  (15, 16, 1223) |O|=50 minrank<=13: UNSAT 0.4s
+  (15, 131, 299) |O|=48 minrank<=13: UNSAT 0.6s
+  (15, 147, 348) |O|=49 minrank<=13: UNSAT 0.4s
+  (15, 393, 1155) |O|=47 minrank<=13: UNSAT 0.5s
+  (15, 393, 1157) |O|=47 minrank<=13: UNSAT 0.4s
+  (15, 395, 555) |O|=48 minrank<=13: UNSAT 0.3s
+  (19, 33, 416) |O|=46 minrank<=13: UNSAT 0.1s
+  (19, 33, 414) |O|=46 minrank<=13: UNSAT 0.2s
+  (15, 131, 925) |O|=48 minrank<=13: UNSAT 1.1s
+  (15, 147, 1159) |O|=50 minrank<=13: UNSAT 1.3s
+  (19, 172, 327) |O|=42 minrank<=13: UNSAT 0.6s
+  (19, 414, 899) |O|=42 minrank<=13: UNSAT 0.3s
+  (19, 74, 442) |O|=43 minrank<=13: UNSAT 2.4s
+  (19, 74, 119) |O|=44 minrank<=13: UNSAT 2.6s
+  (19, 65, 114) |O|=44 minrank<=13: UNSAT 3.0s
+  (19, 65, 468) |O|=43 minrank<=13: UNSAT 3.0s
+  (0, 131, 142) |O|=44 minrank<=13: UNSAT 8.3s
+  (19, 74, 1149) |O|=44 minrank<=13: UNSAT 7.3s
+  (19, 65, 1198) |O|=44 minrank<=13: UNSAT 11.3s
+level 4: 375 candidates, 368 good, 7 UNSAT prunings to recheck with glucose4
+  (0, 127, 294, 1148) |O|=28 minrank<=12: UNSAT 0.0s
+  (0, 172, 693, 1151) |O|=32 minrank<=12: UNSAT 0.0s
+  (0, 173, 615, 1200) |O|=32 minrank<=12: UNSAT 0.0s
+  (0, 172, 692, 1157) |O|=37 minrank<=12: UNSAT 0.0s
+  (0, 172, 692, 1158) |O|=37 minrank<=12: UNSAT 0.0s
+  (15, 393, 394, 404) |O|=48 minrank<=12: UNSAT 0.1s
+  (19, 20, 33, 34) |O|=49 minrank<=12: UNSAT 0.1s
+level 5: 500 candidates, 498 good, 2 UNSAT prunings to recheck with glucose4
+  (0, 127, 152, 372, 524) |O|=12 minrank<=11: UNSAT 0.0s
+  (19, 20, 33, 1221, 1226) |O|=48 minrank<=11: UNSAT 0.0s
+level 6: 466 candidates, 464 good, 2 UNSAT prunings to recheck with glucose4
+  (0, 127, 272, 402, 552, 1293) |O|=16 minrank<=10: UNSAT 0.0s
+  (0, 127, 272, 382, 538, 1170) |O|=16 minrank<=10: UNSAT 0.0s
+level 7: 315 candidates, 315 good, 0 UNSAT prunings to recheck with glucose4
+level 8: 206 candidates, 206 good, 0 UNSAT prunings to recheck with glucose4
+CROSSCHECK glucose4: 200 UNSAT prunings rechecked, 0 mismatches (731s)

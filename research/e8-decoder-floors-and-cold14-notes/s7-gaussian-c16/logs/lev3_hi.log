@@ -1,0 +1,21 @@
+level 7: subset-closed candidates 315; testing minrank <= 9   (16s)
+LEVEL 7: 315 good orbit reps (17s); |O| hist [(0, 8), (2, 5), (3, 5), (4, 15), (5, 15), (6, 21), (7, 48), (8, 56), (9, 44), (10, 28), (11, 36), (12, 22), (13, 4), (14, 1), (15, 3), (16, 2), (18, 2)]
+level 8: subset-closed candidates 206; testing minrank <= 8   (34s)
+LEVEL 8: 206 good orbit reps (34s); |O| hist [(0, 2), (1, 2), (2, 4), (3, 4), (4, 16), (5, 33), (6, 49), (7, 42), (8, 23), (9, 12), (10, 11), (11, 6), (12, 1), (16, 1)]
+level 9: subset-closed candidates 124; testing minrank <= 7   (50s)
+LEVEL 9: 124 good orbit reps (50s); |O| hist [(0, 2), (1, 4), (2, 1), (4, 28), (5, 43), (6, 27), (7, 9), (8, 5), (9, 3), (10, 1), (11, 1)]
+level 10: subset-closed candidates 74; testing minrank <= 6   (65s)
+LEVEL 10: 74 good orbit reps (65s); |O| hist [(0, 3), (1, 2), (4, 34), (5, 25), (6, 4), (7, 1), (8, 4), (10, 1)]
+level 11: subset-closed candidates 32; testing minrank <= 5   (79s)
+LEVEL 11: 32 good orbit reps (79s); |O| hist [(4, 23), (5, 7), (6, 1), (8, 1)]
+level 12: subset-closed candidates 24; testing minrank <= 4   (92s)
+LEVEL 12: 24 good orbit reps (93s); |O| hist [(4, 20), (5, 3), (8, 1)]
+level 13: subset-closed candidates 10; testing minrank <= 3   (106s)
+LEVEL 13: 10 good orbit reps (106s); |O| hist [(4, 9), (5, 1)]
+level 14: subset-closed candidates 6; testing minrank <= 2   (119s)
+LEVEL 14: 6 good orbit reps (119s); |O| hist [(4, 6)]
+level 15: subset-closed candidates 1; testing minrank <= 1   (132s)
+LEVEL 15: 1 good orbit reps (132s); |O| hist [(4, 1)]
+level 16: subset-closed candidates 1; testing minrank <= 0   (145s)
+LEVEL 16: 0 good orbit reps (145s); |O| hist []
+EMPTY at level 16 => at most 15 such flats/totals for c=16, dims 3

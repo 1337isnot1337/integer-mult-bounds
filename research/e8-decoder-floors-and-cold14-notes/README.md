@@ -162,3 +162,34 @@ This answers §10's open question G2.
 **Side lemma (argued).** For a c-total decoder and any family of flats, at most c − minrank(pattern on the complement of their union) totals have R_j inside the union (and likewise for A_j).
 
 **Consequence:** a Gaussian decoder costing ≤ 42, which would beat real E8, needs **≥ 16 totals**. The lower bound of 40 from §10 is unchanged. The 16-total case is being checked with this multi-flat argument.
+
+## 14. Gaussian E8: no 16-total decoder costs ≤ 42 (`s7-gaussian-c16/`, `verify.sh` reproduces `expected.txt`, 2026-10-14)
+Together with §13, a Gaussian E8 decoder that beats real E8 (cost ≤ 42) needs **≥ 17 totals**.
+
+**Proof chain** (k = number of cheap totals, β_j < 4):
+1. **Cost types (argued).** β_j = dim X − dim(X ∩ Y^⊥). The cheap types are:
+   - *a*: a side of dim ≤ 2 (β ≥ 0);
+   - *p*: a (3,3) "dumbbell" with β = 2;
+   - *q*: everything else (β ≥ 3).
+
+   Cost ≤ 42 at c = 16 forces **3a + p ≥ 22 − k**.
+2. **Multi-flat rank drop (argued; generalises §13).** Choose one legal 3-flat per cheap total. Then for every subset J, the minrank of the pattern on the complement of their union is ≤ 16 − |J| (a "level-k" set).
+3. **Level tables (checked; orbit reps under the order-11,520 group).**
+
+   | k | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 |
+   |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+   | reps | 3 | 28 | 120 | 368 | 498 | 464 | 315 | 206 | 124 | 74 | 32 | 24 | 10 | 6 | 1 | **0** |
+
+4. **(A) checked:** *a* = 0 whenever k ≥ 5.
+5. **(B) checked:** the most jointly valid dumbbells are p* = 5, 4, 3, 2, 1 for k = 11..15, against the 11, 10, 9, 8, 7 needed.
+6. **Arithmetic.** For k ≤ 4, 3a + p ≤ 3k < 22 − k. For 5 ≤ k ≤ 10, p ≤ k < 22 − k. For 11 ≤ k ≤ 15, p ≤ p* < 22 − k. For k = 16, no level-16 set exists.
+
+**Checks.**
+- All 200 UNSAT prunings were re-solved with Glucose 4: 0 mismatches.
+- The fast canonicaliser matches the slow one on levels 2–4.
+- A from-scratch `verify.sh` matches exactly; `CROSS=1` adds the Glucose re-solve.
+- Calibrations: c = 16 without a cost cap is SAT, and the decoder found prices at 64; c = 15 reproduces §13.
+- Side result: at most 2 totals can have a side of dim ≤ 2.
+- Related scoped results: #767, #2066.
+
+**Open:** c ≥ 17. The same machinery applies, with 3a + p ≥ 26 − k and level tables at rank ≤ 17 − |J|.

@@ -1,0 +1,9 @@
+beta histogram over ordered pairs [0, 0, 102180, 2147820] (8s)
+k=9 reps 124  (p*, #doublable members) histogram [((0, 0), 3), ((1, 1), 8), ((1, 2), 6), ((1, 3), 4), ((2, 2), 12), ((2, 3), 4), ((2, 5), 1), ((3, 5), 35), ((3, 9), 2), ((4, 8), 8), ((4, 9), 4), ((5, 5), 8), ((5, 9), 14), ((7, 9), 15)]  feasible 15  (84s)
+k=10 reps 74  (p*, #doublable members) histogram [((0, 0), 8), ((1, 1), 1), ((1, 2), 2), ((1, 3), 1), ((2, 2), 3), ((2, 3), 10), ((2, 6), 1), ((3, 6), 14), ((4, 6), 6), ((4, 10), 6), ((6, 6), 9), ((6, 10), 13)]  feasible 22  (177s)
+k=11 reps 32  (p*, #doublable members) histogram [((0, 0), 2), ((1, 1), 2), ((1, 3), 1), ((2, 4), 8), ((3, 3), 2), ((3, 7), 3), ((5, 7), 8), ((5, 11), 6)]  feasible 14  (209s)
+k=12 reps 24  (p*, #doublable members) histogram [((0, 0), 1), ((1, 2), 4), ((2, 4), 2), ((4, 4), 5), ((4, 8), 7), ((4, 12), 5)]  feasible 17  (235s)
+k=13 reps 10  (p*, #doublable members) histogram [((0, 0), 2), ((1, 1), 1), ((3, 5), 2), ((3, 9), 5)]  feasible 7  (238s)
+k=14 reps 6  (p*, #doublable members) histogram [((2, 2), 2), ((2, 6), 4)]  feasible 6  (238s)
+k=15 reps 1  (p*, #doublable members) histogram [((1, 3), 1)]  feasible 1  (238s)
+FEASIBLE CONFIGURATIONS: 82
