@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1626,
-    "partially_reviewed": 275,
+    "incorporated": 1627,
+    "partially_reviewed": 274,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "3918f58415b0e7b5d3ae22127cd7f4f2391c8ffb5099c1ce44328adae2cd6fc5",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "379d63f7bea20991b2f1fe614d691d9e2582f3622c5d77e1ce5a8896ba03db65",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -110822,7 +110822,7 @@
         {
           "head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed complete payload, all661dirtycolumns in bothdirections, literalCOPYrestoration and unchangedMOVEpaths; newly compiled legality and5/9/11-stage engines pass all formalcolumns and96bridge+5nativecontrols. Completebinaryrecord binding catches phase relabeling that the mathematical engines intentionallyignore. Reviewed read-only relocation tests and limited read-permission Linuxworkflow; maintainer execution was macOS, not hostedLinux. OldH2/K/H5flags remainfalse; globalhosting, replacement-contractadmission and kappa remainseparate, with circuit/compiler lineage credited.",
+          "scope": "Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed the complete payload and all 661 dirty columns in both directions, with literal COPY restoration and unchanged MOVE paths. Newly compiled legality and 5/9/11-stage engines pass all formal columns and 96 bridge plus five native controls. Complete binary-record binding catches phase relabeling that the mathematical engines intentionally ignore. Reviewed read-only relocation tests and a limited read-permission Linux workflow; maintainer execution was macOS, not hosted Linux. Old H2/K/H5 flags remain false; global hosting, replacement-contract admission and kappa remain separate, with circuit/compiler lineage credited.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -110831,16 +110831,20 @@
         ".github/workflows",
         "research/r439-deferred-native"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "63a279f5790872996a13f0e9efdae35818171b48",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2373"
+      },
       "reviewed_head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2373.json",
@@ -111039,7 +111043,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1250,
-    "OPEN": 334
+    "MERGED": 1251,
+    "OPEN": 333
   }
 }

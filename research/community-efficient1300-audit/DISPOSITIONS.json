@@ -3503,21 +3503,25 @@
       },
       "reviewed_head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
       "current_head": "b52f87f5355ad9f02ca4ac4395117655ac1b19c7",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         ".github/workflows",
         "research/r439-deferred-native"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
-      "scope": "Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed complete payload, all661dirtycolumns in bothdirections, literalCOPYrestoration and unchangedMOVEpaths; newly compiled legality and5/9/11-stage engines pass all formalcolumns and96bridge+5nativecontrols. Completebinaryrecord binding catches phase relabeling that the mathematical engines intentionallyignore. Reviewed read-only relocation tests and limited read-permission Linuxworkflow; maintainer execution was macOS, not hostedLinux. OldH2/K/H5flags remainfalse; globalhosting, replacement-contractadmission and kappa remainseparate, with circuit/compiler lineage credited.",
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "63a279f5790872996a13f0e9efdae35818171b48",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2373"
+      },
+      "scope": "Gareth Davidson's fresh native replay of Sagar Thakrar's exact PR2115 deferred target basis. Independently reconstructed the complete payload and all 661 dirty columns in both directions, with literal COPY restoration and unchanged MOVE paths. Newly compiled legality and 5/9/11-stage engines pass all formal columns and 96 bridge plus five native controls. Complete binary-record binding catches phase relabeling that the mathematical engines intentionally ignore. Reviewed read-only relocation tests and a limited read-permission Linux workflow; maintainer execution was macOS, not hosted Linux. Old H2/K/H5 flags remain false; global hosting, replacement-contract admission and kappa remain separate, with circuit/compiler lineage credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2373.json",
