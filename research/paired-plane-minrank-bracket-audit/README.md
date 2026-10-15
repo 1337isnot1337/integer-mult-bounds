@@ -1,8 +1,9 @@
 # Exact scalar fitting rank 49 for PR2471's fixed paired-plane mask
 
-**Status: independent verification of PR2471 plus a construction and matching
-lower bound for a finite algebraic question. No kappa, supplier price or
-selected-result change.**
+**Status: research note with independent verification of PR2471's witnesses.
+It determines the exact value of one finite algebraic quantity (explicit fit plus
+a matching lower-bound proof). No kappa, supplier price or selected-result
+change.**
 
 [PR2471](https://github.com/CrocSwap/integer-mult-bounds/pull/2471) (ywz65,
 head `5a7c2b681b79d5b5e25fac62aa4bad908525b5ca`) shows that the minimum rank of
@@ -21,9 +22,11 @@ rank 48 or 49 is possible, or whether the floor is 50.
 
 Both of PR2471's witnesses re-check: a 24-clique and a 25-class rank-50 fit.
 PR2471 did not assert optimality of either witness, so nothing in PR2471 is
-contradicted. Its README phrase "no refactorization with 23 scalar rank-one
-channels can fit it" is true, but much weaker than its own rank-48 floor, which
-already excludes 47 channels. With the floor raised here, 48 channels cannot fit.
+contradicted. PR2471's README compares its floor with 23 scalar rank-one
+channels, which is PR1825/PR1889's count of binary scalar column pairs (nine
+rank-one plus seven rank-two queries). PR2471's floor already excludes 47
+channels; the exact floor of 49 here excludes 48, and exceeds that reference
+count of 23 by 26.
 
 ## Model (same as PR2471)
 
@@ -46,8 +49,8 @@ other plane.
 |---|---|---|
 | `omega(G)` | 24 (194 maximum cliques) | path-order DP, 12138 states; this algorithm differs from PR2471's colour-bounded branch and bound |
 | `chi(G)` | **25** | exact DP over packings of orthogonal pairs and triples (40277 states). No 24-class plane partition exists, so PR2471's `2*chi` method cannot reach 48 |
-| `chi_f(G)` | **49/2** | exact Bland simplex. The primal (half-integral fractional colouring) and dual (fractional clique) are stored and both re-checked against all 189 orthogonal sets |
-| `chi_2(G)` = `chi(G[K_2])` | **49** | upper: the doubled half-integral primal gives 49 port classes. Lower: `2*chi_f`. An optional capacity-2 DP (`--two-fold-dp`) independently gives max savings 63, so `112-63=49` |
+| `chi_f(G)` | **49/2** | exact Bland simplex. The LP solved is the fractional-clique LP (primal `y`); its dual, a half-integral fractional colouring `x`, is read from the reduced costs. Both are stored and re-checked against all 189 orthogonal sets |
+| `chi_2(G)` = `chi(G[K_2])` | **49** | upper: the doubled half-integral fractional colouring `x` gives 49 port classes. Lower: `2*chi_f`. An optional capacity-2 DP (`--two-fold-dp`) independently gives max savings 63, so `112-63=49` |
 | min fitting rank, every field | **49** | upper: 49-support 0/1 fit; lower: theorem below |
 
 The rank-49 fit `K = sum_S 1_S 1_S^T` uses the 49 supports in
@@ -96,8 +99,20 @@ submatrix on the 44 ports of `Q` and the 10 core ports equals
 
 The fractional clique explains this. Weight 1 on `Q` and 1/2 on the core sums to
 24.5. `verify.py` checks every premise of the theorem from the reconstructed
-mask. The stored LP dual is an alternative optimal fractional clique; it also
-sums to 49/2 but has a different support.
+mask. The stored LP fractional clique `y` coincides with this weighting.
+
+*Second proof of the lemma (Schur complement; found by a reviewer).* Let `S` be
+the four ports of `P0,P2`, so `M[S,S]=I_4`. Rank 4 forces
+`M = M[:,S] M[S,:]`. Since `M[D,A]=0`, `I_2 = M[D,D] = M[D,C] M[C,D]`, so
+`M[C,D]` is invertible; as `M[B,D]=0` this forces `M[B,C]=0`. Likewise
+`I_2 = M[E,E] = M[E,A] M[A,E]` forces `M[A,E]` invertible, and `M[B,E]=0`
+forces `M[B,A]=0`. Then `M[B,B] = M[B,A]M[A,B] + M[B,C]M[C,B] = 0`,
+contradicting `M[B,B]=I_2`.
+
+*Direct LP implications.* The DPs are cross-checks. The stored certificates
+already imply the table: `chi >= ceil(chi_f) = 25` (with PR2471's 25-class
+witness, `chi=25`), `omega <= floor(chi_f) = 24`, and
+`chi_2 >= 2*chi_f = 49` (with the 49 supports, `chi_2=49`).
 
 `verify.py` also corroborates the lemma by exhaustive search. Over GF(2) and
 GF(3), the normalised C5 pattern has **no** rank-4 completion. As a control,
@@ -139,7 +154,12 @@ Each of these edits was rejected: an emptied support, a non-clique `Q`, a raised
 - a rank-49 support holding both ports of one plane;
 - a half weight of the fractional clique raised to 1;
 - a fractional colouring with one set dropped;
-- a `Q` plane replaced by a plane orthogonal to a core plane;
+- a `Q` plane replaced by a plane orthogonal to a core plane (this
+  substitution also breaks `Q`'s pairwise non-orthogonality and is rejected by
+  that check);
+- a `Q` plane swapped (drop 20, add 22) so that `Q` stays pairwise
+  non-orthogonal but the new plane is orthogonal to core plane 13 (isolates the
+  `Q`-by-core check);
 - the core listed out of cycle order.
 
 Solver controls: on the orthogonality graphs `C5` and `C7`, the DPs return
@@ -170,7 +190,9 @@ Solver controls: on the orthogonality graphs `C5` and `C7`, the DPs return
 - Channel count is not a native copy cost. As PR2471 and PR2203 note, fifty or
   forty-nine scalar channels do not imply any physical saving. No kappa is
   claimed or implied.
-- The every-field lower bound rests on the short hand proof above. The verifier
+- Predecessor status at the base commit: PR1825, PR1889 and PR1977 are merged
+  or incorporated; PR2471, PR2126 and PR2203 are open and unreviewed.
+- The every-field lower bound rests on the short hand proofs above. The verifier
   checks its combinatorial premises exactly and corroborates the lemma over
   GF(2) and GF(3) by exhaustive search. The lemma is not machine-formalised.
 

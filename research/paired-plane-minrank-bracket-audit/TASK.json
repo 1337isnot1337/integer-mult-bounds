@@ -46,7 +46,7 @@
   "budget_minutes": 90,
   "stop_rule": "Each exact search capped at about 10 CPU-minutes (nice, single process, <1.5 GB); stop at the experiment deadline 2026-10-15T13:01:24Z. All searches finished well inside the cap (default verifier about 2 s; optional two-fold DP about 2 CPU-minutes).",
   "outcome": "completed",
-  "evidence": "verify.py (stdlib, exact): omega(G)=24 (194 maximum cliques), chi(G)=25 (exact DP), fractional chi(G)=49/2 (exact primal and dual LP certificates), explicit 0/1 rank-49 fit (49 disjoint supports, 11672 mask entries, I_49 on representatives), rank lower bound 49 over every field from a 22-plane clique plus an induced 5-cycle core (proof in README; finite corroboration over GF(2), GF(3)), 7 negative controls rejected, solver controls on C5/C7. Hence the minimum scalar fitting rank is exactly 49 over every field.",
+  "evidence": "verify.py (stdlib, exact): omega(G)=24 (194 maximum cliques), chi(G)=25 (exact DP), fractional chi(G)=49/2 (exact fractional-clique (primal) and fractional-colouring (dual) LP certificates), explicit 0/1 rank-49 fit (49 disjoint supports, 11672 mask entries, I_49 on representatives), rank lower bound 49 over every field from a 22-plane clique plus an induced 5-cycle core (proof in README; finite corroboration over GF(2), GF(3)), 8 negative controls rejected, solver controls on C5/C7. Hence the minimum scalar fitting rank is exactly 49 over every field.",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in search design, proof, code and writing; directed and submitted by thakrarsagar. No independent human review is claimed.",
   "open_questions": [

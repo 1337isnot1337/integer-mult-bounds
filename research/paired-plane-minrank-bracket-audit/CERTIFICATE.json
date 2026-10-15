@@ -405,7 +405,8 @@
   ]
  ],
  "negative_controls": {
-  "Q_plane_replaced_by_core_neighbour": "rejected: Q not pairwise non-orthogonal at 18,3",
+  "Q_plane_replaced_breaks_Q_clique": "rejected: Q not pairwise non-orthogonal at 18,3",
+  "Q_plane_swapped_keeps_clique_but_orthogonal_to_core": "rejected: Q plane 22 orthogonal to core plane 13",
   "core_reordered_not_a_cycle": "rejected: core is not an induced 5-cycle at 13,35",
   "fractional_clique_half_weight_raised_to_1": "rejected: fractional clique violated on (13, 23)",
   "fractional_colouring_set_dropped": "rejected: fractional colouring must cover every plane",

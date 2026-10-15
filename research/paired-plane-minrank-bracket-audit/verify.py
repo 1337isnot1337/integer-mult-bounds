@@ -318,7 +318,8 @@ def c5_rank4_search(p, relax_13=False):
 # ------------------------------------------------------------- build
 def exact_lp(orth):
     """Exact Bland-rule simplex for max sum y s.t. y(S) <= 1 for every orthogonal set S.
-    Returns (y, x) with x the dual (fractional colouring) read from reduced costs."""
+    The primal is the fractional clique y; the returned x is the dual (fractional
+    colouring) read from reduced costs."""
     sets = orthogonal_sets(orth)
     n, m = len(orth), len(sets)
     rows = []
@@ -364,7 +365,7 @@ def exact_lp(orth):
 def supports_from_half_integral(x, pairs):
     classes = []
     for s, w in x:
-        need((2 * w).denominator == 1, 'primal not half-integral')
+        need((2 * w).denominator == 1, 'fractional colouring (LP dual) not half-integral')
         classes.extend([list(s)] * int(2 * w))
     used = [0] * len(pairs)
     supports = []
@@ -545,8 +546,18 @@ def negative_controls(cert, pairs, orth, archive_bytes, matching_bytes):
     expect_fail('fractional_colouring_set_dropped', lambda: check_fractional(sets, y, x2, 56))
     swap = next(v for v in range(56) if v not in cert['clique22'] and v not in cert['c5_core']
                 and any(orth[v][c] for c in cert['c5_core']))
-    expect_fail('Q_plane_replaced_by_core_neighbour',
+    # This substitution breaks Q's pairwise non-orthogonality (it is rejected by the Q-clique check).
+    expect_fail('Q_plane_replaced_breaks_Q_clique',
                 lambda: lower_bound_premises(cert['c5_core'], cert['clique22'][:-1] + [swap], orth))
+    # Isolate the Q x core branch: drop one Q plane and add a plane that keeps Q pairwise
+    # non-orthogonal but is orthogonal to some core plane.
+    q, core = cert['clique22'], cert['c5_core']
+    drop, add = next((d, v) for d in q for v in range(56)
+                     if v not in q and v not in core
+                     and all(not orth[v][u] for u in q if u != d)
+                     and any(orth[v][c] for c in core))
+    expect_fail('Q_plane_swapped_keeps_clique_but_orthogonal_to_core',
+                lambda: lower_bound_premises(core, [u for u in q if u != drop] + [add], orth))
     core = cert['c5_core']
     expect_fail('core_reordered_not_a_cycle',
                 lambda: lower_bound_premises([core[0], core[2], core[1], core[3], core[4]], cert['clique22'], orth))
@@ -573,7 +584,7 @@ def main(argv):
     matching_bytes = (ROOT / MATCHING).read_bytes()
     _, pairs, orth = load_model(archive_bytes, matching_bytes)
     if '--two-fold-dp' in argv:
-        # Optional supplementary cross-check (about 2 CPU-minutes, about 1 GB):
+        # Optional supplementary cross-check (about 72-81 s, about 0.8 GB peak RSS):
         # exact chi_2 by the capacity-2 DP, independent of the LP certificate.
         cert = json.loads(CERT.read_text(encoding='utf-8'))
         save2, states2 = b_fold_savings_dp(orth, cert['dp_vertex_order'], 2)
