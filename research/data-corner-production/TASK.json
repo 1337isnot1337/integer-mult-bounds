@@ -48,7 +48,7 @@
   "budget_minutes": 60,
   "stop_rule": "Ship an equivalence-preserving production data_corners.cpp change with frozen baseline, identical complete receipts, corruption controls, certificate pin discipline, registered replay and a measured before/after median. Do not invent kappa or reopen leave-alone objects.",
   "outcome": "completed",
-  "evidence": "PASS_DATA_CORNER_PRODUCTION via research/data-corner-production/verify.py (also under -O); PASS_IDENTICAL_DATA_CORNER_PRODUCTION_RECEIPTS via benchmark.py; research/copied-fixed/certificate.json differs from base only in the data_corners.cpp local_sha256 pin; research/data-corner-performance demotes the pairwise-era working-source pin.",
+  "evidence": "PASS_DATA_CORNER_PRODUCTION via research/data-corner-production/verify.py (also under -O); PASS_REGISTERED_RESEARCH_PACKAGE; PASS_IDENTICAL_DATA_CORNER_PRODUCTION_RECEIPTS via pinned-CPU benchmark.py --rounds 5 (median 170.101→110.463 s, 1.54×); research/copied-fixed/certificate.json differs from base only in the data_corners.cpp local_sha256 pin; research/data-corner-performance demotes the pairwise-era working-source pin.",
   "author": "Wentao Li",
   "github": "VictorLiwentao",
   "email": "wentaol4@illinois.edu",

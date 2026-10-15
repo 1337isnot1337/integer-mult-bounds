@@ -46,10 +46,13 @@ obligations were not rerun for this isolated historical-checker change.
 
 ## Result
 
-On Linux / CPython 3.12.3 with g++, five alternating fresh-process pairs give
-the measured median wall times recorded in [`RESULT.json`](RESULT.json). Timing
-is host-descriptive and is not a correctness gate. Every stdout receipt matches
-the pinned `data-corners.json` fieldwise.
+On Linux / CPython 3.12.3 with g++ (taskset CPU 0), five alternating
+fresh-process pairs gave median wall time **170.101 → 110.463 seconds
+(1.54×)**. Timing is host-descriptive and is not a correctness gate; all
+samples and environment pins are in [`RESULT.json`](RESULT.json). Every stdout
+receipt matches the pinned `data-corners.json` fieldwise. An unpinned multi-core
+screen on the same host was noisier (~1.38×); the reported figure is the pinned
+five-pair series.
 
 ## Why the cached columns are equivalent
 
