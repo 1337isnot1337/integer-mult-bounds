@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Source-pinned, opt-in replay of the complete historical data-corner check."""
+"""Source-pinned replay of the historical data-corner check.
+
+After research/data-corner-production/, working
+research/copied-fixed/data_corners.cpp already carries the cached-column loop.
+This runner vendors the pairwise-era source as baseline.cpp and compares it to
+production without re-applying the transform to the working tree.
+"""
 import argparse
 from hashlib import sha256
 import json
@@ -79,16 +85,19 @@ def main():
     require(args.benchmark >= 0, 'Negative benchmark pair count')
     require(not args.output or not args.output.exists(), 'Output already exists')
     manifest, blobs = admitted_inputs()
-    source = blobs['research/copied-fixed/data_corners.cpp'].decode()
+    baseline = blobs['research/data-corner-performance/baseline.cpp'].decode()
+    production = blobs['research/copied-fixed/data_corners.cpp'].decode()
+    require(production == transform(baseline),
+            'production data_corners.cpp must equal transform(baseline.cpp)')
     expected = json.loads(blobs['research/copied-fixed/data-corners.json'])
     compiler = shlex.split(os.environ.get('CXX', 'c++'))
     version = subprocess.check_output([*compiler, '--version'], text=True)
     samples = []
     with tempfile.TemporaryDirectory(prefix='data-corner-') as directory:
         work = Path(directory)
-        compile_program(transform(source), work / 'optimized', compiler)
+        compile_program(production, work / 'optimized', compiler)
         if args.benchmark:
-            compile_program(source, work / 'original', compiler)
+            compile_program(baseline, work / 'original', compiler)
         common_stdout = None
         for pair in range(args.benchmark or 1):
             modes = (['original', 'optimized'] if pair % 2 == 0 else
@@ -102,7 +111,7 @@ def main():
                 print(f'PASS pair={pair} {mode} wall={sample["wall_seconds"]:.3f}s', flush=True)
     evidence = dict(status='PASS_DATA_CORNER_REPLAY', base_commit=manifest['base_commit'],
         source_sha256=manifest['sha256'], implementation_sha256=sha256(Path(__file__).read_bytes()).hexdigest(),
-        generated_source_sha256=sha256((GUARD + transform(source)).encode()).hexdigest(),
+        generated_source_sha256=sha256((GUARD + production).encode()).hexdigest(),
         platform=platform.platform(), python=platform.python_version(), compiler=compiler,
         compiler_version=version, flags=['-O3', '-std=c++17'],
         coverage={k: expected[k] for k in ('pairs', 'good', 'fallback', 'nonzero_pivots', 'ordered_zero_checks')},
