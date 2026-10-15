@@ -237,6 +237,11 @@ def run_package(root, package, install=False):
     for requirement in manifest["requirements"]:
         name, version = requirement.split("==")
         require(importlib.metadata.version(name) == version, "dependency version mismatch: " + requirement)
+    # Coverage labels are UTF-8 metadata but a redirected Windows stdout may
+    # use cp1252. Escape unrepresentable display characters instead of aborting
+    # before replay. This changes only our stream, not child encoding or env.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(errors="backslashreplace")
     for command in manifest["commands"]:
         argv = [sys.executable if item == "{python}" else item.replace("{package}", package) for item in command["argv"]]
         print("CHECK " + command["checks"], flush=True)
