@@ -161,6 +161,12 @@ All results were run on CPython 3.14.4. The registered Python 3.12 replay was no
 
 ## Coordination and overlap
 
+- **Concurrent [PR2528](https://github.com/CrocSwap/integer-mult-bounds/pull/2528) (ywz65, 13:40Z)** audits a different
+  PR2297 premise: the uniform five unpaid coordinates against the literal mixed cover (weighted unpaid dimension
+  277/56), and lowers the overhead allowance from 157 to 152. It retains PR2297's binary factorisation as the decoder.
+  This audit shows that factorisation is not a scalar decoder, so the corrected allowance also has no valid decoder
+  behind it. Its weighted dimension agrees with the exact accounting here: `(8/9)·554 = 492.4`, and
+  `554/112 = 277/56`.
 - Neither PR had comments or reviews at the time of this audit.
 - `find_overlap.py --task coverage-law-change` (refreshed cache: 720 open PRs, 1,208 discussion records, about 13:34Z
   on 2026-10-15) and reviews of Discussions 1587, 2024, 2278 and 2292 found no earlier audit of PR2297 or PR2041.
