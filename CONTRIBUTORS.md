@@ -714,10 +714,14 @@ The six pending contributions are credited in the pilot ledger; pending review i
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1300-review.md).
 
-- **1337isnot1337** — [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258), [#2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259), [#2261](https://github.com/CrocSwap/integer-mult-bounds/pull/2261), [#2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266), [#2271](https://github.com/CrocSwap/integer-mult-bounds/pull/2271), [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283), [#2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296), [#2303](https://github.com/CrocSwap/integer-mult-bounds/pull/2303).
+- **1337isnot1337** — [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258), [#2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259), [#2261](https://github.com/CrocSwap/integer-mult-bounds/pull/2261), [#2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266), [#2271](https://github.com/CrocSwap/integer-mult-bounds/pull/2271), [#2280](https://github.com/CrocSwap/integer-mult-bounds/pull/2280), [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283), [#2290](https://github.com/CrocSwap/integer-mult-bounds/pull/2290), [#2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296), [#2303](https://github.com/CrocSwap/integer-mult-bounds/pull/2303).
 - **navinor** — [#2273](https://github.com/CrocSwap/integer-mult-bounds/pull/2273), [#2293](https://github.com/CrocSwap/integer-mult-bounds/pull/2293), [#2301](https://github.com/CrocSwap/integer-mult-bounds/pull/2301), [#2340](https://github.com/CrocSwap/integer-mult-bounds/pull/2340).
 - **cbethin** — [#2279](https://github.com/CrocSwap/integer-mult-bounds/pull/2279).
 - **mason-hale** — [#2282](https://github.com/CrocSwap/integer-mult-bounds/pull/2282).
+- **CubeJerry** — [#2306](https://github.com/CrocSwap/integer-mult-bounds/pull/2306), [#2307](https://github.com/CrocSwap/integer-mult-bounds/pull/2307).
+- **jmbarrancoml** — [#2310](https://github.com/CrocSwap/integer-mult-bounds/pull/2310).
+- **aakashthakkar** — [#2324](https://github.com/CrocSwap/integer-mult-bounds/pull/2324).
+- **theon199** — [#2330](https://github.com/CrocSwap/integer-mult-bounds/pull/2330).
 - **ROTl24** — [#2334](https://github.com/CrocSwap/integer-mult-bounds/pull/2334).
 - **bitplane** — [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355).
 
