@@ -280,7 +280,7 @@
   "author": "Cinna Davis",
   "ai_assistance": "Substantial OpenAI Codex assistance in scope selection, proof derivation, exact search implementation, independent verifier, exact cost accounting, overlap checks and writing. No independent human review or proof-assistant formalization is claimed.",
   "outcome_summary": "Scoped negative for the 16-source-call full-mask class, plus a 60-output construction and a source-pinned lower bound of at least 144 complete map calls for the full 63-mask batch in the original one-root event alphabet.",
-  "claim_status": "will be released after publication and handoff",
+  "claim_status": "released",
   "verification": {
     "python": "CPython 3.14.7",
     "search": "PASS; 840 pair insertions and all 18,918,900 normalized 16-event words.",
@@ -294,5 +294,12 @@
     "No construction or exclusion at 144 complete map calls; other source multiplicities and extra A-map readouts remain outside this search.",
     "No selected-supplier placement, supplier admission or kappa change is established.",
     "No independent human review or proof-assistant formalization is claimed."
-  ]
+  ],
+  "claim_released_at_utc": "2026-10-15T01:26:21Z",
+  "public_artifact": {
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2236",
+    "research_commit": "6687dfdd084a465582194258f416f24604136aaa",
+    "exact_base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+    "status": "open focused PR"
+  }
 }

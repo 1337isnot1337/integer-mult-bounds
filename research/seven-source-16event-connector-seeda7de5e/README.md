@@ -158,6 +158,8 @@ PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 
 ## Pins, overlap and limits
 
+Public review: [PR #2236](https://github.com/CrocSwap/integer-mult-bounds/pull/2236), research commit `6687dfdd084a465582194258f416f24604136aaa`.
+
 Cycle 28 used seed `a7de5e16e6ab896abb6ef4a0dc88a174`, track
 `recursive-interfaces`, task `connector-alphabet-change`, priority revision 4,
 selector scope key `0c9f43f3c7d61edb36fe`, refined scope key
