@@ -1,21 +1,37 @@
-# PR2374's owner fill is optimal over all whole-helper fills of the PR2322 T74 words
+# Exact owner-fill optimality on the T74 handoff line: PR2374 is optimal; PR2435's fill leaves +5.8e-10
 
-**Audit / independent check; no κ claim.** [PR2374](https://github.com/CrocSwap/integer-mult-bounds/pull/2374)
-(Jeremy Kothe) claims κ = 0.001697194950901770… from "an exact window-free-optimal owner fill" on
-[PR2322](https://github.com/CrocSwap/integer-mult-bounds/pull/2322)'s words. Its published leftover idle ranks
-are `{1:21978, 3:8592, 5:2552, 32:1, 48:24560}`. This package checks the optimality claim by a different
-method, over a strictly larger class of fills.
+**Audit / independent check; no κ claim.** This package certifies the exact pattern-integer optimum of the
+whole-helper owner fill for the two latest T74 claims and compares each claim's published fill with it.
 
-**Result.**
-- Every legal whole-helper owner fill of the PR2322 words on the unchanged T74 template has complex root
-  **b ≤ κ₂₃₇₄ + 10⁻¹⁵**.
-- PR2374's idle multiset is the **only** one whose root exceeds κ₂₃₇₄ − 10⁻¹².
-- The window-free optimality claim is therefore confirmed, and strengthened to optimality among all legal
-  whole-helper fills. Owner-map work on these words cannot gain more than 10⁻¹⁵. The earlier cap in
-  [PR2402](https://github.com/CrocSwap/integer-mult-bounds/pull/2402) allowed up to 8.1e-10.
+- **[PR2374](https://github.com/CrocSwap/integer-mult-bounds/pull/2374)** (Jeremy Kothe) claims "an exact
+  window-free-optimal owner fill" on [PR2322](https://github.com/CrocSwap/integer-mult-bounds/pull/2322)'s
+  words.
+  - **Confirmed and strengthened.** Every legal whole-helper owner fill of these words has
+    **b ≤ κ₂₃₇₄ + 10⁻¹⁵**.
+  - Its idle multiset `{1:21978, 3:8592, 5:2552, 32:1, 48:24560}` is the only one whose root exceeds
+    κ₂₃₇₄ − 10⁻¹².
+  - Owner-map work on the PR2322 words is therefore exactly exhausted. The earlier cap in
+    [PR2402](https://github.com/CrocSwap/integer-mult-bounds/pull/2402) allowed up to 8.1e-10.
+- **[PR2435](https://github.com/CrocSwap/integer-mult-bounds/pull/2435)** (Jeremy Kothe, κ = 0.0016985113437)
+  raises 24 copy-buffer entrances and adds "an exact owner fill for the new inventory", with idle
+  `{1:20824, 3:6695, 5:1, 48:25302}`.
+  - **That fill is not the pattern optimum.** The unique pattern-integer optimum has idle
+    **`{1:20822, 3:6694, 5:2, 48:25302}`**, with root **0.0016985119240, +5.80e-10 above PR2435's claimed κ**.
+  - It moves two rank-1 remainders and one rank-3 remainder into one more rank-5 remainder. Its pattern
+    counts are in the receipt; for example it uses two (32: 9,9,9) bins and 1,156 (48: 4,8,9,9,9,9) bins.
+  - Every legal fill of the PR2435 words has b ≤ that root + 10⁻¹⁵.
+  - Whether the optimum can be realized under PR2435's windows and family rules is **not** checked here.
+    It is a concrete owner-level target worth up to +5.8e-10.
 
 ## Method (`owner_optimum.py`)
 
+0. **Inputs.**
+   - PR2322 words: profile and inventory recounted in PR2402.
+   - PR2435 words: recounted for this audit with the PR2387 frame-climb rule from PR2435 head `324d7d35`
+     (`BORROW-WORD-43base`, blob 7e382c2d; `BORROW-WORD-43extra`, blob 29fa1b3a). Both providers give
+     profile {1:2359, 2:632, 3:330, 4:120, 5:38, 8:8} and inventory {4:33, 5:9, 7:62, 8:90, 9:240}, equal to
+     the published report.
+   - The idle multisets and κ values are as published in each PR body.
 1. **The relaxation.** A legal fill places every helper role whole into one idle bin. The bins have ranks
    8/16/32/48 and counts 49,728 / 33,152 / 33,152 / 33,152. So the fill's idle remainders come from an
    integer pattern-count vector x ≥ 0 over the 1,163 width patterns, with the bin and width-inventory row
@@ -40,12 +56,17 @@ method, over a strictly larger class of fills.
      sweep is complete.
    - The other 5 have reduced costs 5.5e-5 … 1.5e-4, which allows counts ≤ 2.
    - Basic variables are solved in exact rationals.
-5. **Result at a₀:** zero integer survivors, so every fill has b ≤ a₀.
-6. **Control at κ₂₃₇₄ − 10⁻¹²:** the same procedure must let PR2374's own fill survive, and it does. The 25
-   survivors there are degenerate copies of one fill, a single empty 32-bin, and all carry PR2374's idle
-   multiset. That gives the uniqueness statement.
+5. **Search, then exclusion.**
+   - Search: at a = κ_claim, enumerate every integer solution that could beat the claim. A budget-pruned
+     DFS is exact. Rank the distinct idle multisets by certified root.
+   - Exclusion: at a₀ = (best root) + 10⁻¹⁵, zero integer survivors remain, so every fill has b ≤ a₀.
+6. **Control at (best root) − 10⁻¹²:** the optimal fill must survive, and it does.
+   - For PR2374 there are 25 survivors and for PR2435 there are 1,250. Each set is made of degenerate
+     copies of one heavy part, and all carry the optimal idle multiset.
+   - That gives the uniqueness statement.
 
-An adversarial AI reviewer tried to refute the argument and found it **not refuted**. Using its own code
+An adversarial AI reviewer reviewed the PR2374 part (the PR2435 extension came later) and found it
+**not refuted**. Using its own code
 (Decimal at 90 digits), it:
 - reproduced PR2374's root to 60 digits;
 - confirmed with a Gomory group-relaxation shortest path that the only correction within the budget is one
@@ -62,20 +83,21 @@ From the repository root, standard library only. It needs no network, since all 
 pinned.
 
 ```sh
-python3 -I -B research/t74-2374-owner-optimality/owner_optimum.py     # < 1 s
+python3 -I -B research/t74-owner-fill-optimality/owner_optimum.py     # ~45 s
 ```
 
 Expected final line:
-`PASS_T74_2374_OWNER_OPTIMUM survivors_above=0 bound=kappa_2374+1e-15 idle_multisets_within_1e-12=1 no_new_kappa`
+`PASS_T74_OWNER_OPTIMUM pr2374:claim_is_optimum pr2435:optimum_gain=+5.803e-10 unique_within_1e-12 no_new_kappa`
 
 All results were run on CPython 3.14.4; the registered Python 3.12 replay was not run locally.
 
 ## Scope and limits
 
-- **What is not re-checked.** PR2374's realization of its fill (windows, families, ports, admission, outer)
-  is its own claim and is not re-run here. Only its published idle multiset and claimed κ are used.
-- **What the statement covers.** It is about owner fills of the fixed PR2322 words, the 249/417 dispatch
-  and the unchanged PR2269 bin stock. Changed words, inventories or templates are outside it; see PR2402
+- **What is not re-checked.** Realization of the fills (windows, families, ports, admission, outer) is not
+  re-run, for either PR's fill or for the PR2435 pattern optimum. The bound covers every legal fill.
+  Attaining PR2435's optimum needs a realized owner map.
+- **What the statement covers.** It is about owner fills of the fixed PR2322 and PR2435 words, the 249/417
+  dispatch and the unchanged PR2269 bin stock. Changed words, inventories or templates are outside it; see PR2402
   and PR2429 for those levers.
 - **Exactness.** The enumeration is exact (integer and rational), with an exact dual and enclosures. The
   only floating-point step is the simplex that proposes the dual, and its repair is exact.

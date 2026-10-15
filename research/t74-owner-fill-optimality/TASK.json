@@ -39,21 +39,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Does PR2374's claimed window-free-optimal owner fill on the PR2322 T74 words survive an independent exact check, and is it optimal over all legal whole-helper fills (bin-pattern integer relaxation)?",
+  "actual_scope": "Are the owner fills claimed by PR2374 (PR2322 words) and PR2435 (copy-buffer-raised words) optimal over all legal whole-helper fills (exact bin-pattern integer relaxation), and if not, what is the optimum?",
   "scope_change_reason": "Drawn on the adversarial-audit track (seed 71). The specific new implication of PR2374 is its optimality claim, which had no independent check; the bin-pattern integer program gives one by a different method and over a larger class.",
-  "bottleneck_link": "Confirms that owner packing on the live T74 line is exactly exhausted (gain <= 1e-15), redirecting effort to word-level levers that change the paid profile.",
+  "bottleneck_link": "Shows owner packing on the T74 handoff line is exactly exhausted for PR2322's words and has exactly +5.8e-10 left for PR2435's words, so further gains need word-level changes.",
   "budget_minutes": 60,
   "stop_rule": "Stop once the exact dual plus integer enumeration either exhibits a better idle multiset or proves none exists above kappa_2374 + 1e-15, with a below-root control.",
   "outcome": "completed",
-  "evidence": "owner_optimum.py: root of PR2374's idle multiset certified within 1e-15 of its claimed kappa; exact rational dual feasible on all 1163 patterns at kappa_2374 + 1e-15; exact enumeration of all integer solutions within the dual budget finds none; control at kappa_2374 - 1e-12 keeps PR2374's fill and all 25 survivors have its idle multiset.",
+  "evidence": "owner_optimum.py: both claimed roots certified within 1e-15 of their kappa; exact dual plus pruned exact enumeration finds the pattern-integer optimum and excludes everything above it + 1e-15. PR2374: optimum = its fill (unique within 1e-12). PR2435: unique optimum idle {1:20822,3:6694,5:2,48:25302}, root 0.0016985119240 (+5.80e-10 over its claim). PR2435 words recounted (profile/inventory equal to report).",
   "author": "Sagar Thakrar",
   "ai_assistance": "Prepared with substantial AI assistance: Claude Code (Anthropic, Claude Opus 5.5) wrote the certificate and text; a separate Claude subagent adversarially reviewed it. No independent human review is claimed.",
   "open_questions": [
     {
-      "question": "Were the PR2312 and PR2269 owner fills also at the exact integer optimum of their inventories?",
-      "why_it_matters": "It shows whether recent owner-fill PRs on the T74 line were at the packing optimum or left headroom.",
-      "first_step": "Run owner_optimum.py with their inventories, local profiles and published idle multisets.",
-      "blocked_by": "Their published idle multisets must be extracted from their packages."
+      "question": "Can PR2435's pattern optimum {1:20822,3:6694,5:2,48:25302} be realized as a legal owner map under its windows and families?",
+      "why_it_matters": "It is worth +5.80e-10 in kappa on the current top T74 claim and is the exact maximum for those words.",
+      "first_step": "Start from PR2435's FILL and move helpers into two extra (32: 9,9,9) bins and the (48: 4,8,9,9,9,9) bins listed in the receipt's pattern_counts, re-checking windows and family rules.",
+      "blocked_by": "Window/family feasibility is not modelled by the pattern relaxation."
     },
     {
       "question": "Which word-level move on the PR2322 words is cheapest to realize now that packing is exhausted?",

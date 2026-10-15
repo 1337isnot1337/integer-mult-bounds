@@ -44,7 +44,7 @@ from collections import Counter
 from fractions import Fraction
 
 if not __debug__:
-    sys.stdout.write('FAIL_T74_2374_OWNER_OPTIMUM refusing to run under python -O\n')
+    sys.stdout.write('FAIL_T74_OWNER_OPTIMUM refusing to run under python -O\n')
     sys.exit(2)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -54,8 +54,20 @@ VENDOR = {  # byte copies of PR2387 (this author), as vendored and pinned in PR2
     'vendor/pr2387/vendor/iter3/price_check.py': ('708753e7703077a8ce4311293f02e42afb801934',
                                                   '19fcfb9f4d766959c599223090142edb03998229459cff1266960ca6b7ed1e0f'),
 }
-KAPPA_2374 = Fraction('0.001697194950901770426594081877309541199782925447437522970580')  # PR2374 body, 58 digits
-IDLE_2374 = {1: 21978, 3: 8592, 5: 2552, 32: 1, 48: 24560}                                  # PR2374 body
+CLAIMS = {  # published in the PR bodies (owner fills audited here)
+    'pr2374': dict(kappa=Fraction('0.001697194950901770426594081877309541199782925447437522970580'),
+                   idle={1: 21978, 3: 8592, 5: 2552, 32: 1, 48: 24560},
+                   inv={4: 33, 5: 9, 7: 38, 8: 114, 9: 240},
+                   profile={1: 2335, 2: 512, 3: 426, 4: 120, 5: 38, 8: 8},
+                   words='PR2322 words (recounted in PR2402)'),
+    'pr2435': dict(kappa=Fraction('0.001698511343697629329051733814187744630805511096704593311278'),
+                   idle={1: 20824, 3: 6695, 5: 1, 48: 25302},
+                   inv={4: 33, 5: 9, 7: 62, 8: 90, 9: 240},
+                   profile={1: 2359, 2: 632, 3: 330, 4: 120, 5: 38, 8: 8},
+                   words='PR2435 words (24 copy-buffer entrances raised; profile and inventory as published)'),
+}
+KAPPA_2374 = CLAIMS['pr2374']['kappa']
+IDLE_2374 = CLAIMS['pr2374']['idle']
 EPS = Fraction(1, 10 ** 15)
 
 
@@ -79,18 +91,17 @@ def load_lp():
     return lp
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--out', action='store_true')
-    args = ap.parse_args()
-    t0 = time.time()
-    C = load_lp()
-    P = C.P
-    case = 'pr2322_control'
+def audit(C, P, W, name):
+    claim = CLAIMS[name]
+    K, I = claim['kappa'], claim['idle']
+    case = 'claim_' + name
+    C.CASES[case] = dict(inv=dict(claim['inv']), pg=dict(claim['profile']), pe=dict(claim['profile']))
+    need(sum(claim['profile'].values()) and sum(r * n for r, n in claim['profile'].items()) == 1856 + sum(w * n for w, n in claim['inv'].items()),
+         name + ': local mass = 1856 + helper widths')
     W = C.W_LIVE
     loc = C.local_counts(case)
-    need(sum(r * n for r, n in IDLE_2374.items()) + sum(r * n for r, n in loc.items()) == 73 * W - 23680,
-         'PR2374 idle multiset + local profile = rank mass 73 W - deficit')
+    need(sum(r * n for r, n in I.items()) + sum(r * n for r, n in loc.items()) == 73 * W - 23680,
+         name + ': idle multiset + local profile = rank mass 73 W - deficit')
 
     def h_up(r, a):
         if r == 0:
@@ -104,12 +115,13 @@ def main():
         return sum(n * f(r, a) for r, n in loc.items()) + sum(n * f(r, a) for r, n in idle.items())
 
     # ---- 1. PR2374's root is within 1e-15 of its claimed kappa -------------------------------------------------
-    hi_a, lo_a = KAPPA_2374 + EPS, KAPPA_2374 - EPS
-    need(wmu_idle(IDLE_2374, hi_a, False) > W and wmu_idle(IDLE_2374, lo_a, True) < W,
-         'PR2374 idle multiset root is not within 1e-15 of its claimed kappa')
-    out = dict(object='PR2374 owner fill on the PR2322 T74 words: optimality over all whole-helper fills',
-               pr2374_root_bracket=[str(lo_a), str(hi_a)])
-    print('1. local profile + PR2374 idle multiset: root certified in kappa_2374 +- 1e-15')
+    hi_a, lo_a = K + EPS, K - EPS
+    need(wmu_idle(I, hi_a, False) > W and wmu_idle(I, lo_a, True) < W,
+         name + ': idle multiset root is not within 1e-15 of its claimed kappa')
+    out = dict(object=name + ' owner fill on the ' + claim['words'] + ': optimality over all whole-helper fills',
+               root_bracket=[str(lo_a), str(hi_a)], inventory=claim['inv'], profile=claim['profile'], idle=I,
+               kappa=str(K))
+    print('[%s] 1. local profile + published idle multiset: root certified in kappa +- 1e-15' % name)
 
     def exclusion(a0, label):
         """Return (T, survivors) for the exact dual at a0."""
@@ -175,29 +187,45 @@ def main():
             det_den = det_den * v.denominator // __import__('math').gcd(det_den, v.denominator)
         maxc = {j: int(T // rc[j]) for j in heavy}
         survivors = []
-        for counts in itertools.product(*[range(maxc[j] + 1) for j in heavy]):
-            s = sum(c * rc[j] for c, j in zip(counts, heavy))
-            if s >= T:
-                continue
+        colv = {j: col(j) for j in heavy + degen}
+
+        def visit(counts, b, s):
+            # complete heavy part: try every degenerate residue
             if lam_integral:
-                b0 = list(rhs)
-                for c, j in zip(counts, heavy):
-                    b0 = [bi - c * v for bi, v in zip(b0, col(j))]
-                need(all(v >= 0 for v in solve(b0)), 'count-0 representative negative for heavy combination %s' % (counts,))
+                need(all(v >= 0 for v in solve(b)), 'count-0 representative negative for heavy part %s' % counts)
             for kz in itertools.product(range(det_den), repeat=len(degen)):
-                b = list(rhs)
-                for c, j in list(zip(counts, heavy)) + list(zip(kz, degen)):
-                    cj = col(j)
-                    b = [bi - c * v for bi, v in zip(b, cj)]
-                xb = solve(b)
+                bb = list(b)
+                for c, j in zip(kz, degen):
+                    bb = [bi - c * v for bi, v in zip(bb, colv[j])]
+                xb = solve(bb)
                 if all(v.denominator == 1 and v >= 0 for v in xb):
                     idle = Counter()
-                    for v, j in list(zip(xb, basis)) + list(zip(counts, heavy)) + list(zip(kz, degen)):
+                    for v, j in list(zip(xb, basis)) + [(c, j) for j, c in counts.items()] + list(zip(kz, degen)):
                         R, p = C.COLS[j]
                         if v and R - sum(p):
                             idle[R - sum(p)] += int(v)
-                    survivors.append(dict(heavy={str(C.COLS[j]): c for c, j in zip(counts, heavy) if c},
+                    full = Counter()
+                    for v, j in list(zip(xb, basis)) + [(c, j) for j, c in counts.items()] + list(zip(kz, degen)):
+                        if v:
+                            full[str(C.COLS[j])] += int(v)
+                    survivors.append(dict(heavy={str(C.COLS[j]): c for j, c in counts.items()}, patterns=dict(full),
                                           degenerate_residues=list(kz), sum_rc=float(s), idle=dict(sorted(idle.items()))))
+
+        def dfs(i, b, s, counts):          # exact budget-pruned enumeration of heavy counts with sum rc < T
+            if i == len(heavy):
+                visit(counts, b, s)
+                return
+            j = heavy[i]
+            c = 0
+            while c <= maxc[j] and s + c * rc[j] < T:
+                nb = [bi - c * v for bi, v in zip(b, colv[j])] if c else b
+                if c:
+                    counts[j] = c
+                dfs(i + 1, nb, s + c * rc[j], counts)
+                counts.pop(j, None)
+                c += 1
+
+        dfs(0, list(rhs), Fraction(0), {})
         info = dict(a0=str(a0), T=float(T), dual_repair={str(R): float(worst[R]) for R in C.NB},
                     basis=[str(C.COLS[j]) for j in basis], degenerate=[str(C.COLS[j]) for j in degen],
                     heavy={str(C.COLS[j]): dict(rc=float(rc[j]), max_count=maxc[j]) for j in heavy},
@@ -205,45 +233,92 @@ def main():
                     distinct_heavy_parts=len({json.dumps(s['heavy'], sort_keys=True) for s in survivors}),
                     survivor_idle_multisets=sorted({json.dumps(s['idle'], sort_keys=True) for s in survivors}))
         print('%s: a0 = %s; budget T = %.4e; basis %d, degenerate %d, heavy %d candidate patterns; integer survivors %d'
-              % (label, ('kappa_2374 + 1e-15' if a0 > KAPPA_2374 else 'kappa_2374 - 1e-12'), float(T), len(basis),
+              % ('[%s] %s' % (name, label), '%.19f' % float(a0), float(T), len(basis),
                  len(degen), len(heavy), len(survivors)))
         return T, survivors, info
 
-    # ---- 2/3. exclusion at a0 = kappa_2374 + 1e-15 ------------------------------------------------------------------
-    a0 = KAPPA_2374 + EPS
-    T, surv, info = exclusion(a0, '2. exclusion')
-    want = {str(k): v for k, v in sorted(IDLE_2374.items())}
-    for s in surv:
-        need({str(k): v for k, v in s['idle'].items()} == want, 'a survivor with a different idle multiset: %s' % s)
-    need(wmu_idle(IDLE_2374, a0, False) >= W, 'the only surviving idle multiset has mu(a0) >= 1')
+    # ---- 2. search: every integer pattern solution that could beat the claim at a = K ------------------------------
+    _T, cands, _info = exclusion(K, '2. search')
+    def froot(idle):
+        lo, hi = float(K) - 1e-7, float(K) + 1e-7
+        for _ in range(80):
+            mid = (lo + hi) / 2
+            if sum(n * C.h_float(r, mid) for r, n in loc.items()) + sum(n * C.h_float(r, mid) for r, n in idle.items()) < W:
+                lo = mid
+            else:
+                hi = mid
+        return lo
+    multisets = {json.dumps({str(k): v for k, v in sorted(s['idle'].items())}, sort_keys=True): s for s in cands}
+    ranked = sorted(((froot({int(k): v for k, v in json.loads(m).items()}), m) for m in multisets), reverse=True)
+    best_root, best_key = ranked[0] if ranked else (float(K), json.dumps({str(k): v for k, v in I.items()}, sort_keys=True))
+    best = {int(k): v for k, v in json.loads(best_key).items()}
+    need(sum(r * n for r, n in best.items()) == sum(r * n for r, n in I.items()), 'best multiset keeps the idle mass')
+    # certified bracket of the best multiset's root
+    RB = Fraction(best_root).limit_denominator(10 ** 30)
+    need(wmu_idle(best, RB + EPS, False) > W and wmu_idle(best, RB - EPS, True) < W, 'best root bracket')
+    out['pattern_optimum'] = dict(idle={str(k): v for k, v in sorted(best.items())}, root_bracket=[str(RB - EPS), str(RB + EPS)],
+                                  gain_over_claim=float(RB - K), candidates_better_than_claim=len(ranked) - 1,
+                                  pattern_change_vs_lp_basis=(multisets[best_key]['heavy'] if best_key in multisets else {}),
+                                  pattern_counts=(multisets[best_key]['patterns'] if best_key in multisets else {}),
+                                  ranked=[dict(root=r, idle=json.loads(m)) for r, m in ranked[:6]])
+    print('[%s] 2. pattern-IP optimum %s, root %.19f (%+.3e vs claimed kappa)' % (name, best_key, float(RB), float(RB - K)))
+    # ---- 3. exclusion at a0 = best root + 1e-15 -----------------------------------------------------------------------
+    a0 = RB + EPS
+    T, surv, info = exclusion(a0, '3. exclusion')
+    need(not surv, name + ': integer solutions survive above the pattern optimum')
     out['exclusion'] = info
-    print('3. every integer pattern solution inside the budget has PR2374\'s idle multiset, whose moment at a0 is '
-          'certified >= 66304; hence every legal whole-helper fill has b <= kappa_2374 + 1e-15')
+    I, K = best, RB
+    print('[%s] 3. no integer pattern solution survives at optimum + 1e-15: every legal whole-helper fill has '
+          'b <= optimum root + 1e-15' % name)
+    want = {str(k): v for k, v in sorted(I.items())}
 
     # ---- negative control -----------------------------------------------------------------------------------------
-    a1 = KAPPA_2374 - Fraction(1, 10 ** 12)
+    a1 = K - Fraction(1, 10 ** 12)
     T1, surv1, info1 = exclusion(a1, 'control')
-    need(any({str(k): v for k, v in s['idle'].items()} == want for s in surv1) and wmu_idle(IDLE_2374, a1, True) < W,
-         'negative control: below its root PR2374\'s own fill must survive the exclusion')
+    need(any({str(k): v for k, v in s['idle'].items()} == want for s in surv1) and wmu_idle(I, a1, True) < W,
+         name + ': negative control: below its root the claimed fill must survive the exclusion')
     norm = lambda d: json.dumps({str(k): v for k, v in d.items()}, sort_keys=True)
     others = sorted({norm(s['idle']) for s in surv1} - {norm(want)})
-    need(not others, 'a different idle multiset survives at kappa_2374 - 1e-12: %s' % others)
-    out['negative_control'] = dict(a=str(a1), survivors=len(surv1), pr2374_fill_survives=True,
+    need(not others, name + ': a different idle multiset survives at kappa - 1e-12: %s' % others)
+    out['negative_control'] = dict(a=str(a1), survivors=len(surv1), claimed_fill_survives=True,
                                    survivor_idle_multisets=info1['survivor_idle_multisets'])
-    print('   control: %d survivors at kappa_2374 - 1e-12 (degenerate copies of %d heavy part(s)), all with PR2374\'s '
-          'idle multiset (uniqueness within 1e-12)' % (len(surv1), info1['distinct_heavy_parts']))
-    out['conclusion'] = ('Every legal whole-helper owner fill of the PR2322 words on the unchanged T74 template has '
-                         'b <= kappa_2374 + 1e-15; within the exact dual budget the only feasible idle multiset is '
-                         'PR2374\'s {1:21978,3:8592,5:2552,32:1,48:24560}.')
-    out['scope'] = ('Pattern relaxation of all whole-helper fills (windows, families and ports dropped), so the bound '
-                    'covers every legal fill; realization of PR2374\'s fill is PR2374\'s own check, not re-run here.')
+    print('[%s]    control: %d survivors at kappa - 1e-12 (degenerate copies of %d heavy part(s)), all with the '
+          'optimal idle multiset (uniqueness within 1e-12)' % (name, len(surv1), info1['distinct_heavy_parts']))
+    out['conclusion'] = ('Every legal whole-helper owner fill of the ' + claim['words'] + ' on the unchanged T74 '
+                         'template has b <= %s + 1e-15 (pattern-IP optimum, idle %s); the published fill is %s.'
+                         % (float(RB), out['pattern_optimum']['idle'],
+                            'that optimum' if RB == Fraction(froot(CLAIMS[name]['idle'])).limit_denominator(10 ** 30) or
+                            out['pattern_optimum']['gain_over_claim'] < 1e-15 else
+                            'below it by %.3e' % out['pattern_optimum']['gain_over_claim']))
+    return out, out['pattern_optimum']['gain_over_claim']
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--out', action='store_true')
+    args = ap.parse_args()
+    t0 = time.time()
+    C = load_lp()
+    P = C.P
+    W = C.W_LIVE
+    base = C.CASES['pr2322_control']
+    need(dict(base['inv']) == CLAIMS['pr2374']['inv'] and dict(base['pg']) == CLAIMS['pr2374']['profile'] ==
+         dict(base['pe']), 'PR2374 claim data equals the PR2387/PR2402 recounted PR2322 case')
+    out = dict(claims={})
+    surv = {}
+    for name in CLAIMS:
+        out['claims'][name], surv[name] = audit(C, P, W, name)
+    out['scope'] = ('Pattern relaxation of all whole-helper fills (windows, families and ports dropped), so each bound '
+                    'covers every legal fill of that claim\'s words; realization of each fill and the word data '
+                    '(profile, inventory) are the claimants\' own checks (PR2322 data recounted in PR2402).')
     out['python'] = sys.version.split()[0]
     if args.out:
         with open(os.path.join(HERE, 'owner_optimum.receipt.json'), 'w') as f:
             f.write(json.dumps(out, indent=1, sort_keys=True) + '\n')
     print('runtime %.1fs' % (time.time() - t0))
-    print('PASS_T74_2374_OWNER_OPTIMUM survivors_above=%d bound=kappa_2374+1e-15 idle_multisets_within_1e-12=1 no_new_kappa'
-          % len(surv))
+    need(surv['pr2374'] < 1e-15, 'PR2374 fill is the pattern optimum')
+    print('PASS_T74_OWNER_OPTIMUM pr2374:claim_is_optimum pr2435:optimum_gain=%+.3e unique_within_1e-12 no_new_kappa'
+          % surv['pr2435'])
     return 0
 
 
@@ -251,5 +326,5 @@ if __name__ == '__main__':
     try:
         sys.exit(main())
     except Fail as e:
-        sys.stdout.write('FAIL_T74_2374_OWNER_OPTIMUM %s\n' % e)
+        sys.stdout.write('FAIL_T74_OWNER_OPTIMUM %s\n' % e)
         sys.exit(1)
