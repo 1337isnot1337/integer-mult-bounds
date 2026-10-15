@@ -47,7 +47,7 @@ and archived source manifest remain enforced. The source hash and exact one-matc
 count for each substitution are checked. `compile(..., optimize=0)` preserves
 all original assertions even when this evaluation is invoked with `-O`.
 The strict subprocesses run without `-O` or inherited `PYTHONOPTIMIZE`.
-Only the new package writes files; replay outputs live in temporary directories.
+The successor writes replay outputs only to temporary directories.
 [SOURCES.json](SOURCES.json) pins all 22 direct inputs to canonical main
 `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`.
 
@@ -95,6 +95,18 @@ strict verifier checks its own transitive inputs; this package pins its direct
 inputs rather than claiming an independently complete transitive manifest.
 The selected reproduction command remains unchanged and still rejects Windows
 inventory keys. No selected frontier, historical source or policy is altered.
+
+## Historical CI dependency
+
+The contribution branch also incorporates the pending historical CI repairs in
+[PR2055](https://github.com/CrocSwap/integer-mult-bounds/pull/2055), through
+`92276c22f6f419bbefd870bf2bb373bc41b0c643`. The first hosted run of this
+package's branch failed six clone/test jobs because the historical PR53 checks
+read optimized live helpers instead of their unchanged source-pinned versions.
+The shared repair runs those checks in authenticated temporary copies. It also
+retains exact reconciliation bindings and assertion safety. Original repair
+commits and attribution are preserved; no selected source pin is changed.
+This CI dependency can be reviewed separately from the Windows evaluation.
 
 ## Open next questions
 

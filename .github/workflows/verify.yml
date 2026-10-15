@@ -37,7 +37,8 @@ jobs:
       - name: Check arithmetic, source hashes, finite identities, and patches
         run: |
           if [ "${{ matrix.group }}" = clones ]; then
-            make skip-clones-verify split-skip-producer
+            python -B scripts/replay_historical_check.py skip-clones
+            make split-skip-producer
             python -B scripts/replay_historical_check.py split-skip
           else
             make verify-${{ matrix.group }}

@@ -48,6 +48,53 @@ CONFIG = {
 }
 
 
+# Keep PR53's frozen source pin intact while replaying against the reviewed
+# successor of the faster exclusion support-mask checker. Original exact bytes
+# are retained by the linked baseline package (Wentao Li / VictorLiwentao).
+# Dennis with substantial OpenAI Codex assistance; Apache-2.0.
+CONFIG['skip-clones'] = {
+    'manifest': 'research/skip-clones/SOURCE.json',
+    'field': 'files',
+    'path': 'scripts/exclusion_circuit.py',
+    'input_from_root': True,
+    'input': 'research/exclusion-embedding-masks/baseline.py',
+    'sha256': 'b253f9d7318becda1c1f3b24e2287ed44a9c27fcea00cf9d531afb950d0457a0',
+    'accepted_live_sha256': [
+        'f9fbcd6e85e442cbd0926ac0887414e20735b2dc923d2d5822c803ceb46726d3',
+    ],
+    'commands': [
+        ['research/skip-clones/producer.py'],
+        ['research/skip-clones/witness.py', '--output',
+         'research/skip-clones/certificate.json'],
+        ['-m', 'unittest', 'discover', '-s', 'tests',
+         '-p', 'test_skip_clones.py', '-v'],
+    ],
+}
+CONFIG['skip-clones-tests'] = {
+    **CONFIG['skip-clones'],
+    'commands': [CONFIG['skip-clones']['commands'][-1]],
+}
+
+
+# The split-skip manifest binds three historical helpers. Restore each exact
+# dependency, retaining Wentao Li's two optimized live successors unchanged.
+CONFIG['split-skip']['accepted_live_sha256'] = [
+    '6fe64f886309d9154e33a3d67a16e8714cebc424a7a248b3080f8cab7d94179b',
+]
+CONFIG['split-skip']['additional_inputs'] = [
+    {**CONFIG['skip-clones'], 'manifest': 'research/split-skip/SOURCE.json'},
+    {
+        'manifest': 'research/split-skip/SOURCE.json', 'field': 'files',
+        'path': 'scripts/shared_point_circuit.py', 'input_from_root': True,
+        'input': 'research/shared-point-digest/baseline.py',
+        'sha256': 'c9bb7a5df92d260a4e3ad532b53e26936730d7c93f7facfb0784957c1e81c8ba',
+        'accepted_live_sha256': [
+            'f5abbf6d61f3c10349416a3e1a1ed038bbd1279ed223367f2df549de46dd7ea5',
+        ],
+    },
+]
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -67,7 +114,13 @@ def authenticated_input(root, config, inputs=INPUTS):
         require(entry.get('representation') == 'bytes', 'Expected exact byte representation')
         entry = entry.get('sha256')
     require(entry == config['sha256'], 'Missing or changed predecessor source pin')
-    data = safe_path(inputs, config['input']).read_bytes()
+    # A replay must not hide an unrelated live source mutation.
+    if 'accepted_live_sha256' in config:
+        live = hashlib.sha256(safe_path(root, config['path']).read_bytes()).hexdigest()
+        require(live in (config['sha256'], *config['accepted_live_sha256']),
+                'Unrecognized live source update: ' + config['path'])
+    input_root = root if config.get('input_from_root') else inputs
+    data = safe_path(input_root, config['input']).read_bytes()
     require(hashlib.sha256(data).hexdigest() == entry, 'Changed historical input')
     if config.get('preserve_prefix'):
         require(data.endswith(b'\n') and safe_path(root, config['path']).read_bytes().startswith(data),
@@ -82,9 +135,16 @@ def tracked_paths(root):
 
 def materialize(root, destination, config, paths, inputs=INPUTS):
     """Copy tracked working bytes only; never share writable links with the checkout."""
-    data = authenticated_input(root, config, inputs)
-    require(config['path'] in paths and config['manifest'] in paths,
-            'Historical input or manifest is not tracked')
+    configurations = [config, *config.get('additional_inputs', [])]
+    replacements = {}
+    for entry in configurations:
+        require(entry['path'] not in replacements, 'Duplicate historical replacement')
+        data = authenticated_input(root, entry, inputs)
+        require(entry['path'] in paths and entry['manifest'] in paths,
+                'Historical input or manifest is not tracked')
+        if entry.get('input_from_root'):
+            require(entry['input'] in paths, 'Historical baseline is not tracked')
+        replacements[entry['path']] = data
     require(not destination.exists(), 'Replay destination already exists')
     destination.mkdir(parents=True)
     expected = {}
@@ -95,10 +155,12 @@ def materialize(root, destination, config, paths, inputs=INPUTS):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, target)
         expected[name] = hashlib.sha256(target.read_bytes()).hexdigest()
-    safe_path(destination, config['path']).write_bytes(data)
-    expected[config['path']] = config['sha256']
-    # Authenticate again in the copied tree before executing any checker.
-    authenticated_input(destination, config, inputs)
+    for entry in configurations:
+        safe_path(destination, entry['path']).write_bytes(replacements[entry['path']])
+        expected[entry['path']] = entry['sha256']
+    # Authenticate every replacement again before executing any checker.
+    for entry in configurations:
+        authenticated_input(destination, entry, inputs)
     return expected
 
 

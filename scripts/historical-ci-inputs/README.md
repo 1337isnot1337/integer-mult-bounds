@@ -3,7 +3,7 @@
 These are exact Git blobs, not new source pins or changes to the selected result.
 The maintenance launcher `scripts/replay_historical_check.py` verifies each blob
 against its unchanged predecessor manifest, copies tracked working files into a
-temporary tree, replaces just the declared historical input there, and executes
+temporary tree, replaces only the declared historical inputs there, and executes
 the original checkers. It works with shallow CI checkouts and changes no live
 source file. The live Makefile must still preserve its entire authenticated
 historical prefix; appended targets are allowed, prefix mutations reject. All other inputs remain the current tracked working
@@ -18,6 +18,16 @@ reproducibility gate as well as protecting the live checkout.
 | `selected-result.json` | `certificates/selected-result.json` | `5c5567d15bd019186519a4db267914257b5f1ac0` | `research/r420-two-sided-basis/SOURCES.json` |
 | `Makefile` | `Makefile` | `b84ba67156a01f9c2cb34fe1e3cb1dcdeab00d9c` | `research/community-reconciliation92-audit/MANIFEST.json` |
 | `audit_fused_block.py` | `scripts/audit_fused_block.py` | `6e564879f51ae16f23d392e9e196c605f36d90df` | `research/split-skip/SOURCE.json` |
+
+The split-skip replay restores all three exact helpers named by its unchanged
+manifest: the fused-block snapshot above, the exclusion circuit preserved in
+`research/exclusion-embedding-masks/baseline.py`, and the shared-point circuit
+preserved in `research/shared-point-digest/baseline.py`. The latter two are
+Wentao Li's retained baselines for the accepted support-mask and digest
+optimizations. Both also match the PR53 parent `3ffd4021995c959ac02d12920e0279ae97dd03c7`.
+Each replacement and reviewed live successor is independently authenticated;
+missing pins, corrupted baselines, duplicate paths, untracked dependencies and
+unknown live source changes reject before copying. No original checker is edited.
 
 Use `python3 -B scripts/replay_historical_check.py r420` (add `--native` for
 C++17/Boost), `reconciliation92`, or `split-skip`. These check historical finite
