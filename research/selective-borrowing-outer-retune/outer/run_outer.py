@@ -17,6 +17,7 @@ subprocess.run([sys.executable, '-B', str(P / 'outer/sched_test.py')], check=Tru
 subprocess.run([sys.executable, '-B', str(P / 'outer/sched_review.py')], check=True, stdout=subprocess.DEVNULL)
 subprocess.run([sys.executable, '-B', str(P / 'outer/struct_check.py')], check=True, stdout=subprocess.DEVNULL)
 subprocess.run([sys.executable, '-B', str(P / 'outer/check_gaugefree.py')], check=True, stdout=subprocess.DEVNULL)
+subprocess.run([sys.executable, '-B', str(P / 'outer/check_accretive_scale.py')], check=True)
 subprocess.run([sys.executable, '-B', str(P / 'outer/check_fine_padding.py'), '--out', str(tmp / 'fine-padding.json')], check=True, stdout=subprocess.DEVNULL)
 subprocess.run([sys.executable, '-B', str(P / 'outer/replay_evidence.py')], check=True)
 print('PASS_OUTER')
