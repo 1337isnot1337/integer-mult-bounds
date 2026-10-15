@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "b017900dbb94d81afec343924c1a7fa6d540a7db",
+  "checked_commit": "7981b35eb209d0808fe2066bd928cbeff94d00fe",
   "merged_prs": [
     1763,
     2046,
@@ -34,6 +34,7 @@
     2311,
     2313,
     2314,
+    2315,
     2316,
     2317,
     2318,
@@ -75,7 +76,7 @@
     2376,
     2377
   ],
-  "changed_files": 881,
+  "changed_files": 893,
   "resolved_files": [
     {
       "number": 2259,
@@ -201,6 +202,46 @@
       "number": 2277,
       "path": "research/overcomplete-and-realisation-floors/checks/c3_realisation_free_floors.py",
       "sha256": "1f936d69afee4b0b45089c6ff80b7b74223bd374e9f02085255056320a6693f7"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/TASK.json",
+      "sha256": "6e2898420bcd376bce12c2f7f9b62ded0ddee3c68e2944a7adf6ef7eaeebb67d"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/check_all.py",
+      "sha256": "527211356a9f38f4da98cbccb011d85505f03db505658a48dcd974f2b8cc57e8"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/check_all.receipt.json",
+      "sha256": "71e46fb3bac95a6d2b4680a0ca7d1fa63e2a50b3da343d81a38cbff3f27f6072"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/fill_check.py",
+      "sha256": "c17b3dbc50c13dc2129ed09e83c400459cf58a1ffa7f17e8b59c6b9de16864bf"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/price_check.py",
+      "sha256": "eb9bd62a40528387f916a6c37c56107ce964b28f1c236d51b98c5bbb6b6eab0c"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/price_check.receipt.json",
+      "sha256": "074650d17fb63622b3f22f3146745f1058dd930b29d74c6a23b44851d84596db"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/words_check.py",
+      "sha256": "6902bb7a4d6adc53f1a3e164ed8aa71710be82e8c04c75bce1f5b0b555e130f5"
+    },
+    {
+      "number": 2315,
+      "path": "research/t74-borrow43-independent-check/words_check.receipt.json",
+      "sha256": "4e6200c99e9ba251562ec365b724170c900d72a6ba5f8fa4343d34cb99bcdecc"
     }
   ],
   "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",

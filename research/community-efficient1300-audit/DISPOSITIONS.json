@@ -1870,20 +1870,24 @@
       },
       "reviewed_head": "4a2f20ea339e30348448096ca789d0efe55df9bb",
       "current_head": "4a2f20ea339e30348448096ca789d0efe55df9bb",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-borrow43-independent-check"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7981b35eb209d0808fe2066bd928cbeff94d00fe",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2315"
+      },
       "scope": "Sagar Thakrar's independent audit of PR2269's borrowed T74 words,437-helper fill and moment. Reviewed exact free-group replay in both orientations, binary symplectic/rank-zero handoffs, chronological windows and disjoint slices, full profile composition and rigorous800-bit atanh/exp bounds. Complete primary and resolved replays pass both words,291042 owner rows,1332 rebuilt windows,149184 bins,130-digit root bracket,positive controls and targeted rejections. Corrected contributor identity conflation and TASK bracket wording; regenerated receipts have identical mathematical results. Native Clifford phases/lowering, X2 across shared physical families,73-column charts,cleanup-buffer placement and outer/assembly proofs remain open; no supplier or kappa admission. Jeremy Kothe,Cinna Davis,Dugongue,Rohan Arun,mdumitrean,icekylinx,Zhihao Chen and retained lineage credited.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2315.json",
