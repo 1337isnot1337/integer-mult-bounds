@@ -39,7 +39,11 @@ The [review through #2027](community-efficient1000-review.md) leaves the selecte
 - **Joint-query controller:** [#1969's local words](../../research/joint-query/README.md)
   are checked, but the fixed-first-pair selected-only controller has an explicit
   lost-query witness. Test one changed first pair or paid extra observation
-  against that witness before designing a full schedule.
+  against that witness before designing a full schedule. The
+  [QQ16 observation-contract map](qq16-controller-scope-map.md) indexes later
+  pending and fork evidence to check first: a 252-pair first-pair catalogue,
+  witness detection versus full recovery, and recorded-cut versus final-only
+  recovery.
 - **Selected proof obligation:** [#1990's stock audit](../../research/selected-bootstrap-stock-audit/README.md)
   leaves the actual selected reserve coefficient unknown. Derive one source-bound
   stage envelope rather than recomputing the already checked headrooms.
