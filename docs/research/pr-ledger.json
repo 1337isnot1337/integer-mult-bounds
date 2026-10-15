@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "b465f4a27cb9aa051de9572f2f0ad8cc11e9524338db08c89de7ea671756b38b",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "ce1ff145c1c976f7648cf39b5b1c7e0347c7bac7b008380c6d7f5e97429ec141",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -109793,25 +109793,29 @@
         {
           "head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Gareth Davidson/bitplane's conditional common-label tensor-lift formalization of Jose Manuel's PR2287 argument on unchanged Lemma G semantics. Reviewed all21 changed files, full-array tensor equivalence, coefficient-field embedding, correlated dirty inputs and unit-row scope. Fresh exact Lean4.33.0-rc1/pinned Mathlib build passes21 theorem axiom inventories and3 mathematical rejection controls; optimized Q(i) replay covers124 basis inputs,20 dense inputs,100 prefixes and11 shortcuts plus8 verifier-control groups. Original proof and predecessor notices are byte-bound. Actual R480 importer/native recipes, physical compiler, hosting, precision and outer multiplication theorem are not established; no supplier or kappa admission. DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,jamesyc and Mathlib lineage retained. Dedicated read-only CI reviewed; no hosted-run claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-common-label-tensor-lift"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2341.json",
+        "research/community-efficient1300-audit/checks/check-2341-supplement.json",
         "research/community-efficient1300-audit/checks/check-2341.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",

@@ -2739,19 +2739,23 @@
       "current_head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-common-label-tensor-lift"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Gareth Davidson/bitplane's conditional common-label tensor-lift formalization of Jose Manuel's PR2287 argument on unchanged Lemma G semantics. Reviewed all21 changed files, full-array tensor equivalence, coefficient-field embedding, correlated dirty inputs and unit-row scope. Fresh exact Lean4.33.0-rc1/pinned Mathlib build passes21 theorem axiom inventories and3 mathematical rejection controls; optimized Q(i) replay covers124 basis inputs,20 dense inputs,100 prefixes and11 shortcuts plus8 verifier-control groups. Original proof and predecessor notices are byte-bound. Actual R480 importer/native recipes, physical compiler, hosting, precision and outer multiplication theorem are not established; no supplier or kappa admission. DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,jamesyc and Mathlib lineage retained. Dedicated read-only CI reviewed; no hosted-run claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2341.json",
+        "research/community-efficient1300-audit/checks/check-2341-supplement.json",
         "research/community-efficient1300-audit/checks/check-2341.json"
       ]
     },

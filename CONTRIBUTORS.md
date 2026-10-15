@@ -720,7 +720,7 @@ Original contributor commits and predecessor notices are preserved. These are sc
 - **DreamingOfClouds** — [#2277](https://github.com/CrocSwap/integer-mult-bounds/pull/2277), [#2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338).
 - **cbethin** — [#2279](https://github.com/CrocSwap/integer-mult-bounds/pull/2279).
 - **mason-hale** — [#2282](https://github.com/CrocSwap/integer-mult-bounds/pull/2282), [#2313](https://github.com/CrocSwap/integer-mult-bounds/pull/2313).
-- **bitplane** — [#2305](https://github.com/CrocSwap/integer-mult-bounds/pull/2305), [#2314](https://github.com/CrocSwap/integer-mult-bounds/pull/2314), [#2323](https://github.com/CrocSwap/integer-mult-bounds/pull/2323), [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355), [#2373](https://github.com/CrocSwap/integer-mult-bounds/pull/2373).
+- **bitplane** — [#2305](https://github.com/CrocSwap/integer-mult-bounds/pull/2305), [#2314](https://github.com/CrocSwap/integer-mult-bounds/pull/2314), [#2323](https://github.com/CrocSwap/integer-mult-bounds/pull/2323), [#2341](https://github.com/CrocSwap/integer-mult-bounds/pull/2341), [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355), [#2373](https://github.com/CrocSwap/integer-mult-bounds/pull/2373).
 - **CubeJerry** — [#2306](https://github.com/CrocSwap/integer-mult-bounds/pull/2306), [#2307](https://github.com/CrocSwap/integer-mult-bounds/pull/2307).
 - **jmbarrancoml** — [#2310](https://github.com/CrocSwap/integer-mult-bounds/pull/2310), [#2364](https://github.com/CrocSwap/integer-mult-bounds/pull/2364).
 - **josecarlosgonzalezroque-design** — [#2316](https://github.com/CrocSwap/integer-mult-bounds/pull/2316).
