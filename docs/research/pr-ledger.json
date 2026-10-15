@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "e8e0384d536c5abb884f66441fef35ba2d54a3fbbbd3738812f86949c5d97aee",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "686d3c9ac61ea0f60db416fa7dcf129f26b473cd68b2ee49c752c5a747596617",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -106785,7 +106785,7 @@
       "closure": null,
       "reviewed_head": "f7e8e8a3ff8a889366f97e222eef262d61312b58",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Source and196608-case finite replay pass. The exact Lean4.33.0-rc1/Mathlib kernel attempt stopped at the recorded disk-space guard before a theorem build; incomplete dependency artifacts were removed, sources and logs retained. Fresh kernel build,18-target axiom report and three type-error controls still required; no formal verification claimed.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -106794,6 +106794,7 @@
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2267.json",
+        "research/community-efficient1300-audit/checks/check-2267-supplement.json",
         "research/community-efficient1300-audit/checks/check-2267.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
@@ -107660,7 +107661,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2289.json"
+        "research/community-efficient1300-audit/packets/2289.json",
+        "research/community-efficient1300-audit/checks/check-2289.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -107858,7 +107860,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2295.json"
+        "research/community-efficient1300-audit/packets/2295.json",
+        "research/community-efficient1300-audit/checks/check-2295.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -107996,7 +107999,7 @@
       "closure": null,
       "reviewed_head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -108004,7 +108007,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2298.json"
+        "research/community-efficient1300-audit/packets/2298.json",
+        "research/community-efficient1300-audit/checks/check-2298.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -109633,25 +109637,28 @@
         {
           "head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "DreamingOfClouds’s frontier-format decoder floors. Reviewed the rigidity encodings and gauges, support-propagation lemma, rank-eight realization floors, nine-term frame-module identity and two-call/general symmetric batching proofs. Full replay regenerates all30 rigidity instances, checks16 new UNSAT proofs and14 SAT models, plus10 block/puncture UNSAT proofs and their feasible controls. Exact support/attainer checks and the111-line source match also pass. Other P104 units, outside-factor/rank-nine cases and general multi-call GL charts remain open; unshipped working-card and slow puncture claims remain author-recorded, not newly certified. No supplier or kappa change. Sagar Thakrar’s two-call priority and GamingPuzzled,bitplane and other predecessor credit retained.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/decoder-floors-frontier-format"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2338.json",
+        "research/community-efficient1300-audit/checks/check-2338-resolve.json",
         "research/community-efficient1300-audit/checks/check-2338-supplement.json",
         "research/community-efficient1300-audit/checks/check-2338.json"
       ],
@@ -109792,7 +109799,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2341.json"
+        "research/community-efficient1300-audit/packets/2341.json",
+        "research/community-efficient1300-audit/checks/check-2341.json"
       ],
       "current_head_observed_in": "research/community-efficient1300-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -110678,7 +110686,7 @@
       "closure": null,
       "reviewed_head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Five focused suites pass; planner, tracer, cancellation and workflow code reviewed. Fresh Linux strace integration/coverage validation and reconciliation of the historical replay adapter with newer main remain required before changing default CI. Author Linux recordings are local-only and are not a maintainer execution.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,

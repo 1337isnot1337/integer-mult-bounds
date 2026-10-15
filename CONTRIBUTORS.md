@@ -732,6 +732,7 @@ Original contributor commits and predecessor notices are preserved. These are sc
 - **ROTl24** — [#2334](https://github.com/CrocSwap/integer-mult-bounds/pull/2334).
 - **antunishdPursuit** — [#2336](https://github.com/CrocSwap/integer-mult-bounds/pull/2336).
 - **SHIN09-git** — [#2337](https://github.com/CrocSwap/integer-mult-bounds/pull/2337).
+- **DreamingOfClouds** — [#2338](https://github.com/CrocSwap/integer-mult-bounds/pull/2338).
 - **alephnan** — [#2346](https://github.com/CrocSwap/integer-mult-bounds/pull/2346).
 - **EdDiboi** — [#2350](https://github.com/CrocSwap/integer-mult-bounds/pull/2350).
 - **kumagi** — [#2353](https://github.com/CrocSwap/integer-mult-bounds/pull/2353).

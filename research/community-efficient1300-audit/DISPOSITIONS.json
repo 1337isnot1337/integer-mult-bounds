@@ -393,7 +393,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Source and196608-case finite replay pass. The exact Lean4.33.0-rc1/Mathlib kernel attempt stopped at the recorded disk-space guard before a theorem build; incomplete dependency artifacts were removed, sources and logs retained. Fresh kernel build,18-target axiom report and three type-error controls still required; no formal verification claimed.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -405,6 +405,7 @@
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2267.json",
+        "research/community-efficient1300-audit/checks/check-2267-supplement.json",
         "research/community-efficient1300-audit/checks/check-2267.json"
       ]
     },
@@ -1073,7 +1074,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2289.json"
+        "research/community-efficient1300-audit/packets/2289.json",
+        "research/community-efficient1300-audit/checks/check-2289.json"
       ]
     },
     {
@@ -1227,7 +1229,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2295.json"
+        "research/community-efficient1300-audit/packets/2295.json",
+        "research/community-efficient1300-audit/checks/check-2295.json"
       ]
     },
     {
@@ -1329,7 +1332,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1340,7 +1343,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2298.json"
+        "research/community-efficient1300-audit/packets/2298.json",
+        "research/community-efficient1300-audit/checks/check-2298.json"
       ]
     },
     {
@@ -2612,19 +2616,22 @@
       "current_head": "b9d4424208754eae09eb5f2095232ce9a9544b66",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/decoder-floors-frontier-format"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "DreamingOfClouds\u2019s frontier-format decoder floors. Reviewed the rigidity encodings and gauges, support-propagation lemma, rank-eight realization floors, nine-term frame-module identity and two-call/general symmetric batching proofs. Full replay regenerates all30 rigidity instances, checks16 new UNSAT proofs and14 SAT models, plus10 block/puncture UNSAT proofs and their feasible controls. Exact support/attainer checks and the111-line source match also pass. Other P104 units, outside-factor/rank-nine cases and general multi-call GL charts remain open; unshipped working-card and slow puncture claims remain author-recorded, not newly certified. No supplier or kappa change. Sagar Thakrar\u2019s two-call priority and GamingPuzzled,bitplane and other predecessor credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2338.json",
+        "research/community-efficient1300-audit/checks/check-2338-resolve.json",
         "research/community-efficient1300-audit/checks/check-2338-supplement.json",
         "research/community-efficient1300-audit/checks/check-2338.json"
       ]
@@ -2732,7 +2739,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2341.json"
+        "research/community-efficient1300-audit/packets/2341.json",
+        "research/community-efficient1300-audit/checks/check-2341.json"
       ]
     },
     {
@@ -3417,7 +3425,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Five focused suites pass; planner, tracer, cancellation and workflow code reviewed. Fresh Linux strace integration/coverage validation and reconciliation of the historical replay adapter with newer main remain required before changing default CI. Author Linux recordings are local-only and are not a maintainer execution.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
