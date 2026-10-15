@@ -64,9 +64,11 @@ What the independent checks establish:
    - In the forward orientation it is returned to its input.
    - In the backward orientation it ends as the declared shear column X_73 − Y_185.
    - So the "completed call" premise holds for this word, but a reader should not take "borrowed = helper" literally.
-2. **Unit question for the guard (B1).** PR2260 declares the 512 payload a *per-lambda* coefficient (`finite-invoice.json` precision_units), with guard 244·lambda. Its row formula `2*stock_bits + 9909 + 252 + 2*payload` still counts `2*payload = 1024` as a fixed term, as in the fixed-bit predecessors. If that term scaled with lambda, row < 20161 would hold only for lambda ≤ 4.
-   - Neither PR states how the row allowance scales with lambda.
-   - For #2265 the PR1673 outer needs only an O(g) supplier constant (review, lines 73–78), so this is recorded as an open interface question, not a counterexample.
+2. **Unit question for the guard (B1).** In the selected lineage the prefix allowance is a *fixed* 512-bit count, compared with a lambda-free prefix (`docs/research/community-batch952-review.md:51`, `scripts/verify_frontier1094.py:94`, `direct-delivery504-global/code/invoice_final.py:238-241`). PR2260 instead declares the 512 payload a *per-lambda* coefficient, with guard 244·lambda (`finite-invoice.json` precision_units).
+   - Under the fixed-bit reading, 244·lambda < 512 only for lambda ≤ 2.
+   - Under PR2260's per-lambda reading, its row formula `2*stock_bits + 9909 + 252 + 2*payload` still counts `2*payload = 1024` as fixed. If that term scaled, row < 20161 would need lambda ≤ 4.
+   - Neither PR defines lambda here or says how the row allowance scales with it.
+   - For #2265 the PR1673 outer needs only an O(g) supplier guard constant (review, lines 73–78). The question bears mainly on PR2260's own balanced-prefix outer, whose degree gap uses 20161. It is an open interface question, not a counterexample.
 3. **Identical invoice fields are explained, not copied.** PR2260's physical_stock_bits 2641, row 16467 and required_C0_bits 200012 equal direct-delivery504's exactly. The reason is that both stocks (7682 and 7745 families) have the same bit length after multiplying by |O(73,2)|, and the C_0 field is dominated by 2^100000.
 4. **Surcharge portability.** The conservative surcharge used by #2265's endpoint comes from the vendored `moment.py`. Its own comment calls the envelope "only conditionally portable to the new cover". Neither PR proves that portability; it is inherited.
 
@@ -123,7 +125,7 @@ Each control must be rejected by the named check:
 
 1. **Guard units (B1).**
    - *Question:* is the retained row allowance 20161 per-lambda or absolute, given PR2260's per-lambda payload?
-   - *Why it matters:* under a per-lambda reading of `2*payload`, the row guard holds only for lambda ≤ 4.
+   - *Why it matters:* under the lineage's fixed-bit reading, PR2260's 244·lambda guard fits 512 only for lambda ≤ 2. Under a per-lambda reading of `2*payload`, the row guard holds only for lambda ≤ 4.
    - *First step:* locate the retained interface's definition of lambda and of the row coefficient in the selected lineage (direct-delivery504 / PR523 invoice notes), then restate PR2260's row in matching units.
    - *Blocker:* the definition of lambda in the all-size compiler is spread over historical notes.
 2. **Surcharge portability (D5).**

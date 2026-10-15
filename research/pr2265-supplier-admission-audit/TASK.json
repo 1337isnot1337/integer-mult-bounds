@@ -52,7 +52,7 @@
   "open_questions": [
     {
       "question": "Is the retained row allowance 20161 per-lambda or absolute, given PR2260's per-lambda 512 payload?",
-      "why_it_matters": "PR2260's row formula counts 2*payload=1024 as fixed; under a per-lambda reading the row guard holds only for lambda<=4.",
+      "why_it_matters": "In the selected lineage the 512 prefix allowance is a fixed bit count; PR2260's 244*lambda guard fits it only for lambda<=2, while under PR2260's per-lambda reading its row formula (2*payload fixed) holds only for lambda<=4.",
       "first_step": "Locate the retained definitions of lambda and of the row coefficient in the selected lineage (direct-delivery504 / PR523 invoice notes) and restate PR2260's row in matching units.",
       "blocked_by": "The definition of lambda in the all-size compiler is spread over historical notes."
     },

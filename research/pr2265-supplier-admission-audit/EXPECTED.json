@@ -71,6 +71,7 @@
  "B_constants": {
   "group_bits": 2628,
   "guard_coefficient": 244,
+  "guard_lambda_max_if_payload_fixed_bits": 2,
   "literal_bits": 35282,
   "physical": 7745,
   "required_C0_bits": 200012,

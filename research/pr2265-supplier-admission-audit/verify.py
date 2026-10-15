@@ -410,7 +410,10 @@ def check_constants(invoice, trace, old, payload=512):
     need(retained_fixed < payload, 'retained fixed-bit prefix rule also holds at lambda = 1')
     # Unit question: if the row term 2*payload scaled with lambda, the row guard would hold only up to lam_max.
     lam_max = max(k for k in range(1, 64) if not rejected(lambda: row_guard(stock.bit_length(), payload * k)))
-    return dict(physical=physical, group_bits=group.bit_length(), stock_bits=stock.bit_length(), row=row,
+    # Fixed-bit reading of the retained allowance (selected lineage: 512 bits, e.g. verify_frontier1094.py:94):
+    # the per-lambda guard coeff*lambda fits a fixed 512-bit payload only up to lam_fixed.
+    lam_fixed = max(k for k in range(1, 64) if coeff * k < payload)
+    return dict(guard_lambda_max_if_payload_fixed_bits=lam_fixed,physical=physical, group_bits=group.bit_length(), stock_bits=stock.bit_length(), row=row,
                 required_C0_bits=c0_bits, literal_bits=literal.bit_length(), guard_coefficient=coeff,
                 retained_fixed_bit_prefix=retained_fixed, row_lambda_max_if_payload_scaled=lam_max)
 
