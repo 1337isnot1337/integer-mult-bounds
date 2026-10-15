@@ -227,9 +227,11 @@ vendored; its three reproduction values are hard-coded in `price.py`.
    - *First step:* price the CONSERVED-QQ16 inverse of B (`H_s`, `E_t`) as
      reads plus restoration.
    - *Blocker:* no priced read of `y2_U`/`X2_T` at the completed-X type.
-     ywz65 has a live claim (PR2443 comment, 2026-10-15 11:23Z,
-     `research/qq16-future-x-query`) on source-binding the native read of
-     `C=x2_U` at the post-B1 frame with restoration; this package defers to it.
+     ywz65's PR2468 (head `baa90ee8`, opened 11:49Z,
+     `research/qq16-future-x-query`) constructs a native local read of
+     `C=x2_U` at the post-B1 frame with restoration and leaves retained
+     observations open; this package defers to it for the read and supplies
+     the retention count it leaves open.
 3. **Which centre charge applies to QQ16, C=0 or C=64?** This is the
    maintainers' open question in #2074. Under C=64 no positive retention
    budget beats the selected ceiling; even a free controller gains only +0.28%.
@@ -248,8 +250,8 @@ trace method is from Ross Richardson (PR2104). The ceiling model is
 `research/complex-local-word-ceiling`. The final-only obstruction is
 alephnan's PR2346, and the contract scope map is commdata2338's PR2376
 (`157143ab`). Concurrent work: ywz65's PR2456 (head `665ba8d7`) audits
-PR2443's operators with payload-sensitive fixtures, and ywz65's live claim on
-the native `C` read overlaps open question 2. ToikY's PR2416 (head
+PR2443's operators with payload-sensitive fixtures, and ywz65's PR2468 (head
+`baa90ee8`) constructs the native `C` read of open question 2. ToikY's PR2416 (head
 `f2c93e76`) prices native retention of A-copy data at the `B_1_2[:80]` cut
 (24 native lines vs 16) in a different cost model; it is not combined here.
 

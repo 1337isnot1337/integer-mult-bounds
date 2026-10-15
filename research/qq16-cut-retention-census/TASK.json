@@ -66,7 +66,7 @@
       "question": "Is the d1 decode point (immediately after B_1_2) usable by a controller that must continue with F2..F8?",
       "why_it_matters": "At d1 the copy demand is 120 coordinate-calls for the literal contract (the information floor for its read set), 32 for the L2 variant, and 0 with a full post-B1 read since B1 is invertible; but a mid-schedule decode must restore the state it reads.",
       "first_step": "Write the restoration and read cost of a mid-schedule decode at d1 using the CONSERVED-QQ16 inverse of B (H_s, E_t).",
-      "blocked_by": "No priced native read of y2_U / X2_T at the completed-X type; restoration accounting. ywz65's live claim (PR2443 comment 2026-10-15T11:23Z, research/qq16-future-x-query) covers the native C=x2_U read at the post-B1 frame; defer to it."
+      "blocked_by": "No priced native read of y2_U / X2_T at the completed-X type; restoration accounting. ywz65's PR2468 (head baa90ee8) constructs the native C=x2_U read at the post-B1 frame and leaves retained observations open; defer to it for the read."
     },
     {
       "question": "Which centre charge applies to QQ16, C=0 or C=64?",
@@ -76,13 +76,13 @@
     }
   ],
   "overlap": {
-    "refreshed_utc": "2026-10-15T11:40Z (final refresh before submission recorded in the PR body)",
+    "refreshed_utc": "2026-10-15T11:52Z",
     "coverage": "open PRs updated since base 0fdd7d82, gh PR search for 2443/QQ16, discussions #1163, #1166, #2074, PR2443/PR2456/PR2346/PR2416 bodies and comments, local sibling task cards; python3 scripts/find_overlap.py cache",
     "nearest": [
       "PR2346 (alephnan, 653520d7): final-only obstruction; implies the qualitative d18 failure",
       "PR2376 (commdata2338, 157143ab): contract scope map flags final-record decoding",
       "PR2456 (ywz65, 665ba8d7): payload-sensitive operator audit of PR2443; not retention",
-      "ywz65 live claim 2026-10-15T11:23Z: native C=x2_U read at the post-B1 frame",
+      "ywz65 PR2468 (baa90ee8, opened 11:49Z): native local read of C=x2_U at the post-B1 frame; leaves retained observations open",
       "PR2416 (ToikY, f2c93e76): native A-copy cut pricing, different cost model",
       "PR2197 / PR2079 (1337isnot1337): y2_A pricing in one layout; C=64 screen",
       "#2074 Theorem B (philippeVV): four-bank floor 62"
