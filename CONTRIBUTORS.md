@@ -714,9 +714,11 @@ The six pending contributions are credited in the pilot ledger; pending review i
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1300-review.md).
 
-- **1337isnot1337** — [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258).
-- **navinor** — [#2293](https://github.com/CrocSwap/integer-mult-bounds/pull/2293), [#2340](https://github.com/CrocSwap/integer-mult-bounds/pull/2340).
+- **1337isnot1337** — [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258), [#2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259), [#2261](https://github.com/CrocSwap/integer-mult-bounds/pull/2261), [#2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266), [#2271](https://github.com/CrocSwap/integer-mult-bounds/pull/2271).
+- **navinor** — [#2273](https://github.com/CrocSwap/integer-mult-bounds/pull/2273), [#2293](https://github.com/CrocSwap/integer-mult-bounds/pull/2293), [#2301](https://github.com/CrocSwap/integer-mult-bounds/pull/2301), [#2340](https://github.com/CrocSwap/integer-mult-bounds/pull/2340).
+- **cbethin** — [#2279](https://github.com/CrocSwap/integer-mult-bounds/pull/2279).
 - **ROTl24** — [#2334](https://github.com/CrocSwap/integer-mult-bounds/pull/2334).
+- **bitplane** — [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355).
 
 Pending contributors and their obligations are listed in the review. A hold is not a rejection.
 

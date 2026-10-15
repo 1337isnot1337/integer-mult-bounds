@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1175–#2377**, excluding prior same-head dispositions. Baseline `7b39515117fe26e75d16c268877391f1bdaa5640`. Complete Git differences determine changed-file coverage.
 
-**4 ready; 0 observed merged; 96 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**12 ready; 4 observed merged; 88 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -11,9 +11,17 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | PR | Contributor | Reviewed scope |
 | --- | --- | --- |
 | [#2258](https://github.com/CrocSwap/integer-mult-bounds/pull/2258) | 1337isnot1337 | Written exact 4P tariff for arbitrary finite bipartite Heisenberg commutators and restored dirty workspace. Natural and contragredient edge quotients plus rank-nullity prove the lower bound; fully charged diagonal words attain it. Formal alphabet only, no supplier pricing. |
+| [#2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259) | 1337isnot1337 | Aligned FANIN4 reversible stream: exhaustive 1048576 dirty states and complete read/write/XOR/head-return bill. Identity source maps and a common frame are explicit; predecessor #2249 floor is qualified as pending rather than relied on. |
+| [#2261](https://github.com/CrocSwap/integer-mult-bounds/pull/2261) | 1337isnot1337 | Exact eight-call two-register minimum in F2[UT3(F4)]: complete radius-three meet-in-the-middle excludes length at most six, augmentation-ideal trace parity excludes seven, and eight-call full group-algebra word attains it. Three-role twelve-call exclusion is only the tested commutator-block family. |
+| [#2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266) | 1337isnot1337 | Six-event GF4 two-source connector covers all 15 nonzero coefficient rows, restores arbitrary dirt, and uses 30 target readouts. Integration supplies the source-span lower bound for arbitrary even readouts; exact field, stream, and independent dirty-state checks pass. No physical supplier mapping. |
+| [#2271](https://github.com/CrocSwap/integer-mult-bounds/pull/2271) | 1337isnot1337 | Borrowed-source Gray tour performs the specified nine-target parity map in 13 versus 21 row additions, restores all dirty sources, and is optimal only within the one-anchor mask-tour class. Full 4096 one-bit states and inverse/control checks; no hosted supplier or global CNOT optimum. |
+| [#2273](https://github.com/CrocSwap/integer-mult-bounds/pull/2273) | navinor | Pinned AST occurrence and declared-receiver audit of selected hosted-template metadata, including hash channels and synthetic detector controls. Static coverage is confined to named frozen consumers; it is not semantic non-interference or a cold replay. Complements #1959/#2301 and retains their lineage. |
+| [#2279](https://github.com/CrocSwap/integer-mult-bounds/pull/2279) | cbethin | Written exact 94-ADD scatter optimum over all dependency ideals of the fixed 306-gate R439 undo, certified by all 1386 row subsets and necessary dependencies. Independent backward-cone and literal matrix checks plus full 661-column dirty replay; attaining circuit and credit belong to Sagar Thakrar #2115. |
 | [#2293](https://github.com/CrocSwap/integer-mult-bounds/pull/2293) | navinor | Independent CR2/B2 written rank and triangular-submatrix audit, with a 58-instance exhaustive pairing census and separate edge/vertex MAS readings. Its edge-form open question is answered by concurrent #2334/#2340; no full #2162 theorem or supplier admission. |
+| [#2301](https://github.com/CrocSwap/integer-mult-bounds/pull/2301) | navinor | Executed post-emit owner-map acceptance gap: equal-width time swap and wrong owner digest pass six frozen stages and twenty final predicates; positive and rejected controls delimit scope. Archived selected fixture is correct; no cold ancestry replay or changed kappa. |
 | [#2334](https://github.com/CrocSwap/integer-mult-bounds/pull/2334) | ROTl24 | Explicit nine-line B2 acyclic-edge counterexample (cost 21 versus 27), independent rank/graph oracles, and all-k tripartite proof. The induced-vertex statement survives; indexed repeated lines are permitted. Credit ROTl24 and Aaron Wang’s preceding audit. |
 | [#2340](https://github.com/CrocSwap/integer-mult-bounds/pull/2340) | navinor | Explicit five- and six-line counterexamples to the B2 acyclic-edge gloss, with complete pairing minima and separate vertex-form screen. The all-full-support v<=4 exclusion also follows directly from rank(PQ^T)<=3 forbidding a nonzero diagonal of size four. Repeated lines are legal; no universal vertex-theorem or supplier verification. |
+| [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355) | bitplane | Opt-in successor adds exact typed owner-list and digest binding after all eleven unchanged strict stages. Full integration requires the real positive replay plus both old-accepted/new-rejected mutants; default selected command and inherited theorem assumptions remain unchanged. |
 
 ## Remaining review
 
@@ -22,38 +30,31 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#1175](https://github.com/CrocSwap/integer-mult-bounds/pull/1175) | gvconly | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#1763](https://github.com/CrocSwap/integer-mult-bounds/pull/1763) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2046](https://github.com/CrocSwap/integer-mult-bounds/pull/2046) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2259](https://github.com/CrocSwap/integer-mult-bounds/pull/2259) | 1337isnot1337 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2260](https://github.com/CrocSwap/integer-mult-bounds/pull/2260) | Dugongue | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2261](https://github.com/CrocSwap/integer-mult-bounds/pull/2261) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2263](https://github.com/CrocSwap/integer-mult-bounds/pull/2263) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2265](https://github.com/CrocSwap/integer-mult-bounds/pull/2265) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2266](https://github.com/CrocSwap/integer-mult-bounds/pull/2266) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2267](https://github.com/CrocSwap/integer-mult-bounds/pull/2267) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2268](https://github.com/CrocSwap/integer-mult-bounds/pull/2268) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2268](https://github.com/CrocSwap/integer-mult-bounds/pull/2268) | 1337isnot1337 | The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred. |
 | [#2269](https://github.com/CrocSwap/integer-mult-bounds/pull/2269) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2271](https://github.com/CrocSwap/integer-mult-bounds/pull/2271) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2272](https://github.com/CrocSwap/integer-mult-bounds/pull/2272) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2273](https://github.com/CrocSwap/integer-mult-bounds/pull/2273) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2272](https://github.com/CrocSwap/integer-mult-bounds/pull/2272) | navinor | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2274](https://github.com/CrocSwap/integer-mult-bounds/pull/2274) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2276](https://github.com/CrocSwap/integer-mult-bounds/pull/2276) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2277](https://github.com/CrocSwap/integer-mult-bounds/pull/2277) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2279](https://github.com/CrocSwap/integer-mult-bounds/pull/2279) | cbethin | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2280](https://github.com/CrocSwap/integer-mult-bounds/pull/2280) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2280](https://github.com/CrocSwap/integer-mult-bounds/pull/2280) | 1337isnot1337 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2281](https://github.com/CrocSwap/integer-mult-bounds/pull/2281) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2282](https://github.com/CrocSwap/integer-mult-bounds/pull/2282) | mason-hale | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2282](https://github.com/CrocSwap/integer-mult-bounds/pull/2282) | mason-hale | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2283](https://github.com/CrocSwap/integer-mult-bounds/pull/2283) | 1337isnot1337 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2284](https://github.com/CrocSwap/integer-mult-bounds/pull/2284) | Dugongue | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2286](https://github.com/CrocSwap/integer-mult-bounds/pull/2286) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2287](https://github.com/CrocSwap/integer-mult-bounds/pull/2287) | jmbarrancoml | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2288](https://github.com/CrocSwap/integer-mult-bounds/pull/2288) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2289](https://github.com/CrocSwap/integer-mult-bounds/pull/2289) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2290](https://github.com/CrocSwap/integer-mult-bounds/pull/2290) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2290](https://github.com/CrocSwap/integer-mult-bounds/pull/2290) | 1337isnot1337 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2294](https://github.com/CrocSwap/integer-mult-bounds/pull/2294) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2295](https://github.com/CrocSwap/integer-mult-bounds/pull/2295) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+| [#2296](https://github.com/CrocSwap/integer-mult-bounds/pull/2296) | 1337isnot1337 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2297](https://github.com/CrocSwap/integer-mult-bounds/pull/2297) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2298](https://github.com/CrocSwap/integer-mult-bounds/pull/2298) | jmbarrancoml | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2301](https://github.com/CrocSwap/integer-mult-bounds/pull/2301) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2302](https://github.com/CrocSwap/integer-mult-bounds/pull/2302) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2303](https://github.com/CrocSwap/integer-mult-bounds/pull/2303) | 1337isnot1337 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2305](https://github.com/CrocSwap/integer-mult-bounds/pull/2305) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
@@ -98,7 +99,6 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2351](https://github.com/CrocSwap/integer-mult-bounds/pull/2351) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2353](https://github.com/CrocSwap/integer-mult-bounds/pull/2353) | kumagi | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2354](https://github.com/CrocSwap/integer-mult-bounds/pull/2354) | kyzer1023 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2355](https://github.com/CrocSwap/integer-mult-bounds/pull/2355) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2356](https://github.com/CrocSwap/integer-mult-bounds/pull/2356) | theon199 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2357](https://github.com/CrocSwap/integer-mult-bounds/pull/2357) | VictorLiwentao | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2358](https://github.com/CrocSwap/integer-mult-bounds/pull/2358) | AAAmirinu | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
