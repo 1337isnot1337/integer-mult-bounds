@@ -4,8 +4,23 @@
 [PR2443](https://github.com/CrocSwap/integer-mult-bounds/pull/2443) (starship-s,
 head `545c05e17243c962b112b91e7f84b4c1a41de7b8`) decodes all pair-0 inputs of
 the conserved `F0/B_1_2` pair from 224 observed port arrays at two cuts. It
-grants the retention of those arrays. This package checks which of them are
-still held by a live field at a decode point of the pinned 19-event QQ16 recipe.
+grants the retention of those arrays and calls its F0 record transient. This
+package checks which of them are still held by a live field at a decode point
+of the pinned 19-event QQ16 recipe. It answers the logical-trace part of PR2443
+open question 1 (native endpoint types stay open) and the storage term of open
+question 2.
+
+**What is already known and what is new.** That pair 0 cannot be recovered from
+final-only records under the 19-event schedule is PR2346's obstruction
+(alephnan, head `653520d7`: the final-only observation map loses at least
+`ceil(8|G|/7)` dimensions of pair 0's selected input). The PR2376 scope map
+(commdata2338, head `157143ab`) warns against assuming that a decoder granted
+the B1 cut works from final records. The qualitative d18 failure below is
+consistent with, and largely implied by, that work. This package quantifies it.
+New here: exact per-array counts at both decode points, the d1 split (104 live,
+120 overwritten by B1), the scalar-multiple and same-port-span relaxations,
+the checked recomputation leads L1/L2 with an L2-variant decoder, and the
+transfer of the counts to the price3 convention.
 
 | item (cut) | arrays | live at d1 (after `B_1_2`) | live at d18 (after terminal) | first overwrite event |
 |---|---:|---:|---:|---|
@@ -35,7 +50,9 @@ Per owner per replica, the contract therefore needs these retained copies:
 
 ### Comparison with the #2074 pricing (inherited, unreviewed)
 
-philippeVV's four-bank finding (#2074, fork `680d0997`) says that with
+philippeVV's four-bank finding (#2074; [fork](https://github.com/philippeVV/integer-mult-bounds)
+commit `680d0997621a2cecfef2186ab143377658687825`, path
+`research/joint-query-first-pair-catalogue/four-bank/`) says that with
 `C = 0` the route "pays only for in-place or single-call storage". `price.py`
 re-implements the `price3.py` convention (5F+4B QQ16 profile, rank-8 child
 plus 8 mass per coordinate-call for centre-like storage, 72 mass per new live
@@ -46,18 +63,43 @@ ceiling and the C=0 centre rows for 62 and 64 coordinates. The results are in
 
 | convention | max coordinate-calls/replica with any positive saving | max still beating the selected ceiling | census demand d1 / d18 |
 |---|---:|---:|---|
-| C=0, centre-like copy | 111 | 71 | 120 / 1688: no saving at either |
+| C=0, centre-like copy | 111 | 71 | 120 / 1688: no saving at either (L2 variant: 32) |
 | C=0, new live family | 12 | 8 | 120 / 1688: no saving at either |
 | C=64, centre-like copy | 39 | 0 | none beats selected |
 | C=64, new live family | 4 | 0 | none beats selected |
 
-The literal PR2443 contract needs copies at both decode points. Even the
-favourable d1 point, with single-call storage, needs 120 coordinate-calls. That
-is above the C=0 positive-saving break-even of 111, and above 71 for beating
-the selected ceiling. **Within this convention, the literal contract fails the
-stated C=0 condition.** It also exceeds #2074 Theorem B's floor of 62, which
-is consistent with that theorem. This screens one contract under one inherited
-price convention. It is not an impossibility theorem for QQ16 controllers.
+The literal PR2443 contract needs copies at both decode points. At the
+favourable d1 point the copies are single-call storage, which philippeVV's
+qualitative condition allows. The failure is quantitative: 120 coordinate-calls
+exceed the C=0 centre-like break-even of 111 (any saving) and 71 (beat the
+selected ceiling). **Under this convention the literal contract exceeds the C=0
+centre-like break-even even though its d1 storage is single-call.** By a
+dimension count this is also the floor for PR2443's d1 read set: the 104 live
+reads (`y2_A`, `C`) leave 120 of the 224 pair-0 input dimensions, so any linear
+record that a decoder confined to those reads can use must retain at least 120
+coordinates per owner across B1.
+
+Three limits on this conclusion:
+
+- *Copy kind.* price3 also has a `line` kind (an in-place write that adds no
+  new live data). It is not used here because a retained copy is new live data:
+  the census shows that no live field holds it. If copies were priced as `line`
+  writes, this screen would not reject them.
+- *Pair 0 only.* PR2443 recovers pair 0 only. #2074 Theorem B's 62 is the
+  four-bank total (four banks at `77N/5` each, rounded up); the inherited
+  per-bank floor is `ceil(77N/5)`, 16 per owner at that normalisation. A complete controller must also repair
+  banks 1-3, which also lose a query by Theorem A, so the pair-0 demand counted
+  here is a favourable lower bound on a full controller's storage.
+- *Literal contract only.* Lead L2 (below) gives a variant that needs only 32
+  coordinate-calls at d1, below both C=0 break-evens. So this negative result is
+  specific to PR2443's literal read set and is not evidence against a
+  compressed contract.
+
+This screens one contract under one inherited, unreviewed price convention. It
+is not an impossibility theorem for QQ16 controllers. Note also that the
+convention gives a free controller (zero retention) +179.5% over the selected
+ceiling at C=0 and +0.28% at C=64 (PRICE.json rows `zero_retention`), so the
+C=0/C=64 choice dominates every storage figure here.
 
 ### Recomputation leads (not in-place availability)
 
@@ -68,14 +110,24 @@ verifies both in the model.
   Nothing writes them afterwards, so they are live two-field sums at d1 and at
   d18 (identity selected terminal). PR2443's last step `y_V=x1_V+y1_V-x_V`
   only needs these sums.
-- **L2.** At d1, `x1_U = X2_U + Y2_U - K_(1,U) ell_(1,T) x1_T`. So the 88
-  `x1_S` copies could be replaced by one same-port two-field read plus an
-  8-coordinate driver record. Because `B_1_2` is invertible, a decoder that may
-  read the whole post-B1 state of pair 0 needs no copy at d1. PR2443 excludes
-  `y2_U` from its reads, so that is a different contract.
+- **L2.** At d1, `x1_U = X2_U + Y2_U - K_(1,U) ell_(1,T) x1_T`. The driver
+  `ell_(1,T) x1_T` is computable from the retained `x1_T` record, so the 88
+  `x1_S` copies can be replaced by a same-port read of `Y2_U` (`X2_U = C` is
+  already read). The checker runs PR2443's decoder with these `x1_U` forms and
+  recovers all 224 pair-0 inputs from the 32 retained F0 selected arrays
+  (`x1_A, x1_T, y1_A, y1_T`) plus the live post-B1 reads `y2_A`, `C`, `Y2_U`
+  (RESULT.json `leads.L2_variant_d1`). Its storage demand is 32
+  coordinate-calls. Under the inherited C=0 centre-like convention that is
+  storage-only +99.56% over the selected ceiling (PRICE.json row
+  `d1_L2_variant`); reads, their legality, chart maps and restoration are not
+  priced, so this is a lead, not a bound. L1 cannot replace `y1_A`/`y1_T`,
+  because the decoder queries them separately. Because `B_1_2` is invertible,
+  a decoder that may read the whole post-B1 state of pair 0 needs no copy at
+  all at d1. PR2443 excludes `y2_U` from its reads, so both are different
+  contracts.
 
-So the census prices the literal contract, not the information need. The
-compressed variant is listed below as an open question.
+So the census prices the literal contract; at d1 that equals the information
+floor for its read set, and only extra reads lower it.
 
 ## Model, exactness and scope
 
@@ -100,6 +152,11 @@ compressed variant is listed below as an open question.
 - **Consistency check:** in this model, PR2443's ordered decoder recovers all
   224 pair-0 inputs exactly, including `C=-y_U` and the two-sided `R_J`
   inverse. This was implemented independently; no predecessor code is imported.
+  It runs on the payload-constant subspace only, so it does not validate
+  payload-sensitive charts: ywz65's PR2456 (head `665ba8d7`) shows that
+  payload-constant fixtures miss the logical-D vs physical-A chart fault. The
+  "not live" direction of the census is unaffected, since a restriction of an
+  actual equality is still an equality.
 - **Not covered:** physical idle cover sweeps, terminal Y translations,
   bank padding and phase adapters. These are invertible frame changes in the
   inherited logical convention. They cannot make an overwritten logical value
@@ -107,6 +164,9 @@ compressed variant is listed below as an open question.
   cleanup, hosting, precision, and other contracts or schedules.
 
 ## Negative controls (all must be rejected or change the receipt)
+
+Controls 1 and 4 are claim rejections (a false statement is tested against
+the computed states). Controls 2, 3, 5 and 6 mutate the pipeline.
 
 1. Claiming `x1_A` survives B1 in place is rejected.
 2. Dropping F2 (event 3) changes the d18 census to 216 copies. Eight arrays
@@ -133,36 +193,46 @@ Expected last lines: `PASS_NEGATIVE_CONTROLS 6`, `PASS_QQ16_CUT_RETENTION_CENSUS
 then `PASS_QQ16_CUT_RETENTION_PRICE_TRANSFER`. Each script recomputes its JSON
 and requires it to equal the committed [RESULT.json](RESULT.json) (receipt
 `8c57f8f5...`) and [PRICE.json](PRICE.json). Per-array rows are in
-[CENSUS-ROWS.json](CENSUS-ROWS.json). Registered replay:
+[CENSUS-ROWS.json](CENSUS-ROWS.json); verify.py also requires them to equal
+the recomputed rows. Registered replay:
 `python3.12 scripts/research_package.py --package research/qq16-cut-retention-census`.
 The checks were run with Python 3.14.4, since 3.12 was not installed locally.
 
 Base commit `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. Input pins are in
 [SOURCES.json](SOURCES.json). External, read-only pins: PR2443 `545c05e1`,
 PR2346 `653520d7`, PR2174 `f79470a7`, and philippeVV `price3.py` sha256
-`1c2ca9a4...` (fork `680d0997`).
+`1c2ca9a4...` (philippeVV/integer-mult-bounds commit
+`680d0997621a2cecfef2186ab143377658687825`,
+`research/joint-query-first-pair-catalogue/four-bank/`). price3 is not
+vendored; its three reproduction values are hard-coded in `price.py`.
 
 ## Open next questions
 
 1. **What is the smallest retained record for a final-only (d18) decode with
    PR2443's read set plus legal final reads?**
    - *Why it matters:* the literal contract needs 1688 coordinate-calls, while
-     the C=0 break-even is 71. A compressed record set must also respect
-     #2074 Theorem B's floor of 62.
-   - *First step:* replace `x1_S` by the driver record (L2) and the selected
-     records by the conserved sums (L1), then rerun this census.
+     the C=0 break-even is 71. For pair 0 alone the inherited Theorem B floor
+     is `ceil(77N/5)` per bank, 16 at the normalisation where 62 is the
+     four-bank total, and a full
+     controller must also repair banks 1-3.
+   - *First step:* carry the L2 variant (32 retained arrays plus a `Y2_U`
+     read) through F2..F8 and the terminal with this census code.
    - *Blocker:* the legal native read types for former-Y endpoints and
      `X+Y` sums.
 2. **Can a controller use the d1 decode point at all?**
-   - *Why it matters:* the demand there is only 120, and with full post-B1
-     reads it is 0, since `B_1_2` is invertible. But a mid-schedule decode
-     must restore what it reads before F2.
+   - *Why it matters:* the demand there is 120 for the literal contract, 32
+     for the L2 variant, and 0 with full post-B1 reads, since `B_1_2` is
+     invertible. But a mid-schedule decode must restore what it reads before
+     F2.
    - *First step:* price the CONSERVED-QQ16 inverse of B (`H_s`, `E_t`) as
      reads plus restoration.
    - *Blocker:* no priced read of `y2_U`/`X2_T` at the completed-X type.
+     ywz65 has a live claim (PR2443 comment, 2026-10-15 11:23Z,
+     `research/qq16-future-x-query`) on source-binding the native read of
+     `C=x2_U` at the post-B1 frame with restoration; this package defers to it.
 3. **Which centre charge applies to QQ16, C=0 or C=64?** This is the
    maintainers' open question in #2074. Under C=64 no positive retention
-   budget beats the selected ceiling.
+   budget beats the selected ceiling; even a free controller gains only +0.28%.
 
 ## Credit
 
@@ -175,8 +245,13 @@ threshold are from Gareth Davidson / bitplane (PR2432). The C=64 screen and
 the `y2_A` pricing are from 1337isnot1337 (PR2079, PR2197). Theorem B and the
 price3 convention are from Philippe Van Velzen (#2074, fork `680d0997`). The
 trace method is from Ross Richardson (PR2104). The ceiling model is
-`research/complex-local-word-ceiling`. ywz65's concurrent PR2443 operator
-audit is independent of this storage census.
+`research/complex-local-word-ceiling`. The final-only obstruction is
+alephnan's PR2346, and the contract scope map is commdata2338's PR2376
+(`157143ab`). Concurrent work: ywz65's PR2456 (head `665ba8d7`) audits
+PR2443's operators with payload-sensitive fixtures, and ywz65's live claim on
+the native `C` read overlaps open question 2. ToikY's PR2416 (head
+`f2c93e76`) prices native retention of A-copy data at the `B_1_2[:80]` cut
+(24 native lines vs 16) in a different cost model; it is not combined here.
 
 Prepared by thakrarsagar with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). No independent human review is claimed.

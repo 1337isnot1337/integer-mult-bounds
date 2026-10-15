@@ -2,8 +2,11 @@
 """Map the retention census onto philippeVV's C=0 / C=64 pricing convention.
 
 This is a convention transfer, not a new cost model.  The convention is
-Philippe Van Velzen's `price3.py` (fork commit 680d0997, four-bank/, read on
-2026-10-15; sha256 1c2ca9a4f89d7851dee6b765119f1f84f1227e30ec23f3e169aa327d2cc7f1f7),
+Philippe Van Velzen's `price3.py` (https://github.com/philippeVV/integer-mult-bounds,
+commit 680d0997621a2cecfef2186ab143377658687825, path
+research/joint-query-first-pair-catalogue/four-bank/price3.py, read on 2026-10-15;
+sha256 1c2ca9a4f89d7851dee6b765119f1f84f1227e30ec23f3e169aa327d2cc7f1f7; the three
+hard-coded reproduction values below are copied from price3.json at that commit),
 re-implemented here in a few lines against the pinned repository
 `research/complex-local-word-ceiling/ceiling.py`.  Its prices are unreviewed:
 
@@ -82,7 +85,11 @@ def main():
     d1 = sum(pi[k]["d1"]["copy_required"] for k in pi)
     # live calls held: F0 cut -> d1 spans B1 (1 call); F0 cut -> d18 spans B1,F2,...,F8 (8 calls);
     # B1 cut -> d18 spans F2,...,F8 (7 calls).  Bridges and the terminal are not calls.
-    demand = {"d1": d1 * 1, "d18": f0 * 8 + b1 * 7}
+    demand = {"d1": d1 * 1, "d18": f0 * 8 + b1 * 7,
+              # L2 variant (extra Y2_U read outside PR2443's contract): 32 retained arrays for 1 call.
+              "d1_L2_variant": res["leads"]["L2_variant_d1"]["retained_F0_cut_arrays"] * 1,
+              # Free controller (no retention at all), for reference.
+              "zero_retention": 0}
     sel = cap(SEL, 64)
     # Convention reproduction: two rows of philippeVV's committed price3.json (fork 680d0997).
     if (str(sel), str(priced(0, 62, "centre")), str(priced(0, 64, "centre"))) != (

@@ -6,6 +6,13 @@
  },
  "leads": {
   "L1_selected_pair_sums_live_at_d1_and_d18": 16,
+  "L2_variant_d1": {
+   "decoder_recovers_all_224_pair0_inputs": true,
+   "extra_post_B1_reads_outside_PR2443_contract": {
+    "Y2_U": 96
+   },
+   "retained_F0_cut_arrays": 32
+  },
   "L2_x1_U_from_live_pair_plus_driver_record": 96
  },
  "model": "owner/payload-constant subspace (all D_s = I); exact rational linear forms in the 896 initial port arrays of four pairs; bridges and ordinary terminal per PR2346 section 1",

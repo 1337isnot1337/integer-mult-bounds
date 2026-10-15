@@ -234,11 +234,16 @@ def observations(states):
     return [(item, cut, f, states[cut][f]) for item, cut, f in obs]
 
 
-def decoder_check(R, states, model=Model):
-    """PR2443's ordered decoder recovers all 224 pair-0 inputs in this model."""
+def decoder_check(R, states, model=Model, x1_U=None):
+    """PR2443's ordered decoder recovers all 224 pair-0 inputs in this model.
+
+    With `x1_U` given, the decoder uses those forms for x1 on the U96 ports instead of
+    the retained F0-cut x1_S records (the L2 variant; see leads)."""
     m = model(R)
     s0, s1 = states[0], states[1]
     x1 = {p: s0[fid(0, 0, p)] for p in range(112)}
+    if x1_U is not None:
+        x1.update(x1_U)
     y1 = {p: s0[fid(0, 1, p)] for p in range(112)}
     y2A = {p: s1[fid(0, 1, p)] for p in A}
     C = {p: s1[fid(0, 0, p)] for p in U}
@@ -290,9 +295,18 @@ def leads(R, states):
         need(all(lin((1, states[d][fid(0, 0, p)]), (1, states[d][fid(0, 1, p)])) ==
                  {fid(0, 0, p): 1, fid(0, 1, p): 1} for p in A + T), "conserved selected pair sums")
     ka = m.sect(m.query(x1, T), U)
-    need(all(lin((1, states[1][fid(0, 0, p)]), (1, states[1][fid(0, 1, p)]), (-1, ka[p])) == x1[p] for p in U),
+    l2 = {p: lin((1, states[1][fid(0, 0, p)]), (1, states[1][fid(0, 1, p)]), (-1, ka[p])) for p in U}
+    need(all(l2[p] == x1[p] for p in U),
          "x1_U from the live post-B1 pair and one 8-coordinate driver record")
-    return {"L1_selected_pair_sums_live_at_d1_and_d18": 16, "L2_x1_U_from_live_pair_plus_driver_record": 96}
+    # L2 variant at d1: the driver ell_(1,T) x1_T is computed from the retained x1_T record, so the
+    # decoder needs only the 32 retained F0 selected arrays (x1_A, x1_T, y1_A, y1_T) plus the live
+    # post-B1 reads y2_A, C = X2_U and Y2_U (Y2_U lies outside PR2443's read set).  The x1_U forms
+    # below are built only from states[1] fields and the retained x1_T forms.
+    decoder_check(R, states, x1_U=l2)
+    return {"L1_selected_pair_sums_live_at_d1_and_d18": 16, "L2_x1_U_from_live_pair_plus_driver_record": 96,
+            "L2_variant_d1": {"retained_F0_cut_arrays": len(A) * 2 + len(T) * 2,
+                              "extra_post_B1_reads_outside_PR2443_contract": {"Y2_U": len(U)},
+                              "decoder_recovers_all_224_pair0_inputs": True}}
 
 
 def det3(a, b, c):
@@ -469,6 +483,8 @@ if __name__ == "__main__":
     else:
         committed = json.loads((here / "RESULT.json").read_text())
         need(committed == res, "recomputed result equals committed RESULT.json")
+        need(json.loads((here / "CENSUS-ROWS.json").read_text()) == rows
+             and digest(rows) == res["census_rows_sha256"], "committed CENSUS-ROWS.json equals recomputed rows")
     print(json.dumps({"totals": res["totals"], "negative_controls": sorted(res["negative_controls"])}, indent=1))
     print("PASS_NEGATIVE_CONTROLS", len(res["negative_controls"]))
     print(res["status"])

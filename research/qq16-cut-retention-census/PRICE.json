@@ -19,7 +19,9 @@
  },
  "coordinate_calls_per_replica": {
   "d1": 120,
-  "d18": 1688
+  "d18": 1688,
+  "d1_L2_variant": 32,
+  "zero_retention": 0
  },
  "copied_arrays": {
   "d1": 120,
@@ -45,6 +47,22 @@
   },
   {
    "C": 0,
+   "ceiling": "33727479/10000000000",
+   "coordinate_calls": 32,
+   "decode": "d1_L2_variant",
+   "kind": "centre",
+   "vs_selected_percent": "+99.5645"
+  },
+  {
+   "C": 0,
+   "ceiling": "5905331/1250000000",
+   "coordinate_calls": 0,
+   "decode": "zero_retention",
+   "kind": "centre",
+   "vs_selected_percent": "+179.5333"
+  },
+  {
+   "C": 0,
    "ceiling": null,
    "coordinate_calls": 120,
    "decode": "d1",
@@ -60,6 +78,22 @@
    "vs_selected_percent": null
   },
   {
+   "C": 0,
+   "ceiling": null,
+   "coordinate_calls": 32,
+   "decode": "d1_L2_variant",
+   "kind": "family",
+   "vs_selected_percent": null
+  },
+  {
+   "C": 0,
+   "ceiling": "5905331/1250000000",
+   "coordinate_calls": 0,
+   "decode": "zero_retention",
+   "kind": "family",
+   "vs_selected_percent": "+179.5333"
+  },
+  {
    "C": 64,
    "ceiling": null,
    "coordinate_calls": 120,
@@ -77,6 +111,22 @@
   },
   {
    "C": 64,
+   "ceiling": "1693933/5000000000",
+   "coordinate_calls": 32,
+   "decode": "d1_L2_variant",
+   "kind": "centre",
+   "vs_selected_percent": "-79.9541"
+  },
+  {
+   "C": 64,
+   "ceiling": "3389611/2000000000",
+   "coordinate_calls": 0,
+   "decode": "zero_retention",
+   "kind": "centre",
+   "vs_selected_percent": "+0.2811"
+  },
+  {
+   "C": 64,
    "ceiling": null,
    "coordinate_calls": 120,
    "decode": "d1",
@@ -90,6 +140,22 @@
    "decode": "d18",
    "kind": "family",
    "vs_selected_percent": null
+  },
+  {
+   "C": 64,
+   "ceiling": null,
+   "coordinate_calls": 32,
+   "decode": "d1_L2_variant",
+   "kind": "family",
+   "vs_selected_percent": null
+  },
+  {
+   "C": 64,
+   "ceiling": "3389611/2000000000",
+   "coordinate_calls": 0,
+   "decode": "zero_retention",
+   "kind": "family",
+   "vs_selected_percent": "+0.2811"
   }
  ],
  "selected_ceiling": "8450271/5000000000"
