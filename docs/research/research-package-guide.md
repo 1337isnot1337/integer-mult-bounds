@@ -95,6 +95,14 @@ Each gets a fresh runner and explicit commands. It does not run every historical
 `verify.py`. New hooks do not replace existing cold-replay obligations, and a
 passing metadata check is not acceptance of a mathematical result.
 
+The planner groups at most 256 package paths into each reusable-workflow batch,
+so a shared-runner change can select more than GitHub's single-matrix limit.
+Batches run one at a time and each batch runs at most four isolated package jobs;
+the per-package fresh checkout, environment and 30-minute job bound are retained.
+Changing either workflow selects all registered packages. Selection is never
+truncated: more than 256 batches fails explicitly. The ordinary planner CLI keeps
+its flat matrix format unless `--matrix-batch-size 256` is requested.
+
 ## Optional workflow feedback
 
 If something helped or obstructed the session, add a few sentences to your PR
