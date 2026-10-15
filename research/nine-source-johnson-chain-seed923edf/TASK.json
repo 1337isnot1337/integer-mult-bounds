@@ -107,10 +107,25 @@
     "pre_submission_refresh_result": "timeout after 50 seconds; no output; no new overlap data",
     "related_open_pr_heads": {
       "PR2128": "697369a971eed02c0fbcd75ebefec9f59945f08e",
+      "PR2208": "28480ef4fdb4caeab89765ea56595bf1f6f37688",
       "PR2229": "b4eab83755969d406edba9f25b7890e4db4c4931",
       "PR2266": "9382f0d9796cd58831f876943162c536fa14cfd5",
       "PR2271": "95fd439596f72575d3869277c2d01aca1ca6ab6a",
       "PR2283": "21145202e9a27cd9b18ffc7e23383cc83461c4a0"
+    },
+    "targeted_live_pr_search": {
+      "searched_at_utc": "2026-10-15T04:00:24Z",
+      "queries": [
+        "J(9,5)",
+        "01234 01235 01256 01567 05678",
+        "nine-source Johnson-chain"
+      ],
+      "exact_query_matches": 0,
+      "adjacent_open_pr": {
+        "number": 2208,
+        "head": "28480ef4fdb4caeab89765ea56595bf1f6f37688",
+        "scope": "all-word two-root dirty-connector bounds and minimum-read walk compilation for many outputs"
+      }
     },
     "related_discussions": [
       "Discussion #1516: active centre-path hosting claim; different object",
@@ -150,7 +165,7 @@
     {
       "scope": "connector-alphabet-change: explicit new operation",
       "status": "scope-changed",
-      "evidence": "Open connector work includes PRs #2128, #2229, #2266, #2271 and Cycle 31 PR #2283 plus active Discussions #2262 and #2275. Exact n=9, weight-five Johnson path searches returned no direct remote match; use existing alphabet."
+      "evidence": "Open connector work includes PRs #2128, #2208, #2229, #2266, #2271 and Cycle 31 PR #2283 plus active Discussions #2262 and #2275. Live searches for J(9,5) and the exact five-mask vector returned no PR match. Adjacent PR #2208 develops all-word two-root dirty-connector bounds and a minimum-read compiler for supplied walks over many outputs; it does not provide this one-connector five-mask chain or 28-call floor. Use the existing alphabet."
     }
   ],
   "cost_screen": {

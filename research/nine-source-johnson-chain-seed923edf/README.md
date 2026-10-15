@@ -28,19 +28,29 @@ work is claimed. Apache-2.0.
   is in [CLAIM.md](CLAIM.md). The generalization is limited to support paths
   that introduce a fresh source at each one-element exchange.
 - Overlap: the complete cached snapshot held 511 open PRs and 990 Discussions
-  (no warnings); exact searches for the nine-source weight-five path returned
-  no remote matches. PR data was fetched at 03:42 UTC and Discussion data at
-  03:26 UTC on 2026-10-15. A newer GraphQL refresh hung and was stopped after
-  about two minutes. The final pre-submission refresh produced no output and
-  timed out after 50 seconds at 03:56 UTC on 2026-10-15, so the cached snapshot
-  was not refreshed. The nearest source-path result, PR #2271 at
+  (no warnings). The exact local overlap-helper searches for the nine-source
+  weight-five path returned no direct matches. PR data was fetched at 03:42 UTC
+  and Discussion data at 03:26 UTC on 2026-10-15. A newer authenticated
+  GraphQL refresh hung and was stopped after about two minutes. The final
+  pre-submission refresh produced no output and
+  timed out after 50 seconds at 03:56 UTC, so the full cached snapshot was not
+  refreshed. Targeted live PR searches at 04:00 UTC found no `J(9,5)`, exact
+  five-mask, or "nine-source Johnson-chain" match. A broader search surfaced
+  open PR #2208 at head
+  `28480ef4fdb4caeab89765ea56595bf1f6f37688`, which studies all-word two-root
+  dirty-connector bounds and a minimum-read source-walk compiler for up to 511
+  outputs. That work is adjacent, but does not give this single-connector
+  five-mask path or its 28-call floor. The nearest small source-path result,
+  PR #2271 at
   `95fd439596f72575d3869277c2d01aca1ca6ab6a`, is a 12-row local bit-register
   tour through three different masks. Cycle 31 PR #2283 at
   `21145202e9a27cd9b18ffc7e23383cc83461c4a0` is a negative result for the
   entire n=8 weight-four shell under two complete sweeps. PR #2229 studies n=7
   weights 1--3; PR #2266 changes the alphabet to GF(4) for two sources.
   Active nearby claims #2262 (GF(4)) and #2275 (seven-source paired-call root
-  counts) use different objects and support families.
+  counts) use different objects and support families. PR #2208 changes the
+  interface to two roots and studies many outputs/readout tariffs; this result
+  uses one F2 connector and five specified outputs, with no frame transitions.
 - Discussion claim status: local-only because the authenticated GraphQL
   request hung, the final pre-submission refresh timed out without output, and
   a prior direct REST Discussions comment attempt returned 404. Claim expiry

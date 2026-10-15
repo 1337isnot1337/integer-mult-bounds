@@ -46,16 +46,22 @@ posted.
 - **Expected evidence:** A standalone verifier, exact source/readout word,
   arbitrary dirty-state replay, lower-bound argument, negative controls,
   complete provenance pins, and a focused package PR if overlap remains clear.
-- **Relevant work and distinction:** PR #2271 (head
+- **Relevant work and distinction:** Open PR #2208 (head
+  `28480ef4fdb4caeab89765ea56595bf1f6f37688`) develops all-word two-root
+  dirty-connector bounds and an exact minimum-read compiler for supplied source
+  walks over as many as 511 outputs. It is adjacent source-walk work, but uses
+  a two-root framed interface and does not present this one-connector, five-
+  mask Johnson chain or its 28-call floor. PR #2271 (head
   `95fd439596f72575d3869277c2d01aca1ca6ab6a`) is a 12-row bit-register Gray
   tour through three masks, not this nine-source recursive B/A interface.
   PR #2283 (head `21145202e9a27cd9b18ffc7e23383cc83461c4a0`) is Cycle 31's
   negative result for the full n=8 weight-four shell under two complete
   sweeps. PR #2229 covers n=7 weights 1--3; PR #2266 changes to GF(4) for two
   sources. Active neighboring claims #2262 (GF(4)) and #2275 (seven-source
-  paired-call roots) do not use this mask family. Exact overlap terms returned
-  no direct remote match in a complete snapshot of 511 open PRs and 990
-  Discussions (PR data 03:42 UTC; Discussion data 03:26 UTC, 2026-10-15).
+  paired-call roots) do not use this mask family. Targeted live PR searches at
+  04:00 UTC found no `J(9,5)`, exact five-mask or "nine-source Johnson-chain"
+  match. The complete cached snapshot covered 511 open PRs and 990 Discussions
+  (PR data 03:42 UTC; Discussion data 03:26 UTC, 2026-10-15).
 - **Expiry:** 2026-10-15 05:45 UTC.
 
 The selected conditional result is `836330098538459/500000000000000000` at
