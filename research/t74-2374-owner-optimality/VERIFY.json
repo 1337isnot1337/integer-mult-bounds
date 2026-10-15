@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/owner_optimum.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Root bracket of PR2374's idle multiset; exact dual feasibility on 1163 patterns at kappa_2374 + 1e-15; exact enumeration of integer solutions within the dual budget (none survive); degenerate-swap invariance; control at kappa_2374 - 1e-12 where PR2374's fill must survive and all survivors share its idle multiset. Expect PASS_T74_2374_OWNER_OPTIMUM."
+    }
+  ]
+}

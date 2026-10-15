@@ -1,0 +1,70 @@
+{
+ "conclusion": "Every legal whole-helper owner fill of the PR2322 words on the unchanged T74 template has b <= kappa_2374 + 1e-15; within the exact dual budget the only feasible idle multiset is PR2374's {1:21978,3:8592,5:2552,32:1,48:24560}.",
+ "exclusion": {
+  "T": 0.00015474574550646572,
+  "a0": "84859747545138521329704093865477059989146272371876148529/50000000000000000000000000000000000000000000000000000000000",
+  "basis": [
+   "(8, (8,))",
+   "(16, (8, 8))",
+   "(16, (7, 9))",
+   "(32, (9, 9, 9))",
+   "(32, (8, 8, 8, 8))",
+   "(32, (5, 9, 9, 9))",
+   "(32, (4, 9, 9, 9))",
+   "(48, ())",
+   "(48, (9, 9, 9, 9, 9))"
+  ],
+  "degenerate": [
+   "(32, (7, 8, 8, 9))",
+   "(32, (7, 7, 9, 9))"
+  ],
+  "degenerate_representation_integral": true,
+  "det_lcm": 5,
+  "distinct_heavy_parts": 0,
+  "dual_repair": {
+   "16": 0.0,
+   "32": 0.0,
+   "48": -6.9674747459731e-18,
+   "8": 0.0
+  },
+  "heavy": {
+   "(32, (4, 8, 9, 9))": {
+    "max_count": 1,
+    "rc": 0.00013351866577662974
+   },
+   "(32, (8, 9, 9))": {
+    "max_count": 1,
+    "rc": 0.0001027801043596691
+   },
+   "(48, (4, 8, 9, 9, 9, 9))": {
+    "max_count": 2,
+    "rc": 5.4877982654147366e-05
+   },
+   "(48, (8, 9, 9, 9, 9))": {
+    "max_count": 1,
+    "rc": 0.0001133684986005796
+   },
+   "(48, (9,))": {
+    "max_count": 1,
+    "rc": 0.00014964300833992598
+   }
+  },
+  "survivor_idle_multisets": [],
+  "survivors": 0
+ },
+ "negative_control": {
+  "a": "84859747495088521329704093865477059989146272371876148529/50000000000000000000000000000000000000000000000000000000000",
+  "pr2374_fill_survives": true,
+  "survivor_idle_multisets": [
+   "{\"1\": 21978, \"3\": 8592, \"5\": 2552, \"32\": 1, \"48\": 24560}"
+  ],
+  "survivors": 25
+ },
+ "object": "PR2374 owner fill on the PR2322 T74 words: optimality over all whole-helper fills",
+ "pr2374_root_bracket": [
+  "84859747545038521329704093865477059989146272371876148529/50000000000000000000000000000000000000000000000000000000000",
+  "84859747545138521329704093865477059989146272371876148529/50000000000000000000000000000000000000000000000000000000000"
+ ],
+ "python": "3.14.4",
+ "scope": "Pattern relaxation of all whole-helper fills (windows, families and ports dropped), so the bound covers every legal fill; realization of PR2374's fill is PR2374's own check, not re-run here."
+}
