@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Branch | `cursor/independent-walks-threerepeat-8q-60b9` |
-| Tip SHA | branch HEAD (`git rev-parse HEAD` on this branch); research package commit `b299447020f4e64a0954cf1161f8a38f41435ce2` |
+| Tip SHA | branch HEAD (`git rev-parse cursor/independent-walks-threerepeat-8q-60b9`) |
 | Package | `research/independent-walks-threerepeat-8q/` |
 | Claim | Freestanding `#840`-style priced alphabet: **three-repeat** (excess-3) partitioned independent dual at Q=8 under PR1898 `(b,a,x)=(38,2,2)` |
 | Result | Exact covering census **0** on `(2,6)` / `(3,5)` / `(4,4)`; cannot undercut tariff **436** |
@@ -28,8 +28,7 @@
 
 ## Leave-alone respected
 
-Through #2861 / #2860 / #2858 / #2851; pending
-`cursor/shared-dirt-walks-8q-60b9@fc3a2cb3`; #2846/#2840/#2836/#2817/#2779/
+Through #2867 / #2861 / #2860 / #2858 / #2851; #2846/#2840/#2836/#2817/#2779/
 #2764/#2761; deferred soft-overlaps untouched.
 
 ## Verify gate
