@@ -1,0 +1,74 @@
+[
+ {
+  "source": 2288,
+  "target": 2269,
+  "stated": "6.38114E-8",
+  "quote": "It exceeds PR2269 (this package's 90-digit-endpoint predecessor without the refit) by 6.38114E-8"
+ },
+ {
+  "source": 2302,
+  "target": 2288,
+  "stated": "8.48163E-8",
+  "quote": "It exceeds PR2288 (the same package without the kernel) and PR2269 by 8.48163E-8"
+ },
+ {
+  "source": 2302,
+  "target": 2269,
+  "stated": "8.48163E-8",
+  "quote": "It exceeds PR2288 (the same package without the kernel) and PR2269 by 8.48163E-8"
+ },
+ {
+  "source": 2312,
+  "target": 2309,
+  "stated": "3.75943E-7",
+  "quote": "It exceeds the current leader PR2309 (Dugongue, ...) by 3.75943E-7"
+ },
+ {
+  "source": 2312,
+  "target": 2302,
+  "stated": "4.95301E-7",
+  "quote": "PR2302 (the previous package of this series) by 4.95301E-7"
+ },
+ {
+  "source": 2349,
+  "target": 2312,
+  "stated": "1.74927E-7",
+  "quote": "... and PR2312 by 1.74927E-7"
+ },
+ {
+  "source": 2374,
+  "target": 2363,
+  "stated": "4.78861E-8",
+  "quote": "It exceeds PR2363's exact claimed kappa 0.001697147064845350 by 4.78861E-8"
+ },
+ {
+  "source": 2374,
+  "target": 2312,
+  "stated": "1.28957E-7",
+  "quote": "... and PR2312 by 1.28957E-7"
+ },
+ {
+  "source": 2435,
+  "target": 2374,
+  "stated": "1.31639E-6",
+  "quote": "It exceeds PR2374 (our previous package) by 1.31639E-6"
+ },
+ {
+  "source": 2435,
+  "target": 2312,
+  "stated": "1.31639E-6",
+  "quote": "... and PR2312 by 1.31639E-6"
+ },
+ {
+  "source": 2447,
+  "target": 2435,
+  "stated": "5.80305E-10",
+  "quote": "It exceeds PR2435 by 5.80305E-10"
+ },
+ {
+  "source": 2462,
+  "target": 2447,
+  "stated": "5.04039E-6",
+  "quote": "... and PR2447 by 5.04039E-6"
+ }
+]
