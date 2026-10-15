@@ -8,6 +8,13 @@ its [review](community-batch1099-review.md) retains the all-size, realization,
 hosting, precision/tape and analytic obligations. No new bound or proof
 adoption follows from this map.
 
+For subsequent implementation work, follow the
+[selected BIT caller and storage map](selected-bit-caller-storage-map.md).
+It links the first-range caller, component storage results and pending all-size
+logical caller, separating their remaining physical, time and outer-wrapper
+obligations. The snapshot and replay record below are preserved at their
+original date.
+
 Snapshot: **2026-10-14, priority revision 4**, canonical main
 `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`. The first three entries below are
 retained research with the scopes recorded in the
