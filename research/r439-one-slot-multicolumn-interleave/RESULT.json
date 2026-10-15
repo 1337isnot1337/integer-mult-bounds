@@ -142,6 +142,31 @@
       "local_bits": 95,
       "nine_stage_bits": 181,
       "record_sha256": "8f2fa71b38492104a4ba7558b150dcdd7db9191b43fa4e1ee9c7d4e1d5d7f50c"
+    },
+    "search_dp_alternative": {
+      "ADDs": 11057,
+      "scatter_ADDs": 84,
+      "phase4_ADDs": 1103,
+      "MOVEs": 2911,
+      "COPYs": 9,
+      "ERASEs": 9,
+      "COPY_rank_sum": 63,
+      "peak_live_copy_slots": 1,
+      "paid_profile": {
+        "1": 1323,
+        "2": 1342,
+        "3": 79,
+        "4": 44,
+        "5": 102,
+        "6": 11,
+        "7": 19
+      },
+      "paid_rank_mass": 5129,
+      "F": 25717,
+      "B": 5030078,
+      "local_bits": 95,
+      "nine_stage_bits": 181,
+      "record_sha256": "92464da889d0d0ccfe91e376157c65e2ff4f4fd60f279353781d6c6492eb64fc"
     }
   },
   "controls": [

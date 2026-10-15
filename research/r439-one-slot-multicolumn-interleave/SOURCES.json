@@ -32,5 +32,50 @@
       "git_blob": "9a17b4920334878d6c949191f6931bd97126fe3c",
       "sha256": "b452d2c2b0b2a546d1105b1da9769aa78e5c54d6f00e97b30c77e3f54ce445ee"
     }
+  ],
+  "predecessors_note": "All predecessor PRs below were OPEN and unmerged (not on main) at submission time. The 84 stream's correctness is re-derived by verify.py from main's pinned inputs only; the 94 and 88 baselines, the deferred-split model and the interleaving model are taken from these open PRs. PR2407's three stream SHA256s are hard-coded calibration constants in verify.py.",
+  "predecessors": [
+    {
+      "pr": 2115,
+      "head": "b56dceffad83c88e8ad39ffd82a1bdd55c4130da",
+      "state": "OPEN",
+      "author": "Sagar Thakrar",
+      "role": "deferred split ideal303 / kept {31,51,52}; split scatter 94; H5-replacement deferral contract"
+    },
+    {
+      "pr": 2279,
+      "head": "81fed971e2269b62eae2ee8e3b6bda394930992c",
+      "state": "OPEN",
+      "author": "Charles Bethin",
+      "role": "split-ideal optimum 94"
+    },
+    {
+      "pr": 2356,
+      "head": "8ffeca2cf753d13ac78d90ce159e0037fdfda374",
+      "state": "OPEN",
+      "author": "Sricharan Vagvala",
+      "role": "suffix/interleaving method, column-7 five-tap minimum"
+    },
+    {
+      "pr": 2407,
+      "head": "4944211cee666eb8631b990cb0f33cfa68666485",
+      "state": "OPEN",
+      "author": "Ross Richardson",
+      "role": "single-column interleaving 88; verifier adapted here (verify.py blob 07724f60d7e8); calibration record SHA256s"
+    },
+    {
+      "pr": 2421,
+      "head": "71d10b283795d071c3680797f0e63856e6499fd2",
+      "state": "OPEN",
+      "author": "starship-s",
+      "role": "native replay of the PR2407 88 stream (not run on the 84 stream)"
+    },
+    {
+      "pr": 2437,
+      "head": "4ac2b3826140b782020145a547f9b6692ebd3d32",
+      "state": "OPEN",
+      "author": "Ross Richardson",
+      "role": "concurrent: PR1627-style ideal whole-call hosting binding of PR2407's single-window 88 stream (not re-run on the 84 stream)"
+    }
   ]
 }

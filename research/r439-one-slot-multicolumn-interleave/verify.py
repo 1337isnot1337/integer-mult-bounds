@@ -215,7 +215,7 @@ def invoice(records, w, frames):
     n = 2*w['v']+w['R']; cur = w['start'].copy()+[0]
     dim = {int(k): f['dim'] for k, f in frames.items()}
     labels = [set(f) for f in w['frames']]
-    profile = Counter(); live = None; peak_live = 0
+    profile = Counter(); live = None; live_count = 0; peak_live = 0  # peak is measured, not asserted
     for op, a, b, c, f, phase in records:
         if op == 0:
             require(a < n and cur[a] == b and labels[b] < labels[c] and f == dim[c]-dim[b], 'MOVE frame path')
@@ -224,10 +224,11 @@ def invoice(records, w, frames):
             require(cur[a] == cur[b] == f and c == 1, 'ADD frame access')
         elif op == 2:
             require(live is None and b == n and cur[a] == c and f == 0 and phase == dim[c], 'COPY frame/lifetime')
-            cur[b] = f; live = (a, b); profile[phase] += 1; peak_live = max(peak_live, 1)
+            cur[b] = f; live = (a, b); profile[phase] += 1
+            live_count += 1; peak_live = max(peak_live, live_count)
         elif op == 3:
             require(live == (a, b) and cur[a] == c and cur[b] == f == 0 and phase == 0, 'ERASE frame/lifetime')
-            live = None
+            live = None; live_count -= 1
         else:
             raise ValueError('invoice opcode')
     require(live is None and cur[:n] == w['final'], 'final frame state')
@@ -288,6 +289,14 @@ def run(output=None):
     pr2407 = split_segments(P, range(1, 9))+[{'column': 0, 'copy_cut': 0, 'erase_cut': len(rest),
                                                'taps': copy.deepcopy(PR2407_COL0_TAPS)}]
     per_column = check_schedule(w, rest, S, segments)
+    # Second, independently discovered 84 schedule: the DP output that the
+    # packaged search/search.py produced for both recorded seeds (SEARCH.json).
+    # Accepting it here makes the 84 result regenerable from packaged code.
+    runs = json.loads((HERE/'SEARCH.json').read_text())['runs']
+    alt = runs[0]['dp_schedule_segments']
+    require(all(r['dp_schedule_segments'] == alt for r in runs), 'search runs disagree on DP schedule')
+    require(alt != segments, 'search DP schedule is a distinct presentation')
+    check_schedule(w, rest, S, alt)
     check_schedule(w, rest, S, split_sched); check_schedule(w, rest, S, pr2407)
     nontrivial = sum(sg['copy_cut'] < sg['erase_cut'] for sg in segments)
     with tempfile.TemporaryDirectory(prefix='r439-one-slot-multicol-') as tmp:
@@ -297,7 +306,8 @@ def run(output=None):
         streams = [('original', original), ('split94_exported', fixed),
                    ('split94_segments', interleave(fixed, w, rest, split_sched)),
                    ('pr2407_88_segments', interleave(fixed, w, rest, pr2407)),
-                   ('candidate', interleave(fixed, w, rest, segments))]
+                   ('candidate', interleave(fixed, w, rest, segments)),
+                   ('search_dp_alternative', interleave(fixed, w, rest, alt))]
         reports = {}
         for name, records in streams:
             boundary(records, w); boundary(records, w, True)
@@ -315,7 +325,9 @@ def run(output=None):
         require(reports['candidate']['scatter_ADDs'] == witness['expected_scatter_adds'], 'claimed scatter ADDs')
         require(reports['candidate']['ADDs'] == witness['expected_total_adds'], 'claimed complete ADDs')
         require(len(rest) == 303, 'deferred undo length')
-        for name in ('split94_segments', 'pr2407_88_segments', 'candidate'):
+        require(reports['search_dp_alternative']['scatter_ADDs'] == witness['expected_scatter_adds']
+                and reports['search_dp_alternative']['ADDs'] == witness['expected_total_adds'], 'search DP alternative')
+        for name in ('split94_segments', 'pr2407_88_segments', 'candidate', 'search_dp_alternative'):
             # Deleting scatter taps and COPY/ERASE records from the exported split
             # and from the rebuilt stream must give the identical ordered stream:
             # every one of the 303 deferred undo gates and every other record is

@@ -46,7 +46,7 @@
   "budget_minutes": 90,
   "stop_rule": "Search wall time <= 15 min (nice, single process, <1.5 GB); stop at experiment deadline minus 25 min. Packaged seeded search: seed 6 (30,000 tabu walks) and seed 606 (60,000 walks), each followed by an exact DP over the pooled options; both reach 84 and nothing lower. No claim that 84 is optimal.",
   "outcome": "completed",
-  "evidence": "WITNESS.json (9 segments, 84 taps); verify.py full 661-dirty-column forward/backward literal replay, invoice, precision guards, byte-identical PR2407 calibration streams and 13 rejecting controls; RESULT.json receipt; search/search.py seeded search record SEARCH.json (failed search beyond 84, exact weight<=4 exclusion per column).",
+  "evidence": "WITNESS.json (9 segments, 84 taps); verify.py full 661-dirty-column forward/backward literal replay, invoice, precision guards, byte-identical PR2407 calibration streams and 13 rejecting controls; RESULT.json receipt; the SEARCH.json DP alternative 84 schedule (same for both seeds) also passes the full replay; search/search.py seeded search record SEARCH.json (failed search beyond 84, exact weight<=4 exclusion per column).",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for search design, code, verification and drafting; no independent human review.",
   "open_questions": [
@@ -63,6 +63,12 @@
       "blocked_by": "PR2421 not merged on the base commit; native toolchain not run in this session."
     },
     {
+      "question": "Does the PR2437 (Ross Richardson, concurrent) ideal whole-call hosting/owner binding extend to the 84 stream's three non-trivial COPY windows and same-cut ERASE/COPY handoffs?",
+      "why_it_matters": "PR2437 binds only PR2407's single-window 88 stream; whole-call hosting of this multi-window stream is an open obligation.",
+      "first_step": "Run PR2437's binding check on records.bin from verify.py --output DIR.",
+      "blocked_by": "PR2437 is open and not on the base commit; its contract is stated for one live window."
+    },
+    {
       "question": "Do other undo orders (non-ideal303 linear extensions or other kept sets) admit cheaper one-slot schedules?",
       "why_it_matters": "Columns 1, 6 and 8 have cheaper pooled representations whose cores collide under ideal303.",
       "first_step": "Re-run search/search.py with the kept set or order as a parameter and compare per-column pooled minima.",
@@ -70,5 +76,13 @@
     }
   ],
   "claim_url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1163#discussioncomment-18945235",
-  "selection_seed": "OS seed 6 -> track 00-19 bit supplier; picker nonce 7fc395175cb7aa54d3ecd28c2bdee1d3"
+  "selection_seed": "OS seed 6 -> track 00-19 bit supplier; picker nonce 7fc395175cb7aa54d3ecd28c2bdee1d3",
+  "inherited_obligations": [
+    "PR2115 replacement H5 deferral contract (V R = I with the H2 target clause)",
+    "predecessor baselines/models from open unmerged PRs 2115, 2279, 2356, 2407 (heads in SOURCES.json)",
+    "whole-call hosting/owner binding (PR2437 covers only PR2407's single-window stream)",
+    "native parser/physical COPY-lifetime admission (PR2421/PR2373)",
+    "native compiler, physical recursive scratch, all-size/common-label realization, precision/tapes beyond the two source-normalised guards, exact recovery, analytic transfer, outer assembly",
+    "registered Python 3.12 replay not run locally (CPython 3.14.4 only)"
+  ]
 }
