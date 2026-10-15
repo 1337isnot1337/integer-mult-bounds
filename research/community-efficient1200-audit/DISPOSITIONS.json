@@ -1179,15 +1179,18 @@
       "current_head": "e3cd8375f6cd26393914e8395fff0d813e7031df",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
+      "integration_location": [
+        ".gitattributes",
+        "research/exact-coarse-exponential"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Opt-in common-denominator Horner evaluation returns exactly the retained degree-24 polynomial plus tail dyadic interval. Differential whole-moment and 30,000-digit original-oracle checks change no engine precision, surcharge or supplier.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2289,20 +2292,24 @@
       },
       "reviewed_head": "c3c85ea8c226640334b1d2246071f230d81cc137",
       "current_head": "c3c85ea8c226640334b1d2246071f230d81cc137",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/paired-plane-native-payload"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7d2ee96109631677adf6c5355f6b4d573e2b7593",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2203"
+      },
       "scope": "Exact native realization of all 56 paired-plane blocks counts two independent payload lifetimes each, giving 112 rank-two descents and mass 224. Independent-block one-total capacity proof and zero-saving ratio 293/292 do not exclude jointly mixed fractional decoders.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2203.json",
@@ -2522,18 +2529,24 @@
       },
       "reviewed_head": "cd37bdf943876f81a60522e13cf838a464ed3104",
       "current_head": "cd37bdf943876f81a60522e13cf838a464ed3104",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Correct the PR589 attribution in the README: DreamingOfClouds supplied the selected tuning; Jose Manuel supplied PR2157/2171/2195. Preserve both contributors and complete the route review before incorporation.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-bit-add-route-invoice-seed96e4cc"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "811cc90831cc2762d610a387be6c2453ef781275",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2212"
+      },
+      "scope": "Complete selected same-family ADD route invoice: 11072 events in 288 calls, 33216 chart actions, all 43 route types checked over exact rationals. Noncommuting-update control prevents naive scan batching. README predecessor credit corrected; selection/XOR/parking/precision/child costs remain explicit unpriced obligations.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2212.json",
@@ -3008,20 +3021,24 @@
       },
       "reviewed_head": "ad1757e319225f3a5b86e3d3fa72897bd9f6db40",
       "current_head": "ad1757e319225f3a5b86e3d3fa72897bd9f6db40",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/ideal-decoder-floors"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7d2ee96109631677adf6c5355f6b4d573e2b7593",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2228"
+      },
       "scope": "Written place-bound, tropical-ceiling and dense polar-law proofs; complete exact type/rank census and sharp root-code floors on seven stated units; square D5/E6 coupling. All six declared check groups and manifest controls pass. Dense pairing/root-code restrictions retained; conjecture, sparse pairings and unrestricted overcomplete decoders remain open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2228.json",
@@ -3320,20 +3337,24 @@
       },
       "reviewed_head": "be03870d764e7875ea9a9f6cc69933c9b1a2456a",
       "current_head": "be03870d764e7875ea9a9f6cc69933c9b1a2456a",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/seven-source-16event-connector-seeda7de5e"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7d2ee96109631677adf6c5355f6b4d573e2b7593",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2236"
+      },
       "scope": "Complete 18918900-word normalized seven-source sixteen-toggle class and independent predecessor census; maximum prefix-difference coverage 60/63, explicit 136-call dirty-connector batch and componentwise invoice. The two extra-call allocation cases exclude 140 and 142 for the stated alphabet; no 144-call construction or supplier placement claimed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2236.json",
@@ -3595,20 +3616,24 @@
       },
       "reviewed_head": "24456c7c97752b4f301aa8b3873d3b20b7d1a9ae",
       "current_head": "24456c7c97752b4f301aa8b3873d3b20b7d1a9ae",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/e6-sheared-frame-seedb401"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7d2ee96109631677adf6c5355f6b4d573e2b7593",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2247"
+      },
       "scope": "Exact E6 seven-term rank-one extension census for 60 signed elementary transvections and 365 projective directions, covering all rational support cells in both shards. Minimum raw/charged cost 37; explicit degenerate six-active witness. No arbitrary GL6, sparse-pairing, seven-term universal exclusion or physical supplier claimed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2247.json",
