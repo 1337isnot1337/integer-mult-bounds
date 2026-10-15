@@ -20,8 +20,10 @@ membership, that PR2384's second-axis witness lies inside the 29 nuisance ports
 and so is unread by all 45 optimal sets. What this package adds there is a
 from-source recheck of PR2384's finite witness facts and an explicit written
 corollary: if PR2384's zero-observation proof holds, an adaptive reader that is
-exact on both hidden families needs at least 67 reads on every path. That is a
-partial answer to PR2389's open question 1.
+exact on all inputs c + t w (c ∈ V, t ∈ Q), i.e. on the linear span of the two
+hidden families, needs at least 67 reads on every path. That is a partial answer
+to PR2389's open question 1. Exactness on each family separately (V ∪ Q w) does
+not give the every-path bound (section 5).
 
 | claim (source) | this check |
 |---|---|
@@ -145,8 +147,9 @@ Observations (recorded in `RESULT.json`, not used for the claim):
 * On the 768 **route owners alone** the f_b have rank only **44**, and 45 with
   the identity. Route owners therefore cannot certify full bit-function
   independence, and at least 3 non-route owners are needed. The index-order
-  greedy minor above happens to use 29 non-route rows, but that is not a
-  requirement. Two local review passes (scratch scripts, not part of
+  greedy minor above happens to use 30 non-route rows (the identity plus 29
+  non-route registered owners), but that is not a requirement. Two local
+  review passes (scratch scripts, not part of
   `verify.py` or `RESULT.json`) found that the identity plus the registered
   owners `m1` and `m4` complete the route span to rank 47, which is the
   minimum of 3 extra owners. That does not contradict the predecessors'
@@ -231,6 +234,18 @@ leaves the transcript unchanged. By section 4 this gives K_S ⊆ K, so
 inputs c + t w and c + (t+1) w then give identical reads on S. Their other
 permitted observations are zero for both, so the transcripts and outputs agree.
 Their targets differ by -P_{0,A} B0 h_w ≠ 0, a contradiction. ∎
+
+The span hypothesis is needed, because the proof compares c + t w with
+c + (t+1) w for arbitrary c ∈ V. For a reader that is exact only on each family
+separately (V ∪ Q w), the same argument with c = 0 and t = 0 still forces 67
+reads on the zero-input path, but not on every path. Such a reader can first
+read the 66 ports of U - C, the optimal set that omits 77. If some answer is
+nonzero, the input lies in V, those reads determine the target, and the reader
+stops after 66 reads. If all answers are zero, the input lies in K ∪ Q w, and
+one read of port 44 returns c_44 f_2 (input in K, target 0) or -t f_25. A
+nonzero answer identifies its case because f_2 ≠ 0, f_2(I) = 0 and
+f_25(I) = 1; a zero answer means target 0. This remark is a written check only;
+`verify.py` does not test it.
 
 This does not show that 67 reads suffice. Reading one of the four ports returns
 the array c_p f_{b_p} + t w_p g_p, which may carry two scalars, so the
