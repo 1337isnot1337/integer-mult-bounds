@@ -15,7 +15,9 @@ five at 44–47). A two-column correction `ZA^t` can realize retained loss
 
 Charging both added terms with the inherited price lemma gives a
 **full-rank fixed-reader two-total COPY floor of 65 at union 48**. That is
-one less than PR2382's 66 through 47, but still above 64. PR1197's
+one less than PR2382's 66 through 47, but still above 64. For the realized
+`4+1` shape, a further support argument raises the bill to at least 66; the
+other loss-5 shapes are not analysed this way. PR1197's
 complementary reductions are inherited unchanged, so the fixed-reader
 two-total no-saving statement (COPY rank sum at least 64) **extends to
 union 48**. The 65 floor is a relaxation; its attainment is open, since the
@@ -119,10 +121,13 @@ Structured versions with relevance, first steps and blockers are in
 
 1. **Is the 65 relaxation floor attained at 48?** This needs a loss-5
    two-column correction one of whose sources has at most four active
-   labels. If none exists, the 66 floor extends to 48. First step: test
-   whether the column space of `W` for each N-passing loss-5 shape can
-   contain a vector with at most four ports. Blocker: this needs a joint
-   price/realizability argument.
+   labels. If none exists, the 66 floor extends to 48. For shape `4+1` it
+   cannot happen: by the 12/12 sign balance of `x_j x_k` on every cut, every
+   nonzero vector of `col W` has at least 12 ports, so that shape costs at
+   least 66 (PROOF.md). The remaining shapes `3+1+1`, `2+1+1+1` and `1^5`
+   need the same minimum-support analysis of `col W` from their patterns.
+   Blocker: their free entries make this a joint price/realizability
+   question.
 2. **Bands 49–51.** At 49 a 37-port lead admits a 12-port non-cut word,
    so the case split must be widened. Geometric losses already reach 8.
 3. **Realizability of `3+1+1`, `2+1+1+1` and `1^5` at 48.** First step:

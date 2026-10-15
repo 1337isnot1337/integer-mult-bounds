@@ -34,7 +34,8 @@ P2. For every ordered pair `j != k`, `|S_j cap S_k| = 24`; the cut
 word of `C_k` inside `S_j`; every other nonzero word of `C_k` has at least 12
 ports outside `S_j`.
 
-P3. The 112 source labels are distinct.
+P3. The 112 source labels are distinct. On each of the 28 cuts, the product
+`x_j x_k` takes the value `+1` on 12 ports and `-1` on 12 ports.
 
 P4. Closed supports (unions of codewords) of each `C_j` up to size 48 are
 enumerated completely by breadth-first union (any closed support is reached
@@ -123,6 +124,22 @@ COPY rank sum is at least `64 - 5 + 6 = 65` when `|U| = 48`. The result does
 complementary rank-one/off-column reductions are inherited unchanged, as in
 PR2382, so the general fixed-reader no-saving statement (COPY at least 64)
 holds at union 48 as well.
+
+**Partial sharpening for shape `4+1`.** Here `P_j` is a four-dimensional
+48-port support, and `P_k = C_jk` must lie inside it, since the budget is 0.
+In the full-rank case, `col Z = col W = span(w_j, w_k)`. On `C_jk`, a
+combination `a w_j + b w_k` equals `a x_j + b x_k`.
+
+- If `a` and `b` are both nonzero, it vanishes only where `x_j x_k = -a/b`.
+  By P3 at least 12 of the 24 ports remain nonzero.
+- If `b = 0`, the support has at least 48 ports.
+- If `a = 0`, the support has at least 24 ports.
+
+So both added sources have at least 12 active labels. With
+`m_1 + m_2 >= 48`, the price minimum is then `p(16) + p(32) = 7`, and every
+`4+1` correction has COPY at least `59 + 7 = 66`. The shapes `3+1+1`,
+`2+1+1+1` and `1^5` are not analysed this way. Hence the overall floor
+stated is still 65.
 
 ## Scope
 

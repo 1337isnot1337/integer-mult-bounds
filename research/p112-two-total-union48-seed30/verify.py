@@ -167,6 +167,13 @@ def premises(g):
     # distinct source labels, so |supp z_h| active ports give |supp z_h| labels
     require(len(set(g.lab)) == NPORT, "source labels not distinct")
     out["distinct_source_labels"] = NPORT
+    # sign balance of x_j x_k on every cut (used for the 4+1 support remark)
+    for j in range(NREAD):
+        for k in range(j + 1, NREAD):
+            pr = [g.X[r][j] * g.X[r][k] for r in mask_list(g.cut[j][k])]
+            require(sorted(set(pr)) == [-1, 1] and pr.count(1) == 12 and pr.count(-1) == 12,
+                    "cut sign balance")
+    out["cuts_with_sign_balance_12_12"] = 28
     return out
 
 

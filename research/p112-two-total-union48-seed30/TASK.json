@@ -63,7 +63,7 @@
     {
       "question": "Is the relaxation floor 65 at union 48 attained by an actual decoder, i.e. is there a two-column correction with retained loss 5 whose two added COPY ranks sum to 6?",
       "why_it_matters": "The only explicit loss-5 witness has bill 74; if no loss-5 correction can have a source of at most four active labels, the full-rank floor at 48 is at least 66 and the PR2382 bound extends unchanged.",
-      "first_step": "For each of the N-passing loss-5 configurations (shapes 4+1, 3+1+1, 2+1+1+1, 1^5), test whether the two-dimensional column space of W can contain a vector supported on at most four ports; the 4+1 shape forces a 48-port pattern in one column.",
+      "first_step": "Shape 4+1 is settled at >= 66 (PROOF.md: 12/12 cut sign balance forces >= 12 ports for every nonzero vector of col W). For shapes 3+1+1, 2+1+1+1 and 1^5, derive the minimum support of a nonzero vector in col W from their patterns and free entries.",
       "blocked_by": "Requires a joint price/realizability argument (sufficiency of the rank-two completion for each shape is not decided here)."
     },
     {
