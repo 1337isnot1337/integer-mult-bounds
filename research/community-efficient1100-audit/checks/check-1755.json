@@ -17,8 +17,8 @@
     ]
   ],
   "python": "Python 3.12.11",
-  "platform": "macOS-26.6.2-arm64-arm-64bit",
-  "seconds": 300.022,
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "seconds": 600.065,
   "status": "budget_deferred",
   "exit_codes": [
     null
@@ -201,17 +201,6 @@
     "scripts/compact_control_layer.py": "e814c9f8d84f2e5d3aa2e06c36697f27f110218addc40ff8df2801fde861ff9f",
     "scripts/verify_frontier531_wrapper_swap.py": "fe6a948e67366825f6c22e7c69a661a727b4092b2aa9cb3e877d6c3002e592a9",
     "scripts/three_stage_cover_network.py": "7e0ad6fd1921b6905a53ce1eeaa03d3bb3a8a8bbaa0382516ea98b636f46335e",
-    "research/coordinate-cnot-register-bound/README.md": "e1666512fb71cf34c427c69ffb61a18b61e897a7f8f91f87820edf744e85a9fe",
-    "research/bit-three-register-lower-bound/README.md": "c12b33ef388deece0cbf891505a2ce2c0779a0c3a6cf1f0f7f7039bab59cbebd",
-    "research/four-swap-balanced-j3-layer/SOURCES.json": "c117096a9ec40d337cce5f9e54d354d6a42d6932b615d50013271dcf6eeeb254",
-    "research/four-swap-balanced-j3-layer/VERIFY.json": "89a388f9a04d0bd261666668924945dfcff81b17d76492f79d1f5add30af73fc",
-    "research/four-swap-balanced-j3-layer/EXPECTED.json": "5f22e6dae4c95da0fa5e58b9409bfb4a7ff614ecdd74671452080efa6ec6e9ae",
-    "research/four-swap-balanced-j3-layer/test_verify.py": "f8dde60a91ee30ef72f1b3e9dd77f8fe3db990b07304396cca7e0f64364dbb0b",
-    "research/four-swap-balanced-j3-layer/TASK.json": "5965a1c0d1deb0fd911feccf2fbcd145f26c2a033ea9470f2049c3df974cc570",
-    "research/four-swap-balanced-j3-layer/README.md": "4a52a3efa204f462030b18737e026d9cdebeb34ea96f533dcb97714b21a7f07d",
-    "research/four-swap-balanced-j3-layer/TASK-CARD.md": "52ba25a051f5ab3c8965d5f62ce3836ac62167bf79d7235dc0bbdf891932d7b0",
-    "research/four-swap-balanced-j3-layer/verify.py": "33b3f7f16debd3a33549c7815771536e0147baf4e267e492a1b35080cf3586f9",
-    "docs/research/agent-task-catalog.json": "6686ad58f1fbdbc87134a78901b60fd53a20d3984355e91defbbebc9e9fa8075",
     "scripts/copied_centers/__init__.py": "13db4f09038a2ff5335cbd4dbd93274b0fb16b3c7b51e4de67cbb2801a3f78e1",
     "scripts/copied_centers/README.md": "8d348a28fc11615fb686f7d47548db06a5000378b54e0e47438d17292b5942b9",
     "scripts/copied_centers/corners.py": "9eecdc39c67cc18c806a33f0be03986c28591d322881fd60c11f52c625c8067b",
@@ -312,7 +301,18 @@
     "scripts/paired_cube/verify.py": "e13747916a58b631f10c36eaae230b91b63b427d0a80aa3a530dd9dd90159147",
     "scripts/stopped_product/__init__.py": "7b794c22bccc00bb6ae8ba4d3379f469570565bbcb1a86090699133b8cf1b7d3",
     "scripts/stopped_product/README.md": "6c1805dda45b01ed0ef420c674ec2cd0048fb9d7a1b015ab6cd837067fe66176",
-    "scripts/stopped_product/complex.py": "407650d56dceb5cb09d74928658cebed1bb42f4d7e28ca9e3fd36eea075f1ad0"
+    "scripts/stopped_product/complex.py": "407650d56dceb5cb09d74928658cebed1bb42f4d7e28ca9e3fd36eea075f1ad0",
+    "docs/research/agent-task-catalog.json": "6686ad58f1fbdbc87134a78901b60fd53a20d3984355e91defbbebc9e9fa8075",
+    "research/coordinate-cnot-register-bound/README.md": "e1666512fb71cf34c427c69ffb61a18b61e897a7f8f91f87820edf744e85a9fe",
+    "research/bit-three-register-lower-bound/README.md": "c12b33ef388deece0cbf891505a2ce2c0779a0c3a6cf1f0f7f7039bab59cbebd",
+    "research/four-swap-balanced-j3-layer/SOURCES.json": "c117096a9ec40d337cce5f9e54d354d6a42d6932b615d50013271dcf6eeeb254",
+    "research/four-swap-balanced-j3-layer/VERIFY.json": "89a388f9a04d0bd261666668924945dfcff81b17d76492f79d1f5add30af73fc",
+    "research/four-swap-balanced-j3-layer/EXPECTED.json": "5f22e6dae4c95da0fa5e58b9409bfb4a7ff614ecdd74671452080efa6ec6e9ae",
+    "research/four-swap-balanced-j3-layer/test_verify.py": "f8dde60a91ee30ef72f1b3e9dd77f8fe3db990b07304396cca7e0f64364dbb0b",
+    "research/four-swap-balanced-j3-layer/TASK.json": "5965a1c0d1deb0fd911feccf2fbcd145f26c2a033ea9470f2049c3df974cc570",
+    "research/four-swap-balanced-j3-layer/README.md": "4a52a3efa204f462030b18737e026d9cdebeb34ea96f533dcb97714b21a7f07d",
+    "research/four-swap-balanced-j3-layer/TASK-CARD.md": "52ba25a051f5ab3c8965d5f62ce3836ac62167bf79d7235dc0bbdf891932d7b0",
+    "research/four-swap-balanced-j3-layer/verify.py": "33b3f7f16debd3a33549c7815771536e0147baf4e267e492a1b35080cf3586f9"
   },
   "log_sha256": "aaed66afd7d1ba3cf4b68b077442ae729633ac5b5243bbbbb2f623f21e18645a",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
