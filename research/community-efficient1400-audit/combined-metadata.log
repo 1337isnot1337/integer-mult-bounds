@@ -10,3 +10,5 @@ PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
 2398 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p112-overcomplete-factor-spaces', '--check-only']
 PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+2400 ['/tmp/pr-efficient200-venv/bin/python', 'scripts/research_package.py', '--package', 'research/p112-shared-correction-cost-audit', '--check-only']
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)

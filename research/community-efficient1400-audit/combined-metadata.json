@@ -72,8 +72,20 @@
         "--check-only"
       ],
       "exit_code": 0
+    },
+    {
+      "number": 2400,
+      "head": "ca5baa17182636a35536c1605a2d2da550e715b7",
+      "command": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-shared-correction-cost-audit",
+        "--check-only"
+      ],
+      "exit_code": 0
     }
   ],
-  "log_sha256": "3d3b4213ca0642afd189f722a9932a5e0412e7e1e9d08d9e5acd76daf7456b4c",
+  "log_sha256": "82fed10c4a19751d6b63f14b682523b0719f686f540ea5bf64c7f56d50b79dfd",
   "scope": "Registered metadata/source-pin preflight only; mathematical execution is in separate check receipts."
 }

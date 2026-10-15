@@ -149,20 +149,24 @@
       },
       "reviewed_head": "d01f1b65f9aef2791ae01d5efd871436f9d7e19b",
       "current_head": "d01f1b65f9aef2791ae01d5efd871436f9d7e19b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/antifano-tied-min-cost12-seed22ae1f95"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2379"
+      },
       "scope": "Independent anti-Fano tied_min certificate: reviewed complete rank-three filling and residual enumeration with triangular rank floors and cost-12 attainer. Corrected a quotient-rank reduction error, added a concrete full-matrix regression, and replayed all three 2^24 completion spaces; minima remain 10/10/10. Original and corrected receipts retained separately; no new multiplication bound.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2379.json",
@@ -220,20 +224,24 @@
       },
       "reviewed_head": "2d7807f60f19146947ad24cb22719d4048a92be3",
       "current_head": "2d7807f60f19146947ad24cb22719d4048a92be3",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-joint-loss-boundary-seed49"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2382"
+      },
       "scope": "P112 fixed-reader two-total boundary through 47 source ports: exhaustive eight-reader support joins and rank-three cancellation minors exclude the geometric five-loss pattern for rank-two corrections. Reviewed written complex-field implication; the full-rank floor is 66, while the inherited general floor is 64. Both all-pairs fixtures and normal/optimized exact replays pass; no supplier or \u03ba change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2382.json",
@@ -256,20 +264,24 @@
       },
       "reviewed_head": "41f3d517b521500b114f3491f5f5b68a0550f410",
       "current_head": "41f3d517b521500b114f3491f5f5b68a0550f410",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-private-code-relay-floor"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2383"
+      },
       "scope": "P104 monotone relay floor with free access to the eight-dimensional root code: reviewed quotient invariant, all 104 injectivity/support witnesses, the complete 4058-event logical/frame replay and CLI mutation controls. The 208 bound counts helper lifetimes, not simultaneous storage or excess recursive ranks; new descents and altered data paths remain outside scope.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2383.json",
@@ -326,20 +338,24 @@
       },
       "reviewed_head": "3fa1c93c8c66ada108336b99add7db927ea9fa1f",
       "current_head": "3fa1c93c8c66ada108336b99add7db927ea9fa1f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-coefficient-copy-floor"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2385"
+      },
       "scope": "P112 nonzero-complex-coefficient completion family: reviewed support transport, all 1022 certified kernels, duality compensation cases including \u03bb=-8, uniform sharp COPY-power bound and exceptional attainer. Exact endpoint/certificate and mutation checks pass; fixed nine terms and separate billing only, no supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2385.json",
@@ -734,20 +750,24 @@
       },
       "reviewed_head": "5a306ee4115848883ff297adbec59e81ab85f14b",
       "current_head": "5a306ee4115848883ff297adbec59e81ab85f14b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/seven-source-18event-connector"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2397"
+      },
       "scope": "Seven-source, weight-at-most-three connector: explicit 18-event closed source word and 126 paid readouts attain 144 calls in the fixed complete-call alphabet. Reviewed arbitrary-map dirty-state identity, full noncommutative root/leaf execution, every child return, dense basis checks and weighted invoice. Minimality uses the already-reviewed #2229/#2236 lower censuses; no selected caller or \u03ba improvement.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2397.json",
@@ -770,20 +790,24 @@
       },
       "reviewed_head": "8051d99dfd91a788d25bfc92c3863a33c658a5a9",
       "current_head": "8051d99dfd91a788d25bfc92c3863a33c658a5a9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-overcomplete-factor-spaces"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0505288b79c099c18e5b51e3501d1b5c11be4749",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2398"
+      },
       "scope": "P112 fixed minimal-factor-space theorem extended to arbitrarily many terms: reviewed rank-three aggregation of cost-seven mixed terms, projection-duality compensation and concave-power comparison. Reconstructed exact support catalogue and all-entry attainers, including zero-COPY cancellations and the outside-right-space counterexample; no claim for arbitrary factor spaces or shared physical billing.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2398.json",
@@ -839,18 +863,24 @@
       },
       "reviewed_head": "ca5baa17182636a35536c1605a2d2da550e715b7",
       "current_head": "ca5baa17182636a35536c1605a2d2da550e715b7",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p112-shared-correction-cost-audit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "97a455e5b9379f2080fec68c478ab142cf7058a4",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2400"
+      },
+      "scope": "Audit of the named PR2308 shared-frame correction: reconstructed the 12-port union, missing within-union scalar block, literal COPY bill40 and characteristic-zero rank12 forced rectangle. Reviewed additive-correction lower bound and independently checked modular minors; favorable fixed-profile 5% screen fails at the unavoidable charge12. Other decoders, pairs and physical sharing interfaces remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2400.json",

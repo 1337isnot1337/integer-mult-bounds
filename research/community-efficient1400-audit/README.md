@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #1155–#2490**, excluding prior same-head dispositions. Baseline `28f54620ff770dd051d5df35882bd84303d13c6f`. Complete Git differences determine changed-file coverage.
 
-**6 ready; 0 observed merged; 94 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**7 ready; 7 observed merged; 93 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -16,6 +16,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2385](https://github.com/CrocSwap/integer-mult-bounds/pull/2385) | commdata2338 | P112 nonzero-complex-coefficient completion family: reviewed support transport, all 1022 certified kernels, duality compensation cases including λ=-8, uniform sharp COPY-power bound and exceptional attainer. Exact endpoint/certificate and mutation checks pass; fixed nine terms and separate billing only, no supplier admission. |
 | [#2397](https://github.com/CrocSwap/integer-mult-bounds/pull/2397) | commdata2338 | Seven-source, weight-at-most-three connector: explicit 18-event closed source word and 126 paid readouts attain 144 calls in the fixed complete-call alphabet. Reviewed arbitrary-map dirty-state identity, full noncommutative root/leaf execution, every child return, dense basis checks and weighted invoice. Minimality uses the already-reviewed #2229/#2236 lower censuses; no selected caller or κ improvement. |
 | [#2398](https://github.com/CrocSwap/integer-mult-bounds/pull/2398) | commdata2338 | P112 fixed minimal-factor-space theorem extended to arbitrarily many terms: reviewed rank-three aggregation of cost-seven mixed terms, projection-duality compensation and concave-power comparison. Reconstructed exact support catalogue and all-entry attainers, including zero-COPY cancellations and the outside-right-space counterexample; no claim for arbitrary factor spaces or shared physical billing. |
+| [#2400](https://github.com/CrocSwap/integer-mult-bounds/pull/2400) | commdata2338 | Audit of the named PR2308 shared-frame correction: reconstructed the 12-port union, missing within-union scalar block, literal COPY bill40 and characteristic-zero rank12 forced rectangle. Reviewed additive-correction lower bound and independently checked modular minors; favorable fixed-profile 5% screen fails at the unavoidable charge12. Other decoders, pairs and physical sharing interfaces remain open. |
 
 ## Remaining review
 
@@ -39,7 +40,6 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2395](https://github.com/CrocSwap/integer-mult-bounds/pull/2395) | commdata2338 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2396](https://github.com/CrocSwap/integer-mult-bounds/pull/2396) | navinor | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2399](https://github.com/CrocSwap/integer-mult-bounds/pull/2399) | commdata2338 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
-| [#2400](https://github.com/CrocSwap/integer-mult-bounds/pull/2400) | commdata2338 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2402](https://github.com/CrocSwap/integer-mult-bounds/pull/2402) | thakrarsagar | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2404](https://github.com/CrocSwap/integer-mult-bounds/pull/2404) | bitplane | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2405](https://github.com/CrocSwap/integer-mult-bounds/pull/2405) | jmbarrancoml | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |

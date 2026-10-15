@@ -3,8 +3,8 @@
 Frozen batch: 100 exact heads from PR1155 through PR2490. Full changed-file
 packets are retained; execution alone does not establish acceptance.
 
-Six contributions have completed review: PR2379 (corrected quotient reduction),
-PR2382, PR2383, PR2385, PR2397 and PR2398. Publication and GitHub closure are
+Seven contributions are published on main and observed MERGED on GitHub: PR2379 (corrected quotient reduction),
+PR2382, PR2383, PR2385, PR2397, PR2398 and PR2400. Publication and GitHub closure are
 recorded separately in DISPOSITIONS.json. Eighteen primary packages passed;
 PR2379 also has a corrected full supplemental replay. Other passes still need
 written proof/code review before integration. PR2395 additionally has a Lean
