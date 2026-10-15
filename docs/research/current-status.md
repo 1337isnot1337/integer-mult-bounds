@@ -6,7 +6,7 @@ Selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy 
 
 Cold replay: `make frontier1094-verify`. This local review explicitly reuses the published, source-bound complete #1042 construction/bit evidence and freshly checks #1094. Exact native, hosting and arithmetic evidence remains conditional on the listed compiler/realization/precision/analytic interfaces. Linux CI is separate.
 
-#1048 remains open for the documented pricing and exact-certification corrections; no negative theorem from that proposal is accepted. Other historical deferrals, including #946, remain unchanged.
+#1048 remains open; no negative theorem from that proposal is accepted. The [PR1048 correction map](pr1048-correction-map.md) separates retained arithmetic repairs from pending transport-census review and the remaining domain-completeness questions. Other historical deferrals, including #946, remain unchanged.
 
 > **Below this point every section is a historical snapshot.** Inside them, “current,”
 > “selected,” “latest” and “next” refer to that snapshot's own checkpoint. The authoritative
