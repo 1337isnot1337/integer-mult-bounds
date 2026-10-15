@@ -1003,15 +1003,17 @@
       "current_head": "8c60765b5dea9d862b3b190d55da102a576031bf",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-complex-layer-closure"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Jose Manuel/jmbarrancoml's written selected-complex layer construction. Reviewed all14 changed files, complete caller/owner/private-work accounting, common-label tensor composition, mandatory zero-remainder translations, proper-width recursion, one root precision grid and stopped-depth cost. Normal and optimized source-bound replays pass local frames, charts,482 events/144 calls,69120 hosted roles, Gaussian arithmetic and coarse moment/guard checks. Matched the already-reviewed PR2234 ordinary-interchange and PR2250 compact-adapter domains, full spectators and restoration; vendor streams are exact predecessor bytes. Inherited native word/phase certificates remain premises; this is not a fresh full supplier execution, formal physical compiler or outer multiplication verification. No selected frontier change. Rohan Arun,Jeremy Kothe,Hao Yan,DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,DaysSky,icekylinx,bitplane,jamesyc and other retained lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1339,15 +1341,17 @@
       "current_head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-conservative-outer"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Jose Manuel/jmbarrancoml's conditional conservative outer transfer at kappa=1/20000000. Reviewed all10 files, the epsilon=1/40 extension of PR2287, exact-K and nonadjacent layouts, signed packing/sign extension, both source-normalization factors, disk margins, exact carry output and seven strict cost gaps. Normal/optimized checks pass264 polynomial products,32 rounded convolutions,16608 CRT records,285 recovery pairs and compressed large-parameter witnesses. Matched frozen source06-08 and published Gaussian/prime interfaces; proof dependencies2234/2250/2287 are exact-head/hash bound. Accepted as a written conditional composition, retaining named callee and analytic premises; tests do not execute Gaussian routines or the full selected suppliers, and no unconditional/formal multiplication theorem or selected frontier change follows. Harvey,van der Hoeven,Philipp,Douglas Colkitt and retained selected-supplier contributors credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [

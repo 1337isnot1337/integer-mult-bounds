@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "8e0f2436e59750cd0a809d851d5e9ba92db6b798d25af2b5c586d2f4c51c2838",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "c4f0fd977cdd9acb3decb5b44cce007617284773d517919d1a729b51584c6b7c",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107562,21 +107562,23 @@
         {
           "head": "8c60765b5dea9d862b3b190d55da102a576031bf",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Jose Manuel/jmbarrancoml's written selected-complex layer construction. Reviewed all14 changed files, complete caller/owner/private-work accounting, common-label tensor composition, mandatory zero-remainder translations, proper-width recursion, one root precision grid and stopped-depth cost. Normal and optimized source-bound replays pass local frames, charts,482 events/144 calls,69120 hosted roles, Gaussian arithmetic and coarse moment/guard checks. Matched the already-reviewed PR2234 ordinary-interchange and PR2250 compact-adapter domains, full spectators and restoration; vendor streams are exact predecessor bytes. Inherited native word/phase certificates remain premises; this is not a fresh full supplier execution, formal physical compiler or outer multiplication verification. No selected frontier change. Rohan Arun,Jeremy Kothe,Hao Yan,DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,DaysSky,icekylinx,bitplane,jamesyc and other retained lineage credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-complex-layer-closure"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "8c60765b5dea9d862b3b190d55da102a576031bf",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -107997,21 +107999,23 @@
         {
           "head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Jose Manuel/jmbarrancoml's conditional conservative outer transfer at kappa=1/20000000. Reviewed all10 files, the epsilon=1/40 extension of PR2287, exact-K and nonadjacent layouts, signed packing/sign extension, both source-normalization factors, disk margins, exact carry output and seven strict cost gaps. Normal/optimized checks pass264 polynomial products,32 rounded convolutions,16608 CRT records,285 recovery pairs and compressed large-parameter witnesses. Matched frozen source06-08 and published Gaussian/prime interfaces; proof dependencies2234/2250/2287 are exact-head/hash bound. Accepted as a written conditional composition, retaining named callee and analytic premises; tests do not execute Gaussian routines or the full selected suppliers, and no unconditional/formal multiplication theorem or selected frontier change follows. Harvey,van der Hoeven,Philipp,Douglas Colkitt and retained selected-supplier contributors credited.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-conservative-outer"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
