@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "preclaim_snapshot": {
+    "open_prs_fetched_at": "2026-10-15T01:35:36.447127Z",
+    "open_prs": 473,
+    "discussions_fetched_at": "2026-10-15T01:32:07.707839Z",
+    "discussion_comment_reply_records": 934,
+    "complete_pagination": true,
+    "warnings": []
+  },
+  "postclaim_refresh": {
+    "open_prs_fetched_at": "2026-10-15T01:40:17.897553Z",
+    "open_prs": 475,
+    "discussions_fetched_at": "2026-10-15T01:38:53.263267Z",
+    "discussion_comment_reply_records": 937,
+    "complete_pagination": true,
+    "warnings": []
+  },
+  "local_search": {
+    "command": "python3 scripts/find_overlap.py --task bit-new-register-model 'A5 arbitrary dirty spectator' 'conjugate 5-cycle pair' --json --limit 100",
+    "coverage": "Fresh cache, five minutes or newer; no warnings.",
+    "exact_terms_checked_before_claim": [
+      "F2[A5]",
+      "A_5",
+      "alternating group A5",
+      "alternating group of degree 5",
+      "(12)(34)",
+      "(135)",
+      "diag([xy],[yx])"
+    ],
+    "preexisting_a5_endpoint_matches": 0,
+    "limits": "The overlap helper indexes open PR titles/bodies, Discussion posts and comments/replies, top-level package READMEs/TASK metadata, and the local PR ledger; it does not search every diff or arbitrary package file."
+  },
+  "nearest_predecessors": [
+    {
+      "kind": "pull request",
+      "number": 2196,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2196",
+      "head": "8c85205e1d04a5df55a811df6638cd9e121afb42",
+      "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+      "distinction": "S5 adjacent-transposition alphabet and inverse 5-cycle pair; this scope is A5 with a (2,3,5) generator pair and conjugate endpoints."
+    },
+    {
+      "kind": "pull request",
+      "number": 2186,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2186",
+      "head": "840cacafcd3ff8d9e0889418260541c9fcc45804",
+      "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+      "distinction": "Infinite-dihedral two-role inverse pair with two involutory labels; the A5 labels have orders two and three and generate a perfect finite group."
+    },
+    {
+      "kind": "pull request",
+      "number": 2116,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2116",
+      "head": "19cdf74af162f1444830f1a0f0a8e0fe306564ad",
+      "base": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+      "distinction": "A4 four-output endpoint and six-call obstruction; not an A5 two- or three-role conjugate pair."
+    },
+    {
+      "kind": "discussion",
+      "number": 2012,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2012",
+      "status": "completed scoped S3 search",
+      "distinction": "Three-role S3 target with two transposition-derived elements and one 3-cycle; distinct group, relation orders, endpoint profile and cost threshold."
+    },
+    {
+      "kind": "discussion comment",
+      "number": 18923874,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18923874",
+      "status": "completed scoped S3 pair search",
+      "distinction": "Two-role inverse 3-cycle pair and all 36 S3 diagonal target pairs; this scope is the A5 conjugate 5-cycle pair."
+    }
+  ],
+  "active_board_check": {
+    "hub": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1167",
+    "latest_relevant_claim_at_preclaim_check": "Cycle 42, complex-mechanisms, complex-new-helper-inventory; different track and object.",
+    "own_claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242",
+    "hub_pointer": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2242#discussioncomment-18938133"
+  }
+}
