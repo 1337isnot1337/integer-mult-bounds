@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1630,
-    "partially_reviewed": 271,
+    "incorporated": 1633,
+    "partially_reviewed": 268,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "090fd9b46b7ef625f24816c4d42f7314a4298850bb535f496afbb0d7c3d79d55",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "5c08e01f4c31535374c6c7752c04eacaa67891e8b03e15b5179e5cf0fe0ae50e",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -107765,16 +107765,20 @@
       "integration_location": [
         "research/p112-batch-chart-change"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "64adf9d3dc3757c5908dccae9abd12dc15841559",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2294"
+      },
       "reviewed_head": "18d6ac4f864af2b71aa8cf5f4541fcfc4350e2f0",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2294.json",
@@ -107899,21 +107903,23 @@
         {
           "head": "49f9c1a08bf1fe67a62bd6d2825aa0d03e1b1518",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Cinna Davis's five-frame P112 cover and exact F2 decoder identity: reviewed complete five-clique enumeration, seeded partition, block solve, rank-one factorization and actual binary support-pairing invoice 10H7+6H8=118. Independent full candidate regeneration matches byte-for-byte, all 512 address states per block verify the Gaussian-dyadic correction-square identity, and rational checks confirm the hypothetical 275/276 threshold. The binary identity and local translations do not establish a complex scalar decoder, five-unpaid endpoint contract or physical native/hosting/restoration invoice; the 157-unit allowance is a conditional screen, not kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/five-plane-port-p112-seed1f7fdfe4"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "49f9c1a08bf1fe67a62bd6d2825aa0d03e1b1518",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108287,21 +108293,23 @@
         {
           "head": "7653e0cc72527c1e7fc02499122d383713ee9d54",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Cinna Davis's complete same-direction correction census for selected P112: reviewed exact label/geometry isomorphism, all1260 frames,135 directions and20160 rational rank-eight factorizations, implying all1539720 same-direction pairs share a basis. Every family has denominator two and coefficient row rank four over F2. Maintainer separately verified the named pair's domain membership, exact reconstruction and coefficient rank one, without relying on its optimized-away assertion. This coefficient rank is not a physical support-pairing bill; the five-percent moment screen grants missing interfaces and remains conditional, with no supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/cycle47-shared-frame-correction"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "7653e0cc72527c1e7fc02499122d383713ee9d54",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108515,21 +108523,23 @@
         {
           "head": "190637e62401516c72b267859c0dd51cac607f6d",
           "evidence": "research/community-efficient1300-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Mason Hale's dense Gaussian resampling-to-integer reference implementation and finite uniform certificate. Reviewed outward dyadic arithmetic, transcendental remainders and both infinite tails, inverse Neumann error including1/(1-eta), full operator residual bounds, contraction-aware rounding, both frequency permutations, CRT normalization and unique-integer/carry recovery. Normal and optimized complete replays pass all243 operator entries,30 rounded-vector checks and289 products through14592bits, including9155 coefficients and10548 Gaussian line calls. The rational uniform error is below2^-49 for every input in the stated finite domain, not only fixtures. Conventional FFT/indexed arrays remain; no selected fast supplier, fixed-tape complexity or new kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/certified-gaussian-recovery"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "190637e62401516c72b267859c0dd51cac607f6d",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -108860,16 +108870,20 @@
       "integration_location": [
         "research/p112-two-column-copy-optimum"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "64adf9d3dc3757c5908dccae9abd12dc15841559",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2321"
+      },
       "reviewed_head": "0665be26c2db1bd7f393d829e786698b34b626e4",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2321.json",
@@ -109732,16 +109746,20 @@
       "integration_location": [
         "research/p112-three-call-isometric-floor"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "64adf9d3dc3757c5908dccae9abd12dc15841559",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2342"
+      },
       "reviewed_head": "25cd637a6f7bf92669bce28836e3015cbae87167",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2342.json",
@@ -111067,7 +111085,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1254,
-    "OPEN": 330
+    "MERGED": 1257,
+    "OPEN": 327
   }
 }
