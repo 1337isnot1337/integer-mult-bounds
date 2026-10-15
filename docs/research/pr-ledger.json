@@ -41,8 +41,8 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1649,
-    "partially_reviewed": 252,
+    "incorporated": 1650,
+    "partially_reviewed": 251,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -95,7 +95,7 @@
     "research/community-efficient1000-audit/DISPOSITIONS.json": "2802cbe826546e9f9fd357e021a6d00cba4885571199dd63a9fa1f52a6c5d9c9",
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
-    "research/community-efficient1300-audit/DISPOSITIONS.json": "ce1ff145c1c976f7648cf39b5b1c7e0347c7bac7b008380c6d7f5e97429ec141",
+    "research/community-efficient1300-audit/DISPOSITIONS.json": "bc609a41495b600880f738f677686b4f325bc4adf405e664f50491a2ebdb4fdc",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -109802,16 +109802,20 @@
         ".github/workflows",
         "research/lean-common-label-tensor-lift"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7788b59946ebf3803dc38b6a19b47b4acb27f40b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2341"
+      },
       "reviewed_head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2341.json",
@@ -111222,7 +111226,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1273,
-    "OPEN": 311
+    "MERGED": 1274,
+    "OPEN": 310
   }
 }

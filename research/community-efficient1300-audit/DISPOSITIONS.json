@@ -2737,21 +2737,25 @@
       },
       "reviewed_head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
       "current_head": "f448ce821ba32001bf1ec13f7088450d2edcd112",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         ".github/workflows",
         "research/lean-common-label-tensor-lift"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7788b59946ebf3803dc38b6a19b47b4acb27f40b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2341"
+      },
       "scope": "Gareth Davidson/bitplane's conditional common-label tensor-lift formalization of Jose Manuel's PR2287 argument on unchanged Lemma G semantics. Reviewed all21 changed files, full-array tensor equivalence, coefficient-field embedding, correlated dirty inputs and unit-row scope. Fresh exact Lean4.33.0-rc1/pinned Mathlib build passes21 theorem axiom inventories and3 mathematical rejection controls; optimized Q(i) replay covers124 basis inputs,20 dense inputs,100 prefixes and11 shortcuts plus8 verifier-control groups. Original proof and predecessor notices are byte-bound. Actual R480 importer/native recipes, physical compiler, hosting, precision and outer multiplication theorem are not established; no supplier or kappa admission. DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,jamesyc and Mathlib lineage retained. Dedicated read-only CI reviewed; no hosted-run claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2341.json",
