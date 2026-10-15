@@ -67,7 +67,8 @@
  "generated": {
   "data/flows.json": "6b3b2cbd76b971f630326c8c0860a91cd4de8d61f1b76a208116e8f753673279",
   "data/atoms.json": "e087954e069103ff1c4dab9bead8da89df15a6c64cef59f04b1e82ae71e975ce",
-  "data/q4.json": "3ddb315a9368495ae44518012b129435e982fff750007cad774cc27abcadde6a"
+  "data/q4.json": "3ddb315a9368495ae44518012b129435e982fff750007cad774cc27abcadde6a",
+  "data/size5.json": "4057cbc008f20bee3a747aaa994a84782675e01d408f45ba3ab7d61571217470"
  },
- "generator": "python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py (seed 43; needs cc)"
+ "generator": "python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py (seed 43; needs cc) and scripts/size5.py (exhaustive; needs cc)"
 }

@@ -21,7 +21,10 @@ def harmonic_orbit_reps(P, harm):
     return reps, perms
 
 
-def check_small(size=4):
+def check_small(size=4, minimal_only=False):
+    """Return (orbit representatives of harmonic lines, number of subsets tested, immovable subsets found).
+    With minimal_only=True, immovable subsets that contain an immovable (size-1)-subset are not reported
+    (they are not inclusion-minimal)."""
     P = pool()
     J = Jet(P)
     row = {(t, s): J.row(t, s, D) for (t, s, D) in J.inc}
@@ -58,6 +61,35 @@ def check_small(size=4):
                             break
                         m ^= basis[h]
                     if not m:
-                        bad.append(S)
+                        if not minimal_only or not any(_immovable(row, delta, harm, S[:i] + S[i + 1:])
+                                                       for i in range(len(S))):
+                            bad.append(S)
                         break
     return reps, tested, bad
+
+
+def _immovable(row, delta, harm, S):
+    basis = {}
+    for x in S:
+        for y in S:
+            m = row.get((x, y))
+            if m is None:
+                continue
+            while m:
+                h = m.bit_length() - 1
+                if h in basis:
+                    m ^= basis[h]
+                else:
+                    basis[h] = m
+                    break
+    for t in S:
+        if t in harm:
+            m = delta[t]
+            while m:
+                h = m.bit_length() - 1
+                if h not in basis:
+                    break
+                m ^= basis[h]
+            if not m:
+                return True
+    return False

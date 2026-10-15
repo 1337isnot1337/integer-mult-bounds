@@ -1,5 +1,6 @@
 """Replay: first-order jet rigidity of the #2111 121-line pool (#1166 OPEN ENDS item 5b).
-Usage (from the repository root): python3 -I -B research/pool121-jet-rigidity/verify.py
+Usage (from the repository root): python3 -I -B research/pool121-jet-rigidity/verify.py [--full]
+--full also re-runs the exhaustive 5-line enumeration (~70 s) and the CR2 DFS on its orbits (~5 min).
 Exit 0 and a final 'PASS' line iff every check passes and every negative control fails as it must.
 Stdlib only; no compiler needed (the exact minimum costs are recomputed in Python, independently of c/enumall.c).
 Written for this package (thakrarsagar, with AI assistance from Claude Opus 5.5). Apache-2.0."""
@@ -160,6 +161,57 @@ def main():
           harm_cover and tested == ex['subsets_tested'] and [list(b) for b in bad] == ex['immovable'] and
           len(four) == 1 and orbit4 == {A.canon(tup(four[0]['lines']))})
 
+    # G13: exhaustive classification of inclusion-minimal immovable 5-line sub-configurations (data/size5.json)
+    s5 = load('size5.json')
+    canon5 = set()
+    ok5 = True
+    dist = {}
+    bdep = [0, 0]
+    t5 = 0
+    for o in s5['orbits']:
+        L = [PA[i] for i in o['pool_lines']]
+        c = A.canon(L)
+        ok5 &= c not in canon5
+        canon5.add(c)
+        Jo = A.Jet(L)
+        imm = Jo.immovable()
+        ok5 &= bool(imm) and imm == B.immovable(L) == o['immovable'] and len(Jo.inc) == o['free_incidences']
+        ok5 &= all(not A.Jet(L[:u] + L[u + 1:]).immovable() and not B.immovable(L[:u] + L[u + 1:]) for u in range(5))
+        mins = []
+        mc = B.min_cost(L, keep=mins)
+        ok5 &= mc == (o['min_cost'], o['num_minimisers']) and mc[0] >= 5
+        dist[mc[0] - 5] = dist.get(mc[0] - 5, 0) + 1
+        if mc[0] == 5:
+            t5 += 1
+            for on in mins:
+                sub = [r for (t, s, D), r in zip(Jo.inc, Jo.rows()) if (t, s) in on]
+                bdep[0] += 1
+                bdep[1] += all(A.rank_of(sub + [Jo.delta(t)]) > A.rank_of(sub) for t in Jo.harm)
+        ok5 &= o['cr2'] == 'none over GF(2),GF(4),GF(8),GF(16)'
+    check('G13 size-5 classification (data/size5.json): %d orbits, distinct, immovable (A = B), inclusion-minimal '
+          '(A and B), exact min cost recomputed in Python = stored enumall value, all >= v; distribution of '
+          'min cost - v: %s; %d tight orbits (cost = v = 5), B-dependent jet passes on %d of %d of their minimisers'
+          % (len(s5['orbits']), dict(sorted(dist.items())), t5, bdep[1], bdep[0]),
+          ok5 and len(canon5) == len(s5['orbits']) and t5 > 0 and bdep[0] == bdep[1])
+    check('G13 consistency: the greedy v=5 atoms of data/atoms.json are among the classified orbits',
+          all(A.canon(tup(a['lines'])) in canon5 for a in atoms if a['v'] == 5))
+    if '--full' in sys.argv:
+        reps5, tested5, bad5 = small.check_small(5, minimal_only=True)
+        orbs = {A.canon([PA[i] for i in S]) for S in bad5}
+        check('G13 --full: exhaustive re-enumeration of all %d 5-subsets through the harmonic-orbit representatives '
+              'gives exactly the stored %d orbits' % (tested5, len(orbs)),
+              tested5 == s5['subsets_tested'] and orbs == canon5 and len(bad5) == s5['minimal_immovable_subsets'])
+        ncr = 0
+        for o in s5['orbits']:
+            L = [PA[i] for i in o['pool_lines']]
+            Jo = A.Jet(L)
+            E = {(t, s) for (t, s, D) in Jo.inc}
+            pi = [A.supp(p) for p, q in L]
+            sg = [A.supp(q) for p, q in L]
+            ncr += all(cr2.realise(pi, sg, E, k=k, limit=2 * 10 ** 6) is None for k in (1, 2, 3, 4))
+        check('G13 --full: none of the %d orbits is CR2 over GF(2),GF(4),GF(8),GF(16) (exhaustive DFS)' % ncr,
+              ncr == len(s5['orbits']))
+
     # G10/G11: rigidity modulo trivial motions (premise of Proposition R) and the #2162 section-5 order-2 test
     V = O.nullspace(rowsA, JA.n)
     check('G10 explicit F2 nullspace of (J1) on the pool: %d vectors, independent, all satisfy (J1)' % len(V),
@@ -233,8 +285,9 @@ def main():
         sys.exit(1)
     print('PASS pool121 jet rigidity: (J1) rank 266 / solution dim 244 (= gauge + torus) / 30 of 30 harmonic lines '
           'immovable with Lemma F flows; %d minimal immovable atom orbits (v %d..%d), all non-CR2 (GF(2..16)) with '
-          'exact min cost >= v + 1, order-2 jets fail on all; Q4 search best certifiable S = %d < 106 <= 119' % (
-              len(atoms), min(r[0] for r in rows), max(r[0] for r in rows), len(S)))
+          'exact min cost >= v + 1, order-2 jets fail on all; minimum immovable size 4 (one orbit); %d minimal '
+          '5-line orbits, all cost >= v, %d tight (cost = v); Q4 search best certifiable S = %d < 106 <= 119' % (
+              len(atoms), min(r[0] for r in rows), max(r[0] for r in rows), len(s5['orbits']), t5, len(S)))
 
 
 if __name__ == '__main__':
