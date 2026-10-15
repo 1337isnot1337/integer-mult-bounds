@@ -47,7 +47,7 @@
   "budget_minutes": 90,
   "stop_rule": "Stop and submit a profiling note instead of a code change if the fast kernel gives < 1.5x on the sampled basis+null workload, if any output differs from the reference null_exact, or if the full after-run cannot finish by 2026-10-15T13:40:15Z (then report subset-only results).",
   "outcome": "completed",
-  "evidence": "See README Measurements: init-call audit (4,473 calls identical, 8.1x kernel time), 400-move sample (3.5x basis+null, identical maps), full-key audit, full --all before/after runs, package verify.py controls.",
+  "evidence": "Same host, same pinned input: init audit 4,473 null_exact calls identical (kernel 23.43 s -> 2.88 s); 400-move sample basis+null 4.50/3.88 s -> 1.25/1.11 s with identical maps; complete full-key audit 145,513 null_exact + 1,683,853 prim calls identical (381.0 s -> 48.7 s; 70.6 s -> 3.6 s); full --all with VERIFY_JOBS=3: nesting stage 410 s -> 226 s wall (whole run 427.7 s -> 243.5 s; user CPU 825 s -> 369 s), same five PASS lines and kappa, certificate equal. Bounded package check with negative controls: research/recycled-bit-nesting-reuse/verify.py. CI wall time not measured.",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5): profiling, kernel, audit, controls and write-up; reviewed and submitted by thakrarsagar.",
   "open_questions": [

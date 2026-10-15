@@ -26,8 +26,8 @@ extra informational line, `null_exact kernel: fast`.
 reduce each row by the earlier pivot rows, take its first nonzero entry as the pivot, then clear that column in
 the earlier rows. By induction, every stored integer row is a nonzero rational multiple of the Fraction row at the
 same step, with the pivot kept positive. So the pivot columns are the same, and the free columns come in the same
-increasing order. For each free column f, the integer vector has `x_f = lcm(pivots)` and
-`x_pc = -b[f] * lcm / b[pc]`. This is a positive multiple of the Fraction vector (`x_f = 1`, `x_pc = -b[f]/b[pc]`).
+increasing order. For each free column f, the integer vector has `x_f = lcm` (the lcm of the pivot values `b[pc]`
+of the rows with `b[f] != 0`) and `x_pc = -b[f] * lcm / b[pc]`. This is a positive multiple of the Fraction vector (`x_f = 1`, `x_pc = -b[f]/b[pc]`).
 `linalg.primitive` maps a vector to the unique primitive integer multiple with the same sign, so dividing by the
 gcd returns the same list of rows. `prim` on integer rows equals `x // gcd`. The equality was also measured: see
 below.
@@ -37,14 +37,21 @@ below.
 All runs were on one shared host (4 CPUs, Python 3.14.4, `nice -n 10`), on the pinned base input. Timings in the
 same row come from the same process, or from back-to-back runs, so they compare the same input. Other sessions
 were running on the host, so the absolute times are noisy.
+An earlier fast run, made while the host was more heavily loaded (a profiler and this package's check were
+also running), took 284 s for the stage and 304 s in total. The `null_exact` fallback path (non-integer or ragged
+input) was not counted separately. A fallback call runs the reference kernel itself, so it cannot cause a
+mismatch.
+A repeat of the committed `bench.py` on a less loaded host, stopped before the full-key loop, gave these figures.
+The init kernel time went from 15.66 s to 1.90 s (8.2x). The sample basis + null time went from 2.92 s / 2.86 s to
+0.95 s / 0.88 s (3.1-3.3x), and the maps were again identical.
 
 | Measurement | Reference (Fraction `null_exact`) | Fast (fraction-free) | Equality |
 | --- | --- | --- | --- |
 | `null_exact` calls inside `Exact.__init__` (4,473 calls; mostly `late_frames` intersections) | 23.43 s kernel time | 2.88 s (8.1x) | all 4,473 identical |
 | Deterministic sample: 400 ledger moves (`random.Random(1)`), 709 keys, 345 annihilators. Basis + null, rep 1 / rep 2 | 4.50 s / 3.88 s | 1.25 s / 1.11 s (3.5-3.6x) | basis and null maps identical |
 | Same sample, `inside` dot products | 0.024 / 0.034 s | 0.024 / 0.025 s | — |
-| Full-key audit (one process, both kernels on every call): every distinct basis key and every target annihilator of the 202,190 ledger moves | FULLKEY_REF | FULLKEY_FAST | FULLKEY_EQ |
-| Full `--all` replay, `VERIFY_JOBS=3`, wall time of the nesting stage / whole run | FULLREF | FULLFAST | five PASS lines, kappa=472154791/10^12, certificate equal |
+| Full-key audit (one process, both kernels on every call): basis of all 86,789 distinct ledger-move keys, then the annihilator of all 85,017 distinct targets | `null_exact`: 145,513 calls, 381.0 s; `prim`: 1,683,853 calls, 70.6 s | 48.7 s (7.8x); 3.6 s (19.6x) | all 145,513 + 1,683,853 identical (complete, not time-stopped) |
+| Full `--all` replay, `VERIFY_JOBS=3`, back-to-back runs while the audit process was also running: nesting-stage wall / whole-run wall / user CPU | 410 s / 427.7 s / 825 s | 226 s / 243.5 s / 369 s (1.81x stage wall, 2.24x CPU) | both runs printed the same five PASS lines with kappa=472154791/10^12, and both matched the committed certificate |
 
 **Profile of the stage (before).** The cProfile figures are inflated by profiling overhead. Of `Exact.__init__`
 (about 160 s unprofiled), `Frames.dims` takes the largest share: about 52% of the profile, almost all of it
@@ -66,8 +73,13 @@ stage, so that mechanism was dropped. This is the one pivot recorded in TASK.jso
 python3 -B research/recycled-bit-nesting-reuse/verify.py          # ~40 s; last line PASS_RECYCLED_BIT_NULL_KERNEL
 make verify-recycled-bit                                           # full replay; five PASS lines,
                                                                    # kappa=472154791/1000000000000
-VERIFY_NULL=audit python3 research/recycled-bit-integration/verify.py --all   # full replay, both kernels on every call
+python3 -B research/recycled-bit-nesting-reuse/bench.py           # ~13 min: init audit, sample timing, full-key audit
+VERIFY_NULL=audit python3 research/recycled-bit-integration/verify.py --all   # optional; both kernels on every call
 ```
+
+`bench.py` produced the audit and timing rows of the table above; its final `summary` line holds the numbers. The
+`VERIFY_NULL=audit` full replay was not run end to end in this session. The bounded check exercises its assertion
+path, and `bench.py` covers the same distinct inputs.
 
 `verify.py` in this package is the bounded check. It runs 3,012 differential matrices: edge cases (empty input,
 k = 0/1, zero rows) and a deterministic random family (rank-deficient stacks, entries from {0,1} up to 2^80). It
@@ -89,7 +101,8 @@ which must fail:
 * The identity argument above is a proof sketch in this README, not a formal proof. The empirical evidence is
   finite: the full-key audit recorded above, the init audit and the differential tests.
 * Coverage: the call set audited was {all 4,473 init calls} and {basis of every distinct key, null of every
-  distinct target} in the order described above. Bases depend only on their keys, so these are the distinct
+  distinct target}. The 8,991 keys of the 4,878 fresh moves are a subset of the ledger keys, and the fresh moves
+  are a subset of the ledger moves. Bases depend only on their keys, so these are the distinct
   `null_exact` inputs of the `--all` path. Worker processes call the same functions on the same keys.
 * CI wall time was not measured. The full runs used `VERIFY_JOBS=3` on a loaded host, so no CI speedup factor is
   claimed. Sibling PR #2361 (CI selection) would run this job less often. The speedup still matters for
