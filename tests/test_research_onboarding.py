@@ -61,25 +61,25 @@ class OverlapTests(unittest.TestCase):
             return {"nodes": nodes, "pageInfo": {"hasNextPage": more, "endCursor": "next"}}
         def comment(text):
             return {"body": text, "url": text, "updatedAt": "date"}
+        first_comments = page([
+            {"id": "C", **comment("first claim"), "replies": page([comment("early reply")], True)}
+        ], True)
         def api(query, variables):
             calls.append(variables)
             if 'repository(owner:' in query:
                 return {"repository": {"discussions": page([
-                    {"id": "D", "number": 1, "title": "thread", **comment("topic")}
+                    {"id": "D", "number": 1, "title": "thread", **comment("topic"),
+                     "comments": first_comments}
                 ] if variables["cursor"] is None else [], variables["cursor"] is None)}}
             if "... on DiscussionComment" in query:
                 return {"node": {"replies": page([comment("late reply claim")])}}
-            if variables["cursor"] is None:
-                return {"node": {"comments": page([
-                    {"id": "C", **comment("first claim"), "replies": page([comment("early reply")], True)}
-                ], True)}}
             return {"node": {"comments": page([
                 {"id": "C2", **comment("late claim"), "replies": page([])}
             ])}}
         with patch.object(overlap, "graphql", side_effect=api):
             records = overlap.fetch_discussions()
         self.assertEqual(len(records), 5)
-        self.assertEqual(len(calls), 5)
+        self.assertEqual(len(calls), 4)
         self.assertIn("late reply claim", [r["body"] for r in records])
         self.assertIn("late claim", [r["body"] for r in records])
 

@@ -133,6 +133,19 @@ selected exponent. The [experiment archive](research/experiment-log/README.md)
 distinguishes failed searches, execution errors, proposals, and reported
 verification; inclusion does not independently certify every historical claim.
 
+### Overlap checks
+
+The overlap helper searches open PRs, Discussions, and local research notes.
+It batches the first five comments and replies with each Discussion listing,
+then follows every continuation page. The
+[batching evidence](research/overlap-discussion-batching/README.md) records
+coverage controls and a fixed-corpus timing comparison. Coverage and freshness
+appear in each report; no matches does not establish novelty.
+
+```sh
+python3 scripts/find_overlap.py --task joint-query-controller --refresh
+```
+
 ## Historical audited checkpoint: 527 reused sources
 
 **eumemic's [#210](https://github.com/CrocSwap/integer-mult-bounds/pull/210)**,
