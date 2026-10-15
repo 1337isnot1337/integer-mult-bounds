@@ -230,7 +230,7 @@ def build_receipt(witness, helpers):
 def evaluate():
     manifest = read_json(HERE / "SOURCES.json")
     for row in manifest["files"]:
-        if row["usage"] not in {"input", "audited_claim"}:
+        if row["usage"] != "input":
             continue
         raw = (ROOT / row["path"]).read_bytes()
         need(hashlib.sha256(raw).hexdigest() == row["sha256"], "source hash: " + row["path"])

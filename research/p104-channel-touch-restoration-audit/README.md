@@ -39,3 +39,7 @@ Nick Petalas / #2981 for the flags, Nick Petalas / #3259 and dcharb78 / #3182
 for the support cut that this package leaves in place, and jwr404 / #3242 for
 the chronology receipt under audit. Prepared by Wentao Li with substantial
 AI assistance.
+
+## Open next questions
+
+Can a chronological correction deliver the published coefficients and restore arbitrary dirt without repaying the frame loss? This census shows every endpoint frame fails to return. It does not construct or price that repair.

@@ -19,6 +19,7 @@ INPUTS = (
     "research/p104-joint-unit-flags/CERTIFICATE.json",
     "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
     "research/p104-endpoint-geometric-budget/geometry.py",
+    "research/p104-flag-channel-schedule/RESULT.json",
 )
 AUDITED = "research/p104-flag-channel-schedule/RESULT.json"
 COORDINATE_BASIS = (1, 2, 4, 8, 16, 32, 64, 128, 256)
@@ -111,11 +112,10 @@ def pin_sources():
     manifest = read_json(HERE / "SOURCES.json")
     rows = manifest["files"]
     inputs = [row for row in rows if row["usage"] == "input"]
-    audited = [row for row in rows if row["usage"] == "audited_claim"]
     need(tuple(row["path"] for row in inputs) == INPUTS, "input inventory")
-    need(len(audited) == 1 and audited[0]["path"] == AUDITED, "audited claim")
+    need(any(row["path"] == AUDITED for row in inputs), "audited claim")
     pinned = {}
-    for row in inputs + audited:
+    for row in inputs:
         path = ROOT / row["path"]
         raw = path.read_bytes()
         need(len(raw) <= 2_000_000, "source size")
