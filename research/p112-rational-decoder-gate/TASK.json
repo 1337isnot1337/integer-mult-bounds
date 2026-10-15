@@ -45,21 +45,21 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors. Prove the sharp334 whole-port-space floor for every exactly57-term rational fit on the changed mask. Prove a308 lower bound for any-length decompositions of rank57 fits whose factors retain both column/row spans.",
+  "actual_scope": "Construct and independently certify a changed 37-triad/one-line P112 mask with exact scalar fitting rank57, compare the old rank99 mask, and fully price the explicit scalar factors. Prove the sharp334 whole-port-space floor for every exactly57-term rational fit on the changed mask. Prove a308 lower bound for any-length decompositions of rank57 fits whose factors retain both column/row spans. Prove that every rational scalar fit with at most58 terms costs at least297, including exterior factors and rank58 matrices.",
   "scope_change_reason": "User selected rational/block P112 decoder research after PR2532 invalidated the original binary lift. The old cover obstructs natural fractional routes; change the cover to expand actual orthogonal-group freedom instead of optimizing the invalid binary invoice.",
-  "bottleneck_link": "The changed cover attains scalar rank57, but every57-term fit costs334. At any factor count, rank57 fits retaining both factor spans cost at least308. Both exceed2672/9, so successful scalar sharing must use exterior factor directions or higher fitting rank.",
+  "bottleneck_link": "The changed cover attains scalar rank57. Exactly57 terms cost334; every fit with at most58 terms costs at least297. At any factor count, rank57 fits retaining both factor spans cost at least308. All exceed2672/9; a candidate needs at least59 terms and exterior directions or higher fitting rank.",
   "budget_minutes": 60,
   "stop_rule": "Retain one verified mask/cost result after exact endpoint and independent checks. Reject the explicit supplier target at zero saving; do not infer a universal rational-decoder or cover obstruction from bounded motif searches.",
   "outcome": "partial",
-  "evidence": "CANDIDATE.json, exact identity-minor and disjoint-support proof in README, primary RESULT.json and independently implemented checker. Both original and new masks are certified. RANK-TIGHT-PROOF.md plus two independent finite-premise/fixture checkers establish the scoped minimum-length cost floor. Independently implemented40-space closures support the additional any-length, both-spans cost theorem.",
+  "evidence": "CANDIDATE.json, exact identity-minor and disjoint-support proof in README, primary RESULT.json and independently implemented checker. Both original and new masks are certified. RANK-TIGHT-PROOF.md plus two independent finite-premise/fixture checkers establish the scoped minimum-length cost floor. Independently implemented40-space closures support the additional any-length, both-spans cost theorem. EXTERIOR-58-PROOF.md and two independent finite-premise implementations extend the gate to all58-term fits.",
   "author": "flyingviper (with OpenAI Codex)",
   "ai_assistance": "Substantial OpenAI Codex assistance in algebra, search, implementation, writing and testing. Three AI agents split independent scalar checks, cost/mask research, and fractional/operator exploration. No independent human or proof-assistant review is claimed.",
   "open_questions": [
     {
       "question": "Can a genuinely shared fractional decoder improve the new mask's334 port-space charge?",
       "why_it_matters": "The scalar rank obstacle has fallen99 to57, but break-even requires C<2672/9 and the selected-target optimistic allowance is smaller.",
-      "first_step": "Use at least58 terms and exterior factor directions or a higher-rank fitting matrix. Check every constrained coefficient, then price complete group-space pairings.",
-      "blocked_by": "The exact57-term floor is334; at arbitrary term count, rank57 fits retaining both canonical factor spans cost at least308. Exterior directions and higher fitting ranks remain open."
+      "first_step": "Use at least59 terms with exterior factor directions or a higher-rank fitting matrix. Enforce every constrained coefficient exactly, then price complete group-space pairings.",
+      "blocked_by": "Every fit with at most58 terms costs at least297. Rank57 fits retaining both factor spans cost at least308 at arbitrary term count. The unrestricted59-or-more-term case remains open."
     },
     {
       "question": "Can a different mask or operator contract supply genuinely cheaper payload transport?",
@@ -99,7 +99,7 @@
   },
   "family_gate": {
     "decision": "narrow",
-    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0. Sharp334 floor for all exactly57-term rational fits on this mask. Any-length rank57 decompositions retaining both factor spans cost at least308.",
+    "proved": "Exact minimum scalar fitting rank57 for the new mask, rank99 comparison, complete334 port-space charge of the displayed factors, and failure of the favorable coverage screen already at a=0. Sharp334 floor for all exactly57-term rational fits on this mask. Any-length rank57 decompositions retaining both factor spans cost at least308. Every fit with at most58 nonzero rational terms costs at least297.",
     "unknown": [
       "native caller",
       "routes and chronological ownership",
@@ -109,7 +109,7 @@
       "all-size admission",
       "bit-side transfer"
     ],
-    "next": "An explicit rational fit with exterior factor directions or higher fitting rank, with full-group charge<=296; no physical expansion before that screen."
+    "next": "At least59 nonzero terms, exterior directions or higher fitting rank, exact full-group charge<=296. No physical expansion before that screen."
   },
   "validation": {
     "environment": "3.12.14",
@@ -147,7 +147,7 @@
       "all-size recursion",
       "bit supplier transfer"
     ],
-    "next_test": "At least58 terms with exterior factor directions, or a higher-rank fitting matrix. Both-canonical-span families fail the zero-saving gate.",
+    "next_test": "Historical next test from the prior cost round: at least58 terms with exterior directions or higher fitting rank. Superseded by exterior_followup: every at-most58-term fit fails, so the current target needs at least59 terms.",
     "stop_rule": "One bounded research session; retain an exact new construction or decision-changing obstruction, otherwise concise negative search handoff. Do not represent a bounded search as a universal barrier.",
     "overlap": {
       "open_pr_snapshot": "2026-10-15T20:57:50Z",
@@ -161,12 +161,63 @@
         "PR2724 nine-term rank8 realization, different contract"
       ]
     },
-    "started_at_utc": "2026-10-15T20:42:04.228659+00:00",
+    "started_at_utc": "2026-10-15T22:42:04.228659+02:00",
     "upstream_refresh": {
       "checked_at_utc": "2026-10-15T20:57:50Z",
       "canonical_main": "8e22a9d9f621c72ab5b299061c2be4c7f638fd3c",
       "priority_revision": 5,
       "decision": "Fast-forwarded isolated follow-up worktree; guidance, selected record and consumed inputs unchanged. Updated registered runner replayed. Existing PR retains construction source pins."
+    }
+  },
+  "exterior_followup": {
+    "task": "Continue P112 cheaper rational decoder, with exterior factor directions or changed fitting rank",
+    "status": "independently checked contribution",
+    "canonical_investigation": "https://github.com/CrocSwap/integer-mult-bounds/pull/2757",
+    "published_head": "1c7bdd4575137b3334adb185ec8f7efb63584b9e",
+    "round_started_utc": "2026-10-15T21:06:20Z",
+    "fresh_main": "31452ecd309f32a97e2e84214719b21297a59018",
+    "priority_revision": 5,
+    "selected_kappa": "0.001672660197076918",
+    "source_compatibility": "Relevant guidance, selected input archive and P112 geometry unchanged at fresh main",
+    "decision": "Retain one focused all58-term cost obstruction in PR2757. Preserve bounded coordinate-motif searches and the failed signed-lift shortcut as local handoff evidence; no cheaper candidate.",
+    "target": "An exact rational strict-mask fit with full group-space charge at most296; this is only a necessary optimistic supplier gate",
+    "boundary": {
+      "inputs": "112 independent scalar port payloads, grouped by the PR2757 cover of37 triads and one line",
+      "outputs": "Common nonzero scalar diagonal and zero at every nonfree offdiagonal endpoint",
+      "free_entries": "Only pairs of orthogonal whole group spaces",
+      "cost": "Sum of binary bilinear pairing ranks of whole source/reader group spans for each nonzero rational rank-one term"
+    },
+    "obligation_ledger": {
+      "saved_scalar_fit_rank57_cost334": "independently reproduced finite certificate",
+      "all_exactly57_terms_floor334": "published scoped proof and independently checked geometry",
+      "rank57_both_factor_spans_floor308": "published scoped proof and independently checked geometry",
+      "exterior_or_higher_rank_fit_under297": "unknown",
+      "native_preparation_chart_conversion": "unknown",
+      "routing_hosting_chronological_ownership": "unknown",
+      "storage_waiting_dirty_compensation_restoration": "unknown",
+      "precision_all_size_recursion_compatible_bit_supplier": "unknown"
+    },
+    "bounded_tests": [
+      "Exact rational reader synthesis over a declared projective source library, leaving free mask entries adjustable",
+      "Coefficient-independent support cancellation closure for one-coordinate two-pair motifs",
+      "One-sided exterior normal form and cost audit at58 terms",
+      "Rational signed-root annihilating lift and its tariff defects"
+    ],
+    "stop_rule": "Do not repeat a disproved local family or extend random seeds. Reserve final quarter of approximately60-minute session for independent checks and a discriminating handoff. Publish only a useful independently reviewable result, not an unverified candidate or narrow stop theorem alone.",
+    "overlap": {
+      "open_pr_snapshot_utc": "2026-10-15T21:08:48Z",
+      "coverage": "100 most recently updated open PRs plus1963 local records; not a novelty guarantee",
+      "own_pr_feedback": "No reviews, inline comments or discussion comments at refresh",
+      "discussion_limitation": "Prior HTTP406 stopped live discussion requests. Reused cached1166/1167/2024 from20:19Z and1587 from20:39Z; no retry or bypass of blocked discussion routes."
+    },
+    "result": "Every rational scalar fit with at most58 nonzero terms costs at least297, so any charge<=296 candidate needs at least59 terms.",
+    "verification": "check_exterior_58.py and independent_exterior_58.py reconstruct1750 reader spans,2318 cheap-source unions and314 Schur support rectangles. Written proof independently audited by separate AI agents; no formal kernel or human review.",
+    "final_refresh": {
+      "canonical_main": "a571dfa6e21bbe2d3b9cac48e5b078df59e49b68",
+      "checked_at_utc": "2026-10-15T21:29:10Z",
+      "decision": "Fast-forwarded isolated worktree. Guidance, selected record and consumed inputs unchanged. Newly integrated reviews cover different decoder contracts; no conflicting same-mask theorem found in bounded overlap.",
+      "open_pr_coverage": "latest100 updated open PR bodies",
+      "discussion_limitation": "Prior HTTP406 remains; cached discussion evidence retained without retry or bypass."
     }
   }
 }
