@@ -36,7 +36,7 @@
         "-B",
         "{package}/independent.py"
       ],
-      "timeout_seconds": 180,
+      "timeout_seconds": 120,
       "checks": "Separate column-image champion replay, independent Q=7 R-spectrum census, tariff arithmetic"
     },
     {
