@@ -18,10 +18,11 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 300.057,
-  "status": "budget_deferred",
+  "seconds": 739.143,
+  "status": "passed",
   "exit_codes": [
-    null
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -1991,6 +1992,8 @@
     "research/five-stage-source527-banks/proof/three-stage-cover-bit.tex": "47123a756f823c83a0d48cca2bf5add6472cd88410b13aed345e70c8834fb511",
     "research/five-stage-source527-banks/proof/three-stage-cover-rows.tex": "6ad97a5cd7d6aecf978a81226e1c2763d37840caca130c61f3bf5c4ac111c5c8"
   },
-  "log_sha256": "4adc62c1726405c83bd2155d255c51d147de2dc6e2308df16a24db9e0e15d8b3",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "d932b724968d12c7fe147dec6e4a7d08986e80fccae10034b38b4f0e0b2079b9",
+  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification.",
+  "resumed_successful_prefix_commands": 0,
+  "original_receipt": "/tmp/pr-efficient1200/prior-revisions/long-replay-2234/check-2234.json"
 }
