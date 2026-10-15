@@ -18,8 +18,8 @@ if not __debug__:
 P = Path(__file__).resolve().parent
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 CONTROLS = dict(admission=69, bit_supplier=12, independent_t16=6, controller_mutations=15)
-KAPPA_DECIMAL = '0.001673054161426948'
-SIGMAS = 10055
+KAPPA_DECIMAL = '0.001673341928508063'
+SIGMAS = 10006
 
 
 def run(main, work):
@@ -73,7 +73,7 @@ def run(main, work):
     target = json.loads((P/'CANDIDATE.json').read_text())
     assert result['status'] == 'PASS_GAUGE44_T16_STRICT_GLOBAL_REPLAY'
     assert result['kappa'] == target['expected_updates']['kappa']
-    # Decimal comparison: the native assembler and the SPEC may differ only in trailing zeros.
+    # Decimal comparisons throughout: the native assembler and the SPEC may differ only in trailing zeros.
     assert Decimal(result['conservative_kappa_decimal']) == Decimal(target['expected_updates']['conservative_kappa_decimal'])
     assert result['complex_profile'] == target['expected_updates']['global_profile']
     assert result['idle_remainder_profile'] == target['expected_updates']['idle_remainder_profile']
@@ -84,7 +84,8 @@ def run(main, work):
     subprocess.run([sys.executable, '-I', '-B', str(P/'check.py'), '--main', str(main),
                     '--replay', str(work/'strict'), '--out', str(work/'CHECK.json')], env=env, check=True)
     check = json.loads((work/'CHECK.json').read_text())
-    assert check['price_new']['kappa_decimal'] == result['kappa_decimal'] == KAPPA_DECIMAL
+    assert Decimal(check['price_new']['kappa_decimal']) == Decimal(result['kappa_decimal']) == Decimal(KAPPA_DECIMAL)
+    assert check['majorization']['candidate_majorizes_selected'] is True
     assert check['changed_rows'] == mod.CHANGED_ROWS and len(check['relocated_rows']) == mod.RELOCATED_ROWS
     for name, h in pins.items():
         assert sha(main/name) == h

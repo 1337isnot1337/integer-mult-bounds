@@ -301,7 +301,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Selected PR1094 map + DIFF-vs-selected.json reproduce OWNERS content and PLAN/SPEC bytes, with the changed/relocated row counts and the expected idle profile checked by an independent packing checker; unchanged PR1087 strict T16 replay (11 stages, 69/12/6/15 rejecting controls, both exact moment engines, strict outer assembly, recomputed actual_73column_sigmas); independent seed67 owner audit (R1-R7, X1, X2, 11 controls), pinned-engine pricing and PR1069 sweep."
+      "checks": "Selected PR1094 map + DIFF-vs-selected.json reproduce OWNERS content and PLAN/SPEC bytes, with the changed/relocated row counts and the expected idle profile checked by an independent packing checker; unchanged PR1087 strict T16 replay (11 stages, 69/12/6/15 rejecting controls, both exact moment engines, strict outer assembly, recomputed actual_73column_sigmas); independent seed67 owner audit (R1-R7, X1, X2, 11 controls), strict majorization of the selected idle residual vector, pinned-engine pricing and PR1069 sweep; kappa decimals compared as Decimal."
     }
   ]
 }

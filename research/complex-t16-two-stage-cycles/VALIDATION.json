@@ -6,8 +6,8 @@
   "registered_replay": {
     "command": "python3.12 scripts/research_package.py --package research/complex-t16-two-stage-cycles",
     "status": "PASS_REGISTERED_RESEARCH_PACKAGE",
-    "wall_seconds": 42,
-    "max_child_rss_mib": 418,
+    "wall_seconds": 40,
+    "max_child_rss_mib": 417,
     "memory_cap": "systemd scope MemoryMax=5G"
   },
   "metadata_check": "PASS_PACKAGE_METADATA_AND_PINS",
@@ -25,19 +25,23 @@
   "independent_checks": [
     "build.py packing checker (idle profile, changed and relocated row counts)",
     "seed67 auditor R1-R7/X1/X2",
+    "strict majorization of the selected idle residual vector (check.py, required by verify.py)",
     "pinned-engine pricing (native + conservative)",
     "PR1069 sweep"
   ],
   "cross_checks": [
-    "The session's own pipeline (verx.sh: buildcand.py, strict native replay, checkmap.py in a separate tree with a separate lib) on data/OWNERS.json.gz: seed67 audit, 11 controls, strictly-inside windows, one placement per helper and call, replay profile = audit profile, pinned-engine kappa 0.001673054161426948, PR1069 sweep all true; 1,661 changed rows, 1,435 relocated; actual_73column_sigmas 10055 read from the native audit (OWNERS-AND-PROFILE.json).",
-    "The raw search output F3 (65,902 changed rows, 61,985 relocated) passed the same strict replay with actual_73column_sigmas 10614 and the same kappa and idle profile; so did the intermediate min-diff map with 1,440 relocations (sigmas 10055).",
-    "search/buildcand.py with actual_73column_sigmas=10055 reproduces data/OWNERS.json.gz, data/PLAN.json and data/SPEC.json byte for byte against the session pipeline's build."
+    "The session's own pipeline (buildcand.py, strict native replay, checkmap.py in a separate tree with a separate lib, comparing kappa as Decimal) on data/OWNERS.json.gz: seed67 audit, 11 controls, strictly-inside windows, one placement per helper and call, replay profile = audit profile, pinned-engine kappa 0.001673341928508063, conservative 0.001673341925655596, PR1069 sweep all true; 1,638 changed rows, 1,415 relocated; actual_73column_sigmas 10006 read from the native audit (OWNERS-AND-PROFILE.json).",
+    "The raw search output F (66,211 changed rows, 62,678 relocated) passed the same strict replay with actual_73column_sigmas 10649 and the same kappa and idle profile, and was verified independently before packaging (strict replay 11 stages, controls 69/12/6/15).",
+    "search/buildcand.py with actual_73column_sigmas=10006 reproduces data/OWNERS.json.gz, data/PLAN.json and data/SPEC.json byte for byte against the session pipeline's build.",
+    "The majorization was also checked by a standalone script in the session on the padded sorted residual vectors (equal totals 237,024, partial sums never below the selected ones, strictly above somewhere); that script reports no majorization for the third version's profile and none for the selected profile against itself (strictness), and majorization for the second version's profile."
   ],
   "preparation_failures": [
-    "Second version: first strict replays of min-diff maps used the raw search's sigma count; assembly rejected them. SPEC now always pins the count read from the native audit.",
+    "Second version: first strict replays of min-diff maps used the raw search's sigma count; assembly rejected them. SPEC now always pins the count read from the native audit (this version: the first replay of the min-diff map with 10649 was rejected; 10006 was read from the audit).",
     "Second version: check.py compared the conservative kappa as a string; it now compares decimals.",
-    "This version: the first class-level min-diff stage 2 could not realise classes 4, 9, 88 and 133 (no feasible solution in the time limits) and the second proved class 94 infeasible; those classes were fixed to the selected map and stage 1 re-solved (SEARCH.json min_diff).",
-    "This version: ortools and highspy cannot be imported into one process (clashing HiGHS symbols), so mindiff_cls2.py runs its CP-SAT and HiGHS passes separately."
+    "Third version: classes 4, 9, 88, 133 and 94 of the first class-level stage 1 could not be realised and were fixed to the selected map.",
+    "This version: class 9 of stage 1 was proven unrealisable (four width-4 helpers per bin need four distinct calls); fixing it to the selected map made stage 1 infeasible, so the pattern was banned with the new BAN option of mindiff_cls1.py instead.",
+    "This version: the session's search loop compared kappa strings in lns.py; the pinned assembler can drop trailing zeros. lns.py, check.py and verify.py now compare kappa as Decimal; every checkpoint was re-verified with Decimal comparisons.",
+    "ortools and highspy cannot be imported into one process (clashing HiGHS symbols), so mindiff_cls2.py runs its CP-SAT and HiGHS passes separately."
   ],
   "reused_native_ancestry": true,
   "cold_ancestry_rebuilt": false,

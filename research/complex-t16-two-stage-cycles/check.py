@@ -106,11 +106,32 @@ def run(main, replay, out_path):
     out['helper_once_per_call'] = set(per.values()) == {1} and len(per) == 144*len(widths)
     assert out['all_strictly_inside'] and out['helper_once_per_call']
 
+    # Majorization of the idle residual vectors (sorted descending, padded with zeros to the
+    # common bin count): equal totals, and every partial sum of the candidate vector is at
+    # least the selected one's, strictly somewhere. Karamata then gives a strict decrease of
+    # sum H(r) for every strictly concave H (PROOF.md); the exact engines below give the value.
+    nbins = len(span)*a.V
+    def residuals(idle):
+        v = sorted((r for r, n in idle.items() for _ in range(n)), reverse=True)
+        assert len(v) <= nbins
+        return v+[0]*(nbins-len(v))
+    vn, vo = residuals(new['idle']), residuals(old['idle'])
+    assert sum(vn) == sum(vo)
+    sn = so = 0
+    dominated, strict = True, False
+    for x, y in zip(vn, vo):
+        sn += x
+        so += y
+        dominated &= sn >= so
+        strict |= sn > so
+    assert dominated and strict, 'candidate idle vector does not strictly majorize the selected one'
+    out['majorization'] = dict(residual_total=sum(vn), bins=nbins, candidate_majorizes_selected=True, strict=True)
+
     ps, pn, pc = price(old['profile']), price(new['profile']), price(new['profile'], True)
     out.update(price_selected=ps, price_new=pn, price_new_conservative=pc)
-    assert ps['kappa_decimal'] == SELECTED_KAPPA
+    assert Decimal(ps['kappa_decimal']) == Decimal(SELECTED_KAPPA)
     assert pn['kappa'] == spec['expected']['kappa'] and pn['endpoint'] == spec['expected']['complex_lower']
-    # Compare as decimals: the native assembler drops trailing zeros (e.g. ...644 vs ...644000).
+    # Compare kappa decimals as Decimal, never as strings: the native assembler drops trailing zeros.
     assert Decimal(pc['kappa_decimal']) == Decimal(spec['expected']['conservative_kappa_decimal'])
     out['rel_gain'] = str((Q(pn['kappa'])-Q(ps['kappa']))/Q(ps['kappa']))
 
@@ -128,7 +149,7 @@ def run(main, replay, out_path):
                 'kappa_equals_record', 'kappa_equals_title', 'kappa_exact_decimal', 'binding')
         out['sweep'] = {k: swept.get(k) for k in keys}
         assert all(out['sweep'][k] is True for k in keys[:6])
-        assert out['sweep']['kappa_exact_decimal'] == spec['expected']['kappa_decimal'] and out['sweep']['binding'] == 'complex'
+        assert Decimal(out['sweep']['kappa_exact_decimal']) == Decimal(spec['expected']['kappa_decimal']) and out['sweep']['binding'] == 'complex'
     if out_path is not None:
         out_path.write_text(json.dumps(out, indent=1, default=str)+'\n')
     print('PASS_INDEPENDENT_OWNER_AND_PRICING_CHECK', pn['kappa_decimal'], dict(sorted(new['idle'].items())),

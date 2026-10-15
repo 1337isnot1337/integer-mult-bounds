@@ -2,8 +2,8 @@
   "schema": "witness-spec/1",
   "name": "gauge44-t16-two-bank",
   "data": {
-    "owners_sha256": "a4f61710c477762fe80dab5748864c5515f78abb44ffffc7e7660eb6ebcbe947",
-    "plan_sha256": "55b6771c3d117bb3d945110d2fe2cd1e7c242e233ac64c2ad075dc529bae355e"
+    "owners_sha256": "ea7514736ad205562831072ef8312ea2d26fe2d3483d7c60e07d1fc734cd942a",
+    "plan_sha256": "7bd8905460cec231dc4d5039deaf30d6065b3ddbbe86728de9b75bf85d772a94"
   },
   "dispatch": [
     [
@@ -1931,9 +1931,9 @@
   },
   "expected": {
     "gain_baseline_kappa": "0.001636241501576388",
-    "complex_lower": "1675857962565178858949/1000000000000000000000000",
-    "conservative_complex_lower": "837928979851776024113/500000000000000000000000",
-    "kappa": "418263540356737/250000000000000000",
+    "complex_lower": "1676146695051222742471/1000000000000000000000000",
+    "conservative_complex_lower": "104759168261824104661/62500000000000000000000",
+    "kappa": "1673341928508063/1000000000000000000",
     "assembly_controls_rejected": 69,
     "provider_counts": {
       "gauge44": 144
@@ -1941,44 +1941,32 @@
     "mutations_rejected": 15,
     "hosted_residuals": 69120,
     "rank_mass": 1041408,
-    "actual_73column_sigmas": 10055,
-    "cross_replica_helper_roles": 57456,
-    "idle_remainders": 7432,
+    "actual_73column_sigmas": 10006,
+    "cross_replica_helper_roles": 57419,
+    "idle_remainders": 7417,
     "idle_remainder_profile": {
-      "1": 2346,
-      "2": 3,
-      "3": 154,
-      "5": 9,
-      "7": 36,
-      "8": 2,
-      "16": 7,
-      "28": 1,
-      "39": 1,
-      "40": 1,
-      "41": 2,
-      "44": 41,
-      "48": 4829
+      "1": 2355,
+      "2": 2,
+      "3": 172,
+      "7": 3,
+      "16": 11,
+      "48": 4874
     },
     "global_profile": {
-      "1": 349674,
-      "2": 60195,
-      "3": 62362,
+      "1": 349683,
+      "2": 60194,
+      "3": 62380,
       "4": 20448,
-      "5": 11817,
-      "7": 36,
-      "8": 1154,
-      "16": 7,
-      "28": 1,
-      "39": 1,
-      "40": 1,
-      "41": 2,
-      "44": 41,
-      "48": 4829
+      "5": 11808,
+      "7": 3,
+      "8": 1152,
+      "16": 11,
+      "48": 4874
     },
     "live": 14336,
     "physical": 14826,
-    "conservative_kappa_decimal": "0.001673054158574889",
-    "kappa_decimal": "0.001673054161426948"
+    "conservative_kappa_decimal": "0.001673341925655596",
+    "kappa_decimal": "0.001673341928508063"
   },
   "pivot_swap": {
     "recipe": "construction/leaver/PIVOT-SWAP-k8.json",

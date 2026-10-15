@@ -9,7 +9,9 @@ mindiff_cls2.py can find a class unrealisable; such classes are then fixed to A 
 argv: LIBDIR TARGET_OWNERS OUT_JSON TIME_LIMIT [START_OWNERS (warm start; must have the target profile)]
 env: FIX = JSON list of class indices kept exactly as in A (used when stage 2 cannot realise a class);
      KEEP = a previous stage-1 JSON whose (x, y) every class outside FIX and FREE (JSON list) keeps exactly
-     (FREE classes pay a small cost for moving away from KEEP's flows).
+     (FREE classes pay a small cost for moving away from KEEP's flows);
+     BAN = JSON list of [class, pattern] pairs forbidden in that class (fourth version: class 9 cannot host
+     eleven bins of four width-4 helpers, which need four distinct calls each; Hall alone does not see this).
 Needs CPython 3.12, numpy, scipy, highspy. Single thread."""
 import sys, json, time, itertools
 sys.path.insert(0, sys.argv[1]); import lib
@@ -82,6 +84,10 @@ for (ci, p), j in X.items():
     if ci in FIX: con([(j, 1)], xA[ci, p], xA[ci, p])
 for (ci, t, w), j in Y.items():
     if ci in FIX: con([(j, 1)], yA[ci, t, w], yA[ci, t, w])
+BAN = json.loads(os.environ.get('BAN', '[]'))   # [[class, pattern], ...] forbidden (x = 0); used when stage 2
+for ci, p in BAN:                                 # shows a pattern needs more distinct calls than the class can give
+    con([(X[ci, tuple(p)], 1)], 0, 0)
+if BAN: print('banned', BAN, flush=True)
 KEEP = os.environ.get('KEEP')   # stage-1 JSON: classes not in FREE (and not in FIX) keep its (x, y) exactly
 if KEEP:
     FREE = set(json.loads(os.environ.get('FREE', '[]'))); kd = json.load(open(KEEP))

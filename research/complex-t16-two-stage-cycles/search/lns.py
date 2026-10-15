@@ -6,8 +6,12 @@ Objective: maximise sum over bins of round(SC * g(free)), g(f) = f ln f; accepte
 argv: LIBDIR START OUT_PREFIX ITERS SEED [TL] [MODE] [...]
 env: NW = CP-SAT workers per solve (default 2), DIV=1 plateau step, TL2 = time limit of the DIV re-solve.
 Modes: fam (default), set:<calls>, time, early<k>, queue, tgt:..., and f3 (calls drawn from the window of a bin
-with free capacity 2, 3, 6, 7, 9 or 10; used by loopx.sh)."""
+with free capacity 2, 3, 6, 7, 9 or 10; used by loopx.sh), and evac (used by loopy.sh): 1-3 stranded cap-48 bins
+(0 < used <= 20), bins with spare room and full bins whose windows contain some of the stranded helpers' calls,
+and a few empty bins; all their helpers are freed and re-packed exactly (env NB = neighbourhood size, default 200).
+kappa values are compared as Decimal, never as strings (the pinned assembler can drop trailing zeros)."""
 import sys, math, json, gzip, random, time
+from decimal import Decimal
 sys.path.insert(0, sys.argv[1]); import lib
 from collections import Counter, defaultdict
 from ortools.sat.python import cp_model
@@ -163,6 +167,26 @@ def nbhd_times(Ts):
     hb = {m.bin(i) for i in H}
     bins = [k for k in m.cap if k in hb or (4 <= m.free(k) < EMPTYOK.get(m.cap[k], m.cap[k]) and m.allowed[k] & Ts)]
     return bins, H
+NB = int(os.environ.get('NB', 200))
+def pick_evac():
+    """Stranded bins (cap 48, 0 < used <= 20) + bins with spare that share times with them + full bins of the same classes."""
+    st = [k for k in m.cap if m.cap[k] == 48 and 0 < m.cap[k] - m.free(k) <= 20]
+    if not st: st = [k for k in m.cap if 0 < m.free(k) < m.cap[k] and m.free(k) >= 4]
+    k0s = rng.sample(st, min(len(st), rng.choice([1, 1, 2, 3])))
+    T0 = {m.roles[i]["time"] for k in k0s for i in m.members[k]}
+    nb = rng.choice([NB // 2, NB, NB, int(NB * 1.5)])
+    cand = [k for k in m.cap if k not in k0s and m.allowed[k] & T0 and m.free(k) < m.cap[k]]
+    spare = [k for k in cand if m.free(k) > 0]; full = [k for k in cand if m.free(k) == 0]
+    rng.shuffle(spare); rng.shuffle(full)
+    # bias toward bins with larger spare
+    spare.sort(key=lambda k: -m.free(k) * rng.random())
+    a = spare[:int(nb * rng.choice([0.3, 0.5, 0.7]))]
+    sel = set(k0s) | set(a)
+    # full bins: prefer those whose allowed set overlaps chosen spare bins' classes
+    rest = nb - len(sel); sel |= set(full[:max(0, rest)])
+    # also some empty cap-48 bins allowing T0 (lets a 2-for-1 consolidation happen)
+    emp = [k for k in m.cap if m.free(k) == m.cap[k] and m.allowed[k] & T0]; rng.shuffle(emp); sel |= set(emp[:rng.choice([0, 2, 5])])
+    return sorted(sel)
 DLIST = []
 if MODE.startswith('tgt:'):
     for x in sys.argv[8].split(';'):
@@ -172,7 +196,9 @@ if MODE.startswith('tgt:'):
 for it in range(ITERS):
     t0 = time.time()
     if DLIST: DELTA = DLIST[it]; print('delta', DELTA, flush=True)
-    if MODE == 'fam':
+    if MODE.startswith('evac'):
+        bins = pick_evac(); H = [i for k in bins for i in m.members[k]]; tag = ('evac', len(bins))
+    elif MODE == 'fam':
         fams = pick(); bins = [k for f in fams for k in fambins[f]]; H = [i for k in bins for i in m.members[k]]; tag = len(fams)
     else:
         Ts = set(map(int, MODE[4:].split(','))) if MODE[:4] in ('set:', 'tgt:') else pick_times(); bins, H = nbhd_times(Ts); tag = sorted(Ts)
@@ -184,7 +210,7 @@ for it in range(ITERS):
         except Exception as e:
             print(msg, 'AUDIT REJECT', e, flush=True); continue
         msg += f" kappa {k} idle {idle}"
-        if k > best_k or (DIV and k == best_k):
+        if Decimal(k) > Decimal(best_k) or (DIV and Decimal(k) == Decimal(best_k)):   # never compare kappa strings
             best_k, best_idle, roles = k, idle, res
             m, fambins = setup(roles)
             open(outp + '.OWNERS.json.gz', 'wb').write(gzip.compress(json.dumps(roles).encode(), mtime=0))

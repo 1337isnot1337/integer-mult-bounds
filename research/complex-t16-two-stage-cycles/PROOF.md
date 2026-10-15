@@ -24,7 +24,8 @@ into `(o, c, p)` is legal under four conditions:
    helper is split.
 
 The search (global class-level repack, ejection cycles, CP-SAT neighbourhood
-re-assignments and the final min-diff re-assignment) only proposes a final
+re-assignments including the evacuation neighbourhood, and the final min-diff
+re-assignment) only proposes a final
 owner table. Intermediate states
 are not executed; the controller only ever sees the final table. So it is
 enough to check the final map, and this package checks it three independent
@@ -55,33 +56,57 @@ mutable-source realization assumptions; it does not prove them anew.
 ## Strict cost improvement
 
 The paid recursive moment depends on the profile through a sum of per-residual
-weights `H(r)` over the idle remainders. Rank mass (1,041,408) and deficit
-(5,120) are unchanged. Against the selected PR1094 map, the idle remainder
-profile changes by
+weights `H(r)` that are strictly concave in the rank `r` with `H(0) = 0`. In the
+PR1407 and PR2077 arguments, `H(r) = r^p` with `0 < p < 1`. Rank mass
+(1,041,408) and deficit (5,120) are unchanged. Against the selected PR1094 map,
+the idle remainder profile changes by
 
 ```
-{1:+70, 2:+3, 3:-223, 5:+9, 7:+29, 8:+2, 16:+7, 28:+1, 39:+1, 40:+1, 41:+2, 44:+41, 48:-37}
+{1:+79, 2:+2, 3:-205, 7:-4, 16:+11, 48:+8}
 ```
 
-with equal residual totals (237,024 on both sides). Unlike the previous
-versions of this package, the new residual vector does **not** majorize the
-old one: 37 bins that were completely idle (residual 48) now host a few small
-helpers (41 residuals 44, two 41, one each of 40, 39 and 28), while many
-residuals 3 elsewhere merge into residuals 7 and 16 or close completely.
-Sorted, the first 4,829 entries agree (48), and the next 37 are 44s in the new
-vector against 48s in the old one, so the partial sums of the new vector fall
-below the old ones there. Karamata's inequality alone therefore does not give
-the sign, and no hand argument is offered for it.
+selected: `{1:2276, 3:377, 7:7, 48:4866}`; this map:
+`{1:2355, 2:2, 3:172, 7:3, 16:11, 48:4874}`. The residual totals are equal
+(237,024 on both sides). Sorted in decreasing order and padded with zeros to
+the common number of bins,
 
-The decrease is established by the exact engines instead. The pinned exact
-engines (moment, base-two moment, outer) price the new profile; the native
-complex lower endpoint is `1675857962565178858949/10^24` (selected:
-`1675462676808103522925/10^24`). The bit lower
-endpoint is unchanged at `1733427039589844234749/10^24`. The complex supplier
-is binding, so κ = `1673054161426948/10^18` = 0.001673054161426948. With the
-conservative bit surcharge, κ = 0.001673054158574889. The unchanged strict
-verifier's own moment engines and outer assembly reach the same κ, and the
-PR1069 sweep independently certifies the endpoint, the deficit identity
+```
+new: 48 x 4874, 16 x 11, 7 x 3, 3 x 172, 2 x 2, 1 x 2355, 0 ...
+old: 48 x 4866,          7 x 7, 3 x 377,         1 x 2276, 0 ...
+```
+
+The partial sums of the new vector are never below those of the old one.
+They agree for the first 4,866 entries (all 48), the new vector leads from
+entry 4,867 on (by 332 after 4,874 entries), and the old vector never catches
+up before both reach 237,024 (after 4,874 + 11 + 3 + 172 + 2 + 2,355 = 7,417
+and 4,866 + 7 + 377 + 2,276 = 7,526 entries). So the new residual vector
+majorizes the old one, strictly. In words: 205 residuals 3 and four residuals
+7 are gone, and their residual capacity (643) reappears as eight more
+completely idle bins (384), eleven residuals 16 (176) and 79 more residuals 1
+plus two residuals 2 (83). `check.py` checks this mechanically: it sorts and
+pads both audited idle vectors, asserts equal totals and that every partial sum of
+the candidate vector is at least the selected one's, with strict inequality
+somewhere, and records the result as `majorization` in `CHECK.json`;
+`verify.py` requires it. By Karamata's inequality for strictly concave `H`,
+
+```
+4874 H(48) + 11 H(16) + 3 H(7) + 172 H(3) + 2 H(2) + 2355 H(1)
+  < 4866 H(48) + 7 H(7) + 377 H(3) + 2276 H(1)
+```
+
+(for example 36,475.7 < 36,660.1 at `p = 1/2`). The complex moment strictly
+decreases while rank mass and deficit are unchanged. (Version 3 of this package
+did not have this property and relied on the exact engines alone.)
+
+The sign argument gives the direction only. The value of κ comes from the
+pinned exact engines (moment, base-two moment, outer) and the strict replay,
+not from a hand computation. The native complex lower endpoint is
+`1676146695051222742471/10^24` (selected: `1675462676808103522925/10^24`). The
+bit lower endpoint is unchanged at `1733427039589844234749/10^24`. The complex
+supplier is binding, so κ = `1673341928508063/10^18` = 0.001673341928508063.
+With the conservative bit surcharge, κ = 0.001673341925655596. The unchanged
+strict verifier's own moment engines and outer assembly reach the same κ, and
+the PR1069 sweep independently certifies the endpoint, the deficit identity
 `W - 64N`, halving, the PR589 bit record, and that κ equals both the record and
 the title value. The search used the surrogate `Σ f ln f` over idle fragments
 only to rank candidates; only the final profile matters for κ.
@@ -89,8 +114,11 @@ only to rank candidates; only the final profile matters for κ.
 ## What is not claimed
 
 There is no optimality claim: the κ search is a finite heuristic (global
-repack plus LNS) that was still finding gains when it was stopped, and the
-min-diff step is a finite MIP/LNS whose relocation count is not proven minimal
-over all maps with this profile. There is no new supplier,
-interface or mechanism. There is no fresh cold rebuild of the native ancestry,
-and no unconditional theorem. All PR1094 inherited assumptions remain.
+repack plus LNS, including the evacuation neighbourhood) that was still finding
+gains when it was stopped, and the min-diff step is a finite MIP/LNS whose
+relocation count is not proven minimal over all maps with this profile. The
+majorization argument shows only that this map is strictly cheaper than the
+selected one; it says nothing about how far from optimal either is. There is no
+new supplier, interface or mechanism. There is no fresh cold rebuild of the
+native ancestry, and no unconditional theorem. All PR1094 inherited
+assumptions remain.
