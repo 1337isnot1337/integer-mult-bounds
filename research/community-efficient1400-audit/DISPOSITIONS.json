@@ -19,15 +19,17 @@
       "current_head": "02c9e171c98b1b4de4d2107b0134cee4446e10e0",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/restoration-coalescing"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Restoration coalescing revision: reviewed the exact additive-model summed-defect criterion, nonzero-reader cancellation and retained-factorization counterexample. Gaussian-rational replay passes. The revised note explicitly charges descriptor composition and distinguishes finite N=8 tests from the general succinct-descriptor hypothesis; previous necessity and density-cost objections are corrected with predecessor credit. Scoped pass accounting only, not fixed-tape supplier admission or kappa improvement.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -687,15 +689,17 @@
       "current_head": "444e13cd04a4b1072bbe2470a3699c5eb9b96b08",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-anticipatory-native-prefix"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "T74 anticipatory grouped prefix: reviewed independent monomial/phase decoding and forward/dual chronology for the frozen PR2339 words. Exact replay and semantic regeneration pass, covering32768 active columns and untouched-role footprint, with24 rejection controls. Sharing K across the two additions halves this prefix's monomial applications128 to64;572 elementary primitive passes are separately priced. All five retained predecessor files match pinned Git sources. No complete native word, hosting or stronger kappa is admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1055,15 +1059,17 @@
       "current_head": "626ce8eddf5569d270a3422954f9a3ce90f16942",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-variable-frame-cap"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "T74 variable-frame cap: reviewed arbitrary binary subspace domains, quotient enumeration, anchor/warp-preserving contractions and exact min-sum elimination with directed moment bounds. Verified the rational packing dual and residual-width inventory. Optimized replay and isolated export/cache-corruption controls pass; all four inputs match pinned originals. The bound at0.0016972 concerns the fixed words, entrance/exit data and handoff maps, not a different scalar topology or supplier family.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1251,15 +1257,17 @@
       "current_head": "9429e68a3f6b4d153dd4deb27b00dd054d9fc8cd",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/pr2298-format-recovery-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "PR2298 conditional format/recovery audit: reviewed signed packing/extraction/carry, padded triangular CRT, named-slot transforms, chirp/twist identities and explicit sufficient error cutoff25 against the pinned outer proof. Exact finite controls and seventeen mutations pass. The audit supplies format and recovery evidence with inherited H2/U1-U5 callee, Gaussian-map and all-size assumptions retained; it does not certify the full multiplication theorem or change kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -2287,15 +2295,17 @@
       "current_head": "d7fa28209914f97f4f738b2eb26b19d0f3656024",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/e6-d5-gram-realisation-rigidity"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "E6/D5 realisation audit: reviewed exact tangent upper/lower matching over characteristic zero, the non-Gram D5 family, no-rank4 argument and written rank5 edge-supported normal form. Required42 checks pass, including exact boundary construction and negative controls. E6 rigidity is local; D5 floor20 is conditional on the explicitly retained PR2277 decoder lemmas and excludes hosting/restoration. Optional E8 replay was not rerun. No supplier or frontier change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3056,15 +3066,17 @@
       "current_head": "0709b0fb1ead100a7074378dce5a601922ff8dba",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-entrance-wrapper-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "T74 raised-entrance wrapper audit: reviewed phase-sensitive event binding and two independent exact kernels for48 providers on24 helpers. Both orientations and all512 columns, mutation and positive-equivalence controls pass, including optimized CLI. Eight retained source files match their pinned Git originals. The finite local normalization identity is admitted; whole-family nonaliasing, scalar restoration, spectator/window delivery and wrapper-end pricing remain inherited premises. Optional producer regeneration was not rerun; no full supplier or new kappa is admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
