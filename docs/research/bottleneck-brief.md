@@ -41,6 +41,9 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
 - **QQ16:** #2540 proposes a complete added local native decoder, with explicit
   output frames and a nontrivial invoice. Investigate a complete consumer,
   retention, movement or hosting obligation rather than rediscovering its inverse.
+  The [QQ16 observation-contract map](qq16-controller-scope-map.md) distinguishes
+  the earlier 252-pair catalogue, witness detection, intermediate-cut recovery
+  and final-record obstructions. Its six-contract scope predates #2540.
 - **Selected proof obligations:** refresh stock/precision/hosting handoffs and
   prove or falsify one specific unreviewed implication. Recomputing already
   checked headrooms is not new coverage.
