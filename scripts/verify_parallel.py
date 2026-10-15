@@ -45,8 +45,23 @@ def git(*args, cwd):
 def snapshot(template):
     """Copy every non-ignored working-tree file into a new one-commit repository."""
     names = git('ls-files', '-z', '--cached', '--others', '--exclude-standard', cwd=ROOT).split('\0')
+    names = list(filter(None, names))
+    # Preserving an absolute link preserves its alias into the original tree.
+    # Relative links are relocatable only when their full chain stays inside it.
+    # Check the whole inventory before writing even a partial snapshot.
+    root = ROOT.resolve()
+    for name in names:
+        source = ROOT/name
+        if source.is_symlink():
+            try:
+                target = Path(os.readlink(source))
+                contained = source.resolve().is_relative_to(root)
+            except (OSError, RuntimeError) as exc:
+                raise ValueError(f'Unresolvable snapshot symlink: {name}') from exc
+            if target.anchor or not contained:
+                raise ValueError(f'Non-relocatable snapshot symlink: {name}')
     copied = []
-    for name in filter(None, names):
+    for name in names:
         source = ROOT/name
         if source.is_file() or source.is_symlink():
             (template/name).parent.mkdir(parents=True, exist_ok=True)
