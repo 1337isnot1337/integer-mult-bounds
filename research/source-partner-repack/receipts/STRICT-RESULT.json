@@ -1,0 +1,217 @@
+{
+  "status": "PASS_STRICT_MIXED_T74_EXACT_FILL",
+  "kappa": "855426229412693/500000000000000000",
+  "kappa_decimal": "0.001710852458825386",
+  "steps": [
+    {
+      "name": "bind",
+      "seconds": 0.9184109630004968,
+      "exit_code": 0,
+      "log_sha256": "71f679ce5a123fb58397fd6852ba64ce3832fd20e81a096bfda9a1cf3237237a"
+    },
+    {
+      "name": "emit",
+      "seconds": 31.768406324000352,
+      "exit_code": 0,
+      "log_sha256": "50f45940691c5ac5e6ab989a0f0f7cbd2c30dae47366fa37efd162871f97e3a2"
+    },
+    {
+      "name": "audit",
+      "seconds": 111.38687175199993,
+      "exit_code": 0,
+      "log_sha256": "35a19bcf8b53a6856c462d8b3422e7c43d588f5025d7c2e30d9870c6775562ae"
+    },
+    {
+      "name": "invoice",
+      "seconds": 4.187014184999498,
+      "exit_code": 0,
+      "log_sha256": "f19044ed6212a3ce16158f10ddd163423a3af1198f64a9f06321290491949d3f"
+    },
+    {
+      "name": "assembly",
+      "seconds": 0.650203674000295,
+      "exit_code": 0,
+      "log_sha256": "694ae2bf50766b51cc55ec7ec76fc92dbff7231818439541f005b13ea82c77bb"
+    },
+    {
+      "name": "admission",
+      "seconds": 1.6298051079993456,
+      "exit_code": 0,
+      "log_sha256": "40f0c35552fb10f02288ae8d2c6b9f902050fb370c0a19b7b88c977d0d44dab1"
+    },
+    {
+      "name": "bit",
+      "seconds": 1.0697224470004585,
+      "exit_code": 0,
+      "log_sha256": "d54d260bf95bd8ae4ab8846314082b93b2e3d8f427eb35376691f2ce543a6b67"
+    },
+    {
+      "name": "independent",
+      "seconds": 5.040291999999681,
+      "exit_code": 0,
+      "log_sha256": "d2c176fb1b9778e4fb8b98b6272d5f713d676ea3fed84da20213eca036bb58fe"
+    }
+  ],
+  "independent": {
+    "status": "PASS_INDEPENDENT_VARIABLE_T_LITERAL_WINDOWS_CHARTS_PREFIX_ROW",
+    "roles": 281052,
+    "calls": 666,
+    "source_events_per_replica": 30,
+    "expanded_replica_events": 2220,
+    "bridge_events": 666,
+    "literal_windows": 1332,
+    "checked_whole_helper_widths": 281052,
+    "checked_busy_family_windows": 281052,
+    "orthogonal_port_bases": 112,
+    "actual_73_axis_charts": 3586,
+    "checked_slice_prefixes": 149184,
+    "local_profiles": {
+      "gauge44": {
+        "1": 2369,
+        "2": 632,
+        "4": 118,
+        "7": 8,
+        "3": 320,
+        "5": 26
+      },
+      "extra": {
+        "1": 2369,
+        "2": 632,
+        "4": 118,
+        "7": 8,
+        "3": 320,
+        "5": 26
+      }
+    },
+    "width_inventories": {
+      "gauge44": {
+        "9": 240,
+        "4": 33,
+        "8": 78,
+        "7": 62,
+        "5": 9
+      },
+      "extra": {
+        "9": 240,
+        "4": 33,
+        "8": 78,
+        "7": 62,
+        "5": 9
+      }
+    },
+    "idle": {
+      "1": 21987,
+      "3": 6659,
+      "5": 423,
+      "7": 81,
+      "8": 102,
+      "14": 2,
+      "16": 90,
+      "32": 25,
+      "48": 26492
+    },
+    "profile": {
+      "1": 1599741,
+      "2": 420912,
+      "3": 219779,
+      "4": 78588,
+      "5": 17739,
+      "7": 5409,
+      "8": 102,
+      "14": 2,
+      "16": 90,
+      "32": 25,
+      "48": 26492
+    },
+    "live": 66304,
+    "physical": 66814,
+    "rank_mass": 4816512,
+    "deficit": 23680,
+    "namespace": {
+      "data": [
+        0,
+        66304
+      ],
+      "centres": [
+        66304,
+        66312
+      ],
+      "tableau": [
+        66312,
+        66734
+      ],
+      "zero_buffers": [
+        66734,
+        66812
+      ],
+      "coefficient": [
+        66812,
+        66814
+      ]
+    },
+    "local_prefix_bits": 69,
+    "local_prefix_from_native_receipt": true,
+    "local_profile_recounted": true,
+    "prefix_formula": {
+      "local_scalar": 69,
+      "input_l2": 37,
+      "invocations": 666,
+      "bridges": 666,
+      "margin": 4
+    },
+    "prefix_bits": 1442,
+    "charged_prefix_bits": 2048,
+    "physical_stock_bits": 2644,
+    "physical_row_coefficient": 19545,
+    "row_limit": 20161,
+    "scope": "Finite role/window/chart and inherited prefix/row obligations. Requires separately admitted local supplier and emitted controller, complete finite invoice, exact moments and outer assembly; no all-size theorem is asserted.",
+    "controls_rejected": [
+      {
+        "name": "private_namespace_collision",
+        "reason": "private-namespace collision"
+      },
+      {
+        "name": "copy_replica_alias",
+        "reason": "role invocation time"
+      },
+      {
+        "name": "missing_whole_helper",
+        "reason": "complete helper role count"
+      },
+      {
+        "name": "split_whole_helper",
+        "reason": "complete helper role count"
+      },
+      {
+        "name": "truncated_helper_width",
+        "reason": "whole-helper residual width"
+      },
+      {
+        "name": "cross_idle_boundary",
+        "reason": "strict bridge-aware idle window"
+      },
+      {
+        "name": "cross_child_pending_axis_alias",
+        "reason": "overlapping pending children on one family"
+      },
+      {
+        "name": "wrong_provider_at_changed_call",
+        "reason": "whole-helper residual width"
+      }
+    ],
+    "disjoint_pending_child_axis_checks": 2016,
+    "provider_counts": {
+      "extra": 417,
+      "gauge44": 249
+    },
+    "input_sha256": {
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/PLAN.json": "04cea6b40e9cca9e57f864af5d3731dfb87df73100a1ea629a93e9c865baac5a",
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/DISPATCH.json": "fd8132ec8957b908ee6d871216848f18bafc6bd9304acd6185519ee26d97b1ca",
+      "${REPLAY_ROOT}/parent/layout/source_partners/candidate/OWNERS.json.gz": "7956b71bac3f216cad0d311e3c6ecc6fb320a816f86e9149e6d077e3be85e87f",
+      "${REPLAY_ROOT}/parent/layout/demotions1148-round43/baseline-replay/parent/t16/global8/base/split-centres/GLOBAL-TEMPLATE.json.gz": "ab8448de2036a23d9b55a196a8846512dc24fdf09855c1e0f0caa5b7a6965f7b",
+      "${REPLAY_ROOT}/native-base/local/CANONICAL-WORD.json.gz": "5cb67b30586a7b500ae93279f8a3ae5a202bc719df92fad8a0779ee2cb9b028e",
+      "${REPLAY_ROOT}/parent/layout/source_partners/native-extra/local/CANONICAL-WORD.json.gz": "9a6b9b1f71cc758ba1a33d133711f9f7a394804dcedcacb8ee5c027f561c77b4"
+    }
+  },
+  "scope": "Conditional finite construction only; unchanged exact-head PR1297 native providers explicitly reused; all inherited theorem obligations retained."
+}
