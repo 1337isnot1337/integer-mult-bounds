@@ -15,7 +15,7 @@ orientation and arithmetic, **not** a full circuit replay. Follow
 [selected-result.json](../../certificates/selected-result.json) if the values
 below become historical.
 
-At the revision-4 assessment on 2026-10-14, the reviewed conditional saving is
+At the revision-5 assessment on 2026-10-15, the reviewed conditional saving is
 κ = 0.001672660197076918. The complex primitive supports about 0.00167546 and
 the bit primitive about 0.00173343: the complex side binds. Under the retained
 limiting conversion `κ = a/(1+a)`, κ > .01 needs both effective primitive budgets
@@ -30,30 +30,34 @@ screened paid local profile and the stated model is capped within about 0.9% of 
 
 ## What to work on now
 
-The [review through #2027](community-efficient1000-review.md) leaves the selected
-κ unchanged. Prioritize one missing interface with a working local predecessor:
+The [review through #2027](community-efficient1000-review.md) remains a reviewed
+starting point. Newer pending follow-ups have moved the useful entry points;
+read [the current family record](research-family-status.md) before selecting a
+subproblem. Its claims are labelled by evidence status and exact source heads.
 
-- **P104 completion:** [#1991's native channel](../../research/p104-native-channel/README.md)
-  is checked. Design and price the missing `I-G/2` correction at a cut where
-  the required frames remain available. The channel alone is not a supplier.
-- **Joint-query controller:** [#1969's local words](../../research/joint-query/README.md)
-  are checked, but the fixed-first-pair selected-only controller has an explicit
-  lost-query witness. Test one changed first pair or paid extra observation
-  against that witness before designing a full schedule.
-- **Selected proof obligation:** [#1990's stock audit](../../research/selected-bootstrap-stock-audit/README.md)
-  leaves the actual selected reserve coefficient unknown. Derive one source-bound
-  stage envelope rather than recomputing the already checked headrooms.
+- **P104:** the checked #1991 channel has newer proposed physical correction
+  and dual constructions, including #2586. Focus on a still-missing endpoint,
+  routing/hosting or complete-cost obligation, or independently audit that claim.
+- **QQ16:** #2540 proposes a complete added local native decoder, with explicit
+  output frames and a nontrivial invoice. Investigate a complete consumer,
+  retention, movement or hosting obligation rather than rediscovering its inverse.
+- **Selected proof obligations:** refresh stock/precision/hosting handoffs and
+  prove or falsify one specific unreviewed implication. Recomputing already
+  checked headrooms is not new coverage.
 
-The new fixed-word frame bounds (#1995/#2013), Eisenstein additive pairing
-bound (#2017), and bounded register census (#1974) narrow particular search
-classes. Change a named premise before revisiting them. They do not exclude new
-words, different physical pricing or every register model.
+These pending proposals have not been independently replayed for this guidance
+update and are not new admitted suppliers. Pin and check the dependencies needed
+for your task. Scoped barriers still require a named changed hypothesis; none
+proves that every architecture is exhausted.
 
-The task catalogue keeps other construction and audit routes active. These
-three tasks are concrete leads, not evidence that a breakthrough is likely.
-A partial identity must still pay for correction, dirty restoration, hosting,
-address operations and recursion. Stop when even a favorable complete budget
-misses the declared target; preserve the useful obstruction or handoff.
+**A useful local result need not solve the whole construction.** But before a
+family expands into more searches or dependent implementations, its director
+must maintain the complete cost and boundary ledger. A missing consumer or
+restoration cost cannot be treated as zero. A passing optimistic relaxation
+keeps a proposal open; it does not establish a feasible supplier. The family
+record gives the expansion gate and the scope of the local product stopping
+result. Keep independent mechanisms active rather than sending everyone to one
+promising partial circuit.
 
 ## What a successful change must affect
 
