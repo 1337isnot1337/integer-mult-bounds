@@ -56,20 +56,20 @@
   "budget_minutes": 90,
   "stop_rule": "Stop searching at 2026-10-15T05:58:35Z; ship the Q1+Q2 rigidity certificate plus fully checked Q3 atoms; Q4 is a failed search (no larger certifiable sub-pool found), not a bound; jet failure is not evidence against (A); any cost < v atom would need two independent rank computations (none found: Python and C enumerations agree, all cost >= v+1).",
   "outcome": "negative-result",
-  "evidence": "verify.py (stdlib, ~20 s): (J1) on the pool has 2646 rows, 510 unknowns, F2 rank 266 (two implementations); the 245 explicit gauge/torus motions span the 244-dim solution space; delta'_t vanishes on it for all 30 harmonic lines (Corollary J fails for every homomorphism phi into every char-2 field); 30 explicit Lemma F flows (10-14 incidence edges, even); 41 orbits of inclusion-minimal immovable atoms (v=5..10, 8-17 free incidences), none CR2 over GF(2),GF(4),GF(8),GF(16), exact minimum cost v+1..v+5 (C enumall and independent Python agree); B-dependent jet passes on all 1301 atom minimisers; best certifiable sub-pool found 103 lines (cost(pool) >= 103 < Theorem U 106 < MCC 119). tied_min control is movable; corrupted flow/incidence/pool/phi and atom-deletion controls are rejected.",
+  "evidence": "verify.py (stdlib, ~60 s): (J1) on the pool has 2646 rows, 510 unknowns, F2 rank 266 (two implementations); the 245 explicit gauge/torus motions span the 244-dim solution space; delta'_t vanishes on it for all 30 harmonic lines (Corollary J fails for every homomorphism phi into every char-2 field); 30 explicit Lemma F flows (10-14 edges, even); exhaustive: no immovable sub-configuration with <= 3 lines, and the immovable 4-line ones form one orbit (12 members, cost 5 = v+1, not CR2); 42 orbits of inclusion-minimal immovable atoms (v=4..10, 8-17 free incidences), none CR2 over GF(2),GF(4),GF(8),GF(16), exact minimum cost v+1..v+5 (C enumall and independent Python agree); B-dependent jet passes on all 1305 atom minimisers; the pool and 17 atoms are rigid modulo gauge+torus, so the uniform order-m jet fails at every order (Proposition R, proved in README); the #2162 order-2 test fails on all 42 atoms; best certifiable sub-pool found 103 lines (cost(pool) >= 103 < Theorem U 106 < MCC 119). tied_min control is movable; corrupted flow/incidence/pool/phi, atom-deletion and order-2 controls are rejected.",
   "author": "thakrarsagar",
   "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5): code, search, and drafting; directed and submitted by thakrarsagar.",
   "open_questions": [
     {
-      "question": "Is there a short proof that every inclusion-minimal immovable unit atom of the pool has cost >= v+1 (all 41 found orbits do)?",
+      "question": "Is there a short proof that every inclusion-minimal immovable unit atom of the pool has cost >= v+1 (all 42 found orbits do)?",
       "why_it_matters": "It would be a structural replacement for the first-order jet exactly where Corollary J and CR2 both fail, and could extend to the whole pool.",
-      "first_step": "Classify the 5- and 6-line atoms (data/atoms.json) by their flow shapes and look for a rank argument on the unique minimiser of the v=5, f=8 atom.",
+      "first_step": "Explain the 4 minimisers of the exhaustive 4-line atom (data/atoms.json, v=4) by a rank argument, then the 5-line atoms.",
       "blocked_by": "No candidate argument yet; the B2 bound only gives v-1 on one-harmonic atoms."
     },
     {
       "question": "Do jets around other characteristic-2 base points (not the phi-collapse, e.g. GF(4) partial realisations with a different vanishing diagonal set) certify the pool or its atoms?",
       "why_it_matters": "The rigidity proved here is specific to the base point phi(P); Corollary J does not use other degenerations.",
-      "first_step": "For each 5-line atom, enumerate support-compatible incidence-preserving GF(4) base points and run the (J1)/(J2) test around each.",
+      "first_step": "For the 4-line atom, enumerate support-compatible incidence-preserving GF(4) base points and run the (J1)/(J2) test around each.",
       "blocked_by": "Needs a stated valued-realisation lemma for non-phi base points (VCR2 covers it, but the order bookkeeping must be redone)."
     },
     {
@@ -79,10 +79,10 @@
       "blocked_by": "Only greedy and 1-out/2-in swaps were tried; no upper bound on certifiable |S| is known beyond 120."
     },
     {
-      "question": "Does the order-2 (or higher) jet also fail on the atoms, as on jf0..2 (#2162 section 5)?",
-      "why_it_matters": "Distinguishes a first-order artefact from a genuine obstruction to every jet certificate on unit-world atoms.",
-      "first_step": "Port #2162 checks/e_jetfail.py order-2 quadratic test to the v=5 atoms.",
-      "blocked_by": "Not run in this session (time box)."
+      "question": "Do order >= 3 jets, or non-uniform VCR2 realisations around the phi-collapse, certify any of the 25 non-rigid atoms?",
+      "why_it_matters": "Order 2 fails on all atoms and the 17 rigid atoms fail at every uniform order (Proposition R); the non-rigid atoms are the only place the jet route at the collapse is still open.",
+      "first_step": "Extend lib/order2.py to order 3 on the smallest non-rigid atom.",
+      "blocked_by": "The order-3 system is quadratic in the order-1 jet; needs a Groebner-free formulation."
     }
   ]
 }

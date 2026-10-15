@@ -16,5 +16,5 @@ Apache-2.0 (`LICENSE`, identical to the repository root licence).
 
 ## Written for this package
 
-`lib/jet.py`, `lib/indep.py`, `scripts/make_data.py`, `verify.py`, `data/flows.json`, `data/atoms.json`,
+`lib/jet.py`, `lib/indep.py`, `lib/order2.py`, `scripts/make_data.py`, `verify.py`, `data/flows.json`, `data/atoms.json`,
 `data/q4.json`, `README.md`, `TASK.json`, `VERIFY.json`, `SOURCES.json`.

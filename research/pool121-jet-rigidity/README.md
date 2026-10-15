@@ -26,31 +26,41 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
 2. **Dual witnesses.** `data/flows.json` gives one explicit Lemma F flow for each harmonic line. Each flow is a set
    of 10–14 incidence edges whose (J1) rows sum to δ′_t. As Lemma F predicts, every flow has an even number of edges.
    Checking the flows needs no elimination.
-3. **Minimal immovable unit atoms (search).** The search runs seeded greedy single-pass deletion (seed 43). It starts
-   from each flow's support with 40 orders per harmonic line, and from the whole pool with 8 orders. Immovability is
-   upward closed, so each output is inclusion-minimal. The search found **41 orbits under the order-48
-   signed-permutation group** of inclusion-minimal sub-configurations on which Corollary J fails. They have
-   **v = 5 … 10** and 8–17 free incidences, and each has exactly one immovable harmonic line. Every one-line deletion
-   of an atom is jet-certifiable. For each atom:
-   - It is **not CR2** over GF(2), GF(4), GF(8) or GF(16) (exhaustive DFS, vendored #2162 `cr2.py`), so neither
-     char-2 certificate applies.
-   - Its exact minimum cost is **v + 1 to v + 5**. Two independent enumerations agree on both the minimum and the
-     number of minimisers: the vendored C `enumall.c` (generator) and a separate Python enumerator (`lib/indep.py`,
-     replayed in `verify.py`). So (A) holds on every atom with slack ≥ 1, and **no counterexample to (A) was found**.
-   - The **B-dependent** first-order jet (VCR2 with E = supp B, as in #2162 §5) passes on all **1301 of 1301** exact
-     minimisers.
+3. **Smallest immovable sub-configuration (exhaustive), and minimal atoms (search).**
+   - **Exact minimum (exhaustive).** No sub-configuration of the pool with at most 3 lines is jet-immovable. The
+     immovable 4-line sub-configurations form **exactly one orbit** under the order-48 signed-permutation group.
+     - *Method:* `lib/small.py` tests all 842 520 four-line subsets that contain one representative of each of the
+       3 orbits of harmonic lines. Immovability is upward closed and invariant under the group, so this covers all
+       subsets with at most 4 lines.
+     - *The orbit:* it has 12 members, `data/atoms.json` atom v = 4. The configuration has 8 free incidences, a
+       single Lemma F flow using all 8 incidences, and is not CR2 over GF(2), GF(4), GF(8) or GF(16). Its exact
+       minimum cost is **5 = v + 1**, with 4 minimisers:
 
-   The two 5-line atoms are much smaller than jf0..2 of #2162 (v = 9–11, non-unit). The smallest has exact minimum
-   cost 6 and a unique minimiser. Here is that atom (immovable line 4, flow
-   `(1,2),(1,3),(2,0),(2,3),(2,4),(3,0),(3,2),(4,2)`):
+     | t | p(t) | q(t) | p·q |
+     |---|---|---|---|
+     | 0 (harmonic, immovable) | (0,1,-1) | (0,1,-1) | 2 |
+     | 1 | (1,-1,-1) | (1,1,1) | -1 |
+     | 2 | (1,-1,0) | (1,0,1) | 1 |
+     | 3 | (1,0,-1) | (1,1,0) | 1 |
 
-   | t | p(t) | q(t) |
-   |---|---|---|
-   | 0 | (0,1,0) | (1,1,0) |
-   | 1 | (0,1,1) | (0,1,0) |
-   | 2 | (1,-1,-1) | (1,1,-1) |
-   | 3 | (1,-1,0) | (0,1,-1) |
-   | 4 | (1,0,1) | (1,0,1) |
+     It is the smallest jet-immovable unit configuration in the pool. It is far smaller than jf0..2 of #2162
+     (v = 9–11, non-unit).
+   - **Minimal atoms beyond size 4 (search).** The search runs seeded greedy single-pass deletion (seed 43). It
+     starts from each flow's support with 40 orders per harmonic line, and from the whole pool with 8 orders.
+     Immovability is upward closed, so each output is inclusion-minimal. Together with the exhaustive 4-line orbit,
+     the search found **42 orbits** of inclusion-minimal sub-configurations on which Corollary J fails. The greedy
+     passes alone did *not* reach the 4-line orbit; that gap is why the exhaustive check was added. The atoms have
+     **v = 4 … 10** and 8–17 free incidences, and each has exactly one immovable harmonic line. Every one-line
+     deletion of an atom is jet-certifiable.
+   - **Properties of every atom:**
+     - It is **not CR2** over GF(2), GF(4), GF(8) or GF(16) (exhaustive DFS, vendored #2162 `cr2.py`), so neither
+       char-2 certificate applies.
+     - Its exact minimum cost is **v + 1 to v + 5**. Two independent enumerations agree on both the minimum and the
+       number of minimisers: the vendored C `enumall.c` (generator) and a separate Python enumerator
+       (`lib/indep.py`, replayed in `verify.py`). So (A) holds on every atom with slack ≥ 1, and **no counterexample
+       to (A) was found**.
+     - The **B-dependent** first-order jet (VCR2 with E = supp B, as in #2162 §5) passes on all **1305 of 1305**
+       exact minimisers.
 
 4. **Q4, a time-boxed failed search.** Restricting an admissible B of the pool to S gives an admissible B for S, and
    each block rank can only drop. So cost(pool) ≥ cost(S) ≥ |S| for any Corollary-J-certifiable S. Greedy insertion
@@ -65,21 +75,58 @@ among the 13 projective vectors of {-1,0,1}^3 and p·q ≠ 0. The definition use
    statement:** the 91 non-harmonic lines are certifiable, but adding any single harmonic line to them makes that line
    immovable.
 
-**Reading.** On the pool, the first-order char-2 jet is blocked everywhere by small, local Lemma F flows of 5–10 lines.
+5. **Higher orders.**
+   - **Proposition R** (proved here, from G4): it rules out the uniform order-m version of Corollary J on the pool,
+     for every m ≥ 1. See the statement and proof below.
+   - The #2162 §5 order-2 test also fails on every atom, including the 25 that are not rigid. For the one immovable
+     line t of each atom, the order-2 diagonal Q_t(X1, Y1) = X1(t)·Y1(t) + Σ_{e∈Z_t} X1(t_e)·Y1(s_e) is
+     **identically zero** as a polynomial on the first-order solution space V. So for every jet whose incidences
+     vanish to order ≥ 3, the diagonal of t vanishes at order 2, over every field of characteristic 2, as for
+     jf0..2.
+   - 17 of the 42 atoms are rigid as well, including the 4-line one, so Proposition R covers them too.
+   - Orders ≥ 3 on the 25 non-rigid atoms were not tested.
+
+   **Proposition R.** Let a unit-world configuration be *rigid*: the (J1) solution space equals the span of the
+   gauge + torus motions. The pool is rigid by G4. Let K be a field of characteristic 2, and let
+   P~(t) = φP(t) + Σ_{k≥1} ε^k X_k(t) and Q~(s) = φQ(s) + Σ_{k≥1} ε^k Y_k(s) be support-compatible over K[[ε]].
+   If every incidence product P~(t)·Q~(s) vanishes to order ≥ m + 1, then every harmonic diagonal P~(t)·Q~(t) also
+   vanishes to order ≥ m + 1.
+
+   In particular, no jet of any order m has all incidences of order ≥ m + 1 and all harmonic diagonals of order
+   ≤ m. That is the uniform order-m form of Corollary J.
+
+   *Proof.* Induct on k = 1, …, m, assuming X_i = Y_i = 0 for i < k. The order-k coefficient of every incidence is
+   then A_e(X_k, Y_k), and it must vanish. So (X_k, Y_k) lies in the solution space over K, which is the K-span of
+   the F2 solutions, which is gauge + torus. Write X_k(t) = c_t φP(t) + a∘φP(t) and Y_k(s) = d_s φQ(s) + a∘φQ(s).
+   Now apply three changes:
+   - replace P~(t) by (1 + ε^k c_t)^{-1} P~(t);
+   - replace Q~(s) by (1 + ε^k d_s)^{-1} Q~(s);
+   - replace each coordinate p_j by (1 + ε^k a_j)^{-1} p_j and q_j by (1 + ε^k a_j) q_j.
+
+   The torus change preserves every product P~(t)·Q~(s) exactly. The scalings multiply each product by a unit. So
+   all valuations are unchanged, as are the supports and the lower-order terms. In characteristic 2 the new
+   order-k terms are zero. After step m, P~ = φP + O(ε^{m+1}) and Q~ = φQ + O(ε^{m+1}). Each harmonic diagonal is
+   then φP(t)·φQ(t) + O(ε^{m+1}) = |D(t)| + O(ε^{m+1}) = O(ε^{m+1}). ∎
+
+   Proposition R does **not** exclude non-uniform valued realisations around the collapse, as allowed by Lemma VCR2
+   with different orders on different lines. It only implies that the minimum harmonic-diagonal order is at least
+   the minimum incidence order.
+
+**Reading.** On the pool, the first-order char-2 jet is blocked everywhere by small, local Lemma F flows on 4–10 lines.
 It is not blocked by a global phenomenon. These atoms still satisfy (A) with slack, so the failure belongs to the
 certificate, not to (A). Jet failure is **not** evidence against (A).
 
 ## Reproduce
 
 ```sh
-python3 -I -B research/pool121-jet-rigidity/verify.py      # stdlib only, about 20 s; no compiler needed
+python3 -I -B research/pool121-jet-rigidity/verify.py      # stdlib only, about 55 s; no compiler needed
 ```
 
 Expected output: every line starts with `PASS`, followed by the atom table and the final line
-`PASS pool121 jet rigidity: (J1) rank 266 / solution dim 244 (= gauge + torus) / 30 of 30 harmonic lines immovable with Lemma F flows; 41 minimal immovable atom orbits (v 5..10), all non-CR2 (GF(2..16)) with exact min cost >= v + 1; Q4 search best certifiable S = 103 < 106 <= 119`.
+`PASS pool121 jet rigidity: (J1) rank 266 / solution dim 244 (= gauge + torus) / 30 of 30 harmonic lines immovable with Lemma F flows; 42 minimal immovable atom orbits (v 4..10), all non-CR2 (GF(2..16)) with exact min cost >= v + 1, order-2 jets fail on all; Q4 search best certifiable S = 103 < 106 <= 119`.
 The exit code is 0. Any failed check prints `FAIL` and exits 1.
 
-To regenerate the data (needs `cc`; about 25 s; deterministic for seed 43):
+To regenerate the data (needs `cc`; about 30 s; deterministic for seed 43):
 `TMPDIR=/some/tmp python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py`.
 
 **Checks** (`verify.py`):
@@ -89,8 +136,11 @@ To regenerate the data (needs `cc`; about 25 s; deterministic for seed 43):
   leading bit. Implementation B (`lib/indep.py`) does sparse-set Markowitz elimination and does not import A.
 - G4: the gauge + torus dimension identity and immovability.
 - G5: the flows.
-- G6: the atoms: minimality, CR2 DFS re-run (164 runs), and exact cost recomputed in Python.
+- G6: the atoms: minimality, CR2 DFS re-run (168 runs), and exact cost recomputed in Python.
 - G9: B-dependent jets on the minimisers.
+- G10: an explicit nullspace and rigidity. The pool is rigid, and 17 of the 42 atoms are rigid.
+- G11: the order-2 test, with `lib/order2.py`. It is checked on all 42 atoms and on all 30 lines of the pool.
+- G12: the exhaustive 4-line check.
 - G7: Q4 and the exact non-harmonic statement.
 - G8: positive control. `tied_min` (#2111) consists of 12 pool lines, all of them movable, so Corollary J applies,
   as #2162 Theorem T′ states.
@@ -101,6 +151,8 @@ To regenerate the data (needs `cc`; about 25 s; deterministic for seed 43):
 - N2: a corrupted pool line. This changes the (J1) rank from 266 to 265.
 - N3: a non-homomorphic ψ(−1) = ω ∈ GF(4). It breaks all 2646 order-0 incidences.
 - N4: an atom with one line deleted becomes jet-movable.
+- N5: if the X1(t)·Y1(t) term is dropped, the order-2 test sees a nonzero form on all 42 atoms. This shows the
+  test can detect a nonzero form.
 
 ## Scope, inherited assumptions and unresolved obligations
 
@@ -109,10 +161,14 @@ To regenerate the data (needs `cc`; about 25 s; deterministic for seed 43):
   either. The vendored model code for the cost function and admissibility is #2111/#2162's `enumall.c`, used as
   written. `lib/indep.py` re-implements the cost independently.
 - The rigidity statement covers **Corollary J as stated**: first-order jets at the φ-collapse base point, for every
-  homomorphism φ and every characteristic-2 field. It says nothing about jets around other characteristic-2 base
-  points, about higher-order jets, or about other certificates (MCC, Theorem U, B-dependent tests).
-- Atoms come from a **search**. They are inclusion-minimal but not of minimum size, and atoms the greedy passes did
-  not reach are not excluded. "Not CR2" means that the DFS was exhaustive over GF(2), GF(4), GF(8) and GF(16) only;
+  homomorphism φ and every characteristic-2 field. Higher orders are covered only by Proposition R, which is the uniform
+  order-m form at the same base point, and by the order-2 test on the atoms. Nothing here covers non-uniform VCR2
+  realisations, jets around other characteristic-2 base points, or other certificates (MCC, Theorem U,
+  B-dependent tests).
+- Proposition R and the order-2 reading of G11 are proved in this README. They are not machine-checked; the scripts
+  check their finite premises only.
+- Atoms with more than 4 lines come from a **search**. They are inclusion-minimal but not of minimum size, and atoms
+  the greedy passes did not reach are not excluded. Only the size ≤ 4 statement is exhaustive. "Not CR2" means that the DFS was exhaustive over GF(2), GF(4), GF(8) and GF(16) only;
   larger fields were not tried.
 - Q4 is a **failed search**, not an upper bound on what the jet method can certify on sub-pools.
 - Finite exact replays are not formal proofs. The rigidity claim (item 1) is a complete finite certificate: a rank
@@ -124,16 +180,18 @@ The structured versions are in `TASK.json`.
 
 1. **A uniform cost ≥ v + 1 argument for minimal immovable unit atoms.** *Why it matters:* it would replace the jet
    exactly where both char-2 certificates fail. *First step:* classify the 5- and 6-line atoms by flow shape and
-   explain the unique minimiser of the smallest atom. *Blocked by:* no candidate argument; B2 gives only v − 1.
+   explain the 4 minimisers of the 4-line atom. *Blocked by:* no candidate argument; B2 gives only v − 1.
 2. **Jets around other char-2 base points**, such as partial GF(4) realisations with a different vanishing diagonal
    set. *Why it matters:* the rigidity here is specific to the φ-collapse. *First step:* enumerate the
-   incidence-preserving GF(4) base points of the 5-line atoms and run (J1)/(J2) around each. *Blocked by:* the order
+   incidence-preserving GF(4) base points of the 4-line atom and run (J1)/(J2) around each. *Blocked by:* the order
    bookkeeping of VCR2 for such base points must be written out.
 3. **The largest certifiable sub-pool.** *Why it matters:* reaching 106 would recover Theorem U by an independent
    route, though not 119. *First step:* exact search over unions of point-classes modulo symmetry. *Blocked by:* only
    greedy and 1-out/2-in swaps were tried.
-4. **Do order-2 jets fail on the atoms too**, as they do on jf0..2? *First step:* port #2162 `checks/e_jetfail.py`
-   to the 5-line atoms. *Blocked by:* not run in this session.
+4. **Orders ≥ 3, and non-uniform VCR2, on the 25 non-rigid atoms.** Order 2 fails on all atoms, and the 17 rigid
+   ones fail at every uniform order by Proposition R. *First step:* extend `lib/order2.py` to order 3 on the
+   smallest non-rigid atom. *Blocked by:* the order-3 system is quadratic in the order-1 jet; this needs a
+   Gröbner-free formulation.
 
 ## Provenance and credit
 

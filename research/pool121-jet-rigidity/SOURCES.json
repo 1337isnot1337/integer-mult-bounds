@@ -66,7 +66,7 @@
  ],
  "generated": {
   "data/flows.json": "6b3b2cbd76b971f630326c8c0860a91cd4de8d61f1b76a208116e8f753673279",
-  "data/atoms.json": "e2b7cf756a82124400a864f4f1c6eead33d58dd62bb96ff8cf02a48a240e0ddb",
+  "data/atoms.json": "e087954e069103ff1c4dab9bead8da89df15a6c64cef59f04b1e82ae71e975ce",
   "data/q4.json": "3ddb315a9368495ae44518012b129435e982fff750007cad774cc27abcadde6a"
  },
  "generator": "python3 -I -B research/pool121-jet-rigidity/scripts/make_data.py (seed 43; needs cc)"

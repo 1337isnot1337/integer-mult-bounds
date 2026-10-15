@@ -9,6 +9,8 @@ sys.path.insert(0, os.path.join(HERE, 'lib'))
 import jet as A  # implementation A (bitmask)  # noqa: E402
 import indep as B  # implementation B (sparse sets), does not import jet  # noqa: E402
 import cr2  # vendored from #2162  # noqa: E402
+import order2 as O  # rigidity modulo trivial motions, #2162 order-2 test  # noqa: E402
+import small  # exhaustive 4-line check  # noqa: E402
 
 FAIL = []
 
@@ -145,6 +147,39 @@ def main():
     check('G9 B-dependent first-order jet (#2162 VCR2 on E = supp B, as #2162 section 5) passes on every exact '
           'minimiser of every atom (%d of %d)' % (bd_total[1], bd_total[0]), bd_total[0] == bd_total[1] > 0)
 
+    # G12: exhaustive smallest immovable sub-configurations
+    reps, tested, bad = small.check_small(4)
+    ex = at['meta']['exhaustive_size4']
+    four = [a for a in atoms if a['v'] == 4]
+    orbit4 = {A.canon([PA[i] for i in S]) for S in bad}
+    harm_cover = len({pm[h] for h in reps for pm in small.harmonic_orbit_reps(PA, JA.harm)[1]}) == 30
+    check('G12 exhaustive: all %d 4-subsets of the pool through one representative of each of the %d harmonic-line '
+          'orbits tested; immovable ones: %s, one orbit = the stored v=4 atom; so no sub-configuration with <= 3 lines '
+          'is immovable and the minimum size of a jet-immovable sub-configuration of the pool is 4' % (
+              tested, len(reps), [list(b) for b in bad]),
+          harm_cover and tested == ex['subsets_tested'] and [list(b) for b in bad] == ex['immovable'] and
+          len(four) == 1 and orbit4 == {A.canon(tup(four[0]['lines']))})
+
+    # G10/G11: rigidity modulo trivial motions (premise of Proposition R) and the #2162 section-5 order-2 test
+    V = O.nullspace(rowsA, JA.n)
+    check('G10 explicit F2 nullspace of (J1) on the pool: %d vectors, independent, all satisfy (J1)' % len(V),
+          len(V) == 244 == A.rank_of(V) and all(bin(r & x).count('1') % 2 == 0 for x in V for r in rowsA))
+    rig, o2, ctl = 0, 0, 0
+    for a in atoms:
+        Ja = A.Jet(tup(a['lines']))
+        t = Ja.immovable()[0]
+        rig += O.rigid(Ja)
+        o2 += O.order2_vanishes(Ja, t)[0]
+        ctl += not O.order2_vanishes(Ja, t, drop_diagonal=True)[0]
+    check('G10 rigid atoms (solution space of (J1) = gauge + torus): %d of %d; Proposition R applies to these and to '
+          'the pool' % (rig, len(atoms)), rig == 17 and O.rigid(JA))
+    check('G11 order-2 test (#2162 section 5): Q_t vanishes identically on V for the immovable line of every atom '
+          '(%d of %d), so order-2 jets fail on all atoms' % (o2, len(atoms)), o2 == len(atoms))
+    check('N5 control: the same test with the X1(t).Y1(t) term dropped sees a nonzero form on %d of %d atoms'
+          % (ctl, len(atoms)), ctl == len(atoms))
+    check('G11 order-2 test on the pool: Q_t vanishes identically on V for all 30 harmonic lines (as Proposition R '
+          'predicts)', all(O.order2_vanishes(JA, t, V=V)[0] for t in JA.harm))
+
     # G7: Q4 (search) and the exact all-non-harmonic statement
     q4 = load('q4.json')
     S = q4['best']
@@ -198,7 +233,7 @@ def main():
         sys.exit(1)
     print('PASS pool121 jet rigidity: (J1) rank 266 / solution dim 244 (= gauge + torus) / 30 of 30 harmonic lines '
           'immovable with Lemma F flows; %d minimal immovable atom orbits (v %d..%d), all non-CR2 (GF(2..16)) with '
-          'exact min cost >= v + 1; Q4 search best certifiable S = %d < 106 <= 119' % (
+          'exact min cost >= v + 1, order-2 jets fail on all; Q4 search best certifiable S = %d < 106 <= 119' % (
               len(atoms), min(r[0] for r in rows), max(r[0] for r in rows), len(S)))
 
 

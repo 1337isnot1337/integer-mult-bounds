@@ -3,7 +3,8 @@ Usage: python3 -I -B scripts/make_data.py [--orders N] [--pool-orders M]
 Search domain: inclusion-minimal sub-configurations S of the 121-line pool on which Corollary J fails
 (some harmonic line of S is immovable for (J1) of S). Seeded greedy single-pass line deletion (seed 43), starting
 (i) from the lines touched by a Lemma F flow of each harmonic line of the pool (N orders each) and
-(ii) from the whole pool (M orders). Orbits are taken modulo the order-48 signed-permutation group.
+(ii) from the whole pool (M orders); plus (iii) the exhaustive list of immovable 4-line sub-configurations
+(lib/small.py, which also shows that none has <= 3 lines). Orbits are taken modulo the order-48 signed-permutation group.
 A greedy pass yields an inclusion-minimal set because immovability is upward closed (a flow of S is a flow of every
 S' containing S). This is a search: atoms not reached are not excluded.
 Written for this package (thakrarsagar, with AI assistance from Claude Opus 5.5). Apache-2.0."""
@@ -73,6 +74,11 @@ def main():
         A = greedy(S, rng)
         c = canon([P[i] for i in A])
         atoms.setdefault(c, A)
+    # exhaustive part: all immovable 4-line sub-configurations (lib/small.py); none exist with <= 3 lines
+    from small import check_small
+    reps, tested, bad = check_small(4)
+    for S in bad:
+        atoms.setdefault(canon([P[i] for i in S]), sorted(S))
     binary = os.path.join(os.environ.get('TMPDIR', '/tmp'), 'enumall_pool121')
     subprocess.run(['cc', '-O2', '-o', binary, os.path.join(HERE, 'c', 'enumall.c')], check=True)
     out = []
@@ -103,6 +109,7 @@ def main():
         print(rec['v'], rec['free_incidences'], imm, rec['orbit_size'], rec.get('min_cost'),
               rec['cr2'] if isinstance(rec['cr2'], str) else 'CR2 GF(2^%d)' % rec['cr2']['k'], flush=True)
     meta = {'seed': 43, 'orders_per_flow_start': ORDERS, 'pool_orders': PORDERS, 'starts': len(starts),
+            'exhaustive_size4': {'harmonic_orbit_reps': reps, 'subsets_tested': tested, 'immovable': [list(b) for b in bad]},
             'distinct_orbits': len(out), 'enum_cap_free_incidences': ENUM_CAP}
     with open(os.path.join(HERE, 'data', 'flows.json'), 'w') as f:
         json.dump({'pool_rank': J.eliminate(), 'flows': flows}, f, separators=(',', ':'))
