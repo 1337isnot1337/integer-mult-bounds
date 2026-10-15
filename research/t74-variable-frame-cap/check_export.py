@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Verify source-only read-only replay, evidence binding and no-clobber."""
 
+import importlib.util
+import py_compile
+import struct
 import hashlib
 import json
 from pathlib import Path
@@ -35,6 +38,40 @@ def replay(root, *args):
     )
 
 
+def check_bytecode_caches(root):
+    """Cached code must not replace the authenticated arithmetic source."""
+    source = root / 'vendor/fine_moment.py'
+    original = source.read_bytes()
+    stamp = source.stat()
+    cache_dir = source.parent / '__pycache__'
+    # This root is a new source-only export: no existing cache may be removed.
+    need(not cache_dir.exists(), 'unexpected cache in fresh export')
+    with tempfile.TemporaryDirectory(prefix='t74-cache-control-') as tmp:
+        wrong_source = Path(tmp) / 'wrong.py'
+        wrong_source.write_text("raise RuntimeError('UNAUTHENTICATED_BYTECODE_EXECUTED')\n")
+        for mode in (py_compile.PycInvalidationMode.TIMESTAMP,
+                     py_compile.PycInvalidationMode.UNCHECKED_HASH):
+            for optimized in (False, True):
+                cache = Path(importlib.util.cache_from_source(
+                    str(source), optimization='1' if optimized else ''))
+                cache.parent.mkdir(exist_ok=True)
+                py_compile.compile(str(wrong_source), cfile=str(cache), dfile=str(source),
+                                   doraise=True, optimize=int(optimized), invalidation_mode=mode)
+                if mode == py_compile.PycInvalidationMode.TIMESTAMP:
+                    data = bytearray(cache.read_bytes())
+                    data[8:16] = struct.pack('<II', int(stamp.st_mtime) & 0xffffffff,
+                                            stamp.st_size & 0xffffffff)
+                    cache.write_bytes(data)
+                before = snapshot(root)
+                command = [sys.executable, '-I'] + (['-O'] if optimized else [])
+                result = subprocess.run(command + ['-B', str(root / 'verify.py')],
+                                        cwd=root.parent, capture_output=True, text=True, timeout=30)
+                need(result.returncode == 0, 'cached code replaced pinned source: ' + result.stderr)
+                need(snapshot(root) == before, 'cache control changed source or cached bytes')
+                need(source.read_bytes() == original, 'cache control changed pinned source')
+    shutil.rmtree(cache_dir)
+
+
 def main():
     with tempfile.TemporaryDirectory(prefix="t74-variable-frame-") as temp:
         dst = Path(temp) / "standalone"
@@ -59,6 +96,8 @@ def main():
             "overwrite accepted",
         )
         need(snapshot(dst) == before, "overwrite changed receipt")
+        check_bytecode_caches(dst)
+        need(snapshot(dst) == before, 'bytecode controls changed export')
         source = dst / "vendor/fine_moment.py"
         old = source.read_bytes()
         source.write_bytes(old + b" ")
@@ -77,7 +116,7 @@ def main():
             result.returncode != 0 and "receipt mismatch" in result.stderr,
             "altered expected result accepted",
         )
-    print("PASS_T74_VARIABLE_FRAME_EXPORT controls 4")
+    print("PASS_T74_VARIABLE_FRAME_EXPORT controls 8")
 
 
 if __name__ == "__main__":

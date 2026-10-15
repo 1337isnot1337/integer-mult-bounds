@@ -161,7 +161,7 @@ python3 -I -B research/t74-variable-frame-cap/check_export.py
 ```
 
 Expected: `PASS_T74_VARIABLE_FRAME_CAP 4243/2500000 ... max_table_states 1953125`
-and `PASS_T74_VARIABLE_FRAME_EXPORT controls 4`.
+and `PASS_T74_VARIABLE_FRAME_EXPORT controls 8`.
 
 The repository's registered runner uses the exact dependency pin:
 
@@ -178,6 +178,17 @@ The original plan is gzip-compressed locally with its uncompressed upstream
 hash retained. `.gitattributes` preserves the directed engine's original CRLFs.
 The finite verifier needs no Git history; the repository metadata checker needs
 history for `SOURCES.json`'s historical task/selected-result provenance.
+
+The arithmetic loader executes the exact source bytes checked against
+`INPUTS.json`, without consulting Python bytecode caches. `-B` alone suppresses
+cache writes but still permits cache reads. Four export controls install
+conflicting timestamp or unchecked-hash caches and replay in both normal and
+optimized mode; every run must retain the original receipt and leave the export
+unchanged. This repairs the same source/cache distinction identified in the
+related [PR2766](https://github.com/CrocSwap/integer-mult-bounds/pull/2766).
+[PR2553](https://github.com/CrocSwap/integer-mult-bounds/pull/2553) isolates the
+registered runner's cache namespace; this fix also covers direct verifier calls.
+The arithmetic source, inputs, dual and expected mathematical receipt are unchanged.
 
 ## Open next questions
 

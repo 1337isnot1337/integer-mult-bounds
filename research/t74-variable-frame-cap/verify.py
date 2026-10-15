@@ -26,12 +26,13 @@ def canonical(x):
     return json.dumps(json.loads(json.dumps(x)), sort_keys=True, separators=(",", ":"))
 
 
-def engine():
+def engine(source_bytes):
     s = importlib.util.spec_from_file_location(
         "fine_moment", ROOT / "vendor/fine_moment.py"
     )
     m = importlib.util.module_from_spec(s)
-    s.loader.exec_module(m)
+    # Use the exact authenticated bytes; -B does not prevent reading .pyc files.
+    exec(compile(source_bytes, str(ROOT / "vendor/fine_moment.py"), "exec"), m.__dict__)
     m.SH = 256
     m.GRID = 1 << 256
     m.LOG_TERMS = 100
@@ -235,12 +236,14 @@ def controls(cost):
 
 def run():
     pins = read(ROOT / "INPUTS.json")
+    verified = {}
     for p in pins["sources"]:
         data = (ROOT / p["path"]).read_bytes()
         F.need(
             hashlib.sha256(data).hexdigest() == p["sha256"],
             "source digest: " + p["path"],
         )
+        verified[p["path"]] = data
         if "uncompressed_sha256" in p:
             F.need(
                 hashlib.sha256(gzip.decompress(data)).hexdigest()
@@ -250,7 +253,7 @@ def run():
     dual = read(ROOT / "DUAL.json")
     b = Q(dual["threshold"])
     F.need(b == Q(4243, 2500000), "threshold")
-    e = engine()
+    e = engine(verified["vendor/fine_moment.py"])
     flo = {0: Q(0)}
     for r in range(1, 49):
         flo[r] = (73 * e.moment(73, 1, [(r, 1)], b)[0] - r) / b
