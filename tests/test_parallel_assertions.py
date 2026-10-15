@@ -4,6 +4,7 @@ import io
 import os
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -14,6 +15,25 @@ import verify_parallel
 
 
 class ParallelAssertionChecks(unittest.TestCase):
+    def test_direct_replay_guard_survives_optimized_interpreters(self):
+        scripts = str(Path(__file__).resolve().parents[1] / 'scripts')
+        probe = (
+            'import sys\nsys.path.insert(0, ' + repr(scripts) + ')\n'
+            'import verify_complex741_parallel as par\n'
+            'class SourceTrap:\n'
+            ' def read_text(self, **kwargs): raise RuntimeError("SOURCE_REACHED")\n'
+            'par.VERIFY=SourceTrap()\n'
+            'sys.argv=["replay", "--work", "unused-work"]\npar.main()\n')
+        for flags in ([], ['-O'], ['-OO']):
+            with self.subTest(flags=flags):
+                result = subprocess.run([sys.executable, *flags, '-c', probe], capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                if flags:
+                    self.assertIn('Assertions are required', result.stderr)
+                    self.assertNotIn('SOURCE_REACHED', result.stderr)
+                else:
+                    self.assertIn('SOURCE_REACHED', result.stderr)
+
     def test_inherited_optimization_cannot_hide_direct_or_nested_failure(self):
         nested = ('import subprocess,sys; '
                   'sys.exit(subprocess.run([sys.executable,"-c",'
