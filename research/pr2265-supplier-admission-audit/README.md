@@ -31,20 +31,34 @@ class each:
 
 | Class | Count | Premises |
 |---|---:|---|
-| COVERED (checked by #2265 or a PR2260 check it reruns; independently re-confirmed here) | 9 | A2 restoration replay, A3 hosting 72x436, B2 C_0<2^210000, B3 row 16467<20161, C1 bit endpoint, D1 73²>2·48², D2 W/mass/deficit, D3 q<a_eff<b<c, D4 endpoint and kappa |
-| TRUE-unencoded (true under an independent exact check; not checked by #2265 or a check it reruns) | 1 | A1 call closure |
+| COVERED (checked by #2265 or a PR2260 check it reruns; independently re-confirmed here) | 9 | A2 restoration replay, A3 hosting 72x436 and owner rows, B2 C_0<2^210000, B3 row 16467<20161, C1 bit endpoint, D1 73²>2·48², D2 W/mass/deficit, D3 q<a_eff<b<c, D4 endpoint and kappa |
+| TRUE-unencoded (true under an independent exact check; not checked by #2265 or a check it reruns) | 1 | A1 call closure, namespace/metadata part only: warps = WITNESS pairs, public arrays = namespace minus removed aliases, owned arrays outside the namespace, handoffs exactly on the borrowed sources |
 | INHERITED-traced (statement located; interface premise not checkable from finite data here) | 5 | A4 serialization windows, B1 semantic guard units, C2 equal-chunk interchange, C3 C_1=1, D5 endpoint admissibility (surcharge envelope or PR559 license) |
+| MISSING-PROOF / FALSE | 0 | none |
 
 A2, B2 and B3 are COVERED because #2265's `verify.py` reruns PR2260's `local/verify.py`
 (both restoration replays) and `local/invoice.py` (#2265 `verify.py:43`, `:68-69`).
 This audit re-confirms them with independent code.
-| MISSING-PROOF / FALSE | 0 | none |
+
+A1 is only partly new. The same rerun already enforces event closure: PR2260's
+`local/check_trace.py` keeps state only for the trace's `active_registers` and the arrays its
+own COPY/zero-buffer events create, so an event on any other register fails `local/verify.py`.
+That script also requires exactly 76 created private arrays, all cleared by the postlude
+(`local/verify.py:91-92`), and pins 660 public columns and 76 private fields in
+`expected-local.json`. Rank-0 handoffs are enforced at `check_trace.py:75`. The owner-row facts
+are checked by PR2260's `owners/verify.py` (`:87`, `:88-89`, `:95`, `:106`, `:113`), which #2265
+reruns at `verify.py:44`; they are listed under A3. What these checks do not bind is the
+namespace. `check_trace` takes `active_registers` as given and accepts, for example, the forward
+trace with COPY register 1364 renamed to removed alias 597. The shipped trace is hash-pinned, so
+this concerns what the replay checks, not the shipped data. Only the namespace/metadata sub-facts
+are TRUE-unencoded (INVENTORY `class_scope`, `covered_part`).
 
 What the independent checks establish:
 
-- **A1, call closure.** Both orientations of the literal local word were checked: 21,065 forward and 21,381 backward events. Every event touches only the call's 660 public arrays (224 data, 436 helpers) and 76 owned private arrays. No event references any of the 44 removed aliases.
-  - All 44 borrowed sources are public inputs of the same call. Handoffs occur exactly at those sources, with paid rank 0.
-  - All 31,392 owner rows lie in inherited pending children of the same hosted parent. Within each child the rows form disjoint exact prefixes, and no row uses an active data family of its own call.
+- **A1, call closure.** Both orientations of the literal local word were checked: 21,065 forward and 21,381 backward events. Every event touches only the call's 660 public arrays (224 data, 436 helpers) and 76 owned private arrays; PR2260's replay already enforces this. Checked only here:
+  - the 44 warps equal the 44 pairs of PR2260's `local/inputs/WITNESS.json` (a selected subset of PR2226's witness);
+  - the public arrays are exactly the original 704-register namespace minus the 44 removed aliases, and the 76 owned private arrays lie outside that namespace, so no event references a removed alias;
+  - all 44 borrowed sources are public inputs of the same call, and handoffs occur exactly once at each of them, with paid rank 0 in the WITNESS and warp metadata.
 - **A2, restoration.** An exact replay over a free group of reference-change symbols with rational coefficients was written for this audit. It starts every public array as an independent label, so arbitrary dirty contents are covered.
   - In both orientations, all 660 columns end at the declared normalized shear and all private arrays end at zero.
   - The paid profile is {1:2424,2:418,3:429,4:141,5:42,8:8}.
@@ -52,6 +66,7 @@ What the independent checks establish:
 - **A3/D2, owner recount.** The pending children were reconstructed from the hosted parent's pooled blocks plus its idle residuals: 16,128 children with rank mass 387,072. The new owners host 254,088, leaving 132,984.
   - The residual histogram {1:1724,3:20,5:1469,6:18,7:494,32:11,39:7,48:2493} reproduces PR2260's EXPECTED and its PROOF.md partition.
   - 72·local + residual equals the SPEC profile, with mass 520,704 and deficit 2,560.
+  - All 31,392 owner rows lie in inherited pending children of the same hosted parent. Within each child the rows form disjoint exact prefixes, and no row uses an active data family of its own call. PR2260's `owners/verify.py` checks the same facts.
 - **B2/B3, finite constants.** The values were recomputed from the retained formulas: 7745 physical families, stock bit length 2641, row 16467 < 20161, and 200012 required C_0 bits. The |O(2k+1,2)| formula was checked by brute force for n = 3 and 5.
 - **C1, bit endpoint.** c equals PR2260 BIT-EXPECTED, which is byte-identical to the base `research/e8-bit-p111-tuned/tune/EXPECTED.json`. The conservative bit moment at c is 1 − 1.599e-24.
 - **D3/D4, endpoint and ordering.** The moments were evaluated with 320-digit correctly rounded decimal ln/exp, with error below 1e-316:
@@ -76,7 +91,7 @@ What the independent checks establish:
    - The same mixed readings bind the selected #1094 equally or more tightly: its row 16469 would need lambda ≤ 4, and its 397-bit prefix with the 37-bit conversion scaled would need lambda ≤ 4. `verify.py` checks all five thresholds exactly.
    - The outer consumes 20161 as a fixed degree gap (PR2260 `PROOF.md:104-105`). For #2265 the PR1673 outer needs only an O(g) supplier guard constant (review, lines 73–78).
 3. **Identical invoice fields are explained, not copied.** PR2260's physical_stock_bits 2641, row 16467 and required_C0_bits 200012 equal direct-delivery504's exactly. The reason is that both stocks (7682 and 7745 families) have the same bit length after multiplying by |O(73,2)|, and the C_0 field is dominated by 2^100000.
-4. **Endpoint admissibility is a disjunction (D5).** The bad-residue surcharge only lowers C, and #2265 also certifies the native moment below one at C (1 − 8.39e-12). C is therefore admissible if *either* the retained envelope 32 m ΣH / 10^16 W is an adequate bad-residue bound for the PR2260 cover, *or* the PR559 native-complex license applies to it; the selected lineage uses that license (compare `research/audit-frontier890-endpoint-seed73/AUDIT.md` F3–F5). Neither disjunct is proved for the PR2260 cover; it is inherited. The comment "only conditionally portable to the new cover" in the engine PR2260 vendors (base `research/frame-domain-ceiling/engines/moment.py:62`) refers to that package's cover, not to PR2260's.
+4. **Endpoint admissibility is a disjunction (D5).** The bad-residue surcharge only lowers C, and #2265 also certifies the native moment below one at C (1 − 8.39e-12). C is therefore admissible if *either* the retained envelope 32 m ΣH / 10^16 W is an adequate bad-residue bound for the PR2260 cover, *or* the PR559 native-complex license applies to it; the selected lineage uses that license (compare `research/audit-frontier890-endpoint-seed73/AUDIT.md` F3–F5). Neither disjunct is proved for the PR2260 cover; it is inherited. The comment "only conditionally portable to the new cover" in the engine PR2260 vendors (via base `research/frame-domain-ceiling/engines/moment.py:62`) is inherited verbatim from the long-vendored PR361 / e8-r740-lineage engine. Byte-identical copies (sha256 `81cbc864…`) include `research/direct-delivery504-global/inputs/data-base/work/pr361/code/engines/moment.py`. The comment predates PR2260, so it does not refer to PR2260's cover.
 
 ## Reproduce
 
@@ -167,5 +182,7 @@ The audited and predecessor work is by:
 Concurrent related audit: #2286, which covers the T74 side-condition inventory and states that supplier admission was not checked there. #2286 was opened from the same GitHub account (thakrarsagar) by a different, concurrent sprint session.
 
 Reviewer fixes in this revision (internal sprint review): the guard-unit observation was rescoped as lineage-wide, A2/B2/B3 were reclassified as COVERED, D5 was restated as a disjunction, the X_73 borrow was credited to PR2226, a tautological control was replaced by two invoice-data mutations, and a backward-orientation replay control was added.
+
+Correction after independent re-audit (2026-10-15): A1 had been labelled TRUE-unencoded as a whole, as if #2265 and the PR2260 checks it reruns left call closure unchecked. In fact PR2260's `local/check_trace.py` (run by `local/verify.py`) and `owners/verify.py`, both rerun by #2265, already enforce event closure and the owner-row facts. The label is now limited to the namespace/metadata sub-facts, and the owner-row facts moved to A3. `TASK.json` (stale control and class counts, pre-review open questions) was brought up to date, and the provenance of the engine comment in D5 was corrected. The counts (9/1/5, 0 MISSING-PROOF, 0 FALSE), the verifier and `EXPECTED.json` are unchanged.
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
