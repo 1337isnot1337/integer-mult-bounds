@@ -132,9 +132,10 @@ independent exact executable checks. The complete hosted parent, whole-owner
 invoice and changed-word outer assembly have not been rebuilt; the scalar
 saving does not change the recursive profile. Uniform compilation,
 common-label/mutable-basis realization, hosting, precision/tape and analytic
-assumptions remain inherited. Local macOS execution is recorded in
-[VALIDATION.json](VALIDATION.json); no Linux or repository-wide suite pass is
-claimed.
+assumptions remain inherited. Original local macOS execution is recorded in
+[VALIDATION.json](VALIDATION.json); [REVIEW.md](REVIEW.md) records the subsequent
+local and hosted Linux finite/formal coverage. No repository-wide suite pass
+is claimed.
 
 ## Provenance and previous work
 

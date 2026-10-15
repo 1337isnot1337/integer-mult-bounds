@@ -70,7 +70,7 @@ jobs:
           python3 -B research/r420-forest-cut-budget/native.py --cxx g++ --boost /usr/include --out "$RUNNER_TEMP/r420-forest-cut-budget/uncut" --candidate research/r420-forest-cut-budget/data/optimum.json.gz --recipe research/r420-forest-cut-budget/data/optimum-recipe.json --expect-prefix-rejection
       - name: Require committed artifacts unchanged
         run: git diff --exit-code
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: r420-forest-finite-and-formal

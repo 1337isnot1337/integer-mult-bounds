@@ -38,6 +38,11 @@ with bounded runtimes, read-only permissions and retained revision/input
 identities and receipts. A local pass does not establish a hosted Linux pass;
 the Actions run for the checked revision supplies that evidence separately.
 
+Hosted Linux coverage passed at `e1a23bbecf308368865d827febf185fc03a74546`:
+[run 38681040914](https://github.com/anthonylei/integer-mult-bounds/actions/runs/38681040914).
+All finite, Lean, native acceptance/rejection and unchanged-artifact steps
+passed; the run retains its revision, file inventory, logs and receipts.
+
 ## Claim boundary
 
 Lean proves the generic Boolean compensation identity and forest ordering.
