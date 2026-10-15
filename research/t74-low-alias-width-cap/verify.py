@@ -145,10 +145,11 @@ def geometry(plan):
     return dict(sorted(stock.items()))
 
 
-def power_engine():
+def power_engine(source_bytes):
     spec = importlib.util.spec_from_file_location('width_cap_moment', ROOT/'vendor/fine_moment.py')
     module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
+    # Execute the bytes authenticated by run(), never an unrelated .pyc cache.
+    exec(compile(source_bytes, str(ROOT/'vendor/fine_moment.py'), 'exec'), module.__dict__)
     # Same directed algorithm and explicit tails; this coarse bound needs no
     # 3000-digit endpoint. Integer fallback suffices in the standard library.
     module.SH = 256
@@ -199,9 +200,11 @@ def rejected(label, action):
 
 def run():
     pins = read(ROOT/'INPUTS.json')
+    verified = {}
     for entry in pins['sources']:
         data = (ROOT/entry['path']).read_bytes()
         need(hashlib.sha256(data).hexdigest() == entry['sha256'], 'source digest: '+entry['path'])
+        verified[entry['path']] = data
         if 'uncompressed_sha256' in entry:
             need(hashlib.sha256(gzip.decompress(data)).hexdigest() == entry['uncompressed_sha256'], 'uncompressed digest')
     extra = read(ROOT/'inputs/word80-extra.json.gz')
@@ -214,7 +217,7 @@ def run():
     plan = read(ROOT/'inputs/pr2269-plan.json.gz')
     stock = geometry(plan)
     dual = read(ROOT/'DUAL.json')
-    engine = power_engine()
+    engine = power_engine(verified['vendor/fine_moment.py'])
     result = certify(local, inventory, stock, dual, engine)
     parent = {int(k): v for k, v in read(ROOT/'inputs/pr2269-profile.json').items()}
     _, parent_hi = engine.moment(73, 66304, list(parent.items()), Q(dual['threshold']))

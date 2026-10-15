@@ -117,7 +117,7 @@ python3 -I -B research/t74-low-alias-width-cap/check_export.py
 ```
 
 Expected: `PASS_T74_LOW_ALIAS_WIDTH_CAP 1687/1000000 patterns 1163 ... rejecting_controls 8`
-and `PASS_T74_WIDTH_CAP_EXPORT controls 4`.
+and `PASS_T74_WIDTH_CAP_EXPORT controls 8`.
 
 The package also registers its commands for the repository replay hook:
 
@@ -151,6 +151,17 @@ No full multiplication theorem, new κ, native supplier admission or global
 stock/precision contract is established here. The cap concerns the primitive
 recurrence b; applying it to an outer κ requires that outer construction's
 inherited b-to-κ relationship.
+
+The arithmetic loader executes the exact source bytes checked against
+`INPUTS.json`, without consulting Python bytecode caches. `-B` alone suppresses
+cache writes but still permits cache reads. Four export controls install
+conflicting timestamp or unchecked-hash caches and replay in both normal and
+optimized mode; every run must retain the original receipt and leave the export
+unchanged. This repairs the same source/cache distinction identified in the
+related [PR2766](https://github.com/CrocSwap/integer-mult-bounds/pull/2766).
+[PR2553](https://github.com/CrocSwap/integer-mult-bounds/pull/2553) isolates the
+registered runner's cache namespace; this fix also covers direct verifier calls.
+The arithmetic source, inputs, dual and expected mathematical receipt are unchanged.
 
 ## Open next questions
 

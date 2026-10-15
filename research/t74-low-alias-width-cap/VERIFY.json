@@ -24,7 +24,7 @@
         "{package}/check_export.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Standalone read-only export, no-clobber, input and receipt tamper rejection."
+      "checks": "Standalone read-only export, no-clobber, input and receipt tamper rejection. Four source/bytecode binding controls: timestamp and unchecked-hash caches under normal and optimized Python."
     }
   ]
 }
