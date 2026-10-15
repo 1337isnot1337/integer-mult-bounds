@@ -560,7 +560,13 @@ def run(raw_geom):
     return res
 
 
+def receipt_matches(rec, res):
+    return rec == res
+
+
 def main(argv):
+    if len(argv) >= 2 and argv[0] == "--write":
+        require(not os.path.exists(argv[1]), "refusing to overwrite")
     raw = open(os.path.join(ROOT, GEOM_REL), "rb").read()
     res = json.loads(json.dumps(run(raw), sort_keys=True))
     ncs = res["negative_controls"]
@@ -568,17 +574,17 @@ def main(argv):
     require(ncs["perturbed_minor"]["status"] == "rejected", "NC2 perturbed minor accepted")
     require(ncs["three_column_fake_profile"]["status"] == "rejected", "NC3 fake profile accepted")
     if len(argv) >= 2 and argv[0] == "--write":
-        require(not os.path.exists(argv[1]), "refusing to overwrite")
         with open(argv[1], "w") as f:
             json.dump(res, f, indent=1, sort_keys=True)
             f.write("\n")
         print("WROTE", argv[1])
         return
     rec = json.load(open(os.path.join(HERE, "RESULT.json")))
-    require(rec == res, "RESULT.json mismatch")
+    require(receipt_matches(rec, res), "RESULT.json mismatch")
+    # NC4: the same comparison function must reject a receipt whose floor is altered.
     bad = json.loads(json.dumps(rec))
     bad["floors"]["full_rank_two_total_copy_floor_at_48"] += 1
-    require(bad != res, "NC4 corrupted receipt accepted")
+    require(not receipt_matches(bad, res), "NC4 corrupted receipt accepted")
     b = res["bands"]
     print("PASS_P112_TWO_TOTAL_UNION48 geometric_max_47=%d geometric_max_48=%d "
           "two_column_loss_bound_47=%d two_column_loss_bound_48=%d loss5_witness_bill=%d "

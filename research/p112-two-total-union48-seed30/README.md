@@ -5,22 +5,33 @@
 At source union **48**, the deletion geometry of the eight P112 coordinate
 readers changes. One deletion set can remove **eight** rank units (up from
 five at 44–47). A two-column correction `ZA^t` can realize retained loss
-**exactly 5** there; PR2382's bound was 4 through 47.
+**exactly 5** there. PR2382's bound of 4 was stated only through 47 and does
+not extend to 48.
 
 - **Upper bound (5).** Every configuration with loss 6 or more contains a
   fully specified column subset of rank 3, which a rank-two correction cannot
   match.
 - **Attainment (5).** An explicit full-rank two-column decoder attains it,
-  with total bill 74.
+  with total bill 74. Its representative `A = [e_0, e_1]` lies in PR1197's
+  disjoint-coefficient class; the same `W` in an overlapping basis
+  (`Z -> ZG`, `A -> A G^{-t}`) keeps retained loss 5, but that
+  representative's added bill was not computed.
 
 Charging both added terms with the inherited price lemma gives a
-**full-rank fixed-reader two-total COPY floor of 65 at union 48**. That is
-one less than PR2382's 66 through 47, but still above 64. For the realized
+**provable lower bound of 65 on the full-rank on-column (PR1197 residual)
+fixed-reader two-total COPY sum at union 48** (attainment open; the explicit
+loss-5 witness costs 74). The provable bound is one less than the 66 that
+holds for unions 44..47, but still above 64; this does not mean a cheaper
+decoder exists. For the realized
 `4+1` shape, a further support argument raises the bill to at least 66; the
-other loss-5 shapes are not analysed this way. PR1197's
-complementary reductions are inherited unchanged, so the fixed-reader
-two-total no-saving statement (COPY rank sum at least 64) **extends to
-union 48**. The 65 floor is a relaxation; its attainment is open, since the
+other loss-5 shapes are not analysed this way (written argument in
+PROOF.md; verify.py machine-checks its premise P3, the 12/12 cut sign
+balance, not the constrained price minimum 7). With PR1197's complementary
+reductions inherited unchanged, the fixed-reader two-total no-saving
+statement (COPY rank sum at least 64) **extends to union 48**. The chain is:
+PR1787 (merged) and PR1827 for unions of at most 43; this package's
+independent cap-47 replay (price minimum 6 for `M = 44..47`) for 44..47; the
+new band-48 result; and PR1197. It does not rely on PR2382, which is open. The 65 floor is a relaxation; its attainment is open, since the
 explicit witness costs 74. This closes band 48 of PR2382's open next
 question 1. It is not a route to a cheaper decoder.
 
@@ -49,7 +60,7 @@ imports no predecessor checker. It uses exact `Fraction` and F2 arithmetic.
 
 | union cap | geometric max loss | two-column loss bound | full-rank floor |
 |---|---|---|---|
-| ≤ 47 (positive control) | 5 | 4 | 66 |
+| ≤ 47 (positive control; floor for `M = 44..47`, PR1827 below 44) | 5 | 4 | 66 |
 | ≤ 48 | **8** | **5** (attained) | **65** |
 
 The cap-47 run reproduces PR2382 independently. It matches the geometric
@@ -68,12 +79,16 @@ shapes.
 **Negative controls** (must be rejected): a one-byte corrupted geometry
 (sha256 pin), a perturbed minor (third column replaced by the sum of the
 first two, rank 3 → 2), a three-column fake profile (retained loss 6 but
-`rank W = 3`, so not a two-column correction), and a corrupted receipt.
+`rank W = 3`, so not a two-column correction), and a corrupted receipt (the
+same `receipt_matches` function used for the real comparison must reject a
+copy of RESULT.json with the floor field incremented; an end-to-end mutation
+of RESULT.json on disk was also checked by review to give `FAIL RESULT.json
+mismatch`).
 
 ## Reproduce
 
-From the repository root (CPython 3.12+, standard library only, about
-2.5 minutes on one core, under 400 MB):
+From the repository root (CPython 3.12+, standard library only; measured on CPython 3.14,
+Linux x86-64, one core: about 165 s and peak RSS about 175 MB):
 
 ```sh
 python3 -I -B research/p112-two-total-union48-seed30/verify.py
@@ -108,6 +123,9 @@ refused.
   - whether the N-passing shapes other than `4+1` are realizable;
   - anything about unions of 49 or more, changed readers, masked exactness,
     power sums or physical delivery.
+- **Unchanged and out of scope:** the inherited all-size/compiler,
+  mutable-source/hosting, precision/tape, analytic-transfer and bit H1–H5
+  obligations listed by PR1197 and the selected record.
 
   All helper, access, frame, restoration and recursive costs are free in this
   screen.
@@ -128,8 +146,11 @@ Structured versions with relevance, first steps and blockers are in
    need the same minimum-support analysis of `col W` from their patterns.
    Blocker: their free entries make this a joint price/realizability
    question.
-2. **Bands 49–51.** At 49 a 37-port lead admits a 12-port non-cut word,
-   so the case split must be widened. Geometric losses already reach 8.
+2. **Bands 49–51.** The census has no closed supports of size 37–39, so at
+   49 every lead with `s > 36` has `s >= 40` and budget at most 9 < 12, and
+   that branch stays cut-only. What changes is the `s = 36` branch (budget
+   13) and any new supports of size 49 or more, so extend the census past 48
+   and widen the `s = 36` enumeration. Geometric losses already reach 8.
 3. **Realizability of `3+1+1`, `2+1+1+1` and `1^5` at 48.** First step:
    solve the per-row conditions `x_r|K_r in col(A[K_r,:])` exactly in `A`.
 
@@ -148,7 +169,9 @@ Further predecessors:
 - woklerx: PR998;
 - Hanson Sun/bbMisk: PR1432 (price from rank);
 - commdata2338: PR1375;
-- DreamingOfClouds: the separate-total COPY model.
+- DreamingOfClouds: the separate-total COPY model and the PR717 geometry
+  arrays (pinned via PR845's snapshot);
+- Joel Pulikkan/GamingPuzzled: PR620 (COPY-64 lineage).
 
 Prepared by thakrarsagar with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). Apache-2.0.

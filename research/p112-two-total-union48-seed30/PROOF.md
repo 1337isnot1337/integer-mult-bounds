@@ -112,14 +112,18 @@ The identity `XX^t = XY^t + (XA)Z^t` is checked on all 12,544 ordered pairs.
 The exact retained COPY ranks are `(4,7,8,8,8,8,8,8)`, so retained loss is 5.
 The added COPY ranks are `(8,7)`, giving a total bill of **74**.
 
-So PR2382's "retained loss at most 4" step **fails at 48**. The correct
-two-column bound there is exactly 5.
+So PR2382's "retained loss at most 4" bound, which PR2382 states only through
+47, **does not extend to 48**: the two-column bound there is exactly 5. The
+representative `A = [e_0, e_1]` lies in PR1197's disjoint-coefficient class;
+the same `W = ZA^t` in an overlapping basis (`Z -> ZG`, `A -> A G^{-t}`)
+keeps retained loss 5, but that representative's added bill was not computed.
 
-**Floor.** In the full-rank case both added terms are nonzero. By the
+**Floor.** In the full-rank on-column (PR1197 residual) case both added terms are nonzero. By the
 inherited PR845/PR1432 price lemma, an added source with `m` active labels
 has COPY rank at least `p(m) = min{r >= 1 : m <= 2^(r+1)}`. By P3,
 `m_1 + m_2 >= 48`. The exhaustive integer minimum is `p(1)+p(47) = 6`. So the
-COPY rank sum is at least `64 - 5 + 6 = 65` when `|U| = 48`. The result does
+COPY rank sum is at least `64 - 5 + 6 = 65` when `|U| = 48` (a lower bound,
+not an attained minimum). The result does
 **not** show that 65 is attained: the loss-5 witness costs 74. PR1197's
 complementary rank-one/off-column reductions are inherited unchanged, as in
 PR2382, so the general fixed-reader no-saving statement (COPY at least 64)
@@ -137,7 +141,9 @@ combination `a w_j + b w_k` equals `a x_j + b x_k`.
 
 So both added sources have at least 12 active labels. With
 `m_1 + m_2 >= 48`, the price minimum is then `p(16) + p(32) = 7`, and every
-`4+1` correction has COPY at least `59 + 7 = 66`. The shapes `3+1+1`,
+`4+1` correction has COPY at least `59 + 7 = 66`. This is a written
+argument; verify.py machine-checks its premise P3 but not the constrained
+price minimum 7 (independently recomputed by review). The shapes `3+1+1`,
 `2+1+1+1` and `1^5` are not analysed this way. Hence the overall floor
 stated is still 65.
 
