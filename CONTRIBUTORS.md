@@ -1582,3 +1582,13 @@ Original research sources are preserved with independent scientific review still
 - **Ross Richardson (@RossRichardson)** — [#2960](https://github.com/CrocSwap/integer-mult-bounds/pull/2960): Independently verify PR2942 joint helper restoration.
 - **Nick Petalas (@petalas)** — [#2959](https://github.com/CrocSwap/integer-mult-bounds/pull/2959): Derive the QQ16 decoder's entry norm and grid from exact F0/B1.
 - **Sudarsh Chaturvedi (@Sudarsh3301)** — [#2956](https://github.com/CrocSwap/integer-mult-bounds/pull/2956): Research: PG(2,16)-M bootstrap orders, merge-family optimum 784 (no bound, no kappa).
+
+## Twenty-sixth tooling, navigation and research intake
+
+Tooling and navigation contributions received scoped review. The two research contributions are source archives with independent scientific validation still open; no selected-bound change is implied.
+
+- **Nick Petalas (@petalas)** — [#2958](https://github.com/CrocSwap/integer-mult-bounds/pull/2958): Fix silent omissions in replay-planner inventories (reviewed tooling/navigation).
+- **Nick Petalas (@petalas)** — [#2945](https://github.com/CrocSwap/integer-mult-bounds/pull/2945): Map later BIT physical caller contracts and the remaining consumer handoff (reviewed tooling/navigation).
+- **Nick Petalas (@petalas)** — [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928): Fix ordered branch exclusions in the selected replay CI guard (reviewed tooling/navigation).
+- **Aaron Wang (@navinor)** — [#2961](https://github.com/CrocSwap/integer-mult-bounds/pull/2961): KB3g: the tight classes of the 18-point cover question for F2^7 - (7,1)/(8,2)/(6,0) PROVEN impossible, (11,7)/(9,9) gap pressed (outcome=partial, no new kappa) (default tree archive).
+- **jeremykothe2 (@jeremykothe2)** — [#2957](https://github.com/CrocSwap/integer-mult-bounds/pull/2957): Conditional κ = 0.001723717415070738: fourteen declared gate rewrites (five classes) on #2917's words with #2930's cap-attaining fill (historical source snapshot).

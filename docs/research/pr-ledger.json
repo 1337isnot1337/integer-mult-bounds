@@ -3,8 +3,8 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2475,
-  "family_round": "research/community-efficient2500-audit/DISPOSITIONS.json",
+  "inventory_count": 2476,
+  "family_round": "research/community-efficient2600-audit/DISPOSITIONS.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
     "research/community-family588-audit/DISPOSITIONS.json",
@@ -50,11 +50,12 @@
     "research/community-efficient2200-audit/DISPOSITIONS.json",
     "research/community-efficient2300-audit/DISPOSITIONS.json",
     "research/community-efficient2400-audit/DISPOSITIONS.json",
-    "research/community-efficient2500-audit/DISPOSITIONS.json"
+    "research/community-efficient2500-audit/DISPOSITIONS.json",
+    "research/community-efficient2600-audit/DISPOSITIONS.json"
   ],
   "counts": {
     "incorporated": 2040,
-    "partially_reviewed": 373,
+    "partially_reviewed": 374,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -120,6 +121,7 @@
     "research/community-efficient2300-audit/DISPOSITIONS.json": "aee695adf6a56396543fa76f6ad504d7f55e8f5c2975f6fb5b358bddbf35ac19",
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
+    "research/community-efficient2600-audit/DISPOSITIONS.json": "8cd1c6fcd8886e8a071a062d3ee4c08c8d29f24804e8851fa662f579507994c1",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -7365,6 +7367,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b1a6f24e57141637b3ff040d6f2ce9d896ffb9bb",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
@@ -7377,7 +7385,7 @@
       "github_state": "OPEN",
       "unresolved_question": "BLOCKED: full pinned parent word and parent profile absent from the original tree and all 92 source inventories. Delta file and modular receipt do not replace that parent. Preserve scoped proof and credit; keep PR open for reproducible full replay.",
       "closure": null,
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reviewed_head": "b1a6f24e57141637b3ff040d6f2ce9d896ffb9bb",
       "review_completion": {
         "changed_file_coverage": false,
@@ -7405,13 +7413,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/122.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/122.json"
+        "research/community-efficient2500-audit/packets/122.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/122.json"
       ],
       "reconciliation_evidence": [
         "research/pr-reconciliation100-20261013/DISPOSITIONS.json",
         "research/community-reconciliation92-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -16402,6 +16413,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
@@ -16414,7 +16431,7 @@
       "github_state": "OPEN",
       "unresolved_question": "The two primary finite-assembly packages passed, including the pinned PR799 application. Eleven additional research/tooling packages at this expanded head still need individual review and execution coverage.",
       "closure": null,
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reviewed_head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
       "review_completion": {
         "changed_file_coverage": false,
@@ -16426,13 +16443,16 @@
         "research/community-efficient1800-audit/packets/275.json",
         "research/community-efficient1900-audit/packets/275.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/275.json"
+        "research/community-efficient2500-audit/packets/275.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/275.json"
       ],
       "reconciliation_evidence": [
         "research/community-reconciliation-next100-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -29927,6 +29947,12 @@
           "evidence": "research/community-efficient2000-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "22c2a15c232084a31b6c8f0263e2e8ce831047ea",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
@@ -29937,7 +29963,7 @@
       "github_state": "OPEN",
       "unresolved_question": "The improved assembly imports the sharper GL-cover exceptional fraction without establishing it for the charged orthogonal cover. PR491 withdraws that probability transfer and uses a count-only correction. Reprice using a justified bad fraction or prove the missing transfer.",
       "closure": null,
-      "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reviewed_head": "22c2a15c232084a31b6c8f0263e2e8ce831047ea",
       "review_completion": {
         "changed_file_coverage": false,
@@ -29972,14 +29998,13 @@
         },
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/465.json",
-        "research/community-efficient2000-audit/INTAKE.json",
-        "research/community-efficient2000-audit/packets/465.json",
-        "research/community-efficient2000-audit/INTAKE.json",
-        "research/community-efficient2000-audit/packets/465.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/465.json"
       ],
       "reconciliation_evidence": [
         "research/community-reconciliation-fourth100-audit/DISPOSITIONS.json",
-        "research/community-efficient2000-audit/DISPOSITIONS.json"
+        "research/community-efficient2000-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -30926,6 +30951,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "af51ea7ad6570f04c8424be7cc6f4070bfd1e6ff",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
@@ -30937,7 +30968,7 @@
       "github_state": "OPEN",
       "unresolved_question": "The exact width rule/pivot ceiling has successful light checks. The actual full Linux job 114567592208 reaches the final discover check but fails: frozen hosting selection differs from recomputed optimum. Correct or explain that frozen selection with a source-bound completed full replay before closing the construction claim.",
       "closure": null,
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reviewed_head": "af51ea7ad6570f04c8424be7cc6f4070bfd1e6ff",
       "review_completion": {
         "changed_file_coverage": false,
@@ -30973,12 +31004,15 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/485.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/485.json"
+        "research/community-efficient2500-audit/packets/485.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/485.json"
       ],
       "reconciliation_evidence": [
         "research/community-reconciliation-fourth100-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -31722,6 +31756,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "0f3e55dbf6b29a28bf462b4b3ec2a3ef06a28f5d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
@@ -31732,7 +31772,7 @@
       "github_state": "OPEN",
       "unresolved_question": "The proposal prices a cross-copy/cross-family split. PR451 supplies a trace obstruction to treating that split as the present physical operator. Retain the proposed ledger, but supply a realizable operator/interface and its complete charge before accepting the claimed improvement.",
       "closure": null,
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reviewed_head": "0f3e55dbf6b29a28bf462b4b3ec2a3ef06a28f5d",
       "review_completion": {
         "changed_file_coverage": false,
@@ -31768,12 +31808,15 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/499.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/499.json"
+        "research/community-efficient2500-audit/packets/499.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/499.json"
       ],
       "reconciliation_evidence": [
         "research/community-reconciliation-fourth100-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -44700,6 +44743,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_intake_errors.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "80431a74c31e807581f5c2258c87abe2084caacd",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -44725,15 +44774,18 @@
         "research/community-efficient2400-audit/packets/732.json",
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/732.json",
-        "research/community-efficient2500-audit/WORKFLOW-RESOLUTIONS.json"
+        "research/community-efficient2500-audit/WORKFLOW-RESOLUTIONS.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/732.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient100-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -49108,6 +49160,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d8c8b40ab0a95b6d77389e6726d86dddb60fb53c",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -49128,13 +49186,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/815.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/815.json"
+        "research/community-efficient2500-audit/packets/815.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/815.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient200-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -49684,6 +49745,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ea3ceae40d5fa19dc0361d3f15546df0182459c4",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -49703,14 +49770,17 @@
         "research/community-efficient1800-audit/packets/826.json",
         "research/community-efficient1900-audit/packets/826.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/826.json"
+        "research/community-efficient2500-audit/packets/826.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/826.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient200-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -52865,6 +52935,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "3bf6fccaf17521ffdb9b3bec2740ba4886478556",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -52886,13 +52962,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/895.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/895.json"
+        "research/community-efficient2500-audit/packets/895.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/895.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient200-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -52978,6 +53057,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "12c4789c61ac843dcd00e2c71e5388d362298b1a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -53000,13 +53085,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/897.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/897.json"
+        "research/community-efficient2500-audit/packets/897.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/897.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient200-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -60748,6 +60836,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "07730cd8302c378607259a9ad0efb73e0b57a2f2",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -60768,13 +60862,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1048.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1048.json"
+        "research/community-efficient2500-audit/packets/1048.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1048.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-batch1099-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -68507,6 +68604,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4e392e90e3fca8f395e35d6a23644920160a9f0f",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -68529,13 +68632,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1193.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1193.json"
+        "research/community-efficient2500-audit/packets/1193.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1193.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient300-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -69059,6 +69165,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_unreviewed_stack.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d49f96b75257c8a5eb4862eb99fbaffc738dcc1b",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -69078,14 +69190,17 @@
         "research/community-efficient1800-audit/packets/1204.json",
         "research/community-efficient1900-audit/packets/1204.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/1204.json"
+        "research/community-efficient2400-audit/packets/1204.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1204.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -70442,6 +70557,12 @@
           "evidence": "research/community-efficient2000-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_unmerged_dependencies.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "448690c3b7e5c2b5975b760075b162fe0a8cfb03",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -70461,15 +70582,14 @@
         "research/community-efficient400-audit/packets/1231.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1231.json",
-        "research/community-efficient2000-audit/INTAKE.json",
-        "research/community-efficient2000-audit/packets/1231.json",
-        "research/community-efficient2000-audit/INTAKE.json",
-        "research/community-efficient2000-audit/packets/1231.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1231.json"
       ],
-      "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient400-audit/DISPOSITIONS.json",
-        "research/community-efficient2000-audit/DISPOSITIONS.json"
+        "research/community-efficient2000-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -71335,6 +71455,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -71354,14 +71480,17 @@
         "research/community-efficient1800-audit/packets/1252.json",
         "research/community-efficient1900-audit/packets/1252.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1252.json"
+        "research/community-efficient2500-audit/packets/1252.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1252.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient400-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -74845,6 +74974,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b54a856aa79857d91cd5d65f8f7144e26c8c084f",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -74865,14 +75000,17 @@
         "research/community-efficient1800-audit/checks/check-1345.json",
         "research/community-efficient1900-audit/packets/1345.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/1345.json"
+        "research/community-efficient2400-audit/packets/1345.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1345.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient500-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -75541,6 +75679,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_unreviewed_stack.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "dec22f6ae2d065a12a92a121fc68300d9c342c40",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -75560,14 +75704,17 @@
         "research/community-efficient1800-audit/packets/1364.json",
         "research/community-efficient1900-audit/packets/1364.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/1364.json"
+        "research/community-efficient2400-audit/packets/1364.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1364.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -75603,6 +75750,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d418130e3bbee1cb6923f0f734d5788e09933f57",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -75623,13 +75776,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1365.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1365.json"
+        "research/community-efficient2500-audit/packets/1365.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1365.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient500-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -81180,6 +81336,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "80ce84e3f05f5032e16ab22576c275f2e7e485ed",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -81200,13 +81362,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1494.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1494.json"
+        "research/community-efficient2500-audit/packets/1494.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1494.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient600-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -82699,6 +82864,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_intake_errors.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "8485ba77eb2ebf9d1e1ea38fa663c760ea788d95",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -82719,13 +82890,16 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1534.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/1534.json"
+        "research/community-efficient2400-audit/packets/1534.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1534.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient600-audit/DISPOSITIONS.json",
         "research/community-efficient2000-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -88555,6 +88729,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "3b34b28b77fd9d9958e14331f0d9ad9885e06144",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -88579,15 +88759,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1681.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1681.json"
+        "research/community-efficient2500-audit/packets/1681.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1681.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -88686,6 +88869,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "9aaa38c13bf139067f3597235e671c2800e9c696",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -88710,15 +88899,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1683.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1683.json"
+        "research/community-efficient2500-audit/packets/1683.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1683.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -88919,6 +89111,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "29a1d0183c12e1d05d78160cb74ed4fa283ff1eb",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -88943,15 +89141,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1688.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1688.json"
+        "research/community-efficient2500-audit/packets/1688.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1688.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -89089,6 +89290,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "c7b46d54328214469c47423a3bcc98699bd01f76",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -89109,13 +89316,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1692.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1692.json"
+        "research/community-efficient2500-audit/packets/1692.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1692.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -89316,6 +89526,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_intake_errors.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "9f0c00d353b521c6840729861e48d7d0da20d345",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -89341,15 +89557,18 @@
         "research/community-efficient2400-audit/packets/1699.json",
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/1699.json",
-        "research/community-efficient2500-audit/WORKFLOW-RESOLUTIONS.json"
+        "research/community-efficient2500-audit/WORKFLOW-RESOLUTIONS.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1699.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -89961,6 +90180,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a77d8b6a5e3e3a6156056d715b1206ebc927a782",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -89985,15 +90210,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1712.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1712.json"
+        "research/community-efficient2500-audit/packets/1712.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1712.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -90357,6 +90585,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f36701db17f6664c81d2eca80374b125fa014207",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -90381,15 +90615,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1721.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1721.json"
+        "research/community-efficient2500-audit/packets/1721.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1721.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -90476,6 +90713,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d7d89428fe5219d56b115371d5074d5e518fd0c7",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -90496,13 +90739,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1724.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1724.json"
+        "research/community-efficient2500-audit/packets/1724.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1724.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -90550,6 +90796,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e6cdd4a91c1a0ae120f9e50968598232215c5041",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -90574,15 +90826,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1725.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1725.json"
+        "research/community-efficient2500-audit/packets/1725.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1725.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient700-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -90732,6 +90987,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "0666300e5dfb35e3e6b90e65326fad6d049ff30a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -90756,15 +91017,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1731.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1731.json"
+        "research/community-efficient2500-audit/packets/1731.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1731.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -91645,6 +91909,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d8046736d984645a6f79159b2a7454d1919d24b3",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -91669,15 +91939,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1754.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1754.json"
+        "research/community-efficient2500-audit/packets/1754.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1754.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -91902,6 +92175,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "7c2634c42c5f583b94244bba8e985ea32c19bdf0",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -91926,16 +92205,19 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1758.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1758.json"
+        "research/community-efficient2500-audit/packets/1758.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1758.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient1500-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -92809,6 +93091,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "c52345caa318fc6b1b6e2659c57d746317a72823",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -92828,14 +93116,17 @@
         "research/community-efficient1800-audit/packets/1786.json",
         "research/community-efficient1900-audit/packets/1786.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1786.json"
+        "research/community-efficient2500-audit/packets/1786.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1786.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -92985,6 +93276,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2f5f9dbb8b8ce9f9a5f90b234e4b03ca3f4ba87b",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -93009,15 +93306,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1789.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1789.json"
+        "research/community-efficient2500-audit/packets/1789.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1789.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -93426,6 +93726,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "46d865ab92e58098538b8c5348b6a131c99abf45",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -93450,15 +93756,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1800.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1800.json"
+        "research/community-efficient2500-audit/packets/1800.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1800.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -94930,6 +95239,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "836ef6a1a550f439e42be65423cffd624658af6a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -94954,15 +95269,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1839.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1839.json"
+        "research/community-efficient2500-audit/packets/1839.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1839.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -95975,6 +96293,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "54d7f5fd4ef6073b6399d1e6e73773f61fe4360a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -95997,14 +96321,17 @@
         "research/community-efficient1800-audit/checks/check-1861-1922-v3.json",
         "research/community-efficient1900-audit/packets/1861.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1861.json"
+        "research/community-efficient2500-audit/packets/1861.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1861.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -96606,6 +96933,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "6a442373e6127b7e0985d277726bcfd9a16a1f36",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -96625,13 +96958,14 @@
         "research/community-efficient900-audit/packets/1876.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1876.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/1876.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1876.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -97343,6 +97677,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -97362,14 +97702,17 @@
         "research/community-efficient1800-audit/packets/1897.json",
         "research/community-efficient1900-audit/packets/1897.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1897.json"
+        "research/community-efficient2500-audit/packets/1897.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1897.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -97462,6 +97805,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "9a891c9cb25b15f5a189bcad1d022198adeaf885",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -97481,14 +97830,17 @@
         "research/community-efficient1800-audit/packets/1900.json",
         "research/community-efficient1900-audit/packets/1900.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/1900.json"
+        "research/community-efficient2400-audit/packets/1900.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1900.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -97587,6 +97939,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "091ba6e64169230d13285d12563390ea76f44208",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -97611,15 +97969,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1904.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1904.json"
+        "research/community-efficient2500-audit/packets/1904.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1904.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -97667,6 +98028,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "34bb6fe148cf878b707b5bf22b8a225206780a67",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -97691,15 +98058,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1905.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1905.json"
+        "research/community-efficient2500-audit/packets/1905.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1905.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -98455,6 +98825,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "98dd6ef113e1e6a4ca3848b0889cd13b1970fd32",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -98474,14 +98850,17 @@
         "research/community-efficient1800-audit/packets/1922.json",
         "research/community-efficient1900-audit/packets/1922.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1922.json"
+        "research/community-efficient2500-audit/packets/1922.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1922.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -98741,6 +99120,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "07e4e4231459e36b1055396306dcbd950248df62",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -98765,15 +99150,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/1928.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1928.json"
+        "research/community-efficient2500-audit/packets/1928.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1928.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -98803,6 +99191,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "11cb2266f7e99279c440a301ea4b862587a9afa2",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -98823,13 +99217,14 @@
         "research/community-efficient900-audit/checks/check-1930.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1930.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/1930.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1930.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -102640,6 +103035,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "322949a53488d64023fedb89a6774927707e57ba",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -102664,15 +103065,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2044.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2044.json"
+        "research/community-efficient2500-audit/packets/2044.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2044.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1100-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -106214,6 +106618,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "388a63c83cf24c3355be9798bde5a381188dadb3",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -106234,13 +106644,14 @@
         "research/community-efficient1100-audit/checks/check-2134.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2134.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2134.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2134.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1100-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -107328,6 +107739,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f7b63bf857f08eeb8f6cf3e8529f9ef6a10291b6",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -107353,15 +107770,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2161.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2161.json"
+        "research/community-efficient2500-audit/packets/2161.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2161.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -108155,6 +108575,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2d8ddb9783234657dd845b3149100fd25187e0bb",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -108180,15 +108606,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2180.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2180.json"
+        "research/community-efficient2500-audit/packets/2180.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2180.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -109596,6 +110025,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "6e46d6968086bd97b115098ad295dc2a39400fb9",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -109616,13 +110051,14 @@
         "research/community-efficient1200-audit/checks/check-2215.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2215.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2215.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2215.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -109652,6 +110088,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b80e9ba43367fb8b20877a97da1cb677c34f9264",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -109672,13 +110114,14 @@
         "research/community-efficient1200-audit/checks/check-2216.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2216.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2216.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2216.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -110522,6 +110965,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e5a5d0651003e8774e98121250203b35c236b02b",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -110544,13 +110993,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2235.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2235.json"
+        "research/community-efficient2400-audit/packets/2235.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2235.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -111068,6 +111520,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "0c6ed7958433b2cbc0beaa331ff882aa08221a0d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -111088,13 +111546,14 @@
         "research/community-efficient1200-audit/checks/check-2249.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2249.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2249.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2249.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -111356,6 +111815,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e45c48ca6b44b917d8114140a8715352667795ea",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -111375,14 +111840,17 @@
         "research/community-efficient1800-audit/packets/2257.json",
         "research/community-efficient1900-audit/packets/2257.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2257.json"
+        "research/community-efficient2400-audit/packets/2257.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2257.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1200-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -111639,6 +112107,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "99cb4fbf2b55a5e8265e066a1e4793d92f9b5077",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -111658,14 +112132,17 @@
         "research/community-efficient1800-audit/packets/2263.json",
         "research/community-efficient1900-audit/packets/2263.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2263.json"
+        "research/community-efficient2400-audit/packets/2263.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2263.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -112261,6 +112738,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "feb0b96b5c471be0a8c72e6ecb8f9e1f74b48991",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -112280,14 +112763,17 @@
         "research/community-efficient1800-audit/packets/2276.json",
         "research/community-efficient1900-audit/packets/2276.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2276.json"
+        "research/community-efficient2400-audit/packets/2276.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2276.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -114759,6 +115245,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "68a7161a610f175dc8e7b22f95acd033191450d9",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -114778,14 +115270,17 @@
         "research/community-efficient1800-audit/packets/2329.json",
         "research/community-efficient1900-audit/packets/2329.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2329.json"
+        "research/community-efficient2500-audit/packets/2329.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2329.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -115605,6 +116100,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b5c3b567f13b18881161cf6c445e4ef251870558",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -115624,14 +116125,17 @@
         "research/community-efficient1800-audit/packets/2348.json",
         "research/community-efficient1900-audit/packets/2348.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2348.json"
+        "research/community-efficient2500-audit/packets/2348.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2348.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -115685,6 +116189,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "bb2486ec93c099afe9acd93442f13864b566296a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -115708,16 +116218,19 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2349.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2349.json"
+        "research/community-efficient2500-audit/packets/2349.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2349.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -116067,6 +116580,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "3bc76f12b29732e901f13b19d341253379f04cb1",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -116086,14 +116605,17 @@
         "research/community-efficient1800-audit/packets/2357.json",
         "research/community-efficient1900-audit/packets/2357.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2357.json"
+        "research/community-efficient2500-audit/packets/2357.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2357.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -116288,6 +116810,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -116307,14 +116835,17 @@
         "research/community-efficient1800-audit/packets/2361.json",
         "research/community-efficient1900-audit/packets/2361.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2361.json"
+        "research/community-efficient2500-audit/packets/2361.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2361.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -116685,6 +117216,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "42669f5111e2e79a5796c7fa36e17ea81556f5c0",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -116709,15 +117246,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2374.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2374.json"
+        "research/community-efficient2500-audit/packets/2374.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2374.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -116753,6 +117293,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "462593231536f771050da8f44390b3e4eba95783",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -116773,13 +117319,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2375.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2375.json"
+        "research/community-efficient2500-audit/packets/2375.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2375.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -118381,6 +118930,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "dbaf88ec7165ae8547d2756407583c04b3ead27b",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -118400,14 +118955,17 @@
         "research/community-efficient1800-audit/packets/2409.json",
         "research/community-efficient1900-audit/packets/2409.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2409.json"
+        "research/community-efficient2500-audit/packets/2409.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2409.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -118443,6 +119001,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a768c79ee5fd45bcfa8fc7a566646a620a7f2ef5",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -118463,13 +119027,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2411.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2411.json"
+        "research/community-efficient2500-audit/packets/2411.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2411.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -119494,6 +120061,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "0c87da874b82035082ba576b19f98dcec06874ba",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -119518,15 +120091,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2435.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2435.json"
+        "research/community-efficient2500-audit/packets/2435.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2435.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -119817,6 +120393,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ba13eec9546a5ac4fca1df37209e3c42249b61c2",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -119838,13 +120420,16 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2444.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2444.json"
+        "research/community-efficient2500-audit/packets/2444.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2444.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -119994,6 +120579,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "07471220da133fdd549f7872487b12370bbad75c",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -120018,15 +120609,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2447.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2447.json"
+        "research/community-efficient2500-audit/packets/2447.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2447.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -120283,6 +120877,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "5208ab2780550273b1d8933ff584ce7581fb242d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -120305,14 +120905,17 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2452.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2452.json"
+        "research/community-efficient2500-audit/packets/2452.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2452.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -120826,6 +121429,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ef34071fee6dfb0286e9850a5cec4e36d9eb126d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -120850,15 +121459,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2462.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2462.json"
+        "research/community-efficient2500-audit/packets/2462.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2462.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -121164,6 +121776,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "65080e406c9edb0e93daa631f90b3fa4e4461910",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -121186,14 +121804,17 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2469.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2469.json"
+        "research/community-efficient2500-audit/packets/2469.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2469.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -121445,6 +122066,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "71b5b0e383b2f4b57dd2177b424612da9c988fe4",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -121469,15 +122096,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2474.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2474.json"
+        "research/community-efficient2500-audit/packets/2474.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2474.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -121609,6 +122239,12 @@
           "evidence": "research/community-efficient2100-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "0760e745c5d3b6e66dbfab1799be75abf01576ed",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -121629,13 +122265,14 @@
         "research/community-efficient1400-audit/checks/check-2477.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2477.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2477.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2477.json"
       ],
-      "current_head_observed_in": "research/community-efficient2100-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
-        "research/community-efficient2100-audit/DISPOSITIONS.json"
+        "research/community-efficient2100-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -124187,6 +124824,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "8bb4f1c73e61d571ae82e5814eb6dd5e4b9b8b3a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -124211,15 +124854,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2526.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2526.json"
+        "research/community-efficient2500-audit/packets/2526.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2526.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1500-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -125968,6 +126614,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "383ce6c84d92b7b3f00fe267cb23bf3233eecc77",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -125992,15 +126644,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2559.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2559.json"
+        "research/community-efficient2500-audit/packets/2559.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2559.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1500-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -126741,6 +127396,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "921c229b4f030121a1d305de6259e174cd391955",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -126765,15 +127426,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2575.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2575.json"
+        "research/community-efficient2500-audit/packets/2575.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2575.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1500-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -127402,6 +128066,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "8cd9dc88e24f062e2ca2fa7f4844a3d3319381fb",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -127426,15 +128096,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2588.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2588.json"
+        "research/community-efficient2500-audit/packets/2588.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2588.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1500-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130830,6 +131503,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "45aadf0fc7f0dedfb0df959479a20cc1c7be4917",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130855,15 +131534,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2673.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2673.json"
+        "research/community-efficient2500-audit/packets/2673.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2673.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1600-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131179,6 +131861,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2e2cf56521df8a2b816b2689144765ee00b69a24",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131203,15 +131891,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2679.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2679.json"
+        "research/community-efficient2500-audit/packets/2679.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2679.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1600-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133046,6 +133737,12 @@
           "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "7aed56bd440a3d8cbca8028cf2cbd0888c07d9b3",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133067,13 +133764,14 @@
         "research/community-efficient1700-audit/checks/check-2717.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2717.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2717.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2717.json"
       ],
-      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
-        "research/community-efficient2200-audit/DISPOSITIONS.json"
+        "research/community-efficient2200-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133767,6 +134465,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a63c55ff56aaa8645d64d1162d1f017b59ded42a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133791,15 +134495,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2733.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2733.json"
+        "research/community-efficient2500-audit/packets/2733.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2733.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134375,6 +135082,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4f485de05544884fa0f2edf6063bb9259decad30",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134399,15 +135112,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2745.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2745.json"
+        "research/community-efficient2500-audit/packets/2745.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2745.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134492,6 +135208,12 @@
           "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a2bab9978c8149dc5965558ea9277da07bc750e7",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134512,13 +135234,14 @@
         "research/community-efficient1700-audit/checks/check-2747.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2747.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2747.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2747.json"
       ],
-      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
-        "research/community-efficient2200-audit/DISPOSITIONS.json"
+        "research/community-efficient2200-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -135461,6 +136184,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "fd7c7a72e26a71e7e51cf87d9fad35743fd6cbf4",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -135485,15 +136214,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2767.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2767.json"
+        "research/community-efficient2500-audit/packets/2767.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2767.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -135841,6 +136573,12 @@
           "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ceaf5acf976cee2f70a680f2d513f12baa634870",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -135861,13 +136599,14 @@
         "research/community-efficient1700-audit/checks/check-2774.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2774.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2774.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2774.json"
       ],
-      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
-        "research/community-efficient2200-audit/DISPOSITIONS.json"
+        "research/community-efficient2200-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136130,6 +136869,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "59f336094958b51b312e54deb85347e1b671172d",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136152,14 +136897,17 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2780.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2780.json"
+        "research/community-efficient2500-audit/packets/2780.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2780.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -137793,6 +138541,12 @@
           "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "adb647eba5842812b36e67fe1aa2be5ecdff6b37",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -137812,13 +138566,14 @@
         "research/community-efficient1700-audit/packets/2817.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2817.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2817.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2817.json"
       ],
-      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
-        "research/community-efficient2200-audit/DISPOSITIONS.json"
+        "research/community-efficient2200-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -137866,6 +138621,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "175822aee7a1858ec653f7f92d7a750aec2c2795",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -137890,15 +138651,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2818.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2818.json"
+        "research/community-efficient2500-audit/packets/2818.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2818.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -138656,6 +139420,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4f01fe4eac42c0134c41425b40c44b005126b235",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -138676,13 +139446,16 @@
         "research/community-efficient1900-audit/packets/2832.json",
         "research/community-efficient1900-audit/checks/check-2832-twin-fold.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2832.json"
+        "research/community-efficient2400-audit/packets/2832.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2832.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -139182,6 +139955,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "47a7227c044cd0cabb1432a06c61dd5d60c07f5a",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -139205,15 +139984,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2843.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2843.json"
+        "research/community-efficient2500-audit/packets/2843.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2843.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -139689,6 +140471,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2715d6865d17c3507528ba07766abb5678004261",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -139712,15 +140500,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2852.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2852.json"
+        "research/community-efficient2500-audit/packets/2852.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2852.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2300-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -141636,6 +142427,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "08a44355403604c346f8d907811edce992382cc4",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -141655,12 +142452,15 @@
         "research/community-efficient1900-audit/packets/2890.json",
         "research/community-efficient1900-audit/checks/check-2890-counterexamples.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2890.json"
+        "research/community-efficient2400-audit/packets/2890.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2890.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -142151,6 +142951,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "c6e0b150081d46abe8bf5d0320de4311cb55fe95",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -142170,12 +142976,15 @@
         "research/community-efficient1900-audit/packets/2901.json",
         "research/community-efficient1900-audit/checks/check-2901-counterexamples.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2901.json"
+        "research/community-efficient2400-audit/packets/2901.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2901.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -142825,6 +143634,12 @@
           "evidence": "research/community-efficient2400-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "3f7781efccdf10fa61a1e0a6f11c191579b21280",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -142844,12 +143659,15 @@
         "research/community-efficient1900-audit/packets/2914.json",
         "research/community-efficient1900-audit/checks/check-2914-counterexamples.json",
         "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2914.json"
+        "research/community-efficient2400-audit/packets/2914.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2914.json"
       ],
-      "current_head_observed_in": "research/community-efficient2400-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient1900-audit/DISPOSITIONS.json",
-        "research/community-efficient2400-audit/DISPOSITIONS.json"
+        "research/community-efficient2400-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -143484,6 +144302,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Ordered branch exclusion and unsupported-pattern guards: focused parser, record/exit, complete fixture CLI tests pass normal/optimized; regressions fail baseline. Installed selected-workflow branch filters pass. Unchanged live-inventory suites were not completed in sparse checkout; no scientific or all-source replay claimed.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -143492,11 +144316,11 @@
       "closure": null,
       "reviewed_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Full substantive review remains open.",
+      "unresolved_question": "Scoped review complete; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -143505,13 +144329,18 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2928.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2928.json"
+        "research/community-efficient2500-audit/packets/2928.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2928.json",
+        "research/community-efficient2600-audit/TOOLING-REPLAY.json",
+        "research/community-efficient2600-audit/TEST-SCOPE.md"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -143853,6 +144682,12 @@
           "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
           "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f0ef06f13e4de3e50c211c880bdc6891c09620a1",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Cached exact-head obligations and source-only triage; held_known_correctness_or_integrity.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -143871,12 +144706,13 @@
       "verification_evidence": [
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2936.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2936.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2936.json"
       ],
-      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient2200-audit/DISPOSITIONS.json"
+        "research/community-efficient2200-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -144283,6 +145119,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a54d85a97f0be518369e08d300f38add810516ca",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Source-bound navigation review:33local links/anchors checked, four source heads/statuses matched to current ledger. Resolve newly archived PR2809 availability and distinguish author replay reports; no theorem or source-callee admission.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -144291,11 +145133,11 @@
       "closure": null,
       "reviewed_head": "a54d85a97f0be518369e08d300f38add810516ca",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Full substantive review remains open.",
+      "unresolved_question": "Scoped review complete; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -144304,13 +145146,17 @@
         "research/community-efficient2400-audit/INTAKE.json",
         "research/community-efficient2400-audit/packets/2945.json",
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2945.json"
+        "research/community-efficient2500-audit/packets/2945.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2945.json",
+        "research/community-efficient2600-audit/NAVIGATION-REVIEW.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -144766,6 +145612,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_nonresearch_changes.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b74b25f3ccc84c16e1a801d73b2f47e5ea764c78",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: Complete original commit retained in main ancestry at the linked immutable tree; its differing files and attributes are deliberately NOT installed in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -144776,18 +145628,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2957.json"
+        "research/community-efficient2500-audit/packets/2957.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2957.json"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -144811,6 +145666,12 @@
           "evidence": "research/community-efficient2500-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_nonresearch_changes.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "320907eb27c5f4df9519f88c6f8ba4217d944174",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "Replay inventory completeness: complete selection suite; new regressions fail baseline and pass candidate under normal and optimized Python. No mathematical change.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -144819,20 +145680,25 @@
       "closure": null,
       "reviewed_head": "320907eb27c5f4df9519f88c6f8ba4217d944174",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
+      "unresolved_question": "Scoped review complete; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2958.json"
+        "research/community-efficient2500-audit/packets/2958.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2958.json",
+        "research/community-efficient2600-audit/TOOLING-REPLAY.json",
+        "research/community-efficient2600-audit/TEST-SCOPE.md"
       ],
-      "current_head_observed_in": "research/community-efficient2500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient2500-audit/DISPOSITIONS.json"
+        "research/community-efficient2500-audit/DISPOSITIONS.json",
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -144936,6 +145802,51 @@
       "reconciliation_evidence": [
         "research/community-efficient2500-audit/DISPOSITIONS.json"
       ]
+    },
+    {
+      "number": 2961,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2961",
+      "title": "KB3g: the tight classes of the 18-point cover question for F2^7 - (7,1)/(8,2)/(6,0) PROVEN impossible, (11,7)/(9,9) gap pressed (outcome=partial, no new kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjUwMzY2Njc2",
+        "is_bot": false,
+        "login": "navinor",
+        "name": "Aaron Wang"
+      },
+      "draft": false,
+      "starting_head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
+      "current_head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
+          "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: Exact original research blobs retained in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2961.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2600-audit/DISPOSITIONS.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -144948,6 +145859,6 @@
   "github_dispositions": {
     "CLOSED": 379,
     "MERGED": 1839,
-    "OPEN": 257
+    "OPEN": 258
   }
 }

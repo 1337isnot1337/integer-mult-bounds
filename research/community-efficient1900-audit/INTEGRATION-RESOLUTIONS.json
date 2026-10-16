@@ -23,7 +23,7 @@
   {
     "number": 2906,
     "path": "scripts/verify_pr_reconciliation.py",
-    "resolved_sha256": "0f4b3adbfa79a04b71160a6f61b58b25e5c0030044ab5811abe5447a75281ee8",
+    "resolved_sha256": "cf1567b1f432cdc3a40f4d49c4ca12817805d0592f43285a07a628e5044e23a5",
     "resolved_mode": "100644",
     "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round."
   },
@@ -51,21 +51,21 @@
   {
     "number": 1007,
     "path": "scripts/reconcile_pr_queue.py",
-    "resolved_sha256": "241f9e4650da0539635bddd0cebcc0c5e0ef203185733f7923ec8bc524aba585",
+    "resolved_sha256": "59404230cb0466f6bbae4fe9a6d4376e8dead70131f246e43dc1d6134474fa25",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "19f6d9d5eeb9992be35f9f5fd92794914783737962a2d102732823d95ed6c96a",
+    "resolved_sha256": "f87872a4223a7f4e04d39bc23ed0a64f05d178452e7f8112271260dc2d546030",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "065449f71b76b8006b5c6e1a5a608e8c9713e6ffe9ece1b1b0e9b391740db258",
+    "resolved_sha256": "fc1055385fb1ad07e5d7bfdff9954fbb28b645f4e1ea2deb29b6ffbd7a20525a",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
   },

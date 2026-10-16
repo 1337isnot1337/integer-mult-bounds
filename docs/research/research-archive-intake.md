@@ -95,3 +95,9 @@ using this as a FIFO batch queue. No workflow was dispatched during intake.
 Configuration review is not a successful hosted replay, dependency audit,
 Lean kernel check, or mathematical validation. Historical receipts that pin an
 original workflow continue to refer to that original version.
+
+## Twenty-sixth intake
+
+The [100-head reconciliation](../../research/community-efficient2600-audit/README.md)
+separates reviewed replay-tooling and navigation fixes from two source-only
+research archives. Scientific claims and the selected bound are unchanged.
