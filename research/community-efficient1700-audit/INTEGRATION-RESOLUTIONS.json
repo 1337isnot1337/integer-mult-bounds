@@ -177,5 +177,17 @@
     "path": "research/qq16-rounded-pair-bit-circuit/README.md",
     "resolved_sha256": "7357e10ce43ab8eaea5f39f00a9166877bd6e13803c1ab0a1aeec890b02d6646",
     "reason": "Unused historical selected record retained under original provenance hashes and removed from runtime inputs; scientific code and receipt unchanged. Combined replay must pass with live record absent."
+  },
+  {
+    "number": 2828,
+    "path": "research/ut4-fifteen-call-five-b/PROOF.md",
+    "resolved_sha256": "5efbd0df21cf2a191fc2598adaa13c5e95f17e2b1b2bf5247f0863f68f2c00b8",
+    "reason": "Clarify conservative three-role profile-completion counts: joint DP does not retain nonzero dirty flags. Exclusion and all original code/results unchanged; exact coverage cutoff instrumentation passes. Correct odd-slack proof using rank-one zero-sum triples."
+  },
+  {
+    "number": 2828,
+    "path": "research/ut4-fifteen-call-five-b/README.md",
+    "resolved_sha256": "d6652a3a86577415f958579f25bd3b7d3e0c6e1e3a68bcdb4e27a97377118fa6",
+    "reason": "Clarify conservative three-role profile-completion counts: joint DP does not retain nonzero dirty flags. Exclusion and all original code/results unchanged; exact coverage cutoff instrumentation passes. Correct odd-slack proof using rank-one zero-sum triples."
   }
 ]
