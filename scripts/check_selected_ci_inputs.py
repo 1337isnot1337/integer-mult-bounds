@@ -227,7 +227,8 @@ def event_paths(text, event):
     unsupported = set(filters) - {'paths', 'branches'}
     require(not unsupported, 'Unsupported ' + event + ' filter: ' + ', '.join(sorted(unsupported)))
     if 'branches' in filters:
-        require('main' in filters['branches'], event + ' branch filter excludes main')
+        require('main' in filters['branches'] and triggers(filters['branches'], 'main'),
+                event + ' branch filter excludes main')
     return filters.get('paths', [])
 
 
