@@ -1765,19 +1765,23 @@
       "current_head": "e7fd43cf1be63cd14a9b2b57b2889eaf25a1fde2",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-native-fast"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Opt-in complete T74 native sparse replay: all new runner/comparator/control code and exact evaluator equivalence reviewed;20 original source/fixture copies and22 reference artifact pins independently matched. Both provider five-stage replays,166 warp classes/all512 columns,1488 dense/sparse comparisons and18 boundary controls pass with numpy2.2.6; extra runs Git-free in path with spaces. Original thirteen warp recipe controls retained. All output fields compared except two elapsed values, with compressed bindings checked before semantic normalization. Author3.57x benchmark not remeasured; native supplier mathematics, physical/outer admission and default adoption remain separate.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2768.json"
+        "research/community-efficient1700-audit/packets/2768.json",
+        "research/community-efficient1700-audit/checks/check-2768-supplement.json",
+        "research/community-efficient1700-audit/checks/check-2768.json"
       ]
     },
     {
@@ -3433,7 +3437,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "README and driver reviewed; full classification/CNF soundness review remains. Default verify.sh only regenerates and hashes the Theorem R CNF/proof and reads historical logs; it does not independently check that DRAT refutation. Review pivot/pinning reductions and CNF encodings, then run bounded standard drat-trim on the exact regenerated CNF and shipped proof (fresh solve is a separate reproducibility obligation). Requires pinned SAT/checker tools and a memory plan; no solver or Lean launched. Scope is characteristic-zero E8 iff pattern, not P112/P104 or general zero-allowed completions.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
