@@ -63,7 +63,7 @@
     "environment": "CPython 3.12.15 and 3.13.5; Linux 6.6.87.2-microsoft-standard-WSL2 x86_64, glibc 2.41",
     "registered_replay": "python3.12 -B scripts/research_package.py --package research/p104-three-history-threshold",
     "behavioral_groups": 10,
-    "workflow_tests": "144 tests passed, 5 skipped, via python3 -B -m unittest discover -s tests -p test_research_*.py",
+    "workflow_tests": "144-test suite passed with 5 skips, via python3 -B -m unittest discover -s tests -p test_research_*.py",
     "diagnostics": "ruff check --select E,F,B; python3.12 -W error -B -m py_compile; normal and isolated optimized direct replays",
     "not_checked": "No independent human or proof-assistant review, original P104 geometry rederivation, complete correction/native/supplier cold replay, physical bill or hosted CI success."
   },
