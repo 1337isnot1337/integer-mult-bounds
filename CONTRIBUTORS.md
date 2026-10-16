@@ -717,7 +717,13 @@ The selected κ is unchanged; predecessor notices and original author history re
 
 - **Nick Petalas / petalas** — [#2906](https://github.com/CrocSwap/integer-mult-bounds/pull/2906), POSIX solver cleanup after isolated test modules exit; [#2921](https://github.com/CrocSwap/integer-mult-bounds/pull/2921), fail-closed payload inventories. Builds on Aaron Wang/navinor, woklerx, ywz65, commdata2338, Josie Elliston, Maxime Fleury and Antoine Olivier; full predecessor credit remains in the contributions.
 - **Arham Tahir / Arham-Tahir64** — [#2892](https://github.com/CrocSwap/integer-mult-bounds/pull/2892), current-status review navigation and frozen counts, refreshed during maintainer integration.
-- Maintainer integration by Douglas Colkitt with OpenAI Codex assistance adds native macOS process-observer replays, preserves current historical routes and authenticates the exact runner successor.
+- **Ross Richardson / RossRichardson** — [#2874](https://github.com/CrocSwap/integer-mult-bounds/pull/2874), retained packet backing at common prefix-return cuts.
+- **Hiroki KUMAZAKI / kumagi** — [#2882](https://github.com/CrocSwap/integer-mult-bounds/pull/2882), whole-loop packet backing and conditional private-action composition, extending Ross Richardson's return-cut result.
+- **Arham Tahir / Arham-Tahir64** — [#2877](https://github.com/CrocSwap/integer-mult-bounds/pull/2877), complete logical traffic for David Arias's linear sign, including counter setup and disposal.
+- **James Reed / jwr404** — [#2888](https://github.com/CrocSwap/integer-mult-bounds/pull/2888), lcm stock, wrapper padding and fourteen fit guards; builds on David Arias, Nick Petalas, Adam Gall, Josie Elliston, Aakash, DreamingOfClouds, eumemic, Rohan Arun and Jeremy Kothe.
+- **Nick Petalas / petalas** — [#2902](https://github.com/CrocSwap/integer-mult-bounds/pull/2902), native private payload backing; [#2905](https://github.com/CrocSwap/integer-mult-bounds/pull/2905), ADD countdown backing; [#2912](https://github.com/CrocSwap/integer-mult-bounds/pull/2912), extent/count preparation; [#2916](https://github.com/CrocSwap/integer-mult-bounds/pull/2916), joined ADD count phases.
+- The storage and traffic contributions retain Jose Manuel/jmbarrancoml's PR2697 runtime lineage, David Arias's PR2753 caller/sign, starship-s's nonblank accounting, ywz65's primitive audit, and the preceding Ross Richardson, kumagi and Nick Petalas interfaces. Full source-specific credit remains in each package.
+- Maintainer integration by Douglas Colkitt with OpenAI Codex assistance adds native macOS process-observer replays, preserves current historical routes and authenticates the exact runner successor. Maintainer review also clarifies the zero-depth and atom-width premises in #2888; the original text remains archived.
 
 Pending contributors and remaining obligations appear in the review; a hold is not a rejection.
 

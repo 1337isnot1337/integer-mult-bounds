@@ -26,5 +26,12 @@
     "resolved_sha256": "44dad30df306cf110ec0dc56beb8329336b5e5d9a1b726491eab7ea69f3b9eed",
     "resolved_mode": "100644",
     "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round."
+  },
+  {
+    "number": 2888,
+    "path": "research/selected-lcm-stock-wrapper-fit/README.md",
+    "resolved_sha256": "d56ee549aa15d75da7d42411a0456de5cfbb66b142422fec53c562c5a4803bb6",
+    "resolved_mode": "100644",
+    "reason": "Clarify the separate D=0 proof case and the required w=ceil(e^s), e>=2^L hypotheses for borrowing fit. Original README retained in originals/2888 and author history; executable checks and numerical results unchanged."
   }
 ]
