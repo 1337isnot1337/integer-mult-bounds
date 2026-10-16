@@ -1592,3 +1592,17 @@ Tooling and navigation contributions received scoped review. The two research co
 - **Nick Petalas (@petalas)** — [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928): Fix ordered branch exclusions in the selected replay CI guard (reviewed tooling/navigation).
 - **Aaron Wang (@navinor)** — [#2961](https://github.com/CrocSwap/integer-mult-bounds/pull/2961): KB3g: the tight classes of the 18-point cover question for F2^7 - (7,1)/(8,2)/(6,0) PROVEN impossible, (11,7)/(9,9) gap pressed (outcome=partial, no new kappa) (default tree archive).
 - **jeremykothe2 (@jeremykothe2)** — [#2957](https://github.com/CrocSwap/integer-mult-bounds/pull/2957): Conditional κ = 0.001723717415070738: fourteen declared gate rewrites (five classes) on #2917's words with #2930's cap-attaining fill (historical source snapshot).
+
+## Incremental intake, 2026-10-16
+
+Windows tooling received scoped native review. Research entries below are source-only archives, with independent scientific obligations still open. No selected-bound update.
+
+- **ywz65 (@ywz65)** — [#2452](https://github.com/CrocSwap/integer-mult-bounds/pull/2452): Test native Windows replay descendant cleanup (reviewed change).
+- **ywz65 (@ywz65)** — [#2469](https://github.com/CrocSwap/integer-mult-bounds/pull/2469): Fix Windows replay lifetime with gated Job Object ownership (reviewed change).
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2962](https://github.com/CrocSwap/integer-mult-bounds/pull/2962): Ceilings for linear rank-counting decoder certificates (360/17 on P120) and a one-sided lift bound (cost >= 72 for dim S >= 23) (default tree archive).
+- **Nick Petalas (@petalas)** — [#2964](https://github.com/CrocSwap/integer-mult-bounds/pull/2964): Decide every odd-order character rank cut before bit-word search (default tree archive).
+- **Nick Petalas (@petalas)** — [#2965](https://github.com/CrocSwap/integer-mult-bounds/pull/2965): Bound completed QQ16 producer errors through the decoder (default tree archive).
+- **jeremykothe2 (@jeremykothe2)** — [#2966](https://github.com/CrocSwap/integer-mult-bounds/pull/2966): Conditional κ = 0.001724034272523452: fourteen declared gate rewrites (five classes) on #2942's words and literal allocation (historical source snapshot).
+- **Nick Petalas (@petalas)** — [#2968](https://github.com/CrocSwap/integer-mult-bounds/pull/2968): Audit high-scaling physical scratch inventory and tape costs (default tree archive).
+- **Dugongue (@Dugongue)** — [#2969](https://github.com/CrocSwap/integer-mult-bounds/pull/2969): Compose normal-45 extraction and fourteen gate rewrites: candidate κ ≈ 0.0017240352247481 (default tree archive).
+- **Nick Petalas (@petalas)** — [#2970](https://github.com/CrocSwap/integer-mult-bounds/pull/2970): Certify the F-star one-interior-label gap on tied_min (default tree archive).
