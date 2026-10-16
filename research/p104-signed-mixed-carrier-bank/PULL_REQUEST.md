@@ -11,6 +11,6 @@ This package investigates a specific escape from PR #1125's *fixed-term* carrier
 - Against a **specified, non-optimal** unmixed home-return schedule, modeled ADDs decrease 416 to 288; frame-rank moves decrease 2,224 to 1,312. These are finite schematic counts, **not** a κ/runtime gain.
 - Separate restricted exact obstruction: fixed *nonredundant* eight-channel global recoding over Q with home-line-only reads cannot use 247 non-coordinate line labels for the unsigned support family (F₃ full-rank minor witnesses and independent rational verification).
 
-Validation: `python -I -B research/p104-signed-mixed-carrier-bank/RUN_ALL.py`; requires SymPy for the optional independent rank checker (the core checker itself uses standard library).
+Validation of the committed subset: `python -I -B research/p104-signed-mixed-carrier-bank/RUN_SUBMITTED.py`; standard library only. The larger local laboratory also ran optional independent scripts, but those are not included in this PR. The added `root_line_gate.py` confirms no mixed two-root label is an ordinary E8 root line.
 
 Open gates: physical lowering of composite label lines, actual signed decoder word, new helper ownership/cleanup, paid source access, recursive child ranks, phase frames, full optimized unmixed comparator, full strict moment/outer recheck. This branch changes **no upstream/** file, no selected source and no κ. Upstream PR #1125 and #968 receive credit; PR #2820 supplies parallel projection context. Substantial GPT-6 assistance disclosed. Apache-2.0.
