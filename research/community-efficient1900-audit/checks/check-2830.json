@@ -85,5 +85,6 @@
   },
   "changed_files_after": [],
   "log_sha256": "9637fdbc91c5bb8b64dad5ffc92632dc86252d8a1c592fb5195b3e9b7cb83ce2",
-  "scope": "Original complete verify.sh with xargs concurrency lowered to one. Output logs compared byte-for-byte by upstream script. Written proof and parent hypotheses reviewed separately."
+  "scope": "Original complete verify.sh with xargs concurrency lowered to one. Output logs compared byte-for-byte by upstream script. Written proof and parent hypotheses reviewed separately.",
+  "memory_measurement_scope": "Root process-group sampling only. GNU timeout starts child process groups, so the9488KiB peak does not measure the complete descendant tree. This completed serial run had no observed resource failure; no full-tree memory bound is inferred. Future shell replays use the independently tested descendant-aware watcher."
 }

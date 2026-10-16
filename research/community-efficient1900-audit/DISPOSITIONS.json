@@ -3280,18 +3280,24 @@
       "reviewed_head": "d55e831c153b307e2e03637f52683fc89eae8019",
       "current_head": "d55e831c153b307e2e03637f52683fc89eae8019",
       "prior_reviewed_head": "d55e831c153b307e2e03637f52683fc89eae8019",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/a2-family-b-locus"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "1b8ec21ea6e356d5e1db7006fd202c254eed7b8e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2830"
+      },
       "scope": "DreamingOfClouds: scoped B-locus decoder floors via exact restricted-rank tables, duality branch-and-bound and a three-case merging argument; inherited whole-A2 conclusions remain dependent on the cited parent results.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2830.json",

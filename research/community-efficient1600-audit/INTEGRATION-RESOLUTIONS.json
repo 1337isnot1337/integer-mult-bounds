@@ -104,7 +104,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "c609e271b8119c290993265066737dfe425f4a9e34cf441d5161c6f438df6b50",
+    "resolved_sha256": "f9f75e532fad3e1f00eb9c296faef65b64db52d8852f6c5f43a4d514d5bd5908",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
@@ -112,7 +112,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "b4707baf15b99c9eab196202147439350bcf3af55c7f6166e35802c46ec7bf17",
+    "resolved_sha256": "b9f0765096dbce9288a06eee3941b69caf1e6b19f73dad0c9c440a5ddbfedba2",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
