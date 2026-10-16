@@ -5,7 +5,7 @@
     "original_sha256": "3db52b2790426bbe30516d13778b649c4bb058bb63fe59f8eae21edfbe27f133",
     "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2514,
@@ -13,7 +13,7 @@
     "original_sha256": "575aea46490c199df1cfaf1c783d02efe7e7ad88bd5b9f9a592756c077b72f59",
     "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2517,
@@ -21,7 +21,7 @@
     "original_sha256": "cea883639336ac43b9d92cb9abf8b1fa9f44371a9a1eef75983043339614595c",
     "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2517,
@@ -29,7 +29,7 @@
     "original_sha256": "e8a9d17c2fcac96e7fcb77fe5ff548a18cc26fcf734f63f2d0ecac1c10fb4778",
     "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2553,
@@ -264,10 +264,98 @@
     "reason": "Specify next-grid-tick exclusion rather than an unsupported prohibition of sub-grid improvement; mark PR626 selected result historical and solver generation as author-reported. All mathematical verifier and evidence bytes unchanged."
   },
   {
+    "number": 2579,
+    "path": "docs/research/isolated-test-completion.md",
+    "original_sha256": "1c43f36f8647a430fb5600fd01989f58613a94183d89e64afb2213a07039c54c",
+    "resolved_mode": "100644",
+    "resolved_sha256": "5377c8f541c3f9655ee5562958052119e8664eeba4b37c9282a0a146ef5c823d",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "scripts/replay_historical_check.py",
+    "original_sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787",
+    "resolved_mode": "100644",
+    "resolved_sha256": "b8d932dbedb7c97e6cc2dba4aa8d6610f01c2f7ca2ec02fad7cd6fec59f62be6",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "scripts/run_isolated_tests.py",
+    "original_sha256": "c2ecb3545101bafd16a6c51f04fce4777f99df4550a1c5e4796f99224a87d6b0",
+    "resolved_mode": "100644",
+    "resolved_sha256": "6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_historical_completion.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_mode": "100644",
+    "resolved_sha256": "048520973ba072d6c42528c52671d066eaa0d20e5200076a027b9ba235917f49",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_test_cancellation.py",
+    "original_sha256": "d80bf374897e3c41820852502d12dae2234fa79e31cf0a9cb632a5c0e1e25ab7",
+    "resolved_mode": "100644",
+    "resolved_sha256": "014db7e16518254eb566c2ad2fa98d2f5dd4aea7525707530bc34e97ba9ed0d3",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_test_runner.py",
+    "original_sha256": "c10189d6fd7927431a83cddd36a9ea2ccbcfc1dd540ff1cc763e62ce6609be88",
+    "resolved_mode": "100644",
+    "resolved_sha256": "3638fb4a6233475d1984568a5027b57af30f0dbcce9a22d3c459cef4f7716aa7",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "README.md",
+    "original_sha256": "9437ed1e604c33681ec7cb36bf6cdcff71f8aa099c9427dcc50440170fd16f2a",
+    "resolved_mode": "100644",
+    "resolved_sha256": "00162212b6ae88b02330d824c8d1469ef41097c88b91e32b0876f83d29a94caa",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "research/overlap-discussion-batching/README.md",
+    "original_sha256": "3b370810fc83d83d4e8fd944882189ba14f4ebe5fe7fa562ceeb13cf003f88b1",
+    "resolved_mode": "100644",
+    "resolved_sha256": "f6ae6f62beceba70ea78aea2d95d6477ef3ea2b4a59f3ec377f7a08542af66f4",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "scripts/find_overlap.py",
+    "original_sha256": "d17c67167d6654dbea9763cab21bf9b54e929aebfcf18c7ea1b7f170dc6db998",
+    "resolved_mode": "100644",
+    "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "tests/test_research_discussion_batching.py",
+    "original_sha256": "948415ece070e2e9f48c01499d618f60f29482318621b1ff0981643333312d59",
+    "resolved_mode": "100644",
+    "resolved_sha256": "cb1012b9aab1b261a0a6418771477283c93c0202024aea891c5fdfd928133c07",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "tests/test_research_onboarding.py",
+    "original_sha256": "993f0340bc2c59bb8c3676cf31315f726a1959bd75e0233fc32910d12aa66b94",
+    "resolved_mode": "100644",
+    "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "75eb5048cc4d58ce8f13347c38d2d615a500c2837e3c8d3c63b9743daaac310b",
+    "resolved_sha256": "ae585645bf6f2accb89ab73cace30cd21c652c063589ac669fdcdab3d03145b4",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
