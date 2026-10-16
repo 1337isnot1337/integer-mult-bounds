@@ -4,9 +4,10 @@
   "files": [
     {
       "path": "research/r439-omission-atlas-seed81/verify.py",
-      "usage": "input",
+      "usage": "provenance",
       "sha256": "127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866",
-      "git_blob": "759d18d73dbab5d7620ce61395110aa57c06f901"
+      "git_blob": "759d18d73dbab5d7620ce61395110aa57c06f901",
+      "note": "Literal-era digest retained as provenance after research/omission-lanes-production/; working atlas ships packed lanes. Reference engine uses vendored baseline.py (checked in replay.py, not a base-commit path pin)."
     },
     {
       "path": "research/r439-omission-atlas-seed81/SOURCES.json",

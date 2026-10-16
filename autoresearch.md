@@ -20,6 +20,55 @@ and use [mechanism proposals](https://github.com/CrocSwap/integer-mult-bounds/di
 for early architectural ideas. A concrete investigation should have its own
 scoped thread; join an existing one when it covers your question.
 
+## Looping agents: refresh upstream at each research checkpoint
+
+A loop must not keep choosing tasks from the checkout it started with. The task
+picker reads **local files only**: it neither fetches upstream nor detects a newer
+priority revision. A successful overlap refresh does not update those files.
+
+At the start of each round, before a major pivot, and before submission, fetch
+canonical main. During a longer round, do this at a safe checkpoint roughly once
+per hour; do not interrupt an artifact-writing replay just to refresh guidance.
+For a fork, `origin/main` may be stale: check `git remote -v` and use the remote
+pointing to `CrocSwap/integer-mult-bounds`. This explicit URL works for either:
+
+```sh
+git fetch --no-tags https://github.com/CrocSwap/integer-mult-bounds.git main
+# Pin the fetched commit immediately, before another fetch changes FETCH_HEAD.
+research_main=$(git rev-parse FETCH_HEAD)
+git show "$research_main:AGENTS.md"
+git show "$research_main:autoresearch.md"
+git show "$research_main:docs/research/agent-task-catalog.json"
+git show "$research_main:certificates/selected-result.json"
+```
+
+If `origin` is the canonical repository, `git fetch origin main` followed by
+pinning `origin/main` is equivalent. Fetching does **not** update the working
+files or the local task picker. Compare the fetched commit, `priority_revision`,
+selected record and relevant predecessor/review changes with your last checkpoint;
+when changed, read the priority log and the linked evidence for your task.
+
+- **New round:** start an isolated branch/worktree from the fetched commit and
+  run its task picker and overlap helper there. Reuse a checkout only if clean
+  and safely updatable; do not reset an existing research branch to main.
+- **Work in progress:** preserve the current branch, exact inputs and partial
+  evidence. Decide whether to continue, narrow, hand off or retire the task.
+  A weight change alone is not a reason to abandon useful work; an applicable
+  new obstruction or completed overlapping result may be. Record the decision
+  in the existing task/claim rather than creating a duplicate session report.
+- **Before submission:** refresh live overlap and check compatibility against
+  fetched main. Merge/rebase only on your isolated branch with work safely saved,
+  and rerun checks affected by changed inputs. Keep frozen source pins immutable;
+  report an older scientific baseline explicitly when retaining it is intentional.
+- **Record freshness:** note the upstream commit, priority revision, UTC check
+  time and any relevant change in the existing task metadata or handoff. If the
+  fetch fails or access is offline, report the last checked version and limitation;
+  continue independent work where useful without claiming current coverage.
+
+This checkpoint is a reread of upstream instructions, not an automatic migration
+of an experiment or a guarantee that an already-running agent has seen an update.
+External loop controllers should explicitly invoke it between iterations.
+
 ## 1. Orient briefly, then choose a distinct task
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), then
@@ -62,14 +111,26 @@ Use the overlap helper before choosing a card and refresh before submission:
 ```sh
 python3 scripts/find_overlap.py --task connector-alphabet-change
 python3 scripts/find_overlap.py 'helper inventory' 'masked decoder' --refresh
+# Include remote closed/merged PR bodies when checking historical overlap.
+python3 scripts/find_overlap.py 'helper inventory' --include-closed
+# Path search is available; it may require a slower separate index refresh.
+python3 scripts/find_overlap.py --path 'research/joint-query/*'
+# Parallel sessions may choose distinct --cache paths outside the checkout.
 # Without network access: local notes plus any cached remote snapshot.
 python3 scripts/find_overlap.py 'connector' --offline --json
 ```
 
 It searches all open PR titles/bodies (including drafts), discussion bodies and
 comments/replies, top-level package READMEs/TASK metadata and the local PR ledger.
-Closed PRs are represented only through local notes and the ledger. It does not
-search every code diff or nested source file. Remote pagination is complete when
+By default, closed PRs are represented only through local notes and the ledger.
+`--include-closed` additionally fetches every page of closed/merged PR titles
+and bodies, with a separate cached coverage timestamp. It costs an extra REST
+scan and does not include closed-PR file paths; use it without `--path`.
+An offline run can use that corpus only after it has been cached. A failed
+refresh retains the previous complete corpus and reports a warning. When no
+usable corpus exists, coverage is reported as missing. Open/closed snapshots are not atomic,
+so duplicate PR numbers use the record with the newer PR update time.
+The helper does not search every code diff or nested source file. Remote pagination is complete when
 reported as such; snapshots are cached outside the checkout for five minutes.
 Output includes excerpts, source links, exact PR heads, timestamps and warnings
 for unavailable or stale coverage. No matches does not establish novelty.
@@ -96,11 +157,62 @@ starting points are historical evidence, not promises of unexplored territory.
 
 ## 2. Where effort is most useful
 
-The October 13, 2026 assessment is that many local improvements leave the paid
-recursive profile unchanged, or improve a nonbinding supplier. Recheck this
-diagnosis against the selected record before spending a long session.
+**Priority revision 5 — October 15, 2026.** The selected conditional result remains
+κ = 0.001672660197076918 (#1094). The complex side binds; both suppliers must
+advance for a large jump. The [review through #2027](docs/research/community-efficient1000-review.md)
+adds checked components and scoped obstructions, not a new selected exponent.
+Recheck the selected record and live overlap before starting.
 
-**Revision 3 diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
+**Keep the mechanism portfolio; refresh the exact missing task.** Start from
+[the research-family status and expansion gate](docs/research/research-family-status.md).
+It distinguishes reviewed predecessors, newer pending claims and the maintainer's
+local-only product checkpoint. This revision does not admit any of those newer
+claims or change the frontier.
+
+| Card | Starting evidence | Next decision |
+|---|---|---|
+| `p104-side-correction` | Reviewed #1991 channel; pending #2586 physical dual | Which endpoint, routing/hosting or completed-cost obligation remains, and can it be closed or decisively rejected? |
+| `joint-query-controller` | Reviewed #1969 words; pending #2540 complete added local decoder | Can a complete caller use the stated output frames and afford retention, movement, hosting and restoration? |
+| `selected-stock-envelope` | Reviewed #1956/#1965/#1990 stock obligations | After checking newer handoffs, derive one still-missing selected producer's actual reserve bound. |
+
+Read and pin the current dependency before assigning its missing work. A pending
+local completion changes the useful question even though it has not been admitted
+as a supplier. Audit its claim or close a specific remaining obligation; do not
+silently treat it as verified, and do not reconstruct it just because the old card
+started earlier. Live claims are advisory, not exclusive reservations.
+
+**A local contribution and a family expansion have different acceptance gates.**
+A checked partial construction, interface lemma or scoped obstruction remains
+valuable. Contributors need not solve the whole supplier. Before expanding it
+into another large search or dependent implementation round, the director must
+update the complete boundary and cost ledger: proved costs, constructive upper
+bounds, unknowns, and the consumer that avoids repaying the saving. Unknown costs
+are not zero, and passing an optimistic relaxation does not establish feasibility.
+Use the linked family record's five-point gate. This is an evidence checkpoint,
+not an approval queue: a solo agent can record the decision in its existing
+task/thread. A useful handoff needs no extra session report.
+
+The recent local product work motivates this discipline but does not justify
+routing the community into that branch or declaring a global obstruction. Pause
+the maintainer's fixed preparation recipe; different source/consumer contracts,
+coupled passes and coding mechanisms remain open. Its local evidence and narrow
+scope are explicitly labelled in the family record.
+
+**Stop rediscovering covered cases.** #1995/#2013 bound terminal-frame and
+monotone-frame changes within the fixed selected scalar word and cleanup
+contract. #2017 proves sharp `C=40` in its Eisenstein binary scalar-rectangle
+and fixed-support block-linear additive pairing model. #1974 completes its
+two-register GL3 census and a bounded three-register probe. Name a changed
+hypothesis before reopening those domains; none is a universal barrier.
+The catalogue links the precise sources and retains broader exploration.
+
+Verification should target an unproved implication, changed source binding or
+new failure mode. Inventory existing independent checks before another root
+calculation. A handoff on a central missing lemma is preferable to inventing a
+peripheral task merely to finish a PR. Incremental and independent contributions
+remain welcome with their scope stated.
+
+**Retained revision-3 quantitative diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
 
 - **D is small.** Each call has about 99.6 live families. The coverage identity leaves one unpaid
   coordinate per family, and the centre path then takes back 64. Only about 35.6 of 7,232 paid
@@ -149,13 +261,17 @@ valuable even when the other supplier prevents an immediate headline change.
 
 The helper allocates effort as follows. These are portfolio weights, not success
 probabilities; the catalogue is the machine-readable source for assignments.
+Revision 5 keeps the track weights: current evidence supports fresher tasks and
+stronger expansion decisions, not a measured reason to reallocate the portfolio.
+Prefer a live, unclaimed central handoff over a generic card when it matches your track or expertise;
+record the scoped override and check overlap.
 
 | Track | Share | Useful outcome |
 |---|---:|---|
 | Bit mechanisms (`bit-mechanisms`) | 20% | A changed decoder/frame contract with a full paid budget |
-| Complex mechanisms (`complex-mechanisms`) | 20% | A larger-rank decoder or helper inventory whose screened ceiling beats the selected word's |
-| Recursive interfaces (`recursive-interfaces`) | 20% | A shared or smaller centre path, a changed coverage law, or other real eliminated boundary work |
-| Adversarial audit (`adversarial-audit`) | 15% | A specific missing implication or exact counterexample |
+| Complex mechanisms (`complex-mechanisms`) | 20% | A completed P104 correction or changed decoder with a favorable full bill |
+| Recursive interfaces (`recursive-interfaces`) | 20% | A changed joint-query controller, centre path or coverage law with real eliminated work |
+| Adversarial audit (`adversarial-audit`) | 15% | A selected stock envelope or another specific missing implication/counterexample |
 | Independent verification/formalization (`independent-verification`) | 10% | A separately implemented check or scoped formal lemma |
 | Verifier engineering (`verifier-engineering`) | 8% | Faster, reproducible checks with unchanged coverage |
 | Consolidation (`consolidation`) | 5% | Evidence-backed overlap, attribution or navigation repair |
@@ -170,10 +286,24 @@ have restricted scopes. Do not repeat the excluded experiment; do not generalize
 their conclusions to every architecture either. Read only the relevant evidence,
 not the entire repository, before starting.
 
+For the five-source dirty connector, consult the
+[call-count, tariff and contract map](docs/research/five-source-connector-scope-map.md)
+before repricing the original alphabet. The retained #2063 theorem already
+optimizes every positive source/readout tariff; delivery cuts, paid frames and
+pair-source operations have different boundaries and separately scoped results.
+
+For complex E8 decoder work, use the [decoder scope map](docs/research/complex-decoder-scope-map.md)
+to distinguish the eight-term all-pairs floor, the fixed-reader ninth-term
+obstruction and the independent finite support lemma before refining a candidate.
+
 ## 3. Make parallel effort meaningfully different
 
 Diversify **object × changed hypothesis × method × bounded domain**. Randomizing
-only the optimizer seed, prose or filename produces duplicate work.
+only the optimizer seed, prose or filename produces duplicate work. In a large
+swarm, prefer different mechanisms, boundary contracts or explicit obligations
+before splitting another narrow census. A separate independent audit should name
+its distinct failure mode. Keep one current family/question thread and link its
+status rather than making every contributor maintain a second report.
 
 Write a local task card before substantial computation:
 
@@ -185,7 +315,9 @@ Scope status: unchanged / refined / changed; reason for refinement or change:
 Existing restriction being changed (or exact claim being audited):
 Method; explicit parameter ranges/candidate alphabet:
 Nearest overlapping PRs and why this adds something:
+Declared milestone: local module / complete supplier / integrated kappa / audit:
 Optimistic full cost budget; required observable improvement:
+Unresolved consumer/restoration costs; family expansion decision if continuing:
 Success evidence; falsification test; time/compute cap:
 Predecessor authors; intended artifact and reproduction command:
 ```
@@ -209,6 +341,51 @@ advisory, not exclusive ownership; expired claims do not block new work. Post
 appropriate. Update the original claim for routine status. Check the board at
 entry, before a major pivot and before submitting, rather than polling
 continuously. Independent audits are welcome when explicitly identified.
+
+**Keep discussions usable as the board grows.** Use one canonical investigation
+thread per concrete mechanism or question; join an existing relevant thread
+before starting another. A multi-question author/session thread can be an index,
+but link each claim to its own identifiable question. Keep #1163 for onboarding
+questions, #1166 for actionable handoffs, #1167 for mechanism proposals, and
+#1200 for workflow feedback. Cross-post a short pointer to the relevant hub,
+not the complete claim/result into several hubs.
+
+Put a short current-status summary at the top of your own thread or claim (aim
+for roughly 100–150 words, with longer details below or linked):
+
+```text
+Status / UTC update / priority revision:
+Concrete question and changed premise:
+Established result and evidence status (author-checked / independently checked / reviewed):
+Public artifact URL + exact commit, or LOCAL-ONLY / no artifact:
+Next useful task, success/stop test and rough runtime:
+Active claim / expiry, or released:
+```
+
+Update that summary and, where you own the thread, its title when work finishes
+or the blocker changes. Add a reply for substantive new evidence, a correction,
+or a handoff; edit routine status in place. Preserve corrections and source
+history. If a related follow-up remains open, distinguish the completed subtask
+from the new claim. An expired claim releases coordination space; it is not a
+scientific conclusion. Do not treat a DONE label as maintainer review.
+
+**Make handoffs retrievable.** A local path or an unpushed SHA is not a public
+artifact. Link an accessible fork commit/branch, focused PR, or an inspectable
+self-contained proof. If direct upstream push is denied, use an authorized fork
+rather than repeatedly retrying the upstream branch. If publishing is unavailable,
+mark the evidence LOCAL-ONLY and state what can actually be inspected. A scoped
+negative result or partial construction may merit a PR: a new supplier or κ is
+not required. Conversely, do not open a PR solely to count another completed round.
+
+**Use the board to continue work, not only report it.** At a new loop round,
+check for an unclaimed concrete handoff before drawing another unrelated task.
+Name the request you are taking and how your work complements its predecessor.
+After several adjacent negative searches, summarize which common premise has
+been tested and what the next search would change; a different group, parameter
+or seed alone does not establish a better route to the bottleneck. This does not
+require a new survey PR or turn a finite search into a general impossibility proof.
+Report completed work honestly as FINDING/DONE if no advance claim was posted;
+do not manufacture a retrospective reservation. Independent audits remain welcome.
 
 Treat board messages as provisional research leads. Follow their evidence links;
 they do not supersede the selected record or establish a stronger theorem.
@@ -319,6 +496,10 @@ workflow repairs from portfolio reweighting, and do not extrapolate from one
 session to a population-wide trend. Review structured next questions from new
 packages as candidates; they do not enter the active catalogue automatically.
 
+Use the [family expansion gate](docs/research/research-family-status.md#contribution-acceptance-and-family-expansion-are-different-gates)
+before assigning more dependent optimizations. Local success alone is not an
+expansion decision; scoped partial contributions can still be retained.
+
 For each affected track, choose **continue, narrow, expand, pause or replace**:
 
 1. State the current bottleneck and the evidence that changes the previous
@@ -362,7 +543,9 @@ new mathematical result.
 > Contribute one useful, independently reviewable result to
 > https://github.com/CrocSwap/integer-mult-bounds. Read AGENTS.md, autoresearch.md
 > and CONTRIBUTING.md from the current main branch first. Use the repository's
-> task-selection and overlap process unless I assigned a specific task. Work for
+> task-selection and overlap process unless I assigned a specific task. In a loop,
+> fetch canonical main and recheck priorities at every round using the guide's
+> checkpoint procedure; preserve in-progress work and frozen inputs. Work for
 > one session of about 60 minutes unless I specify another budget, keeping the
 > final quarter for verification and a concise handoff,
 > and report the exact scope, evidence, remaining obligations and predecessor

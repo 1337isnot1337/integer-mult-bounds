@@ -76,9 +76,20 @@ venv. Other dependencies, native/Lean builds and long replays need a dedicated
 workflow or the package's existing reproducible environment.
 
 Declare every external proof-relevant input in `inputs`; package-local changes
-already trigger replay. The generic hook does not infer transitive imports.
+already trigger replay. Use canonical repository-relative POSIX paths, such as
+`research/example/input.json`, with forward slashes and no leading `./`, repeated
+slashes or dot components. The planner rejects aliases because Git reports the
+canonical path when a dependency changes. The generic hook does not infer transitive imports.
 Each command has a maximum 600-second timeout and the package total is at most
-1200 seconds. A timeout fails and terminates the local process group. These
+1200 seconds. On POSIX, the launcher terminates the command's local process
+group on every exit, including success, failure, timeout and interruption, so
+background solver processes in that group cannot continue into another replay.
+Verification commands must wait for all proof-relevant children and propagate
+their failures before returning; cleanup is not evidence that unfinished checks
+passed. Descendants that deliberately detach into another group/session are
+outside this cleanup contract. On Windows, tree cleanup uses `taskkill` while
+the leader is still running; cleanup after leader exit needs a separate native
+lifetime mechanism and is not provided here. A timeout still fails. These
 bounds limit a verification job, not the mathematical search budget.
 
 The [registered-package workflow](../../.github/workflows/research-packages.yml)
@@ -91,6 +102,30 @@ Changes to the package runner or this workflow select every registered package.
 Each gets a fresh runner and explicit commands. It does not run every historical
 `verify.py`. New hooks do not replace existing cold-replay obligations, and a
 passing metadata check is not acceptance of a mathematical result.
+
+## Check publication bytes
+
+After committing a package and before publishing it, optionally compare its
+working files and declared inputs with the exact commit:
+
+```sh
+python3 scripts/check_research_commit.py --package research/my-experiment
+# For a different publication commit:
+python3 scripts/check_research_commit.py --package research/my-experiment --ref COMMIT
+```
+
+Git attributes or clean filters can make a valid local source-hash receipt
+describe different bytes from those committed, even when `git diff` is empty.
+This read-only check compares raw bytes and reports missing, extra or changed
+files. It includes tracked and nonignored untracked package files plus the
+explicit `VERIFY.json` inputs, and rejects committed links/submodules.
+Ignored runtime files and undeclared external dependencies are outside scope.
+
+If a mismatch is intentional, use an explicitly documented source adapter;
+otherwise correct the working bytes or publication commit and rerun the
+affected verifier before regenerating its receipt. The preflight never changes
+files or normalizes scientific evidence. Passing it does not run the verifier,
+validate the mathematics, or establish equivalence to a hosted CI environment.
 
 ## Optional workflow feedback
 

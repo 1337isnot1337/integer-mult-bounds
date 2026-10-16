@@ -3,6 +3,9 @@ on:
   push:
     paths:
       - 'research/community-reconciliation92-audit/**'
+      - 'scripts/replay_historical_check.py'
+      - 'scripts/historical-ci-inputs/**'
+      - 'tests/test_historical_check.py'
       - 'scripts/run_parallel.py'
       - 'scripts/verify_parallel.py'
       - 'tests/test_parallel_verification.py'
@@ -10,6 +13,9 @@ on:
   pull_request:
     paths:
       - 'research/community-reconciliation92-audit/**'
+      - 'scripts/replay_historical_check.py'
+      - 'scripts/historical-ci-inputs/**'
+      - 'tests/test_historical_check.py'
       - 'scripts/run_parallel.py'
       - 'scripts/verify_parallel.py'
       - 'tests/test_parallel_verification.py'
@@ -26,6 +32,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check provenance and scoped dispositions (not a mathematical replay)
-        run: python3 research/community-reconciliation92-audit/verify.py
+        run: python3 -B scripts/replay_historical_check.py reconciliation92
       - name: Check worker isolation and rejection controls
         run: python3 -m unittest discover -s tests -p test_parallel_verification.py -v

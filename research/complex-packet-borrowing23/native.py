@@ -16,7 +16,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 CONSTRUCTOR = "research/complex-k492-owner-repair/code/construct_k_triangle.py"
-AUDITOR = "research/complex-k492-owner-repair/code/hpe_audit_and_transport.py"
+AUDITOR = "research/complex-sw4-frame8/local/hpe_audit_and_transport.py"
 INPUTS = "research/direct-delivery504-global/inputs/hamming"
 SCHEDULE = "research/complex-k492-owner-repair/data/TRI-SCHEDULE.json"
 ROUTING = ("research/complex-k492-owner-repair/vendor/multicold/vendor/pr558/vendor/pr552/"

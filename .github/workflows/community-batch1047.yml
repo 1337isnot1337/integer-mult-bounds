@@ -87,6 +87,8 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: '3.12'
+      - name: Fetch immutable tree required by the PR946 historical inventory
+        run: git fetch --no-tags --depth=1 https://github.com/CrocSwap/integer-mult-bounds.git 407d52ff15b2217b6e22bce44728b4c3907b6515
       - name: Install exact native replay dependencies
         run: |
           sudo apt-get update
