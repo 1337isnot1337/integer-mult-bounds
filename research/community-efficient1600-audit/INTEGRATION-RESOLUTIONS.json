@@ -80,8 +80,8 @@
     "number": 2625,
     "path": "scripts/run_isolated_tests.py",
     "original_sha256": "4d3a12a7ee03e7b533436b5c0723c3bbeabdbb60d8adad058996c9a064f481e9",
-    "resolved_sha256": "331743571ea29a63a0e819d421e8adc6f04831f11333aa1f7f1292933ccc82d4",
-    "reason": "Retain current PR53 historical skip-clones overlay while adopting the reviewed cancellation registry and bounded tree cleanup."
+    "resolved_sha256": "6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2624,
@@ -102,14 +102,14 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "8ae5fccfed38d152bef8be32498ea59b13ed8df28b2932d6eba6848005f859eb",
+    "resolved_sha256": "8c2e963303fd412af961511ff3786e47d92483702d5d4bea9b5d9c523e1a7104",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "4df5fbf3c8dbe3fcffdbdd9d5485416d1e8f3c6912a90caad0dfb05846f333f3",
+    "resolved_sha256": "79b61d26d075ba7a9a0d85c6d911c46a70f62a161e33e6a6ed8e7e3b116dd40e",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
@@ -200,7 +200,7 @@
     "number": 2702,
     "path": "scripts/find_overlap.py",
     "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
-    "reason": "Preserve newer main guidance/package-name extraction and combine independent navigation pointers; explicitly mark historical source-status snapshots without changing their pinned evidence. Eighteenth review preserves this contribution with combined PR2514/2517 pagination, PR2539 source batching, PR2553 cache isolation or the new ledger family as applicable; current 133-test tooling suite and native probe pass.",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18.",
     "original_sha256": "ec4c533f43a03aed32cf117f408390ae1cc2ffd1ec1cfcd83a5bfe9986ae16be"
   },
   {
@@ -279,5 +279,13 @@
     "original_sha256": "2d5171c7975254a549061436cbd6fdcde5057de6d8ae72a0cca7ebdcb67fc62f",
     "resolved_sha256": "61b24365abeeadc84a1cc3ce23cfd384ba4b5483a99852f010982065d8d99451",
     "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2625,
+    "path": "tests/test_isolated_test_cancellation.py",
+    "original_sha256": "d80bf374897e3c41820852502d12dae2234fa79e31cf0a9cb632a5c0e1e25ab7",
+    "resolved_mode": "100644",
+    "resolved_sha256": "014db7e16518254eb566c2ad2fa98d2f5dd4aea7525707530bc34e97ba9ed0d3",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   }
 ]

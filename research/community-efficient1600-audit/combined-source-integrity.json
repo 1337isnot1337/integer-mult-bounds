@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "8225ff33611ad23ae5988e40cda4acfd594c0ca2",
+  "checked_commit": "e0505bcfa0953fc83ded5e5c3fc4c9f2924e7c10",
   "merged_prs": [
     2592,
     2593,
@@ -151,12 +151,12 @@
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "8ae5fccfed38d152bef8be32498ea59b13ed8df28b2932d6eba6848005f859eb"
+      "sha256": "8c2e963303fd412af961511ff3786e47d92483702d5d4bea9b5d9c523e1a7104"
     },
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.md",
-      "sha256": "4df5fbf3c8dbe3fcffdbdd9d5485416d1e8f3c6912a90caad0dfb05846f333f3"
+      "sha256": "79b61d26d075ba7a9a0d85c6d911c46a70f62a161e33e6a6ed8e7e3b116dd40e"
     },
     {
       "number": 2624,
@@ -166,7 +166,12 @@
     {
       "number": 2625,
       "path": "scripts/run_isolated_tests.py",
-      "sha256": "331743571ea29a63a0e819d421e8adc6f04831f11333aa1f7f1292933ccc82d4"
+      "sha256": "6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88"
+    },
+    {
+      "number": 2625,
+      "path": "tests/test_isolated_test_cancellation.py",
+      "sha256": "014db7e16518254eb566c2ad2fa98d2f5dd4aea7525707530bc34e97ba9ed0d3"
     },
     {
       "number": 2676,

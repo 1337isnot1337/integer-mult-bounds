@@ -182,7 +182,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('package', choices=CONFIG)
     parser.add_argument('--native', action='store_true', help='also run R420 C++ checks (requires C++17/Boost)')
+    parser.add_argument("--completion-receipt", type=Path,
+                        help="private isolated-runner receipt; skip-clones-tests only")
     args = parser.parse_args()
+    require(args.completion_receipt is None or args.package == "skip-clones-tests",
+            "completion receipt applies only to skip-clones-tests")
+    if args.completion_receipt is not None:
+        require(args.completion_receipt.is_absolute() and not args.completion_receipt.exists(),
+                "completion receipt must be a fresh absolute path")
     require(not args.native or args.package == 'r420', '--native applies only to r420')
     config = CONFIG[args.package]
     paths = tracked_paths(ROOT)
@@ -197,7 +204,20 @@ def main():
         env = os.environ.copy()
         env.pop('PYTHONOPTIMIZE', None)
         for command in commands:
-            subprocess.run([sys.executable, '-B'] + command, cwd=snapshot, env=env, check=True)
+            if args.completion_receipt is None:
+                argv = [sys.executable, "-B"] + command
+            else:
+                from run_isolated_tests import module_command, COMPLETED
+                require(command == ["-m", "unittest", "discover", "-s", "tests",
+                                    "-p", "test_skip_clones.py", "-v"],
+                        "unexpected historical unittest command")
+                argv = module_command(sys.executable, "tests", "test_skip_clones.py",
+                                      args.completion_receipt)
+            subprocess.run(argv, cwd=snapshot, env=env, check=True)
+            if args.completion_receipt is not None:
+                require(args.completion_receipt.is_file()
+                        and args.completion_receipt.read_bytes() == COMPLETED,
+                        "Incomplete unittest run in historical replay")
         verify_unchanged(snapshot, expected)
     print('PASS_HISTORICAL_CHECK', args.package, 'input_sha256=' + config['sha256'], flush=True)
 

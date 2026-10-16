@@ -158,6 +158,63 @@ class T(unittest.TestCase):
                 self.assertIn('deliberate mathematical assertion', result.stderr.decode())
                 self.assertIn('Failed modules: test_assertion.py', result.stderr.decode())
 
+    def test_successful_exit_during_load_tests_is_not_completion(self):
+        box = self.sandbox({
+            'test_a_healthy.py': PASS_MODULE,
+            'test_b_exit.py': '''def load_tests(loader, tests, pattern):
+    raise SystemExit(0)
+''',
+        })
+        result = box.run('--workers', '2')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Checking test_a_healthy.py', result.stdout.decode())
+        self.assertIn('Checking test_b_exit.py', result.stdout.decode())
+        self.assertNotIn('PASS all', result.stdout.decode())
+        self.assertIn('Incomplete unittest run', result.stderr.decode())
+        self.assertIn('Failed modules: test_b_exit.py', result.stderr.decode())
+
+    def test_abrupt_zero_exit_during_execution_is_not_completion(self):
+        box = self.sandbox({'test_exit.py': '''import os
+import unittest
+class T(unittest.TestCase):
+    def test_exit(self):
+        os._exit(0)
+'''})
+        result = box.run('--workers', '1')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertNotIn('PASS all', result.stdout.decode())
+        self.assertIn('Incomplete unittest run', result.stderr.decode())
+
+    def test_completed_empty_and_skipped_suites_remain_valid(self):
+        box = self.sandbox({
+            'test_empty.py': 'import unittest\n',
+            'test_skipped.py': '''import unittest
+class T(unittest.TestCase):
+    @unittest.skip('deliberate completed skip')
+    def test_skipped(self):
+        self.fail('must remain skipped')
+''',
+        })
+        result = box.run('--workers', '2')
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        self.assertIn('Ran 0 tests', result.stderr.decode())
+        self.assertIn('skipped=1', result.stderr.decode())
+        self.assertIn('PASS all 2 test modules', result.stdout.decode())
+
+    def test_child_keeps_unittest_discovery_argv(self):
+        box = self.sandbox({'test_argv.py': '''from pathlib import Path
+import sys
+import unittest
+class T(unittest.TestCase):
+    def test_argv(self):
+        self.assertEqual(sys.argv, [
+            str(Path(unittest.__file__).with_name('__main__.py')), 'discover',
+            '-s', str(Path(__file__).parent), '-p', Path(__file__).name, '-v'])
+'''})
+        result = box.run('--workers', '1')
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        self.assertIn('PASS all 1 test modules', result.stdout.decode())
+
 
 if __name__ == '__main__':
     unittest.main()

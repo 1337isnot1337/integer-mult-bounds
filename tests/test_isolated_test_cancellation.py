@@ -198,7 +198,7 @@ class CancellationTests(unittest.TestCase):
 
             class FailingCommunicate(real_popen):
                 def communicate(self, *args, **kwargs):
-                    if "unittest" in self.args:
+                    if runner.BOOTSTRAP in self.args:
                         children.append(self)
                         if not wait_for((root/"ready").exists):
                             raise RuntimeError("real module/solver did not start")

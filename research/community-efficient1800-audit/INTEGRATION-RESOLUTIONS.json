@@ -5,7 +5,7 @@
     "original_sha256": "3db52b2790426bbe30516d13778b649c4bb058bb63fe59f8eae21edfbe27f133",
     "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2514,
@@ -13,7 +13,7 @@
     "original_sha256": "575aea46490c199df1cfaf1c783d02efe7e7ad88bd5b9f9a592756c077b72f59",
     "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2517,
@@ -21,7 +21,7 @@
     "original_sha256": "cea883639336ac43b9d92cb9abf8b1fa9f44371a9a1eef75983043339614595c",
     "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2517,
@@ -29,7 +29,7 @@
     "original_sha256": "e8a9d17c2fcac96e7fcb77fe5ff548a18cc26fcf734f63f2d0ecac1c10fb4778",
     "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
     "number": 2553,
@@ -240,10 +240,194 @@
     "resolved_sha256": "77d4d9dcda65583e4b379662df84ab2728431d4a75a9597bf262d58e7cc70d15"
   },
   {
+    "number": 801,
+    "path": "research/label-field-census/README.md",
+    "original_sha256": "45266700399a09c50402afd8fd6cd7d1a2a606d4c8cedf4cd1218d9d4d61134a",
+    "resolved_sha256": "bc3da10c6880d5532750ef54e4d28f078ee95a648203c05c1dc8c62339a2df43",
+    "resolved_mode": "100644",
+    "reason": "Correct rounded decimal bound notation, historical checkpoint and finite stage scope; distinguish conditional field/window hypotheses and upper ceilings from achieved savings. Code change is docstring only; all executable AST nodes unchanged. Full original result must reproduce exactly. Independent supplemental pricing rejects the submitted rounded-down0.00807 bound; corrected strict decimal caps are checked explicitly."
+  },
+  {
+    "number": 801,
+    "path": "research/label-field-census/census.py",
+    "original_sha256": "aab8f799d90b4957ef5a09180b14d9dd072c7a7097c92b00278f650fc0818186",
+    "resolved_sha256": "9d211cc0c1b83c8752cf6f14ee0d6957f75a0f9f66dd80ad5b939ae566f1b1ea",
+    "resolved_mode": "100644",
+    "reason": "Correct rounded decimal bound notation, historical checkpoint and finite stage scope; distinguish conditional field/window hypotheses and upper ceilings from achieved savings. Code change is docstring only; all executable AST nodes unchanged. Full original result must reproduce exactly."
+  },
+  {
+    "number": 776,
+    "path": "research/complex-k492-frame-bound/README.md",
+    "original_sha256": "bd3964eacb7641e12f911ba938601b51466dd50a120623697780a55b8c039a59",
+    "resolved_sha256": "ea972fe791eff7da256da045b6ed7583a43a67404ee046564a3937244a89a7af",
+    "resolved_mode": "100644",
+    "reason": "Specify next-grid-tick exclusion rather than an unsupported prohibition of sub-grid improvement; mark PR626 selected result historical and solver generation as author-reported. All mathematical verifier and evidence bytes unchanged."
+  },
+  {
+    "number": 2579,
+    "path": "docs/research/isolated-test-completion.md",
+    "original_sha256": "1c43f36f8647a430fb5600fd01989f58613a94183d89e64afb2213a07039c54c",
+    "resolved_mode": "100644",
+    "resolved_sha256": "5377c8f541c3f9655ee5562958052119e8664eeba4b37c9282a0a146ef5c823d",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "scripts/replay_historical_check.py",
+    "original_sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787",
+    "resolved_mode": "100644",
+    "resolved_sha256": "b8d932dbedb7c97e6cc2dba4aa8d6610f01c2f7ca2ec02fad7cd6fec59f62be6",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "scripts/run_isolated_tests.py",
+    "original_sha256": "c2ecb3545101bafd16a6c51f04fce4777f99df4550a1c5e4796f99224a87d6b0",
+    "resolved_mode": "100644",
+    "resolved_sha256": "6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_historical_completion.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_mode": "100644",
+    "resolved_sha256": "048520973ba072d6c42528c52671d066eaa0d20e5200076a027b9ba235917f49",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_test_cancellation.py",
+    "original_sha256": "d80bf374897e3c41820852502d12dae2234fa79e31cf0a9cb632a5c0e1e25ab7",
+    "resolved_mode": "100644",
+    "resolved_sha256": "014db7e16518254eb566c2ad2fa98d2f5dd4aea7525707530bc34e97ba9ed0d3",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2579,
+    "path": "tests/test_isolated_test_runner.py",
+    "original_sha256": "c10189d6fd7927431a83cddd36a9ea2ccbcfc1dd540ff1cc763e62ce6609be88",
+    "resolved_mode": "100644",
+    "resolved_sha256": "3638fb4a6233475d1984568a5027b57af30f0dbcce9a22d3c459cef4f7716aa7",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "README.md",
+    "original_sha256": "9437ed1e604c33681ec7cb36bf6cdcff71f8aa099c9427dcc50440170fd16f2a",
+    "resolved_mode": "100644",
+    "resolved_sha256": "00162212b6ae88b02330d824c8d1469ef41097c88b91e32b0876f83d29a94caa",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "research/overlap-discussion-batching/README.md",
+    "original_sha256": "3b370810fc83d83d4e8fd944882189ba14f4ebe5fe7fa562ceeb13cf003f88b1",
+    "resolved_mode": "100644",
+    "resolved_sha256": "f6ae6f62beceba70ea78aea2d95d6477ef3ea2b4a59f3ec377f7a08542af66f4",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "scripts/find_overlap.py",
+    "original_sha256": "d17c67167d6654dbea9763cab21bf9b54e929aebfcf18c7ea1b7f170dc6db998",
+    "resolved_mode": "100644",
+    "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "tests/test_research_discussion_batching.py",
+    "original_sha256": "948415ece070e2e9f48c01499d618f60f29482318621b1ff0981643333312d59",
+    "resolved_mode": "100644",
+    "resolved_sha256": "cb1012b9aab1b261a0a6418771477283c93c0202024aea891c5fdfd928133c07",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 2493,
+    "path": "tests/test_research_onboarding.py",
+    "original_sha256": "993f0340bc2c59bb8c3676cf31315f726a1959bd75e0233fc32910d12aa66b94",
+    "resolved_mode": "100644",
+    "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
+    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/README.md",
+    "original_sha256": "ad0c8cb50fe1c4671abfba82d19b5a630352c2646ef8a858f3cb11ebe0437cf7",
+    "resolved_sha256": "9a1845d2e9a94b6b64f8ef386b6b36dbfa39fffd458e3c2bf17f5ae2cbf37e90",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/VERIFY.json",
+    "original_sha256": "4d3bbb8bd48298bd7cde4949484152d2b7d8e43bea8cceb9b7d6bd7ac6f77760",
+    "resolved_sha256": "715ef17a58416553a99080e383a78547415c5558ae478931dc399bb38d2dad82",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/PARITY.md",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "a3691dd2dab0ab0a9de0de7dbfe99e376d2e7cfc06914b83477f4864004da76d",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/parity.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "a8863454ebec09e16ca9716c3f1f1c64676e5be2fc73a1e2838b0e13d64064f2",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 2537,
+    "path": "research/recycled-bit-nesting-reuse/README.md",
+    "original_sha256": "35c6354803b2ff7f9ebe52b5ae7780a2d124bd2d944aaea2c8d9b92257fc83ed",
+    "resolved_sha256": "7ccabcfe4893a2d62aa9ab8eba99e128adc7c93331caf252e6d998e5f868d5dd",
+    "resolved_mode": "100644",
+    "reason": "thakrarsagar's fraction-free exact null kernel and primitive-row acceleration retained with unchanged mathematical predicates and certificate except its verifier pin. Bounded differential tests pass; all 4,878 fresh and 202,190 inherited frame moves audited against original kernels using serial memo eviction. Fresh scalar maps, negative controls, exact pricing, 47 constraints and full certificate equality pass using authenticated completed-frame reuse after the memory stop. Two-stage verification, not a fresh full cold replay; historical timing not remeasured. Audit mode requires repeatable containers."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/README.md",
+    "original_sha256": "01924261e8848b7ee4454cd35d5226ad786f5091fdc6ffad68351485a55539b1",
+    "resolved_sha256": "72f4368865b1d068b1ae6cb2182937f1d434ac2ca707a0dc575a45af56a3ed72",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/HISTORICAL-PACKED.json",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "228f54fddef6ed5bd86e4c59e71d907fa022613f4dc1d9293350f5f7bcfc231b",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/historical_packed.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "9184fa9e817bb0214dc2de37932ef7cd131f5e6c000d43d9b5f358be30bfdcb4",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/test_integration.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "e32f1c915f798bbd45ee2708b0bfcf4ff7ac5b4a3d0c566a741cbe286fd0a114",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "2197d8f589cd28c58b05e9421647ac952da1ed1aab690caf0218de7c03472304",
+    "resolved_sha256": "df9caae3fbf57266b4d1b213617d731391812515dc8c51914058749aa3195c60",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
