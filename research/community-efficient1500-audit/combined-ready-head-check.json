@@ -1,0 +1,50 @@
+{
+  "observed_at": "2026-10-16T00:44:34.190409+00:00",
+  "ready_unmerged": [
+    2507,
+    2513,
+    2527,
+    2541,
+    2582,
+    2589
+  ],
+  "observations": {
+    "p2507": {
+      "number": 2507,
+      "headRefOid": "f0ab3bc6f3a878e277f569d53b388600d087dd69",
+      "state": "OPEN",
+      "isDraft": false
+    },
+    "p2513": {
+      "number": 2513,
+      "headRefOid": "9eeea5c220c8e003d8fec07e5b50c8bbda1eb133",
+      "state": "OPEN",
+      "isDraft": false
+    },
+    "p2527": {
+      "number": 2527,
+      "headRefOid": "3e1e819e4d0837123a4fc05674fc1df6bde859a9",
+      "state": "OPEN",
+      "isDraft": false
+    },
+    "p2541": {
+      "number": 2541,
+      "headRefOid": "cfe0f7f450cca3b8490ea8073a0e585bdf174e22",
+      "state": "OPEN",
+      "isDraft": false
+    },
+    "p2582": {
+      "number": 2582,
+      "headRefOid": "19ce763603d14c4a85a662391c286095395dfd34",
+      "state": "OPEN",
+      "isDraft": false
+    },
+    "p2589": {
+      "number": 2589,
+      "headRefOid": "399aa4293d40061fad8ee7e55b39cd1491c7d917",
+      "state": "OPEN",
+      "isDraft": false
+    }
+  },
+  "changed": []
+}

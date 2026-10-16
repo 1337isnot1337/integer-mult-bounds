@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checked_commit": "a53462867afeabe9f4350bd4d61f5661f4a8fae7",
+  "merged_prs": [
+    2491,
+    2494,
+    2495,
+    2507,
+    2513,
+    2520,
+    2527,
+    2529,
+    2531,
+    2535,
+    2541,
+    2554,
+    2557,
+    2561,
+    2568,
+    2577,
+    2582,
+    2587,
+    2589
+  ],
+  "changed_files": 174,
+  "resolved_files": [
+    {
+      "number": 2495,
+      "path": "scripts/run_parallel.py",
+      "sha256": "57dd345cf3ba5074df08d7dba45a61c6de4f3438b1210ddbd0815776c961f065"
+    },
+    {
+      "number": 2529,
+      "path": "scripts/research_package.py",
+      "sha256": "afed672d07ce30cec42c4e294754ca2fa071d1867fd1ea996f64a2bc31edd433"
+    },
+    {
+      "number": 2554,
+      "path": "scripts/research_package.py",
+      "sha256": "afed672d07ce30cec42c4e294754ca2fa071d1867fd1ea996f64a2bc31edd433"
+    }
+  ],
+  "selected_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+  "scope": "Every reviewed author head is an ancestor; every changed file is original Git blob/mode or an explicitly reviewed integration resolution. GitHub MERGED observations retained separately. No new full-supplier claim."
+}
