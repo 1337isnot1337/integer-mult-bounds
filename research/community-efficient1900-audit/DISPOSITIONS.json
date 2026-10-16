@@ -1507,18 +1507,24 @@
       "reviewed_head": "cfb813f883e61519deedcd84151dc0c68b9d19cc",
       "current_head": "cfb813f883e61519deedcd84151dc0c68b9d19cc",
       "prior_reviewed_head": "cfb813f883e61519deedcd84151dc0c68b9d19cc",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/f7-18point-cover-question-seed6d34356c"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "09cad3ab9e2d2a5253ce6446eef91965b143d645",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2911"
+      },
       "scope": "Aaron Wang: eighteen-point covering-set reduction, independently certified vanishing-character constraints and bounded profile/search results; historical census-dependent row filters remain conditional.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2911.json",
