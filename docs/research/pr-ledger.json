@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1977,
-    "partially_reviewed": 359,
+    "incorporated": 1980,
+    "partially_reviewed": 356,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "c5d332ea6d8eb783a3207bfc6a635c058d2006b23ecf58036b2a8bc8e633cd28",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "b9375089ff9e434e036fd3059e36eb088fa23a17854779b9afd17be049792029",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "64f456c1e26cd3fcbcd775b071cae26920a2853b1b12ee1b091aa1f14f272688",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -60843,27 +60843,35 @@
           "kind": "integration_or_partial_review"
         },
         {
-          "head": "d84d3b950127ff9252e5c059a629bb654500192a",
+          "head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full cache equivalence argument, adapter, benchmark harness, regression controls and revised compatibility guard reviewed. All38 original/effective Git blobs and hashes authenticated; three transitive-import overrides preserve original manifests and historical receipts. Requires complete4324-row differential and17controls under the focused15-minute limit; reported4.78x timing remains historical. Standalone fresh-process opt-in tool, not a hardened reusable import loader, exact t6 rank/exclusion, supplier or κ improvement.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
-      "reviewed_head": "d84d3b950127ff9252e5c059a629bb654500192a",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Live head changed to 4ba229532a76516e5f6f5befc1d6d9dc4834f6f9. Follow-up preserves historical evidence and adds three transitive-import compatibility pins plus controls; revision diff retained, but refreshed whole-head packet, current closure authentication and full differential replay are pending. The former head reached180seconds; author fresh receipts do not replace maintainer execution.",
+      "integration_location": [
+        ".github/workflows",
+        "research/cube-xor-replay"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1075"
+      },
+      "reviewed_head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1075.json"
+        "research/community-efficient1800-audit/packets/1075.json",
+        "research/community-efficient1800-audit/checks/check-1075.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131658,7 +131666,7 @@
       "closure": null,
       "reviewed_head": "b4e312f952aea55a0b9f013a1d152423f6cf0f56",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Private-library compilation repair prepared. Complete both critical/second and all seven companion censuses, controls, concurrent C-kernel regression and stored witness checks before incorporation. Separate companion census shares the C kernel; original historic receipts alone are insufficient.",
+      "unresolved_question": "Full source/proof review and private-library concurrency/independent-kernel supplement passed, but the resolved primary census reached its declared220-second limit before critical/second-shape completion. Remaining primary, optimized, seven-companion and fault-control coverage is not verified. Retain source repair and complete the census in a separately planned bounded replay; timeout is not a mathematical rejection.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131667,7 +131675,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2836.json",
-        "research/community-efficient1800-audit/checks/check-2836-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2836-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2836.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131799,7 +131808,7 @@
       "closure": null,
       "reviewed_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full mathematical/code review complete; first primary census exceeded the sampled1GiB process-group guard (1242928KiB) with no tracked input changes. Eager multimillion-item lists and a cpu_count-sized pool require bounded batching before replay. No rejection inferred; full canonical certificate, independent census and fault controls remain pending.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131807,7 +131816,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2840.json"
+        "research/community-efficient1800-audit/packets/2840.json",
+        "research/community-efficient1800-audit/checks/check-2840.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131929,25 +131939,33 @@
         {
           "head": "4b9db4c47b236076a352d1744e7a1879f01025c2",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full finite schematic construction, restricted static-basis obstruction, cleanup/rank-two formulas and all five submitted checks reviewed. Defines an abstract F2 subspace-distance plus signed-integer ADD model; positive matching/cleanup invoices do not certify native E8 carrier phases or a supplier. Exact vertex-matching/rational-rank corroboration and all2288 signed traces required. Unsubmitted E8-example/independent laboratory scripts remain author evidence only; geometry lineage inherited. No κ or optimal-unrestricted-decoder claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-signed-mixed-carrier-bank"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2844"
+      },
       "reviewed_head": "4b9db4c47b236076a352d1744e7a1879f01025c2",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2844.json"
+        "research/community-efficient1800-audit/packets/2844.json",
+        "research/community-efficient1800-audit/checks/check-2844-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2844.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132029,21 +132047,28 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/transfer-coupled-onerepeat-7q"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2846"
+      },
       "reviewed_head": "90d879d143f9570c140d105a5cc60f445766d852",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Private-library compilation repair prepared. Complete the declared resolved census and package controls plus concurrent kernel regression before incorporation; stored champion/census comparisons and exact source provenance remain required. Canonical sorted repeated labels are readout representatives, not zero-edge-free chronological paths; this only enlarges the lower-bound domain.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2846.json",
-        "research/community-efficient1800-audit/checks/check-2846-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2846-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2846.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133238,7 +133263,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1525,
-    "OPEN": 495
+    "MERGED": 1528,
+    "OPEN": 492
   }
 }

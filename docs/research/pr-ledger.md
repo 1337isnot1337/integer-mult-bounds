@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1977 |
-| partially reviewed | 359 |
+| incorporated | 1980 |
+| partially reviewed | 356 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -1001,7 +1001,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1072](https://github.com/CrocSwap/integer-mult-bounds/pull/1072) | davidNbreslauer | incorporated | [record 1](../../research/community-batch1099-audit/DISPOSITIONS.json) |
 | [#1073](https://github.com/CrocSwap/integer-mult-bounds/pull/1073) | thakrarsagar | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1074](https://github.com/CrocSwap/integer-mult-bounds/pull/1074) | jeremykothe2 | incorporated | [record 1](../../research/community-batch1099-audit/DISPOSITIONS.json) |
-| [#1075](https://github.com/CrocSwap/integer-mult-bounds/pull/1075) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
+| [#1075](https://github.com/CrocSwap/integer-mult-bounds/pull/1075) | RossRichardson | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1076](https://github.com/CrocSwap/integer-mult-bounds/pull/1076) | navinor | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077) | woklerx | incorporated | [record 1](../../research/community-batch1099-audit/DISPOSITIONS.json) |
 | [#1078](https://github.com/CrocSwap/integer-mult-bounds/pull/1078) | bbMisk | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
@@ -2412,9 +2412,9 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2840](https://github.com/CrocSwap/integer-mult-bounds/pull/2840) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2841](https://github.com/CrocSwap/integer-mult-bounds/pull/2841) | Lyy-iiis | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2843](https://github.com/CrocSwap/integer-mult-bounds/pull/2843) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
-| [#2844](https://github.com/CrocSwap/integer-mult-bounds/pull/2844) | Chrisbryan17 | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
+| [#2844](https://github.com/CrocSwap/integer-mult-bounds/pull/2844) | Chrisbryan17 | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2845](https://github.com/CrocSwap/integer-mult-bounds/pull/2845) | RossRichardson | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
-| [#2846](https://github.com/CrocSwap/integer-mult-bounds/pull/2846) | VictorLiwentao | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
+| [#2846](https://github.com/CrocSwap/integer-mult-bounds/pull/2846) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2847](https://github.com/CrocSwap/integer-mult-bounds/pull/2847) | thakrarsagar | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2848](https://github.com/CrocSwap/integer-mult-bounds/pull/2848) | Lyy-iiis | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2849](https://github.com/CrocSwap/integer-mult-bounds/pull/2849) | Dugongue | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |

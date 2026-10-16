@@ -413,21 +413,25 @@
       },
       "reviewed_head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
       "current_head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         ".github/workflows",
         "research/cube-xor-replay"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1075"
+      },
       "scope": "Full cache equivalence argument, adapter, benchmark harness, regression controls and revised compatibility guard reviewed. All38 original/effective Git blobs and hashes authenticated; three transitive-import overrides preserve original manifests and historical receipts. Requires complete4324-row differential and17controls under the focused15-minute limit; reported4.78x timing remains historical. Standalone fresh-process opt-in tool, not a hardened reusable import loader, exact t6 rank/exclusion, supplier or \u03ba improvement.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1075.json",
@@ -2477,20 +2481,24 @@
       },
       "reviewed_head": "4b9db4c47b236076a352d1744e7a1879f01025c2",
       "current_head": "4b9db4c47b236076a352d1744e7a1879f01025c2",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-signed-mixed-carrier-bank"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2844"
+      },
       "scope": "Full finite schematic construction, restricted static-basis obstruction, cleanup/rank-two formulas and all five submitted checks reviewed. Defines an abstract F2 subspace-distance plus signed-integer ADD model; positive matching/cleanup invoices do not certify native E8 carrier phases or a supplier. Exact vertex-matching/rational-rank corroboration and all2288 signed traces required. Unsubmitted E8-example/independent laboratory scripts remain author evidence only; geometry lineage inherited. No \u03ba or optimal-unrestricted-decoder claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2844.json",
@@ -2554,20 +2562,24 @@
       },
       "reviewed_head": "90d879d143f9570c140d105a5cc60f445766d852",
       "current_head": "90d879d143f9570c140d105a5cc60f445766d852",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/transfer-coupled-onerepeat-7q"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "9f3adbaeb4df6c934edfaf324d0cc3f77f8b7214",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2846"
+      },
       "scope": "Full scoped proof and all new Python/C code read for one-repeat transfer-coupled (5,1,1): enumerates prefix-double and suffix-hit multisets, R98/96 and lower tariff459. Inherited distinct R84 comparison remains separate. Replay held for shared-library compilation race; no mathematical rejection or incorporation.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2846.json",
