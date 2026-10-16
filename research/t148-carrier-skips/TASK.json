@@ -5,13 +5,13 @@
   "base_commit": "43f2f05fc9a610ad6b76b3d3f60441448f5e212b",
   "bottleneck_link": "The source has unchanged packing patterns but its T74 fill is below its exact fractional cap. The released T148 literal fill strictly improves the T74 fill while retaining a positive gap to that cap with every larger-stock and prefix cost charged.",
   "budget_minutes": 150,
-  "evidence": "704-column restore equality and exact moment candidate; full owner and release verification pending.",
+  "evidence": "704-column restore equality, exact moment and full finite-owner verification passed; complete baseline and release verification pending.",
   "open_questions": [
     {
       "blocked_by": "All inherited all-size/compiler, physical, precision/tape, caller and analytic obligations remain.",
       "first_step": "Change one explicit native restoration contract and price the complete replacement.",
       "question": "Can a further changed word improve the paid inventory?",
-      "why_it_matters": "The fixed-inventory cap is attained by this composition."
+      "why_it_matters": "This composition retains a positive gap to the fixed-inventory cap."
     }
   ],
   "original_card": {

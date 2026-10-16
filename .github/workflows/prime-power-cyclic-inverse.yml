@@ -14,11 +14,6 @@ permissions:
   contents: read
 
 jobs:
-  t148-complete-verification:
-    if: github.repository == 'dataisfire/integer-mult-bounds' && github.ref_name == 'ci-t148-carrier-20261016'
-    uses: ./.github/workflows/t148-carrier-full-release.yml
-    permissions:
-      contents: read
   verify:
     runs-on: ubuntu-latest
     strategy:
