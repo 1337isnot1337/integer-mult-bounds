@@ -1,0 +1,50 @@
+[
+  {
+    "number": 2514,
+    "path": "scripts/find_overlap.py",
+    "original_sha256": "3db52b2790426bbe30516d13778b649c4bb058bb63fe59f8eae21edfbe27f133",
+    "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2514,
+    "path": "tests/test_research_onboarding.py",
+    "original_sha256": "575aea46490c199df1cfaf1c783d02efe7e7ad88bd5b9f9a592756c077b72f59",
+    "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2517,
+    "path": "scripts/find_overlap.py",
+    "original_sha256": "cea883639336ac43b9d92cb9abf8b1fa9f44371a9a1eef75983043339614595c",
+    "resolved_sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2517,
+    "path": "tests/test_research_onboarding.py",
+    "original_sha256": "e8a9d17c2fcac96e7fcb77fe5ff548a18cc26fcf734f63f2d0ecac1c10fb4778",
+    "resolved_sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2553,
+    "path": "docs/research/research-package-guide.md",
+    "original_sha256": "bf2680fcc4caca8367dfaf198a54bef1376885df2ec8ef3d88c1b8ace8edd96d",
+    "resolved_sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2553,
+    "path": "scripts/research_package.py",
+    "original_sha256": "1fdbdaa217aeb82ba91ffe05ac11c9056976021e3eafaedeca44ef33bc45e92c",
+    "resolved_sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed",
+    "resolved_mode": "100644",
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  }
+]
