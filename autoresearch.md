@@ -134,6 +134,14 @@ The helper does not search every code diff or nested source file. Remote paginat
 reported as such; snapshots are cached outside the checkout for five minutes.
 Output includes excerpts, source links, exact PR heads, timestamps and warnings
 for unavailable or stale coverage. No matches does not establish novelty.
+Canonical positive integers in a task card's overlap terms match references
+such as `#2977`, `PR2977` and `/pull/2977`, rather than decimal or hash fragments.
+The report lists these as `reference_terms`. Positional terms remain literal
+case-insensitive substrings; explicitly passing `2977` also restores literal
+matching for that term when using `--task`. Text phrases and package names
+remain literal, as do leading-zero words such as `01021323`. This avoids
+numerical noise without changing coverage or guaranteeing that every useful
+lead fits within `--limit`.
 
 Before choosing one card:
 

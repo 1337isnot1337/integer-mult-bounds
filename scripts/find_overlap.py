@@ -12,6 +12,7 @@ import hashlib
 import json
 import os
 from pathlib import Path, PurePosixPath
+import re
 import subprocess
 import sys
 import tempfile
@@ -310,21 +311,35 @@ def local_records(root):
     return records
 
 
-def search(records, terms, all_terms=False):
+def match_position(text, term, pattern):
+    if pattern is None:
+        return text.find(term)
+    match = pattern.search(text)
+    return match.start() if match else -1
+
+
+def search(records, terms, all_terms=False, reference_terms=()):
     terms = list(dict.fromkeys(t.strip().lower() for t in terms if t.strip()))
     if not terms:
         raise ValueError("provide at least one nonempty search term")
+    # Numeric card references name predecessors, rather than digits inside a kappa
+    # or a source hash. Explicit user terms retain literal substring semantics.
+    patterns = {term: re.compile(r"(?<![\w.])(?:pr(?:\s*#)?\s*)?" + re.escape(term)
+                                 + r"(?!\w|\.\d)") if term in reference_terms else None
+                for term in terms}
     matches = []
     for record in records:
         title, body = record["title"].lower(), record.get("body", "").lower()
-        found = [term for term in terms if term in title or term in body]
+        title_positions = {t: match_position(title, t, patterns[t]) for t in terms}
+        body_positions = {t: match_position(body, t, patterns[t]) for t in terms}
+        found = [t for t in terms if title_positions[t] >= 0 or body_positions[t] >= 0]
         if not found or (all_terms and len(found) != len(terms)):
             continue
-        positions = [body.find(term) for term in found if term in body]
+        positions = [body_positions[t] for t in found if body_positions[t] >= 0]
         start = max(0, min(positions) - 100) if positions else 0
         matches.append({**{k: v for k, v in record.items() if k != "body"},
                         "matched_terms": found,
-                        "score": sum(3 if t in title else 1 for t in found),
+                        "score": sum(3 if title_positions[t] >= 0 else 1 for t in found),
                         "excerpt": record.get("body", "")[start:start + 500]})
     return sorted(matches, key=lambda r: (-r["score"], r["kind"], r["title"], r.get("url", "")))
 
@@ -352,12 +367,20 @@ def main():
     if args.cache.resolve().is_relative_to(ROOT.resolve()):
         ap.error("keep the cache outside the repository")
     terms = list(args.terms)
+    explicit_terms = {term.strip().lower() for term in args.terms}
+    reference_terms = []
     if args.task:
         catalog = json.loads((ROOT / "docs/research/agent-task-catalog.json").read_text(encoding="utf-8"))
         cards = [t for tr in catalog["tracks"] for t in tr["tasks"] if t["id"] == args.task]
         if not cards:
             ap.error("unknown task")
         terms.extend([args.task, *cards[0].get("overlap_terms", [])])
+        # A leading-zero digit string can be a word, e.g. census witness
+        # 01021323. Restrict reference matching to canonical positive integers.
+        reference_terms = list(dict.fromkeys(
+            t.strip() for t in cards[0].get("overlap_terms", [])
+            if t.strip().isascii() and t.strip().isdecimal() and not t.strip().startswith("0")
+            and t.strip() not in explicit_terms))
         # Catalogue paths are repository-relative POSIX paths. Nested sources
         # identify their package, not generic directories such as evidence/code.
         for point in cards[0]["starting_points"]:
@@ -388,7 +411,7 @@ def main():
             coverage["pr_files"]["records"] = len(source["records"])
             pulls = snapshot["sources"].get("open_prs", {"records": []})["records"]
             path_matches = path_report(pulls, source["records"], patterns)
-    matches = search(records, terms, args.all_terms) if any(t.strip() for t in terms) else []
+    matches = search(records, terms, args.all_terms, reference_terms) if any(t.strip() for t in terms) else []
     if patterns and matches:
         # With both axes given, a record must match at least one term and one path.
         hits = {m["number"]: m["matched_paths"] for m in path_matches}
@@ -398,6 +421,7 @@ def main():
         matches = []
     report = {"status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE", "searched_at": now(),
               "terms": terms, "coverage": coverage, "local_records": len(local), "warnings": warnings,
+              "reference_terms": reference_terms,
               "limits": (("Remote PR scope includes open and closed/merged titles and bodies, with separate coverage and timestamps. "
                           "State changes are deduplicated by latest PR update; snapshots are not atomic. "
                           if args.include_closed else
@@ -419,6 +443,8 @@ def main():
             sys.stdout.reconfigure(errors="backslashreplace")
         print(report["status"])
         print("Coverage: " + json.dumps(coverage))
+        if reference_terms:
+            print("Task references (identifier matching): " + ", ".join(reference_terms))
         print(report["limits"])
         if patterns:
             print(report["path_limits"])
