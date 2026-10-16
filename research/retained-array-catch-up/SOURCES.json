@@ -63,6 +63,12 @@
       "sha256": "419f076e46f5a6ce43efe30a608baed0a535034c388e1ac76a29a2026685ba77"
     },
     {
+      "path": "research/joint-query/evidence/CONSERVED-QQ16.md",
+      "usage": "input",
+      "git_blob": "4639583c1be02c2fb60ed8a8072c9969ef1569ce",
+      "sha256": "60f0de3a7205ba5046b5ae7ffa8bf2b1ea42ea46b498face0a77966b59e7f3fb"
+    },
+    {
       "path": "research/qq16-complete-native-decoder/PROOF.md",
       "usage": "input",
       "git_blob": "6ae136c8baef4793f4f7ae630720afff6c23a953",
@@ -97,6 +103,57 @@
       "usage": "input",
       "git_blob": "8c9c6e182ca775e9f361545213c69348ecf4696d",
       "sha256": "bfae0aff6aefc90b2afb8da76bc6d07b698deeabdbd758d01910d9fdb937ec72"
+    }
+  ],
+  "external_read_as_data": [
+    {
+      "repository": "philippeVV/integer-mult-bounds",
+      "commit": "9fcd3d899cc5bad2e27ab1d3d64d241cbfe30793",
+      "path": "research/joint-query-first-pair-catalogue/final-record/price_gate.py",
+      "sha256": "d4c2c07758b589a619fd1821b1c70f1fc48eec1e07b37a27a89234f8ecd4cb39",
+      "usage": "capture-time premise and INIT_AC/DA_AC lifetimes; never executed"
+    },
+    {
+      "repository": "philippeVV/integer-mult-bounds",
+      "commit": "9fcd3d899cc5bad2e27ab1d3d64d241cbfe30793",
+      "path": "research/joint-query-first-pair-catalogue/final-record/PRICE-GATE.json",
+      "sha256": "78eed8a0ab9ac703ce6b43645d745c7837f1920fbb8e788c9e857b33b8a353d0",
+      "usage": "storage_readsFalse, breakeven_storage, breakeven_centre (reproduced by verify.py)"
+    },
+    {
+      "repository": "philippeVV/integer-mult-bounds",
+      "commit": "9fcd3d899cc5bad2e27ab1d3d64d241cbfe30793",
+      "path": "research/joint-query-first-pair-catalogue/final-record/README.md",
+      "sha256": "fc29c926948a85ce241f7b768941f2d0ecf2d5bede0da9bb71e2542e2c934925",
+      "usage": "contract and census description"
+    },
+    {
+      "repository": "philippeVV/integer-mult-bounds",
+      "commit": "b5ce9d223feeed73d07e2a07321f7a025bd5865e",
+      "path": "research/complex-budget-law/closures-2/sibling-helpers/README.md",
+      "usage": "precursor quotation (LOCAL-ONLY note, concurrent)"
+    },
+    {
+      "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2074",
+      "comments": [
+        "c18940190 (Theorem B; fork 680d0997621a2cecfef2186ab143377658687825)",
+        "c18950410 (final-record census and price gate)",
+        "c18950926 (derived decoders; all-initial variant)"
+      ],
+      "usage": "premises and route definitions"
+    },
+    {
+      "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166",
+      "comments": [
+        "c18956869 (the request answered here)"
+      ],
+      "usage": "question"
+    },
+    {
+      "repository": "CrocSwap/integer-mult-bounds",
+      "commit": "0b61b222fcf5c96ba50cc9cee2eeb976d5a74b7f",
+      "path": "research/qq16-line-normalized-decoder/README.md; research/community-efficient1600-audit/combined-2707-review.json",
+      "usage": "#2707 comparison and maintainer review, incorporated after this package's base (cited, not pinned)"
     }
   ]
 }

@@ -7,6 +7,7 @@
     "field": "GF(2)",
     "independent_RP_pairs": 15,
     "levels": 4,
+    "record_partner_instances": 2432,
     "subspaces": 5
    },
    {
@@ -15,21 +16,23 @@
     "field": "GF(3)",
     "independent_RP_pairs": 23,
     "levels": 3,
+    "record_partner_instances": 2106,
     "subspaces": 6
    },
    {
-    "coverage": "seeded sample (random.Random(59))",
+    "coverage": "complete",
     "dim": 3,
     "field": "GF(2)",
-    "independent_RP_pairs": 24,
+    "independent_RP_pairs": 129,
     "levels": 3,
+    "record_partner_instances": 29916,
     "subspaces": 16
    }
   ],
   "general_instances": 4044,
   "general_tight": 3999,
-  "record_partner_instances": 10748,
-  "upward_only_failures": 4516
+  "record_partner_instances": 34454,
+  "upward_only_failures": 14426
  },
  "levels": [
   {
@@ -321,7 +324,9 @@
   "uniform lifetimes give 464 array-calls",
   "witness window stretched into pair-3 Y hosting (time + 17)",
   "895 units/replica has no saving",
-  "break-even 574 (S) against PR2474"
+  "break-even 574 (S) against PR2474",
+  "all-initial read of X_(1,U) barred from bank 0's consumer level",
+  "bridge 27 reversed (dst = 0): X_(0,U) written after the capture"
  ],
  "pricing": {
   "breakeven_vs_PR2474": {
@@ -344,6 +349,11 @@
    "PR2848": {
     "idle_units": 570,
     "kappa": "171865850830493/100000000000000000",
+    "rank8_units": 568
+   },
+   "PR2857": {
+    "idle_units": 570,
+    "kappa": "172009662868483/100000000000000000",
     "rank8_units": 568
    },
    "bit_endpoint_PR589": {
@@ -378,6 +388,26 @@
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 3648
+   },
+   "all_initial_cheapest_62_early_consumer_law": {
+    "idle_priced_kappa_cap": "0.0015233811701210",
+    "rank8_priced_kappa_cap": "0.0015143670861515",
+    "units_per_replica": 608
+   },
+   "all_initial_cheapest_62_law": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1824
+   },
+   "all_initial_early_consumer_law": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1152
+   },
+   "all_initial_law": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 3456
    },
    "cheapest_62_early_consumer_law": {
     "idle_priced_kappa_cap": "0.0005090718448615",
@@ -441,6 +471,63 @@
    "mass": 128,
    "rows": 16
   },
+  "all_initial_variant": {
+   "cheapest_62_early_mass": 608,
+   "cheapest_62_final_mass": 1824,
+   "early_mass": 1152,
+   "final_mass": 3456,
+   "reads": [
+    {
+     "bank": 0,
+     "early_consumer_level": 2,
+     "early_mass": 0,
+     "early_read_after_event": 5,
+     "early_read_level": 2,
+     "final_mass": 384,
+     "latest_read_level": 2,
+     "levels_held_while_initial": [
+      -1,
+      1,
+      2
+     ],
+     "read": "B2 X_(1,U)",
+     "rows": 8
+    },
+    {
+     "bank": 1,
+     "early_consumer_level": 4,
+     "early_mass": 0,
+     "early_read_after_event": 11,
+     "early_read_level": 4,
+     "final_mass": 256,
+     "latest_read_level": 4,
+     "levels_held_while_initial": [
+      -1,
+      3,
+      4
+     ],
+     "read": "B4 X_(2,U)",
+     "rows": 8
+    },
+    {
+     "bank": 2,
+     "early_consumer_level": 6,
+     "early_mass": 0,
+     "early_read_after_event": 17,
+     "early_read_level": 6,
+     "final_mass": 128,
+     "latest_read_level": 6,
+     "levels_held_while_initial": [
+      -1,
+      5,
+      6
+     ],
+     "read": "B6 X_(3,U)",
+     "rows": 8
+    }
+   ],
+   "source": "#2074 c18950926 item 2: the d_A records swapped for the reads B2 X_1U, B4 X_2U and B6 X_3U"
+  },
   "array_calls": {
    "C_mass_published": 3712,
    "C_mass_uniform": 3648,
@@ -484,26 +571,52 @@
    }
   ],
   "d_A_only_mass": 960,
-  "deferred_family_example": {
-   "C_mass_per_array": 24,
-   "capture": "after B5 (event 13)",
-   "capture_time": 40,
-   "consumer": "end",
-   "law_mass_per_array": 48,
-   "pair": 0,
-   "side": "X (replica-0 families 0..111)"
-  },
+  "early_consumer_after_events": [
+   4,
+   10,
+   16,
+   20
+  ],
   "early_consumer_levels": [
    2,
    4,
    6,
    8
   ],
+  "forward_histories_addon": {
+   "early_mass_range": [
+    0,
+    192
+   ],
+   "final_mass_range": [
+    768,
+    960
+   ],
+   "histories": "f2, f4, f6: one 8-row array each, captured at the forward call's output (low end) or input level"
+  },
   "hosting": {
-   "pair0_X_hosted_slots_before_deferred_capture": 0,
+   "distinct_slots_checked": 2300,
+   "instants_checked": 17,
    "pair3_X_hosted_slots_in_window": 160,
    "pair3_Y_hosted_slots_in_window": 0,
-   "route_capture_prior_slots_checked": 4173
+   "route_capture_slot_checks": 4173,
+   "slot_instant_checks": 10646
+  },
+  "lagging_record_example_withdrawn": {
+   "C_mass": 24,
+   "calls_after_capture": 3,
+   "capture_level": 2,
+   "last_write_event_of_X0": 6,
+   "law_mass": 0,
+   "law_mass_if_independent_row": 48,
+   "levels_advanced": 6,
+   "pair0_events_after_capture": [
+    "idle_cover_sweep",
+    "bridge src=0 dst=1",
+    "terminal_Y_translations",
+    "terminal"
+   ],
+   "record": "X_(0,U) captured after event 13, consumed at the end"
   },
   "qq16_gate": {
    "retained_caller_H8": 16,
@@ -526,16 +639,18 @@
    "consumer_before_event": 14,
    "consumer_before_time": 40,
    "law_mass_per_array": 0,
+   "levels_advanced": 0,
    "pair": 3,
+   "record_copies_an_untouched_stream": true,
    "side": "Y (replica-0 families 784..895)"
   }
  },
  "schema": "retained-array-catch-up/1",
  "sources": {
-  "anchored_premise_lines": 24,
-  "pinned_files": 14
+  "anchored_premise_lines": 35,
+  "pinned_files": 15
  },
- "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 frame_instances=10748/4044 negative_controls=12 no_new_kappa",
+ "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 all_initial=3456/1152 all_initial_cheapest62=1824/608 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_advance_calls=6 frame_instances=34454/4044 negative_controls=14 no_new_kappa",
  "tensor_toy": {
   "naive_wrong": 25,
   "repaired_correct": 25,

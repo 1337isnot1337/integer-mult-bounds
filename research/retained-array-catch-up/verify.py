@@ -7,19 +7,26 @@ Checks (exact arithmetic; standard library only):
  2. Level timeline of the pinned selected #1094 hosted GLOBAL-TEMPLATE (replica 0). Every local
     call advances its pair one level; idle sweeps advance their declared levels; one level is
     eight coordinates (base-template idle child rank = 8 x levels; hosted children never exceed it).
+    Every bridge joins two pairs at equal levels.
  3. The catch-up law (PROOF.md Corollary 4) on controls: PR2540 128, PR2197 144, PR2678
     1792/3696, centre path 576 per replica.
- 4. The #1166 routes: INIT64 + d_A = 3648 under the stated premises, d_A alone 960, cheapest
-    62 stated captures 1952, (S)/(C) array-calls 464 published / 456 uniform, zero witness.
+ 4. The #1166 routes under the stated observation contract (P_obs) and capture times:
+    INIT64 + d_A = 3648 (end decoder) / 1344 (earliest current-frame decoder), d_A alone 960,
+    cheapest 62 stated captures 1952 / 800; the all-initial variant of #2074 c18950926
+    3456 / 1152, cheapest 62 1824 / 608; (S)/(C) array-calls 464 published / 456 uniform;
+    the zero-advance window; the withdrawn lagging-family example (the record duplicates an
+    observed row, so the law charges 0). Hosting: every capture, consumer and read instant sits
+    at an exact level.
  5. Pricing with the pinned ceiling.py: exact 896 no-saving threshold, break-evens 573 / 71
-    against PR2474 (reproducing the #1166 price gate), break-evens against other targets.
+    against PR2474 (reproducing the #1166 price gate and its PRICE-GATE.json storage ceiling),
+    break-evens against other targets.
  6. Exact frame model: breadth-first minimum paid mass equals the per-cut rank bound (Lemma 1)
     and the meeting-level formula (Proposition 3) on complete finite domains; Lemma 1 is sound
     on general instances.
  7. Two-call rational tensor toy: omitting catch-up gives a wrong output; paid catch-up (or
     partner descent) repairs it.
- 8. Negative controls: mutated levels, rows, windows, incidences, lifetimes, formulas, toy
-    repairs and prices must fail.
+ 8. Negative controls: mutated levels, rows, windows, incidences, lifetimes, read levels,
+    formulas, toy repairs and prices must fail.
 
 Run from the repository root:  python3 -I -B research/retained-array-catch-up/verify.py
 --write regenerates RESULT.json (refuses to replace a differing file unless --force is given).
@@ -66,6 +73,8 @@ PINS = {
         "0db44f2ce702ee1e5b11c9f8cd05517593bd259f45ae897437c58a1bd81b2943",
     "research/joint-query/README.md":
         "419f076e46f5a6ce43efe30a608baed0a535034c388e1ac76a29a2026685ba77",
+    "research/joint-query/evidence/CONSERVED-QQ16.md":
+        "60f0de3a7205ba5046b5ae7ffa8bf2b1ea42ea46b498face0a77966b59e7f3fb",
     "research/community-frontier1094-audit/selected-replay.tar.gz":
         "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
     "certificates/selected-result.json":
@@ -102,6 +111,17 @@ ANCHORS = {
         "    0, 0, 0, 1, 1, 2, 2, 3, 3.",
         "Even stages are forward F_s; odd stages are backward B_(s,s+1).",
         "pair 0: B0 X_(0,U), B2 X_(0,U);",
+        "pair 1: B3 X_(1,U), B4 X_(1,U);",
+        "    X_j,U += c X_i,U;",
+        "    Y_i,U -= c Y_j,U.",
+        "base contract. The final ordinary terminal is `(X_U,Y_U) -> (Y_U,-X_U)`.",
+        "2. Every final completed-X ordinary field, namely final Y_(k,U).",
+        "former-Y ordinary endpoint, or additional ordinary read is observed.",
+        "former-Y ordinary endpoints, final X_(0,U)=z0 and final X_(1,U)=z1.",
+    ],
+    "research/joint-query/evidence/CONSERVED-QQ16.md": [
+        "    x'_U=x_U-y_U,",
+        "    x'_U=x_U-K_(s,U)f,",
     ],
     "research/idle-axis-hosting/PROOF.md": [
         "1. ι is an invocation on another pair, and nothing touches F between ι and τ.",
@@ -116,6 +136,8 @@ ANCHORS = {
     "research/selected-centre-chrono-source-census/README.md": [
         "2. **Every dependent pair has rank 16 (1,539 pairs).**",
         "b5->f6, b7->f8 and f0->f2.",
+        "projection. It is not a native obstruction, not a formal proof and not a new kappa. The selected frontier",
+        "   - *First step:* for the 16 f0->f2 pairs (shared 88 destination owners), compute the output-increment",
     ],
     "research/selected-centre-quarter-native/README.md": [
         "nevertheless `1/4` at the identity owner.",
@@ -131,10 +153,20 @@ SELECTED_KAPPA = Q("0.001672660197076918")       # #1094, selected-result.json
 PR2474_KAPPA = Q("0.001703676387993676")         # pending (PR2474)
 PR2843_KAPPA = Q("0.00171865827784172")          # pending (PR2843 title value)
 PR2848_KAPPA = Q("0.00171865850830493")          # pending (PR2848 title value)
+PR2857_KAPPA = Q("0.00172009662868483")          # pending (PR2857 title value; opened after the base)
 BIT_ENDPOINT = Q("0.001733427039589844234749")   # PR589 bit supplier saving
 GRID = Q(1, 10 ** 12)
-FRAME_SAMPLE = 24
 SELECTED = {1: 2412, 2: 418, 3: 432, 4: 142, 5: 82, 8: 8}
+# Philippe Van Velzen's price gate, read as data (never executed) from
+# philippeVV/integer-mult-bounds@9fcd3d899cc5bad2e27ab1d3d64d241cbfe30793,
+# research/joint-query-first-pair-catalogue/final-record/:
+#   price_gate.py docstring: "bank k first call stage: 0, 3, 5, 7.  INIT records of bank k are read
+#   just before that call."; constants INIT_AC = 16 * (9 + 6 + 4 + 2) and DA_AC = 8 * (8 + 5 + 3);
+#   PRICE-GATE.json fields storage_readsFalse, breakeven_storage and breakeven_centre.
+PRICE_GATE_INIT_LIFETIMES = (9, 6, 4, 2)
+PRICE_GATE_DA_LIFETIMES = (8, 5, 3)
+PRICE_GATE_STORAGE_READS_FALSE = Q(2285992139, 1002285992139)
+PRICE_GATE_BREAKEVENS = (573, 71)
 
 
 class CheckFailure(Exception):
@@ -215,6 +247,8 @@ def level_timeline(hosted, base, events, mutate=None):
                     need(all(t <= want for t in hosted_total.get(c, {want})),
                          "hosted + remaining rank never exceeds the base child rank")
             level[p] = to
+        elif e["kind"] == "bridge":
+            need(level[e["src"]] == level[e["dst"]], "bridge %d joins two pairs at equal levels" % e["source_event"])
         timeline.append((e["kind"], e["source_event"], tuple(level)))
     need(level == [8, 8, 8, 8], "every pair ends at level 8 (nine levels = 72 paid coordinates)")
     return timeline, stage_pair
@@ -244,6 +278,12 @@ def routes(timeline, events, stage_pair, mutate=None):
     out["PR2540_early_records"] = {"rows": 16, "capture": "after F0 (event 0)", "consumer": "F_U1 after B1 (event 1)",
                                    "capture_level": lv_after(timeline, 0)[0], "consumer_level": after_b1[0],
                                    "mass": catch_up(lv_after(timeline, 0), after_b1, 0, rows)}
+    # Capture premise (PROOF.md section 7.2): X_(k,U) keeps its initial logical row until bank k's first
+    # local call. Local calls overwrite X_U (CONSERVED-QQ16 (1) and (3)) and no bridge writes X_(k,U)
+    # before that call, so the stated INIT capture just before it is the latest one without other reads.
+    for k in range(4):
+        need(not any(e["kind"] == "bridge" and e["dst"] == k for e in events[:locals_of[k][0]]),
+             "no bridge writes X_(%d,U) before bank %d's first call" % (k, k))
     init = []
     for k in range(4):
         ev = locals_of[k][0]
@@ -264,8 +304,9 @@ def routes(timeline, events, stage_pair, mutate=None):
     per_array = sorted([r["mass"] // r["rows"] for r in init + da for _ in range(r["rows"])])
     need(len(per_array) == 88, "88 stated arrays per owner per replica")
     out["cheapest_62_of_stated_captures_mass"] = sum(per_array[:62])
-    # Earliest consumer timing: decode each bank at its own frame right after its last local call;
-    # the corrected fields then ride the inherited idle sweep to level 8 (no extra mass there).
+    # Earliest current-frame consumer: decode each bank at its own frame right after its last local
+    # call. Favourable to the route: the corrected fields are assumed to ride the inherited idle
+    # sweep to level 8 at no extra mass.
     early = []
     for r in init + da:
         k = r["bank"]
@@ -277,6 +318,58 @@ def routes(timeline, events, stage_pair, mutate=None):
     per_early = sorted([m // r["rows"] for m, r in zip(early, init + da) for _ in range(r["rows"])])
     out["cheapest_62_early_consumer_mass"] = sum(per_early[:62])
     out["early_consumer_levels"] = [lv_after(timeline, locals_of[k][-1])[k] for k in range(4)]
+    out["early_consumer_after_events"] = [locals_of[k][-1] for k in range(4)]
+    # All-initial variant (#2074 c18950926 item 2): the d_A records are swapped for the reads
+    # B2 X_1U, B4 X_2U and B6 X_3U. X_(k+1,U) keeps its initial row until pair k+1's first local call,
+    # so the read may be taken at any level pair k+1 holds before that call. Pairs at equal levels
+    # share a frame (every bridge joins pairs at equal levels; checked in level_timeline).
+    reads = []
+    for k in range(3):
+        src = k + 1
+        first = locals_of[src][0]
+        need(not any(e["kind"] == "bridge" and e["dst"] == src for e in events[:first]),
+             "no bridge writes X_(%d,U) before its first call" % src)
+        held = sorted({timeline[i][2][src] for i in range(first + 1)})     # entry .. just before the first call
+        if mutate == "allinit_read_level" and k == 0:
+            held = [h for h in held if h != out["early_consumer_levels"][0]]
+        latest = lv_before(timeline, first)[src]
+        cons = out["early_consumer_levels"][k]
+        best = min(held, key=lambda h: abs(cons - h))
+        reached = [e["source_event"] for e in events[:first]
+                   if e["kind"] == "idle_cover_sweep" and e["pair"] == src and e["to_level"] == best]
+        reads.append({"bank": k, "read": "B%d X_(%d,U)" % (2 * k + 2, src), "rows": 8,
+                      "levels_held_while_initial": held, "latest_read_level": latest,
+                      "final_mass": COORDS_PER_LEVEL * 8 * (end[k] - latest),
+                      "early_consumer_level": cons, "early_read_level": best,
+                      "early_read_after_event": reached[0] if reached else None,
+                      "early_mass": COORDS_PER_LEVEL * 8 * abs(cons - best)})
+    init_early = early[:4]
+    per_all_final = sorted([r["mass"] // 16 for r in init for _ in range(16)]
+                           + [x["final_mass"] // 8 for x in reads for _ in range(8)])
+    per_all_early = sorted([m // 16 for m in init_early for _ in range(16)]
+                           + [x["early_mass"] // 8 for x in reads for _ in range(8)])
+    need(len(per_all_final) == len(per_all_early) == 88, "88 arrays in the all-initial variant")
+    out["all_initial_variant"] = {
+        "source": "#2074 c18950926 item 2: the d_A records swapped for the reads B2 X_1U, B4 X_2U and B6 X_3U",
+        "reads": reads,
+        "final_mass": sum(r["mass"] for r in init) + sum(x["final_mass"] for x in reads),
+        "early_mass": sum(init_early) + sum(x["early_mass"] for x in reads),
+        "cheapest_62_final_mass": sum(per_all_final[:62]),
+        "cheapest_62_early_mass": sum(per_all_early[:62])}
+    # Forward histories f2, f4, f6 (used by the derived decoders of banks 0, 1, 2; not in the 464
+    # array-calls). If each is retained as one 8-row array captured at its forward call's input or
+    # output level, the law adds the following; the totals above only grow.
+    fwd_final, fwd_early = [], []
+    for k in range(3):
+        ev = [x for x in locals_of[k] if events[x]["stage"] == 2 * k + 2][0]
+        lo, hi = lv_before(timeline, ev)[k], lv_after(timeline, ev)[k]
+        cons = out["early_consumer_levels"][k]
+        fwd_final.append((end[k] - hi, end[k] - lo))
+        fwd_early.append((cons - hi, cons - lo))
+    out["forward_histories_addon"] = {
+        "histories": "f2, f4, f6: one 8-row array each, captured at the forward call's output (low end) or input level",
+        "final_mass_range": [COORDS_PER_LEVEL * 8 * sum(a for a, _ in fwd_final), COORDS_PER_LEVEL * 8 * sum(b for _, b in fwd_final)],
+        "early_mass_range": [COORDS_PER_LEVEL * 8 * sum(a for a, _ in fwd_early), COORDS_PER_LEVEL * 8 * sum(b for _, b in fwd_early)]}
     touch = min(e["source_event"] for e in events
                 if (e["kind"] == "local_cover_sweep" and stage_pair[e["stage"]] == 3)
                 or (e["kind"] == "idle_cover_sweep" and e["pair"] == 3 and e["to_level"] > e["from_level"])
@@ -287,22 +380,40 @@ def routes(timeline, events, stage_pair, mutate=None):
     out["zero_witness"] = {"pair": 3, "side": "Y (replica-0 families 784..895)", "capture": "entry",
                            "consumer_before_event": touch, "consumer_before_time": events[touch]["time"],
                            "calls_in_window": calls,
+                           "levels_advanced": lv_before(timeline, touch)[3] - timeline[0][2][3],
+                           "record_copies_an_untouched_stream": True,
                            "law_mass_per_array": catch_up(timeline[0][2], lv_before(timeline, touch), 3, 1),
                            "S_per_array": len(calls), "C_mass_per_array": 8 * len(calls)}
-    out["deferred_family_example"] = {
-        "pair": 0, "side": "X (replica-0 families 0..111)", "capture": "after B5 (event 13)", "consumer": "end",
-        "capture_time": events[13]["time"],
-        "law_mass_per_array": catch_up(lv_after(timeline, 13), end, 0, 1), "C_mass_per_array": 8 * 3}
+    # Withdrawn in review round 1: a pair-0 X_(0,U) record captured after event 13 and consumed at the
+    # end advances six levels in three calls, but X_(0,U) is last written at event 6; afterwards only
+    # idle sweep 21 (a transport: the logical row is kept), bridge 27 with src = 0 (reads X_(0,U)) and
+    # the terminals act on it. The record duplicates -final Y_(0,U), which the contract observes, so
+    # rho_r = 0 and the law charges 0, not 48.
+    x0_writes = [e["source_event"] for e in events
+                 if (e["kind"] == "local_cover_sweep" and stage_pair[e["stage"]] == 0)
+                 or (e["kind"] == "bridge" and e["dst"] == 0)]
+    after = [e["kind"] + ("" if e["kind"] != "bridge" else " src=%d dst=%d" % (e["src"], e["dst"]))
+             for e in events[14:]
+             if (e["kind"] == "idle_cover_sweep" and e["pair"] == 0)
+             or (e["kind"] == "bridge" and 0 in (e["src"], e["dst"])) or e["kind"].startswith("terminal")]
+    out["lagging_record_example_withdrawn"] = {
+        "record": "X_(0,U) captured after event 13, consumed at the end",
+        "capture_level": lv_after(timeline, 13)[0], "levels_advanced": end[0] - lv_after(timeline, 13)[0],
+        "calls_after_capture": sum(1 for e in events[14:] if e["kind"] == "local_cover_sweep"),
+        "last_write_event_of_X0": max(x0_writes), "pair0_events_after_capture": after,
+        "law_mass_if_independent_row": catch_up(lv_after(timeline, 13), end, 0, 1),
+        "law_mass": 0, "C_mass": 8 * 3}
     return out
 
 
 def hosting_checks(hosted, r, mutate=None):
     """Hosted helper residuals also change idle frames (idle-axis hosting moves factors to their
-    invocation time). The witness and the deferred example use families that host nothing
-    before the relevant time, and whose idle child is not partly hosted."""
+    invocation time), so part of a later level can land on an idle family early. Every instant the
+    routes use must sit at an exact level: each residual hosted on the pair by then belongs to a
+    sweep that has already reached that level. The witness streams host nothing in their window."""
     slots = hosted["hosting"]["pooled_slots"]
     idle = {(c["family"], c["child"]): c for c in hosted["idle_children"] if c["replica"] == 0}
-    zw, df = r["zero_witness"], r["deferred_family_example"]
+    zw = r["zero_witness"]
     limit = zw["consumer_before_time"] + (17 if mutate == "hosting_window" else 0)
     y3 = range(784, 896)
     early_y3 = [x for x in slots if x["owner_replica"] == 0 and x["family"] in y3 and x["time"] < limit]
@@ -310,30 +421,33 @@ def hosting_checks(hosted, r, mutate=None):
     need(all(idle[(f, 10)]["hosted"] == 0 and idle[(f, 10)]["rank"] == 48 for f in y3),
          "pair-3 Y sweep -1 -> 5 is an unhosted rank-48 idle child")
     early_x3 = [x for x in slots if x["owner_replica"] == 0 and 672 <= x["family"] <= 783 and x["time"] < limit]
-    x0 = range(0, 112)
-    early_x0 = [x for x in slots if x["owner_replica"] == 0 and x["family"] in x0 and x["time"] <= df["capture_time"]]
-    need(not early_x0, "no hosted residual on pair-0 X families before the deferred capture")
-    need(all(idle[(f, 12)]["hosted"] == 0 and idle[(f, 12)]["rank"] == 48 for f in x0),
-         "pair-0 X sweep 2 -> 8 is an unhosted rank-48 idle child")
-    # Route captures sit at exact levels: every residual hosted on the source pair before the
-    # capture belongs to an idle sweep that has already reached the capture level.
     sweep_to = {}
     for e in hosted["execution_schedule"]:
         if e.get("replica") == 0 and e["kind"] == "idle_cover_sweep":
             for c in e["child_indices"]:
                 sweep_to[c] = (e["pair"], e["to_level"])
     times = {e["source_event"]: e["time"] for e in hosted["execution_schedule"] if e.get("replica") == 0}
-    checked = 0
-    captures = [(x["bank"], times[x["capture_before_event"]], x["capture_level"]) for x in r["INIT64"]]
-    captures += [(x["bank"], times[x["capture_after_event"]], x["capture_level"]) for x in r["d_A"]]
-    for pair, t_cap, level in captures:
-        for x in slots:
-            if x["owner_replica"] == 0 and 224 * pair <= x["family"] < 224 * (pair + 1) and x["time"] <= t_cap:
-                need(sweep_to[x["child"]] [0] == pair and sweep_to[x["child"]][1] <= level,
-                     "hosted residual before a route capture belongs to an already-reached level")
-                checked += 1
+    instants = [("INIT capture", x["bank"], times[x["capture_before_event"]], x["capture_level"]) for x in r["INIT64"]]
+    instants += [("d_A capture", x["bank"], times[x["capture_after_event"]], x["capture_level"]) for x in r["d_A"]]
+    instants += [("P_early consumer", k, times[ev], lv)
+                 for k, (ev, lv) in enumerate(zip(r["early_consumer_after_events"], r["early_consumer_levels"]))]
+    for x in r["all_initial_variant"]["reads"]:
+        t = times[x["early_read_after_event"]]
+        instants.append(("all-initial read", x["bank"] + 1, t, x["early_read_level"]))
+        instants.append(("all-initial consumer", x["bank"], t, x["early_consumer_level"]))
+    checks, distinct = 0, set()
+    for label, pair, t, level in instants:
+        for i, x in enumerate(slots):
+            if x["owner_replica"] == 0 and 224 * pair <= x["family"] < 224 * (pair + 1) and x["time"] <= t:
+                need(sweep_to[x["child"]][0] == pair and sweep_to[x["child"]][1] <= level,
+                     "hosted residual before a %s belongs to an already-reached level" % label)
+                checks += 1
+                distinct.add(i)
     return {"pair3_Y_hosted_slots_in_window": 0, "pair3_X_hosted_slots_in_window": len(early_x3),
-            "pair0_X_hosted_slots_before_deferred_capture": 0, "route_capture_prior_slots_checked": checked}
+            "instants_checked": len(instants), "slot_instant_checks": checks, "distinct_slots_checked": len(distinct),
+            "route_capture_slot_checks": sum(1 for label, pair, t, level in instants[:7] for x in slots
+                                             if x["owner_replica"] == 0 and 224 * pair <= x["family"] < 224 * (pair + 1)
+                                             and x["time"] <= t)}
 
 
 def array_calls(dA_lifetimes=(8, 5, 3)):
@@ -422,15 +536,21 @@ def pricing_checks(C, route_mass):
     out["centre_path_576_kappa_cap"] = "%.16f" % centre
     be_s = breakeven(C, "idle", PR2474_KAPPA, 1)
     be_c = breakeven(C, "rank8", PR2474_KAPPA, 8)
-    need((be_s, be_c) == (573, 71), "#1166 price-gate break-evens 573 (S) / 71 (C) reproduced")
+    need((be_s, be_c) == PRICE_GATE_BREAKEVENS, "#1166 price-gate break-evens 573 (S) / 71 (C) reproduced")
+    need(kappa_cap(C, sum(16 * x for x in PRICE_GATE_INIT_LIFETIMES) + sum(8 * x for x in PRICE_GATE_DA_LIFETIMES),
+                   "idle") == PRICE_GATE_STORAGE_READS_FALSE,
+         "S-priced 464 array-calls equals PRICE-GATE.json storage_readsFalse exactly")
     need(kappa_cap(C, 573, "idle") > PR2474_KAPPA >= kappa_cap(C, 574, "idle"), "ceiling agrees at 573/574")
     need(kappa_cap(C, 568, "rank8") > PR2474_KAPPA >= kappa_cap(C, 576, "rank8"), "ceiling agrees at 71/72")
     out["breakeven_vs_PR2474"] = {"S_array_calls": be_s, "C_array_calls": be_c}
     table = {}
     for name, kappa in (("selected_1094", SELECTED_KAPPA), ("PR2474", PR2474_KAPPA), ("PR2843", PR2843_KAPPA),
-                        ("PR2848", PR2848_KAPPA), ("bit_endpoint_PR589", BIT_ENDPOINT)):
+                        ("PR2848", PR2848_KAPPA), ("PR2857", PR2857_KAPPA), ("bit_endpoint_PR589", BIT_ENDPOINT)):
         table[name] = {"kappa": str(kappa), "idle_units": breakeven(C, "idle", kappa, 1),
                        "rank8_units": 8 * breakeven(C, "rank8", kappa, 8)}
+    rows = sorted(table.values(), key=lambda v: Q(v["kappa"]))
+    need(all(a["idle_units"] >= b["idle_units"] and a["rank8_units"] >= b["rank8_units"] for a, b in zip(rows, rows[1:])),
+         "break-even mass is non-increasing in the comparison kappa")
     out["mass_breakeven_units_per_replica"] = table
     out["routes"] = {}
     for name, mass in route_mass.items():
@@ -554,12 +674,9 @@ def frame_model_checks():
         L = Lattice(p, n)
         pairs = [(a, b) for a, b in itertools.product(range(len(L.subs)), repeat=2)
                  if len(L.subs[a] & L.subs[b]) == 1]
-        complete = (p, n) != (2, 3)
-        if not complete:      # GF(2)^3: deterministic sample of independent (R, P) pairs (seed 59)
-            pairs = sorted(random.Random(59).sample(pairs, FRAME_SAMPLE))
         stats["domains"].append({"field": "GF(%d)" % p, "dim": n, "levels": H + 1, "subspaces": len(L.subs),
-                                 "independent_RP_pairs": len(pairs),
-                                 "coverage": "complete" if complete else "seeded sample (random.Random(59))"})
+                                 "independent_RP_pairs": len(pairs), "coverage": "complete"})
+        before = stats["record_partner_instances"]
         for R_s, P_s in pairs:
             R, P = basis(L, R_s), basis(L, P_s)
             RP = L.subs[L.span(R + P)]
@@ -583,6 +700,7 @@ def frame_model_checks():
                         if cut_bound(L, entry, demand, H, ("up",)) != opt:
                             stats["upward_only_failures"] += 1
                         stats["record_partner_instances"] += 1
+        stats["domains"][-1]["record_partner_instances"] = stats["record_partner_instances"] - before
         if (p, n, H) == (2, 2, 3):
             placed = [(v, h) for v in L.vecs if v != L.zero for h in range(H + 1)]
             sets = list(itertools.chain(itertools.combinations(placed, 1), itertools.combinations(placed, 2)))
@@ -676,6 +794,11 @@ def negative_controls(hosted, base, events, C):
                        lambda: hosting_checks(hosted, routes(tl, events, sp), mutate="hosting_window")),
         expect_failure("895 units/replica has no saving", lambda: need(kappa_cap(C, 895, "idle") is None, "")),
         expect_failure("break-even 574 (S) against PR2474", lambda: need(beats(C, 574, "idle", PR2474_KAPPA), "")),
+        expect_failure("all-initial read of X_(1,U) barred from bank 0's consumer level",
+                       lambda: need(mutated("allinit_read_level")["all_initial_variant"]["early_mass"] == 1152, "")),
+        expect_failure("bridge 27 reversed (dst = 0): X_(0,U) written after the capture",
+                       lambda: need(routes(tl, [dict(e, src=1, dst=0) if e["source_event"] == 27 else e for e in events],
+                                           sp)["lagging_record_example_withdrawn"]["last_write_event_of_X0"] == 6, "")),
     ]
     return out
 
@@ -702,10 +825,27 @@ def main(argv):
     zw = r["zero_witness"]
     need(zw["law_mass_per_array"] == 0 and zw["calls_in_window"] == [0, 1, 2, 3, 4, 5]
          and zw["consumer_before_event"] == 14, "zero witness: pair 3 untouched through stages 0..5")
-    dfe = r["deferred_family_example"]
-    need(dfe["law_mass_per_array"] == 48 and dfe["C_mass_per_array"] == 24, "deferred-family example: law 48 > C 24")
+    need(zw["levels_advanced"] == 0, "zero-advance window: pair 3 stays at level -1")
+    lag = r["lagging_record_example_withdrawn"]
+    need(lag["last_write_event_of_X0"] == 6 and lag["levels_advanced"] == 6 and lag["calls_after_capture"] == 3
+         and lag["law_mass_if_independent_row"] == 48 and lag["C_mass"] == 24
+         and lag["pair0_events_after_capture"] == ["idle_cover_sweep", "bridge src=0 dst=1",
+                                                   "terminal_Y_translations", "terminal"],
+         "withdrawn lagging example: X_(0,U) last written at event 6, so the record duplicates an observed row")
+    ai = r["all_initial_variant"]
+    need([x["final_mass"] for x in ai["reads"]] == [384, 256, 128] and [x["early_mass"] for x in ai["reads"]] == [0, 0, 0]
+         and [x["early_read_level"] for x in ai["reads"]] == [2, 4, 6]
+         and [x["early_read_after_event"] for x in ai["reads"]] == [5, 11, 17],
+         "all-initial reads: 384/256/128 at the end; 0 at the earliest consumer (pair k+1 reaches bank k's level first)")
+    need((ai["final_mass"], ai["early_mass"], ai["cheapest_62_final_mass"], ai["cheapest_62_early_mass"])
+         == (3456, 1152, 1824, 608), "all-initial variant 3456 / 1152; cheapest 62 1824 / 608")
+    fh = r["forward_histories_addon"]
+    need(fh["final_mass_range"] == [768, 960] and fh["early_mass_range"] == [0, 192],
+         "forward histories f2/f4/f6 would add 768..960 (end) or 0..192 (earliest)")
     r["hosting"] = hosting_checks(hosted, r)
     need(r["hosting"]["pair3_X_hosted_slots_in_window"] == 160, "pair-3 X streams host 160 residuals in the window")
+    need(r["hosting"]["route_capture_slot_checks"] == 4173 and r["hosting"]["instants_checked"] == 17,
+         "hosting checked at 17 instants (4,173 slot checks at the seven route captures)")
     centre_path = 8 * 8 * STAGES
     pr2197 = 8 * 18
     h_U1, h_L, h_q, h_I = 17, 9, 1, 0
@@ -719,7 +859,8 @@ def main(argv):
                         "C_mass_published": 8 * published, "C_mass_uniform": 8 * uniform}
     r["controls"] = {"PR2540": 128, "PR2197": pr2197, "PR2678_common_FL": 1792, "PR2678_entry": 3696,
                      "centre_path_per_replica": centre_path}
-    # #2707 versus PR2540 child moments: 336 H1 versus 224 H1 + 16 H8 differ by 112 H1 - 16 H8.
+    # Re-check only of #2707's own published comparison (research/qq16-line-normalized-decoder, incorporated on
+    # main after this package's base): 336 H1 versus PR2540's 224 H1 + 16 H8 differ by 112 H1 - 16 H8, and
     # 16 * 8^(1-a) > 112 for 0 <= a <= 1/16 because 8^(15/16) > 7, i.e. 8^15 > 7^16 (exact integers).
     need(8 ** 15 > 7 ** 16 and 336 - 224 == 112 and 16 * 8 == 128, "PR2707 numerator sign: 8^15 > 7^16")
     r["qq16_gate"] = {"retained_caller_retention_mass": 128, "retained_caller_H8": 16,
@@ -731,14 +872,19 @@ def main(argv):
         "INIT64_plus_dA_early_consumer_law": r["INIT64_plus_dA_early_consumer_mass"],
         "cheapest_62_early_consumer_law": r["cheapest_62_early_consumer_mass"],
         "cheapest_62_stated_law": r["cheapest_62_of_stated_captures_mass"],
-        "INIT64_plus_dA_S_published": published, "INIT64_plus_dA_C_published": 8 * published})
+        "INIT64_plus_dA_S_published": published, "INIT64_plus_dA_C_published": 8 * published,
+        "all_initial_law": ai["final_mass"], "all_initial_early_consumer_law": ai["early_mass"],
+        "all_initial_cheapest_62_law": ai["cheapest_62_final_mass"],
+        "all_initial_cheapest_62_early_consumer_law": ai["cheapest_62_early_mass"]})
     for name in ("INIT64_plus_dA_law", "d_A_only_law", "cheapest_62_stated_law", "INIT64_plus_dA_C_published",
-                 "INIT64_plus_dA_early_consumer_law"):
+                 "INIT64_plus_dA_early_consumer_law", "all_initial_law", "all_initial_early_consumer_law",
+                 "all_initial_cheapest_62_law"):
         need(result["pricing"]["routes"][name]["idle_priced_kappa_cap"] is None, name + ": no positive saving")
-    c800 = result["pricing"]["routes"]["cheapest_62_early_consumer_law"]
-    need(c800["idle_priced_kappa_cap"] is not None and Q(c800["idle_priced_kappa_cap"]) < SELECTED_KAPPA
-         and Q(c800["rank8_priced_kappa_cap"]) < SELECTED_KAPPA,
-         "800 units: positive ceiling, but below the selected kappa (and hence every pending claim)")
+    for name in ("cheapest_62_early_consumer_law", "all_initial_cheapest_62_early_consumer_law"):
+        cap = result["pricing"]["routes"][name]
+        need(cap["idle_priced_kappa_cap"] is not None and Q(cap["idle_priced_kappa_cap"]) < SELECTED_KAPPA
+             and Q(cap["rank8_priced_kappa_cap"]) < SELECTED_KAPPA,
+             name + ": positive ceiling, but below the selected kappa (and hence every pending claim)")
     need(result["pricing"]["routes"]["INIT64_plus_dA_S_published"]["idle_priced_kappa_cap"] is not None,
          "S-priced 464 keeps a positive ceiling (the #1166 table)")
     result["frame_model"] = frame_model_checks()
@@ -747,7 +893,8 @@ def main(argv):
     n_neg = len(result["negative_controls_rejected"]) + 3   # + upward-only bound + two toy controls
     fm = result["frame_model"]
     status = ("PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 "
-              "array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 "
+              "all_initial=3456/1152 all_initial_cheapest62=1824/608 array_calls=464/456 no_saving=896 "
+              "breakeven_S=573 breakeven_C=71 zero_advance_calls=6 "
               "frame_instances=%d/%d negative_controls=%d no_new_kappa"
               % (fm["record_partner_instances"], fm["general_instances"], n_neg))
     result["status"] = status
