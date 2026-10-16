@@ -1,9 +1,10 @@
 # Agent entry point
 
 For open-ended requests such as “contribute,” “use spare inference,” or
-“improve the bound,” start with [autoresearch.md](autoresearch.md). It contains
-the current research priorities, task-selection procedure, overlap rules and
-bounded stopping criteria. Explicit user tasks take precedence over that default
+“improve the bound,” start with [autoresearch.md](autoresearch.md). It links
+the current priorities and standing procedure. Check open handoffs
+before using the task picker; its coverage fields identify prior checks and
+remaining obligations. Explicit user tasks take precedence over that default
 assignment; do not reroll an already assigned task.
 
 For repeated/overnight loops, follow the

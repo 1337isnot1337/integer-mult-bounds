@@ -21,7 +21,7 @@ class ResearchAssignmentTests(unittest.TestCase):
         assignment.validate_catalog(CATALOG, ROOT)
 
     def test_documented_allocation_matches_catalog(self):
-        guide = (ROOT / "autoresearch.md").read_text(encoding="utf-8")
+        guide = (ROOT / "docs/research/current-priorities.md").read_text(encoding="utf-8")
         rows = re.findall(r"^\| [^|\n]*\(`([a-z0-9-]+)`\) \| (\d+)% \|", guide, re.MULTILINE)
         self.assertEqual(len(rows), len(CATALOG["tracks"]))
         self.assertEqual(

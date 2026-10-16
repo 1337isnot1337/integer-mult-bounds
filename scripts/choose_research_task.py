@@ -14,6 +14,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = Path("docs/research/agent-task-catalog.json")
+HANDOFF_URL = "https://github.com/CrocSwap/integer-mult-bounds/discussions/1166"
 
 
 def digest(value):
@@ -58,6 +59,21 @@ def validate_catalog(catalog, root):
             for key in ("first_step", "first_experiment", "bottleneck_link", "allowed_variations", "scope_change_triggers", "overlap_terms"):
                 if not task.get(key):
                     raise ValueError("missing actionable task field: " + key)
+            checks = task.get("existing_checks", [])
+            if not isinstance(checks, list):
+                raise ValueError("existing_checks must be a list")
+            for check in checks:
+                if not isinstance(check, dict):
+                    raise ValueError("coverage entry must be an object")
+                for key in ("scope", "evidence", "remaining"):
+                    if not isinstance(check.get(key), str) or not check[key].strip():
+                        raise ValueError("incomplete coverage: " + key)
+                if check.get("status") not in ("author-checked", "independently-checked", "reviewed"):
+                    raise ValueError("invalid coverage status")
+                if not isinstance(check.get("source_commit"), str) or not re.fullmatch(r"[0-9a-f]{40}", check["source_commit"]):
+                    raise ValueError("coverage needs an exact source commit")
+                if not isinstance(check.get("selected_record_sha256"), str) or not re.fullmatch(r"[0-9a-f]{64}", check["selected_record_sha256"]):
+                    raise ValueError("coverage needs its selected-record context")
             step = task["first_step"]
             if not step.get("expected") or not step.get("inspect") or not step.get("command"):
                 raise ValueError("incomplete first step")
@@ -110,6 +126,9 @@ def select(catalog, seed, track_id=None, task_id=None):
         method = task["methods"][draw("method:" + task["id"]) % len(task["methods"])]
         suggestions.append({
             "task_id": task["id"], "scope_key": scope_key(task["id"], method),
+            "handoff_url": HANDOFF_URL,
+            "existing_checks": task.get("existing_checks", []),
+            "coverage_rule": "These checks have limited scopes. Empty coverage means unknown, not unstudied. Audit a missing implication or explicitly justify independent repetition.",
             "question": task["question"], "method": method,
             "starting_points": task["starting_points"],
             "acceptance_gate": task["acceptance_gate"],
@@ -124,6 +143,8 @@ def main():
     parser.add_argument("--seed", help="32 hex digits; default: fresh OS-random 128-bit nonce")
     parser.add_argument("--track", help="override weighted track selection; see catalogue")
     parser.add_argument("--task", help="show one specific card, without rerolling an existing assignment")
+    parser.add_argument("--coordination-cache", type=Path,
+                        help="Optional existing find_overlap.py cache; no automatic fetch or reservation")
     args = parser.parse_args()
     try:
         catalog_bytes = (ROOT / CATALOG).read_bytes()
@@ -139,7 +160,22 @@ def main():
             ).stdout.strip()
         except (OSError, subprocess.CalledProcessError):
             base = None
+        coordination = {"handoff_url": HANDOFF_URL,
+                        "scope": "Check live handoffs first; no structured snapshot supplied."}
+        if args.coordination_cache:
+            from research_coordination import board_view
+            coordination = board_view(json.loads(args.coordination_cache.read_text(encoding="utf-8")))
+        for suggestion in result["suggestions"]:
+            suggestion["coverage_context_matches_selected"] = all(
+                check["selected_record_sha256"] == digest(selected_bytes)
+                for check in suggestion["existing_checks"]) if suggestion["existing_checks"] else None
+            suggestion["open_handoffs"] = [row for row in coordination.get("open_handoffs", [])
+                                           if row["task"] == suggestion["task_id"]]
+            suggestion["advisory_claims"] = [row for row in coordination.get("claims", [])
+                                            if row["task"] == suggestion["task_id"]]
         result.update({
+            "coordination": coordination,
+            "priorities": "docs/research/current-priorities.md",
             "base_commit": base,
             "catalog_assessed_on": catalog.get("assessed_on"),
             "priority_revision": catalog["priority_revision"],
@@ -148,7 +184,7 @@ def main():
             "selected_record_sha256": digest(selected_bytes),
             "selected": {k: selected[k] for k in ("kappa", "review", "source_manifest", "reproduce")},
             "status": "SUGGESTIONS_ONLY_NOT_RESERVED",
-            "next_step": "Check live overlap, refine one question's object and domain, and record a bounded task card. A different seed or scope key is not evidence of novelty.",
+            "next_step": "First check #1166 for a suitable open handoff. Use these suggestions if none fits, check live overlap and existing coverage, then record a bounded scope. Claims never exclude independent audits.",
         })
     except (OSError, ValueError, KeyError, TypeError) as exc:
         parser.error(str(exc))

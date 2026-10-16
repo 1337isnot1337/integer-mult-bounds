@@ -526,3 +526,33 @@ task-picker CLI at revision 6. Track weights and existing task IDs are preserved
 relative documentation links resolve in the working tree or exact HEAD tree,
 and `git diff --check` passed. No scientific artifacts, selected certificate
 or CI execution policy changed; no Lean, Docker or scientific replay ran.
+
+## Workflow update — 2026-10-16: handoffs, coverage and grouped review
+
+**Evidence:** maintainer-supplied external feedback based on `b5ea56e0a` and
+[Discussion #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200),
+compared with current main `836b19bfa309ceafbc8ee32a15e8c4b10dde7e11`. This pass
+does not independently reproduce the report's queue counts or claims about
+donor behavior. Existing handoff and short-session guidance was scattered.
+
+**Change:** handoff-first selection, source-bound `existing_checks` on three
+initial cards, optional cached board metadata and a safe file-based posting
+helper. The queue view reuses the intake plan and groups explicit word/profile
+metadata, preserving unknowns and source versions. It shares profile-ceiling
+arithmetic without inferring circuit equivalence or changing review decisions.
+The root guide is now an entry point; standing procedure and changing scientific
+priorities have separate files.
+
+**Allocation:** priority revision **6**, all eight track weights, and the selected
+#1094 record remain unchanged. This is workflow repair, not new scientific
+evidence or portfolio reweighting. The queue profile inventory is an explicitly
+small pilot, not an assertion of full classification. It includes the selected
+reference, archived #2979 profile, and the declared #2979 audit scopes of open
+PRs #2993, #3006 and #3008. Those PR bodies and heads were inspected; their
+scientific checks were not rerun for this workflow change.
+
+**Next review:** measure duplicate checks avoided and maintainer time saved on
+one actionable construction cluster. Add coverage records as actual review
+evidence arrives; expand profile intake only if it reduces repeated review.
+Do not create a survey PR per session or replace missing scientific evidence
+with structured labels.

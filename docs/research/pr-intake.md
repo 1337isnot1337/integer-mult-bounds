@@ -117,3 +117,74 @@ replays, keep that goal incomplete until they are actually resolved.
 
 Test scheduling changes with `python3 -B tests/test_pr_intake.py`; this is a cheap
 metadata test and intentionally launches no contribution workloads.
+
+## View construction clusters without rereviewing the queue
+
+Use the plan already fetched for this session. The grouping tool makes no
+network requests, runs no contribution code, and changes no intake decisions:
+
+```sh
+python3 scripts/pr_queue_groups.py --plan /tmp/pr-intake-plan.json --output /tmp/pr-groups.json
+# Narrow a pilot, or reuse the existing body-search cache for author metadata.
+python3 scripts/pr_queue_groups.py --plan /tmp/pr-intake-plan.json --number 2993 \
+  --overlap-cache /tmp/overlap.json --output /tmp/pr-groups.json
+```
+
+The output preserves intake lanes, exact heads, review evidence, dependencies
+and declared remaining obligations. `construction_groups` use an exact declared
+word SHA-256 **and** the full cost model. Related audits can instead declare a
+`construction_ref` with the source PR `number` and exact `head`; these groups are
+explicitly labelled source-reference groups, not byte-verified word equivalence.
+When neither identity exists, entries stay separate. `profile_role` distinguishes
+a candidate's own profile from an audited construction reference: an audit PR
+must not be presented as a new κ claim.
+`profile_clusters` share calculations across equal profiles, but never certify
+circuit equivalence. Do not merge/close a PR just because its histogram or
+ceiling matches another. Different profiles/coverage laws cannot reuse the same
+ceiling without a new calculation.
+
+The default [profile inventory](construction-profiles.json) is a small seed,
+**not a full queue census**. Metadata applies only to its exact PR head;
+changed heads, missing profiles and conflicting declarations remain unclassified.
+The selected profile is a pinned reference, not a claim about every successor.
+A triage contributor can extract one actionable cluster into this inventory or
+attach its data to the existing review. Avoid a new survey PR per session.
+Maintainer review remains separate from donor metadata extraction.
+
+A PR author may include this optional fenced JSON in the PR body, which the
+existing overlap cache can supply to the grouping tool:
+
+```json
+{
+  "schema": "integer-mult-construction/v1",
+  "word_sha256": null,
+  "dependencies": [2942, 2957],
+  "remaining_obligations": ["Independent circuit/frame admission review"],
+  "profile": {
+    "model": "one-unpaid-coordinate-halving-v1",
+    "m": 73,
+    "families": 896,
+    "stages": 9,
+    "centre": 64,
+    "idle_rank_cap": 51,
+    "local_profile_per_call": {"1": 2445, "2": 706, "3": 232, "4": 108, "5": 18, "8": 8}
+  }
+}
+```
+
+`word_sha256` must identify the complete canonical word relevant to the claim,
+including frame/schedule data; provide its artifact and hashing convention in
+the prose. Leave it null if that identity is unavailable. A generator filename,
+PR title, or profile hash is not a word hash. Author declarations remain
+unreviewed even if the ceiling arithmetic succeeds. The body cache binds the
+metadata to the observed PR head, not to a verified scientific artifact.
+
+The queue tool calls the retained, trusted
+[ceiling implementation](../../research/complex-local-word-ceiling/ceiling.py)
+once per distinct supplied profile, at most 20 by default (`--max-profiles`,
+maximum 100). It implements only the stated one-unpaid-coordinate coverage,
+halving guard, and outer transfer. Out-of-model inputs, numerical bracket
+failures and missing data remain explicit; they do not reject a new mechanism.
+Pricing is bounded to widths 2–128 and finite rational metadata. Larger models
+need a separately scoped calculation. A ceiling is an optimistic upper bound,
+not an attainable packing or an admitted κ.
