@@ -59,11 +59,41 @@ def pull_records(pages):
             for page in pages for pr in page]
 
 
+def pull_file_record(pull):
+    """Collect every available path, bound to one head and advertised count."""
+    connection = pull.get("files")
+    paths, cursors = set(), set()
+    while connection is not None:
+        paths.update(node["path"] for node in connection["nodes"] if node)
+        if not connection["pageInfo"]["hasNextPage"]:
+            break
+        cursor = connection["pageInfo"].get("endCursor")
+        if not cursor or cursor in cursors:
+            raise ValueError("PR file pagination did not advance")
+        cursors.add(cursor)
+        page = graphql('''query($number:Int!, $cursor:String!) {
+          repository(owner:"CrocSwap",name:"integer-mult-bounds") {
+            pullRequest(number:$number) {
+              headRefOid changedFiles files(first:100,after:$cursor) {
+                pageInfo {hasNextPage endCursor} nodes {path}
+              }
+            }
+          }
+        }''', {"number": pull["number"], "cursor": cursor})["repository"]["pullRequest"]
+        if (page["headRefOid"], page["changedFiles"]) != (pull["headRefOid"], pull["changedFiles"]):
+            raise ValueError("PR changed during file pagination")
+        connection = page["files"]
+        if connection is None:
+            raise ValueError("PR file continuation unavailable")
+    return {"number": pull["number"], "paths": sorted(paths),
+            "truncated": connection is None or len(paths) != pull["changedFiles"]}
+
+
 def fetch_pr_files():
     """Changed file paths per open PR, so overlap can be searched by path.
 
-    GitHub reports at most 100 changed files per page; a PR beyond that is
-    flagged truncated. This is a file inventory, not a search of diff contents.
+    Follow 100-file pages; missing lists or count shortfalls remain explicitly
+    truncated. This is a file inventory, not a search of diff contents.
     """
     rows = []
     cursor = None
@@ -78,8 +108,8 @@ def fetch_pr_files():
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
             pullRequests(first:10,states:OPEN,after:$cursor) {
               pageInfo {hasNextPage endCursor}
-              nodes {number files(first:100) {
-                pageInfo {hasNextPage}
+              nodes {number headRefOid changedFiles files(first:100) {
+                pageInfo {hasNextPage endCursor}
                 nodes {path}
               }}
             }
@@ -93,10 +123,7 @@ def fetch_pr_files():
         for pull in result["nodes"]:
             # PR 376 (and similar) report no file list; record it as empty and
             # flagged so path search never silently trusts missing data.
-            connection = pull.get("files") or {"pageInfo": {"hasNextPage": True}, "nodes": []}
-            rows.append({"number": pull["number"],
-                         "paths": sorted({node["path"] for node in connection["nodes"] if node}),
-                         "truncated": bool(connection["pageInfo"]["hasNextPage"])})
+            rows.append(pull_file_record(pull))
         if not result["pageInfo"]["hasNextPage"]:
             return sorted(rows, key=lambda row: row["number"])
         cursor = result["pageInfo"]["endCursor"]
@@ -127,9 +154,14 @@ def fetch_discussions():
     while True:
         result = graphql('''query($cursor:String) {
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
-            discussions(first:50,after:$cursor) {
+            discussions(first:10,after:$cursor) {
               pageInfo {hasNextPage endCursor}
-              nodes {id number title body url updatedAt}
+              nodes {id number title body url updatedAt comments(first:25) {
+                pageInfo {hasNextPage endCursor}
+                nodes {id body url updatedAt replies(first:10) {
+                  pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
+                }}
+              }}
             }
           }
         }''', {"cursor": cursor})["repository"]["discussions"]
@@ -137,18 +169,11 @@ def fetch_discussions():
             common = {"number": discussion["number"], "title": discussion["title"]}
             records.append({**common, "kind": "discussion", "body": discussion["body"],
                             "url": discussion["url"], "updated_at": discussion["updatedAt"]})
-            comment_cursor = None
+            # Batch small first pages without a process/API round trip for
+            # every discussion. The worst-case nested node count is only
+            # 10 + 10*25 + 10*25*10 = 2760; busy threads still page fully.
+            connection = discussion["comments"]
             while True:
-                connection = graphql('''query($id:ID!, $cursor:String) {
-                  node(id:$id) { ... on Discussion {
-                    comments(first:100,after:$cursor) {
-                      pageInfo {hasNextPage endCursor}
-                      nodes {id body url updatedAt replies(first:100) {
-                        pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
-                      }}
-                    }
-                  }}
-                }''', {"id": discussion["id"], "cursor": comment_cursor})["node"]["comments"]
                 for comment in connection["nodes"]:
                     records.append({**common, "kind": "discussion-comment", "body": comment["body"],
                                     "url": comment["url"], "updated_at": comment["updatedAt"]})
@@ -168,7 +193,17 @@ def fetch_discussions():
                         }''', {"id": comment["id"], "cursor": replies["pageInfo"]["endCursor"]})["node"]["replies"]
                 if not connection["pageInfo"]["hasNextPage"]:
                     break
-                comment_cursor = connection["pageInfo"]["endCursor"]
+                connection = graphql('''query($id:ID!, $cursor:String) {
+                  node(id:$id) { ... on Discussion {
+                    comments(first:100,after:$cursor) {
+                      pageInfo {hasNextPage endCursor}
+                      nodes {id body url updatedAt replies(first:100) {
+                        pageInfo {hasNextPage endCursor} nodes {body url updatedAt}
+                      }}
+                    }
+                  }}
+                }''', {"id": discussion["id"],
+                       "cursor": connection["pageInfo"]["endCursor"]})["node"]["comments"]
         if not result["pageInfo"]["hasNextPage"]:
             return records
         cursor = result["pageInfo"]["endCursor"]
@@ -372,7 +407,8 @@ def main():
     if patterns:
         report["path_patterns"] = patterns
         report["path_limits"] = ("Path matching covers the changed file paths GitHub reports for open PRs, "
-                                 "not diff contents; PRs beyond 100 changed files are flagged truncated.")
+                                 "not diff contents; all available file pages are followed. Missing lists or "
+                                 "advertised-count shortfalls are flagged truncated.")
         report["path_matches_total"] = len(path_matches)
         report["path_matches"] = path_matches[:args.limit]
     if args.json_output:
