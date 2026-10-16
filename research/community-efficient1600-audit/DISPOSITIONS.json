@@ -242,7 +242,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -253,7 +253,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2598.json"
+        "research/community-efficient1600-audit/packets/2598.json",
+        "research/community-efficient1600-audit/checks/check-2598.json"
       ]
     },
     {
@@ -678,7 +679,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -689,7 +690,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2620.json"
+        "research/community-efficient1600-audit/packets/2620.json",
+        "research/community-efficient1600-audit/checks/check-2620.json"
       ]
     },
     {
@@ -711,7 +713,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -722,7 +724,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2621.json"
+        "research/community-efficient1600-audit/packets/2621.json",
+        "research/community-efficient1600-audit/checks/check-2621.json"
       ]
     },
     {
@@ -744,7 +747,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Complete projected endpoint/error mechanism reviewed and exact author-head replay passes. Its authenticate() checks provenance bytes against live main and the unchanged PR2199 loader hardcodes the historical selected-record hash. Current main has the newer UTF-8 verifier-source binding. Supply a documented historical-source or checked metadata adapter and rerun the full projected endpoint/export commands before integration; preserve vendor bytes and do not confuse this projection with a native obstruction.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1136,7 +1139,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1147,7 +1150,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2632.json"
+        "research/community-efficient1600-audit/packets/2632.json",
+        "research/community-efficient1600-audit/checks/check-2632.json"
       ]
     },
     {
@@ -1634,18 +1638,24 @@
       },
       "reviewed_head": "74d6e99055d76920d5e0766ef54cf96ef50b0a6d",
       "current_head": "74d6e99055d76920d5e0766ef54cf96ef50b0a6d",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p104-relay-forward-errors"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2654"
+      },
+      "scope": "commdata2338's exact combined P104 core/relay error audit, crediting Philippe Van Velzen's relay word, Nick Petalas's PR2594 and the Rohan Arun/Chafik Boukhalfa channel. Reviewed full chronology, common/nested frames, private COPY/discard semantics, signed forward input/error propagation and independent reverse budgets. Registered replay covers 21682 events, all 1311 persistent inputs and 6555 output/class budgets, with attained constants 235/2 and 3181/4. This is conditional event-boundary Hilbert precision for the fixed word; its unfavorable local bill, native internals, hosting and all-size obligations remain.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2654.json",
@@ -1671,7 +1681,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1682,7 +1692,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2655.json"
+        "research/community-efficient1600-audit/packets/2655.json",
+        "research/community-efficient1600-audit/checks/check-2655.json"
       ]
     },
     {
@@ -1881,7 +1892,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1892,7 +1903,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2662.json"
+        "research/community-efficient1600-audit/packets/2662.json",
+        "research/community-efficient1600-audit/checks/check-2662.json"
       ]
     },
     {
@@ -1911,18 +1923,24 @@
       },
       "reviewed_head": "3d5e2dc8af34f6a3d393cf5f464e5328cc0967d0",
       "current_head": "3d5e2dc8af34f6a3d393cf5f464e5328cc0967d0",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-borrowed-reuse-stability"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2663"
+      },
+      "scope": "Nick Petalas's source-bound QQ16 borrowed-field reuse theorem, crediting ywz65's PR2540 and PR2628. Reviewed the complete borrowed-write projection, recurrence B((1+u)^(2N)-1), admissible coherent-bias attainment and sufficient horizon-dependent guard. Complete-word rational reuse fixtures, nonconstant Gaussian actions and corruption/export controls pass. Scope fixes the repeated decoder boundary and excludes intervening controller/retention writes; it supplies neither a physical biased child nor output/whole-controller precision.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2663.json",
@@ -2053,18 +2071,24 @@
       },
       "reviewed_head": "92436c36b720133bd92599972bce78233ca43ea8",
       "current_head": "92436c36b720133bd92599972bce78233ca43ea8",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p104-intrinsic-physical-dual"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2667"
+      },
+      "scope": "Arham Tahir's independent intrinsic P104 dual-endpoint certificate, corroborating the parallel Discussion2647 bridge and crediting ywz65's PR2586/2551 plus PR1991 native adapters. Reviewed order-preserving inverse-transpose algebra, conjugated monomial recipes, full E8/port reconstruction and all 106496 Gaussian basis columns including phase. Registered coverage and corruption controls pass. Zero added positive children does not imply zero address/movement cost; middle native correctness, its partial correction, physical hosting and supplier admission remain inherited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2667.json",
@@ -2161,18 +2185,24 @@
       },
       "reviewed_head": "0ce9c0f1f2b42b2e403801ea79f55a21cdf6e035",
       "current_head": "0ce9c0f1f2b42b2e403801ea79f55a21cdf6e035",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-defect-independent-audit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2670"
+      },
+      "scope": "Arham Tahir's independent QQ16 reverse-covector audit of ywz65's PR2628 error contract. Reviewed all 2680 initialized changed-field boundaries, five metrics on 464 final fields, signed owner-map composition and the exact feedback inequality. Registered replay corroborates the 841 interior witness and proves a 20-bit sufficient uniform guard for this inequality. This does not establish that 19 bits must fail physically, native rounding accuracy, entry/B1 bounds, exact borrowed restoration or supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2670.json",
@@ -2278,7 +2308,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2289,7 +2319,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2673.json"
+        "research/community-efficient1600-audit/packets/2673.json",
+        "research/community-efficient1600-audit/checks/check-2673.json"
       ]
     },
     {
@@ -2308,18 +2339,24 @@
       },
       "reviewed_head": "aeb5551b162b78e33c0b42681abaff92eb608d70",
       "current_head": "aeb5551b162b78e33c0b42681abaff92eb608d70",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p104-physical-dual-grid"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2674"
+      },
+      "scope": "Arham Tahir's physical-component precision audit of ywz65's PR2586 canonical dual, retaining PR2551 and Nick Petalas's boundary/precision credit. Reviewed rational common-chart induction, all-depth termwise dyadic and unitary row-sum bounds, exact 5398-event physical input fixture and the all-depth interior/endpoint one-bit separation. Registered forward/reverse, chart and corruption controls pass. Covers exact atomic boundaries only, not child interiors, rounded strict erasure, all-target identity correction or favorable supplier cost.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2674.json",
@@ -2908,18 +2945,24 @@
       },
       "reviewed_head": "fa5e48741c8829f63ce8316b98349e4096e4d187",
       "current_head": "fa5e48741c8829f63ce8316b98349e4096e4d187",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-decoder-error-budget"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2692"
+      },
+      "scope": "BigCactusLabs's QQ16 approximate-call componentwise error budget, crediting ywz65's PR2540/2603 word and grid contracts. Reviewed all-depth native box norms, complete 2463-event nonnegative error recurrence, all 464 reverse polynomials and the sufficient 4lambda+10 tolerance reserve. Exact Fourier and underclaim/source/export controls pass. Keeps B1 input errors, child-internal accuracy, exact CLEAR/ownership premises and complete physical cost separate; the triangle envelope is not asserted physically sharp and no kappa changes.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2692.json",
@@ -3582,18 +3625,24 @@
       },
       "reviewed_head": "afa5d6649460dcdb93489babd74f0ee9d01a4911",
       "current_head": "afa5d6649460dcdb93489babd74f0ee9d01a4911",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p104-shared-chart-retiming"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "54264276c89682bc4f1e6296d036fc4ddbc2f7be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2712"
+      },
+      "scope": "ywz65's shared-chart retiming of commdata2338's PR2662 P104 word. Reviewed all-read chronology of both complete ADD stars, simultaneous dirty-operand chart identity, unchanged public/dirty boundaries and explicit positive-child recipes. Full 358-input logical matrices, eight exact erasures, 1536 new Gaussian columns, nine semantic controls and deterministic export/regeneration pass. Four child mergers reduce the local moment for 0<p<1 while preserving rank mass 3542; unchanged native edges and complete owners/idle/precision/restoration costs remain inherited or open, and no new kappa follows.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2712.json",
@@ -3653,7 +3702,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3664,7 +3713,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2715.json"
+        "research/community-efficient1600-audit/packets/2715.json",
+        "research/community-efficient1600-audit/checks/check-2715.json"
       ]
     }
   ]
