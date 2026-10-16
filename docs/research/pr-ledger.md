@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1997 |
-| partially reviewed | 339 |
+| incorporated | 1998 |
+| partially reviewed | 338 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -1884,7 +1884,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2224](https://github.com/CrocSwap/integer-mult-bounds/pull/2224) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2225](https://github.com/CrocSwap/integer-mult-bounds/pull/2225) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2226](https://github.com/CrocSwap/integer-mult-bounds/pull/2226) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
-| [#2227](https://github.com/CrocSwap/integer-mult-bounds/pull/2227) | conorholds | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
+| [#2227](https://github.com/CrocSwap/integer-mult-bounds/pull/2227) | conorholds | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2228](https://github.com/CrocSwap/integer-mult-bounds/pull/2228) | DreamingOfClouds | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2229](https://github.com/CrocSwap/integer-mult-bounds/pull/2229) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |
 | [#2230](https://github.com/CrocSwap/integer-mult-bounds/pull/2230) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) |

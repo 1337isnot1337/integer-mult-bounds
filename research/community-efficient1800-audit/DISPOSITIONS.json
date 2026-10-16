@@ -1108,20 +1108,24 @@
       },
       "reviewed_head": "514f75b9f311438aaef07cd577a39cd330cf4330",
       "current_head": "514f75b9f311438aaef07cd577a39cd330cf4330",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/complex-compensation-network"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "dcf0f85c888168c46afc4ec7bbafcd3e07207c1b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2227"
+      },
       "scope": "conorholds' fully restored nonforest R480 compensation and two-sided cleanup: all four declared native/arithmetic/relocation/17-trial comparison commands pass. All 713 columns in 22 scalar programs checked, full paid recursive profile unchanged. Panel saves 4858 Horner primitives versus author's same-input forest implementation; original method/predecessor credit retained. Historical timing source mismatch explicitly disclosed; fresh same-parameter matched scalar benchmark separately bound. No new kappa, method optimum, complete supplier or multiplication-speed claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2227.json",

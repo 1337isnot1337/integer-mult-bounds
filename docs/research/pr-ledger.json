@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1997,
-    "partially_reviewed": 339,
+    "incorporated": 1998,
+    "partially_reviewed": 338,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "59261acf6f92f0415188ce8de64e85b578631f8ae805ecbf867503c47fb6f957",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "57eed92faa1ee9b22e8f29433440ac7402bba35c394fa10b23b81babaf314171",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -105555,25 +105555,34 @@
         {
           "head": "514f75b9f311438aaef07cd577a39cd330cf4330",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "conorholds' fully restored nonforest R480 compensation and two-sided cleanup: all four declared native/arithmetic/relocation/17-trial comparison commands pass. All 713 columns in 22 scalar programs checked, full paid recursive profile unchanged. Panel saves 4858 Horner primitives versus author's same-input forest implementation; original method/predecessor credit retained. Historical timing source mismatch explicitly disclosed; fresh same-parameter matched scalar benchmark separately bound. No new kappa, method optimum, complete supplier or multiplication-speed claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/complex-compensation-network"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "dcf0f85c888168c46afc4ec7bbafcd3e07207c1b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2227"
+      },
       "reviewed_head": "514f75b9f311438aaef07cd577a39cd330cf4330",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2227.json"
+        "research/community-efficient1800-audit/packets/2227.json",
+        "research/community-efficient1800-audit/checks/check-2227-benchmark.json",
+        "research/community-efficient1800-audit/checks/check-2227-full.json",
+        "research/community-efficient1800-audit/checks/check-2227.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133442,7 +133451,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1545,
-    "OPEN": 475
+    "MERGED": 1546,
+    "OPEN": 474
   }
 }
