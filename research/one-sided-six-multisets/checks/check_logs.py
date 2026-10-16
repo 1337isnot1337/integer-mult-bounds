@@ -16,7 +16,7 @@ chk('gen: group on lines has order 172032, generators linear on labels', 'group 
 chk('gen: 3888 directions with |Off|<=77 and 1120 A2 planes (896 at generic |Off| 78, 224 at 80)', 'wrote 3888 finite 0 pencils' in g and '((36, 78), 896), ((36, 80), 224)' in g)
 chk('gen: Aut(Hamming [8,4,4]) of order 1344', 'Aut(Hamming) order 1344' in g)
 # Parity Lemma (ii): no quadruple
-q = rd('quad.log'); chk('Parity Lemma (ii): 0 quadruples (pairwise non-orthogonal, label sum 0, rank 4)', 'quadruples (pairwise nonorth, label sum 0, rank 4): 0' in q)
+q = rd('quad.log'); chk('Parity Lemma (ii), rank-4 quadruples: 0 pairwise non-orthogonal quadruples with label sum 0', 'quadruples (pairwise nonorth, label sum 0, rank 4): 0' in q)
 # s66.c
 for name, mode, dim, rk, nd, r8 in (('s66_m0', 0, 6, 3, 6, 0), ('s66_m1', 1, 6, 3, 6, 0)):
     o, e = rd(name + '.out'), rd(name + '.err')
