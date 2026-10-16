@@ -710,6 +710,18 @@ The following contributions are retained at their original heads with source not
 
 The six pending contributions are credited in the pilot ledger; pending review is not rejection. Predecessor attribution, including R420, K492, PR628 and PR673 lineage, remains in each package.
 
+## Efficient sixteenth 100-PR round: #2592–#2715
+
+Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1600-review.md).
+
+- **ywz65** — [#2592](https://github.com/CrocSwap/integer-mult-bounds/pull/2592), [#2596](https://github.com/CrocSwap/integer-mult-bounds/pull/2596), [#2599](https://github.com/CrocSwap/integer-mult-bounds/pull/2599), [#2600](https://github.com/CrocSwap/integer-mult-bounds/pull/2600), [#2601](https://github.com/CrocSwap/integer-mult-bounds/pull/2601), [#2614](https://github.com/CrocSwap/integer-mult-bounds/pull/2614), [#2623](https://github.com/CrocSwap/integer-mult-bounds/pull/2623), [#2631](https://github.com/CrocSwap/integer-mult-bounds/pull/2631), [#2641](https://github.com/CrocSwap/integer-mult-bounds/pull/2641), [#2659](https://github.com/CrocSwap/integer-mult-bounds/pull/2659), [#2671](https://github.com/CrocSwap/integer-mult-bounds/pull/2671).
+- **petalas** — [#2604](https://github.com/CrocSwap/integer-mult-bounds/pull/2604), [#2626](https://github.com/CrocSwap/integer-mult-bounds/pull/2626), [#2630](https://github.com/CrocSwap/integer-mult-bounds/pull/2630), [#2640](https://github.com/CrocSwap/integer-mult-bounds/pull/2640).
+- **thakrarsagar** — [#2613](https://github.com/CrocSwap/integer-mult-bounds/pull/2613).
+- **VictorLiwentao** — [#2643](https://github.com/CrocSwap/integer-mult-bounds/pull/2643).
+- **commdata2338** — [#2652](https://github.com/CrocSwap/integer-mult-bounds/pull/2652), [#2653](https://github.com/CrocSwap/integer-mult-bounds/pull/2653).
+
+Pending contributors and their obligations are listed in the review. A hold is not a rejection.
+
 ## Efficient fifteenth 100-PR round: #1758–#2591
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1500-review.md).

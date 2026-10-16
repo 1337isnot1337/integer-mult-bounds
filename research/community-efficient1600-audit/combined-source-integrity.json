@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checked_commit": "116a714d150b6b45e134063a5fc1f873b3e1155d",
+  "merged_prs": [
+    2592,
+    2596,
+    2599,
+    2600,
+    2601,
+    2604,
+    2613,
+    2614,
+    2623,
+    2626,
+    2630,
+    2631,
+    2640,
+    2641,
+    2643,
+    2652,
+    2653,
+    2659,
+    2671
+  ],
+  "changed_files": 190,
+  "resolved_files": [
+    {
+      "number": 2601,
+      "path": "research/bounded-row-choice/SOURCES.json",
+      "sha256": "2fdf46f756fc1b5c2d3e8446a188d5f65d5709fa5d364aac745cc3bc0221d4bc"
+    },
+    {
+      "number": 2601,
+      "path": "research/bounded-row-choice/TASK.json",
+      "sha256": "396d835cbc575d4ff055d674a108c224b2808c65f0f42b49e92f5fe0eae96bf9"
+    },
+    {
+      "number": 2659,
+      "path": "research/dn-one-extra-gap/SOURCES.json",
+      "sha256": "117438d6ad7b885bf0bc304474f80d9f517de0e3d570eab659918c1f8a684000"
+    },
+    {
+      "number": 2659,
+      "path": "research/dn-one-extra-gap/TASK.json",
+      "sha256": "9c952b0ddef76ea8c3f333f81a9f1a8c6bc81cd432b9f9ca7363040d4cafe7b5"
+    }
+  ],
+  "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+  "scope": "Every reviewed author head is an ancestor; every changed file is original Git blob/mode or an explicitly reviewed integration resolution. GitHub MERGED observations retained separately. No new full-supplier claim."
+}
