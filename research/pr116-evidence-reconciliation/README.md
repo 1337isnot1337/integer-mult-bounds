@@ -5,8 +5,17 @@ README status paragraph, that README's SHA-256 in `SOURCE.json`, and a new
 author validation receipt. Its producer, proof, scientific certificate,
 workflows and all other tracked files are unchanged. This independently
 corroborates the [round-eight review](../../docs/research/community-round8-review.md)
-and resolves the generic "review the changes" question in the central ledger.
-It does **not** turn the earlier triage into mathematical acceptance.
+by resolving its historical source-identification question. It does **not** turn
+the earlier triage into mathematical acceptance.
+
+**Current integration, 2026-10-16:** PR116 has since been reviewed, incorporated
+and closed in the [92-contribution review](../../docs/research/community-reconciliation92-review.md).
+That later decision remains authoritative. `PARENT-EVIDENCE.json` lets
+`scripts/reconcile_pr_queue.py` append this independent source/evidence pointer
+without changing any disposition, closure, review-completion field, remaining
+question or earlier evidence. Regenerate both ledger files with that generator;
+do not restore the submission-time `changed_since_review` row. This package
+does not declare PR1007 itself reviewed or incorporated.
 
 The new evidence is an offline, hash-bound comparison of the **complete Git
 trees**, plus recovered GitHub metadata and focused-job log excerpts. The
@@ -78,9 +87,10 @@ PR head and was not recovered in this run. Its reported archive/log digests
 remain author evidence. No fresh full `make verify`, supplier replay, Lean build,
 or local-run reproduction is claimed. Earlier maintainer evidence was
 `alternative-or-parent` triage, explicitly without standalone full-certificate
-validation; mathematical mechanism review, acceptance and PR closure remain
-maintainer decisions. The ledger disposition therefore remains
-`changed_since_review`, with a precise companion pointer and remaining question.
+validation. At this package's original submission, mathematical mechanism review,
+acceptance and PR closure were still maintainer decisions, and the ledger used
+`changed_since_review`. The later completed PR116 review and closure now replace
+that status; this package adds historical evidence without reopening the question.
 
 ## Reproduce and controls
 
@@ -153,3 +163,14 @@ Seed **96**, scope selection and the single overlap-driven pivot are recorded
 in `CLAIM.md`. The completed finite domain is the two complete source trees,
 the three exact delta paths, all 42 manifest entries, all 42 recorded checks,
 and the three focused jobs; no optimization or mathematical search was run.
+
+## Open next questions
+
+- Can the author's historical full-run archive be recovered? Its original
+  receipt names the archive and digests, but the bytes are absent from both
+  pinned heads. Obtaining and authenticating that exact archive would strengthen
+  historical execution evidence; its absence does not undo the later review.
+- Can this consolidation be incorporated alongside the later PR116 decision?
+  Review the new evidence-only ledger input and the preserved source capsule,
+  then retain the existing closure and attribution. PR1007 review remains a
+  maintainer decision; no further supplier or theorem claim follows from it.

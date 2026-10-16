@@ -259,7 +259,9 @@ def run(script, args, log):
 
 def native(raw, out, logs):
     route = ROOT / 'research/direct-delivery504-global/inputs/phase-baseline/CANONICAL-WORD.json.gz'
-    run(CODE / 'hpe_audit_and_transport.py', ['--raw', raw, '--routing', route, '--out', out],
+    # Pairwise transport auditor; k492 code/ path ships integer rows after production rewrite.
+    auditor = ROOT / 'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
+    run(auditor, ['--raw', raw, '--routing', route, '--out', out],
         logs / (out.name + '-native.log'))
     run(CODE / 'hpe_emit_local.py', [out], logs / (out.name + '-emit.log'))
     run(CODE / 'hpe_audit_local.py', [out], logs / (out.name + '-local.log'))

@@ -1,5 +1,58 @@
 # Current reviewed status
 
+Selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
+
+[Review and attribution](community-batch1099-review.md) · [Integration/CI receipt](community-batch1099-integration.json) · [Selected record](../../certificates/selected-result.json).
+
+Cold replay: `make frontier1094-verify`. This local review explicitly reuses the published, source-bound complete #1042 construction/bit evidence and freshly checks #1094. Exact native, hosting and arithmetic evidence remains conditional on the listed compiler/realization/precision/analytic interfaces. Linux CI is separate.
+
+#1048 remains open; no negative theorem from that proposal is accepted. The [PR1048 correction map](pr1048-correction-map.md) separates retained arithmetic repairs from pending transport-census review and the remaining domain-completeness questions. Other historical deferrals, including #946, remain unchanged.
+
+**Reviews since the #1094 selection.** These rounds retain scoped constructions,
+negative results, audits and tooling with individual credit, without changing the
+selected κ. The table records frozen review checkpoints, not live queue counts;
+later rounds can revisit older PRs. Use the [PR ledger](pr-ledger.md) for the
+current disposition of a specific contribution. The fifteenth round is ongoing.
+
+| Review | Frozen PR selection | Disposition |
+| --- | --- | --- |
+| [efficient100](community-efficient100-review.md) | #697–#814 | 83 merged; 17 follow-ups |
+| [efficient200](community-efficient200-review.md) | #815–#1095 | 76 merged; 24 follow-ups |
+| [efficient300](community-efficient300-review.md) | #1100–#1208 | 69 merged; 31 follow-ups |
+| [efficient400](community-efficient400-review.md) | #1209–#1343 | 85 merged; 15 follow-ups |
+| [efficient500](community-efficient500-review.md) | #803, #1344–#1466 | 89 merged; 11 follow-ups |
+| [efficient600](community-efficient600-review.md) | #797, #1026, #1468–#1600 | 78 merged; 15 follow-ups |
+| [efficient700](community-efficient700-review.md) | #1601–#1726 | 79 merged; 21 pending |
+| [efficient800](community-efficient800-review.md) | #1729–#1862 | 85 merged; 15 pending |
+| [efficient900](community-efficient900-review.md) | #1863–#1951 | 56 merged; 12 pending |
+| [efficient1000](community-efficient1000-review.md) | #1952–#2027 | 44 merged; 2 pending |
+| [efficient1100](community-efficient1100-review.md) | #620–#2135 | 79 merged; 21 pending |
+| [efficient1200](community-efficient1200-review.md) | #654–#2257 | 78 merged; 22 pending |
+| [efficient1300](community-efficient1300-review.md) | #1175–#2377 | 76 merged; 24 pending |
+| [efficient1400](community-efficient1400-review.md) | #1155–#2490 | 78 merged; 22 pending |
+| [efficient1500](community-efficient1500-review.md) | #1758–#2591 | Ongoing; see linked review |
+
+> **Below this point every section is a historical snapshot.** Inside them, “current,”
+> “selected,” “latest” and “next” refer to that snapshot's own checkpoint. The authoritative
+> record is [selected-result.json](../../certificates/selected-result.json), and live research
+> priorities are in [autoresearch.md](../../autoresearch.md).
+
+# Historical status through #1042
+
+## Reviewed status at the #1042 checkpoint
+
+Selected conditional κ: **0.001672188119205421**, Jeremy Kothe's #1042 on the mutable-leaver/slot chain, Rohan Arun's #987 slot search and Hao Yan's T16 controller. The bit side remains #589 on #555.
+
+[Review and individual credit](community-batch1047-review.md) · [Publication/CI receipt](community-batch1047-integration.json) · [Selected record](../../certificates/selected-result.json) · [PR ledger](pr-ledger.md).
+
+Cold replay: `make frontier1042-verify`. Complete local finite construction and both exact moment engines pass, with source-bound retained ancestry reuse recorded. All-size/compiler, realization, hosting, precision/tape, analytic and bit-interface assumptions remain. Linux CI is separate; no complete Lean multiplication theorem is claimed.
+
+The forty-PR batch integrates constructions, parallel audits, circuit candidates, scoped negative results and verification tooling with individual attribution. #946 remains deferred, corroborated by #994's exact source-pin inventory.
+
+# Historical status through #942
+
+## Reviewed status at the #942 checkpoint
+
 Selected conditional κ: **0.001661960547713947**, Jonathan Capalbo's #942 T37
 composition of the #890/#869/#870/#858 lineage, with unchanged #589 on #555.
 [Review and credit](community-batch952-review.md) ·
@@ -142,7 +195,7 @@ Earlier “selected” statements below are historical snapshots.
 
 ---
 
-# Selected construction: coordinated frames and completed entrance banks
+# Historical checkpoint #186: coordinated frames and completed entrance banks
 
 The selected conditional witness is **κ=330942774629799/500000000000000000
 =0.000661885549259598**, from Dugongue's #186, on chafreaky's #181 and
@@ -238,7 +291,7 @@ The previous PR #39 release and tested 2^-30 checkpoint at `1a74950` remain
 preserved. Everything below is historical: “latest” and “current” refer to the
 checkpoint, not the selected community follow-up witness.
 
-# Current contracts and research status
+# Historical contracts and research status (2^-30 snapshot)
 
 Updated October 8, 2026. Author: Douglas Colkitt.
 
@@ -281,7 +334,7 @@ Everything below records the preceding integration. Numerical uses of
 “current,” “latest,” or “retained” in that historical record refer to 2^-31;
 the parameters above supersede them for this checkpoint.
 
-## Current and earlier results
+## Results at the 2^-31 integration
 
 | State | Exponent saving kappa | Artifacts |
 | --- | --- | --- |
@@ -317,7 +370,7 @@ ranges in every recursive child, restores arbitrary values, and charges
 exceptional-address repair at every node. All three movement/layout/guard
 proof sources are embedded verbatim in the new patch.
 
-## Exact current parameters and bottleneck
+## Exact parameters and bottleneck at the 2^-31 integration
 
 The certificate uses
 
@@ -378,7 +431,7 @@ Reproduce with `make verify` and `make complex-note`. See the
 [reproduction instructions](../reproducibility.md) for applying the patch and
 building a manuscript preview without changing the pinned source.
 
-## Next research priority
+## Research priority at the 2^-31 integration (superseded; see autoresearch.md)
 
 The complex construction is integrated. The next improvement should target
 the bit finite network, especially methods transferable from the new circuit

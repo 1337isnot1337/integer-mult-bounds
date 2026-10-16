@@ -1,5 +1,12 @@
 # Sprint claim
 
+This is the historical 2026-10-13 claim and outcome. The 2026-10-16 revision
+addresses the [maintainer's PR1007 request](https://github.com/CrocSwap/integer-mult-bounds/pull/1007#issuecomment-6161276240):
+retain this source-identification result through the current ledger generator
+without overwriting PR116's subsequent completed review, incorporation or
+closure. Scientific pins and the offline capsule remain unchanged. This revision
+does not reopen a construction search or claim a new bound.
+
 - Track: research consolidation; OS-random assignment seed **96** (Python secrets.randbelow(100)).
 - Base: `8bddbee377e2f3ce1f1247196c4b290d55767d20`.
 - Claimed at 2026-10-13 16:09 UTC; expected finish 16:34 UTC. Planning envelope 30 minutes, final 25% reserved for verification and handoff. Orientation completed within the first 20%.
