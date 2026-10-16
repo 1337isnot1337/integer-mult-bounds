@@ -1626,7 +1626,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The first exhaustive census exceeded the sampled 1 GiB process-group guard (1075648 KiB); its eager combination lists and cpu_count-sized pool need bounded batching before replay. Mathematical/code review is complete, but declared exhaustive and fault-control coverage has not finished. Do not infer rejection from the resource limit.",
       "closure": null,
       "scope": "Scoped Q=8 dirty-parity obstruction in the common-B alphabet. Reviewed all 1122 checker/model/test lines and the zero-slot repair lemma: repaired odd readouts have exactly even-subset optimum. Distinct-seven and exactly-one-duplicate layers are separated; full declared exhaustive replays remain the acceptance gate. Independent implementation duplicates parts of the DP logic, so its agreement is corroboration, not a different-method universal proof.",
       "ready_to_integrate": false,
@@ -1637,7 +1637,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2764.json"
+        "research/community-efficient1700-audit/packets/2764.json",
+        "research/community-efficient1700-audit/checks/check-2764.json"
       ]
     },
     {
@@ -2003,7 +2004,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2774.json"
+        "research/community-efficient1700-audit/packets/2774.json",
+        "research/community-efficient1700-audit/checks/check-2774.json"
       ]
     },
     {
@@ -2137,19 +2139,22 @@
       "current_head": "1f2a413f9e27ce9609924f7ab196548c4cbe43d8",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/independent-walks-7q-obstruction"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Scoped partitioned independent-walk Q=7 obstruction with distinct labels in each walk. Reviewed all 796 model/check/test lines and the independent-dirt convolution: only (2,5)/(3,4) shapes are admitted; rank/span and even Hamming-cost identity justify the first shape, exhaustive convolution the second. Transfers, shared prefixes and repeated labels remain outside; full execution is still required.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2779.json"
+        "research/community-efficient1700-audit/packets/2779.json",
+        "research/community-efficient1700-audit/checks/check-2779.json"
       ]
     },
     {
@@ -2336,9 +2341,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Source-authentication repair for the retained T74 width-cap arithmetic loader. Reviewed all four changed files against current main: exact verified source bytes now execute directly instead of consulting .pyc. Four timestamp/unchecked-hash normal/optimized cache controls retain the original mathematical receipt and predecessor credit. No changed bound or broader supplier validation.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2477,9 +2482,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Exact all-N travel optimum for fixed QQ16 two-tape whole-window sweeps. Reviewed endpoint-state Bellman proof and full checker/CLI controls; every path has common N=1 intercept, so optimizing N=2 proves all positive sizes. Scalar dirty-bridge semantics and charges preserved; no optimization over layouts/reordering, physical complete caller or supplier admission.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2510,9 +2515,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Exact eight-source paired-call root-count boundary in the unrestricted paid scalar-frame model. Reviewed normalized-axis/code equivalence, all-ones rotation reduction, complete quotient-code inventory, mandatory-mask exclusion, Python and independent C++ engines, and symbolic paid-star/compiler controls. Five-root attainment is credited to PR2182; no tariff optimality or physical supplier claim. Full declared Python census remains required; fresh native replay is not yet claimed.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2576,9 +2581,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Independent finite audit of pinned PR2493 overlap pagination and per-source cache failure behavior. Reviewed custom API/cursor oracle, full 710-graph inventory, every-request fault injection, source authentication and original-test replay. Baseline/candidate exports remain historical; production adoption and frozen dependent packages are separate, and static fixtures do not prove concurrent API consistency.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2609,9 +2614,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Sharp separate COPY-power floor for the fixed P112 one-sided right-extension completion, including charged pure terms. Reviewed coefficient comparison, all-term case split, shared-support dual-conflict lemma and concavity argument, plus all 393 checker/test lines. Exact rational and modular kernel checks justify the complex support catalogue; no complete physical supplier, shared COPY billing or kappa claim.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2741,9 +2746,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Opt-in strict payload comparator successor for large exact JSON integers. Reviewed parser, typed difference diagnostics, full predecessor audit binding and real-process controls. int(Decimal(token)) preserves integer tags/exact values without changing global digit limits or decimal context; bounded diagnostic hashes never decide acceptance. Resource hardening and supplier adoption remain outside scope.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,

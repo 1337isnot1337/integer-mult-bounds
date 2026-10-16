@@ -723,7 +723,7 @@ Original contributor commits and predecessor notices are preserved. These are sc
 - **cbethin** — [#2740](https://github.com/CrocSwap/integer-mult-bounds/pull/2740).
 - **jmbarrancoml** — [#2742](https://github.com/CrocSwap/integer-mult-bounds/pull/2742), [#2769](https://github.com/CrocSwap/integer-mult-bounds/pull/2769).
 - **CubeJerry** — [#2756](https://github.com/CrocSwap/integer-mult-bounds/pull/2756).
-- **VictorLiwentao** — [#2761](https://github.com/CrocSwap/integer-mult-bounds/pull/2761).
+- **VictorLiwentao** — [#2761](https://github.com/CrocSwap/integer-mult-bounds/pull/2761), [#2779](https://github.com/CrocSwap/integer-mult-bounds/pull/2779).
 - **BigCactusLabs** — [#2763](https://github.com/CrocSwap/integer-mult-bounds/pull/2763).
 - **Arham-Tahir64** — [#2792](https://github.com/CrocSwap/integer-mult-bounds/pull/2792).
 
