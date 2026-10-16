@@ -3162,21 +3162,56 @@
       },
       "reviewed_head": "186a38eb124bc2fead44ae9d03a6edcf7649c882",
       "current_head": "186a38eb124bc2fead44ae9d03a6edcf7649c882",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "certificates/joint-dual-validation.json",
+        "certificates/skip-frame-validation.json",
+        "research/pair-assembly",
+        "research/phase-order-bank-audit",
+        "scripts/check_selected_ci_inputs.py",
+        "scripts/historical-ci-inputs",
+        "scripts/refresh_joint_validation_bindings.py",
+        "scripts/replay_historical_check.py",
+        "scripts/run_isolated_tests.py",
+        "scripts/verify_parallel.py",
+        "scripts/verify_pr_reconciliation.py",
+        "scripts/verify_selected_result.py",
+        "tests/test_combined_frame_source_pins.py",
+        "tests/test_historical_check.py",
+        "tests/test_isolated_test_runner.py",
+        "tests/test_joint_validation_bindings.py",
+        "tests/test_pr_reconciliation.py",
+        "tests/test_selected_ci_inputs.py",
+        "tests/test_selected_result.py",
+        "tests/test_shared_point_digest.py",
+        "tests/test_single_intersection_packing.py"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "2c768c43399e237c81135248380a99954bb8083d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2859"
+      },
+      "scope": "Dennis / antunishdPursuit's independent producer/consumer phase-order audit: exact cross-term criterion and LIS bank count in the stated assigned-bit model; 5913 symbolic permutations, 488 physical columns and ten controls. Includes authenticated historical replay/CI repairs, exact derived receipt bindings, selected/historical input separation and symlink safety. Preserve current completion/cancellation guards and all seven legacy test routes. Full current ledger prefix and mutation suites pass; expensive unchanged joint/skip/pair replays reuse exact-author-head Linux evidence. No selected kappa change or new full theorem verification. Retain Gareth Davidson/bitplane and maintenance predecessor credit.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2859.json"
+        "research/community-efficient1800-audit/packets/2859.json",
+        "research/community-efficient1800-audit/checks/check-2859-completion.json",
+        "research/community-efficient1800-audit/checks/check-2859-legacy-v2.json",
+        "research/community-efficient1800-audit/checks/check-2859-legacy.json",
+        "research/community-efficient1800-audit/checks/check-2859-records.json",
+        "research/community-efficient1800-audit/checks/check-2859-science.json",
+        "research/community-efficient1800-audit/checks/check-2859-snapshot.json",
+        "research/community-efficient1800-audit/checks/check-2859-tooling.json",
+        "research/community-efficient1800-audit/checks/check-2859.json"
       ]
     },
     {

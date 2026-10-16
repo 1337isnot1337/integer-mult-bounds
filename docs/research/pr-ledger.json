@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1996,
-    "partially_reviewed": 340,
+    "incorporated": 1997,
+    "partially_reviewed": 339,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "5f42df21a468652bbf92f3e500b5d78383abb6f07bb95e406d7323bd4ce32483",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "59261acf6f92f0415188ce8de64e85b578631f8ae805ecbf867503c47fb6f957",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -132787,25 +132787,60 @@
         {
           "head": "186a38eb124bc2fead44ae9d03a6edcf7649c882",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Dennis / antunishdPursuit's independent producer/consumer phase-order audit: exact cross-term criterion and LIS bank count in the stated assigned-bit model; 5913 symbolic permutations, 488 physical columns and ten controls. Includes authenticated historical replay/CI repairs, exact derived receipt bindings, selected/historical input separation and symlink safety. Preserve current completion/cancellation guards and all seven legacy test routes. Full current ledger prefix and mutation suites pass; expensive unchanged joint/skip/pair replays reuse exact-author-head Linux evidence. No selected kappa change or new full theorem verification. Retain Gareth Davidson/bitplane and maintenance predecessor credit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        ".github/workflows",
+        "certificates/joint-dual-validation.json",
+        "certificates/skip-frame-validation.json",
+        "research/pair-assembly",
+        "research/phase-order-bank-audit",
+        "scripts/check_selected_ci_inputs.py",
+        "scripts/historical-ci-inputs",
+        "scripts/refresh_joint_validation_bindings.py",
+        "scripts/replay_historical_check.py",
+        "scripts/run_isolated_tests.py",
+        "scripts/verify_parallel.py",
+        "scripts/verify_pr_reconciliation.py",
+        "scripts/verify_selected_result.py",
+        "tests/test_combined_frame_source_pins.py",
+        "tests/test_historical_check.py",
+        "tests/test_isolated_test_runner.py",
+        "tests/test_joint_validation_bindings.py",
+        "tests/test_pr_reconciliation.py",
+        "tests/test_selected_ci_inputs.py",
+        "tests/test_selected_result.py",
+        "tests/test_shared_point_digest.py",
+        "tests/test_single_intersection_packing.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "2c768c43399e237c81135248380a99954bb8083d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2859"
+      },
       "reviewed_head": "186a38eb124bc2fead44ae9d03a6edcf7649c882",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2859.json"
+        "research/community-efficient1800-audit/packets/2859.json",
+        "research/community-efficient1800-audit/checks/check-2859-completion.json",
+        "research/community-efficient1800-audit/checks/check-2859-legacy-v2.json",
+        "research/community-efficient1800-audit/checks/check-2859-legacy.json",
+        "research/community-efficient1800-audit/checks/check-2859-records.json",
+        "research/community-efficient1800-audit/checks/check-2859-science.json",
+        "research/community-efficient1800-audit/checks/check-2859-snapshot.json",
+        "research/community-efficient1800-audit/checks/check-2859-tooling.json",
+        "research/community-efficient1800-audit/checks/check-2859.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133407,7 +133442,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1544,
-    "OPEN": 476
+    "MERGED": 1545,
+    "OPEN": 475
   }
 }

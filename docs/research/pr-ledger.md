@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1996 |
-| partially reviewed | 340 |
+| incorporated | 1997 |
+| partially reviewed | 339 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -2427,7 +2427,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2856](https://github.com/CrocSwap/integer-mult-bounds/pull/2856) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2857](https://github.com/CrocSwap/integer-mult-bounds/pull/2857) | Lyy-iiis | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2858](https://github.com/CrocSwap/integer-mult-bounds/pull/2858) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
-| [#2859](https://github.com/CrocSwap/integer-mult-bounds/pull/2859) | antunishdPursuit | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
+| [#2859](https://github.com/CrocSwap/integer-mult-bounds/pull/2859) | antunishdPursuit | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2860](https://github.com/CrocSwap/integer-mult-bounds/pull/2860) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2861](https://github.com/CrocSwap/integer-mult-bounds/pull/2861) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2862](https://github.com/CrocSwap/integer-mult-bounds/pull/2862) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) |

@@ -424,14 +424,6 @@
     "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
   },
   {
-    "number": 2834,
-    "path": "CONTRIBUTORS.md",
-    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "eb50a50e322ee6856984f7ae2f58bc20ac1ca78330d399fd877b969c67dc7f37",
-    "resolved_mode": "100644",
-    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
-  },
-  {
     "number": 2859,
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "8846c0a47ddb31b0d097cd30ed9226202da572915a9b4b8675ee63f8d53a2b5e",
@@ -470,5 +462,13 @@
     "resolved_mode": "100644",
     "resolved_sha256": "8188e0ff7755bf72dfcd8728413cbda9793d3d7913507f7a9831f91e19ab93b8",
     "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+  },
+  {
+    "number": 2834,
+    "path": "CONTRIBUTORS.md",
+    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
+    "resolved_sha256": "62c0831791ea9112a58d02d06b3908963afdccbd3995157ea3bcda782931134b",
+    "resolved_mode": "100644",
+    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
 ]
