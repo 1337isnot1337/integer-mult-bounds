@@ -14,6 +14,11 @@ typed receipts in RESULT.json; wall-clock timings are observations rather
 than acceptance conditions. The guidance and all twelve declared runtime/proof
 input paths had no changes during this submission refresh.
 
+I repeated the complete registered replay after adding consumed-output-marker
+restoration to Binary.run. All eight commands passed again at 09:00 UTC; the
+final engine took 165.53 seconds. I treat this as simulator evidence, not a
+practical speedup or an independent proof of the asymptotic estimate.
+
 The engine checks two 1,024-column fitted invocations separated by a 192-column
 elementary invocation on the same fixed roles. Each fitted invocation performs
 two separately padded roots and 24 residuals. The whole sequence reaches four
@@ -42,7 +47,9 @@ fit theorem. The selected ROOT suite separately uses the actual 64-dimensional
 coefficient grammar, newly initialized physical banks and the runtime encoder.
 
 The binary suite checks fifteen complete rectangles using elementary native
-backends. Those fixtures establish the padding/restriction junction and reuse,
+backends. I erase the consumed binary output marker after each width-1 case,
+then require the width-2 call to restore it on reuse. Those fixtures establish
+the padding/restriction junction and reuse,
 not the faster backend's all-size rate. The composition proof retains that
 separate mathematical dependency. I have not run a selected full cold replay,
 Linux replay, hosted-CI job or proof assistant for this package.

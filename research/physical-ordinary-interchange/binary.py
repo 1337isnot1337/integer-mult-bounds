@@ -12,7 +12,7 @@ from role_parking import transfer
 from scratch_pool import ScratchPool
 from session import (OuterScope, borrowed_count, borrowed_tape, erase_marker,
                      initialize_marker, sealed_constructors)
-from words import BLANK, need
+from words import BLANK, LEFT, need
 
 
 class Binary:
@@ -28,6 +28,12 @@ class Binary:
         need(self.output.read() == BLANK and borrowed_tape(payload) is not self.output,
              "distinct empty binary output")
         if self.closed:
+            self.output.step(-1)
+            marker = self.output.read()
+            need(marker in (LEFT, BLANK), "consumed binary output origin")
+            if marker == BLANK:
+                self.output.write(LEFT)
+            self.output.step(1)
             for tape in self.pool.tapes:
                 initialize_marker(tape)
             self.closed = False

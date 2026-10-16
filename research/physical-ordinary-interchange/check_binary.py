@@ -17,6 +17,7 @@ from ordinary import Ordinary
 from physical_words import PhysicalWord
 from provenance import Provenance
 from records import Tape
+from session import erase_marker
 from words import BLANK, Word, need
 
 
@@ -69,6 +70,8 @@ def run():
                      "binary padding workspace erasure")
                 need(all(bit == BLANK for bit in native.output.cells), "consumed native output marker erasure")
                 output.clear()
+                if width == 1:
+                    erase_marker(output)
             cases.append(dict(q=q, width=width, spectators=[prefix, gap, suffix], columns=volume))
             payload.clear()
             for value in (count, pre, middle, tail):
