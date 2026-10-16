@@ -88,7 +88,7 @@
     "number": 2624,
     "path": "scripts/reconcile_pr_queue.py",
     "original_sha256": "d1160464aa095e81eb5b5f406832cc523ec2d6c44a70f5306f928f9a79efba95",
-    "resolved_sha256": "05dfad66348114ae8f3d21f2b58aaf512c35dea552e3b556412f62e676003671",
+    "resolved_sha256": "3531a5461bda0e8fe882ddab1cda11c7e63041fcbe866dfdba179fd17ace10b0",
     "reason": "Port only PR148 source-retention projection onto the current generator, preserving every newer batch registry and review rule. Eighteenth review preserves this contribution with combined PR2514/2517 pagination, PR2539 source batching, PR2553 cache isolation or the new ledger family as applicable; current 133-test tooling suite and native probe pass.",
     "subsequent_extension": "Batch17 appends its disposition source to the unchanged ordered family registry; ledger prefix verification passes.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
@@ -104,7 +104,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "81210c1cd7d81b86d6d4bcd9578721e8efee223a2b9d9eab792f87ffa3c90c19",
+    "resolved_sha256": "6ec93febd330064bb801f2ebf1fa578dd838f8f29a8e7bb0ffb13d3ad46798fa",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
@@ -112,7 +112,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "6782df7da237b559e929855ed58b7cdd24e856b6123aa5501448a2155d490feb",
+    "resolved_sha256": "18f0020e9b50f1025b6a92e9342634127fd3ec4494e9b79da4fb54a3cfc920d0",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },

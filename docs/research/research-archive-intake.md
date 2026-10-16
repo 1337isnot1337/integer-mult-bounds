@@ -61,3 +61,19 @@ The [85-head remainder index](../../research/community-efficient2200-audit/READM
 ## Twenty-third intake: attributes and package versions
 
 The [100-head index](../../research/community-efficient2300-audit/README.md) separates compatible source archives from competing versions. This batch also permits a separately reviewed additive `.gitattributes` resolution limited to research-package paths. Original author attribute files are retained in the audit; every scientific source blob remains exact. Shared-code changes and conflicting research versions are not silently overwritten. Attribute rules are checked against unrelated control paths and package probes.
+
+## Competing research versions
+
+A research-only submission that conflicts with a frozen package may be accepted
+as a **historical source snapshot** after source/integrity intake. Its complete
+original Git commit must be reachable from canonical main and linked explicitly
+in the ledger and contributor index. The default checkout does not thereby
+contain that version. A history-only archive merge deliberately retains the
+existing working-tree version; original source, evidence and inactive attributes
+remain accessible at the author commit. This is neither scientific supersession
+nor approval of an advertised bound. Use the linked commit when reproducing it.
+
+This lane does not admit shared production/CI changes, known correctness objections
+or unresolved source integrity failures. All scientific obligations remain open.
+The [twenty-fourth 100-head index](../../research/community-efficient2400-audit/README.md)
+records the archival mode for each contribution and grouped manifest holds.
