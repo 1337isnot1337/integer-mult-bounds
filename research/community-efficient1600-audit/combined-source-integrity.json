@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "99227abd883510bc059634bc99640b378ba561f0",
+  "checked_commit": "a8f29d1044c21cabb2b7995346a46a7cb216c1d2",
   "merged_prs": [
     2592,
     2593,
@@ -151,12 +151,12 @@
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "24bf9bac1cec125bce0271c02bab2d7dfed48b9f6ed271a8ec1e517004620e5c"
+      "sha256": "8998f7f39e6e8136ed5d8d7df8772f84bde8d53e88e24cb37684e84e075b97e5"
     },
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.md",
-      "sha256": "8ed62b447afb179bd831529d3158ad68466000ca2ae5c1b14c409cca3353f023"
+      "sha256": "3198d34fd603f9a21543ee04b6a3863e6f0eabd9f349cdad59c1d6a5df1c9f02"
     },
     {
       "number": 2624,
@@ -206,7 +206,7 @@
     {
       "number": 2633,
       "path": "docs/research/bottleneck-brief.md",
-      "sha256": "408982c26fa63a69cddeaf0463b537c4e20ebb064e7bdbfdacd9810764171cc1"
+      "sha256": "63bbd370628e67a942040e06bff1694f41aca725f2e8a4a334c14a9eb2cf822e"
     },
     {
       "number": 2633,
