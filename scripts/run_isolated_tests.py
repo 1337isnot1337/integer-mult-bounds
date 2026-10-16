@@ -88,7 +88,6 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
         # Run this frozen package's original tests in its authenticated overlay.
         # Other test modules continue to exercise the live checkout unchanged.
         legacy = {'test_skip_clones.py': 'skip-clones-tests',
-                  'test_selected_ci_inputs.py': 'checkpoint-ci-inputs',
                   **{'test_' + slug.replace('-', '_') + '.py': 'legacy-test-' + slug
                      for slug in ('copied-fixed', 'copied-fixed-reversed', 'skip-strips',
                                   'skip-suffix', 'pair-assembly', 'split-skip')}}

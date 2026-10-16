@@ -158,7 +158,7 @@ def check_records(names, root=ROOT):
     for name in names:
         record = read(root/name)
         try:
-            module.check(record, root)
+            module.check(record, root, historical=name != 'certificates/selected-result.json')
         except (ValueError, KeyError, OSError) as error:
             failures[name] = str(error)
         # Proof supplements and reviews are hard-checked above on every PR; the
