@@ -51,5 +51,47 @@
     "original_sha256": "c91c791b56d874abd0e1d01affb3b1670891c99273f31b4b7b46bca7528bcb50",
     "resolved_sha256": "61e9bebe1f41ce23dd100ea368d9345e59c5568c6a21f26fd28f70155afdca75",
     "reason": "Combine Git fallback and named pin diagnostics while retaining current requirement defaults, duplicate-dependency rejection, Unicode output and process-group cleanup. Keep originating task catalogue bound to base_commit; reject nonstring explicit pins with named diagnostics. Add two regression tests for integration fixes."
+  },
+  {
+    "number": 2741,
+    "path": "research/p104-all-pair-consumer-budget/README.md",
+    "resolved_sha256": "315b258f35f17327478087787b080c4879359ea9ac035845be10024e7da01c59",
+    "reason": "Correct PR2458 authorship to RossRichardson using live GitHub author metadata; no proof, executable or predecessor snapshot changes."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/README.md",
+    "resolved_sha256": "73dd4a894de49a3622c0ec70f118af76de561e75f9eb0c2719635762cf7470b9",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/SOURCES.json",
+    "resolved_sha256": "230ee32842abd3d8973bbe6048d74a2cc35d0941092bd881ce8f93522d90f5c9",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/VERIFY.json",
+    "resolved_sha256": "8a98d93dd60411c0c0835844f33e227b5f27c51400b58e31c932867bd422aa1f",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/verify.py",
+    "resolved_sha256": "5d6aaa9f4a111a337ba11508439806d22d5792be917a3fd6b5c2419dca89731e",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/test_verify.py",
+    "resolved_sha256": "8bb1525732da1e01c6997fd80a555b099631c109c56587782f8578c39e841fb4",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2729,
+    "path": "research/p104-fusion-cost-headroom/inputs/SELECTED-AT-BASE.json",
+    "resolved_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+    "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
   }
 ]

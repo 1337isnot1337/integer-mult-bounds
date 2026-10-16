@@ -61,8 +61,10 @@ Cap: 30 minutes of computation; the emitter-level event-stream rebuild
 recorded as the exact obstruction if the word-level accounting cannot close.
 
 Predecessor authors; intended artifact and reproduction command:
-Predecessors: Navinor (selected-suppliers-de-diagnostic open question), eumemic and predecessors
-(PR555/PR589 bit word and checkers), Douglas Colkitt (pricing model). Artifact:
+Predecessors: Navinor (selected-suppliers-de-diagnostic open question), DreamingOfClouds
+([PR 589](https://github.com/CrocSwap/integer-mult-bounds/pull/589)) on eumemic
+([PR 555](https://github.com/CrocSwap/integer-mult-bounds/pull/555)) and their credited
+predecessors (the bit word and checkers), Douglas Colkitt (pricing model). Artifact:
 research/bit-ledger-frame-ranks-seedfeb2/ with verify.py and README. Reproduce:
 PYTHONUTF8=1 python3 -B research/bit-ledger-frame-ranks-seedfeb2/verify.py
 

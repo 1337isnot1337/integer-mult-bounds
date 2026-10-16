@@ -121,7 +121,9 @@ pricing model are from Navinor's
 `research/selected-suppliers-de-diagnostic` (itself building on Douglas
 Colkitt's pricing model in `autoresearch.md` and
 `research/pending-claims-independent-pricing`); the pinned bit word, its format
-and its checker chain are the PR589/PR555 lineage (eumemic and predecessors,
+and its checker chain are the [PR 589](https://github.com/CrocSwap/integer-mult-bounds/pull/589)
+by DreamingOfClouds / [PR 555](https://github.com/CrocSwap/integer-mult-bounds/pull/555) by
+eumemic lineage (with their credited predecessors,
 retained unchanged by the selected record); the bit-side coverage identity
 `mass = 63W + 63N` and the port-direction analysis are ctoth's discussion-1587
 finding with the disclosed reviewing models. An independently corroborated or

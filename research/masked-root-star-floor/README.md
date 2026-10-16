@@ -74,9 +74,10 @@ obligations of the selected construction remain inherited and unchecked here.
   [PR595](https://github.com/CrocSwap/integer-mult-bounds/pull/595),
   [PR604](https://github.com/CrocSwap/integer-mult-bounds/pull/604)): the B14 model, the
   masked reduction D1(a), the mixed-beta open problem and the sampled covering bound D1(e).
-- **woklerx** ([PR968](https://github.com/CrocSwap/integer-mult-bounds/pull/968),
-  [PR1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077)): the eight-term
-  all-pairs floor and its complex extension; both defer masked E-graph identities.
+- **themilkman216** ([PR968](https://github.com/CrocSwap/integer-mult-bounds/pull/968),
+  with Anthropic Claude assistance): the eight-term all-pairs floor, and **woklerx**
+  ([PR1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077), with OpenAI Codex
+  assistance): its complex extension; both defer masked E-graph identities.
 - **seed48 package** (`research/root-pair-first-drop-seed48/`): second deferral of masked
   identities; **Joel Pulikkan / GamingPuzzled**
   ([PR620](https://github.com/CrocSwap/integer-mult-bounds/pull/620)): star floors and the
