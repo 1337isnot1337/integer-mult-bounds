@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1984,
-    "partially_reviewed": 352,
+    "incorporated": 1986,
+    "partially_reviewed": 350,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "7a2dcb818ccc880cca9182d899aaceaa0947df556d9ce1f699f98c5ab4cf211b",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "8d35d26b48c613a4c002a1949472b33f4e2c3bceabee7e05e004be9562e5aa3a",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -43518,25 +43518,33 @@
         {
           "head": "a942c0ae1b463710ca535c1fba1b07b6431b5a86",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full dimension-independent corank<=2 disjoint-subset argument, arbitrary2x2 corollary and span-four block reduction reviewed; inherited span-five filters use invertibility without target flags. Fresh independent129-plane classification,77540-word consistency census, polynomial/mutation checks and unflagged rational nine-call construction pass normally and optimized. Exact seven-source authentication reuses the published maintainer PR468 replay: both2276-family/21317520-order logs agree with zero survivors;11 validator corruptions rejected. Scoped three-register formal abelian bit bound only; no new C++ engine execution, physical theorem, extra-register barrier or κ.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/three-register-no-target-flag"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e5dc84165cdf626d6870ee32ee569dfd7c576d5d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/720"
+      },
       "reviewed_head": "a942c0ae1b463710ca535c1fba1b07b6431b5a86",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Arbitrary rational-target extension requires dedicated proof dependency review.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/720.json"
+        "research/community-efficient1800-audit/packets/720.json",
+        "research/community-efficient1800-audit/checks/check-720-supplement.json",
+        "research/community-efficient1800-audit/checks/check-720.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -53789,7 +53797,7 @@
         {
           "head": "679ac7b760ef2e01262039b906c154012548be81",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Full fixed-domain butterfly proof, recipe engine, independent dyadic checker, full native-window binding and revised historical-export wrapper reviewed. All29 original Git source bindings and unchanged scientific revision authenticated; prior622/681/696 library review reused. Requires complete78728-recipe census,14 physical windows and full losing-witness/cleanup comparisons,12 adverse controls,8 export/assertion tests,10 independent tests in normal/optimized modes and minimal-source packaging controls. Excludes only the stated finite recipe family; no unrestricted circuit optimum, precision improvement, native installation or new κ.",
+          "scope": "Full fixed-domain butterfly proof, recipe engine, independent dyadic checker, full native-window binding and revised historical-export wrapper reviewed. All29 original Git source bindings and unchanged scientific revision authenticated; prior622/681/696 library review reused. Requires complete78728-recipe census,14 physical windows and full losing-witness/cleanup comparisons,12 adverse controls,8 export/assertion tests,10 independent tests in normal/optimized modes and minimal-source packaging controls. Excludes only the stated finite recipe family; no unrestricted circuit optimum, precision improvement, native installation or new κ. Latest guarded replay is terminal: memory budget exceeded; full acceptance remains pending.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -53799,7 +53807,7 @@
       "closure": null,
       "reviewed_head": "679ac7b760ef2e01262039b906c154012548be81",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Revised historical-export wrapper and full scientific code/proof reviewed; 29 source bindings authenticated. Complete new-head census/native replay and packaging controls remain queued behind existing serial jobs, with 900-second limits matching the revised workflow. Earlier 180-second timeout retained; not a mathematical rejection.",
+      "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. All8 export controls passed; the scientific census/native replay stopped after7.38seconds; final packaging replay did not run. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -53807,7 +53815,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/931.json"
+        "research/community-efficient1800-audit/packets/931.json",
+        "research/community-efficient1800-audit/checks/check-931.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132452,27 +132461,35 @@
         {
           "head": "7c0569975c3f331b8737e06f5aecfc2c7193c500",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Complete K3 written proof and all822lines of submitted computation/driver code reviewed: normalized two-sided m10,(s,t)=(1,1) P112 decoder cost≥64, conditional on statedF1-F4 catalogue/cover facts inherited via2832/2816; not generalK1/K2 or supplier admission. Corrected floating-rank pruning with exact guarded modular elimination (Hadamard minors≤4096<65537), auxiliary integer decomposition/diagonal checks, fail-closed shell checks and internal manifest.20840 rational rank comparisons and768 rational decomposition controls pass; exact original data/manifest authenticated. Complete original22-command census with all93sets, three repeated-column chunks, tightness witnesses and expected summaries remains required. No κ claim.",
+          "scope": "Complete K3 written proof and all822lines of submitted computation/driver code reviewed: normalized two-sided m10,(s,t)=(1,1) P112 decoder cost≥64, conditional on statedF1-F4 catalogue/cover facts inherited via2832/2816; not generalK1/K2 or supplier admission. Corrected floating-rank pruning with exact guarded modular elimination (Hadamard minors≤4096<65537), auxiliary integer decomposition/diagonal checks, fail-closed shell checks and internal manifest.20840 rational rank comparisons and768 rational decomposition controls pass; exact original data/manifest authenticated. Complete original22-command census passed with all93sets, all22020096 repeated-column core solutions, tightness witnesses and all expected summaries. No κ claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/two-sided-ten-term-floor"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e5dc84165cdf626d6870ee32ee569dfd7c576d5d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2854"
+      },
       "reviewed_head": "7c0569975c3f331b8737e06f5aecfc2c7193c500",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Written K3 proof reviewed conditional on the explicitly imported F1-F4 catalogue facts. Original exactness claim used floating SVD rank pruning and tolerance decisions. Prepared integer-arithmetic and fail-closed wrapper resolutions; independent exact controls and complete resolved22-command replay remain required. No native supplier or κ claim.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2854.json",
+        "research/community-efficient1800-audit/checks/check-2854-cosmetic.json",
         "research/community-efficient1800-audit/checks/check-2854-supplement.json",
-        "research/community-efficient1800-audit/checks/check-2854-wrapper.json"
+        "research/community-efficient1800-audit/checks/check-2854-wrapper.json",
+        "research/community-efficient1800-audit/checks/check-2854.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132918,7 +132935,7 @@
         {
           "head": "867d8add1c3be9a1a50a447789c46256d81bb790",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selectedκ.",
+          "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selectedκ. Latest guarded replay is terminal: memory budget exceeded; full acceptance remains pending.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132928,7 +132945,7 @@
       "closure": null,
       "reviewed_head": "867d8add1c3be9a1a50a447789c46256d81bb790",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. Primary joint replay stopped after151.36seconds; metadata checks passed, but full claimed scientific coverage remains unverified. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -132937,7 +132954,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2865.json",
-        "research/community-efficient1800-audit/checks/check-2865-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2865-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2865.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133301,7 +133319,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1532,
-    "OPEN": 488
+    "MERGED": 1534,
+    "OPEN": 486
   }
 }

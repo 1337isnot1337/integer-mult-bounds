@@ -1,7 +1,8 @@
 {
   "status": "PASS",
-  "checked_commit": "57e1f9d9410b49f0319f48a9bccac15ec28c5242",
+  "checked_commit": "e723220732a5c165d4efd1ed1ee4fdf6e7591206",
   "merged_prs": [
+    720,
     1075,
     2505,
     2514,
@@ -21,6 +22,7 @@
     2847,
     2850,
     2851,
+    2854,
     2858,
     2860,
     2861,
@@ -30,7 +32,7 @@
     2870,
     2872
   ],
-  "changed_files": 362,
+  "changed_files": 393,
   "resolved_files": [
     {
       "number": 2505,
@@ -75,7 +77,7 @@
     {
       "number": 2834,
       "path": "CONTRIBUTORS.md",
-      "sha256": "d08b22b343541dc466f9bea767ca6af343607c10eb5e90a64fa2d609d035461d"
+      "sha256": "2197d8f589cd28c58b05e9421647ac952da1ed1aab690caf0218de7c03472304"
     },
     {
       "number": 2840,
@@ -101,6 +103,51 @@
       "number": 2846,
       "path": "research/transfer-coupled-onerepeat-7q/independent.py",
       "sha256": "cb570eaa74fdb67cb3b26c61b33a535d55993545abe1f6c60108c848b08eeafc"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/MANIFEST.sha256",
+      "sha256": "af20a50e94aa956ad9281ad4417aa0fd0912784f560a34acb6210b2453b19af4"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/README.md",
+      "sha256": "cb72148ffef04ec50682bb9f19d18cbe2b103a3adf0202d9b1e552d202e006f7"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/caseb4.py",
+      "sha256": "0c0240a23ea418df0efff0efb984b04b4f720c273c4ee67eb94efde186e166a2"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/clique.py",
+      "sha256": "29ca1111042692a9e311d20c4ba87a9c363e263bd3519aab482c574692801c7d"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/d4A3.py",
+      "sha256": "23630ca4d6809441babe546b4484b1df5ac312ad4cce5648c621d59ae448a6e3"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/diag9.py",
+      "sha256": "77d4d9dcda65583e4b379662df84ab2728431d4a75a9597bf262d58e7cc70d15"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/lib.py",
+      "sha256": "b0d1e171f18d3e5b75c87c39d6b1df200f91b431b8abcbd7808beafc385c4e06"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/checks/verify_cl.py",
+      "sha256": "2d25006b5fe6b5f73d2247ad7d664e10bce5d99b9d55e962253ee3224292a298"
+    },
+    {
+      "number": 2854,
+      "path": "research/two-sided-ten-term-floor/verify.sh",
+      "sha256": "5f9f6ebbd73afa10d290f1dd7d04f77310fc6f42e2197576ff2111454def31fb"
     },
     {
       "number": 2860,
