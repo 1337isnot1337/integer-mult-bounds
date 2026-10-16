@@ -1505,19 +1505,22 @@
       "current_head": "982c54b986c9f44e7524e5faa9522b809e793ded",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "docs/research"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Documentation map of nine pinned BIT caller/storage contributions, with explicit first-range versus all-size logical and physical boundaries. Checked all 13 immutable source links, 25 relative links, nine declared replay routes, contributor identities and stock arithmetic against source statements. Historical author replays remain attributed reports; this navigation update does not admit the pending suppliers.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2760.json"
+        "research/community-efficient1700-audit/packets/2760.json",
+        "research/community-efficient1700-audit/checks/check-2760.json"
       ]
     },
     {
@@ -1539,9 +1542,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Scoped same-walk readout obstruction: correlated dirty shadows collapse by symmetric difference, and independently dirty connectors cannot improve the even-subset cost by its triangle inequality. Reviewed the complete primary, independent census and controls. Snapshot creation and physical implementation remain separately charged; independent walks and transfers lie outside the result. Registered exhaustive replay must finish before incorporation.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -1572,9 +1575,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Independent forward-rational and backward-adjoint audit of all 1152 bridge-aware centre-source rows. Reviewed complete scalar projection, dense controller and rank code; the wrong-sign control preserves endpoint identity and full rank while changing 930 intermediate rows. Native frames/address maps and output-response injectivity remain outside this projection; no child deletion, supplier admission or kappa improvement.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
