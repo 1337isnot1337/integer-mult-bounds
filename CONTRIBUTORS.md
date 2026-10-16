@@ -715,7 +715,8 @@ The six pending contributions are credited in the pilot ledger; pending review i
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1700-review.md).
 
 - **mdumitrean** — [#2478](https://github.com/CrocSwap/integer-mult-bounds/pull/2478).
-- **petalas** — [#2734](https://github.com/CrocSwap/integer-mult-bounds/pull/2734).
+- **petalas** — [#2734](https://github.com/CrocSwap/integer-mult-bounds/pull/2734), [#2752](https://github.com/CrocSwap/integer-mult-bounds/pull/2752).
+- **navinor** — [#2737](https://github.com/CrocSwap/integer-mult-bounds/pull/2737).
 - **Arham-Tahir64** — [#2792](https://github.com/CrocSwap/integer-mult-bounds/pull/2792).
 
 Pending contributors and their obligations are listed in the review. A hold is not a rejection.

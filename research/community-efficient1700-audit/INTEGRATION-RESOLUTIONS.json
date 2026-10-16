@@ -30,5 +30,26 @@
     "resolved_sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd",
     "resolved_mode": "100644",
     "reason": "Combine one-pass snapshot copy/hash with assertion-enabled child environments; preserve both complete regression suites. Import-only merge conflict resolved. Executable runner mode from PR2734 retained."
+  },
+  {
+    "number": 2752,
+    "path": "scripts/research_package.py",
+    "original_sha256": "c917fdc75356194331ee6cc78de83048060ab11691b6ed03ae5bd96d99c5df40",
+    "resolved_sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1",
+    "reason": "Apply only the reviewed Git reader compatibility changes, preserving newer core safeguards and the jointly tested PR2737 diagnostics."
+  },
+  {
+    "number": 2737,
+    "path": "scripts/research_package.py",
+    "original_sha256": "68a22cd23455b5443c2d9ae0e3026b2d93c1b09b5e3db94bc02b9f4922fdba2d",
+    "resolved_sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1",
+    "reason": "Combine Git fallback and named pin diagnostics while retaining current requirement defaults, duplicate-dependency rejection, Unicode output and process-group cleanup. Keep originating task catalogue bound to base_commit; reject nonstring explicit pins with named diagnostics. Add two regression tests for integration fixes."
+  },
+  {
+    "number": 2737,
+    "path": "tests/test_research_package_diagnostics.py",
+    "original_sha256": "c91c791b56d874abd0e1d01affb3b1670891c99273f31b4b7b46bca7528bcb50",
+    "resolved_sha256": "61e9bebe1f41ce23dd100ea368d9345e59c5568c6a21f26fd28f70155afdca75",
+    "reason": "Combine Git fallback and named pin diagnostics while retaining current requirement defaults, duplicate-dependency rejection, Unicode output and process-group cleanup. Keep originating task catalogue bound to base_commit; reject nonstring explicit pins with named diagnostics. Add two regression tests for integration fixes."
   }
 ]

@@ -662,19 +662,25 @@
       "current_head": "9c2947f01495cf09c67b1faa55c4f2bd00cd9bc8",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "scripts/research_package.py",
+        "tests/test_research_package_diagnostics.py"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Named task-card/input diagnostics and exact PR-head source pins. Six original tests pass; review reproduced a later-catalogue override and repaired it by binding the originating catalogue to base_commit, with a dedicated regression. Nonstring pins now receive named rejection. Combined suite passes 108 tests with seven Linux-only skips; ordinary PR-head vendoring remains accepted. No mathematical acceptance or new kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2737.json"
+        "research/community-efficient1700-audit/packets/2737.json",
+        "research/community-efficient1700-audit/checks/check-2737-catalogue-probe.json",
+        "research/community-efficient1700-audit/checks/check-2737-combined.json",
+        "research/community-efficient1700-audit/checks/check-2737.json"
       ]
     },
     {
@@ -1091,19 +1097,25 @@
       "current_head": "73406fd73ebaf8361b51674fad5e0b02a26db075",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/git-batch-compatibility",
+        "scripts/research_package.py",
+        "tests/test_research_git_compatibility.py"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Bounded legacy-Git fallback before any blob response; exact binary/Unicode/CR-LF/SHA256 reads and failure/cleanup controls. Registered 17-test replay and combined package suite pass; older option rejection is simulated with actual local Git serving fallback bytes. Newer process cleanup, dependency validation and output behavior retained. Linux-only process tests remain skipped here; no new kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2752.json"
+        "research/community-efficient1700-audit/packets/2752.json",
+        "research/community-efficient1700-audit/checks/check-2752-combined.json",
+        "research/community-efficient1700-audit/checks/check-2752.json"
       ]
     },
     {
