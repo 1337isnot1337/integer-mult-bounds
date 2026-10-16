@@ -697,6 +697,44 @@
       "verification_evidence": [
         "docs/research/pr-intake-evidence/archives-20261016c.json"
       ]
+    },
+    {
+      "number": 2977,
+      "metadata": {
+        "number": 2977,
+        "title": "Audit selected scatter parity across word and record checks",
+        "author": {
+          "id": "MDQ6VXNlcjc0MjEzNDY=",
+          "is_bot": false,
+          "login": "petalas",
+          "name": "Nick Petalas"
+        },
+        "headRefOid": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+        "isDraft": false
+      },
+      "reviewed_head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "current_head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/scatter-export-parity-audit"
+      ],
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2977",
+        "merge_commit": "ff9019ba07a87ce40765c6e75dc4fb82df6a7789"
+      },
+      "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
+      ]
     }
   ]
 }

@@ -6885,5 +6885,22 @@
       "kind": "blob",
       "oid": "3e32c1f00cf847a7c40dd9be0f81be31088085b9"
     }
+  },
+  "publication": {
+    "p2977": {
+      "number": 2977,
+      "headRefOid": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "ff9019ba07a87ce40765c6e75dc4fb82df6a7789"
+      }
+    }
+  },
+  "source_retention": {
+    "status": "PASS",
+    "checked_head": "ff9019ba07a87ce40765c6e75dc4fb82df6a7789",
+    "installed_paths": 9,
+    "original_heads_in_ancestry": true
   }
 }

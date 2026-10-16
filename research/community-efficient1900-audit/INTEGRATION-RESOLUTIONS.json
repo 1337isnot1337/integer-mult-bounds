@@ -60,18 +60,18 @@
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "7c75afa749b375c817fd13b22c1dd79fbbe608953e68e6d653b05d7663a78373",
+    "resolved_sha256": "085b60bcf78de234ae93867d44ab9d2c6880d3b50529d0abc091961c28ec2e3b",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 isolated archival intake and attribution; historical scientific obligations unchanged."
+    "followup": "2026-10-16 scatter audit source archive and current source/CI holds; scientific scope unchanged."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "2ad650cdc381640306e805d21c0a8e3e5fdc122fba80b068df7d06a614c1867a",
+    "resolved_sha256": "207bf3ac217bbdd1a7c047576b475b1d0b97b4fd5165eace6475c7ac1c8d6a16",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 isolated archival intake and attribution; historical scientific obligations unchanged."
+    "followup": "2026-10-16 scatter audit source archive and current source/CI holds; scientific scope unchanged."
   },
   {
     "number": 2255,

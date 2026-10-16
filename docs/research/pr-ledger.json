@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2489,
+  "inventory_count": 2490,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2045,
-    "partially_reviewed": 382,
+    "partially_reviewed": 383,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "bd2b4b53021eff8a0a305ccd7739ef73ea70ed3535636c9ecab9c486720cd9a3",
+    "docs/research/pr-intake-decisions.json": "fadfe7c1e4eb61cb34c4cf9a9e401ed1fdeff6685e5c2f9d62c7cc03c211d310",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -146577,6 +146577,56 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 2977,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2977",
+      "title": "Audit selected scatter parity across word and record checks",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "current_head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/scatter-export-parity-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2977",
+        "merge_commit": "ff9019ba07a87ce40765c6e75dc4fb82df6a7789"
+      },
+      "reviewed_head": "cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -146588,7 +146638,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1861,
+    "MERGED": 1862,
     "OPEN": 249
   }
 }

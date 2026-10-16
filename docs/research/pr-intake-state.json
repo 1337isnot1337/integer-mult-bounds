@@ -661,8 +661,8 @@
     {
       "number": 1786,
       "head": "c52345caa318fc6b1b6e2659c57d746317a72823",
-      "status": "pending_review",
-      "reason": "Fine-prime padding/precision transfer and retained supplier need dedicated admission. PR1797 is a scoped inequality audit, not a check of the accretive Toeplitz circuit theorem, cost-row derivations, union layout or all-size compiler. This proposal uses explicit Strassen boundaries rather than depending on PR1758 structured solves; preserve that distinction.",
+      "status": "waiting_revision",
+      "reason": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
       "evidence": [
         "research/community-efficient2600-audit/INTAKE.json"
       ],
@@ -770,8 +770,8 @@
     {
       "number": 1897,
       "head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
-      "status": "pending_review",
-      "reason": "Review405-file whole-head provenance, native reuse binding, fixed-point enclosures and new workflow/certificates; reconcile the broad-shift guard correction with the inherited outer. Parent/source agreement and all-size obligations are shared with1800 and are not discharged by extra precision.",
+      "status": "waiting_revision",
+      "reason": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
       "evidence": [
         "research/community-efficient2600-audit/INTAKE.json"
       ],
@@ -1164,8 +1164,8 @@
     {
       "number": 2361,
       "head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
-      "status": "pending_review",
-      "reason": "Five focused suites pass; planner, tracer, cancellation and workflow code reviewed. Fresh Linux strace integration/coverage validation and reconciliation of the historical replay adapter with newer main remain required before changing default CI. Author Linux recordings are local-only and are not a maintainer execution.",
+      "status": "waiting_revision",
+      "reason": "Revise CI adoption against current manual-only historical sweeps: submitted verify.yml enables push/PR runs and a full scheduled matrix every six hours, including formal work. Preserve the current opt-in/no-automatic-Lean policy. Current historical-adapter reconciliation and native Linux strace coverage remain required.",
       "evidence": [
         "research/community-efficient2600-audit/INTAKE.json"
       ],
@@ -1173,12 +1173,12 @@
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
         ".github/verify-groups.json": null,
-        ".github/workflows/bit-elim-144.yml": "f136614637c66f778f55f7e615b5d270d0729b7b",
-        ".github/workflows/bit-reuse-147.yml": "6a8d3a27eca665fd95d000464c1f5eb9e14f91a9",
+        ".github/workflows/bit-elim-144.yml": "d303ac85234d37dfcb1446392307527bf9d94892",
+        ".github/workflows/bit-reuse-147.yml": "74a6ce48a05516fb4e5fccda9c2d099dabdc60c2",
         ".github/workflows/ci-cancel-superseded.yml": null,
-        ".github/workflows/early-reset-reuse.yml": "ad7aeacfdea8fe71e0cd631ff22b6d2b48206eef",
-        ".github/workflows/graded-box-convolution.yml": "716feacb765c7b0ccbb45a0fe1c5c32168ad2278",
-        ".github/workflows/verify.yml": "971c8b966603536669d5b4fa12977fc5065f3b68",
+        ".github/workflows/early-reset-reuse.yml": "12d44fdff46744f57106cbb51f54384502272242",
+        ".github/workflows/graded-box-convolution.yml": "4f52f44b2fd0d1e38c39bbc5b214885e8d9fc710",
+        ".github/workflows/verify.yml": "3c87ba6e2393edd90d85718cbb98148acd354e0e",
         "docs/ci.md": null,
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "scripts/cancel_superseded_runs.py": null,
@@ -1758,7 +1758,7 @@
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        "docs/research/pr-intake-checkpoint.json": "e1c91a665235bbecaeec20567a00cb5e4cc009ad",
+        "docs/research/pr-intake-checkpoint.json": "a373eb6d935262921b20053f0fe2aa4bf18e326c",
         "research/fstar-gap2-v11-seed42ff0611": null
       },
       "watch_prs": {}
