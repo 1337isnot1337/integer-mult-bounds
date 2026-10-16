@@ -101,14 +101,14 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "38befbb992bd735ecc25538d0a4ff8b35b82e44001665cfa1ab297ceb9a03553",
+    "resolved_sha256": "9cca9a3aa627f11c19f832f1804dd5fbb8cc31a61aa72cd93e71f46c4ef746a4",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "5151e0e87c5a3b2c829bad3ab4c74235303307f7d3a22747b00367896864ba42",
+    "resolved_sha256": "0cd1b321a8dd58b15953a89d58e9c82b195ad218b2ccc8deb086c172e4ddfbae",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
@@ -215,5 +215,68 @@
     "original_sha256": "97a6c823dc73539eed5e1026204d9efc9aea9823c21db65cb13766f2be990136",
     "resolved_sha256": "3a10da181a695bcd3675f69121f27e5ef7274be9f56cfa40f27c3e12dcd715cb",
     "reason": "Integration refresh of the runtime provenance digests in RESULT.json to main 2a0d3aeab3016f5b5d85a5c0f956b9db5376c77d. The original task card, SOURCES.json and their historical base remain unchanged. Frozen chain code, archived mathematical receipts, probes and numerical results are unchanged; the complete registered T16/admission replay passed against the refreshed runtime inputs."
+  },
+  {
+    "number": 2593,
+    "path": "research/triadic-query-pair/verify.py",
+    "original_sha256": "4eb4f965c0b64be71b69740cf4f3e00a9995ec20490a1bed1220bb8138e2c260",
+    "resolved_sha256": "38f2d89e5d4b3192f593c708a795cc9c1f8e4cd788c5f4c66fd0089584ebd4bf",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2593,
+    "path": "research/triadic-query-pair/test_package.py",
+    "original_sha256": "f68e425e1363abe5a77c6e999437f7be279a6876bd22206f8dff6557fcd71009",
+    "resolved_sha256": "e116c2ad1a9fed5f96604f9de4e258fb1fcb362cc775015e1b418fb5e80931f9",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2593,
+    "path": "research/triadic-query-pair/README.md",
+    "original_sha256": "4fb43ca8530a309f4a0d3b741c97e910a5bbcdb4183c9d11e11d2bde16aa5aca",
+    "resolved_sha256": "5b54c4609ede2f13e8f9f0689ddc48c466cf6657545f94884a149e8c981b1cdf",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2593,
+    "path": "research/triadic-query-pair/PROOF.md",
+    "original_sha256": "7a86fa2db00b6b407141c27ee8547adf9a1068a21740812776d03b8961da0e0a",
+    "resolved_sha256": "e412f62d549e138adf03ce2127be7800c18d495339ca0570b3f3a512af669dbc",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2593,
+    "path": "research/triadic-query-pair/CERTIFICATE.json",
+    "original_sha256": "75dace3a48e768356ab948406333f787a2ea4d34dfbeccc84d45f8df8b240b72",
+    "resolved_sha256": "ee7cd59dde95896e4a27a6d28c17363e9cd4c43c83537c08964ba8db905c932d",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2687,
+    "path": "research/odd-kernel-query-pair/verify.py",
+    "original_sha256": "451f91be3ef301e7ea0a84dcbef4df84bbcfe69aa4fe52e897cd745679e7a237",
+    "resolved_sha256": "c10a3d52f88ebfedc0f020a4062705812e5d4dd63acfb7f8328351e29a0107ff",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2687,
+    "path": "research/odd-kernel-query-pair/test_package.py",
+    "original_sha256": "ec2627d83c6dc0b431fb977d52cc01ee29d163cd4253bc426afbb3f139ffcaf3",
+    "resolved_sha256": "4b31ab5ba05c417e2af7bd7dd34899a94545607f8a93e0ef5ceb84cfbf1e8cf6",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2687,
+    "path": "research/odd-kernel-query-pair/README.md",
+    "original_sha256": "66758ff8db3cf1f9930e20d8c7564772eec73a74895b94bc9a8039b09e367237",
+    "resolved_sha256": "b7c1cf0518eff8cc7c9682e9038cb78d93ce9cae7b2d44f40a8286875fb019a2",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
+  },
+  {
+    "number": 2687,
+    "path": "research/odd-kernel-query-pair/PROOF.md",
+    "original_sha256": "2d5171c7975254a549061436cbd6fdcde5057de6d8ae72a0cca7ebdcb67fc62f",
+    "resolved_sha256": "61b24365abeeadc84a1cc3ce23cfd384ba4b5483a99852f010982065d8d99451",
+    "reason": "Preserve original historical SOURCES/TASK and all mathematical inputs; bind provenance to its recorded base rather than current checkout. Add positive-first source/receipt fault controls, retaining original end-to-end checks. Clarify that invertibility is required for diagonal units and control denominators, not arbitrary control numerators. Full registered replay passed; triadic certificate differs only in implementation hashes. No modulus-domain, typed-cost, supplier or kappa change."
   }
 ]

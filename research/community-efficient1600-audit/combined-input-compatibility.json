@@ -13,6 +13,24 @@
       "actual": "008be68867a8e85f4e18455d206e03f20aebfc28e9f08efba576180e7e1edc50"
     },
     {
+      "number": 2593,
+      "path": "research/dyadic-query-pair/PROOF.md",
+      "expected": "9a5ce93b866371189c797fbe8837c6a0bd22c5cf71ed84d60b9ae1c22a5ec83a",
+      "actual": "9a5ce93b866371189c797fbe8837c6a0bd22c5cf71ed84d60b9ae1c22a5ec83a"
+    },
+    {
+      "number": 2593,
+      "path": "research/dyadic-query-pair/README.md",
+      "expected": "9b37c24a1056fa495f12e322ba56f592494f6f34516b0112be0db3f5cd6883d4",
+      "actual": "9b37c24a1056fa495f12e322ba56f592494f6f34516b0112be0db3f5cd6883d4"
+    },
+    {
+      "number": 2593,
+      "path": "research/dyadic-query-pair/CERTIFICATE.json",
+      "expected": "8267e9a468eca814b3b8641aae07ff71acadb303fd434ce3ef1984a258c69307",
+      "actual": "8267e9a468eca814b3b8641aae07ff71acadb303fd434ce3ef1984a258c69307"
+    },
+    {
       "number": 2594,
       "path": "research/p104-native-channel/inputs/LOWRANK-WITNESS.json",
       "expected": "0f541bef7f19fdeffd67157684e9f03d785f42c89973632f508fc1a0452b580e",
@@ -1009,6 +1027,12 @@
       "actual": "3049471905b47b385c88378a1a3be7a18b8858aadd035b8a6da2f4a03b470f38"
     },
     {
+      "number": 2666,
+      "path": "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+      "expected": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
+      "actual": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f"
+    },
+    {
       "number": 2667,
       "path": "research/p104-native-channel/NATIVE-RECIPES.json.gz",
       "expected": "a1c4d83d3d5fe1338e99b59272e8cf5d43244c33888597da340b2aa7fef5b3e8",
@@ -1223,6 +1247,24 @@
       "path": "research/mutable-source-shear-cost/CERTIFICATE.json",
       "expected": "665435375c025bbcf69eadf43bd9aeae44eb12fefdf12a78d5bfd66abde4ae3c",
       "actual": "665435375c025bbcf69eadf43bd9aeae44eb12fefdf12a78d5bfd66abde4ae3c"
+    },
+    {
+      "number": 2687,
+      "path": "research/dyadic-query-pair/PROOF.md",
+      "expected": "9a5ce93b866371189c797fbe8837c6a0bd22c5cf71ed84d60b9ae1c22a5ec83a",
+      "actual": "9a5ce93b866371189c797fbe8837c6a0bd22c5cf71ed84d60b9ae1c22a5ec83a"
+    },
+    {
+      "number": 2687,
+      "path": "research/dyadic-query-pair/README.md",
+      "expected": "9b37c24a1056fa495f12e322ba56f592494f6f34516b0112be0db3f5cd6883d4",
+      "actual": "9b37c24a1056fa495f12e322ba56f592494f6f34516b0112be0db3f5cd6883d4"
+    },
+    {
+      "number": 2687,
+      "path": "research/dyadic-query-pair/CERTIFICATE.json",
+      "expected": "8267e9a468eca814b3b8641aae07ff71acadb303fd434ce3ef1984a258c69307",
+      "actual": "8267e9a468eca814b3b8641aae07ff71acadb303fd434ce3ef1984a258c69307"
     },
     {
       "number": 2688,
