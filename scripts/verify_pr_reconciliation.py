@@ -251,7 +251,8 @@ def decision_paths(root=ROOT):
             root / 'research/community-efficient1700-audit/DISPOSITIONS.json',
             root / 'research/community-efficient1800-audit/DISPOSITIONS.json',
         root / 'research/community-efficient1900-audit/DISPOSITIONS.json',
-            root / 'research/community-efficient2000-audit/DISPOSITIONS.json')
+            root / 'research/community-efficient2000-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2100-audit/DISPOSITIONS.json')
 
 
 def main():

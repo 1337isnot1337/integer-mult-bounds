@@ -49,3 +49,7 @@ Publication state is authoritative in the [central ledger](pr-ledger.json) and [
 ## Next100-head intake
 
 The [twentieth-round index](../../research/community-efficient2000-audit/README.md) records the next100heads, archive admissions and holds. Its [dispositions](../../research/community-efficient2000-audit/DISPOSITIONS.json) distinguish publication from independent scientific review.
+
+## Twenty-first intake
+
+The [next100-head index](../../research/community-efficient2100-audit/README.md) records archive admissions, integrity failures and substantive holds. All archived claims retain their independent review obligations.
