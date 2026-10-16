@@ -352,10 +352,50 @@
     "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
   },
   {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/README.md",
+    "original_sha256": "ad0c8cb50fe1c4671abfba82d19b5a630352c2646ef8a858f3cb11ebe0437cf7",
+    "resolved_sha256": "9a1845d2e9a94b6b64f8ef386b6b36dbfa39fffd458e3c2bf17f5ae2cbf37e90",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/VERIFY.json",
+    "original_sha256": "4d3bbb8bd48298bd7cde4949484152d2b7d8e43bea8cceb9b7d6bd7ac6f77760",
+    "resolved_sha256": "715ef17a58416553a99080e383a78547415c5558ae478931dc399bb38d2dad82",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/PARITY.md",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "a3691dd2dab0ab0a9de0de7dbfe99e376d2e7cfc06914b83477f4864004da76d",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 1518,
+    "path": "research/atomic-trio-connector/parity.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "a8863454ebec09e16ca9716c3f1f1c64676e5be2fc73a1e2838b0e13d64064f2",
+    "resolved_mode": "100644",
+    "reason": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change."
+  },
+  {
+    "number": 2537,
+    "path": "research/recycled-bit-nesting-reuse/README.md",
+    "original_sha256": "35c6354803b2ff7f9ebe52b5ae7780a2d124bd2d944aaea2c8d9b92257fc83ed",
+    "resolved_sha256": "7ccabcfe4893a2d62aa9ab8eba99e128adc7c93331caf252e6d998e5f868d5dd",
+    "resolved_mode": "100644",
+    "reason": "thakrarsagar's fraction-free exact null kernel and primitive-row acceleration retained with unchanged mathematical predicates and certificate except its verifier pin. Bounded differential tests pass; all 4,878 fresh and 202,190 inherited frame moves audited against original kernels using serial memo eviction. Fresh scalar maps, negative controls, exact pricing, 47 constraints and full certificate equality pass using authenticated completed-frame reuse after the memory stop. Two-stage verification, not a fresh full cold replay; historical timing not remeasured. Audit mode requires repeatable containers."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "ae585645bf6f2accb89ab73cace30cd21c652c063589ac669fdcdab3d03145b4",
+    "resolved_sha256": "66124bea815bab7e0cbaf212068ba6bb3b2777e590835809682e00a8521b966b",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
