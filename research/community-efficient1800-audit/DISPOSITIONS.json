@@ -1766,22 +1766,26 @@
       },
       "reviewed_head": "91156f0d41b133979c8004ad8d0f7e9f58d73cbc",
       "current_head": "91156f0d41b133979c8004ad8d0f7e9f58d73cbc",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "scripts/find_overlap.py",
         "tests/test_research_discussion_batches.py",
         "tests/test_research_onboarding.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "d951750e0b566654a3bb3a99d34a5bd4c41e0f72",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2514"
+      },
       "scope": "Batched Discussion listing with bounded nested first pages and complete comment/reply continuation; exact ordered-record fixtures cover all three pagination levels and late-page failure preserves the prior complete cache. Combined current tooling suite passes. Author live timings remain historical; no speed guarantee. Preserve current overlap terms and jointly add PR2517 full file pagination.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2514.json",
@@ -1804,22 +1808,26 @@
       },
       "reviewed_head": "08be20a87febcf001caacb161305859e81d2d7a6",
       "current_head": "08be20a87febcf001caacb161305859e81d2d7a6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "scripts/find_overlap.py",
         "tests/test_research_onboarding.py",
         "tests/test_research_pr_file_pages.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a96dd73b431d9b3785c3e787961b7afeb6a89887",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2517"
+      },
       "scope": "Complete PR changed-file pagination, bound to initial head and advertised count; reject changed heads/counts, missing continuation and stalled cursors. Late-file matching and atomic cache failure controls pass in the combined current suite. Missing/short initial inventories remain explicitly truncated; metadata completeness is not mathematical coverage.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2517.json",
@@ -1875,23 +1883,27 @@
       },
       "reviewed_head": "262c81368f6959f43e3db66bc1bd4cdbadf9c19e",
       "current_head": "262c81368f6959f43e3db66bc1bd4cdbadf9c19e",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research",
         "scripts/new_research_package.py",
         "tests/benchmark_research_scaffold.py",
         "tests/test_research_scaffold_batch.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b19d618664bce73a7fb80d88149e415a90e09b97",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2539"
+      },
       "scope": "Reuse authenticated streamed Git blob reads during research draft generation. Binary, empty, Unicode, spaced and POSIX newline names retain exact independent blob/SHA pins; duplicate inputs, first/last live drift, untracked sources and post-final-row reader failures checked. All children reaped and failed drafts unpublished. Three-process fixture passes; Windows benchmark timings are historical, not independently remeasured.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2539.json",
@@ -1914,22 +1926,26 @@
       },
       "reviewed_head": "a82fea84445e54042fa56b39ff1509fa329fad93",
       "current_head": "a82fea84445e54042fa56b39ff1509fa329fad93",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research",
         "scripts/research_package.py",
         "tests/test_research_bytecode_isolation.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "15300fe40931f6cf8c7215e6c5780e078c889ea1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2553"
+      },
       "scope": "Isolate each registered Python replay in a fresh bytecode-cache namespace while retaining current source-pin checks, cleanup and Unicode output. Timestamp/unchecked-hash contamination, prefix overrides, CLI option preservation, source drift and cleanup tested normally and optimized. Retained P104 clean/contaminated/isolated native probe preserves complete original receipt and source bytes. Covers the registered interpreter only, not separately spawned Python children or custom loaders.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2553.json",

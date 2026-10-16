@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "checked_commit": "64dce5a90d4f69915b157850fd6cd00036c67dfc",
+  "merged_prs": [
+    2514,
+    2517,
+    2539,
+    2553
+  ],
+  "changed_files": 14,
+  "resolved_files": [
+    {
+      "number": 2514,
+      "path": "scripts/find_overlap.py",
+      "sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61"
+    },
+    {
+      "number": 2514,
+      "path": "tests/test_research_onboarding.py",
+      "sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985"
+    },
+    {
+      "number": 2517,
+      "path": "scripts/find_overlap.py",
+      "sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61"
+    },
+    {
+      "number": 2517,
+      "path": "tests/test_research_onboarding.py",
+      "sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985"
+    },
+    {
+      "number": 2553,
+      "path": "docs/research/research-package-guide.md",
+      "sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511"
+    },
+    {
+      "number": 2553,
+      "path": "scripts/research_package.py",
+      "sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed"
+    }
+  ],
+  "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+  "scope": "Every reviewed author head is an ancestor; every changed file is original Git blob/mode or an explicitly reviewed integration resolution. GitHub MERGED observations retained separately. No new full-supplier claim."
+}
