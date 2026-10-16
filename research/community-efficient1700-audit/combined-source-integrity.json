@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "checked_commit": "4865c30d0fb12a475bb6eaaca1c781a1592a3811",
+  "merged_prs": [
+    2478,
+    2734,
+    2792
+  ],
+  "changed_files": 28,
+  "resolved_files": [
+    {
+      "number": 2734,
+      "path": "scripts/replay_historical_check.py",
+      "sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787"
+    },
+    {
+      "number": 2734,
+      "path": "tests/test_historical_check.py",
+      "sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd"
+    },
+    {
+      "number": 2792,
+      "path": "scripts/replay_historical_check.py",
+      "sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787"
+    },
+    {
+      "number": 2792,
+      "path": "tests/test_historical_check.py",
+      "sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd"
+    }
+  ],
+  "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+  "scope": "Every reviewed author head is an ancestor; every changed file is original Git blob/mode or an explicitly reviewed integration resolution. GitHub MERGED observations retained separately. No new full-supplier claim."
+}
