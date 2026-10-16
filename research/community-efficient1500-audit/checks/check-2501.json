@@ -30,7 +30,7 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 300.008,
+  "seconds": 1200.02,
   "status": "budget_deferred",
   "exit_codes": [
     null
@@ -1993,6 +1993,13 @@
     "research/e8-punctured111-star/code/word/gen_punct.py": "f2567d223a0fdbf59b14bb0c053fdeaf1178ca47d7616f84d30ac79b085ed101",
     "research/e8-punctured111-star/code/word/pword.py": "a15ef6d2d110b69ed2a835ecd5d62df40ebfe76a95055a86603e56da9c04ea60"
   },
-  "log_sha256": "d768ebfcc69a7f1d1761704e587b659b71a2b9aeea5f25a1fe0cbf36952c50a0",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "ba2d18891a55a98ef4fce7979522256e31b7202f038b255f5ac080b5f8039cf5",
+  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification.",
+  "resumption": {
+    "initial_receipt": "prior-revisions/2501-initial-300s/check-2501.json",
+    "reused_passed_commands": 0,
+    "per_command_budget_seconds": 900,
+    "seconds": 900.012,
+    "input_and_environment_exact": true
+  }
 }

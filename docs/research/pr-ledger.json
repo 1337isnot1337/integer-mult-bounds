@@ -43,8 +43,8 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1800,
-    "partially_reviewed": 296,
+    "incorporated": 1808,
+    "partially_reviewed": 288,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -99,7 +99,7 @@
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
-    "research/community-efficient1500-audit/DISPOSITIONS.json": "37fb7a14773abaa4489f675237ddc023b7205d58f035b457950270dd3ada7fa4",
+    "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -135,6 +135,7 @@
         "docs/research/complex-decoder-scope-map.md",
         "docs/research/contribution-review.md",
         "docs/research/p104-side-correction-scope-map.md",
+        "docs/research/paired-plane-contract-map.md",
         "docs/research/qq16-controller-scope-map.md"
       ],
       "disposition": "partially_reviewed",
@@ -116506,25 +116507,33 @@
         {
           "head": "100b46506a55e7fceb36918a8e127a5dbc45d815",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's parallel snapshot cancellation and Windows read-only cleanup. Reviewed kill/wait/close/cleanup order; individual and combined lifecycle, scheduler, assertion and memory regressions pass on macOS. One-interrupt test correction preserves child-reaped/snapshot-removed assertions; original failing mock receipt retained. Production composes with current main assertion guards and PR2509. Windows-specific behavior reviewed/mocked, not run on Windows; no scientific change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "scripts/verify_parallel.py",
+        "tests/test_parallel_snapshot_lifecycle.py"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2498"
+      },
       "reviewed_head": "100b46506a55e7fceb36918a8e127a5dbc45d815",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Lean lane: review the new formal statements and harness, authenticate dependencies and perform a fresh kernel build, axiom audit and applicable false-theorem controls; finite Python evidence is separate.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2498.json"
+        "research/community-efficient1500-audit/packets/2498.json",
+        "research/community-efficient1500-audit/checks/check-2498.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -117040,25 +117049,33 @@
         {
           "head": "3b356afa01c2d4287f49ab0f6262180fff4e3fb1",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's snapshot preflight rejects absolute, escaping and cyclic symbolic links before copying, while allowing relocatable contained relative links. Individual and combined link/lifecycle/scheduler/assertion regressions pass, including source-isolation controls; merged with PR2498 and newer main guards. No supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "scripts/verify_parallel.py",
+        "tests/test_parallel_snapshot_links.py"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2509"
+      },
       "reviewed_head": "3b356afa01c2d4287f49ab0f6262180fff4e3fb1",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2509.json"
+        "research/community-efficient1500-audit/packets/2509.json",
+        "research/community-efficient1500-audit/checks/check-2509.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -117084,25 +117101,33 @@
         {
           "head": "232be7dd432f74795011f3f1dc5d6cf6bb3bd6c2",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Hikaru Miyashita's contribution-review navigation index, extended at integration from ten to all fifteen published rounds with frozen checkpoint counts distinguished from live queue state. Local links, historical counts, selected record/certificate digests and source/version bindings checked. Existing selected proof-supplement digest mismatch is separately retained in combined-baseline-existing-mismatch.json; no full baseline pass or mathematical replay claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "README.md",
+        "docs/research"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2510"
+      },
       "reviewed_head": "232be7dd432f74795011f3f1dc5d6cf6bb3bd6c2",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2510.json"
+        "research/community-efficient1500-audit/packets/2510.json",
+        "research/community-efficient1500-audit/checks/check-2510.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -117720,25 +117745,33 @@
         {
           "head": "f839ed0aca28280aea47c724937a2da04e5b7bcd",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's Lean axiom-audit parser hardening: ignore nested comments and ordinary strings, require real distinct print-axioms queries, parse multiline inventories and reject extra, unknown, empty or malformed answers. Individual and combined parser tests include real Lean4.34.1 positive queries, comment/eval spoofs, wrapped twelve-axiom output and sorryAx rejection. Parser scope only, not a complete Lean lexer or new theorem verification.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "scripts/check_lean_axioms.py",
+        "tests/test_lean_axiom_audit_parser.py"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2523"
+      },
       "reviewed_head": "f839ed0aca28280aea47c724937a2da04e5b7bcd",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Lean lane: review the new formal statements and harness, authenticate dependencies and perform a fresh kernel build, axiom audit and applicable false-theorem controls; finite Python evidence is separate.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2523.json"
+        "research/community-efficient1500-audit/packets/2523.json",
+        "research/community-efficient1500-audit/checks/check-2523.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -119448,25 +119481,34 @@
         {
           "head": "81b61f34b42fec917bb4df140e632e0638fc61bb",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's exact assembly diagnostic receipt binding: recursive exact JSON types and duplicate-key rejection close bool/integer and rounded-decimal equality loopholes. Individual and combined CLI controls reject mismatched, extra and reordered claims while accepting harmless formatting; assembly formulas and constraints unchanged. This is receipt integrity, not a larger-domain theorem.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "docs/research",
+        "scripts/audit_assembly_domain.py",
+        "tests/test_assembly_domain.py"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2558"
+      },
       "reviewed_head": "81b61f34b42fec917bb4df140e632e0638fc61bb",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2558.json"
+        "research/community-efficient1500-audit/packets/2558.json",
+        "research/community-efficient1500-audit/checks/check-2558.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -120281,22 +120323,28 @@
         {
           "head": "9cbf085815c94ac1b72bef9703f64b23cdea71ce",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "rtyu193-rgb's scoped independent review of Jeremy Kothe's PR1731 rectangular batching and flag-class union schedule, on Vlado Vojdanovski's PR1673 outer. Exact nine-row rational balance and all copied ledger/moment inputs match pinned original objects; Le Gall arXiv2307.06535v2 Table3 confirms6.156708 and cyclic rectangular formats. Reviewed complete flag-line invariance/commutation and summed selected-volume identity;30 integer instances plus dense case and three faults pass.220-digit moment signs separated at1e-64 corroborate the source ledger. Operator/volume identities, arithmetic and citation only, not physical head travel, inherited outer precision/layout or full T74 admission; no selected kappa change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/pr1731-union-rect-review"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2578"
+      },
       "reviewed_head": "9cbf085815c94ac1b72bef9703f64b23cdea71ce",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1500-audit/packets/2578.json",
@@ -120569,22 +120617,28 @@
         {
           "head": "dc83054b525e4c07eccfabf75df8e107d8dd51a3",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's source-bound native replay of Sagar Thakrar's exact PR2440 84-ADD multicolumn scatter: all six retained source files match original Git objects; exact RAW6 and staging metadata bound. Fresh unchanged legality and5/9/11-stage column engines pass94 and84 baselines,883/1327/1549 formal columns,96 bridge-omission controls and three malformed handoffs. Stale-slot tap preserves lifecycle invoice but fails dirty endpoint. One slot/nine COPY lifetimes,11057 total ADDs and5129 rank mass retained; compilation diagnostic unit changes no successful checker predicate. Python/export integrity checks also pass. Empty owner fixtures mean no bank nondegeneracy, complete physical routing/hosting, compiler/precision or supplier adoption claim; no kappa change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/r439-multicolumn-native"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2584"
+      },
       "reviewed_head": "dc83054b525e4c07eccfabf75df8e107d8dd51a3",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1500-audit/packets/2584.json",
@@ -120614,25 +120668,32 @@
         {
           "head": "b73c13d9f96874c3b38a3b1b0325b0dedd01efff",
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's paired-plane contract map distinguishes binary invoice126, integral parity lift obstruction, scalar112 coefficient bill, independent-block rank mass224, and all-field scalar49 / block49d fitting-rank floors. Reviewed against retained source notes, including PR2541 arbitrary nonsymmetric/noncommuting blocks. Frozen Git citations and local links checked; only navigation/contract scope, no new bound or replay of predecessor proofs. Existing baseline digest mismatch separately retained.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "docs/research"
+      ],
       "github_state": "OPEN",
-      "closure": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "730cdac51da68a70ec685c65e12fe2096d437403",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2585"
+      },
       "reviewed_head": "b73c13d9f96874c3b38a3b1b0325b0dedd01efff",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2585.json"
+        "research/community-efficient1500-audit/packets/2585.json",
+        "research/community-efficient1500-audit/checks/check-2585.json"
       ],
       "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
