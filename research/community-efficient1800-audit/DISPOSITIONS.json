@@ -346,7 +346,7 @@
         "isDraft": false
       },
       "reviewed_head": "4e2925b076050f8035b054f95416029a63af64fa",
-      "current_head": "4e2925b076050f8035b054f95416029a63af64fa",
+      "current_head": "679ac7b760ef2e01262039b906c154012548be81",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
@@ -3232,7 +3232,7 @@
       "integration_location": [],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selected\u03ba.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -3241,7 +3241,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2865.json"
+        "research/community-efficient1800-audit/packets/2865.json",
+        "research/community-efficient1800-audit/checks/check-2865-supplement.json"
       ]
     },
     {

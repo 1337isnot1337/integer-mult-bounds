@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "8ca19f2b6b82ff993aa987c755030433c7f7242c4f1d2515f7cf786661b0e9e7",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "d007f00c61e229079fca6bfbe673e22ac1e1e91fa30684faf4e0e38e8bd8dc91",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -53776,7 +53776,7 @@
       },
       "draft": false,
       "starting_head": "4e2925b076050f8035b054f95416029a63af64fa",
-      "current_head": "4e2925b076050f8035b054f95416029a63af64fa",
+      "current_head": "679ac7b760ef2e01262039b906c154012548be81",
       "previously_reviewed_heads": [],
       "historical_assessment_heads": [],
       "evidence": [
@@ -132907,7 +132907,7 @@
         {
           "head": "867d8add1c3be9a1a50a447789c46256d81bb790",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selectedκ.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132925,7 +132925,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2865.json"
+        "research/community-efficient1800-audit/packets/2865.json",
+        "research/community-efficient1800-audit/checks/check-2865-supplement.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
