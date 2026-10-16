@@ -194,6 +194,13 @@ control checks. The receipt records the exact scope; this is a finite exact
 arithmetic computation with a written composition invariant, not a formal
 proof-kernel artifact.
 
+The 16 October 2026 source-execution revision passed both declared commands
+(`verify.py --regenerate` and `test_verify.py`, each with `-I -O -B`) on
+CPython 3.12.12 and 3.14.6, including all eight behavioral groups. Package
+metadata/source-pin checks passed. The four retained evidence files and all
+six runtime inputs were compared byte-for-byte with their original pins.
+Hosted CI and the selected-frontier cold replay are separate checks.
+
 ## Remaining obligations
 
 Verifying both adjoints of each added transport does **not** verify a complete

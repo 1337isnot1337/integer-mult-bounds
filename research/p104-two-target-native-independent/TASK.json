@@ -108,15 +108,21 @@
   },
   "result": "Finite native forward binding:161 distinct new pairs,322 forward/adjoint recipes,236 occurrences; all358 inputs/128164 boundary coefficients; unchanged local profile and no new kappa.",
   "verification": {
-    "registered_python": "3.12.12 optimized:PASS",
-    "specialist_python": "3.14.6 normal:PASS",
     "semantic_fault_controls": 10,
     "positive_presentation_controls": 2,
     "behavior_groups": 8,
     "phase_predicate_deletion": "PASS",
-    "selected_record_check": "PASS",
+    "selected_record_check": "Historical PASS at reviewed head; not rerun for this package-only revision",
     "hosted_ci": "not run locally",
-    "selected_cold_replay": "not run; package scope does not change selected construction"
+    "selected_cold_replay": "not run; package scope does not change selected construction",
+    "python312_declared_commands": "3.12.12 optimized:PASS",
+    "python314_declared_commands": "3.14.6 optimized:PASS",
+    "package_metadata_and_pins": "PASS",
+    "cache_regression_formats": [
+      "timestamp",
+      "unchecked_hash"
+    ],
+    "source_execution": "PASS: valid regeneration and wrong-phase rejection with executable ambient caches"
   },
   "package_path": "research/p104-two-target-native-independent",
   "revision_20261016": {
@@ -133,6 +139,7 @@
       "RESULT.json",
       "SOURCES.json"
     ],
-    "mathematical_scope": "Unchanged finite forward binding; no full inverse transpose or new kappa."
+    "mathematical_scope": "Unchanged finite forward binding; no full inverse transpose or new kappa.",
+    "validation": "Both declared commands pass on CPython 3.12.12 and 3.14.6; package metadata/pins and immutable-input byte comparison pass."
   }
 }
