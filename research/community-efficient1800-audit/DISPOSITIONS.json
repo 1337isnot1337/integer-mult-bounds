@@ -192,19 +192,22 @@
       "current_head": "f0758653a5a1f72c3b59e58d6fe8d658db20b50b",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Label-field census and conditional format ceilings need a dedicated proof/pricing audit; no target-strength construction inferred.",
+      "integration_location": [
+        "research/label-field-census"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Rohan Guliani: exact six-configuration label-field geometry and certified pricing over odd stages3\u201313; all21 cost rows and full original RESULT reproduce. Two extra conditional complex-window rows checked; correct rounded-down prose limits, historical checkpoint, finite-stage scope and the distinction between ceiling headroom and an achieved supplier. Extension-field/rank realization and larger-stage claims remain open; no \u03ba change. Three imported engines are exact current-main bytes; inherited floor scopes remain explicit.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/801.json"
+        "research/community-efficient1800-audit/packets/801.json",
+        "research/community-efficient1800-audit/checks/check-801.json"
       ]
     },
     {
