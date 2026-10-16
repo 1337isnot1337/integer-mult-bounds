@@ -1,18 +1,27 @@
-# z4 typed echo as a supplier instance: priced, and blocked in one obligation
+# z4 typed echo as a supplier instance: priced, one documented obstruction, open realization obligations
 
-**Supplier instantiation of a certified mechanism; no new kappa and no change to
-the selected record.** The certified z4 order-four typed echo (PR #1391's
-five-child contract, PR #1410's persistent pair) is instantiated as far as the
-repository's contracts allow: the smallest falsifying typed pair, the priced
-whole-construction physical budget, and the hosted aggregate ledgers with their
-exact moments and `a < D/E` diagnostics. The instantiation fits the sharpest
-available overhead budget with zero recursive overhead of its own. It is
-blocked in exactly one obligation, **hosting**: the named host's contract keeps
+**Conditional supplier instantiation of a certified mechanism; no new kappa and
+no change to the selected record.** The certified z4 order-four typed echo
+(PR #1391's five-child contract, PR #1410's persistent pair) is instantiated as
+far as the repository's contracts allow: the smallest falsifying typed pair, the
+priced whole-construction physical budget, and the hosted aggregate ledgers with
+their exact moments and `a < D/E` diagnostics. What is checked is the abstract
+typed echo word on all 56 basis columns; no named selected supplier is shown to
+implement the typed child, so this is not a realized selected-supplier
+instantiation. The instantiation fits the sharpest available overhead budget
+with zero recursive overhead of its own. It carries one documented obstruction
+on this branch's own terms, **hosting**: the named host's contract keeps
 `COPY/ERASE` windows sequential and immutable and delivers totals per call,
 while the typed echo must defer the first wrapper's restoration across the
 second call's window. Under the unchanged contract the pair pays both wrappers,
 the ledger returns to the selected histogram, and the 112 saved primitives per
-pair are scalar-only.
+pair are scalar-only. One obstruction is not one remaining obligation. Three
+realization obligations stay open, recorded in [TASK.json](TASK.json)
+`open_questions` and in the **Not checked** list below: reader/intertwiner
+realization (no named host child exposes `R P = Q R`), delivery/lifetime (a
+widened window and a common sink for the pair's totals, the first blocker of
+PR #1748), and precision (the host bucket law, quantified by the row-L1 proxy
+but not closed). None of the three follows from the arithmetic below.
 
 Agent: **Aaron Wang**, with help from opencode (substantial AI assistance; no
 independent human review). Task card: [TASK.json](TASK.json) (card
@@ -85,8 +94,9 @@ quantity in the moment ledger moves.
 
 The named host is the binding selected complex ledger (width `m = 73`, live
 stock `W = 14,336`, `N = 144` calls, published histogram, no surcharge). The
-typed echo applied to consecutive same-source call pairs is the shared-centre
-ledger of `research/centre-sharing-overhead-budget`: the shared rank-8 centre
+typed echo applied to consecutive same-source call pairs would be the
+shared-centre ledger of `research/centre-sharing-overhead-budget` (conditional
+pricing, pending the open realization obligations): the shared rank-8 centre
 children go from 1,152 to 576 and the coverage identity from `72W + 64N` to
 `72W + 32N`. Exact rational enclosures (independent atanh/Taylor engine, no
 import of the retained pricing engines):
@@ -94,7 +104,7 @@ import of the retained pricing engines):
 | ledger | rank mass | D | `a < D/E` | exact moment root `a*` |
 |---|---:|---:|---:|---|
 | selected baseline | 1,041,408 | 5,120 | 0.0016805907097543218 | [0.001675462676, 0.001675462677] |
-| shared k=2 typed echo | 1,036,800 | 9,728 | 0.003203836729943888 | [0.003185242415, 0.003185242416] |
+| shared k=2 typed echo (conditional) | 1,036,800 | 9,728 | 0.003203836729943888 | [0.003185242415, 0.003185242416] |
 
 The baseline `D/E` matches the published 0.001680590709754321699421 to 2.4e-25
 (printing precision) and the baseline root is the recorded complex endpoint
@@ -102,10 +112,14 @@ The baseline `D/E` matches the published 0.001680590709754321699421 to 2.4e-25
 `-1.30e-24` band; the next `10^-24` grid point is rejected. At the recorded bit
 endpoint 0.0017334270395898442 the shared ledger gives `f(a) - 1 = -4.25e-3`,
 matching `research/centre-sharing-overhead-budget`'s table entry for `k = 2`.
-So with sharing the complex side stops binding and the whole bound becomes
+So with sharing the complex side stops binding and the whole bound would become
 bit-limited at `kappa = 0.001730427469823602` (+3.4536% on the selected
-0.001672660197076918), which is that package's published figure, here reached
-by a concrete mechanism rather than a relaxation.
+0.001672660197076918), which is that package's published figure. The typed echo
+reaches that figure with a concrete word-level mechanism in place of the
+relaxation, but the shared histogram and the projected exponent are conditional
+pricing: the mechanism delivers them only if a widened `COPY/ERASE` window with
+per-pair totals delivery, a common sink, and a reader exposing the intertwiner
+`R P = Q R` are admitted, and none of those is established here.
 
 **`a < D/E` is a screen, not the acceptance test** (a control enforces this:
 the exact moment at `D/E` exceeds 1 strictly). The exact moments above are the
@@ -122,7 +136,7 @@ own added work is scalar (frame powers, the two 24-ADD copy edges, the boundary
 schedule), so its recursive overhead is 0 rank units and the elimination lands
 entirely inside the budget. The measured scalar side also falls (table above).
 
-## The one obstruction: hosting (window lifetime and totals delivery)
+## The documented obstruction: hosting (window lifetime and totals delivery)
 
 The fused pair defers the first call wrapper's `W -= X` (the ERASE analogue)
 past the second call's child block. The smallest instance exhibits it exactly:
@@ -136,20 +150,29 @@ carry needs the opposite: one window spanning the pair, the first call's totals
 delivered at the pair end, and uninterrupted ownership of the temporary across
 the boundary.
 
-Everything else is charged and closes:
+What is charged in this package closes:
 
-- **Moment:** the shared ledger above, with `Delta-H` inside the sharp budget.
+- **Moment:** the shared ledger above (conditional pricing), with `Delta-H`
+  inside the sharp budget.
 - **Scalar price:** fully paid, and smaller than the separate schedule.
 - **Dirty state and restoration:** exact on all 56 basis columns.
+
+Three realization obligations are recorded but not closed
+([TASK.json](TASK.json) `open_questions`):
+
+- **Reader/intertwiner realization:** the contract change requires a child
+  exposing the order-four intertwiner `R P = Q R` (the certified typed
+  contract; no named host child exposes one), so no selected reader is shown to
+  implement the typed child.
+- **Delivery/lifetime:** one window spanning the pair and a common sink for the
+  pair's totals, the first blocker of PR #1748.
 - **Precision:** quantified but not closed (see the open questions); the carry
-  raises prefix row-L1 from 30 to 42 at the persistent pair.
+  raises prefix row-L1 from 30 to 42 at the persistent pair, and the complex
+  host's bucket law is not pinned in a chargeable form.
 
 Under the unchanged contract the pair pays both wrappers: the histogram stays
 `n_8 = 1152`, the moment is exactly the selected one, and no kappa change
-follows from 112 saved primitives. The contract change would also require a
-child exposing the order-four intertwiner `R P = Q R` (the certified typed
-contract; no named host child exposes one) and a common sink for the pair's
-totals, the first blocker of PR #1748.
+follows from 112 saved primitives.
 
 The source-bound side of the same obstruction is already recorded on the named
 schedule: `research/selected-centre-adjacent-pair-seed01fcb1` censused all 143
@@ -207,8 +230,8 @@ theorem and does not admit any supplier.
 ## Open next questions
 
 - **Does a named selected supplier admit a widened `COPY/ERASE` window with
-  per-pair totals delivery?** This is the single contract change the
-  instantiation needs; the shared ledger would then accept at `a* = 0.0031852`
+  per-pair totals delivery?** This is the contract change the instantiation's
+  hosting side needs; the shared ledger would then accept at `a* = 0.0031852`
   and move the binding side to the bit primitive. First step: inspect one
   retained supplier's owner-map window definitions and totals schedule for a
   consecutive same-sink pair, and price the widened window as extra live
