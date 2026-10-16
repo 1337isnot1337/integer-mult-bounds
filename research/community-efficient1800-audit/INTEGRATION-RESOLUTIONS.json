@@ -46,5 +46,53 @@
     "resolved_sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed",
     "resolved_mode": "100644",
     "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+  },
+  {
+    "number": 2860,
+    "path": "research/independent-walks-tworepeat-8q/README.md",
+    "original_sha256": "7f1b4a8fe694a7c7bf7c117c98812179479cc0c7a0ed6d5ffc603e061d676d8f",
+    "resolved_sha256": "1d1e1b8a0e58cdc7b8b8b6f7f6e096ed0e6484aeee72c313556fbd5fa16ac46b",
+    "resolved_mode": "100644",
+    "reason": "Clarify that 26970 counts one restoring representative per nonzero multiset, not every ordered walk. Slot-permutation invariance preserves coverage; add the direct rank bound covering extra zero slots without claiming they were enumerated. Frozen code and certificate unchanged."
+  },
+  {
+    "number": 2860,
+    "path": "research/independent-walks-tworepeat-8q/PROOF.md",
+    "original_sha256": "3d0f7b2f39a042c674bc39c3cda95d6717196787b7a59ccc3edfa9786777e4fa",
+    "resolved_sha256": "1f58098e0aac31a091e57882d633d3973b74119f92cd10947190b0a30dc511d8",
+    "resolved_mode": "100644",
+    "reason": "Clarify that 26970 counts one restoring representative per nonzero multiset, not every ordered walk. Slot-permutation invariance preserves coverage; add the direct rank bound covering extra zero slots without claiming they were enumerated. Frozen code and certificate unchanged."
+  },
+  {
+    "number": 2836,
+    "path": "research/transfer-coupled-all-shapes-7q/dual_lib.py",
+    "original_sha256": "3b3941442e4e13a67d32f167634efa9eb30eaced5bef766b5722a81493f97909",
+    "resolved_sha256": "3a959b69ceb31dbb94c2ec932a489396913d4a6f7c10f811c2ba7479caea28db",
+    "resolved_mode": "100644",
+    "reason": "Compile the unchanged dual.c into unique temporary paths so parallel workers never rewrite a loaded library. Keep independent build directories alive through worker initialization; preserve all census formulas and declared coverage. Full resolved replay and concurrent C/Python kernel regression required."
+  },
+  {
+    "number": 2836,
+    "path": "research/transfer-coupled-all-shapes-7q/independent.py",
+    "original_sha256": "46719554e9b013c5553190510a362947a20a56bdf9549c0cdae974797cb2a25b",
+    "resolved_sha256": "a2e0e811d9de5c4885ceeef062fe9e74e97e0b5c877ad280ff8e9ad9d8d145d0",
+    "resolved_mode": "100644",
+    "reason": "Compile the unchanged dual.c into unique temporary paths so parallel workers never rewrite a loaded library. Keep independent build directories alive through worker initialization; preserve all census formulas and declared coverage. Full resolved replay and concurrent C/Python kernel regression required."
+  },
+  {
+    "number": 2846,
+    "path": "research/transfer-coupled-onerepeat-7q/dual_lib.py",
+    "original_sha256": "91ff6257685271a0353ba5578d9ffd653e97527d18af43d8c15c86b1a315bce5",
+    "resolved_sha256": "3a959b69ceb31dbb94c2ec932a489396913d4a6f7c10f811c2ba7479caea28db",
+    "resolved_mode": "100644",
+    "reason": "Compile the unchanged dual.c into unique temporary paths so parallel workers never rewrite a loaded library. Keep independent build directories alive through worker initialization; preserve all census formulas and declared coverage. Full resolved replay and concurrent C/Python kernel regression required."
+  },
+  {
+    "number": 2846,
+    "path": "research/transfer-coupled-onerepeat-7q/independent.py",
+    "original_sha256": "de5bdec91fd5baad630ac8e02450282d5d12216277ad162849712d58db62d7e0",
+    "resolved_sha256": "cb570eaa74fdb67cb3b26c61b33a535d55993545abe1f6c60108c848b08eeafc",
+    "resolved_mode": "100644",
+    "reason": "Compile the unchanged dual.c into unique temporary paths so parallel workers never rewrite a loaded library. Keep independent build directories alive through worker initialization; preserve all census formulas and declared coverage. Full resolved replay and concurrent C/Python kernel regression required."
   }
 ]
