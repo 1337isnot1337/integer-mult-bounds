@@ -149,6 +149,10 @@ The helper does not search every code diff or nested source file. Remote paginat
 reported as such; snapshots are cached outside the checkout for five minutes.
 Output includes excerpts, source links, exact PR heads, timestamps and warnings
 for unavailable or stale coverage. No matches does not establish novelty.
+Canonical positive integers in task overlap terms match PR references, rather than
+decimal or commit-hash fragments. Explicit positional terms retain literal matching;
+leading-zero words stay literal. See [reference matching](overlap-task-reference-matching.md)
+for examples and the report’s `reference_terms` field.
 
 Before choosing one card:
 

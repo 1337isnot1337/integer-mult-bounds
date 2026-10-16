@@ -93,6 +93,63 @@ class OverlapTaskTermsTests(unittest.TestCase):
                 report = self.report(card, [pull(1, "Evidence")])
                 self.assertEqual([row["number"] for row in report["matches"]], [1])
 
+    def test_numeric_card_reference_is_not_hidden_by_decimal_or_hash_hits(self):
+        card = {"id": "fixture", "overlap_terms": ["2977"], "starting_points": []}
+        records = [pull(i, "Kappa 0.00129771234", "Commit a2977b1234567890")
+                   for i in range(21)]
+        records.append(pull(99, "Scatter successor", "Repairs PR2977."))
+        report = self.report(card, records)
+        self.assertEqual(report["matches_total"], 1)
+        self.assertEqual([row["number"] for row in report["matches"]], [99])
+        self.assertEqual(report["reference_terms"], ["2977"])
+
+    def test_numeric_card_reference_forms_and_boundaries(self):
+        card = {"id": "fixture", "overlap_terms": ["2977"], "starting_points": []}
+        references = ["2977", "#2977", "PR2977", "pr #2977", "PR 2977",
+                      "https://github.com/CrocSwap/integer-mult-bounds/pull/2977",
+                      "https://github.com/CrocSwap/integer-mult-bounds/discussions/2977#reply"]
+        unrelated = ["12977", "29770", "a2977b", "0.2977", "0.0012977",
+                     "2977.5", "XPR2977", "PR29770", "word_2977", "é2977"]
+        records = [pull(i, "Continuation", body)
+                   for i, body in enumerate(references + unrelated)]
+        report = self.report(card, records)
+        self.assertEqual({row["number"] for row in report["matches"]},
+                         set(range(len(references))))
+
+    def test_explicit_numeric_query_overrides_card_reference_matching(self):
+        card = {"id": "fixture", "overlap_terms": ["2977"], "starting_points": []}
+        records = [pull(1, "Kappa 0.00129771234"), pull(2, "Fix PR2977")]
+        report = self.report(card, records, " 2977 ")
+        self.assertEqual({row["number"] for row in report["matches"]}, {1, 2})
+        self.assertEqual(report["reference_terms"], [])
+
+    def test_leading_zero_word_terms_and_zero_remain_literal(self):
+        card = {"id": "fixture", "overlap_terms": ["2973", "01021323", "0"],
+                "starting_points": []}
+        records = [pull(1, "Counterexample", "word01021323"),
+                   pull(2, "Zero substring", "x0x"), pull(3, "Predecessor PR2973")]
+        report = self.report(card, records)
+        self.assertEqual({row["number"] for row in report["matches"]}, {1, 2, 3})
+        self.assertEqual(report["reference_terms"], ["2973"])
+        word = next(row for row in report["matches"] if row["number"] == 1)
+        self.assertIn("01021323", word["matched_terms"])
+
+    def test_reference_excerpt_and_title_score_use_the_actual_match(self):
+        card = {"id": "fixture", "overlap_terms": ["2977"], "starting_points": []}
+        body = "Unrelated hash a2977b. " + "x" * 600 + " Repairs PR2977."
+        records = [pull(1, "Kappa 0.00129771234", body), pull(2, "PR2977 continuation")]
+        report = self.report(card, records)
+        self.assertEqual([row["number"] for row in report["matches"]], [2, 1])
+        self.assertEqual([row["score"] for row in report["matches"]], [3, 1])
+        self.assertIn("Repairs PR2977", report["matches"][1]["excerpt"])
+
+    def test_reference_matching_preserves_all_terms(self):
+        card = {"id": "fixture", "overlap_terms": ["2977"], "starting_points": []}
+        records = [pull(1, "Fixture scatter PR2977"),
+                   pull(2, "Fixture scatter 0.00129771234"), pull(3, "Fixture PR2977")]
+        report = self.report(card, records, "scatter", "--all-terms")
+        self.assertEqual([row["number"] for row in report["matches"]], [1])
+
 
 if __name__ == "__main__":
     unittest.main()
