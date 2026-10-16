@@ -76,11 +76,14 @@
  },
  "commits": {
   "c2751": "4cfbb0cc8314d7fb4e8e754545a49a42eb590a69",
+  "c2766": "e6df920cd0110e4b629e2ad84eddcb539001e174",
   "c2802": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
   "c2818": "175822aee7a1858ec653f7f92d7a750aec2c2795"
  },
  "controls": {
   "C1 refit7 B911 undone": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S3S4-FRAMES-PROFILE-base",
    "expected_rule_message": "warp frame mismatch: op 30 lender 564 (U is not the propagated frame)",
    "failing_rules": [
@@ -94,6 +97,8 @@
    "rejected_by_expected_rule": true
   },
   "C10 first restore gate dropped": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S2-REPLAY-FREE-base",
    "expected_rule_message": "restored helper 572 not its own input",
    "failing_rules": [
@@ -109,6 +114,8 @@
    "rejected_by_expected_rule": true
   },
   "C11 fill inflated to R+1 helper indices": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S5-FILL-WORD-DERIVED-R",
    "expected_rule_message": "role count 272394 != calls x word-derived R (666 x 408)",
    "failing_rules": [
@@ -120,6 +127,8 @@
    "rejected_by_expected_rule": true
   },
   "C12 first hostee gate of warp 30 left on old lender 401": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S1-DIFF-base",
    "expected_rule_message": "B941: final gate ['add', 600, 401, -1, 1] is not the declared relabel ['add', 600, 564, -1, 1] of parent ['add', 600, 401, -1, 1]",
    "failing_rules": [
@@ -137,6 +146,8 @@
    "rejected_by_expected_rule": true
   },
   "C13 undeclared frame raise on a B gate": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S1-DIFF-base",
    "expected_rule_message": "undeclared frame changes: [('B', 1500)]",
    "failing_rules": [
@@ -150,6 +161,8 @@
    "rejected_by_expected_rule": true
   },
   "C14 #2818 base word differs by one sign": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "X-2818-SAME-CONSTRUCTION",
    "expected_rule_message": "words differ",
    "failing_rules": [
@@ -158,6 +171,8 @@
    "rejected_by_expected_rule": true
   },
   "C2 hostee move 401->564 reverted (401 then hosts follower 667 and hostee 30 at once)": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "OCC-TIMELINE-base",
    "expected_rule_message": "OCC: follower 667 outlives the segment",
    "failing_rules": [
@@ -175,6 +190,8 @@
    "rejected_by_expected_rule": true
   },
   "C3 alias warp 66 moved before lender 550 last gate (B901)": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "OCC-TIMELINE-base",
    "expected_rule_message": "OCC: lender 550 has an own event at/after its alias warp 66",
    "failing_rules": [
@@ -190,7 +207,10 @@
    ],
    "rejected_by_expected_rule": true
   },
-  "C4a A-retired lender 401: last A event moved into B right after alias warp 71": {
+  "C4a lender 401: last A write (A3175) moved into B right after alias warp 71, own frame": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S3S4-FRAMES-PROFILE-base",
    "expected_rule_message": "frame not monotone: register 401 at B259",
    "failing_rules": [
@@ -203,9 +223,16 @@
     "S6-PROFILE-MASS-ROOT",
     "X-2818-SAME-CONSTRUCTION"
    ],
+   "must_accept": [
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base"
+   ],
    "rejected_by_expected_rule": true
   },
-  "C4b A-retired lender 401: last A event moved after alias warp 71 (end of restore)": {
+  "C4b lender 401: last A write moved to the end of restore, own frame": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "OCC-TIMELINE-base",
    "expected_rule_message": "OCC: final segment of 401 after warp 71 is not exactly follower 667",
    "failing_rules": [
@@ -217,9 +244,111 @@
     "S6-PROFILE-MASS-ROOT",
     "X-2818-SAME-CONSTRUCTION"
    ],
+   "must_accept": [
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base"
+   ],
+   "rejected_by_expected_rule": true
+  },
+  "C4c lender 403 (extra word): last A write (A3174) moved into B right after alias warp 72, own frame": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
+   "expected_rule": "S3S4-FRAMES-PROFILE-extra",
+   "expected_rule_message": "frame not monotone: register 403 at B262",
+   "failing_rules": [
+    "OCC-TIMELINE-extra",
+    "S1-DIFF-extra",
+    "S1-STAGE-RECORDS-extra",
+    "S3-REFIT-EXACT-extra",
+    "S3S4-FRAMES-PROFILE-extra",
+    "S4-FRAMES-RREF-extra",
+    "S6-PROFILE-MASS-ROOT",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "must_accept": [
+    "S2-REPLAY-FREE-extra",
+    "S2-REPLAY-MATRIX-extra"
+   ],
+   "rejected_by_expected_rule": true
+  },
+  "C4d lender 401: last A write moved to the end of restore at frame FULL": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
+   "exact_failing": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "exact_failing_ok": true,
+   "expected_rule": "OCC-TIMELINE-base",
+   "expected_rule_message": "OCC: final segment of 401 after warp 71 is not exactly follower 667",
+   "failing_rules": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "must_accept": [
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base",
+    "S3S4-FRAMES-PROFILE-base",
+    "S4-FRAMES-RREF-base",
+    "S3-REFIT-EXACT-base",
+    "S1-STAGE-RECORDS-base",
+    "S5-FILL-WORD-DERIVED-R",
+    "S5-FILL-TRANSFORM",
+    "S6-PROFILE-MASS-ROOT"
+   ],
+   "rejected_by_expected_rule": true
+  },
+  "C4e lender 403 (extra word): last A write moved to the end of restore at frame FULL": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
+   "exact_failing": [
+    "OCC-TIMELINE-extra",
+    "S1-DIFF-extra",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "exact_failing_ok": true,
+   "expected_rule": "OCC-TIMELINE-extra",
+   "expected_rule_message": "OCC: final segment of 403 after warp 72 is not exactly follower 669",
+   "failing_rules": [
+    "OCC-TIMELINE-extra",
+    "S1-DIFF-extra",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "must_accept": [
+    "S2-REPLAY-FREE-extra",
+    "S2-REPLAY-MATRIX-extra",
+    "S3S4-FRAMES-PROFILE-extra",
+    "S4-FRAMES-RREF-extra",
+    "S3-REFIT-EXACT-extra",
+    "S1-STAGE-RECORDS-extra",
+    "S5-FILL-WORD-DERIVED-R",
+    "S5-FILL-TRANSFORM",
+    "S6-PROFILE-MASS-ROOT"
+   ],
+   "rejected_by_expected_rule": true
+  },
+  "C4f lender 401: last A read (an add with source 401) moved to the end of restore at frame FULL": {
+   "control_ok": true,
+   "crashed_rules": [],
+   "expected_rule": "S2-REPLAY-FREE-base",
+   "expected_rule_message": "forward target 0 wrong before cleanup",
+   "failing_rules": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
    "rejected_by_expected_rule": true
   },
   "C5 alias warp 71 after follower 667 first gate (B260)": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "OCC-TIMELINE-base",
    "expected_rule_message": "OCC: follower 667 has an event before alias warp 71",
    "failing_rules": [
@@ -236,6 +365,8 @@
    "rejected_by_expected_rule": true
   },
   "C6 wrong G on warp 71": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S3S4-FRAMES-PROFILE-base",
    "expected_rule_message": "G(U) != E",
    "failing_rules": [
@@ -249,6 +380,8 @@
    "rejected_by_expected_rule": true
   },
   "C7 warp 71 with G(U')=E' for a U' that is not 401's propagated frame": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S3S4-FRAMES-PROFILE-base",
    "expected_rule_message": "warp frame mismatch: op 71 lender 401 (U is not the propagated frame)",
    "failing_rules": [
@@ -262,6 +395,8 @@
    "rejected_by_expected_rule": true
   },
   "C8 removed follower 667 kept as a live helper (R self-reference)": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "S5-FILL-WORD-DERIVED-R",
    "expected_rule_message": "role count 271728 != calls x word-derived R (666 x 409)",
    "failing_rules": [
@@ -278,7 +413,9 @@
    ],
    "rejected_by_expected_rule": true
   },
-  "C9 alias lenders of warps 71/72 swapped": {
+  "C9 alias lenders of warps 71/72 swapped (declaration conformance)": {
+   "control_ok": true,
+   "crashed_rules": [],
    "expected_rule": "OCC-TIMELINE-base",
    "expected_rule_message": "OCC: alias warp 71 is not on lender 401",
    "failing_rules": [
@@ -337,6 +474,11 @@
    "path": "research/t74-joint-twelve-retired7/evidence/PR2766-CLAIM.json",
    "sha256": "399e20ffb8bac62363f7d48c59021d5afef5f62bb6c51986ca847b02ec1e73a8"
   },
+  "K2766_own": {
+   "commit": "e6df920cd0110e4b629e2ad84eddcb539001e174",
+   "path": "research/complex-routing-leaf-fusion/CLAIM.json",
+   "sha256": "399e20ffb8bac62363f7d48c59021d5afef5f62bb6c51986ca847b02ec1e73a8"
+  },
   "K2767": {
    "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
    "path": "research/t74-joint-twelve-retired7/evidence/PR2767-OUTER-CLAIM.json",
@@ -386,6 +528,16 @@
    "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
    "path": "research/t74-joint-twelve-retired7/inputs/WORD2751-extra.json.gz",
    "sha256": "1bb44a73d5841afb954b49ae94dba2e0c536b1eea9436ae5d89de87d8a04e127"
+  },
+  "R5_ADMISSION": {
+   "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
+   "path": "research/t74-joint-twelve-retired7/evidence/retired5/ADMISSION-RESULT.json",
+   "sha256": "e441d6bfef1554491087a5b4701a8b23b331af3b57f77a38f3de4a47d940a6bf"
+  },
+  "R5_HOOK": {
+   "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
+   "path": "research/t74-joint-twelve-retired7/evidence/retired5/HOOK-RESULT.json",
+   "sha256": "76b67d54df3a6da3bb7f6fe3402f11d2926cb48353bf068dc34eeb560784771a"
   },
   "ST_alias5_base": {
    "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
@@ -462,6 +614,16 @@
    "path": "research/t74-joint-twelve-retired7/inputs/GLOBAL-TEMPLATE.json.gz",
    "sha256": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e"
   },
+  "W66_base": {
+   "commit": "e6df920cd0110e4b629e2ad84eddcb539001e174",
+   "path": "research/complex-routing-leaf-fusion/inputs/WORD-base.json.gz",
+   "sha256": "80e309cc16d0a86a0854d32f4f43e0d856768ea3cf5b6437061b427997ae4790"
+  },
+  "W66_extra": {
+   "commit": "e6df920cd0110e4b629e2ad84eddcb539001e174",
+   "path": "research/complex-routing-leaf-fusion/inputs/WORD-extra.json.gz",
+   "sha256": "88e55acb7e274c62fbb0deab7f420d85fde3c2a471735222f0b5d039bc34e2e6"
+  },
   "W_base": {
    "commit": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
    "path": "research/t74-joint-twelve-retired7/inputs/WORD-base.json.gz",
@@ -514,7 +676,7 @@
   }
  },
  "rules": {
-  "ATTRIBUTION-PR2766-FRAMES": {
+  "ATTRIBUTION-PR2766-WORD": {
    "info": {
     "PR2766_root_in": [
      "171725697346700230827/100000000000000000000000",
@@ -525,14 +687,16 @@
       "1": -2,
       "2": 1
      },
-     "profile": {
+     "other_19_frames": "cost-neutral on W2751 and on the final word",
+     "pr2766_local_profile": {
       "1": 2364,
       "2": 647,
       "3": 297,
       "4": 120,
       "5": 26,
       "8": 8
-     }
+     },
+     "pr2766_word_change": "B1151 dim 6 -> 5"
     },
     "complete_profile_equals_PR2766_claim": true,
     "extra": {
@@ -540,22 +704,31 @@
       "1": -2,
       "2": 1
      },
-     "profile": {
+     "other_19_frames": "cost-neutral on W2751 and on the final word",
+     "pr2766_local_profile": {
       "1": 2364,
       "2": 647,
       "3": 297,
       "4": 120,
       "5": 26,
       "8": 8
-     }
-    }
+     },
+     "pr2766_word_change": "B1151 dim 6 -> 5"
+    },
+    "root_margins": [
+     "1.7903e-19",
+     "1.0461e-20"
+    ]
    },
    "ok": true
   },
   "ATTRIBUTION-RETIRED5": {
    "info": {
+    "fill_gzip_sha256_equals_recorded": true,
+    "fill_json_sha256": "ef4bd5d44e707b4a26391328e784aec6763a7684c7c15720c6a5e9f743fb498b",
     "gain_retired5_over_2766": "1.52342868489335178E-7",
-    "gain_retired7_over_retired5": "385667783143020379/1000000000000000000000000",
+    "gain_retired7_stages_over_retired5": "385667783143020379/1000000000000000000000000",
+    "recorded_endpoint_profile_equal": true,
     "retired5_complete": {
      "1": 1606392,
      "2": 427572,
@@ -584,6 +757,10 @@
     "retired5_root_in": [
      "214676164541936455431/125000000000000000000000",
      "1717409316335491643449/1000000000000000000000000"
+    ],
+    "root_margins": [
+     "8.6871e-20",
+     "1.0261e-19"
     ]
    },
    "ok": true
@@ -1202,10 +1379,29 @@
   },
   "S1-STAGE-RECORDS-base": {
    "info": {
+    "declared_edit_pairs_per_stage": {
+     "alias5": 35,
+     "alias7": 14,
+     "hostmove2": 14
+    },
     "declared_gate_edits": {
      "delete": 63,
      "insert": 63
     },
+    "refit7_dims": [
+     [
+      "B",
+      911,
+      6,
+      5
+     ],
+     [
+      "B",
+      912,
+      6,
+      5
+     ]
+    ],
     "refit7_prev": [
      [
       "B",
@@ -1232,6 +1428,20 @@
       ]
      ]
     ],
+    "refit7c_dims": [
+     [
+      "B",
+      1170,
+      6,
+      5
+     ],
+     [
+      "B",
+      1171,
+      6,
+      5
+     ]
+    ],
     "refit_frames": {
      "refit5": 26,
      "refit5c": 32,
@@ -1244,10 +1454,29 @@
   },
   "S1-STAGE-RECORDS-extra": {
    "info": {
+    "declared_edit_pairs_per_stage": {
+     "alias5": 35,
+     "alias7": 14,
+     "hostmove2": 14
+    },
     "declared_gate_edits": {
      "delete": 63,
      "insert": 63
     },
+    "refit7_dims": [
+     [
+      "B",
+      911,
+      6,
+      5
+     ],
+     [
+      "B",
+      912,
+      6,
+      5
+     ]
+    ],
     "refit7_prev": [
      [
       "B",
@@ -1272,6 +1501,20 @@
        25,
        6
       ]
+     ]
+    ],
+    "refit7c_dims": [
+     [
+      "B",
+      1170,
+      6,
+      5
+     ],
+     [
+      "B",
+      1171,
+      6,
+      5
      ]
     ],
     "refit_frames": {
@@ -1310,6 +1553,38 @@
   },
   "S2-REPLAY-MATRIX-extra": {
    "info": "forward+dual, 2 seeds, 4x4 over GF(2^61-1)",
+   "ok": true
+  },
+  "S3-ABOVE-FLOOR-NEUTRAL-base": {
+   "info": {
+    "above_floor": [
+     "B771 dim 5 floor 4",
+     "B773 dim 5 floor 4",
+     "B776 dim 5 floor 4",
+     "B778 dim 5 floor 4",
+     "B783 dim 5 floor 4",
+     "B788 dim 5 floor 4",
+     "restore60 dim 8 floor 6"
+    ],
+    "profile_unchanged": true,
+    "variants_checked": 8
+   },
+   "ok": true
+  },
+  "S3-ABOVE-FLOOR-NEUTRAL-extra": {
+   "info": {
+    "above_floor": [
+     "B771 dim 5 floor 4",
+     "B773 dim 5 floor 4",
+     "B776 dim 5 floor 4",
+     "B778 dim 5 floor 4",
+     "B783 dim 5 floor 4",
+     "B788 dim 5 floor 4",
+     "restore60 dim 8 floor 6"
+    ],
+    "profile_unchanged": true,
+    "variants_checked": 8
+   },
    "ok": true
   },
   "S3-REFIT-EXACT-base": {
@@ -2239,6 +2514,7 @@
       "U_is_propagated": true
      }
     },
+    "prelude_warp_items_checked": 24,
     "profile": {
      "1": 2382,
      "2": 648,
@@ -2300,6 +2576,7 @@
       "U_is_propagated": true
      }
     },
+    "prelude_warp_items_checked": 24,
     "profile": {
      "1": 2382,
      "2": 648,
@@ -2398,7 +2675,11 @@
    "info": {
     "f_values": [
      "66303.9999999999999999999564452703792106",
-     "66304.0000000000000000001458808452731837"
+     "66304.0000000000000000001458808452731837",
+     [
+      "4.3555e-20",
+      "1.4588e-19"
+     ]
     ],
     "margin_2751": "326698885104162859/500000000000000000000000",
     "margin_2766": "538010651632355557/1000000000000000000000000",
@@ -2438,6 +2719,6 @@
    "ok": true
   }
  },
- "scope": "Finite exact checks of the PR #2802 increment (stages refit5/alias5/refit5c/refit7/hostmove2/alias7/refit7c) over the pinned PR #2751 words: event diff, per-register occupancy, warps/frames/profile, free-algebra and matrix replays, the 271728-role fill with word-derived R, complete profile/mass/root, and PR #2818 identity. Inherited T74/#1319 admission, native lowering, outer proof and PR #2751 recovery are not checked.",
+ "scope": "Finite exact checks of the PR #2802 seven-stage increment (retired5 stages refit5/alias5/refit5c, retired7 stages refit7/hostmove2/alias7/refit7c) over the pinned PR #2751 words: event diff, per-register occupancy, warps/frames/profile, free-algebra and matrix replays, the 271728-role fill with word-derived R, complete profile/mass/root, PR #2818 identity, and attribution against PR #2766 and the recorded retired5 step. Inherited T74/#1319 admission, native lowering, outer proof and PR #2751 recovery are not checked.",
  "status": "PASS"
 }

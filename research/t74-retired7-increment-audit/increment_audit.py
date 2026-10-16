@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
-"""Independent adversarial audit of the PR #2802 increment over PR #2751 (T74 retired7 words), verdict extended to PR #2818.
+"""Independent adversarial audit of PR #2802's seven-stage increment over PR #2751 (retired5 stages refit5/alias5/refit5c
+plus retired7 stages refit7/hostmove2/alias7/refit7c), verdict extended to PR #2818.  "retired7" in identifiers follows
+#2802's package name (t74-joint-twelve-retired7); in prose it means only the last four stages.
 
 Objects (read as pinned git blobs, never imported or executed):
   PR #2802 (mdumitrean) head 17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd, research/t74-joint-twelve-retired7/
   PR #2751 (tekuuu)     head 4cfbb0cc8314d7fb4e8e754545a49a42eb590a69, research/t74-joint-twelve/
   PR #2818 (jeremykothe2) head 175822aee7a1858ec653f7f92d7a750aec2c2795, research/gmx-t74-borrow43-handoff/
+  PR #2766 (DavidAriasC) head e6df920cd0110e4b629e2ad84eddcb539001e174, research/complex-routing-leaf-fusion/ (attribution only)
 
 Fresh standard-library code.  Every check is a named rule; the run prints one line per rule and a final
 PASS/FAIL line.  Negative controls mutate the pinned inputs and must each be rejected by a named rule.
@@ -30,13 +33,14 @@ import subprocess
 import sys
 from collections import Counter, defaultdict
 from fractions import Fraction
-from decimal import Decimal, getcontext, ROUND_FLOOR, ROUND_CEILING, localcontext
+from decimal import Decimal, ROUND_FLOOR, ROUND_CEILING, localcontext
 
 COMMIT = dict(c2802='17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd', c2751='4cfbb0cc8314d7fb4e8e754545a49a42eb590a69',
-              c2818='175822aee7a1858ec653f7f92d7a750aec2c2795')
+              c2818='175822aee7a1858ec653f7f92d7a750aec2c2795', c2766='e6df920cd0110e4b629e2ad84eddcb539001e174')
 D02 = 'research/t74-joint-twelve-retired7/'
 D51 = 'research/t74-joint-twelve/'
 D18 = 'research/gmx-t74-borrow43-handoff/'
+D66 = 'research/complex-routing-leaf-fusion/'
 # key -> (commit key, path, sha256 of the blob bytes)
 PINS = {
     'W_base': ('c2802', D02 + 'inputs/WORD-base.json.gz', 'dca8becca633ffc5e998985631bcbcab1123b27ca7f10ac6a96b1ec21ce69a66'),
@@ -68,6 +72,12 @@ PINS = {
     'X_PROV': ('c2818', D18 + 'new/BORROW-PROVIDERS.json', '391075b1411a3976850c633f92f58c35ed3f046f09d55bd435d7545124543fd4'),
     'X_R7_base': ('c2818', D18 + 'new/borrow/inputs/retired7_43base.json', '74daf5826d9191be4613a61447f4dc12789190fb49a3219f6a9df63075cac1e1'),
     'X_R7_extra': ('c2818', D18 + 'new/borrow/inputs/retired7_43extra.json', '25d9774b512da78f042287ce1de91c79c8658d06488b8fe94e548cbdd036f034'),
+    # attribution inputs: PR #2766's own words and claim; #2802's recorded retired5 endpoint, fill hash and local profile
+    'W66_base': ('c2766', D66 + 'inputs/WORD-base.json.gz', '80e309cc16d0a86a0854d32f4f43e0d856768ea3cf5b6437061b427997ae4790'),
+    'W66_extra': ('c2766', D66 + 'inputs/WORD-extra.json.gz', '88e55acb7e274c62fbb0deab7f420d85fde3c2a471735222f0b5d039bc34e2e6'),
+    'K2766_own': ('c2766', D66 + 'CLAIM.json', '399e20ffb8bac62363f7d48c59021d5afef5f62bb6c51986ca847b02ec1e73a8'),
+    'R5_ADMISSION': ('c2802', D02 + 'evidence/retired5/ADMISSION-RESULT.json', 'e441d6bfef1554491087a5b4701a8b23b331af3b57f77a38f3de4a47d940a6bf'),
+    'R5_HOOK': ('c2802', D02 + 'evidence/retired5/HOOK-RESULT.json', '76b67d54df3a6da3bb7f6fe3402f11d2926cb48353bf068dc34eeb560784771a'),
 }
 STAGES = ('refit5', 'alias5', 'refit5c', 'refit7', 'hostmove2', 'alias7', 'refit7c')
 STAGE_SHA = {
@@ -100,6 +110,8 @@ CLAIMED = dict(
     margin_2766='538010651632355557/1000000000000000000000000',
     margin_2751='326698885104162859/500000000000000000000000',
 )
+# canonical-JSON sha256 of the reconstructed retired5 fill (recorded when its gzip bytes matched #2802's fill_sha256)
+RETIRED5_FILL_JSON_SHA = 'ef4bd5d44e707b4a26391328e784aec6763a7684c7c15720c6a5e9f743fb498b'
 V, H = 112, 9
 NSPACE = 2 * V + 480
 FULL_GENS = tuple(1 << i for i in range(H))
@@ -131,7 +143,7 @@ def read_blob(repo, commit, path):
 
 
 CANON = 'https://github.com/CrocSwap/integer-mult-bounds.git'
-PULLS = dict(c2802=2802, c2751=2751, c2818=2818)
+PULLS = dict(c2802=2802, c2751=2751, c2818=2818, c2766=2766)
 
 
 def fetch_missing(repo):
@@ -972,14 +984,20 @@ def stage_records(P, W, decl, fr_changes):
     need(len(decl['alias5']['declared_gate_edit']) == 70 and len(decl['hostmove2']['declared_gate_edit']) == 28 and
          len(decl['alias7']['declared_gate_edit']) == 28, 'declared gate edit counts')
     ins = Counter()
+    per_stage = {}
     dels, adds = {}, {}
     for st in ('alias5', 'hostmove2', 'alias7'):
+        k_st = Counter()
         for kind, i, g in decl[st]['declared_gate_edit']:
             ins[kind] += 1
+            k_st[kind] += 1
             d = dels if kind == 'delete' else adds
             need(i not in d, 'B%d edited by two stages' % i)
             d[i] = g
+        need(k_st['delete'] == k_st['insert'], 'stage %s: deletes and inserts do not pair up' % st)
+        per_stage[st] = k_st['delete']
     rep['declared_gate_edits'] = dict(ins)
+    rep['declared_edit_pairs_per_stage'] = per_stage
     # the declared edits are exactly the relabelled positions: deletes = parent gates, inserts = final gates
     moved = sorted(i for i in range(len(P['B'])) if P['B'][i][:-1] != W['B'][i][:-1])
     need(sorted(dels) == sorted(adds) == moved, 'declared gate-edit positions differ from the relabelled positions')
@@ -987,6 +1005,11 @@ def stage_records(P, W, decl, fr_changes):
     rep['relabelled_positions'] = len(moved)
     rep['refit_frames'] = {st: len(decl[st]['frames']) for st in ('refit5', 'refit5c', 'refit7', 'refit7c')}
     rep['refit7_prev'] = decl['refit7']['previous_frames']
+    rep['refit7_dims'] = [[sec, i, dim(sub(F0)), dim(sub(W[sec][i][-1]))] for sec, i, F0 in decl['refit7']['previous_frames']]
+    # refit7c records no previous frames; no earlier stage touches its gates, so the previous frame is the parent's
+    earlier = {(sec, i) for st in ('refit5', 'refit5c', 'refit7') for sec, i, _ in decl[st]['frames']}
+    need(not any((sec, i) in earlier for sec, i, _ in decl['refit7c']['frames']), 'refit7c gate also refitted earlier')
+    rep['refit7c_dims'] = [[sec, i, dim(sub(P[sec][i][-1])), dim(sub(W[sec][i][-1]))] for sec, i, _ in decl['refit7c']['frames']]
     return rep
 
 
@@ -1012,6 +1035,34 @@ def refit_exactness(W, live, decl):
         need(floor <= Fs, 'refit %s %s%d below the propagated floor' % (st, sec, i))
         out.append(dict(stage=st, gate='%s%d' % (sec, i), dim=dim(Fs), floor_dim=dim(floor), exact_floor=(Fs == floor)))
     return out
+
+
+def above_floor_neutral(W, live, decl):
+    """the declared refit frames above their propagated floor: lowering each one alone, and all of them together, to the
+    floor keeps the frame chain legal (monotone climbs; every warp's U equals the propagated frame) and leaves the local
+    profile unchanged, so these frames carry no cost"""
+    ev = program(W)
+    rec = {}
+    base = dict(frames(W, live, ev, record=rec)[0])
+    need(base == CLAIMED['local_profile'], 'final profile')
+    above = {}
+    for st in ('refit5', 'refit5c', 'refit7', 'refit7c'):
+        for sec, i, F in decl[st]['frames']:
+            floor = sub([x for s_ in rec[(sec, i)].values() for x in s_])
+            if sub(W[sec][i][-1]) != floor:
+                above[(sec, i)] = floor
+    keys = sorted(above, key=lambda k: (SR[k[0]], k[1]))
+    variants = [[k] for k in keys] + [keys]
+    for sel in variants:
+        w = dict(W)
+        for sec in {k[0] for k in sel}:
+            w[sec] = list(W[sec])
+        for sec, i in sel:
+            w[sec][i] = list(W[sec][i][:-1]) + [basis_of(above[(sec, i)])]
+        paid = dict(frames(w, live, program(w))[0])
+        need(paid == base, 'lowering %s to the floor changes the profile to %s' % (sel, dict(sorted(paid.items()))))
+    return dict(above_floor=['%s%d dim %d floor %d' % (sec, i, dim(sub(W[sec][i][-1])), dim(above[(sec, i)])) for sec, i in keys],
+                variants_checked=len(variants), profile_unchanged=True)
 
 
 # ----------------------------------------------------------------------------------------------- stage chain (S1, attribution)
@@ -1177,9 +1228,15 @@ def fill_transform(js, liveP, liveW):
     return dict(dropped_roles=len(js['FILL51']['rows']) - len(js['FILL']['rows']), bins=len(old))
 
 
-# ----------------------------------------------------------------------------------------------- S6 moment root (directed rounding)
+# ----------------------------------------------------------------------------------------------- S6 moment root
+SLACK = Decimal('1e-70')
+
+
 def moment(profile, z, prec, rounding):
-    """sum n_r (r/73)^(1-z) with every operation rounded in one direction (z rational); increasing in z"""
+    """f(z) = sum n_r (r/73)^(1-z) at `prec` significant digits (z rational, all r < 73, so f increases in z).
+    Python's Decimal ln() and exp() are correctly rounded with ROUND_HALF_EVEN whatever the context rounding mode;
+    `rounding` applies only to the divisions, the subtraction, the products and the sums.  The value is therefore an
+    approximation, not a directed bound; root_bracket() turns it into a bound with an explicit error budget."""
     with localcontext() as ctx:
         ctx.prec = prec
         ctx.rounding = rounding
@@ -1193,14 +1250,25 @@ def moment(profile, z, prec, rounding):
 
 
 def root_bracket(profile, total, lo, hi):
-    """certify f(lo) < total < f(hi) with a rigorous error bound: decimal ln/exp are correctly rounded (<= 0.5 ulp);
-    we compute at 80 digits in both rounding directions and widen by an explicit relative slack of 1e-70"""
-    slack = Decimal('1e-70')
+    """certify f(lo) < total < f(hi), hence a root in (lo, hi).
+
+    Error budget at 80 digits, with u = 1e-79 bounding the relative error of one rounded operation in any mode:
+    z: rel. <= u; a = 1 - z: abs. <= 2u (0 < z < 1); q = r/73: rel. <= u; ln q: abs. <= u + |ln q| u <= 5.3u
+    (|ln q| <= ln 73 < 4.3); y = a ln q: abs. <= 5.3u + 4.3 * 2u + 4.3u < 19u; exp(y): rel. <= e^(19u) - 1 + u < 21u;
+    the product with n and at most 8 positive summands add <= 9u.  Hence |computed - f| < 30u f = 3e-78 f, far inside
+    the relative slack 1e-70.  The widening itself is done at 100 digits with directed rounding (1 +- 1e-70 is exact
+    there), so f_lo_upper >= f(lo) and f_hi_lower <= f(hi) rigorously; Decimal comparisons are exact."""
     up = moment(profile, lo, 80, ROUND_CEILING)
     dn = moment(profile, hi, 80, ROUND_FLOOR)
-    f_lo_upper = up * (1 + slack)
-    f_hi_lower = dn * (1 - slack)
-    return f_lo_upper < total < f_hi_lower, (str(up)[:40], str(dn)[:40])
+    with localcontext() as ctx:
+        ctx.prec = 100
+        ctx.rounding = ROUND_CEILING
+        f_lo_upper = up * (Decimal(1) + SLACK)
+        ctx.rounding = ROUND_FLOOR
+        f_hi_lower = dn * (Decimal(1) - SLACK)
+        ok = f_lo_upper < total < f_hi_lower
+        margins = ('%.4e' % (total - f_lo_upper), '%.4e' % (f_hi_lower - total))
+    return ok, (str(up)[:40], str(dn)[:40], margins)
 
 
 def dec(q, digits):
@@ -1269,10 +1337,13 @@ def run_all(js, quick=False, log=print, skip=()):
             profiles[tag] = dict(paid)
             need([widths[tag][r] for r in live[tag]] == prov['widths'], 'provider widths differ from word-derived widths')
             news = {op: dict(U_dim=dim(ws[op]['U']), U_is_propagated=ws[op]['cur_before'] == ws[op]['U']) for op in (30, 31) + tuple(range(66, 73))}
+            # frames() runs warp_algebra and the propagated-frame equality on every prelude warp item as well
+            npw = sum(1 for e in W['A'][:W['prelude_events']] if e[0] == 'warp')
             return dict(profile=dict(sorted(paid.items())), mass=sum(k * v for k, v in paid.items()), inventory=dict(sorted(inv.items())),
-                        helpers=len(live[tag]), warps_checked=len(ws), new_or_moved=news)
+                        helpers=len(live[tag]), warps_checked=len(ws), prelude_warp_items_checked=npw, new_or_moved=news)
         rule('S3S4-FRAMES-PROFILE-%s' % tag, s3s4)
         rule('S3-REFIT-EXACT-%s' % tag, lambda: refit_exactness(W, set(liveW), decl))
+        rule('S3-ABOVE-FLOOR-NEUTRAL-%s' % tag, lambda: above_floor_neutral(W, set(liveW), decl))
 
         def s4b():
             prof, inv = frames_rref(W, sorted(liveW))
@@ -1366,16 +1437,20 @@ def run_all(js, quick=False, log=print, skip=()):
     rule('S6-PROFILE-MASS-ROOT', s6)
 
     def attribution():
-        """retired5 (unpublished) reconstructed: the refit5c state of both words and PR2751's fill minus the five
-        retired5 followers, re-tiled in old in-bin order; its complete profile brackets the claimed retired5 root"""
+        """retired5 (its words and fill are not published; #2802 records its endpoint, fill hash and local profile in
+        evidence/retired5/) reconstructed independently: the refit5c state of both words, and PR2751's fill minus the five
+        retired5 followers, re-tiled in old in-bin order.  Its complete profile must bracket the recorded retired5 root,
+        and the reconstruction must equal #2802's recorded retired5 fill (hash) and local profile."""
         need('base' in r5 and 'extra' in r5, 'retired5 states unavailable (stage chain failed)')
         C5 = Fraction('0.001717409316335491643448')
         need(Fraction(js['CLAIM']['local_predecessor']['exact_kappa']) == C5 - Fraction(1, 10 ** 46) - Fraction(1, 10 ** 70), 'retired5 claim')
+        need(Fraction(js['R5_ADMISSION']['complex_lower']) == C5, 'recorded retired5 endpoint')
         prof5, live5, wid5 = {}, {}, {}
         for tag in ('base', 'extra'):
             w5 = r5[tag]
             l5 = [r for r in range(NSPACE) if r not in set(w5['removed'])]
             prof5[tag] = dict(frames(w5, set(l5), program(w5))[0])
+            need(prof5[tag] == {int(k): v for k, v in js['R5_HOOK']['words'][tag]['local_profile'].items()}, 'recorded retired5 local profile (%s)' % tag)
             live5[tag] = [r for r in l5 if r >= 2 * V]
             wid5[tag] = static_widths(w5, live5[tag])
         gone = set(live['P_base']) - set(live5['base'])
@@ -1394,40 +1469,82 @@ def run_all(js, quick=False, log=print, skip=()):
             for off, t, h in sorted(lst):
                 rows.append([t, h, o, c, p, pos])
                 pos += wid5['base' if disp[tuple(order[t])] == 'gauge44' else 'extra'][live5['base'][h]]
+        rows.sort(key=lambda x: (x[0], x[1]))
         js5 = dict(js)
         js5['FILL5'] = dict(js['FILL51'], rows=rows)
         fill = s5_fill(js5, None, live5, wid5, fill_key='FILL5')
+        # #2802 hashes the gzip bytes of its fills; the serializer below reproduces its pinned FILL.json.gz bytes exactly
+        # (checked first).  The canonical-JSON hash of the reconstruction is pinned too, for zlib builds whose deflate
+        # output differs (then the gzip comparison is reported as not applicable).
+        ser = lambda d: json.dumps(d, sort_keys=True, separators=(',', ':')).encode()
+        gz = lambda d: gzip.compress(ser(d), compresslevel=9, mtime=0)
+        serializer_ok = hashlib.sha256(gz(js['FILL'])).hexdigest() == PINS['FILL'][2]
+        json_sha = hashlib.sha256(ser(js5['FILL5'])).hexdigest()
+        need(json_sha == RETIRED5_FILL_JSON_SHA, 'reconstructed retired5 fill JSON %s' % json_sha)
+        if serializer_ok:
+            need(hashlib.sha256(gz(js5['FILL5'])).hexdigest() == js['R5_ADMISSION']['fill_sha256'], "reconstructed retired5 fill differs from #2802's recorded fill_sha256")
         prof = Counter({int(k): v for k, v in fill['idle'].items()})
         for pid, n in fill['dispatch'].items():
             for k, v in prof5['base' if pid == 'gauge44' else 'extra'].items():
                 prof[k] += n * v
         ok, vals = root_bracket(dict(prof), Decimal(66304), C5, C5 + Fraction(1, 10 ** 24))
         need(ok, 'retired5 root not in [C5, C5+1e-24]')
+        ok2, _ = root_bracket(dict(prof), Decimal(66304), C5 + Fraction(1, 10 ** 24), C5 + Fraction(2, 10 ** 24))
+        need(not ok2, 'retired5 bracket test vacuous')
         C = Fraction(CLAIMED['C'])
         C66 = Fraction(js['K2766']['complex_lower'])
         return dict(retired5_profile=prof5['base'], retired5_idle=fill['idle'], retired5_complete=dict(sorted(prof.items())),
-                    retired5_root_in=[str(C5), str(C5 + Fraction(1, 10 ** 24))],
-                    gain_retired5_over_2766=dec(C5 - C66, 30), gain_retired7_over_retired5=str(C - C5))
+                    retired5_root_in=[str(C5), str(C5 + Fraction(1, 10 ** 24))], root_margins=vals[2],
+                    recorded_endpoint_profile_equal=True,
+                    fill_gzip_sha256_equals_recorded=(True if serializer_ok else 'not applicable: this zlib does not reproduce the pinned FILL bytes'),
+                    fill_json_sha256=json_sha,
+                    gain_retired5_over_2766=dec(C5 - C66, 30), gain_retired7_stages_over_retired5=str(C - C5))
     rule('ATTRIBUTION-RETIRED5', attribution)
 
     def attribution_2766():
-        """the 20 refit5c frames #2802 credits to PR2766 (A0-A11, B771/773/776/778/783/788, B1151, restore60), applied
-        alone to W2751, give PR2766's per-call profile change (H1 -2, H2 +1) and its claimed complete profile"""
-        credited = [('A', i) for i in range(12)] + [('B', i) for i in (771, 773, 776, 778, 783, 788, 1151)] + [('restore', 60)]
+        """PR #2766's own pinned words differ from W2751 only in the frame of B1151, which equals #2802's refit5c frame there;
+        their recount equals PR #2766's reported local profile, and with PR #2751's fill they give PR #2766's claimed complete
+        profile and root.  The other 19 refit5c frames that #2802's README lists with PR #2766's refit (A0-A11,
+        B771/773/776/778/783/788, restore60) are not in PR #2766's word.  They are cost-neutral: applied alone to W2751, or
+        reverted to W2751's frames in the final word, the frame chain stays legal and the local profile is unchanged."""
+        need(js['K2766_own'] == js['K2766'], "#2802's copy of PR2766's claim differs from PR2766's own")
+        b1151 = ('B', 1151)
+        others = [('A', i) for i in range(12)] + [('B', i) for i in (771, 773, 776, 778, 783, 788)] + [('restore', 60)]
         out = {}
         profs = {}
         for tag in ('base', 'extra'):
-            P = js['P_' + tag]
+            P, W, W66 = js['P_' + tag], js['W_' + tag], js['W66_' + tag]
+            need(set(W66) == set(P), 'PR2766 word keys')
+            diff_fields = sorted(k for k in P if P[k] != W66[k])
+            need(diff_fields == ['B', 'report'], 'PR2766 word differs from W2751 in %s' % diff_fields)
+            need(len(P['B']) == len(W66['B']), 'PR2766 B length')
+            fdiff = [i for i, (a, b) in enumerate(zip(P['B'], W66['B'])) if a != b]
+            need(fdiff == [1151] and P['B'][1151][:-1] == W66['B'][1151][:-1], 'PR2766 word changes B gates %s' % fdiff[:5])
+            need({k: v for k, v in P['report'].items() if k != 'local_profile'} == {k: v for k, v in W66['report'].items() if k != 'local_profile'},
+                 'PR2766 report differs beyond local_profile')
             frm = {(sec, i): F for sec, i, F in js['ST_refit5c_' + tag]['frames']}
-            need(all(k in frm for k in credited), 'credited frames not all in refit5c')
-            st = apply_stage(P, 'refit2766', dict(frames=[[k[0], k[1], frm[k]] for k in credited], local_profile=P['report']['local_profile']))
-            l = [r for r in range(NSPACE) if r not in set(st['removed'])]
-            paid = dict(frames(st, set(l), program(st))[0])
+            need(all(k in frm for k in others + [b1151]), 'credited frames not all in refit5c')
+            need(sub(frm[b1151]) == sub(W66['B'][1151][-1]), "#2802's B1151 frame differs from PR2766's")
+            l66 = [r for r in range(NSPACE) if r not in set(W66['removed'])]
+            paid66 = dict(frames(W66, set(l66), program(W66))[0])
+            need(paid66 == {int(k): v for k, v in W66['report']['local_profile'].items()}, 'PR2766 word profile differs from its report')
             base = {int(k): v for k, v in P['report']['local_profile'].items()}
-            delta = {k: paid.get(k, 0) - base.get(k, 0) for k in set(paid) | set(base) if paid.get(k, 0) != base.get(k, 0)}
-            need(delta == {1: -2, 2: 1}, 'credited frames give delta %s' % delta)
-            profs[tag] = paid
-            out[tag] = dict(profile=dict(sorted(paid.items())), delta=dict(sorted(delta.items())))
+            delta = {k: paid66.get(k, 0) - base.get(k, 0) for k in set(paid66) | set(base) if paid66.get(k, 0) != base.get(k, 0)}
+            need(delta == {1: -2, 2: 1}, 'PR2766 delta %s' % delta)
+
+            def prof_of(w):
+                lw = [r for r in range(NSPACE) if r not in set(w['removed'])]
+                return dict(frames(w, set(lw), program(w))[0])
+            on_parent = apply_stage(P, 'refit-others', dict(frames=[[k[0], k[1], frm[k]] for k in others], local_profile=P['report']['local_profile']))
+            need(prof_of(on_parent) == base, 'the 19 frames change the W2751 profile')
+            all20 = apply_stage(P, 'refit-all20', dict(frames=[[k[0], k[1], frm[k]] for k in others + [b1151]], local_profile=P['report']['local_profile']))
+            need(prof_of(all20) == paid66, 'the 20 frames together differ from PR2766 alone')
+            reverted = apply_stage(W, 'refit-revert', dict(frames=[[k[0], k[1], P[k[0]][k[1]][-1]] for k in others], local_profile=W['report']['local_profile']))
+            need(prof_of(reverted) == CLAIMED['local_profile'], 'reverting the 19 frames changes the final profile')
+            profs[tag] = paid66
+            out[tag] = dict(pr2766_word_change='B1151 dim %d -> %d' % (dim(sub(P['B'][1151][-1])), dim(sub(W66['B'][1151][-1]))),
+                            pr2766_local_profile=dict(sorted(paid66.items())), delta=dict(sorted(delta.items())),
+                            other_19_frames='cost-neutral on W2751 and on the final word')
         fill = s5_fill(js, None, {'base': live['P_base'], 'extra': live['P_extra']},
                        {'base': widths['P_base'], 'extra': widths['P_extra']}, fill_key='FILL51')
         prof = Counter({int(k): v for k, v in fill['idle'].items()})
@@ -1438,11 +1555,12 @@ def run_all(js, quick=False, log=print, skip=()):
         need(dict(prof) == claimed, 'PR2766 complete profile %s' % dict(sorted(prof.items())))
         out['complete_profile_equals_PR2766_claim'] = True
         C66 = Fraction(js['K2766']['complex_lower'])
-        ok, _ = root_bracket(dict(prof), Decimal(66304), C66, C66 + Fraction(1, 10 ** 24))
+        ok, vals = root_bracket(dict(prof), Decimal(66304), C66, C66 + Fraction(1, 10 ** 24))
         need(ok, 'PR2766 root not in [C, C+1e-24]')
         out['PR2766_root_in'] = [str(C66), str(C66 + Fraction(1, 10 ** 24))]
+        out['root_margins'] = vals[2]
         return out
-    rule('ATTRIBUTION-PR2766-FRAMES', attribution_2766)
+    rule('ATTRIBUTION-PR2766-WORD', attribution_2766)
 
     def x2818():
         need(js['X_W_base'] == js['W_base'] and js['X_W_extra'] == js['W_extra'], 'words differ')

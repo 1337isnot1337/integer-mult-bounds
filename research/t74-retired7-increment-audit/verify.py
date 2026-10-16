@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Entry point: independent audit of the PR #2802 increment over PR #2751 (T74 retired7), verdict extended to PR #2818.
+"""Entry point: independent audit of PR #2802's seven-stage increment over PR #2751 (retired5 + retired7 stages),
+verdict extended to PR #2818.
 
-Runs every named rule of increment_audit.py on the pinned inputs, then the 15 negative controls of
-increment_controls.py (each must be rejected by its named rule).  Inputs are git blobs at the pinned PR heads,
-checked against sha256 pins; --fetch downloads refs/pull/<n>/head only for absent commits (FETCH_HEAD only).
+Runs the 28 named rules of increment_audit.py on the pinned inputs, then the 19 negative controls of
+increment_controls.py (each must be rejected by its named rule, and some must also be accepted by named rules).
+Inputs are git blobs at the pinned PR heads, checked against sha256 pins; --fetch downloads refs/pull/<n>/head only
+for absent commits (FETCH_HEAD only).  An unreadable or mismatching input prints a FAIL line (exit 1).
 
 Usage (repository root):  python3 -I -B research/t74-retired7-increment-audit/verify.py --fetch [--out RECEIPT.json]
-Final line: PASS_T74_RETIRED7_INCREMENT_AUDIT rules=26/26 controls=15/15 ... or FAIL_T74_RETIRED7_INCREMENT_AUDIT ...
+Final line: PASS_T74_RETIRED7_INCREMENT_AUDIT rules=28/28 controls=19/19 ... or FAIL_T74_RETIRED7_INCREMENT_AUDIT ...
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
 """
@@ -33,19 +35,24 @@ def main():
     t0 = time.monotonic()
     if a.fetch and not a.blob_dir:
         A.fetch_missing(a.repo)
-    js = A.load_all(a.repo, a.blob_dir)
+    try:
+        js = A.load_all(a.repo, a.blob_dir)
+    except (A.Fail, OSError, ValueError) as e:
+        print('FAIL_T74_RETIRED7_INCREMENT_AUDIT inputs: %s' % e)
+        return 1
     res = A.run_all(js)
     ok_c, ctl = K.run(js)
     n_rules = len(res['rules'])
     n_pass = sum(1 for v in res['rules'].values() if v['ok'])
-    n_ctl = sum(1 for v in ctl.values() if v['rejected_by_expected_rule'])
+    n_ctl = sum(1 for v in ctl.values() if v['control_ok'])
     receipt = dict(
         status='PASS' if (res['ok'] and ok_c) else 'FAIL',
         commits=A.COMMIT, pins={k: dict(commit=A.COMMIT[v[0]], path=v[1], sha256=v[2]) for k, v in sorted(A.PINS.items())},
         claims_under_test=A.CLAIMED, rules=res['rules'], controls=ctl,
-        scope=('Finite exact checks of the PR #2802 increment (stages refit5/alias5/refit5c/refit7/hostmove2/alias7/refit7c) '
-               'over the pinned PR #2751 words: event diff, per-register occupancy, warps/frames/profile, free-algebra and '
-               'matrix replays, the 271728-role fill with word-derived R, complete profile/mass/root, and PR #2818 identity. '
+        scope=('Finite exact checks of the PR #2802 seven-stage increment (retired5 stages refit5/alias5/refit5c, retired7 '
+               'stages refit7/hostmove2/alias7/refit7c) over the pinned PR #2751 words: event diff, per-register occupancy, '
+               'warps/frames/profile, free-algebra and matrix replays, the 271728-role fill with word-derived R, complete '
+               'profile/mass/root, PR #2818 identity, and attribution against PR #2766 and the recorded retired5 step. '
                'Inherited T74/#1319 admission, native lowering, outer proof and PR #2751 recovery are not checked.'))
     if a.out:
         with open(a.out, 'w') as fh:

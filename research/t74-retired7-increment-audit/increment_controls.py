@@ -2,8 +2,12 @@
 """Negative controls for increment_audit.py: each mutant of the pinned inputs must be rejected by its named rule.
 
 Word mutants carry an inverse-reverse cleanup re-derived from their own forward program, so a stale cleanup is never
-the reason for a rejection.  Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic,
-Claude Opus 5.5). Apache-2.0.
+the reason for a rejection.  Some controls also state which rules must ACCEPT the mutant ('must_accept') or the exact
+set of rules that reject it ('exact_failing').  These expectations make the occupancy observations machine-checked: a
+lender write moved past its alias warp is invisible to both scalar replays, and at frame FULL also to the frame chain,
+the recount, the fill and the price.  A control counts only if every expectation holds and no rule crashed.
+
+Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
 """
 import copy
 import json
@@ -14,9 +18,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import increment_audit as A  # noqa: E402
 
 FULLL = [256, 128, 64, 32, 16, 8, 4, 2, 1]
-# rules re-run on every mutant: all except the parent positive control and the stage-chain/attribution rules, which
-# rebuild or reprice unmutated parents (they are run once on the pinned inputs by verify.py)
-SKIP = ('POSITIVE-PARENT', 'S1-STAGE-CHAIN', 'ATTRIBUTION')
+# rules re-run on every mutant: all except the parent positive control, the stage-chain and attribution rules and the
+# above-floor neutrality rule, which rebuild, reprice or vary unmutated inputs (they run once on the pinned inputs)
+SKIP = ('POSITIVE-PARENT', 'S1-STAGE-CHAIN', 'ATTRIBUTION', 'S3-ABOVE-FLOOR')
+REPLAYS = ('S2-REPLAY-FREE-%s', 'S2-REPLAY-MATRIX-%s')
+# every per-word rule on the pricing path: replays, frame chain, second recount, refits, stage records
+PRICED = REPLAYS + ('S3S4-FRAMES-PROFILE-%s', 'S4-FRAMES-RREF-%s', 'S3-REFIT-EXACT-%s', 'S1-STAGE-RECORDS-%s')
+# and the global ones: fill with word-derived R, fill transform, complete profile, mass and root
+PRICED_GLOBAL = ('S5-FILL-WORD-DERIVED-R', 'S5-FILL-TRANSFORM', 'S6-PROFILE-MASS-ROOT')
 
 
 def rederive(w):
@@ -38,18 +47,28 @@ def relabel_B(w, start, a, b, stop=None):
             e[1] = b
 
 
+def last_A(w, r, role):
+    """index of register r's last A event in role 'write' (r is the written register) or 'read' (r is an add's source)"""
+    def ok(e):
+        if e[0] == 'warp':
+            return False
+        if role == 'write':
+            return e[1] == r
+        return e[0] == 'add' and e[2] == r
+    return max(i for i, e in enumerate(w['A']) if ok(e))
+
+
 def mutants(js):
-    W = js['W_base']
     st = {s: js['ST_%s_base' % s] for s in A.STAGES}
     out = []
 
-    def word(name, expect, f):
-        w = copy.deepcopy(W)
+    def word(name, expect, f, tag='base', must_accept=(), exact_failing=None):
+        w = copy.deepcopy(js['W_' + tag])
         f(w)
         rederive(w)
         m = dict(js)
-        m['W_base'] = w
-        out.append((name, expect, m))
+        m['W_' + tag] = w
+        out.append((name, expect, m, dict(must_accept=list(must_accept), exact_failing=exact_failing)))
 
     # C1 refit7 undone (B911 back to its previous dim-6 frame)
     prev = {(s, i): F for s, i, F in st['refit7']['previous_frames']}
@@ -65,21 +84,38 @@ def mutants(js):
     # C3 early alias warp for a B-retired lender: warp 66 (606<-550) placed before 550's last gate B901
     word('C3 alias warp 66 moved before lender 550 last gate (B901)', 'OCC-TIMELINE-base', lambda w: w['warps'][65].__setitem__(0, 901))
 
-    # C4 A-retired lender: 401's last A event moved after its alias warp (inserted at B259, after warp 71)
-    def c4(w):
-        j = max(i for i, e in enumerate(w['A']) if 401 in A.item_regs(e if e[0] != 'warp' else ('warp', e[1], e[2])))
-        g = w['A'].pop(j)
-        w['B'].insert(259, g)
-        for rec in w['warps']:
-            if rec[0] > 259:
-                rec[0] += 1
-    word('C4a A-retired lender 401: last A event moved into B right after alias warp 71', 'S3S4-FRAMES-PROFILE-base', c4)
+    # C4a-C4f: an A-retired lender's last A event moved past its alias warp.  Lender 401 (alias warp 71 at B259) on the
+    # base word; lender 403 (alias warp 72 at B262) on the extra word.
+    def into_B(r, pos):
+        def f(w):
+            g = w['A'].pop(last_A(w, r, 'write'))
+            w['B'].insert(pos, g)
+            for rec in w['warps']:
+                if rec[0] > pos:
+                    rec[0] += 1
+        return f
 
-    # C4b the same lender event moved to the end of restore (no B position shifts)
-    def c4b(w):
-        j = max(i for i, e in enumerate(w['A']) if 401 in A.item_regs(e))
-        w['restore'].append(w['A'].pop(j))
-    word('C4b A-retired lender 401: last A event moved after alias warp 71 (end of restore)', 'OCC-TIMELINE-base', c4b)
+    def to_restore(r, role, full):
+        def f(w):
+            g = w['A'].pop(last_A(w, r, role))
+            if full:
+                g = list(g[:-1]) + [FULLL]
+            w['restore'].append(g)
+        return f
+    word('C4a lender 401: last A write (A3175) moved into B right after alias warp 71, own frame', 'S3S4-FRAMES-PROFILE-base',
+         into_B(401, 259), must_accept=[x % 'base' for x in REPLAYS])
+    word('C4b lender 401: last A write moved to the end of restore, own frame', 'OCC-TIMELINE-base',
+         to_restore(401, 'write', False), must_accept=[x % 'base' for x in REPLAYS])
+    word('C4c lender 403 (extra word): last A write (A3174) moved into B right after alias warp 72, own frame',
+         'S3S4-FRAMES-PROFILE-extra', into_B(403, 262), tag='extra', must_accept=[x % 'extra' for x in REPLAYS])
+    word('C4d lender 401: last A write moved to the end of restore at frame FULL', 'OCC-TIMELINE-base',
+         to_restore(401, 'write', True), must_accept=[x % 'base' for x in PRICED] + list(PRICED_GLOBAL),
+         exact_failing=['OCC-TIMELINE-base', 'S1-DIFF-base', 'X-2818-SAME-CONSTRUCTION'])
+    word('C4e lender 403 (extra word): last A write moved to the end of restore at frame FULL', 'OCC-TIMELINE-extra',
+         to_restore(403, 'write', True), tag='extra', must_accept=[x % 'extra' for x in PRICED] + list(PRICED_GLOBAL),
+         exact_failing=['OCC-TIMELINE-extra', 'S1-DIFF-extra', 'X-2818-SAME-CONSTRUCTION'])
+    word('C4f lender 401: last A read (an add with source 401) moved to the end of restore at frame FULL', 'S2-REPLAY-FREE-base',
+         to_restore(401, 'read', True))
 
     # C5 alias warp after the follower's first gate (the replacement control of #2802), A-retired lender 401
     word('C5 alias warp 71 after follower 667 first gate (B260)', 'OCC-TIMELINE-base', lambda w: w['warps'][70].__setitem__(0, 260))
@@ -99,19 +135,17 @@ def mutants(js):
     word("C7 warp 71 with G(U')=E' for a U' that is not 401's propagated frame", 'S3S4-FRAMES-PROFILE-base', c7)
 
     # C8 keep removed follower 667 (both words): the word-derived R becomes 409 while the providers still say 408
-    def c8(js2):
-        for tag in ('base', 'extra'):
-            w = copy.deepcopy(js2['W_' + tag])
-            w['removed'] = [h for h in w['removed'] if h != 667]
-            js2['W_' + tag] = rederive(w)
     m = dict(js)
-    c8(m)
-    out.append(('C8 removed follower 667 kept as a live helper (R self-reference)', 'S5-FILL-WORD-DERIVED-R', m))
+    for tag in ('base', 'extra'):
+        w = copy.deepcopy(js['W_' + tag])
+        w['removed'] = [h for h in w['removed'] if h != 667]
+        m['W_' + tag] = rederive(w)
+    out.append(('C8 removed follower 667 kept as a live helper (R self-reference)', 'S5-FILL-WORD-DERIVED-R', m, {}))
 
-    # C9 swap the two alias lenders of warps 71/72
+    # C9 swap the two alias lenders of warps 71/72 (declaration conformance: each alias warp sits on its declared lender)
     def c9(w):
         w['warps'][70][1], w['warps'][71][1] = w['warps'][71][1], w['warps'][70][1]
-    word('C9 alias lenders of warps 71/72 swapped', 'OCC-TIMELINE-base', c9)
+    word('C9 alias lenders of warps 71/72 swapped (declaration conformance)', 'OCC-TIMELINE-base', c9)
 
     # C10 drop one restore read
     word('C10 first restore gate dropped', 'S2-REPLAY-FREE-base', lambda w: w['restore'].pop(0))
@@ -122,7 +156,7 @@ def mutants(js):
     extra = [[t, 408, o, c, p, off] for (t, h, o, c, p, off) in f['rows'] if h == 407]
     f['rows'] = f['rows'] + extra
     m['FILL'] = f
-    out.append(('C11 fill inflated to R+1 helper indices', 'S5-FILL-WORD-DERIVED-R', m))
+    out.append(('C11 fill inflated to R+1 helper indices', 'S5-FILL-WORD-DERIVED-R', m, {}))
 
     # C12 one hostee gate left on the old lender 401
     def c12(w):
@@ -142,21 +176,33 @@ def mutants(js):
     x = copy.deepcopy(js['X_W_base'])
     x['B'][0][3] = -x['B'][0][3]
     m['X_W_base'] = x
-    out.append(('C14 #2818 base word differs by one sign', 'X-2818-SAME-CONSTRUCTION', m))
+    out.append(('C14 #2818 base word differs by one sign', 'X-2818-SAME-CONSTRUCTION', m, {}))
     return out
 
 
 def run(js, log=print):
     res = {}
     ok = True
-    for name, expect, m in mutants(js):
+    for name, expect, m, exp in mutants(js):
         r = A.run_all(m, log=lambda s: None, skip=SKIP)
         failing = sorted(k for k, v in r['rules'].items() if not v['ok'])
+        crashed = sorted(k for k, v in r['rules'].items() if not v['ok'] and str(v['info']).startswith('ERROR'))
         good = expect in failing and not str(r['rules'][expect]['info']).startswith('ERROR')
-        ok &= good
-        res[name] = dict(expected_rule=expect, rejected_by_expected_rule=good, failing_rules=failing,
-                         expected_rule_message=r['rules'][expect]['info'] if expect in r['rules'] else None)
-        log('%s %-80s expected %-28s failing=%s' % ('REJECTED' if good else 'NOT-REJECTED', name[:80], expect, ','.join(failing)))
+        acc = list(exp.get('must_accept', ()))
+        acc_ok = all(k in r['rules'] and r['rules'][k]['ok'] for k in acc)
+        exact = exp.get('exact_failing')
+        exact_ok = exact is None or failing == sorted(exact)
+        this = good and acc_ok and exact_ok and not crashed
+        ok &= this
+        entry = dict(expected_rule=expect, rejected_by_expected_rule=good, failing_rules=failing,
+                     expected_rule_message=r['rules'][expect]['info'] if expect in r['rules'] else None,
+                     crashed_rules=crashed, control_ok=this)
+        if acc:
+            entry.update(must_accept=acc, accepted_as_expected=acc_ok)
+        if exact is not None:
+            entry.update(exact_failing=sorted(exact), exact_failing_ok=exact_ok)
+        res[name] = entry
+        log('%s %-80s expected %-28s failing=%s' % ('REJECTED' if this else 'CONTROL-FAILURE', name[:80], expect, ','.join(failing)))
     return ok, res
 
 
