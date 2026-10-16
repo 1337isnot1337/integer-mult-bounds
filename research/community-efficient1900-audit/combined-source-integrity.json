@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "80b9f37f5a75f0f9b076bb10c313679fc040540b",
+  "checked_commit": "d2e741f1d25ca214063cf16e2ef6f87cf7beb216",
   "merged_prs": [
     1007,
     2255,
@@ -22,6 +22,7 @@
     2895,
     2896,
     2897,
+    2899,
     2900,
     2902,
     2903,
@@ -34,12 +35,13 @@
     2911,
     2912,
     2913,
+    2915,
     2916,
     2918,
     2920,
     2921
   ],
-  "changed_files": 504,
+  "changed_files": 549,
   "resolved_files": [
     {
       "number": 2892,
@@ -69,12 +71,12 @@
     {
       "number": 1007,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "ce89fb93f3c43237da28ff37e7e5b496318458e9976e87aa1662c08f0db88c01"
+      "sha256": "98ff2216d2c1b41dbc4d2bad63579465cd2dd67fdf462688cd1736f57de54e28"
     },
     {
       "number": 1007,
       "path": "docs/research/pr-ledger.md",
-      "sha256": "203fba9f61270930eabf78af35640b5082e5e80c434c81cd57b355bc21fa0130"
+      "sha256": "1ab17710fee570730021adc31ff4b26ff408e887a097f9ed2236dc9dd44127f2"
     },
     {
       "number": 1007,
@@ -85,6 +87,11 @@
       "number": 2255,
       "path": "research/live-pin-drift-audit-seed5985/verify.py",
       "sha256": "bd9080672b4463a719e4730af5d2f3d0bee4b675a7e826c79ed4fda6872c47a9"
+    },
+    {
+      "number": 2915,
+      "path": "research/selected-bit-fast-primitives/check_catalogue.py",
+      "sha256": "f7cc1c7907fd1877e310ba41904110a40e52f091ad38442ab2398c798afd3644"
     },
     {
       "number": 2906,
