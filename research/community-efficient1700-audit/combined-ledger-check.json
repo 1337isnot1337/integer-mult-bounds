@@ -2,6 +2,6 @@
   "status": "PASS",
   "records": 2356,
   "verifier_sha256": "4210e5ba83448fcaaae0e37269ca2ac6ceaf3c8a7b84ce426a7a20248d296f82",
-  "ledger_sha256": "45cb21262281083ea2de16f92b2f9003ca3f55b3cd7e07b8ee6252a7f832b09e",
+  "ledger_sha256": "963c00e5d92591eece3ac4da14869df0c3a3d3ebe7d639c1ebca63367653b224",
   "scope": "Execute unchanged ledger-validation prefix: immutable starting inventory, complete family decisions, exact head/attribution/disposition/remaining-question checks and every ledger source hash. Historical archived-package replays after this boundary are outside this incremental check."
 }

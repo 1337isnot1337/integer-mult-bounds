@@ -2210,20 +2210,24 @@
       },
       "reviewed_head": "9fdbd4b0429dbfcb4569f7768b66d318deacab6b",
       "current_head": "9fdbd4b0429dbfcb4569f7768b66d318deacab6b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-adapter-numerical-lifecycle"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "fbe205786bcb5d1d7e2e24b4923b5ac94f4940be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2781"
+      },
       "scope": "Complete numerical lifetime of the unchanged selected adapter coefficient entry point. Reviewed all source allocation/cleanup phases, independent integer fixtures, complete census and optimized controls; authenticated seven exports against original author commit. Bounds are 37672 additional residue and 22 index Words above all entry residents; construction and evaluation are composed. Physical backing, whole-node caller inventory and supplier admission remain open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2781.json",
@@ -2246,20 +2250,24 @@
       },
       "reviewed_head": "002a9983079a3244c10221b4e16d0cff7e70da40",
       "current_head": "002a9983079a3244c10221b4e16d0cff7e70da40",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/c5-dyadic-decoder-gate"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "fbe205786bcb5d1d7e2e24b4923b5ac94f4940be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2782"
+      },
       "scope": "Positive half-integral integral-Gram port tariff obstruction for arbitrary supports and term counts, plus complete finite quarter-E8 menu search on 23 physical C5s. Reviewed the sparse-incidence/orthogonal-rank proof, both symmetry reductions, all Python checks and optional C++ engine; quarter/signed-half controls explicitly escape the theorem. Registered replay remains required; optional native corroboration is not claimed freshly run. No all-rational decoder barrier or kappa change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2782.json",
@@ -2315,20 +2323,24 @@
       },
       "reviewed_head": "80df2062cef303c05ffe89bb54b87b6b371d1253",
       "current_head": "80df2062cef303c05ffe89bb54b87b6b371d1253",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-compatible-row-padding"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "fbe205786bcb5d1d7e2e24b4923b5ac94f4940be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2786"
+      },
       "scope": "Compatible fresh-row padding/restriction around a completed row-pointwise caller. Reviewed all new code, binary-counter amortization, exact payload traffic and successful lifetime proof; all 84 archived predecessor files match the author commit and runtime references match main. Complete GL2 model replay remains required; GL64, physical placement, outer borrowing and inherited reserve/caller premises are explicitly separate.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2786.json",
@@ -2581,19 +2593,22 @@
       "current_head": "f9a6245cfdcae0b920fcbc9c79c4fb73a2706605",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/selected-child-numerical-lifecycle"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "All-depth numerical lifetime of the closed delegated child coefficient: 20494 additional residue and 22 index Words above all entry residents, attained separately. Reviewed both live callbacks, extension/evaluation/cleanup proof and all new verifier/tests against original source blobs; independent integer fixtures and rollback precede teardown. Serialized depth, erased backing, caller residents, physical placement and supplier admission remain separate.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2796.json"
+        "research/community-efficient1700-audit/packets/2796.json",
+        "research/community-efficient1700-audit/checks/check-2796.json"
       ]
     },
     {
@@ -2692,20 +2707,24 @@
       },
       "reviewed_head": "3401bcfce70ad5b692cd4d89e92955229f56c819",
       "current_head": "3401bcfce70ad5b692cd4d89e92955229f56c819",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-centre-stream-readouts"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "fbe205786bcb5d1d7e2e24b4923b5ac94f4940be",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2799"
+      },
       "scope": "Independent common-frame scalar projection of the selected centre-error stream: full rank 1152, X rank 1024 and Y rank 1003. Reviewed reverse adjoints, exact rational kernel bases, separate prime-field minors, all 96 small determinant oracles and complete literal hidden-error witnesses. Every source coefficient is compared with the pinned predecessor; archive input matches current main. Native frame/address response rank and a new supplier remain outside scope.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2799.json",
@@ -2731,9 +2750,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Exact surrounding adapter-callback entry inventory in the first selected internal-width range: twelve index Words and no residue Words above all Consumer.apply entry residents. Reviewed source lifetimes through directory, validation, suspended trace and layout extents; all new probes/tests and original blob pins. Composes conditionally with PR2781 to 37672/34. Instrumented payload/coefficient bodies are abstracted; other caller phases, serialized storage and physical admission remain open.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2935,19 +2954,22 @@
       "current_head": "6fbab8c4b95cdf75dfcbb33806c31349408d73a2",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/qq16-finite-dyadic-format"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Finite dyadic register format for the fixed direct rounded QQ16 decoder: Qmax=Q0+3k+6 and W=Qmax+E+20. Reviewed every grid transition, exact affine envelope, signed nearest-even pair arithmetic and unlimited-reference overflow proof, plus all checker/control code. Inherits the named native/error lemmas; small complete-word fixtures use substitute isometries and do not certify actual native semantics. Direct loops, physical routing and recursive admission remain unpriced.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2807.json"
+        "research/community-efficient1700-audit/packets/2807.json",
+        "research/community-efficient1700-audit/checks/check-2807.json"
       ]
     },
     {
@@ -3100,19 +3122,22 @@
       "current_head": "02884bd5c8ec2f82c10ad2ff0378921f0a5279b4",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/qq16-oriented-scratch-sweeps"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Parallel QQ16 direction-optimization contribution reaching the same 11740N-2714 tariff as PR2794. Reviewed four-state Bellman recurrence, common N=1 intercept proof, scalar restoration, full literal-address oracle and all 340 short-word controls. Preserve David Sanders credit alongside Nick Petalas and the inherited source lineage. Fixed whole-window model only; full physical caller/native invoice remains open.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2812.json"
+        "research/community-efficient1700-audit/packets/2812.json",
+        "research/community-efficient1700-audit/checks/check-2812.json"
       ]
     },
     {
