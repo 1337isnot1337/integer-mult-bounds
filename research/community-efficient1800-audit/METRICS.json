@@ -1,0 +1,14 @@
+{
+  "selected": 100,
+  "ready": 4,
+  "merged": 0,
+  "remaining": 96,
+  "elapsed_seconds": 376.5,
+  "retained_receipt_process_seconds": 56.8,
+  "successful_receipts": 2,
+  "initial_tooling_budget_seconds": 300,
+  "research_timeout_policy": "Declared per-command limits and sampled 1 GiB process-group memory guard",
+  "primary_check_workers": 1,
+  "token_usage": null,
+  "limits": "Shared execution receipts counted once by log hash. No matched control batch or token telemetry. Supplemental checks and repaired fixtures are separate receipts. Passing a finite replay does not prove the full theorem."
+}
