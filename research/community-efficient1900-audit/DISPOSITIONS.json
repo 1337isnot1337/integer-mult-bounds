@@ -2073,22 +2073,34 @@
       "reviewed_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
       "current_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
       "prior_reviewed_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Separate workflow proposal review: current AGENTS.md/autoresearch.md/package guidance now cover the contribution workflow. Avoid duplicating 20,119 historical files or introducing conflicting entry points.",
-      "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+      "disposition": "superseded",
+      "github_state": "CLOSED",
+      "integration_location": [
+        "research/community-efficient1900-audit/originals/928/auto-research.md",
+        "research/community-efficient1900-audit/originals/928/auto-research/README.md"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "superseded",
+        "reviewed_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
+        "closed_at": "2026-10-16T12:23:01Z",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/928",
+        "reason": "Superseded by canonical AGENTS.md/autoresearch.md/package workflow;20119 duplicate research files not imported. Original two instruction documents and Rohan Arun attribution published before closure.",
+        "retained_at": "330fa9a77"
+      },
+      "scope": "Superseded by canonical AGENTS.md/autoresearch.md/package workflow;20119 duplicate research files not imported. Original two instruction documents and Rohan Arun attribution published before closure.",
       "ready_to_integrate": false,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/928.json",
-        "research/community-efficient1900-audit/packets/928.json"
+        "research/community-efficient1900-audit/packets/928.json",
+        "research/community-efficient1900-audit/checks/check-928-workflow.json",
+        "research/community-efficient1900-audit/checks/closed-superseded.json"
       ]
     },
     {
@@ -3271,19 +3283,20 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "DreamingOfClouds: scoped B-locus decoder floors via exact restricted-rank tables, duality branch-and-bound and a three-case merging argument; inherited whole-A2 conclusions remain dependent on the cited parent results.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2830.json",
-        "research/community-efficient1900-audit/packets/2830.json"
+        "research/community-efficient1900-audit/packets/2830.json",
+        "research/community-efficient1900-audit/checks/check-2830.json"
       ]
     },
     {

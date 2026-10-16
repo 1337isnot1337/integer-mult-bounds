@@ -9,8 +9,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2032 |
-| partially reviewed | 348 |
-| superseded | 1 |
+| partially reviewed | 347 |
+| superseded | 2 |
 | unreviewed | 60 |
 
 The earlier reconciliation closing snapshot had 438 starting PRs still open and 441 total open. These are historical counts, not a live queue measurement. Later dispositions are recorded below.
@@ -858,7 +858,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#925](https://github.com/CrocSwap/integer-mult-bounds/pull/925) | RossRichardson | incorporated | [record 1](../../research/community-batch952-audit/DISPOSITIONS.json) |
 | [#926](https://github.com/CrocSwap/integer-mult-bounds/pull/926) | bitplane | incorporated | [record 1](../../research/community-batch932-audit/DISPOSITIONS.json) |
 | [#927](https://github.com/CrocSwap/integer-mult-bounds/pull/927) | RossRichardson | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
-| [#928](https://github.com/CrocSwap/integer-mult-bounds/pull/928) | rohanarun | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient200-audit/DISPOSITIONS.json) |
+| [#928](https://github.com/CrocSwap/integer-mult-bounds/pull/928) | rohanarun | superseded | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#929](https://github.com/CrocSwap/integer-mult-bounds/pull/929) | chafreaky | incorporated | [record 1](../../research/community-batch970-audit/DISPOSITIONS.json) |
 | [#930](https://github.com/CrocSwap/integer-mult-bounds/pull/930) | RossRichardson | incorporated | [record 1](../../research/community-batch970-audit/DISPOSITIONS.json) |
 | [#931](https://github.com/CrocSwap/integer-mult-bounds/pull/931) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient200-audit/DISPOSITIONS.json) |

@@ -1,6 +1,6 @@
 # Efficient nineteenth 100-PR reconciliation
 
-**33 merged; 67 pending.** Frozen selection: 44 new submissions, four revised heads and 52 carried-forward reviews. Baseline `a7482490b4ca256db67d767a33fa6f7553060807`. Complete Git inventories are retained for all 100; this does not grant mathematical approval.
+**33 merged; 1 closed as superseded; 66 pending.** Frozen selection: 44 new submissions, four revised heads and 52 carried-forward reviews. Baseline `a7482490b4ca256db67d767a33fa6f7553060807`. Complete Git inventories are retained for all 100; this does not grant mathematical approval.
 
 The selected conditional κ is unchanged. Attribution and predecessor notices remain with each contribution. Prior unresolved review obligations carry forward; neither age nor a smaller headline justifies closure.
 
@@ -41,6 +41,13 @@ The selected conditional κ is unchanged. Attribution and predecessor notices re
 | [#2918](https://github.com/CrocSwap/integer-mult-bounds/pull/2918) | RossRichardson | Ross Richardson: rank-seven helper408 boundary obstruction and fully charged optimistic comparison. |
 | [#2920](https://github.com/CrocSwap/integer-mult-bounds/pull/2920) | petalas | Nick Petalas: geometrically attained independent endpoint capacities and an optimistic two-history cost floor. |
 | [#2921](https://github.com/CrocSwap/integer-mult-bounds/pull/2921) | petalas | Nick Petalas: opt-in fail-closed payload inventories. Complete 105-file predecessor audit, all fifteen test groups normal/optimized, six optimized filesystem groups and twelve authenticated current dependencies; no supplier execution. |
+| [#2830](https://github.com/CrocSwap/integer-mult-bounds/pull/2830) | DreamingOfClouds | DreamingOfClouds: scoped B-locus decoder floors via exact restricted-rank tables, duality branch-and-bound and a three-case merging argument; inherited whole-A2 conclusions remain dependent on the cited parent results. |
+
+## Superseded proposals
+
+| PR | Contributor | Disposition |
+| --- | --- | --- |
+| [#928](https://github.com/CrocSwap/integer-mult-bounds/pull/928) | rohanarun | Superseded by canonical AGENTS.md/autoresearch.md/package workflow;20119 duplicate research files not imported. Original two instruction documents and Rohan Arun attribution published before closure. |
 
 ## Remaining review
 
@@ -66,7 +73,6 @@ The selected conditional κ is unchanged. Attribution and predecessor notices re
 | [#669](https://github.com/CrocSwap/integer-mult-bounds/pull/669) | the-missionary-company | Dedicated proof review of uniform higher weights, equality classifications, graph targets and COPY model; finite checks must not substitute for those proofs. |
 | [#826](https://github.com/CrocSwap/integer-mult-bounds/pull/826) | Rohansguliani | Research audit also edits generated ledger/contributor state. Reconcile numerical replay scope with current authoritative dispositions for #699/#685; do not overwrite the newer ledger. |
 | [#899](https://github.com/CrocSwap/integer-mult-bounds/pull/899) | DreamingOfClouds | Review solver-status and recorded-only minimality rows separately from exact certificates; execute verify.sh with its declared dependencies and preserve the proof scope. |
-| [#928](https://github.com/CrocSwap/integer-mult-bounds/pull/928) | rohanarun | Separate workflow proposal review: current AGENTS.md/autoresearch.md/package guidance now cover the contribution workflow. Avoid duplicating 20,119 historical files or introducing conflicting entry points. |
 | [#931](https://github.com/CrocSwap/integer-mult-bounds/pull/931) | RossRichardson | Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. All8 export controls passed; the scientific census/native replay stopped after7.38seconds; final packaging replay did not run. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage. |
 | [#933](https://github.com/CrocSwap/integer-mult-bounds/pull/933) | ianlibanio | Large exhaustive reframing/reordering exclusion requires exact domain/optimality audit and a dedicated long replay, not bounded solver status. |
 | [#1175](https://github.com/CrocSwap/integer-mult-bounds/pull/1175) | gvconly | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
@@ -100,7 +106,6 @@ The selected conditional κ is unchanged. Attribution and predecessor notices re
 | [#2361](https://github.com/CrocSwap/integer-mult-bounds/pull/2361) | thakrarsagar | Five focused suites pass; planner, tracer, cancellation and workflow code reviewed. Fresh Linux strace integration/coverage validation and reconciliation of the historical replay adapter with newer main remain required before changing default CI. Author Linux recordings are local-only and are not a maintainer execution. |
 | [#2363](https://github.com/CrocSwap/integer-mult-bounds/pull/2363) | mason-hale | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2409](https://github.com/CrocSwap/integer-mult-bounds/pull/2409) | VictorLiwentao | Integer-row equivalence passes, but integration is held for live-source and manifest repair: k8 binding/forward auditors execute a wrongly demoted input; k8-rank7 and u8-gap source checkers compare digest strings against new dict entries; frozen package manifest hashes need reconciliation. Isolated read-only test exposed the first issue. Local partial fixes are not an accepted integration. Corrected local binding and forward checks now pass, including isolated export; selected1094 extended-label replay still rejects the demoted auditor as an undeclared input. |
-| [#2830](https://github.com/CrocSwap/integer-mult-bounds/pull/2830) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2832](https://github.com/CrocSwap/integer-mult-bounds/pull/2832) | DreamingOfClouds | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2833](https://github.com/CrocSwap/integer-mult-bounds/pull/2833) | jeremykothe2 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2836](https://github.com/CrocSwap/integer-mult-bounds/pull/2836) | VictorLiwentao | Full source/proof review and private-library concurrency/independent-kernel supplement passed, but the resolved primary census reached its declared220-second limit before critical/second-shape completion. Remaining primary, optimized, seven-companion and fault-control coverage is not verified. Retain source repair and complete the census in a separately planned bounded replay; timeout is not a mathematical rejection. |

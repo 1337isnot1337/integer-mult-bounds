@@ -48,8 +48,8 @@
   ],
   "counts": {
     "incorporated": 2032,
-    "partially_reviewed": 348,
-    "superseded": 1,
+    "partially_reviewed": 347,
+    "superseded": 2,
     "unreviewed": 60
   },
   "source_sha256": {
@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "e87f6ac0184f839fb7880e97c41bf43e6a76b8aea87d41c655e9c9a3699d829a",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "64ced8c3372988b0009f9f6391fcd7c88b154e2b988d4ef0b7594bca575aaf06",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -53714,26 +53714,38 @@
         {
           "head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Superseded by canonical AGENTS.md/autoresearch.md/package workflow;20119 duplicate research files not imported. Original two instruction documents and Rohan Arun attribution published before closure.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/community-efficient1900-audit/originals/928/auto-research.md",
+        "research/community-efficient1900-audit/originals/928/auto-research/README.md"
+      ],
+      "github_state": "CLOSED",
+      "closure": {
+        "kind": "superseded",
+        "reviewed_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
+        "closed_at": "2026-10-16T12:23:01Z",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/928",
+        "reason": "Superseded by canonical AGENTS.md/autoresearch.md/package workflow;20119 duplicate research files not imported. Original two instruction documents and Rohan Arun attribution published before closure.",
+        "retained_at": "330fa9a77"
+      },
       "reviewed_head": "d2daf3e927a845419e6dcc525e6f47bc7ce6682e",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Separate workflow proposal review: current AGENTS.md/autoresearch.md/package guidance now cover the contribution workflow. Avoid duplicating 20,119 historical files or introducing conflicting entry points.",
+      "disposition": "superseded",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/928.json",
-        "research/community-efficient1900-audit/packets/928.json"
+        "research/community-efficient1900-audit/packets/928.json",
+        "research/community-efficient1900-audit/checks/check-928-workflow.json",
+        "research/community-efficient1900-audit/checks/closed-superseded.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131875,7 +131887,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2830.json",
-        "research/community-efficient1900-audit/packets/2830.json"
+        "research/community-efficient1900-audit/packets/2830.json",
+        "research/community-efficient1900-audit/checks/check-2830.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -136087,8 +136100,8 @@
     535
   ],
   "github_dispositions": {
-    "CLOSED": 377,
+    "CLOSED": 378,
     "MERGED": 1580,
-    "OPEN": 484
+    "OPEN": 483
   }
 }
