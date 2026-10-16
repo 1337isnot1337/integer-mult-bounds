@@ -1,0 +1,9 @@
+[
+  {
+    "number": 2906,
+    "path": "scripts/run_isolated_tests.py",
+    "resolved_sha256": "8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a",
+    "resolved_mode": "100644",
+    "reason": "Apply original seven-line POSIX cleanup to current runner while retaining PR2859 all-seven-route completion overlay; focused native lifetime and historical-route tests pass."
+  }
+]
