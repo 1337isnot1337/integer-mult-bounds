@@ -165,6 +165,11 @@ def validate(root, package, check_pins=True):
     for item in requirements:
         require(re.fullmatch(r"(?:numpy|sympy|scipy)==[0-9]+(?:\.[0-9]+){1,2}", item),
                 "generic CI supports exact numpy/sympy/scipy pins; use a dedicated workflow for other environments")
+    names = [item.split("==")[0] for item in requirements]
+    require(len(names) == len(set(names)), "declare only one version per dependency")
+    # Validation already treats an omitted list as empty; execution must receive
+    # that same default without rewriting the contributor's manifest on disk.
+    manifest["requirements"] = requirements
     commands = manifest.get("commands")
     require(isinstance(commands, list) and 1 <= len(commands) <= 8, "declare 1..8 explicit verification commands")
     total = 0
@@ -245,6 +250,11 @@ def run_package(root, package, install=False):
     for requirement in manifest["requirements"]:
         name, version = requirement.split("==")
         require(importlib.metadata.version(name) == version, "dependency version mismatch: " + requirement)
+    # Coverage labels are UTF-8 metadata but a redirected Windows stdout may
+    # use cp1252. Escape unrepresentable display characters instead of aborting
+    # before replay. This changes only our stream, not child encoding or env.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(errors="backslashreplace")
     for command in manifest["commands"]:
         argv = [sys.executable if item == "{python}" else item.replace("{package}", package) for item in command["argv"]]
         print("CHECK " + command["checks"], flush=True)

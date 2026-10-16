@@ -22,7 +22,7 @@ def require(ok, message):
 
 
 def literal_pairs():
-    text = LEAN.read_text()
+    text = LEAN.read_text(encoding='utf-8')
     pairs = {}
     for n in (1, 2, 3):
         match = re.search(r'def pair%d : Pair := (.*?)\n\n' % n, text, re.S)
