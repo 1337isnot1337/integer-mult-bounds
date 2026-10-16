@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 6,
+  "base_commit": "d8e0f83f00191df62174b641e9fff055c357f641",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Does one changed supplier or assembly claim lack a source-bound independent check of a specific new implication?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/rank7-joint-endframes/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct a coordinated frame/circuit change and its single-change control, then derive the complete rank and physical ledger.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls. Name the existing checks and the missing coverage. More digits or another equivalent evaluation of an unchanged root is not by itself new verification coverage.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2979 joint rank-7 end-frame proposal and the revision-6 evidence status. Its claimed kappa is not selected. Compare coordinated changes with the losing single-change controls and locate the complete physical ledger; an aggregate moment alone does not validate the mechanism.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Prioritize a bounded independent audit of #2979: reconstruct one joint group and its single-lowering control, check the declared frames/chronology, then trace changed children, idle widths and cleanup buffers into the complete invoice and both supplier caps. Choose one still-missing implication after checking existing audits. Stop with exact unresolved dependencies if full admission exceeds the session; do not launch a new lowering census on an unvalidated premise or substitute extra root digits for mechanism checking.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification.",
+      "Promoting #2979 from merged source archive to validated supplier solely from author PASS receipts or aggregate pricing."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure",
+      "2979",
+      "rank7 joint endframes",
+      "paired extraction",
+      "joint lowering"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "Independently reconstruct the V45 rank-7 group and losing single-helper control from both pinned PR2942 parent providers, reproduce the five-group stage-1 profile, then trace the published final local profiles into the pinned T74 aggregate arithmetic.",
+  "scope_change_reason": "Refines the card's complete-invoice audit to the source-bound V45 group and aggregate profile arithmetic. The final words and T74 allocation are pinned inputs, so stages 2/3, ownership chronology and admission remain explicitly open rather than being treated as independently checked.",
+  "bottleneck_link": "The complex supplier is the selected binding side. An independent frame and price reconstruction tests whether the claimed coordinated group actually changes the local rank/width profile and whether the published T74 aggregate pays that local profile.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop after the V45 local positive/single-negative controls, five-group profile control and pinned T74 aggregate arithmetic. Do not run another lowering census or claim a new selected kappa until stages 2/3, owner chronology and physical/native admission receive source-bound review.",
+  "outcome": "partial",
+  "evidence": "verify.py independently derives F2 spans by XOR closure, reconstructs the V45 and five-group profiles for both providers, reproduces the final local profiles and exact staged local-price sum, and checks the T74 rank-mass decomposition. A 90-digit Decimal root is only a numerical cross-check. It does not rebuild the stage-2/3 transformations, ownership chronology, native admission, or outer release. The local overlap cache was stale as of 2026-10-14; remote refresh failed, and the canonical .git metadata is read-only in this environment. The live family-status page was checked on 2026-10-17 and still reports priority revision 6.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Substantial AI assistance by OpenAI Codex for mathematical analysis, independent implementation and verification.",
+  "open_questions": [
+    {
+      "question": "Can the five extraction transforms and fourteen rewrites be replayed independently into the pinned final word while preserving the independently reconstructed paid profile?",
+      "why_it_matters": "The current final-profile check trusts the package's final word as an input; rebinding it to the source transformations is required before the local profile can be attributed to the whole proposed mechanism.",
+      "first_step": "Write a separate stage-2/3 applier from the pinned transform and rewrite records, reconstruct both final providers from the stage-1 words, and compare proof-relevant canonical fields and the independently computed profile.",
+      "blocked_by": "Exact transform/rewrite records are available, but this audit session stopped after the scoped invoice arithmetic; another independent reconstruction is needed."
+    },
+    {
+      "question": "Does the pinned T74 profile have an independently reconstructed legal owner chronology and physical stock bill for the changed inventory?",
+      "why_it_matters": "The aggregate profile and its moment do not show that all roles fit legal bins, lifetimes, and physical stock under the claimed schedule.",
+      "first_step": "Bind the final words to the exact T74 ORDER and DISPATCH inputs, reconstruct one complete owner chronology with an independent checker, and reconcile all 66,813 physical families and 91 private buffers.",
+      "blocked_by": "This package checks only aggregate T74 rank mass; the source owner's chronology and admission remain outside its verifier."
+    }
+  ]
+}
