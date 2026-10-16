@@ -302,6 +302,7 @@ def validate(root, package, check_pins=True):
     require(isinstance(inputs, list), "declare input paths for CI invalidation")
     tracked = tracked_input_paths(root)
     for name in inputs:
+        symlink_free_relative_path(root, name)
         require_tracked_input(name, tracked)
         relative_file(root, name)
     require(sources.get("files"), "empty source inventory")
