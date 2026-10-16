@@ -5,8 +5,6 @@ Ross Richardson with substantial OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
 import gzip
-import hashlib
-import importlib.util
 import json
 from pathlib import Path
 import subprocess
@@ -14,23 +12,14 @@ import sys
 import tempfile
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent.parent
+_loader_path = HERE / 'source_exec.py'
+_loader = {'__file__': str(_loader_path)}
+exec(compile(_loader_path.read_bytes(), str(_loader_path), 'exec'), _loader)
 
 
 def need(ok, why):
     if not ok:
         raise ValueError(why)
-
-
-def check_sources():
-    sources = json.loads((HERE / 'SOURCES.json').read_text())
-    for record in sources['files']:
-        if record['usage'] == 'input':
-            need(hashlib.sha256((ROOT / record['path']).read_bytes()).hexdigest()
-                 == record['sha256'], 'input pin mismatch: ' + record['path'])
-    for record in sources['vendored_inputs']:
-        need(hashlib.sha256((HERE / record['path']).read_bytes()).hexdigest()
-             == record['sha256'], 'vendored input pin mismatch: ' + record['path'])
 
 
 def main():
@@ -42,11 +31,8 @@ def main():
     args = parser.parse_args()
     need(not args.emit_initial_result or args.out is not None, 'authoring requires --out')
     need(args.out is None or not args.out.exists(), 'output already exists')
-    check_sources()
     expected = None if args.emit_initial_result else json.loads((HERE / 'RESULT.json').read_text())
-    spec = importlib.util.spec_from_file_location('independent_native_binding', HERE / 'check.py')
-    check = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(check)
+    check = _loader['load_source']('independent_native_binding', HERE / 'check.py')
     result = json.loads(json.dumps(check.replay(controls=True)))
     if not args.emit_initial_result:
         need(result == expected,

@@ -1,4 +1,4 @@
-# Native binding for the P104 two-target correction
+# Independent native binding for the P104 two-target correction
 
 PR2445's correction of **Y0 and Y1** now has a finite native Clifford
 certificate for all **236 added transport occurrences**. Its **161 distinct
@@ -13,6 +13,12 @@ This closes the finite forward native-binding handoff in
 `6def43ad673b91dbd491389964d1dcd059bf2ac2`. The two-target construction and
 78-lifetime minimum belong to that predecessor. No new helper minimum, complete
 supplier, global recursive invoice, all-size proof or kappa is claimed here.
+
+This is PR2458's independently written full-column checker, now retained at
+`research/p104-two-target-native-independent`. The distinct package path lets it
+coexist with [PR2454](https://github.com/CrocSwap/integer-mult-bounds/pull/2454)'s
+`research/p104-two-target-native` package. The PR2458 literal circuit, native
+certificate, mathematical receipt and predecessor source pins are unchanged.
 
 ## Exact covered operator
 
@@ -81,18 +87,33 @@ never generates a missing certificate. It imports no producer or Clifford
 compiler. The optional regeneration runs the credited compiler in temporary
 storage and compares the **complete decompressed mathematical payload**.
 
+The wrapper compiles package code from source bytes directly. Each external
+source and vendored input is read once into an authenticated byte snapshot.
+The unchanged retained checker loads its transitive interpreter inside a fresh
+private tree containing those exact bytes and no existing caches; the scalar
+replay reads the authenticated data snapshots. The optional Clifford compiler
+also executes its authenticated source bytes directly. Existing timestamp and
+unchecked-hash `.pyc` files are neither trusted nor copied into that tree.
+This covers the complete runtime source graph without modifying predecessors
+or patching the process-wide importer.
+
 ```sh
-python3.12 -I -O -B research/p104-two-target-native/verify.py --regenerate
-python3.12 -I -O -B research/p104-two-target-native/test_verify.py
-python3.12 -B scripts/research_package.py --package research/p104-two-target-native
+python3.12 -I -O -B research/p104-two-target-native-independent/verify.py --regenerate
+python3.12 -I -O -B research/p104-two-target-native-independent/test_verify.py
+python3.12 -B scripts/research_package.py --package research/p104-two-target-native-independent
 ```
 
 Expected marker: `PASS_P104_TWO_TARGET_NATIVE no_new_kappa`.
 The new checker requires ten semantic fault controls and accepts two equivalent
 presentations. The behavioral suite checks missing evidence, source drift,
 malformed receipts, exclusive output, a Git-free read-only export and a changed
-gzip header. It also removes only the exact-phase predicate in memory and
-requires the phase control suite to fail, establishing defect sensitivity.
+gzip header. Timestamp and unchecked-hash cache controls establish that the
+seeded caches are executable, preserve valid replay including regeneration,
+and reject the review's wrong-phase rank-seven recipe at its exact phase
+predicate. These controls cover package helpers, both retained checker modules
+and the optional compiler. The suite also removes only the exact-phase
+predicate in memory and requires the phase control suite to fail, establishing
+defect sensitivity.
 
 [RESULT.json](RESULT.json) is the fixed exact receipt.
 [SOURCES.json](SOURCES.json) pins every runtime input by Git blob and SHA256.
@@ -112,11 +133,13 @@ human review or proof-assistant verification is claimed by these local checks.
 ## Sources, credit and scope
 
 Scientific base: `0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`, priority revision 4.
-The selected record is unchanged, SHA256
+Its historical selected-record pin has SHA256
 `10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32`.
+This package does not change the selected frontier.
 The literal PR2445 circuit SHA256 is
 `c34d94128decc426e7528302ab2570967293a1b293f184fdd89fd376addd61f9`.
-Fresh overlap and the changed catalogue scope are recorded in [TASK.json](TASK.json).
+The original overlap snapshot and changed catalogue scope are recorded in
+[TASK.json](TASK.json).
 
 Credit Ross Richardson / PR2445 for the complete two-target logical word and
 sharing proof; commdata2338 / PR2393 for the one-target acquisition proof and

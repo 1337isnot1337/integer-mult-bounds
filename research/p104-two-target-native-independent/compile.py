@@ -10,17 +10,17 @@ from collections import Counter
 from functools import lru_cache
 import gzip
 import hashlib
-import importlib.util
 import json
 from pathlib import Path
-import sys
 
 HERE = Path(__file__).resolve().parent
 BASE = HERE.parent / 'p104-native-channel'
-spec = importlib.util.spec_from_file_location('p104_native_ce', BASE / 'vendor/clifford_exact.py')
-CE = importlib.util.module_from_spec(spec)
-sys.modules[spec.name] = CE
-spec.loader.exec_module(CE)
+_loader_path = HERE / 'source_exec.py'
+_loader = {'__file__': str(_loader_path)}
+exec(compile(_loader_path.read_bytes(), str(_loader_path), 'exec'), _loader)
+INPUTS = _loader['authenticated_inputs'](HERE)
+CE = _loader['load_source']('p104_native_ce', BASE / 'vendor/clifford_exact.py',
+                          INPUTS['research/p104-native-channel/vendor/clifford_exact.py'])
 
 
 def need(ok, why):
@@ -46,9 +46,9 @@ def canonical(vectors):
 
 
 def build():
-    raw = (HERE / 'inputs/CIRCUIT.json').read_bytes()
+    raw = INPUTS['inputs/CIRCUIT.json']
     word = json.loads(raw)
-    inherited = json.loads(gzip.decompress((BASE / 'NATIVE-RECIPES.json.gz').read_bytes()))
+    inherited = json.loads(gzip.decompress(INPUTS['research/p104-native-channel/NATIVE-RECIPES.json.gz']))
     iso = inherited['label_isometry']
     dual = iso['compressed_dual_gram']
     orth = iso['orthonormal_basis_compressed']

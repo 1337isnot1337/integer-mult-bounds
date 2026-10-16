@@ -13,14 +13,14 @@ from pathlib import Path
 import copy
 import gzip
 import hashlib
-import importlib.util
 import json
 
 H = Path(__file__).resolve().parent
-B = H.parent / 'p104-native-channel'
-spec = importlib.util.spec_from_file_location('retained_p104_native_check', B / 'check_native.py')
-BASE = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(BASE)
+_loader_path = H / 'source_exec.py'
+_loader = {'__file__': str(_loader_path)}
+exec(compile(_loader_path.read_bytes(), str(_loader_path), 'exec'), _loader)
+INPUTS = _loader['authenticated_inputs'](H)
+BASE = _loader['retained_checker'](INPUTS)
 N = BASE.N
 
 
@@ -54,12 +54,12 @@ def canonical(vectors):
 @lru_cache(maxsize=1)
 def inherited():
     """Reuse the independently written retained checker, with attribution."""
-    raw = (B / 'inputs/LOWRANK-WITNESS.json').read_bytes()
+    raw = INPUTS['research/p104-native-channel/inputs/LOWRANK-WITNESS.json']
     witness = json.loads(raw)
-    native = json.loads(gzip.decompress((B / 'NATIVE-RECIPES.json.gz').read_bytes()))
-    fixture = json.loads((B / 'inputs/P104-FIXTURE.json').read_text())['section4_explicit_P104']
+    native = json.loads(gzip.decompress(INPUTS['research/p104-native-channel/NATIVE-RECIPES.json.gz']))
+    fixture = json.loads(INPUTS['research/p104-native-channel/inputs/P104-FIXTURE.json'])['section4_explicit_P104']
     need(hashlib.sha256(raw).hexdigest() == native['source_witness_sha256'], 'inherited witness pin')
-    need(hashlib.sha256((B / 'vendor/native_verify.py').read_bytes()).hexdigest()
+    need(hashlib.sha256(INPUTS['research/p104-native-channel/vendor/native_verify.py']).hexdigest()
          == native['source_native_checker_sha256'], 'inherited independent interpreter pin')
     result = BASE.validate(native, witness, fixture, False)
     return native, witness, fixture, result
@@ -358,7 +358,7 @@ def run_controls(certificate, circuit):
 
 
 def replay(controls=True):
-    circuit_raw = (H / 'inputs/CIRCUIT.json').read_bytes()
+    circuit_raw = INPUTS['inputs/CIRCUIT.json']
     certificate_raw = gzip.decompress((H / 'NATIVE.json.gz').read_bytes())
     certificate, circuit = json.loads(certificate_raw), json.loads(circuit_raw)
     need(certificate['source_circuit_sha256'] == hashlib.sha256(circuit_raw).hexdigest(),

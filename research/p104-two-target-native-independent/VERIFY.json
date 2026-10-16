@@ -22,7 +22,7 @@
         "--regenerate"
       ],
       "timeout_seconds": 600,
-      "checks": "Exact forward and adjoint native phases/ranks, every added occurrence, inherited native channel, full358-input forward composition, semantic controls and complete regenerated payload."
+      "checks": "Authenticated source execution; exact forward and adjoint phases/ranks, every added occurrence, inherited native channel, full358-input forward composition, semantic controls and complete regenerated payload."
     },
     {
       "argv": [
@@ -33,7 +33,7 @@
         "{package}/test_verify.py"
       ],
       "timeout_seconds": 600,
-      "checks": "Missing evidence and source drift fail, malformed receipt and exclusive output, Git-free read-only replay, equivalent gzip payload and phase-predicate deletion sensitivity."
+      "checks": "Eight behavior groups: missing evidence, source drift, malformed receipt, exclusive output, Git-free read-only and gzip-equivalent replay, phase-predicate deletion; executable timestamp and unchecked-hash caches ignored across the full source graph, valid regeneration accepts and wrong-phase native recipe rejects."
     }
   ]
 }

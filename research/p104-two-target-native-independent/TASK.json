@@ -112,10 +112,27 @@
     "specialist_python": "3.14.6 normal:PASS",
     "semantic_fault_controls": 10,
     "positive_presentation_controls": 2,
-    "behavior_groups": 6,
+    "behavior_groups": 8,
     "phase_predicate_deletion": "PASS",
     "selected_record_check": "PASS",
     "hosted_ci": "not run locally",
     "selected_cold_replay": "not run; package scope does not change selected construction"
+  },
+  "package_path": "research/p104-two-target-native-independent",
+  "revision_20261016": {
+    "reviewed_head": "3170afd2fc13a990bfe28f5ab6421bcda4ffd0f6",
+    "reason": "Preserve PR2454 at its merged package path and execute authenticated predecessor source bytes despite pre-existing Python caches.",
+    "source_execution": "Package-local source compilation and authenticated input snapshots; unchanged retained transitive import in a fresh private tree; optional compiler source compiled from its authenticated snapshot.",
+    "cache_controls": [
+      "timestamp",
+      "unchecked_hash"
+    ],
+    "preserved_evidence": [
+      "inputs/CIRCUIT.json",
+      "NATIVE.json.gz",
+      "RESULT.json",
+      "SOURCES.json"
+    ],
+    "mathematical_scope": "Unchanged finite forward binding; no full inverse transpose or new kappa."
   }
 }

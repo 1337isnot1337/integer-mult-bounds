@@ -7,6 +7,12 @@ It checks an exact forward extension of the retained P104 channel, conditional
 on its existing private-copy/discard model. It does not change the correction
 construction or claim a multiplication exponent.
 
+The package is retained as `p104-two-target-native-independent` so PR2458's
+checker coexists with the separately authored PR2454 package at the original
+`p104-two-target-native` path. Its literal circuit, native certificate, exact
+mathematical receipt and predecessor source pins are byte-identical to the
+original PR2458 head `3170afd2fc13a990bfe28f5ab6421bcda4ffd0f6`.
+
 `check.py` does not import `compile.py`, the Clifford compiler, or the PR2445
 producer. The existing independent
 [`check_native.py`](../p104-native-channel/check_native.py) is reused explicitly
@@ -143,10 +149,44 @@ exercise semantic invariance. File-byte provenance is checked by `replay` and
 the package wrapper separately, rather than used to reject the semantic
 mutations before their intended predicate is reached.
 
+## Source execution and cache regression
+
+The original wrapper hashed the retained Python files but loaded them through
+ordinary importers. A matching timestamp cache or unchecked-hash cache can
+therefore execute different code even under `-I -O -B`; the last flag prevents
+cache writes, not cache reads. This was a source-binding defect, not a failure
+of the original finite matrix identity.
+
+`source_exec.py` now retains the exact bytes that passed each input hash. New
+package modules and the optional Clifford compiler are compiled from source
+bytes directly. The unchanged retained checker and its transitive interpreter
+load inside a fresh private tree written only from those authenticated bytes.
+No existing cache is copied there. After loading, only the retained pure
+`validate` and `roots` functions are used, and the new replay reads data from
+the authenticated snapshots. No predecessor source or process-wide importer
+is changed.
+
+The behavioral tests seed executable timestamp and unchecked-hash caches for
+the local source helper/checker, the retained checker/interpreter and the
+optional Clifford compiler. A standard-import probe first demonstrates that
+the defective interpreter cache really executes under the test flags. The
+correct wrapper then accepts the valid fixed certificate, regenerates its full
+payload and preserves all files despite those caches.
+
+For each cache format, the test also changes a rank-seven forward recipe's
+global phase by one, multiplying its operator by i, and updates only the
+certificate hash in the expected receipt. The seeded interpreter cache keeps
+signed Pauli comparisons but skips seven-child exact phase comparisons, the
+same mathematical failure mode as the review witness. The corrected default
+wrapper ignores that cache and rejects at `added forward edge: exact global
+phase`. The test restores all data after the control. The original ten
+semantic fault controls, two equivalent presentations and explicit
+phase-predicate deletion control remain required.
+
 Reproduction from the repository root:
 
 ```sh
-python3 research/p104-two-target-native/check.py
+python3 research/p104-two-target-native-independent/check.py
 ```
 
 The first complete local replay passed all operator, coefficient, chart and
