@@ -45,7 +45,10 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
   retention, movement or hosting obligation rather than rediscovering its inverse.
   The [QQ16 observation-contract map](qq16-controller-scope-map.md) distinguishes
   the earlier 252-pair catalogue, witness detection, intermediate-cut recovery
-  and final-record obstructions. Its six-contract scope predates #2540.
+  and final-record obstructions. Its six-contract scope predates #2540. The later
+  [numerical-contract map](qq16-numerical-contract-map.md) separates the
+  zero-retention decoder's checked error/format/circuit chain from the
+  still-missing physical caller and complete cost.
 - **Selected proof obligations:** refresh stock/precision/hosting handoffs and
   prove or falsify one specific unreviewed implication. Recomputing already
   checked headrooms is not new coverage.
