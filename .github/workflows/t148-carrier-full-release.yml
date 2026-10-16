@@ -4,6 +4,7 @@ on:
     branches: [ci-t148-carrier-20261016]
     paths: [.github/workflows/t148-carrier-full-release.yml]
   workflow_dispatch:
+  workflow_call:
 permissions:
   contents: read
 jobs:
