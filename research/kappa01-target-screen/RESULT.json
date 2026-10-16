@@ -1,9 +1,139 @@
 {
+  "bit_model": {
+    "copy_charge": 63,
+    "idle_mass_assumed_for_local_floor": 0,
+    "live_families_per_call": "296/3",
+    "local_profile": {
+      "1": 1323,
+      "2": 1342,
+      "3": 79,
+      "4": 44,
+      "5": 102,
+      "6": 11,
+      "7": 19
+    },
+    "local_rank_mass": 5129,
+    "maximum_child_rank": 45,
+    "root_scale": "1000000000000000000000000000000",
+    "stages": 9,
+    "surcharge_assumed_for_local_floor": 0,
+    "width": 64
+  },
   "certificate": {
     "bill_lower": "14791146600776491909563465165489/12800000000000000000000000000000",
     "bill_lower_decimal": "1.155558328185663",
     "bill_upper": "258845065513588608417360640403919/224000000000000000000000000000000",
     "bill_upper_decimal": "1.155558328185663",
+    "bit_ideal_local_blocking": [
+      {
+        "all_smaller_caps_fail": true,
+        "bill_lower": "1329185348600482639176155286003559/1332000000000000000000000000000000",
+        "bill_upper": "276913614291767216495032351251143/277500000000000000000000000000000",
+        "bill_upper_decimal": "0.997886898348711",
+        "bill_with_max_extra_lower": "1331864087875678975789798789269763/1332000000000000000000000000000000",
+        "bill_with_max_extra_upper": "138735842487049893311437373882479/138750000000000000000000000000000",
+        "bill_with_next_extra_lower": "2664397860570157035733008454356077/2664000000000000000000000000000000",
+        "centre_mass": "0",
+        "local_block_profile": {
+          "42": 122,
+          "5": 1
+        },
+        "max_extra_rank1_calls": 8,
+        "maximum_child_rank": 45,
+        "scope": "zero-cost idealization: arbitrary integer reblocking of all selected local rank mass; idle mass fractional at the cap; no gathering, chronology, frame, copy, dirty-restoration, surcharge or physical costs",
+        "smallest_passing_local_block_cap": 42,
+        "unpaid_coordinates": 3
+      },
+      {
+        "all_smaller_caps_fail": true,
+        "bill_lower": "354875763317283973293233822363/355200000000000000000000000000",
+        "bill_upper": "739324506911008277694237129924049/740000000000000000000000000000000",
+        "bill_upper_decimal": "0.999087171501363",
+        "bill_with_max_extra_lower": "887859093112009017386495431724051/888000000000000000000000000000000",
+        "bill_with_max_extra_upper": "92485322199167605977759940804733/92500000000000000000000000000000",
+        "bill_with_next_extra_lower": "27752572543279438919926012197799/27750000000000000000000000000000",
+        "centre_mass": "63",
+        "local_block_profile": {
+          "20": 1,
+          "39": 131
+        },
+        "max_extra_rank1_calls": 3,
+        "maximum_child_rank": 45,
+        "scope": "zero-cost idealization: arbitrary integer reblocking of all selected local rank mass; idle mass fractional at the cap; no gathering, chronology, frame, copy, dirty-restoration, surcharge or physical costs",
+        "smallest_passing_local_block_cap": 39,
+        "unpaid_coordinates": 4
+      }
+    ],
+    "bit_local_word": {
+      "bill_lower": "353921162051391396780819320639613/296000000000000000000000000000000",
+      "bill_lower_decimal": "1.195679601524971",
+      "bill_upper": "353921162051391396780819320648373/296000000000000000000000000000000",
+      "bill_upper_decimal": "1.195679601524971",
+      "margin_lower": "57921162051391396780819320639613/296000000000000000000000000000000",
+      "positive_control_a_zero_bill": "15387/18944",
+      "rank_terms": [
+        {
+          "count": "1323",
+          "exact_root": false,
+          "rank": 1,
+          "root_lower_numerator": "24803141437003116792995400613",
+          "root_upper_numerator": "24803141437003116792995400614"
+        },
+        {
+          "count": "1342",
+          "exact_root": false,
+          "rank": 2,
+          "root_lower_numerator": "45929202883612464105756521818",
+          "root_upper_numerator": "45929202883612464105756521819"
+        },
+        {
+          "count": "79",
+          "exact_root": false,
+          "rank": 3,
+          "root_lower_numerator": "65858899860132454616336921165",
+          "root_upper_numerator": "65858899860132454616336921166"
+        },
+        {
+          "count": "44",
+          "exact_root": false,
+          "rank": 4,
+          "root_lower_numerator": "85049375010898560265980023457",
+          "root_upper_numerator": "85049375010898560265980023458"
+        },
+        {
+          "count": "102",
+          "exact_root": false,
+          "rank": 5,
+          "root_lower_numerator": "103708262987508923212931804226",
+          "root_upper_numerator": "103708262987508923212931804227"
+        },
+        {
+          "count": "11",
+          "exact_root": false,
+          "rank": 6,
+          "root_lower_numerator": "121954179919115216615040463499",
+          "root_upper_numerator": "121954179919115216615040463500"
+        },
+        {
+          "count": "19",
+          "exact_root": false,
+          "rank": 7,
+          "root_lower_numerator": "139863678924626515596669087128",
+          "root_upper_numerator": "139863678924626515596669087129"
+        }
+      ],
+      "strict_rejection": true,
+      "surcharge_omitted": true
+    },
+    "bit_selected_coverage": {
+      "all_mass_at_rank_cap": 45,
+      "bill_lower": "3825940055621875712747406916099/3700000000000000000000000000000",
+      "bill_upper": "1530376022248750285098962766441693/1480000000000000000000000000000000",
+      "bill_upper_decimal": "1.034037852870777",
+      "centre_mass": "63",
+      "strict_rejection": true,
+      "unpaid_coordinates": 1
+    },
     "coverage_relaxations": [
       {
         "all_mass_at_rank_cap": 51,
@@ -209,7 +339,7 @@
     ],
     "strict_rejection": true
   },
-  "interpretation": "The local paid word alone costs more than one normalized unit at a=1/9. Separately, the selected coverage law fails even if all rank mass is ideally repacked at rank 51 and local work is free. Thus this word and this coverage law each need structural change; passing relaxed cases are budget thresholds, not constructions.",
+  "interpretation": "Both selected local words alone cost more than one normalized unit at a=1/9, even with all idle, hosting, centre and surcharge costs omitted. The selected coverage laws also fail under separate ideal rank-cap relaxations. Passing reblocking cases are zero-overhead necessary budgets for each supplier, not decoders or a joint construction.",
   "model": {
     "centre_charge_assumed": 0,
     "idle_mass_assumed": 0,
@@ -229,15 +359,26 @@
     "stages": 9,
     "width": 73
   },
-  "scope": "fixed selected complex local word, width, family count and stage count; no idle credit",
+  "scope": "selected complex and bit local words plus independent ideal coverage/reblocking relaxations; no realizable replacement supplier",
   "selected": {
     "assembly_sha256": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045",
     "binding": "complex",
+    "bit_binding": {
+      "centre_mass": 63,
+      "expected_sha256": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
+      "live_families_per_call": "296/3",
+      "local_mass": 5129,
+      "maximum_child_rank": 45,
+      "receipt_sha256": "5cabbf737ed857061ed02b6a49243e656fbe850e5a614a5f94763f32fb16896b",
+      "selected_word_sha256": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
+      "stages": 9,
+      "unpaid_coordinates": 1
+    },
     "kappa": "836330098538459/500000000000000000",
     "local_word_source_sha256": "24c71fc5dce5e2d8f9fbd34d059fc9a1c8ad635d93b62102ccb41b03a7b38b9e",
     "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
   },
-  "status": "PASS_KAPPA01_SELECTED_COMPLEX_WORD_FLOOR",
+  "status": "PASS_KAPPA01_TWO_SIDED_TARGET_SCREEN",
   "target": {
     "kappa": "1/10",
     "primitive_saving": "1/9"

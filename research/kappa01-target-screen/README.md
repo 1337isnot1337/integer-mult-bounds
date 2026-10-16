@@ -1,14 +1,14 @@
-# The selected complex word cannot reach κ = 0.1 by repacking
+# The selected suppliers cannot reach κ = 0.1 by repacking
 
-**Exact target-scale rejection for one frozen local word. No new supplier or κ claim.**
+**Two-sided target-scale screen for the selected local words. No new supplier or κ claim.**
 
 The user-set target κ > 0.1 is far beyond the selected result. Under the
 retained planning transfer κ = a/(1+a), it requires primitive saving
-a > 1/9. At a = 1/9, the selected complex word's paid local work already has
-normalized moment strictly above one, even after assigning **zero cost** to
-every idle child, hosting operation and centre path. Therefore no change to
-packing, idle hosting or coverage law can bring this same local word to the
-target. The word or the outer transfer must change.
+a > 1/9. At the boundary a = 1/9, **both selected local words** already have
+normalized moment strictly above one, even after assigning zero cost to every
+idle child, hosting operation, centre path and (on bit) surcharge. Therefore
+packing or coverage changes alone cannot take either selected word to the
+target. Both local suppliers, or the outer transfer, must change.
 
 The source-bound per-call profile from
 [`complex-local-word-ceiling/levers.py`](../complex-local-word-ceiling/levers.py)
@@ -35,6 +35,28 @@ l_r^9 * 73^8 <= r^8 * S^9 <= u_r^9 * 73^8,
 so `l_r/S <= (r/73)^(8/9) <= u_r/S`. The complete rational lower endpoint,
 upper endpoint and per-rank witnesses are in [`RESULT.json`](RESULT.json).
 The proof does not use floating point; decimals are only for display.
+
+The same exact integer-root check is bound to the selected bit word through its
+`bit-revision3-levers-seed03` receipt, the PR589 expected record and the pinned
+word bytes. Its local histogram is
+
+```text
+H = {1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}
+width = 64; live families per call = 296/3
+```
+
+The bit-side local-only bill is
+
+```text
+(3/296) * Σ_r H[r] * (r/64)^(8/9) > 1.195679601524970
+```
+
+This also omits the positive inherited bad-residue surcharge. As an independent
+coverage check, even putting all bit rank mass under the selected law at the
+largest permitted idle rank 45 costs more than `1.034037852870777`; thus the
+selected bit coverage law fails even with a free local word. The complex side
+has the analogous coverage floor `1.035561535760803` from its selected
+width-73/rank-51 guard.
 
 There is also a word-independent screen for the retained width, template and
 halving guard. The largest permitted child rank is 51 (`2·51² < 73² ≤ 2·52²`).
@@ -106,28 +128,46 @@ are cost-optimal partitions of rank mass, not identities or chronological
 decoders. The prior block-budget package's warning about full physical costs
 therefore remains central here.
 
-This is a scoped result about the selected #1094 complex local word and, for
-the all-rank-51 relaxation, its width, family count and halving guard. It does
-not bound a redesigned template or rank cap, a changed operation alphabet or
-supplier, a different outer reduction, or the newer unreviewed candidate
-packages. It does not change the selected frontier or certify the full
-multiplication theorem. In particular, this is not an independent review of
-open PRs #3051 or #3054.
+The selected bit word has its own zero-overhead reblocking screen. With its
+current rank cap 45, the selected one-unpaid/centre-63 coverage law still fails
+even if all rank mass is moved to rank 45. The first ideal integer reblocking
+profiles that pass under two changed coverage choices are:
+
+| Unpaid coordinates | Centre mass | Rank cap | First local block cap | Ideal local profile | Bill | Extra rank-one charges allowed |
+|---:|---:|---:|---:|---|---:|---:|
+| 3 | 0 | 45 | 42 | 122 rank-42 + 1 rank-5 | 0.997886898348711 | 8 |
+| 4 | 63 | 45 | 39 | 131 rank-39 + 1 rank-20 | 0.999087171501363 | 3 |
+
+Every smaller block cap fails, and the next extra rank-one charge takes each
+bill above one. The source word's 5,129 units of local rank mass are treated as
+arbitrarily reblockable, while idle mass is fractional at rank 45. Gathering,
+chronology, framing, copies, dirty restoration, the positive surcharge and all
+other realization costs are waived. These are necessary budgets for a future
+mechanism, not evidence such blocks exist. The complex and bit budget rows are
+separate; this screen does not show that one changed coverage contract or one
+pair of supplier identities realizes both sides together.
+
+This is a scoped result about the selected #1094 complex word, the selected
+PR589 bit word and their stated coverage/rank relaxations. It does not bound a
+redesigned template, a changed operation alphabet or supplier, a different
+outer reduction, or the newer unreviewed candidate packages. It does not change
+the selected frontier or certify the full multiplication theorem. In
+particular, this is not an independent review of open PRs #3051 or #3054.
 
 ## Reproduce
 
 From the repository root, Python 3.12 and the standard library are enough:
 
 ```sh
-python3 -I -B research/kappa01-complex-target-screen/verify.py
-python3.12 scripts/research_package.py --package research/kappa01-complex-target-screen --check-only
-python3.12 scripts/research_package.py --package research/kappa01-complex-target-screen
+python3 -I -B research/kappa01-target-screen/verify.py
+python3.12 scripts/research_package.py --package research/kappa01-target-screen --check-only
+python3.12 scripts/research_package.py --package research/kappa01-target-screen
 ```
 
 Expected direct marker:
 
 ```text
-PASS_KAPPA01_SELECTED_COMPLEX_WORD_FLOOR bill_lower=1.155558328185663
+PASS_KAPPA01_TWO_SIDED_TARGET_SCREEN complex_local_lower=1.155558328185663 bit_local_lower=1.195679601524971
 ```
 
 The interval source inputs and base commit are pinned in
@@ -141,23 +181,27 @@ are registered in [`VERIFY.json`](VERIFY.json).
   is one explicit replacement profile with all new decoder, frame, dirty-state
   and restoration costs included. The blocker is a new identity and supplier
   contract; the current word is already 15.55% over budget before hosting.
+- What selected-bit local identity can bring its paid-word moment below one at
+  `a = 1/9`, with the bad-residue surcharge and complete PR589 interface costs
+  included? Start from one exact replacement block and its source/target map.
+  The blocker is that the current bit word alone is 19.56% over budget, before
+  surcharge or idle work.
 - Can one chronological block decoder realize the ideal 3-unpaid/50-rank or
   4-unpaid/48-rank profile within its zero-to-six-call extra budget? Start with
   one block and record the exact input/output map, source lifetime, frame path
   and dirty restoration. The blocker is that the present budget relaxes away
   all physical realization and gives almost no overhead allowance.
-- Can a source-bound outer transfer improve enough that the current local
-  profile's admissible `a` maps to κ > 0.1? This matters only if the new transfer
-  changes the proved conversion, rather than just its numerical backoff; the
-  first step is an exact derivation against the selected assembly and its
-  all-size premises. The blocker is that the current selected reduction is
-  source-bound and strictly reserved.
+- Can one changed outer transfer make both selected supplier endpoints imply
+  κ > 0.1? Derive it against the selected assembly and all-size premises, then
+  bind both supplier budgets. The blocker is that the current conversion is
+  source-bound and strictly reserved, while both selected words fail locally.
 
 ## Credit
 
-The selected complex profile and its packing-ceiling context retain Rohan
-Arun's #1094 construction and Douglas Colkitt's #1240 analysis. This package
-adds only the target-`0.1` local-word floor and its integer-root replay; it does
-not modify predecessor sources. Prepared by OpenAI Codex with substantial
+The selected complex profile retains Rohan Arun's #1094 construction and
+Douglas Colkitt's #1240 analysis. The bit profile and word provenance retain
+the selected PR589 supplier and the source-bound bit-revision-3 audit. This
+package adds target-`0.1` exact floors and ideal budget screens; it does not
+modify predecessor sources. Prepared by OpenAI Codex with substantial
 assistance in the calculation, verifier and write-up. New material is covered
 by the repository's Apache-2.0 license.

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Exact target-scale screen for the selected complex local word.
+"""Exact target-scale screen for the selected complex and bit local words.
 
 At kappa = 1/10 the retained planning transfer requires primitive saving
-a = 1/9.  This checker lower-bounds the local-word moment at that point using
-integer ninth-root inequalities only.  Any idle, hosting or centre charges
-are nonnegative additions to this local bill.
+a = 1/9. This checker lower-bounds both selected local-word moments at that
+point using integer ninth-root inequalities only. It also prices ideal
+zero-overhead reblockings of the selected bit local rank mass.
 """
 
 from __future__ import annotations
@@ -22,6 +22,7 @@ PACKAGE = Path(__file__).resolve().parent
 SCALE = 10**30
 TARGET_A = Q(1, 9)
 EXPECTED_WORD = {1: 2412, 2: 418, 3: 432, 4: 142, 5: 82, 8: 8}
+EXPECTED_BIT_WORD = {1: 1323, 2: 1342, 3: 79, 4: 44, 5: 102, 6: 11, 7: 19}
 
 
 def require(ok: bool, label: str) -> None:
@@ -87,6 +88,165 @@ def root_enclosure(rank: int, width: int) -> tuple[int, int, bool]:
     require(lo**9 * width_factor <= rhs, "root lower endpoint failed")
     require(upper**9 * width_factor >= rhs, "root upper endpoint failed")
     return lo, upper, exact
+
+
+def moment_interval(word: dict[int, int | Q], width: int, families: Q):
+    """Enclose sum_r n_r (r/width)^(8/9) / families exactly."""
+    lower = upper = Q(0)
+    terms = []
+    for rank, count in sorted(word.items()):
+        lo, hi, exact = root_enclosure(rank, width)
+        lower += count * Q(lo, SCALE)
+        upper += count * Q(hi, SCALE)
+        terms.append({
+            "rank": rank,
+            "count": str(count),
+            "root_lower_numerator": str(lo),
+            "root_upper_numerator": str(hi),
+            "exact_root": exact,
+        })
+    return lower / families, upper / families, terms
+
+
+def bit_profile() -> tuple[dict[int, int], dict[str, object]]:
+    """Bind the selected bit histogram through its audited receipt to the word."""
+    selected_path = ROOT / "certificates/selected-result.json"
+    assembly_path = ROOT / "research/community-frontier1094-audit/ASSEMBLY.json"
+    receipt_path = ROOT / "research/bit-revision3-levers-seed03/RESULT.json"
+    expected_path = ROOT / "research/e8-bit-p111-tuned/tune/EXPECTED.json"
+    word_path = ROOT / "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz"
+
+    selected = read_json(selected_path)
+    assembly = read_json(assembly_path)
+    receipt = read_json(receipt_path)
+    expected = read_json(expected_path)
+    binding = receipt["binding"]
+    replay = receipt["replay"]
+    word_record = expected["word"]
+    require(receipt["status"] == "PASS_BIT_REVISION3_LEVERS",
+            "selected bit receipt is not a successful audited replay")
+    require(selected["kappa"] == assembly["kappa"],
+            "selected bit and complex records no longer share the selected kappa")
+    require(assembly["binding"] == "complex", "selected assembly is no longer complex-bound")
+    require(binding["record"] == "certificates/selected-result.json"
+            and binding["assembly"] == "research/community-frontier1094-audit/ASSEMBLY.json",
+            "bit receipt no longer binds the selected record and assembly")
+    require(binding["expected"] == "research/e8-bit-p111-tuned/tune/EXPECTED.json"
+            and binding["word"] == "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz",
+            "bit receipt no longer binds the selected bit word inputs")
+    require(binding["assembly_sha256"] == sha256(assembly_path),
+            "bit receipt assembly hash drifted")
+    require(binding["expected_sha256"] == sha256(expected_path)
+            and binding["word_sha256"] == sha256(word_path)
+            and word_record["file_sha256"] == sha256(word_path),
+            "bit receipt expected-record or selected-word hash drifted")
+    local = {int(r): int(n) for r, n in replay["local_histogram"].items()}
+    expected_local = {int(r): int(n) for r, n in word_record["local_histogram"].items()}
+    require(local == expected_local == EXPECTED_BIT_WORD,
+            "selected bit local histogram differs from its expected record")
+    require(replay["local_mass"] == 5129 and replay["w"] == "296/3"
+            and replay["stages"] == 9 and replay["record_idle_cap"] == 45
+            and replay["copy_charge_per_call"] == 63,
+            "selected bit dimensions or coverage-law inputs drifted")
+    return local, {
+        "receipt_sha256": sha256(receipt_path),
+        "expected_sha256": sha256(expected_path),
+        "selected_word_sha256": sha256(word_path),
+        "local_mass": replay["local_mass"],
+        "live_families_per_call": replay["w"],
+        "stages": replay["stages"],
+        "unpaid_coordinates": 1,
+        "centre_mass": replay["copy_charge_per_call"],
+        "maximum_child_rank": replay["record_idle_cap"],
+    }
+
+
+def bit_total_mass_bill_interval(unpaid: int, centre: Q, width: int,
+                                 families: Q, rank_cap: int):
+    """Most favorable bill for fixed coverage mass under a rank cap."""
+    total_mass = (width - unpaid) * families + centre
+    lo, hi, _ = root_enclosure(rank_cap, width)
+    lower = total_mass * Q(lo, SCALE) / (rank_cap * families)
+    upper = total_mass * Q(hi, SCALE) / (rank_cap * families)
+    return lower, upper
+
+
+def bit_block_profile(rank_mass: int, block_cap: int) -> dict[int, int]:
+    """Cost-minimizing integer partition of rank mass with a maximum block rank."""
+    blocks, remainder = divmod(rank_mass, block_cap)
+    profile = {block_cap: blocks} if blocks else {}
+    if remainder:
+        profile[remainder] = profile.get(remainder, 0) + 1
+    return profile
+
+
+def bit_reblocked_bill_interval(rank_mass: int, unpaid: int, centre: Q,
+                                width: int, families: Q, rank_cap: int,
+                                block_cap: int, extra_rank1: int = 0):
+    """Ideal integer reblocking plus fractional idle mass at the rank cap."""
+    total_mass = (width - unpaid) * families + centre
+    idle_mass = total_mass - rank_mass
+    require(idle_mass >= 0, "bit local word exceeds the proposed coverage budget")
+    profile = bit_block_profile(rank_mass, block_cap)
+    lower = upper = Q(0)
+    for rank, count in profile.items():
+        lo, hi, _ = root_enclosure(rank, width)
+        lower += count * Q(lo, SCALE)
+        upper += count * Q(hi, SCALE)
+    idle_lo, idle_hi, _ = root_enclosure(rank_cap, width)
+    lower += idle_mass / rank_cap * Q(idle_lo, SCALE)
+    upper += idle_mass / rank_cap * Q(idle_hi, SCALE)
+    one_lo, one_hi, _ = root_enclosure(1, width)
+    lower += extra_rank1 * Q(one_lo, SCALE)
+    upper += extra_rank1 * Q(one_hi, SCALE)
+    return lower / families, upper / families, profile
+
+
+def ideal_bit_blocking_threshold(rank_mass: int, unpaid: int, centre: Q,
+                                 width: int, families: Q, rank_cap: int):
+    """Find the first strict pass and its adjacent block/extra-call limits."""
+    rows = []
+    for cap in range(1, rank_cap + 1):
+        lower, upper, profile = bit_reblocked_bill_interval(
+            rank_mass, unpaid, centre, width, families, rank_cap, cap
+        )
+        rows.append((cap, lower, upper, profile))
+    passing = [row for row in rows if row[2] < 1]
+    require(bool(passing), "no bit reblocking through the selected rank cap passes")
+    cap, lower, upper, profile = passing[0]
+    require(all(row[1] > 1 for row in rows if row[0] < cap),
+            "a smaller integer bit block cap is not strictly rejected")
+    max_extra = 0
+    while True:
+        next_lo, next_hi, _ = bit_reblocked_bill_interval(
+            rank_mass, unpaid, centre, width, families, rank_cap, cap, max_extra + 1
+        )
+        if next_lo > 1:
+            break
+        require(next_hi < 1, "bit extra-call boundary interval is undecided")
+        max_extra += 1
+    accepted_lo, accepted_hi, _ = bit_reblocked_bill_interval(
+        rank_mass, unpaid, centre, width, families, rank_cap, cap, max_extra
+    )
+    rejected_lo, _, _ = bit_reblocked_bill_interval(
+        rank_mass, unpaid, centre, width, families, rank_cap, cap, max_extra + 1
+    )
+    return {
+        "unpaid_coordinates": unpaid,
+        "centre_mass": str(centre),
+        "maximum_child_rank": rank_cap,
+        "smallest_passing_local_block_cap": cap,
+        "all_smaller_caps_fail": True,
+        "local_block_profile": {str(r): n for r, n in sorted(profile.items())},
+        "bill_lower": str(lower),
+        "bill_upper": str(upper),
+        "bill_upper_decimal": f"{float(upper):.15f}",
+        "max_extra_rank1_calls": max_extra,
+        "bill_with_max_extra_lower": str(accepted_lo),
+        "bill_with_max_extra_upper": str(accepted_hi),
+        "bill_with_next_extra_lower": str(rejected_lo),
+        "scope": "zero-cost idealization: arbitrary integer reblocking of all selected local rank mass; idle mass fractional at the cap; no gathering, chronology, frame, copy, dirty-restoration, surcharge or physical costs",
+    }
 
 
 def local_bill_interval(word: dict[int, int], width: int, families: int, stages: int):
@@ -237,6 +397,7 @@ def result_record() -> dict[str, object]:
     selected = read_json(selected_path)
     assembly = read_json(assembly_path)
     width, families, stages, word = source_profile()
+    bit_word, bit_binding = bit_profile()
 
     selected_kappa = str(selected["kappa"])
     require(selected_kappa == str(assembly["kappa"]), "selected record and assembly kappa differ")
@@ -323,11 +484,39 @@ def result_record() -> dict[str, object]:
             and block_cases[1]["max_extra_rank1_calls"] == 6,
             "four-unpaid block budget drifted")
 
+    bit_width = 64
+    bit_families = Q(296, 3)
+    bit_stages = 9
+    bit_rank_cap = 45
+    bit_mass = sum(rank * count for rank, count in bit_word.items())
+    bit_lower, bit_upper, bit_terms = moment_interval(bit_word, bit_width, bit_families)
+    bit_zero_saving = Q(bit_mass, 1) / (bit_width * bit_families)
+    require(bit_mass == 5129 and bit_zero_saving < 1,
+            "bit local mass or a=0 positive control drifted")
+    require(bit_lower > 1, "the selected bit local word does not exclude a=1/9")
+    bit_coverage_lower, bit_coverage_upper = bit_total_mass_bill_interval(
+        1, Q(63), bit_width, bit_families, bit_rank_cap
+    )
+    require(bit_coverage_lower > 1,
+            "selected bit coverage still passes with all mass ideally at rank 45")
+    bit_blocks = [
+        ideal_bit_blocking_threshold(bit_mass, 3, Q(0), bit_width, bit_families, bit_rank_cap),
+        ideal_bit_blocking_threshold(bit_mass, 4, Q(63), bit_width, bit_families, bit_rank_cap),
+    ]
+    require(bit_blocks[0]["smallest_passing_local_block_cap"] == 42
+            and bit_blocks[0]["local_block_profile"] == {"5": 1, "42": 122}
+            and bit_blocks[0]["max_extra_rank1_calls"] == 8,
+            "three-unpaid bit block budget drifted")
+    require(bit_blocks[1]["smallest_passing_local_block_cap"] == 39
+            and bit_blocks[1]["local_block_profile"] == {"20": 1, "39": 131}
+            and bit_blocks[1]["max_extra_rank1_calls"] == 3,
+            "four-unpaid bit block budget drifted")
+
     # At a=1/9, kappa=a/(1+a)=1/10.  The retained outer transfer has strict
     # reservations, so any kappa>1/10 needs a primitive a>1/9.
     return {
-        "status": "PASS_KAPPA01_SELECTED_COMPLEX_WORD_FLOOR",
-        "scope": "fixed selected complex local word, width, family count and stage count; no idle credit",
+        "status": "PASS_KAPPA01_TWO_SIDED_TARGET_SCREEN",
+        "scope": "selected complex and bit local words plus independent ideal coverage/reblocking relaxations; no realizable replacement supplier",
         "target": {"kappa": "1/10", "primitive_saving": "1/9"},
         "selected": {
             "kappa": selected_kappa,
@@ -335,6 +524,7 @@ def result_record() -> dict[str, object]:
             "selected_record_sha256": sha256(selected_path),
             "assembly_sha256": sha256(assembly_path),
             "local_word_source_sha256": sha256(word_path),
+            "bit_binding": bit_binding,
         },
         "model": {
             "width": width,
@@ -346,6 +536,18 @@ def result_record() -> dict[str, object]:
             "idle_mass_assumed": 0,
             "centre_charge_assumed": 0,
             "maximum_child_rank": rank_cap,
+            "root_scale": str(SCALE),
+        },
+        "bit_model": {
+            "width": bit_width,
+            "live_families_per_call": str(bit_families),
+            "stages": bit_stages,
+            "local_profile": {str(r): n for r, n in sorted(bit_word.items())},
+            "local_rank_mass": bit_mass,
+            "idle_mass_assumed_for_local_floor": 0,
+            "surcharge_assumed_for_local_floor": 0,
+            "copy_charge": 63,
+            "maximum_child_rank": bit_rank_cap,
             "root_scale": str(SCALE),
         },
         "certificate": {
@@ -365,13 +567,34 @@ def result_record() -> dict[str, object]:
                 "with_selected_centre_charge_64": 4,
                 "scope": "uniform coverage law, fixed width 73, nine stages, and rank cap 51; idealized rank-mass distribution only",
             },
+            "bit_local_word": {
+                "rank_terms": bit_terms,
+                "bill_lower": str(bit_lower),
+                "bill_upper": str(bit_upper),
+                "bill_lower_decimal": f"{float(bit_lower):.15f}",
+                "bill_upper_decimal": f"{float(bit_upper):.15f}",
+                "margin_lower": str(bit_lower - 1),
+                "strict_rejection": bit_lower > 1,
+                "positive_control_a_zero_bill": str(bit_zero_saving),
+                "surcharge_omitted": True,
+            },
+            "bit_selected_coverage": {
+                "unpaid_coordinates": 1,
+                "centre_mass": "63",
+                "all_mass_at_rank_cap": bit_rank_cap,
+                "bill_lower": str(bit_coverage_lower),
+                "bill_upper": str(bit_coverage_upper),
+                "bill_upper_decimal": f"{float(bit_coverage_upper):.15f}",
+                "strict_rejection": bit_coverage_lower > 1,
+            },
+            "bit_ideal_local_blocking": bit_blocks,
         },
         "interpretation": (
-            "The local paid word alone costs more than one normalized unit at a=1/9. "
-            "Separately, the selected coverage law fails even if all rank mass is "
-            "ideally repacked at rank 51 and local work is free. Thus this word and "
-            "this coverage law each need structural change; passing relaxed cases "
-            "are budget thresholds, not constructions."
+            "Both selected local words alone cost more than one normalized unit at a=1/9, "
+            "even with all idle, hosting, centre and surcharge costs omitted. The selected "
+            "coverage laws also fail under separate ideal rank-cap relaxations. Passing "
+            "reblocking cases are zero-overhead necessary budgets for each supplier, not "
+            "decoders or a joint construction."
         ),
     }
 
@@ -387,7 +610,10 @@ def main() -> None:
     else:
         expected = read_json(PACKAGE / "RESULT.json")
         require(record == expected, "RESULT.json differs from exact replay")
-    print("PASS_KAPPA01_SELECTED_COMPLEX_WORD_FLOOR bill_lower=" + record["certificate"]["bill_lower_decimal"])
+    print("PASS_KAPPA01_TWO_SIDED_TARGET_SCREEN complex_local_lower="
+          + record["certificate"]["bill_lower_decimal"]
+          + " bit_local_lower="
+          + record["certificate"]["bit_local_word"]["bill_lower_decimal"])
 
 
 if __name__ == "__main__":
