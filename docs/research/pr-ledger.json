@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1980,
-    "partially_reviewed": 356,
+    "incorporated": 1981,
+    "partially_reviewed": 355,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -104,8 +104,8 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "c5d332ea6d8eb783a3207bfc6a635c058d2006b23ecf58036b2a8bc8e633cd28",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "64f456c1e26cd3fcbcd775b071cae26920a2853b1b12ee1b091aa1f14f272688",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "c79d22bb104e1b51ca8d06000b63115fe2c8a50280f1f88f252df0b6bc5d9243",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -128059,7 +128059,7 @@
         {
           "head": "7dba5452a4071a856a0b11cebdcd2d3b6bcd7659",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full all-size endpoint/stock induction, root-coupled logical storage argument and complete new runtime/test code reviewed. Explicit independent stock, ordered projected gaps, frozen prefix/program and owned return; linear sign removes per-column padded-counter overhead. All50 original caller exports, four proof/notice files and11 live inputs authenticated against Git. Complete registered suites remain required. Tiny GL2 nested model and controlled GL64-frame handoffs are distinct from selected full payload execution. Baseline p=1 and logical live-symbol bound under stated source/root hypotheses; no fixed physical-tape compiler, H2 saving, outer wrapper or new κ.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -128069,7 +128069,7 @@
       "closure": null,
       "reviewed_head": "7dba5452a4071a856a0b11cebdcd2d3b6bcd7659",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Full code/proof review and65 original Git source bindings complete. Metadata and complete source suite pass; node suite reaches all eight idle returns and two bridge returns but exceeds declared600second command budget before terminal acceptance. Recursion, nested and controls suites remain unrun. Keep exact terminal log; no compiler/H2 admission or mathematical rejection from this timeout. Dedicated complete bounded replay or measured implementation speedup required.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -128077,7 +128077,9 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2753.json"
+        "research/community-efficient1700-audit/packets/2753.json",
+        "research/community-efficient1700-audit/checks/check-2753-supplement.json",
+        "research/community-efficient1700-audit/checks/check-2753.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131325,7 +131327,7 @@
         {
           "head": "fe264d29868308c8e2ba483a7a49db5cbe928308",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Unit-carry physical ordered shear and inverse y→y±(x+1), arbitrary positive extents includingQ=1. All new phase/controller/oracle/integrity code and all-size split, cleanup, exact predecessor+7 transition and41V visited-span proofs reviewed. Seven retained exports authenticated against Git; prior2776 control/counter review reused at unchanged head. Fourteen tapes/552 instructions,449V bound; complete registered finite replay required. Valid-input successful contract only: arbitrary carries, caller allocation, full selectedH2 and newκ remain outside scope.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -131808,7 +131810,7 @@
       "closure": null,
       "reviewed_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Full mathematical/code review complete; first primary census exceeded the sampled1GiB process-group guard (1242928KiB) with no tracked input changes. Eager multimillion-item lists and a cpu_count-sized pool require bounded batching before replay. No rejection inferred; full canonical certificate, independent census and fault controls remain pending.",
+      "unresolved_question": "Original replay stopped by sampled1GiB process-group guard before completing the census. Prepared two-file bounded-streaming resolution with all mathematical worker ASTs unchanged and differential pool/serial checks passed. Complete normal/optimized/independent/corruption suites on the resolved source remain required; no mathematical rejection is inferred.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131817,6 +131819,7 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2840.json",
+        "research/community-efficient1800-audit/checks/check-2840-supplement.json",
         "research/community-efficient1800-audit/checks/check-2840.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
@@ -132094,25 +132097,33 @@
         {
           "head": "f3786fa5d7e28d643f0efaf7d75089cb2909b337",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Complete 28-rule/20-control audit implementation and finite-model argument reviewed. Source-bound independent checks authenticate50 Git blobs, certify all three root brackets with rational series bounds and check15000 free-word reductions. Complete submitted replay passes all28 rules and20 negative controls in143.68seconds without input changes. Exact forward/dual free-group identity, propagated GF2 frames, complete fill and attribution are scoped to the pinned2802/2751/2818/2766 construction; random matrix checks are supplemental. Symplectic images do not establish exact native Clifford phases; parent recovery, T74 supplier admission, physical hosting, finer2818 endpoint and outer theorem remain separate. No selected κ change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-retired7-increment-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "107f0cba4967aafe1923e9b6b7c35b7d7b205aef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2847"
+      },
       "reviewed_head": "f3786fa5d7e28d643f0efaf7d75089cb2909b337",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2847.json"
+        "research/community-efficient1800-audit/packets/2847.json",
+        "research/community-efficient1800-audit/checks/check-2847-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2847.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133263,7 +133274,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1528,
-    "OPEN": 492
+    "MERGED": 1529,
+    "OPEN": 491
   }
 }
