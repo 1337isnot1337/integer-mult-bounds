@@ -552,9 +552,9 @@
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "1417f13316b5ad02417ee637924a5c86eeff7961bfbe15e18f5508b3d996d443",
+    "resolved_sha256": "709e7432eb8e2568487f91ed95eaff61bf7ce181ba8e2203bf2248214d953923",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay.",
-    "followup": "2026-10-16 scatter audit source archive and current source/CI holds; scientific scope unchanged."
+    "followup": "2026-10-16 completed actionable intake reconciliation; historical scientific source/verification limits preserved."
   }
 ]

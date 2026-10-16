@@ -49,47 +49,6 @@
       "watch_prs": {}
     },
     {
-      "number": 275,
-      "head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
-      "status": "pending_review",
-      "reason": "The two primary finite-assembly packages passed, including the pinned PR799 application. Eleven additional research/tooling packages at this expanded head still need individual review and execution coverage.",
-      "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
-      ],
-      "policy_version": 1,
-      "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
-      "watch_paths": {
-        ".gitattributes": "226044d4ceb5906d124ef75713f6b0895a89e942",
-        ".github/workflows/gen4-extra-target-pairs.yml": null,
-        ".github/workflows/gen5-kernel-restoration.yml": null,
-        ".github/workflows/gen5-retiming-targets.yml": null,
-        ".github/workflows/gen5b-weighted-matching.yml": null,
-        ".github/workflows/zero-frame-target-restores.yml": null,
-        "certificates/mixed-point-audit.json": "ab462d0f1126565e1d799ab678a1efcd4a4958de",
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
-        "research/e8-bit-basis-order": null,
-        "research/e8-dirty-chart-audit": null,
-        "research/e8-emitter-digest-cache": null,
-        "research/e8-exact-bank-optimizer": null,
-        "research/e8-hosted-bit-contract": null,
-        "research/e8-retimed-component-verification": null,
-        "research/e8-scalar-address-cache": null,
-        "research/finite-assembly-frontier": null,
-        "research/finite-assembly-pr799": null,
-        "research/gen4-extra-target-pairs": null,
-        "research/gen5-kernel-restoration": null,
-        "research/gen5-retiming-targets": null,
-        "research/gen5b-weighted-matching": null,
-        "research/zero-frame-target-restores": null,
-        "tests/test_bit_basis_order.py": null,
-        "tests/test_emitter_digest_cache.py": null,
-        "tests/test_finite_assembly_frontier.py": null,
-        "tests/test_hosted_bit_contract.py": null,
-        "tests/test_scalar_address_cache.py": null
-      },
-      "watch_prs": {}
-    },
-    {
       "number": 461,
       "head": "dc297912ad446779f983818816617c03dfc76e16",
       "status": "waiting_revision",
@@ -1758,7 +1717,7 @@
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        "docs/research/pr-intake-checkpoint.json": "a373eb6d935262921b20053f0fe2aa4bf18e326c",
+        "docs/research/pr-intake-checkpoint.json": "3fc32d645142a4e87e5c9ff9d75fcb6445deaa42",
         "research/fstar-gap2-v11-seed42ff0611": null
       },
       "watch_prs": {}

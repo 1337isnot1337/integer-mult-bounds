@@ -60,18 +60,18 @@
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "085b60bcf78de234ae93867d44ab9d2c6880d3b50529d0abc091961c28ec2e3b",
+    "resolved_sha256": "3e9745e16128af5243cc316122d718dfa4abd5e285e10b301989f53a8d6a56f1",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 scatter audit source archive and current source/CI holds; scientific scope unchanged."
+    "followup": "2026-10-16 completed actionable intake reconciliation; historical scientific source/verification limits preserved."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "207bf3ac217bbdd1a7c047576b475b1d0b97b4fd5165eace6475c7ac1c8d6a16",
+    "resolved_sha256": "563c166e7560ea232176cc0dc0f5b8abd16317340dde099e3d02cbd5945b53b5",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 scatter audit source archive and current source/CI holds; scientific scope unchanged."
+    "followup": "2026-10-16 completed actionable intake reconciliation; historical scientific source/verification limits preserved."
   },
   {
     "number": 2255,

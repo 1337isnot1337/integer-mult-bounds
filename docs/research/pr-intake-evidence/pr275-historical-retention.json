@@ -11199,5 +11199,19 @@
     "workflows": "Five opt-in/path-triggered research replay definitions remain historical only; no active CI change.",
     "certificate": "mixed-point-audit.json changes a source hash; preserve current main certificate and keep original version at source commit.",
     "attributes": "Original attributes remain inactive."
+  },
+  "publication": {
+    "headRefOid": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+    "mergeCommit": {
+      "oid": "fadae6f469e0d5c9c03bbe047a4d383dac254448"
+    },
+    "state": "MERGED"
+  },
+  "source_retention": {
+    "status": "PASS",
+    "original_entries": 734,
+    "all_original_blobs_and_modes_match": true,
+    "original_commit_in_main_ancestry": true,
+    "active_source_tree_unchanged": true
   }
 }

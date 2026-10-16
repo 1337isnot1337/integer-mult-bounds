@@ -19,6 +19,10 @@ or changes the cache. Use the canonical integration checkout; preserve unrelated
 user work. `--live-json` supports offline diagnostics but is explicitly not fresh
 GitHub evidence. Recheck the live head before publication or closure.
 
+If the fresh plan has zero actionable entries, stop routine intake and report
+the remaining revision/deferred counts. Do not fill an empty batch with dormant
+reviews or poll indefinitely unless the user explicitly requested monitoring.
+
 Read the summary and **selected** entries first, not the entire ledger. Within
 the selected chunk, handle ready integrations together, group shared dependencies,
 and review each changed mechanism once. New/changed heads receive priority over

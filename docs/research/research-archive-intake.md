@@ -118,3 +118,16 @@ still apply; Lean sources may be archived without running Lean, with formal
 validation explicitly open. This does not admit changes to shared `scripts/`,
 `tests/`, workflows, selected certificates or existing runtime paths through the
 archive lane. [PR2780 source scope](pr-intake-evidence/archives-20261016c.json).
+
+## Historical sources with collateral verification files
+
+After separately reviewing their scope, a maintainer may retain the complete
+original source commit of an expanded research contribution while leaving **all**
+its proposed files out of the default tree. This preserves collateral test/CI
+definitions and historical certificates as source evidence, not active changes.
+It does not approve shared production behavior, run a verification workload, or
+replace current certificates. Record the exact original tree, full inventory,
+prior completed checks, remaining obligations and a default-tree invariance check.
+[PR275](pr-intake-evidence/pr275-historical-retention.json) is this case: its five
+package-wide unittest wrappers and workflows stay inactive; its two previously
+passed primary reviews remain credited.

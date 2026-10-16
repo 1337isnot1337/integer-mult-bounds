@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Run the delta planner; source archives are published. Three source/configuration blockers now have persistent scheduling states. Remaining pending substantive work is not complete.",
+  "next": "Fresh delta planner reported zero actionable entries. Recheck live heads once at next session; resume only new/reactivated entries or an explicitly woken deferred review. Drafts, concrete revisions and separately deferred replays remain open; no complete mathematical validation is implied.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,9 +1011,13 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "evidence": "docs/research/pr-intake-evidence/archives-20261016d.json",
     "merged": [
+      275,
       2977
+    ],
+    "evidence": [
+      "docs/research/pr-intake-evidence/pr275-historical-retention.json",
+      "docs/research/pr-intake-evidence/archives-20261016d.json"
     ]
   },
   "reported_followups": [

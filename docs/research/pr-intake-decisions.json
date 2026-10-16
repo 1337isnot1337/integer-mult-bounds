@@ -3,6 +3,50 @@
   "scope": "Incremental exact-head decisions. Only changed entries are updated; historical decisions remain in the Git history and central ledger sources.",
   "pull_requests": [
     {
+      "number": 275,
+      "metadata": {
+        "number": 275,
+        "title": "Finite assembly theorem and source-bound PR799 application",
+        "author": {
+          "id": "MDQ6VXNlcjE2NDk0NDU=",
+          "is_bot": false,
+          "login": "lydakis",
+          "name": "George Lydakis"
+        },
+        "headRefOid": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+        "isDraft": false
+      },
+      "reviewed_head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+      "current_head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "https://github.com/CrocSwap/integer-mult-bounds/tree/524375c61b75dc10cef68a71d504e79e7e7f138c"
+      ],
+      "unresolved_question": "Two primary finite-assembly packages previously passed, including the pinned PR799 application. Eleven additional research/tooling packages still require scientific review and execution. Historical source retention does not admit the submitted test wrappers, CI configuration or certificate replacement.",
+      "closure": {
+        "kind": "merged_for_historical_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/275",
+        "merge_commit": "fadae6f469e0d5c9c03bbe047a4d383dac254448"
+      },
+      "scope": "Complete historical source retention only: all 734 original changed-file entries and full original commit remain accessible in main ancestry. No proposed scientific files, test wrappers, workflows, certificate or attributes are installed in the default tree. Existing main source stays unchanged. Two primary finite-assembly package reviews previously passed and remain credited; eleven other packages retain independent proof/replay obligations.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "research/community-efficient1800-audit/packets/275.json",
+        "research/community-efficient1900-audit/packets/275.json",
+        "research/community-efficient2500-audit/INTAKE.json",
+        "research/community-efficient2500-audit/packets/275.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/275.json",
+        "docs/research/pr-intake-evidence/pr275-historical-retention.json"
+      ]
+    },
+    {
       "number": 826,
       "metadata": {
         "number": 826,
@@ -76,6 +120,122 @@
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/archives-20261016c.json"
+      ]
+    },
+    {
+      "number": 1786,
+      "metadata": {
+        "number": 1786,
+        "title": "Conditional \u03ba = 0.001679754788150048 from fine source-prime padding",
+        "author": {
+          "id": "MDQ6VXNlcjQ0MDA1Mjc=",
+          "is_bot": false,
+          "login": "chafreaky",
+          "name": "chafreaky"
+        },
+        "headRefOid": "c52345caa318fc6b1b6e2659c57d746317a72823",
+        "isDraft": false
+      },
+      "reviewed_head": "c52345caa318fc6b1b6e2659c57d746317a72823",
+      "current_head": "c52345caa318fc6b1b6e2659c57d746317a72823",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [],
+      "unresolved_question": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
+      "closure": null,
+      "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient1800-audit/packets/1786.json",
+        "research/community-efficient1900-audit/packets/1786.json",
+        "research/community-efficient2500-audit/INTAKE.json",
+        "research/community-efficient2500-audit/packets/1786.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1786.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json",
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
+      ]
+    },
+    {
+      "number": 1897,
+      "metadata": {
+        "number": 1897,
+        "title": "Conditional kappa refinement: 500-digit enclosures and complete native-proof reuse",
+        "author": {
+          "id": "U_kgDOBdOLfA",
+          "is_bot": false,
+          "login": "M6LI",
+          "name": "Muhammed Ali Mehmood"
+        },
+        "headRefOid": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
+        "isDraft": false
+      },
+      "reviewed_head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
+      "current_head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [],
+      "unresolved_question": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
+      "closure": null,
+      "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient1800-audit/packets/1897.json",
+        "research/community-efficient1900-audit/packets/1897.json",
+        "research/community-efficient2500-audit/INTAKE.json",
+        "research/community-efficient2500-audit/packets/1897.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/1897.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json",
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
+      ]
+    },
+    {
+      "number": 2361,
+      "metadata": {
+        "number": 2361,
+        "title": "ci: select affected verification inputs and preserve historical replays",
+        "author": {
+          "id": "MDQ6VXNlcjE4NjIyMjg4",
+          "is_bot": false,
+          "login": "thakrarsagar",
+          "name": ""
+        },
+        "headRefOid": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
+        "isDraft": false
+      },
+      "reviewed_head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
+      "current_head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [],
+      "unresolved_question": "Revise CI adoption against current manual-only historical sweeps: submitted verify.yml enables push/PR runs and a full scheduled matrix every six hours, including formal work. Preserve the current opt-in/no-automatic-Lean policy. Current historical-adapter reconciliation and native Linux strace coverage remain required.",
+      "closure": null,
+      "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient1800-audit/packets/2361.json",
+        "research/community-efficient1900-audit/packets/2361.json",
+        "research/community-efficient2500-audit/INTAKE.json",
+        "research/community-efficient2500-audit/packets/2361.json",
+        "research/community-efficient2600-audit/INTAKE.json",
+        "research/community-efficient2600-audit/packets/2361.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json"
       ]
     },
     {

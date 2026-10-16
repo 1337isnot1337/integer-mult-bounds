@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "fadfe7c1e4eb61cb34c4cf9a9e401ed1fdeff6685e5c2f9d62c7cc03c211d310",
+    "docs/research/pr-intake-decisions.json": "ad923347eaf1aa1034d4512276d1e30c8c5115e86ede4ee828b8c7e88dc39434",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -16422,25 +16422,38 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Complete historical source retention only: all 734 original changed-file entries and full original commit remain accessible in main ancestry. No proposed scientific files, test wrappers, workflows, certificate or attributes are installed in the default tree. Existing main source stays unchanged. Two primary finite-assembly package reviews previously passed and remain credited; eleven other packages retain independent proof/replay obligations.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [
         "docs/research/community-efficient1800-review.md",
         "docs/research/community-efficient1900-review.md",
-        "docs/research/community-reconciliation-next100-review.md"
+        "docs/research/community-reconciliation-next100-review.md",
+        "docs/research/research-archive-intake.md"
       ],
       "disposition": "partially_reviewed",
-      "integration_location": [],
-      "github_state": "OPEN",
-      "unresolved_question": "The two primary finite-assembly packages passed, including the pinned PR799 application. Eleven additional research/tooling packages at this expanded head still need individual review and execution coverage.",
-      "closure": null,
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "integration_location": [
+        "https://github.com/CrocSwap/integer-mult-bounds/tree/524375c61b75dc10cef68a71d504e79e7e7f138c"
+      ],
+      "github_state": "MERGED",
+      "unresolved_question": "Two primary finite-assembly packages previously passed, including the pinned PR799 application. Eleven additional research/tooling packages still require scientific review and execution. Historical source retention does not admit the submitted test wrappers, CI configuration or certificate replacement.",
+      "closure": {
+        "kind": "merged_for_historical_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/275",
+        "merge_commit": "fadae6f469e0d5c9c03bbe047a4d383dac254448"
+      },
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reviewed_head": "524375c61b75dc10cef68a71d504e79e7e7f138c",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/275.json",
@@ -16448,14 +16461,16 @@
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/275.json",
         "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/275.json"
+        "research/community-efficient2600-audit/packets/275.json",
+        "docs/research/pr-intake-evidence/pr275-historical-retention.json"
       ],
       "reconciliation_evidence": [
         "research/community-reconciliation-next100-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -93116,6 +93131,12 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "c52345caa318fc6b1b6e2659c57d746317a72823",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -93124,9 +93145,9 @@
       "closure": null,
       "reviewed_head": "c52345caa318fc6b1b6e2659c57d746317a72823",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Fine-prime padding/precision transfer and retained supplier need dedicated admission. PR1797 is a scoped inequality audit, not a check of the accretive Toeplitz circuit theorem, cost-row derivations, union layout or all-size compiler. This proposal uses explicit Strassen boundaries rather than depending on PR1758 structured solves; preserve that distinction.",
+      "unresolved_question": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -93137,15 +93158,18 @@
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/1786.json",
         "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/1786.json"
+        "research/community-efficient2600-audit/packets/1786.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json",
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient800-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -97702,6 +97726,12 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -97710,9 +97740,9 @@
       "closure": null,
       "reviewed_head": "fdf717a838bb3d4c78396474131bd1ab5f18165d",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Review405-file whole-head provenance, native reuse binding, fixed-point enclosures and new workflow/certificates; reconcile the broad-shift guard correction with the inherited outer. Parent/source agreement and all-size obligations are shared with1800 and are not discharged by extra precision.",
+      "unresolved_question": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -97723,15 +97753,18 @@
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/1897.json",
         "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/1897.json"
+        "research/community-efficient2600-audit/packets/1897.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json",
+        "docs/research/pr-intake-evidence/archives-20261016d.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient900-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -116835,6 +116868,12 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact-head source/configuration revision gate. No new scientific execution or approval. Prior scoped evidence is retained.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -116843,9 +116882,9 @@
       "closure": null,
       "reviewed_head": "b15a55ba1cecf985a584ad5926bc67ebb940b8d3",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Five focused suites pass; planner, tracer, cancellation and workflow code reviewed. Fresh Linux strace integration/coverage validation and reconciliation of the historical replay adapter with newer main remain required before changing default CI. Author Linux recordings are local-only and are not a maintainer execution.",
+      "unresolved_question": "Revise CI adoption against current manual-only historical sweeps: submitted verify.yml enables push/PR runs and a full scheduled matrix every six hours, including formal work. Preserve the current opt-in/no-automatic-Lean policy. Current historical-adapter reconciliation and native Linux strace coverage remain required.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -116856,15 +116895,17 @@
         "research/community-efficient2500-audit/INTAKE.json",
         "research/community-efficient2500-audit/packets/2361.json",
         "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/2361.json"
+        "research/community-efficient2600-audit/packets/2361.json",
+        "docs/research/pr-intake-evidence/remaining-holds-20261016d.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient1300-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -146638,7 +146679,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1862,
-    "OPEN": 249
+    "MERGED": 1863,
+    "OPEN": 248
   }
 }
