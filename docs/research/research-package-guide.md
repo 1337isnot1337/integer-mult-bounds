@@ -87,8 +87,14 @@ workflow or the package's existing reproducible environment.
 Declare every external proof-relevant input in `inputs`; package-local changes
 already trigger replay. Use canonical repository-relative POSIX paths, such as
 `research/example/input.json`, with forward slashes and no leading `./`, repeated
-slashes or dot components. The planner rejects aliases because Git reports the
-canonical path when a dependency changes. The generic hook does not infer transitive imports.
+slashes or dot components. Existing components below the repository root must
+also be free of symbolic links. The planner and metadata validator reject these
+aliases because Git reports changes under the target's path. Declare that
+target path instead. Missing inputs still participate in replay selection, so
+deleting an input or its parent directory cannot suppress its consumer's replay.
+The checkout must remain stable during planning, validation and execution; these
+checks do not provide an atomic filesystem snapshot. The generic hook does not
+infer transitive imports.
 Each command has a maximum 600-second timeout and the package total is at most
 1200 seconds. On POSIX, the launcher terminates the command's local process
 group on every exit, including success, failure, timeout and interruption, so

@@ -13,6 +13,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import signal
+import stat
 import subprocess
 import sys
 import tempfile
@@ -36,11 +37,29 @@ def canonical_relative_path(name):
     return path
 
 
+def symlink_free_relative_path(root, name):
+    """Reject symlink components without requiring a deleted input to exist.
+
+    Git reports changes under the target's path, not a symlink alias declared
+    by its consumer. Inspect existing components below the repository root;
+    the checkout must remain stable during planning, validation and replay.
+    """
+    parts = canonical_relative_path(name).parts
+    current = root
+    for part in parts:
+        current = current / part
+        try:
+            mode = current.lstat().st_mode
+        except (FileNotFoundError, NotADirectoryError):
+            break
+        require(not stat.S_ISLNK(mode), "symlink in repository-relative path: " + name)
+    return root / name
+
+
 def relative_file(root, name):
-    canonical_relative_path(name)
-    result = root / name
-    require(result.resolve().is_relative_to(root.resolve()) and result.is_file()
-            and not result.is_symlink(), "missing or external file: " + name)
+    result = symlink_free_relative_path(root, name)
+    require(result.resolve().is_relative_to(root.resolve()) and result.is_file(),
+            "missing or external file: " + name)
     return result
 
 
@@ -571,7 +590,7 @@ def plan(root, changed):
         require(isinstance(inputs, list), "declare input paths for CI invalidation")
         for name in inputs:
             # Do not require existence: a deleted input must still trigger replay.
-            canonical_relative_path(name)
+            symlink_free_relative_path(root, name)
         if (changed.intersection(inputs) or any(p.startswith(package + "/") for p in changed)
                 or replay_changed):
             packages.append(package)
