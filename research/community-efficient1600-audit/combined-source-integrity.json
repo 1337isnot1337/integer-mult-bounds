@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "cfdddb73a984634307d3591a74538495343c9a07",
+  "checked_commit": "0d071eb0c4e966a2aa729f999373cf83fbc36160",
   "merged_prs": [
     2592,
     2594,
@@ -111,12 +111,12 @@
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "cc489686f7b089a90f455080718f7728df45c2bbaaacfbf34cb4f48d65b362a7"
+      "sha256": "553f0017132813bb86efe80e19c40d1026d3ad231f40d8ab78e17bca34ae66c9"
     },
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.md",
-      "sha256": "16830a09c585825174669aa2fbad3c78be9782769b453e4bf9614edd205afefa"
+      "sha256": "d5e31ed7a9c7004c030ea1626a11c236ea9c2b7ef89f2c9a024465f725f8b169"
     },
     {
       "number": 2624,
