@@ -103,7 +103,7 @@ and `PASS_SNAPSHOT_REBOUND_UNCOVERED 16`.
 ## Credit
 
 Every construction belongs to its claim's authors: G. V. Chudnovsky (CrocSwap/integer-mult-bounds#1175), tomdif and the
-CrocSwap/integer-mult-bounds#1148-line authors (CrocSwap/integer-mult-bounds#1169 lineage), jeremykothe2 (CrocSwap/integer-mult-bounds#1183/#1192/#1201/#1207/#1218 lineages), and
+CrocSwap/integer-mult-bounds#1148-line authors (CrocSwap/integer-mult-bounds#1169 lineage), Rohan Arun ([PR 1183](https://github.com/CrocSwap/integer-mult-bounds/pull/1183) / [PR 1192](https://github.com/CrocSwap/integer-mult-bounds/pull/1192) / [PR 1201](https://github.com/CrocSwap/integer-mult-bounds/pull/1201) / [PR 1207](https://github.com/CrocSwap/integer-mult-bounds/pull/1207) / [PR 1218](https://github.com/CrocSwap/integer-mult-bounds/pull/1218) lineages), and
 the authors of CrocSwap/integer-mult-bounds#1104/#1107/#1111/#1117/#1121/#1150/#1154/#1172/#1176 as cited in their packages.
 The coverage identity is CrocSwap/integer-mult-bounds#1012's; the ceiling model and the queue-census method are Douglas
 Colkitt's ([CrocSwap/integer-mult-bounds#1240](https://github.com/CrocSwap/integer-mult-bounds/pull/1240),

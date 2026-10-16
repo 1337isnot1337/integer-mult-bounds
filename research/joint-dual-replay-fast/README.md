@@ -142,7 +142,10 @@ and a BENCHMARK.json with the paired timings above (values vary by machine).
 ## Credit
 
 - The frozen replay, transitions stage and words are the frame-compiler line of
-  Chafik Boukhalfa (PR25-PR58 lineage; `scripts/experiments/pin_joint_dual_sources.py`,
+  Chafik Boukhalfa ([PR 25](https://github.com/CrocSwap/integer-mult-bounds/pull/25) by
+  Rohan Arun (rohanarun, with OpenAI Codex assistance) through
+  [PR 58](https://github.com/CrocSwap/integer-mult-bounds/pull/58) by Chafik Boukhalfa
+  (chafreaky, with OpenAI Codex assistance); `scripts/experiments/pin_joint_dual_sources.py`,
   `research/joint-dual`), with the original word/frames checks; PR64 (rfu08) is
   credited in `check_word` for the cancelling-scatter counterexample, which is
   retained verbatim.

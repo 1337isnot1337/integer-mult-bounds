@@ -8,7 +8,10 @@ Model and question: CrocSwap/integer-mult-bounds#717 (DreamingOfClouds), `resear
 `4a97676294f9fa413b65986e9984fddeda71e4cc` (B14 decoder model, D1(a) masked reduction,
 D1 mixed-beta open problem, D1(e) sampled covering bound; read for definitions only, not
 vendored or executed). Prior decoder floors: CrocSwap/integer-mult-bounds#620 (Joel Pulikkan / GamingPuzzled),
-CrocSwap/integer-mult-bounds#968 and CrocSwap/integer-mult-bounds#1077 (woklerx and the seed44/seed48 packages; both defer masked E-graph
+[PR 968](https://github.com/CrocSwap/integer-mult-bounds/pull/968) (themilkman216,
+with Anthropic Claude assistance) and
+[PR 1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077) (woklerx, with OpenAI
+Codex assistance, and the seed44/seed48 packages; both defer masked E-graph
 identities), CrocSwap/integer-mult-bounds#845 (Mihir Srivastava; fixed-reader ninth total). The E8 line enumeration
 is adapted from `research/complex-frame-pair-decoders/verify.py` (Apache-2.0, same
 repository) with attribution; no predecessor file is modified or imported at runtime.

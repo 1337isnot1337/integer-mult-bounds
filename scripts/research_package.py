@@ -5,6 +5,7 @@ Douglas Colkitt, with OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
 from contextlib import closing
+from itertools import chain
 import hashlib
 import importlib.metadata
 import json
@@ -89,21 +90,34 @@ def git_source_rows(root, base, names):
                     process.wait()
 
 
-def git_blobs(root, specs):
-    """Read exact blobs in one Git process, without retaining a cross-call cache.
+class _UnsupportedNulBatch(Exception):
+    """Git rejected the initial NUL-mode request before yielding any source."""
 
-    NUL-delimited requests preserve spaces/newlines in paths. Each reply's size
-    frames the binary content, so embedded newlines and NUL bytes are harmless.
-    The caller must close this iterator if validation stops before exhaustion.
-    """
-    with subprocess.Popen(["git", "cat-file", "--batch", "-z"], cwd=root,
-                          stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
+
+def _git_blob_batch(root, specs, nul):
+    argv = ["git", "cat-file", "--batch"] + (["-z"] if nul else [])
+    # Usage diagnostics from the unsupported-option probe are expected. Avoid
+    # a second pipe that could block while we consume the framed stdout reply.
+    with subprocess.Popen(argv, cwd=root, stdin=subprocess.PIPE,
+                          stdout=subprocess.PIPE, stderr=subprocess.DEVNULL) as process:
         try:
-            for spec in specs:
+            for index, spec in enumerate(specs):
                 require("\0" not in spec, "invalid Git object request")
-                process.stdin.write(spec.encode("utf-8") + b"\0")
-                process.stdin.flush()
-                fields = process.stdout.readline().rstrip(b"\n").split(b" ")
+                request = spec
+                if not nul and ("\n" in spec or "\r" in spec):
+                    # Resolve one literal argument, never split a path into requests.
+                    request = git(root, "rev-parse", "--verify", "--end-of-options", spec).decode("ascii").strip()
+                    require(re.fullmatch(r"[0-9a-f]{40,64}", request), "invalid Git object ID")
+                try:
+                    process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
+                    process.stdin.flush()
+                except BrokenPipeError:
+                    header = b""
+                else:
+                    header = process.stdout.readline()
+                if nul and index == 0 and not header and process.wait(timeout=90) == 129:
+                    raise _UnsupportedNulBatch(spec)
+                fields = header.rstrip(b"\n").split(b" ")
                 require(len(fields) == 3 and re.fullmatch(rb"[0-9a-f]{40,64}", fields[0])
                         and fields[1] == b"blob" and fields[2].isdigit(),
                         "missing or non-blob Git source: " + spec)
@@ -115,9 +129,11 @@ def git_blobs(root, specs):
             process.stdin.close()
             require(process.wait(timeout=90) == 0, "Git source reader failed")
         finally:
-            # On an early pin/drift failure, EOF releases Git's request loop;
-            # closing stdout also releases a producer with an unread reply.
-            process.stdin.close()
+            # Option rejection can close stdin before our first write/flush.
+            try:
+                process.stdin.close()
+            except BrokenPipeError:
+                pass
             process.stdout.close()
             if process.poll() is None:
                 try:
@@ -127,8 +143,71 @@ def git_blobs(root, specs):
                     process.wait()
 
 
+def git_blobs(root, specs):
+    """Stream exact blobs, retaining the one-process NUL protocol on newer Git.
+
+    Git without -z rejects it with usage status 129. Retry only before any
+    response, replaying the consumed first request through the line protocol.
+    The fallback resolves CR/LF paths to object IDs before requesting content.
+    The caller must close this iterator if validation stops before exhaustion.
+    """
+    specs = iter(specs)
+    sentinel = object()
+    first = next(specs, sentinel)
+    if first is sentinel:
+        return
+    with closing(_git_blob_batch(root, chain((first,), specs), nul=True)) as rows:
+        try:
+            yield from rows
+        except _UnsupportedNulBatch as exc:
+            with closing(_git_blob_batch(root, chain((exc.args[0],), specs), nul=False)) as legacy:
+                yield from legacy
+
+
 def meaningful(value):
     return isinstance(value, str) and bool(value.strip()) and not re.search(r"\bTODO\b", value, re.I)
+
+
+def brief(value):
+    text = json.dumps(value, ensure_ascii=True, sort_keys=True)
+    return text if len(text) <= 120 else text[:117] + "..."
+
+
+def card_differences(own, pinned):
+    """Name every key by which a TASK.json original_card differs from its pin."""
+    if not isinstance(own, dict):
+        return "TASK.json original_card is " + type(own).__name__ + ", expected a JSON object"
+    details = []
+    missing = [key for key in pinned if key not in own]
+    extra = [key for key in own if key not in pinned]
+    if missing:
+        details.append("missing keys: " + ", ".join(missing))
+    if extra:
+        details.append("unexpected keys: " + ", ".join(extra))
+    for key in (key for key in pinned if key in own and own[key] != pinned[key]):
+        details.append(key + " differs (TASK.json: " + brief(own[key]) + "; pinned: " + brief(pinned[key]) + ")")
+    return "; ".join(details) or "cards compare unequal without a key difference"
+
+
+def source_pin(row, base):
+    """Resolve one SOURCES.json row to its exact Git object expression.
+
+    Rows without an explicit pin keep the historical base_commit:<path> form.
+    A file vendored from a pull-request head is pinned exactly with
+    head:<40-hex sha>:<path>, so its bytes resolve at that commit, not at the
+    package base. An explicit but unparseable pin fails closed.
+    """
+    name = row["path"]
+    pin = row.get("pin")
+    if pin is None:
+        return base + ":" + name
+    if pin == "base_commit:" + name:
+        return base + ":" + name
+    match = re.fullmatch(r"head:([0-9a-f]{40}):(.+)", pin) if isinstance(pin, str) else None
+    if match is not None and match.group(2) == name:
+        return match.group(1) + ":" + name
+    raise ValueError("SOURCES.json pin for " + name + " is not a supported pin form: " + brief(pin)
+                     + "; accepted pin forms are base_commit:<path> and head:<40-hex sha>:<path>")
 
 
 def validate(root, package, check_pins=True):
@@ -165,6 +244,11 @@ def validate(root, package, check_pins=True):
     for item in requirements:
         require(re.fullmatch(r"(?:numpy|sympy|scipy)==[0-9]+(?:\.[0-9]+){1,2}", item),
                 "generic CI supports exact numpy/sympy/scipy pins; use a dedicated workflow for other environments")
+    names = [item.split("==")[0] for item in requirements]
+    require(len(names) == len(set(names)), "declare only one version per dependency")
+    # Validation already treats an omitted list as empty; execution must receive
+    # that same default without rewriting the contributor's manifest on disk.
+    manifest["requirements"] = requirements
     commands = manifest.get("commands")
     require(isinstance(commands, list) and 1 <= len(commands) <= 8, "declare 1..8 explicit verification commands")
     total = 0
@@ -185,8 +269,9 @@ def validate(root, package, check_pins=True):
     require(re.fullmatch(r"[0-9a-f]{40,64}", sources["base_commit"]), "pin an exact base commit")
     require(task["base_commit"] == sources["base_commit"], "TASK and SOURCES base mismatch")
     require(all(r.get("usage") in ("input", "provenance") for r in sources["files"]), "declare source usage")
-    require({r["path"] for r in sources["files"] if r["usage"] == "input"} <= set(inputs),
-            "all live pinned inputs must be declared CI inputs")
+    undeclared = sorted({r["path"] for r in sources["files"] if r["usage"] == "input"} - set(inputs))
+    require(not undeclared,
+            "SOURCES.json input pins must be declared in VERIFY.json inputs; undeclared: " + ", ".join(undeclared))
     if check_pins:
         catalog_name = "docs/research/agent-task-catalog.json"
         require(catalog_name in {r["path"] for r in sources["files"]}, "pin the originating task catalogue")
@@ -194,7 +279,10 @@ def validate(root, package, check_pins=True):
         for name in names:
             p = PurePosixPath(name)
             require(not p.is_absolute() and ".." not in p.parts, "invalid source path")
-        specs = [sources["base_commit"] + ":" + name for name in names]
+        specs = [source_pin(row, sources["base_commit"]) for row in sources["files"]]
+        require(all(spec == sources["base_commit"] + ":" + catalog_name
+                    for name, spec in zip(names, specs) if name == catalog_name),
+                "originating task catalogue must be pinned at base_commit")
         with closing(git_blobs(root, specs)) as objects:
             for index, (obj, pinned) in enumerate(objects):
                 row = sources["files"][index]
@@ -206,7 +294,14 @@ def validate(root, package, check_pins=True):
                 if name == catalog_name:
                     catalog = json.loads(pinned)
         cards = [t for tr in catalog["tracks"] for t in tr["tasks"] if t["id"] == task["task_id"]]
-        require(len(cards) == 1 and task["original_card"] == cards[0], "original card does not match pinned catalogue")
+        require(len(cards) == 1,
+                "TASK.json task_id " + brief(task["task_id"]) + " matches " + str(len(cards))
+                + " cards in pinned " + catalog_name + " at base_commit " + sources["base_commit"]
+                + "; need exactly one")
+        if task["original_card"] != cards[0]:
+            raise ValueError("original card in TASK.json must equal the pinned catalogue card object exactly; "
+                             "copy it verbatim from " + catalog_name + " at base_commit " + sources["base_commit"]
+                             + ": " + card_differences(task["original_card"], cards[0]))
     return task, manifest
 
 
@@ -215,18 +310,26 @@ def run_command(argv, cwd, timeout):
     # Keep explicit manifest options (including deliberate -O controls) intact.
     env = os.environ.copy()
     env.pop("PYTHONOPTIMIZE", None)
-    # A timeout ends the whole local process group, including child solvers.
+    # Own a group for POSIX cleanup of this command and its descendants.
     process = subprocess.Popen(argv, cwd=cwd, env=env, start_new_session=True)
     try:
-        code = process.wait(timeout=timeout)
-    except subprocess.TimeoutExpired:
+        try:
+            code = process.wait(timeout=timeout)
+        except subprocess.TimeoutExpired:
+            raise ValueError("verification timed out") from None
+        require(code == 0, f"verification command exited {code}")
+    finally:
         if hasattr(os, "killpg"):
-            os.killpg(process.pid, signal.SIGKILL)
-        else:  # Windows has no process groups to signal; end the whole child tree instead.
+            # The leader may have exited while descendants still hold the group.
+            # Signal it on success, failure and interruption, not only timeout.
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass  # A completely finished group needs no cleanup.
+        elif process.poll() is None:
+            # Windows taskkill can address the tree only while its leader exists.
             subprocess.run(["taskkill", "/F", "/T", "/PID", str(process.pid)], capture_output=True)
         process.wait()
-        raise ValueError("verification timed out")
-    require(code == 0, f"verification command exited {code}")
 
 
 def run_package(root, package, install=False):
@@ -237,6 +340,11 @@ def run_package(root, package, install=False):
     for requirement in manifest["requirements"]:
         name, version = requirement.split("==")
         require(importlib.metadata.version(name) == version, "dependency version mismatch: " + requirement)
+    # Coverage labels are UTF-8 metadata but a redirected Windows stdout may
+    # use cp1252. Escape unrepresentable display characters instead of aborting
+    # before replay. This changes only our stream, not child encoding or env.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(errors="backslashreplace")
     for command in manifest["commands"]:
         argv = [sys.executable if item == "{python}" else item.replace("{package}", package) for item in command["argv"]]
         print("CHECK " + command["checks"], flush=True)

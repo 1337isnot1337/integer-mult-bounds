@@ -6,6 +6,11 @@ package substitutes a proved-exact modulo521 kernel for those determinants and
 runs the same complete audit. It preserves signs and magnitudes, not merely the
 test for nonzero rank. The predecessor files and selected frontier are unchanged.
 
+After `research/p112-signed-modular-production/`, the live
+`research/p112-free-sink-audit97/independent.py` ships that modular path. This
+opt-in package vendors the pairwise Fraction-only checker in `baseline.py` and
+continues to prove `engine.py` against that reference.
+
 Three paired local runs of the complete `audit()` call give median times
 **0.850662 seconds reference, 0.219613 seconds candidate: 3.87x**. Those timings
 include geometry, row-code coverage, minors and case checks after module/source

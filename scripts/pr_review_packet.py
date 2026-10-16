@@ -57,6 +57,22 @@ def packet(repo, metadata, baseline, baseline_tree=None):
                 decision=None)
 
 
+def load_metadata(paths):
+    """Capture one byte snapshot per input and validate the output identities."""
+    rows, seen = [], set()
+    for path in paths:
+        raw = path.read_bytes()
+        data = json.loads(raw)
+        number = data.get('number') if isinstance(data, dict) else None
+        if type(number) is not int or number <= 0:
+            raise ValueError(f'{path}: PR number must be a positive integer')
+        if number in seen:
+            raise ValueError(f'{path}: duplicate PR number {number}')
+        seen.add(number)
+        rows.append((data, hashlib.sha256(raw).hexdigest()))
+    return rows
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--repo', type=Path, default=Path.cwd())
@@ -64,13 +80,17 @@ def main():
     ap.add_argument('--output', type=Path, required=True)
     ap.add_argument('metadata', nargs='+', type=Path)
     args = ap.parse_args()
+    try:
+        inputs = load_metadata(args.metadata)
+    except (OSError, ValueError) as error:
+        ap.error(str(error))
     baseline = git(args.repo, 'rev-parse', '--verify', args.baseline + '^{commit}').decode().strip()
     args.output.mkdir(parents=True, exist_ok=False)
     bt = tree(args.repo, baseline)
     rows = []
-    for path in args.metadata:
-        row = packet(args.repo, json.loads(path.read_text()), baseline, bt)
-        row['metadata_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+    for metadata, metadata_sha256 in inputs:
+        row = packet(args.repo, metadata, baseline, bt)
+        row['metadata_sha256'] = metadata_sha256
         dest = args.output / f"{row['number']}.json"
         dest.write_text(json.dumps(row, indent=2) + '\n')
         rows.append(row)

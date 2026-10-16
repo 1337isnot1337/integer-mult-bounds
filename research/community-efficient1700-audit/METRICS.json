@@ -1,0 +1,14 @@
+{
+  "selected": 100,
+  "ready": 65,
+  "merged": 65,
+  "remaining": 35,
+  "elapsed_seconds": 8080.8,
+  "retained_receipt_process_seconds": 4950.1,
+  "successful_receipts": 83,
+  "initial_tooling_budget_seconds": 300,
+  "research_timeout_policy": "Declared per-command limits and sampled 1 GiB process-group memory guard",
+  "primary_check_workers": 1,
+  "token_usage": null,
+  "limits": "No matched control batch or token telemetry. Supplemental differential checks and repaired fixtures are separate receipts. Passing a finite replay does not prove the full theorem."
+}

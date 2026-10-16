@@ -11,7 +11,7 @@ import fnmatch
 import hashlib
 import json
 import os
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import subprocess
 import sys
 import tempfile
@@ -192,7 +192,8 @@ def error_summary(exc):
     return str(exc)[:700]
 
 
-def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files=False):
+def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files=False,
+                    include_closed=False):
     warnings = []
     try:
         snapshot = json.loads(cache.read_text(encoding="utf-8"))
@@ -204,6 +205,11 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
     fetches = [("open_prs", lambda: pull_records(gh_json([
         "--paginate", "--slurp", f"repos/{REPO}/pulls?state=open&per_page=100&sort=updated&direction=desc"]))),
         ("discussions", fetch_discussions)]
+    if include_closed:
+        # Separate coverage and cache identity: an open-only snapshot cannot
+        # satisfy a request for closed (including merged) PR bodies.
+        fetches.append(("closed_prs", lambda: pull_records(gh_json([
+            "--paginate", "--slurp", f"repos/{REPO}/pulls?state=closed&per_page=100&sort=updated&direction=desc"]))))
     if need_files:
         # Only path queries pay for the changed-file index; body searches stay as they were.
         fetches.append(("pr_files", fetch_pr_files))
@@ -231,6 +237,22 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
             warnings.append(f"{name}: no usable remote snapshot")
             sources.pop(name, None)
     return snapshot, warnings
+
+
+def pull_corpus(snapshot, include_closed=False):
+    """One body per PR; a state change between snapshots must not double it."""
+    pulls = {}
+    names = ("open_prs", "closed_prs") if include_closed else ("open_prs",)
+    for name in names:
+        for row in snapshot["sources"].get(name, {}).get("records", []):
+            old = pulls.get(row["number"])
+            # GitHub updated_at uses one UTC spelling. Prefer the newer record;
+            # an exact tie keeps the open state. Coverage timestamps remain
+            # separate: this is not an atomic server snapshot.
+            key = lambda item: (item["updated_at"], item["state"] == "open")
+            if old is None or key(row) > key(old):
+                pulls[row["number"]] = row
+    return list(pulls.values())
 
 
 def local_records(root):
@@ -280,6 +302,8 @@ def main():
                     help="match open PRs by changed file path (fnmatch pattern or substring); repeatable")
     ap.add_argument("--offline", action="store_true")
     ap.add_argument("--refresh", action="store_true")
+    ap.add_argument("--include-closed", action="store_true",
+                    help="also search all paginated closed/merged PR titles and bodies (extra fetch/cache)")
     ap.add_argument("--max-age", type=int, default=300, help="remote cache lifetime in seconds")
     ap.add_argument("--limit", type=int, default=20)
     ap.add_argument("--all-terms", action="store_true")
@@ -288,6 +312,8 @@ def main():
     args = ap.parse_args()
     if args.max_age < 0 or args.limit < 1 or (args.offline and args.refresh):
         ap.error("use nonnegative max-age, positive limit, and either offline or refresh")
+    if args.include_closed and args.path:
+        ap.error("--include-closed searches titles/bodies only; omit --path (its index covers open PRs)")
     if args.cache.resolve().is_relative_to(ROOT.resolve()):
         ap.error("keep the cache outside the repository")
     terms = list(args.terms)
@@ -297,20 +323,27 @@ def main():
         if not cards:
             ap.error("unknown task")
         terms.extend([args.task, *cards[0].get("overlap_terms", [])])
-        terms.extend(Path(p).parent.name for p in cards[0]["starting_points"] if p.startswith("research/"))
+        # Catalogue paths are repository-relative POSIX paths. Nested sources
+        # identify their package, not generic directories such as evidence/code.
+        for point in cards[0]["starting_points"]:
+            parts = PurePosixPath(point).parts
+            if len(parts) >= 3 and parts[0] == "research":
+                terms.append(parts[1])
     if not any(t.strip() for t in terms) and not args.path:
         ap.error("provide terms, --task or --path")
     patterns = [p.strip() for p in args.path if p.strip()]
     local = local_records(ROOT)
     snapshot, warnings = remote_snapshot(args.cache, args.offline, args.refresh, args.max_age,
-                                         need_files=bool(patterns))
-    records = list(local)
+                                         need_files=bool(patterns), include_closed=args.include_closed)
+    records = list(local) + pull_corpus(snapshot, args.include_closed)
     coverage = {}
-    for name in ("open_prs", "discussions"):
+    corpus_names = ("open_prs", "discussions", "closed_prs") if args.include_closed else ("open_prs", "discussions")
+    for name in corpus_names:
         source = snapshot["sources"].get(name)
         coverage[name] = {k: source[k] for k in ("fetched_at", "complete_pagination")} if source else None
         if source:
-            records.extend(source["records"])
+            if name == "discussions":
+                records.extend(source["records"])
             coverage[name]["records"] = len(source["records"])
     path_matches = []
     if patterns:
@@ -330,7 +363,11 @@ def main():
         matches = []
     report = {"status": "POSSIBLE_OVERLAP_NOT_A_NOVELTY_CERTIFICATE", "searched_at": now(),
               "terms": terms, "coverage": coverage, "local_records": len(local), "warnings": warnings,
-              "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+              "limits": (("Remote PR scope includes open and closed/merged titles and bodies, with separate coverage and timestamps. "
+                          "State changes are deduplicated by latest PR update; snapshots are not atomic. "
+                          if args.include_closed else
+                          "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. ")
+                         + "No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."),
               "matches_total": len(matches), "matches": matches[:args.limit]}
     if patterns:
         report["path_patterns"] = patterns
