@@ -2749,19 +2749,22 @@
       "current_head": "e2564b80b86fb77610b4b78701e5446a76fbe962",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/selected-adapter-caller-entry"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Exact surrounding adapter-callback entry inventory in the first selected internal-width range: twelve index Words and no residue Words above all Consumer.apply entry residents. Reviewed source lifetimes through directory, validation, suspended trace and layout extents; all new probes/tests and original blob pins. Composes conditionally with PR2781 to 37672/34. Instrumented payload/coefficient bodies are abstracted; other caller phases, serialized storage and physical admission remain open.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2801.json"
+        "research/community-efficient1700-audit/packets/2801.json",
+        "research/community-efficient1700-audit/checks/check-2801.json"
       ]
     },
     {
@@ -3089,19 +3092,23 @@
       "current_head": "3d07cfe7f5035bccf7975616b0f3bd53a3b78ca8",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/qq16-rounded-pair-bit-circuit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Literal irreversible Boolean circuits for the signed nearest-even Gaussian pair, including binary runtime exponent selection. Reviewed signed-range, guard/sticky and gate-count proof and actual DAG, complete small truth oracle, wide tests and controls. Unused historical selected-record dependency is retained as provenance under original hashes; combined replay with the live record absent is required. Scans, physical movement, reversibility and recursive admission are not included.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2811.json"
+        "research/community-efficient1700-audit/packets/2811.json",
+        "research/community-efficient1700-audit/checks/check-2811-combined.json",
+        "research/community-efficient1700-audit/checks/check-2811.json"
       ]
     },
     {
@@ -3158,19 +3165,22 @@
       "current_head": "bfd6b68d1cd01913c7619f6b4115da8e584286f5",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-retimed-internal-grid"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Sharp fixed-grid transfer to the exact ADD-retimed P104 word: ceil(9 lambda/2)+2 extra fractional bits. Credits Ross Richardson for the dyadic Clifford denominator method. Reviewed actual scalar product/row bounds, every occurrence binding, native prefix/grid proof, all new engines and controls; native correctness/tensor lift remain inherited. Full fixed-grid fixtures and independent scalar replay required; no paid recursive implementation or supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2813.json"
+        "research/community-efficient1700-audit/packets/2813.json",
+        "research/community-efficient1700-audit/checks/check-2813.json"
       ]
     },
     {
@@ -3191,19 +3201,22 @@
       "current_head": "6a70eda31a4501c049906333feb209159802c526",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/centre-kernel-feedback"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Causal transport of the projected terminal-Y kernel under arbitrary centre operators: 149-dimensional transported kernel and exactly 128 operator-independent directions. Reviewed strictly triangular feedback proof, rational/modular rank certificates, separate literal replay and free-Laurent repair program with all clean work and scales charged. Common-frame projection and stated parameter/clean-field access only; native lifting, complementary X consumer and supplier cost remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2814.json"
+        "research/community-efficient1700-audit/packets/2814.json",
+        "research/community-efficient1700-audit/checks/check-2814.json"
       ]
     },
     {
