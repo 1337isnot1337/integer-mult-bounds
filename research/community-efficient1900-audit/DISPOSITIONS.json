@@ -21,19 +21,20 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Ross Richardson: independent hash-bound PR116 historical source/CI reconciliation; all208 Git objects authenticated,28 capsule tests and2 ledger regressions pass. Complete2441-row ledger preserved except one historical evidence pointer and its source digest; PR116 stays incorporated and closed. No new supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1007.json",
-        "research/community-efficient1900-audit/packets/1007.json"
+        "research/community-efficient1900-audit/packets/1007.json",
+        "research/community-efficient1900-audit/checks/check-1007.json"
       ]
     },
     {
@@ -3325,9 +3326,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Theorem TF consequence uses a single fold parameter to cancel all proportional MD terms, but proportionality ratios may differ. The retained P112 decoder has16 MD terms p=(x_i,+/-x_i),q=p/8, exact target diag(G/2,G/2), and total cost128; ratios+1 and-1 require incompatible cancelling parameters. This exposes a gap in the conditional-under-H argument, not a proof or refutation of H. Supply common-ratio/common-annihilator hypotheses or a different proof. Section4.1 also needs justification: m=8k+e does not by itself restrict each call to8+e terms; this example has16 per call with e=0. Re-audit dependent batching consequences and add regression before a full replay.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+      "scope": "Written proof review and exact integer/GF2 diagnostic completed; full replay deferred pending correction of the shared-fold argument.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -3337,7 +3338,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2832.json",
-        "research/community-efficient1900-audit/packets/2832.json"
+        "research/community-efficient1900-audit/packets/2832.json",
+        "research/community-efficient1900-audit/checks/check-2832-twin-fold.json"
       ]
     },
     {

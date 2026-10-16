@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "1206921f84893009f19d607ae1d93113441d8e445b0bff1e9e0b73155f5f0a63",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "139dd868e00209d19c83403699fbecb5d0fbb0ce528d37fd736ec9b4b129cf69",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -6970,6 +6970,7 @@
         }
       ],
       "historical_mentions": [
+        "docs/research/community-efficient1900-review.md",
         "docs/research/community-reconciliation92-review.md",
         "docs/research/community-round8-review.md"
       ],
@@ -57580,7 +57581,7 @@
         {
           "head": "4687c59630991fdf4e57fab16ccacc92713a4d44",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Ross Richardson: independent hash-bound PR116 historical source/CI reconciliation; all208 Git objects authenticated,28 capsule tests and2 ledger regressions pass. Complete2441-row ledger preserved except one historical evidence pointer and its source digest; PR116 stays incorporated and closed. No new supplier or kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -57590,16 +57591,17 @@
       "closure": null,
       "reviewed_head": "4687c59630991fdf4e57fab16ccacc92713a4d44",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1007.json",
-        "research/community-efficient1900-audit/packets/1007.json"
+        "research/community-efficient1900-audit/packets/1007.json",
+        "research/community-efficient1900-audit/checks/check-1007.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131978,7 +131980,7 @@
         {
           "head": "4f01fe4eac42c0134c41425b40c44b005126b235",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Written proof review and exact integer/GF2 diagnostic completed; full replay deferred pending correction of the shared-fold argument.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -131988,7 +131990,7 @@
       "closure": null,
       "reviewed_head": "4f01fe4eac42c0134c41425b40c44b005126b235",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Theorem TF consequence uses a single fold parameter to cancel all proportional MD terms, but proportionality ratios may differ. The retained P112 decoder has16 MD terms p=(x_i,+/-x_i),q=p/8, exact target diag(G/2,G/2), and total cost128; ratios+1 and-1 require incompatible cancelling parameters. This exposes a gap in the conditional-under-H argument, not a proof or refutation of H. Supply common-ratio/common-annihilator hypotheses or a different proof. Section4.1 also needs justification: m=8k+e does not by itself restrict each call to8+e terms; this example has16 per call with e=0. Re-audit dependent batching consequences and add regression before a full replay.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131997,7 +131999,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2832.json",
-        "research/community-efficient1900-audit/packets/2832.json"
+        "research/community-efficient1900-audit/packets/2832.json",
+        "research/community-efficient1900-audit/checks/check-2832-twin-fold.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [

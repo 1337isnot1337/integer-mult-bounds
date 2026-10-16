@@ -1,6 +1,6 @@
 {
   "selected": 100,
-  "ready": 34,
+  "ready": 35,
   "merged": 34,
   "superseded_closed": 1,
   "remaining": 65,
@@ -8,5 +8,5 @@
   "new": 44,
   "revised": 4,
   "carry_forward": 52,
-  "limits": "Inventory collection is not a completed review. Heavy checks serial, sampled 1GiB process-group guard; no Lean, Docker or new agents."
+  "limits": "Inventory collection is not a completed review. Heavy checks serial, sampled 1GiB descendant-process guard for new runs (historical receipt limitations retained); no Lean, Docker or new agents."
 }
