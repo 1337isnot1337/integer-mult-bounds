@@ -35,6 +35,37 @@ Preserve any license/NOTICE obligations if you actually vendor third-party work.
 Extra files such as separate `CLAIM.md`, `EXPECTED.json` or `NOTICE.md` are needed
 only when they serve a real purpose or a source license requires them.
 
+## Pin exact sources and declare live inputs
+
+Every `SOURCES.json` `files` row records `path`, `usage`, `git_blob` and `sha256`.
+`usage: "input"` marks a live input and `usage: "provenance"` binds through the
+Git blob at the recorded commit. **Every `usage: "input"` row must also appear in
+`VERIFY.json` `inputs`**, because declared inputs drive CI invalidation; the
+metadata check (including `--check-only`) rejects an undeclared live pin and
+names the path. `inputs` may list more than the live pins (a provenance-only
+path can still be declared), never fewer.
+
+A row without an explicit `pin` resolves as `base_commit:<path>`. A file vendored
+from a pull-request head can instead carry `"pin": "head:<40-hex sha>:<path>"`,
+whose bytes resolve at that commit rather than at the package base. Any other
+pin form fails closed. The originating task catalogue
+`docs/research/agent-task-catalog.json` must stay pinned at `base_commit`, so a
+later catalogue revision cannot replace the card a package answers. Pins resolve
+only against Git objects reachable in this repository (the base commit or an
+explicit head sha); there is no `external` pin for bytes that are not a Git
+object here. For such an input, record its source and a byte-equality check in
+the verifier and explain the gap in the README.
+
+`original_card` in `TASK.json` must equal the full pinned catalogue card object.
+Hand authors can print the exact object instead of copying it by hand:
+
+```sh
+python3 scripts/research_package.py --package research/my-experiment --print-card <task-id>
+```
+
+Paste the printed object verbatim as `original_card`; the checker reports every
+key by which a copied card differs from its pin.
+
 ## Declare the actual scope
 
 `scope_status` is `unchanged`, `refined` or `changed`. The latter two require a

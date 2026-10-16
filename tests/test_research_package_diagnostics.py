@@ -1,4 +1,4 @@
-"""CLI regressions: card diagnostics name keys, CI-input errors name pins, PR-head pins resolve.
+"""CLI regressions: diagnostics name keys, paths, caps and found shapes.
 
 Each regression fails on the unmodified scripts/research_package.py and passes
 after the fix. Prepared for navinor with opencode assistance. Apache-2.0.
@@ -184,6 +184,99 @@ class ResearchPackageDiagnosticTests(unittest.TestCase):
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("SOURCES.json pin for input.txt", result.stderr)
             self.assertNotIn("TypeError", result.stderr)
+
+    def test_timeout_over_cap_names_key_value_and_cap(self):
+        manifest = self.load("VERIFY.json")
+        manifest["commands"][0]["timeout_seconds"] = 1800
+        self.save("VERIFY.json", manifest)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        for expected in ("VERIFY.json.commands[0].timeout_seconds", "1800", "600 s per-command cap"):
+            self.assertIn(expected, result.stderr)
+
+    def test_timeout_type_error_names_expected_shape(self):
+        manifest = self.load("VERIFY.json")
+        manifest["commands"][0]["timeout_seconds"] = "120"
+        self.save("VERIFY.json", manifest)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        for expected in ("timeout_seconds", "integer", "str", "120"):
+            self.assertIn(expected, result.stderr)
+
+    def test_total_budget_names_declared_total_and_cap(self):
+        manifest = self.load("VERIFY.json")
+        command = dict(manifest["commands"][0])
+        command["timeout_seconds"] = 600
+        manifest["commands"] = [command, dict(command), dict(command)]
+        self.save("VERIFY.json", manifest)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        for expected in ("timeout_seconds", "1800", "1200 s total cap"):
+            self.assertIn(expected, result.stderr)
+
+    def test_wrong_shaped_task_field_names_key_path_and_found_shape(self):
+        # The recorded instance was a Python 1-element tuple; the JSON list is
+        # its on-disk analog and both must name the found type, not read as
+        # missing content.
+        task = self.load("TASK.json")
+        task["actual_scope"] = ["one element"]
+        self.save("TASK.json", task)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        for expected in ("TASK.json.actual_scope", "a non-empty string", "list", "one element"):
+            self.assertIn(expected, result.stderr)
+        with self.assertRaisesRegex(ValueError, "found tuple"):
+            package.require_text({"actual_scope": ("one element",)}, "actual_scope", "TASK.json")
+
+    def test_missing_required_keys_name_key_and_expected_shape(self):
+        pristine = self.load("TASK.json")
+        for key in ("base_commit", "author", "scope_status", "outcome"):
+            with self.subTest(key=key):
+                task = dict(pristine)
+                del task[key]
+                self.save("TASK.json", task)
+                result = self.run_cli()
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn("TASK.json." + key + " is missing", result.stderr)
+                self.assertIn("expected", result.stderr)
+
+    def test_missing_original_card_names_the_key(self):
+        task = self.load("TASK.json")
+        del task["original_card"]
+        self.save("TASK.json", task)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("TASK.json.original_card is missing", result.stderr)
+
+    def test_undeclared_input_error_states_the_requirement(self):
+        manifest = self.load("VERIFY.json")
+        manifest["inputs"] = []
+        self.save("VERIFY.json", manifest)
+        result = self.run_cli()
+        self.assertNotEqual(result.returncode, 0)
+        for expected in ('usage "input"', "VERIFY.json inputs", "CI invalidation", "undeclared: input.txt"):
+            self.assertIn(expected, result.stderr)
+
+    def test_print_card_emits_the_pinned_card_for_hand_authors(self):
+        printed = subprocess.run(
+            [sys.executable, "-B", str(self.root / "scripts/research_package.py"),
+             "--package", "research/fixture", "--print-card", "fixture"],
+            cwd=self.root, capture_output=True, text=True)
+        self.assertEqual(printed.returncode, 0, printed.stderr)
+        self.assertEqual(json.loads(printed.stdout), CARD)
+        task = self.load("TASK.json")
+        del task["original_card"]["methods"]
+        self.save("TASK.json", task)
+        self.assertNotEqual(self.run_cli().returncode, 0)
+        task["original_card"] = json.loads(printed.stdout)
+        self.save("TASK.json", task)
+        self.assertEqual(self.run_cli().returncode, 0, "pasted --print-card output must validate")
+        unknown = subprocess.run(
+            [sys.executable, "-B", str(self.root / "scripts/research_package.py"),
+             "--package", "research/fixture", "--print-card", "no-such-task"],
+            cwd=self.root, capture_output=True, text=True)
+        self.assertNotEqual(unknown.returncode, 0)
+        self.assertIn("no-such-task", unknown.stderr)
 
 if __name__ == "__main__":
     unittest.main()

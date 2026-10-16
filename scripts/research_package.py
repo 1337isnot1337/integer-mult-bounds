@@ -174,6 +174,25 @@ def brief(value):
     return text if len(text) <= 120 else text[:117] + "..."
 
 
+def require_key(mapping, key, where, shape=None):
+    """Name the missing key and its expected shape instead of a bare KeyError."""
+    require(isinstance(mapping, dict),
+            where + " must be a JSON object; found " + type(mapping).__name__ + ": " + brief(mapping))
+    require(key in mapping, where + "." + key + " is missing"
+            + ("; expected " + shape if shape else ""))
+    return mapping[key]
+
+
+def require_text(mapping, key, where, shape="a non-empty string without TODO"):
+    """Name the key and distinguish missing, wrong-shaped and weak values."""
+    require(isinstance(mapping, dict),
+            where + " must be a JSON object; found " + type(mapping).__name__ + ": " + brief(mapping))
+    require(key in mapping, where + "." + key + " is missing; expected " + shape)
+    value = mapping[key]
+    require(isinstance(value, str) and meaningful(value),
+            where + "." + key + " must be " + shape + "; found " + type(value).__name__ + ": " + brief(value))
+
+
 def card_differences(own, pinned):
     """Name every key by which a TASK.json original_card differs from its pin."""
     if not isinstance(own, dict):
@@ -218,64 +237,117 @@ def validate(root, package, check_pins=True):
     data = {}
     for name in ("TASK.json", "SOURCES.json", "VERIFY.json"):
         data[name] = json.loads(relative_file(root, package + "/" + name).read_text(encoding="utf-8"))
-        require(data[name].get("schema_version") == 1, "unsupported schema: " + name)
+        version = require_key(data[name], "schema_version", name)
+        require(version == 1, name + ".schema_version must be 1; found " + brief(version))
     task, sources, manifest = (data[n] for n in ("TASK.json", "SOURCES.json", "VERIFY.json"))
-    require(task["scope_status"] in ("unchanged", "refined", "changed"), "declare scope_status")
+    scope_status = require_key(task, "scope_status", "TASK.json", "unchanged, refined or changed")
+    require(scope_status in ("unchanged", "refined", "changed"),
+            "TASK.json.scope_status must be unchanged, refined or changed; found " + brief(scope_status))
     for field in ("actual_scope", "bottleneck_link", "stop_rule", "evidence", "author", "ai_assistance"):
-        require(meaningful(task.get(field)), "complete TASK field: " + field)
-    if task["scope_status"] == "unchanged":
-        require(task["actual_scope"] == task["original_card"]["question"],
-                "different wording/scope requires refined or changed plus a reason")
+        require_text(task, field, "TASK.json")
+    if scope_status == "unchanged":
+        question = require_key(require_key(task, "original_card", "TASK.json",
+                                           "the pinned catalogue card object"),
+                               "question", "TASK.json.original_card")
+        require(task["actual_scope"] == question,
+                "different wording/scope requires refined or changed plus a reason"
+                + " (TASK.json.actual_scope " + brief(task["actual_scope"])
+                + " differs from TASK.json.original_card.question " + brief(question) + ")")
     else:
-        require(meaningful(task.get("scope_change_reason")), "explain the scope refinement/change")
-    require(task["outcome"] in ("partial", "completed", "blocked", "negative-result"), "declare outcome")
+        require_text(task, "scope_change_reason", "TASK.json",
+                     "a non-empty string without TODO explaining the scope refinement/change")
+    outcome = require_key(task, "outcome", "TASK.json",
+                          "partial, completed, blocked or negative-result")
+    require(outcome in ("partial", "completed", "blocked", "negative-result"),
+            "TASK.json.outcome must be partial, completed, blocked or negative-result; found " + brief(outcome))
     questions = task.get("open_questions")
-    require(isinstance(questions, list), "open_questions must be a list")
+    require(isinstance(questions, list),
+            "TASK.json.open_questions must be a list; found " + type(questions).__name__ + ": " + brief(questions))
     if not questions:
-        require(meaningful(task.get("no_open_questions_reason")), "explain an empty next-question list")
-    for question in questions:
+        require_text(task, "no_open_questions_reason", "TASK.json",
+                     "a non-empty string without TODO explaining an empty next-question list")
+    for position, question in enumerate(questions):
         for field in ("question", "why_it_matters", "first_step", "blocked_by"):
-            require(meaningful(question.get(field)), "complete next-question field: " + field)
+            require_text(question, field, "TASK.json.open_questions[" + str(position) + "]")
     readme = relative_file(root, package + "/README.md").read_text(encoding="utf-8")
-    require("## Open next questions" in readme, "README needs Open next questions")
-    require(manifest.get("status") == "ready", "VERIFY.json is a draft; complete it before requesting replay")
-    require(manifest.get("python") == "3.12", "generic replay currently uses Python 3.12")
+    require("## Open next questions" in readme, "README.md needs an \"## Open next questions\" section")
+    status = require_key(manifest, "status", "VERIFY.json")
+    require(status == "ready",
+            "VERIFY.json.status must be \"ready\"; complete the draft before requesting replay; found " + brief(status))
+    python = require_key(manifest, "python", "VERIFY.json")
+    require(python == "3.12",
+            "VERIFY.json.python must be \"3.12\" (generic replay currently uses Python 3.12); found " + brief(python))
     requirements = manifest.get("requirements", [])
-    require(isinstance(requirements, list) and len(requirements) == len(set(requirements)), "invalid requirements")
+    require(isinstance(requirements, list),
+            "VERIFY.json.requirements must be a list of exact \"name==version\" pins; found "
+            + type(requirements).__name__ + ": " + brief(requirements))
+    require(len(requirements) == len(set(requirements)), "VERIFY.json.requirements must not repeat a pin")
     for item in requirements:
-        require(re.fullmatch(r"(?:numpy|sympy|scipy)==[0-9]+(?:\.[0-9]+){1,2}", item),
-                "generic CI supports exact numpy/sympy/scipy pins; use a dedicated workflow for other environments")
+        require(isinstance(item, str)
+                and re.fullmatch(r"(?:numpy|sympy|scipy)==[0-9]+(?:\.[0-9]+){1,2}", item),
+                "generic CI supports exact numpy/sympy/scipy pins; use a dedicated workflow for other environments"
+                + "; offending entry: " + brief(item))
     names = [item.split("==")[0] for item in requirements]
     require(len(names) == len(set(names)), "declare only one version per dependency")
     # Validation already treats an omitted list as empty; execution must receive
     # that same default without rewriting the contributor's manifest on disk.
     manifest["requirements"] = requirements
     commands = manifest.get("commands")
-    require(isinstance(commands, list) and 1 <= len(commands) <= 8, "declare 1..8 explicit verification commands")
+    require(isinstance(commands, list) and 1 <= len(commands) <= 8,
+            "VERIFY.json.commands must be a list of 1..8 explicit verification commands; found "
+            + type(commands).__name__ + ": " + brief(commands))
     total = 0
-    for command in commands:
+    for position, command in enumerate(commands):
+        path = "VERIFY.json.commands[" + str(position) + "]"
+        require(isinstance(command, dict),
+                path + " must be a JSON object; found " + type(command).__name__ + ": " + brief(command))
         argv = command.get("argv")
-        require(isinstance(argv, list) and len(argv) >= 2 and all(isinstance(a, str) for a in argv), "invalid argv")
-        require(argv[0] == "{python}", "commands must explicitly use {python}; no implicit shell")
-        require(meaningful(command.get("checks")), "describe command coverage")
+        require(isinstance(argv, list) and len(argv) >= 2 and all(isinstance(a, str) for a in argv),
+                path + ".argv must be a list of at least 2 strings; found " + brief(argv))
+        require(argv[0] == "{python}", path + ".argv must explicitly use {python}; no implicit shell")
+        require_text(command, "checks", path, "a non-empty string without TODO describing command coverage")
         seconds = command.get("timeout_seconds")
-        require(type(seconds) is int and 1 <= seconds <= 600, "command timeout must be 1..600 seconds")
+        require(type(seconds) is int,
+                path + ".timeout_seconds must be an integer number of seconds; found "
+                + type(seconds).__name__ + ": " + brief(seconds))
+        require(1 <= seconds <= 600,
+                path + ".timeout_seconds " + str(seconds)
+                + (" exceeds the 600 s per-command cap" if seconds > 600
+                   else " is below the 1 s per-command minimum"))
         total += seconds
-    require(total <= 1200, "generic replay has a 1200-second total budget; use a dedicated job for larger checks")
+    require(total <= 1200, "declared replay budget " + str(total)
+            + " s (sum of timeout_seconds) exceeds the 1200 s total cap"
+            + "; use a dedicated job for larger checks")
     inputs = manifest.get("inputs")
-    require(isinstance(inputs, list), "declare input paths for CI invalidation")
+    require(isinstance(inputs, list),
+            "VERIFY.json.inputs must be a list of canonical repository-relative paths; found "
+            + type(inputs).__name__ + ": " + brief(inputs))
     for name in inputs:
         relative_file(root, name)
-    require(sources.get("files"), "empty source inventory")
-    require(re.fullmatch(r"[0-9a-f]{40,64}", sources["base_commit"]), "pin an exact base commit")
-    require(task["base_commit"] == sources["base_commit"], "TASK and SOURCES base mismatch")
-    require(all(r.get("usage") in ("input", "provenance") for r in sources["files"]), "declare source usage")
+    files = require_key(sources, "files", "SOURCES.json")
+    require(files, "SOURCES.json.files is empty; declare the source inventory")
+    base = require_key(sources, "base_commit", "SOURCES.json", "a 40-64 hex string pinning an exact base commit")
+    require(isinstance(base, str) and re.fullmatch(r"[0-9a-f]{40,64}", base),
+            "SOURCES.json.base_commit must be a 40-64 hex string pinning an exact base commit; found " + brief(base))
+    task_base = require_key(task, "base_commit", "TASK.json",
+                            "a 40-64 hex string equal to SOURCES.json.base_commit")
+    require(task_base == base, "TASK.json.base_commit " + brief(task_base)
+            + " must equal SOURCES.json.base_commit " + brief(base))
+    for row in files:
+        require(isinstance(row, dict) and isinstance(row.get("path"), str),
+                "SOURCES.json.files rows must be JSON objects with a string path; offending row: " + brief(row))
+        require(row.get("usage") in ("input", "provenance"),
+                "SOURCES.json.files row " + row["path"] + " must declare usage \"input\" or \"provenance\"; found "
+                + brief(row.get("usage")))
     undeclared = sorted({r["path"] for r in sources["files"] if r["usage"] == "input"} - set(inputs))
     require(not undeclared,
-            "SOURCES.json input pins must be declared in VERIFY.json inputs; undeclared: " + ", ".join(undeclared))
+            "every SOURCES.json files row with usage \"input\" must also be declared in VERIFY.json inputs"
+            + " (they drive CI invalidation); undeclared: " + ", ".join(undeclared))
     if check_pins:
         catalog_name = "docs/research/agent-task-catalog.json"
-        require(catalog_name in {r["path"] for r in sources["files"]}, "pin the originating task catalogue")
+        require(catalog_name in {r["path"] for r in sources["files"]},
+                "SOURCES.json.files must pin the originating task catalogue " + catalog_name
+                + " (a provenance row pinned at base_commit)")
         names = [r["path"] for r in sources["files"]]
         for name in names:
             p = PurePosixPath(name)
@@ -299,11 +371,35 @@ def validate(root, package, check_pins=True):
                 "TASK.json task_id " + brief(task["task_id"]) + " matches " + str(len(cards))
                 + " cards in pinned " + catalog_name + " at base_commit " + sources["base_commit"]
                 + "; need exactly one")
-        if task["original_card"] != cards[0]:
+        original_card = require_key(task, "original_card", "TASK.json",
+                                    "the pinned catalogue card object (copy --print-card output verbatim)")
+        if original_card != cards[0]:
             raise ValueError("original card in TASK.json must equal the pinned catalogue card object exactly; "
                              "copy it verbatim from " + catalog_name + " at base_commit " + sources["base_commit"]
-                             + ": " + card_differences(task["original_card"], cards[0]))
+                             + ": " + card_differences(original_card, cards[0]))
     return task, manifest
+
+
+def catalogue_card(root, package, task_id):
+    """The exact original_card object a hand-authored TASK.json must copy.
+
+    Reads the catalogue blob pinned at the package base commit, never the
+    working tree, because validate() compares original_card against that pin.
+    """
+    sources = json.loads(relative_file(root, package + "/SOURCES.json").read_text(encoding="utf-8"))
+    name = "docs/research/agent-task-catalog.json"
+    rows = require_key(sources, "files", "SOURCES.json")
+    row = next((r for r in rows if isinstance(r, dict) and r.get("path") == name), None)
+    require(row is not None, "SOURCES.json.files must pin the originating task catalogue " + name)
+    base = require_key(sources, "base_commit", "SOURCES.json", "a 40-64 hex string pinning an exact base commit")
+    spec = source_pin(row, base)
+    require(spec == base + ":" + name, "originating task catalogue must be pinned at base_commit")
+    catalog = json.loads(git(root, "show", spec))
+    cards = [t for tr in catalog["tracks"] for t in tr["tasks"] if t["id"] == task_id]
+    require(len(cards) == 1,
+            "task_id " + brief(task_id) + " matches " + str(len(cards))
+            + " cards in pinned " + name + " at base_commit " + base + "; need exactly one")
+    return cards[0]
 
 
 _WINDOWS_GATE = r"""
@@ -594,6 +690,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--package")
     ap.add_argument("--check-only", action="store_true")
+    ap.add_argument("--print-card", metavar="TASK_ID",
+                    help="print the exact pinned catalogue card object to copy into TASK.json original_card")
     ap.add_argument("--install-deps", action="store_true", help="explicit opt-in to install manifest's allowed pinned dependencies")
     ap.add_argument("--changed-since", help="plan affected opt-in packages relative to this Git commit")
     ap.add_argument("--github-output", type=Path)
@@ -601,7 +699,11 @@ def main():
                     help="group planned packages for bounded reusable-workflow matrices (1..256)")
     args = ap.parse_args()
     try:
-        if args.changed_since:
+        if args.print_card:
+            require(args.package,
+                    "--print-card needs --package research/<slug> to resolve its pinned catalogue")
+            sys.stdout.write(json.dumps(catalogue_card(ROOT, args.package, args.print_card), indent=2) + "\n")
+        elif args.changed_since:
             if set(args.changed_since) == {"0"}:
                 changed = git(ROOT, "ls-files", "-z").decode().split("\0")
             else:
@@ -621,7 +723,7 @@ def main():
             else:
                 run_package(ROOT, args.package, args.install_deps)
         else:
-            ap.error("use --package or --changed-since")
+            ap.error("use --package, --print-card or --changed-since")
     except (OSError, ValueError, KeyError, TypeError, subprocess.SubprocessError, importlib.metadata.PackageNotFoundError) as exc:
         ap.exit(1, str(exc) + "\n")
 
