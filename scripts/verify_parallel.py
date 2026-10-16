@@ -56,7 +56,9 @@ def snapshot(template):
         if source.is_symlink():
             try:
                 target = Path(os.readlink(source))
-                contained = source.resolve().is_relative_to(root)
+                # strict=True rejects cycles on Python 3.13+, where non-strict
+                # resolve may return an unresolved cyclic path without raising.
+                contained = source.resolve(strict=True).is_relative_to(root)
             except (OSError, RuntimeError) as exc:
                 raise ValueError(f'Unresolvable snapshot symlink: {name}') from exc
             if target.anchor or not contained:

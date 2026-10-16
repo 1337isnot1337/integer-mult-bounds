@@ -118,6 +118,7 @@ CONFIG['reconciliation92']['additional_inputs'].append({
     'sha256': '7751bcdd2df3c98798b1855050646744404f24d015eb4cd2b4af84bfb591cdc3',
     'accepted_live_sha256': [
         '22b0e66b878c886d52aaa69d233fdcaa4194cc947cab0191ca3dabee5980d6ad',
+        '6b19ef65fc208089479ceaa6465c861c03f9f1e19da00261df24e6bd019773b5',
     ],
 })
 
