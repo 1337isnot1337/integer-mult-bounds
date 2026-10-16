@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1986,
-    "partially_reviewed": 350,
+    "incorporated": 1987,
+    "partially_reviewed": 349,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "8d35d26b48c613a4c002a1949472b33f4e2c3bceabee7e05e004be9562e5aa3a",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "998038c74c8becdcaaa1a067dcc731a8bbb046ea4cc0ea912b4b3f0e947262bf",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -47633,25 +47633,32 @@
         {
           "head": "f0758653a5a1f72c3b59e58d6fe8d658db20b50b",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Rohan Guliani: exact six-configuration label-field geometry and certified pricing over odd stages3–13; all21 cost rows and full original RESULT reproduce. Two extra conditional complex-window rows checked; correct rounded-down prose limits, historical checkpoint, finite-stage scope and the distinction between ceiling headroom and an achieved supplier. Extension-field/rank realization and larger-stage claims remain open; no κ change. Three imported engines are exact current-main bytes; inherited floor scopes remain explicit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/label-field-census"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "46361e8ea42e4338510b671ff23b8c5eafa68771",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/801"
+      },
       "reviewed_head": "f0758653a5a1f72c3b59e58d6fe8d658db20b50b",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Label-field census and conditional format ceilings need a dedicated proof/pricing audit; no target-strength construction inferred.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/801.json"
+        "research/community-efficient1800-audit/packets/801.json",
+        "research/community-efficient1800-audit/checks/check-801.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -72405,7 +72412,7 @@
         {
           "head": "b54a856aa79857d91cd5d65f8f7144e26c8c084f",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full new source and imported wlib/moment paths reviewed. Earlier exact-head fixed-option census retained; fresh bounded diagnostic uses the original options/score/apply-and-replay functions and reproduces a scored-legal versus literal-replay nesting mismatch. Pair-product and cross-section scope holds remain. No new exhaustive replay or mathematical optimality rejection.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -72415,7 +72422,7 @@
       "closure": null,
       "reviewed_head": "b54a856aa79857d91cd5d65f8f7144e26c8c084f",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pair loop takes products of single-move option lists computed against the unchanged word. Qualify optimality to those fixed options, or prove/enumerate jointly enabled frame and commutation choices. Its opening all-pairs claim also needs to exclude the cross-section pairs omitted later in the README.",
+      "unresolved_question": "The pair loop takes products of single-move option lists computed against the unchanged word. Qualify optimality to those fixed options, or prove/enumerate jointly enabled frame and commutation choices. Its opening all-pairs claim also needs to exclude the cross-section pairs omitted later in the README. Fresh exact-code diagnostic additionally finds A op2041 -> slot2076/frame390 accepted by the scorer, while literal pop/insert replay rejects nesting at register413 (517 ->390). Reconcile the slot-coordinate conventions and establish complete move coverage; this is not an improving move or a disproof of the claimed optimum.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -72423,7 +72430,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1345.json"
+        "research/community-efficient1800-audit/packets/1345.json",
+        "research/community-efficient1800-audit/checks/check-1345.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133319,7 +133327,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1534,
-    "OPEN": 486
+    "MERGED": 1535,
+    "OPEN": 485
   }
 }

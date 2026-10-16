@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "checked_commit": "8225ff33611ad23ae5988e40cda4acfd594c0ca2",
+  "checked_commit": "46361e8ea42e4338510b671ff23b8c5eafa68771",
   "merged_prs": [
     720,
+    801,
     1075,
     2505,
     2514,
@@ -32,8 +33,18 @@
     2870,
     2872
   ],
-  "changed_files": 393,
+  "changed_files": 396,
   "resolved_files": [
+    {
+      "number": 801,
+      "path": "research/label-field-census/README.md",
+      "sha256": "bc3da10c6880d5532750ef54e4d28f078ee95a648203c05c1dc8c62339a2df43"
+    },
+    {
+      "number": 801,
+      "path": "research/label-field-census/census.py",
+      "sha256": "9d211cc0c1b83c8752cf6f14ee0d6957f75a0f9f66dd80ad5b939ae566f1b1ea"
+    },
     {
       "number": 2505,
       "path": "docs/research/research-package-guide.md",
@@ -77,7 +88,7 @@
     {
       "number": 2834,
       "path": "CONTRIBUTORS.md",
-      "sha256": "2197d8f589cd28c58b05e9421647ac952da1ed1aab690caf0218de7c03472304"
+      "sha256": "db8762b401b6f111f9c0e3689dc46fda23b3b16398dc42d5e4263a7fb2af99a4"
     },
     {
       "number": 2840,

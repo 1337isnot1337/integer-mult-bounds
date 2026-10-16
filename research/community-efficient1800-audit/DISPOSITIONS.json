@@ -190,20 +190,24 @@
       },
       "reviewed_head": "f0758653a5a1f72c3b59e58d6fe8d658db20b50b",
       "current_head": "f0758653a5a1f72c3b59e58d6fe8d658db20b50b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/label-field-census"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "46361e8ea42e4338510b671ff23b8c5eafa68771",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/801"
+      },
       "scope": "Rohan Guliani: exact six-configuration label-field geometry and certified pricing over odd stages3\u201313; all21 cost rows and full original RESULT reproduce. Two extra conditional complex-window rows checked; correct rounded-down prose limits, historical checkpoint, finite-stage scope and the distinction between ceiling headroom and an achieved supplier. Extension-field/rank realization and larger-stage claims remain open; no \u03ba change. Three imported engines are exact current-main bytes; inherited floor scopes remain explicit.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/801.json",
@@ -634,9 +638,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "The pair loop takes products of single-move option lists computed against the unchanged word. Qualify optimality to those fixed options, or prove/enumerate jointly enabled frame and commutation choices. Its opening all-pairs claim also needs to exclude the cross-section pairs omitted later in the README.",
+      "unresolved_question": "The pair loop takes products of single-move option lists computed against the unchanged word. Qualify optimality to those fixed options, or prove/enumerate jointly enabled frame and commutation choices. Its opening all-pairs claim also needs to exclude the cross-section pairs omitted later in the README. Fresh exact-code diagnostic additionally finds A op2041 -> slot2076/frame390 accepted by the scorer, while literal pop/insert replay rejects nesting at register413 (517 ->390). Reconcile the slot-coordinate conventions and establish complete move coverage; this is not an improving move or a disproof of the claimed optimum.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Full new source and imported wlib/moment paths reviewed. Earlier exact-head fixed-option census retained; fresh bounded diagnostic uses the original options/score/apply-and-replay functions and reproduces a scored-legal versus literal-replay nesting mismatch. Pair-product and cross-section scope holds remain. No new exhaustive replay or mathematical optimality rejection.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -645,7 +649,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1345.json"
+        "research/community-efficient1800-audit/packets/1345.json",
+        "research/community-efficient1800-audit/checks/check-1345.json"
       ]
     },
     {
