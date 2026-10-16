@@ -725,6 +725,7 @@ Original contributor commits and predecessor notices are preserved. These are sc
 - **CubeJerry** — [#2756](https://github.com/CrocSwap/integer-mult-bounds/pull/2756).
 - **VictorLiwentao** — [#2761](https://github.com/CrocSwap/integer-mult-bounds/pull/2761), [#2779](https://github.com/CrocSwap/integer-mult-bounds/pull/2779).
 - **BigCactusLabs** — [#2763](https://github.com/CrocSwap/integer-mult-bounds/pull/2763).
+- **jeremydiviney** — [#2788](https://github.com/CrocSwap/integer-mult-bounds/pull/2788).
 - **Arham-Tahir64** — [#2792](https://github.com/CrocSwap/integer-mult-bounds/pull/2792).
 
 Pending contributors and their obligations are listed in the review. A hold is not a rejection.

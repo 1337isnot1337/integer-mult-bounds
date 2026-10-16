@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs #2478 and #2716–#2828**, excluding prior same-head dispositions. Baseline `e81c3f9a73f6eaef43192f9e0d9b48e3aa35a5c9`. Complete Git differences determine changed-file coverage.
 
-**37 ready; 36 observed merged; 63 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**38 ready; 37 observed merged; 62 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 
@@ -46,6 +46,7 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2776](https://github.com/CrocSwap/integer-mult-bounds/pull/2776) | DavidAriasC | Literal fixed-tape unit ordered shear and inverse with arbitrary positive binary extents: reviewed all finite control, countdown/split-merge invariants and exact transition/visited-span accounting, plus independent dense interpreter and mutation controls. Fourteen tapes, 531 instructions and linear complete local bill; inherited stream method credited. Carries, rational scaling, reversed fields, full caller and accelerated recurrence remain open. |
 | [#2778](https://github.com/CrocSwap/integer-mult-bounds/pull/2778) | petalas | Sharp numerical Word liveness for the unchanged good/fallback form constructors: reviewed complete lifetime proof, literal allocation census, independent integer endpoint checks and rejection controls. Entry residents are explicit; construction exceeds the earlier initialized-evaluator allowance. Bounds concern successful source contracts and occupied content, not erased backing, complete caller inventory, physical storage or supplier admission. |
 | [#2779](https://github.com/CrocSwap/integer-mult-bounds/pull/2779) | VictorLiwentao | Scoped partitioned independent-walk Q=7 obstruction with distinct labels in each walk. Reviewed all 796 model/check/test lines and the independent-dirt convolution: only (2,5)/(3,4) shapes are admitted; rank/span and even Hamming-cost identity justify the first shape, exhaustive convolution the second. Transfers, shared prefixes and repeated labels remain outside; full execution is still required. |
+| [#2788](https://github.com/CrocSwap/integer-mult-bounds/pull/2788) | jeremydiviney | Source-authentication repair for the retained T74 width-cap arithmetic loader. Reviewed all four changed files against current main: exact verified source bytes now execute directly instead of consulting .pyc. Four timestamp/unchecked-hash normal/optimized cache controls retain the original mathematical receipt and predecessor credit. No changed bound or broader supplier validation. |
 | [#2792](https://github.com/CrocSwap/integer-mult-bounds/pull/2792) | Arham-Tahir64 | Historical replay children discard inherited PYTHONOPTIMIZE while preserving other environment settings. Real CLI controls cover direct/nested assertions, unittest failures, passing historical overlays and tracked-file mutation under optimization levels 1 and 2; combined one-pass snapshot tests pass. |
 
 ## Remaining review
@@ -78,7 +79,6 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2782](https://github.com/CrocSwap/integer-mult-bounds/pull/2782) | tekuuu | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2784](https://github.com/CrocSwap/integer-mult-bounds/pull/2784) | DreamingOfClouds | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2786](https://github.com/CrocSwap/integer-mult-bounds/pull/2786) | petalas | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2788](https://github.com/CrocSwap/integer-mult-bounds/pull/2788) | jeremydiviney | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2790](https://github.com/CrocSwap/integer-mult-bounds/pull/2790) | Dugongue | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2793](https://github.com/CrocSwap/integer-mult-bounds/pull/2793) | Arham-Tahir64 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2794](https://github.com/CrocSwap/integer-mult-bounds/pull/2794) | Arham-Tahir64 | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |

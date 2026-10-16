@@ -2137,20 +2137,24 @@
       },
       "reviewed_head": "1f2a413f9e27ce9609924f7ab196548c4cbe43d8",
       "current_head": "1f2a413f9e27ce9609924f7ab196548c4cbe43d8",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-7q-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a64a6866909ffa5b51cf00f383222d82b0279cbd",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2779"
+      },
       "scope": "Scoped partitioned independent-walk Q=7 obstruction with distinct labels in each walk. Reviewed all 796 model/check/test lines and the independent-dirt convolution: only (2,5)/(3,4) shapes are admitted; rank/span and even Hamming-cost identity justify the first shape, exhaustive convolution the second. Transfers, shared prefixes and repeated labels remain outside; full execution is still required.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2779.json",
@@ -2340,19 +2344,22 @@
       "current_head": "e28e84c9826ca583814e965dcc36d8e549963d58",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/t74-low-alias-width-cap"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Source-authentication repair for the retained T74 width-cap arithmetic loader. Reviewed all four changed files against current main: exact verified source bytes now execute directly instead of consulting .pyc. Four timestamp/unchecked-hash normal/optimized cache controls retain the original mathematical receipt and predecessor credit. No changed bound or broader supplier validation.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2788.json"
+        "research/community-efficient1700-audit/packets/2788.json",
+        "research/community-efficient1700-audit/checks/check-2788.json"
       ]
     },
     {
