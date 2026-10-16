@@ -1545,19 +1545,22 @@
       "current_head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/multi-connector-7q-obstruction"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Scoped same-walk readout obstruction: correlated dirty shadows collapse by symmetric difference, and independently dirty connectors cannot improve the even-subset cost by its triangle inequality. Reviewed the complete primary, independent census and controls. Snapshot creation and physical implementation remain separately charged; independent walks and transfers lie outside the result. Registered exhaustive replay must finish before incorporation.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2761.json"
+        "research/community-efficient1700-audit/packets/2761.json",
+        "research/community-efficient1700-audit/checks/check-2761.json"
       ]
     },
     {
@@ -1578,19 +1581,22 @@
       "current_head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/selected-centre-bridge-projection"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Independent forward-rational and backward-adjoint audit of all 1152 bridge-aware centre-source rows. Reviewed complete scalar projection, dense controller and rank code; the wrong-sign control preserves endpoint identity and full rank while changing 930 intermediate rows. Native frames/address maps and output-response injectivity remain outside this projection; no child deletion, supplier admission or kappa improvement.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2763.json"
+        "research/community-efficient1700-audit/packets/2763.json",
+        "research/community-efficient1700-audit/checks/check-2763.json"
       ]
     },
     {
@@ -1645,9 +1651,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Independent masked-E8 restriction, singleton-padding and disjoint-gluing transfer proof, credited to Philippe Van Velzen. Reviewed the bounded rational candidate CLI, occurrence-by-occurrence binary ranks and separate span oracle, retained decoder fixtures and fault controls. Equivalence of the fixed-model puncture floor to the full P120 floor is a reduction, not a proof of either floor or supplier admission.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -1777,9 +1783,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Fixed numerical-bank parking codec under trusted well-bracketed calls and fixed capacities/widths. Reviewed complete serializer, original-object restoration, all-depth induction and full sequential API invoice, with arbitrary dirty parents and explicitly owned child grants. Payload/controller serialization, complete recursive-caller integration and physical supplier cost remain open; no kappa claim.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -1876,9 +1882,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Whole-word exact-grid implication for all 5398 events of the pinned physical P104 dual. Reviewed logical-row/frame replay, distinct-coordinate Gaussian prefix proof, integer execution and independent chart oracle: max(14 lambda,13 lambda+2) extra bits suffice under inherited native correctness and tensor-lift premises. Expanded execution is not an efficient recursive supplier; runtime, physical storage and admission remain open.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
