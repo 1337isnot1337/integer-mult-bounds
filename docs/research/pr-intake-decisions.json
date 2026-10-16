@@ -895,6 +895,38 @@
       "verification_evidence": [
         "docs/research/pr-intake-evidence/archives-20261016d.json"
       ]
+    },
+    {
+      "number": 2978,
+      "metadata": {
+        "number": 2978,
+        "title": "F-star family gap: Lemma BPP's without-loss question answered NO - box-completeness fails at tau >= 1, minimal counterexample v = 3 (no kappa)",
+        "headRefOid": "12eb7b832de9239a314a7cddf6c6033d618cd8f2",
+        "author": {
+          "id": "MDQ6VXNlcjUwMzY2Njc2",
+          "is_bot": false,
+          "login": "navinor",
+          "name": "Aaron Wang"
+        },
+        "isDraft": false
+      },
+      "reviewed_head": "12eb7b832de9239a314a7cddf6c6033d618cd8f2",
+      "current_head": "12eb7b832de9239a314a7cddf6c6033d618cd8f2",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [],
+      "unresolved_question": "Repair malformed vendored predecessor/pr2963/predecessor/pr2914/CERTIFICATE.json; source-only JSON intake fails before scientific review. Retain authentic predecessor bytes and update declared source pins consistently. Mathematical claims remain unreviewed.",
+      "closure": null,
+      "scope": "Source syntax/integrity intake: malformed vendored JSON. No scientific execution or endorsement.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/pr2978-source-hold.json"
+      ]
     }
   ]
 }

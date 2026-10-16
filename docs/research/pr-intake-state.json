@@ -1721,6 +1721,21 @@
         "research/fstar-gap2-v11-seed42ff0611": null
       },
       "watch_prs": {}
+    },
+    {
+      "number": 2978,
+      "head": "12eb7b832de9239a314a7cddf6c6033d618cd8f2",
+      "status": "waiting_revision",
+      "reason": "Repair malformed vendored predecessor/pr2963/predecessor/pr2914/CERTIFICATE.json; source-only JSON intake fails before scientific review. Retain authentic predecessor bytes and update declared source pins consistently. Mathematical claims remain unreviewed.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/pr2978-source-hold.json"
+      ],
+      "policy_version": 1,
+      "baseline": "066f57ff795dbe6d0a0ecc11fe742eadcec00c39",
+      "watch_paths": {
+        "docs/research/pr-intake-evidence/pr2978-source-hold.json": "c8cec2cedcb07593aeb943ab819a14513c8a1519"
+      },
+      "watch_prs": {}
     }
   ]
 }
