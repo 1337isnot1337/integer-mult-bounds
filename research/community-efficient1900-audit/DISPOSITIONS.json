@@ -66,20 +66,23 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Ross Richardson: legal H6 edge/bucket compensation, explicit K encoder, universal affine frame-transition recipes, exact-child grid and nominal cost exclusions. Complete successor export,17 semantic controls,6 CI regressions and live selected integrity pass. Prior exhaustive census retained as source-bound author evidence; no billion-event execution or all-size supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient800-audit/packets/1830.json",
         "research/community-efficient800-audit/checks/check-1830.json",
-        "research/community-efficient1900-audit/packets/1830.json"
+        "research/community-efficient1900-audit/packets/1830.json",
+        "research/community-efficient1900-audit/checks/check-1830-selected.json",
+        "research/community-efficient1900-audit/checks/check-1830-unified.json",
+        "research/community-efficient1900-audit/checks/check-1830.json"
       ]
     },
     {
@@ -145,20 +148,21 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang: exact order-four typed-echo word, complete declared scalar tape invoice and conditional shared-ledger moment pricing. Full51-check replay passes. Revised claims explicitly leave reader/intertwiner realization, delivery/lifetime and precision open; no realized selected supplier or new kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2464.json",
         "research/community-efficient1400-audit/checks/check-2464.json",
-        "research/community-efficient1900-audit/packets/2464.json"
+        "research/community-efficient1900-audit/packets/2464.json",
+        "research/community-efficient1900-audit/checks/check-2464.json"
       ]
     },
     {

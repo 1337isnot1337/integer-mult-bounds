@@ -1,9 +1,11 @@
 from pathlib import Path
 import hashlib,json,shutil,subprocess
 P=Path('/tmp/pr-efficient1900');R=Path('/tmp/integer-mult-efficient1100-20261015')
+published=set(json.loads((P/'integration-state.json').read_text()))
 # Sparse checkout may omit a retained resolution after a merge. Restore only missing HEAD bytes.
 for batch in [1900]:
  for entry in json.loads(Path(f'/tmp/pr-efficient{batch}/resolution-plan.json').read_text()):
+  if str(entry['number']) not in published:continue
   target=R/entry['path']
   if not target.exists():
    target.parent.mkdir(parents=True,exist_ok=True)
@@ -17,6 +19,7 @@ for batch in [1600,1700,1800]:
  f.write_text(json.dumps(plan,indent=2)+'\n');dest=R/f'research/community-efficient{batch}-audit/INTEGRATION-RESOLUTIONS.json';dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,dest)
 plan=json.loads((P/'resolution-plan.json').read_text())
 for x in plan:
+ if str(x['number']) not in published:continue
  x['resolved_sha256']=hashlib.sha256((R/x['path']).read_bytes()).hexdigest();x['resolved_mode']=subprocess.check_output(['git','ls-files','--stage','--',x['path']],cwd=R,text=True).split()[0]
 (P/'resolution-plan.json').write_text(json.dumps(plan,indent=2)+'\n');shutil.copy2(P/'resolution-plan.json',R/'research/community-efficient1900-audit/INTEGRATION-RESOLUTIONS.json')
 print('Updated explicit reviewed-successor resolutions for rounds16–19')

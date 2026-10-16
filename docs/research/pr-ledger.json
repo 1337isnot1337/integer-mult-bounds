@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "220fe7a797d4664e84a7b7df46025d9e71f9fd25a652f7812c851a759e3a84b8",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "cba67113b30299c9f307b664a6755a02a6e9964ad7e249ee388ffc2d32d5481e",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -90969,7 +90969,7 @@
         {
           "head": "ef03620dff68d5be924b338f40c5c310e9359557",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Ross Richardson: legal H6 edge/bucket compensation, explicit K encoder, universal affine frame-transition recipes, exact-child grid and nominal cost exclusions. Complete successor export,17 semantic controls,6 CI regressions and live selected integrity pass. Prior exhaustive census retained as source-bound author evidence; no billion-event execution or all-size supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -90979,17 +90979,20 @@
       "closure": null,
       "reviewed_head": "ef03620dff68d5be924b338f40c5c310e9359557",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient800-audit/packets/1830.json",
         "research/community-efficient800-audit/checks/check-1830.json",
-        "research/community-efficient1900-audit/packets/1830.json"
+        "research/community-efficient1900-audit/packets/1830.json",
+        "research/community-efficient1900-audit/checks/check-1830-selected.json",
+        "research/community-efficient1900-audit/checks/check-1830-unified.json",
+        "research/community-efficient1900-audit/checks/check-1830.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -115676,7 +115679,7 @@
         {
           "head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Aaron Wang: exact order-four typed-echo word, complete declared scalar tape invoice and conditional shared-ledger moment pricing. Full51-check replay passes. Revised claims explicitly leave reader/intertwiner realization, delivery/lifetime and precision open; no realized selected supplier or new kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -115686,17 +115689,18 @@
       "closure": null,
       "reviewed_head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2464.json",
         "research/community-efficient1400-audit/checks/check-2464.json",
-        "research/community-efficient1900-audit/packets/2464.json"
+        "research/community-efficient1900-audit/packets/2464.json",
+        "research/community-efficient1900-audit/checks/check-2464.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
