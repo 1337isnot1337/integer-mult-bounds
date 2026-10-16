@@ -1543,20 +1543,24 @@
       },
       "reviewed_head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
       "current_head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/multi-connector-7q-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "25e1f44069a2a47550a4e04eb00d613fe743deac",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2761"
+      },
       "scope": "Scoped same-walk readout obstruction: correlated dirty shadows collapse by symmetric difference, and independently dirty connectors cannot improve the even-subset cost by its triangle inequality. Reviewed the complete primary, independent census and controls. Snapshot creation and physical implementation remain separately charged; independent walks and transfers lie outside the result. Registered exhaustive replay must finish before incorporation.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2761.json",
@@ -1579,20 +1583,24 @@
       },
       "reviewed_head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
       "current_head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-centre-bridge-projection"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "25e1f44069a2a47550a4e04eb00d613fe743deac",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2763"
+      },
       "scope": "Independent forward-rational and backward-adjoint audit of all 1152 bridge-aware centre-source rows. Reviewed complete scalar projection, dense controller and rank code; the wrong-sign control preserves endpoint identity and full rank while changing 930 intermediate rows. Native frames/address maps and output-response injectivity remain outside this projection; no child deletion, supplier admission or kappa improvement.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2763.json",

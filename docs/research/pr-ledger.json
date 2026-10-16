@@ -45,8 +45,8 @@
     "research/community-efficient1700-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1918,
-    "partially_reviewed": 377,
+    "incorporated": 1920,
+    "partially_reviewed": 375,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -103,7 +103,7 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "d3af0065e9d755174f86bf5b3045a98fb102f695d077805aade0a028d6287e32",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "504af64d32dcb421e294b138c852d9303be2f56f00d3517a52b8e125c340aed1",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -127991,20 +127991,27 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/multi-connector-7q-obstruction"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "25e1f44069a2a47550a4e04eb00d613fe743deac",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2761"
+      },
       "reviewed_head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2761.json"
+        "research/community-efficient1700-audit/packets/2761.json",
+        "research/community-efficient1700-audit/checks/check-2761.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -128035,20 +128042,27 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-centre-bridge-projection"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "25e1f44069a2a47550a4e04eb00d613fe743deac",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2763"
+      },
       "reviewed_head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2763.json"
+        "research/community-efficient1700-audit/packets/2763.json",
+        "research/community-efficient1700-audit/checks/check-2763.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -128118,7 +128132,7 @@
         {
           "head": "54d031fc3df0e5361d5840eb3863c9d134d60f23",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Independent masked-E8 restriction, singleton-padding and disjoint-gluing transfer proof, credited to Philippe Van Velzen. Reviewed the bounded rational candidate CLI, occurrence-by-occurrence binary ranks and separate span oracle, retained decoder fixtures and fault controls. Equivalence of the fixed-model puncture floor to the full P120 floor is a reduction, not a proof of either floor or supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -128128,7 +128142,7 @@
       "closure": null,
       "reviewed_head": "54d031fc3df0e5361d5840eb3863c9d134d60f23",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -128294,7 +128308,7 @@
         {
           "head": "d97f150d89e3f3eebdf625a468a445c9c0f1e6c9",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Fixed numerical-bank parking codec under trusted well-bracketed calls and fixed capacities/widths. Reviewed complete serializer, original-object restoration, all-depth induction and full sequential API invoice, with arbitrary dirty parents and explicitly owned child grants. Payload/controller serialization, complete recursive-caller integration and physical supplier cost remain open; no kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -128304,7 +128318,7 @@
       "closure": null,
       "reviewed_head": "d97f150d89e3f3eebdf625a468a445c9c0f1e6c9",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -128426,7 +128440,7 @@
         {
           "head": "69ba5a423246a1c9281bdd5c1f51240b454f2aa6",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Whole-word exact-grid implication for all 5398 events of the pinned physical P104 dual. Reviewed logical-row/frame replay, distinct-coordinate Gaussian prefix proof, integer execution and independent chart oracle: max(14 lambda,13 lambda+2) extra bits suffice under inherited native correctness and tensor-lift premises. Expanded execution is not an efficient recursive supplier; runtime, physical storage and admission remain open.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -128436,7 +128450,7 @@
       "closure": null,
       "reviewed_head": "69ba5a423246a1c9281bdd5c1f51240b454f2aa6",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -130626,7 +130640,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1466,
-    "OPEN": 513
+    "MERGED": 1468,
+    "OPEN": 511
   }
 }
