@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Independent XOR-span reconstruction of #2979's V45 frame group and invoice arithmetic.
+"""Independent XOR-span reconstruction of #2979's staged profile arithmetic.
 
-This checks the source-bound local frame/profile arithmetic and cross-checks the
-published T74 aggregate numerically. It does not rebuild stages 2/3, owners,
-chronology, native admission, or the exact outer release.
+This rebuilds the profile-bearing word sections through stages 1-3 and checks
+the pinned T74 aggregate numerically. It does not certify the extraction or
+rewrite identities, compensation/cleanup semantics, owners, chronology, native
+admission, or the exact outer release.
 """
 from collections import Counter
 from copy import deepcopy
@@ -162,6 +163,123 @@ def apply_groups(parent, record, chosen):
     return out, changed
 
 
+def basis_by_closure(vectors):
+    """Choose an independent basis by explicit XOR closure, without RREF."""
+    accepted = []
+    current = {0}
+    for vector in sorted(set(vectors)):
+        if vector not in current:
+            accepted.append(vector)
+            current.update(value ^ vector for value in tuple(current))
+    need(span(accepted) == span(vectors), "closure-selected basis spans its input")
+    return accepted
+
+
+def apply_extraction(word, transform):
+    """Rebuild the profile-bearing part of one paired extraction from literal gates."""
+    x = deepcopy(word)
+    helper = int(transform["helper"])
+    need(str(helper) not in x["helper_final"] and str(helper) not in x["start_extra"], "new extraction helper")
+    prelude = int(x["prelude_events"])
+    protected = set(map(int, x["helper_final"])) | set(map(int, x["start_extra"]))
+    protected |= {int(c["source"]) for c in x["initial_corrections"]}
+    removed = set(map(int, x["removed"]))
+
+    before = transform["before"]
+    after = transform["after"]
+    need(before and after, "nonempty paired extraction")
+    for gate in before:
+        need(gate[0] in ("add", "scale") and gate[-1] == [], "extraction inputs use zero frames")
+        involved = gate[1:3] if gate[0] == "add" else gate[1:2]
+        need(all(224 <= int(r) < 704 and int(r) not in protected and int(r) not in removed
+                 for r in involved), "extraction inputs touch only live unprotected helpers")
+
+    normal = int(transform["normal"])
+    hyperplane = [v for v in range(1, 512) if not dot_parity(v, normal)]
+    end_frame = basis_by_closure(hyperplane)
+    need(rank(end_frame) == 8 and all(not dot_parity(v, normal) for v in end_frame),
+         "extraction endpoint is the declared rank-8 hyperplane")
+    need(all(g[0] in ("add", "scale") and inside(g[-1], end_frame) for g in after),
+         "extraction outputs lie in the declared hyperplane")
+
+    x["A"] = x["A"][:prelude] + deepcopy(before) + x["A"][prelude:]
+    x["restore"] += deepcopy(after)
+    x["helper_final"][str(helper)] = end_frame
+    seen = set()
+    for edit in transform["frame_changes"]:
+        section, index = edit["section"], int(edit["index"])
+        need(section in ("A", "B", "restore") and (section, index) not in seen,
+             "unique extraction frame-change address")
+        need(0 <= index < len(x[section]) and (section != "A" or index >= prelude),
+             "extraction frame-change address is live")
+        seen.add((section, index))
+        gate = x[section][index]
+        need(gate[:-1] == edit["gate"] and span(gate[-1]) == span(edit["old_frame"]),
+             "extraction frame-change preimage")
+        need(rank(edit["new_frame"]) == rank(edit["old_frame"]) - 1 and
+             inside(edit["new_frame"], edit["old_frame"]), "extraction frame change lowers one dimension")
+        gate[-1] = list(edit["new_frame"])
+    return x
+
+
+def apply_literal_rewrites(word, rewrites, shift_warps=True):
+    """Apply declared stage-3 splices by exact old slices and source indices."""
+    x = deepcopy(word)
+    taken = {section: [] for section in ("A", "B", "restore")}
+    edits = []
+    for rewrite in rewrites:
+        for edit in rewrite["edits"]:
+            section, start, stop = edit["section"], int(edit["start"]), int(edit["stop"])
+            need(section in taken and 0 <= start <= stop <= len(word[section]), "rewrite slice address")
+            need(section != "A" or start >= int(word["prelude_events"]), "rewrites preserve prelude")
+            need(word[section][start:stop] == edit["old"] and edit["old"] != edit["new"],
+                 "rewrite old slice is exact and nonvacuous")
+            for left, right in taken[section]:
+                need(stop < left or right < start, "declared rewrite slices are disjoint and separated")
+            taken[section].append((start, stop))
+            edits.append((section, start, stop, edit["new"]))
+
+    for section, start, stop, new in sorted(edits, key=lambda row: (row[0], -row[1], -row[2])):
+        x[section][start:stop] = deepcopy(new)
+
+    b_edits = [(start, stop, len(new) - (stop - start))
+               for section, start, stop, new in edits if section == "B"]
+    if shift_warps:
+        for warp in x["warps"]:
+            pos = int(warp[0])
+            need(not any(start < pos < stop for start, stop, _ in b_edits), "warp outside edited B slices")
+            warp[0] = pos + sum(delta for start, stop, delta in b_edits if stop <= pos and start < pos)
+    return x
+
+
+def profile_projection(word):
+    """Fields sufficient to determine the complete paid local profile and inventory."""
+    names = ("A", "B", "restore", "warps", "ports", "start_extra", "helper_final",
+             "centers", "center_frames", "cut", "target_levels", "removed", "prelude_events")
+    return {name: word[name] for name in names}
+
+
+def replay_stages(parent, record, transforms, rewrites):
+    """Bind stages 2/3 to source records and return their independently priced profiles."""
+    stage1, _ = apply_groups(parent, record, list(record["groups"]))
+    stage2 = stage1
+    step_profiles = []
+    for expected_step, transform in enumerate(transforms, 1):
+        need(int(transform["step"]) == expected_step, "extraction order")
+        stage2 = apply_extraction(stage2, transform)
+        step_profiles.append(profile(stage2))
+    after2 = profile(stage2)
+    stage3 = apply_literal_rewrites(stage2, rewrites)
+    after3 = profile(stage3)
+    return stage1, stage2, stage3, {
+        "stage2_step_profiles": step_profiles,
+        "stage2_profile": after2[0],
+        "stage2_inventory": after2[1],
+        "stage3_profile": after3[0],
+        "stage3_inventory": after3[1],
+    }
+
+
 def price(profile_, weights):
     return sum(weights[r] * n for r, n in profile_.items())
 
@@ -259,6 +377,71 @@ def main():
     need(final_rows["base"] == final_rows["extra"], "final provider profile agreement")
     final_profile, final_inventory = final_rows["base"]
 
+    transforms = [read(PKG / f"data/TRANSFORM-{helper}.json")
+                  for helper in (226, 228, 230, 363, 395)]
+    rewrites = read(PKG / "data/REWRITES-2957.json")
+    stage_replays = {}
+    for variant in ("base", "extra"):
+        parent = read(PKG / f"data/PARENT-{variant}.json.gz")
+        stage1, stage2, stage3, ledger = replay_stages(parent, record, transforms, rewrites)
+        final = read(PKG / f"data/WORD-{variant}.json.gz")
+        for name, actual, expected in (("stage2", ledger["stage2_profile"], profile(stage2)[0]),
+                                       ("stage3", ledger["stage3_profile"], profile(stage3)[0])):
+            need(actual == expected, f"{name} replay ledger reports its derived profile")
+        stage2_delta = price(profile(stage2)[0], weights) - price(profile(stage1)[0], weights)
+        stage3_delta = price(profile(stage3)[0], weights) - price(profile(stage2)[0], weights)
+        need(stage2_delta == int(prices["stage2"]["literal_price_units"]), "stage-2 source replay price")
+        need(stage3_delta == int(prices["stage3"]["literal_price_units"]), "stage-3 source replay price")
+        need(profile(stage3) == profile(final), "stage-2/3 replay reproduces both final local profile and inventory")
+        for field in ("A", "B", "restore", "warps", "ports", "start_extra", "centers", "center_frames",
+                      "cut", "target_levels", "removed", "prelude_events"):
+            need(stage3[field] == final[field], f"stage-2/3 replay final {field} matches pinned word")
+        need(set(stage3["helper_final"]) == set(final["helper_final"]), "stage-2/3 replay endpoint inventory")
+        need(all(span(stage3["helper_final"][h]) == span(final["helper_final"][h])
+                 for h in final["helper_final"]), "stage-2/3 replay endpoints match pinned spans")
+        stage_replays[variant] = {
+            "stage1_delta_units": price(profile(stage1)[0], weights) - price(profile(parent)[0], weights),
+            "stage2_delta_units": stage2_delta,
+            "stage3_delta_units": stage3_delta,
+            "stage2_profile": profile(stage2)[0],
+            "stage2_inventory": profile(stage2)[1],
+            "final_profile": profile(stage3)[0],
+            "final_inventory": profile(stage3)[1],
+        }
+    need(stage_replays["base"] == stage_replays["extra"], "base/extra source replay agrees across stages 2/3")
+    need(stage_replays["base"]["stage1_delta_units"] == int(prices["stage1"]["literal_price_units"]),
+         "stage-1 source replay price")
+
+    # Semantic failure controls for the new source-bound stage-2/3 replayer.
+    control_parent = read(PKG / "data/PARENT-base.json.gz")
+    control_stage1, _ = apply_groups(control_parent, record, list(record["groups"]))
+    omitted_frame = deepcopy(transforms)
+    omitted_frame[1]["frame_changes"] = []
+    wrong_stage2 = control_stage1
+    for transform in omitted_frame:
+        wrong_stage2 = apply_extraction(wrong_stage2, transform)
+    wrong_stage3 = apply_literal_rewrites(wrong_stage2, rewrites)
+    need(profile(wrong_stage3) != profile(read(PKG / "data/WORD-base.json.gz")),
+         "omitting the declared stage-2 frame change is detected by the final paid profile")
+
+    stale_rewrites = deepcopy(rewrites)
+    stale_edit = next(edit for rewrite in stale_rewrites for edit in rewrite["edits"] if edit["old"])
+    stale_edit["start"] += 1
+    stale_edit["stop"] += 1
+    try:
+        apply_literal_rewrites(stage2, stale_rewrites)
+    except AssertionError:
+        stale_rewrite_rejected = True
+    else:
+        need(False, "stale stage-3 rewrite preimage must be rejected")
+    unshifted_warps = apply_literal_rewrites(stage2, rewrites, shift_warps=False)
+    try:
+        profile(unshifted_warps)
+    except AssertionError:
+        unshifted_warp_rejected = True
+    else:
+        need(False, "unshifted B-phase warp must be rejected by the profile replay")
+
     total_delta = price(final_profile, weights) - price(rows["base"]["parent_profile"], weights)
     stage_delta_sum = sum(int(prices[f"stage{i}"]["literal_price_units"]) for i in (1, 2, 3))
     need(total_delta == stage_delta_sum == -56_726_747, "final frame-price delta equals three published stage deltas")
@@ -293,6 +476,12 @@ def main():
         "final_width_inventory": final_inventory,
         "local_stage_delta_units": total_delta,
         "sum_of_stage_deltas_units": stage_delta_sum,
+        "source_replayed_stages_1_to_3": stage_replays["base"],
+        "stage_replay_controls": {
+            "omitted_stage2_frame_change_detected": True,
+            "stale_stage3_preimage_rejected": stale_rewrite_rejected,
+            "unshifted_stage3_warp_rejected": unshifted_warp_rejected,
+        },
         "t74_profile": allocation,
         "t74_idle_profile_after_666_calls": idle,
         "t74_rank_mass": sum(r * n for r, n in allocation.items()),
@@ -300,7 +489,8 @@ def main():
         "root_moment_residual_decimal": str(root_residual),
         "claimed_kappa_minus_selected_exact": str(claimed_kappa - selected_kappa),
         "limitations": [
-            "Stages 2 and 3 are not independently reconstructed from their transform/rewrite records.",
+            "Stage-2/3 replay checks the profile-bearing word sections and prices, not compensation or cleanup semantics.",
+            "The extracted operator identities and the fourteen rewrite identities are not independently certified here.",
             "T74 ownership chronology, physical admission, native admission, and outer release are not independently audited here.",
             "The Decimal root is a numeric cross-check, not an exact root certificate."
         ]

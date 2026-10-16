@@ -51,10 +51,46 @@
       "sha256": "eded756dfe8f411c3d1f80a3ac16516f0ea5dd6f9866728b2179b157630fa7b6"
     },
     {
+      "path": "research/rank7-joint-endframes/data/REWRITES-2957.json",
+      "usage": "input",
+      "git_blob": "7bf1633c93951828159b0d9f17d65eda6877101a",
+      "sha256": "a37ade675876e4f5b00b33066c84f495fccd264863b7eb5d813837b1d01c3e7d"
+    },
+    {
       "path": "research/rank7-joint-endframes/data/STAGE1-FRAME-EDITS.json",
       "usage": "input",
       "git_blob": "66525d293bd0e615e469b4c2191281e8cafb8788",
       "sha256": "5fbfce004330ebc1fbac8de264614fe295f1a074811b478db4892c3bc3852cd3"
+    },
+    {
+      "path": "research/rank7-joint-endframes/data/TRANSFORM-226.json",
+      "usage": "input",
+      "git_blob": "bab8518d199e902d72e3b8ec649b62afb74c4e77",
+      "sha256": "1732a39728c068f9d663111c7876b4e0b96088f3dd3b8e6ff824551b5a711338"
+    },
+    {
+      "path": "research/rank7-joint-endframes/data/TRANSFORM-228.json",
+      "usage": "input",
+      "git_blob": "0097d9dbb972126bde3551ac11d7421494e9c4ec",
+      "sha256": "82346e6a5173c4822e16b2dad06ca232111b6795a340079f9aceabe0098797c0"
+    },
+    {
+      "path": "research/rank7-joint-endframes/data/TRANSFORM-230.json",
+      "usage": "input",
+      "git_blob": "11edd2e513f8dfd224c53dd8f5ab6bd000098d3a",
+      "sha256": "8ad70d545695b5d2246fb9e09d46abcc1e42926c1161884f69b77f978a28f46d"
+    },
+    {
+      "path": "research/rank7-joint-endframes/data/TRANSFORM-363.json",
+      "usage": "input",
+      "git_blob": "9260bdf0b87319f212c0a7527693c511cd45c736",
+      "sha256": "84d2a609739eb30d4d9356fb6f04b2ff32c8823a978d7a51db1ace1d6d2352cc"
+    },
+    {
+      "path": "research/rank7-joint-endframes/data/TRANSFORM-395.json",
+      "usage": "input",
+      "git_blob": "fb2f6a9d2d72324d7dc7505ed46d566cdf8603c8",
+      "sha256": "065aa5d7713683942bc2156b543681857e33c6e2f30f32cba47e2cbb9d1bef69"
     },
     {
       "path": "research/rank7-joint-endframes/data/WORD-base.json.gz",
