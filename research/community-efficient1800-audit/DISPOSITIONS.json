@@ -2202,19 +2202,22 @@
       "current_head": "a06f5339a1ee22017f6099cb1dfc1c93c212c424",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/selected-coefficient-capacity-prefix"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Source-bound closed coefficient prefix capacity proof and independent literal correction: halved extension needs11 rather than10 additional index Words; the existing overall child allowance20494/22 is unchanged. All14 original runtime/oracle/proof exports matched Git. Nine successful and three actual underbudget fixtures, eight optimized controls and independently built10/11 witness pass with full typed receipt unchanged. Capacity >= max(entry backing, all entry residents + allowance) excludes first numerical inventory failure under explicit semantic/arena hypotheses; no whole caller, physical reserve, catalogue or supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2835.json"
+        "research/community-efficient1800-audit/packets/2835.json",
+        "research/community-efficient1800-audit/checks/check-2835.json"
       ]
     },
     {
@@ -2268,19 +2271,23 @@
       "current_head": "f46783ec06f184612e7859f575cbdad2ea722a4f",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/ut4-five-b-coverage-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Independent five-b UT4 coverage audit: separate2+3 profile join reconstructs all5664 active pairs, single-label gap cap3 and joint cap4 including zero active projections. Dense three-role operator tables cover21 rank-one couplings per orientation,81935 states and2798629 words each. Literal quotient/multiplicity/negative controls pass; pinned original PR2828 comparison matches complete profile set, all table entries/multiplicities and every original census receipt field. Workspace compression and final whole-word exclusion remain inherited; no supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2837.json"
+        "research/community-efficient1800-audit/packets/2837.json",
+        "research/community-efficient1800-audit/checks/check-2837-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2837.json"
       ]
     },
     {
