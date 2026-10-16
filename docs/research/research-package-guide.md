@@ -64,6 +64,15 @@ including assertions in its Python subprocesses. Other environment settings and
 explicit command options remain intact. A manifest can still request `-O` or
 `-OO` for a deliberate control; its author must account for disabled assertions.
 
+Each registered verification command also receives a fresh private Python
+bytecode-cache namespace, removed after success, failure or timeout. This keeps
+preexisting `.pyc` files from replacing source-authenticated modules: `-B`
+disables cache writes but still permits cache reads. The runner replaces any
+interpreter-level `-X pycache_prefix` with its own namespace; other interpreter
+options and script arguments are preserved. This policy covers imports in that
+registered interpreter, not separately launched child Python processes or direct
+verifier calls. See the [source-binding reproduction and limits](bytecode-replay-isolation.md).
+
 ```sh
 python3 scripts/research_package.py --package research/my-experiment --check-only
 python3.12 scripts/research_package.py --package research/my-experiment

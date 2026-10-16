@@ -15,6 +15,7 @@ import re
 import signal
 import subprocess
 import sys
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -332,6 +333,65 @@ def run_command(argv, cwd, timeout):
         process.wait()
 
 
+def isolated_python_argv(argv, cache_directory):
+    """Place our cache option after interpreter flags, before the entry point.
+
+    -B prevents writes, not reads of existing .pyc files. A fresh namespace
+    keeps preexisting source-adjacent and externally configured caches out of
+    this registered interpreter. It is not inherited by child interpreters.
+    """
+    require(argv and argv[0] == sys.executable, "cache isolation requires the registered Python interpreter")
+    index = 1
+    options = [argv[0]]
+    while index < len(argv):
+        option = argv[index]
+        if option in ("-", "--") or not option.startswith("-"):
+            break
+        if option == "--check-hash-based-pycs":
+            require(index + 1 < len(argv), "missing Python hash-cache option argument")
+            options.extend(argv[index:index + 2])
+            index += 2
+            continue
+        if option.startswith("--"):
+            options.append(option)
+            index += 1
+            continue
+        # Python permits combined short flags, attached -c/-m payloads, and
+        # attached or separate -W/-X arguments. Stop scanning an option once
+        # its argument begins: letters inside that argument are not flags.
+        entry = False
+        consumed = 1
+        replace_cache = False
+        for offset, flag in enumerate(option[1:], start=1):
+            if flag in "cm":
+                entry = True
+                break
+            if flag in "WX":
+                if offset == len(option) - 1:
+                    require(index + 1 < len(argv), "missing Python interpreter option argument")
+                    consumed = 2
+                value = argv[index + 1] if consumed == 2 else option[offset + 1:]
+                if flag == "X" and value.split("=", 1)[0] == "pycache_prefix":
+                    replace_cache = True
+                    if offset > 1:
+                        options.append(option[:offset])
+                break
+        if entry:
+            break
+        if not replace_cache:
+            options.extend(argv[index:index + consumed])
+        index += consumed
+    # CPython's effective prefix can use the first duplicate -X value even
+    # when sys._xoptions shows the last. Remove only earlier cache-prefix
+    # settings; script arguments remain untouched, even when spelled -X.
+    return [*options, "-X", "pycache_prefix=" + str(cache_directory), *argv[index:]]
+
+
+def run_python_replay(argv, cwd, timeout):
+    with tempfile.TemporaryDirectory(prefix="research-replay-pycache-") as cache:
+        run_command(isolated_python_argv(argv, cache), cwd, timeout)
+
+
 def run_package(root, package, install=False):
     task, manifest = validate(root, package)
     require(sys.version_info[:2] == (3, 12), "run replay with Python 3.12 (metadata check is version-independent)")
@@ -348,7 +408,7 @@ def run_package(root, package, install=False):
     for command in manifest["commands"]:
         argv = [sys.executable if item == "{python}" else item.replace("{package}", package) for item in command["argv"]]
         print("CHECK " + command["checks"], flush=True)
-        run_command(argv, root, command["timeout_seconds"])
+        run_python_replay(argv, root, command["timeout_seconds"])
     print("PASS_REGISTERED_RESEARCH_PACKAGE " + package + " outcome=" + task["outcome"])
 
 
