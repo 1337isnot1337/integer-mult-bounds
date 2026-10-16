@@ -2706,20 +2706,24 @@
       },
       "reviewed_head": "379aaf8f413d47f3bcbc054e1e4bf3e2daed0ce9",
       "current_head": "379aaf8f413d47f3bcbc054e1e4bf3e2daed0ce9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-8q-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "4d4373cdda8a34cb0255f80e801eb99d6b4beb5c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2851"
+      },
       "scope": "Scoped Q=8 partitioned independent-dirt distinct-walk obstruction. Full proof and all 962 Python lines reviewed: even-subset convolution, restored-walk quotient, rank-four coset identity, exhaustive (2,6)/(3,5)/(4,4) spectra, champions and fixed tariff. Separate census closely shares the primary algorithm; corroboration is not a different-method universal proof. Full registered replay and independent stored-witness/source checks are the acceptance gate. No transfer-coupled/shared-dirt or new kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2851.json",
@@ -2941,20 +2945,24 @@
       },
       "reviewed_head": "8bd3d2985cfaef59d800409a283b2fbca15a4b73",
       "current_head": "8bd3d2985cfaef59d800409a283b2fbca15a4b73",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-onerepeat-35-44"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "4d4373cdda8a34cb0255f80e801eb99d6b4beb5c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2858"
+      },
       "scope": "Scoped Q=8 one-repeat partitioned independent-dirt (3,5)/(4,4) obstruction. Full proof/model/checks reviewed, including explicit restoration representatives, both-one-repeat noncoverage, exhaustive cost spectra and first-witness-only structural check. Fixed tariff and historical comparison claims remain scoped; separate census shares much of the primary algorithm. Full declared replay and independent stored-witness/source checks required; no new supplier or kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2858.json",
@@ -3011,20 +3019,24 @@
       },
       "reviewed_head": "c4581aaf852dc0ec49f41d6404e484c7a43dcd9f",
       "current_head": "c4581aaf852dc0ec49f41d6404e484c7a43dcd9f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-tworepeat-8q"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "4d4373cdda8a34cb0255f80e801eb99d6b4beb5c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2860"
+      },
       "scope": "Scoped Q=8 excess-two independent-walk noncoverage: label-span and sumset bounds, exhaustive nonzero-multiset representative census and full checker/control review. Documentation clarification distinguishes 26970 multiset representatives from 188790 ordered nonzero-slot walks; frozen code/certificate unchanged. General rank argument also covers extra zero slots without claiming their enumeration. Full declared replay, independent stored-input binding and ordering-invariance checks required. No new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2860.json",
@@ -3248,20 +3260,24 @@
       },
       "reviewed_head": "0aa5cf439fdf210a455b78b46b16b3c92ca38f87",
       "current_head": "0aa5cf439fdf210a455b78b46b16b3c92ca38f87",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-threerepeat-8q"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "4d4373cdda8a34cb0255f80e801eb99d6b4beb5c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2868"
+      },
       "scope": "Scoped Q=8 excess-three independent-walk noncoverage. Full proof/model/checks reviewed: restoring {3,2} representatives, impossible {4,1}/{4} cases, length-four exclusion and rank/coset bounds. Finite counts concern nonzero slots after the initial zero; no coverage follows from the small span. Full registered commands and source binding required. Historical comparison floors remain inherited; no general decoder barrier or kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2868.json",
