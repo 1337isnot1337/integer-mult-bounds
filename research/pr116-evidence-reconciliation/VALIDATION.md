@@ -88,3 +88,23 @@ test cases and disposition records are unchanged by this revision. These
 baseline failures are reported separately from the successful scoped checks;
 no historical evidence is rewritten to silence them. Hosted CI for the revised
 head remains a separate publication gate.
+
+## Later current-main review continuation
+
+The follow-up integrates canonical main
+`38746ad3f6ffebcc0275e286b1dbb733d7c696dd`. An independent comparison of the
+merged tree against that exact main covers all 2,397 ledger records: only
+PR116 gains the expected historical-evidence pointer. Every other field,
+record, attribution, review-completion and closure decision remains identical.
+The source inventory gains only the pointer file's digest; every existing
+input digest and all 100 efficient1800 dispositions are preserved. Both
+ledgers regenerate byte-for-byte. Relative to the previous author head,
+current main supplies 41 added records and 61 updates to existing records;
+these later decisions are retained rather than overwritten by the historical
+source-identification result.
+
+The frozen capsule, result, producer, checker and package tests retain their
+original bytes. Fresh command results and their exact published head are
+reported in the PR follow-up; hosted CI remains separate. The earlier broader
+historical-check failures above describe their pinned run, not a new claim
+about all checks on this later main.
