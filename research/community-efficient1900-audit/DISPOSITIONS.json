@@ -2737,18 +2737,24 @@
       "reviewed_head": "8ef6fa81403973d3cacaf865bdabe9797a6c34a0",
       "current_head": "8ef6fa81403973d3cacaf865bdabe9797a6c34a0",
       "prior_reviewed_head": "8ef6fa81403973d3cacaf865bdabe9797a6c34a0",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/line-system-saturation"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "10f11ea554c43549d7b068af115905c23a5610bd",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2244"
+      },
       "scope": "DreamingOfClouds: paper-side polar/rank and Lagrangian bounds, idempotent descent, exact ladders and restricted decoder screens. All89 standard-library checks pass. Maintainer corrections require T>=2 in the generic distinct-line converse and handle zero-dimensional descent while proving positive descent to level four. Optional GAP output is retained author evidence; marked external citations and break-even fit remain conditional. No new supplier or kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2244.json",
