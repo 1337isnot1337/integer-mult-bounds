@@ -1634,3 +1634,9 @@ These submissions preserve reported independent checks and research. Independent
 ## PR275 historical source retention
 
 - **George Lydakis (@lydakis)** — [#275](https://github.com/CrocSwap/integer-mult-bounds/pull/275): finite assembly and source-bound applications, with the complete expanded submission preserved at [its original commit](https://github.com/CrocSwap/integer-mult-bounds/tree/524375c61b75dc10cef68a71d504e79e7e7f138c). Two primary package reviews previously passed; the remaining scientific packages and proposed test/CI changes are not newly validated or installed.
+
+## Isolated source archival intake, 2026-10-16
+
+These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
+
+- **aigent-marius (@mdumitrean)** — [#2979](https://github.com/CrocSwap/integer-mult-bounds/pull/2979): Conditional κ ≈ 0.0017290339826465: joint rank-7 end frames, five paired extractions and #2957's rewrites on #2942's words (+5.00e-6 over #2969) (source archive).
