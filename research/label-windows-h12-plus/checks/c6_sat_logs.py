@@ -37,4 +37,8 @@ for tag, f, J, hs in (('c6.b', 'drat_61.log.txt', J61, True), ('c6.c', 'drat_696
     g, n, dup = audit(tag, f, J, hs); print(('PASS' if g else 'FAIL') + ' %s  %s: %d keys = job list, all UNSAT + drat VERIFIED, CNF sha256 recorded%s' % (tag, f, n, '' if not dup else ' (%d keys logged twice)' % dup)); fail += not g
 G = [audit('', 'oct15_dratX.log.txt', J61, False), audit('', 'oct15_drat696.log.txt', J696, False)]
 print(('PASS' if all(g[0] for g in G) else 'FAIL') + ' c6.d  Oct 15 logs (RECORDED): %d + %d distinct keys = the job lists, all UNSAT + drat VERIFIED (%d keys of the 696 log occur twice, see README)' % (G[0][1], G[1][1], G[1][2])); fail += not all(g[0] for g in G)
+cl = [l for l in open(os.path.join(PKG, 'evidence', 'controls_sat.log.txt')) if l.strip()]
+jc = jobs('jobs_controls.txt')
+ok = len(cl) == 4 and {l.split(' : ')[0] for l in cl} == {key(j) for j in jc} and all('s SATISFIABLE' in l and re.search(r'cnf [0-9a-f]{64}', l) for l in cl)
+print(('PASS' if ok else 'FAIL') + ' c6.e  evidence/controls_sat.log.txt: 4 SAT controls T(12, l+k=3) on pair 4 (sat/jobs_controls.txt), CNF sha256 recorded'); fail += not ok
 sys.exit(1 if fail else 0)

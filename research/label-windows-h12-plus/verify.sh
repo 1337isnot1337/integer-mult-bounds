@@ -69,7 +69,7 @@ EOS
 fi
 run "c8 cited #1212 Theorem 1 text" c8_cited.py
 npass=$(grep -c '^PASS' "$OUT/all.out"); nfail=$(grep -c '^FAIL' "$OUT/all.out"); nskip=$(grep -c '^SKIP' "$OUT/all.out")
-EXPECT=$((22 - nskip))
+EXPECT=$((23 - nskip))
 echo "== done in $((SECONDS - T0))s: $((npass + 2)) PASS (2 in step 0), $nskip SKIP, $nfail FAIL; logs in $OUT"
 if [ "$nfail" = 0 ] && [ "$npass" = "$EXPECT" ]; then echo "PASS: all expected assertions hold"; exit 0; fi
 echo "FAIL: expected $EXPECT assertion PASS lines after step 0, got $npass PASS / $nfail FAIL / $nskip SKIP"; exit 1

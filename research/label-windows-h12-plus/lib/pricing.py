@@ -18,7 +18,9 @@ def roof(v, c, h, s=9, k=1):
         if n: loc[rk] = loc.get(rk, 0) + n
     return float(C.ceiling(loc, m, 8 * v, s, c, grid=Q(1, 10 ** 12))[1])
 
-def Xc(v, c, h): return float(skel.X(9, h, 1, Q(c, v))['hi'])
+def Xc(v, c, h):
+    r = skel.X(9, h, 1, Q(c, v))
+    return 0.0 if r is None else float(r['hi'])      # skel.X returns None when D <= 0 (no positive root): such a cost never pays
 
 base = Xc(112, 64, 9); rb = roof(112, 64, 9)
 
