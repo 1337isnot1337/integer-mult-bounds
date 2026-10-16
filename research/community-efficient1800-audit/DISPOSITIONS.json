@@ -870,7 +870,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,12unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,11unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,

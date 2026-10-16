@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "8ea5efb758c5c12242de7c5fc54c9a046cfdd3d7fc1da0a4b5eeb4cbb79526c1",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "53667a1a3d95de0f5e11645b3de3da3d65f49234c1f7a9fe1726db5f4188dd5b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -92076,7 +92076,7 @@
       "closure": null,
       "reviewed_head": "54d7f5fd4ef6073b6399d1e6e73773f61fe4360a",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,12unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,11unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
