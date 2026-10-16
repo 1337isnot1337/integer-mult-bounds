@@ -101,14 +101,14 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "553f0017132813bb86efe80e19c40d1026d3ad231f40d8ab78e17bca34ae66c9",
+    "resolved_sha256": "67308275f623ee8bab1386f531509420a0db0c6b3f47b117783a6a0b146380cd",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "d5e31ed7a9c7004c030ea1626a11c236ea9c2b7ef89f2c9a024465f725f8b169",
+    "resolved_sha256": "1a9dcd51b5856f70d775c4a130fdf1cb75fb5680eaa8e2d1907b8a4c48899f17",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
@@ -117,5 +117,12 @@
     "original_sha256": "e6864ca5a7816d14cd55846f697aa152609fa107142345cb6497b44cfd8c5fff",
     "resolved_sha256": "a49e763573343a6a068b0c48c8ff422756be5a8f55902b2385fa8d13cc951fda",
     "reason": "Preserve main Windows physical-memory detection and removal of inherited PYTHONOPTIMIZE while adding the reviewed bounded process-tree cancellation."
+  },
+  {
+    "number": 2683,
+    "path": "docs/research/community-efficient1000-review.md",
+    "original_sha256": "f48c52999a3ec796edcac347fd2b9a940048e37902258d10efe10f935e581e43",
+    "resolved_sha256": "bac19ca28be781e7ac444e0666320ef77c0ac159467eafa3198e07b7c280442e",
+    "reason": "Preserve the historical review bytes pinned by PR2601 and other retained source manifests. Link the new source-navigation audit through the current batch review instead of inserting into the pinned historical review. Entire new audit package and original author commit retained."
   }
 ]

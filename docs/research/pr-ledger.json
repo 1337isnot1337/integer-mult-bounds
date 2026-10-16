@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1851,
-    "partially_reviewed": 345,
+    "incorporated": 1853,
+    "partially_reviewed": 343,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "6f980c404f73447a88c37ca33a9a8f5040057218d75c4199d5235454eb7343e7",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "c4ff815e09d36c7d37028dd4b71b4ea9fa06b3ccd021d59c028e2d9226ad531e",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -123586,22 +123586,28 @@
         {
           "head": "f9e96e979b7630b7a70705c9774d00fc07014110",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Arham Tahir's deterministic P104 rounded-collector counterexample, instantiating Nick Petalas's PR2549 lifecycle question with ywz65's PR2586 exact native recipes. Reviewed both physical monomial/butterfly actions, all 512 inverse columns, exact Gaussian-dyadic quantization and the all-b>=4 family with residual -2^-b delta_0. Both completed outputs satisfy the stated local relative-error requirement on this execution, while strict-zero erase fails. Exact/finer-grid, phase/sign, source/receipt and Git-free controls pass. This is a local same-grid boundary counterexample, not a full rounded caller, universal cleanup impossibility or a refutation of the exact supplier theorem.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-rounded-collector"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "21ec2196920b313316976c978cb9b715adbcdac2",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2665"
+      },
       "reviewed_head": "f9e96e979b7630b7a70705c9774d00fc07014110",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2665.json",
@@ -124444,22 +124450,29 @@
         {
           "head": "2565fd4f1c49ccd9e94a655cb64bee016b9ceac7",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's immutable-source navigation audit of Rohan Arun's PR1957, Ian Libanio's PR2142 and Marius-Paul Dumitrean's sentinel corrections. Reviewed exact tree/mode comparisons, complete 315-file inventory, original sentinel oracle and distinct solver-model fields. Git-object replay passes after fetching the declared missing public commit. Four shape/sentinel cases are distinguished from solver infeasibility and later corrected reported restrictions; UNKNOWN and NOT_SOLVED remain inconclusive. No solver/census replay, broad mathematical negative, incorporation of those predecessor packages or frontier change is inferred.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research",
+        "research/t74-local-search-retention"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "21ec2196920b313316976c978cb9b715adbcdac2",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2683"
+      },
       "reviewed_head": "2565fd4f1c49ccd9e94a655cb64bee016b9ceac7",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2683.json",
@@ -125432,7 +125445,7 @@
       "closure": null,
       "reviewed_head": "efa51a6c7ffec6edd556a98deedfe9deeba65809",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -125440,7 +125453,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2707.json"
+        "research/community-efficient1600-audit/packets/2707.json",
+        "research/community-efficient1600-audit/checks/check-2707.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125714,7 +125728,7 @@
       "closure": null,
       "reviewed_head": "19d5f11052a0c6aa5de552e6df6fadc58861acf7",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -125784,7 +125798,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1399,
-    "OPEN": 481
+    "MERGED": 1401,
+    "OPEN": 479
   }
 }

@@ -23,10 +23,11 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 0.074,
-  "status": "failed",
+  "seconds": 8.733,
+  "status": "passed",
   "exit_codes": [
-    1
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -980,6 +981,9 @@
     "certificates/pr604-independent-replay/ASSEMBLY-CONTROLS.json": "0523acfc1a75bf0789f01bb01afeb4d4b32bd65c992e0a0749e247248b9491bc",
     "certificates/pr604-independent-replay/GENERATED-IDENTITY-CONTROLS.json": "f2a827ce9abe4242df0061f4c93a2f0fbed8f2288995bea2131e6e1ac804550c",
     "certificates/pr604-independent-replay/RECEIPT.json": "2b6151ea6779dd19ab01e98ca27c8b4e46798e5fa4f3c6415f11e94f07fe4937",
+    "formal/lean/lean-toolchain": "d24fed434d3b13adfaab57724a0a7f270ea8bf1c818b5ae5cf25cbce24dd685c",
+    "formal/lean/lake-manifest.json": "702bd5bcfbf4a4739bea2e1cba72b471e8f0680520c67547f5daf3d0f26b6ddf",
+    "formal/lean/lakefile.toml": "e5b1a6ff207cdd5e64b04ebfd944274d0ccde896f415bb578deb6090b4175ed5",
     "research/complex-insert-slides-seed20/EVIDENCE.json": "2557b44d755c991ae54d67b53e7374cddf27b630d45871b05233a1049c8ac56d",
     "research/complex-insert-slides-seed20/SOURCES.json": "5aca227c404ed5a5a6b37ab777fe738ff99afa3d236c1551a6d4f46b428a0859",
     "research/complex-insert-slides-seed20/EXPECTED.json": "2384e4842e09e80f904283a14b9bffce30c8f7c38400593f13ab95982b44b1d1",
@@ -20417,6 +20421,6 @@
     "research/complex-insert-slides-seed20/inputs/PROMOTED-P6K4-WORD.json.gz": "ee8c1c879d9ffc06b53759f19f652b3023e463d804d2e42a0c3a9de3275b852a",
     "research/complex-insert-slides-seed20/inputs/SW4-RECIPE-P6k4.json": "fa58d0ffc95d10b7453daefe4b34404a52895f94126ef973e92e92106cd615fa"
   },
-  "log_sha256": "8137a5cd30c696cd4746f3b28e75be422f4364533baaa57809b1ea1201622219",
+  "log_sha256": "eed906b4f808a053b544a9dafff4adc5ea8eb3464707bf9136253837677b2690",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }
