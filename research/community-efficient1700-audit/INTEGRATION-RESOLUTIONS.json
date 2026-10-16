@@ -159,5 +159,23 @@
     "path": "docs/research/bottleneck-brief.md",
     "resolved_sha256": "408982c26fa63a69cddeaf0463b537c4e20ebb064e7bdbfdacd9810764171cc1",
     "reason": "Retain the already-integrated P104 helper-lifetime navigation pointer while adding the independent selected-BIT caller/storage pointer; all remaining authored text retained."
+  },
+  {
+    "number": 2811,
+    "path": "research/qq16-rounded-pair-bit-circuit/SOURCES.json",
+    "resolved_sha256": "316f4b3c834679b0565a70fadee9927a2c2cd142e97f10c4209541a1e0c4c745",
+    "reason": "Unused historical selected record retained under original provenance hashes and removed from runtime inputs; scientific code and receipt unchanged. Combined replay must pass with live record absent."
+  },
+  {
+    "number": 2811,
+    "path": "research/qq16-rounded-pair-bit-circuit/VERIFY.json",
+    "resolved_sha256": "0d0dd6e22b4e309e978b25a64bec9199a378ca6766aac7e394480889d69a8ab7",
+    "reason": "Unused historical selected record retained under original provenance hashes and removed from runtime inputs; scientific code and receipt unchanged. Combined replay must pass with live record absent."
+  },
+  {
+    "number": 2811,
+    "path": "research/qq16-rounded-pair-bit-circuit/README.md",
+    "resolved_sha256": "7357e10ce43ab8eaea5f39f00a9166877bd6e13803c1ab0a1aeec890b02d6646",
+    "reason": "Unused historical selected record retained under original provenance hashes and removed from runtime inputs; scientific code and receipt unchanged. Combined replay must pass with live record absent."
   }
 ]
