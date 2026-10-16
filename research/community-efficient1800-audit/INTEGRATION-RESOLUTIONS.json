@@ -136,6 +136,22 @@
     "reason": "Correct helper-price tie at2 versus strict win above2, runner marker and literal-newline formatting; explicitly separate submitted/replayed finite checks from unsubmitted laboratory claims and the initial proposal. No mathematical code or scope enlarged."
   },
   {
+    "number": 2840,
+    "path": "research/dirty-shadow-8q-obstruction/model.py",
+    "original_sha256": "35df5a91b3d11f1eb5df839b19479ed029cf22dfcc85818662efc070ddfb4a58",
+    "resolved_sha256": "d89d610b033f451b492b183d48217b5542d4a44f56786a948d8a6a7dfb7781ce",
+    "resolved_mode": "100644",
+    "reason": "Stream complete original census in 1024-record batches with at most four workers; ordered imap preserves first-witness ties. All mathematical worker ASTs unchanged. Full census/canonical certificate and independent replay required before incorporation; this fixes eager tuple allocation without sampling or weakening acceptance."
+  },
+  {
+    "number": 2840,
+    "path": "research/dirty-shadow-8q-obstruction/independent.py",
+    "original_sha256": "b1063e0ee72aa1461caf1084a821008213f22b42f78c661809af07b6a4878f9d",
+    "resolved_sha256": "8bb865ca1881b55526a0b2e2631e81a5a89f74f3e5c050dd247f92709d5532e7",
+    "resolved_mode": "100644",
+    "reason": "Stream complete original census in 1024-record batches with at most four workers; ordered imap preserves first-witness ties. All mathematical worker ASTs unchanged. Full census/canonical certificate and independent replay required before incorporation; this fixes eager tuple allocation without sampling or weakening acceptance."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
