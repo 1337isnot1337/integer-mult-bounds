@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """Exact exhaustive 12-edge-bank cost audit in the relaxed P104 model."""
 from itertools import combinations
-from verify import support_family
+import importlib.util
+from pathlib import Path
+p=Path(__file__).resolve().parent/'verify.py'
+s=importlib.util.spec_from_file_location('p104_mixed_verify',p)
+mod=importlib.util.module_from_spec(s)
+s.loader.exec_module(mod)
+support_family=mod.support_family
 E=tuple((i,j) for i,j in combinations(range(8),2) if (i^j).bit_count()==1)
 assert len(E)==12
 conflict=[sum(1<<k for k,(a,b) in enumerate(E) if i in (a,b) or j in (a,b)) for i,j in E]
