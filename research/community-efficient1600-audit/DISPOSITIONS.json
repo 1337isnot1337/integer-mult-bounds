@@ -2708,18 +2708,24 @@
       },
       "reviewed_head": "ea96706295631be10d92ae149b63c3e24acaeabc",
       "current_head": "ea96706295631be10d92ae149b63c3e24acaeabc",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-zero-retention-comparison"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2681"
+      },
+      "scope": "Ordered zero-retention QQ16 inverse on 224 independent arrays with two-sided rational routed-operator replay, actual 73-coordinate affine frame checks, signed native kernel recipes, 12 semantic controls and Git-free integrity checks. Common 25-axis recipe pays 112 H1 plus 448 H8, 464 maps and 25840 scalar allowance: worse than retained-query comparator within this recipe, not a universal lower bound. Full original cores, hosting, precision and supplier admission remain inherited/open; no new kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2681.json",
@@ -3592,18 +3598,24 @@
       },
       "reviewed_head": "efa51a6c7ffec6edd556a98deedfe9deeba65809",
       "current_head": "efa51a6c7ffec6edd556a98deedfe9deeba65809",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-line-normalized-decoder"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2707"
+      },
+      "scope": "Source-authenticated refinement of PR2681 using the F16*Cq bridge: complete 224-array inverse and phase identities, 114688 signed native basis columns, all 336 H1 occurrences and 11 semantic controls; Git-free export/typed receipt/source-corruption checks passed. Removes 448 H8 for 224 added H1; child moment beats PR2540 on 0<=a<=1/16 but adds 192 wrappers, 256 maps and 8368 scalar allowance. Local finite word only; no full hosting/rounding/supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2707.json",
@@ -3667,18 +3679,24 @@
       },
       "reviewed_head": "d7749c49e967b214537c0bd832e435e177e21d4f",
       "current_head": "d7749c49e967b214537c0bd832e435e177e21d4f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-output-slice-scratch"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2709"
+      },
+      "scope": "Conditional output-slice scratch reuse of PR2651: injective W0..15 owner-local aliases across two scalar-only intervals, charged entry/exit clears, unproduced outputs and complete formal operator/checkpoint equality. Additional local arrays 16 to 0 under explicit exclusive same-extent owner-access contract; 448 native events and scalar allowance17280 unchanged. Independent 2/3/5-owner storage replay plus 8 semantic and integrity controls. No free staging, information-minimum, supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2709.json",

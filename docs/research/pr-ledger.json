@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1883,
-    "partially_reviewed": 313,
+    "incorporated": 1886,
+    "partially_reviewed": 310,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "41f5047b616c8faa269a1461388989cdf1248bd5f4589358d476d096e5be63f9",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "8bb52f4f590e48a3c8fc6e04aac736b9bd93af5d989339e5c8d4466dc5edc878",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -124492,22 +124492,28 @@
         {
           "head": "ea96706295631be10d92ae149b63c3e24acaeabc",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Ordered zero-retention QQ16 inverse on 224 independent arrays with two-sided rational routed-operator replay, actual 73-coordinate affine frame checks, signed native kernel recipes, 12 semantic controls and Git-free integrity checks. Common 25-axis recipe pays 112 H1 plus 448 H8, 464 maps and 25840 scalar allowance: worse than retained-query comparator within this recipe, not a universal lower bound. Full original cores, hosting, precision and supplier admission remain inherited/open; no new kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-zero-retention-comparison"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2681"
+      },
       "reviewed_head": "ea96706295631be10d92ae149b63c3e24acaeabc",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2681.json",
@@ -125629,22 +125635,28 @@
         {
           "head": "efa51a6c7ffec6edd556a98deedfe9deeba65809",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Source-authenticated refinement of PR2681 using the F16*Cq bridge: complete 224-array inverse and phase identities, 114688 signed native basis columns, all 336 H1 occurrences and 11 semantic controls; Git-free export/typed receipt/source-corruption checks passed. Removes 448 H8 for 224 added H1; child moment beats PR2540 on 0<=a<=1/16 but adds 192 wrappers, 256 maps and 8368 scalar allowance. Local finite word only; no full hosting/rounding/supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-line-normalized-decoder"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2707"
+      },
       "reviewed_head": "efa51a6c7ffec6edd556a98deedfe9deeba65809",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2707.json",
@@ -125726,22 +125738,28 @@
         {
           "head": "d7749c49e967b214537c0bd832e435e177e21d4f",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Conditional output-slice scratch reuse of PR2651: injective W0..15 owner-local aliases across two scalar-only intervals, charged entry/exit clears, unproduced outputs and complete formal operator/checkpoint equality. Additional local arrays 16 to 0 under explicit exclusive same-extent owner-access contract; 448 native events and scalar allowance17280 unchanged. Independent 2/3/5-owner storage replay plus 8 semantic and integrity controls. No free staging, information-minimum, supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-output-slice-scratch"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5d88171039f4114e35b8e1f25cb533f81a01de9b",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2709"
+      },
       "reviewed_head": "d7749c49e967b214537c0bd832e435e177e21d4f",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2709.json",
@@ -125999,7 +126017,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1431,
-    "OPEN": 449
+    "MERGED": 1434,
+    "OPEN": 446
   }
 }
