@@ -43,9 +43,9 @@ The two conventions Philippe Van Velzen offered for a retained array are:
     published contract);
   - the stated capture times;
   - P4: no slack in the inherited words;
-  - current-frame consumers with the decoder-timing premise P_dec. It is load-bearing: decoders
-    right after their own last captures would cost 512, which leaves a κ cap above the selected
-    κ.
+  - current-frame consumers with the decoder-timing premise P_dec. It is load-bearing: at
+    decoders right after their own last captures the moment bound drops to 512, which leaves a
+    κ cap above the selected κ. No decoder is known to run there.
 
   Physical storage stays **UNKNOWN**. It can only add cost.
 - **Without P_rank.** philippeVV's Theorem B still rejects the route at the end decoder
@@ -118,12 +118,12 @@ and P_early (each bank right after its last local call, a floor under P_dec).
 |---|---:|---|
 | (a) INIT64 + d_A final-record contract, stated end-of-replica decoder (P_final) | **3,648** | **Rejected** in the stated model. Anything ≥ 896 leaves no positive saving, and any non-negative storage price only adds. |
 | (a) the same, each bank decoded as soon as its observed field Y_(k,U) is final (P_Y) | ≥ **2,496** | Also ≥ 896. A lower bound for every timing P_obs admits under the final-value read convention, for decoders that use their own Y_(k,U). |
-| (a) the same, each bank decoded right after its last local call (P_early) | ≥ **1,344** = 8 per later data incidence | Also ≥ 896. A lower bound for every current-frame timing at or after each bank's last local call (P_dec). |
-| (a) without P_dec: decoders right after their own last captures (levels 1, 3, 5, 6) / right after each backward call (1, 3, 5, 7) | 512 / 640 (both variants) | **Not rejected** at 512: cap 0.0020286 idle-priced, above the selected κ. 640 still leaves a positive saving (cap 0.0013547, below the selected κ). So P_dec is load-bearing. |
+| (a) the same, each bank decoded right after its last local call (P_early) | ≥ **1,344** = 8 per later data incidence | Also ≥ 896. A lower bound for every current-frame timing at or after each bank's last local call (P_dec), given the stated capture times (see Premises: capture times). |
+| (a) without P_dec: decoders right after their own last captures (levels 1, 3, 5, 6) / right after each backward call (1, 3, 5, 7) | 512 / 640 (both variants) | **Not rejected by the moment argument** at 512: cap 0.0020286 idle-priced, above the selected κ. 640 still leaves a positive saving (cap 0.0013547, below the selected κ). So P_dec is load-bearing. No decoder is known to run at these timings; bank 3's needs f8, and keeping only bank 3 at F8 gives 768 (cap 0.00068, below the selected κ; AI review pass, not computed by `verify.py`). |
 | (a) bank 0's INIT via f0 (one level later; PROOF.md §7.2, capture times) | 3,520 / ≥ 2,368 / ≥ 1,216 (all-initial 3,328 / 2,176 / 1,024) | Also ≥ 896; no verdict changes. |
-| (a) all-initial variant (#2074 c18950926: d_A swapped for reads of the initial X_(1..3,U)) | 3,456 (P_final) / ≥ 2,304 (P_Y) / ≥ 1,152 (P_early) | Also ≥ 896. Its reads cost 0 at P_early, so INIT64's catch-up is the binding term. |
+| (a) all-initial variant (#2074 c18950926: d_A swapped for reads of the initial X_(1..3,U)) | 3,456 (P_final) / ≥ 2,304 (P_Y) / ≥ 1,152 (P_early), with each read taken at its latest admissible level | Also ≥ 896. Its reads cost 0 at P_early, so INIT64's catch-up is the binding term. The re-timing favours the route: the published variant's reads are live from event 0, which gives 4,416 / 3,264 / 2,112 in replica 0 (AI review pass). |
 | (a) d_A records alone (P_final) | 960 | Also ≥ 896. |
-| (a) Theorem B in place of P_rank (robustness; PROOF.md §7.2) | one level (P_final): 1,952 / 1,824. Own-bank premise: 1,344 / 1,216 (P_Y), 800 / 608 (P_early). Count only: 608 / 544 (P_Y), 112 / 0 (P_early) | P_final: ≥ 896, **rejected without P_rank**. Own-bank: P_Y ≥ 896; at P_early the best case, 608, caps κ at 0.0015234 idle-priced (0.0015144 rank-8-priced), below the selected 0.001672660197076918. Count only: the original variant at P_Y (608, same cap) is still below the selected κ; 544, 112 and 0 are **not decided** (caps above the selected κ). |
+| (a) Theorem B in place of P_rank (robustness; PROOF.md §7.2) | one level (P_final): 1,952 / 1,824. Own-bank premise: 1,344 / 1,216 (P_Y), 800 / 608 (P_early). Count only: 608 / 544 (P_Y), 112 / 0 (P_early) | P_final: ≥ 896, **rejected without P_rank**. Own-bank: P_Y ≥ 896; at P_early the best case, 608, caps κ at 0.0015234 idle-priced (0.0015144 rank-8-priced), below the selected 0.001672660197076918. Count only: if the stated captures are independent, the original variant at P_Y (608, same cap) is still below the selected κ; 544, 112 and 0 are **not decided** (caps above the selected κ). |
 | (b) gap-1 shared-source centre sharing (the f0→f2 class) | ≥ 64 per shared set, equal to the 64 saved | **No moment gain** under the stated premises, by catch-up alone. The f0→f2 information question remains **open** (PR2199 open question 2). #2391/#2461 cover only the adjacent f0→b1 class. |
 | (c) QQ16 retained caller #2540/#2651, retention row | exactly 128 = its 16 H8 | **Clarification only:** one charge, not two. It is proved under ρ = 16 with an F_U1 consumer, and PR2540 attains it. The moment comparison with zero-retention #2707 is #2707's own result: it wins for 0 ≤ a ≤ 1/16, because 8^15 > 7^16. It is now incorporated and reviewed. Storage is UNKNOWN. |
 
@@ -164,14 +164,21 @@ The route (a) rows depend on these premises; PROOF.md §7.2 states each one.
   - Bank 0's first call F0 is forward and invertible through the observed f0
     (z = w + K_(0,U) f0). So its 16 INIT rows can be formed one level later, at F0's output
     frame. This lowers every P_rank total by 128 and changes no verdict.
+  - *Sensitivity (AI review pass, not computed by `verify.py`).* The backward word is invertible
+    from the pair's post-call X' and Y' (CONSERVED-QQ16 (1)). A capture one level later that
+    also reads the pair's transient Y (with bank 0 via f0) gives P_final 3,136 / 2,944,
+    P_Y 1,984 / 1,792 and P_early 832 / 640. The P_final and P_Y values stay ≥ 896, but the
+    P_early values fall below 896 (caps 0.00034 / 0.00135, both still below the selected κ).
+    So the P_early no-saving verdict depends on the stated capture times.
 - **P_dec (decoder timing).** Each bank's decoder uses an observation of its own pair that exists
   only after that pair's last local call.
-  - The derived decoders (#2074 c18950926) do this through the tail identity
-    C_k = w_k + K_(2k+2) f_(2k+2), with C_k after pair k's last call F_(2k+2) (bank 3: F8, f8).
-    Bank 0 also uses the final selected fields.
+  - The derived decoders (#2074 c18950926) do this: each uses f_(2k+2) and pair k's final
+    selected fields, both available only after F_(2k+2) (bank 3: F8, f8). In the tail identity
+    C_k = w_k + K_(2k+2) f_(2k+2), C_k is the final Y_(k,U) and w_k the initial Y_(k,U). An AI
+    review pass read philippeVV's decoder code (fork 40d58b9e, as data only) and confirmed this.
   - P_dec is a property of those decoders, not of P_obs or the moment.
-  - It is load-bearing. Decoders right after their own last captures cost 512, and a negative
-    control checks that P_early does not bound them.
+  - It is load-bearing. At decoders right after their own last captures the moment bound is only
+    512, and a negative control checks that P_early does not bound them.
 - **Consumer timing.** Current-frame consumers.
   - **P_final** is the stated contract: every bank decodes at the end, level 8.
   - **P_Y** decodes bank k as soon as its observed field Y_(k,U) = −final X_(k,U) is final.
@@ -270,7 +277,7 @@ the registered replay in [VERIFY.json](VERIFY.json) uses Python 3.12, which was 
 locally.
 
 ```sh
-python3 -I -B research/retained-array-catch-up/verify.py              # ~40 s
+python3 -I -B research/retained-array-catch-up/verify.py              # ~50 s
 python3 -I -B research/retained-array-catch-up/independent_check.py   # ~2 s
 python3 scripts/research_package.py --package research/retained-array-catch-up --check-only
 ```
@@ -386,11 +393,13 @@ same member, read from the PR2346-pinned #1042 archive.
   local call +8, idle child +remaining rank, pooled slot +width at its own time.
   - It requires one uniform height on all 224 families of the pair at the 21 route instants, in
     every replica.
-  - The 12 capture and P_early instants are checked under both conventions for equal times.
+  - Twelve instants (the 7 captures, the 4 P_early consumers and bank 0's P_Y consumer) are
+    checked under both conventions for equal times.
   - The other 9 are read after their time settles: the P_Y consumers of banks 1–3 at time 88,
     and the three all-initial reads with their consumers. The slots at those times belong to
     that time's sweeps, which precede the instant in event order (PROOF.md Fact T). Under the
-    slots-last convention 5 of these 9 are not uniform, so they are checked under one reading.
+    slots-last convention up to 5 of these 9 are not uniform (5 in replica 0; all 9 are uniform
+    under slots-first), so they are checked under one reading.
     An AI review pass found that even then the worst per-owner P_Y mass is at least 2,064, which
     is still at least 896.
   - It finds that the zero-advance window holds in exactly 12 replicas, all except 4, 5, 6 and 11.
@@ -413,14 +422,16 @@ same member, read from the PR2346-pinned #1042 archive.
   - P4;
   - PR2540's ρ = 16.
 - **P_dec is load-bearing.** It is a property of the derived decoders. A decoder that ran before
-  its pair's last local call would escape the rejection (512).
+  its pair's last local call would no longer be bounded by the argument (512); whether a correct
+  decoder can run that early is not examined, and 512 is not claimed to be the minimum.
 - **Theorem B.** It is a posted claim of #2074 that has not been reviewed. Our per-cut
   application of it is written out in PROOF.md §7.2. Alone it rejects only at P_final; the
   own-bank premise it needs at P_Y and P_early is ours.
-- **Forward histories.** The derived decoders use f2, f4, f6 and f8; bank 3 uses f8. None is in
-  the 464 array-calls.
+- **Forward histories.** The derived decoders use f2, f4, f6 and f8; bank 3 uses f8, and bank 0
+  also uses f0. None is in the 464 array-calls.
   - If each is retained as one 8-row array, captured at its forward call's output or input
     level, the law adds 768–1,024 under P_final, 384–640 under P_Y or 0–256 under P_early.
+    f0 would add a further 512–576 / 128–192 / 128–192 (AI review pass, not in `verify.py`).
   - These only add, so the rejection does not depend on them.
 - **Frames.** Only nested frames are modelled. Gauge terms, such as PR2678's signed-line 1,904
   row, are quoted rather than derived.
