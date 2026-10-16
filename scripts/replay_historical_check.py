@@ -7,11 +7,10 @@ The checkers, their pins, and the live selected record remain unchanged.
 import argparse
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
-import shutil
 import subprocess
 import sys
 import tempfile
+from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = Path(__file__).with_name('historical-ci-inputs')
@@ -155,8 +154,12 @@ def materialize(root, destination, config, paths, inputs=INPUTS):
         require(not source.is_symlink() and source.is_file(), 'Non-file tracked source: ' + name)
         target = safe_path(destination, name)
         target.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(source, target)
-        expected[name] = hashlib.sha256(target.read_bytes()).hexdigest()
+        # Hash the same bytes we write, without reopening every destination.
+        # Keep independent writable files and the final verify_unchanged gate.
+        data = source.read_bytes()
+        require(target.write_bytes(data) == len(data), 'Incomplete replay copy: ' + name)
+        expected[name] = hashlib.sha256(data).hexdigest()
+        del data  # Release this file before reading the next, possibly large, input.
     for entry in configurations:
         safe_path(destination, entry['path']).write_bytes(replacements[entry['path']])
         expected[entry['path']] = entry['sha256']

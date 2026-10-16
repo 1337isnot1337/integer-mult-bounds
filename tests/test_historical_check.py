@@ -2,9 +2,9 @@
 import hashlib
 import importlib.util
 import json
-from pathlib import Path
 import tempfile
 import unittest
+from pathlib import Path
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -25,7 +25,7 @@ class HistoricalReplay(unittest.TestCase):
         (root/'unrelated.py').write_bytes(b'unchanged checker bytes\n')
         digest = hashlib.sha256(original).hexdigest()
         (root/'manifest.json').write_text(json.dumps({'files': {'input.txt': digest}}))
-        config = dict(manifest='manifest.json', field='files', path='input.txt', input='old.txt', sha256=digest)
+        config = {'manifest': 'manifest.json', 'field': 'files', 'path': 'input.txt', 'input': 'old.txt', 'sha256': digest}
         return root, inputs, config, ['input.txt', 'manifest.json', 'unrelated.py']
 
     def test_overlay_is_isolated_and_other_inputs_stay_exact(self):
@@ -51,9 +51,54 @@ class HistoricalReplay(unittest.TestCase):
                 checker.materialize(root, target, config, paths, inputs)
             self.assertFalse(target.exists())
 
-    def test_missing_changed_and_nonbyte_pins_reject(self):
+    def test_copy_keeps_empty_binary_and_large_files_independent(self):
         with tempfile.TemporaryDirectory() as td:
             root, inputs, config, paths = self.fixture(td)
+            contents = {'empty': b'', 'binary': bytes(range(256)),
+                        'large': bytes(range(256)) * 8193}
+            for name, data in contents.items():
+                (root / name).write_bytes(data)
+            target = Path(td) / 'copy'
+            expected = checker.materialize(root, target, config, paths + list(contents), inputs)
+            self.assertEqual(set(expected), set(paths) | set(contents))
+            for name, data in contents.items():
+                with self.subTest(name=name):
+                    self.assertEqual((target / name).read_bytes(), data)
+                    self.assertEqual(expected[name], hashlib.sha256(data).hexdigest())
+            checker.verify_unchanged(target, expected)
+            (target / 'binary').write_bytes(b'changed in replay')
+            self.assertEqual((root / 'binary').read_bytes(), bytes(range(256)))
+            (root / 'large').write_bytes(b'changed in source')
+            self.assertEqual((target / 'large').read_bytes(), contents['large'])
+
+    def test_short_copy_rejects_instead_of_recording_a_false_digest(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.fixture(td)
+            original_write = Path.write_bytes
+            target = Path(td) / 'copy'
+
+            def short_write(path, data):
+                if path == target / 'unrelated.py':
+                    return original_write(path, data[:-1])
+                return original_write(path, data)
+
+            with (patch.object(Path, 'write_bytes', short_write),
+                  self.assertRaisesRegex(ValueError, 'Incomplete replay copy: unrelated.py')):
+                checker.materialize(root, target, config, paths, inputs)
+            self.assertEqual((root / 'unrelated.py').read_bytes(), b'unchanged checker bytes\n')
+
+    def test_copy_write_error_propagates_without_modifying_source(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.fixture(td)
+            before = {name: (root / name).read_bytes() for name in paths}
+            with (patch.object(Path, 'write_bytes', side_effect=OSError('disk full')),
+                  self.assertRaisesRegex(OSError, 'disk full')):
+                checker.materialize(root, Path(td) / 'copy', config, paths, inputs)
+            self.assertEqual({name: (root / name).read_bytes() for name in paths}, before)
+
+    def test_missing_changed_and_nonbyte_pins_reject(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, _paths = self.fixture(td)
             for entry in [None, '0'*64, {'representation': 'gzip-payload', 'sha256': config['sha256']}]:
                 (root/'manifest.json').write_text(json.dumps({'files': {'input.txt': entry}}))
                 with self.subTest(entry=entry), self.assertRaises(ValueError):
@@ -75,13 +120,13 @@ class HistoricalReplay(unittest.TestCase):
             for name in ['/absolute', '../escape', 'C:/escape', 'folder\\escape']:
                 with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unsafe'):
                     checker.safe_path(root, name)
-            with patch.object(Path, 'is_symlink', return_value=True):
-                with self.assertRaisesRegex(ValueError, 'Non-file tracked'):
-                    checker.materialize(root, Path(td)/'copy', config, paths, inputs)
+            with (patch.object(Path, 'is_symlink', return_value=True),
+                  self.assertRaisesRegex(ValueError, 'Non-file tracked')):
+                checker.materialize(root, Path(td)/'copy', config, paths, inputs)
 
     def test_makefile_append_is_allowed_but_original_prefix_mutation_rejects(self):
         with tempfile.TemporaryDirectory() as td:
-            root, inputs, config, paths = self.fixture(td)
+            root, inputs, config, _paths = self.fixture(td)
             config['preserve_prefix'] = True
             original = (inputs/'old.txt').read_bytes()
             (root/'input.txt').write_bytes(original + b'new target\n')
@@ -103,7 +148,7 @@ class HistoricalReplay(unittest.TestCase):
 
     def test_skip_clone_overlay_rejects_unknown_live_and_corrupt_baseline(self):
         with tempfile.TemporaryDirectory() as td:
-            root, inputs, config, paths = self.fixture(td)
+            root, inputs, config, _paths = self.fixture(td)
             original = (inputs / 'old.txt').read_bytes()
             (root / 'baseline.txt').write_bytes(original)
             current = hashlib.sha256((root / 'input.txt').read_bytes()).hexdigest()
@@ -128,9 +173,9 @@ class HistoricalReplay(unittest.TestCase):
         pins = json.loads((root / 'manifest.json').read_bytes())
         pins['files']['second.py'] = digest
         (root / 'manifest.json').write_text(json.dumps(pins))
-        config['additional_inputs'] = [dict(
-            manifest='manifest.json', field='files', path='second.py',
-            input='second.txt', sha256=digest)]
+        config['additional_inputs'] = [{
+            'manifest': 'manifest.json', 'field': 'files', 'path': 'second.py',
+            'input': 'second.txt', 'sha256': digest}]
         return root, inputs, config, paths + ['second.py']
 
     def test_multiple_overlays_preserve_live_bytes_and_each_output_gate(self):
