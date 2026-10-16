@@ -1320,3 +1320,59 @@ The following contributions were accepted through source-only archival intake. T
 - **Dugongue (@Dugongue)** — [#2849](https://github.com/CrocSwap/integer-mult-bounds/pull/2849): (Research) Add a four-volume pure mathematics atlas with 379 proofs and 21 research questions. (No new kappa). Archived with original predecessor credit; independent full-claim review remains open.
 - **Dugongue (@Dugongue)** — [#2855](https://github.com/CrocSwap/integer-mult-bounds/pull/2855): Apply the atlas: T372 concentration, mixed-fibre bounds and exact recovery. Archived with original predecessor credit; independent full-claim review remains open.
 - **Lyy_iiis (@Lyy-iiis)** — [#2857](https://github.com/CrocSwap/integer-mult-bounds/pull/2857): Improve conditional κ to 0.00172009662868483 with shared kernels. Archived with original predecessor credit; independent full-claim review remains open.
+
+### Twentieth-round research archive
+
+Source-only intake; full scientific review remains open. Original predecessor credit is preserved in every package. See [scope and remaining obligations](research/community-efficient2000-audit/README.md).
+
+- **Dugongue (@Dugongue)** — [#259](https://github.com/CrocSwap/integer-mult-bounds/pull/259): Multi-cut kernel condensation: 518 entrances, kappa = 7.11029386054035e-4.
+- **Dugongue (@Dugongue)** — [#283](https://github.com/CrocSwap/integer-mult-bounds/pull/283): Conditional κ = 7.26111344123732762670617e-4: gen4 response kernels and endpoint-aware composition of #279/#280.
+- **Dugongue (@Dugongue)** — [#309](https://github.com/CrocSwap/integer-mult-bounds/pull/309): Conditional κ = 7.51499335697560e-4: local dirty-response transport, commuting schedules and37 additional gauges on weighted gen5b.
+- **eumemic (@eumemic)** — [#379](https://github.com/CrocSwap/integer-mult-bounds/pull/379): E8 low-read bit with seven-stage complex supplier.
+- **Dugongue (@Dugongue)** — [#455](https://github.com/CrocSwap/integer-mult-bounds/pull/455): research: whole-residual replica pooling and program portfolios, conditional kappa = 0.001266541949425315.
+- **Dugongue (@Dugongue)** — [#498](https://github.com/CrocSwap/integer-mult-bounds/pull/498): Conditional kappa = 0.001301970637653655: geometric intersections and rational paired whole-owner hosting.
+- **Zhao Chi (@vectorsss)** — [#636](https://github.com/CrocSwap/integer-mult-bounds/pull/636): Conditional κ = 0.001636269762440408: combined cold ends and PR635 owner repair.
+- **Zhao Chi (@vectorsss)** — [#638](https://github.com/CrocSwap/integer-mult-bounds/pull/638): Conditional κ = 0.001636456810414854: twenty-row owner improvement over PR637.
+- **Zhao Chi (@vectorsss)** — [#639](https://github.com/CrocSwap/integer-mult-bounds/pull/639): Conditional κ = 0.001636461592777116: attain the fixed-dispatch packing ceiling.
+- **Zhao Chi (@vectorsss)** — [#640](https://github.com/CrocSwap/integer-mult-bounds/pull/640): Conditional κ = 0.001636464689763295: four CK cold ends and concentrated packing.
+- **Zhao Chi (@vectorsss)** — [#642](https://github.com/CrocSwap/integer-mult-bounds/pull/642): Conditional κ = 0.001636472098484378: selective helper-249 dispatch.
+- **Zhao Chi (@vectorsss)** — [#644](https://github.com/CrocSwap/integer-mult-bounds/pull/644): Conditional κ = 0.001636569158555067: attain PR643 fixed-dispatch packing ceiling.
+- **jeremydiviney (@jeremydiviney)** — [#646](https://github.com/CrocSwap/integer-mult-bounds/pull/646): Research: eight signed-root K triangles with 480 helpers (no record claim).
+- **jeremykothe2 (@jeremykothe2)** — [#671](https://github.com/CrocSwap/integer-mult-bounds/pull/671): Conditional κ = 0.001658714981837397: pattern-flow owner map on the PR664 promoted word.
+- **androolloyd  (@androolloyd)** — [#673](https://github.com/CrocSwap/integer-mult-bounds/pull/673): Research: dirty echo, verifier repair, and priced bit-sharing boundaries.
+- **jeremykothe2 (@jeremykothe2)** — [#676](https://github.com/CrocSwap/integer-mult-bounds/pull/676): Conditional κ = 0.001659319032684569: six dim-8 cold ends and three entrance promotions on the PR659 no-triangle word.
+- **Mikhail R. Gadelha (@mikhailramalho)** — [#686](https://github.com/CrocSwap/integer-mult-bounds/pull/686): Research: save 108 R420 XORs with restored frame-zero sharing (no new kappa).
+- **jeremykothe2 (@jeremykothe2)** — [#699](https://github.com/CrocSwap/integer-mult-bounds/pull/699): Conditional κ = 0.001660666354374641: four entrance promotions, six dim-8 ends and a width-neutral B read exchange on the PR659 word.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#717](https://github.com/CrocSwap/integer-mult-bounds/pull/717): Format limits part 2 (no κ claim): erratum to #595, exact invoice prices, frontier-word censuses, decoder floors, spec requirements, centre and fragmentation walls.
+- **Will Richards (@williamreidrichards)** — [#746](https://github.com/CrocSwap/integer-mult-bounds/pull/746): Research consolidation: restore reviewed PR236 source package.
+- **Koroffstrogov (@Koroffstrogov)** — [#758](https://github.com/CrocSwap/integer-mult-bounds/pull/758): Research: higher-arity dirty echoes use 152 calls at five-array cap (no new kappa).
+- **Peter Carpenter (@PeterCarp320)** — [#779](https://github.com/CrocSwap/integer-mult-bounds/pull/779): Tooling: exact eligibility masks accelerate historical reclamation.
+- **commdata2338 (@commdata2338)** — [#790](https://github.com/CrocSwap/integer-mult-bounds/pull/790): Research note: factor R420 block 9 from 38 to 24 XORs (28 fewer native ADDs, no new κ).
+- **commdata2338 (@commdata2338)** — [#794](https://github.com/CrocSwap/integer-mult-bounds/pull/794): Research construction: R420 target-basis compensation saves 7,879 XORs within the existing 192-bit nine-stage prefix charge (no new κ).
+- **Ali Romman (@aliromman)** — [#1043](https://github.com/CrocSwap/integer-mult-bounds/pull/1043): Finite BIT construction: R438 source boundary with full hosted invoice.
+- **Ali Romman (@aliromman)** — [#1060](https://github.com/CrocSwap/integer-mult-bounds/pull/1060): Construction: exact complex P111 COPY word with a smaller paid recursive moment.
+- **bbMisk (@bbMisk)** — [#1083](https://github.com/CrocSwap/integer-mult-bounds/pull/1083): Scoped formalization: Lean certificate for 945 five-source connector pairings.
+- **Hanhong Zhao (@Hope7Happiness)** — [#1086](https://github.com/CrocSwap/integer-mult-bounds/pull/1086): Formalize source-bound CK cleanup-prefix scalar reordering in Lean.
+- **Raphael Fakhri (@RaphaelFakhri)** — [#1147](https://github.com/CrocSwap/integer-mult-bounds/pull/1147): Research: a fifth joint exchange on X4 does not improve κ (complete census).
+- **Thomas DiFiore (@tomdif)** — [#1148](https://github.com/CrocSwap/integer-mult-bounds/pull/1148): Conditional κ = 0.001675560947524449: joint k8 entrances, rank-seven ends, and T16 hosting.
+- **rohanarun (@rohanarun)** — [#1150](https://github.com/CrocSwap/integer-mult-bounds/pull/1150): Conditional kappa 0.001672716806120974: rank-seven T16 owner exchanges.
+- **Dugongue (@Dugongue)** — [#1154](https://github.com/CrocSwap/integer-mult-bounds/pull/1154): Conditional kappa = 0.001673260706543984: adaptive joint kernel demotion on PR1117.
+- **rohanarun (@rohanarun)** — [#1169](https://github.com/CrocSwap/integer-mult-bounds/pull/1169): Conditional κ = 0.001675568675201533: joint entrances with T37 owner packing.
+- **Dugongue (@Dugongue)** — [#1176](https://github.com/CrocSwap/integer-mult-bounds/pull/1176): Add files via uplConditional kappa = 0.001675224519162937: cross-call gap augmentation for three extra kernel islandsoad.
+- **rohanarun (@rohanarun)** — [#1183](https://github.com/CrocSwap/integer-mult-bounds/pull/1183): Conditional kappa 0.001675603180601302: mixed entrance providers on T37 owners.
+- **aigent-marius (@mdumitrean)** — [#1186](https://github.com/CrocSwap/integer-mult-bounds/pull/1186): Tooling: exact frame solver and delivery-rewrite search for gauge44/k8 local words (no new κ).
+- **rohanarun (@rohanarun)** — [#1192](https://github.com/CrocSwap/integer-mult-bounds/pull/1192): Conditional kappa 0.001675670695307702: cross-call T37 entrance augmentation.
+- **aigent-marius (@mdumitrean)** — [#1195](https://github.com/CrocSwap/integer-mult-bounds/pull/1195): Conditional κ = 0.001675658002271934: two source-holder fusions on #1148's joint-entrance k8 word.
+- **rohanarun (@rohanarun)** — [#1201](https://github.com/CrocSwap/integer-mult-bounds/pull/1201): Conditional kappa 0.00167576776285696: mixed T37 source-holder fusions.
+- **rohanarun (@rohanarun)** — [#1207](https://github.com/CrocSwap/integer-mult-bounds/pull/1207): Conditional kappa 0.001675807682652: X54 on mixed T37 fusion providers.
+- **rohanarun (@rohanarun)** — [#1218](https://github.com/CrocSwap/integer-mult-bounds/pull/1218): Conditional kappa 0.001675809683500501: global mixed allocation with X54 and fusions.
+- **rohanarun (@rohanarun)** — [#1225](https://github.com/CrocSwap/integer-mult-bounds/pull/1225): Conditional κ = 0.001675608585476885: X54 slot on #1148's joint-entrance k8 word with #1169's exact T37 owners.
+- **Doug Colkitt (@Mister-Meeseeks)** — [#1231](https://github.com/CrocSwap/integer-mult-bounds/pull/1231): [Lean] Derive #540's pending ranges from the PR442 schedule (stacked on #540; no new kappa).
+- **DreamingOfClouds (@DreamingOfClouds)** — [#1238](https://github.com/CrocSwap/integer-mult-bounds/pull/1238): The end-cap wall: why copies are forced in the E8 skeleton's verifier model (no κ claim).
+- **rohanarun (@rohanarun)** — [#1286](https://github.com/CrocSwap/integer-mult-bounds/pull/1286): Conditional kappa 0.001676332167598458: composed pivot 531 and 543 helper-donor kernels.
+- **rohanarun (@rohanarun)** — [#1297](https://github.com/CrocSwap/integer-mult-bounds/pull/1297): Conditional kappa 0.001676854978651125: four composed helper-donor cold kernels.
+- **rohanarun (@rohanarun)** — [#1319](https://github.com/CrocSwap/integer-mult-bounds/pull/1319): Conditional kappa 0.001676855229071321: verified exact fill on 74 replicas.
+- **PAI (@pai-scaffolde)** — [#1407](https://github.com/CrocSwap/integer-mult-bounds/pull/1407): Conditional T16 κ gain through neutral whole-helper hosting paths.
+- **rohanarun (@rohanarun)** — [#1424](https://github.com/CrocSwap/integer-mult-bounds/pull/1424): Conditional κ 0.001676855229071321886206381217337893: verified outer witness refinement, unchanged construction.
+- **rohanarun (@rohanarun)** — [#1464](https://github.com/CrocSwap/integer-mult-bounds/pull/1464): Conditional κ 0.0016768552290713218862064567722745926195124487395104752628033651837667029477836: verified fine64 endpoint refinement, unchanged construction.
+- **rohanarun (@rohanarun)** — [#1485](https://github.com/CrocSwap/integer-mult-bounds/pull/1485): Conditional κ 0.00167685522907132188620645677227459261951244873951047526280336519105115665521200964951578469164138454299292754381039421745513966674764384056: verified outer140 witness refinement, unchanged construction.

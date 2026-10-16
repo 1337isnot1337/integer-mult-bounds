@@ -45,3 +45,7 @@ Publication state is authoritative in the [central ledger](pr-ledger.json) and [
 | [#2849](https://github.com/CrocSwap/integer-mult-bounds/pull/2849) — Dugongue (@Dugongue) | `00576c07434c1196f49823dac83d57211ef731f1` | `research/pure-math-atlas-400` | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2855](https://github.com/CrocSwap/integer-mult-bounds/pull/2855) — Dugongue (@Dugongue) | `90c52db35dd2f8cdf0dd81976e698a6192a09126` | `research/atlas-frontier-applications` | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
 | [#2857](https://github.com/CrocSwap/integer-mult-bounds/pull/2857) — Lyy_iiis (@Lyy-iiis) | `0b2e2537b368a0cade07ce3f71452ea018ebe394` | `research/shared-kernel-repacking` | Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. |
+
+## Next100-head intake
+
+The [twentieth-round index](../../research/community-efficient2000-audit/README.md) records the next100heads, archive admissions and holds. Its [dispositions](../../research/community-efficient2000-audit/DISPOSITIONS.json) distinguish publication from independent scientific review.
