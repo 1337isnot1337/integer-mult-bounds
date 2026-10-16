@@ -1,8 +1,8 @@
 {
   "number": 2915,
   "head": "fecc5a87574df441ddc3dad44f99fca9bd7fdd92",
-  "status": "budget_deferred",
-  "seconds": 41.60061049996875,
+  "status": "passed",
+  "seconds": 679.096658000024,
   "commands": [
     {
       "argv": [
@@ -15,7 +15,7 @@
       ],
       "timeout_seconds": 30,
       "exit_code": 0,
-      "seconds": 0.527876541018486,
+      "seconds": 0.5274037920171395,
       "stop_reason": null,
       "checks": "Complete independent-column high-field doubling, halving, sign and carry maps with encoded numerical contexts"
     },
@@ -30,7 +30,7 @@
       ],
       "timeout_seconds": 60,
       "exit_code": 0,
-      "seconds": 4.742328332969919,
+      "seconds": 4.7289727500174195,
       "stop_reason": null,
       "checks": "Five complete high-cube routes, noncommuting and inverse words, signed carries, old-prefix order, spectators and borrowed sources"
     },
@@ -44,10 +44,86 @@
         "catalogue"
       ],
       "timeout_seconds": 180,
-      "exit_code": -9,
-      "seconds": 36.32342649996281,
-      "stop_reason": "memory_guard_1GiB",
+      "exit_code": 0,
+      "seconds": 42.59725824999623,
+      "stop_reason": null,
       "checks": "Exact factor binding and low-carry compilation for all 1123 selected owner matrices, with an actual producer Route probe"
+    },
+    {
+      "argv": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "-I",
+        "-B",
+        "/tmp/pr-efficient1900/sources/2915/research/selected-bit-fast-primitives/verify.py",
+        "--suite",
+        "handoff"
+      ],
+      "timeout_seconds": 90,
+      "exit_code": 0,
+      "seconds": 39.34236929100007,
+      "stop_reason": null,
+      "checks": "Fitted toy B1 with two real C0 roots under restored A0 bindings, preserved parent objects and rejected C1 reentry"
+    },
+    {
+      "argv": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "-I",
+        "-B",
+        "/tmp/pr-efficient1900/sources/2915/research/selected-bit-fast-primitives/verify.py",
+        "--suite",
+        "caller"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "seconds": 7.902642291970551,
+      "stop_reason": null,
+      "checks": "Complete q2 C1 node, all192 independent columns, constructor and decoder guards, both primitive seams and physical erasure"
+    },
+    {
+      "argv": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "-I",
+        "-B",
+        "/tmp/pr-efficient1900/sources/2915/research/selected-bit-fast-primitives/verify.py",
+        "--suite",
+        "complete"
+      ],
+      "timeout_seconds": 600,
+      "exit_code": 0,
+      "seconds": 495.76411208399804,
+      "stop_reason": null,
+      "checks": "Complete q3 four-family COPY/IDLE/MOVE schedule, per-COPY private oracles, endpoint, source preservation and both stages' cleanup"
+    },
+    {
+      "argv": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "-I",
+        "-B",
+        "/tmp/pr-efficient1900/sources/2915/research/selected-bit-fast-primitives/verify.py",
+        "--suite",
+        "outer"
+      ],
+      "timeout_seconds": 180,
+      "exit_code": 0,
+      "seconds": 87.67113033297937,
+      "stop_reason": null,
+      "checks": "Reduced ordinary and binary outer compositions with C1, each padded F return before cancellation, reuse and owned-work erasure"
+    },
+    {
+      "argv": [
+        "/tmp/pr-efficient200-venv/bin/python",
+        "-I",
+        "-O",
+        "-B",
+        "/tmp/pr-efficient1900/sources/2915/research/selected-bit-fast-primitives/verify.py",
+        "--suite",
+        "controls"
+      ],
+      "timeout_seconds": 30,
+      "exit_code": 0,
+      "seconds": 0.5538434169720858,
+      "stop_reason": null,
+      "checks": "Archive and namespace rejection, complete live-input inventory, factor/dimension/low-endpoint controls, signed carries with assertions disabled"
     }
   ],
   "commands_expected": 8,
@@ -77,7 +153,7 @@
     "research/selected-bit-fast-primitives/stage.py": "44e334162d12868ce6bb50c501cd2eba8c527f59ce7a144614edd8cd6f533647",
     "research/selected-bit-fast-primitives/verify.py": "90760db1526f73cfffc34eb8af3f2e5ec83f8f1015a780caa61d156f0d850c68",
     "research/selected-bit-fast-primitives/high_route.py": "13d9c706e7bad2fa3b7d2a97d19b58f2c4efac06d2bb76b613b40069c38b1cd2",
-    "research/selected-bit-fast-primitives/check_catalogue.py": "e6750d792504afc6ce2ef43e5035e77ce63f945551c0135b3b720c503d2d0209",
+    "research/selected-bit-fast-primitives/check_catalogue.py": "f7cc1c7907fd1877e310ba41904110a40e52f091ad38442ab2398c798afd3644",
     "research/selected-bit-fast-primitives/compile_routes.py": "1bfef464dfb3e33d9d57f53b657b2d1fe3598bc453be49000a5e782b622e8585",
     "research/selected-bit-fast-primitives/check_handoff.py": "be1436e32bfad474330b69905aa6e4bfdb1a3538c295ace0f0ef96f40a34661a",
     "research/selected-bit-fast-primitives/check_controls.py": "d0b41aec46462f6b351935efdd8b200eb4de72fa2f8784cfa672fe3607711d91",
@@ -91,11 +167,12 @@
     "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f"
   },
   "changed_files_after": {},
-  "log_sha256": "3546bd38c3ba8250684f9e6dc62a85366856b70d722b278d28cf73573bf5cebb",
-  "maximum_sampled_descendant_rss_kib": 1086160,
+  "log_sha256": "3d9fec8c16c9cd453b242270d36edb573f5c0a25f8d3aab93b7a7abd860d3f92",
+  "maximum_sampled_descendant_rss_kib": 526080,
   "environment": {
     "python": "Python 3.12.11",
     "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
   },
-  "scope": "Declared complete finite replay and defect controls. Written source/lifetime proof is reviewed separately. No full selected GL64 execution, physical allocator, supplier admission or new kappa."
+  "scope": "Complete registered finite replay with source-bound expected receipts and defect controls. New code/proof reviewed; universal C0 endpoint, chronology, stock, source-refinement and cost arguments remain named dependencies. No selected GL64 payload, formal refinement, supplier admission or new kappa.",
+  "integration_resolution": "check_catalogue.py avoids retaining pure chart-matrix and low-carry-program caches; every selected factor endpoint and final expected receipt still checked. Original resource-limited attempt retained separately."
 }

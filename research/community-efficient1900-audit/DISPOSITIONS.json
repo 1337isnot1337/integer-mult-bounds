@@ -1046,18 +1046,24 @@
       "reviewed_head": "2f0911ad735643a069b9790302fbf179e49f74f8",
       "current_head": "2f0911ad735643a069b9790302fbf179e49f74f8",
       "prior_reviewed_head": "2f0911ad735643a069b9790302fbf179e49f74f8",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/physical-ordinary-interchange"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f3894fbf0ad3012ff294e1673fdbb3e1c4a92225",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2899"
+      },
       "scope": "Jose Manuel: physical ordinary-interchange composition with encoded setup, unweighted ROOT binding, two-call ownership, successful-return erasure and binary rectangle completion. Eight complete registered checks pass; inherited PR2753/2809 universal caller arguments remain explicit dependencies, not independently completed by this review.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2899.json",
@@ -1685,18 +1691,24 @@
       "reviewed_head": "fecc5a87574df441ddc3dad44f99fca9bd7fdd92",
       "current_head": "fecc5a87574df441ddc3dad44f99fca9bd7fdd92",
       "prior_reviewed_head": "fecc5a87574df441ddc3dad44f99fca9bd7fdd92",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
-      "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-bit-fast-primitives"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "d112c69dcfae71849feb8ffdb463b244c16db545",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2915"
+      },
+      "scope": "Jose Manuel: source-bound C1/B1 primitive substitution, exact selected chart factors and signed carries, stage separation, finite complete callers and outer compositions. Eight complete checks pass with a catalogue-cache lifetime resolution preserving its full expected receipt. Conditional on the named C0/B1 source arguments; no selected frontier change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2915.json",
