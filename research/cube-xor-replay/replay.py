@@ -11,6 +11,11 @@ import sys
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 MANIFEST_SHA256 = "e2be1e7c88e7a6814ec726bd5cd397af261514edac960d1d8ae6590c39c9e608"
+COMPATIBILITY_SHA256 = "a5f102c0b90783698d2912fed9ddeb3a6987fd414fb7c7adffbe638cd98bde7a"
+COMPATIBILITY_UPSTREAM = "ffbd90dd90dbe0055464f3a1411b25a3a4fdc6b8"
+COMPATIBILITY_PATHS = frozenset(("scripts/audit_fused_block.py",
+                                 "scripts/exclusion_circuit.py",
+                                 "scripts/shared_point_circuit.py"))
 sys.path.insert(0, str(HERE))
 from cached_xor import CachedXorPermuter
 
@@ -30,6 +35,21 @@ def check_sources():
     manifest = json.loads(data)
     require(manifest["base_commit"] == "2921874911956718fcaaaf9396fe8267b3cfa9f0",
             "Unexpected research base")
+    # Preserve the original scientific manifest. Only these three transitive
+    # imports use explicitly reviewed current-main bytes; no core/fixture override.
+    data = (HERE / "COMPATIBILITY.json").read_bytes()
+    require(sha256(data).hexdigest() == COMPATIBILITY_SHA256,
+            "Compatibility manifest mismatch")
+    compatibility = json.loads(data)
+    require(compatibility["upstream_commit"] == COMPATIBILITY_UPSTREAM
+            and compatibility["original_manifest_sha256"] == MANIFEST_SHA256,
+            "Unexpected compatibility baseline")
+    require(set(compatibility["files"]) == COMPATIBILITY_PATHS,
+            "Unexpected compatibility paths")
+    for relative, record in compatibility["files"].items():
+        require(record["original"] == manifest["files"][relative],
+                "Compatibility predecessor mismatch: " + relative)
+        manifest["files"][relative] = record["current"]
     for relative, record in manifest["files"].items():
         path = (ROOT / relative).resolve()
         require(path.is_relative_to(ROOT), "Source escapes repository")

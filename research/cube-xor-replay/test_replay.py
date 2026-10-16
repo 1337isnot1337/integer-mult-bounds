@@ -174,6 +174,9 @@ class PackageTests(unittest.TestCase):
 
     def test_changed_source_and_expected_certificate_rejected(self):
         for relative in ("scripts/experiments/cube_core_family.py",
+                         "scripts/audit_fused_block.py",
+                         "scripts/exclusion_circuit.py",
+                         "scripts/shared_point_circuit.py",
                          "certificates/cube-core-family.json", "upstream/README.md"):
             path = self.root / relative
             original = path.read_bytes()
@@ -200,6 +203,7 @@ class PackageTests(unittest.TestCase):
 
     def test_manifest_and_t6_fixture_changes_rejected(self):
         for name, message in (("SOURCES.json", "Source manifest mismatch"),
+                              ("COMPATIBILITY.json", "Compatibility manifest mismatch"),
                               ("EXPECTED-T6.json", "Fixture pin mismatch")):
             path = self.package / name
             original = path.read_bytes()

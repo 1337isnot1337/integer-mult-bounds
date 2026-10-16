@@ -1,5 +1,11 @@
 # Exact cached XOR permutations for quadratic-code replay
 
+The [2026-10-16 review follow-up](FOLLOWUP.md) completes the reviewed-head
+verification and records a three-file transitive-import compatibility refresh
+against canonical main. Historical source manifests, fixtures and benchmark
+receipts below are retained unchanged; the current command additionally
+authenticates `COMPATIBILITY.json`.
+
 **Tooling improvement; no new kappa or impossibility result.** This opt-in
 adapter makes the existing bounded quadratic-code rank screen cheaper by
 constructing each permutation mask once per replay. It preserves the complete
@@ -172,6 +178,10 @@ complete local import closure, original certificate and upstream content read
 by the audit. Its digest is checked before importing original code. The new
 `t=6` fixture is separately pinned there. The selected conditional frontier at
 the research base is PR942's `1661960547713947/10^18`; it is context only.
+
+The current effective closure overlays exactly three transitive imports with
+their separately pinned canonical-main versions; see `FOLLOWUP.md`. The
+original `SOURCES.json` and all core/certificate/fixture pins remain unchanged.
 
 The OS assignment seed is **94**, verification-engineering track. `CLAIM.json`
 records three candidates, rejected overlap, bounded scope and timing. No pinned
