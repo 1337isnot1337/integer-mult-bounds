@@ -1,12 +1,14 @@
 {
   "status": "PASS",
-  "checked_commit": "4865c30d0fb12a475bb6eaaca1c781a1592a3811",
+  "checked_commit": "be64f24872916eaa57e6c93facc7bdba41567331",
   "merged_prs": [
     2478,
     2734,
+    2737,
+    2752,
     2792
   ],
-  "changed_files": 28,
+  "changed_files": 36,
   "resolved_files": [
     {
       "number": 2734,
@@ -17,6 +19,21 @@
       "number": 2734,
       "path": "tests/test_historical_check.py",
       "sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd"
+    },
+    {
+      "number": 2737,
+      "path": "scripts/research_package.py",
+      "sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1"
+    },
+    {
+      "number": 2737,
+      "path": "tests/test_research_package_diagnostics.py",
+      "sha256": "61e9bebe1f41ce23dd100ea368d9345e59c5568c6a21f26fd28f70155afdca75"
+    },
+    {
+      "number": 2752,
+      "path": "scripts/research_package.py",
+      "sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1"
     },
     {
       "number": 2792,
