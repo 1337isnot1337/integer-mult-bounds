@@ -2,7 +2,7 @@
 
 Frozen selection: **100 open, non-draft PRs: 42 new/revised submissions and 58 earlier follow-ups**. Prior unresolved obligations remain explicit. Baseline `4b82082f901945f8d0314f143576c7ad31e021fc`. Complete Git differences determine changed-file coverage.
 
-**35 ready; 33 observed merged; 65 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
+**35 ready; 35 observed merged; 65 pending.** The selected conditional κ remains `836330098538459/500000000000000000`.
 
 Original author commits, notices, predecessor credit and assistance disclosures are retained. Scoped research incorporation does not admit a new supplier or verify the inherited full multiplication theorem.
 

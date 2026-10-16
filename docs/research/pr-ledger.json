@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1990,
-    "partially_reviewed": 346,
+    "incorporated": 1992,
+    "partially_reviewed": 344,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "d9a109328018c526a04bbdeda7d0d83a2e3b64331ff80ceec0743a9cf6f00b41",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "8fd5cf10975971de9026e348176d681cb6b38ff4528040a84fd182fed787f493",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -116656,25 +116656,36 @@
         {
           "head": "a459ee34fad0488691beba8441e0a31e103b91a5",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Arham Garg's six independent pagination/cache controls and authenticated historical benchmark retained alongside Nick Petalas's already merged #2514 batching. Keep current 10/25/10 pages and shared helper/onboarding byte-identical; 51 small threads require six listing requests. Original 50/5/5 tests pass normally/optimized; combined current 144-test suite passes with explicit platform skips. Historical timing is not remeasured; frozen predecessor pin failures are not reported as passes.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "README.md",
+        "research/overlap-discussion-batching",
+        "scripts/find_overlap.py",
+        "tests/test_research_discussion_batching.py",
+        "tests/test_research_onboarding.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c5a3dd1584c92e7b5d4d391a3aa5e915184920b8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2493"
+      },
       "reviewed_head": "a459ee34fad0488691beba8441e0a31e103b91a5",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2493.json"
+        "research/community-efficient1800-audit/packets/2493.json",
+        "research/community-efficient1800-audit/checks/check-2493.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -120872,25 +120883,34 @@
         {
           "head": "808942baa87f048b5d8a7cca47a04d8ca4fbe038",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's isolated unittest completion token prevents successful premature exits being reported as complete tests. Preserve current cancellation and authenticated historical skip-clones overlay; forward token to the actual child and check copied-input immutability. Original8 and combined9 tests, six real-wrapper controls, and20 historical regressions pass under optimization. Seven native cancellation tests skip on macOS; no Linux or full scientific replay claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research",
+        "scripts/run_isolated_tests.py",
+        "tests/test_isolated_test_runner.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a402377e64642cb94cbe77d928efc6e7a372c8b1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2579"
+      },
       "reviewed_head": "808942baa87f048b5d8a7cca47a04d8ca4fbe038",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Author-head premature-exit tests pass. Integration must preserve the newer authenticated skip-clones historical replay path and extend the completion receipt across that wrapper, with a regression exercising the actual historical branch. Retained separately from the19-PR group.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2579.json"
+        "research/community-efficient1800-audit/packets/2579.json",
+        "research/community-efficient1800-audit/checks/check-2579.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133348,7 +133368,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1538,
-    "OPEN": 482
+    "MERGED": 1540,
+    "OPEN": 480
   }
 }

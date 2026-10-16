@@ -1746,8 +1746,8 @@
       },
       "reviewed_head": "a459ee34fad0488691beba8441e0a31e103b91a5",
       "current_head": "a459ee34fad0488691beba8441e0a31e103b91a5",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "README.md",
         "research/overlap-discussion-batching",
@@ -1755,15 +1755,19 @@
         "tests/test_research_discussion_batching.py",
         "tests/test_research_onboarding.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c5a3dd1584c92e7b5d4d391a3aa5e915184920b8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2493"
+      },
       "scope": "Arham Garg's six independent pagination/cache controls and authenticated historical benchmark retained alongside Nick Petalas's already merged #2514 batching. Keep current 10/25/10 pages and shared helper/onboarding byte-identical; 51 small threads require six listing requests. Original 50/5/5 tests pass normally/optimized; combined current 144-test suite passes with explicit platform skips. Historical timing is not remeasured; frozen predecessor pin failures are not reported as passes.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2493.json",
@@ -2033,22 +2037,26 @@
       },
       "reviewed_head": "808942baa87f048b5d8a7cca47a04d8ca4fbe038",
       "current_head": "808942baa87f048b5d8a7cca47a04d8ca4fbe038",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research",
         "scripts/run_isolated_tests.py",
         "tests/test_isolated_test_runner.py"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a402377e64642cb94cbe77d928efc6e7a372c8b1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2579"
+      },
       "scope": "ywz65's isolated unittest completion token prevents successful premature exits being reported as complete tests. Preserve current cancellation and authenticated historical skip-clones overlay; forward token to the actual child and check copied-input immutability. Original8 and combined9 tests, six real-wrapper controls, and20 historical regressions pass under optimization. Seven native cancellation tests skip on macOS; no Linux or full scientific replay claimed.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2579.json",
