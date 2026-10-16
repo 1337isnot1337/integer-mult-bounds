@@ -50,10 +50,16 @@ result, review, source manifest and reproduction command through
 `certificates/selected-result.json`. Historical research notes may use “current”
 for an obsolete checkpoint.
 
-For maintainer PR intake, consult [research archive status](docs/research/research-archive-intake.md).
-A merged research package can remain **partially reviewed**: archival acceptance
-does not endorse its mathematical claims, stored PASS receipts or proposed κ.
-Check the central ledger and exact-head review scope before building on it.
+For authorized maintainer PR work, **first follow [delta-only queue intake](docs/research/pr-intake.md)**.
+Run `python3 scripts/pr_intake.py plan --refresh --output /tmp/pr-intake-plan.json`.
+Read selected actionable entries; do not rereview unchanged holds, recreate
+100-entry audit packages, or rerun historical suites after compaction. Persist
+changed scheduling decisions in `docs/research/pr-intake-state.json` and actual
+review evidence in the central ledger. This scheduling procedure takes precedence
+over older batch recipes. No automatic Lean, Docker, or concurrent heavy replays.
+See [research archive status](docs/research/research-archive-intake.md) for acceptance
+rules: a merged archive can remain **partially reviewed**; merging is not scientific
+approval or a selected-frontier update.
 
 Keep `upstream/`, frozen source archives and pinned evidence unchanged. Put new
 research in its own scoped directory and retain predecessor attribution.

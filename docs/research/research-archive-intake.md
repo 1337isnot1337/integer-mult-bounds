@@ -13,7 +13,13 @@ Known counterexamples, misleading scope and unresolved changes to shared code st
 
 ## Efficient queue procedure
 
-Freeze 100 PR heads; compare against the ledger before reading bodies or rerunning checks. Reuse authenticated evidence only for identical sources and covered obligations. Group related construction chains and audit the strongest relevant descendant for frontier consideration, crediting covered predecessors. Merge cleared archive groups independently of expensive verification. A merged archive is complete for intake, but its scientific review remains open. Check the live head immediately before integration.
+Use the [delta-only intake planner](pr-intake.md) to reconcile the whole queue
+and select up to 100 **actionable** heads. Unchanged explicit holds remain dormant;
+unfinished review remains visible. Preserve exact-source evidence by reference
+and record changed decisions only, rather than producing another full audit
+package per nominal batch. Group related construction chains, preserve contributor
+credit and check live heads before integration. Archival publication and scientific
+validation remain separate.
 
 No author workload was run for this intake. Local expensive verification remains serial under the sampled 1 GiB descendant-process watchdog, with explicit time limits and no unchanged automatic retries after resource stops. No Lean or Docker was run. Remote CI, if triggered by publication, is separate evidence and is not represented as a local pass.
 

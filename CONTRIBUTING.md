@@ -27,6 +27,9 @@ donor instructions. Optional workflow feedback belongs in the PR or the
 [feedback discussion](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200).
 
 
+For maintainer queue work, start with the [delta-only intake procedure](docs/research/pr-intake.md)
+and persistent scheduling cache. Do not repeat unchanged blocked reviews.
+
 Before reviewing an existing PR, consult the [central review ledger](docs/research/pr-ledger.md).
 Record the reviewed commit and its evidence separately from publication and GitHub closure.
 Recheck the current head before closing incorporated work, link its retained source and attribution,
