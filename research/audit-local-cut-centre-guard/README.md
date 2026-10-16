@@ -35,7 +35,10 @@ python3 -B research/audit-local-cut-centre-guard/guard.py WORD.json.gz
 ```
 
 `verify.py` checks the input pins and runs the unchanged auditor on the base and probe words; both pass, and the
-receipts equal `evidence/AUDIT-*.json`. It then runs the guard on all three words and two mutation controls (a
+receipts equal `evidence/AUDIT-*.json`. The pins cover the three words and two repository files, which are declared in
+both `VERIFY.json` and `SOURCES.json`: the auditor, and the parent `CANONICAL-WORD.json.gz` (PR622 baseline558
+split-centres) that its `--main` interface check reads. The package plus those two files is enough: `verify.py` also
+passes in a Git-free export that contains nothing else. It then runs the guard on all three words and two mutation controls (a
 non-centre cut source, a non-target cut row). It takes a few seconds. The native rejection is recorded evidence, not
 rerun.
 
@@ -47,9 +50,12 @@ same for the selected line's words.
 
 ## Open next questions
 
-- **Version the guard into the auditor.** The first step is to list the registered packages whose acceptance calls
-  `audit_local.py` without the native chain and run `guard.py` on their words. This is blocked on a maintainer decision
-  about versioning a pinned auditor.
+- **Version the guard into the auditor.** The first step is done. ywz65's
+  [handoff](https://github.com/CrocSwap/integer-mult-bounds/pull/2478#issuecomment-6192363481) found seven registered
+  packages that actually call `audit_local.py`; eleven more only hash it, and five use other checkers. Their committed
+  words pass `guard.py` with the same 176-gate cut (re-run here on the six distinct words). Their admitted mutation
+  families do not change the cut, so no existing claim is shown to use the gap. Adoption by those callers is blocked on a
+  maintainer decision about versioning a pinned auditor.
 - **Check the other unpriced sections.** The precondition, the derived compensation and the frame-free cleanup could
   admit analogous counterexamples. For each one, state the structural rule the native emitter assumes and test it with
   a constructed word, as here.
@@ -58,6 +64,7 @@ same for the selected line's words.
 
 The auditor is icekylinx's gauge44-frames-x package. The words are PR #1672's (Jeremy Kothe / LeverRank) pivot-554 kernel on
 PR #1625's pivot-566 words (mdumitrean), in the PR #1319/#1297 lineage (Rohan Arun) and its retained ancestry. The native
-chain is PR635's vendored scripts, run through PR #1186's toolkit. See `NOTICE.md`.
+chain is PR635's vendored scripts, run through PR #1186's toolkit. The registered-consumer screen is ywz65's (see the
+open questions). See `NOTICE.md`.
 
 Prepared by Marius-Paul Dumitrean with substantial AI assistance (Anthropic Claude, via Claude Code). Apache-2.0.

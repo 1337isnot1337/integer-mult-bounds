@@ -53,7 +53,7 @@
     {
       "question": "Should the guard become part of a new version of the local auditor (or of the registered replays that call it)?",
       "why_it_matters": "audit_local.py is pinned by hash in 421 files at the base commit, so it is not changed here; packages that rely on it without the native chain inherit the gap.",
-      "first_step": "List the packages whose acceptance calls audit_local.py but not the native provider chain, and run guard.py on their words.",
+      "first_step": "Done for the registered packages by ywz65 (https://github.com/CrocSwap/integer-mult-bounds/pull/2478#issuecomment-6192363481): seven actual callers of the auditor at the base commit; their committed words pass guard.py with the same 176-gate cut. Next: choose how a versioned auditor (or a guard step before it) is adopted by those callers.",
       "blocked_by": "A maintainer decision on how to version a pinned auditor."
     },
     {

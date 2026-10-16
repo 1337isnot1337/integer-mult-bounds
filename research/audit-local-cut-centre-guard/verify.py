@@ -4,7 +4,8 @@
 rejects it, and accepts the genuine words.
 
 Checks:
-  1. input pins: SHA-256 and Git blob ids of the three words equal inputs/PINS.json;
+  1. input pins: SHA-256 and Git blob ids of the three words equal inputs/PINS.json, and those of the two declared
+     repository inputs (the auditor, and the parent CANONICAL-WORD that its --main interface check reads) equal SOURCES.json;
   2. the gap: research/gauge44-frames-x/independent/audit_local.py --main (unchanged, pinned in SOURCES.json) PASSES
      both the genuine base word and the probe word PROBE-CUT-502 (four non-centre cut gates, helper 502 entering);
      the receipts' status, compensation size, entering count and local profile equal evidence/AUDIT-*.json;
@@ -22,6 +23,7 @@ ROOT = PKG.parents[1]
 sys.path.insert(0, str(PKG))
 import guard  # noqa: E402
 AUDITOR = ROOT / 'research/gauge44-frames-x/independent/audit_local.py'
+PARENT = ROOT / 'research/community-k492-audit/pr622/replay/baseline558/complex-global/base/split-centres/CANONICAL-WORD.json.gz'  # read by --main
 rd = lambda p: json.loads(Path(p).read_text(encoding='utf-8'))
 def blob(b): return hashlib.sha1(b'blob %d\0' % len(b) + b).hexdigest()
 def require(ok, msg):
@@ -31,9 +33,12 @@ pins = rd(PKG / 'inputs/PINS.json')['files']
 for name, pin in pins.items():
     b = (PKG / 'inputs' / name).read_bytes()
     require(hashlib.sha256(b).hexdigest() == pin['sha256'] and blob(b) == pin['git_blob'], 'input pin ' + name)
-src = rd(PKG / 'SOURCES.json')
-aud = next(r for r in src['files'] if r['path'] == 'research/gauge44-frames-x/independent/audit_local.py')
-require(hashlib.sha256(AUDITOR.read_bytes()).hexdigest() == aud['sha256'], 'auditor changed')
+src = {r['path']: r for r in rd(PKG / 'SOURCES.json')['files'] if r['usage'] == 'input'}
+for path in (AUDITOR, PARENT):
+    pin = src[path.relative_to(ROOT).as_posix()]
+    require(path.is_file(), 'declared input missing: ' + pin['path'])
+    b = path.read_bytes()
+    require(hashlib.sha256(b).hexdigest() == pin['sha256'] and blob(b) == pin['git_blob'], 'declared input changed: ' + pin['path'])
 
 def audit(name, out):
     rc = subprocess.run([sys.executable, '-B', str(AUDITOR), '--word', str(PKG / 'inputs' / name), '--output', str(out),
