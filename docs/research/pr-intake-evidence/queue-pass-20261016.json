@@ -24423,6 +24423,309 @@
     "PR2991 navigation summary explicitly distinguishes cited claims from independent validation.",
     "Two additive package-local .gitattributes rules preserve original bytes."
   ],
-  "publication": "prepared_not_yet_pushed",
-  "frontier_changed": false
+  "publication": "published",
+  "frontier_changed": false,
+  "unrelated_wake_acknowledgements": [
+    {
+      "number": 485,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 499,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 895,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 897,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1193,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1681,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1683,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1688,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1712,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1721,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1725,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1731,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1754,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1758,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1786,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1789,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1800,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1839,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1904,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1905,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 1928,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2044,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2161,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2180,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2349,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2361,
+      "path": "scripts/replay_historical_check.py",
+      "previous_blob": "80ebd0b648b0a41d12ae4e2045655369ffa3c2a8",
+      "current_blob": "987a2c351af1a6a8dc5e6ec0e7743620baf46789",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2374,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2435,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2447,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2462,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2474,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2526,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2559,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2575,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2588,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2673,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2679,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2733,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2745,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2767,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2818,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2843,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    },
+    {
+      "number": 2852,
+      "path": ".gitattributes",
+      "previous_blob": "226044d4ceb5906d124ef75713f6b0895a89e942",
+      "current_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "scope": "Scheduling acknowledgement only. Two package-local attribute additions or the reviewed bytecode digest allowance do not resolve this unchanged scientific/resource/CI-policy hold. No replay or review-completion change."
+    }
+  ]
 }

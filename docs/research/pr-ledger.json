@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "0c41da5de7279153db088b2678e20b8421fc968e4676ced879bd4177eb16f794",
+    "docs/research/pr-intake-decisions.json": "cda23ed8fbf79b088395c642732a9856d36387723179aaaaf04b9abee0e6321b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -146892,7 +146892,7 @@
       "reviewed_head": "b9ac0d07eb9cdc31c4dca8dcc218943998edd3e8",
       "current_head": "b9ac0d07eb9cdc31c4dca8dcc218943998edd3e8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/high-route-prefix-cost"
       ],
@@ -146901,7 +146901,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -146909,7 +146909,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2982",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2984,
@@ -146937,7 +146942,7 @@
       "reviewed_head": "34d7c3feaf87b878d9524c215b678403b8afdc08",
       "current_head": "34d7c3feaf87b878d9524c215b678403b8afdc08",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-parity-mask-replay"
       ],
@@ -146946,7 +146951,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -146954,7 +146959,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2984",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2985,
@@ -147025,7 +147035,7 @@
       "reviewed_head": "f610bda7818df522c26b28f5766a06c5ef5c270c",
       "current_head": "f610bda7818df522c26b28f5766a06c5ef5c270c",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/replay-input-symlink-alias"
       ],
@@ -147034,7 +147044,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147042,7 +147052,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2986",
+        "merge_commit": "5d2f626f73aa981d67f438e424e7df79f5496586"
+      }
     },
     {
       "number": 2987,
@@ -147070,7 +147085,7 @@
       "reviewed_head": "02c3047a1e78e6e35e7573c12434ba26f6f9bd96",
       "current_head": "02c3047a1e78e6e35e7573c12434ba26f6f9bd96",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-chronological-face"
       ],
@@ -147079,7 +147094,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147087,7 +147102,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2987",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2989,
@@ -147115,7 +147135,7 @@
       "reviewed_head": "133cd8a7c5ce16a3d66e3372c5fdd9e88067d75b",
       "current_head": "133cd8a7c5ce16a3d66e3372c5fdd9e88067d75b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/physical-compiler-correspondence"
       ],
@@ -147124,7 +147144,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147132,7 +147152,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2989",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2990,
@@ -147160,7 +147185,7 @@
       "reviewed_head": "9158ee6d097e8058b177c54a1f68a6c30249c8f8",
       "current_head": "9158ee6d097e8058b177c54a1f68a6c30249c8f8",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/isolated-test-bytecode"
       ],
@@ -147169,7 +147194,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147177,7 +147202,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2990",
+        "merge_commit": "cedad3e65c45c4ca1e00b02a2ae8055e8d2bb57a"
+      }
     },
     {
       "number": 2991,
@@ -147205,7 +147235,7 @@
       "reviewed_head": "7d9452f7b99901c78f49fcb1244d5c3a87dbca02",
       "current_head": "7d9452f7b99901c78f49fcb1244d5c3a87dbca02",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research/bottleneck-brief.md",
         "docs/research/p104-precision-contract-map.md"
@@ -147215,7 +147245,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147223,7 +147253,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2991",
+        "merge_commit": "4dab22885e1d153e8258ddf96fa5566af27b3ec4"
+      }
     },
     {
       "number": 2992,
@@ -147251,7 +147286,7 @@
       "reviewed_head": "b31bf0360ad702b1be71dea7a33edc11711084af",
       "current_head": "b31bf0360ad702b1be71dea7a33edc11711084af",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/simple-scatter-boundary"
       ],
@@ -147260,7 +147295,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147268,7 +147303,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2992",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2993,
@@ -147296,7 +147336,7 @@
       "reviewed_head": "34a7003866390618b8e8006dc483e7a37a37903f",
       "current_head": "34a7003866390618b8e8006dc483e7a37a37903f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-joint-frame-audit"
       ],
@@ -147305,7 +147345,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147313,7 +147353,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2993",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2994,
@@ -147341,7 +147386,7 @@
       "reviewed_head": "900ab6c9e1f9cc5dcc1ca93ed7db966e7cf883a5",
       "current_head": "900ab6c9e1f9cc5dcc1ca93ed7db966e7cf883a5",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/replay-input-case-alias"
       ],
@@ -147350,7 +147395,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147358,7 +147403,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2994",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2995,
@@ -147386,7 +147436,7 @@
       "reviewed_head": "8ba0358b62edbeb16a0842473500c468d8c0759b",
       "current_head": "8ba0358b62edbeb16a0842473500c468d8c0759b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-producer-dirty-fault"
       ],
@@ -147395,7 +147445,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147403,7 +147453,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2995",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2996,
@@ -147431,7 +147486,7 @@
       "reviewed_head": "4d772802fe86e5185d5468db86b36472e6c81b96",
       "current_head": "4d772802fe86e5185d5468db86b36472e6c81b96",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-endpoint-completion-flow"
       ],
@@ -147440,7 +147495,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147448,7 +147503,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2996",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2997,
@@ -147476,7 +147536,7 @@
       "reviewed_head": "16e790e10cc0bc737b9cd269020d3d967d36430f",
       "current_head": "16e790e10cc0bc737b9cd269020d3d967d36430f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-flag-information-flow"
       ],
@@ -147485,7 +147545,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147493,7 +147553,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2997",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2998,
@@ -147521,7 +147586,7 @@
       "reviewed_head": "3aa400ed59d19b9d6c08e22d1b75edb36a1d3e27",
       "current_head": "3aa400ed59d19b9d6c08e22d1b75edb36a1d3e27",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/s4-two-premium-cut-envelope"
       ],
@@ -147530,7 +147595,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147538,7 +147603,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2998",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 2999,
@@ -147566,7 +147636,7 @@
       "reviewed_head": "ac6025235b6f1233291000d35a067198628569e9",
       "current_head": "ac6025235b6f1233291000d35a067198628569e9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-adaptive-rounding-collision"
       ],
@@ -147575,7 +147645,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147583,7 +147653,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2999",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3000,
@@ -147611,7 +147686,7 @@
       "reviewed_head": "4c0cf223e3e4a06099704b34202a5015f1ab1e62",
       "current_head": "4c0cf223e3e4a06099704b34202a5015f1ab1e62",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/four-flat-maximal-masks"
       ],
@@ -147620,7 +147695,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147628,7 +147703,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3000",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3002,
@@ -147656,7 +147736,7 @@
       "reviewed_head": "0bc34c304441740273e30e06cb28710bdd3d788d",
       "current_head": "0bc34c304441740273e30e06cb28710bdd3d788d",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "autoresearch.md",
         "docs/research/overlap-task-reference-matching.md",
@@ -147668,7 +147748,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147676,7 +147756,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3002",
+        "merge_commit": "3051cf1605606c32589c2823e0e54f017119d3f5"
+      }
     },
     {
       "number": 3003,
@@ -147704,7 +147789,7 @@
       "reviewed_head": "38a0eddf69de8d64840353b5e1ed53bb37b6bc68",
       "current_head": "38a0eddf69de8d64840353b5e1ed53bb37b6bc68",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/one-sided-landscape-audit"
       ],
@@ -147713,7 +147798,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147721,7 +147806,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3003",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3004,
@@ -147749,7 +147839,7 @@
       "reviewed_head": "ce08d19f6e43bbc6f552858d93154efe3aa98916",
       "current_head": "ce08d19f6e43bbc6f552858d93154efe3aa98916",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/scatter-parity-contract-audit"
       ],
@@ -147758,7 +147848,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147766,7 +147856,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3004",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3005,
@@ -147794,7 +147889,7 @@
       "reviewed_head": "68e67922294d96a42f479f80fdc352eb04a9b550",
       "current_head": "68e67922294d96a42f479f80fdc352eb04a9b550",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-union-support-audit"
       ],
@@ -147803,7 +147898,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147811,7 +147906,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3005",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3006,
@@ -147839,7 +147939,7 @@
       "reviewed_head": "1432a43a331ec857f45093a1d6e16acdbe9849e2",
       "current_head": "1432a43a331ec857f45093a1d6e16acdbe9849e2",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-v45-native-endpoint"
       ],
@@ -147848,7 +147948,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147856,7 +147956,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3006",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3007,
@@ -147884,7 +147989,7 @@
       "reviewed_head": "3cb500b743f36e13d21b6a46f126846bf36bad32",
       "current_head": "3cb500b743f36e13d21b6a46f126846bf36bad32",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/replay-input-head-spelling"
       ],
@@ -147893,7 +147998,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147901,7 +148006,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3007",
+        "merge_commit": "e983379b309c2389608ad7903ae7258a79a36fdd"
+      }
     },
     {
       "number": 3008,
@@ -147929,7 +148039,7 @@
       "reviewed_head": "948a997eba1aaf13d04e2b52edf70404860d19dc",
       "current_head": "948a997eba1aaf13d04e2b52edf70404860d19dc",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-v45-event-binding"
       ],
@@ -147938,7 +148048,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147946,7 +148056,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3008",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3009,
@@ -147974,7 +148089,7 @@
       "reviewed_head": "95568ae83a73ace578e3972a01aef55c889e58a2",
       "current_head": "95568ae83a73ace578e3972a01aef55c889e58a2",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t16-invoice-boundary-audit"
       ],
@@ -147983,7 +148098,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -147991,7 +148106,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3009",
+        "merge_commit": "6837fa6f28d065dc43b1f7c1fef7c1e8347633ca"
+      }
     },
     {
       "number": 3010,
@@ -148019,7 +148139,7 @@
       "reviewed_head": "87ca15cf005ab232ca0104ec5137014ac754f487",
       "current_head": "87ca15cf005ab232ca0104ec5137014ac754f487",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-face-boundary-fill"
       ],
@@ -148028,7 +148148,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148036,7 +148156,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3010",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3011,
@@ -148064,7 +148189,7 @@
       "reviewed_head": "c5b58be95592a408d0cc42b0b829a3b543fd4b3b",
       "current_head": "c5b58be95592a408d0cc42b0b829a3b543fd4b3b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-unit-weight-reversal"
       ],
@@ -148073,7 +148198,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148081,7 +148206,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3011",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3012,
@@ -148152,7 +148282,7 @@
       "reviewed_head": "504dc9a15f7a874a47564cdf3ae6857bbbc8d000",
       "current_head": "504dc9a15f7a874a47564cdf3ae6857bbbc8d000",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-rematched-dependency-screen"
       ],
@@ -148161,7 +148291,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148169,7 +148299,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3013",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3014,
@@ -148197,7 +148332,7 @@
       "reviewed_head": "16e8db5656b4fea487a2212395f39707bf134f7a",
       "current_head": "16e8db5656b4fea487a2212395f39707bf134f7a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-v45-frozen-owner-invoice"
       ],
@@ -148206,7 +148341,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148214,7 +148349,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3014",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3015,
@@ -148242,7 +148382,7 @@
       "reviewed_head": "e244296debb45fe6f4da84d29e4d64fbab55fda0",
       "current_head": "e244296debb45fe6f4da84d29e4d64fbab55fda0",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-joint-endframes-restore-edit"
       ],
@@ -148251,7 +148391,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148259,7 +148399,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3015",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3016,
@@ -148287,7 +148432,7 @@
       "reviewed_head": "4471aa49f9f0dd9332b0f1819bead8e331e824db",
       "current_head": "4471aa49f9f0dd9332b0f1819bead8e331e824db",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/half-stage-evacuation",
         "research/owner-replay-workspaces",
@@ -148298,7 +148443,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148306,7 +148451,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3016",
+        "merge_commit": "2b43ca4a3a9c704a037718d4023214a7db48ba0a"
+      }
     },
     {
       "number": 3017,
@@ -148334,7 +148484,7 @@
       "reviewed_head": "0f493f4c264fbc70ee14364b68af260d858c143c",
       "current_head": "0f493f4c264fbc70ee14364b68af260d858c143c",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-native-dirty-fault"
       ],
@@ -148343,7 +148493,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148351,7 +148501,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3017",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3018,
@@ -148379,7 +148534,7 @@
       "reviewed_head": "ca7113157d7c959fdfa9d7cd17ef92d3877070d0",
       "current_head": "ca7113157d7c959fdfa9d7cd17ef92d3877070d0",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-integrality-exchange"
       ],
@@ -148388,7 +148543,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148396,7 +148551,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3018",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3019,
@@ -148424,7 +148584,7 @@
       "reviewed_head": "44d12bdeb8ade4066645bd968bebd4756b06200a",
       "current_head": "44d12bdeb8ade4066645bd968bebd4756b06200a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-coherent-support-witness"
       ],
@@ -148433,7 +148593,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148441,7 +148601,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3019",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3020,
@@ -148469,7 +148634,7 @@
       "reviewed_head": "e49abeef32a376f9e8500999ef15594af2587779",
       "current_head": "e49abeef32a376f9e8500999ef15594af2587779",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-multibin-face-relay"
       ],
@@ -148478,7 +148643,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148486,7 +148651,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3020",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3021,
@@ -148514,7 +148684,7 @@
       "reviewed_head": "217edac2ebfa6250536bd6df153de14901a69395",
       "current_head": "217edac2ebfa6250536bd6df153de14901a69395",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-restore-packing-composition"
       ],
@@ -148523,7 +148693,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148531,7 +148701,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3021",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3022,
@@ -148559,7 +148734,7 @@
       "reviewed_head": "553dc9d8fc8c1489aa2b0378331a0de4b5e9b44e",
       "current_head": "553dc9d8fc8c1489aa2b0378331a0de4b5e9b44e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-doubled-residual-exchange"
       ],
@@ -148568,7 +148743,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148576,7 +148751,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3022",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3023,
@@ -148604,7 +148784,7 @@
       "reviewed_head": "02ebc2ff8243baa9febbb6954f9169e4c216a65e",
       "current_head": "02ebc2ff8243baa9febbb6954f9169e4c216a65e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-18point-avtail-seed010d26fa"
       ],
@@ -148613,7 +148793,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148621,7 +148801,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3023",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3024,
@@ -148649,7 +148834,7 @@
       "reviewed_head": "315df10c07cf8b8ee9af9b2122750635bb2582ae",
       "current_head": "315df10c07cf8b8ee9af9b2122750635bb2582ae",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-cap740"
       ],
@@ -148658,7 +148843,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148666,7 +148851,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3024",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3025,
@@ -148694,7 +148884,7 @@
       "reviewed_head": "a544ef068a46f4de3bc47d1d02149cbdc3ba547f",
       "current_head": "a544ef068a46f4de3bc47d1d02149cbdc3ba547f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-reversible-lifting"
       ],
@@ -148703,7 +148893,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148711,7 +148901,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3025",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3026,
@@ -148739,7 +148934,7 @@
       "reviewed_head": "d323df51afdb616d73ff577179bfb76d8832450d",
       "current_head": "d323df51afdb616d73ff577179bfb76d8832450d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-five-group-projector-lift"
       ],
@@ -148748,7 +148943,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148756,7 +148951,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3026",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3027,
@@ -148784,7 +148984,7 @@
       "reviewed_head": "e686b4a622846c01ac80d038d1441434e9c0b13c",
       "current_head": "e686b4a622846c01ac80d038d1441434e9c0b13c",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-unit-root-tape-boundary"
       ],
@@ -148793,7 +148993,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148801,7 +149001,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3027",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3028,
@@ -148829,7 +149034,7 @@
       "reviewed_head": "9d10633660a3dff5469f4e7a0a009a6c9994c0d7",
       "current_head": "9d10633660a3dff5469f4e7a0a009a6c9994c0d7",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-t148-restore-release"
       ],
@@ -148838,7 +149043,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148846,7 +149051,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3028",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3029,
@@ -148917,7 +149127,7 @@
       "reviewed_head": "78e77d820393c6b8648b47af219e991edfcc54e6",
       "current_head": "78e77d820393c6b8648b47af219e991edfcc54e6",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-t740-release"
       ],
@@ -148926,7 +149136,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -148934,7 +149144,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3030",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3031,
@@ -149005,7 +149220,7 @@
       "reviewed_head": "5b1a7939393ef2778ec058ee8367cdad52c86fb3",
       "current_head": "5b1a7939393ef2778ec058ee8367cdad52c86fb3",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-fixed-matching-flag-consistency"
       ],
@@ -149014,7 +149229,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149022,7 +149237,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3032",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3033,
@@ -149050,7 +149270,7 @@
       "reviewed_head": "b12bbaeb5ca2e83f15433fc2dd0ba3b766595281",
       "current_head": "b12bbaeb5ca2e83f15433fc2dd0ba3b766595281",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-lifting-residue-reduction"
       ],
@@ -149059,7 +149279,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149067,7 +149287,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3033",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3034,
@@ -149095,7 +149320,7 @@
       "reviewed_head": "a05791d428f5d06802fb4c96b33732e6347c64eb",
       "current_head": "a05791d428f5d06802fb4c96b33732e6347c64eb",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-18point-remainder-kb3i-a1"
       ],
@@ -149104,7 +149329,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149112,7 +149337,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3034",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3035,
@@ -149140,7 +149370,7 @@
       "reviewed_head": "0cc430349a3f3dc200666bc22e997076e0a557ed",
       "current_head": "0cc430349a3f3dc200666bc22e997076e0a557ed",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-coupled-lifting-residues"
       ],
@@ -149149,7 +149379,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149157,7 +149387,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3035",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3036,
@@ -149185,7 +149420,7 @@
       "reviewed_head": "3717c1e684553c57bc73300410df65438a9ef095",
       "current_head": "3717c1e684553c57bc73300410df65438a9ef095",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-f0-rounded-scalar"
       ],
@@ -149194,7 +149429,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149202,7 +149437,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3036",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3037,
@@ -149230,7 +149470,7 @@
       "reviewed_head": "02a1c41e8e016d3d0be64c62c8b4734f9c494236",
       "current_head": "02a1c41e8e016d3d0be64c62c8b4734f9c494236",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-maximal-translation-lattice"
       ],
@@ -149239,7 +149479,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149247,7 +149487,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3037",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3038,
@@ -149275,7 +149520,7 @@
       "reviewed_head": "c7d0d7be056ba77fda1c168641b2bcffb10cf43d",
       "current_head": "c7d0d7be056ba77fda1c168641b2bcffb10cf43d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-v45-native-cone-seed78"
       ],
@@ -149284,7 +149529,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149292,7 +149537,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3038",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3039,
@@ -149406,7 +149656,7 @@
       "reviewed_head": "b89c9eef729eb1e5889e2095d59a6fbf4738447d",
       "current_head": "b89c9eef729eb1e5889e2095d59a6fbf4738447d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/residual-call-refinement"
       ],
@@ -149415,7 +149665,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149423,7 +149673,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3041",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3042,
@@ -149451,7 +149706,7 @@
       "reviewed_head": "84cc406ad91ec53fff329a11a445d7effe564a77",
       "current_head": "84cc406ad91ec53fff329a11a445d7effe564a77",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-restore-carrier-skips"
       ],
@@ -149460,7 +149715,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149468,7 +149723,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3042",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3043,
@@ -149496,7 +149756,7 @@
       "reviewed_head": "b5cabfb02a3d8bc3121825144373b03a5648479d",
       "current_head": "b5cabfb02a3d8bc3121825144373b03a5648479d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-modular-residue-reducer"
       ],
@@ -149505,7 +149765,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149513,7 +149773,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3043",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3044,
@@ -149541,7 +149806,7 @@
       "reviewed_head": "1f922b25abff2d7fd87fa5b29619160862a06b59",
       "current_head": "1f922b25abff2d7fd87fa5b29619160862a06b59",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-shared-restore-fanin"
       ],
@@ -149550,7 +149815,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149558,7 +149823,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3044",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3045,
@@ -149629,7 +149899,7 @@
       "reviewed_head": "5549524f7894120b7e993522eb3a59956df5c5c3",
       "current_head": "5549524f7894120b7e993522eb3a59956df5c5c3",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-inverse-residue-permutation"
       ],
@@ -149638,7 +149908,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149646,7 +149916,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3046",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3047,
@@ -149674,7 +149949,7 @@
       "reviewed_head": "8beaff37e90aa63141ec148ba85da4d6fc80c935",
       "current_head": "8beaff37e90aa63141ec148ba85da4d6fc80c935",
       "disposition": "incorporated",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "docs/research/research-package-guide.md",
         "scripts/research_package.py",
@@ -149685,7 +149960,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149693,7 +149968,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3047",
+        "merge_commit": "bc191093c71895ec9c70f238c58056e428b21847"
+      }
     },
     {
       "number": 3048,
@@ -149721,7 +150001,7 @@
       "reviewed_head": "71a0ec5012a04965826c62ad27532b5a4e014480",
       "current_head": "71a0ec5012a04965826c62ad27532b5a4e014480",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-six-mode-exclusion"
       ],
@@ -149730,7 +150010,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149738,7 +150018,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3048",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3049,
@@ -149809,7 +150094,7 @@
       "reviewed_head": "7c9d6b8b01606fa51032c0166f5ed522c8fa5735",
       "current_head": "7c9d6b8b01606fa51032c0166f5ed522c8fa5735",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-restore-substitution-audit"
       ],
@@ -149818,7 +150103,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149826,7 +150111,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3050",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3051,
@@ -149854,7 +150144,7 @@
       "reviewed_head": "10a45bd361554709840becb5bc26016ca49944c3",
       "current_head": "10a45bd361554709840becb5bc26016ca49944c3",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-six-skip-cap-release"
       ],
@@ -149863,7 +150153,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149871,7 +150161,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3051",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3052,
@@ -149899,7 +150194,7 @@
       "reviewed_head": "ae6dcf7e04de89198f8cd5321766d62bf6ee187b",
       "current_head": "ae6dcf7e04de89198f8cd5321766d62bf6ee187b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/hpe-post-wrapper-lemma"
       ],
@@ -149908,7 +150203,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149916,7 +150211,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3052",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3053,
@@ -149944,7 +150244,7 @@
       "reviewed_head": "a977fd1989c092d6946766fe0e66625935799058",
       "current_head": "a977fd1989c092d6946766fe0e66625935799058",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-3015-restore-edit-audit"
       ],
@@ -149953,7 +150253,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -149961,7 +150261,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3053",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3054,
@@ -149989,7 +150294,7 @@
       "reviewed_head": "4773c3ea67b471415870e38411fae313ec44a675",
       "current_head": "4773c3ea67b471415870e38411fae313ec44a675",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-t740-carrier-skips"
       ],
@@ -149998,7 +150303,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150006,7 +150311,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3054",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3055,
@@ -150034,7 +150344,7 @@
       "reviewed_head": "9dc841c9a101435fdd15e0f7623bf16b6d0363e9",
       "current_head": "9dc841c9a101435fdd15e0f7623bf16b6d0363e9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/physical-complex-compact"
       ],
@@ -150043,7 +150353,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150051,7 +150361,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3055",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3056,
@@ -150079,7 +150394,7 @@
       "reviewed_head": "9e4acb6049a6c1897ad8d515892f67204ab1d8c0",
       "current_head": "9e4acb6049a6c1897ad8d515892f67204ab1d8c0",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-restore-contraction"
       ],
@@ -150088,7 +150403,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150096,7 +150411,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3056",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3057,
@@ -150124,7 +150444,7 @@
       "reviewed_head": "8892832224cffb73553cc921e4e3b1ae75d7b886",
       "current_head": "8892832224cffb73553cc921e4e3b1ae75d7b886",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-restore-frame-optimum"
       ],
@@ -150133,7 +150453,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150141,7 +150461,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3057",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3058,
@@ -150169,7 +150494,7 @@
       "reviewed_head": "e67ca5f26351e09c5bb314821633e511212f88ec",
       "current_head": "e67ca5f26351e09c5bb314821633e511212f88ec",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/connector-covering-code"
       ],
@@ -150178,7 +150503,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150186,7 +150511,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3058",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3059,
@@ -150214,7 +150544,7 @@
       "reviewed_head": "0b8b44c6cc367725a8737f8b3cd997f42d3bd0d9",
       "current_head": "0b8b44c6cc367725a8737f8b3cd997f42d3bd0d9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-pointwise-defect-consumer"
       ],
@@ -150223,7 +150553,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150231,7 +150561,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3059",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3060,
@@ -150259,7 +150594,7 @@
       "reviewed_head": "df16ae619b858c5344a797c4424e0bafc2e69f62",
       "current_head": "df16ae619b858c5344a797c4424e0bafc2e69f62",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-native-tariff-optimum"
       ],
@@ -150268,7 +150603,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150276,7 +150611,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3060",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3063,
@@ -150304,7 +150644,7 @@
       "reviewed_head": "3f384b8b7daccb2c8e12013fd81a738202ce0f8d",
       "current_head": "3f384b8b7daccb2c8e12013fd81a738202ce0f8d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/dirty-anchor-tradeoff"
       ],
@@ -150313,7 +150653,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150321,7 +150661,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3063",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3064,
@@ -150392,7 +150737,7 @@
       "reviewed_head": "1cd7d3af6f41dc53e02c26f0b2cf6ffb11106fc8",
       "current_head": "1cd7d3af6f41dc53e02c26f0b2cf6ffb11106fc8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-joint-frame-optimum"
       ],
@@ -150401,7 +150746,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150409,7 +150754,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3065",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3066,
@@ -150437,7 +150787,7 @@
       "reviewed_head": "8aa53674536727123436d3f76adb8f5dac6ddea1",
       "current_head": "8aa53674536727123436d3f76adb8f5dac6ddea1",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/mixed-block-climb-overhead"
       ],
@@ -150446,7 +150796,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150454,7 +150804,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3066",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3067,
@@ -150482,7 +150837,7 @@
       "reviewed_head": "e1e28b4070ae52efa5a9d0aa826bc588be7206f2",
       "current_head": "e1e28b4070ae52efa5a9d0aa826bc588be7206f2",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-f0-physical-rounding"
       ],
@@ -150491,7 +150846,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150499,7 +150854,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3067",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3068,
@@ -150527,7 +150887,7 @@
       "reviewed_head": "7d2c519a1fdcc6bf66f6f08757eed7c48762d3f2",
       "current_head": "7d2c519a1fdcc6bf66f6f08757eed7c48762d3f2",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-invariant-lifting-lattice"
       ],
@@ -150536,7 +150896,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150544,7 +150904,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3068",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3069,
@@ -150572,7 +150937,7 @@
       "reviewed_head": "cd02d94c5eb3c0e1452cc94aeb2231c4d704a684",
       "current_head": "cd02d94c5eb3c0e1452cc94aeb2231c4d704a684",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/signed-dependent-delivery"
       ],
@@ -150581,7 +150946,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150589,7 +150954,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3069",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3070,
@@ -150617,7 +150987,7 @@
       "reviewed_head": "3e9445ed10067912838bd83222ea4066dcfbc62d",
       "current_head": "3e9445ed10067912838bd83222ea4066dcfbc62d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-restricted-update-codes"
       ],
@@ -150626,7 +150996,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150634,7 +151004,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3070",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3071,
@@ -150662,7 +151037,7 @@
       "reviewed_head": "6730b594ad6b0164d484ff1570d774d510fad130",
       "current_head": "6730b594ad6b0164d484ff1570d774d510fad130",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/centre-block-repair-information"
       ],
@@ -150671,7 +151046,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150679,7 +151054,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3071",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3072,
@@ -150707,7 +151087,7 @@
       "reviewed_head": "cd1bbd05251f9d8e15cbb0192f1bfe83dc138f5e",
       "current_head": "cd1bbd05251f9d8e15cbb0192f1bfe83dc138f5e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-blockwise-lifting"
       ],
@@ -150716,7 +151096,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150724,7 +151104,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3072",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3073,
@@ -150752,7 +151137,7 @@
       "reviewed_head": "9e808b67bc395dc91b55493a6fdce0863240bf1c",
       "current_head": "9e808b67bc395dc91b55493a6fdce0863240bf1c",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-defect-output-channels"
       ],
@@ -150761,7 +151146,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150769,7 +151154,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3073",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3074,
@@ -150840,7 +151230,7 @@
       "reviewed_head": "378b8e47fc01412cbc0bc49f0d7a3d40eb1d9442",
       "current_head": "378b8e47fc01412cbc0bc49f0d7a3d40eb1d9442",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/centre-shared-kcall-charged-seed615415"
       ],
@@ -150849,7 +151239,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150857,7 +151247,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3075",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3076,
@@ -150885,7 +151280,7 @@
       "reviewed_head": "2037b8e4a8c03c2015f88904449f60d1fdf58ef3",
       "current_head": "2037b8e4a8c03c2015f88904449f60d1fdf58ef3",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-commuting-contractions"
       ],
@@ -150894,7 +151289,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150902,7 +151297,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3076",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3077,
@@ -150930,7 +151330,7 @@
       "reviewed_head": "9e52b244e07b1d981dd945bba7ac6c16fa7fdd43",
       "current_head": "9e52b244e07b1d981dd945bba7ac6c16fa7fdd43",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/complex-dirty-output-temporary-sum-anchor"
       ],
@@ -150939,7 +151339,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150947,7 +151347,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3077",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3078,
@@ -150975,7 +151380,7 @@
       "reviewed_head": "3da2ea9729f70b074713a5d0f69f0bdab32f2b47",
       "current_head": "3da2ea9729f70b074713a5d0f69f0bdab32f2b47",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-primitive-lowering"
       ],
@@ -150984,7 +151389,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -150992,7 +151397,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3078",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3079,
@@ -151020,7 +151430,7 @@
       "reviewed_head": "8aee45e6a918c99cdca98431c3e791d2b3fd4206",
       "current_head": "8aee45e6a918c99cdca98431c3e791d2b3fd4206",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-v45-profile-audit"
       ],
@@ -151029,7 +151439,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151037,7 +151447,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3079",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3080,
@@ -151065,7 +151480,7 @@
       "reviewed_head": "fd5ff58c6c438c438481bc4bff8c86e2d4fbe865",
       "current_head": "fd5ff58c6c438c438481bc4bff8c86e2d4fbe865",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-aligned-bit-adders"
       ],
@@ -151074,7 +151489,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151082,7 +151497,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3080",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3081,
@@ -151110,7 +151530,7 @@
       "reviewed_head": "d764f9c11c86c40d35fd67811e60284feb1b8f10",
       "current_head": "d764f9c11c86c40d35fd67811e60284feb1b8f10",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-fixed-width-half-add"
       ],
@@ -151119,7 +151539,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151127,7 +151547,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3081",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3082,
@@ -151155,7 +151580,7 @@
       "reviewed_head": "c9c6b59ce5f526a0082d06b24470b7ac946e62da",
       "current_head": "c9c6b59ce5f526a0082d06b24470b7ac946e62da",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/kappa01-target-screen"
       ],
@@ -151164,7 +151589,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151172,7 +151597,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3082",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3083,
@@ -151200,7 +151630,7 @@
       "reviewed_head": "a2ff82111b42aa4abe38e2f8f0386c804111d17f",
       "current_head": "a2ff82111b42aa4abe38e2f8f0386c804111d17f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-coefficient-grid"
       ],
@@ -151209,7 +151639,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151217,7 +151647,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3083",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3084,
@@ -151245,7 +151680,7 @@
       "reviewed_head": "4b763c20da54e4e29e3edfdd1c3e251f5ede37e0",
       "current_head": "4b763c20da54e4e29e3edfdd1c3e251f5ede37e0",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/rank7-scalar-lattice"
       ],
@@ -151254,7 +151689,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151262,7 +151697,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3084",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     },
     {
       "number": 3085,
@@ -151290,7 +151730,7 @@
       "reviewed_head": "6d5db23b5ba34b20493fe9eea98d08682495a821",
       "current_head": "6d5db23b5ba34b20493fe9eea98d08682495a821",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/pr1-retention-receipt"
       ],
@@ -151299,7 +151739,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-pass-20261016.json"
@@ -151307,7 +151747,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3085",
+        "merge_commit": "5d93a572628653ad7a2d35c81a4e97c974fad3e2"
+      }
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -151319,7 +151764,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1866,
-    "OPEN": 348
+    "MERGED": 1955,
+    "OPEN": 259
   }
 }

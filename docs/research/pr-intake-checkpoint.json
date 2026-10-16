@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Fresh delta planner reported zero actionable entries. Recheck live heads once at next session; resume only new/reactivated entries or an explicitly woken deferred review. Drafts, concrete revisions and separately deferred replays remain open; no complete mathematical validation is implied.",
+  "next": "Ten actionable heads remain at the saved live snapshot: #3086–#3094 (nine new) and #3064 (workflow/full-release review). Refresh once next session. The 43 attribute/digest-only wakes were acknowledged without replay; unchanged scientific/resource/CI-policy holds remain. No Lean, Docker or supplier replay was run. Archive merges remain partially reviewed.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,14 +1011,104 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
+    "source_publication_commit": "864290c2b",
     "merged": [
-      275,
-      2977
+      2982,
+      2984,
+      2986,
+      2987,
+      2989,
+      2990,
+      2991,
+      2992,
+      2993,
+      2994,
+      2995,
+      2996,
+      2997,
+      2998,
+      2999,
+      3000,
+      3002,
+      3003,
+      3004,
+      3005,
+      3006,
+      3007,
+      3008,
+      3009,
+      3010,
+      3011,
+      3013,
+      3014,
+      3015,
+      3016,
+      3017,
+      3018,
+      3019,
+      3020,
+      3021,
+      3022,
+      3023,
+      3024,
+      3025,
+      3026,
+      3027,
+      3028,
+      3030,
+      3032,
+      3033,
+      3034,
+      3035,
+      3036,
+      3037,
+      3038,
+      3041,
+      3042,
+      3043,
+      3044,
+      3046,
+      3047,
+      3048,
+      3050,
+      3051,
+      3052,
+      3053,
+      3054,
+      3055,
+      3056,
+      3057,
+      3058,
+      3059,
+      3060,
+      3063,
+      3065,
+      3066,
+      3067,
+      3068,
+      3069,
+      3070,
+      3071,
+      3072,
+      3073,
+      3075,
+      3076,
+      3077,
+      3078,
+      3079,
+      3080,
+      3081,
+      3082,
+      3083,
+      3084,
+      3085
     ],
+    "archive_count": 81,
+    "reviewed_tooling_count": 8,
     "evidence": [
-      "docs/research/pr-intake-evidence/pr275-historical-retention.json",
-      "docs/research/pr-intake-evidence/archives-20261016d.json"
-    ]
+      "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+    ],
+    "selected_frontier_changed": false
   },
   "reported_followups": [
     {
@@ -1031,5 +1121,17 @@
       ],
       "scope": "Contributor reports a parity-budget defect in earlier word-census engines. This intake archives the correction but does not independently validate it. Review before relying on the earlier exclusions."
     }
-  ]
+  ],
+  "latest_queue": {
+    "observed_at": "2026-10-16T23:52:19.101173+00:00",
+    "open_count": 246,
+    "actionable_count": 10,
+    "counts": {
+      "draft": 135,
+      "waiting_revision": 94,
+      "deferred_replay": 7,
+      "pending_review": 1,
+      "new": 9
+    }
+  }
 }
