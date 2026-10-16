@@ -102,19 +102,21 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Revised head: compare against the prior reviewed source and complete affected review/replay obligations.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang: complete historical JSON source-pin census and four reproduced consumer rejections. Revised syntax/consumer distinction and tracked case-insensitive inventory reviewed; memory-bounded streaming resolution reproduces every saved result field for2481027pins across17525manifests. Candidate drift is not a mathematical failure or a demonstrated failure for every consumer.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2255.json",
-        "research/community-efficient1900-audit/packets/2255.json"
+        "research/community-efficient1900-audit/packets/2255.json",
+        "research/community-efficient1900-audit/checks/check-2255-original-resource-stop.json",
+        "research/community-efficient1900-audit/checks/check-2255.json"
       ]
     },
     {

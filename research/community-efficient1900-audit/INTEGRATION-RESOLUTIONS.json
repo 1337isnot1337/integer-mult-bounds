@@ -68,5 +68,12 @@
     "resolved_sha256": "3f0c65f16534e11908f61b7185de940b10507aedfcc4baaa78c0690298fe07b7",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
+  },
+  {
+    "number": 2255,
+    "path": "research/live-pin-drift-audit-seed5985/verify.py",
+    "resolved_sha256": "bd9080672b4463a719e4730af5d2f3d0bee4b675a7e826c79ed4fda6872c47a9",
+    "resolved_mode": "100644",
+    "reason": "Stream classification one manifest at a time instead of materializing2.5million dictionaries. Preserves global manifest/key/shape order and complete saved RESULT equality; original retained. Full frozen audit passes37.71seconds with218MiB sampled peak after original exceeds1GiB."
   }
 ]

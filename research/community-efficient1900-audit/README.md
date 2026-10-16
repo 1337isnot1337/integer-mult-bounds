@@ -9,6 +9,7 @@ The selected conditional κ is unchanged. Attribution and predecessor notices re
 | PR | Contributor | Scope |
 | --- | --- | --- |
 | [#1007](https://github.com/CrocSwap/integer-mult-bounds/pull/1007) | RossRichardson | Ross Richardson: independent hash-bound PR116 historical source/CI reconciliation; all208 Git objects authenticated,28 capsule tests and2 ledger regressions pass. Complete2441-row ledger preserved except one historical evidence pointer and its source digest; PR116 stays incorporated and closed. No new supplier or kappa. |
+| [#2255](https://github.com/CrocSwap/integer-mult-bounds/pull/2255) | navinor | Aaron Wang: complete historical JSON source-pin census and four reproduced consumer rejections. Revised syntax/consumer distinction and tracked case-insensitive inventory reviewed; memory-bounded streaming resolution reproduces every saved result field for2481027pins across17525manifests. Candidate drift is not a mathematical failure or a demonstrated failure for every consumer. |
 | [#2874](https://github.com/CrocSwap/integer-mult-bounds/pull/2874) | RossRichardson | Ross Richardson: exact identity-aware retained backing at packet prefix-return cuts, including erased arrays and cross-pass aliases. Written source proof, 130 native/interface cuts and 5,184 independent fixture cuts; not whole-loop or physical memory. |
 | [#2876](https://github.com/CrocSwap/integer-mult-bounds/pull/2876) | Arham-Tahir64 | Arham Tahir: common signed block-scale scan, finite-format admissibility and exact Boolean gate invoice. |
 | [#2877](https://github.com/CrocSwap/integer-mult-bounds/pull/2877) | Arham-Tahir64 | Arham Tahir: exact logical traffic for the PR2753 linear sign, including countdown setup/disposal. Written canonical-input bound below 2048V, 387 countdowns and 150 signs; not physical compilation or a supplier admission. |
@@ -55,7 +56,6 @@ The selected conditional κ is unchanged. Attribution and predecessor notices re
 | PR | Contributor | Next step |
 | --- | --- | --- |
 | [#1830](https://github.com/CrocSwap/integer-mult-bounds/pull/1830) | RossRichardson | Revised head: compare against the prior reviewed source and complete affected review/replay obligations. |
-| [#2255](https://github.com/CrocSwap/integer-mult-bounds/pull/2255) | navinor | Revised head: compare against the prior reviewed source and complete affected review/replay obligations. |
 | [#2464](https://github.com/CrocSwap/integer-mult-bounds/pull/2464) | navinor | Revised head: compare against the prior reviewed source and complete affected review/replay obligations. |
 | [#2873](https://github.com/CrocSwap/integer-mult-bounds/pull/2873) | DreamingOfClouds | Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation. |
 | [#2875](https://github.com/CrocSwap/integer-mult-bounds/pull/2875) | digitalis-p | Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation. |
