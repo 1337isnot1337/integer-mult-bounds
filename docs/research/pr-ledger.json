@@ -110,6 +110,7 @@
     "research/community-efficient1900-audit/DISPOSITIONS.json": "139dd868e00209d19c83403699fbecb5d0fbb0ce528d37fd736ec9b4b129cf69",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
+    "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
     "research/pr148-source-retention/COVERAGE.json": "40ea3e36699e760976b33dec03131e0d971a644f658aee4bff47f62b8ebd96ca"
   },
@@ -6967,6 +6968,12 @@
           "evidence": "research/community-reconciliation92-audit/DISPOSITIONS.json",
           "scope": "Cube-deferred construction with reflection and coefficient obligations. Exact-head CI evidence; finite checks retain stated reflection/analytic dependencies.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "295a48a3b966428896057a98c6b4834c0b4b7416",
+          "evidence": "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json",
+          "scope": "PR1007 independently decodes both complete historical Git trees: exactly three evidence/status paths change and 41 dependency objects remain identical. Its offline capsule binds 42 historical CI checks and the actual checkout of three focused jobs. No fresh supplier replay or recovery of the author local full-run archive; later PR116 incorporation and closure remain authoritative.",
+          "kind": "independent_consolidation"
         }
       ],
       "historical_mentions": [

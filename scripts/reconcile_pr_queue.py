@@ -67,6 +67,16 @@ def apply_pr148_retention(item, receipt, coverage):
             'before any incorporation or closure decision. Source retention is not that execution.')
 
 
+def apply_independent_parent_evidence(item, companion, source_path):
+    """Append scoped evidence without changing any later review or closure decision."""
+    if item['number'] != companion['number'] or item['current_head'] != companion['head']:
+        raise ValueError('Independent parent evidence belongs to a different head')
+    evidence = dict(head=companion['head'], evidence=source_path,
+                    scope=companion['scope'], kind='independent_consolidation')
+    if evidence not in item['evidence']:
+        item['evidence'].append(evidence)
+
+
 def build():
     snapshot = read(AUDIT.relative_to(ROOT) / 'starting-snapshot.json')
     rows = {}
@@ -280,15 +290,14 @@ def build():
             # Keep the historical evidence without resurrecting its resolved question.
             if not item.get('review_completion', {}).get('required_execution_complete', False):
                 item['unresolved_question'] = companion['remaining']
-    extra_parent_path = 'research/community-efficient300-audit/PARENT-EVIDENCE.json'
-    if (ROOT / extra_parent_path).exists():
-        indexed = {p['number']: p for p in result}
-        for companion in load(extra_parent_path)['pull_requests']:
-            item = indexed[companion['number']]
-            if item['current_head'] != companion['head']:
-                raise ValueError('Independent parent evidence belongs to a different head')
-            item['evidence'].append(dict(head=companion['head'], evidence=extra_parent_path,
-                                        scope=companion['scope'], kind='independent_consolidation'))
+    for extra_parent_path in (
+            'research/community-efficient300-audit/PARENT-EVIDENCE.json',
+            'research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json'):
+        if (ROOT / extra_parent_path).exists():
+            indexed = {p['number']: p for p in result}
+            for companion in load(extra_parent_path)['pull_requests']:
+                apply_independent_parent_evidence(indexed[companion['number']], companion,
+                                                  extra_parent_path)
     retention_path = 'research/pr148-source-retention/'
     if (ROOT / retention_path / 'RESULT.json').exists():
         item = next(p for p in result if p['number'] == 148)
