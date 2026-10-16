@@ -47,11 +47,32 @@ MODES = {
 
 
 def load_progress(mode):
+    """Per-mode sections in one file (v1 kept one mode per file and lost the
+    other mode's receipts when switching; migrated on read)."""
+    data = {"modes": {}}
     if PROGRESS.exists():
         old = json.loads(PROGRESS.read_text(encoding="utf-8"))
-        if old.get("mode") == mode:
-            return old
-    return {"mode": mode, "shards": {}}
+        if "modes" in old:
+            data = old
+        elif "mode" in old:
+            data["modes"][old["mode"]] = {
+                k: v for k, v in old.items() if k != "mode"
+            }
+    return data["modes"].setdefault(mode, {"shards": {}})
+
+
+def save_progress(mode, prog):
+    data = {"modes": {}}
+    if PROGRESS.exists():
+        old = json.loads(PROGRESS.read_text(encoding="utf-8"))
+        if "modes" in old:
+            data = old
+        elif "mode" in old:
+            data["modes"][old["mode"]] = {
+                k: v for k, v in old.items() if k != "mode"
+            }
+    data["modes"][mode] = prog
+    PROGRESS.write_text(json.dumps(data, indent=2, sort_keys=True), encoding="utf-8")
 
 
 def main():
@@ -80,7 +101,7 @@ def main():
             "examples": examples,
             "seconds": round(time.time() - t1, 2),
         }
-        PROGRESS.write_text(json.dumps(prog, indent=2, sort_keys=True), encoding="utf-8")
+        save_progress(mode, prog)
         print(
             f"ANCHOR {mode} {key} hist={prog['shards'][key]['hist']}"
             f" seconds={prog['shards'][key]['seconds']}"
@@ -97,7 +118,7 @@ def main():
     count = sum(total.values())
     prog["total_hist"] = {str(e): n for e, n in sorted(total.items())}
     prog["complete"] = True
-    PROGRESS.write_text(json.dumps(prog, indent=2, sort_keys=True), encoding="utf-8")
+    save_progress(mode, prog)
     assert count == spec["anchor_count"], (mode, count, spec["anchor_count"])
     print(f"PASS_ANCHORS_{mode.upper()} count={count} total_hist={prog['total_hist']} shards=62", flush=True)
 

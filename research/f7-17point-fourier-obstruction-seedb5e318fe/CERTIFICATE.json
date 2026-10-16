@@ -18,9 +18,9 @@
       "evidence": "Jointly with PR 2542 ((9,8)/(8,9) dead in the pair-representation identity) and PR 2773 ((10,7)/(7,10) excluded exactly against the census floor; (3,3),(4,2) demoted by the completed k=11 census), plus this package's exclusion of (5,1),(6,0) and therefore of the whole (11,6)/(6,11) family. All six counting-feasible splits are now excluded."
     },
     {
-      "statement": "The recorded predecessor anchors of PR 2542/2634/2773 are reproduced (REPRO tiers 945/31, 10395/49, 945945/59; length-18 census 15,775,992 nodes / 312,064 cycles / 0 universal; row table; n=5 set controls; the four zero shards recomputed against the PR 2773 receipt).",
+      "statement": "The recorded predecessor anchors of PR 2542/2634/2773 are reproduced (REPRO tiers 945/31, 10395/49, 945945/59; length-18 census 15,775,992 nodes / 312,064 cycles / 0 universal; row table; n=5 set controls; the four zero shards recomputed against the PR 2773 receipt; and the two heavy anchors recomputed in full: PASS_ANCHORS_K10B3 count=149990400, PASS_ANCHORS_K11B4 count=0).",
       "label": "CHECKED",
-      "evidence": "In-session runs of the predecessor packages' own verify.py / verify.py --full / test_engine.py / independent.py against byte-exact extractions (ANCHOR-REPRO.json). The k=10 budget-3 count 149,990,400 and the k=11 level3=level4=0 raw walk are receipt-checked and second-code-path cross-checked, with full resumable recomputation available in anchors.py (per-sub-shard receipts)."
+      "evidence": "In-session runs of the predecessor packages' own verify.py / verify.py --full / test_engine.py / independent.py against byte-exact extractions, plus the resumable anchors.py sub-shard walk on the vendored engine (62/62 sub-shards each, per-shard receipts in ANCHOR-PROGRESS.json); commands and observed outputs in ANCHOR-REPRO.json."
     },
     {
       "statement": "The Fourier route alone does not exclude the other four 17-point splits, and it does not reach the 18/19-point splits (E_o >= 8 there).",

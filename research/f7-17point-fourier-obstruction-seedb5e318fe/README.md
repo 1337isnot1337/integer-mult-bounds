@@ -115,8 +115,8 @@ The row remainder is reproduced from the vendored PR 2773 engine:
 `shared = 1`, `c = 1`, and the recorded k=11 census floor `e_ex >= 5` leaves
 exactly `(5,1),(6,0)` — the object decided here (both orders).
 
-Optional heavy anchor recomputation (resumable, per-sub-shard receipts in
-`ANCHOR-PROGRESS.json`, the established PR 2773 raw-domain walk:
+Heavy anchor recomputation (completed in-session; resumable, per-sub-shard
+receipts in `ANCHOR-PROGRESS.json`, the established PR 2773 raw-domain walk:
 `GL(6,2)`-transitive domain through `{0,3}`, sub-shards by the smallest free
 element, vendored engine byte-pinned):
 
@@ -125,11 +125,10 @@ python3 -I -B research/f7-17point-fourier-obstruction-seedb5e318fe/anchors.py k1
 python3 -I -B research/f7-17point-fourier-obstruction-seedb5e318fe/anchors.py k11b4
 ```
 
-`k10b3` recomputes the recorded `k=10 budget-3 = 149,990,400` anchor;
-`k11b4` recomputes the recorded `k=11 levels 3-4 = 0` anchor (zero 11-sets of
-pair-sum excess `<= 4` through `{0,3}`). Each invocation checkpoints and exits
-after its time budget; re-invoke until `PASS_ANCHORS_K10B3` /
-`PASS_ANCHORS_K11B4` print.
+Observed: `PASS_ANCHORS_K10B3 count=149990400 total_hist={'3': 149990400}
+shards=62` and `PASS_ANCHORS_K11B4 count=0 total_hist={} shards=62`. Each
+invocation checkpoints after every sub-shard and exits after its time budget,
+so an interrupted walk resumes from `ANCHOR-PROGRESS.json`.
 
 ## Recorded anchors (reproduced before any new number)
 
@@ -143,8 +142,8 @@ In-session, CPython 3.12, against the predecessor packages byte-exactly
 | PR 2773 zero shards (`k10` budgets 0/1/2, `k11` budget 2) | all `0`, match receipt | recomputed (`verify.py --full`) |
 | PR 2773 row table | `(11,6)/(6,11)` remainder `(5,1),(6,0)` | recomputed |
 | n=5 set controls | 0 nine-point covers (max 29/32), `99,200` ten-point covers | recomputed |
-| PR 2773 `k=10 budget-3` | `149,990,400` | receipt-checked + second-code-path cross-check; full resumable recomputation via `anchors.py k10b3` |
-| PR 2773 `k=11` levels 3-4 | `0`, `0` (62/62 sub-shards) | receipt-checked + progress-agreement cross-check; full resumable recomputation via `anchors.py k11b4` |
+| PR 2773 `k=10 budget-3` | `149,990,400` | recomputed in full (`anchors.py k10b3`, `PASS_ANCHORS_K10B3 count=149990400`, 62/62 sub-shards) |
+| PR 2773 `k=11` levels 3-4 | `0`, `0` (62/62 sub-shards) | recomputed in full (`anchors.py k11b4`, `PASS_ANCHORS_K11B4 count=0`) |
 
 None of the last two anchors is load-bearing for the verdict here: the rows
 `(5,1),(6,0)` are excluded by the identity above, which uses only exact
