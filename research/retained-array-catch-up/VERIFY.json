@@ -29,7 +29,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Primary: source pins and premise lines; selected #1094 template level timeline (8 coordinates per level); catch-up law controls PR2540 128 / PR2197 144 / PR2678 1792,3696 / centre path 576; INIT64+d_A 3648, d_A 960, cheapest-62 1952, array-calls 464/456, hosting-aware zero witness (pair-3 Y streams) and capture-level hosting check (4,173 slots); pinned ceiling.py pricing (896 threshold, #1166 break-evens 573/71, comparison table); exact frame model (10,748 record/partner instances opt = cut bound = meeting formula, 4,044 general instances sound); two-call rational tensor toy; 12 negative controls; RESULT.json equality."
+      "checks": "Primary: source pins and premise lines; selected #1094 template level timeline (8 coordinates per level); catch-up law controls PR2540 128 / PR2197 144 / PR2678 1792,3696 / centre path 576; INIT64+d_A 3648 (end decoder) / 1344 (earliest decoder), d_A 960, cheapest-62 1952 / 800, array-calls 464/456, hosting-aware zero witness (pair-3 Y streams) and capture-level hosting check (4,173 slots); pinned ceiling.py pricing (896 threshold, #1166 break-evens 573/71, comparison table); exact frame model (10,748 record/partner instances opt = cut bound = meeting formula, 4,044 general instances sound); two-call rational tensor toy; 12 negative controls; RESULT.json equality."
     },
     {
       "argv": [
@@ -39,7 +39,7 @@
         "{package}/independent_check.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Independent: coordinate-set replay of the PR2346-pinned base template from idle child ranks; law values PR2540 128, INIT64+d_A 3648, d_A 960, cheapest-62 1952, zero witness; hosted-template witness window by first-touch times; Decimal-80 moment break-evens 573/71 and exact-rational 896 threshold without ceiling.py; echelon-basis Dijkstra on 2,432 GF(2)^2 record/partner instances; 2 rejecting controls."
+      "checks": "Independent: coordinate-set replay of the PR2346-pinned base template from idle child ranks; law values PR2540 128, INIT64+d_A 3648 / 1344, d_A 960, cheapest-62 1952 / 800, zero witness; hosted-template witness window by first-touch times; Decimal-80 moment break-evens 573/71 and exact-rational 896 threshold without ceiling.py; echelon-basis Dijkstra on 2,432 GF(2)^2 record/partner instances; 2 rejecting controls."
     }
   ]
 }

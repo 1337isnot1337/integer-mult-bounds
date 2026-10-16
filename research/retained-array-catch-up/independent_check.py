@@ -115,6 +115,11 @@ def law(snapshots, stage_pair, t):
     out = {"PR2540": 16 * gap(after(0), after(1), 0)}
     out["INIT"] = [16 * gap(before(local_idx[k][0]), end, k) for k in range(4)]
     out["dA"] = [8 * gap(after([i for i in local_idx[k] if sched[i]["stage"] % 2][0]), end, k) for k in range(3)]
+    last = {k: after(local_idx[k][-1]) for k in range(4)}
+    init_early = [gap(before(local_idx[k][0]), last[k], k) for k in range(4)]
+    da_early = [gap(after([i for i in local_idx[k] if sched[i]["stage"] % 2][0]), last[k], k) for k in range(3)]
+    out["early"] = 16 * sum(init_early) + 8 * sum(da_early)
+    out["early62"] = sum(sorted([c for c in init_early for _ in range(16)] + [c for c in da_early for _ in range(8)])[:62])
     touch = min(i for i, e in enumerate(sched) if
                 (e["kind"] == "local_cover_sweep" and stage_pair[e["stage"]] == 3) or
                 (e["kind"] == "idle_cover_sweep" and e["pair"] == 3 and e["to_level"] > e["from_level"]) or
@@ -336,6 +341,9 @@ def main():
     total = sum(v["INIT"]) + sum(v["dA"])
     need(total == 3648, "INIT64 + d_A = 3648")
     need(sum(v["dA"]) == 960, "d_A alone 960")
+    need(v["early"] == 1344 and v["early62"] == 800, "earliest consumer timing 1344; cheapest 62 there 800")
+    need(relax(qq16_words(), 0, D(800) / 9, D("0.001672660197076918") / (1 - D("0.001672660197076918"))) > 1,
+         "800 units cannot reach the selected kappa (Decimal)")
     per_array = sorted([x // 16 for x in v["INIT"] for _ in range(16)] + [x // 8 for x in v["dA"] for _ in range(8)])
     need(sum(per_array[:62]) == 1952, "cheapest 62 of the 88 stated captures = 1952")
     need(v["zero_witness"] == (0, 6), "zero witness: no coordinate applied to pair 3 across six calls")
@@ -344,7 +352,7 @@ def main():
     rejected = controls(t)
     t14, x_early = hosted_witness()
     need((t14, x_early) == (40, 160), "witness window ends at time 40; pair-3 X streams host 160 residuals in it")
-    print("PASS_RETAINED_ARRAY_CATCH_UP_INDEPENDENT pr2540=128 init64_dA=%d dA_only=960 cheapest62=1952 zero_witness_calls=6 "
+    print("PASS_RETAINED_ARRAY_CATCH_UP_INDEPENDENT pr2540=128 init64_dA=%d init64_dA_early=1344 dA_only=960 cheapest62=1952/800 zero_witness_calls=6 "
           "breakeven_S=%d breakeven_C=%d no_saving=%d echelon_dijkstra_instances=%d controls_rejected=%d"
           % (total, dec["breakeven_idle"], dec["breakeven_rank8"], dec["threshold"], n, rejected))
 

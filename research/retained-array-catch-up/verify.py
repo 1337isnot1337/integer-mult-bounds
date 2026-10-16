@@ -264,6 +264,19 @@ def routes(timeline, events, stage_pair, mutate=None):
     per_array = sorted([r["mass"] // r["rows"] for r in init + da for _ in range(r["rows"])])
     need(len(per_array) == 88, "88 stated arrays per owner per replica")
     out["cheapest_62_of_stated_captures_mass"] = sum(per_array[:62])
+    # Earliest consumer timing: decode each bank at its own frame right after its last local call;
+    # the corrected fields then ride the inherited idle sweep to level 8 (no extra mass there).
+    early = []
+    for r in init + da:
+        k = r["bank"]
+        last = lv_after(timeline, locals_of[k][-1])
+        cap = [None] * 4
+        cap[k] = r["capture_level"]
+        early.append(catch_up(cap, last, k, r["rows"]))
+    out["INIT64_plus_dA_early_consumer_mass"] = sum(early)
+    per_early = sorted([m // r["rows"] for m, r in zip(early, init + da) for _ in range(r["rows"])])
+    out["cheapest_62_early_consumer_mass"] = sum(per_early[:62])
+    out["early_consumer_levels"] = [lv_after(timeline, locals_of[k][-1])[k] for k in range(4)]
     touch = min(e["source_event"] for e in events
                 if (e["kind"] == "local_cover_sweep" and stage_pair[e["stage"]] == 3)
                 or (e["kind"] == "idle_cover_sweep" and e["pair"] == 3 and e["to_level"] > e["from_level"])
@@ -683,6 +696,9 @@ def main(argv):
     need([x["mass"] for x in r["d_A"]] == [448, 320, 192], "d_A climbs 56/40/24 per array")
     need(r["INIT64_plus_dA_mass"] == 3648 and r["d_A_only_mass"] == 960, "INIT64 + d_A 3648; d_A alone 960")
     need(r["cheapest_62_of_stated_captures_mass"] == 1952, "cheapest 62 stated captures 1952")
+    need(r["early_consumer_levels"] == [2, 4, 6, 8] and r["INIT64_plus_dA_early_consumer_mass"] == 1344,
+         "earliest consumer timing (each bank after its last local call): 1344 = 8 per later data incidence")
+    need(r["cheapest_62_early_consumer_mass"] == 800, "cheapest 62 stated captures at the earliest timing: 800")
     zw = r["zero_witness"]
     need(zw["law_mass_per_array"] == 0 and zw["calls_in_window"] == [0, 1, 2, 3, 4, 5]
          and zw["consumer_before_event"] == 14, "zero witness: pair 3 untouched through stages 0..5")
@@ -712,10 +728,17 @@ def main(argv):
     C = load_ceiling()
     result["pricing"] = pricing_checks(C, {
         "INIT64_plus_dA_law": r["INIT64_plus_dA_mass"], "d_A_only_law": r["d_A_only_mass"],
+        "INIT64_plus_dA_early_consumer_law": r["INIT64_plus_dA_early_consumer_mass"],
+        "cheapest_62_early_consumer_law": r["cheapest_62_early_consumer_mass"],
         "cheapest_62_stated_law": r["cheapest_62_of_stated_captures_mass"],
         "INIT64_plus_dA_S_published": published, "INIT64_plus_dA_C_published": 8 * published})
-    for name in ("INIT64_plus_dA_law", "d_A_only_law", "cheapest_62_stated_law", "INIT64_plus_dA_C_published"):
+    for name in ("INIT64_plus_dA_law", "d_A_only_law", "cheapest_62_stated_law", "INIT64_plus_dA_C_published",
+                 "INIT64_plus_dA_early_consumer_law"):
         need(result["pricing"]["routes"][name]["idle_priced_kappa_cap"] is None, name + ": no positive saving")
+    c800 = result["pricing"]["routes"]["cheapest_62_early_consumer_law"]
+    need(c800["idle_priced_kappa_cap"] is not None and Q(c800["idle_priced_kappa_cap"]) < SELECTED_KAPPA
+         and Q(c800["rank8_priced_kappa_cap"]) < SELECTED_KAPPA,
+         "800 units: positive ceiling, but below the selected kappa (and hence every pending claim)")
     need(result["pricing"]["routes"]["INIT64_plus_dA_S_published"]["idle_priced_kappa_cap"] is not None,
          "S-priced 464 keeps a positive ceiling (the #1166 table)")
     result["frame_model"] = frame_model_checks()
@@ -723,7 +746,7 @@ def main(argv):
     result["negative_controls_rejected"] = negative_controls(hosted, base, events, C)
     n_neg = len(result["negative_controls_rejected"]) + 3   # + upward-only bound + two toy controls
     fm = result["frame_model"]
-    status = ("PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 dA_only=960 cheapest62=1952 "
+    status = ("PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 "
               "array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 "
               "frame_instances=%d/%d negative_controls=%d no_new_kappa"
               % (fm["record_partner_instances"], fm["general_instances"], n_neg))

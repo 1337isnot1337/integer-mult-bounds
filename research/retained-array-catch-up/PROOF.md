@@ -31,8 +31,10 @@ How the law compares with the two conventions:
 | Record of a family that nothing touches during the lifetime (pair 3, six calls) | 0 | over-prices | over-prices |
 | Record of a deferred family (pair 0 after stage 5) | 48 per array | 24 per array | — |
 
-For the two #1166 routes, the law agrees with (C), up to one lifetime off-by-one. Their
-verdicts are therefore those that (C) gives, but here they are derived rather than assumed.
+For the two #1166 routes with an end-of-replica decoder, the law agrees with (C), up to one
+lifetime off-by-one. Their verdicts are therefore those that (C) gives, but here they are
+derived rather than assumed. An earlier decoder lowers the INIT64 + d_A charge to 1,344 units
+per replica, which is still above the 896-unit no-saving threshold.
 
 ## 1. Model and premises
 
@@ -349,8 +351,17 @@ Notes on the controls:
 
 **Premises.**
 
-- **P_final.** The decoded selected inputs are consumed at the final frame, level 8. The final
-  records and the replica's data endpoint live there.
+- **Consumer timing (explicit).** The consumer works at each bank's **current** frame
+  (h_c = h_p in Proposition 3). Two timings bracket the possibilities:
+  - **P_final**, the stated contract: decode at the end, level 8, where the final records and
+    the replica's data endpoint live.
+  - **P_early**, the most favourable: decode each bank at its own frame right after its last
+    local call (levels 2, 4, 6, 8). The corrected fields then ride the inherited idle sweep to
+    level 8 at no extra cost.
+
+  Any later timing advances the partners further, so it only adds catch-up. A consumer below
+  the partners' frame would need its outputs moved back up, which Proposition 3 charges in
+  full; it is not priced here.
 - **P_rank (joint).** At every cut j, the stated arrays captured below j are linearly independent
   modulo all rows available at or above j. Those rows are the final records, plus any stated
   record captured above j. So the deficit at cut j is the number of stated arrays below j that
@@ -362,11 +373,14 @@ Notes on the controls:
 
 **Catch-up per replica.**
 
-| Records | Capture levels | Levels climbed | Units |
-|---|---|---|---|
-| INIT, banks 0–3 (16 arrays each) | −1, 2, 4, 6 | 9, 6, 4, 2 | 1,152 + 768 + 512 + 256 |
-| d_A, banks 0–2 (8 arrays each) | 1, 3, 5 | 7, 5, 3 | 448 + 320 + 192 |
-| **Total** | | | **3,648** |
+| Records | Capture levels | Levels climbed (P_final) | Units (P_final) | Levels climbed (P_early) | Units (P_early) |
+|---|---|---|---|---|---|
+| INIT, banks 0–3 (16 arrays each) | −1, 2, 4, 6 | 9, 6, 4, 2 | 1,152 + 768 + 512 + 256 | 3, 2, 2, 2 | 384 + 256 + 256 + 256 |
+| d_A, banks 0–2 (8 arrays each) | 1, 3, 5 | 7, 5, 3 | 448 + 320 + 192 | 1, 1, 1 | 64 + 64 + 64 |
+| **Total** | | | **3,648** | | **1,344** |
+
+The P_early total is exactly 8 per later data incidence. Under P_final the idle sweeps add the
+rest.
 
 **Price.** With C = 0 and the controller free, a paid mass of at least 896 units per replica
 leaves no positive saving, whatever the packing. The reason:
@@ -377,21 +391,22 @@ leaves no positive saving, whatever the packing. The reason:
 
 Both `ceiling.py` (at 895 and 896) and the exact rational check agree.
 
-**Decision: rejected in the stated model, under either convention.** Adding a storage price
-can only raise the cost.
+**Decision: rejected in the stated model, under either convention and either consumer
+timing.** Both 3,648 and 1,344 are at least 896. Adding a storage price can only raise the cost.
 
 **Robustness.**
 
-- d_A alone costs 960 ≥ 896.
+- d_A alone costs 960 under P_final, which is ≥ 896.
 - Theorem B in #2074 c18940190 (philippeVV) says any repair needs at least 62 coordinates per
   owner per replica. It is a posted claim, with fork `680d0997`, and has not been reviewed.
   - If the needed information lies in the stated captures, any 62 of the 88 cost at least
-    1,952. This needs only Theorem B, not the joint P_rank.
+    1,952 under P_final. This needs only Theorem B, not the joint P_rank.
+  - The weakest combination considered is P_early with only the 62 cheapest stated captures.
+    It costs 800, giving a κ ceiling of 0.000509, far below the selected 0.0016727. So even
+    there the route gains nothing over the selected record or any pending claim.
 - **Sufficiency.** Whether INIT64 + d_A is actually sufficient (finite models; derived
   decoders, #2074 c18950926) does not affect the rejection. A contract that is not sufficient
   fails anyway, and one that is sufficient costs at least the amounts above.
-- A consumer below the final frame is a changed endpoint contract. Proposition 3 would then
-  charge partner descent and output transport instead. That case is not priced here.
 
 **What could revive the route.** A contract whose catch-up-weighted retention stays below the
 break-evens:
@@ -478,7 +493,8 @@ child of rank 8 is available per row, and rank-8 children are the cheapest per u
 - **Physical storage, tape and hosting windows of retained arrays** lie outside the moment and
   are UNKNOWN. Lemma 2 neither prices nor dismisses them.
 - **P_rank for INIT64 + d_A** rests on finite-model evidence only.
-- **P_final** is a premise, not a theorem.
+- **The consumer timing** is a premise, not a theorem. It is bracketed by P_early and P_final;
+  a consumer below the partners' frame is not priced.
 - **P4 (no slack in inherited words)** is supported by the coverage identity and PR1664 §5. It
   is not re-derived event by event here. Slack exhibited in an inherited word would reduce the
   forced catch-up by at most that slack.

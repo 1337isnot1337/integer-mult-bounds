@@ -369,10 +369,20 @@
     "rank8_priced_kappa_cap": "0.0022704880238689",
     "units_per_replica": 464
    },
+   "INIT64_plus_dA_early_consumer_law": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1344
+   },
    "INIT64_plus_dA_law": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 3648
+   },
+   "cheapest_62_early_consumer_law": {
+    "idle_priced_kappa_cap": "0.0005090718448615",
+    "rank8_priced_kappa_cap": "0.0005051036823380",
+    "units_per_replica": 800
    },
    "cheapest_62_stated_law": {
     "idle_priced_kappa_cap": null,
@@ -421,6 +431,7 @@
     "rows": 16
    }
   ],
+  "INIT64_plus_dA_early_consumer_mass": 1344,
   "INIT64_plus_dA_mass": 3648,
   "PR2540_early_records": {
    "capture": "after F0 (event 0)",
@@ -437,6 +448,7 @@
    "published": 464,
    "uniform_lifetime": 456
   },
+  "cheapest_62_early_consumer_mass": 800,
   "cheapest_62_of_stated_captures_mass": 1952,
   "controls": {
    "PR2197": 144,
@@ -481,6 +493,12 @@
    "pair": 0,
    "side": "X (replica-0 families 0..111)"
   },
+  "early_consumer_levels": [
+   2,
+   4,
+   6,
+   8
+  ],
   "hosting": {
    "pair0_X_hosted_slots_before_deferred_capture": 0,
    "pair3_X_hosted_slots_in_window": 160,
@@ -517,7 +535,7 @@
   "anchored_premise_lines": 24,
   "pinned_files": 14
  },
- "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 dA_only=960 cheapest62=1952 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 frame_instances=10748/4044 negative_controls=12 no_new_kappa",
+ "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 frame_instances=10748/4044 negative_controls=12 no_new_kappa",
  "tensor_toy": {
   "naive_wrong": 25,
   "repaired_correct": 25,

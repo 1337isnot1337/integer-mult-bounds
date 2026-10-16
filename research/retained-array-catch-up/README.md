@@ -50,15 +50,17 @@ C = 0 and a free controller, unless stated otherwise.
 
 | Route | Law (units/replica) | Verdict |
 |---|---:|---|
-| (a) INIT64 + d_A final-record contract (fork `9fcd3d89`), under P_final and P_rank | **3,648** | **Rejected** in the stated model. ≥ 896 leaves no positive saving at all, under either convention. |
-| (a) d_A records alone | 960 | Also ≥ 896. |
-| (a) cheapest 62 of the 88 stated captures (#2074 Theorem B lower bound) | 1,952 | Also ≥ 896. |
+| (a) INIT64 + d_A final-record contract (fork `9fcd3d89`), end-of-replica decoder (P_final), under P_rank | **3,648** | **Rejected** in the stated model. ≥ 896 leaves no positive saving at all, under either convention. |
+| (a) the same, each bank decoded right after its last local call (P_early) | **1,344** = 8 per later data incidence | Also ≥ 896: rejected under the most favourable consumer timing too. |
+| (a) d_A records alone (P_final) | 960 | Also ≥ 896. |
+| (a) cheapest 62 of the 88 stated captures (#2074 Theorem B lower bound) | 1,952 (P_final) / 800 (P_early) | 800 still caps κ at 0.000509, below the selected 0.0016727. |
 | (b) gap-1 shared-source centre sharing (the f0→f2 class) | ≥ 64 per shared set, equal to the 64 saved | **Rejected** for two independent reasons. First, the prior information obstructions: PR2199 rank 16, plus #2391/#2461 for the adjacent class. Second, catch-up across B1. |
 | (c) QQ16 retained caller #2540/#2651, retention row | exactly 128 = its 16 H8 | One charge, not two; it is proved under ρ = 16 and attained. In the moment it is dominated by zero-retention #2707 (pending; author-reported invoice): 112 − 16·8^(1−a) < 0. Storage is UNKNOWN. **Narrow** further retention work. |
 
 The routes depend on these premises:
 
-- **P_final.** The decoded inputs are consumed at the final frame.
+- **Consumer timing.** The consumer works at each bank's current frame. The timing is bracketed
+  by P_early (each bank right after its last local call) and P_final (the end).
 - **P_rank.** Each stated array is rank-necessary at the cuts it crosses. The support is
   finite-model evidence, not a proof on the actual cover.
 - **ρ = 16 for PR2540.** This is PR2511's interface bound.
@@ -111,8 +113,8 @@ python3 scripts/research_package.py --package research/retained-array-catch-up -
 Expected output:
 
 ```text
-PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 dA_only=960 cheapest62=1952 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 frame_instances=10748/4044 negative_controls=12 no_new_kappa
-PASS_RETAINED_ARRAY_CATCH_UP_INDEPENDENT pr2540=128 init64_dA=3648 dA_only=960 cheapest62=1952 zero_witness_calls=6 breakeven_S=573 breakeven_C=71 no_saving=896 echelon_dijkstra_instances=2432 controls_rejected=2
+PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_witness_calls=6 frame_instances=10748/4044 negative_controls=12 no_new_kappa
+PASS_RETAINED_ARRAY_CATCH_UP_INDEPENDENT pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 zero_witness_calls=6 breakeven_S=573 breakeven_C=71 no_saving=896 echelon_dijkstra_instances=2432 controls_rejected=2
 ```
 
 `verify.py --write` regenerates [RESULT.json](RESULT.json). It refuses to replace a differing
@@ -128,7 +130,8 @@ file unless `--force` is also given.
    - the witness streams host nothing in the window;
    - pair 3's X streams host 160 residuals in that window.
 3. **The law and routes.** It computes the law, the controls (PR2540 128, PR2197 144, PR2678
-   1,792/3,696, centre path 576) and the routes.
+   1,792/3,696, centre path 576) and the routes. The routes are priced under both consumer
+   timings: 3,648 and 1,344.
 4. **Pricing.** With the pinned `ceiling.py` it checks the 896 threshold, reproduces the #1166
    break-evens 573 and 71, and computes the targets above.
 5. **Frame model.** A breadth-first minimum is compared with Lemma 1 and the meeting formula:
@@ -171,8 +174,9 @@ It shares no code with `verify.py` and does not import `ceiling.py`.
 
 - **Physical storage, tape movement and hosting windows** for retained arrays lie outside the
   moment and stay UNKNOWN.
-- **P_final, P_rank, PR2540's ρ = 16, and P4** are premises. P4 says the inherited words have
-  no slack, as the coverage identity indicates. PROOF.md §8 lists them all.
+- **The consumer timing (P_early to P_final), P_rank, PR2540's ρ = 16, and P4** are premises.
+  P4 says the inherited words have no slack, as the coverage identity indicates. PROOF.md §8
+  lists them all.
 - **Forward histories.** Philippe Van Velzen's derived decoders use the forward histories f2,
   f4 and f6. They are not in the 464 array-calls. If they are retained separately, they add at
   most 768. The rejection does not depend on them.
