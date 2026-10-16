@@ -189,5 +189,45 @@
     "path": "research/ut4-fifteen-call-five-b/README.md",
     "resolved_sha256": "d6652a3a86577415f958579f25bd3b7d3e0c6e1e3a68bcdb4e27a97377118fa6",
     "reason": "Clarify conservative three-role profile-completion counts: joint DP does not retain nonzero dirty flags. Exclusion and all original code/results unchanged; exact coverage cutoff instrumentation passes. Correct odd-slack proof using rank-one zero-sum triples."
+  },
+  {
+    "number": 2731,
+    "path": "research/selected-residual-live-volume/README.md",
+    "original_sha256": "19683df4394de299cbd7e1cce39bf9434ad260b1a37006587cf9aed84c9c0a03",
+    "resolved_sha256": "27832a8e64dd2fe451bd759d36b6059110a257e04e966e2d9590f553ec8cfbdc",
+    "resolved_mode": "100644",
+    "reason": "Unused historical selected record is provenance, not a runtime input; preserve every original Git/hash pin. Full combined replay with live selected record absent has exactly the original mathematical receipt after removing generation/self-hashes and authenticated-input count."
+  },
+  {
+    "number": 2731,
+    "path": "research/selected-residual-live-volume/SOURCES.json",
+    "original_sha256": "b72d2db07990281383351daf9431befef4dc27fd9b1ebbc5061e242af41ab921",
+    "resolved_sha256": "9f38e3f4d996ef62e4c646485fb65dcc6f358ef2ab562c81f4c0726a2fc5e9df",
+    "resolved_mode": "100644",
+    "reason": "Unused historical selected record is provenance, not a runtime input; preserve every original Git/hash pin. Full combined replay with live selected record absent has exactly the original mathematical receipt after removing generation/self-hashes and authenticated-input count."
+  },
+  {
+    "number": 2731,
+    "path": "research/selected-residual-live-volume/VERIFY.json",
+    "original_sha256": "fc22d67f7b8e968f9245650be0229068c704d15415c0b5d920f9ebd3f29f8db8",
+    "resolved_sha256": "2493e76b946f46f90070127f6638155375bb594c211a17308b8c08b37f5402e3",
+    "resolved_mode": "100644",
+    "reason": "Unused historical selected record is provenance, not a runtime input; preserve every original Git/hash pin. Full combined replay with live selected record absent has exactly the original mathematical receipt after removing generation/self-hashes and authenticated-input count."
+  },
+  {
+    "number": 2731,
+    "path": "research/selected-residual-live-volume/verify.py",
+    "original_sha256": "c8e8c202d4c0370a5833045b461b04ad2f6c373081a8eb7d539b4977ec8ec9e4",
+    "resolved_sha256": "ffec9feef4cd6c204e49af8e88cec2392e918c6fcf2504d8aba29b9758cf0532",
+    "resolved_mode": "100644",
+    "reason": "Unused historical selected record is provenance, not a runtime input; preserve every original Git/hash pin. Full combined replay with live selected record absent has exactly the original mathematical receipt after removing generation/self-hashes and authenticated-input count."
+  },
+  {
+    "number": 2731,
+    "path": "research/selected-residual-live-volume/RESULT.json",
+    "original_sha256": "eafa2f38ecb2b756dd3760b453fbe8415124cbeb7653cd8d3bfe39d5f49a9454",
+    "resolved_sha256": "9f73d4f05dd66d6d75700e5c578182aeab43910b8cc96c0ea4667d120e7c270c",
+    "resolved_mode": "100644",
+    "reason": "Unused historical selected record is provenance, not a runtime input; preserve every original Git/hash pin. Full combined replay with live selected record absent has exactly the original mathematical receipt after removing generation/self-hashes and authenticated-input count."
   }
 ]
