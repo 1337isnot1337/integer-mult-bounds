@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2492,
+  "inventory_count": 2494,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2045,
-    "partially_reviewed": 385,
+    "partially_reviewed": 387,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "c7abab74b143c94b13671e78b0c6bf1d826c1f1f4929a23e11bb83b267212913",
+    "docs/research/pr-intake-decisions.json": "f1fff2a11c06e97c824a545578ed9fe36d57307698700c0e8df1a6e385c3e6ef",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -146762,6 +146762,106 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 2980,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2980",
+      "title": "Record the odd-prime depth-zero unit root as a weight, not a padded-row reversal",
+      "contributor": {
+        "id": "MDQ6VXNlcjkxNzkyOQ==",
+        "is_bot": false,
+        "login": "jwr404",
+        "name": "James Reed"
+      },
+      "draft": false,
+      "starting_head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "current_head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archival intake. No submitted scientific code executed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/selected-odd-prime-unit-root"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2980",
+        "merge_commit": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      },
+      "reviewed_head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific review and registered source-bound replay remain open. No new supplier, selected result or theorem validation is implied by archival publication.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-pr2980-2981.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2981,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2981",
+      "title": "Research: certify joint P104 unit-step endpoint flags (no new kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "current_head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archival intake. No submitted scientific code executed.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/p104-joint-unit-flags"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2981",
+        "merge_commit": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      },
+      "reviewed_head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific review and registered source-bound replay remain open. No new supplier, selected result or theorem validation is implied by archival publication.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-pr2980-2981.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -146773,7 +146873,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1864,
+    "MERGED": 1866,
     "OPEN": 249
   }
 }

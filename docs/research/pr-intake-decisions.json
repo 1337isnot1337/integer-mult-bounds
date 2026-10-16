@@ -965,6 +965,82 @@
       "verification_evidence": [
         "docs/research/pr-intake-evidence/archive-pr2979.json"
       ]
+    },
+    {
+      "number": 2980,
+      "metadata": {
+        "number": 2980,
+        "title": "Record the odd-prime depth-zero unit root as a weight, not a padded-row reversal",
+        "author": {
+          "id": "MDQ6VXNlcjkxNzkyOQ==",
+          "is_bot": false,
+          "login": "jwr404",
+          "name": "James Reed"
+        },
+        "headRefOid": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+        "isDraft": false
+      },
+      "reviewed_head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "current_head": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-odd-prime-unit-root"
+      ],
+      "unresolved_question": "Independent scientific review and registered source-bound replay remain open. No new supplier, selected result or theorem validation is implied by archival publication.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2980",
+        "merge_commit": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      },
+      "scope": "Source-only archival intake. No submitted scientific code executed.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-pr2980-2981.json"
+      ]
+    },
+    {
+      "number": 2981,
+      "metadata": {
+        "number": 2981,
+        "title": "Research: certify joint P104 unit-step endpoint flags (no new kappa)",
+        "author": {
+          "id": "MDQ6VXNlcjc0MjEzNDY=",
+          "is_bot": false,
+          "login": "petalas",
+          "name": "Nick Petalas"
+        },
+        "headRefOid": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+        "isDraft": false
+      },
+      "reviewed_head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "current_head": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/p104-joint-unit-flags"
+      ],
+      "unresolved_question": "Independent scientific review and registered source-bound replay remain open. No new supplier, selected result or theorem validation is implied by archival publication.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2981",
+        "merge_commit": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      },
+      "scope": "Source-only archival intake. No submitted scientific code executed.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-pr2980-2981.json"
+      ]
     }
   ]
 }

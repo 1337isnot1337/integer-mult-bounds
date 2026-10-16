@@ -372,5 +372,30 @@
       "kind": "blob",
       "oid": "d442d28edcd62098115e8015f352d3d1db957f54"
     }
+  },
+  "publication": {
+    "p2980": {
+      "number": 2980,
+      "headRefOid": "d0aa33af7c20b2ce28ea64d615ff63a164384e4e",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      }
+    },
+    "p2981": {
+      "number": 2981,
+      "headRefOid": "3d24b92d8ba057b57cb2d480170ec407520e6882",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "86b5e56d4aa0ced955ac7f059eac0c3a5633ca59"
+      }
+    }
+  },
+  "source_retention": {
+    "status": "PASS",
+    "all_original_heads_in_ancestry": true,
+    "all_installed_blobs_exact": true
   }
 }
