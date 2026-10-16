@@ -3,7 +3,7 @@
 # At most 6 processes at a time (the 28 P104 triangle representatives run 6-way), every process under `timeout 1200`; no SAT solver; no unbounded loops.
 #   0  MANIFEST.sha256 pins every shipped file (including the recorded logs)
 #   1  bcheck.py facts (a)-(e) and the floor line: P112, E8 (UNIT=...), and the 28 P104 triangle representatives (A2TRI=...); re-run output compared byte-for-byte with the recorded logs
-#      (d) includes Q_XX, the exact square inside floor with the triangle X deleted on both sides, by the opt3u duality branch-and-bound
+#      (d) includes Q_XX, the square inside lower bound with the triangle X deleted on both sides, by the opt3u duality branch-and-bound
 #   3  qxx.py partial punctures of Q_XX (P112; 6-way) and inrelax.py (inside relaxation alone)
 #   2  relax.py: the class-level relaxation WITH the e9 row and e9 column; prints its optimum (62 / 58 / 70 at |supp beta| = 1, m = 10) and the configuration whose infeasibility THEORY.md Sec. 2 proves
 set -uo pipefail
@@ -35,7 +35,7 @@ grep -h '^FLOOR' "$OUT"/logs/P104_*.log | sort | uniq -c | sed 's/^/   /' | tee 
 nf=$(grep -h '^FLOOR B-locus m>=10: 58 ' "$OUT"/logs/P104_*.log | wc -l | tr -d " "); [ "$nf" = 28 ] && note "PASS P104: FLOOR 58 on 28 of 28 representatives" || note "FAIL P104: FLOOR 58 on $nf of 28"
 grep -q '^FLOOR B-locus m>=10: 64 ' "$OUT/logs/P112.log" && note "PASS P112: B-locus floor 64" || note "FAIL P112 floor"
 grep -q '^FLOOR B-locus m>=10: 72 ' "$OUT/logs/E8.log" && note "PASS E8: B-locus floor 72" || note "FAIL E8 floor"
-grep -q '^(d) Q_XX 62$' "$OUT/logs/P112.log" && grep -q '^(d) Q_XX 70$' "$OUT/logs/E8.log" && grep -q '^(d) Q_XX 56$' "$OUT/logs/P104_0_3_22.log" && note "PASS Q_XX (exact square inside floor, triangle deleted on both sides): 62 / 56 / 70" || note "FAIL Q_XX"
+grep -q '^(d) Q_XX 62$' "$OUT/logs/P112.log" && grep -q '^(d) Q_XX 70$' "$OUT/logs/E8.log" && grep -q '^(d) Q_XX 56$' "$OUT/logs/P104_0_3_22.log" && note "PASS Q_XX (square inside lower bound, triangle deleted on both sides): 62 / 56 / 70" || note "FAIL Q_XX"
 echo "== 2. the relaxation optimum (slack) with e9 row and e9 column"
 for U in P112 P104 E8; do
   ( cd "$OUT" && UNIT=$U timeout 1200 "$PY" -B "$C/relax.py" > "$OUT/logs/relax_$U.log" 2>&1 )

@@ -1,7 +1,7 @@
 # BLOCUS check: inputs for the B-locus m>=10 floor (THEORY.md).  UNIT=P112|P104|E8 [A2TRI=a,b,c].
 # (a) label spans: labels of L\X span F2^9 and sup(co) has span of dim 8 for every deficient class co (so table entries are exact class-level costs)
 # (b) per-term minimum of the restricted (X deleted both sides) class table; (c) inside relaxation for m'' = 9..11 terms;
-# (d) Q_XX = exact square inside floor with X deleted on both sides (opt3u duality B&B, complete: all candidate spaces 1-dim);
+# (d) Q_XX = square lower bound with X deleted on both sides (opt3u duality B&B, complete: all candidate spaces 1-dim);
 # (e) (S): r(O_{u_i} \ (E6 u X)) spans r_i^perp, and B[X,s] = e_i there.
 import os,sys,io,contextlib
 os.environ['NDIM']='8'; os.environ['NT']='8'
