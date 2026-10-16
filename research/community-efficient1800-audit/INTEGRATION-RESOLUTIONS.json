@@ -152,6 +152,70 @@
     "reason": "Stream complete original census in 1024-record batches with at most four workers; ordered imap preserves first-witness ties. All mathematical worker ASTs unchanged. Full census/canonical certificate and independent replay required before incorporation; this fixes eager tuple allocation without sampling or weakening acceptance."
   },
   {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/MANIFEST.sha256",
+    "original_sha256": "a7e983155085a2dce96914e83754a6a4a356c559d05a9bc01fda89b0658a7f26",
+    "resolved_sha256": "3b305df235fd3928b1050729952a2ffa9a444244bbcff16f57468b0abec0f02c",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/README.md",
+    "original_sha256": "b7df6853204e67a8b445237be3e7c02b439de0c9e8591308942e480a0b767e60",
+    "resolved_sha256": "cb72148ffef04ec50682bb9f19d18cbe2b103a3adf0202d9b1e552d202e006f7",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/checks/caseb4.py",
+    "original_sha256": "d80ab20ed11b4a60ddd782cafa5edc67ad1fc77c3534bae29daeb211e98d5456",
+    "resolved_sha256": "0c0240a23ea418df0efff0efb984b04b4f720c273c4ee67eb94efde186e166a2",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/checks/clique.py",
+    "original_sha256": "13944fe88af139ff303af29a54f82ebb861b57f0d0010860e378efad1d7b3b31",
+    "resolved_sha256": "29ca1111042692a9e311d20c4ba87a9c363e263bd3519aab482c574692801c7d",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/checks/d4A3.py",
+    "original_sha256": "79a81624cc2c11ad45b5f514acf6ac877f86a7d154f19d2ce822fd935aada8c5",
+    "resolved_sha256": "23630ca4d6809441babe546b4484b1df5ac312ad4cce5648c621d59ae448a6e3",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/checks/lib.py",
+    "original_sha256": "196c7feae38df821209482bc40bc703605866e30fa812504aa522c5ed64f5e98",
+    "resolved_sha256": "b0d1e171f18d3e5b75c87c39d6b1df200f91b431b8abcbd7808beafc385c4e06",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/checks/verify_cl.py",
+    "original_sha256": "feefcf624e37ba22fe9a29ee289a181358a0ccac27a35fd5f84700a8980cf0e9",
+    "resolved_sha256": "2d25006b5fe6b5f73d2247ad7d664e10bce5d99b9d55e962253ee3224292a298",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
+    "number": 2854,
+    "path": "research/two-sided-ten-term-floor/verify.sh",
+    "original_sha256": "7b64aee8eb79b8671d4c5222bfd997fa35bbf1611fdffb4b994be2ed377bbf7f",
+    "resolved_sha256": "5f9f6ebbd73afa10d290f1dd7d04f77310fc6f42e2197576ff2111454def31fb",
+    "resolved_mode": "100644",
+    "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
