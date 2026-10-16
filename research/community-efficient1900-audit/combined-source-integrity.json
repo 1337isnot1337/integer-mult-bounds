@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "checked_commit": "99227abd883510bc059634bc99640b378ba561f0",
+  "checked_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
   "merged_prs": [
     2874,
+    2876,
     2877,
     2878,
     2879,
@@ -14,10 +15,14 @@
     2889,
     2891,
     2892,
+    2893,
+    2895,
     2896,
     2897,
     2900,
     2902,
+    2903,
+    2904,
     2905,
     2906,
     2907,
@@ -26,10 +31,11 @@
     2912,
     2913,
     2916,
+    2918,
     2920,
     2921
   ],
-  "changed_files": 298,
+  "changed_files": 402,
   "resolved_files": [
     {
       "number": 2892,
@@ -45,6 +51,11 @@
       "number": 2888,
       "path": "research/selected-lcm-stock-wrapper-fit/README.md",
       "sha256": "d56ee549aa15d75da7d42411a0456de5cfbb66b142422fec53c562c5a4803bb6"
+    },
+    {
+      "number": 2904,
+      "path": "research/t185-dirty-entry-frame-screens/README.md",
+      "sha256": "368558495476626c5cfcea681046008f5f48f9b333e34bc62d9bff6f21055cb7"
     },
     {
       "number": 2906,

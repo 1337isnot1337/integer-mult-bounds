@@ -269,18 +269,24 @@
       "reviewed_head": "28c5c068b64c18074ab4044e47a7c9f52eb6e5de",
       "current_head": "28c5c068b64c18074ab4044e47a7c9f52eb6e5de",
       "prior_reviewed_head": "28c5c068b64c18074ab4044e47a7c9f52eb6e5de",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-block-scale-scan"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2876"
+      },
       "scope": "Arham Tahir: common signed block-scale scan, finite-format admissibility and exact Boolean gate invoice.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2876.json",
@@ -823,18 +829,24 @@
       "reviewed_head": "258a329965e583b0d6103e2737f7c730d6efb326",
       "current_head": "258a329965e583b0d6103e2737f7c730d6efb326",
       "prior_reviewed_head": "258a329965e583b0d6103e2737f7c730d6efb326",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t185-integral-optimal-face"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2893"
+      },
       "scope": "Arham Tahir: complete integral optimal face of the fixed T185 packing relaxation.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2893.json",
@@ -892,18 +904,24 @@
       "reviewed_head": "7324b2526182206904f75e4037014bcc2f0be4f5",
       "current_head": "7324b2526182206904f75e4037014bcc2f0be4f5",
       "prior_reviewed_head": "7324b2526182206904f75e4037014bcc2f0be4f5",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/retained-array-catch-up"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2895"
+      },
       "scope": "Sagar Thakrar: conditional retained-array catch-up law and specified final-record route pricing.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2895.json",
@@ -1159,18 +1177,25 @@
       "reviewed_head": "481bdb10502d28da9a99f17b5a5ee52168d9354b",
       "current_head": "481bdb10502d28da9a99f17b5a5ee52168d9354b",
       "prior_reviewed_head": "481bdb10502d28da9a99f17b5a5ee52168d9354b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "research/qq16-numerical-contract-navigation"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2903"
+      },
       "scope": "Nick Petalas: source-bound QQ16 numerical-contract navigation, attribution and incomplete caller bill.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2903.json",
@@ -1195,18 +1220,24 @@
       "reviewed_head": "c291ad5cc6c0f4bd7a3319855202d2f753bebb17",
       "current_head": "c291ad5cc6c0f4bd7a3319855202d2f753bebb17",
       "prior_reviewed_head": "c291ad5cc6c0f4bd7a3319855202d2f753bebb17",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t185-dirty-entry-frame-screens"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2904"
+      },
       "scope": "digitalis-p: bounded dirty-entry and fixed-word frame-refit screens, with explicit enumeration limits.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2904.json",
@@ -1733,18 +1764,24 @@
       "reviewed_head": "9360ba7312cf8961e672e9eb26c612719028d39d",
       "current_head": "9360ba7312cf8961e672e9eb26c612719028d39d",
       "prior_reviewed_head": "9360ba7312cf8961e672e9eb26c612719028d39d",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/helper408-rank7-pairing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b969f8dd8e38cb822f0111c93c3757c7d970a81d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2918"
+      },
       "scope": "Ross Richardson: rank-seven helper408 boundary obstruction and fully charged optimistic comparison.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2918.json",
