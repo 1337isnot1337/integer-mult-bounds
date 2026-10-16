@@ -1002,20 +1002,24 @@
       },
       "reviewed_head": "387501825842caa3507e34f110b5f9570dc04046",
       "current_head": "387501825842caa3507e34f110b5f9570dc04046",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/unittest-receipt-comparison"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "36df93a6562f7108aab044ed511dfba4ecadede1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1926"
+      },
       "scope": "Arham Tahir's byte-preserving unittest stderr comparator retains all diagnostics except the recognized final elapsed value. Both exact legacy collisions, complete original20-test receipts and real-capture/fault controls pass normal/optimized. Registered replay now uses exact archived runner in an authenticated private context; all original10files retained, four added context guards pass. No full-suite benchmark, current-runner compatibility, speedup or kappa claim. Aaron Wang/navinor predecessor credit retained.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1926.json",

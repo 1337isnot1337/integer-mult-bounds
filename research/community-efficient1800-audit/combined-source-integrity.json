@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "a46be34e69eba47c572d7b0c9b1076ed36e32b84",
+  "checked_commit": "36df93a6562f7108aab044ed511dfba4ecadede1",
   "merged_prs": [
     720,
     776,
@@ -9,6 +9,7 @@
     1075,
     1076,
     1518,
+    1926,
     2219,
     2227,
     2458,
@@ -44,7 +45,7 @@
     2870,
     2872
   ],
-  "changed_files": 577,
+  "changed_files": 587,
   "resolved_files": [
     {
       "number": 776,
@@ -75,6 +76,21 @@
       "number": 1518,
       "path": "research/atomic-trio-connector/VERIFY.json",
       "sha256": "715ef17a58416553a99080e383a78547415c5558ae478931dc399bb38d2dad82"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/README.md",
+      "sha256": "5bf0e53b16ed437816fc8bf7e2b6fd9e77814e7501af2066d457ec7e38396c9a"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/SOURCES.json",
+      "sha256": "f4f3757173f73d9b53e206ca6f5282b26f0276793f0225545e2b1d9101bccc17"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/VERIFY.json",
+      "sha256": "3330b35636eff0b35b2e6a8f2ab81265f752119996ee1768bfbed50d271ca391"
     },
     {
       "number": 2227,
@@ -169,7 +185,7 @@
     {
       "number": 2834,
       "path": "CONTRIBUTORS.md",
-      "sha256": "eb1707850ce546b5af021d4045e7bbc987c46ae3fe57eb4ac7487ca7e4e164e9"
+      "sha256": "94f28d7a429e422e6cea1fb9d313c512b8f87cacc14dfb0d554c92f65f07db4c"
     },
     {
       "number": 2840,
@@ -340,6 +356,31 @@
       "number": 2227,
       "path": "research/complex-compensation-network/MAINTAINER-BENCHMARK.json",
       "sha256": "e3fbe9f410cfb52e0c4f674331482c8afd214d120387d75a3c6acf27d1c3b26f"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/historical_replay.py",
+      "sha256": "3d558dc8daae9a816719f22705c61dba513b5d27dd67f515ae502f0172e9fffa"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/test_historical_replay.py",
+      "sha256": "7c1ff775b93b7274748e366db736214214bc26949c9fad1061cee3d33fb9075b"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/historical/SOURCES.json",
+      "sha256": "4ac8f4f592806bad1adb4cb7310fe8ad115a1e7da3e581da487adb75ce8a2edb"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/historical/VERIFY.json",
+      "sha256": "9b85e15adf00bed937ecd99c7309fd3620515383a903b43c29cf79701462b178"
+    },
+    {
+      "number": 1926,
+      "path": "research/unittest-receipt-comparison/historical/README.md",
+      "sha256": "844e6fd9246bca2229d87f6560739fbe97da42aae789b2265c88c394ab6f7616"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",

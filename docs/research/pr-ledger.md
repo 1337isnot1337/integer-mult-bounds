@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1998 |
-| partially reviewed | 338 |
+| incorporated | 1999 |
+| partially reviewed | 337 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -1669,7 +1669,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1923](https://github.com/CrocSwap/integer-mult-bounds/pull/1923) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
 | [#1924](https://github.com/CrocSwap/integer-mult-bounds/pull/1924) | ToikY | incorporated | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
 | [#1925](https://github.com/CrocSwap/integer-mult-bounds/pull/1925) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
-| [#1926](https://github.com/CrocSwap/integer-mult-bounds/pull/1926) | Arham-Tahir64 | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient900-audit/DISPOSITIONS.json) |
+| [#1926](https://github.com/CrocSwap/integer-mult-bounds/pull/1926) | Arham-Tahir64 | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient900-audit/DISPOSITIONS.json) |
 | [#1928](https://github.com/CrocSwap/integer-mult-bounds/pull/1928) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
 | [#1930](https://github.com/CrocSwap/integer-mult-bounds/pull/1930) | 1337isnot1337 | partially reviewed | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
 | [#1932](https://github.com/CrocSwap/integer-mult-bounds/pull/1932) | thakrarsagar | incorporated | [record 1](../../research/community-efficient900-audit/DISPOSITIONS.json) |
