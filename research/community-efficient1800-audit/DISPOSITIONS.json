@@ -116,21 +116,29 @@
       },
       "reviewed_head": "a942c0ae1b463710ca535c1fba1b07b6431b5a86",
       "current_head": "a942c0ae1b463710ca535c1fba1b07b6431b5a86",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Arbitrary rational-target extension requires dedicated proof dependency review.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/three-register-no-target-flag"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e5dc84165cdf626d6870ee32ee569dfd7c576d5d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/720"
+      },
+      "scope": "Full dimension-independent corank<=2 disjoint-subset argument, arbitrary2x2 corollary and span-four block reduction reviewed; inherited span-five filters use invertibility without target flags. Fresh independent129-plane classification,77540-word consistency census, polynomial/mutation checks and unflagged rational nine-call construction pass normally and optimized. Exact seven-source authentication reuses the published maintainer PR468 replay: both2276-family/21317520-order logs agree with zero survivors;11 validator corruptions rejected. Scoped three-register formal abelian bit bound only; no new C++ engine execution, physical theorem, extra-register barrier or \u03ba.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/720.json"
+        "research/community-efficient1800-audit/packets/720.json",
+        "research/community-efficient1800-audit/checks/check-720-supplement.json",
+        "research/community-efficient1800-audit/checks/check-720.json"
       ]
     },
     {
@@ -350,9 +358,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Revised historical-export wrapper and full scientific code/proof reviewed; 29 source bindings authenticated. Complete new-head census/native replay and packaging controls remain queued behind existing serial jobs, with 900-second limits matching the revised workflow. Earlier 180-second timeout retained; not a mathematical rejection.",
+      "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. All8 export controls passed; the scientific census/native replay stopped after7.38seconds; final packaging replay did not run. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
       "closure": null,
-      "scope": "Full fixed-domain butterfly proof, recipe engine, independent dyadic checker, full native-window binding and revised historical-export wrapper reviewed. All29 original Git source bindings and unchanged scientific revision authenticated; prior622/681/696 library review reused. Requires complete78728-recipe census,14 physical windows and full losing-witness/cleanup comparisons,12 adverse controls,8 export/assertion tests,10 independent tests in normal/optimized modes and minimal-source packaging controls. Excludes only the stated finite recipe family; no unrestricted circuit optimum, precision improvement, native installation or new \u03ba.",
+      "scope": "Full fixed-domain butterfly proof, recipe engine, independent dyadic checker, full native-window binding and revised historical-export wrapper reviewed. All29 original Git source bindings and unchanged scientific revision authenticated; prior622/681/696 library review reused. Requires complete78728-recipe census,14 physical windows and full losing-witness/cleanup comparisons,12 adverse controls,8 export/assertion tests,10 independent tests in normal/optimized modes and minimal-source packaging controls. Excludes only the stated finite recipe family; no unrestricted circuit optimum, precision improvement, native installation or new \u03ba. Latest guarded replay is terminal: memory budget exceeded; full acceptance remains pending.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -361,7 +369,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/931.json"
+        "research/community-efficient1800-audit/packets/931.json",
+        "research/community-efficient1800-audit/checks/check-931.json"
       ]
     },
     {
@@ -2882,23 +2891,31 @@
       },
       "reviewed_head": "7c0569975c3f331b8737e06f5aecfc2c7193c500",
       "current_head": "7c0569975c3f331b8737e06f5aecfc2c7193c500",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Written K3 proof reviewed conditional on the explicitly imported F1-F4 catalogue facts. Original exactness claim used floating SVD rank pruning and tolerance decisions. Prepared integer-arithmetic and fail-closed wrapper resolutions; independent exact controls and complete resolved22-command replay remain required. No native supplier or \u03ba claim.",
-      "closure": null,
-      "scope": "Complete K3 written proof and all822lines of submitted computation/driver code reviewed: normalized two-sided m10,(s,t)=(1,1) P112 decoder cost\u226564, conditional on statedF1-F4 catalogue/cover facts inherited via2832/2816; not generalK1/K2 or supplier admission. Corrected floating-rank pruning with exact guarded modular elimination (Hadamard minors\u22644096<65537), auxiliary integer decomposition/diagonal checks, fail-closed shell checks and internal manifest.20840 rational rank comparisons and768 rational decomposition controls pass; exact original data/manifest authenticated. Complete original22-command census with all93sets, three repeated-column chunks, tightness witnesses and expected summaries remains required. No \u03ba claim.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/two-sided-ten-term-floor"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e5dc84165cdf626d6870ee32ee569dfd7c576d5d",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2854"
+      },
+      "scope": "Complete K3 written proof and all822lines of submitted computation/driver code reviewed: normalized two-sided m10,(s,t)=(1,1) P112 decoder cost\u226564, conditional on statedF1-F4 catalogue/cover facts inherited via2832/2816; not generalK1/K2 or supplier admission. Corrected floating-rank pruning with exact guarded modular elimination (Hadamard minors\u22644096<65537), auxiliary integer decomposition/diagonal checks, fail-closed shell checks and internal manifest.20840 rational rank comparisons and768 rational decomposition controls pass; exact original data/manifest authenticated. Complete original22-command census passed with all93sets, all22020096 repeated-column core solutions, tightness witnesses and all expected summaries. No \u03ba claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2854.json",
+        "research/community-efficient1800-audit/checks/check-2854-cosmetic.json",
         "research/community-efficient1800-audit/checks/check-2854-supplement.json",
-        "research/community-efficient1800-audit/checks/check-2854-wrapper.json"
+        "research/community-efficient1800-audit/checks/check-2854-wrapper.json",
+        "research/community-efficient1800-audit/checks/check-2854.json"
       ]
     },
     {
@@ -3241,9 +3258,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. Primary joint replay stopped after151.36seconds; metadata checks passed, but full claimed scientific coverage remains unverified. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
       "closure": null,
-      "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selected\u03ba.",
+      "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selected\u03ba. Latest guarded replay is terminal: memory budget exceeded; full acceptance remains pending.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -3253,7 +3270,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2865.json",
-        "research/community-efficient1800-audit/checks/check-2865-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2865-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2865.json"
       ]
     },
     {

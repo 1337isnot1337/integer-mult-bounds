@@ -232,19 +232,19 @@
     "reason": "Apply original batching changes to current main, retaining later source-pin, cleanup and bytecode isolation work. Mark submission450-package count historical; actual963-package CLI and full138-test suite verified."
   },
   {
-    "number": 2834,
-    "path": "CONTRIBUTORS.md",
-    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "2197d8f589cd28c58b05e9421647ac952da1ed1aab690caf0218de7c03472304",
-    "resolved_mode": "100644",
-    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
-  },
-  {
     "number": 2854,
     "path": "research/two-sided-ten-term-floor/checks/diag9.py",
     "original_sha256": "9b5208b4b76d672bb17e5794b20dd48b27f5193b468eb565cd575ddbeb05e68b",
     "resolved_mode": "100644",
     "reason": "Remove one trailing space; identical Python AST and exact output against the retained complete census. Original full-run sources remain immutable.",
     "resolved_sha256": "77d4d9dcda65583e4b379662df84ab2728431d4a75a9597bf262d58e7cc70d15"
+  },
+  {
+    "number": 2834,
+    "path": "CONTRIBUTORS.md",
+    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
+    "resolved_sha256": "2197d8f589cd28c58b05e9421647ac952da1ed1aab690caf0218de7c03472304",
+    "resolved_mode": "100644",
+    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
 ]
