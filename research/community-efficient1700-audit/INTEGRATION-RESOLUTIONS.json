@@ -153,5 +153,11 @@
     "path": "research/p104-internal-grid-collector/VERIFY.json",
     "resolved_sha256": "3911cfebb00e8f9018046c578ed9f62f1a00e6f42689526ccc70ec7e262439a5",
     "reason": "Historical selected record is never consumed by this local collector. Retain its original hashes as provenance and remove it from runtime inputs; unchanged scientific code and numerical receipt, combined replay with live selected record absent."
+  },
+  {
+    "number": 2760,
+    "path": "docs/research/bottleneck-brief.md",
+    "resolved_sha256": "408982c26fa63a69cddeaf0463b537c4e20ebb064e7bdbfdacd9810764171cc1",
+    "reason": "Retain the already-integrated P104 helper-lifetime navigation pointer while adding the independent selected-BIT caller/storage pointer; all remaining authored text retained."
   }
 ]
