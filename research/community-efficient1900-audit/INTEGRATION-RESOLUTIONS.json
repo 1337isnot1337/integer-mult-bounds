@@ -40,5 +40,12 @@
     "resolved_sha256": "368558495476626c5cfcea681046008f5f48f9b333e34bc62d9bff6f21055cb7",
     "resolved_mode": "100644",
     "reason": "Clarify enumerated chronological positions, scope of the maintainer direct-position supplement, float/threshold/cascade limits and author-only historical replays. Original README retained; scientific code and receipts unchanged."
+  },
+  {
+    "number": 2911,
+    "path": "research/f7-18point-cover-question-seed6d34356c/README.md",
+    "resolved_sha256": "5ab087377f6856b17fc983eec0c7c224f2eccedc9b3b3a27b973f30031c8ae77",
+    "resolved_mode": "100644",
+    "reason": "Separate author-only census floors and conservative row relaxation from independently checked vanishing constraints; remove unsupported inference from absent 18-point sets to exclusion of length-22 words. Original README retained, code/receipts unchanged."
   }
 ]
