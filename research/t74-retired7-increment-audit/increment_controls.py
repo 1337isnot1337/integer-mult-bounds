@@ -4,8 +4,10 @@
 Word mutants carry an inverse-reverse cleanup re-derived from their own forward program, so a stale cleanup is never
 the reason for a rejection.  Some controls also state which rules must ACCEPT the mutant ('must_accept') or the exact
 set of rules that reject it ('exact_failing').  These expectations make the occupancy observations machine-checked: a
-lender write moved past its alias warp is invisible to both scalar replays, and at frame FULL also to the frame chain,
-the recount, the fill and the price.  A control counts only if every expectation holds and no rule crashed.
+lender's dead write (after the lender's last read) moved past its alias warp is invisible to both scalar replays, and at
+frame FULL also to the frame chain, the recount, the refits, the stage records, the fill and the price (C4d/C4e); a moved
+lender read (C4f) or a moved write that precedes the lender's last read (C4g) is rejected by both replays and accepted by
+the frame chain, fill and price.  A control counts only if every expectation holds and no rule crashed.
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
 """
@@ -48,14 +50,18 @@ def relabel_B(w, start, a, b, stop=None):
 
 
 def last_A(w, r, role):
-    """index of register r's last A event in role 'write' (r is the written register) or 'read' (r is an add's source)"""
-    def ok(e):
+    """index of register r's last A event in role 'write' (r is the written register), 'read' (r is an add's source) or
+    'prewrite' (the last write to r that precedes r's last read, i.e. a write whose value is still read in A)"""
+    def ok(e, rl):
         if e[0] == 'warp':
             return False
-        if role == 'write':
+        if rl == 'write':
             return e[1] == r
         return e[0] == 'add' and e[2] == r
-    return max(i for i, e in enumerate(w['A']) if ok(e))
+    if role == 'prewrite':
+        lr = last_A(w, r, 'read')
+        return max(i for i, e in enumerate(w['A']) if i < lr and ok(e, 'write'))
+    return max(i for i, e in enumerate(w['A']) if ok(e, role))
 
 
 def mutants(js):
@@ -84,7 +90,7 @@ def mutants(js):
     # C3 early alias warp for a B-retired lender: warp 66 (606<-550) placed before 550's last gate B901
     word('C3 alias warp 66 moved before lender 550 last gate (B901)', 'OCC-TIMELINE-base', lambda w: w['warps'][65].__setitem__(0, 901))
 
-    # C4a-C4f: an A-retired lender's last A event moved past its alias warp.  Lender 401 (alias warp 71 at B259) on the
+    # C4a-C4g: an A-retired lender's A event moved past its alias warp.  Lender 401 (alias warp 71 at B259) on the
     # base word; lender 403 (alias warp 72 at B262) on the extra word.
     def into_B(r, pos):
         def f(w):
@@ -114,8 +120,14 @@ def mutants(js):
     word('C4e lender 403 (extra word): last A write moved to the end of restore at frame FULL', 'OCC-TIMELINE-extra',
          to_restore(403, 'write', True), tag='extra', must_accept=[x % 'extra' for x in PRICED] + list(PRICED_GLOBAL),
          exact_failing=['OCC-TIMELINE-extra', 'S1-DIFF-extra', 'X-2818-SAME-CONSTRUCTION'])
+    # C4f/C4g change what is computed: both replays reject them, while the frame chain, recount, refits, stage records,
+    # fill and price accept them (they price the moved gate at FULL exactly as C4d does)
+    computed = [x % 'base' for x in PRICED if x not in REPLAYS] + list(PRICED_GLOBAL)
+    changed = ['S2-REPLAY-FREE-base', 'S2-REPLAY-MATRIX-base', 'OCC-TIMELINE-base', 'S1-DIFF-base', 'X-2818-SAME-CONSTRUCTION']
     word('C4f lender 401: last A read (an add with source 401) moved to the end of restore at frame FULL', 'S2-REPLAY-FREE-base',
-         to_restore(401, 'read', True))
+         to_restore(401, 'read', True), must_accept=computed, exact_failing=changed)
+    word('C4g lender 401: last A write before its last read (A3158) moved to the end of restore at frame FULL',
+         'S2-REPLAY-MATRIX-base', to_restore(401, 'prewrite', True), must_accept=computed, exact_failing=changed)
 
     # C5 alias warp after the follower's first gate (the replacement control of #2802), A-retired lender 401
     word('C5 alias warp 71 after follower 667 first gate (B260)', 'OCC-TIMELINE-base', lambda w: w['warps'][70].__setitem__(0, 260))

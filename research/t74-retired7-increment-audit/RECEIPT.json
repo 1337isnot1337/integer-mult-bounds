@@ -333,8 +333,17 @@
    "rejected_by_expected_rule": true
   },
   "C4f lender 401: last A read (an add with source 401) moved to the end of restore at frame FULL": {
+   "accepted_as_expected": true,
    "control_ok": true,
    "crashed_rules": [],
+   "exact_failing": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "exact_failing_ok": true,
    "expected_rule": "S2-REPLAY-FREE-base",
    "expected_rule_message": "forward target 0 wrong before cleanup",
    "failing_rules": [
@@ -343,6 +352,47 @@
     "S2-REPLAY-FREE-base",
     "S2-REPLAY-MATRIX-base",
     "X-2818-SAME-CONSTRUCTION"
+   ],
+   "must_accept": [
+    "S3S4-FRAMES-PROFILE-base",
+    "S4-FRAMES-RREF-base",
+    "S3-REFIT-EXACT-base",
+    "S1-STAGE-RECORDS-base",
+    "S5-FILL-WORD-DERIVED-R",
+    "S5-FILL-TRANSFORM",
+    "S6-PROFILE-MASS-ROOT"
+   ],
+   "rejected_by_expected_rule": true
+  },
+  "C4g lender 401: last A write before its last read (A3158) moved to the end of restore at frame FULL": {
+   "accepted_as_expected": true,
+   "control_ok": true,
+   "crashed_rules": [],
+   "exact_failing": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "exact_failing_ok": true,
+   "expected_rule": "S2-REPLAY-MATRIX-base",
+   "expected_rule_message": "matrix realisation (forward, seed 1) wrong on register 112",
+   "failing_rules": [
+    "OCC-TIMELINE-base",
+    "S1-DIFF-base",
+    "S2-REPLAY-FREE-base",
+    "S2-REPLAY-MATRIX-base",
+    "X-2818-SAME-CONSTRUCTION"
+   ],
+   "must_accept": [
+    "S3S4-FRAMES-PROFILE-base",
+    "S4-FRAMES-RREF-base",
+    "S3-REFIT-EXACT-base",
+    "S1-STAGE-RECORDS-base",
+    "S5-FILL-WORD-DERIVED-R",
+    "S5-FILL-TRANSFORM",
+    "S6-PROFILE-MASS-ROOT"
    ],
    "rejected_by_expected_rule": true
   },

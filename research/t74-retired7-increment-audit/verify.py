@@ -2,13 +2,15 @@
 """Entry point: independent audit of PR #2802's seven-stage increment over PR #2751 (retired5 + retired7 stages),
 verdict extended to PR #2818.
 
-Runs the 28 named rules of increment_audit.py on the pinned inputs, then the 19 negative controls of
+Runs the 28 named rules of increment_audit.py on the pinned inputs, then the 20 negative controls of
 increment_controls.py (each must be rejected by its named rule, and some must also be accepted by named rules).
 Inputs are git blobs at the pinned PR heads, checked against sha256 pins; --fetch downloads refs/pull/<n>/head only
 for absent commits (FETCH_HEAD only).  An unreadable or mismatching input prints a FAIL line (exit 1).
 
 Usage (repository root):  python3 -I -B research/t74-retired7-increment-audit/verify.py --fetch [--out RECEIPT.json]
-Final line: PASS_T74_RETIRED7_INCREMENT_AUDIT rules=28/28 controls=19/19 ... or FAIL_T74_RETIRED7_INCREMENT_AUDIT ...
+Final line: PASS_T74_RETIRED7_INCREMENT_AUDIT rules=28/28 controls=20/20 ... or FAIL_T74_RETIRED7_INCREMENT_AUDIT ...
+If this zlib does not reproduce #2802's pinned FILL.json.gz bytes, ATTRIBUTION-RETIRED5 compares the reconstructed
+retired5 fill only through its pinned canonical-JSON sha256 (not with #2802's recorded gzip hash) and a NOTE line says so.
 
 Prepared by thakrarsagar with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
 """
@@ -41,6 +43,10 @@ def main():
         print('FAIL_T74_RETIRED7_INCREMENT_AUDIT inputs: %s' % e)
         return 1
     res = A.run_all(js)
+    r5 = res['rules'].get('ATTRIBUTION-RETIRED5', {})
+    if r5.get('ok') and r5['info'].get('fill_gzip_sha256_equals_recorded') is not True:
+        print("NOTE: this zlib does not reproduce #2802's FILL.json.gz bytes; the retired5 fill was compared through its "
+              "pinned canonical-JSON sha256 only, not with #2802's recorded gzip fill_sha256")
     ok_c, ctl = K.run(js)
     n_rules = len(res['rules'])
     n_pass = sum(1 for v in res['rules'].values() if v['ok'])
