@@ -14,6 +14,9 @@
  * A capped run returns 2, complete=false; bad input or output I/O returns 1.
  * N in [1,7], positive even L<=20. See README.md for proof and commands.
  */
+#ifndef _POSIX_C_SOURCE
+#define _POSIX_C_SOURCE 200809L
+#endif
 #include <errno.h>
 #include <inttypes.h>
 #include <limits.h>

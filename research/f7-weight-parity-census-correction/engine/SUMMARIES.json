@@ -2,7 +2,7 @@
   "schema": 1,
   "recorded_at": "2026-10-16T23:12:15.232768+08:00",
   "source_file": "corrected_census.c",
-  "source_sha256": "9b00f65563ce921b9e5eb04870c3df19d7f7e14f327ab6570231cf0bd7228205",
+  "source_sha256": "265ead915d1b490c1923bce9b894ecac60f6195fc3d2ceadd6b25077238f415a",
   "environment": {
     "platform": "macOS-26.5.2-arm64-arm-64bit",
     "machine": "arm64",
@@ -170,5 +170,7 @@
   ],
   "all_runs_complete": true,
   "total_hits": 0,
-  "predecessor_source_path_base": "workspace_root"
+  "predecessor_source_path_base": "workspace_root",
+  "initial_receipt_source_sha256": "9b00f65563ce921b9e5eb04870c3df19d7f7e14f327ab6570231cf0bd7228205",
+  "portability_update": "Added _POSIX_C_SOURCE=200809L before system includes so strict C11 Linux builds declare clock_gettime/CLOCK_MONOTONIC. Initial raw receipts above retain their original source binding; FULL-REPLAY.txt was freshly regenerated from this current source and verifies every exact non-timing result against them. No search logic changed."
 }
