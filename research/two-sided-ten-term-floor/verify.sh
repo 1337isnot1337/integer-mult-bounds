@@ -7,6 +7,7 @@
 #   3  four streams: clique2.py 4 + d4A + d4A2 + d4A3 | verify_cl (2 representatives) x2 | sym + stab
 #   4  check_logs.py: every number of the README as a PASS/FAIL line
 set -uo pipefail
+JOBS=${JOBS:-4}
 HERE=$(cd "$(dirname "$0")" && pwd)
 OUT=${1:-$(mktemp -d "${TMPDIR:-/tmp}/two-sided-floor.XXXXXX")}
 mkdir -p "$OUT"; OUT=$(cd "$OUT" && pwd)
@@ -29,18 +30,21 @@ PYE
 echo "== 1. computations, phase 1 (four streams)"
 ( run clique "$PY" -B clique.py; run w16 "$PY" -B witness16.py; run d9 "$PY" -B diag9.py ) & P1=$!
 ( run cb4_0 "$PY" -B caseb4.py 0 3 ) & P2=$!
+[ "$JOBS" -le 2 ] && { wait $P1; wait $P2; }
 ( run cb4_1 "$PY" -B caseb4.py 1 3 ) & P3=$!
 ( run cb4_2 "$PY" -B caseb4.py 2 3 ) & P4=$!
 wait $P1; wait $P2; wait $P3; wait $P4
 echo "== 1. computations, phase 2 (four streams)"
 ( run c2_0 "$PY" -B clique2.py 5 "$(cat ics_0.txt)" ) & P1=$!
 ( run c2_1 "$PY" -B clique2.py 5 "$(cat ics_1.txt)" ) & P2=$!
+[ "$JOBS" -le 2 ] && { wait $P1; wait $P2; }
 ( run c2_2 "$PY" -B clique2.py 5 "$(cat ics_2.txt)" ) & P3=$!
 ( run c2_3 "$PY" -B clique2.py 5 "$(cat ics_3.txt)" ) & P4=$!
 wait $P1; wait $P2; wait $P3; wait $P4
 echo "== 1. computations, phase 3 (four streams)"
 ( run c24 "$PY" -B clique2.py 4 "0,1,2,4"; run d4A "$PY" -B d4A.py found_0_1_2_4.pkl; run d4A2 "$PY" -B d4A2.py; run d4A3 "$PY" -B d4A3.py ) & P1=$!
 ( run vcl_none "$PY" -B verify_cl.py ""; run vcl_0_1_2 "$PY" -B verify_cl.py "0,1,2" ) & P2=$!
+[ "$JOBS" -le 2 ] && { wait $P1; wait $P2; }
 ( run vcl_0 "$PY" -B verify_cl.py "0"; run vcl_0_1 "$PY" -B verify_cl.py "0,1" ) & P3=$!
 ( run sym "$PY" -B sym.py; run stab "$PY" -B stab.py ) & P4=$!
 wait $P1; wait $P2; wait $P3; wait $P4

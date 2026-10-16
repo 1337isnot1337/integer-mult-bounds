@@ -1,7 +1,7 @@
 # Decoder floors: the smallest two-sided case (m = 10, one outside direction per side) costs ≥ 64 on P112 — conjecture K3 of #2832 (no κ claim)
 
 **Status: research note. No κ claim, no supplier word, no new floor beyond the single class below.** Every claim is a written proof in this file plus exact finite computations that `verify.sh` re-runs
-(about 18 minutes wall, at most 4 parallel processes, each under `timeout 1200`, no SAT solver). Only `research/two-sided-ten-term-floor/` is added; nothing existing is changed.
+(about 12 minutes wall unloaded (696 s measured; about 22 minutes under heavy load), at most 4 parallel processes (`JOBS=2` runs two at a time), each under `timeout 1200`, no SAT solver). Only `research/two-sided-ten-term-floor/` is added; nothing existing is changed.
 
 Labels: **PROVEN** (written proof here; finite inputs listed), **CHECKED** (exact script in `checks/`, re-run by `verify.sh`, asserted in `checks/check_logs.py`),
 **FROM #n** (a statement of another PR, cited, not re-derived), **CONDITIONAL on #n** (depends on a PR that is not merged), **RECORDED** (not re-run).
@@ -12,7 +12,7 @@ Labels: **PROVEN** (written proof here; finite inputs listed), **CHECKED** (exac
 Then `cost(P, Q) ≥ 64`. No assumption on `J_P ∩ J_Q` (disjoint or not) is made.
 
 **Dependencies.** CONDITIONAL on the open PR **#2816** only, entering through #2832: Lemma 3.1 of #2816, the cover facts (C1), (C3) and `g(5) = 12` of #2816 and the completeness of its 1200-direction list (these underlie #2832 Lemmas 3.8–3.9, Theorem 3.5, Corollary 3.6 and the twelve-overlap check of §3.6).
-**Not used:** #2724 (so none of #2832 Corollary 3.4), #2826, any disjointness hypothesis, and the disjoint closure #2832 Theorem 3.13 (it is covered again here; it may be cited as an independent proof of that sub-case).
+**Not used:** #1212, #2724 (so none of #2832 Corollary 3.4), #2826, any disjointness hypothesis, and the disjoint closure #2832 Theorem 3.13 (it is covered again here; it may be cited as an independent proof of that sub-case).
 **Tight:** two exact cost-64 decoders in the class, one with `J_P ∩ J_Q = ∅` and one with `|J_P ∩ J_Q| = 2` (§7).
 
 **Consequence for the map of #2832 (§5 there).** K3 is now a theorem (conditional as stated). With #2832, the P112 master `C(P112) ≥ 64` reduces to **K1** (every two-sided decoder of `N₀(P112)`, general `m, s, t`) and **K2** (excess pays for corrections, one-sided) only. Nothing is claimed about K1, K2 or P120.
@@ -31,7 +31,8 @@ The transpose `(Q, P)` is again a normalised (1,1), `m = 10` decoder of the symm
 **Imports (all FROM #2832, which cites #2816 and #2338; statements only).**
 * **(F1)** (#2816 Lemma 3.1) For `y ∈ ℚ⁸∖0`, `U_{Off(y)} = F₂⁹` unless `y ∝ e_i`, and then `U_{Off(y)} = W_i`. So an inside row/column has weight 9, or weight 8 with `U = W_i`.
 * **(F2)** (#2832 Lemma 2.3) In a normalised decoder `|J_P|, |J_Q| ≥ 3`. (Each row restriction `p(t)|_{J_Q}` lies in the kernel of `Y₂[:,J_Q]`; if `|J_Q| ≤ 2`, all `p_k`, `k ∈ J_Q`, are proportional.)
-* **(F3)** (#2832 Theorem 3.5, Corollary 3.6, and the twelve-overlap check of §3.6, `d4.py`) *Catalogue.* Let `λ` be an outside vector of the coset with `w(supp λ) ≤ 5` (so `|supp λ| ≤ g(5) = 12`), and `p_k = x2_k(λ + Cη_k)` another outside row, `η_k ≠ 0`. If `w(R_k) = 8`, i.e. `p_k` vanishes on `O_z` for a class `z` with `U_{R_k} = z^⊥`, then `|Off(η_k) ∩ O_z| ≤ |supp λ ∩ O_z| ≤ 12`, and: either **frame type** (`η_k ∝ e_i`, `z = z_i`) or **root swap** (`η_k ∝ c_v`, `z = u_v`, `v ∈ supp λ`, `supp λ ∩ O_{u_v} = {v}`). The twelve-overlap sets have label span of dimension 7 and do not fit in `supp λ`. Also (Cor 3.6): a non-frame class `z` lies in `Z_{R_k}` for at most one outside row `k`.
+* **(F3)** (#2832 Theorem 3.5 and the twelve-overlap check of §3.6, `d4.py`) *Catalogue.* Let `λ` be an outside vector of the coset with `w(supp λ) ≤ 5` (so `|supp λ| ≤ g(5) = 12`), and `p_k = x2_k(λ + Cη_k)` another outside row, `η_k ≠ 0`. If `w(R_k) = 8`, i.e. `p_k` vanishes on `O_z` for a class `z` with `U_{R_k} = z^⊥`, then `|Off(η_k) ∩ O_z| ≤ |supp λ ∩ O_z| ≤ 12`, and: either **frame type** (`η_k ∝ e_i`, `z = z_i`) or **root swap** (`η_k ∝ c_v`, `z = u_v`, `v ∈ supp λ`, `supp λ ∩ O_{u_v} = {v}`). The twelve-overlap sets have label span of dimension 7 and do not fit in `supp λ`.
+* **(F3′)** (#2832 Corollary 3.6, stated there from F1 alone, without the weight hypothesis of F3) For outside columns (rows, by transposition) of the coset with distinct `η`, a non-frame class `z` lies in `Z_{A_k}` for at most one `k`.
 * **(F4)** (#2832 Lemmas 3.7–3.9) Among outside columns there is at most one of weight ≤ 6, and then no other column of weight ≤ 7; otherwise at most two columns have weight ≤ 7 and both have weight 7.
 
 Fact used with its proof in §3 (Lemma S): a root swap row is `p_k = x2_k(λ + α C c_v)`, where `(C c_v)(t) = G_{tv} = ⟨r_t, r_v⟩` is non-zero exactly at `v` (value 2) and at the lines non-orthogonal to `v`; it vanishes on `O_{u_v} = {v} ∪ v^⊥` iff `α = −λ(v)/2` and `supp λ ∩ O_{u_v} = {v}`.
@@ -78,7 +79,7 @@ Call `l ∈ F` **lossless** if `d^A_l ≥ 1` and `c_l = d^A_l` (i.e. `Z_{A_l} �
 (#rows with `d^R = 0`) + (|F| − #lossless) ≤ ζ_P + ζ_Q + Λ ≤ σ, whence
 **#lossless ≥ 8 − w_P − σ = 8 − D̂_Q ≥ 5** and **|I^c| ≤ w_P + σ = D̂_Q ≤ 3**.
 
-*Step 2 (a lossless column is outside, in a non-frame class).* Let `l` be lossless, so `Z_{A_l} ≠ 0` and `Z_{A_l} ⊆ W_{i_l}`. If the column were inside, F1 gives `y_l ∝ e_{i′}`, `⟨x_l, y_l⟩ ≠ 0` forces `i′ = i_l` and `Z_{A_l} = ⟨z_{i_l}⟩ ⊄ W_{i_l}`: contradiction. So `y2_l ≠ 0`, `q_l = y2_l(μ + Cη_l)`. Pick `z_l ∈ Z_{A_l}∖0`; `z_l ∈ W_{i_l}`, so it is **not a frame class**, and `q_l` vanishes on `O_{z_l}`. For `l ≠ l′` lossless, `z_l ≠ z_{l′}` (F3, Cor 3.6; `η_l ≠ η_{l′}` since `y_l, y_{l′}` are independent).
+*Step 2 (a lossless column is outside, in a non-frame class).* Let `l` be lossless, so `Z_{A_l} ≠ 0` and `Z_{A_l} ⊆ W_{i_l}`. If the column were inside, F1 gives `y_l ∝ e_{i′}`, `⟨x_l, y_l⟩ ≠ 0` forces `i′ = i_l` and `Z_{A_l} = ⟨z_{i_l}⟩ ⊄ W_{i_l}`: contradiction. So `y2_l ≠ 0`, `q_l = y2_l(μ + Cη_l)`. Pick `z_l ∈ Z_{A_l}∖0`; `z_l ∈ W_{i_l}`, so it is **not a frame class**, and `q_l` vanishes on `O_{z_l}`. For `l ≠ l′` lossless, `z_l ≠ z_{l′}` (F3′; `η_l ≠ η_{l′}` since `y_l, y_{l′}` are independent).
 
 *Step 3 (linear constraints).* Duality `⟨e_{i_{l′}}, y_l⟩ = δ_{ll′}` for `l′ ∈ F` gives **`η_l ∈ span(e_{i_l}, e_{I^c})` and `η_l[i_l] ≠ 0`**. For `l ≠ l′` lossless both columns vanish on `Θ := O_{z_l} ∩ O_{z_{l′}}`, so `μ = −Cη_l = −Cη_{l′}` there:
 **`⟨c_t, η_l − η_{l′}⟩ = 0` for `t ∈ Θ`**, with `η_l − η_{l′} ∈ span(e_{i_l}, e_{i_{l′}}, e_{I^c})` having non-zero `i_l` and `i_{l′}` coordinates.
@@ -101,7 +102,7 @@ The margin is structural: the largest clique is 4 < 5.
 
 Here both sides have a unique low of weight ≤ 5: `a′` the low row (`D_P ≥ 4`, `λ = p_{a′}`, `w_P = 9 − D_P ≤ 5`), `a` the low column (`D_Q ≥ 4`, `μ = q_a`). F3 applies on both sides, so Lemmas S and F hold. Every other term has non-low row and column, `d^R, d^A ≤ 1`, `s ≤ 2`.
 
-**Theorem H.** (ii) If `a ≠ a′`: `Σ s ≤ 26`, so `cost ≥ 64`. (i) If `a = a′ =: b`: `Σ s ≤ 36 − cost_b − (D_P + D_Q)`; so `cost ≥ 64` unless `cost_b = 0` and `D_P + D_Q = 9`, i.e. `(D_P, D_Q) ∈ {(4,5), (5,4)}`, which Proposition B closes.
+**Theorem H.** (ii) If `a ≠ a′`: `Σ s ≤ 26`, so `cost ≥ 64`. (i) If `a = a′ =: b` and `D_P + D_Q ≥ 9` (the cell `(4,4)` is closed by (L1)): `Σ s ≤ 36 − cost_b − (D_P + D_Q)`; so `cost ≥ 64` unless `cost_b = 0` and `D_P + D_Q = 9`, i.e. `(D_P, D_Q) ∈ {(4,5), (5,4)}`, which Proposition B closes.
 
 ### 5.1 `a ≠ a′` (Theorem H(ii))
 Take the normal form at `(a, a′)`. `Σ s = s_a + s_{a′} + Σ_{dual} s_l`. By F1/F3 a term has `d^R = 1` only with a frame or root-swap row (same for columns); `s_a = D_Q + c_a`, `c_a := dim(U_{A_a} ∩ Z_{R_a}) ≤ d^R_a ≤ 1`; `s_{a′} = D_P + c_{a′}`, `c_{a′} := dim(U_{R_{a′}} ∩ Z_{A_{a′}}) ≤ 1`. A dual term has `s ≤ 2`, and `s = 2` needs a swap on one side (Lemma F). Let `N₂` be the number of dual terms with `s = 2`: `Σ s ≤ D_Q + c_a + D_P + c_{a′} + 8 + N₂`, and `N₂ ≤ (#dual row swaps) + (#dual column swaps) ≤ w_P + w_Q` (Lemma S), `D_P + w_P = D_Q + w_Q = 9`. **It remains to pay for `c_a` and `c_{a′}`:** `N₂ ≤ w_P + w_Q − c_a − c_{a′}`.
@@ -111,7 +112,7 @@ Take the normal form at `(a, a′)`. `Σ s = s_a + s_{a′} + Σ_{dual} s_l`. By
 * If both are 1 and the losses fall on different sides, `N₂ ≤ w_P + w_Q − 2`. They fall on the same side in the pairs (α, β′) and (β, α′). In (α, β′): the dual column swaps and `u_{v₀}` (`a′`'s own swap line) are `Ω`-orthonormal in `U_μ`; if there were `w_Q − 1` dual swaps, together with `u_{v₀}` they would be an orthonormal basis of `U_μ`, the dual ones lie in `W_j`, so `z_j ∈ U_μ` would equal `Ω(z_j, u_{v₀}) u_{v₀} = u_{v₀}`: a frame label equal to a line label, impossible. So dual column swaps ≤ `w_Q − 2`. (β, α′) is the transpose.
 Hence `Σ s ≤ D_P + D_Q + w_P + w_Q + 8 = 26`. ∎
 
-### 5.2 `a = a′ = b` (Theorem H(i))
+### 5.2 `a = a′ = b` (Theorem H(i)), `D_P + D_Q ≥ 9`
 `Σ s = s_b + Σ_{9 others} s_k ≤ (9 − cost_b) + 9 + N₂`, where `N₂` (# others with `s = 2`, each with a swap, Lemma F) `≤ w_P + w_Q = 18 − D_P − D_Q`. This gives the bound of H(i): `≤ 26 − cost_b` if `D_P + D_Q ≥ 10`, and `≤ 27 − cost_b` if `D_P + D_Q = 9`. So `Σ s ≥ 27` forces `D_P + D_Q = 9` (with both `≥ 4`: `(4,5)` or `(5,4)`), `cost_b = 0`, `N₂ = 9`. ∎
 
 ### 5.3 Proposition B: `a = a′ = b`, `cost_b = 0`, `D_P + D_Q = 9` is impossible (PROVEN; CHECKED corroboration)
