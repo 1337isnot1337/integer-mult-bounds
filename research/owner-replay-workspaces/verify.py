@@ -20,6 +20,8 @@ def load_main(package):
     # Load the actual entry point but substitute only the expensive proof body.
     # The optional full mode below runs that body through the registered CLI.
     with mock.patch.object(sys, "path", sys.path.copy()):
+        # run_path does not emulate the script-directory import path.
+        sys.path.insert(0, str(ROOT / "research" / package))
         namespace = runpy.run_path(str(ROOT / "research" / package / "verify.py"))
     return namespace["main"]
 
