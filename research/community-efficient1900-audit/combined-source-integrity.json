@@ -1,7 +1,8 @@
 {
   "status": "PASS",
-  "checked_commit": "a2de1b834848fae079a57051623454acc692acb8",
+  "checked_commit": "9fedc5d28d800de0bad8f7a5cd7e679b0d15dd6d",
   "merged_prs": [
+    1007,
     2830,
     2874,
     2876,
@@ -37,7 +38,7 @@
     2920,
     2921
   ],
-  "changed_files": 484,
+  "changed_files": 497,
   "resolved_files": [
     {
       "number": 2892,
@@ -63,6 +64,21 @@
       "number": 2911,
       "path": "research/f7-18point-cover-question-seed6d34356c/README.md",
       "sha256": "5ab087377f6856b17fc983eec0c7c224f2eccedc9b3b3a27b973f30031c8ae77"
+    },
+    {
+      "number": 1007,
+      "path": "docs/research/pr-ledger.json",
+      "sha256": "cfd8e1320d543eae01836d805533587d2a79e33c70273eb62a4297df3553321e"
+    },
+    {
+      "number": 1007,
+      "path": "docs/research/pr-ledger.md",
+      "sha256": "bcd144725dabfaf9b3c85d4ae3fb3886249fba984f8797c6f9f0e71dd6bc2425"
+    },
+    {
+      "number": 1007,
+      "path": "scripts/reconcile_pr_queue.py",
+      "sha256": "5e7dda0066d7b53fa20a425978a888de4e3caed8a33420f2509c21204a35cb13"
     },
     {
       "number": 2906,
