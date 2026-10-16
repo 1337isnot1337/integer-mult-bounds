@@ -18,16 +18,23 @@
       "reviewed_head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
       "current_head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/p104-affine-complement-lean"
+      ],
       "unresolved_question": "Full substantive review remains open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2922",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2200-audit/INTAKE.json",
@@ -58,16 +65,23 @@
       "reviewed_head": "19d5f11052a0c6aa5de552e6df6fadc58861acf7",
       "current_head": "19d5f11052a0c6aa5de552e6df6fadc58861acf7",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/p104-endpoint-rank-lean"
+      ],
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2713",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2713.json",
@@ -100,16 +114,23 @@
       "reviewed_head": "0df268def5a3ce9e7e077ed8166eec545c3b8c25",
       "current_head": "0df268def5a3ce9e7e077ed8166eec545c3b8c25",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-record-phase-bridge"
+      ],
       "unresolved_question": "Finite/source checks pass; review the record-phase bridge and perform the pinned Lean kernel build with axiom/rejection controls.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2422",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2422.json",
@@ -142,16 +163,23 @@
       "reviewed_head": "160c6b06954339f97d53529557247c22ff27c47d",
       "current_head": "160c6b06954339f97d53529557247c22ff27c47d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/native-ccache-columns"
+      ],
       "unresolved_question": "Source and cache-invalidation benchmark harness reviewed; independent Python column replay and controls pass. Full native Linux ccache benchmark is not independently replayed: Docker CLI probe was terminated after hanging, and hosted native job was QUEUED at observation. Keep author speedup claim scoped; obtain completed native evidence before integration.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2414",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2414.json",
@@ -184,16 +212,23 @@
       "reviewed_head": "d7db77c9e3f19fd1196393c045e597539fdcfc8a",
       "current_head": "d7db77c9e3f19fd1196393c045e597539fdcfc8a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-normal-class-rank"
+      ],
       "unresolved_question": "Finite/source checks pass; review the new normal-class rank proof and perform the pinned Lean kernel build with axiom/rejection controls before accepting the formalization.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2404",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2404.json",
@@ -226,16 +261,23 @@
       "reviewed_head": "5816f94741709e8082e06a2cc9a114ff87411f3d",
       "current_head": "5816f94741709e8082e06a2cc9a114ff87411f3d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/selected-monomial-coordinate-refinement"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2378",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2378.json",
@@ -267,16 +309,23 @@
       "reviewed_head": "1bd441f45179a6d042d01a8237ad7faaf4e23a18",
       "current_head": "1bd441f45179a6d042d01a8237ad7faaf4e23a18",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-bit-moment-discharge"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2295",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2295.json",
@@ -309,16 +358,23 @@
       "reviewed_head": "32ef80ad161b8602b32698ed43186ecc2266cb5b",
       "current_head": "32ef80ad161b8602b32698ed43186ecc2266cb5b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-stopped-recurrence-audit"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2289",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2289.json",
@@ -351,16 +407,23 @@
       "reviewed_head": "f7e8e8a3ff8a889366f97e222eef262d61312b58",
       "current_head": "f7e8e8a3ff8a889366f97e222eef262d61312b58",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-decoder-rank-interface"
+      ],
       "unresolved_question": "Source and196608-case finite replay pass. The exact Lean4.33.0-rc1/Mathlib kernel attempt stopped at the recorded disk-space guard before a theorem build; incomplete dependency artifacts were removed, sources and logs retained. Fresh kernel build,18-target axiom report and three type-error controls still required; no formal verification claimed.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2267",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2267.json",
@@ -435,16 +498,23 @@
       "reviewed_head": "5bde684f9189b59d1388c089ec5475fb5cf59565",
       "current_head": "5bde684f9189b59d1388c089ec5475fb5cf59565",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/lean-unitary-prefix-norm"
+      ],
       "unresolved_question": "Lean contribution needs pinned dependency preparation, full module build, source binding and axiom/mutation checks. Python extraction alone is not formal acceptance; keep separate from selected theorem claims.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1309",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1309.json",
@@ -476,16 +546,24 @@
       "reviewed_head": "12e04a30d7381a2a60bf2d7260febcb37f14e454",
       "current_head": "12e04a30d7381a2a60bf2d7260febcb37f14e454",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/mixed-demotions-t37",
+        "research/mixed-fusions-x54-t37"
+      ],
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1239",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/1239.json",
@@ -519,16 +597,23 @@
       "reviewed_head": "7015903d1d01a2b50ff16f85184edc2686f69e37",
       "current_head": "7015903d1d01a2b50ff16f85184edc2686f69e37",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-t37-joint-x54-owners"
+      ],
       "unresolved_question": "Whole-head supplier review remains open for `research/complex-t37-joint-x54-owners`. Bind its exact native providers, physical owner allocation and admission evidence, then reconcile changed predecessor blobs before merge. Path overlap with a replayed descendant does not establish complete coverage; see SUPPLIER-FAMILIES.json.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1196",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1196.json",
@@ -560,16 +645,23 @@
       "reviewed_head": "d376209304f05551f975b0ddf6eaa84edc4ae31a",
       "current_head": "d376209304f05551f975b0ddf6eaa84edc4ae31a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-t37-ends7-owners"
+      ],
       "unresolved_question": "Whole-head supplier review remains open for `research/complex-t37-ends7-owners`. Bind its exact native providers, physical owner allocation and admission evidence, then reconcile changed predecessor blobs before merge. Path overlap with a replayed descendant does not establish complete coverage; see SUPPLIER-FAMILIES.json.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1152",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1152.json",
@@ -601,16 +693,23 @@
       "reviewed_head": "1627bf208f80e490522343590dd52f38b329e238",
       "current_head": "1627bf208f80e490522343590dd52f38b329e238",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/dirty-stride-fast-phases"
+      ],
       "unresolved_question": "Uniform dirty-stride phase/accuracy theorem depends on pending #1038 family; joint proof-interface audit required.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1141",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1141.json",
@@ -642,16 +741,23 @@
       "reviewed_head": "fcdc42737b703323d8ed550a528141a482e68e96",
       "current_head": "fcdc42737b703323d8ed550a528141a482e68e96",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-t37-seven-slot-owners"
+      ],
       "unresolved_question": "Whole-head supplier review remains open for `research/complex-t37-seven-slot-owners`. Bind its exact native providers, physical owner allocation and admission evidence, then reconcile changed predecessor blobs before merge. Path overlap with a replayed descendant does not establish complete coverage; see SUPPLIER-FAMILIES.json.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1131",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1131.json",
@@ -683,16 +789,23 @@
       "reviewed_head": "6bc675be1554b3a3be771147f21f9dc2c6dae50a",
       "current_head": "6bc675be1554b3a3be771147f21f9dc2c6dae50a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/dirty-stride-precision"
+      ],
       "unresolved_question": "All-length dirty-stride accuracy theorem needs a dedicated audit of coarse-grid refinement, dirty magnitude and both orientations.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1054",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1054.json",
@@ -724,16 +837,23 @@
       "reviewed_head": "99c71d385171480ecc2c43287aa4a04e1027fcd9",
       "current_head": "99c71d385171480ecc2c43287aa4a04e1027fcd9",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/dirty-stride-phases"
+      ],
       "unresolved_question": "New reversible quadratic-phase/tape implementation must be checked jointly with dirty-stride source reuse and precision assumptions.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1038",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1038.json",
@@ -765,16 +885,24 @@
       "reviewed_head": "6ef2168ac90d42926bceb7ac9b2e029463800c76",
       "current_head": "6ef2168ac90d42926bceb7ac9b2e029463800c76",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/averaged-cyclotomic-height",
+        "research/averaged-cyclotomic-height-validation"
+      ],
       "unresolved_question": "Uniform averaged cyclotomic-height and precision theorem needs a dedicated analytic proof/parent-interface audit.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1025",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1025.json",
@@ -806,16 +934,23 @@
       "reviewed_head": "da1cdf8ed4ac9b1b8378dfec73f77ff4e81a4f70",
       "current_head": "da1cdf8ed4ac9b1b8378dfec73f77ff4e81a4f70",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/dirty-stride-source-reuse"
+      ],
       "unresolved_question": "Dirty source-reuse/two-tape solver requires a dedicated restoration, precision, physical routing and source-domain proof audit.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/985",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/985.json",
@@ -847,16 +982,24 @@
       "reviewed_head": "2846af720af190cb75b45ebddbb0357dec1121ec",
       "current_head": "2846af720af190cb75b45ebddbb0357dec1121ec",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/cyclic-stride-effective-depth",
+        "research/cyclic-stride-effective-depth-validation"
+      ],
       "unresolved_question": "Uniform effective-depth and accuracy extension depends on the #846 solver and #862 analytic interface; review as a single proof family.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/977",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/977.json",
@@ -888,16 +1031,23 @@
       "reviewed_head": "679ac7b760ef2e01262039b906c154012548be81",
       "current_head": "679ac7b760ef2e01262039b906c154012548be81",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-factory-butterfly"
+      ],
       "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. All8 export controls passed; the scientific census/native replay stopped after7.38seconds; final packaging replay did not run. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/931",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/931.json",
@@ -929,16 +1079,23 @@
       "reviewed_head": "4bdb3e755ea7118170a7a34764df955880dec282",
       "current_head": "4bdb3e755ea7118170a7a34764df955880dec282",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/cyclic-inverse-stride-bridge"
+      ],
       "unresolved_question": "New all-length fixed-tape stride solver: review FIFO traffic, uniform accuracy and factorization interface together with the later #977/#985 refinements.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/846",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/846.json",
@@ -970,16 +1127,23 @@
       "reviewed_head": "d4c60b58d48310ffd5b65bc99ff5b40ed2e59b14",
       "current_head": "d4c60b58d48310ffd5b65bc99ff5b40ed2e59b14",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-read-exchange"
+      ],
       "unresolved_question": "Complete 202,800-case fixed-domain replay exceeded the 180-second batch budget. Continue in a bounded dedicated job with exact head/input coverage; no exclusion accepted from a timeout.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/775",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient100-audit/packets/775.json",
@@ -1053,16 +1217,23 @@
       "reviewed_head": "3219863d868b4230eeb4bf2948758eff45efffcf",
       "current_head": "3219863d868b4230eeb4bf2948758eff45efffcf",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/e8-direct-source"
+      ],
       "unresolved_question": "Uniform RAM supplier/interface proof needs dedicated review.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/697",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient100-audit/packets/697.json",
@@ -1092,16 +1263,24 @@
       "reviewed_head": "5fc2a0c4e10558f09f03a8e42559dcf8e381e57e",
       "current_head": "5fc2a0c4e10558f09f03a8e42559dcf8e381e57e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/complex-promo4-cold72",
+        "research/complex-promo4-cold72-validation"
+      ],
       "unresolved_question": "Review 72-end and fourth-promotion delta plus literal owner assignment; select exact-head dedicated Linux evidence or run affected stages. Do not accept unrelated inherited green checks.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/685",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained; workflow configuration separately resolved to manual-only execution with read-only credentials and bounded concurrency. Original workflow preserved in the audit. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-pilot20-audit/packets/685.json",
@@ -1131,16 +1310,22 @@
       "reviewed_head": "3e1e5dcfc7c6469d93b1b979323186de30dc0387",
       "current_head": "3e1e5dcfc7c6469d93b1b979323186de30dc0387",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/normal45-joint-restoration"
+      ],
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2960",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
@@ -1164,16 +1349,22 @@
       "reviewed_head": "5633dea2ce56f84e28f39b775c4b04fd1faafa23",
       "current_head": "5633dea2ce56f84e28f39b775c4b04fd1faafa23",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-producer-entry-contract"
+      ],
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2959",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
@@ -1263,16 +1454,22 @@
       "reviewed_head": "b1d8cb36d83dd0e5181edf0d02b8c45c78f108d5",
       "current_head": "b1d8cb36d83dd0e5181edf0d02b8c45c78f108d5",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/pg16m-bootstrap-orders"
+      ],
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2956",
+        "merge_commit": "1c1de259ec4313da3a3279fd84a748bcee2d2d25"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
