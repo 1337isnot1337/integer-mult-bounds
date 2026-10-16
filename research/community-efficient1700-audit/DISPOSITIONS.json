@@ -1763,20 +1763,24 @@
       },
       "reviewed_head": "e7fd43cf1be63cd14a9b2b57b2889eaf25a1fde2",
       "current_head": "e7fd43cf1be63cd14a9b2b57b2889eaf25a1fde2",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/t74-native-fast"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e88f75822a7bda4ab1ed300bfd7bea9bdf7795e6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2768"
+      },
       "scope": "Opt-in complete T74 native sparse replay: all new runner/comparator/control code and exact evaluator equivalence reviewed;20 original source/fixture copies and22 reference artifact pins independently matched. Both provider five-stage replays,166 warp classes/all512 columns,1488 dense/sparse comparisons and18 boundary controls pass with numpy2.2.6; extra runs Git-free in path with spaces. Original thirteen warp recipe controls retained. All output fields compared except two elapsed values, with compressed bindings checked before semantic normalization. Author3.57x benchmark not remeasured; native supplier mathematics, physical/outer admission and default adoption remain separate.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2768.json",

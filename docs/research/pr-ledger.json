@@ -45,8 +45,8 @@
     "research/community-efficient1700-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1955,
-    "partially_reviewed": 340,
+    "incorporated": 1956,
+    "partially_reviewed": 339,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -103,7 +103,7 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "4f3edc6a5812e17a12cec8b70d38a05e4dc1ab1cc847543ff0be2f264141b4f3",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "9083c5969a47b221fd9863f0d81144899533310425fa26786eab7622608e87d2",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -128272,25 +128272,33 @@
         {
           "head": "e7fd43cf1be63cd14a9b2b57b2889eaf25a1fde2",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Opt-in complete T74 native sparse replay: all new runner/comparator/control code and exact evaluator equivalence reviewed;20 original source/fixture copies and22 reference artifact pins independently matched. Both provider five-stage replays,166 warp classes/all512 columns,1488 dense/sparse comparisons and18 boundary controls pass with numpy2.2.6; extra runs Git-free in path with spaces. Original thirteen warp recipe controls retained. All output fields compared except two elapsed values, with compressed bindings checked before semantic normalization. Author3.57x benchmark not remeasured; native supplier mathematics, physical/outer admission and default adoption remain separate.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-native-fast"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e88f75822a7bda4ab1ed300bfd7bea9bdf7795e6",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2768"
+      },
       "reviewed_head": "e7fd43cf1be63cd14a9b2b57b2889eaf25a1fde2",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2768.json"
+        "research/community-efficient1700-audit/packets/2768.json",
+        "research/community-efficient1700-audit/checks/check-2768-supplement.json",
+        "research/community-efficient1700-audit/checks/check-2768.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -130433,7 +130441,7 @@
       "closure": null,
       "reviewed_head": "934665427b93c33977e1d813ef32096b55806e0f",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "README and driver reviewed; full classification/CNF soundness review remains. Default verify.sh only regenerates and hashes the Theorem R CNF/proof and reads historical logs; it does not independently check that DRAT refutation. Review pivot/pinning reductions and CNF encodings, then run bounded standard drat-trim on the exact regenerated CNF and shipped proof (fresh solve is a separate reproducibility obligation). Requires pinned SAT/checker tools and a memory plan; no solver or Lean launched. Scope is characteristic-zero E8 iff pattern, not P112/P104 or general zero-allowed completions.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -130890,7 +130898,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1503,
-    "OPEN": 476
+    "MERGED": 1504,
+    "OPEN": 475
   }
 }
