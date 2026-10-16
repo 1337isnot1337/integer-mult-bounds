@@ -1,5 +1,5 @@
 {
-  "status": "28_PUBLISHED_12_PENDING",
+  "status": "40_PUBLISHED_0_PENDING",
   "pull_requests": [
     {
       "number": 1004,
@@ -19,17 +19,23 @@
       },
       "reviewed_head": "1974578f82a30158dd5fcdcdf226b83df8e7196f",
       "current_head": "1974578f82a30158dd5fcdcdf226b83df8e7196f",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/gauge44-leaver"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Five no-helper mutable-leaver cells with exact scalar rescaling, dirt-aware target relabelling, rebuilt layers, frame recipes and full owner/assembly accounting; historical candidate kappa 0.001664233607446043.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -53,17 +59,24 @@
       },
       "reviewed_head": "779e80aef469bc3a28b19f1adde199871a9a22e3",
       "current_head": "779e80aef469bc3a28b19f1adde199871a9a22e3",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Eight mutable-leaver cells, explicit not-applicable mutation sites with replacement controls, full native phases and owner admission; historical candidate kappa 0.001671387264390146.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -87,17 +100,25 @@
       },
       "reviewed_head": "eac7547cb191f875d5f5ea5f9bbb1d2b8c51c4ef",
       "current_head": "eac7547cb191f875d5f5ea5f9bbb1d2b8c51c4ef",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8",
+        "research/gauge44-slots"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Seven triangle-hybrid slots on the k8 word, including Rohan Arun's PR987 discovery, using the unchanged credited builder; complete local and global admission, kappa 0.001671665283218770.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -121,17 +142,27 @@
       },
       "reviewed_head": "58618bcbfe88a252467755fc283c04c3db5ca4fd",
       "current_head": "58618bcbfe88a252467755fc283c04c3db5ca4fd",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/community-batch1047-audit",
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8",
+        "research/gauge44-slots",
+        "research/gauge44-slots-t16"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Hao Yan's T16 controller applied to the k8 slot word, with word-derived helper inventory and a separately checked frozen owner assignment; kappa 0.001672081255752945.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -155,17 +186,27 @@
       },
       "reviewed_head": "be4bd89cb4483dcee43257200cd27601f938f13d",
       "current_head": "be4bd89cb4483dcee43257200cd27601f938f13d",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/community-batch1047-audit",
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8",
+        "research/gauge44-slots",
+        "research/gauge44-slots-t16"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "T16 owner-map refinement with unchanged scalar word and verification code; candidate kappa 0.001672166670891177. Preserve submitted owner, plan, spec and manifest independently.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -189,17 +230,27 @@
       },
       "reviewed_head": "e900534f0beda892c726723524203b97471fb9a3",
       "current_head": "e900534f0beda892c726723524203b97471fb9a3",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/community-batch1047-audit",
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8",
+        "research/gauge44-slots",
+        "research/gauge44-slots-t16"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Further T16 owner-map refinement with unchanged scalar word and verification code; candidate kappa 0.001672167430672016. Preserve its separate frozen data and admission.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -223,17 +274,26 @@
       },
       "reviewed_head": "7e8ef087c02a77038a28a337a7ee3a77039cac0d",
       "current_head": "7e8ef087c02a77038a28a337a7ee3a77039cac0d",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/gauge44-leaver",
+        "research/gauge44-leaver8",
+        "research/gauge44-slots",
+        "research/gauge44-slots-t16"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "T16 owner-map refinement on the seven-slot k8 word; candidate kappa 0.001672188119205421. Requires complete credited construction, both suppliers, native/control replays and all 47 assembly inequalities; inherited all-size and analytic hypotheses remain.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -257,17 +317,23 @@
       },
       "reviewed_head": "d71857cd0ae7824e935aac17327e4ec27f66322b",
       "current_head": "d71857cd0ae7824e935aac17327e4ec27f66322b",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/complex-rank7-end-pair"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Independent U8 construction with helpers 588/589 ending at rank seven, changed incident frames and explicit whole-owner repacking; conditional kappa 0.001662026179475390. This changes the fixed-prefix premises of the endpoint census.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -291,17 +357,23 @@
       },
       "reviewed_head": "eff657644137971f6e31ac3c825950c770471349",
       "current_head": "eff657644137971f6e31ac3c825950c770471349",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/t37-rational-refinement"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Exact rational grid refinement of the historical T37 assembly to 1661960547713947858091/10^24, with both moment engines, 47 margins and next-point rejection. Superseded numerically by the new construction chain.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -325,17 +397,24 @@
       },
       "reviewed_head": "69f989511a3f0c6f7a26da1c1608b265fbb1668a",
       "current_head": "69f989511a3f0c6f7a26da1c1608b265fbb1668a",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "research/complex-t37-independent-seed39",
+        "research/complex-t37-validation"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Independent T37 seed39 owner construction and full source-bound admission at the historical selected kappa; separate edits, coverage and payload/package mutations. Does not establish priority or independently prove the upstream multiplication theorem.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -959,17 +1038,24 @@
       },
       "reviewed_head": "ff4d7b9ac97a584275fe0653f226f4ce2ffc6086",
       "current_head": "ff4d7b9ac97a584275fe0653f226f4ce2ffc6086",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        ".github/workflows",
+        "research/selected-replay-fastpath"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Opt-in sparse Gaussian-amplitude evaluator for exact U8 Clifford phases; complete recipe equality and adversarial controls. Retains global phase, frame, edge and endpoint checks; no mathematical or kappa change.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"
@@ -993,17 +1079,24 @@
       },
       "reviewed_head": "9576c644a4cafd2cfac309689a19342451702f81",
       "current_head": "9576c644a4cafd2cfac309689a19342451702f81",
-      "github_state": "OPEN",
-      "disposition": "partially_reviewed",
-      "integration_location": [],
-      "closure": null,
+      "github_state": "MERGED",
+      "disposition": "incorporated",
+      "integration_location": [
+        "Makefile",
+        "research/phase-recipes-parallel"
+      ],
+      "closure": {
+        "method": "Reviewed source integrated, exact PR head merged by ancestry and published to main",
+        "publication_commit": "89979c85e09cb523c0d683b80c312d27da60439e",
+        "evidence": "research/community-batch1047-audit/CHECKPOINT3-CLOSURES.json"
+      },
       "scope": "Opt-in parallel exact phase compiler with deterministic output order and failure propagation; reference and PR662 engines reproduce full pinned recipes. Complementary to PR1029, with performance claims limited to recorded machines.",
-      "unresolved_question": "Finish frozen source/mechanism review and required execution before integration.",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "docs/research/community-batch1047-review.md"

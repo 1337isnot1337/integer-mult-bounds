@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "checked_commit": "bec1870c4acf8e0ef0f65a04f290a0c36981692b",
+  "merged_prs": [
+    2514,
+    2517,
+    2539,
+    2553,
+    2831,
+    2835,
+    2837,
+    2841,
+    2845,
+    2850,
+    2851,
+    2858,
+    2860,
+    2868,
+    2872
+  ],
+  "changed_files": 218,
+  "resolved_files": [
+    {
+      "number": 2514,
+      "path": "scripts/find_overlap.py",
+      "sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61"
+    },
+    {
+      "number": 2514,
+      "path": "tests/test_research_onboarding.py",
+      "sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985"
+    },
+    {
+      "number": 2517,
+      "path": "scripts/find_overlap.py",
+      "sha256": "a11289dc1e0ce3500bddbb28f36fd24d15042808cdc422f14c2564658dbefb61"
+    },
+    {
+      "number": 2517,
+      "path": "tests/test_research_onboarding.py",
+      "sha256": "3404642a7552506b1b51169a4548db816be62bf47e57be08df73aefe206f7985"
+    },
+    {
+      "number": 2553,
+      "path": "docs/research/research-package-guide.md",
+      "sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511"
+    },
+    {
+      "number": 2553,
+      "path": "scripts/research_package.py",
+      "sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed"
+    },
+    {
+      "number": 2860,
+      "path": "research/independent-walks-tworepeat-8q/PROOF.md",
+      "sha256": "1f58098e0aac31a091e57882d633d3973b74119f92cd10947190b0a30dc511d8"
+    },
+    {
+      "number": 2860,
+      "path": "research/independent-walks-tworepeat-8q/README.md",
+      "sha256": "1d1e1b8a0e58cdc7b8b8b6f7f6e096ed0e6484aeee72c313556fbd5fa16ac46b"
+    }
+  ],
+  "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
+  "scope": "Every reviewed author head is an ancestor; every changed file is original Git blob/mode or an explicitly reviewed integration resolution. GitHub MERGED observations retained separately. No new full-supplier claim."
+}
