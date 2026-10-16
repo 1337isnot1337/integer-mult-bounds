@@ -16,6 +16,7 @@ def main():
     parser.add_argument("--emit", action="store_true")
     args = parser.parse_args()
     loader.activate()
+    loader.compatibility_controls()
     if args.suite == "frame":
         import frame_checks
         result = frame_checks.run()

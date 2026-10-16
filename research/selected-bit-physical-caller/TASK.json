@@ -37,11 +37,11 @@
   "ai_assistance": "Substantial OpenAI Codex assistance, including mathematical and source-analysis subagents. No independent human or proof-assistant verification claimed.",
   "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18958887",
   "freshness": {
-    "canonical_main": "81ff1f588a3dddf817d09ac429e9324e9d61501a",
-    "upstream_checked_utc": "2026-10-16T00:27Z",
-    "overlap_checked_utc": "2026-10-15T23:55:00Z",
-    "coverage": "707 open PRs, 1469 Discussion records and 1987 local records; complete pagination and no warnings. No competing executable-controller completion or stronger H2 completion appeared. The three pinned source PRs remain unchanged and have no comments or reviews. Metadata coverage excludes arbitrary diffs and unpublished work. Guidance, priority 5 and the selected record remain unchanged.",
-    "complementary_work": "PR2776 handles ordered unit shears; PR2781/2796/2801 handle numerical lifetime allowances. Petalas published logical outer wrapper PR2808 at b00b58e0db823643364f705b530faac254e7b05b; it retains physical and stronger H2 boundaries. A 22:45 targeted supplement found no competing controller-generation claim. These pending claims are not imported proof dependencies."
+    "canonical_main": "c719a5e0b3a6760a6fdf5d5af82d6ff2399329e5",
+    "upstream_checked_utc": "2026-10-16T02:44Z",
+    "overlap_checked_utc": "2026-10-16T02:49Z",
+    "coverage": "Submission supplement: all 582 open PRs, complete Discussion 2319 comment pagination, recent hub 1166 comments and targeted merged/open searches. Prior 23:55 full snapshot covered 707 open PRs, 1469 Discussion records and 1987 local records. No competing generated-controller completion or new PR2809 feedback appeared. The three source heads remain unchanged. Metadata coverage excludes arbitrary diffs and unpublished work. Guidance, priority 5 and selected parameters remain unchanged; one selected-record proof-supplement hash changed for an explicit UTF-8 verifier read, covered by exact compatibility pins in loader.py.",
+    "complementary_work": "Ross Richardson's count-tape grant audit at Discussion 2319 comment 18963164 excludes this generated controller. Petalas's logical outer wrapper PR2808 remains at b00b58e0db823643364f705b530faac254e7b05b; it retains physical and stronger H2 boundaries. PR2776/2829 provide ordered unit shear/carry components. These pending claims are not imported proof dependencies."
   },
   "audit_correction": {
     "author": "starship-s",

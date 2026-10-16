@@ -17,5 +17,5 @@
   ],
   "snapshot_manifest": "SNAPSHOTS.json",
   "transitive_input_manifest": "inputs/pr2753/SOURCES.json",
-  "authentication": "loader.py authenticates all 97 snapshot files, then calls the pinned PR2753 verifier with the current repository root to authenticate its complete transitive inputs."
+  "authentication": "loader.py authenticates all 97 snapshot files, then calls the pinned PR2753 verifier with the current repository root to authenticate its complete transitive inputs. For selected-result.json only, it accepts either the original exact record or the exact record at c719a5e0b3a6760a6fdf5d5af82d6ff2399329e5; the latter changes only the UTF-8 HPE verifier's proof-supplement hash. Both complete SHA256 and Git blob pins appear in loader.py. Frozen manifests remain unchanged."
 }

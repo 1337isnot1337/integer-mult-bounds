@@ -59,6 +59,26 @@ I preserve that portability limitation. The current controller delegates lease
 loops to the same literal Tape methods to reduce simulator overhead; exact API
 traffic controls cover that change. I have not run the current package on Linux.
 
+At the 02:44 UTC submission checkpoint I fetched canonical main
+`c719a5e0b3a6760a6fdf5d5af82d6ff2399329e5`. The maintainer changed one entry
+in selected-result.json after making the HPE Lean verifier read UTF-8 explicitly
+in commit `2dfb25cd3c762a2b24ba732a28bb21e4d331687a`. I checked that exact
+one-field difference; the selected parameters and our ten other runtime inputs
+remain unchanged. The loader accepts either complete selected record by exact
+SHA256 and Git blob, then passes an in-memory manifest to the frozen verifier.
+I preserve the 97 exports and their original manifests byte for byte. Each
+suite also rejects unrecognized parameter and proof-manifest mutations.
+The first refreshed registered replay exceeded the 30-second continuation
+limit; I then passed that suite alone in 48.08 seconds. An experimental budget
+of 45/45/75/75/240/600/120 seconds passed both Frame and both continuation
+commands, then timed out in macro_nested. I restored the original manifest
+budget, under which I had completed the seven-suite run above. I claim no
+complete registered pass after the submission refresh. The new authentication
+and mutation controls passed normally and with assertions disabled; the
+controller, primitives and payload oracles have no changes from the complete
+pass at implementation commit `61f4d7ce`. These timeout observations concern
+the local simulator and remain a reproducibility limitation.
+
 For the original proof/adapter submission I completed all five registered
 commands with exit code 0 on 2026-10-15. The
 launcher reported `PASS_REGISTERED_RESEARCH_PACKAGE`; the complete nested
