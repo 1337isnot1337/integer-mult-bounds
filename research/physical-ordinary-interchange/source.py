@@ -14,6 +14,10 @@ ARCHIVES = {
 }
 _temporary = None
 _loaded = None
+PROOF_INPUTS = {
+    "research/bit2234-stock-threshold/README.md":
+        "1e050c9f963421d751d9208092f9a15321ed77810e03912df8eb5eb56bbb06e7",
+}
 
 
 def extract(name, destination):
@@ -35,8 +39,13 @@ def activate():
     global _temporary, _loaded
     if _loaded is not None:
         return _loaded
-    if "loader" in sys.modules or "words" in sys.modules:
+    names = ("loader", "words", "records", "catalogue", "controller", "numeric",
+             "macro_machine", "macro_code", "scheduler", "cardinal_counts", "padding", "outer")
+    if any(name in sys.modules for name in names):
         raise ValueError("cold shared predecessor namespace")
+    for name, digest in PROOF_INPUTS.items():
+        if sha256((ROOT / name).read_bytes()).hexdigest() != digest:
+            raise ValueError("pinned stock proof changed: " + name)
     _temporary = tempfile.TemporaryDirectory(prefix="ordinary-physical-")
     root = Path(_temporary.name)
     for name in ARCHIVES:

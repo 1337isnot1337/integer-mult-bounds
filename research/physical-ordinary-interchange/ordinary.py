@@ -14,7 +14,7 @@ from scratch_pool import ScratchPool
 from session import (OuterScope, RootSession, borrowed_count, borrowed_tape,
                      erase_marker, initialize_marker, sealed_constructors)
 from stream import Counter
-from words import BLANK, Ring, need
+from words import BLANK, LEFT, Ring, need
 
 
 def radix_power(exponent, q):
@@ -60,7 +60,12 @@ class Ordinary:
     recovery guarantee is part of this mathematical interface.
     """
     def __init__(self, q, binding, topology, programs, capacity=1 << 24,
-                 profile=Profile(), fixture_index_floor=0):
+                 profile=Profile(), fixture_index_floor=0, observe=None):
+        need(type(q) is int and q >= 2 and binding.codes.q == q, "one compiled radix")
+        need(1 <= profile.child_rank < profile.dimension and profile.row_factor >= 1,
+             "contracting compiled stock profile")
+        if fixture_index_floor:
+            need(binding.cutoff == 2, "index-floor exception belongs only to the reduced fixture")
         self.q, self.binding, self.profile = q, binding, profile
         self.fixture_index_floor = fixture_index_floor
         self.banks = tuple(PhysicalArena(capacity) for _ in range(4))
@@ -71,9 +76,16 @@ class Ordinary:
         self.output = Tape()
         self.closed = False
         self.last_fitted = None  # Observer only.
+        self.observe = observe  # Checker-only; its return value never controls execution.
 
     def rearm(self):
         need(self.closed and self.output.read() == BLANK, "consume previous ordinary output")
+        self.output.step(-1)
+        marker = self.output.read()
+        need(marker in (LEFT, BLANK), "consumed ordinary output origin")
+        if marker == BLANK:
+            self.output.write(LEFT)
+        self.output.step(1)
         for tape in self.pool.tapes:
             initialize_marker(tape)
         for bank in self.banks:
@@ -140,11 +152,16 @@ class Ordinary:
             cleanup.callback(actual_suffix.close)
 
             def callee(padded, rows):
+                if self.observe is not None:
+                    self.observe("before", borrowed_tape(padded), None)
                 with self.scope.suspended():
-                    return self.runtime.run(
+                    returned = self.runtime.run(
                         borrowed_tape(padded), borrowed_tape(directory), borrowed_tape(program.tape),
                         ring.modulus, size, depth, borrowed_count(prefixes), borrowed_count(rows),
                         borrowed_count(one), borrowed_count(actual_gap), borrowed_count(actual_suffix))
+                if self.observe is not None:
+                    self.observe("after", borrowed_tape(padded), returned)
+                return returned
 
             return outer.interchange(payload, size, ring, high, self.q, prefixes, gap, suffix,
                                      plan["stock"], callee, remainder_ring=tail)
