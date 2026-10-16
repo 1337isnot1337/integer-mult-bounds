@@ -1,6 +1,7 @@
 # Validation and scope
 
-Exact runtime: Python 3.12.14, NumPy 2.3.5, isolated/optimized/no-bytecode mode.
+Original recorded local runtime: Python 3.12.14, NumPy 2.3.5,
+isolated/optimized/no-bytecode mode.
 On Ross's Mac the tested interpreter is
 `/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`.
 
@@ -42,7 +43,22 @@ This is local Linux evidence, separate from a completed GitHub Actions run.
 The successor now uses the default temporary directory; frozen predecessor
 gate files remain unchanged.
 
-The final selected-record check passed for
+Subsequent hosted evidence: the [dedicated H6 job](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563166103/job/115849082010)
+completed successfully on 15 October 2026 with CPython 3.12.15 and NumPy
+2.3.5. Its checked-out synthetic merge was
+`f7babf9b0057f88271447b99bc05a5204ee0a1c9` (reviewed head
+`a6578b3dfad3d0b3279b1b6db23940b0660f9e5f` into original base
+`0b1cccf86e2f5132ed286a26ef0a681a495740ea`). It passed the complete
+fresh-export gate, 17 semantic corruption controls plus the K-coefficient
+and transitive-source mutations, selected-record integrity, and the
+unchanged-checkout check. These hosted results are separate from the earlier
+local runs and do not cover later documentation revisions.
+
+The wider [Verify research artifacts run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563165671)
+has five failed jobs and 22 cancellations. A successful dedicated H6 job
+does not establish a whole-repository CI pass.
+
+The original submission-time selected-record check passed for
 `836330098538459/500000000000000000`. Remote main remained
 `0b1cccf86e2f5132ed286a26ef0a681a495740ea`. That check is separate from
 package replay and does not cold-replay the selected supplier.
@@ -74,7 +90,7 @@ before the final snapshot.
 Unrun/unproved: executing the entire billion-event stream, integrated immutable
 physical bank/controller/pad/tape program, approximate-child error propagation,
 all-size precision/common-grid and bit-supplier admission, outer analytic
-transfer, general `make verify`, hosted CI, theorem/frontier admission. The
+transfer, general `make verify`, theorem/frontier admission. The
 prior exhaustive958,521,600-entry pairing receipt is retained immutable
 input evidence. Nominal planning roots and exact-child finite-grid closure
 are not promoted to those stronger obligations.

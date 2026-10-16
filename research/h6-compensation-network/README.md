@@ -237,7 +237,7 @@ bank/controller/pad placement into one immutable physical tape, integrate
 approximate child errors and the all-size common-grid/precision contract,
 then establish bit-supplier and analytic transfer. The complete word's
 nominal failure already follows without those additional positive costs.
-No new selected κ, frontier move, hosted CI or all-size supplier claim is made.
+No new selected κ, frontier move or all-size supplier claim is made.
 
 ## Open next questions
 
@@ -279,8 +279,19 @@ directories use the platform default rather than a macOS-specific path.
 
 This job covers the successor's finite replay and retained predecessor
 evidence; it does not rerun the prior billion-pair audit or admit the all-size
-supplier. Hosted job status on PR1830 is separate from the committed local
-receipts. The generic research jobs alone do not execute this package.
+supplier. The [dedicated hosted run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563166103/job/115849082010)
+completed successfully on 15 October 2026. It checked out synthetic merge
+`f7babf9b0057f88271447b99bc05a5204ee0a1c9`, combining reviewed head
+`a6578b3dfad3d0b3279b1b6db23940b0660f9e5f` with original base
+`0b1cccf86e2f5132ed286a26ef0a681a495740ea`. The fresh-export gate,
+selected-record integrity and unchanged-checkout checks passed. This hosted
+result applies to that tested merge; later documentation revisions are
+covered by their separately reported checks.
+
+The wider [Verify research artifacts run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563165671)
+has five failed jobs and 22 cancellations. Its outcome is separate from the
+dedicated H6 replay; no whole-repository CI pass is claimed. The generic
+research jobs alone do not execute this package.
 
 Keep full Git history: the gate checks inherited blobs at `92d165a6`.
 For the optional complete predecessor audit, first fetch its pinned published
