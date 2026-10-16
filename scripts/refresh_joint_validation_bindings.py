@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Refresh two derived validation bindings omitted by production commit 73cc66d0.
+"""Refresh derived joint/pair validation bindings omitted by production commit 73cc66d0.
 
 Only the exact known old receipts and current composition certificates are
 admitted. Every proof-relevant receipt byte is preserved; only its single
 certificate_sha256 value changes. This is metadata regeneration, not a replay.
-Run make verify-joint afterward to regenerate both complete receipts and retain
+Run make verify-joint and make verify-pair afterward to regenerate both complete receipts and retain
 CI's exact clean-tree gate. Frozen source archives/manifests are not edited.
 Credit Chafik Boukhalfa's verifier/certificates, Aaron Wang's containment scan,
 and Wentao Li's production integration. Dennis, with OpenAI Codex; Apache-2.0.
@@ -28,6 +28,14 @@ CASES = (
 )
 
 
+PAIR_PATH = 'research/pair-assembly/frame/frame-certificate.json'
+PAIR_SOURCE = 'scripts/experiments/binary_frame_replay.py'
+PAIR_OLD_SOURCE = '1a572dbb33faba6695b3293768a7e61392d11cb4c2d5f708eedcd2cb95d0aff9'
+PAIR_SOURCE_SHA256 = 'a1cbab2900440baa9b32f482f1531518fd95d55de2fe30e40e7a5249420b33a0'
+PAIR_OLD_RECEIPT = 'eb5e8d25c4404703cc968acb4cc4642555ae56c3e93c1bb6a1e073fad72294e6'
+PAIR_NEW_RECEIPT = '003b37ad28404d1afb0b01d1ab006f9dc03f72682728bc892883bbe1b1101cd1'
+
+
 def refresh(root=ROOT, write=False):
     outputs = []
     for name, old_receipt, certificate, new_receipt in CASES:
@@ -48,7 +56,22 @@ def refresh(root=ROOT, write=False):
         if not write and raw != regenerated:
             raise ValueError('Stale derived binding: ' + name + '; use --write then make verify-joint')
         outputs.append((target, regenerated))
-    # Authenticate both cases before changing either output.
+    # The same production update also omitted the pair-frame replay-source pin.
+    if sha256((root / PAIR_SOURCE).read_bytes()).hexdigest() != PAIR_SOURCE_SHA256:
+        raise ValueError('Unrecognized pair replay source')
+    target = root / PAIR_PATH
+    raw = target.read_bytes()
+    digest = sha256(raw).hexdigest()
+    if digest not in (PAIR_OLD_RECEIPT, PAIR_NEW_RECEIPT):
+        raise ValueError('Unrecognized pair-frame receipt')
+    regenerated = raw if digest == PAIR_NEW_RECEIPT else raw.replace(
+        PAIR_OLD_SOURCE.encode('ascii'), PAIR_SOURCE_SHA256.encode('ascii'))
+    if sha256(regenerated).hexdigest() != PAIR_NEW_RECEIPT:
+        raise ValueError('Unexpected regenerated pair-frame receipt')
+    if not write and raw != regenerated:
+        raise ValueError('Stale pair-frame binding; use --write then make verify-pair')
+    outputs.append((target, regenerated))
+    # Authenticate every case before changing any output.
     if write:
         for target, raw in outputs:
             target.write_bytes(raw)
@@ -60,7 +83,7 @@ def main():
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
     refresh(write=args.write)
-    print('PASS exact joint/skip validation bindings; full mathematical replay is separate')
+    print('PASS exact joint/skip/pair validation bindings; full mathematical replay is separate')
 
 
 if __name__ == '__main__':

@@ -20,6 +20,10 @@ class BindingRepair(unittest.TestCase):
             for suffix in ('-kappa.json', '-validation.json'):
                 relative = 'certificates/' + name + suffix
                 (root / relative).write_bytes((ROOT / relative).read_bytes())
+        for relative in (module.PAIR_PATH, module.PAIR_SOURCE):
+            target = root / relative
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes((ROOT / relative).read_bytes())
         return root
 
     def test_current_exact_bindings_and_idempotence(self):
@@ -49,6 +53,28 @@ class BindingRepair(unittest.TestCase):
                 module.refresh(root)
             module.refresh(root, write=True)
             self.assertEqual({p: p.read_bytes() for p in expected}, expected)
+
+    def test_pair_original_binding_and_unknown_source_or_receipt(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = self.fixture(td)
+            target = root / module.PAIR_PATH
+            expected = target.read_bytes()
+            stale = expected.replace(module.PAIR_SOURCE_SHA256.encode(), module.PAIR_OLD_SOURCE.encode())
+            self.assertEqual(sha256(stale).hexdigest(), module.PAIR_OLD_RECEIPT)
+            target.write_bytes(stale)
+            with self.assertRaisesRegex(ValueError, 'Stale pair-frame binding'):
+                module.refresh(root)
+            module.refresh(root, write=True)
+            self.assertEqual(target.read_bytes(), expected)
+            for relative in (module.PAIR_PATH, module.PAIR_SOURCE):
+                changed = root / relative
+                original = changed.read_bytes()
+                changed.write_bytes(original + b'corrupt')
+                before = {p: p.read_bytes() for p in root.rglob('*') if p.is_file()}
+                with self.assertRaisesRegex(ValueError, 'Unrecognized pair'):
+                    module.refresh(root, write=True)
+                self.assertEqual({p: p.read_bytes() for p in before}, before)
+                changed.write_bytes(original)
 
     def test_unknown_receipt_or_certificate_rejects_without_partial_writes(self):
         for suffix in ('-kappa.json', '-validation.json'):
