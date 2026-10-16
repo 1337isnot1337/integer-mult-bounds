@@ -3,33 +3,33 @@
     "number": 2734,
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "74e88ababc53851d2ac6172a300bd4f1de9ce61c2134fbbb52d922726b19d5a9",
-    "resolved_sha256": "b8d932dbedb7c97e6cc2dba4aa8d6610f01c2f7ca2ec02fad7cd6fec59f62be6",
+    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
     "resolved_mode": "100755",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2734,
     "path": "tests/test_historical_check.py",
     "original_sha256": "b2cfadc60a89446135f65f24e881c80baf1af3c0a620e3a330994d24a0b99054",
-    "resolved_sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd",
+    "resolved_sha256": "fc847a020c1e81d28612d560c74efff929befd44fd823b3e3c7c097e127cb64c",
     "resolved_mode": "100644",
-    "reason": "Combine one-pass snapshot copy/hash with assertion-enabled child environments; preserve both complete regression suites. Import-only merge conflict resolved. Executable runner mode from PR2734 retained."
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2792,
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "3c3fd64e459d1bef7b315f748fb8da83441b1d6e64c50bf9cbf633092a5a8873",
-    "resolved_sha256": "b8d932dbedb7c97e6cc2dba4aa8d6610f01c2f7ca2ec02fad7cd6fec59f62be6",
+    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
     "resolved_mode": "100755",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2792,
     "path": "tests/test_historical_check.py",
     "original_sha256": "6a4e91aecb58dae2e34898cb5b6bfdf551d4434f42cb73c16b60f8be9bb04fc0",
-    "resolved_sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd",
+    "resolved_sha256": "fc847a020c1e81d28612d560c74efff929befd44fd823b3e3c7c097e127cb64c",
     "resolved_mode": "100644",
-    "reason": "Combine one-pass snapshot copy/hash with assertion-enabled child environments; preserve both complete regression suites. Import-only merge conflict resolved. Executable runner mode from PR2734 retained."
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2752,

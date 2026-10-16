@@ -276,24 +276,24 @@
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787",
     "resolved_mode": "100644",
-    "resolved_sha256": "b8d932dbedb7c97e6cc2dba4aa8d6610f01c2f7ca2ec02fad7cd6fec59f62be6",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2579,
     "path": "scripts/run_isolated_tests.py",
     "original_sha256": "c2ecb3545101bafd16a6c51f04fce4777f99df4550a1c5e4796f99224a87d6b0",
     "resolved_mode": "100644",
-    "resolved_sha256": "6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "resolved_sha256": "2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2579,
     "path": "tests/test_isolated_historical_completion.py",
     "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "resolved_mode": "100644",
-    "resolved_sha256": "048520973ba072d6c42528c52671d066eaa0d20e5200076a027b9ba235917f49",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "resolved_sha256": "d8919d4a226f22ca2a392563a7d0e0b4aacde5534f167fa5f30fe3ad51610097",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2579,
@@ -308,8 +308,8 @@
     "path": "tests/test_isolated_test_runner.py",
     "original_sha256": "c10189d6fd7927431a83cddd36a9ea2ccbcfc1dd540ff1cc763e62ce6609be88",
     "resolved_mode": "100644",
-    "resolved_sha256": "3638fb4a6233475d1984568a5027b57af30f0dbcce9a22d3c459cef4f7716aa7",
-    "reason": "Retain current shared safeguards while incorporating reviewed PR2493 pagination/cache controls and PR2579 actual-child unittest completion across authenticated historical replay; complete source-bound relevant controls recorded in batch18."
+    "resolved_sha256": "8188e0ff7755bf72dfcd8728413cbda9793d3d7913507f7a9831f91e19ab93b8",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   },
   {
     "number": 2493,
@@ -430,5 +430,45 @@
     "resolved_sha256": "eb50a50e322ee6856984f7ae2f58bc20ac1ca78330d399fd877b969c67dc7f37",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
+  },
+  {
+    "number": 2859,
+    "path": "scripts/replay_historical_check.py",
+    "original_sha256": "8846c0a47ddb31b0d097cd30ed9226202da572915a9b4b8675ee63f8d53a2b5e",
+    "resolved_mode": "100755",
+    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+  },
+  {
+    "number": 2859,
+    "path": "scripts/run_isolated_tests.py",
+    "original_sha256": "f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478",
+    "resolved_mode": "100644",
+    "resolved_sha256": "2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+  },
+  {
+    "number": 2859,
+    "path": "scripts/verify_pr_reconciliation.py",
+    "original_sha256": "a6e3a6cbfb74bbdd6e11db2ed5cd13f983141c6591bcaacef69437309da27d30",
+    "resolved_mode": "100644",
+    "resolved_sha256": "b2cd4cb786dbfd4e0ff231170305aaad2a67c030d6a1de824d0d5cd4522533b1",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+  },
+  {
+    "number": 2859,
+    "path": "tests/test_isolated_historical_completion.py",
+    "original_sha256": "048520973ba072d6c42528c52671d066eaa0d20e5200076a027b9ba235917f49",
+    "resolved_mode": "100644",
+    "resolved_sha256": "d8919d4a226f22ca2a392563a7d0e0b4aacde5534f167fa5f30fe3ad51610097",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+  },
+  {
+    "number": 2859,
+    "path": "tests/test_isolated_test_runner.py",
+    "original_sha256": "5c2a715a66c0c87fd672ce46889cb878dd7017a8bfa0c44395b340306b1b5382",
+    "resolved_mode": "100644",
+    "resolved_sha256": "8188e0ff7755bf72dfcd8728413cbda9793d3d7913507f7a9831f91e19ab93b8",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
   }
 ]
