@@ -47,8 +47,8 @@
     "research/community-efficient1900-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1999,
-    "partially_reviewed": 381,
+    "incorporated": 2002,
+    "partially_reviewed": 378,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "aa20a29be61925bc1c5dbfe3f33c78dd552ba1696fdc700317e4dce3a5b4fdab",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "acca85230c35247911416006ed7b2028cd12a83de019557441d81ee1eabb52b7",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -57568,7 +57568,7 @@
         {
           "head": "4687c59630991fdf4e57fab16ccacc92713a4d44",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -90939,7 +90939,7 @@
         {
           "head": "ef03620dff68d5be924b338f40c5c310e9359557",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -106905,7 +106905,7 @@
         {
           "head": "9a067f8be0db4a3f882c1a799d0563c956af5f57",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -115638,7 +115638,7 @@
         {
           "head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -133919,7 +133919,7 @@
         {
           "head": "4283ecfd09afab07c54dbbeef7361a2e3274b4e3",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -133963,7 +133963,7 @@
         {
           "head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134007,7 +134007,7 @@
         {
           "head": "4c60a82f183d1ba5e15007ab832c9eaca5d59a06",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134051,7 +134051,7 @@
         {
           "head": "28c5c068b64c18074ab4044e47a7c9f52eb6e5de",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134095,7 +134095,7 @@
         {
           "head": "bbafe95af535004c7b605059e611cc8a569f88f6",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134139,7 +134139,7 @@
         {
           "head": "d4870b711a8a0967df8ce2c089d978d10c3103d1",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134183,7 +134183,7 @@
         {
           "head": "17183900660480a4e8f031f117f04d79474cf63d",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134227,7 +134227,7 @@
         {
           "head": "3091cfbd61005b3e5daa7dbfcf3377597924552d",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134271,7 +134271,7 @@
         {
           "head": "36622e0bd376cf56a0acf54045469bac094d0d94",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134315,7 +134315,7 @@
         {
           "head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134359,7 +134359,7 @@
         {
           "head": "1e15ae28c15d56f7c61220564207d571972a33a4",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134403,7 +134403,7 @@
         {
           "head": "58ac299b831c46300876fe7a63754d145c514a70",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134447,7 +134447,7 @@
         {
           "head": "219b6456f66fab41d676d3421de48bac534a3b9f",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134491,7 +134491,7 @@
         {
           "head": "5cd56602d65c4d0767c86b518a37168d571cf3ba",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134535,7 +134535,7 @@
         {
           "head": "08a44355403604c346f8d907811edce992382cc4",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134579,7 +134579,7 @@
         {
           "head": "cfe7c810eb6a3461b7e9c737fd948fb991b6dd6a",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134628,17 +134628,23 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5306e58c76a320f57b657e4df21ec7c28fa0bb8e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2892"
+      },
       "reviewed_head": "786a7525c3e3b6e773053d5046e492e49b6e6709",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Reviewed; publication pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2892.json",
@@ -134668,7 +134674,7 @@
         {
           "head": "258a329965e583b0d6103e2737f7c730d6efb326",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134712,7 +134718,7 @@
         {
           "head": "18d03c447886895ef9abf888398178e0428533ca",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134756,7 +134762,7 @@
         {
           "head": "7324b2526182206904f75e4037014bcc2f0be4f5",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134800,7 +134806,7 @@
         {
           "head": "d33e8066de4d3e3b8230f2b3635d7bdcd80155ad",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134844,7 +134850,7 @@
         {
           "head": "9302e18fb9c75cd661adc1c6334a1d96d04b434e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134888,7 +134894,7 @@
         {
           "head": "2f0911ad735643a069b9790302fbf179e49f74f8",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134932,7 +134938,7 @@
         {
           "head": "af4e996ac29cfced53ce8a6d1feed95918fd7f76",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134976,7 +134982,7 @@
         {
           "head": "c6e0b150081d46abe8bf5d0320de4311cb55fe95",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135020,7 +135026,7 @@
         {
           "head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135064,7 +135070,7 @@
         {
           "head": "481bdb10502d28da9a99f17b5a5ee52168d9354b",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135108,7 +135114,7 @@
         {
           "head": "c291ad5cc6c0f4bd7a3319855202d2f753bebb17",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135152,7 +135158,7 @@
         {
           "head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135201,17 +135207,25 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research",
+        "scripts/run_isolated_tests.py",
+        "tests/test_isolated_test_exit_cleanup.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5306e58c76a320f57b657e4df21ec7c28fa0bb8e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2906"
+      },
       "reviewed_head": "52b7b3f6cd3f12e34c2451c291a85fe9d1eff996",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Reviewed; publication pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2906.json",
@@ -135243,7 +135257,7 @@
         {
           "head": "f122d255c4cdb0714c079d8e91b76bd7a34da23e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135287,7 +135301,7 @@
         {
           "head": "51309592971e3b5be935599eed2a95404dc7781e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135331,7 +135345,7 @@
         {
           "head": "4f394cfd3244b336e59b7adaded883277b66b637",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135375,7 +135389,7 @@
         {
           "head": "26ce4ed46112438b237fab54e6da1953c1d16174",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135419,7 +135433,7 @@
         {
           "head": "cfb813f883e61519deedcd84151dc0c68b9d19cc",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135463,7 +135477,7 @@
         {
           "head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135507,7 +135521,7 @@
         {
           "head": "0c608f20fed14589be2bc253cbb4d0667ca0cf49",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135551,7 +135565,7 @@
         {
           "head": "3f7781efccdf10fa61a1e0a6f11c191579b21280",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135595,7 +135609,7 @@
         {
           "head": "fecc5a87574df441ddc3dad44f99fca9bd7fdd92",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135639,7 +135653,7 @@
         {
           "head": "639a340f6d514bbea984923da4df495b1dae42ac",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135683,7 +135697,7 @@
         {
           "head": "224bd5e56041c40078ff6b5fa7393733a215de5c",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135727,7 +135741,7 @@
         {
           "head": "9360ba7312cf8961e672e9eb26c612719028d39d",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135771,7 +135785,7 @@
         {
           "head": "b9ea9def949f9d71d59e21294d0e6cfbe0692a73",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete Git-diff inventory only; substantive review and verification remain pending.",
+          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135820,17 +135834,23 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/strict-payload-fail-closed-inventory"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5306e58c76a320f57b657e4df21ec7c28fa0bb8e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2921"
+      },
       "reviewed_head": "cf2a4ff9a03b2835ab10af2f7a92699d55aa5491",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Reviewed; publication pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2921.json",
@@ -135851,7 +135871,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1547,
-    "OPEN": 517
+    "MERGED": 1550,
+    "OPEN": 514
   }
 }
