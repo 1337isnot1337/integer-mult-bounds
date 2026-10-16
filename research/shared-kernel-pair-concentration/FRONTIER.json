@@ -78,5 +78,7 @@
   ],
   "coverage_limit": "All listed open PR bodies/titles/exact heads fetched and screened, but reviews/checks were examined for leading candidates and recent merged work, not exhaustively for every open PR. This is the strongest comparable construction identified in a bounded live census, not a certified global priority claim.",
   "targets_excluded": "Local word coverage caps, fractional fixed-inventory relaxations, bit-supplier savings, Fourier exponents, runtime timings, and constructions with unpriced interfaces were not treated as multiplication kappa records.",
-  "guidance_refresh": "Initial 130a7ce63, intermediate a5b3fc6d9, final d311a18c6; selected record and applicable scientific guidance unchanged. Final required suites were rerun."
+  "guidance_refresh": "Initial 130a7ce63, intermediate a5b3fc6d9, final d311a18c6; selected record and applicable scientific guidance unchanged. Final required suites were rerun.",
+  "publication_refresh": "PUBLICATION-REFRESH.json",
+  "publication_status": "Verified pinned-baseline gain; superseded in reported kappa by pending PR2863 at 34328b1d5e5bebac62d5cabec993dfbfd7b2123f; no current-record claim."
 }

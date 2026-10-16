@@ -53,10 +53,10 @@
   "ai_assistance": "Substantial OpenAI Codex research, code, exact arithmetic and separate checker implementations; no independent human review claimed.",
   "open_questions": [
     {
-      "question": "Can a priced multi-role transfer realize more of the remaining PR2857 fixed-inventory relaxation gap?",
-      "why_it_matters": "Same-call pair exchanges are exhausted in the recorded census; the remaining relaxation gap is only a few parts in 1e9 of kappa.",
-      "first_step": "Inspect the exact tight patterns, actual residual bins and chronological windows; screen a concrete transfer before full admission.",
-      "blocked_by": "No feasible additional chronological witness has been established."
+      "question": "Does an independent complete replay validate PR2863 and its claimed fixed-inventory optimum?",
+      "why_it_matters": "That pending stronger construction supersedes the residual packing-gap premise used during this run.",
+      "first_step": "Pin 34328b1d5e5bebac62d5cabec993dfbfd7b2123f; replay its complete native/outer construction and separately check its rational primal/dual.",
+      "blocked_by": "Not executed in this session; the reported stronger result is not claimed reproduced here."
     },
     {
       "question": "Can one retained all-size hosting or precision implication be proved independently?",
@@ -64,5 +64,6 @@
       "first_step": "Choose one explicit source-access, compiler or structured-boundary stability obligation from PROOF.md and pin its exact source statement.",
       "blocked_by": "Outside this finite construction session; small-matrix checks are not a uniform proof."
     }
-  ]
+  ],
+  "publication_status": "Verified pinned-baseline gain; superseded in reported kappa by pending PR2863 at 34328b1d5e5bebac62d5cabec993dfbfd7b2123f; no current-record claim."
 }

@@ -1,5 +1,13 @@
 # Paired concentration of PR2857's rank-nine residues
 
+**Publication status:** this verified gain over pinned PR2857 was superseded
+in reported conditional kappa by pending [PR2863](https://github.com/CrocSwap/integer-mult-bounds/pull/2863),
+head `34328b1d5e5bebac62d5cabec993dfbfd7b2123f`, before this submission.
+Its reported T185 saving is `0.001720100805416885927944 - 10^-46 - 10^-70`.
+This package preserves the simpler T74 construction, separate checker implementations,
+full replay evidence and bounded negative search; it makes no current-record claim.
+PR2863's full certificate was not reproduced here. See `PUBLICATION-REFRESH.json`.
+
 This scoped derivative of PR2857 interleaves two copies of its T37 allocation
 and moves one width-seven helper. The complete profile changes by
 `H2 + H16 - 2H9` relative to the doubled original. The local words are unchanged.
@@ -70,13 +78,13 @@ PR2853 baseline in this session did run all four native chains fresh.
 `evidence/` contains executed receipts, source manifests, control counts and
 command logs. `EXPERIMENTS.md` records failed and superseded approaches.
 Repository-wide `make verify` and selected `make frontier1094-verify` were also
-run on pinned initial and refreshed main. Both currently fail on unchanged
-sources; `REPOSITORY-CHECKS.md` records the exact blockers. No check was weakened.
+run on pinned initial and refreshed main. Both failed on the unmodified tested base; `REPOSITORY-CHECKS.md` records the exact blockers. No check was weakened.
 
 ## Frontier and scope
 
 `FRONTIER.json` separates the reviewed main selected record from pending
-constructions and numerical targets, and records the last live check. The new
+constructions and numerical targets at the research checkpoint;
+`PUBLICATION-REFRESH.json` records the newer pre-submission comparison. The new
 result remains dependent on pending PR2857 and its inherited lineage. The census
 was paginated directly from GitHub; detailed review/check coverage is listed
 explicitly and is not represented as a complete audit of every open PR.
@@ -88,12 +96,13 @@ predecessor is changed.
 
 ## Open next questions
 
-See the structured questions in `TASK.json`. The most relevant small question
-is whether a priced multi-role transfer can use the remaining fixed-inventory
-relaxation gap. First inspect the tight patterns and actual residues; there is
-no evidence for a further gain from same-call pair swaps. A larger research
-budget should address a named inherited all-size obligation or change the local
-contract with all consumer and restoration costs included.
+See the structured questions in `TASK.json`. The former question about the
+remaining fixed-inventory gap is superseded by PR2863's claimed exact packing
+optimum. Independently reproduce that witness and its scoped primal/dual before
+any further packing search. There is no evidence here for a further gain from
+same-call pair swaps. Further research should address a named inherited all-size
+obligation or change the local contract with all consumer and restoration costs
+included.
 
 ## Credit
 

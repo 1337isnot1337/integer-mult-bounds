@@ -1,5 +1,15 @@
 # Research handoff — 2026-10-16
 
+## Publication refresh
+
+At the 05:08 UTC publication refresh, pending PR2863 at
+`34328b1d5e5bebac62d5cabec993dfbfd7b2123f` reported the stronger T185 saving
+`0.001720100805416885927944 - 10^-46 - 10^-70` and a fixed-inventory packing
+optimum. Its body, pinned README, review list and exact-head check list were
+inspected; its complete certificate was not replayed here. This T74 package
+is a verified improvement over its pinned baseline, superseded in reported
+kappa, with no current-record claim. See `PUBLICATION-REFRESH.json`.
+
 ## Best verified result
 
 Conditional multiplication exponent saving:
@@ -91,16 +101,19 @@ paths, different orders, families and local words are outside that negative resu
 
 ## Next work and publication
 
-No additional large packing search is justified by this session. A bounded
-follow-up can inspect the remaining tight relaxation patterns and prove one
-specific chronological transfer, or address a named all-size obligation in
-PROOF.md. Refresh GitHub first; new proposals can supersede small gains quickly.
+No additional large packing search is justified by this session. Independently
+reproduce PR2863 and its claimed fixed-inventory optimum before reopening that
+gap, or address a named all-size obligation in PROOF.md. Refresh GitHub first.
 
-Publishing through the user's own fork was unavailable: the connected GitHub
-account is `digitalis-p`, its `integer-mult-bounds` fork lookup returned 404,
-no CLI credential helper/gh publishing route was configured, and the connector
-exposed no fork-creation operation. The patch and PR description are ready for
-submission; SUBMIT.md gives exact commands. Nothing was merged or posted.
+The initial packaging lacked an available fork. Browser authentication later
+succeeded, `digitalis-p/integer-mult-bounds` was created, and the user approved
+adding that public fork to the existing GitHub app's selected repositories.
+The scientific package was uploaded on `research/two-swap-exponent-20261016`.
+Remote commit `b39aa97a6f4e6f784ebbde0d5f7dd73a3d70952c` has exactly the frozen
+local scientific tree `2921cc364eabb7f9ed0d24830cbd6ca45f437103` and original
+parent `d311a18c6061af67d0aa35cbeced605b8b7472ed`. This documentation refresh
+labels the intervening stronger proposal before opening the review-ready PR.
+No result is merged or claimed maintainer-accepted.
 
 All inherited all-size compiler, common-label/mutable-source, hosting,
 precision/tape, exact-recovery, analytic-transfer, corrected recurrence and
