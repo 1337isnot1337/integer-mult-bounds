@@ -209,6 +209,6 @@ only the lower bound is extended to arbitrary nonnegative extra work.
 
 PROOF.md correctly scopes the finding to the unqualified Cesaro implication and
 explicitly retains the predecessor's error-qualified Theorem 1 as unaudited.
-The all-depth arguments and finite replay remain distinguished. Minor evidence
-wording: `verify.py`'s `homogeneous_depths=240` counts two 120-index fixtures;
-the maximum checked index in each homogeneous fixture is 120.
+The all-depth arguments and finite replay remain distinguished. The verifier reports `homogeneous_cases=240` across two 120-index fixtures
+and `homogeneous_max_index=120`; the maximum checked index in each
+homogeneous fixture is 120.
