@@ -159,19 +159,22 @@
       "current_head": "8bd985fe2842c948a5a4a1554b8e090f2e371afa",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Global frame dual certificate needs dedicated coverage review before claiming universal fixed-order exclusion.",
+      "integration_location": [
+        "research/complex-k492-frame-bound"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Nate / ntedvs: exact fixed-order joint A/B frame exclusion for historical PR626 jp8/ck providers in both orientations. Complete quotient-subspace domains, rational symbolic dual feasibility/objective identities, small-component exhaustive cross-checks and two independent moment enclosures reproduce the full frozen RESULT; six named controls and optimized-mode refusal pass. Exact supplied source payloads match accepted PR626 receipts. Excludes the next10^-24 endpoint grid tick only; sub-grid or other-order changes remain outside the claim. Discovery solvers not rerun; no current \u03ba change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/776.json"
+        "research/community-efficient1800-audit/packets/776.json",
+        "research/community-efficient1800-audit/checks/check-776.json"
       ]
     },
     {
@@ -232,19 +235,22 @@
       "current_head": "ef34bd5b32fcf2d5640dae90b5b8f28488738d5a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "New reversible cyclic leaf and error/composition contract require proof review.",
+      "integration_location": [
+        "research/balanced-cyclic-lift"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Wentao Li: determinant-balanced real half-stable cyclic leaf with one arbitrary dirty scalar, exact reversible rounded shears and ordered product adapter. All-length identity/error/cost argument reviewed, including coefficient growth and explicit routing limitations;1560 factors/7420 columns/4680 rounded cases/315 products/25 controls and128 historical dispatcher counts pass. Complete offline replay and source/certificate/instruction corruptions pass. Different leaf costs prevent interpreting execution counts as a runtime speedup; no complex or full-tape supplier claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/805.json"
+        "research/community-efficient1800-audit/packets/805.json",
+        "research/community-efficient1800-audit/checks/check-805.json"
       ]
     },
     {
@@ -1694,19 +1700,22 @@
       "current_head": "95f72ca0901a76e898386737c42ccb0d07d4e95b",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Revised head after the earlier namespace collision: authenticate the renamed package, compare the revision, and complete its native mechanism and declared replay before incorporation.",
+      "integration_location": [
+        "research/p104-two-target-native-independent"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Ross Richardson: independently bind all236 added transports/161 pairs and322 oriented exact Clifford recipes to the two-target forward program; all128164 coefficients on358 arbitrary inputs, canonical charts, dirty restoration and eight inherited owned-copy lifetimes. Complete regenerated native payload, ten semantic controls, two equivalent presentations and eight behavioral groups including both executable stale-cache modes pass. Six runtime inputs equal acceptedmain; original four evidence files preserved. Individual adjoints do not establish a complete backward COPY program; no supplier or \u03ba admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2458.json"
+        "research/community-efficient1800-audit/packets/2458.json",
+        "research/community-efficient1800-audit/checks/check-2458.json"
       ]
     },
     {
