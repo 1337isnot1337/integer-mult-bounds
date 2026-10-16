@@ -392,10 +392,42 @@
     "reason": "thakrarsagar's fraction-free exact null kernel and primitive-row acceleration retained with unchanged mathematical predicates and certificate except its verifier pin. Bounded differential tests pass; all 4,878 fresh and 202,190 inherited frame moves audited against original kernels using serial memo eviction. Fresh scalar maps, negative controls, exact pricing, 47 constraints and full certificate equality pass using authenticated completed-frame reuse after the memory stop. Two-stage verification, not a fresh full cold replay; historical timing not remeasured. Audit mode requires repeatable containers."
   },
   {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/README.md",
+    "original_sha256": "01924261e8848b7ee4454cd35d5226ad786f5091fdc6ffad68351485a55539b1",
+    "resolved_sha256": "72f4368865b1d068b1ae6cb2182937f1d434ac2ca707a0dc575a45af56a3ed72",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/HISTORICAL-PACKED.json",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "228f54fddef6ed5bd86e4c59e71d907fa022613f4dc1d9293350f5f7bcfc231b",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/historical_packed.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "9184fa9e817bb0214dc2de37932ef7cd131f5e6c000d43d9b5f358be30bfdcb4",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
+    "number": 1076,
+    "path": "research/quadratic-affine-performance/test_integration.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "e32f1c915f798bbd45ee2708b0bfcf4ff7ac5b4a3d0c566a741cbe286fd0a114",
+    "resolved_mode": "100644",
+    "reason": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "66124bea815bab7e0cbaf212068ba6bb3b2777e590835809682e00a8521b966b",
+    "resolved_sha256": "df9caae3fbf57266b4d1b213617d731391812515dc8c51914058749aa3195c60",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }

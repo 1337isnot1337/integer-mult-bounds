@@ -486,19 +486,27 @@
       "current_head": "cced22b95fb5b485da05b8187c8a9754b6a8c85a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Engine regressions pass and fixtures 0\u201310 compare exactly, but the full benchmark reached 180 seconds during the heavy fixture. Complete all 14,662 row comparisons and the fresh certificate/hash-only comparison before changing the default checker.",
+      "integration_location": [
+        "certificates/quadratic-affine-vectors.json",
+        "research/quadratic-affine-performance",
+        "scripts/experiments"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1076.json"
+        "research/community-efficient1800-audit/packets/1076.json",
+        "research/community-efficient1800-audit/checks/check-1076-combined.json",
+        "research/community-efficient1800-audit/checks/check-1076-current.json",
+        "research/community-efficient1800-audit/checks/check-1076-full.json",
+        "research/community-efficient1800-audit/checks/check-1076.json"
       ]
     },
     {
