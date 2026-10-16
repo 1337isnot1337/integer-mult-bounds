@@ -42,6 +42,10 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
   including its full physical bill; another static matching is not that program.
   The [helper-lifetime scope map](p104-helper-lifetime-scope-map.md) separates
   pooled dimensions, transport floors and helper lifetimes.
+  The [precision contract map](p104-precision-contract-map.md) distinguishes
+  local collector grids, whole-word exact prefixes, the retimed sharp guard,
+  conditional recovery and the two-call rounded reference. A paid recursive
+  implementation and complete consumer remain separate obligations.
 - **QQ16:** #2540 proposes a complete added local native decoder, with explicit
   output frames and a nontrivial invoice. Investigate a complete consumer,
   retention, movement or hosting obligation rather than rediscovering its inverse.
