@@ -88,10 +88,10 @@
     "number": 2624,
     "path": "scripts/reconcile_pr_queue.py",
     "original_sha256": "d1160464aa095e81eb5b5f406832cc523ec2d6c44a70f5306f928f9a79efba95",
-    "resolved_sha256": "59404230cb0466f6bbae4fe9a6d4376e8dead70131f246e43dc1d6134474fa25",
+    "resolved_sha256": "b3ccb87ea7eddc6749c09bc179b89d50555df2b81f2bdba5de266d4a7258be16",
     "reason": "Port only PR148 source-retention projection onto the current generator, preserving every newer batch registry and review rule. Eighteenth review preserves this contribution with combined PR2514/2517 pagination, PR2539 source batching, PR2553 cache isolation or the new ledger family as applicable; current 133-test tooling suite and native probe pass.",
     "subsequent_extension": "Batch17 appends its disposition source to the unchanged ordered family registry; ledger prefix verification passes.",
-    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 2602,
@@ -104,17 +104,17 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "424fca5e23941302a6d4007135dfbe9ca675f379f20600a5c9e5158b1664032e",
+    "resolved_sha256": "c9bd4cc3eab5fdc9849bdb5ceb920af785b3cccb6a8b0270c5e152f2e315a6a6",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
-    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "45de6f5b17faa7b565e7fd073161517b9a8e00b2ad9c322e8bdf60dd65130b92",
+    "resolved_sha256": "9ae2742a264138b7b4e533c00c6be754216f188c4b9554c36adf54a8491c288a",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
-    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 2676,

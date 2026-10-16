@@ -23,9 +23,10 @@
   {
     "number": 2906,
     "path": "scripts/verify_pr_reconciliation.py",
-    "resolved_sha256": "cf1567b1f432cdc3a40f4d49c4ca12817805d0592f43285a07a628e5044e23a5",
+    "resolved_sha256": "546b6a37940a212351ebd8046ac758c66c2f46aa184dfbb456525739e44bdf8c",
     "resolved_mode": "100644",
-    "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round."
+    "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round.",
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 2888,
@@ -51,23 +52,26 @@
   {
     "number": 1007,
     "path": "scripts/reconcile_pr_queue.py",
-    "resolved_sha256": "59404230cb0466f6bbae4fe9a6d4376e8dead70131f246e43dc1d6134474fa25",
+    "resolved_sha256": "b3ccb87ea7eddc6749c09bc179b89d50555df2b81f2bdba5de266d4a7258be16",
     "resolved_mode": "100644",
-    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
+    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "424fca5e23941302a6d4007135dfbe9ca675f379f20600a5c9e5158b1664032e",
+    "resolved_sha256": "c9bd4cc3eab5fdc9849bdb5ceb920af785b3cccb6a8b0270c5e152f2e315a6a6",
     "resolved_mode": "100644",
-    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
+    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "45de6f5b17faa7b565e7fd073161517b9a8e00b2ad9c322e8bdf60dd65130b92",
+    "resolved_sha256": "9ae2742a264138b7b4e533c00c6be754216f188c4b9554c36adf54a8491c288a",
     "resolved_mode": "100644",
-    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
+    "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
+    "followup": "2026-10-16 delta intake: actual nine-PR publication, contributor credit and incremental ledger registration; earlier scientific source obligations unchanged."
   },
   {
     "number": 2255,

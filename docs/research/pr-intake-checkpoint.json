@@ -184,7 +184,7 @@
       "url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38920452481"
     },
     "log_sha256": "3ea48ba2c8271c5079c88de341b67e62796eddf952517708eeba78c6682f4cbb",
-    "next": "Native CI succeeded (3.12 and 3.14, normal and optimized; eight current and three historical controls per invocation). Integrate original PR ancestry with composed candidate bytes, explicit historical fixture resolution, contributor credit and ledger. Do not restart native CI for unchanged sources. No mathematical replay."
+    "next": "Integrated and native replay complete. See publication evidence; no scientific replay implied."
   },
   "intake_delta": [
     {
@@ -994,5 +994,20 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Finish the six ready integrations; then review pending substantive deltas. Dormant revision holds are not new work."
+  "next": "Nine integrations published. Continue pending substantive reviews and new arrivals using pr_intake.py; unchanged revision holds remain dormant. Windows run is complete; do not restart it.",
+  "publication": {
+    "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
+    "merged": [
+      2452,
+      2469,
+      2962,
+      2964,
+      2965,
+      2966,
+      2968,
+      2969,
+      2970
+    ],
+    "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+  }
 }

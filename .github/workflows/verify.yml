@@ -1,18 +1,22 @@
 name: Verify research artifacts
 
 on:
-  push:
-  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# Historical sweeps are opt-in; dispatch one at a time.
+concurrency:
+  group: research-archive-replay
+  cancel-in-progress: false
 
 jobs:
   verify:
     runs-on: ubuntu-24.04
     timeout-minutes: 35
     strategy:
+      max-parallel: 1
       fail-fast: false
       matrix:
         python-version: ['3.11', '3.13', '3.14']

@@ -2931,5 +2931,104 @@
       "mergeCommit": null
     }
   },
-  "existing_nonwindows_ast_preserved": true
+  "existing_nonwindows_ast_preserved": true,
+  "publication": {
+    "p2452": {
+      "number": 2452,
+      "headRefOid": "5208ab2780550273b1d8933ff584ce7581fb242d",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2469": {
+      "number": 2469,
+      "headRefOid": "65080e406c9edb0e93daa631f90b3fa4e4461910",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2962": {
+      "number": 2962,
+      "headRefOid": "f6e68c9838e21b263223ae61273e381d2c0b92c7",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2964": {
+      "number": 2964,
+      "headRefOid": "466c65e73b3efb5f8144799792fbef0acf4369cf",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2965": {
+      "number": 2965,
+      "headRefOid": "526f2c242202b31b15e09a7502dfb8ff757b2bad",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2966": {
+      "number": 2966,
+      "headRefOid": "e62d3eb9005117d82a9babcfa937ecc53237c490",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2968": {
+      "number": 2968,
+      "headRefOid": "cf4fc903951cd3f034531f7089d0a178f0f67b05",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2969": {
+      "number": 2969,
+      "headRefOid": "e2ca469b08385d3d5e29a918d66dbefaf889e9f3",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    },
+    "p2970": {
+      "number": 2970,
+      "headRefOid": "bef9060f6b923577ca1d5a78266fd84df00ca93a",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      }
+    }
+  },
+  "source_retention": {
+    "status": "PASS",
+    "checked_head": "484a8adea580345a7c37d8ac772cedfd47bcde92",
+    "installed_paths": 129,
+    "contributions": 9,
+    "all_original_heads_in_main_ancestry": true,
+    "selected_result_unchanged": true,
+    "whitespace_scope": "Original archived sources and native logs preserve original CRLF/trailing whitespace; no normalization of frozen bytes."
+  },
+  "additional_manifest_check": {
+    "pr": 2962,
+    "path": "research/decoder-certificate-ceilings/MANIFEST.sha256",
+    "checked_pins": 14,
+    "status": "PASS",
+    "scope": "Committed original bytes only; no scientific execution."
+  }
 }

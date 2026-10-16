@@ -87,6 +87,12 @@ incorporation; reconcile actual GitHub state and retained sources separately.
 - No automatic Lean, Docker, all-history suites, or parallel heavy jobs. Current
   local replay limits remain serial, sampled 1 GiB descendant memory, and explicit
   timeouts. A resource stop stays deferred until the execution plan changes.
+- Historical blanket sweeps are manual-only (five workflows changed on 2026-10-16).
+  They share `research-archive-replay` concurrency and one matrix leg at a time.
+  Dispatch one workflow deliberately: GitHub keeps one running and one pending,
+  and a newer pending run can replace the older one. This is not a FIFO queue.
+  Automatic affected-package CI remains enabled; a shared runner change may still
+  select all packages and requires a separately budgeted replay decision.
 - For hosted CI, record run ID and source SHA. Poll that same run; a transient
   observation failure is not permission to restart it. Do useful independent work
   while it runs. Scope workflow triggers to avoid unrelated automatic workloads.

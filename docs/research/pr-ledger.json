@@ -3,8 +3,8 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2476,
-  "family_round": "research/community-efficient2600-audit/DISPOSITIONS.json",
+  "inventory_count": 2484,
+  "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
     "research/community-family588-audit/DISPOSITIONS.json",
@@ -51,11 +51,12 @@
     "research/community-efficient2300-audit/DISPOSITIONS.json",
     "research/community-efficient2400-audit/DISPOSITIONS.json",
     "research/community-efficient2500-audit/DISPOSITIONS.json",
-    "research/community-efficient2600-audit/DISPOSITIONS.json"
+    "research/community-efficient2600-audit/DISPOSITIONS.json",
+    "docs/research/pr-intake-decisions.json"
   ],
   "counts": {
-    "incorporated": 2043,
-    "partially_reviewed": 371,
+    "incorporated": 2045,
+    "partially_reviewed": 377,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -122,6 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
+    "docs/research/pr-intake-decisions.json": "55febbdea859c4fd5ae95de162fa41529bc9ea27a5f7cfcb2bb55c64f918c5c5",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -120884,39 +120886,46 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "5208ab2780550273b1d8933ff584ce7581fb242d",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Native Windows tooling review: exact composed source passed eight current Job Object tests and three frozen historical taskkill observer tests, normal and optimized on Windows/Python 3.12 and 3.14. Non-Windows AST preserved; no mathematical replay.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research/windows-replay-timeout-audit.md",
+        "tests/test_research_windows_process_tree.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2452",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
       "reviewed_head": "5208ab2780550273b1d8933ff584ce7581fb242d",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2452.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2452.json",
-        "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2452.json",
-        "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2452.json",
-        "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/2452.json"
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json",
+        "docs/research/pr-intake-evidence/windows-native-20261016.log"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -121783,39 +121792,47 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "65080e406c9edb0e93daa631f90b3fa4e4461910",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Native Windows tooling review: exact composed source passed eight current Job Object tests and three frozen historical taskkill observer tests, normal and optimized on Windows/Python 3.12 and 3.14. Non-Windows AST preserved; no mathematical replay.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research/windows-replay-lifetime.md",
+        "scripts/research_package.py",
+        "tests/test_research_windows_job.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2469",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
       "reviewed_head": "65080e406c9edb0e93daa631f90b3fa4e4461910",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "disposition": "incorporated",
+      "unresolved_question": "",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1400-audit/packets/2469.json",
-        "research/community-efficient2100-audit/INTAKE.json",
-        "research/community-efficient2100-audit/packets/2469.json",
-        "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2469.json",
-        "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2469.json",
-        "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/2469.json"
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json",
+        "docs/research/pr-intake-evidence/windows-native-20261016.log"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient1400-audit/DISPOSITIONS.json",
         "research/community-efficient2100-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -145882,6 +145899,400 @@
       "reconciliation_evidence": [
         "research/community-efficient2600-audit/DISPOSITIONS.json"
       ]
+    },
+    {
+      "number": 2962,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2962",
+      "title": "Ceilings for linear rank-counting decoder certificates (360/17 on P120) and a one-sided lift bound (cost >= 72 for dim S >= 23)",
+      "contributor": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "f6e68c9838e21b263223ae61273e381d2c0b92c7",
+      "current_head": "f6e68c9838e21b263223ae61273e381d2c0b92c7",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "f6e68c9838e21b263223ae61273e381d2c0b92c7",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/decoder-certificate-ceilings"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2962",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "f6e68c9838e21b263223ae61273e381d2c0b92c7",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2963,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2963",
+      "title": "F-star family gap: the twelve tied_min v = 11 sub-decoders settled exactly - gap_named = 2 EXISTS below v = 12 (no kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjUwMzY2Njc2",
+        "is_bot": false,
+        "login": "navinor",
+        "name": "Aaron Wang"
+      },
+      "draft": false,
+      "starting_head": "ee755e682b3b30d493e764d3be50003b13b69b4a",
+      "current_head": "ee755e682b3b30d493e764d3be50003b13b69b4a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "ee755e682b3b30d493e764d3be50003b13b69b4a",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only intake found malformed JSON; no scientific execution or approval.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "ee755e682b3b30d493e764d3be50003b13b69b4a",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Repair malformed vendored predecessor/pr2914/CERTIFICATE.json. Reassess inherited F-star optimizer correctness before any mathematical acceptance; syntax/source-only intake did not validate the claim.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-checkpoint.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2964,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2964",
+      "title": "Decide every odd-order character rank cut before bit-word search",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "466c65e73b3efb5f8144799792fbef0acf4369cf",
+      "current_head": "466c65e73b3efb5f8144799792fbef0acf4369cf",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "466c65e73b3efb5f8144799792fbef0acf4369cf",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/bit-odd-character-screen"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2964",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "466c65e73b3efb5f8144799792fbef0acf4369cf",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2965,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2965",
+      "title": "Bound completed QQ16 producer errors through the decoder",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "526f2c242202b31b15e09a7502dfb8ff757b2bad",
+      "current_head": "526f2c242202b31b15e09a7502dfb8ff757b2bad",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "526f2c242202b31b15e09a7502dfb8ff757b2bad",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/qq16-producer-defect-transfer"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2965",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "526f2c242202b31b15e09a7502dfb8ff757b2bad",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2966,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2966",
+      "title": "Conditional κ = 0.001724034272523452: fourteen declared gate rewrites (five classes) on #2942's words and literal allocation",
+      "contributor": {
+        "id": "U_kgDOEKXqaA",
+        "is_bot": false,
+        "login": "jeremykothe2",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "e62d3eb9005117d82a9babcfa937ecc53237c490",
+      "current_head": "e62d3eb9005117d82a9babcfa937ecc53237c490",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "e62d3eb9005117d82a9babcfa937ecc53237c490",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original commit retained in main ancestry; differing files NOT installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "https://github.com/CrocSwap/integer-mult-bounds/tree/e62d3eb9005117d82a9babcfa937ecc53237c490"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_historical_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2966",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "e62d3eb9005117d82a9babcfa937ecc53237c490",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2968,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2968",
+      "title": "Audit high-scaling physical scratch inventory and tape costs",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "cf4fc903951cd3f034531f7089d0a178f0f67b05",
+      "current_head": "cf4fc903951cd3f034531f7089d0a178f0f67b05",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "cf4fc903951cd3f034531f7089d0a178f0f67b05",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/high-scaling-scratch-traffic"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2968",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "cf4fc903951cd3f034531f7089d0a178f0f67b05",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2969,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2969",
+      "title": "Compose normal-45 extraction and fourteen gate rewrites: candidate κ ≈ 0.0017240352247481",
+      "contributor": {
+        "id": "MDQ6VXNlcjQ5MDU0NTMy",
+        "is_bot": false,
+        "login": "Dugongue",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "e2ca469b08385d3d5e29a918d66dbefaf889e9f3",
+      "current_head": "e2ca469b08385d3d5e29a918d66dbefaf889e9f3",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "e2ca469b08385d3d5e29a918d66dbefaf889e9f3",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/paired-swap-normal45"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2969",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "e2ca469b08385d3d5e29a918d66dbefaf889e9f3",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2970,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2970",
+      "title": "Certify the F-star one-interior-label gap on tied_min",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "bef9060f6b923577ca1d5a78266fd84df00ca93a",
+      "current_head": "bef9060f6b923577ca1d5a78266fd84df00ca93a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "bef9060f6b923577ca1d5a78266fd84df00ca93a",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source-only archive; independent scientific validation remains open. Exact original source identity, changed-file inventory, Python/JSON syntax and available flat manifest pins checked. No submitted scientific code executed. Original research blobs installed in default tree.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/fstar-one-interior-label"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2970",
+        "merge_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92"
+      },
+      "reviewed_head": "bef9060f6b923577ca1d5a78266fd84df00ca93a",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent mechanism/proof review and source-bound scientific replay remain open. Archival acceptance is not a selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -145893,7 +146304,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1844,
-    "OPEN": 253
+    "MERGED": 1853,
+    "OPEN": 252
   }
 }
