@@ -76,9 +76,7 @@
       "argv": [
         "{python}",
         "-B",
-        "{package}/verify.py",
-        "--work",
-        "{package}/_work/registered-check"
+        "{package}/verify.py"
       ],
       "timeout_seconds": 300,
       "checks": "Pinned immutable source recovery, every literal helper/physical-family/window/capacity, exact paid profile and rational moment endpoint; three physical rejecting controls. Complete native/global/outer admission is separate."

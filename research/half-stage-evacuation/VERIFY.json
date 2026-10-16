@@ -78,9 +78,7 @@
       "argv": [
         "{python}",
         "-B",
-        "{package}/verify.py",
-        "--work",
-        "{package}/_work/registered-check"
+        "{package}/verify.py"
       ],
       "timeout_seconds": 300,
       "checks": "Both complete local words on every independent input column, every literal owner/window/family/capacity, exact moment and claim/ledger bindings; three physical controls. Full native/global/outer replay is separately recorded."
