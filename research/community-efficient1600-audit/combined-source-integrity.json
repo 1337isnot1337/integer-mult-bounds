@@ -1,10 +1,11 @@
 {
   "status": "PASS",
-  "checked_commit": "cd0efdb20e2589930e856eaab30845368b36c365",
+  "checked_commit": "69a54c2b9f505502ed92642f85cf0f9b7e437c03",
   "merged_prs": [
     2592,
     2594,
     2596,
+    2598,
     2599,
     2600,
     2601,
@@ -25,6 +26,7 @@
     2630,
     2631,
     2632,
+    2638,
     2640,
     2641,
     2643,
@@ -34,6 +36,7 @@
     2656,
     2658,
     2659,
+    2660,
     2661,
     2662,
     2663,
@@ -55,14 +58,17 @@
     2688,
     2689,
     2692,
+    2693,
     2695,
+    2698,
     2701,
+    2704,
     2706,
     2708,
     2710,
     2712
   ],
-  "changed_files": 692,
+  "changed_files": 767,
   "resolved_files": [
     {
       "number": 2601,
@@ -153,6 +159,26 @@
       "number": 2683,
       "path": "docs/research/community-efficient1000-review.md",
       "sha256": "bac19ca28be781e7ac444e0666320ef77c0ac159467eafa3198e07b7c280442e"
+    },
+    {
+      "number": 2638,
+      "path": "research/packed-clifford-gate-tables/README.md",
+      "sha256": "ea042e30277e85b00750a3f5a26fb85965486958330566ac2981edf447881da8"
+    },
+    {
+      "number": 2638,
+      "path": "research/packed-clifford-gate-tables/RESULT.json",
+      "sha256": "001b2320393e11e97c1c2e0aac9d92a5327f6218a9fda2272a6ff32be9ecd2ab"
+    },
+    {
+      "number": 2638,
+      "path": "research/packed-clifford-gate-tables/SOURCES.json",
+      "sha256": "6235b4f04a52925e2a66a580a9c266fc6dfe0c6f19b35e3858b268dcd5a5933e"
+    },
+    {
+      "number": 2638,
+      "path": "research/packed-clifford-gate-tables/TASK.json",
+      "sha256": "b232e54d5e9616755245b04a11d86ff233b8e4ee08ce564aef7fdafcd8fbd7be"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
