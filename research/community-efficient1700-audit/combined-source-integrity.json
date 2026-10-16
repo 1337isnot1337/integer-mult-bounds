@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "d4f8ac17a0b6c4770fbf69581feb457b8646e4da",
+  "checked_commit": "52f07967e4f7b6c0bf59a5197d2bea82e45f05a7",
   "merged_prs": [
     2478,
     2716,
@@ -27,9 +27,10 @@
     2756,
     2758,
     2759,
+    2760,
     2792
   ],
-  "changed_files": 287,
+  "changed_files": 290,
   "resolved_files": [
     {
       "number": 2729,
@@ -130,6 +131,11 @@
       "number": 2754,
       "path": "research/p104-internal-grid-collector/VERIFY.json",
       "sha256": "3911cfebb00e8f9018046c578ed9f62f1a00e6f42689526ccc70ec7e262439a5"
+    },
+    {
+      "number": 2760,
+      "path": "docs/research/bottleneck-brief.md",
+      "sha256": "408982c26fa63a69cddeaf0463b537c4e20ebb064e7bdbfdacd9810764171cc1"
     },
     {
       "number": 2792,
