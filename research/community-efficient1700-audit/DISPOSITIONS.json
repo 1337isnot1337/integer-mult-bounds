@@ -473,19 +473,22 @@
       "current_head": "6b29cc86ca040cf1f23e4a104b5d279afd3dce73",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Exact-head registered replay and local moment proof reviewed, but certificates/selected-result.json is a historical runtime pin that differs on main. Preserve the historical input in a reproducible integration without silently repinning evidence; then validate the combined package.",
+      "integration_location": [
+        "research/p104-fusion-cost-headroom"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Source-bound P104 local fusion cost headroom, with exact outward rational bounds and independent decimal/sign checks. Historical selected input is now vendored byte-for-byte under its original hash; full combined replay and seven tests pass, including changed live-record independence and corrupted frozen-input rejection. Profile/native correctness remains inherited; no global supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2729.json",
+        "research/community-efficient1700-audit/checks/check-2729-combined.json",
         "research/community-efficient1700-audit/checks/check-2729.json"
       ]
     },
@@ -559,7 +562,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2731.json"
+        "research/community-efficient1700-audit/packets/2731.json",
+        "research/community-efficient1700-audit/checks/check-2731.json"
       ]
     },
     {
@@ -655,19 +659,22 @@
       "current_head": "90a507b39063cfaebdf92794fcb9d18f358439a6",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/leaf-omega-profile"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "All-height recurrence and closed coefficient formulas at the fixed dyadic Omega cut. Reviewed prefix-row and inverse-phase proof; literal profiles through height 8, independent forward columns and Git-free integrity controls pass. This closes the named C2 fixed-cut question, not the C1 global maximizing-cut conjecture or a physical rounding theorem.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2735.json"
+        "research/community-efficient1700-audit/packets/2735.json",
+        "research/community-efficient1700-audit/checks/check-2735.json"
       ]
     },
     {
@@ -688,19 +695,22 @@
       "current_head": "eba0d6111a773cd13f5c0afb4354af2c85d04c3a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-zero-retention-defects"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "QQ16 zero-retention completed-instruction error majorant with state-relative defects: exact all-cut forward and adjoint weights and behavioral controls pass. The 22-bit sufficient guard assumes completed line/map isometries and exact owned CLEAR; component rounding, caller entry and supplier admission remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2736.json"
+        "research/community-efficient1700-audit/packets/2736.json",
+        "research/community-efficient1700-audit/checks/check-2736.json"
       ]
     },
     {
@@ -776,7 +786,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2738.json"
+        "research/community-efficient1700-audit/packets/2738.json",
+        "research/community-efficient1700-audit/checks/check-2738.json"
       ]
     },
     {
@@ -797,19 +808,22 @@
       "current_head": "e786545de95c38cb69e8006970c851b444a0630e",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/dirty-padding-exchange-boundary"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "All-length dirty-padding obstruction under uniform bank XOR, additive padding/restriction and full padded exchanges. Reviewed paired-orbit group-ring determinant proof; literal closures, independent ring model, shape and failure controls pass. Fresh ownership, masked exchanges and other changed alphabets lie outside this theorem.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2740.json"
+        "research/community-efficient1700-audit/packets/2740.json",
+        "research/community-efficient1700-audit/checks/check-2740.json"
       ]
     },
     {
@@ -830,19 +844,22 @@
       "current_head": "fbe941c06e00e7aef64c2d11cd9ad27b7a083209",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-all-pair-consumer-budget"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Conditional P104 paired-chain consumer obstruction for every positive pair count and finite fully paid auxiliary-bank count. Exact source profile census, six rational base cases, affine infinite-tail proof and 11 tests pass. Assumes fixed profiles and the stated coverage law. Corrected PR2458 credit to Ross Richardson using GitHub metadata; no new supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2741.json"
+        "research/community-efficient1700-audit/packets/2741.json",
+        "research/community-efficient1700-audit/checks/check-2741.json"
       ]
     },
     {
@@ -875,7 +892,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2742.json"
+        "research/community-efficient1700-audit/packets/2742.json",
+        "research/community-efficient1700-audit/checks/check-2742.json"
       ]
     },
     {
@@ -995,19 +1013,26 @@
       "current_head": "3011db354853d71bc92a781df94adbb90f7a9f50",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/bit-ledger-frame-ranks-seedfeb2",
+        "research/complex-queue-ceiling-uncovered",
+        "research/joint-dual-replay-fast",
+        "research/masked-root-star-floor",
+        "research/selected-suppliers-de-diagnostic"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Correct contributor attribution across ten Markdown files and one task-metadata field. Reviewed full diff and verified referenced PR authors against live GitHub metadata; executable code and source hashes remain unchanged. Existing consumers use frozen snapshots or historical provenance for affected text.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2746.json"
+        "research/community-efficient1700-audit/packets/2746.json",
+        "research/community-efficient1700-audit/checks/check-2746.json"
       ]
     },
     {
