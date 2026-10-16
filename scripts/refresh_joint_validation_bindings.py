@@ -2,10 +2,10 @@
 """Refresh derived joint/pair validation bindings omitted by production commit 73cc66d0.
 
 Only the exact known old receipts and current composition certificates are
-admitted. Every proof-relevant receipt byte is preserved; only its single
-certificate_sha256 value changes. This is metadata regeneration, not a replay.
-Run make verify-joint and make verify-pair afterward to regenerate both complete receipts and retain
-CI's exact clean-tree gate. Frozen source archives/manifests are not edited.
+admitted. Every proof-relevant receipt byte is preserved; only the derived
+certificate_sha256 or local replay-source binding changes. This is metadata
+regeneration, not a replay. Run make verify-joint and make verify-pair afterward
+to regenerate all three complete receipts and retain CI's exact clean-tree gate. Frozen source archives/manifests are not edited.
 Credit Chafik Boukhalfa's verifier/certificates, Aaron Wang's containment scan,
 and Wentao Li's production integration. Dennis, with OpenAI Codex; Apache-2.0.
 """
