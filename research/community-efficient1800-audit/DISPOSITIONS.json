@@ -1110,19 +1110,24 @@
       "current_head": "514f75b9f311438aaef07cd577a39cd330cf4330",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/complex-compensation-network"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "conorholds' fully restored nonforest R480 compensation and two-sided cleanup: all four declared native/arithmetic/relocation/17-trial comparison commands pass. All 713 columns in 22 scalar programs checked, full paid recursive profile unchanged. Panel saves 4858 Horner primitives versus author's same-input forest implementation; original method/predecessor credit retained. Historical timing source mismatch explicitly disclosed; fresh same-parameter matched scalar benchmark separately bound. No new kappa, method optimum, complete supplier or multiplication-speed claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2227.json"
+        "research/community-efficient1800-audit/packets/2227.json",
+        "research/community-efficient1800-audit/checks/check-2227-benchmark.json",
+        "research/community-efficient1800-audit/checks/check-2227-full.json",
+        "research/community-efficient1800-audit/checks/check-2227.json"
       ]
     },
     {
