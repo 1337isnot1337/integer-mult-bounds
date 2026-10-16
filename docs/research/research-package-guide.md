@@ -87,8 +87,20 @@ workflow or the package's existing reproducible environment.
 Declare every external proof-relevant input in `inputs`; package-local changes
 already trigger replay. Use canonical repository-relative POSIX paths, such as
 `research/example/input.json`, with forward slashes and no leading `./`, repeated
-slashes or dot components. The planner rejects aliases because Git reports the
-canonical path when a dependency changes. The generic hook does not infer transitive imports.
+slashes or dot components. Each input must use its exact UTF-8 spelling in the
+current `HEAD` tree. Validation and planning read that tree with NUL-delimited
+Git output; neither filesystem case folding nor Unicode normalization defines
+input identity. Untracked and staged-only inputs must be committed before they
+can be validated. The index cannot override the spelling in `HEAD`.
+
+Planning also permits exact paths reported by its Git diff, so deleted inputs
+and both sides of case-only renames still select their consumers. Validation
+continues to require a present file: remove or update obsolete declarations
+before replaying the selected package. A stale missing declaration outside the
+current diff fails planning rather than silently becoming irrelevant. Git
+failures publish no matrix. These shared boundaries require a Git checkout with
+a valid `HEAD`; direct standalone verifiers keep their own source-export
+contracts. The generic hook does not infer transitive imports.
 Each command has a maximum 600-second timeout and the package total is at most
 1200 seconds. On POSIX, the launcher terminates the command's local process
 group on every exit, including success, failure, timeout and interruption, so

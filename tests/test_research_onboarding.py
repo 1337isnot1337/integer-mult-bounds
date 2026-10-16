@@ -450,7 +450,7 @@ class PackageTests(unittest.TestCase):
                                 env=dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0"),
                                 capture_output=True, timeout=30)
         self.assertNotEqual(result.returncode, 0)
-        self.assertIn(b"missing or external file: \\u03ba-missing.txt", result.stderr)
+        self.assertIn(b"use an exact Git-tracked input path from HEAD: \\u03ba-missing.txt", result.stderr)
         self.assertNotIn(b"UNEXPECTED_CHILD", result.stdout)
         self.assertNotIn(b"PASS_REGISTERED", result.stdout)
 

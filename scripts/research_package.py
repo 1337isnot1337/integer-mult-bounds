@@ -48,6 +48,23 @@ def git(root, *args):
     return subprocess.run(["git", *args], cwd=root, capture_output=True, check=True).stdout
 
 
+def tracked_input_paths(root):
+    """Use HEAD spelling, never case folding, filesystem resolution or the index.
+
+    Staged/untracked files are not replay inputs until committed. NUL framing
+    preserves Git filenames containing whitespace, including CR and LF.
+    """
+    raw = subprocess.run(
+        ["git", "ls-tree", "-r", "--name-only", "-z", "HEAD"], cwd=root,
+        capture_output=True, check=True, timeout=30).stdout
+    return frozenset(name.decode("utf-8") for name in raw.split(b"\0") if name)
+
+
+def require_tracked_input(name, paths):
+    canonical_relative_path(name)
+    require(name in paths, "use an exact Git-tracked input path from HEAD: " + name)
+
+
 def git_source_rows(root, base, names):
     """Read one pinned object at a time through one Git process; no persistent cache.
 
@@ -264,7 +281,9 @@ def validate(root, package, check_pins=True):
     require(total <= 1200, "generic replay has a 1200-second total budget; use a dedicated job for larger checks")
     inputs = manifest.get("inputs")
     require(isinstance(inputs, list), "declare input paths for CI invalidation")
+    tracked = tracked_input_paths(root)
     for name in inputs:
+        require_tracked_input(name, tracked)
         relative_file(root, name)
     require(sources.get("files"), "empty source inventory")
     require(re.fullmatch(r"[0-9a-f]{40,64}", sources["base_commit"]), "pin an exact base commit")
@@ -551,6 +570,10 @@ def run_package(root, package, install=False):
 
 def plan(root, changed):
     changed = set(changed)
+    # A removed input is absent from HEAD, including an old case-only rename
+    # spelling on case-insensitive filesystems. Git's exact changed paths remain
+    # eligible so its consumer is selected, rather than rejected or skipped.
+    tracked = tracked_input_paths(root) | changed
     replay_changed = bool(changed.intersection({
         "scripts/research_package.py", ".github/workflows/research-packages.yml",
         ".github/workflows/research-package-batch.yml"}))
@@ -571,7 +594,7 @@ def plan(root, changed):
         require(isinstance(inputs, list), "declare input paths for CI invalidation")
         for name in inputs:
             # Do not require existence: a deleted input must still trigger replay.
-            canonical_relative_path(name)
+            require_tracked_input(name, tracked)
         if (changed.intersection(inputs) or any(p.startswith(package + "/") for p in changed)
                 or replay_changed):
             packages.append(package)
