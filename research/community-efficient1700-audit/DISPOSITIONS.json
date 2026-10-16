@@ -1656,20 +1656,24 @@
       },
       "reviewed_head": "54d031fc3df0e5361d5840eb3863c9d134d60f23",
       "current_head": "54d031fc3df0e5361d5840eb3863c9d134d60f23",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/masked-e8-padding-transfer"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2765"
+      },
       "scope": "Independent masked-E8 restriction, singleton-padding and disjoint-gluing transfer proof, credited to Philippe Van Velzen. Reviewed the bounded rational candidate CLI, occurrence-by-occurrence binary ranks and separate span oracle, retained decoder fixtures and fault controls. Equivalence of the fixed-model puncture floor to the full P120 floor is a reduction, not a proof of either floor or supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2765.json",
@@ -1791,20 +1795,24 @@
       },
       "reviewed_head": "d97f150d89e3f3eebdf625a468a445c9c0f1e6c9",
       "current_head": "d97f150d89e3f3eebdf625a468a445c9c0f1e6c9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-bit-register-parking"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2769"
+      },
       "scope": "Fixed numerical-bank parking codec under trusted well-bracketed calls and fixed capacities/widths. Reviewed complete serializer, original-object restoration, all-depth induction and full sequential API invoice, with arbitrary dirty parents and explicitly owned child grants. Payload/controller serialization, complete recursive-caller integration and physical supplier cost remain open; no kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2769.json",
@@ -1862,15 +1870,17 @@
       "current_head": "e707681c3f6db70d0432501403e2122794a36ade",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-rounded-native-line"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Constructive direct rounded signed Gaussian-dyadic line with exact wrappers and an all-depth Hilbert error bound. Reviewed complete proof, 356-line implementation and 120-line CLI controls: owner-local maximum scans yield the predecessor state-relative 22-bit premise. Direct pair arithmetic, scans, exponents and routing remain paid; no cheap recursive child, fixed absolute caller grid, full supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1894,20 +1904,24 @@
       },
       "reviewed_head": "69ba5a423246a1c9281bdd5c1f51240b454f2aa6",
       "current_head": "69ba5a423246a1c9281bdd5c1f51240b454f2aa6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-whole-word-internal-grid"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2772"
+      },
       "scope": "Whole-word exact-grid implication for all 5398 events of the pinned physical P104 dual. Reviewed logical-row/frame replay, distinct-coordinate Gaussian prefix proof, integer execution and independent chart oracle: max(14 lambda,13 lambda+2) extra bits suffice under inherited native correctness and tensor-lift premises. Expanded execution is not an efficient recursive supplier; runtime, physical storage and admission remain open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2772.json",
@@ -2029,20 +2043,24 @@
       },
       "reviewed_head": "7de16285a02ebb45cf46e7501baa7eafa78335e3",
       "current_head": "7de16285a02ebb45cf46e7501baa7eafa78335e3",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/fixed-tape-ordered-shear"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2776"
+      },
       "scope": "Literal fixed-tape unit ordered shear and inverse with arbitrary positive binary extents: reviewed all finite control, countdown/split-merge invariants and exact transition/visited-span accounting, plus independent dense interpreter and mutation controls. Fourteen tapes, 531 instructions and linear complete local bill; inherited stream method credited. Carries, rational scaling, reversed fields, full caller and accelerated recurrence remain open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2776.json",
@@ -2065,20 +2083,24 @@
       },
       "reviewed_head": "6dfdbaa004540f5d89f390a9a78fa38c46d225d6",
       "current_head": "6dfdbaa004540f5d89f390a9a78fa38c46d225d6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-form-construction-storage"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2778"
+      },
       "scope": "Sharp numerical Word liveness for the unchanged good/fallback form constructors: reviewed complete lifetime proof, literal allocation census, independent integer endpoint checks and rejection controls. Entry residents are explicit; construction exceeds the earlier initialized-evaluator allowance. Bounds concern successful source contracts and occupied content, not erased backing, complete caller inventory, physical storage or supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2778.json",

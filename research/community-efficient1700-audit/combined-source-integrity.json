@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "667344ef0e66d6c3ba51888981c4cbd5bf69f1c6",
+  "checked_commit": "f79d9c8361d813335eaede3475ecb6ac2d99ef29",
   "merged_prs": [
     2478,
     2716,
@@ -30,9 +30,14 @@
     2760,
     2761,
     2763,
+    2765,
+    2769,
+    2772,
+    2776,
+    2778,
     2792
   ],
-  "changed_files": 308,
+  "changed_files": 370,
   "resolved_files": [
     {
       "number": 2729,
