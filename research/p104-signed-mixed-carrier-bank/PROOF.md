@@ -37,3 +37,18 @@ This excludes neither signed geometry-dependent target coefficients nor dynamic 
 ## E. Limits
 
 Do not conflate these exact finite results with a certificate for a complete recursive multiplication algorithm. The new composite lines and terminated helper values require source/phase/cleanup work not discharged here. Existing P104 price screens may make a full realization uneconomical even when this schematic beats its stipulated direct baseline. Upstream signed E8 geometry is tested for one exemplar and carries inherited assumptions for other instances.
+## F. Constructive zero-restoration and rank-two re-encoding
+
+The relaxed rank-one composite-label bank in sections A-C originally leaves new helper data resident. An exact inverse of its four-ADD preparation at each edge, followed by paid frame descent to rank zero, restores two auxiliaries to zero while preserving original terms; that adds four ADDs and ten frame-rank units per chosen edge. Exhausting all 4096 banks with this correction gives the minimum 320 ADDs and 1408 rank units at an eight-edge bank, with sixteen zero-restored auxiliaries (`zero_restore.py`).
+
+A distinct relaxation avoids the unavailable root-label `u_i+u_j` by storing both signed mixtures on the rank-two frame `U_ij=span(u_i,u_j)`. Each such frame consists of two actual root-line labels. If the target support contains i and j, both source lines and hence U are in the target sink. A mixed read costs one symbolic signed ADD but introduces both frame directions; choose all singleton reads before pair reads to minimize return-home moves. If a target has n terms and p disjoint mixed pairs, the source return-home travel is exactly `n(n-1)-2p(n-p)` rank units. Building and erasing both signed variants costs 8 ADDs and 16 rank units per selected bank edge. The targets collectively cost 832 rank units for their sinks. Thus:
+
+```
+ADD_2D(B)  = 8*|B| + sum_S (|S|-p_B(S))
+RANK_2D(B) = 16*|B| + 832
+              + sum_S (|S|*(|S|-1)-2*p_B(S)*(|S|-p_B(S))).
+```
+
+Here p_B(S) is a maximum matching of available cube edges within target support S. Complete exhaustive cost enumeration gives six eight-edge minimizing banks, each with `ADD_2D=320`, `RANK_2D=1520`, and 16 live supplementary scalar values that are **all returned to zero**. `rank2_gate.py` executes the signed scalar traces and every frame transition and checks all 2288 possible signed output assignments.
+
+These are finite formal F2 frame and scalar ADD identities only. A legal native E8 operator/phase schedule at rank-two homes, recursive child pricing, full source access, and all-size reduction to integer multiplication remain separate obligations.
