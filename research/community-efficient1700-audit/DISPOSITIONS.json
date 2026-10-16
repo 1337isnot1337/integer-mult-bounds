@@ -3083,20 +3083,24 @@
       },
       "reviewed_head": "8abae69a53337dd3d0965db3470ab249b0216f22",
       "current_head": "8abae69a53337dd3d0965db3470ab249b0216f22",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-stream-directory-numerical-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bf8f29a6d6634916c39ef445505bd1f3e04b6c36",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2810"
+      },
       "scope": "Exact successful numerical peaks for directory production and ADD: max(d squared,6) and max(callback residue allowance,6), with no additional indices. Reviewed original source lifetimes, complete finite payload/directory oracle, independent allocation-event model and failure witnesses. All seven exports match original Git. Callback equality, owned result and allocation-neutral factories explicit; conditional adapter bound, not whole physical reserve.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2810.json",
@@ -3452,20 +3456,24 @@
       },
       "reviewed_head": "4403baa77a7a598ea0d64b73428748c8f5693954",
       "current_head": "4403baa77a7a598ea0d64b73428748c8f5693954",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-all-projections-seed67"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bf8f29a6d6634916c39ef445505bd1f3e04b6c36",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2820"
+      },
       "scope": "Exact 255 nonempty survivor-projection widths via 21 orbit representatives, antichain/chain-cover dual witnesses and all48 cube automorphisms; independent geometric reconstruction and exact certificate regeneration checked against original PR1125 head/blob. Ten corruption controls also pass under -O. Opposite-pair classification checked across all28 pairs. Scheduling/rank corollaries remain conditional on the explicitly retained PR1125 fixed-term carrier interface; optional SciPy oracle not rerun. No supplier or kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2820.json",
@@ -3488,20 +3496,24 @@
       },
       "reviewed_head": "78b0d364ec4441e46e6ccffc60bf341536cbd756",
       "current_head": "78b0d364ec4441e46e6ccffc60bf341536cbd756",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-validation-numerical-lifetime"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bf8f29a6d6634916c39ef445505bd1f3e04b6c36",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2821"
+      },
       "scope": "Exact source initialization/validation numerical lifetime above Consumer.apply entry: 4096 residues, 18/22/23 indices, and a joint occupied-content maximum. Reviewed full source loop invariant, literal prefix seam, independent handle model and all controls; twenty source exports match original Git. Providers are neutral fixtures rather than catalogue admission; packet execution, failure paths and physical storage excluded.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2821.json",
@@ -3524,20 +3536,24 @@
       },
       "reviewed_head": "6d10a887a902d00a29868b39f575c57e446d7c98",
       "current_head": "6d10a887a902d00a29868b39f575c57e446d7c98",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-joint-prefix-grid"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bf8f29a6d6634916c39ef445505bd1f3e04b6c36",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2822"
+      },
       "scope": "Smaller sufficient all-depth grid ceil(15 lambda/2)+2 for the unchanged P104 physical dual. Reviewed Gaussian ideal divisibility, every logical row/native occurrence and canonical chart factor counts; complete ten-bit native fixtures and controls required. All five retained sources match original Git. Inherited native correctness and tensor lift, no minimality, recursive complexity or supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2822.json",
@@ -3626,20 +3642,24 @@
       },
       "reviewed_head": "b553e912bcddef550d9fae6033041ff683399ebe",
       "current_head": "b553e912bcddef550d9fae6033041ff683399ebe",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-child-caller-lifetime"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bf8f29a6d6634916c39ef445505bd1f3e04b6c36",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2825"
+      },
       "scope": "Conditional completion of first-range numerical caller accounting: exact child entry18/19 indices, child allowances20494/40 or41, and max(37672*r+34*i,20494*r+41*i) full-call envelope. Reviewed actual trace/packet/primitive source, every new checker, inherited proof pins and all-domain phase argument. Complete small non-ADD fixtures and independent trace census required; coefficient proofs inherited, payload movement abstracted in caller probe, no physical reserve or supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2825.json",
