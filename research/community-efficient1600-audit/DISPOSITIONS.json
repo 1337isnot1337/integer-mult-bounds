@@ -1269,18 +1269,24 @@
       },
       "reviewed_head": "1662dda699d9ea57b3fb13a23873b087d765149f",
       "current_head": "1662dda699d9ea57b3fb13a23873b087d765149f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/finite-parking-frames"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0b2e57baf4160d85dad7bed4c380637d0cfa2ae8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2635"
+      },
+      "scope": "Explicit ten-state 490-entry two-tape parking controller with all-size matched-record/nested-frame invariants and exact read/write/move tariffs. Sparse and separate dense interpreters agree on 2047 packets, translated large packets and unequal nested records through depth129; 9 semantic controls and source/export/typed receipt checks passed. Trusted matched push/pop discipline only, not arbitrary partial pops, hostile-code isolation, packet serialization, full allocator/dispatcher or supplier; no kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2635.json",
@@ -1303,18 +1309,24 @@
       },
       "reviewed_head": "c1e173b7af38603bc7660a8829e75006e93645d3",
       "current_head": "c1e173b7af38603bc7660a8829e75006e93645d3",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/aggregate-padding-tapes"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0b2e57baf4160d85dad7bed4c380637d0cfa2ae8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2636"
+      },
+      "scope": "Fixed17-tape aggregate padding/restriction scan using physical binary countdowns and five finite flags, with uniform amortized 1024N+128D+128 bound, head rewind, immutable inputs/descriptors and zero counter cleanup. Exact mixed-radix oracle checks256 shapes,4096 payloads,267 decrement cases, long carries and export/reset/receipt controls passed. Assumes canonical aggregate descriptors and owned zero work/fresh output; indexed exchange is only a test oracle. Full fast callee, ownership acquisition and joined supplier remain open; no kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2636.json",

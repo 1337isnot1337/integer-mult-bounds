@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1886,
-    "partially_reviewed": 310,
+    "incorporated": 1888,
+    "partially_reviewed": 308,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "8bb52f4f590e48a3c8fc6e04aac736b9bd93af5d989339e5c8d4466dc5edc878",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "2b2ddebff28d0e19b54788f50b4b723447a368c9e5a7619cd91f3fc7a813ed16",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -122646,22 +122646,28 @@
         {
           "head": "1662dda699d9ea57b3fb13a23873b087d765149f",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Explicit ten-state 490-entry two-tape parking controller with all-size matched-record/nested-frame invariants and exact read/write/move tariffs. Sparse and separate dense interpreters agree on 2047 packets, translated large packets and unequal nested records through depth129; 9 semantic controls and source/export/typed receipt checks passed. Trusted matched push/pop discipline only, not arbitrary partial pops, hostile-code isolation, packet serialization, full allocator/dispatcher or supplier; no kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/finite-parking-frames"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0b2e57baf4160d85dad7bed4c380637d0cfa2ae8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2635"
+      },
       "reviewed_head": "1662dda699d9ea57b3fb13a23873b087d765149f",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2635.json",
@@ -122691,22 +122697,28 @@
         {
           "head": "c1e173b7af38603bc7660a8829e75006e93645d3",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Fixed17-tape aggregate padding/restriction scan using physical binary countdowns and five finite flags, with uniform amortized 1024N+128D+128 bound, head rewind, immutable inputs/descriptors and zero counter cleanup. Exact mixed-radix oracle checks256 shapes,4096 payloads,267 decrement cases, long carries and export/reset/receipt controls passed. Assumes canonical aggregate descriptors and owned zero work/fresh output; indexed exchange is only a test oracle. Full fast callee, ownership acquisition and joined supplier remain open; no kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/aggregate-padding-tapes"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "0b2e57baf4160d85dad7bed4c380637d0cfa2ae8",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2636"
+      },
       "reviewed_head": "c1e173b7af38603bc7660a8829e75006e93645d3",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2636.json",
@@ -126017,7 +126029,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1434,
-    "OPEN": 446
+    "MERGED": 1436,
+    "OPEN": 444
   }
 }

@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1886 |
-| partially reviewed | 310 |
+| incorporated | 1888 |
+| partially reviewed | 308 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -2232,8 +2232,8 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2632](https://github.com/CrocSwap/integer-mult-bounds/pull/2632) | commdata2338 | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
 | [#2633](https://github.com/CrocSwap/integer-mult-bounds/pull/2633) | commdata2338 | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
 | [#2634](https://github.com/CrocSwap/integer-mult-bounds/pull/2634) | navinor | partially reviewed | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
-| [#2635](https://github.com/CrocSwap/integer-mult-bounds/pull/2635) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
-| [#2636](https://github.com/CrocSwap/integer-mult-bounds/pull/2636) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
+| [#2635](https://github.com/CrocSwap/integer-mult-bounds/pull/2635) | ywz65 | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
+| [#2636](https://github.com/CrocSwap/integer-mult-bounds/pull/2636) | ywz65 | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
 | [#2638](https://github.com/CrocSwap/integer-mult-bounds/pull/2638) | ywz65 | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
 | [#2639](https://github.com/CrocSwap/integer-mult-bounds/pull/2639) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
 | [#2640](https://github.com/CrocSwap/integer-mult-bounds/pull/2640) | petalas | incorporated | [record 1](../../research/community-efficient1600-audit/DISPOSITIONS.json) |
