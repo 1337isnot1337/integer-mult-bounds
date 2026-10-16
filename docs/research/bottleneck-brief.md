@@ -38,6 +38,8 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
 - **P104:** the checked #1991 channel has newer proposed physical correction
   and dual constructions, including #2586. Focus on a still-missing endpoint,
   routing/hosting or complete-cost obligation, or independently audit that claim.
+  The [helper-lifetime scope map](p104-helper-lifetime-scope-map.md) separates
+  pooled dimensions, transport floors and helper lifetimes.
 - **QQ16:** #2540 proposes a complete added local native decoder, with explicit
   output frames and a nontrivial invoice. Investigate a complete consumer,
   retention, movement or hosting obligation rather than rediscovering its inverse.
