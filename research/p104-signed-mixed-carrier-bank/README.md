@@ -38,33 +38,28 @@ For unsigned outputs `y_S = Σ_{i∈S} x_i`, suppose we replace all eight origin
 
 This no-go result does not apply to the **redundant signed dictionary**, to unequal geometry-dependent coefficients, to moving frames, or to target-specific encoding.
 
-## Reproduce
+## Reproduce this GitHub submission
 
-Run with Python 3.10+ from this directory:
+The focused upstream contribution contains the primary standalone standard-library verifier, an independently coded 4096-bank invoice census, and the newly discovered E8 root-line gate.
+
+From the repository root, Python 3.10+:
 
 ```bash
-python -B verify.py
-python -B independent.py                     # optional SymPy
-python -B optimize_bank.py
-python -B independent_bank.py                # independent vertex DP
-python -B e8_instance.py
-python -B negative_controls.py
-python -B RUN_ALL.py
+python3 -I -B research/p104-signed-mixed-carrier-bank/RUN_SUBMITTED.py
 ```
 
-Expected lines:
+Expected final line:
 
 ```text
-PASS_MIXED_CARRIER signed_cases=2288 decoders=104 matchings=105 baseline_adds=416 mixed_adds=320 baseline_frame_rank=2224 mixed_frame_rank=1520 global_nontrivial_basis_obstructions=247 NO_KAPPA
-PASS_INDEPENDENT_P104_MIXED matchings=105 signed_instances=2288 rational_ranks=255 rank_save=704 add_save=96
-PASS_P104_BANK_OPTIMUM all_banks=4096 winning_bank=4095 rank=1312 adds=288 helpers=24 signed_cases=2288 no_kappa
-PASS_INDEPENDENT_BANK all_banks=4096 unique_rank_winner=4095 rank=1312 add_minimum=288 vertex_matching_DP=PASS no_kappa
-PASS_E8_REAL_DECODER frame_count=1260 live=104 labels=120 chart_isomorphisms=48 signed_pair_reads=336 real_root_incidence=PASS no_kappa
-PASS_MIXED_NEGATIVE_CONTROLS corrupt_payload=2 bad_line=1 missing_preparation=1 geometry=3 total=7
-PASS_P104_MIXED_LAB all_steps=6 model=schematic no_new_kappa
+PASS_P104_SCHEMATIC_SUBMISSION no_kappa no_native_supplier
 ```
 
-The primary scripts independently reconstruct the 104 cube supports. `verify.py` charges and checks each frame transition and symbolic ADD and exhaustively tests **2,288 signed output configurations** across the 104 target supports. `optimize_bank.py` verifies the winning bank by executable traces and independently enumerates every possible sign configuration. Its JSON includes all 4096 bank invoices; the independent optimizer uses a **different recurrence on vertices**. `e8_instance.py` checks real signed root incidence for one of 7168 possible decoders; transport to all such decoders relies on PR #1125's verified support-uniformity statement.
+The standalone scripts emit:
+- `verify.py`: 2288 signed target configurations, 105 perfect matchings, abstract scalar/frame traces, 247 forbidden static noncoordinate line choices.
+- `optimize_bank.py`: every one of 4096 edge banks, unique minimum-frame rank 1312, total ADDs 288.
+- `root_line_gate.py`: all 7140 distinct E8 root-line pairs have pair-sum labels absent from the root-line family.
+
+These are the reviewable checks committed in this PR. The expanded local laboratory was also exercised with separate optimization, E8-example and negative-control scripts, but those auxiliary scripts are **not included** in this focused GitHub submission; the PR makes no claim that its committed runner executes them. The selected frontier and `upstream/` are unchanged.
 
 ## Critical remaining gates before claiming a new integer multiplication result
 
