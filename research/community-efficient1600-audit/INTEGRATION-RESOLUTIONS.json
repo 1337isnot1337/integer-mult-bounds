@@ -95,8 +95,8 @@
     "number": 2602,
     "path": "docs/research/research-package-guide.md",
     "original_sha256": "67c243289f2daf1d57b2dd5ea3eca5fdf9762a15b895985178cfe66767b13ec4",
-    "resolved_sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511",
-    "reason": "Three-way merge adds only the publication-byte preflight to the latest guide, preserving current workflow guidance. Eighteenth review preserves this contribution with combined PR2514/2517 pagination, PR2539 source batching, PR2553 cache isolation or the new ledger family as applicable; current 133-test tooling suite and native probe pass."
+    "resolved_sha256": "9515665222ccded59bbaf73079b2cc303eb0ac854770edfb6088567223c68a4e",
+    "reason": "Three-way merge adds only the publication-byte preflight to the latest guide, preserving current workflow guidance. Eighteenth review preserves this contribution with combined PR2514/2517 pagination, PR2539 source batching, PR2553 cache isolation or the new ledger family as applicable; current 133-test tooling suite and native probe pass. Subsequent reviewed PR2505 adds bounded matrix planning without changing execution/pinning safeguards; combined138-test suite and963-package selection pass."
   },
   {
     "number": 2624,

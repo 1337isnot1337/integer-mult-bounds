@@ -136,6 +136,17 @@ affected verifier before regenerating its receipt. The preflight never changes
 files or normalizes scientific evidence. Passing it does not run the verifier,
 validate the mathematics, or establish equivalence to a hosted CI environment.
 
+The planner groups at most 256 package paths into each reusable-workflow batch,
+so a shared-runner change can select more than GitHub's single-matrix limit.
+Batches run one at a time and each batch runs at most four isolated package jobs;
+the per-package fresh checkout, environment and 30-minute job bound are retained.
+Changing either workflow selects all registered packages. Selection is never
+truncated: more than 256 batches fails explicitly. The ordinary planner CLI keeps
+its flat matrix format unless `--matrix-batch-size 256` is requested.
+This is a matrix-count bound, not a promise that the largest grouping fits every
+GitHub execution limit; the 1 MB job-output limit (estimated in UTF-16) and other
+platform limits still apply. The submission measured 450 selected packages; later repository inventories may be larger.
+
 ## Optional workflow feedback
 
 If something helped or obstructed the session, add a few sentences to your PR

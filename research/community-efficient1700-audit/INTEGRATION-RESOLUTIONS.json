@@ -35,15 +35,15 @@
     "number": 2752,
     "path": "scripts/research_package.py",
     "original_sha256": "c917fdc75356194331ee6cc78de83048060ab11691b6ed03ae5bd96d99c5df40",
-    "resolved_sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed",
-    "reason": "Apply only the reviewed Git reader compatibility changes, preserving newer core safeguards and the jointly tested PR2737 diagnostics. Eighteenth review adds tested PR2553 cache isolation while retaining these diagnostics and reader compatibility; combined133 tests and retained P104 probe pass."
+    "resolved_sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5",
+    "reason": "Apply only the reviewed Git reader compatibility changes, preserving newer core safeguards and the jointly tested PR2737 diagnostics. Eighteenth review adds tested PR2553 cache isolation while retaining these diagnostics and reader compatibility; combined133 tests and retained P104 probe pass. Subsequent reviewed PR2505 adds bounded matrix planning without changing execution/pinning safeguards; combined138-test suite and963-package selection pass."
   },
   {
     "number": 2737,
     "path": "scripts/research_package.py",
     "original_sha256": "68a22cd23455b5443c2d9ae0e3026b2d93c1b09b5e3db94bc02b9f4922fdba2d",
-    "resolved_sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed",
-    "reason": "Combine Git fallback and named pin diagnostics while retaining current requirement defaults, duplicate-dependency rejection, Unicode output and process-group cleanup. Keep originating task catalogue bound to base_commit; reject nonstring explicit pins with named diagnostics. Add two regression tests for integration fixes. Eighteenth review adds tested PR2553 cache isolation while retaining these diagnostics and reader compatibility; combined133 tests and retained P104 probe pass."
+    "resolved_sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5",
+    "reason": "Combine Git fallback and named pin diagnostics while retaining current requirement defaults, duplicate-dependency rejection, Unicode output and process-group cleanup. Keep originating task catalogue bound to base_commit; reject nonstring explicit pins with named diagnostics. Add two regression tests for integration fixes. Eighteenth review adds tested PR2553 cache isolation while retaining these diagnostics and reader compatibility; combined133 tests and retained P104 probe pass. Subsequent reviewed PR2505 adds bounded matrix planning without changing execution/pinning safeguards; combined138-test suite and963-package selection pass."
   },
   {
     "number": 2737,

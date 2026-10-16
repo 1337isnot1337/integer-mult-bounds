@@ -35,17 +35,17 @@
     "number": 2553,
     "path": "docs/research/research-package-guide.md",
     "original_sha256": "bf2680fcc4caca8367dfaf198a54bef1376885df2ec8ef3d88c1b8ace8edd96d",
-    "resolved_sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511",
+    "resolved_sha256": "9515665222ccded59bbaf73079b2cc303eb0ac854770edfb6088567223c68a4e",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained. Subsequent reviewed PR2505 adds bounded matrix planning without changing execution/pinning safeguards; combined138-test suite and963-package selection pass."
   },
   {
     "number": 2553,
     "path": "scripts/research_package.py",
     "original_sha256": "1fdbdaa217aeb82ba91ffe05ac11c9056976021e3eafaedeca44ef33bc45e92c",
-    "resolved_sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed",
+    "resolved_sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5",
     "resolved_mode": "100644",
-    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained."
+    "reason": "Combine reviewed PR2514/2517/2539/2553 changes with current main, preserving current overlap query behavior, source-pin diagnostics, Git compatibility, process-group cleanup, Unicode output and all regression tests. Complete combined tests and native cache probe are retained. Subsequent reviewed PR2505 adds bounded matrix planning without changing execution/pinning safeguards; combined138-test suite and963-package selection pass."
   },
   {
     "number": 2860,
@@ -222,5 +222,21 @@
     "resolved_sha256": "71c6a31b962b832ec94a93f11f9af3564e07d86df8dc63e259d267f952423657",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
+  },
+  {
+    "number": 2505,
+    "path": "docs/research/research-package-guide.md",
+    "original_sha256": "7cbcd8ceda6cd5126bc90f4f662d517da2ef14ac00a937e654b9d3ce9114196c",
+    "resolved_sha256": "9515665222ccded59bbaf73079b2cc303eb0ac854770edfb6088567223c68a4e",
+    "resolved_mode": "100644",
+    "reason": "Apply original batching changes to current main, retaining later source-pin, cleanup and bytecode isolation work. Mark submission450-package count historical; actual963-package CLI and full138-test suite verified."
+  },
+  {
+    "number": 2505,
+    "path": "scripts/research_package.py",
+    "original_sha256": "1707ae5225894c1e883133e15eb5813cb118755160939cba68513b36815fdaba",
+    "resolved_sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5",
+    "resolved_mode": "100644",
+    "reason": "Apply original batching changes to current main, retaining later source-pin, cleanup and bytecode isolation work. Mark submission450-package count historical; actual963-package CLI and full138-test suite verified."
   }
 ]

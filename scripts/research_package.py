@@ -415,7 +415,8 @@ def run_package(root, package, install=False):
 def plan(root, changed):
     changed = set(changed)
     replay_changed = bool(changed.intersection({
-        "scripts/research_package.py", ".github/workflows/research-packages.yml"}))
+        "scripts/research_package.py", ".github/workflows/research-packages.yml",
+        ".github/workflows/research-package-batch.yml"}))
     packages = []
     for path in sorted((root / "research").glob("*/VERIFY.json")):
         package = path.parent.relative_to(root).as_posix()
@@ -432,6 +433,18 @@ def plan(root, changed):
     return packages
 
 
+def replay_matrix(packages, batch_size=None):
+    """Retain the flat CLI format, or group complete coverage into bounded matrices."""
+    if batch_size is None:
+        return {"include": [{"package": p} for p in packages]}
+    require(type(batch_size) is int and 1 <= batch_size <= 256,
+            "matrix batch size must be 1..256")
+    batches = [packages[i:i + batch_size] for i in range(0, len(packages), batch_size)]
+    require(len(batches) <= 256,
+            "more than 256 matrix batches required; no packages were truncated")
+    return {"include": [{"packages": batch} for batch in batches]}
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--package")
@@ -439,6 +452,8 @@ def main():
     ap.add_argument("--install-deps", action="store_true", help="explicit opt-in to install manifest's allowed pinned dependencies")
     ap.add_argument("--changed-since", help="plan affected opt-in packages relative to this Git commit")
     ap.add_argument("--github-output", type=Path)
+    ap.add_argument("--matrix-batch-size", type=int,
+                    help="group planned packages for bounded reusable-workflow matrices (1..256)")
     args = ap.parse_args()
     try:
         if args.changed_since:
@@ -449,7 +464,7 @@ def main():
                 # A rename must invalidate both the removed input and its new path.
                 changed = git(ROOT, "diff", "--no-renames", "--name-only", "-z", base, "HEAD").decode().split("\0")
             packages = plan(ROOT, changed)
-            matrix = json.dumps({"include": [{"package": p} for p in packages]})
+            matrix = json.dumps(replay_matrix(packages, args.matrix_batch_size))
             print(matrix)
             if args.github_output:
                 with args.github_output.open("a", encoding="utf-8") as out:
