@@ -1358,7 +1358,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Source and cache-invalidation benchmark harness reviewed; independent Python column replay and controls pass. Full native Linux ccache benchmark is not independently replayed: Docker CLI probe was terminated after hanging, and hosted native job was QUEUED at observation. Keep author speedup claim scoped; obtain completed native evidence before integration.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1624,18 +1624,24 @@
       },
       "reviewed_head": "13cd273dc13c98244b1f9bcf588b6e828cbc0347",
       "current_head": "13cd273dc13c98244b1f9bcf588b6e828cbc0347",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/bit-r438-transport-rehost"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b1f581c373c1b2c579100f2ba2109ce9936b0676",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2423"
+      },
+      "scope": "R438 transport and rehosting: reviewed the source-bound builder, single-gate transport/literal cleanup, arbitrary-dirty local replay and H1-H5 checks, unchanged compensation, exact pricing and shared complete rehosting DP/Hall/slot audit. All three registered commands pass, including actual atlas crash reproductions and patched baseline equality. Integration clarifies fixed-single-option pair-search scope; optional --full moved-word atlas census is retained author evidence, not rerun in this review. No native whole-hosted emission or supplier admission; PR1043 remains conditional and selected kappa unchanged.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2423.json",
@@ -2927,20 +2933,24 @@
       },
       "reviewed_head": "9494fc4e2ecd5070ca21b8b5422a77f046da3ac9",
       "current_head": "9494fc4e2ecd5070ca21b8b5422a77f046da3ac9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-deletion-ladder"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b1f581c373c1b2c579100f2ba2109ce9936b0676",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2465"
+      },
       "scope": "Helper-deletion pricing ladder: reviewed all21 declared-profile rows for d=0..6, complete top-three interval DP and independent branch-and-bound coverage, generating-function counts, max-flow/Hall windows, slot audits and two-engine endpoint acceptance/rejection. Shared PR2423 rehosting kernel fully reviewed; transport and supplier admission are not inferred. Exact retained replay passes88 negative controls plus29 inherited controls. Optimality is at the next 1e-24 grid point within fixed no-bank width-eight slots; d>=2 words are hypothetical and the three profile models are not universal envelopes. No new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2465.json",
@@ -3392,7 +3402,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Registered optimized replay passes on macOS, but an exact counterexample violates the declared LF/CRLF-only outer-log policy: replacing the first LF by vertical tab is accepted through inherited str.splitlines(). Revision requested to enforce the outer line grammar in the new caller and add rejecting controls, preserving frozen vendor bytes. https://github.com/CrocSwap/integer-mult-bounds/pull/2477#issuecomment-6205219558",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,

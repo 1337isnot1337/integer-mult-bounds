@@ -42,8 +42,8 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1730,
-    "partially_reviewed": 268,
+    "incorporated": 1732,
+    "partially_reviewed": 266,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -97,7 +97,7 @@
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
-    "research/community-efficient1400-audit/DISPOSITIONS.json": "32348bedaa8ebabed434329065f0fb4024a47e1de0e7738cd5bb600778576d62",
+    "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -112876,7 +112876,7 @@
       "closure": null,
       "reviewed_head": "160c6b06954339f97d53529557247c22ff27c47d",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Source and cache-invalidation benchmark harness reviewed; independent Python column replay and controls pass. Full native Linux ccache benchmark is not independently replayed: Docker CLI probe was terminated after hanging, and hosted native job was QUEUED at observation. Keep author speedup claim scoped; obtain completed native evidence before integration.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -113212,22 +113212,28 @@
         {
           "head": "13cd273dc13c98244b1f9bcf588b6e828cbc0347",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "R438 transport and rehosting: reviewed the source-bound builder, single-gate transport/literal cleanup, arbitrary-dirty local replay and H1-H5 checks, unchanged compensation, exact pricing and shared complete rehosting DP/Hall/slot audit. All three registered commands pass, including actual atlas crash reproductions and patched baseline equality. Integration clarifies fixed-single-option pair-search scope; optional --full moved-word atlas census is retained author evidence, not rerun in this review. No native whole-hosted emission or supplier admission; PR1043 remains conditional and selected kappa unchanged.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/bit-r438-transport-rehost"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b1f581c373c1b2c579100f2ba2109ce9936b0676",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2423"
+      },
       "reviewed_head": "13cd273dc13c98244b1f9bcf588b6e828cbc0347",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2423.json",
@@ -114897,16 +114903,20 @@
       "integration_location": [
         "research/bit-deletion-ladder"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "b1f581c373c1b2c579100f2ba2109ce9936b0676",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2465"
+      },
       "reviewed_head": "9494fc4e2ecd5070ca21b8b5422a77f046da3ac9",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Publication and live merge observation pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2465.json",
@@ -115493,7 +115503,7 @@
       "closure": null,
       "reviewed_head": "0760e745c5d3b6e66dbfab1799be75abf01576ed",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Registered optimized replay passes on macOS, but an exact counterexample violates the declared LF/CRLF-only outer-log policy: replacing the first LF by vertical tab is accepted through inherited str.splitlines(). Revision requested to enforce the outer line grammar in the new caller and add rejecting controls, preserving frozen vendor bytes. https://github.com/CrocSwap/integer-mult-bounds/pull/2477#issuecomment-6205219558",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -116119,7 +116129,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1354,
-    "OPEN": 328
+    "MERGED": 1356,
+    "OPEN": 326
   }
 }
