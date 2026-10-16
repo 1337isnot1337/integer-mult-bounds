@@ -53,3 +53,7 @@ The [twentieth-round index](../../research/community-efficient2000-audit/README.
 ## Twenty-first intake
 
 The [next100-head index](../../research/community-efficient2100-audit/README.md) records archive admissions, integrity failures and substantive holds. All archived claims retain their independent review obligations.
+
+## Twenty-second intake
+
+The [85-head remainder index](../../research/community-efficient2200-audit/README.md) records archive admissions and explicit holds at its live snapshot. Source-only publication does not validate any advertised bound or formal proof.

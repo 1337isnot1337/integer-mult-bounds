@@ -1417,3 +1417,71 @@ Source-only intake, with scientific review obligations retained. Original predec
 - **ywz65 (@ywz65)** — [#2533](https://github.com/CrocSwap/integer-mult-bounds/pull/2533): Kernel-check the propositional core of the 19-line cost certificate.
 - **Aaron Wang (@navinor)** — [#2542](https://github.com/CrocSwap/integer-mult-bounds/pull/2542): Research: seven-source singleton universal path — length 18 excluded, f(7) >= 20 (no new kappa).
 - **Jose Manuel (@jmbarrancoml)** — [#2569](https://github.com/CrocSwap/integer-mult-bounds/pull/2569): research: produce selected source packets and bind owner routes.
+
+### Twenty-second-round research archive
+
+Source-only intake with independent scientific obligations still open. Original predecessor credit remains with each package. See [exact-head status](research/community-efficient2200-audit/README.md).
+
+- **thakrarsagar (@thakrarsagar)** — [#2581](https://github.com/CrocSwap/integer-mult-bounds/pull/2581): Negative result: P112 fixed-reader two-total COPY at source union 48 — two-column loss bound exactly 5 (attained), full-rank lower bound 65, COPY >= 64 extends (PR2382 OQ1).
+- **ywz65 (@ywz65)** — [#2597](https://github.com/CrocSwap/integer-mult-bounds/pull/2597): Prove four-channel factorization implies the C5 pivot equation.
+- **ywz65 (@ywz65)** — [#2622](https://github.com/CrocSwap/integer-mult-bounds/pull/2622): Certify complete projected centre-error endpoint response.
+- **ywz65 (@ywz65)** — [#2629](https://github.com/CrocSwap/integer-mult-bounds/pull/2629): Kernel-check regular-orbit endpoint faithfulness.
+- **Aaron Wang (@navinor)** — [#2634](https://github.com/CrocSwap/integer-mult-bounds/pull/2634): KB3b: seven-source singleton f(7) continued - parity closes L=19, beating templates closed, cover/walk dichotomy, resumable 20-cycle census (no new kappa).
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2639](https://github.com/CrocSwap/integer-mult-bounds/pull/2639): Decoder floors, closures: punctured E8 units (Model C) to p = 46 (all m) and p ≤ 56 (merged m ≥ 8), windows h = 10–11 (no κ claim).
+- **Victor Li (@VictorLiwentao)** — [#2677](https://github.com/CrocSwap/integer-mult-bounds/pull/2677): Research: 7–9Q mutable-source invoices cannot beat six-query tariff 436.
+- **Nicholas Stone (@NicholasStone)** — [#2691](https://github.com/CrocSwap/integer-mult-bounds/pull/2691): Independent audit of PR2634 census + completion of the (10,10) exclusion at L=20.
+- **ywz65 (@ywz65)** — [#2694](https://github.com/CrocSwap/integer-mult-bounds/pull/2694): Formalize the overcomplete rank and one-extra coupling interface.
+- **Mason Hale (@mason-hale)** — [#2696](https://github.com/CrocSwap/integer-mult-bounds/pull/2696): Improve conditional kappa to 0.001715599770234969498857 with concentrated source-partner assignments.
+- **Jose Manuel (@jmbarrancoml)** — [#2697](https://github.com/CrocSwap/integer-mult-bounds/pull/2697): Complete selected BIT node for 64 <= n < 128.
+- **ywz65 (@ywz65)** — [#2700](https://github.com/CrocSwap/integer-mult-bounds/pull/2700): Research: kernel-check guarded Compact repair under explicit completion premises.
+- **ywz65 (@ywz65)** — [#2711](https://github.com/CrocSwap/integer-mult-bounds/pull/2711): Formally audit exact rounded phase state reconstruction.
+- **Victor Li (@VictorLiwentao)** — [#2715](https://github.com/CrocSwap/integer-mult-bounds/pull/2715): Research: odd-cardinality cheaper readout collapses under dirty-parity repair (no new kappa).
+- **ywz65 (@ywz65)** — [#2718](https://github.com/CrocSwap/integer-mult-bounds/pull/2718): Repair invoice audit root aliases and complete its37-mutant replay.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2724](https://github.com/CrocSwap/integer-mult-bounds/pull/2724): Decoder floors, case (b): nine terms outside col M (P112 ≥ 64, #968 P104 ≥ 56; no κ claim).
+- **ywz65 (@ywz65)** — [#2728](https://github.com/CrocSwap/integer-mult-bounds/pull/2728): Formalize the selected BIT split-residual retractions and conjugation interface.
+- **Nick Petalas (@petalas)** — [#2743](https://github.com/CrocSwap/integer-mult-bounds/pull/2743): Bound complete BIT node data content, including remainder peel.
+- **Nick Petalas (@petalas)** — [#2748](https://github.com/CrocSwap/integer-mult-bounds/pull/2748): Bind all non-cold k8 HPE wrapper events to Lean recipes.
+- **Nick Petalas (@petalas)** — [#2749](https://github.com/CrocSwap/integer-mult-bounds/pull/2749): Bound count-tape storage for the first selected BIT node.
+- **Tekalign (@tekuuu)** — [#2751](https://github.com/CrocSwap/integer-mult-bounds/pull/2751): Conditional kappa ≈ 0.00171714158635 via joint twelve-source recovery.
+- **David Arias (@DavidAriasC)** — [#2753](https://github.com/CrocSwap/integer-mult-bounds/pull/2753): Complete all-size logical BIT caller and recursive storage bound.
+- **flyingviper (@flyingviper)** — [#2757](https://github.com/CrocSwap/integer-mult-bounds/pull/2757): P112 rank-57 cover with scoped rational decoder cost floors.
+- **Victor Li (@VictorLiwentao)** — [#2764](https://github.com/CrocSwap/integer-mult-bounds/pull/2764): Research: dirty-parity collapse extends to eight queries (no new kappa).
+- **David Arias (@DavidAriasC)** — [#2766](https://github.com/CrocSwap/integer-mult-bounds/pull/2766): Improve conditional κ to 0.001717256973467 with credited routing-frame fusion.
+- **Aaron Wang (@navinor)** — [#2773](https://github.com/CrocSwap/integer-mult-bounds/pull/2773): KB3c: 17-point cover audit - PR 2542's 'no 17-point set covers F2^7' against its own lemma table (no new kappa).
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2784](https://github.com/CrocSwap/integer-mult-bounds/pull/2784): Decoder floors, case (c): the A2 family of non-B-form rank-9 realisations (P112 ≥ 64, #968 P104 ≥ 56, E8 ≥ 72; no κ claim).
+- **Dugongue (@Dugongue)** — [#2790](https://github.com/CrocSwap/integer-mult-bounds/pull/2790): Prove an operand-preserving eight-tape multiplier with paid copying and head return.
+- **aigent-marius (@mdumitrean)** — [#2802](https://github.com/CrocSwap/integer-mult-bounds/pull/2802): Conditional κ ≈ 0.001717794984118634663827: two hostee moves and seven retired-lender aliases on #2751's joint twelve-source words.
+- **thakrarsagar (@thakrarsagar)** — [#2804](https://github.com/CrocSwap/integer-mult-bounds/pull/2804): Independent verification (no κ): #2530's source-partner words exact through cleanup and endpoint; stock, endpoint enclosure and κ composition reproduce; no defect found.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2806](https://github.com/CrocSwap/integer-mult-bounds/pull/2806): Decoder floors, closures: punctured E8 units (Model C) for 48 ≤ p ≤ 56, all m (no κ claim).
+- **Jose Manuel (@jmbarrancoml)** — [#2809](https://github.com/CrocSwap/integer-mult-bounds/pull/2809): Implement fixed-role recursive control for the selected BIT caller.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2816](https://github.com/CrocSwap/integer-mult-bounds/pull/2816): Decoder floors, case (b) for every number of terms: one-sided P112 decoders cost ≥ 64 without corrections (unique optimum) and with ≤ 2 non-full corrections (no κ claim).
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2819](https://github.com/CrocSwap/integer-mult-bounds/pull/2819): Rank-9 realisations of the E8 pattern are B-form or the A2 family (classification; no κ claim).
+- **aigent-marius (@mdumitrean)** — [#2823](https://github.com/CrocSwap/integer-mult-bounds/pull/2823): Certify cold-host cancellation and fixed-word restoration obstructions.
+- **Dugongue (@Dugongue)** — [#2824](https://github.com/CrocSwap/integer-mult-bounds/pull/2824): T94 retained-tail allocation on PR2802: conditional kappa 0.001717795160032012107407.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2826](https://github.com/CrocSwap/integer-mult-bounds/pull/2826): Decoder floors, case (b): the six remaining d = 8 multisets of #2816 are dead (≥ 64 with ≤ 3 non-full corrections; E8 lifts ≥ 67; no κ claim).
+- **Dugongue (@Dugongue)** — [#2827](https://github.com/CrocSwap/integer-mult-bounds/pull/2827): T104 paid allocation and exact prefix reserve: conditional κ ≈ 0.001717795222616587743198.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2862](https://github.com/CrocSwap/integer-mult-bounds/pull/2862): Decoder floors, case (b): excess 3 is paid (≥ 64 with ≤ 4 non-full corrections; E8 lifts ≥ 68; no κ claim).
+- **Dugongue (@Dugongue)** — [#2863](https://github.com/CrocSwap/integer-mult-bounds/pull/2863): Attain the fixed-word packing optimum: conditional κ ≈ 0.0017201008054.
+- **DreamingOfClouds (@DreamingOfClouds)** — [#2864](https://github.com/CrocSwap/integer-mult-bounds/pull/2864): Rank-9 realisations of the E8 pattern with extra zeros (≤ 3 per row and column) are B-form or A2: philippeVV's R1 in that regime (no κ claim).
+- **thakrarsagar (@thakrarsagar)** — [#2865](https://github.com/CrocSwap/integer-mult-bounds/pull/2865): Audit #2751 independently and reconcile it with #2720's T74 centre floor (no κ; no defect found).
+- **digitalis-p (@digitalis-p)** — [#2866](https://github.com/CrocSwap/integer-mult-bounds/pull/2866): Research: verified T74 residue concentration (superseded by #2863).
+- **Dugongue (@Dugongue)** — [#2871](https://github.com/CrocSwap/integer-mult-bounds/pull/2871): 400 constructive theorems for changed-contract κ improvements.
+- **Nick Petalas (@petalas)** — [#2923](https://github.com/CrocSwap/integer-mult-bounds/pull/2923): Prove joint numerical and countdown backing during native ADD.
+- **Sudarsh Chaturvedi (@Sudarsh3301)** — [#2924](https://github.com/CrocSwap/integer-mult-bounds/pull/2924): Re-price PR2920's two-history P104 profile under reported lifetime floors (no new kappa).
+- **Nick Petalas (@petalas)** — [#2925](https://github.com/CrocSwap/integer-mult-bounds/pull/2925): Prove sharper continuation backing for the selected coefficient evaluator.
+- **Nick Petalas (@petalas)** — [#2927](https://github.com/CrocSwap/integer-mult-bounds/pull/2927): docs(research): complete the PR2101 Linux replay evidence.
+- **aigent-marius (@mdumitrean)** — [#2930](https://github.com/CrocSwap/integer-mult-bounds/pull/2930): Conditional κ ≈ 0.0017224999064433: cap-attaining allocation of #2917's unchanged words (+9.11e-7).
+- **Riquelme Soares (@hevlyo)** — [#2931](https://github.com/CrocSwap/integer-mult-bounds/pull/2931): Audit: native stage 3 lands in stage 2's stopped range.
+- **ToikY (@ToikY)** — [#2932](https://github.com/CrocSwap/integer-mult-bounds/pull/2932): Independently audit PR2917's paired-helper frame ledger.
+- **Aaron Wang (@navinor)** — [#2933](https://github.com/CrocSwap/integer-mult-bounds/pull/2933): KB3f: the vanishing-character restriction on the 18-point cover question for F2^7 (outcome=partial, no new kappa).
+- **Nick Petalas (@petalas)** — [#2934](https://github.com/CrocSwap/integer-mult-bounds/pull/2934): Prove nine-call bound for parity-uniform mixed targets.
+- **Nick Petalas (@petalas)** — [#2935](https://github.com/CrocSwap/integer-mult-bounds/pull/2935): Prove exact joint continuation backing for fixed selected programs.
+- **Nick Petalas (@petalas)** — [#2938](https://github.com/CrocSwap/integer-mult-bounds/pull/2938): Screen generated-lattice parity cuts before mixed-target word search.
+- **Nick Petalas (@petalas)** — [#2939](https://github.com/CrocSwap/integer-mult-bounds/pull/2939): Reuse parsed strict payloads for mismatch diagnostics.
+- **Nick Petalas (@petalas)** — [#2940](https://github.com/CrocSwap/integer-mult-bounds/pull/2940): Prove the QQ16 fixed-bank scratch allocation needs sixteen extra arrays.
+- **Nick Petalas (@petalas)** — [#2941](https://github.com/CrocSwap/integer-mult-bounds/pull/2941): Certify the changed-history boundary of P104's lifetime screen.
+- **aigent-marius (@mdumitrean)** — [#2942](https://github.com/CrocSwap/integer-mult-bounds/pull/2942): Conditional κ ≈ 0.0017228163198632: four paired extractions at normal 45 on #2917's words (+3.16e-7 over #2930).
+- **ToikY (@ToikY)** — [#2943](https://github.com/CrocSwap/integer-mult-bounds/pull/2943): Certify PR2930's packing optimum throughout its root interval.
+- **Nick Petalas (@petalas)** — [#2944](https://github.com/CrocSwap/integer-mult-bounds/pull/2944): Certify selected k8 label instances in Lean.
+- **Nick Petalas (@petalas)** — [#2947](https://github.com/CrocSwap/integer-mult-bounds/pull/2947): fix(verify): reject incomplete selected source inventories.
+- **Nick Petalas (@petalas)** — [#2949](https://github.com/CrocSwap/integer-mult-bounds/pull/2949): Separate ternary obstructions from bounded dyadic quotient tests.

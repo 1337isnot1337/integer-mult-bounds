@@ -3,8 +3,8 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2441,
-  "family_round": "research/community-efficient2100-audit/DISPOSITIONS.json",
+  "inventory_count": 2466,
+  "family_round": "research/community-efficient2200-audit/DISPOSITIONS.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
     "research/community-family588-audit/DISPOSITIONS.json",
@@ -46,11 +46,12 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json",
     "research/community-efficient1900-audit/DISPOSITIONS.json",
     "research/community-efficient2000-audit/DISPOSITIONS.json",
-    "research/community-efficient2100-audit/DISPOSITIONS.json"
+    "research/community-efficient2100-audit/DISPOSITIONS.json",
+    "research/community-efficient2200-audit/DISPOSITIONS.json"
   ],
   "counts": {
     "incorporated": 2040,
-    "partially_reviewed": 339,
+    "partially_reviewed": 364,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -112,6 +113,7 @@
     "research/community-efficient1900-audit/DISPOSITIONS.json": "d4bcc935539cb9a1e92a62db3ae3e0cbc4f0c7fe9fb6775180f09f23ecca5d3a",
     "research/community-efficient2000-audit/DISPOSITIONS.json": "c9267225c6023792f9613317f2486392ca14ba0c037a5bce10db7792b18abb15",
     "research/community-efficient2100-audit/DISPOSITIONS.json": "2d2b418e41e766eb92be24debd1d29da85d20053ff5227a091692792b6a8da8c",
+    "research/community-efficient2200-audit/DISPOSITIONS.json": "aeb6b68591ec9a3747aa15f048be5eb9c1e9a495b914f8e2265717026356b933",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -124008,6 +124010,12 @@
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "faff03cf5c29dadd6e0eb51e406efdc921bfa683",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -124024,11 +124032,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2571.json"
+        "research/community-efficient1500-audit/packets/2571.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2571.json"
       ],
-      "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1500-audit/DISPOSITIONS.json"
+        "research/community-efficient1500-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -124205,6 +124216,12 @@
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "921c229b4f030121a1d305de6259e174cd391955",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -124221,11 +124238,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2575.json"
+        "research/community-efficient1500-audit/packets/2575.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2575.json"
       ],
-      "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1500-audit/DISPOSITIONS.json"
+        "research/community-efficient1500-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -124462,6 +124482,12 @@
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f82308092cb93566b47a91cf3958380d585abc8f",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -124472,18 +124498,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1500-audit/packets/2581.json",
-        "research/community-efficient1500-audit/checks/check-2581.json"
+        "research/community-efficient1500-audit/checks/check-2581.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2581.json"
       ],
-      "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1500-audit/DISPOSITIONS.json"
+        "research/community-efficient1500-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -124813,6 +124842,12 @@
           "evidence": "research/community-efficient1500-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "8cd9dc88e24f062e2ca2fa7f4844a3d3319381fb",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -124829,11 +124864,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1500-audit/packets/2588.json"
+        "research/community-efficient1500-audit/packets/2588.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2588.json"
       ],
-      "current_head_observed_in": "research/community-efficient1500-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1500-audit/DISPOSITIONS.json"
+        "research/community-efficient1500-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -125265,6 +125303,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "07c57449e0d0fdd442bfdae31e087afe14b38c9a",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -125275,18 +125319,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Factorization-to-pivot proof and recorded receipt reviewed. Fresh Lean4.34.1 build exited without diagnostics; user reported killing a runaway Lean process during this run. Live kernel verification remains incomplete, not mathematically rejected. Any further build must use the serialized 2GiB-memory/300-second wrapper. Ordinary rank-factorization and selected-mask embedding remain external.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2597.json",
-        "research/community-efficient1600-audit/checks/check-2597.json"
+        "research/community-efficient1600-audit/checks/check-2597.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2597.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -125925,6 +125972,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "07c0e3000e8538058b80e309440f29652edff0b4",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -125943,11 +125996,14 @@
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2621.json",
         "research/community-efficient1600-audit/checks/check-2621-completion.json",
-        "research/community-efficient1600-audit/checks/check-2621.json"
+        "research/community-efficient1600-audit/checks/check-2621.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2621.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -125971,6 +126027,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4ffb893a08e8868057a30a065642d0b5f647f742",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -125981,18 +126043,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Complete projected endpoint/error mechanism reviewed and exact author-head replay passes. Its authenticate() checks provenance bytes against live main and the unchanged PR2199 loader hardcodes the historical selected-record hash. Current main has the newer UTF-8 verifier-source binding. Supply a documented historical-source or checked metadata adapter and rerun the full projected endpoint/export commands before integration; preserve vendor bytes and do not confuse this projection with a native obstruction.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2622.json",
-        "research/community-efficient1600-audit/checks/check-2622.json"
+        "research/community-efficient1600-audit/checks/check-2622.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2622.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -126326,6 +126391,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "872d53ca8e00435d764fb9b2fea1090b3eed49d2",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -126336,18 +126407,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2629.json",
-        "research/community-efficient1600-audit/checks/check-2629.json"
+        "research/community-efficient1600-audit/checks/check-2629.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2629.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -126575,6 +126649,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e2f30d93efbef5658334072aa855aa95e795e394",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -126585,18 +126665,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2634.json",
-        "research/community-efficient1600-audit/checks/check-2634.json"
+        "research/community-efficient1600-audit/checks/check-2634.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2634.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -126773,6 +126856,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "b7b2a1e0ba3b1e5b52bc79ed93e42ea6f2bb8925",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -126783,17 +126872,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2639.json"
+        "research/community-efficient1600-audit/packets/2639.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2639.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -128093,6 +128185,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "45aadf0fc7f0dedfb0df959479a20cc1c7be4917",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -128110,11 +128208,14 @@
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2673.json",
-        "research/community-efficient1600-audit/checks/check-2673.json"
+        "research/community-efficient1600-audit/checks/check-2673.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2673.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -128293,6 +128394,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e703687cc7a3cb4dd3834aa12d8816ddb134a4ae",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -128303,18 +128410,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2677.json",
-        "research/community-efficient1600-audit/checks/check-2677.json"
+        "research/community-efficient1600-audit/checks/check-2677.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2677.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -128389,6 +128499,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2e2cf56521df8a2b816b2689144765ee00b69a24",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -128405,11 +128521,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2679.json"
+        "research/community-efficient1600-audit/packets/2679.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2679.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -128894,6 +129013,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "88dda3534071442773106e9c0b941b9d39a3cea8",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -128904,18 +129029,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2691.json",
-        "research/community-efficient1600-audit/checks/check-2691.json"
+        "research/community-efficient1600-audit/checks/check-2691.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2691.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129041,6 +129169,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "41f977bd4c2090d8bb159c77257ac307a4bf5c00",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129051,18 +129185,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2694.json",
-        "research/community-efficient1600-audit/checks/check-2694.json"
+        "research/community-efficient1600-audit/checks/check-2694.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2694.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129137,6 +129274,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "5a42add713e09a8798a84d0be7a8276626d9e785",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129147,18 +129290,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2696.json",
-        "research/community-efficient1600-audit/checks/check-2696.json"
+        "research/community-efficient1600-audit/checks/check-2696.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2696.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129182,6 +129328,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a53fdf4bcbe33c6732f0bec1badc8c023380f9d1",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129192,18 +129344,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2697.json",
-        "research/community-efficient1600-audit/checks/check-2697.json"
+        "research/community-efficient1600-audit/checks/check-2697.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2697.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129330,6 +129485,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e0a3603a87cd2bab062dceb6be16b4ffbc22a537",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129340,18 +129501,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2700.json",
-        "research/community-efficient1600-audit/checks/check-2700.json"
+        "research/community-efficient1600-audit/checks/check-2700.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2700.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129838,6 +130002,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e5c0837373bdc78b5e86e88e13e67941d8ed7467",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129848,18 +130018,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2711.json",
-        "research/community-efficient1600-audit/checks/check-2711.json"
+        "research/community-efficient1600-audit/checks/check-2711.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2711.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129934,6 +130107,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "19d5f11052a0c6aa5de552e6df6fadc58861acf7",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129951,11 +130130,14 @@
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2713.json",
-        "research/community-efficient1600-audit/checks/check-2713.json"
+        "research/community-efficient1600-audit/checks/check-2713.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2713.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -129979,6 +130161,12 @@
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "5f188dcf6c5043b65a3205cf1f8fdcea7dc98fd6",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -129989,18 +130177,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2715.json",
-        "research/community-efficient1600-audit/checks/check-2715.json"
+        "research/community-efficient1600-audit/checks/check-2715.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2715.json"
       ],
-      "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1600-audit/DISPOSITIONS.json"
+        "research/community-efficient1600-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130075,6 +130266,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "7aed56bd440a3d8cbca8028cf2cbd0888c07d9b3",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130083,7 +130280,7 @@
       "closure": null,
       "reviewed_head": "7aed56bd440a3d8cbca8028cf2cbd0888c07d9b3",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Execution passed, but the matched-pivot argument requires a list-compatible acyclic partition. Ordinary 3-dichromaticity and nonempty allowed lists do not imply that partition. Narrow the unsupported corollaries and correct the statement about odd denominators (which are invertible modulo 2); finish the engine proof audit before incorporation.",
+      "unresolved_question": "Execution passed, but the matched-pivot argument requires a list-compatible acyclic partition. Ordinary 3-dichromaticity and nonempty allowed lists do not imply that partition. Narrow the unsupported corollaries and correct the statement about odd denominators (which are invertible modulo 2); finish the engine proof audit before incorporation. Intake hold: Matched-pivot proof lacks list-compatible acyclic partition; known counterexample retained in prior review.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -130093,11 +130290,14 @@
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2717.json",
         "research/community-efficient1700-audit/checks/check-2717-pivot-counterexample.json",
-        "research/community-efficient1700-audit/checks/check-2717.json"
+        "research/community-efficient1700-audit/checks/check-2717.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2717.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130121,6 +130321,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e06958f5c08e5cd573a6285d42920120ef0d4e25",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130131,18 +130337,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Full registered invoice replay stopped by the sampled 1 GiB process-group memory guard. This is a resource hold, not a mathematical failure. PR2158 is already incorporated; this contribution adds realpath portability. Complete bounded coverage before incorporation; no Lean launched.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2718.json",
-        "research/community-efficient1700-audit/checks/check-2718.json"
+        "research/community-efficient1700-audit/checks/check-2718.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2718.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130370,6 +130579,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2d51aad701585343483114fff8bd6ff755e3ed3a",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130380,17 +130595,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2724.json"
+        "research/community-efficient1700-audit/packets/2724.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2724.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130516,6 +130734,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e05179c39a54b197b4a660d6949266bdeefaa2bc",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130526,17 +130750,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2728.json"
+        "research/community-efficient1700-audit/packets/2728.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2728.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -130716,6 +130943,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a63c55ff56aaa8645d64d1162d1f017b59ded42a",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -130732,11 +130965,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2733.json"
+        "research/community-efficient1700-audit/packets/2733.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2733.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131173,6 +131409,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "c1e8065671f4f1854c5508f4bb18b85851074547",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131183,18 +131425,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Complete-node storage replay reached its declared 600-second limit with low measured memory; no mathematical rejection inferred. Finish the remaining declared primary and export-test coverage in a dedicated bounded run before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2743.json",
-        "research/community-efficient1700-audit/checks/check-2743.json"
+        "research/community-efficient1700-audit/checks/check-2743.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2743.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131271,6 +131516,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4f485de05544884fa0f2edf6063bb9259decad30",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131287,11 +131538,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2745.json"
+        "research/community-efficient1700-audit/packets/2745.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2745.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131370,6 +131624,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a2bab9978c8149dc5965558ea9277da07bc750e7",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131378,7 +131638,7 @@
       "closure": null,
       "reviewed_head": "a2bab9978c8149dc5965558ea9277da07bc750e7",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Intake hold: Inherited matched-pivot/residue closure depends on unresolved compatible-partition implication; audit and qualify closure before intake.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131387,11 +131647,14 @@
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2747.json",
-        "research/community-efficient1700-audit/checks/check-2747.json"
+        "research/community-efficient1700-audit/checks/check-2747.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2747.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131415,6 +131678,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "2af9c0fc46492a4ce56ac20ab14cc40e2f6544e0",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131425,17 +131694,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2748.json"
+        "research/community-efficient1700-audit/packets/2748.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2748.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131459,6 +131731,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "a18ba3bbfb549af66488a890edcb4a3744de90a3",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131469,18 +131747,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Complete node-count storage replay reached its declared 600-second limit with no modified artifacts. Full command coverage remains pending; timeout is not a mathematical rejection. Reuse the completed exact-head setup and inspect the expensive fixture before a dedicated bounded replay.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2749.json",
-        "research/community-efficient1700-audit/checks/check-2749.json"
+        "research/community-efficient1700-audit/checks/check-2749.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2749.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131504,6 +131785,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4cfbb0cc8314d7fb4e8e754545a49a42eb590a69",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131514,17 +131801,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2751.json"
+        "research/community-efficient1700-audit/packets/2751.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2751.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131602,6 +131892,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Full all-size endpoint/stock induction, root-coupled logical storage argument and complete new runtime/test code reviewed. Explicit independent stock, ordered projected gaps, frozen prefix/program and owned return; linear sign removes per-column padded-counter overhead. All50 original caller exports, four proof/notice files and11 live inputs authenticated against Git. Complete registered suites remain required. Tiny GL2 nested model and controlled GL64-frame handoffs are distinct from selected full payload execution. Baseline p=1 and logical live-symbol bound under stated source/root hypotheses; no fixed physical-tape compiler, H2 saving, outer wrapper or new κ.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "7dba5452a4071a856a0b11cebdcd2d3b6bcd7659",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131612,7 +131908,7 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Full code/proof review and65 original Git source bindings complete. Metadata and complete source suite pass; node suite reaches all eight idle returns and two bridge returns but exceeds declared600second command budget before terminal acceptance. Recursion, nested and controls suites remain unrun. Keep exact terminal log; no compiler/H2 admission or mathematical rejection from this timeout. Dedicated complete bounded replay or measured implementation speedup required.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -131620,11 +131916,14 @@
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2753.json",
         "research/community-efficient1700-audit/checks/check-2753-supplement.json",
-        "research/community-efficient1700-audit/checks/check-2753.json"
+        "research/community-efficient1700-audit/checks/check-2753.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2753.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -131751,6 +132050,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "18da668a4f248f5c0cf3fc94355068ead4db3476",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -131761,18 +132066,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2757.json",
-        "research/community-efficient1700-audit/checks/check-2757.json"
+        "research/community-efficient1700-audit/checks/check-2757.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2757.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132051,6 +132359,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Scoped Q=8 dirty-parity obstruction in the common-B alphabet. Reviewed all 1122 checker/model/test lines and the zero-slot repair lemma: repaired odd readouts have exactly even-subset optimum. Distinct-seven and exactly-one-duplicate layers are separated; full declared exhaustive replays remain the acceptance gate. Independent implementation duplicates parts of the DP logic, so its agreement is corroboration, not a different-method universal proof.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "d4d5f0f37929df97ea1e0f8d2bf0859f92407e55",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132061,18 +132375,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The first exhaustive census exceeded the sampled 1 GiB process-group guard (1075648 KiB); its eager combination lists and cpu_count-sized pool need bounded batching before replay. Mathematical/code review is complete, but declared exhaustive and fault-control coverage has not finished. Do not infer rejection from the resource limit.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2764.json",
-        "research/community-efficient1700-audit/checks/check-2764.json"
+        "research/community-efficient1700-audit/checks/check-2764.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2764.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132147,6 +132464,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e6df920cd0110e4b629e2ad84eddcb539001e174",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132157,17 +132480,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2766.json"
+        "research/community-efficient1700-audit/packets/2766.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2766.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132191,6 +132517,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "fd7c7a72e26a71e7e51cf87d9fad35743fd6cbf4",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132207,11 +132539,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2767.json"
+        "research/community-efficient1700-audit/packets/2767.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2767.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132491,6 +132826,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "6739c799799621878a9249c93e2b12cc799c1482",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132501,18 +132842,21 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The declared default replay checks consistency of the load-bearing Sidon/near-Sidon census receipts but does not rerun the zero-count shards; --full is separate and estimated at 17 minutes. Complete search-engine/coverage review and an appropriate full or independently certified census are needed before accepting the new exclusions. No rejection follows from this coverage gap.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2773.json",
-        "research/community-efficient1700-audit/checks/check-2773.json"
+        "research/community-efficient1700-audit/checks/check-2773.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2773.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132536,6 +132880,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ceaf5acf976cee2f70a680f2d513f12baa634870",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132544,7 +132894,7 @@
       "closure": null,
       "reviewed_head": "ceaf5acf976cee2f70a680f2d513f12baa634870",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Review must separate the valid matched-pivot computations from inherited claims that PR2717/2747 closed residue classes. Ordinary 3-dichromaticity does not imply a D-compatible acyclic partition (see retained PR2717 counterexample). README distinguishes these notions later, but its opening and closure lineage need qualification; full engine audit remains pending.",
+      "unresolved_question": "Review must separate the valid matched-pivot computations from inherited claims that PR2717/2747 closed residue classes. Ordinary 3-dichromaticity does not imply a D-compatible acyclic partition (see retained PR2717 counterexample). README distinguishes these notions later, but its opening and closure lineage need qualification; full engine audit remains pending. Intake hold: Closure lineage conflates ordinary3-dichromaticity with D-compatible partition; known predecessor counterexample.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -132553,11 +132903,14 @@
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2774.json",
-        "research/community-efficient1700-audit/checks/check-2774.json"
+        "research/community-efficient1700-audit/checks/check-2774.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2774.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132581,6 +132934,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "539abe1401bbebe3aee8527342ee6010904fc2e5",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132597,11 +132956,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2775.json"
+        "research/community-efficient1700-audit/packets/2775.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2775.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132778,6 +133140,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "59f336094958b51b312e54deb85347e1b671172d",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132794,11 +133162,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2780.json"
+        "research/community-efficient1700-audit/packets/2780.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2780.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -132924,6 +133295,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "6189e005a41b9de025e0426c1ae0ec2c0583d15d",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -132934,17 +133311,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2784.json"
+        "research/community-efficient1700-audit/packets/2784.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2784.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133070,6 +133450,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "1a9b88273535cbe93cb6cb7ca95f38fdcfe548f3",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133080,17 +133466,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2790.json"
+        "research/community-efficient1700-audit/packets/2790.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2790.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133575,6 +133964,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "17b2ee6ef3cf1468e78a6267f0ecbc9a0e6f60dd",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133585,17 +133980,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2802.json"
+        "research/community-efficient1700-audit/packets/2802.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2802.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133670,6 +134068,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "feb727ba471b5dc3f057f867804aa70ae58b2e71",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133680,17 +134084,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2804.json"
+        "research/community-efficient1700-audit/packets/2804.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2804.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133765,6 +134172,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "dc7b871a06ccdf5e94523ef991f704bc111905a8",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133775,17 +134188,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2806.json"
+        "research/community-efficient1700-audit/packets/2806.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2806.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -133911,6 +134327,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "e7d93dd0de0bb81308bc3356f65eddeeb22fd712",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -133921,17 +134343,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2809.json"
+        "research/community-efficient1700-audit/packets/2809.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2809.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134262,6 +134687,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4c32ac3b88d63ad06d2b30e526aa07a12929db36",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134272,17 +134703,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2816.json"
+        "research/community-efficient1700-audit/packets/2816.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2816.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134306,6 +134740,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "adb647eba5842812b36e67fe1aa2be5ecdff6b37",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134314,7 +134754,7 @@
       "closure": null,
       "reviewed_head": "adb647eba5842812b36e67fe1aa2be5ecdff6b37",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Full code and proof review identifies an inference gap: X>=9 is computed only for the R=84 layer, but the claimed global tariff452 also needs R+X>=93 on the R=88 and R=90 layers. Neither checker evaluates those layers for X; census tariff_floor is assigned from min-R witness. Prove the missing layer bounds or narrow the claim. This is not a counterexample to452; the weaker no-undercut436 conclusion would follow from the stated R histogram and priced C>=1 once replayed. Default multiprocessing.Pool is uncapped; bound workers before a dedicated full replay. No full census launched.",
+      "unresolved_question": "Full code and proof review identifies an inference gap: X>=9 is computed only for the R=84 layer, but the claimed global tariff452 also needs R+X>=93 on the R=88 and R=90 layers. Neither checker evaluates those layers for X; census tariff_floor is assigned from min-R witness. Prove the missing layer bounds or narrow the claim. This is not a counterexample to452; the weaker no-undercut436 conclusion would follow from the stated R histogram and priced C>=1 once replayed. Default multiprocessing.Pool is uncapped; bound workers before a dedicated full replay. No full census launched. Intake hold: Global tariff452 does not follow from min-R witness; missing R88/R90 layer bounds.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -134322,11 +134762,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2817.json"
+        "research/community-efficient1700-audit/packets/2817.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2817.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134350,6 +134793,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "175822aee7a1858ec653f7f92d7a750aec2c2795",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134366,11 +134815,14 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2818.json"
+        "research/community-efficient1700-audit/packets/2818.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2818.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134394,6 +134846,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "934665427b93c33977e1d813ef32096b55806e0f",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134404,17 +134862,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "README and driver reviewed; full classification/CNF soundness review remains. Default verify.sh only regenerates and hashes the Theorem R CNF/proof and reads historical logs; it does not independently check that DRAT refutation. Review pivot/pinning reductions and CNF encodings, then run bounded standard drat-trim on the exact regenerated CNF and shipped proof (fresh solve is a separate reproducibility obligation). Requires pinned SAT/checker tools and a memory plan; no solver or Lean launched. Scope is characteristic-zero E8 iff pattern, not P112/P104 or general zero-allowed completions.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2819.json"
+        "research/community-efficient1700-audit/packets/2819.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2819.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134591,6 +135052,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ca5eead6afd871614ceb635679edbcc3d04b9d8c",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134601,17 +135068,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2823.json"
+        "research/community-efficient1700-audit/packets/2823.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2823.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134635,6 +135105,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f1826afe1f487333f2c1e5bf862bae2211ce8dd9",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134645,17 +135121,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2824.json"
+        "research/community-efficient1700-audit/packets/2824.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2824.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134730,6 +135209,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "3067b0a66afdebfbf9c4d2f7c5e82d44bc00eae0",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134740,17 +135225,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Written six-multiset argument read; inherits unreviewed PR2816 finite inputs. Complete census/independent replay advertises 30-40 minutes with up to six processes and needs a separately bounded resource plan. No replay launched; no mathematical rejection or supplier claim.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2826.json"
+        "research/community-efficient1700-audit/packets/2826.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2826.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -134774,6 +135262,12 @@
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "4dc1286a476874447f76826885c6af99409a1d46",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -134784,17 +135278,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2827.json"
+        "research/community-efficient1700-audit/packets/2827.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2827.json"
       ],
-      "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1700-audit/DISPOSITIONS.json"
+        "research/community-efficient1700-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136559,6 +137056,12 @@
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "18f7d4da808edb82d32e2081f869b8c993eca891",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136569,17 +137072,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2862.json"
+        "research/community-efficient1800-audit/packets/2862.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2862.json"
       ],
-      "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1800-audit/DISPOSITIONS.json"
+        "research/community-efficient1800-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136603,6 +137109,12 @@
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "34328b1d5e5bebac62d5cabec993dfbfd7b2123f",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136613,17 +137125,65 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2863.json"
+        "research/community-efficient1800-audit/packets/2863.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2863.json"
       ],
-      "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1800-audit/DISPOSITIONS.json"
+        "research/community-efficient1800-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2864,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2864",
+      "title": "Rank-9 realisations of the E8 pattern with extra zeros (≤ 3 per row and column) are B-form or A2: philippeVV's R1 in that regime (no κ claim)",
+      "contributor": {
+        "id": "U_kgDOClpS9w",
+        "is_bot": false,
+        "login": "DreamingOfClouds",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "900baa664034e46b8f7ed800322b1bf1f640036a",
+      "current_head": "900baa664034e46b8f7ed800322b1bf1f640036a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "900baa664034e46b8f7ed800322b1bf1f640036a",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "900baa664034e46b8f7ed800322b1bf1f640036a",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2864.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136647,6 +137207,12 @@
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
           "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selectedκ. Latest guarded replay is terminal: memory budget exceeded; full acceptance remains pending.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "867d8add1c3be9a1a50a447789c46256d81bb790",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136657,7 +137223,7 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Full source/proof review retained, but the pinned full replay was stopped by the sampled 1 GiB process-group memory guard. Primary joint replay stopped after151.36seconds; metadata checks passed, but full claimed scientific coverage remains unverified. No mathematical rejection and no automatic retry; use a separately reviewed lower-memory implementation or a dedicated bounded environment to complete identical coverage.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -136665,11 +137231,14 @@
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2865.json",
         "research/community-efficient1800-audit/checks/check-2865-supplement.json",
-        "research/community-efficient1800-audit/checks/check-2865.json"
+        "research/community-efficient1800-audit/checks/check-2865.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2865.json"
       ],
-      "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1800-audit/DISPOSITIONS.json"
+        "research/community-efficient1800-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136693,6 +137262,12 @@
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "f40b1e92c15018af96293ee830e0cb0fd03db2ce",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136703,17 +137278,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2866.json"
+        "research/community-efficient1800-audit/packets/2866.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2866.json"
       ],
-      "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1800-audit/DISPOSITIONS.json"
+        "research/community-efficient1800-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -136945,6 +137523,12 @@
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
           "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "894a3edbcd90fc379a277eb07a5ae2b706c7a8e1",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
@@ -136955,17 +137539,20 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2871.json"
+        "research/community-efficient1800-audit/packets/2871.json",
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2871.json"
       ],
-      "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
-        "research/community-efficient1800-audit/DISPOSITIONS.json"
+        "research/community-efficient1800-audit/DISPOSITIONS.json",
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
       ]
     },
     {
@@ -139255,6 +139842,1086 @@
       "reconciliation_evidence": [
         "research/community-efficient1900-audit/DISPOSITIONS.json"
       ]
+    },
+    {
+      "number": 2922,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2922",
+      "title": "Formalize the P104 affine-complement endpoint lemma in Lean",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
+      "current_head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "2291714c9c87de6bec3dd94d7744a0594cb565a8",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2922.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2923,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2923",
+      "title": "Prove joint numerical and countdown backing during native ADD",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "70530e39253f507f3773e48a0b9e6484c3143835",
+      "current_head": "70530e39253f507f3773e48a0b9e6484c3143835",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "70530e39253f507f3773e48a0b9e6484c3143835",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "70530e39253f507f3773e48a0b9e6484c3143835",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2923.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2924,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2924",
+      "title": "Re-price PR2920's two-history P104 profile under reported lifetime floors (no new kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjg0ODUxNjc4",
+        "is_bot": false,
+        "login": "Sudarsh3301",
+        "name": "Sudarsh Chaturvedi"
+      },
+      "draft": false,
+      "starting_head": "d1660ed0a17b66ad0c86cd4aaea724926134e362",
+      "current_head": "d1660ed0a17b66ad0c86cd4aaea724926134e362",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "d1660ed0a17b66ad0c86cd4aaea724926134e362",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "d1660ed0a17b66ad0c86cd4aaea724926134e362",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2924.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2925,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2925",
+      "title": "Prove sharper continuation backing for the selected coefficient evaluator",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "9570df6e69824dd32bf58b6d66a8e57a790e3b85",
+      "current_head": "9570df6e69824dd32bf58b6d66a8e57a790e3b85",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "9570df6e69824dd32bf58b6d66a8e57a790e3b85",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "9570df6e69824dd32bf58b6d66a8e57a790e3b85",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2925.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2927,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2927",
+      "title": "docs(research): complete the PR2101 Linux replay evidence",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "c3835ca4436e5fe2cf3038e87408e8d260b30285",
+      "current_head": "c3835ca4436e5fe2cf3038e87408e8d260b30285",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "c3835ca4436e5fe2cf3038e87408e8d260b30285",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "c3835ca4436e5fe2cf3038e87408e8d260b30285",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2927.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2928,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2928",
+      "title": "Fix ordered branch exclusions in the selected replay CI guard",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
+      "current_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2928.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2930,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2930",
+      "title": "Conditional κ ≈ 0.0017224999064433: cap-attaining allocation of #2917's unchanged words (+9.11e-7)",
+      "contributor": {
+        "id": "MDQ6VXNlcjMwNTExNDU2",
+        "is_bot": false,
+        "login": "mdumitrean",
+        "name": "aigent-marius"
+      },
+      "draft": false,
+      "starting_head": "81f3b5d12977eba09e06fbff729167d59faabe90",
+      "current_head": "81f3b5d12977eba09e06fbff729167d59faabe90",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "81f3b5d12977eba09e06fbff729167d59faabe90",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "81f3b5d12977eba09e06fbff729167d59faabe90",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2930.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2931,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2931",
+      "title": "Audit: native stage 3 lands in stage 2's stopped range",
+      "contributor": {
+        "id": "U_kgDOBjZOrA",
+        "is_bot": false,
+        "login": "hevlyo",
+        "name": "Riquelme Soares"
+      },
+      "draft": false,
+      "starting_head": "706067cec10da4ecb3fc83e51d52396b76f53c0f",
+      "current_head": "706067cec10da4ecb3fc83e51d52396b76f53c0f",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "706067cec10da4ecb3fc83e51d52396b76f53c0f",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "706067cec10da4ecb3fc83e51d52396b76f53c0f",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2931.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2932,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2932",
+      "title": "Independently audit PR2917's paired-helper frame ledger",
+      "contributor": {
+        "id": "MDQ6VXNlcjI3NTY4NjE3",
+        "is_bot": false,
+        "login": "ToikY",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "5c6c32db4449aa661aca3c37416df0d7593908bd",
+      "current_head": "5c6c32db4449aa661aca3c37416df0d7593908bd",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "5c6c32db4449aa661aca3c37416df0d7593908bd",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "5c6c32db4449aa661aca3c37416df0d7593908bd",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2932.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2933,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2933",
+      "title": "KB3f: the vanishing-character restriction on the 18-point cover question for F2^7 (outcome=partial, no new kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjUwMzY2Njc2",
+        "is_bot": false,
+        "login": "navinor",
+        "name": "Aaron Wang"
+      },
+      "draft": false,
+      "starting_head": "25ea0e94250444db9ab05c3c8f1a66ba68e737b6",
+      "current_head": "25ea0e94250444db9ab05c3c8f1a66ba68e737b6",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "25ea0e94250444db9ab05c3c8f1a66ba68e737b6",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "25ea0e94250444db9ab05c3c8f1a66ba68e737b6",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2933.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2934,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2934",
+      "title": "Prove nine-call bound for parity-uniform mixed targets",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "b12bbd839cebfcd109d57b0bb15084943f25d7ec",
+      "current_head": "b12bbd839cebfcd109d57b0bb15084943f25d7ec",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "b12bbd839cebfcd109d57b0bb15084943f25d7ec",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "b12bbd839cebfcd109d57b0bb15084943f25d7ec",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2934.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2935,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2935",
+      "title": "Prove exact joint continuation backing for fixed selected programs",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "f837237f2a8432cd41a65be1b281a29d11d8834b",
+      "current_head": "f837237f2a8432cd41a65be1b281a29d11d8834b",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "f837237f2a8432cd41a65be1b281a29d11d8834b",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "f837237f2a8432cd41a65be1b281a29d11d8834b",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2935.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2936,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2936",
+      "title": "F-star family gap: the v = 7..11 census, the first gap-2 instance below v = 12, and the box-completeness attack (no kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjUwMzY2Njc2",
+        "is_bot": false,
+        "login": "navinor",
+        "name": "Aaron Wang"
+      },
+      "draft": false,
+      "starting_head": "f0ef06f13e4de3e50c211c880bdc6891c09620a1",
+      "current_head": "f0ef06f13e4de3e50c211c880bdc6891c09620a1",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "f0ef06f13e4de3e50c211c880bdc6891c09620a1",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_known_correctness.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "f0ef06f13e4de3e50c211c880bdc6891c09620a1",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open. Intake hold: Inherits PR2914 engine with diagnosed numerical-bitmask versus cardinality maximization bug. Correct engine and re-audit dependent census/claims.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2936.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2938,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2938",
+      "title": "Screen generated-lattice parity cuts before mixed-target word search",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "050aa9f623d180a08b36a375c30004d060d480d5",
+      "current_head": "050aa9f623d180a08b36a375c30004d060d480d5",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "050aa9f623d180a08b36a375c30004d060d480d5",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "050aa9f623d180a08b36a375c30004d060d480d5",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2938.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2939,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2939",
+      "title": "Reuse parsed strict payloads for mismatch diagnostics",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "7d99148664b53c2ec7bc14940ad5ed4314dd721f",
+      "current_head": "7d99148664b53c2ec7bc14940ad5ed4314dd721f",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "7d99148664b53c2ec7bc14940ad5ed4314dd721f",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "7d99148664b53c2ec7bc14940ad5ed4314dd721f",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2939.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2940,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2940",
+      "title": "Prove the QQ16 fixed-bank scratch allocation needs sixteen extra arrays",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "149b4340f1228e892eea541092c5f4afa86fa929",
+      "current_head": "149b4340f1228e892eea541092c5f4afa86fa929",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "149b4340f1228e892eea541092c5f4afa86fa929",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "149b4340f1228e892eea541092c5f4afa86fa929",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2940.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2941,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2941",
+      "title": "Certify the changed-history boundary of P104's lifetime screen",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "df29f70185979e32c73efc5f6e2903652d744ae7",
+      "current_head": "df29f70185979e32c73efc5f6e2903652d744ae7",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "df29f70185979e32c73efc5f6e2903652d744ae7",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "df29f70185979e32c73efc5f6e2903652d744ae7",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2941.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2942,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2942",
+      "title": "Conditional κ ≈ 0.0017228163198632: four paired extractions at normal 45 on #2917's words (+3.16e-7 over #2930)",
+      "contributor": {
+        "id": "MDQ6VXNlcjMwNTExNDU2",
+        "is_bot": false,
+        "login": "mdumitrean",
+        "name": "aigent-marius"
+      },
+      "draft": false,
+      "starting_head": "a027b0f6fdb0ab2b42ba10fc31b53960166bf2bf",
+      "current_head": "a027b0f6fdb0ab2b42ba10fc31b53960166bf2bf",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "a027b0f6fdb0ab2b42ba10fc31b53960166bf2bf",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "a027b0f6fdb0ab2b42ba10fc31b53960166bf2bf",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2942.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2943,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2943",
+      "title": "Certify PR2930's packing optimum throughout its root interval",
+      "contributor": {
+        "id": "MDQ6VXNlcjI3NTY4NjE3",
+        "is_bot": false,
+        "login": "ToikY",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "289b98dd833ffdee69ae9f41d779fa9991990805",
+      "current_head": "289b98dd833ffdee69ae9f41d779fa9991990805",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "289b98dd833ffdee69ae9f41d779fa9991990805",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "289b98dd833ffdee69ae9f41d779fa9991990805",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2943.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2944,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2944",
+      "title": "Certify selected k8 label instances in Lean",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "2c97782a83da48230f1cffca73c5a7ad58ada31e",
+      "current_head": "2c97782a83da48230f1cffca73c5a7ad58ada31e",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "2c97782a83da48230f1cffca73c5a7ad58ada31e",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "2c97782a83da48230f1cffca73c5a7ad58ada31e",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2944.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2945,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2945",
+      "title": "Map later BIT physical caller contracts and the remaining consumer handoff",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "a54d85a97f0be518369e08d300f38add810516ca",
+      "current_head": "a54d85a97f0be518369e08d300f38add810516ca",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "a54d85a97f0be518369e08d300f38add810516ca",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "a54d85a97f0be518369e08d300f38add810516ca",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2945.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2947,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2947",
+      "title": "fix(verify): reject incomplete selected source inventories",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "41890b869ebbbab87262fc15d67fcad3202404a0",
+      "current_head": "41890b869ebbbab87262fc15d67fcad3202404a0",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "41890b869ebbbab87262fc15d67fcad3202404a0",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "41890b869ebbbab87262fc15d67fcad3202404a0",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2947.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2948,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2948",
+      "title": "Conditional κ = 0.001723356487244355: nine declared gate rewrites on #2917's words with #2930's cap-attaining fill",
+      "contributor": {
+        "id": "U_kgDOEKXqaA",
+        "is_bot": false,
+        "login": "jeremykothe2",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
+      "current_head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "Source-inventory triage only; substantive review remains open. held_shared_or_existing_paths.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2948.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
+    },
+    {
+      "number": 2949,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2949",
+      "title": "Separate ternary obstructions from bounded dyadic quotient tests",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "72d3e355f925677a2a2880dbd0e5432bf2a54d68",
+      "current_head": "72d3e355f925677a2a2880dbd0e5432bf2a54d68",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "72d3e355f925677a2a2880dbd0e5432bf2a54d68",
+          "evidence": "research/community-efficient2200-audit/DISPOSITIONS.json",
+          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "72d3e355f925677a2a2880dbd0e5432bf2a54d68",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Full substantive review remains open.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/community-efficient2200-audit/INTAKE.json",
+        "research/community-efficient2200-audit/packets/2949.json"
+      ],
+      "current_head_observed_in": "research/community-efficient2200-audit/DISPOSITIONS.json",
+      "reconciliation_evidence": [
+        "research/community-efficient2200-audit/DISPOSITIONS.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -139267,6 +140934,6 @@
   "github_dispositions": {
     "CLOSED": 379,
     "MERGED": 1697,
-    "OPEN": 365
+    "OPEN": 390
   }
 }
