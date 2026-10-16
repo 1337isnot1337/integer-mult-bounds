@@ -157,7 +157,7 @@ starting points are historical evidence, not promises of unexplored territory.
 
 ## 2. Where effort is most useful
 
-**Priority revision 5 — October 15, 2026.** The selected conditional result remains
+**Priority revision 6 — October 16, 2026.** The selected conditional result remains
 κ = 0.001672660197076918 (#1094). The complex side binds; both suppliers must
 advance for a large jump. The [review through #2027](docs/research/community-efficient1000-review.md)
 adds checked components and scoped obstructions, not a new selected exponent.
@@ -171,9 +171,19 @@ claims or change the frontier.
 
 | Card | Starting evidence | Next decision |
 |---|---|---|
-| `p104-side-correction` | Reviewed #1991 channel; pending #2586 physical dual | Which endpoint, routing/hosting or completed-cost obligation remains, and can it be closed or decisively rejected? |
-| `joint-query-controller` | Reviewed #1969 words; pending #2540 complete added local decoder | Can a complete caller use the stated output frames and afford retention, movement, hosting and restoration? |
-| `selected-stock-envelope` | Reviewed #1956/#1965/#1990 stock obligations | After checking newer handoffs, derive one still-missing selected producer's actual reserve bound. |
+| `p104-side-correction` | Reviewed #1991 channel; author-checked #2981 joint endpoint flags | Can one named static collection acquire and deliver the right coefficients chronologically, restore dirty state, and fit the complete physical bill? |
+| `joint-query-controller` | Reviewed #1969 words; author-checked #2965 producer-defect transfer | Can an actual producer meet the completed-output error budgets, including dirty helpers, and feed an affordable consumer? |
+| `selected-stock-envelope` | Reviewed stock obligations; author-checked #2972 cutoff chain | Derive the actual selected stock coefficient; cutoff comparisons alone do not supply it. |
+| `independent-moment` | Author-checked #2979 joint rank-7 frame/circuit proposal | Independently check one coordinated group and its losing single-change control, then trace the changed costs through the complete invoice. |
+| `supplier-boundary-audit` | Author-checked #2977 scatter/export mismatch | Reproduce the tiny semantic mismatch and evaluate the proposed guard at the actual exporter boundary. |
+| `census-pruning-audit` | Author-checked #2973 parity-pruning correction | Check the tiny counterexample and identify precisely which predecessor exclusions need revalidation. |
+
+**These newer packages are source archives, not scientific admissions.** This
+guidance pass inspected their claims and remaining obligations without replaying
+their mathematics. In particular, #2979's claimed κ ≈ 0.001729 is not the selected
+result. Its reported joint win motivates a bounded independent audit, not a mass
+search for more lowerings. Exact heads, attribution and stop rules are in the
+[family record](docs/research/research-family-status.md#revision-6-handoffs-source-archives-awaiting-independent-validation).
 
 Read and pin the current dependency before assigning its missing work. A pending
 local completion changes the useful question even though it has not been admitted
@@ -211,6 +221,14 @@ new failure mode. Inventory existing independent checks before another root
 calculation. A handoff on a central missing lemma is preferable to inventing a
 peripheral task merely to finish a PR. Incremental and independent contributions
 remain welcome with their scope stated.
+
+Before extending a static cover search, precision calculation or source-count
+census, name the unresolved obligation it closes or the active research decision
+it changes. Do not rebuild #2981's static matching, #2965's decoder error constants
+or #2972's cutoff comparisons merely because they are easy to run. Independent
+checks of those claims remain useful when they supply missing coverage. For the
+#2542/#2634/#2691 census chain, first audit the pruning objection in #2973; neither
+the old exclusions nor their proposed replacement should silently close a route.
 
 **Retained revision-3 quantitative diagnosis (scoped arithmetic independently replayed for #1240 and #1264).** On the binding complex side, a ≈ D/E:
 
@@ -261,7 +279,7 @@ valuable even when the other supplier prevents an immediate headline change.
 
 The helper allocates effort as follows. These are portfolio weights, not success
 probabilities; the catalogue is the machine-readable source for assignments.
-Revision 5 keeps the track weights: current evidence supports fresher tasks and
+Revision 6 keeps the track weights: current evidence supports fresher tasks and
 stronger expansion decisions, not a measured reason to reallocate the portfolio.
 Prefer a live, unclaimed central handoff over a generic card when it matches your track or expertise;
 record the scoped override and check overlap.

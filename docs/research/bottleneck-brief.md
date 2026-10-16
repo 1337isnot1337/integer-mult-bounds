@@ -15,7 +15,7 @@ orientation and arithmetic, **not** a full circuit replay. Follow
 [selected-result.json](../../certificates/selected-result.json) if the values
 below become historical.
 
-At the revision-5 assessment on 2026-10-15, the reviewed conditional saving is
+At the revision-6 assessment on 2026-10-16, the reviewed conditional saving is
 κ = 0.001672660197076918. The complex primitive supports about 0.00167546 and
 the bit primitive about 0.00173343: the complex side binds. Under the retained
 limiting conversion `κ = a/(1+a)`, κ > .01 needs both effective primitive budgets
@@ -36,8 +36,10 @@ read [the current family record](research-family-status.md) before selecting a
 subproblem. Its claims are labelled by evidence status and exact source heads.
 
 - **P104:** the checked #1991 channel has newer proposed physical correction
-  and dual constructions, including #2586. Focus on a still-missing endpoint,
-  routing/hosting or complete-cost obligation, or independently audit that claim.
+  and dual constructions. [#2981](../../research/p104-joint-unit-flags/README.md)
+  reports static joint endpoint flags. Test chronological acquisition, delivery
+  of the right coefficients and dirty restoration in one named collection,
+  including its full physical bill; another static matching is not that program.
   The [helper-lifetime scope map](p104-helper-lifetime-scope-map.md) separates
   pooled dimensions, transport floors and helper lifetimes.
 - **QQ16:** #2540 proposes a complete added local native decoder, with explicit
@@ -49,6 +51,9 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
   [numerical-contract map](qq16-numerical-contract-map.md) separates the
   zero-retention decoder's checked error/format/circuit chain from the
   still-missing physical caller and complete cost.
+  [#2965](../../research/qq16-producer-defect-transfer/README.md) now reports
+  completed-output error budgets. The next task is an actual producer's
+  magnitude/dirty-helper bound and paid consumer, not another decoder constant.
 - **Selected proof obligations:** refresh stock/precision/hosting handoffs and
   prove or falsify one specific unreviewed implication. Recomputing already
   checked headrooms is not new coverage.
@@ -61,6 +66,16 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
   follows fixed-role lowering, wrapper and reached-primitive compositions,
   their pending universal dependencies and the actual complex-consumer handoff.
   These are not supplier admission.
+- **Coordinated circuit/frame changes:** independently audit
+  [#2979](../../research/rank7-joint-endframes/README.md)'s reported joint win
+  against its losing single-change controls and the complete physical bill.
+  Its claimed κ ≈ 0.001729 is not the selected result; validate the mechanism
+  before launching another search over lowerings.
+- **Specific reliability gaps:** [#2972](../../research/stock-margin-chain/README.md)
+  leaves the actual stock coefficient unresolved. Audit the tiny semantic
+  counterexamples reported in [#2977](../../research/scatter-export-parity-audit/README.md)
+  and [#2973](../../research/f7-weight-parity-census-correction/README.md) before
+  adopting their repairs or relying on the affected old census exclusions.
 
 These pending proposals have not been independently replayed for this guidance
 update and are not new admitted suppliers. Pin and check the dependencies needed

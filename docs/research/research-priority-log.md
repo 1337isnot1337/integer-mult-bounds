@@ -441,3 +441,88 @@ without changing the selected frontier. Refresh both primitive budgets before
 claiming a target-scale route.
 
 **Validation.** `python3.12 -B -m unittest discover -s tests -p 'test_research_*.py'` passed: 65 tests, 3 skipped. Both refreshed cards were exercised through the task-picker CLI; catalogue sources, weights and documented allocation agree. Relative documentation links and `git diff --check` passed. No new mathematical replay or frontier claim.
+
+## Revision 6 — 2026-10-16: advance handoffs and audit coordinated changes
+
+**Base and evidence status.** Assessed against canonical main
+`b3f3ee0392b71b118fd086a6eaf6b4cab54ef455`, fetched with no divergence.
+The selected conditional κ remains **0.001672660197076918**; its authoritative
+sources and review remain those of [selected-result.json](../../certificates/selected-result.json),
+unchanged since `a23bdc1b07be96bea0101d44ae27d14de67a79ed`.
+This is a task-guidance change, not a mathematical replay or supplier admission.
+
+Read the retained package claims for #2965, #2972, #2973, #2977, #2979 and #2981,
+their explicit open questions and source-intake records. Exact heads and credit
+are in the [revision-6 family handoffs](research-family-status.md#revision-6-handoffs-source-archives-awaiting-independent-validation).
+The records are [#2965](pr-intake-evidence/windows-and-new-archives-20261016.json),
+[#2972/#2973](pr-intake-evidence/archives-20261016b.json),
+[#2977](pr-intake-evidence/archives-20261016d.json),
+[#2979](pr-intake-evidence/archive-pr2979.json) and
+[#2981](pr-intake-evidence/archives-pr2980-2981.json).
+These establish source retention, not independent scientific validation.
+In particular, the newer claimed κ ≈ 0.001729 is not admitted by this update.
+
+The latest three comments in the [workflow feedback thread](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200)
+were checked. They report [console encoding work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18950852)
+and [package diagnostics/pins work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18956325).
+Classify these as existing workflow handoffs, with no new action in this patch;
+they do not supply evidence for scientific portfolio reweighting. This is a
+limited feedback sample, not a survey of current board activity or agent yield.
+
+**Allocation.** Old -> new weights remain: bit mechanisms 20 -> 20; complex
+mechanisms 20 -> 20; recursive interfaces 20 -> 20; adversarial audit 15 -> 15;
+independent verification 10 -> 10; verifier engineering 8 -> 8; consolidation
+5 -> 5; incumbent optimization 2 -> 2. Keep existing task IDs; add only the
+specific `census-pruning-audit` card within adversarial audit. It shares that
+track's allocation rather than taking weight from exploration.
+
+**Decisions and bounded tests.**
+
+- **Continue independent verification; narrow its immediate lead.** #2979
+  reports a coordinated circuit/frame win where isolated changes lose.
+  Independently reconstruct one shared group and a single-change control, then
+  follow the changed children, idle widths and cleanup buffers into the full
+  invoice and both supplier caps. Stop with a source-bound missing-obligation
+  handoff if admission cannot be checked within the session. Do not turn the
+  author receipt into a validated frontier or immediately expand the search.
+- **Narrow P104 to execution.** #2981 reports static joint endpoint flags.
+  Assign chronological acquisition/delivery, dependencies, coefficient identity,
+  dirty restoration and complete cost for one named collection. Do not repeat
+  static cover counting or use nesting to refute program-level lifetime floors.
+- **Narrow QQ16 to producers and consumers.** #2965 supplies a proposed
+  completed-output defect bound, not producer interiors. Pin a literal producer,
+  derive its actual magnitude/dirty-helper ledger, and price the consumer.
+  Stop at an unspecified interface or unfavorable complete bill; further local
+  precision optimization alone does not justify family expansion.
+- **Continue targeted stock and exporter audits.** #2972 leaves the actual
+  coefficient unresolved; derive it from the selected producer rather than
+  recomputing cutoff arithmetic. Independently reproduce #2977's tiny exporter
+  mismatch and selected unique-row control before adopting a guard. Its mutant
+  does not itself invalidate the selected construction.
+- **Audit suspect exclusions before extending censuses.** Check #2973's tiny
+  parity counterexample and one exact predecessor prune, then compare a small
+  exhaustive domain. Map affected dependencies. A faulty pruning rule does not
+  automatically disprove every old final bound; the proposed replacement also
+  needs independent validation. Stop before a full census unless separately
+  budgeted and tied to a specific research decision.
+- **Continue broad mechanisms; narrow repetitive follow-ups.** A static cover,
+  precision or source-count extension must identify the unresolved obligation
+  or research decision it changes. Independent checks with new coverage remain
+  welcome. Reopen a scoped closure with a changed premise and explicit budget,
+  not a larger seed or an unvalidated predecessor claim.
+
+**Next review trigger.** Independent validation of the coordinated mechanism,
+a decisive complete-cost result for P104/QQ16, resolution of a selected stock or
+semantic obligation, a changed selected supplier, or the next substantial intake.
+Agents refresh canonical main at their existing round checkpoints; preserve
+useful partial work and frozen inputs. No new reporting file or full replay is
+required merely to consume these revised cards.
+
+**Validation.** `python3.12 -B -m unittest discover -s tests -p 'test_research_*.py'`
+passed: 158 tests run, 18 skipped. The sparse integration checkout initially
+omitted pinned navigation inputs; those exact HEAD files were materialized
+before the successful run. All six refreshed/new cards passed through the
+task-picker CLI at revision 6. Track weights and existing task IDs are preserved;
+relative documentation links resolve in the working tree or exact HEAD tree,
+and `git diff --check` passed. No scientific artifacts, selected certificate
+or CI execution policy changed; no Lean, Docker or scientific replay ran.

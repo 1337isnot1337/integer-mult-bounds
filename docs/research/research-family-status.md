@@ -1,14 +1,14 @@
 # Research family status and expansion decisions
 
-Revision 5, assessed 2026-10-15 against main
-`0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`.
+Revision 6, assessed 2026-10-16 against main
+`b3f3ee0392b71b118fd086a6eaf6b4cab54ef455`.
 This is a navigation and decision record, not supplier admission or a complete
 survey. The selected conditional kappa is still **0.001672660197076918**.
 Resolve its evidence and assumptions through
 [selected-result.json](../../certificates/selected-result.json).
 
-Check live heads and claims before choosing a task. The PR descriptions and
-discussion statuses below were read for this update; their newer mathematical
+Check live heads and claims before choosing a task. The revision-6 package claims
+and intake records were read for this update; their newer mathematical
 claims were **not independently replayed in this guidance pass**. Pin any pending
 dependency and validate the part your work relies on. A pending claim can guide
 an audit without being treated as an established theorem or a reservation.
@@ -17,13 +17,16 @@ an audit without being treated as an established theorem or a reservation.
 
 | Family / decision | Established starting point | Newer evidence status | Next useful decision |
 |---|---|---|---|
-| P104 completion / narrow to remaining physical obligations | [Reviewed #1991 channel](../../research/p104-native-channel/README.md), [review](community-efficient1000-review.md) | [#2586](https://github.com/CrocSwap/integer-mult-bounds/pull/2586), pending, claims a finite physical inverse-transpose with 416 added rank-one endpoint transports | Can its nonmonotone endpoints, ownership/routing, idle costs and full moment be realized affordably? Or does a specific complete lower bound reject this proposal? |
-| QQ16 controller / advance the entry point, retain audit work | [Reviewed local words and scoped witness](../../research/joint-query/README.md), [review](community-efficient1000-review.md) | [#2540](https://github.com/CrocSwap/integer-mult-bounds/pull/2540), pending, claims a complete added local native decoder returning 224 outputs in F_U1 | Does a complete caller accept those outputs and pay physical retention, movement, hosting, precision and final obligations? A local inverse is no longer the default missing task. |
-| Selected stock / retain targeted audit | [Stock audit](../../research/selected-bootstrap-stock-audit/README.md), [review](community-efficient1000-review.md) | This pass did not audit newer stock claims | Refresh relevant handoffs, then derive one still-missing selected stage reserve/depth bound. Do not repeat checked headroom arithmetic. |
+| P104 completion / narrow to chronological realization | [Reviewed #1991 channel](../../research/p104-native-channel/README.md), [review](community-efficient1000-review.md) | [#2981 static joint flags](../../research/p104-joint-unit-flags/README.md), author-checked source archive | Attach acquisition/delivery times, dependencies and coefficients to one named collection; test restoration and the complete bill. Static nesting is not a correction program. |
+| QQ16 controller / narrow to actual producer and consumer | [Reviewed local words and scoped witness](../../research/joint-query/README.md), [review](community-efficient1000-review.md) | [#2965 defect transfer](../../research/qq16-producer-defect-transfer/README.md), author-checked source archive | Derive actual producer-output defects and dirty-helper ranges, then price physical consumption. Another local inverse or isolated precision constant is not the missing implementation. |
+| Selected stock / retain targeted audit | [Stock audit](../../research/selected-bootstrap-stock-audit/README.md), [review](community-efficient1000-review.md) | [#2972 cutoff chain](../../research/stock-margin-chain/README.md), author-checked source archive; actual coefficients remain unresolved | Derive one actual selected stage reserve/depth coefficient from its producer. Cutoff arithmetic does not supply it. |
+| Joint frame/circuit changes / audit before expansion | Selected supplier and complete paid-profile obligations | [#2979 coordinated lowerings and extractions](../../research/rank7-joint-endframes/README.md), author-checked source archive | Independently check a joint group against a single-change control and trace its entire cost delta; stop at unresolved admission dependencies before searching more groups. |
+| Semantic acceptance and census reliability / bounded audits | Existing selected-source and export checks | [#2977 scatter/export mismatch](../../research/scatter-export-parity-audit/README.md) and [#2973 pruning correction](../../research/f7-weight-parity-census-correction/README.md), author-checked source archives | Validate tiny counterexamples, then map precisely affected acceptance conditions or exclusions. Neither report automatically invalidates the selected construction. |
 | New coding, geometry and recursive boundaries / retain exploration | Existing scope-specific barriers and [budget tool](../../research/complex-local-word-ceiling/README.md) | No new general mechanism admitted by this update | Specify which obligation disappears and why a complete consumer does not repay it. Choose a genuinely different contract or mechanism, not another seed. |
 | Product preparation / pause the maintainer's fixed recipe | Local checkpoint described below; not integrated scientific evidence | Maintainer-local checked packages, not independently reviewed or available from this main checkout | Audit the exact source when published, or change production **and** its consumer, the two-pass interface, or the central/side construction together. Do not interpret the local stop as a universal product obstruction. |
 
-Exact inspected pending heads:
+Historical revision-5 inspected heads (preserved as predecessor context, not a
+fresh statement of their GitHub status):
 
 - #2540: `630d557af5088f66b45c447969cee9576600e50b`, author **ywz65**.
   The stated added invoice is 224 rank-one and 16 rank-eight children, 480
@@ -39,12 +42,42 @@ Exact inspected pending heads:
   native/correction lineage. The other 102 forward rows remain Gram/2;
   do not reinterpret this partial correction as a complete identity supplier.
 
-These inventories are reported claims, not invoices recertified here. The
+These predecessor inventories are reported claims, not invoices recertified here. The
 source PRs retain full attribution and detailed limitations. Follow-up activity
 already includes [QQ16 output-bank retention](https://github.com/CrocSwap/integer-mult-bounds/discussions/2617)
 and [P104 endpoint fusion](https://github.com/CrocSwap/integer-mult-bounds/discussions/2619).
 Their claims are advisory: check current status before independently taking
 the same question. Neither thread is evidence of a stronger selected result.
+
+## Revision-6 handoffs: source archives awaiting independent validation
+
+The following exact heads are retained on the assessed main. Their intake
+records certify source retention, not their mathematics. Credit stays with the
+named contributors and all predecessor attribution in their packages.
+
+| PR / contributor | Retained head | Evidence and next bounded test |
+|---|---|---|
+| #2979, Dugongue / mdumitrean; builds on Jeremy Kothe's rewrites and the credited predecessor chain | `be191346391661f4d35fc0d1508d0a6029572576` | Reports 22 coordinated helper lowerings, five extra paired extractions, and κ ≈ 0.001729. Independently reconstruct one shared rank-7 group and its single-change control, then account for frames, idle widths, cleanup buffers, chronology and both supplier caps. |
+| #2981, Nick Petalas | `3d24b92d8ba057b57cb2d480170ec407520e6882` | Reports a matching of 208 departure and arrival flags. Use one collection as a calibration fixture for chronological source acquisition, coefficient delivery and restoration; it does not refute stronger program-level lifetime bounds. |
+| #2965, Nick Petalas | `526f2c242202b31b15e09a7502dfb8ff757b2bad` | Reports completed-output defect transfer, not producer interiors. Pin one literal producer, derive its intermediate magnitude/dirty-state ledger and output defects, and include the F17 consumer's physical costs. |
+| #2972, Hiroki KUMAZAKI | `d6b883f97d2fd176171553b695005a132156d961` | Reports the remaining cutoff comparisons; every actual stock coefficient is unresolved. Bind one reserve recurrence to the selected implementation. |
+| #2977, Nick Petalas | `cd23d242dfe0e7a71cafba0ad5590dc4f2fbf4f2` | Reports XOR multiplicity versus exporter membership semantics on duplicate scatter entries, plus an opt-in guard. Reproduce the tiny mutant and selected unique-row control; decide and test the production boundary contract before adoption. |
+| #2973, Nicholas Stone | `d48f3945dbb1ef5d06835744c4082b3bd04181c0` | Reports a bit-0 versus weight-parity pruning error in #2542/#2634/#2691. Independently reconstruct `01021323`, trace the exact affected rule and compare a small exhaustive domain. Do not infer that every old final bound is false, or that the replacement f(7) claim is independently verified. |
+
+**Stop and expansion rules.** Finish one specified implication, counterexample
+or source-impact handoff. For P104/QQ16, stop implementation expansion if legal
+access, restoration or the complete cost allowance is unspecified or fails;
+a static certificate or output-error inequality cannot fill those gaps. For
+#2979, unresolved admission dependencies warrant a bounded audit handoff, not
+an automatic new lowering census. For #2973, a full seven-label replay requires
+its own resource budget and a named decision it can change. Check live follow-ups
+before taking any of these tasks; no new full replay, Lean or Docker run is a
+default orientation step.
+
+Continue independent geometry and interface exploration. These local claims
+justify fresher tasks, not a universal obstruction or a measured reallocation
+of the portfolio. Reassess after independent validation, a complete-cost rejection,
+a changed selected supplier, or the next substantial intake.
 
 ## Local product checkpoint: lesson and limits
 
