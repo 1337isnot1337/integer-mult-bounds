@@ -1616,3 +1616,11 @@ These submissions preserve reported independent checks and research. Independent
 - **Hiroki KUMAZAKI (@kumagi)** — [#2972](https://github.com/CrocSwap/integer-mult-bounds/pull/2972): Audit: stock-margin chain closes for the remaining cutoff pairs (no new kappa) (source archive).
 - **Nicholas Stone (@NicholasStone)** — [#2973](https://github.com/CrocSwap/integer-mult-bounds/pull/2973): Correct word-census parity budgets; 22 <= f(7) <= 24 in the PR943 model (source archive).
 - **Ross Richardson (@RossRichardson)** — [#2974](https://github.com/CrocSwap/integer-mult-bounds/pull/2974): Independently verify PR2942 owner-to-recursive-cost bridge (source archive).
+
+## Isolated source archival intake, 2026-10-16
+
+These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
+
+- **Gonzalo Mier (@Gonzalo-Mier)** — [#1252](https://github.com/CrocSwap/integer-mult-bounds/pull/1252): Idle pair exchanges improve the #1094 κ candidate (source archive).
+- **Dugongue (@Dugongue)** — [#2780](https://github.com/CrocSwap/integer-mult-bounds/pull/2780): Prove paid return of every physical head for the clean six-tape multiplier (source archive).
+- **Tekalign (@tekuuu)** — [#2975](https://github.com/CrocSwap/integer-mult-bounds/pull/2975): Accelerate exact four-flat requirement enumeration by 33x on a pinned corpus (source archive).
