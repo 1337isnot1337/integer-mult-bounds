@@ -2606,20 +2606,23 @@
       "current_head": "f3786fa5d7e28d643f0efaf7d75089cb2909b337",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/t74-retired7-increment-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Complete 28-rule/20-control audit implementation and finite-model argument reviewed. Source-bound independent checks authenticate50 Git blobs, certify all three root brackets with rational series bounds and check15000 free-word reductions. Full submitted replay remains required. Exact forward/dual free-group identity, propagated GF2 frames, complete fill and attribution are scoped to the pinned2802/2751/2818/2766 construction; random matrix checks are supplemental. Symplectic images do not establish exact native Clifford phases; parent recovery, T74 supplier admission, physical hosting, finer2818 endpoint and outer theorem remain separate. No selected \u03ba change.",
-      "ready_to_integrate": false,
+      "scope": "Complete 28-rule/20-control audit implementation and finite-model argument reviewed. Source-bound independent checks authenticate50 Git blobs, certify all three root brackets with rational series bounds and check15000 free-word reductions. Complete submitted replay passes all28 rules and20 negative controls in143.68seconds without input changes. Exact forward/dual free-group identity, propagated GF2 frames, complete fill and attribution are scoped to the pinned2802/2751/2818/2766 construction; random matrix checks are supplemental. Symplectic images do not establish exact native Clifford phases; parent recovery, T74 supplier admission, physical hosting, finer2818 endpoint and outer theorem remain separate. No selected \u03ba change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2847.json",
-        "research/community-efficient1800-audit/checks/check-2847-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2847-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2847.json"
       ]
     },
     {
