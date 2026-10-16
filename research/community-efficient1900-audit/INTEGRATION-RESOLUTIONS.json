@@ -33,5 +33,12 @@
     "resolved_sha256": "d56ee549aa15d75da7d42411a0456de5cfbb66b142422fec53c562c5a4803bb6",
     "resolved_mode": "100644",
     "reason": "Clarify the separate D=0 proof case and the required w=ceil(e^s), e>=2^L hypotheses for borrowing fit. Original README retained in originals/2888 and author history; executable checks and numerical results unchanged."
+  },
+  {
+    "number": 2904,
+    "path": "research/t185-dirty-entry-frame-screens/README.md",
+    "resolved_sha256": "368558495476626c5cfcea681046008f5f48f9b333e34bc62d9bff6f21055cb7",
+    "resolved_mode": "100644",
+    "reason": "Clarify enumerated chronological positions, scope of the maintainer direct-position supplement, float/threshold/cascade limits and author-only historical replays. Original README retained; scientific code and receipts unchanged."
   }
 ]

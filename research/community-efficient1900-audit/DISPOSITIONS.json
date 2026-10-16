@@ -272,18 +272,19 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Arham Tahir: common signed block-scale scan, finite-format admissibility and exact Boolean gate invoice.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2876.json"
+        "research/community-efficient1900-audit/packets/2876.json",
+        "research/community-efficient1900-audit/checks/check-2876.json"
       ]
     },
     {
@@ -552,9 +553,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Supply or review a bounded-memory/concurrency replay plan. model.py materializes736281 length-seven even-subset tables then starts Pool(os.cpu_count()); the queued full run was held before execution. No census failure or mathematical rejection is inferred.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+      "scope": "Metadata and source/model review completed; full census not run after observing CPU-wide multiprocessing and large table materialization.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -825,18 +826,19 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Arham Tahir: complete integral optimal face of the fixed T185 packing relaxation.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2893.json"
+        "research/community-efficient1900-audit/packets/2893.json",
+        "research/community-efficient1900-audit/checks/check-2893.json"
       ]
     },
     {
@@ -893,18 +895,19 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Sagar Thakrar: conditional retained-array catch-up law and specified final-record route pricing.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2895.json"
+        "research/community-efficient1900-audit/packets/2895.json",
+        "research/community-efficient1900-audit/checks/check-2895.json"
       ]
     },
     {
@@ -1159,18 +1162,20 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Nick Petalas: source-bound QQ16 numerical-contract navigation, attribution and incomplete caller bill.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2903.json"
+        "research/community-efficient1900-audit/packets/2903.json",
+        "research/community-efficient1900-audit/checks/check-2903-missing-links.json",
+        "research/community-efficient1900-audit/checks/check-2903.json"
       ]
     },
     {
@@ -1193,18 +1198,20 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "digitalis-p: bounded dirty-entry and fixed-word frame-refit screens, with explicit enumeration limits.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2904.json"
+        "research/community-efficient1900-audit/packets/2904.json",
+        "research/community-efficient1900-audit/checks/check-2904-positions.json",
+        "research/community-efficient1900-audit/checks/check-2904.json"
       ]
     },
     {
@@ -1729,18 +1736,19 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "Ross Richardson: rank-seven helper408 boundary obstruction and fully charged optimistic comparison.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2918.json"
+        "research/community-efficient1900-audit/packets/2918.json",
+        "research/community-efficient1900-audit/checks/check-2918.json"
       ]
     },
     {
