@@ -551,15 +551,17 @@
       "current_head": "97d1b23a69c9488d0667a4e666fe3875d56113c3",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-complex-height-ledger"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Selected complex height ledger: reviewed independent event/dispatch reconstruction, native-rank and monomial-shape bindings, actual dyadic coefficient arithmetic and all-width chronological height induction. Normal/optimized replay and focused mutations pass3566448 local events,510662 children, unnormalized rank mass1041408 and scalar-height charge4382272. Full-grid exactness remains conditional on completed native endpoints, one active child, scratch/parking semantics and physical dispatch; no precision change or supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -907,15 +909,17 @@
       "current_head": "14458fda3cac4441c27980d584582ebbbb3e9233",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/bit2234-callee-substitution"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Completed-callee substitution: reviewed two-field padding invariance and less-than-four volume bound, weighted-leaf schedule, unchanged header function substitution, original-ring carry closure and conditional bootstrap recurrence. Complete finite permutations,512 Boolean payloads, seven leaves,1480 headers and integrity controls pass. The fast earlier callee must handle arbitrary nonbinary spectators and restore all borrowed state; the supplied backend is a slow reference. No fast physical implementation, moment recertification or selected supplier/kappa improvement.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1051,15 +1055,17 @@
       "current_head": "1ea7f419333b4f9e79f7c061a7a485c111179914",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-prefix-coefficient-site"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Canonical raw-prefix coefficient site: reviewed affine high-cube pullback proof, exact selected COPY/MOVE chart binding, sequential field/continuation serialization and complete ADD split/merge. Normal and optimized replays pass the full81-lift dimension-two cube, selected64 snapshots, four grammar chains and relative-origin controls. The selected64 site is a reduced rectangle, not a full high-cube or global caller run. Host arithmetic/loop macros, admitted exact request vocabulary, completed children and physical schema remain explicit premises; no new supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3178,15 +3184,17 @@
       "current_head": "677baf4c92e876530c9637db191e5fd92f62624f",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/binary-add-cost-audit"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Encoded ADD local cost audit: reviewed exact all-length countdown formulas, terminal/zero cases, nested counter inventory and payload cleanup against pinned records/stream/word code. Declared replay passes1026 countdowns and386 forward/inverse Boolean basis cases plus operational/source/receipt mutations. The947V nonarithmetic envelope includes input-word counter traffic; numerical preparation is billed separately. Callback must return the same coefficient for both full traversals at a fixed current prefix. No varying-prefix driver, completed selected callback or global compiler admission follows.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -3546,15 +3554,17 @@
       "current_head": "bf33528d17e1cb2c0398d7ee0eba7948acfed2dc",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-child-stream-return"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Actual selected rank-eight child stream/return: reviewed recipe1522/event12553 binding, independent complete canonical-frame operator, sequential adapters and exact C axes, common-grid conditions, LIFO dirty-packet restoration and ancestor boundary. Optimized replay plus relocation/source/receipt controls pass; all512 operator columns and3072 address records are checked. Arithmetic is byte-identical to reviewed PR2390 dependency. Restricted to f=1 and a direct leaf; no recursive nonleaf, f>1 Compact implementation, complete running-time tariff or supplier admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
