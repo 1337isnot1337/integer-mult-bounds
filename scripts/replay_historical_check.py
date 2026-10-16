@@ -144,6 +144,51 @@ CONFIG['tooling-exact'] = {
 }
 
 
+# Older complete graph variants include singleton/pair output targets. Their
+# unchanged contracts require the original generic target digest, whereas the
+# live optimized base-class benchmark remains on its reviewed three-target code.
+LEGACY_SHARED = {
+    'manifest': 'research/skip-clones/SOURCE.json', 'field': 'files',
+    'path': 'scripts/partial_swap/shared.py', 'input_from_root': True,
+    'input': 'research/partial-swap-digest/baseline.py',
+    'sha256': '81e9af92cdf38243a540cdcff2062778e449467848d444da37a9553c12ca4c34',
+    'accepted_live_sha256': ['7290bd639600aecff11941d3faf95c9ce95589125cc6a7f7440fb86af7a0f17c'],
+}
+CONFIG['skip-clones']['additional_inputs'] = [dict(LEGACY_SHARED)]
+CONFIG['skip-clones-tests']['additional_inputs'] = [dict(LEGACY_SHARED)]
+CONFIG['split-skip']['additional_inputs'] += [
+    {**LEGACY_SHARED, 'manifest': 'research/split-skip/SOURCE.json'},
+    {'manifest': 'research/split-skip/SOURCE.json', 'field': 'files',
+      'path': 'scripts/audit_sparse_fusion.py', 'input': 'audit_sparse_fusion.py',
+      'sha256': 'bbaa32f9786f083409e363b081bfb7a1e597c8d32e4183c13a4105c2170934ce',
+      'accepted_live_sha256': ['6d1997fba802a8fc41099996b29e3add5d2b4f904da02548a98bed32c50aa773']},
+]
+CONFIG['split-skip']['commands'].insert(0, [
+    'research/split-skip/producer.py', '--work-dir', 'build/split-skip',
+    '--output', 'build/split-skip-receipt.json'])
+
+for family in ('community', 'producers', 'strips', 'pair'):
+    CONFIG['legacy-' + family] = {**LEGACY_SHARED, 'commands': [],
+                                  'make_target': 'verify-' + family}
+CONFIG['legacy-producers']['additional_inputs'] = [{
+    'manifest': 'scripts/historical-ci-inputs/partial-swap-context.json',
+    'field': 'files', 'path': 'certificates/partial-swap-network.json',
+    'input': 'partial-swap-network.json',
+    'sha256': 'f3c4be597b2f2136da4ae2cc80c7454f63c90aa01f84e5b8131cee4dd55de815',
+    'accepted_live_sha256': ['2b19ed45b6207647017f6ee9f87f41df484981822fe555d088e5c1185dc7c62a'],
+}]
+
+# Retain every original unittest command, isolating only frozen family tests.
+for slug in ('copied-fixed', 'copied-fixed-reversed', 'skip-strips',
+             'skip-suffix', 'pair-assembly'):
+    key = 'legacy-test-' + slug
+    CONFIG[key] = {**LEGACY_SHARED, 'commands': [
+        ['-m', 'unittest', 'discover', '-s', 'tests',
+         '-p', 'test_' + slug.replace('-', '_') + '.py', '-v']]}
+CONFIG['legacy-test-split-skip'] = {**CONFIG['split-skip'],
+    'commands': [CONFIG['split-skip']['commands'][-1]]}
+
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -247,6 +292,8 @@ def main():
             env['PYTHONUTF8'] = '1'
         for command in commands:
             subprocess.run([sys.executable, '-B'] + command, cwd=snapshot, env=env, check=True)
+        if config.get('make_target'):
+            subprocess.run(['make', config['make_target']], cwd=snapshot, env=env, check=True)
         verify_unchanged(snapshot, expected)
     print('PASS_HISTORICAL_CHECK', args.package, 'input_sha256=' + config['sha256'], flush=True)
 

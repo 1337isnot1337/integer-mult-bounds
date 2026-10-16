@@ -26,7 +26,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Fetch immutable baseline required by performance regression tests
         if: matrix.group == 'tests'
-        run: git fetch --no-tags --depth=1 https://github.com/CrocSwap/integer-mult-bounds.git 0b1cccf86e2f5132ed286a26ef0a681a495740ea
+        run: git fetch --no-tags --depth=1 https://github.com/CrocSwap/integer-mult-bounds.git 0b1cccf86e2f5132ed286a26ef0a681a495740ea 0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2 3b29a00f972bd15871baac0acf5ac204740a9863
       - name: Install headers for the exact enlarged-frame profiler
         if: matrix.group == 'positive'
         run: |
@@ -38,8 +38,9 @@ jobs:
         run: |
           if [ "${{ matrix.group }}" = clones ]; then
             python -B scripts/replay_historical_check.py skip-clones
-            make split-skip-producer
             python -B scripts/replay_historical_check.py split-skip
+          elif [[ "${{ matrix.group }}" =~ ^(community|producers|strips|pair)$ ]]; then
+            python -B scripts/replay_historical_check.py legacy-${{ matrix.group }}
           else
             make verify-${{ matrix.group }}
           fi

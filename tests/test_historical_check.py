@@ -224,7 +224,8 @@ class HistoricalReplay(unittest.TestCase):
         entries = [config, *config['additional_inputs']]
         self.assertEqual({entry['path'] for entry in entries}, {
             'scripts/audit_fused_block.py', 'scripts/exclusion_circuit.py',
-            'scripts/shared_point_circuit.py'})
+            'scripts/shared_point_circuit.py', 'scripts/partial_swap/shared.py',
+            'scripts/audit_sparse_fusion.py'})
         for entry in entries:
             with self.subTest(path=entry['path']):
                 checker.authenticated_input(ROOT, entry)
@@ -273,7 +274,20 @@ class HistoricalReplay(unittest.TestCase):
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):
-                checker.authenticated_input(ROOT, config)
+                for entry in [config, *config.get('additional_inputs', [])]:
+                    checker.authenticated_input(ROOT, entry)
+
+    def test_legacy_graph_and_certificate_context_match_original_provenance(self):
+        baseline = (ROOT / 'research/partial-swap-digest/baseline.py').read_bytes()
+        entry = checker.LEGACY_SHARED
+        self.assertEqual(checker.authenticated_input(ROOT, entry), baseline)
+        config = checker.CONFIG['legacy-producers']['additional_inputs'][0]
+        original = checker.authenticated_input(ROOT, config)
+        verifier = (ROOT / 'research/partial-swap-digest/verify.py').read_text()
+        self.assertIn('BASE_CERT_SHA256 = "' + hashlib.sha256(original).hexdigest() + '"', verifier)
+        self.assertEqual(json.loads(original)['source_sha256']['scripts/partial_swap/shared.py'], entry['sha256'])
+        for family in ('community', 'producers', 'strips', 'pair'):
+            self.assertEqual(checker.CONFIG['legacy-' + family]['make_target'], 'verify-' + family)
 
 
 class HistoricalReplayEnvironment(unittest.TestCase):

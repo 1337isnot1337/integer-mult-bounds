@@ -68,3 +68,29 @@ Adapter and failure controls: Dennis, with substantial OpenAI Codex assistance.
 The reconciliation92 snapshot also restores `scripts/verify_parallel.py` from
 the same `b84ba671...` commit, matching its unchanged manifest pin. The live
 direct-script cancellation successor is independently authenticated and kept.
+
+## Complete legacy graph families
+
+The accepted three-target digest optimization has a narrower target shape than
+older copied/strip/pair graph variants. Their original generic digest is retained
+in Wentao Li's `research/partial-swap-digest/baseline.py`. The legacy community,
+producer, strip and pair Make targets and the seven affected test modules run in
+private, source-authenticated copies with that original digest. Every original
+command and the final tracked-byte gate remain; live optimized performance tests
+continue to run on the live source. This is historical compatibility, not a fix
+or validation of the optimized helper for other target shapes.
+
+The split-skip snapshot now restores all five mismatching helpers, including
+`scripts/audit_sparse_fusion.py` (exact bytes from
+`0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`, matching its frozen SOURCE.json).
+Its producer runs inside the same authenticated copy as its witness and tests.
+The legacy producer group also restores the corresponding original partial-swap
+certificate from that commit. The new `partial-swap-context.json` records this
+context separately; its digest is cross-checked against the unchanged digest
+benchmark's BASE_CERT_SHA256 by a regression test. The current live certificate
+and all predecessor manifests remain unchanged. Exact Git baseline objects for
+the performance tests are fetched only in the tests matrix group.
+
+Credit Wentao Li's preserved optimization baselines, the copied/strip/pair graph
+contributors and retained source headers. Adapter and regression controls:
+Dennis, with substantial OpenAI Codex assistance; Apache-2.0.
