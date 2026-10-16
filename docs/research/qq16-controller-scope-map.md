@@ -23,6 +23,9 @@ scoped research. The pending labels and replay report below describe the
 original source checkpoint, not their current GitHub status. The fork remains
 separately attributed evidence. This six-contract map predates newer QQ16
 proposals; consult [the current family record](research-family-status.md).
+For the later zero-retention decoder, follow the
+[numerical-contract map](qq16-numerical-contract-map.md) from completed-error
+allowances through finite registers, pair circuits and the common-scale scan.
 See [the integration review](community-efficient1300-review.md) for the retained
 scope; incorporation does not admit a completed supplier.
 
