@@ -112,6 +112,7 @@
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2717.json",
+        "research/community-efficient1700-audit/checks/check-2717-pivot-counterexample.json",
         "research/community-efficient1700-audit/checks/check-2717.json"
       ]
     },
@@ -935,7 +936,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Complete-node storage replay reached its declared 600-second limit with low measured memory; no mathematical rejection inferred. Finish the remaining declared primary and export-test coverage in a dedicated bounded run before incorporation.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -946,7 +947,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2743.json"
+        "research/community-efficient1700-audit/packets/2743.json",
+        "research/community-efficient1700-audit/checks/check-2743.json"
       ]
     },
     {
@@ -968,7 +970,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Fixture-complete replay passes after hydrating the exact-head catalogue missing from the sparse export. Finish the remaining code/proof review and preserve its historical selected-record runtime pin when integrating on current main.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -979,7 +981,9 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2744.json"
+        "research/community-efficient1700-audit/packets/2744.json",
+        "research/community-efficient1700-audit/checks/check-2744-supplement.json",
+        "research/community-efficient1700-audit/checks/check-2744.json"
       ]
     },
     {

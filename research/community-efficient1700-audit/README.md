@@ -42,8 +42,8 @@ Original author commits, notices, predecessor credit and assistance disclosures 
 | [#2733](https://github.com/CrocSwap/integer-mult-bounds/pull/2733) | mdumitrean | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2738](https://github.com/CrocSwap/integer-mult-bounds/pull/2738) | DavidAriasC | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2742](https://github.com/CrocSwap/integer-mult-bounds/pull/2742) | jmbarrancoml | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2743](https://github.com/CrocSwap/integer-mult-bounds/pull/2743) | petalas | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
-| [#2744](https://github.com/CrocSwap/integer-mult-bounds/pull/2744) | flyingviper | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
+| [#2743](https://github.com/CrocSwap/integer-mult-bounds/pull/2743) | petalas | Complete-node storage replay reached its declared 600-second limit with low measured memory; no mathematical rejection inferred. Finish the remaining declared primary and export-test coverage in a dedicated bounded run before incorporation. |
+| [#2744](https://github.com/CrocSwap/integer-mult-bounds/pull/2744) | flyingviper | Fixture-complete replay passes after hydrating the exact-head catalogue missing from the sparse export. Finish the remaining code/proof review and preserve its historical selected-record runtime pin when integrating on current main. |
 | [#2745](https://github.com/CrocSwap/integer-mult-bounds/pull/2745) | jeremykothe2 | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2747](https://github.com/CrocSwap/integer-mult-bounds/pull/2747) | navinor | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
 | [#2748](https://github.com/CrocSwap/integer-mult-bounds/pull/2748) | petalas | Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. |
@@ -122,7 +122,7 @@ Pending submissions remain open unless a recorded GitHub observation says otherw
 
 `packets/` records exact heads and every changed blob. `checks/` retains commands, input/log hashes, environment, duration and coverage. Dedicated Lean replays are distinct from Python checks. Written arguments, exact finite certificates, historical receipts and supplier-admission obligations remain separate.
 
-Initial 300-second command limits are triage budgets. Supplemental runs and fixture repairs retain their original unsuccessful receipts. Missing unchanged dependencies are hydrated from the reviewed Git head without weakening source pins. A timeout is not a mathematical rejection.
+Initial tooling runs used 300-second triage budgets; research replays use their declared per-command timeouts and a sampled 1 GiB process-group memory guard. Supplemental runs and fixture repairs retain their original unsuccessful receipts. Missing unchanged dependencies are hydrated from the reviewed Git head without weakening source pins. A timeout is not a mathematical rejection.
 
 Verification tools remain opt-in unless explicitly recorded otherwise. Differential replays establish the stated fixture equivalence; author benchmark ratios are not independently measured speedups in this round. Historical overlap receipts do not supersede current PR dispositions.
 
