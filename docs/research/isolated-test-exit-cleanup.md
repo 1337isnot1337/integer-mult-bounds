@@ -47,20 +47,22 @@ python3.12 -I -B tests/test_isolated_test_exit_cleanup.py -v
 python3.12 -I -O -B tests/test_isolated_test_exit_cleanup.py -v
 python3.12 -I -B tests/test_isolated_test_cancellation.py -v
 python3.12 -I -B tests/test_isolated_test_runner.py -v
+python3.12 -I -B tests/test_isolated_historical_completion.py -v
 python3.12 -I -B -m unittest discover -s tests -p 'test_research_*.py'
 python3.12 -B scripts/research_baseline.py
 ```
 
 On Linux x86_64, WSL2 kernel 6.6.87.2, CPython 3.12.15, all six new tests,
-seven cancellation tests, five runner behavior tests and 138 research-workflow
-tests pass. The new tests also pass under optimized CPython 3.13.5. The unchanged
-baseline fails four of the six new tests. Both optimized and ordinary 3.12
-runs retain the unittest assertions. The selected baseline binding check passes;
-it is not a supplier replay.
+seven cancellation tests, nine runner behavior tests, six historical-completion
+tests and 144 research-workflow tests pass on refreshed main. The new tests also
+pass under optimized CPython 3.13.5. Both unchanged baselines named below fail
+four of the six new tests. Optimized and ordinary 3.12 runs retain the unittest
+assertions. The selected baseline binding check passes; it is not a supplier
+replay.
 
 A complete run of `scripts/run_isolated_tests.py --workers 4` using the local
-Python 3.12.15 environment attempted all 160 modules. It returned failure for
-these twelve modules:
+Python 3.12.15 environment attempted all 162 modules on refreshed main. It
+returned failure for these twelve modules:
 
 ```text
 test_combined_frame_source_pins.py  test_copied_fixed.py
@@ -71,13 +73,17 @@ test_skip_clones.py               test_skip_strips.py
 test_skip_suffix.py               test_split_skip.py
 ```
 
-Each of those twelve also fails on a fresh unchanged baseline worktree. All
-exception-message lists agree between baseline and repair. The failures include
-historical source-pin drift, reconciliation metadata disagreement and selected
-workflow-trigger expectations. In particular, the batch932 accepted-successor
-check already rejects the baseline runner's hash. This contribution does not
-rewrite historical acceptance pins or claim a green complete suite. The other
-148 module processes exited zero. Neither run changed tracked artifacts.
+Each of those twelve also fails on a fresh unchanged baseline worktree at
+`a98b1ebcdd6f2fe25ffdd30cd7e753ebfe319797`. Eleven complete exception-message
+lists agree exactly. The skip-clones wrapper has the same source-pin failure
+but a run-specific private completion-receipt path/index in its command-error
+message. The failures include historical source-pin drift, reconciliation
+metadata disagreement and selected workflow-trigger expectations. In particular,
+the batch932 accepted-successor check already rejects the baseline runner's
+hash. This contribution does not rewrite historical acceptance pins or claim a
+green complete suite. The other 150 module processes exited zero. The earlier
+160-module run at the original base had the same twelve failing modules, also
+reproduced on that unchanged base. These runs did not change tracked artifacts.
 
 The cancellation suite's parent-only fault control emits two unclosed-pipe
 ResourceWarnings on both baseline and repair. That pre-existing cancellation
@@ -89,8 +95,13 @@ explicit-`check` and broad cleanup-exception diagnostics remain unchanged.
 
 ## Task boundary, sources and overlap
 
-Base and last canonical-main checkpoint:
-`b2024b853ae33de489756de8e4dde011dabebeaa`, priority revision 5.
+Initial base: `b2024b853ae33de489756de8e4dde011dabebeaa`.
+Publication base and canonical-main checkpoint at 09:39 UTC on 2026-10-16:
+`a98b1ebcdd6f2fe25ffdd30cd7e753ebfe319797`, priority revision 5. Upstream
+incorporated PR2579 during this session. The original checkpoint was preserved,
+the same seven-line repair applied cleanly to refreshed main, and all affected
+completion, cancellation and historical-overlay checks were rerun. Guidance,
+priority revision and selected record were unchanged.
 Chooser nonce `74864336139e29f33377ef5a4d21bd84` selected verifier engineering.
 This changes the `portable-replay` card's proposed canonical-comparison method
 to a POSIX verification-process lifetime repair. The initial comparison defect
@@ -98,27 +109,34 @@ was already covered by PR2040, so it was not repeated. Preventing completed
 checks from leaking solvers protects verification resources, not the supplier's
 paid profile or multiplication exponent.
 
-Exact baseline source hashes:
+Exact publication-base source hashes:
 
 - `scripts/run_isolated_tests.py`:
-  `331743571ea29a63a0e819d421e8adc6f04831f11333aa1f7f1292933ccc82d4`.
+  `6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88`.
 - `tests/test_isolated_test_cancellation.py`:
-  `d80bf374897e3c41820852502d12dae2234fa79e31cf0a9cb632a5c0e1e25ab7`.
+  `014db7e16518254eb566c2ad2fa98d2f5dd4aea7525707530bc34e97ba9ed0d3`.
+
+The original baseline runner hash was
+`331743571ea29a63a0e819d421e8adc6f04831f11333aa1f7f1292933ccc82d4`.
 
 The [canonical claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/1472#discussioncomment-18968635)
 records the object, method and two-hour expiry. The entry overlap snapshot
 covered 489 open PRs, 2,110 closed PRs and 1,575 Discussion records, with reported
-complete pagination at 09:24 through 09:25 UTC on 2026-10-16. Searches do not
-prove novelty. Relevant predecessors are:
+complete pagination at 09:24 through 09:25 UTC on 2026-10-16. The pre-submission
+refresh covered 487 open PRs, 2,112 closed PRs and 1,577 Discussion records at
+09:38 through 09:39 UTC, with complete reported pagination and no warnings.
+Searches do not prove novelty. Relevant predecessors are:
 
 - Aaron Wang/navinor's isolated concurrent scheduler.
 - woklerx's PR1852 assertion-environment hardening, head
   `2b7dc6cf68f650dd2cd8898924d31a02f1a6e9c7`.
 - ywz65's PR2625 cancellation/registration repair, head
   `2158a3675e11d59d7a8706e8cb0f16acd875df64`.
-- ywz65's pending PR2579 unittest-completion receipts, inspected head
-  `808942baa87f048b5d8a7cca47a04d8ca4fbe038`. That checks whether unittest
-  completed; this repair checks ordinary descendant lifetime after module exit.
+- ywz65's PR2579 unittest-completion receipts, inspected head
+  `808942baa87f048b5d8a7cca47a04d8ca4fbe038`, incorporated during the refresh.
+  Its current-main integration retains cancellation and the historical overlay.
+  That checks whether unittest completed; this repair checks ordinary descendant
+  lifetime after module exit. Its completion-token checks remain intact.
 - PR2377 and PR2469 cover the separate registered-package runner. Their
   implementations are not imported here.
 
@@ -133,7 +151,7 @@ established. No selected record, source archive or mathematical input changes.
 
 The new tests use bounded readiness loops, at most three pidfds and four
 processes per fixture, with unconditional teardown. The existing runner still
-has no per-module runtime/output-size cap and retains its 91-line coordinating
+has no per-module runtime/output-size cap and retains its 101-line coordinating
 function. Adding limits or refactoring its shared synchronization would change
 the broader execution contract and is deferred. The repair adds no new loop,
 cache, dependency or recursive call.
