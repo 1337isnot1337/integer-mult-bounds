@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "8c139c52dca68de41043c9666b0fe2795e1e6aa6",
+  "checked_commit": "291799b9ade7c69b94bc109ff1a55dd506bab2a5",
   "merged_prs": [
     2478,
     2716,
@@ -19,12 +19,17 @@
     2738,
     2740,
     2741,
+    2742,
     2744,
     2746,
     2752,
+    2754,
+    2756,
+    2758,
+    2759,
     2792
   ],
-  "changed_files": 224,
+  "changed_files": 287,
   "resolved_files": [
     {
       "number": 2729,
@@ -110,6 +115,21 @@
       "number": 2752,
       "path": "scripts/research_package.py",
       "sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1"
+    },
+    {
+      "number": 2754,
+      "path": "research/p104-internal-grid-collector/README.md",
+      "sha256": "5a2a9b77f1cb47c6890ec412b7957808e5880fdd73e8b48c84e333243c15f8fa"
+    },
+    {
+      "number": 2754,
+      "path": "research/p104-internal-grid-collector/SOURCES.json",
+      "sha256": "03a8b859d9cd255057d28b1d0dbcecf07ec34167628ae8a1cfa0a9de9c6d07a1"
+    },
+    {
+      "number": 2754,
+      "path": "research/p104-internal-grid-collector/VERIFY.json",
+      "sha256": "3911cfebb00e8f9018046c578ed9f62f1a00e6f42689526ccc70ec7e262439a5"
     },
     {
       "number": 2792,
