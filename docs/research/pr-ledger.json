@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1877,
-    "partially_reviewed": 319,
+    "incorporated": 1883,
+    "partially_reviewed": 313,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "73e183a8f9a736470d22ee1afa00f311d4d6ed5cf681b1e6b3a857ff44a15ba3",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "41f5047b616c8faa269a1461388989cdf1248bd5f4589358d476d096e5be63f9",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -121189,22 +121189,28 @@
         {
           "head": "39019203274f25ae0176ef516fe86ac576ceae9b",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang's typed-window schedule audit, crediting Cinna Davis's certified children and Ross Richardson/Sagar Thakrar lineage. Reviewed exact 56-column maps and inverses, per-call delivery, per-octet gap enumeration, fixed/phase-indexed reader distinction and rational moment screens. Registered 73 controls pass: legal literal/typed pairs cost 384/304 versus 608 in the declared model, while the retained recursive ledger is unchanged. The 48-record persistent-pair saving needs a changed window boundary; no actual hosted typed supplier or kappa improvement is admitted.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/z4-typed-window-schedule-seed25ad"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2595"
+      },
       "reviewed_head": "39019203274f25ae0176ef516fe86ac576ceae9b",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2595.json",
@@ -123029,22 +123035,28 @@
         {
           "head": "a3b82e6f4ddcf999f8b6dcd3a6dfc3a9543a1533",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's QQ16 output-bank coalescing, crediting ywz65's PR2540/2511/2512 and retained decoder lineage. Reviewed the exact chronological simulation with sixteen early-owned selected output banks, immutable 2366-event suffix and formal noncommuting operator replay. All 224 outputs, borrowed restoration, 448 unchanged native events, fifteen semantic controls and six artifact/export groups pass. Removes sixteen separate banks and 192 scalar primitives conditionally on early exclusive ownership and B1 retention; no global storage minimum or physical admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-output-bank-retention"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2651"
+      },
       "reviewed_head": "a3b82e6f4ddcf999f8b6dcd3a6dfc3a9543a1533",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2651.json",
@@ -123227,22 +123239,28 @@
         {
           "head": "caba809dc9770a21f3b584ce9f3c8433a5768e83",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's private T74 cleanup pool, crediting Jeremy Kothe's PR2269 words, Sagar Thakrar's accounting audit and Cinna Davis's borrowing mechanism. Reviewed rational free-group traces, static hull coloring, omitted identity gates, pooled endpoint induction and dual 48-distinct-value witness. Both orientations/providers plus independent noncommuting finite-field dense checks pass. Common capacity falls from 76 to 48 in the fixed direct-storage model; native routing, later words and complete supplier accounting are not certified.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-cleanup-buffer-pooling"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2655"
+      },
       "reviewed_head": "caba809dc9770a21f3b584ce9f3c8433a5768e83",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2655.json",
@@ -123630,22 +123648,28 @@
         {
           "head": "a0565b53edf2f337661b0b9621d478ce327479a9",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's independent PR2530 lender-cut and recovery-window audit, crediting zxv, Jeremy Kothe, Tekalign, Vlado Vojdanovski and Cinna Davis. Reviewed forward/reverse free-operator substitution, exact binary frame sets, zero-climb block commutation and concrete scalar endpoint blockers. All sixteen new handoffs, 28 extremal relocated streams and 28 outside rejections pass; 1161 placements per provider are individual block choices, not jointly feasible schedules. Older lender mixtures are allowed; cleanup, native duals, complete endpoints and kappa remain outside scope.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-source-partner-cut-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2664"
+      },
       "reviewed_head": "a0565b53edf2f337661b0b9621d478ce327479a9",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2664.json",
@@ -124668,22 +124692,28 @@
         {
           "head": "0e5f24d033eba7a36e6fc990d7263dc4c2ee9183",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Wentao Li's sharp seven-query even-subset readout floor, crediting Arham Tahir's alphabet, ywz65's six-query audit and the path-lowering/PR2643 lineage. Reviewed the exhaustive six-distinct-label census, GL(5) reduction of all spanning one-repeat walks, proper-span exclusion and formal arbitrary-dirty champion map/inverse. Registered normal/optimized, separate-code census and six artifact-control groups pass: R is 82/88/96, with 7Q/82R/6X attaining tariff442. The result fixes the common-B even-subset readout alphabet; no cheaper expanded alphabet, physical tariff or kappa claim is admitted.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/seven-query-r-floor"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2686"
+      },
       "reviewed_head": "0e5f24d033eba7a36e6fc990d7263dc4c2ee9183",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2686.json",
@@ -125496,22 +125526,28 @@
         {
           "head": "124cab4118e39d30c2c24b41d753dabf612c8a8c",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang's typed-window admission-boundary audit, crediting Cinna Davis's typed children, Jeremy Kothe/Hao Yan's retained T16 chain and the provider lineage. Reviewed the fresh historical 144-call T16 control, exact archived-receipt comparison, four independent moment brackets and six explicitly hypothetical assembly probes. Complete registered replay passes after runtime provenance-digest refresh; original task/card pins remain historical. The 0.003 search bracket and fixed-deficit assertion are interface findings, not evidence of a realizable shared ledger; compatible typed child, placement, changed-boundary proof and full physical bill remain missing. No selected frontier or supplier admission changes.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/z4-typed-window-admission-kb1c"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2705"
+      },
       "reviewed_head": "124cab4118e39d30c2c24b41d753dabf612c8a8c",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2705.json",
@@ -125963,7 +125999,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1425,
-    "OPEN": 455
+    "MERGED": 1431,
+    "OPEN": 449
   }
 }

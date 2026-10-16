@@ -101,14 +101,14 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "c03e0f9e96e0335ceb01fce40eae90410a4ad804433d625f1cae9834df29ebc1",
+    "resolved_sha256": "2e4656077fad8fb9f4de30c2685eafed19cf3c367ade8dbb803356e53b1fd0db",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "67df9d7128ce6e5a86464beb277f1bd0ea08098aa49908dd2e5c1d7bd6962383",
+    "resolved_sha256": "4dd2d268260c4b123681eb3d02a207dfb17d1b16a120552376e2d0f349aa9c6b",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
   },
   {
@@ -201,5 +201,19 @@
     "resolved_sha256": "340e3c2e860ea7873477092a6b938f9f6c09c4b66ce29fe17094a22cdd202f3b",
     "reason": "Preserve newer main guidance/package-name extraction and combine independent navigation pointers; explicitly mark historical source-status snapshots without changing their pinned evidence.",
     "original_sha256": "ec4c533f43a03aed32cf117f408390ae1cc2ffd1ec1cfcd83a5bfe9986ae16be"
+  },
+  {
+    "number": 2705,
+    "path": "research/z4-typed-window-admission-kb1c/RESULT.json",
+    "original_sha256": "848a7bf99176fc5d5e12d87938170845ee994985942b960f38047cdee3026cd1",
+    "resolved_sha256": "8a3a11d02f33ff81f68e477e18a1232b73fa3fa120876383f341fe9cfcc11496",
+    "reason": "Integration refresh of the runtime provenance digests in RESULT.json to main 2a0d3aeab3016f5b5d85a5c0f956b9db5376c77d. The original task card, SOURCES.json and their historical base remain unchanged. Frozen chain code, archived mathematical receipts, probes and numerical results are unchanged; the complete registered T16/admission replay passed against the refreshed runtime inputs."
+  },
+  {
+    "number": 2705,
+    "path": "research/z4-typed-window-admission-kb1c/README.md",
+    "original_sha256": "97a6c823dc73539eed5e1026204d9efc9aea9823c21db65cb13766f2be990136",
+    "resolved_sha256": "3a10da181a695bcd3675f69121f27e5ef7274be9f56cfa40f27c3e12dcd715cb",
+    "reason": "Integration refresh of the runtime provenance digests in RESULT.json to main 2a0d3aeab3016f5b5d85a5c0f956b9db5376c77d. The original task card, SOURCES.json and their historical base remain unchanged. Frozen chain code, archived mathematical receipts, probes and numerical results are unchanged; the complete registered T16/admission replay passed against the refreshed runtime inputs."
   }
 ]

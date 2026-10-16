@@ -1,9 +1,10 @@
 {
   "status": "PASS",
-  "checked_commit": "4caaca08b36424373554097d6929d7efa574f854",
+  "checked_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
   "merged_prs": [
     2592,
     2594,
+    2595,
     2596,
     2598,
     2599,
@@ -32,9 +33,11 @@
     2641,
     2643,
     2645,
+    2651,
     2652,
     2653,
     2654,
+    2655,
     2656,
     2658,
     2659,
@@ -42,6 +45,7 @@
     2661,
     2662,
     2663,
+    2664,
     2665,
     2667,
     2668,
@@ -57,6 +61,7 @@
     2682,
     2683,
     2685,
+    2686,
     2688,
     2689,
     2692,
@@ -67,12 +72,13 @@
     2701,
     2702,
     2704,
+    2705,
     2706,
     2708,
     2710,
     2712
   ],
-  "changed_files": 778,
+  "changed_files": 839,
   "resolved_files": [
     {
       "number": 2601,
@@ -218,6 +224,16 @@
       "number": 2702,
       "path": "scripts/find_overlap.py",
       "sha256": "340e3c2e860ea7873477092a6b938f9f6c09c4b66ce29fe17094a22cdd202f3b"
+    },
+    {
+      "number": 2705,
+      "path": "research/z4-typed-window-admission-kb1c/README.md",
+      "sha256": "3a10da181a695bcd3675f69121f27e5ef7274be9f56cfa40f27c3e12dcd715cb"
+    },
+    {
+      "number": 2705,
+      "path": "research/z4-typed-window-admission-kb1c/RESULT.json",
+      "sha256": "8a3a11d02f33ff81f68e477e18a1232b73fa3fa120876383f341fe9cfcc11496"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",

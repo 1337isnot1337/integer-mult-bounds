@@ -131,18 +131,24 @@
       },
       "reviewed_head": "39019203274f25ae0176ef516fe86ac576ceae9b",
       "current_head": "39019203274f25ae0176ef516fe86ac576ceae9b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/z4-typed-window-schedule-seed25ad"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2595"
+      },
+      "scope": "Aaron Wang's typed-window schedule audit, crediting Cinna Davis's certified children and Ross Richardson/Sagar Thakrar lineage. Reviewed exact 56-column maps and inverses, per-call delivery, per-octet gap enumeration, fixed/phase-indexed reader distinction and rational moment screens. Registered 73 controls pass: legal literal/typed pairs cost 384/304 versus 608 in the declared model, while the retained recursive ledger is unchanged. The 48-record persistent-pair saving needs a changed window boundary; no actual hosted typed supplier or kappa improvement is admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2595.json",
@@ -1564,18 +1570,24 @@
       },
       "reviewed_head": "a3b82e6f4ddcf999f8b6dcd3a6dfc3a9543a1533",
       "current_head": "a3b82e6f4ddcf999f8b6dcd3a6dfc3a9543a1533",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/qq16-output-bank-retention"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2651"
+      },
+      "scope": "commdata2338's QQ16 output-bank coalescing, crediting ywz65's PR2540/2511/2512 and retained decoder lineage. Reviewed the exact chronological simulation with sixteen early-owned selected output banks, immutable 2366-event suffix and formal noncommuting operator replay. All 224 outputs, borrowed restoration, 448 unchanged native events, fifteen semantic controls and six artifact/export groups pass. Removes sixteen separate banks and 192 scalar primitives conditionally on early exclusive ownership and B1 retention; no global storage minimum or physical admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2651.json",
@@ -1718,18 +1730,24 @@
       },
       "reviewed_head": "caba809dc9770a21f3b584ce9f3c8433a5768e83",
       "current_head": "caba809dc9770a21f3b584ce9f3c8433a5768e83",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t74-cleanup-buffer-pooling"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2655"
+      },
+      "scope": "commdata2338's private T74 cleanup pool, crediting Jeremy Kothe's PR2269 words, Sagar Thakrar's accounting audit and Cinna Davis's borrowing mechanism. Reviewed rational free-group traces, static hull coloring, omitted identity gates, pooled endpoint induction and dual 48-distinct-value witness. Both orientations/providers plus independent noncommuting finite-field dense checks pass. Common capacity falls from 76 to 48 in the fixed direct-storage model; native routing, later words and complete supplier accounting are not certified.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2655.json",
@@ -2033,18 +2051,24 @@
       },
       "reviewed_head": "a0565b53edf2f337661b0b9621d478ce327479a9",
       "current_head": "a0565b53edf2f337661b0b9621d478ce327479a9",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t74-source-partner-cut-audit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2664"
+      },
+      "scope": "commdata2338's independent PR2530 lender-cut and recovery-window audit, crediting zxv, Jeremy Kothe, Tekalign, Vlado Vojdanovski and Cinna Davis. Reviewed forward/reverse free-operator substitution, exact binary frame sets, zero-climb block commutation and concrete scalar endpoint blockers. All sixteen new handoffs, 28 extremal relocated streams and 28 outside rejections pass; 1161 placements per provider are individual block choices, not jointly feasible schedules. Older lender mixtures are allowed; cleanup, native duals, complete endpoints and kappa remain outside scope.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2664.json",
@@ -2840,18 +2864,24 @@
       },
       "reviewed_head": "0e5f24d033eba7a36e6fc990d7263dc4c2ee9183",
       "current_head": "0e5f24d033eba7a36e6fc990d7263dc4c2ee9183",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/seven-query-r-floor"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2686"
+      },
+      "scope": "Wentao Li's sharp seven-query even-subset readout floor, crediting Arham Tahir's alphabet, ywz65's six-query audit and the path-lowering/PR2643 lineage. Reviewed the exhaustive six-distinct-label census, GL(5) reduction of all spanning one-repeat walks, proper-span exclusion and formal arbitrary-dirty champion map/inverse. Registered normal/optimized, separate-code census and six artifact-control groups pass: R is 82/88/96, with 7Q/82R/6X attaining tariff442. The result fixes the common-B even-subset readout alphabet; no cheaper expanded alphabet, physical tariff or kappa claim is admitted.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2686.json",
@@ -3481,18 +3511,24 @@
       },
       "reviewed_head": "124cab4118e39d30c2c24b41d753dabf612c8a8c",
       "current_head": "124cab4118e39d30c2c24b41d753dabf612c8a8c",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/z4-typed-window-admission-kb1c"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "481b8711e9412a09c039bb8bedc32baac265e4ef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2705"
+      },
+      "scope": "Aaron Wang's typed-window admission-boundary audit, crediting Cinna Davis's typed children, Jeremy Kothe/Hao Yan's retained T16 chain and the provider lineage. Reviewed the fresh historical 144-call T16 control, exact archived-receipt comparison, four independent moment brackets and six explicitly hypothetical assembly probes. Complete registered replay passes after runtime provenance-digest refresh; original task/card pins remain historical. The 0.003 search bracket and fixed-deficit assertion are interface findings, not evidence of a realizable shared ledger; compatible typed child, placement, changed-boundary proof and full physical bill remain missing. No selected frontier or supplier admission changes.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2705.json",
