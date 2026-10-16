@@ -1624,3 +1624,9 @@ These submissions preserve reported independent checks and research. Independent
 - **Gonzalo Mier (@Gonzalo-Mier)** — [#1252](https://github.com/CrocSwap/integer-mult-bounds/pull/1252): Idle pair exchanges improve the #1094 κ candidate (source archive).
 - **Dugongue (@Dugongue)** — [#2780](https://github.com/CrocSwap/integer-mult-bounds/pull/2780): Prove paid return of every physical head for the clean six-tape multiplier (source archive).
 - **Tekalign (@tekuuu)** — [#2975](https://github.com/CrocSwap/integer-mult-bounds/pull/2975): Accelerate exact four-flat requirement enumeration by 33x on a pinned corpus (source archive).
+
+## Isolated source archival intake, 2026-10-16
+
+These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
+
+- **Nick Petalas (@petalas)** — [#2977](https://github.com/CrocSwap/integer-mult-bounds/pull/2977): Audit selected scatter parity across word and record checks (source archive).
