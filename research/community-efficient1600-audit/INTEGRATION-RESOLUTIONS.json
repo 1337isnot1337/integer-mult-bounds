@@ -161,9 +161,10 @@
   {
     "number": 2633,
     "path": "docs/research/bottleneck-brief.md",
-    "resolved_sha256": "408982c26fa63a69cddeaf0463b537c4e20ebb064e7bdbfdacd9810764171cc1",
+    "resolved_sha256": "63bbd370628e67a942040e06bff1694f41aca725f2e8a4a334c14a9eb2cf822e",
     "reason": "Preserve newer main guidance/package-name extraction and combine independent navigation pointers; explicitly mark historical source-status snapshots without changing their pinned evidence. Later PR2760 adds the independent BIT caller/storage pointer while retaining this P104 helper-lifetime link.",
-    "original_sha256": "eb180df23bbb377a05e9b1fa37799b736b07c6e1639495f451e51e8a7afcaed3"
+    "original_sha256": "eb180df23bbb377a05e9b1fa37799b736b07c6e1639495f451e51e8a7afcaed3",
+    "followup": "Round1900 PR2903: retain prior P104/BIT navigation and add the independently reviewed QQ16 numerical-contract pointer; no selected change."
   },
   {
     "number": 2633,
