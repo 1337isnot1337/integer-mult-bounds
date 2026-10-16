@@ -19,7 +19,7 @@
       "-B",
       "research/source-partner-residual-exchanges/verify.py",
       "--work",
-      "/tmp/pr-efficient1600/output-2621"
+      "/tmp/pr-efficient1600/output-2621-residual"
     ],
     [
       "/tmp/pr-efficient200-venv/bin/python",
@@ -29,12 +29,13 @@
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 100.467,
-  "status": "failed",
+  "seconds": 170.13,
+  "status": "passed",
   "exit_codes": [
     0,
     0,
-    1
+    0,
+    0
   ],
   "input_sha256": {
     "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -1233,6 +1234,12 @@
     "research/native-complex-moment552/inputs/PR558-INVOICE.json": "4b6977a049663ab958bd9a48c2864f7a7bddb26aef03e14f3068aede020ef76f",
     "research/native-complex-moment552/inputs/PR552-INVOICE.json": "4ac060dbf2ea2624dd1f4bda23bdb81c0a3013dfe49b77c092b631885529947f"
   },
-  "log_sha256": "44668b7940d62097f0ca3fae17e824908c84e46c5c165210003ae0b6745feaa7",
-  "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
+  "log_sha256": "cdfd5b43b6865975ee53a4e701b0465f67a8c6451c742b916f10a45908659dc1",
+  "scope": "Complete remaining bounded package commands after a harness-only duplicate output-directory failure. No full native/global/outer replay.",
+  "continuation": {
+    "initial_receipt": "prior-revisions/2621-shared-output-path/check-2621.json",
+    "completed_initial_commands": 2,
+    "remaining_receipt": "check-2621-completion.json",
+    "all_original_inputs_unchanged": true
+  }
 }

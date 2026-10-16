@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1860,
-    "partially_reviewed": 336,
+    "incorporated": 1867,
+    "partially_reviewed": 329,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "614472d674e58d863f4b2cc0bd7ba9a8de8c9760fdd4f599049c628bfcede4c1",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "3951cc9ce121ee5eaaae745bec8b81fc2589aabc8947936e745a6871097db9f8",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -121887,22 +121887,28 @@
         {
           "head": "28911dc7610d440258f42a5ccb8654380976e77c",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's actual width-one two-stream GL2 target census, following PR2599's nonfaithful action and Ross Richardson's formal tariff. Reviewed normalization using arbitrary zero-address payloads, six projector conjugates, the independent active-GL4 domain and full eight-column transition proof. All 20160 states, 241920 edge inequalities, descending paths and 36 attaining targets replay successfully with semantic/export controls. Direct lengths remain minimal only for the stated two dirty roles, paid alphabet and width; third roles, other actions and physical supplier cost are not covered.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/binary-gl2-width-one-minima"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "497838308416f745f75cb693b85d70e9792d29e9",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2620"
+      },
       "reviewed_head": "28911dc7610d440258f42a5ccb8654380976e77c",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2620.json",
@@ -121942,7 +121948,7 @@
       "closure": null,
       "reviewed_head": "07c0e3000e8538058b80e309440f29652edff0b4",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -121951,6 +121957,7 @@
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2621.json",
+        "research/community-efficient1600-audit/checks/check-2621-completion.json",
         "research/community-efficient1600-audit/checks/check-2621.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
@@ -122479,22 +122486,28 @@
         {
           "head": "8bfb1f38302f751032108d7e9ae397311cd1e207",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's native binding of ywz65/PR2521's 90-helper cross-group word, retaining CubeJerry and geometry/compiler attribution. Reviewed physical Gram conversion, complete chronological insertion, all 370 dirty columns, directed recipe/occurrence coverage and exact global phases. Registered replay regenerates all 934 recipes for 1689 transports, 208 monomial endpoints and 136900 boundary coefficients; semantic/source/export controls pass. Only three targets are corrected; eight nonzero private disposals remain inherited, and backward interface, hosting, precision and all-size admission remain open.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-cross-group-native"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "497838308416f745f75cb693b85d70e9792d29e9",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2632"
+      },
       "reviewed_head": "8bfb1f38302f751032108d7e9ae397311cd1e207",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2632.json",
@@ -122578,7 +122591,7 @@
       "closure": null,
       "reviewed_head": "e2f30d93efbef5658334072aa855aa95e795e394",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -122586,7 +122599,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2634.json"
+        "research/community-efficient1600-audit/packets/2634.json",
+        "research/community-efficient1600-audit/checks/check-2634.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -123231,22 +123245,28 @@
         {
           "head": "fce1d93e3c6f02aca0c750f0a8b29aa59d7d4364",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's independent PR2588 swapped-alias frame and handoff audit, crediting Jeremy Kothe and source-partner/prelude predecessors. Reviewed literal 512-vector frame chronology, full local invoice delta -2H1-2H3+2H4, exact noncommuting reverse covectors and arbitrary-input readiness at both moved lenders. Normal/optimized registered replays and rank-preserving sign faults pass. The local moment improves for every 0<p<1; complete scalar cleanup, native phases, physical owners, precision and global admission remain outside scope.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-swapped-alias-frame-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5f146030bbc3f8c379d7c551459611df5e72b4a7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2656"
+      },
       "reviewed_head": "fce1d93e3c6f02aca0c750f0a8b29aa59d7d4364",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2656.json",
@@ -123276,22 +123296,28 @@
         {
           "head": "ac61ce12fceb721a93a72ad19f1ab9d08a472e90",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's 104 separate P104 single-target acquisition optima, extending credited PR2393/2496 and retaining original channel/geometry lineage. Reviewed the all-episode antichain causal lower bound with arbitrary helper relays, chronological dirty-compensated upper words, all input columns and nine-rank-units-per-lifetime tariff. Independent dense replay, full certificate regeneration and behavioral controls pass; minima range from 37 to 48. Their sum is not a shared multi-target lower bound; native realization, physical stock, complete supplier cost and kappa remain unproved here.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-single-target-acquisition"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5f146030bbc3f8c379d7c551459611df5e72b4a7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2658"
+      },
       "reviewed_head": "ac61ce12fceb721a93a72ad19f1ab9d08a472e90",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2658.json",
@@ -123418,22 +123444,28 @@
         {
           "head": "e12c36f7a11a9e93e8e3398b129f45f51d5050d1",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's source-bound comparison of Jeremy Kothe's PR2575 evacuation and zxv's PR2530 allocation, crediting Philippe Van Velzen's method and earlier borrowing work. Reviewed all 281052 helper occurrences, strict bridge windows, owner bindings, common words and exact residual delta. The signed hinge integral proves one power-cost crossover in (0.289994,0.289995), with rational outward enclosures and semantic/export controls passing. This is a fixed-allocation recursive-cost comparison, not optimality, native/precision admission or a new supplier.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-evacuation-power-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5f146030bbc3f8c379d7c551459611df5e72b4a7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2661"
+      },
       "reviewed_head": "e12c36f7a11a9e93e8e3398b129f45f51d5050d1",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2661.json",
@@ -123463,22 +123495,28 @@
         {
           "head": "b67542b2896c21106f3945673bbf5b6e131408cc",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's P104 physical-dual endpoint fusion, crediting ywz65's PR2586 and native/dual predecessors. Reviewed all-read ADD barriers, canonical conjugate-chart telescoping, scalar sign retiming, all 358 dirty input columns and eight zero erasures. Fresh native phase/Pauli checks and complete regeneration pass for 128 fused recipes; 416 intrinsic block-rank certificates prove the scoped endpoint-run optimum. Rank mass stays 3542 and the local concave moment decreases; full correction, cross-ADD rewrites, owners, rounded erasure and complete supplier admission are not established.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-dual-endpoint-fusion"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "497838308416f745f75cb693b85d70e9792d29e9",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2662"
+      },
       "reviewed_head": "b67542b2896c21106f3945673bbf5b6e131408cc",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2662.json",
@@ -123802,22 +123840,28 @@
         {
           "head": "086d0173e57fd6644b911c417ca46207a7b47bf8",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's chronological packing ceiling for the PR2530 uniform-shift family, crediting Rohan Arun's PR2571 order and earlier pattern-dual work. Reviewed all-integer-shift cut formula, stable tail, 114-bin width-eight shortage, complete 1163-pattern dual and fractional primal comparison. Exact registered replay and ten semantic controls pass. The bound b<0.001714127696 assumes the pinned whole-helper inventory, local profile and stock; changed profiles, nonuniform schedules and physical supplier admission are outside scope. No new kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/t74-diagonal-window-bound"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5f146030bbc3f8c379d7c551459611df5e72b4a7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2669"
+      },
       "reviewed_head": "086d0173e57fd6644b911c417ca46207a7b47bf8",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2669.json",
@@ -124010,7 +124054,7 @@
       "closure": null,
       "reviewed_head": "45aadf0fc7f0dedfb0df959479a20cc1c7be4917",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
+      "unresolved_question": "Initial harness invocation omitted the required --work argument and exited at argument parsing; this is not a failed mathematical check. The declared entry point is a complete supplier admission with fresh native workers and astronomical-precision assembly, not a bounded research replay. Retain the raw invocation receipt; schedule a separately reviewed, resource-bounded full run with a new work directory and authenticated reuse where applicable. No frontier approval from this invocation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -124793,7 +124837,7 @@
       "closure": null,
       "reviewed_head": "88dda3534071442773106e9c0b941b9d39a3cea8",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -124801,7 +124845,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2691.json"
+        "research/community-efficient1600-audit/packets/2691.json",
+        "research/community-efficient1600-audit/checks/check-2691.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125029,7 +125074,7 @@
       "closure": null,
       "reviewed_head": "5a42add713e09a8798a84d0be7a8276626d9e785",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -125037,7 +125082,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2696.json"
+        "research/community-efficient1600-audit/packets/2696.json",
+        "research/community-efficient1600-audit/checks/check-2696.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125848,7 +125894,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1408,
-    "OPEN": 472
+    "MERGED": 1415,
+    "OPEN": 465
   }
 }

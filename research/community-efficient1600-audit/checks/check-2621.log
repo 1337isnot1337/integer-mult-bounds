@@ -1,3 +1,4 @@
+RETAINED INITIAL RUN: first two commands passed; third rejected reused output path.
 ['/tmp/pr-efficient200-venv/bin/python', '-B', 'research/half-stage-evacuation/verify.py', '--work', '/tmp/pr-efficient1600/output-2621']
 PASS_LITERAL_OWNERS_AND_EXACT_MOMENT
 ['/tmp/pr-efficient200-venv/bin/python', '-B', 'research/source-partner-lifetimes/verify.py']
@@ -103,3 +104,11 @@ Traceback (most recent call last):
   File "/Users/colkitt/.local/share/uv/python/cpython-3.12.11-macos-aarch64-none/lib/python3.12/pathlib.py", line 1311, in mkdir
     os.mkdir(self, mode)
 FileExistsError: [Errno 17] File exists: '/private/tmp/pr-efficient1600/output-2621'
+
+COMPLETION: unique residual output directory; remaining commands replayed.
+['/tmp/pr-efficient200-venv/bin/python', '-B', 'research/source-partner-residual-exchanges/verify.py', '--work', '/tmp/pr-efficient1600/output-2621-residual']
+PASS_LITERAL_OWNERS_AND_EXACT_MOMENT
+['/tmp/pr-efficient200-venv/bin/python', '-B', 'research/t74-owner-consolidation/verify.py']
+PASS_OWNER_VERIFY {1: 20822, 48: 25302, 3: 6694, 5: 2} {1: 1591916, 2: 420912, 3: 226474, 4: 79920, 5: 25310, 8: 5328, 48: 25302}
+PREPARED {'replicas': 74, 'stages': 9, 'pairs': 4, 'dimension': 73, 'charged_prefix_bits': 2048, 'parent_live': 111664, 'parent_physical': 112178, 'parent_idle': 149184, 'parent_helpers': 504}
+PASS_OWNER_CONSOLIDATION_OWNERS_AND_EXACT_MOMENT 1698511924002761437757/1000000000000000000000000
