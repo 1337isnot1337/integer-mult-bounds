@@ -94,5 +94,45 @@
     "resolved_sha256": "cb570eaa74fdb67cb3b26c61b33a535d55993545abe1f6c60108c848b08eeafc",
     "resolved_mode": "100644",
     "reason": "Compile the unchanged dual.c into unique temporary paths so parallel workers never rewrite a loaded library. Keep independent build directories alive through worker initialization; preserve all census formulas and declared coverage. Full resolved replay and concurrent C/Python kernel regression required."
+  },
+  {
+    "number": 2870,
+    "path": "research/f7-17point-fourier-obstruction-seedb5e318fe/README.md",
+    "original_sha256": "bed8298c36b439b0e7e13ba650b8a88fb881ebf5bb0c376da90064153d0e6b4e",
+    "resolved_sha256": "7687d17adc0bd1b829dd9f3182aa10089ce9a2a3a422b6d8c4a4b363d11e77f2",
+    "resolved_mode": "100644",
+    "reason": "Add a self-contained all-character Parseval corollary of Aaron Wang's local Fourier lemma, removing dependence on unreviewed historical censuses for the 17-point claim; distinguish author anchor recordings from maintainer execution and correct the coset sign in the prose. Frozen code, vendor and certificates unchanged."
+  },
+  {
+    "number": 2870,
+    "path": "research/f7-17point-fourier-obstruction-seedb5e318fe/MAINTAINER-COROLLARY.md",
+    "original_sha256": null,
+    "resolved_sha256": "c9510ad1555f2bead99e320efdfcec98c29323808acf28bcd935e6c28145fbe9",
+    "resolved_mode": "100644",
+    "reason": "Add a self-contained all-character Parseval corollary of Aaron Wang's local Fourier lemma, removing dependence on unreviewed historical censuses for the 17-point claim; distinguish author anchor recordings from maintainer execution and correct the coset sign in the prose. Frozen code, vendor and certificates unchanged."
+  },
+  {
+    "number": 2869,
+    "path": "research/fstar-entry-class-scope-seed63d5f999/verify.py",
+    "original_sha256": "92edb6ff9293823f66e7fb65cba94b2af2d299586c598d3c8760a6108af9eae6",
+    "resolved_sha256": "ced012562103a990011e05a2a280b215560097df8e05bce1dbf2fcf48dd673f6",
+    "resolved_mode": "100644",
+    "reason": "Repair the reproduced false-negative colouring backtracking and propagate budget exhaustion as unknown; clarify the positive list-colouring table predicate, odd-denominator scope and zero-total convention. Require regression plus complete resolved package replay and semantic certificate comparison."
+  },
+  {
+    "number": 2869,
+    "path": "research/fstar-entry-class-scope-seed63d5f999/README.md",
+    "original_sha256": "9290f6bef386b3f69879b6ae63d094d0a97678eb9389d6b65538ba69e8dd19ee",
+    "resolved_sha256": "645dedf9b8be7f1693b0120d70046cb2c0177e109232d08d26977dd52285215a",
+    "resolved_mode": "100644",
+    "reason": "Repair the reproduced false-negative colouring backtracking and propagate budget exhaustion as unknown; clarify the positive list-colouring table predicate, odd-denominator scope and zero-total convention. Require regression plus complete resolved package replay and semantic certificate comparison."
+  },
+  {
+    "number": 2834,
+    "path": "CONTRIBUTORS.md",
+    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
+    "resolved_sha256": "7dfe903f3005d00b4308ad5e6cbeda840d498dd6dfd07ec520ca46a0852e0012",
+    "resolved_mode": "100644",
+    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
 ]

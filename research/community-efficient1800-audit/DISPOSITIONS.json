@@ -412,11 +412,11 @@
         "isDraft": false
       },
       "reviewed_head": "d84d3b950127ff9252e5c059a629bb654500192a",
-      "current_head": "d84d3b950127ff9252e5c059a629bb654500192a",
+      "current_head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "The historical cube-XOR differential case passed, but the whole command reached 180 seconds before the larger declared coverage completed. Finish the remaining differential/certificate comparison.",
+      "unresolved_question": "Live head changed to 4ba229532a76516e5f6f5befc1d6d9dc4834f6f9. Follow-up preserves historical evidence and adds three transitive-import compatibility pins plus controls; revision diff retained, but refreshed whole-head packet, current closure authentication and full differential replay are pending. The former head reached180seconds; author fresh receipts do not replace maintainer execution.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2176,19 +2176,24 @@
       "current_head": "0e58de39d3576c08aa7d00bafd03371be3be9650",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "CONTRIBUTORS.md",
+        "research/pr203-retention-receipt"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Full retention proof, new verifier, collector and rejection tests reviewed. Authenticates all29 original PR203 paths and upstream187/193 via raw Git objects; fresh Python ceiling/center/triangular/topology controls are separate from retained historical C++ and vector-solver receipts. Original Git recollection independently compared. Restores huxint mechanism credit and preserves current contributor history; no fresh full Fano census or new \u03ba.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2834.json"
+        "research/community-efficient1800-audit/packets/2834.json",
+        "research/community-efficient1800-audit/checks/check-2834-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2834.json"
       ]
     },
     {
@@ -2261,7 +2266,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2836.json"
+        "research/community-efficient1800-audit/packets/2836.json",
+        "research/community-efficient1800-audit/checks/check-2836-supplement.json"
       ]
     },
     {
@@ -2548,7 +2554,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2846.json"
+        "research/community-efficient1800-audit/packets/2846.json",
+        "research/community-efficient1800-audit/checks/check-2846-supplement.json"
       ]
     },
     {
@@ -3062,20 +3069,23 @@
       "current_head": "b07bc1e16752a1980c7dab098d6a4b98295d73c0",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/independent-walks-onerepeat-8q"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Scoped Q=8 one-repeat (2,6) independent-dirt obstruction. Full proof and all new source reviewed: all valid ordered nonzero-slot walks, rank-four versus lower-rank cases, every short label, fixed R=112 spectrum and tariff floor. Separate implementation closely repeats the census, not a formal or human-independent proof. All declared commands and independent stored-witness/source checks required; no new kappa.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2861.json",
-        "research/community-efficient1800-audit/checks/check-2861-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2861-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2861.json"
       ]
     },
     {
@@ -3228,20 +3238,23 @@
       "current_head": "fc3a2cb3362934b1e34df974e64f9d0acfe07b77",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/shared-dirt-walks-8q"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Full scoped proof and all new code reviewed: five-source common-B shared-dirt parity readouts at Q=8, distinct-label restored pairs; exact spectra have min R=82, priced lower bound468>436. Shared parity reduces independent-dirt readout cost but path XORs remain separately charged; no shared-X schedule or new supplier is admitted. Stored champions and spectrum witnesses receive independent occurrence-DP checks; exhaustive registered censuses and controls remain required.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2867.json",
-        "research/community-efficient1800-audit/checks/check-2867-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2867-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2867.json"
       ]
     },
     {
@@ -3303,19 +3316,23 @@
       "current_head": "153b93c1c0e9ee1c50677ae04d48f1f7f0b1700e",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/fstar-entry-class-scope-seed63d5f999"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Full valuation normalization/pattern-invariance proof and1199-line new engine reviewed. SC/SG follow from total valuation minima; integer scaling preserves supports/zeros. Reproduced false-negative three-colour helper, repaired backtracking/budget propagation; full resolved replay, independent small-graph controls and certificate/provenance comparison required. MX/chain interfaces inherited; CP-SAT upper bounds and broader F-star remain unproved here. No \u03ba claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2869.json"
+        "research/community-efficient1800-audit/packets/2869.json",
+        "research/community-efficient1800-audit/checks/check-2869-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2869.json"
       ]
     },
     {
@@ -3329,26 +3346,30 @@
           "login": "navinor",
           "name": "Aaron Wang"
         },
-        "headRefOid": "88426cc42fa280513f85db44d1acebe71471ee90",
+        "headRefOid": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
         "isDraft": false
       },
-      "reviewed_head": "88426cc42fa280513f85db44d1acebe71471ee90",
-      "current_head": "88426cc42fa280513f85db44d1acebe71471ee90",
+      "reviewed_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
+      "current_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/f7-17point-fourier-obstruction-seedb5e318fe"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Full Fourier lemma, new code and both vendored engines reviewed. Local split11/6 exclusion is self-contained; added maintainer corollary applies it to every hyperplane and uses Parseval1887>1143 to exclude all17-point covers without older census receipts. Registered small checks, independent FWHT and original vendor authentication required. Optional resumable anchors and predecessor census numbers remain historical, not rerun or newly admitted; no word-level frontier or \u03ba change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2870.json"
+        "research/community-efficient1800-audit/packets/2870.json",
+        "research/community-efficient1800-audit/checks/check-2870-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2870.json"
       ]
     },
     {
