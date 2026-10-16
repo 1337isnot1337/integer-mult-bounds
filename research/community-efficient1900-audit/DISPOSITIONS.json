@@ -194,18 +194,24 @@
       "reviewed_head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
       "current_head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
       "prior_reviewed_head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-packet-retained-backing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2874"
+      },
       "scope": "Ross Richardson: exact identity-aware retained backing at packet prefix-return cuts, including erased arrays and cross-pass aliases. Written source proof, 130 native/interface cuts and 5,184 independent fixture cuts; not whole-loop or physical memory.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2874.json",
@@ -297,18 +303,24 @@
       "reviewed_head": "bbafe95af535004c7b605059e611cc8a569f88f6",
       "current_head": "bbafe95af535004c7b605059e611cc8a569f88f6",
       "prior_reviewed_head": "bbafe95af535004c7b605059e611cc8a569f88f6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/linear-sign-total-traffic"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2877"
+      },
       "scope": "Arham Tahir: exact logical traffic for the PR2753 linear sign, including countdown setup/disposal. Written canonical-input bound below 2048V, 387 countdowns and 150 signs; not physical compilation or a supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2877.json",
@@ -468,18 +480,24 @@
       "reviewed_head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
       "current_head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
       "prior_reviewed_head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-packet-backing-envelope"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2882"
+      },
       "scope": "Hiroki KUMAZAKI/kumagi: full named-array packet-loop backing envelope and phase-aware private-action composition. Source proof, 99 runtime fixtures and independent arithmetic census; borrowed backing must remain fixed throughout the action.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2882.json",
@@ -571,18 +589,24 @@
       "reviewed_head": "219b6456f66fab41d676d3421de48bac534a3b9f",
       "current_head": "219b6456f66fab41d676d3421de48bac534a3b9f",
       "prior_reviewed_head": "219b6456f66fab41d676d3421de48bac534a3b9f",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-lcm-stock-wrapper-fit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2888"
+      },
       "scope": "James Reed/jwr404: lcm row stock fits the existing wrapper and fourteen selected numerical guards. Exact arithmetic and predecessor contracts checked; integration clarifies zero depth and the required atom width/cutoff. Callee, root and physical obligations remain open.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2888.json",
@@ -1021,18 +1045,24 @@
       "reviewed_head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
       "current_head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
       "prior_reviewed_head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-native-payload-backing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2902"
+      },
       "scope": "Nick Petalas: exact native ADD/swap/sign private payload backing, with pending results and cleared arrays retained. 60 source fixtures, 22 origin planes and defect controls; restricted payload composition only, not total private storage.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2902.json",
@@ -1124,18 +1154,24 @@
       "reviewed_head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
       "current_head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
       "prior_reviewed_head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-add-counter-backing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2905"
+      },
       "scope": "Nick Petalas: exact native ADD Counter backing, constructor overlap and conditional callback phase composition. 63 source fixtures and 162 independent write-observed cases; cleared but captured callback tapes falsify the release premise.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2905.json",
@@ -1374,18 +1410,24 @@
       "reviewed_head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
       "current_head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
       "prior_reviewed_head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-extent-count-backing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2912"
+      },
       "scope": "Nick Petalas: exact operand-order-sensitive Count.product backing and an extent-preparation upper bound. 4,099 products, 58 preparations and six complete ADD fixtures; encoded index width matters. No complete private-storage or allocator claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2912.json",
@@ -1511,18 +1553,24 @@
       "reviewed_head": "639a340f6d514bbea984923da4df495b1dae42ac",
       "current_head": "639a340f6d514bbea984923da4df495b1dae42ac",
       "prior_reviewed_head": "639a340f6d514bbea984923da4df495b1dae42ac",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-add-count-phase-envelope"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2916"
+      },
       "scope": "Nick Petalas: joins extent/countdown backing at actual ADD phase boundaries with released-callback allowance. 70 complete fixtures, wrong-result/underbudget controls and module-restoration checks; other storage owners and physical reuse remain unpriced.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1900-audit/packets/2916.json",

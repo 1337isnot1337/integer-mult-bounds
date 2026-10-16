@@ -552,7 +552,7 @@
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "3c227e24b708c877e23475a7466f3d5208a77b46072a54ee9ceba14be395bf07",
+    "resolved_sha256": "a25cd453510408edcd726426e8eba7411c8e438ff71e8c6099533b95a88e60f1",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."

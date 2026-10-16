@@ -47,8 +47,8 @@
     "research/community-efficient1900-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 2002,
-    "partially_reviewed": 378,
+    "incorporated": 2010,
+    "partially_reviewed": 370,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "acca85230c35247911416006ed7b2028cd12a83de019557441d81ee1eabb52b7",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "140f46440e9d9355377fe4aa0050deb2377dee22586b696052b0eab34a0d4c70",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -133963,25 +133963,32 @@
         {
           "head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Ross Richardson: exact identity-aware retained backing at packet prefix-return cuts, including erased arrays and cross-pass aliases. Written source proof, 130 native/interface cuts and 5,184 independent fixture cuts; not whole-loop or physical memory.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-packet-retained-backing"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2874"
+      },
       "reviewed_head": "08dd02bd8d8b1fadc5fe8589c2d2875d21fe5fce",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2874.json"
+        "research/community-efficient1900-audit/packets/2874.json",
+        "research/community-efficient1900-audit/checks/check-2874.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -134095,25 +134102,32 @@
         {
           "head": "bbafe95af535004c7b605059e611cc8a569f88f6",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Arham Tahir: exact logical traffic for the PR2753 linear sign, including countdown setup/disposal. Written canonical-input bound below 2048V, 387 countdowns and 150 signs; not physical compilation or a supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/linear-sign-total-traffic"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2877"
+      },
       "reviewed_head": "bbafe95af535004c7b605059e611cc8a569f88f6",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2877.json"
+        "research/community-efficient1900-audit/packets/2877.json",
+        "research/community-efficient1900-audit/checks/check-2877.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -134315,25 +134329,32 @@
         {
           "head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Hiroki KUMAZAKI/kumagi: full named-array packet-loop backing envelope and phase-aware private-action composition. Source proof, 99 runtime fixtures and independent arithmetic census; borrowed backing must remain fixed throughout the action.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-packet-backing-envelope"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2882"
+      },
       "reviewed_head": "02483f1b4414286b86d807bf2e8a8b9ddc7cd487",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2882.json"
+        "research/community-efficient1900-audit/packets/2882.json",
+        "research/community-efficient1900-audit/checks/check-2882.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -134447,25 +134468,32 @@
         {
           "head": "219b6456f66fab41d676d3421de48bac534a3b9f",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "James Reed/jwr404: lcm row stock fits the existing wrapper and fourteen selected numerical guards. Exact arithmetic and predecessor contracts checked; integration clarifies zero depth and the required atom width/cutoff. Callee, root and physical obligations remain open.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-lcm-stock-wrapper-fit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2888"
+      },
       "reviewed_head": "219b6456f66fab41d676d3421de48bac534a3b9f",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2888.json"
+        "research/community-efficient1900-audit/packets/2888.json",
+        "research/community-efficient1900-audit/checks/check-2888.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135026,25 +135054,32 @@
         {
           "head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Nick Petalas: exact native ADD/swap/sign private payload backing, with pending results and cleared arrays retained. 60 source fixtures, 22 origin planes and defect controls; restricted payload composition only, not total private storage.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-native-payload-backing"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2902"
+      },
       "reviewed_head": "4141dafd49e098e521c51fd31c5b6ea0c2fd0854",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2902.json"
+        "research/community-efficient1900-audit/packets/2902.json",
+        "research/community-efficient1900-audit/checks/check-2902.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135158,25 +135193,32 @@
         {
           "head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Nick Petalas: exact native ADD Counter backing, constructor overlap and conditional callback phase composition. 63 source fixtures and 162 independent write-observed cases; cleared but captured callback tapes falsify the release premise.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-add-counter-backing"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2905"
+      },
       "reviewed_head": "119f74dfe6ff97d8d692a32ed02d6597220dd479",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2905.json"
+        "research/community-efficient1900-audit/packets/2905.json",
+        "research/community-efficient1900-audit/checks/check-2905.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135477,25 +135519,32 @@
         {
           "head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Nick Petalas: exact operand-order-sensitive Count.product backing and an extent-preparation upper bound. 4,099 products, 58 preparations and six complete ADD fixtures; encoded index width matters. No complete private-storage or allocator claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-extent-count-backing"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2912"
+      },
       "reviewed_head": "5ff0dc6019f1a7b1440ae51b5c2bf757e9698b5e",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2912.json"
+        "research/community-efficient1900-audit/packets/2912.json",
+        "research/community-efficient1900-audit/checks/check-2912.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135653,25 +135702,32 @@
         {
           "head": "639a340f6d514bbea984923da4df495b1dae42ac",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "Nick Petalas: joins extent/countdown backing at actual ADD phase boundaries with released-callback allowance. 70 complete fixtures, wrong-result/underbudget controls and module-restoration checks; other storage owners and physical reuse remain unpriced.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-add-count-phase-envelope"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2916"
+      },
       "reviewed_head": "639a340f6d514bbea984923da4df495b1dae42ac",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2916.json"
+        "research/community-efficient1900-audit/packets/2916.json",
+        "research/community-efficient1900-audit/checks/check-2916.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135871,7 +135927,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1550,
-    "OPEN": 514
+    "MERGED": 1558,
+    "OPEN": 506
   }
 }

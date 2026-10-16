@@ -1,12 +1,20 @@
 {
   "status": "PASS",
-  "checked_commit": "f1e3ef3fc1cbb88df31d387840d22101b93e3838",
+  "checked_commit": "957426a31828ea3dd8602989bbfbfb80df40625e",
   "merged_prs": [
+    2874,
+    2877,
+    2882,
+    2888,
     2892,
+    2902,
+    2905,
     2906,
+    2912,
+    2916,
     2921
   ],
-  "changed_files": 11,
+  "changed_files": 167,
   "resolved_files": [
     {
       "number": 2892,
@@ -17,6 +25,11 @@
       "number": 2906,
       "path": "scripts/run_isolated_tests.py",
       "sha256": "8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a"
+    },
+    {
+      "number": 2888,
+      "path": "research/selected-lcm-stock-wrapper-fit/README.md",
+      "sha256": "d56ee549aa15d75da7d42411a0456de5cfbb66b142422fec53c562c5a4803bb6"
     },
     {
       "number": 2906,
