@@ -1835,20 +1835,24 @@
       },
       "reviewed_head": "687372b807f5ec635f6a748c2585fc0090a7dc2a",
       "current_head": "687372b807f5ec635f6a748c2585fc0090a7dc2a",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-callback-word-liveness"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e72795c7ba667d9624dafe796edd0fd8039c5715",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2770"
+      },
       "scope": "Source-level all-depth numerical liveness of Callback.weight and initialized Page.evaluate. Reviewed complete lifetime argument and 522 new checker/test lines against actual controller, numeric, matrix, record and arithmetic allocation/free paths; literal fixtures attain residue/index maxima separately. Bound includes all entry residents and retained forms, but excludes form construction, serialized continuation/backing, physical placement and full caller reserve/admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2770.json",
@@ -1871,20 +1875,24 @@
       },
       "reviewed_head": "e707681c3f6db70d0432501403e2122794a36ade",
       "current_head": "e707681c3f6db70d0432501403e2122794a36ade",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/qq16-rounded-native-line"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "e72795c7ba667d9624dafe796edd0fd8039c5715",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2771"
+      },
       "scope": "Constructive direct rounded signed Gaussian-dyadic line with exact wrappers and an all-depth Hilbert error bound. Reviewed complete proof, 356-line implementation and 120-line CLI controls: owner-local maximum scans yield the predecessor state-relative 22-bit premise. Direct pair arithmetic, scans, exponents and routing remain paid; no cheap recursive child, fixed absolute caller grid, full supplier or kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2771.json",
@@ -1961,7 +1969,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2773.json"
+        "research/community-efficient1700-audit/packets/2773.json",
+        "research/community-efficient1700-audit/checks/check-2773.json"
       ]
     },
     {

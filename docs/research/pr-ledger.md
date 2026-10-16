@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1925 |
-| partially reviewed | 370 |
+| incorporated | 1927 |
+| partially reviewed | 368 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -2347,8 +2347,8 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2767](https://github.com/CrocSwap/integer-mult-bounds/pull/2767) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2768](https://github.com/CrocSwap/integer-mult-bounds/pull/2768) | tekuuu | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2769](https://github.com/CrocSwap/integer-mult-bounds/pull/2769) | jmbarrancoml | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
-| [#2770](https://github.com/CrocSwap/integer-mult-bounds/pull/2770) | petalas | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
-| [#2771](https://github.com/CrocSwap/integer-mult-bounds/pull/2771) | petalas | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
+| [#2770](https://github.com/CrocSwap/integer-mult-bounds/pull/2770) | petalas | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
+| [#2771](https://github.com/CrocSwap/integer-mult-bounds/pull/2771) | petalas | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2772](https://github.com/CrocSwap/integer-mult-bounds/pull/2772) | petalas | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2773](https://github.com/CrocSwap/integer-mult-bounds/pull/2773) | navinor | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2774](https://github.com/CrocSwap/integer-mult-bounds/pull/2774) | navinor | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
