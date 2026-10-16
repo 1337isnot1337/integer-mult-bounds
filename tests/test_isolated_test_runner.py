@@ -139,6 +139,22 @@ class IsolatedRunnerTest(unittest.TestCase):
         self.assertIn('deliberate negative control', result.stderr.decode())
         self.assertIn('Failed modules: test_skip_clones.py', result.stderr.decode())
 
+    def test_frozen_family_routing_preserves_failure_reporting(self):
+        box = self.sandbox({'test_split_skip.py': FAIL_MODULE,
+                            'test_regular.py': PASS_MODULE})
+        manifest = self.tmp / 'research/skip-clones/SOURCE.json'
+        manifest.parent.mkdir(parents=True)
+        manifest.write_text('{}')
+        (self.tmp / 'scripts/replay_historical_check.py').write_text(
+            "import sys\nprint('historical route: ' + sys.argv[1])\n"
+            "raise SystemExit(7)\n")
+        result = box.run('--workers', '2')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('historical route: legacy-test-split-skip', result.stdout.decode())
+        self.assertIn('Failed modules: test_split_skip.py', result.stderr.decode())
+        self.assertNotIn('deliberate negative control', result.stderr.decode())
+        self.assertIn('Ran 1 test', result.stderr.decode())
+
     def test_inherited_optimization_cannot_hide_verifier_assertions(self):
         # Research tests call verifiers that still use Python assert. The
         # outer runner itself may be optimized, but its checks must not be.

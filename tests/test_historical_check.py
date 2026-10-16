@@ -108,6 +108,21 @@ class HistoricalReplay(unittest.TestCase):
                 with self.subTest(entry=entry), self.assertRaises(ValueError):
                     checker.authenticated_input(root, config, inputs)
 
+    def test_nested_coverage_pin_rejects_missing_duplicate_and_changed_records(self):
+        with tempfile.TemporaryDirectory() as td:
+            root, inputs, config, paths = self.fixture(td)
+            config['field'] = ['pull_requests', '681', 'files']
+            record = {'integrated_path': 'input.txt', 'integrated_sha256': config['sha256']}
+            manifest = root / 'manifest.json'
+            def write(records):
+                manifest.write_text(json.dumps({'pull_requests': {'681': {'files': records}}}))
+            write([record])
+            self.assertEqual(checker.authenticated_input(root, config, inputs), b'historical input\n')
+            for records in ([], [record, record], [{**record, 'integrated_sha256': '0'*64}]):
+                write(records)
+                with self.subTest(records=records), self.assertRaises(ValueError):
+                    checker.authenticated_input(root, config, inputs)
+
     def test_untracked_replacement_and_existing_destination_reject(self):
         with tempfile.TemporaryDirectory() as td:
             root, inputs, config, paths = self.fixture(td)
@@ -224,15 +239,99 @@ class HistoricalReplay(unittest.TestCase):
         entries = [config, *config['additional_inputs']]
         self.assertEqual({entry['path'] for entry in entries}, {
             'scripts/audit_fused_block.py', 'scripts/exclusion_circuit.py',
-            'scripts/shared_point_circuit.py'})
+            'scripts/shared_point_circuit.py', 'scripts/partial_swap/shared.py',
+            'scripts/audit_sparse_fusion.py'})
         for entry in entries:
             with self.subTest(path=entry['path']):
                 checker.authenticated_input(ROOT, entry)
 
+    def test_scheduler_and_hpe_overlays_bind_frozen_and_live_bytes(self):
+        cases = [*checker.CONFIG['reconciliation92']['additional_inputs'],
+                 checker.CONFIG['tooling-exact']]
+        for config in cases:
+            with self.subTest(path=config['path']):
+                original = (checker.INPUTS / config['input']).read_bytes()
+                self.assertEqual(hashlib.sha256(original).hexdigest(), config['sha256'])
+                self.assertEqual(checker.authenticated_input(ROOT, config), original)
+                live = hashlib.sha256((ROOT / config['path']).read_bytes()).hexdigest()
+                self.assertIn(live, config['accepted_live_sha256'])
+                self.assertNotEqual(live, config['sha256'])
+        self.assertEqual(len(checker.CONFIG['tooling-exact']['commands']), 7)
+
+    def test_new_context_overlays_reject_real_pin_and_live_drift(self):
+        for real in [*checker.CONFIG['reconciliation92']['additional_inputs'],
+                     checker.CONFIG['tooling-exact']]:
+            with self.subTest(path=real['path']), tempfile.TemporaryDirectory() as td:
+                root, inputs = Path(td)/'repo', Path(td)/'inputs'
+                root.mkdir()
+                inputs.mkdir()
+                manifest = root / real['manifest']
+                manifest.parent.mkdir(parents=True,exist_ok=True)
+                manifest.write_text(json.dumps({real['field']:{real['path']:real['sha256']}}))
+                live = root / real['path']
+                live.parent.mkdir(parents=True,exist_ok=True)
+                live.write_bytes((ROOT/real['path']).read_bytes())
+                original = (checker.INPUTS/real['input']).read_bytes()
+                (inputs/real['input']).write_bytes(original)
+                self.assertEqual(checker.authenticated_input(root,real,inputs),original)
+                live.write_bytes(b'unreviewed live successor')
+                with self.assertRaisesRegex(ValueError,'Unrecognized live source update'):
+                    checker.authenticated_input(root,real,inputs)
+                live.write_bytes((ROOT/real['path']).read_bytes())
+                (inputs/real['input']).write_bytes(b'corrupted immutable historical blob')
+                with self.assertRaisesRegex(ValueError,'Changed historical input'):
+                    checker.authenticated_input(root,real,inputs)
+                (inputs/real['input']).write_bytes(original)
+                manifest.write_text(json.dumps({real['field']:{real['path']:'0'*64}}))
+                with self.assertRaisesRegex(ValueError,'Missing or changed predecessor source pin'):
+                    checker.authenticated_input(root,real,inputs)
+
+    def test_git_free_catalog_rejects_corruption_and_missing_inputs(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / 'input.txt').write_bytes(b'input')
+            catalog = root / '.historical-ci-tracked.json'
+            raw = json.dumps(['input.txt']).encode()
+            catalog.write_bytes(raw)
+            with patch.dict(os.environ, {'HISTORICAL_CI_CATALOG_SHA256': hashlib.sha256(raw).hexdigest()}):
+                self.assertEqual(checker.tracked_paths(root), ['input.txt'])
+                catalog.write_bytes(raw + b' ')
+                with self.assertRaisesRegex(ValueError, 'Changed historical tracked-input catalog'):
+                    checker.tracked_paths(root)
+                catalog.write_bytes(raw)
+                (root / 'input.txt').unlink()
+                with self.assertRaisesRegex(ValueError, 'Missing historical tracked input'):
+                    checker.tracked_paths(root)
+
+    def test_live_guards_also_admit_the_actual_committed_source_bytes(self):
+        # Windows Git attributes can normalize bytes at commit time. A local
+        # working-copy hash alone is not a published source admission check.
+        for name, config in checker.CONFIG.items():
+            for entry in [config, *config.get('additional_inputs', [])]:
+                if 'accepted_live_sha256' not in entry:
+                    continue
+                with self.subTest(package=name, path=entry['path']):
+                    raw = subprocess.check_output(['git', 'show', 'HEAD:' + entry['path']], cwd=ROOT)
+                    digest = hashlib.sha256(raw).hexdigest()
+                    self.assertIn(digest, [entry['sha256'], *entry['accepted_live_sha256']])
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):
-                checker.authenticated_input(ROOT, config)
+                for entry in [config, *config.get('additional_inputs', [])]:
+                    checker.authenticated_input(ROOT, entry)
+
+    def test_legacy_graph_and_certificate_context_match_original_provenance(self):
+        baseline = (ROOT / 'research/partial-swap-digest/baseline.py').read_bytes()
+        entry = checker.LEGACY_SHARED
+        self.assertEqual(checker.authenticated_input(ROOT, entry), baseline)
+        config = checker.CONFIG['legacy-producers']['additional_inputs'][0]
+        original = checker.authenticated_input(ROOT, config)
+        verifier = (ROOT / 'research/partial-swap-digest/verify.py').read_text()
+        self.assertIn('BASE_CERT_SHA256 = "' + hashlib.sha256(original).hexdigest() + '"', verifier)
+        self.assertEqual(json.loads(original)['source_sha256']['scripts/partial_swap/shared.py'], entry['sha256'])
+        for family in ('community', 'producers', 'strips', 'pair'):
+            self.assertEqual(checker.CONFIG['legacy-' + family]['make_target'], 'verify-' + family)
 
 
 class HistoricalReplayEnvironment(unittest.TestCase):
@@ -286,6 +385,16 @@ class HistoricalReplayEnvironment(unittest.TestCase):
                         self.assertNotEqual(result.returncode, 0, result.stdout + result.stderr)
                         self.assertIn(kind + ' historical assertion', result.stderr)
                         self.assertNotIn('PASS_HISTORICAL_CHECK', result.stdout)
+
+    def test_nested_replay_retains_full_inventory_without_git_metadata(self):
+        body = "import os, pathlib, subprocess, sys\nif not os.environ.get('NESTED_REPLAY'):\n    root = pathlib.Path(__file__).resolve().parents[2]\n    subprocess.run([sys.executable, '-B', str(root / 'scripts/replay_historical_check.py'), 'r420'],\n                   env=dict(os.environ, NESTED_REPLAY='1'), check=True)\nelse:\n    print('PASS_NESTED_GIT_FREE_REPLAY')\n"
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self.sandbox(root, body)
+            result = self.run_cli(root, '2')
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertIn('PASS_NESTED_GIT_FREE_REPLAY', result.stdout)
+            self.assertEqual(result.stdout.count('PASS_HISTORICAL_CHECK r420'), 2)
 
     def test_unittest_command_also_rejects_assertions(self):
         body = ('import unittest\nclass Fixture(unittest.TestCase):\n'

@@ -20,9 +20,11 @@ class FamilyDecision(unittest.TestCase):
         cls.ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
         cls.items = {row['number']: row for row in cls.ledger['pull_requests']}
         cls.families = {}
-        for family in ('family533', 'family588', 'hyperplane599', 'cold617', 'k492', 'frontier741', 'frontier799', 'frontier890', 'reconciliation-fourth100', 'pilot20', 'efficient100', 'efficient200', 'efficient300', 'efficient400', 'efficient500', 'efficient600', 'efficient700', 'efficient800', 'efficient900', 'efficient1000', 'efficient1100', 'efficient1200'):
-            path = ROOT / f'research/community-{family}-audit/DISPOSITIONS.json'
-            cls.families[family] = json.loads(path.read_text())['pull_requests']
+        # The former test stopped at efficient1200, so later valid reviews
+        # looked like forged projections. Follow the actual authoritative order.
+        for path in checker.decision_paths():
+            if path.exists():
+                cls.families[path.parent.name.removeprefix('community-').removesuffix('-audit')] = json.loads(path.read_text())['pull_requests']
         cls.latest = {row['number']: row for decisions in cls.families.values() for row in decisions}
 
     def setUp(self):
@@ -201,7 +203,7 @@ class AssertionSafetyRefresh(unittest.TestCase):
     def test_historical_adapter_cannot_be_disabled(self):
         item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
         current = (ROOT / item['integrated_path']).read_bytes()
-        mutated = current.replace(b"path.name == 'test_skip_clones.py'", b'False')
+        mutated = current.replace(b"path.name in legacy", b'False')
         self.assertNotEqual(current, mutated)
         original_read = Path.read_bytes
         def read(path):

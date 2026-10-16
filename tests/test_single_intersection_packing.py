@@ -33,6 +33,15 @@ class SingleIntersectionPacking(unittest.TestCase):
                 self.assertEqual(value['source_sha256'][source], current)
                 value['source_sha256'][source] = (
                     '08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d')
+                if name == 'affine-vector-screens.json':
+                    # The later accepted Leech production update also changed
+                    # this certificate's own helper pin. Bind that exact source
+                    # before restoring its predecessor for the full payload hash.
+                    companion = 'scripts/experiments/affine_vector_screens.py'
+                    successor = 'c499289fc25b5d180df22f70694a7b1c4cfed68f00a9a59bbf4f7ae1b52327a9'
+                    self.assertEqual(value['source_sha256'][companion], successor)
+                    self.assertEqual(hashlib.sha256((root / companion).read_bytes()).hexdigest(), successor)
+                    value['source_sha256'][companion] = '756778eeca27f490adc7354a122dc50c40375156259991469c47a90949118ea1'
                 payload = (json.dumps(value, indent=2, sort_keys=True) + '\n').encode()
                 self.assertEqual(hashlib.sha256(payload).hexdigest(), expected)
 

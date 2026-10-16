@@ -103,13 +103,17 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
         command = module_command(python, tests_dir, path.name, receipt)
         # Run this frozen package's original tests in its authenticated overlay.
         # Other test modules continue to exercise the live checkout unchanged.
-        if (path.name == 'test_skip_clones.py'
+        legacy = {'test_skip_clones.py': 'skip-clones-tests',
+                  **{'test_' + slug.replace('-', '_') + '.py': 'legacy-test-' + slug
+                     for slug in ('copied-fixed', 'copied-fixed-reversed', 'skip-strips',
+                                  'skip-suffix', 'pair-assembly', 'split-skip')}}
+        if (path.name in legacy
                 and Path(tests_dir).resolve() == (ROOT / 'tests').resolve()
                 and Path(cwd).resolve() == ROOT.resolve()
                 and (ROOT / 'research/skip-clones/SOURCE.json').is_file()
                 and (ROOT / 'scripts/replay_historical_check.py').is_file()):
             command = [python, '-B', str(ROOT / 'scripts/replay_historical_check.py'),
-                       'skip-clones-tests', '--completion-receipt', str(receipt)]
+                       legacy[path.name], '--completion-receipt', str(receipt)]
         # Serialize launch/registration with cancellation: no worker may start
         # an unregistered module after the controlling thread takes its snapshot.
         with lock:

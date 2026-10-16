@@ -46,9 +46,11 @@ class CurrentTree(unittest.TestCase):
                       'split-centres/CLIFFORD-RECIPES.json', pins)
         result = guard.check(ROOT)
         self.assertEqual(result['driver_closure'], [
+            'scripts/historical-ci-inputs/verify_hpe_lean_binding.py',
             'scripts/verify_frontier1042.py', 'scripts/verify_frontier1094.py', 'scripts/verify_frontier741.py',
             'scripts/verify_frontier741_bindings.py', 'scripts/verify_frontier741_bridge_coverage.py',
             'scripts/verify_frontier799.py', 'scripts/verify_frontier799_bindings.py',
+            'scripts/verify_hpe_lean_binding.py',
             'scripts/verify_replay_coverage.py', 'scripts/verify_selected_result.py'])
         self.assertIn('certificates/checkpoints/frontier1042.json', result['named_records'])
         self.assertEqual(result['workflow'], '.github/workflows/frontier1094.yml')
