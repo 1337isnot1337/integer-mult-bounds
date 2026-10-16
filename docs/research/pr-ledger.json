@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1995,
-    "partially_reviewed": 341,
+    "incorporated": 1996,
+    "partially_reviewed": 340,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "53667a1a3d95de0f5e11645b3de3da3d65f49234c1f7a9fe1726db5f4188dd5b",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "5f42df21a468652bbf92f3e500b5d78383abb6f07bb95e406d7323bd4ce32483",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -92076,7 +92076,7 @@
       "closure": null,
       "reviewed_head": "54d7f5fd4ef6073b6399d1e6e73773f61fe4360a",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,11unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,11unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted. Candidate migration now passes full disjoint-union normal/optimized and exact four-companion pin/payload mutation controls. Remaining historical binary consumers still block admission. One-shot iterable behavior clarified in candidate documentation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -94405,7 +94405,7 @@
       "closure": null,
       "reviewed_head": "98dd6ef113e1e6a4ca3848b0889cd13b1970fd32",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Complete repaired current integration replay passes normal/-O:2500rational products,12positive-side cases, rank/positive certificates,14unit tests and actual comparator-nonvacuity controls. Current companion pins preserved. Do not merge until active joint-helper consumers are migrated: cube source gate rejects only this replacement, and PR1076 historical adapter needs an explicit accepted successor; split-skip and remaining frozen/runtime consumers also need compatibility. Candidate patch retained, not admitted.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:2500rational products,12positive-side cases, rank/positive certificates,14unit tests and actual comparator-nonvacuity controls. Current companion pins preserved. Do not merge until active joint-helper consumers are migrated: cube source gate rejects only this replacement, and PR1076 historical adapter needs an explicit accepted successor; split-skip and remaining frozen/runtime consumers also need compatibility. Candidate patch retained, not admitted. Candidate migration now passes full cube differential, PR1076 historical replay, current ternary and historical snapshot rejection controls. Split-skip and other historical joint consumers still block admission. Split-skip now also passes its complete actual historical CLI plus21 normal/optimized adapter tests, restoring two pre-existing changed dependencies and the new joint helper to exact original bytes. Remaining legacy consumers are still pending.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -105248,25 +105248,32 @@
         {
           "head": "3f913bc17276b68f0c9008a1202b6ce588e77ff6",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Exact P104 helper-7 private-copy descent on the frozen PR2152 forward word. Full 735-input rational endpoint replay, five scalar rejection controls, all 3,743 transport occurrences / 3,050 native recipes, eight private paths and 4,096 Gaussian columns, phase corruption control, and exact cost model reproduce all three complete author receipts. Combined transport rank mass and scalar ADD count each fall by nine. Retains the helper role and all source attribution; does not supply global hosting, a backward primitive, precision or an improved kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-private-descent-reuse-seed915fa969"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "5532a910748ea5cac6d9a822a0cb253802de88b5",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2219"
+      },
       "reviewed_head": "3f913bc17276b68f0c9008a1202b6ce588e77ff6",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2219.json"
+        "research/community-efficient1800-audit/packets/2219.json",
+        "research/community-efficient1800-audit/checks/check-2219.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133400,7 +133407,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1543,
-    "OPEN": 477
+    "MERGED": 1544,
+    "OPEN": 476
   }
 }
