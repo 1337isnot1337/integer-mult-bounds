@@ -1,3 +1,82 @@
+# Dirt-entry rewrite of four A-phase helpers (460, 462, 478, 480) on #2833's construction: kappa 0.00171937765869758665904733841726077218...
+
+**Credit first: PR2833 (jeremykothe2, Jeremy Kothe) is the base package and the source of the dirt-entry mechanism.** PR2833 builds on PR2802's (mdumitrean, Marius-Paul Dumitrean) construction: seven retired-lender aliases and two hostee moves on PR2751's (tekuuu) twelve-alias words, with PR2766's (DavidAriasC) frame refit. PR2833 then rewrote helpers 530 and 542. **New here:** the same rewrite extended to the A phase, for helpers 460, 462, 478 and 480. Prepared by Philippe Van Velzen (philippeVV) with Claude Code assistance. Also credited:
+- PR2843 (mdumitrean): T124 integer-prefix composition on PR2833. This package compares against it and does not compose with it.
+- PR2827 / PR2824 (Dugongue): the T104/T94 tail-allocation lineage.
+- The full PR2833 lineage, retained below.
+
+Conditional final kappa = **0.0017193776586975866590473384172607721814008956451425009430412460057503404071040423905924370921614016936349599996575798051733752076399828661071424528133116204108665576478204661464919617598343585484524702974017289809640608310940007596504547313171417642290767559750850327036443763958949276701315614084182582550782294614926854166678633518165095574636737913611722939423541165512669948579876694862940820794322681604047035649250603372674813493877135736770522694109132099158577487850859689383618416103013619426863008011594203958829773923918309467835785404794536680317802530438714723754082219296741326678063354545691266197656204485046940007194603764227886842657612702577257578902524058571682295826925682659917730305714815492526014996524819730258810160527078502095826534892562388431748401788169450709875893003253797487136842479124101169429105650760396697579174626680372202297456465619874841336521809586652402780111990386170172268373381842093293788010598379355684853890605248212741574284011514597757649218351744131074209720903563888742546518188979893906923159239618928523556755972597200527787486209886115453356488096913360689147838372739437326267972125792191920918825536672424513817139955549084830633129444135653843199862948309240531966991187940149380228286528014102762776155575447803552367005005534517354452699818957501259721372120542828957754277842675408852526958902205491479144856936386554518686702861962651880585424919584495474934784892039256289208222943383941527092570568397219339705279712429705426951822294004077902292782618818113902694452450291459939846428719161657151417208049935288685647694598005341935498511152918946247839959268670317549572412477693151973835249041678167828816827686753069808718673844160892815836102376757675036671018117066778433539739956663244138849798929700922384646175178750362230036206095408201215314251989510461803596671705632898242900785593975006517640755013867661549498301431681610793069670853314385776720226983596686726441370877445087824720595253572015639265264941101671404840359960081380843733908048006019122154575405156576095586845977194320757564357586250358409962743428564662035542609645007957479195198614633133624526616981357915749249122668331971690422289899472621447353255713838757067555955951769384517017145131540398127612264007701902090486661652880678411039240152421254959123182586150102956220415049232456104551435853722705332378116189133196894624473164964161901278464988044812290830287125207271322696356586817309654257541649542793451050763742999612659361815742594876874365619721197108394736060040665311340944580538964981258346873524367079294647209815778430967907073900857586430360872971473933612881754758496436326352000702257338896725815583758704393752256248604713672679221076879476083069636687621530504181022342124580618983319715908394692370795173629167220944795079202047435677777747836298580119166304268329679299693147333849102451075930795429135156954198334432354022675041138889869128019798693289176932374813976966998045997730255650851999384815082333308542575305739689999999999999999999998999999999999999999999999**
+
+That is 3046 decimals. The exact value is `kappa` in `outer/OUTER-CLAIM.json`, and the SHA-256 of the decimal string is `ac99b90cda6ce9f252982d31636be9cd64b8ca3d4a95a9ffe0b1ea17e72d405c`. The supplier-only kappa (`CLAIM.json`) is 0.0017164264733664832395102369225955516133... The gains are exact gates in `verify_release.py`:
+- over PR2833's headline: **+7.20222E-7**;
+- over PR2843's kappa_decimal: **+7.19381E-7**.
+
+## Changed hypothesis
+
+PR2833's rewrite needed a helper whose first event is in phase B. In that case one cleaning read moves the dirt into the partner register, and one target write at B entry cancels the rest. No other helper of the PR2833 words is first touched in B.
+
+The changed hypothesis: a helper whose first event is in phase A can still enter dirty, provided two things hold.
+- Its dirt response (minus its compensation) lies in the span of the responses of reads `z += ±k`. These reads are inserted while k is still pure, at its entrance line [u] or at its first frame, and stay frame-monotone for z.
+- Targets in phase A are excluded as z, because the A-end target levels are pinned.
+
+Results of the census (`new/borrow/dirtentry4/search/dirt3.py`, construction only) over the 189 eligible helpers:
+
+| Outcome | Helpers |
+|---|---|
+| First gate at the zero frame | 74 |
+| Dirt through warps | 36 |
+| Fail the span test | 63 |
+| Pass | 16, in four quartets |
+
+The four quartets are {460,461,468,469}, {462,463,470,471}, {478,479,490,491} and {480,481,492,493}. Each helper needs its own quartet members as z, so exactly one per quartet composes.
+
+For each of 460, 462, 478 and 480:
+- It enters at a one-dimensional frame: [7] for 460 and 462, [25] for 478 and 480.
+- Its seven compensation gates are removed.
+- Three unit reads are inserted: two into same-quartet helpers at the entrance frame, and one into its pair partner at its first frame.
+- Its width drops from 9 to 8. The two receiving helpers each climb one step earlier.
+
+Per call, the local profile changes by {1:+20, 2:-12} and the width inventory by 9:-4, 8:+4. Both words now have local profile {1:2402, 2:638, 3:266, 4:128, 5:26, 8:8} and inventory {4:26, 5:2, 7:62, 8:84, 9:234}.
+
+## What changed in the package
+
+- **Stage `dirtentry4` of `new/rebuild_borrow.py`** (patch `new/borrow/inputs/dirtentry4_43{base,extra}.json`). The stage checks:
+  - the exact A-phase gate edit: 12 unit reads of the four helpers into non-target registers, each before its helper's first original event;
+  - no B or warp change;
+  - that the removed compensation is exactly the four helpers' 28 gates;
+  - the new one-dimensional entrance frames;
+  - that every other field is unchanged and the width inventory moves exactly 9→8 four times.
+- **Tamper controls** (`DIRTENTRY4-CONTROLS`). Each mutant carries its own re-derived cleanup and the profile the auditor derives for it, so it is rejected for a structural or algebraic reason and not for a stale report:
+  - read dropped: target map failed;
+  - read sign flipped: target map failed;
+  - partner read dropped: target map failed;
+  - removed compensation restored: nonzero entrance response;
+  - wrong entrance line: frame not monotone.
+- **Owner fill** (`new/borrow-fill/FILL.json.gz`, checked literally by `reconstruct.py`).
+  - Construction: PR2833's fill, compacted for the new widths, then same-call width swaps (`dirtentry4/search/swapfill.py`), then `evac.py` twice, then the aggregated CP-SAT LNS (`lnstime.py`), then realization (`dirtentry4/search/realize.py`).
+  - Idle remainders: {1:16981, 3:6051, 4:1, 5:9309, 6:58, 7:3, 32:47, 48:26703}.
+  - Global profile: {1:1616713, 2:424908, 3:183207, 4:85249, 5:26625, 6:58, 7:3, 8:5328, 32:47, 48:26703}.
+  - A window-free pattern ILP bounds this inventory at about +9.8e-7 over PR2833 (search-side estimate only).
+- **Native, rebind and spec.** Fresh sparse native replays of both new words, then PLAN rebind, then strict discovery, then unpin/freeze of `new/SPEC.json`, then strict admission.
+  - As in PR2833, discovery alone used a scratch copy of `code/assemble.py` (`dirtentry4/search/patch_assemble.py`). It read the 1e-3000 floors of the exact moment roots (`dirtentry4/search/endpoints.py`) in place of the 1e-24 discovery values.
+  - That tool reproduces PR2833's pinned endpoints exactly.
+  - The shipped strict run uses the unmodified code, and the fine engines certify both endpoints.
+- **Outer.** `outer/B.json`, `LEDGER.json`, `INDEPENDENT.json` and `OUTER-CLAIM.json` were regenerated. `verify_release.py` gains exact gates over PR2833 and PR2843.
+
+## Reproduce
+
+Python 3.12 with numpy, gmpy2, sympy 1.14, mpmath and psutil:
+
+```sh
+python3 -B verify_release.py --main <repo root> --work <fresh absolute dir> [--native-cache <dir>] [--jobs 2]
+```
+
+It ends with `PASS_RELEASE <kappa>`. `python3 verify_manifest.py` checks the file inventory.
+
+Scope is unchanged from PR2833: a conditional finite construction. All inherited all-size compiler, hosting, precision, recovery, BIT and analytic hypotheses remain.
+
+## Previous package text (PR2833), retained; its kappa figures are superseded by the section above
+
 # Dirt-entry rewrite of helpers 530 and 542 on #2802's construction: kappa 0.0017186574371668559556...
 
 **Credit first: PR2802 (mdumitrean, Marius-Paul Dumitrean) is the base construction**: seven retired-lender aliases and two hostee moves on PR2751's (tekuuu) twelve-alias words with PR2766's (DavidAriasC) frame refit. **The dirt-entry rewrite of helpers 530 and 542 on top of it is ours**, by Jeremy Kothe (jeremykothe2), with AI assistance: four gates inject their dirt at B entry and 26 compensation gates are removed, which changes the local profile and the width inventory (8:80, 9:238). Also credited: PR2768 (tekuuu) exact sparse native replay, PR2788 (jeremydiviney) stale-bytecode finding, GaugeFix (Theorem 4.1 correction), PR2733 (mdumitrean), and the lineage PR2696 (mason-hale), PR2679 (philippeVV), PR2588 / PR2530 (zxv), PR2621 (themilkman216), PR2559 (philippeVV).

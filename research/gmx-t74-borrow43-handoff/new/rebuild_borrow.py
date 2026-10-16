@@ -137,6 +137,17 @@ for canon,wt,h in CASES:
         kok&=word_patch.kernel_gate_edit(prev_d['B'],nd_['B'])==depatch['declared_gate_edit'] and not any(e_[0]=='warp' for e_ in nd_['B'])
         kok&=[g_ for g_ in prev_d['compensation'] if g_ not in nd_['compensation']]==depatch['declared_compensation_removed'] and all(g_ in prev_d['compensation'] for g_ in nd_['compensation'])
         kok&=len(prev_d['compensation'])-len(nd_['compensation'])==len(depatch['declared_compensation_removed']) and nd_['helper_final']==prev_d['helper_final'] and nd_['target_levels']==prev_d['target_levels']
+    d4f_=D/'inputs'/f'dirtentry4_43{wt}.json';d4patch=None
+    if d4f_.exists():   # dirt-entry rewrite of the A-phase helpers 460/462/478/480 (this package): each enters at a one-dimensional frame, its compensation is removed, three declared A reads cancel its dirt
+        d4patch=json.loads(d4f_.read_text());prev_4=chain[-1];chain.append(word_patch.apply_lowfour(prev_4,d4patch));steps.append('dirtentry4');n4_=chain[-1];H4=set(d4patch['helpers'])
+        eA4=word_patch.kernel_gate_edit(prev_4['A'],n4_['A']);eB4=word_patch.kernel_gate_edit(prev_4['B'],n4_['B'])
+        kok&=eA4==d4patch['declared_gate_edit']['A'] and eB4==d4patch['declared_gate_edit']['B']==[] and n4_['warps']==prev_4['warps']
+        kok&=all(k_=='insert' and g_[0]=='add' and g_[2] in H4 and g_[1] not in H4|set(range(112,224)) and abs(g_[3])==1 and g_[4]==1 for k_,_,g_ in eA4)   # only unit reads of the entering helpers, into non-target registers
+        _ins4={j_ for _,j_,_ in eA4};kok&=sorted(H4)==[460,462,478,480] and all(not any(g_[2] in e_[1:3] for i_,e_ in enumerate(n4_['A'][:j_]) if e_[0]!='warp' and i_ not in _ins4) for k_,j_,g_ in eA4)   # each read precedes its helper's first original event (the helper is still pure)
+        kok&=[g_ for g_ in prev_4['compensation'] if g_[0]=='add' and g_[2] in H4]==d4patch['declared_compensation_removed'] and n4_['compensation']==[g_ for g_ in prev_4['compensation'] if not(g_[0]=='add' and g_[2] in H4)]
+        kok&=set(n4_['start_extra'])-set(prev_4['start_extra'])=={str(h_) for h_ in H4} and all(n4_['start_extra'][k_]==v_ for k_,v_ in prev_4['start_extra'].items()) and all(len(n4_['start_extra'][str(h_)])==1 for h_ in H4)
+        kok&=all(n4_[k_]==prev_4[k_] for k_ in ('B','helper_final','target_levels','removed','prelude_events','centers','center_frames','ports','precondition','cut','restore','initial_corrections'))
+        kok&=n4_['report']['width_inventory']=={k_:prev_4['report']['width_inventory'][k_]+{'8':4,'9':-4}.get(k_,0) for k_ in prev_4['report']['width_inventory']}
     final=json.loads(gzip.decompress(shipped.read_bytes()))
     same=final==chain[-1]
     # lifted-target offsets: the shipped word's set (and frames) must equal the one declared by the last patch input that declares target_levels
@@ -209,6 +220,28 @@ for canon,wt,h in CASES:
                                ('dirtentry_removal_missing',lambda m:m['compensation'].append(cp3.deepcopy(depatch['declared_compensation_removed'][0])))):
                 m=_mkd(_mutd);bp=pw/(_nmd+'.json.gz');bp.write_bytes(gzip.compress(json.dumps(m,separators=(',',':')).encode()));br=run_audit(bp,None,pw/(_nmd+'.out.json'));res[_nmd+'_rejected']=br.returncode!=0;okc.append(br.returncode!=0)
             print('DIRTENTRY-CONTROLS',wt,{k_:v_ for k_,v_ in res.items() if k_.startswith('dirtentry_')},flush=True)
+        if d4patch:   # tamper controls on the four-helper rewrite: each mutant carries the cleanup re-derived from its own forward word and must be rejected by the independent audit
+            import copy as cp8
+            _r4=[i_ for i_,e_ in enumerate(final['A']) if e_[0]=='add' and e_[2] in set(d4patch['helpers']) and any(k_=='insert' and g_==e_[:-1] for k_,_,g_ in d4patch['declared_gate_edit']['A'])]
+            def _mk4(f_):
+                m=cp8.deepcopy(final);f_(m);t_=cp8.deepcopy(m);t_['A']=m['A'][m['prelude_events']:];m['cleanup']=word_patch.derive_cleanup(t_,{int(q_) for q_ in m['helper_final']});return m
+            _wrong=lambda m:m['start_extra'].__setitem__('460',[next(x_ for x_ in (82,7^82) if [x_]!=m['start_extra']['460'])])
+            for _nm4,_mut4 in (('dirtentry4_read_dropped',lambda m:m['A'].pop(_r4[0])),
+                               ('dirtentry4_read_sign_flipped',lambda m:m['A'][_r4[0]].__setitem__(3,-m['A'][_r4[0]][3])),
+                               ('dirtentry4_partner_read_dropped',lambda m:m['A'].pop(max(_r4))),
+                               ('dirtentry4_removal_missing',lambda m:m['compensation'].append(cp8.deepcopy(d4patch['declared_compensation_removed'][0]))),
+                               ('dirtentry4_wrong_entrance_frame',_wrong)):
+                m=_mk4(_mut4)
+                for _it in range(3):   # the mutant's report carries the profile/inventory the auditor derives for it, so it is rejected for a structural or algebraic reason, never for a stale report
+                    bp=pw/(_nm4+'.json.gz');bp.write_bytes(gzip.compress(json.dumps(m,separators=(',',':')).encode()));br=run_audit(bp,None,pw/(_nm4+'.out.json'))
+                    last=((br.stdout+br.stderr).strip().splitlines() or [''])[-1]
+                    import re as re4,ast as ast4
+                    mm=re4.search(r'paid profile mismatch (\{.*\})',last) or re4.search(r'width inventory mismatch (\{.*\})',last)
+                    if br.returncode!=0 and mm:
+                        key_='local_profile' if 'paid profile' in last else 'width_inventory';m['report'][key_]={str(a_):b_ for a_,b_ in ast4.literal_eval(mm.group(1)).items()};continue
+                    break
+                res[_nm4+'_rejected']=br.returncode!=0;res[_nm4+'_reason']=last[-110:];okc.append(br.returncode!=0)
+            print('DIRTENTRY4-CONTROLS',wt,{k_:v_ for k_,v_ in res.items() if k_.startswith('dirtentry4_')},flush=True)
         ok&=all(okc)
         kc_ok,kc=kernel_controls(kstate,kpatch,tempfile.mkdtemp());ok&=kc_ok;res['kernel_controls_rejected']=kc
         if apatch:
