@@ -43,10 +43,14 @@ git('add','--sparse','research/community-efficient1900-audit/INTEGRATION-RESOLUT
 assert git('show',':certificates/selected-result.json').stdout==git('show','a7482490b4ca256db67d767a33fa6f7553060807:certificates/selected-result.json').stdout
 whitespace_excludes=[':(exclude)research/a2-family-b-locus/checks/relax.py'] if 2830 in ns else []
 if 2464 in ns:whitespace_excludes.append(':(exclude)research/z4-typed-echo-supplier-instance/TASK.json')
+archives=json.load(open(P/'archive-intake.json')) if (P/'archive-intake.json').exists() else {}
+for n in ns:
+ if str(n) in archives:
+  whitespace_excludes.extend(':(exclude)'+p+'/**' for p in archives[str(n)]['paths'])
 # These author-original whitespace bytes are preserved; exact blobs/modes were verified above.
 whitespace=git('-c','core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol','diff','--cached','--check','--','.',':(exclude)research/community-efficient1900-audit/**',*whitespace_excludes,check=False)
 assert whitespace.returncode==0, whitespace.stdout+whitespace.stderr
-msg=P/f'message-{label}.txt';msg.write_text('Integrate reviewed research PRs '+', '.join('#'+str(n)for n in ns)+'\n\nOriginal authors and predecessor credit retained. Exact-head finite checks and claim limits are recorded in research/community-efficient1900-audit. No selected frontier change.\n')
+msg=P/f'message-{label}.txt';msg.write_text('Integrate research contributions '+', '.join('#'+str(n)for n in ns)+'\n\nOriginal authors and predecessor credit retained. Exact-head review tiers, source-only archival admissions, finite checks where performed, and open obligations are recorded in research/community-efficient1900-audit. No selected frontier change.\n')
 a=git('commit','-F',str(msg));(P/f'commit-{label}.log').write_text(a.stdout)
 git('fetch','origin','main');assert git('merge-base','--is-ancestor','origin/main','HEAD',check=False).returncode==0,'origin advanced; reconcile before push'
 a=git('push','origin','HEAD:main');(P/f'push-{label}.log').write_text(a.stdout)

@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "46974594ee9b7cc86f0686c343d26e7ec8acf827c5963563e99b298648f4abee",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "c5883928bbcf7d082caa2da54d9a8b69c71b804c4585a6f0dccab2820b2347ed",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -39809,7 +39809,7 @@
         {
           "head": "a935a545760946489bd6f26fe5349a10820316c2",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -39821,14 +39821,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/654.json",
-        "research/community-efficient1900-audit/packets/654.json"
+        "research/community-efficient1900-audit/packets/654.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -40975,7 +40976,7 @@
         {
           "head": "8f4600b41bf1f0f5d07f209e5d3950eb22ef5cad",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -40987,14 +40988,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Dedicated proof review of uniform higher weights, equality classifications, graph targets and COPY model; finite checks must not substitute for those proofs.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/669.json",
-        "research/community-efficient1900-audit/packets/669.json"
+        "research/community-efficient1900-audit/packets/669.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -52255,7 +52257,7 @@
         {
           "head": "75e7699a691f321861ab8fe303f8bd8e6a6fc393",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -52267,14 +52269,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Review solver-status and recorded-only minimality rows separately from exact certificates; execute verify.sh with its declared dependencies and preserve the proof scope.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/899.json",
-        "research/community-efficient1900-audit/packets/899.json"
+        "research/community-efficient1900-audit/packets/899.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -54008,7 +54011,7 @@
         {
           "head": "b9348c6907516e55dc07e135ad4d7a480d4f9840",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -54020,14 +54023,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Large exhaustive reframing/reordering exclusion requires exact domain/optimality audit and a dedicated long replay, not bounded solver status.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/933.json",
-        "research/community-efficient1900-audit/packets/933.json"
+        "research/community-efficient1900-audit/packets/933.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -65773,7 +65777,7 @@
         {
           "head": "007a7c64280053e2ddabdb92e60b51bfd9105119",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -65785,14 +65789,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1175.json",
-        "research/community-efficient1900-audit/packets/1175.json"
+        "research/community-efficient1900-audit/packets/1175.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -72220,7 +72225,7 @@
         {
           "head": "c9da5f270d6a10f571a65cb3449230bdcc76df32",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -72232,14 +72237,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Census generation and stored-price binding pass, but the primary entrypoint explicitly does not replay the frame optimizations or interval certificates. Complete the pinned regenerate.py pricing replay (including the claimed idle optimum coverage) before approving the entire no-gain claim.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1337.json",
-        "research/community-efficient1900-audit/packets/1337.json"
+        "research/community-efficient1900-audit/packets/1337.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -78432,7 +78438,7 @@
         {
           "head": "cfd97ca1e9d332e497bb29ba9cdbdeb594e23800",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -78444,14 +78450,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "The primary reuse replay passed. The required full K=4 census hit the 2,400-second supplemental limit after the last recorded progress of 960/1,922 branches. Complete that census in a dedicated replay before incorporation; partial progress is not an exhaustive certificate.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1487.json",
-        "research/community-efficient1900-audit/packets/1487.json"
+        "research/community-efficient1900-audit/packets/1487.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -79803,7 +79810,7 @@
         {
           "head": "75f1089ed05b035c12942f7bac1c8dc37ca05e97",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -79815,14 +79822,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Five inherited native/compiler variants need the pinned PR635/645 base and a full approximately 45-minute replay. The committed receipts and local scripts do not alone establish full source-bound reproduction; schedule this complete pipeline separately.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1529.json",
-        "research/community-efficient1900-audit/packets/1529.json"
+        "research/community-efficient1900-audit/packets/1529.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -109129,7 +109137,7 @@
         {
           "head": "95aea1e24dede937f00545a4d8250caa02f60339",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -109141,14 +109149,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2309.json",
-        "research/community-efficient1900-audit/packets/2309.json"
+        "research/community-efficient1900-audit/packets/2309.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -109762,7 +109771,7 @@
         {
           "head": "002304ef01c4416a127916169ae6d94c1bee052b",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -109774,14 +109783,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2322.json",
-        "research/community-efficient1900-audit/packets/2322.json"
+        "research/community-efficient1900-audit/packets/2322.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -111610,7 +111620,7 @@
         {
           "head": "d815dbe374096f1b96a224a2dcb6a9167c5cfa91",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -111622,14 +111632,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2363.json",
-        "research/community-efficient1900-audit/packets/2363.json"
+        "research/community-efficient1900-audit/packets/2363.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132241,7 +132252,7 @@
         {
           "head": "b4e312f952aea55a0b9f013a1d152423f6cf0f56",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132253,7 +132264,7 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Full source/proof review and private-library concurrency/independent-kernel supplement passed, but the resolved primary census reached its declared220-second limit before critical/second-shape completion. Remaining primary, optimized, seven-companion and fault-control coverage is not verified. Retain source repair and complete the census in a separately planned bounded replay; timeout is not a mathematical rejection.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
@@ -132262,7 +132273,8 @@
         "research/community-efficient1800-audit/packets/2836.json",
         "research/community-efficient1800-audit/checks/check-2836-supplement.json",
         "research/community-efficient1800-audit/checks/check-2836.json",
-        "research/community-efficient1900-audit/packets/2836.json"
+        "research/community-efficient1900-audit/packets/2836.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132347,7 +132359,7 @@
         {
           "head": "2fdd289fcd0896f4691f9dd78a8bf1511573e434",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132359,14 +132371,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2839.json",
-        "research/community-efficient1900-audit/packets/2839.json"
+        "research/community-efficient1900-audit/packets/2839.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132762,7 +132775,7 @@
         {
           "head": "c50d12e4720cd1fef2b5a65e337e37de9731879a",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132774,14 +132787,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2848.json",
-        "research/community-efficient1900-audit/packets/2848.json"
+        "research/community-efficient1900-audit/packets/2848.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132814,7 +132828,7 @@
         {
           "head": "00576c07434c1196f49823dac83d57211ef731f1",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -132826,14 +132840,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2849.json",
-        "research/community-efficient1900-audit/packets/2849.json"
+        "research/community-efficient1900-audit/packets/2849.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133127,7 +133142,7 @@
         {
           "head": "90c52db35dd2f8cdf0dd81976e698a6192a09126",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -133139,14 +133154,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2855.json",
-        "research/community-efficient1900-audit/packets/2855.json"
+        "research/community-efficient1900-audit/packets/2855.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133231,7 +133247,7 @@
         {
           "head": "0b2e2537b368a0cade07ce3f71452ea018ebe394",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -133243,14 +133259,15 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2857.json",
-        "research/community-efficient1900-audit/packets/2857.json"
+        "research/community-efficient1900-audit/packets/2857.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133993,7 +134010,7 @@
         {
           "head": "4283ecfd09afab07c54dbbeef7361a2e3274b4e3",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134005,13 +134022,14 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2873.json"
+        "research/community-efficient1900-audit/packets/2873.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -134088,7 +134106,7 @@
         {
           "head": "4c60a82f183d1ba5e15007ab832c9eaca5d59a06",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134100,13 +134118,14 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2875.json"
+        "research/community-efficient1900-audit/packets/2875.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -134489,7 +134508,7 @@
         {
           "head": "1e15ae28c15d56f7c61220564207d571972a33a4",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Metadata and source/model review completed; full census not run after observing CPU-wide multiprocessing and large table materialization.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -134501,13 +134520,14 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Supply or review a bounded-memory/concurrency replay plan. model.py materializes736281 length-seven even-subset tables then starts Pool(os.cpu_count()); the queued full run was held before execution. No census failure or mathematical rejection is inferred.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2883.json"
+        "research/community-efficient1900-audit/packets/2883.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135541,7 +135561,7 @@
         {
           "head": "51309592971e3b5be935599eed2a95404dc7781e",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -135553,13 +135573,14 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2908.json"
+        "research/community-efficient1900-audit/packets/2908.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135989,7 +136010,7 @@
         {
           "head": "224bd5e56041c40078ff6b5fa7393733a215de5c",
           "evidence": "research/community-efficient1900-audit/DISPOSITIONS.json",
-          "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
+          "scope": "ARCHIVE ONLY — exact author source retained; new research-only paths, syntax and available manifest pins checked. No submitted code executed in this intake; stored PASS receipts and mathematical/κ claims remain author-supplied. Prior scoped checks remain available but do not complete whole-PR review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -136001,13 +136022,14 @@
       "disposition": "partially_reviewed",
       "unresolved_question": "Review the complete changed-file inventory and claim scope; authenticate dependencies and finish declared checks before incorporation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2917.json"
+        "research/community-efficient1900-audit/packets/2917.json",
+        "research/community-efficient1900-audit/checks/check-archive-intake.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [

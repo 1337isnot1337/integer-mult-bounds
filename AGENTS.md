@@ -50,6 +50,11 @@ result, review, source manifest and reproduction command through
 `certificates/selected-result.json`. Historical research notes may use “current”
 for an obsolete checkpoint.
 
+For maintainer PR intake, consult [research archive status](docs/research/research-archive-intake.md).
+A merged research package can remain **partially reviewed**: archival acceptance
+does not endorse its mathematical claims, stored PASS receipts or proposed κ.
+Check the central ledger and exact-head review scope before building on it.
+
 Keep `upstream/`, frozen source archives and pinned evidence unchanged. Put new
 research in its own scoped directory and retain predecessor attribution.
 Distinguish a finite certificate, a scoped proof, a search failure and a complete
