@@ -208,7 +208,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Factorization-to-pivot proof and recorded receipt reviewed. Fresh Lean4.34.1 build exited unsuccessfully without compiler diagnostics during local disk exhaustion; the live kernel check is incomplete. Rerun with adequate resources before accepting the formal-proof claim. Ordinary rank-factorization and selected-mask embedding remain external.",
+      "unresolved_question": "Factorization-to-pivot proof and recorded receipt reviewed. Fresh Lean4.34.1 build exited without diagnostics; user reported killing a runaway Lean process during this run. Live kernel verification remains incomplete, not mathematically rejected. Any further build must use the serialized 2GiB-memory/300-second wrapper. Ordinary rank-factorization and selected-mask embedding remain external.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -393,21 +393,30 @@
       },
       "reviewed_head": "70fda600374c9e3f58083233ab4de2fa9df53832",
       "current_head": "70fda600374c9e3f58083233ab4de2fa9df53832",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "scripts/check_research_commit.py",
+        "tests/test_research_commit_bytes.py"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "68f57e954ac6369b1ca00b31566334a7585a89d1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2602"
+      },
+      "scope": "ywz65's publication-byte preflight, prompted by the PR2597 CRLF transport mismatch. Reviewed literal Git path handling, complete package/input inventory, raw byte equality, rejection of nonregular modes and final blob-reader exit checking. Eleven actual-Git controls pass on the author head and current dependencies. Read-only and optional; it does not execute a mathematical verifier or establish CI equivalence.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2602.json"
+        "research/community-efficient1600-audit/packets/2602.json",
+        "research/community-efficient1600-audit/checks/check-2602.json"
       ]
     },
     {
@@ -806,18 +815,26 @@
       },
       "reviewed_head": "26ef95ac9394fd343848a2ad37d21b9e91e0ea13",
       "current_head": "26ef95ac9394fd343848a2ad37d21b9e91e0ea13",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Source-retention replay now passes after restoring 28 missing exact-head inputs; original failure retained. Reviewed projection preserves current-head/review state and credits PR1572; four regression groups pass. Integrate the small generator change atop current main without reverting newer batch registries, regenerate the ledger, and verify only PR148 changes before publication; original generated ledgers are stale.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "scripts/reconcile_pr_queue.py",
+        "scripts/test_pr148_ledger_retention.py"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "2fc3a4162d0977a9020b9d10e36725908b7fedfd",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2624"
+      },
+      "scope": "ywz65's PR148 source-retention ledger correction, crediting Thiago Goulart/Tuafo's PR1572 authenticated recovery and Rohan Gupta/gupt1156's construction. Reviewed exact-head and 114-path coverage validation, idempotence and preservation of later heads, dispositions and unresolved mathematical obligations. Source proof and four regression groups pass. Ported onto the current generator; differential replay changes only PR148 among 2257 records and preserves counts. Source retention is not mathematical approval or authorization to close PR148.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1600-audit/packets/2624.json",
@@ -840,21 +857,30 @@
       },
       "reviewed_head": "2158a3675e11d59d7a8706e8cb0f16acd875df64",
       "current_head": "2158a3675e11d59d7a8706e8cb0f16acd875df64",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "scripts/run_isolated_tests.py",
+        "tests/test_isolated_test_cancellation.py"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "504112fd042f964d7b9603da59b301476276b768",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2625"
+      },
+      "scope": "ywz65's isolated-test process-tree cancellation. Reviewed launch/stop locking, active process ownership, bounded POSIX and Windows cleanup, retained original exceptions and prevention of queued starts. Seven native macOS process-group probes and four existing runner regressions pass; only the Linux /proc test observer was adapted. Current historical skip-clones overlay retained. Windows native and Linux execution not claimed; escaped groups and repeated interruption remain outside the ordinary-tree guarantee.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2625.json"
+        "research/community-efficient1600-audit/packets/2625.json",
+        "research/community-efficient1600-audit/checks/check-2625.json"
       ]
     },
     {
@@ -1956,7 +1982,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1967,7 +1993,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2665.json"
+        "research/community-efficient1600-audit/packets/2665.json",
+        "research/community-efficient1600-audit/checks/check-2665.json"
       ]
     },
     {
@@ -1989,7 +2016,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2000,7 +2027,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2666.json"
+        "research/community-efficient1600-audit/packets/2666.json",
+        "research/community-efficient1600-audit/checks/check-2666.json"
       ]
     },
     {
@@ -2130,7 +2158,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2141,7 +2169,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2670.json"
+        "research/community-efficient1600-audit/packets/2670.json",
+        "research/community-efficient1600-audit/checks/check-2670.json"
       ]
     },
     {
@@ -2276,7 +2305,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2287,7 +2316,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2674.json"
+        "research/community-efficient1600-audit/packets/2674.json",
+        "research/community-efficient1600-audit/checks/check-2674.json"
       ]
     },
     {
@@ -2346,21 +2376,30 @@
       },
       "reviewed_head": "3b8da2aba852254686c2cc1a7c67f8caa93d2fdb",
       "current_head": "3b8da2aba852254686c2cc1a7c67f8caa93d2fdb",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "scripts/run_parallel.py",
+        "tests/test_script_cancellation.py"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "cfdddb73a984634307d3591a74538495343c9a07",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2676"
+      },
+      "scope": "ywz65's direct-script process-tree cancellation, adapting PR2625 and retaining eumemic's PR154 lineage. Reviewed active registration through output failures, launch/iterator exception cleanup, queued-work cancellation and unchanged ordinary-failure reporting. Nine native macOS cancellation probes pass; current Windows memory accounting and inherited-optimization safeguards retained and regression-checked. Native Windows and Linux execution are not claimed; no scientific frontier change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2676.json"
+        "research/community-efficient1600-audit/packets/2676.json",
+        "research/community-efficient1600-audit/checks/check-2676.json"
       ]
     },
     {
@@ -2382,7 +2421,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command reached its recorded batch execution limit. Finish the remaining declared coverage in a dedicated bounded replay; a timeout is not mathematical evidence.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2393,7 +2432,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2677.json"
+        "research/community-efficient1600-audit/packets/2677.json",
+        "research/community-efficient1600-audit/checks/check-2677.json"
       ]
     },
     {
@@ -2528,7 +2568,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2539,7 +2579,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2681.json"
+        "research/community-efficient1600-audit/packets/2681.json",
+        "research/community-efficient1600-audit/checks/check-2681.json"
       ]
     },
     {
@@ -2601,7 +2642,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2612,7 +2653,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2683.json"
+        "research/community-efficient1600-audit/packets/2683.json",
+        "research/community-efficient1600-audit/checks/check-2683.json"
       ]
     },
     {
@@ -2675,7 +2717,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2686,7 +2728,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2686.json"
+        "research/community-efficient1600-audit/packets/2686.json",
+        "research/community-efficient1600-audit/checks/check-2686.json"
       ]
     },
     {
@@ -2708,7 +2751,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2719,7 +2762,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2687.json"
+        "research/community-efficient1600-audit/packets/2687.json",
+        "research/community-efficient1600-audit/checks/check-2687.json"
       ]
     },
     {
@@ -2854,7 +2898,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2865,7 +2909,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2692.json"
+        "research/community-efficient1600-audit/packets/2692.json",
+        "research/community-efficient1600-audit/checks/check-2692.json"
       ]
     },
     {
@@ -2887,7 +2932,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2898,7 +2943,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2693.json"
+        "research/community-efficient1600-audit/packets/2693.json",
+        "research/community-efficient1600-audit/checks/check-2693.json"
       ]
     },
     {
@@ -2920,7 +2966,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2931,7 +2977,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2694.json"
+        "research/community-efficient1600-audit/packets/2694.json",
+        "research/community-efficient1600-audit/checks/check-2694.json"
       ]
     },
     {
@@ -3059,7 +3106,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3070,7 +3117,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2698.json"
+        "research/community-efficient1600-audit/packets/2698.json",
+        "research/community-efficient1600-audit/checks/check-2698.json"
       ]
     },
     {
@@ -3125,7 +3173,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3136,7 +3184,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2700.json"
+        "research/community-efficient1600-audit/packets/2700.json",
+        "research/community-efficient1600-audit/checks/check-2700.json"
       ]
     },
     {
@@ -3231,7 +3280,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3242,7 +3291,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2704.json"
+        "research/community-efficient1600-audit/packets/2704.json",
+        "research/community-efficient1600-audit/checks/check-2704.json"
       ]
     },
     {
@@ -3264,7 +3314,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3275,7 +3325,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2705.json"
+        "research/community-efficient1600-audit/packets/2705.json",
+        "research/community-efficient1600-audit/checks/check-2705.json"
       ]
     },
     {
@@ -3412,7 +3463,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3423,7 +3474,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2709.json"
+        "research/community-efficient1600-audit/packets/2709.json",
+        "research/community-efficient1600-audit/checks/check-2709.json"
       ]
     },
     {
@@ -3485,7 +3537,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3496,7 +3548,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2711.json"
+        "research/community-efficient1600-audit/packets/2711.json",
+        "research/community-efficient1600-audit/checks/check-2711.json"
       ]
     },
     {
@@ -3518,7 +3571,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3529,7 +3582,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2712.json"
+        "research/community-efficient1600-audit/packets/2712.json",
+        "research/community-efficient1600-audit/checks/check-2712.json"
       ]
     },
     {
@@ -3551,7 +3605,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "The pinned command is incomplete. Resolve the specific setup or execution failure in the retained log and rerun without weakening pins or coverage; no mathematical rejection is inferred.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3562,7 +3616,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2713.json"
+        "research/community-efficient1600-audit/packets/2713.json",
+        "research/community-efficient1600-audit/checks/check-2713.json"
       ]
     },
     {

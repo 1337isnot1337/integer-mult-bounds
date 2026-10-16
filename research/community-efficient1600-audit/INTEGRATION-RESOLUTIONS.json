@@ -75,5 +75,47 @@
     "original_sha256": "82bc64db3f02d973632bfba15360048b0034e48324b5c8dfd5c9bbe44f69d298",
     "resolved_sha256": "06d70bcc3f20fe81620ace820d7acda5d68ec6247c3b2491318c76f719d99c12",
     "reason": "Integration refresh to reviewed main: UTF-8 HPE verifier-source binding repair and catalogue provenance only. Original task card and mathematical selected fields are unchanged. Exact author source/task metadata retained in audit packets; affected registered commands replayed."
+  },
+  {
+    "number": 2625,
+    "path": "scripts/run_isolated_tests.py",
+    "original_sha256": "4d3a12a7ee03e7b533436b5c0723c3bbeabdbb60d8adad058996c9a064f481e9",
+    "resolved_sha256": "331743571ea29a63a0e819d421e8adc6f04831f11333aa1f7f1292933ccc82d4",
+    "reason": "Retain current PR53 historical skip-clones overlay while adopting the reviewed cancellation registry and bounded tree cleanup."
+  },
+  {
+    "number": 2624,
+    "path": "scripts/reconcile_pr_queue.py",
+    "original_sha256": "d1160464aa095e81eb5b5f406832cc523ec2d6c44a70f5306f928f9a79efba95",
+    "resolved_sha256": "f04838040a31ad7830a82f91a5604e17048935c99f4c2b5c6612bd66ba6d6481",
+    "reason": "Port only PR148 source-retention projection onto the current generator, preserving every newer batch registry and review rule."
+  },
+  {
+    "number": 2602,
+    "path": "docs/research/research-package-guide.md",
+    "original_sha256": "67c243289f2daf1d57b2dd5ea3eca5fdf9762a15b895985178cfe66767b13ec4",
+    "resolved_sha256": "82397aee0abda825403a567ca1738055faed797cb8af56981692f9ab04b4b7dd",
+    "reason": "Three-way merge adds only the publication-byte preflight to the latest guide, preserving current workflow guidance."
+  },
+  {
+    "number": 2624,
+    "path": "docs/research/pr-ledger.json",
+    "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
+    "resolved_sha256": "553f0017132813bb86efe80e19c40d1026d3ad231f40d8ab78e17bca34ae66c9",
+    "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
+  },
+  {
+    "number": 2624,
+    "path": "docs/research/pr-ledger.md",
+    "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
+    "resolved_sha256": "d5e31ed7a9c7004c030ea1626a11c236ea9c2b7ef89f2c9a024465f725f8b169",
+    "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records."
+  },
+  {
+    "number": 2676,
+    "path": "scripts/run_parallel.py",
+    "original_sha256": "e6864ca5a7816d14cd55846f697aa152609fa107142345cb6497b44cfd8c5fff",
+    "resolved_sha256": "a49e763573343a6a068b0c48c8ff422756be5a8f55902b2385fa8d13cc951fda",
+    "reason": "Preserve main Windows physical-memory detection and removal of inherited PYTHONOPTIMIZE while adding the reviewed bounded process-tree cancellation."
   }
 ]

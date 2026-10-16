@@ -8,13 +8,21 @@
       "-O",
       "-B",
       "research/pr148-source-retention/verify.py"
+    ],
+    [
+      "/tmp/pr-efficient200-venv/bin/python",
+      "-I",
+      "-O",
+      "-B",
+      "scripts/test_pr148_ledger_retention.py"
     ]
   ],
   "python": "Python 3.12.11",
   "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
-  "seconds": 2.19,
+  "seconds": 0.85,
   "status": "passed",
   "exit_codes": [
+    0,
     0
   ],
   "input_sha256": {
@@ -33351,6 +33359,6 @@
     "research/complex-insert-slides-seed20/inputs/SW4-RECIPE-P6k4.json": "fa58d0ffc95d10b7453daefe4b34404a52895f94126ef973e92e92106cd615fa",
     "research/complex-factory-scale-frontier27/sources/PR924-COMPOSITION.json": "f9341322c278901c34aa55876978fe58b05e7056bb4402a3db7f9c8f16fa7d53"
   },
-  "log_sha256": "214e9804905957bb7be85582089474ec00ee99aa9e9e06080969dd795c8b6d90",
+  "log_sha256": "fb1655d8b0c992ab603139555ec52aac20281a0f6f507f29f99fbccb12d4e5aa",
   "scope": "Pinned scoped package commands and their stated finite/proof-support coverage; not complete multiplication-theorem certification."
 }
