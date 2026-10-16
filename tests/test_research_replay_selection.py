@@ -2,13 +2,16 @@
 
 Charles Bethin, with OpenAI Codex assistance. Apache-2.0.
 """
+import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -106,6 +109,55 @@ class ReplaySelectionTests(unittest.TestCase):
         self.write("research/beta/evidence.txt", "new local artifact\n")
         self.commit()
         self.assertEqual(self.selected(base), ["research/beta"])
+
+    @unittest.skipIf(os.name == "nt" or getattr(os, "geteuid", lambda: -1)() == 0,
+                     "requires POSIX directory permissions without root bypass")
+    def test_unreadable_inventory_rejects_without_publishing_partial_matrix(self):
+        for name in ("research", "research/alpha", "research/alpha/VERIFY.json"):
+            with self.subTest(name=name):
+                blocked = self.root / name
+                mode = blocked.stat().st_mode
+                self.output.write_text("existing-output\n", encoding="utf-8")
+                blocked.chmod(0)
+                try:
+                    result = subprocess.run(
+                        [sys.executable, "-B",
+                         str(self.root / "scripts/research_package.py"),
+                         "--changed-since", "0", "--github-output", str(self.output)],
+                        cwd=self.root, capture_output=True, text=True, timeout=10)
+                finally:
+                    blocked.chmod(mode)
+                self.assertEqual(result.returncode, 1, result.stdout)
+                self.assertIn("Permission denied", result.stderr)
+                self.assertEqual(result.stdout, "")
+                self.assertEqual(self.output.read_text(encoding="utf-8"),
+                                 "existing-output\n")
+                self.assertEqual(self.selected("0"),
+                                 ["research/alpha", "research/beta"])
+
+    def test_inventory_io_failure_propagates_on_every_platform(self):
+        spec = importlib.util.spec_from_file_location(
+            "inventory_runner", self.root / "scripts/research_package.py")
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        scan = os.scandir
+
+        def denied(path):
+            if Path(path) == self.root / "research":
+                raise PermissionError("injected inventory scan failure")
+            return scan(path)
+
+        with patch.object(os, "scandir", side_effect=denied):
+            with self.assertRaisesRegex(PermissionError, "inventory scan failure"):
+                runner.plan(self.root, ["scripts/research_package.py"])
+        self.assertEqual(runner.plan(self.root, ["scripts/research_package.py"]),
+                         ["research/alpha", "research/beta"])
+
+    def test_unregistered_directories_and_regular_files_are_ignored(self):
+        self.write("research/unregistered/README.md", "not opted in\n")
+        self.write("research/ordinary-file", "not a package directory\n")
+        self.commit()
+        self.assertEqual(self.selected("0"), ["research/alpha", "research/beta"])
 
     def test_workflow_does_not_filter_out_declared_input_paths(self):
         text = (ROOT / WORKFLOW).read_text(encoding="utf-8")

@@ -6,6 +6,8 @@ import io
 import json
 from pathlib import Path
 import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest import mock
@@ -293,6 +295,37 @@ class Records(unittest.TestCase):
 
 
 class Globs(unittest.TestCase):
+    def test_branch_exclusions_apply_in_order(self):
+        cases = [
+            (['main', '!main'], False),
+            (['main', '!m*'], False),
+            (['main', '!**'], False),
+            (['main', '!m*', 'main'], True),
+            (['main', '!release/**'], True),
+            (['release', 'main'], True),
+            (['m*'], False),
+            ([], False),
+        ]
+        for event in guard.EVENTS:
+            for patterns, included in cases:
+                for block in (False, True):
+                    branches = ('\n' + ''.join('      - ' + json.dumps(p) + '\n' for p in patterns)
+                                if block and patterns else ' ' + json.dumps(patterns) + '\n')
+                    text = 'on:\n  ' + event + ':\n    branches:' + branches + '    paths: ["research/**"]\n'
+                    with self.subTest(event=event, patterns=patterns, block=block):
+                        if included:
+                            self.assertEqual(guard.event_paths(text, event), ['research/**'])
+                        else:
+                            with self.assertRaisesRegex(ValueError, 'branch filter excludes main'):
+                                guard.event_paths(text, event)
+
+    def test_unsupported_branch_globs_fail_closed(self):
+        for event in guard.EVENTS:
+            for pattern in ('!m?in', '!m[ab]in', 'release/+'):
+                text = ('on:\n  ' + event + ':\n    branches: ' + json.dumps(['main', pattern]) + '\n')
+                with self.subTest(event=event, pattern=pattern), self.assertRaisesRegex(ValueError, 'Unsupported glob syntax'):
+                    guard.event_paths(text, event)
+
     def test_github_path_filter_semantics(self):
         cases = [
             (['research/a/**'], 'research/a/b/c.json', True),
@@ -321,6 +354,59 @@ class Globs(unittest.TestCase):
         self.assertEqual(guard.event_paths(text, 'push'), ['a/**', 'b.py'])
         self.assertEqual(guard.event_paths(text, 'pull_request'), [])
         self.assertIsNone(guard.event_paths(text, 'schedule'))
+
+
+class BranchFilterCLI(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = root = Path(temporary.name)
+        (root / 'scripts').mkdir()
+        shutil.copyfile(ROOT / 'scripts/verify_selected_result.py', root / 'scripts/verify_selected_result.py')
+        # Naming the record in the driver makes the real CLI authenticate its
+        # certificate, inventory and proof as well as calculating trigger coverage.
+        (root / 'scripts/replay.py').write_text("record = 'certificates/selected-result.json'\n", encoding='utf-8')
+        (root / 'Makefile').write_text('replay-verify:\n\tpython scripts/replay.py\n', encoding='utf-8')
+        (root / 'supplier').mkdir()
+        proof = b'frozen proof\n'
+        (root / 'supplier/proof.md').write_bytes(proof)
+        certificate = b'{"kappa":"1/1000"}'
+        (root / 'certificate.json').write_bytes(certificate)
+        manifest = {'format': 'repository-packages-sha256-v1', 'package_roots': ['supplier'],
+                    'files': {'supplier/proof.md': sha256(proof).hexdigest()}}
+        (root / 'manifest.json').write_text(json.dumps(manifest), encoding='utf-8')
+        (root / 'certificates').mkdir()
+        record = {'source_manifest': 'manifest.json', 'certificate': 'certificate.json',
+                  'reproduce': 'make replay-verify', 'kappa': '1/1000', 'decimal': '0.001',
+                  'certificate_sha256': sha256(certificate).hexdigest(), 'proof': 'supplier/proof.md',
+                  'proof_supplements': manifest['files'], 'review': 'supplier/proof.md', 'validation': 'certificate.json'}
+        (root / 'certificates/selected-result.json').write_text(json.dumps(record), encoding='utf-8')
+        (root / '.github/workflows').mkdir(parents=True)
+
+    def test_excluded_main_fails_only_when_triggers_are_required(self):
+        # Execute the real CLI on a complete small fixture, without mocks.
+        workflow = self.root / '.github/workflows/replay.yml'
+        command = [sys.executable, '-B', str(ROOT / 'scripts/check_selected_ci_inputs.py'), '--root', str(self.root)]
+        for event in guard.EVENTS:
+            for patterns, code in ((['main', '!m*'], 1), (['main', '!m*', 'main'], 0)):
+                text = 'on:\n'
+                for kind in guard.EVENTS:
+                    text += '  ' + kind + ':\n'
+                    if kind == event:
+                        text += '    branches: ' + json.dumps(patterns) + '\n'
+                text += 'jobs:\n  replay:\n    steps:\n      - run: python scripts/replay.py\n'
+                workflow.write_text(text, encoding='utf-8')
+                for required in (False, True):
+                    with self.subTest(event=event, patterns=patterns, required=required):
+                        result = subprocess.run(command + (['--require-triggers'] if required else []),
+                                                check=False, capture_output=True, text=True, timeout=30)
+                        self.assertEqual(result.returncode, code if required else 0, result.stdout + result.stderr)
+                        marker = 'FAIL_SELECTED_CI_INPUTS' if required and code else 'PASS_SELECTED_CI_INPUTS'
+                        self.assertEqual(result.stdout.splitlines()[-1], marker)
+                        if code:
+                            self.assertIn(event + ' branch filter excludes main', result.stdout)
+                        else:
+                            self.assertNotIn('ADVISORY:', result.stdout)
 
 
 if __name__ == '__main__':

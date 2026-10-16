@@ -418,7 +418,15 @@ def plan(root, changed):
         "scripts/research_package.py", ".github/workflows/research-packages.yml",
         ".github/workflows/research-package-batch.yml"}))
     packages = []
-    for path in sorted((root / "research").glob("*/VERIFY.json")):
+    # glob suppresses scan errors, which can publish an incomplete replay matrix.
+    # Inventory immediate children explicitly; only an absent opt-in is harmless.
+    with os.scandir(root / "research") as entries:
+        paths = sorted(Path(entry.path) / "VERIFY.json" for entry in entries)
+    for path in paths:
+        try:
+            path.lstat()
+        except (FileNotFoundError, NotADirectoryError):
+            continue
         package = path.parent.relative_to(root).as_posix()
         manifest = json.loads(path.read_text(encoding="utf-8"))
         # Parse only for selection; validate fully in the isolated replay job.

@@ -9,6 +9,12 @@ check whether physical lowering, stronger time contracts or the outer wrapper
 is the missing boundary. An independent audit of the pending logical caller
 is also useful when its specific acceptance gap is stated.
 
+For later work, use the [physical caller and ordinary backend successor](selected-bit-physical-contract-map.md).
+It distinguishes PR2809's still-partial review from the incorporated PR2899
+wrapper and PR2915 reached-primitive composition. Their remaining universal
+source dependencies and actual complex-consumer handoff are separate from the
+historical inventory below.
+
 Snapshot: **2026-10-15, priority revision 5**, canonical main
 `936fac15b1b1b59dc5285c713a77f9f3c07b2906`. All nine PRs below were open at the
 source check. They are pending contributions, not supplier admission. This map
