@@ -6,22 +6,21 @@ New work with substantial OpenAI Codex assistance; no independent human review.
 """
 import argparse
 import copy
-import gzip
 import hashlib
 import importlib.util
-import json
-from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 from fractions import Fraction as Q
+from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 SOURCE = HERE.parent/'source-partner-lifetimes'
 sys.path.insert(0, str(SOURCE))
 sys.path.insert(0, str(HERE.parent/'source-partner-residual-exchanges'))
-from build import prepare, read, write, need
+from build import need, prepare, read, write
 from price import price
 
 
@@ -101,8 +100,19 @@ def verify(work):
     print(result['status'], flush=True)
 
 
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--work', type=Path,
+                    help='fresh directory for retained diagnostics; default: disposable temporary workspace')
+    args = ap.parse_args(argv)
+    if args.work is not None:
+        if args.work.exists() or args.work.is_symlink():
+            ap.error('--work must name a fresh path; existing data will not be overwritten')
+        verify(args.work.resolve())
+    else:
+        with tempfile.TemporaryDirectory(prefix='half-stage-evacuation-') as directory:
+            verify(Path(directory) / 'check')
+
+
 if __name__ == '__main__':
-    ap = argparse.ArgumentParser()
-    ap.add_argument('--work', type=Path, required=True)
-    args = ap.parse_args()
-    verify(args.work.resolve())
+    main()

@@ -110,8 +110,13 @@ The registered standard-library check is:
 py -3.12 -B scripts/research_package.py --package research/source-partner-residual-exchanges
 ```
 
-It checks metadata, exact source pins and the literal/moment verifier. Full
-native/global/outer replay remains the separate command above.
+It checks metadata, exact source pins and the literal/moment verifier. Each
+registered run uses a fresh temporary workspace and removes it on exit. Use
+the explicit `--work` command above to retain receipts or failure diagnostics;
+an existing path is refused without overwriting it.
+[Workspace regression and evidence](../owner-replay-workspaces/README.md) cover
+repeated registered checks. Full native/global/outer replay remains the
+separate command above.
 
 ## Optional search reproduction
 

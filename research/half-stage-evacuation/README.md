@@ -48,6 +48,12 @@ bindings and rejecting physical controls:
 py -3.12 -B scripts/research_package.py --package research/half-stage-evacuation
 ```
 
+This bounded check uses a fresh temporary workspace on each invocation and
+removes it on exit. To retain receipts or failure diagnostics, run
+`verify.py --work /fresh/absolute/check` instead. An existing path is refused
+without overwriting it. [Workspace regression and evidence](../owner-replay-workspaces/README.md)
+cover repeated registered checks; the mathematical checks are unchanged.
+
 Complete fresh admission (Python 3.11; NumPy 1.26.4, SymPy 1.14.0,
 SciPy 1.15.3, mpmath 1.3.0), with a fresh work directory:
 
