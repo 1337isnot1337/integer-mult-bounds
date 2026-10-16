@@ -3356,7 +3356,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Full code and proof review identifies an inference gap: X>=9 is computed only for the R=84 layer, but the claimed global tariff452 also needs R+X>=93 on the R=88 and R=90 layers. Neither checker evaluates those layers for X; census tariff_floor is assigned from min-R witness. Prove the missing layer bounds or narrow the claim. This is not a counterexample to452; the weaker no-undercut436 conclusion would follow from the stated R histogram and priced C>=1 once replayed. Default multiprocessing.Pool is uncapped; bound workers before a dedicated full replay. No full census launched.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -3454,19 +3454,22 @@
       "current_head": "4403baa77a7a598ea0d64b73428748c8f5693954",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-all-projections-seed67"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact 255 nonempty survivor-projection widths via 21 orbit representatives, antichain/chain-cover dual witnesses and all48 cube automorphisms; independent geometric reconstruction and exact certificate regeneration checked against original PR1125 head/blob. Ten corruption controls also pass under -O. Opposite-pair classification checked across all28 pairs. Scheduling/rank corollaries remain conditional on the explicitly retained PR1125 fixed-term carrier interface; optional SciPy oracle not rerun. No supplier or kappa claim.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2820.json"
+        "research/community-efficient1700-audit/packets/2820.json",
+        "research/community-efficient1700-audit/checks/check-2820.json"
       ]
     },
     {
@@ -3625,19 +3628,22 @@
       "current_head": "b553e912bcddef550d9fae6033041ff683399ebe",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/selected-child-caller-lifetime"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
       "scope": "Conditional completion of first-range numerical caller accounting: exact child entry18/19 indices, child allowances20494/40 or41, and max(37672*r+34*i,20494*r+41*i) full-call envelope. Reviewed actual trace/packet/primitive source, every new checker, inherited proof pins and all-domain phase argument. Complete small non-ADD fixtures and independent trace census required; coefficient proofs inherited, payload movement abstracted in caller probe, no physical reserve or supplier admission.",
-      "ready_to_integrate": false,
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2825.json"
+        "research/community-efficient1700-audit/packets/2825.json",
+        "research/community-efficient1700-audit/checks/check-2825.json"
       ]
     },
     {
