@@ -132,7 +132,7 @@ x^b = sum_(n>=0) (b)_n z^n / n!,       0<=b<=1, 0<=z<=1/2.
 
 All terms are nonnegative. The next-term ratio is at most `z`, so the first
 omitted term divided by `1-z` bounds the tail. Each recurrence step rounds
-outward on the integer scale `10^50`; 192 terms are retained. Powers of two
+outward on the integer scale `10^50`; 192 nonconstant terms are retained. Powers of two
 reduce larger bases, with outward-rounded interval multiplication. Since
 `73/r>1`, lower-endpoint lower bounds and upper-endpoint upper bounds enclose
 each `H_r` throughout the interval. Signed linear combinations use the
@@ -162,10 +162,11 @@ files under `inputs/` are never executed. Generic provenance is in
 [SOURCES.json](SOURCES.json). `PROFILE.json` is an authenticated source claim;
 this package does not reconstruct it from the literal owner placements.
 
-Sixteen test groups include an independent Cartesian pattern census, exact
+Seventeen test groups include an independent Cartesian pattern census, exact
 rational square-root calibrations, basis singularity/capacity/count failures,
 a same-rank-mass profile corruption, false brackets, warm-cache type rejection,
-source/manifest/inventory corruption and typed receipt comparison. A broad
+source/manifest/inventory corruption, typed receipt comparison and a machine-readable
+single-document `--emit` response. A broad
 containing interval deliberately fails the conservative uniform-bound check;
 that control is not a proof that the true dual fails on the wider interval.
 See [VALIDATION.md](VALIDATION.md) for the recorded execution and limitations.

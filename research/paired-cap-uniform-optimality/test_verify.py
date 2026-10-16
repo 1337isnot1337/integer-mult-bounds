@@ -215,6 +215,16 @@ class SourceBindingTests(unittest.TestCase):
             with self.subTest(payload=payload), self.assertRaises(ValueError):
                 verify.read_json(payload)
 
+    def test_cli_emit_is_one_complete_json_document(self):
+        command = [sys.executable, "-I", "-B", str(PACKAGE / "verify.py"), "--emit"]
+        if sys.flags.optimize:
+            command.insert(2, "-O")
+        run = subprocess.run(command, text=True, capture_output=True, timeout=20, check=True)
+        self.assertEqual(run.stderr, "")
+        emitted = verify.read_json(run.stdout)
+        stored = verify.read_json((PACKAGE / "RESULT.json").read_bytes())
+        self.assertEqual(verify.canonical(emitted), verify.canonical(stored))
+
     def test_cli_rejects_equal_numeric_value_of_wrong_type(self):
         # Python equality treats True == 1; receipt equality must preserve types.
         with tempfile.TemporaryDirectory() as tmp:

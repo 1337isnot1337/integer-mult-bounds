@@ -43,7 +43,7 @@ python3.12 -I -O -B research/paired-cap-uniform-optimality/test_verify.py
 ```
 
 The registered runner passes all three declared commands: ordinary verifier,
-optimized verifier and the 16 test groups. The same 16 groups pass separately
+optimized verifier and the 17 test groups. The same 17 groups pass separately
 with optimization. Acceptance checks do not depend on Python `assert`.
 
 The mathematical receipt is identical in both modes:
@@ -68,12 +68,13 @@ A separate package-only export, without Git or repository files, was made
 read-only (files 0444, directories 0555). From an unrelated working directory,
 ordinary and optimized `verify.py` and `test_verify.py` all passed. Whole emitted
 JSON bytes from `verify.py --emit` matched between modes; their SHA256 is
-`44b5b4b22918450b6bd3d85ddb7afbc8379efb168570ce8352a62e1f57ae54bd`.
+`c7b7023580fa721b02301e50f367ef81d2720221a5a96f2929fcee4dbb6aa310`.
 The complete exported file inventory and hashes were unchanged afterward.
 
 The first read-only test run exposed fixture copies retaining read-only modes.
 The test harness now makes only its newly created temporary mutation copies
-writable; the exported inputs remain read-only. The repeated run passed.
+writable; the exported inputs remain read-only. The repeated run passed. A final CLI check also caught a trailing status line in
+`--emit`; it now emits exactly one parseable JSON document, covered by its own test.
 
 Controls include independent Cartesian enumeration, exact rational square-root
 calibrations, over-capacity/unknown-width and singular/duplicate bases,

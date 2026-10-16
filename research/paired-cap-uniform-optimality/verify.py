@@ -96,7 +96,8 @@ def main():
         need(canonical(result) == canonical(expected), "complete typed receipt differs")
     if args.emit:
         print(json.dumps(result, indent=2, sort_keys=True))
-    print("PASS_PAIRED_CAP_UNIFORM_OPTIMALITY receipt_sha256=" + sha256(canonical(result)).hexdigest())
+    else:
+        print("PASS_PAIRED_CAP_UNIFORM_OPTIMALITY receipt_sha256=" + sha256(canonical(result)).hexdigest())
 
 
 if __name__ == "__main__":

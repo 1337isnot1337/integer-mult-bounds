@@ -45,7 +45,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop with a scoped certificate, explicit counterexample, existing exact overlap, or at the 60-minute deadline; reserve final 15 minutes for verification and handoff.",
   "outcome": "completed",
-  "evidence": "RESULT.json: all 1,163 patterns, 11 symbolic equalities, 1,152 uniform strict inequalities >1/250, exact primal/profile conservation and both source root signs; code-disjoint positive-binomial implementation; 16 semantic/source controls normal and optimized; README proof and VALIDATION.md give precise execution scope.",
+  "evidence": "RESULT.json: all 1,163 patterns, 11 symbolic equalities, 1,152 uniform strict inequalities >1/250, exact primal/profile conservation and both source root signs; code-disjoint positive-binomial implementation; 17 semantic/source/interface test groups normal and optimized; README proof and VALIDATION.md give precise execution scope.",
   "author": "ToikY, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, implementation, tests, review and writing; no independent human or formal-kernel review.",
   "open_questions": [
