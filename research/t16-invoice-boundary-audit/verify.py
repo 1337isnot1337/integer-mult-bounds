@@ -52,7 +52,7 @@ def read(path):
 
 def write(path, value):
     data = (json.dumps(value, indent=2) + '\n').encode('utf-8')
-    path.write_bytes(gzip.compress(data, mtime=0) if path.suffix == '.gz' else data)
+    path.write_bytes(gzip.compress(data, mtime=0, compresslevel=1) if path.suffix == '.gz' else data)
 
 
 def normalized(value):
