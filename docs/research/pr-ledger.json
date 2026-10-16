@@ -47,8 +47,8 @@
     "research/community-efficient1900-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 2034,
-    "partially_reviewed": 345,
+    "incorporated": 2035,
+    "partially_reviewed": 344,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -107,7 +107,7 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
-    "research/community-efficient1900-audit/DISPOSITIONS.json": "44cbf15ce89d01efe39ddbf4386c09a8a975fee9832bba10ad5359f2b64cc91b",
+    "research/community-efficient1900-audit/DISPOSITIONS.json": "efe9ddd6cc2f1b61d8fec50a926141f66cb7344ba2873f00dbe7bfa5da5b9712",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -106940,17 +106940,23 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/live-pin-drift-audit-seed5985"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "cff1d48f48e66a5f8406ceffd5f7cf813b29d64f",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2255"
+      },
       "reviewed_head": "9a067f8be0db4a3f882c1a799d0563c956af5f57",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Reviewed; publication pending.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2255.json",
@@ -135065,7 +135071,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2899.json"
+        "research/community-efficient1900-audit/packets/2899.json",
+        "research/community-efficient1900-audit/checks/check-2899.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -135863,7 +135870,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1900-audit/packets/2915.json"
+        "research/community-efficient1900-audit/packets/2915.json",
+        "research/community-efficient1900-audit/checks/check-2915.json"
       ],
       "current_head_observed_in": "research/community-efficient1900-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -136128,7 +136136,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 378,
-    "MERGED": 1582,
-    "OPEN": 481
+    "MERGED": 1583,
+    "OPEN": 480
   }
 }

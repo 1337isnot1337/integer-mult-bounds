@@ -348,5 +348,15 @@
     "mergeCommit": {
       "oid": "9fedc5d28d800de0bad8f7a5cd7e679b0d15dd6d"
     }
+  },
+  "2255": {
+    "number": 2255,
+    "headRefOid": "9a067f8be0db4a3f882c1a799d0563c956af5f57",
+    "state": "MERGED",
+    "isDraft": false,
+    "mergedAt": "2026-10-16T12:39:57Z",
+    "mergeCommit": {
+      "oid": "cff1d48f48e66a5f8406ceffd5f7cf813b29d64f"
+    }
   }
 }

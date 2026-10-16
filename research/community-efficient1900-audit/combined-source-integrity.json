@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "checked_commit": "b29014f4b5af3ce30417302816d7786c7fbe336c",
+  "checked_commit": "cff1d48f48e66a5f8406ceffd5f7cf813b29d64f",
   "merged_prs": [
     1007,
+    2255,
     2830,
     2874,
     2876,
@@ -38,7 +39,7 @@
     2920,
     2921
   ],
-  "changed_files": 497,
+  "changed_files": 504,
   "resolved_files": [
     {
       "number": 2892,
@@ -68,7 +69,7 @@
     {
       "number": 1007,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "e96e8892b53ab270f400f0940a19d9402d7371ff155e7507c616191a8b63095e"
+      "sha256": "777b4c55d23bc30061e241b62f7cfe96692ad7582876784ca99b8a5ee9bc8e1a"
     },
     {
       "number": 1007,
@@ -79,6 +80,11 @@
       "number": 1007,
       "path": "scripts/reconcile_pr_queue.py",
       "sha256": "5e7dda0066d7b53fa20a425978a888de4e3caed8a33420f2509c21204a35cb13"
+    },
+    {
+      "number": 2255,
+      "path": "research/live-pin-drift-audit-seed5985/verify.py",
+      "sha256": "bd9080672b4463a719e4730af5d2f3d0bee4b675a7e826c79ed4fda6872c47a9"
     },
     {
       "number": 2906,
