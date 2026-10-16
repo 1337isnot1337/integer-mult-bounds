@@ -10,7 +10,7 @@ for rel in list(ledger['source_sha256'])+['research/pr-reconciliation-20261012/s
   f.parent.mkdir(parents=True,exist_ok=True)
   f.write_bytes(subprocess.check_output(['git','show','HEAD:'+rel],cwd=R))
 shutil.copytree(P/'packets',A/'packets',dirs_exist_ok=True);shutil.copy2(P/'selection.json',A/'SELECTION.json');shutil.copy2(P/'live-snapshot.json',A/'LIVE-SNAPSHOT.json');(A/'checks').mkdir(exist_ok=True)
-for pat in ['check-*.json','check-*.log','provenance-*.json','finding-*.json','run_2921.py','run_2906.py','run_2906_supplement.py','prepare_2906.py','baseline_2906.py','hydrate_2906.py','extract_native_group.py','prepare_native_inputs.py','run_native_group.py','run_native_traffic_stock.py','authenticate_native_exports.py','register_native_group.py']:
+for pat in ['check-*.json','check-*.log','provenance-*.json','finding-*.json','run_2921.py','run_2906.py','run_2906_supplement.py','prepare_2906.py','baseline_2906.py','hydrate_2906.py','extract_native_group.py','prepare_native_inputs.py','run_native_group.py','run_native_traffic_stock.py','authenticate_native_exports.py','register_native_group.py','extract_structural_group.py','prepare_structural_inputs.py','run_structural_group.py','authenticate_structural_references.py','register_structural_group.py']:
  for f in P.glob(pat):shutil.copy2(f,A/'checks'/f.name)
 if (P/'combined-2906/tests/test_exit_cleanup_macos.py').exists():shutil.copy2(P/'combined-2906/tests/test_exit_cleanup_macos.py',A/'checks/test_exit_cleanup_macos.py')
 rows=[]

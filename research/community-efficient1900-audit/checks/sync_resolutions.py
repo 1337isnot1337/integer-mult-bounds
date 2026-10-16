@@ -1,6 +1,13 @@
 from pathlib import Path
 import hashlib,json,shutil,subprocess
 P=Path('/tmp/pr-efficient1900');R=Path('/tmp/integer-mult-efficient1100-20261015')
+# Sparse checkout may omit a retained resolution after a merge. Restore only missing HEAD bytes.
+for batch in [1900]:
+ for entry in json.loads(Path(f'/tmp/pr-efficient{batch}/resolution-plan.json').read_text()):
+  target=R/entry['path']
+  if not target.exists():
+   target.parent.mkdir(parents=True,exist_ok=True)
+   target.write_bytes(subprocess.check_output(['git','show','HEAD:'+entry['path']],cwd=R))
 changed={'scripts/run_isolated_tests.py','scripts/replay_historical_check.py','scripts/reconcile_pr_queue.py','scripts/verify_pr_reconciliation.py','docs/research/current-status.md','CONTRIBUTORS.md','docs/research/pr-ledger.json','docs/research/pr-ledger.md'}
 for batch in [1600,1700,1800]:
  p=Path(f'/tmp/pr-efficient{batch}');f=p/'resolution-plan.json';plan=json.loads(f.read_text())
