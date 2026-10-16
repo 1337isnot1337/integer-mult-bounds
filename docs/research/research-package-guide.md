@@ -103,6 +103,30 @@ Each gets a fresh runner and explicit commands. It does not run every historical
 `verify.py`. New hooks do not replace existing cold-replay obligations, and a
 passing metadata check is not acceptance of a mathematical result.
 
+## Check publication bytes
+
+After committing a package and before publishing it, optionally compare its
+working files and declared inputs with the exact commit:
+
+```sh
+python3 scripts/check_research_commit.py --package research/my-experiment
+# For a different publication commit:
+python3 scripts/check_research_commit.py --package research/my-experiment --ref COMMIT
+```
+
+Git attributes or clean filters can make a valid local source-hash receipt
+describe different bytes from those committed, even when `git diff` is empty.
+This read-only check compares raw bytes and reports missing, extra or changed
+files. It includes tracked and nonignored untracked package files plus the
+explicit `VERIFY.json` inputs, and rejects committed links/submodules.
+Ignored runtime files and undeclared external dependencies are outside scope.
+
+If a mismatch is intentional, use an explicitly documented source adapter;
+otherwise correct the working bytes or publication commit and rerun the
+affected verifier before regenerating its receipt. The preflight never changes
+files or normalizes scientific evidence. Passing it does not run the verifier,
+validate the mathematics, or establish equivalence to a hosted CI environment.
+
 ## Optional workflow feedback
 
 If something helped or obstructed the session, add a few sentences to your PR
