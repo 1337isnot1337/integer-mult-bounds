@@ -1,12 +1,13 @@
 {
   "status": "PASS",
-  "checked_commit": "bec1870c4acf8e0ef0f65a04f290a0c36981692b",
+  "checked_commit": "92215b9aee32d804f6017e2d6f8f43b39945892e",
   "merged_prs": [
     2514,
     2517,
     2539,
     2553,
     2831,
+    2834,
     2835,
     2837,
     2841,
@@ -15,10 +16,14 @@
     2851,
     2858,
     2860,
+    2861,
+    2867,
     2868,
+    2869,
+    2870,
     2872
   ],
-  "changed_files": 218,
+  "changed_files": 278,
   "resolved_files": [
     {
       "number": 2514,
@@ -51,6 +56,11 @@
       "sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed"
     },
     {
+      "number": 2834,
+      "path": "CONTRIBUTORS.md",
+      "sha256": "7dfe903f3005d00b4308ad5e6cbeda840d498dd6dfd07ec520ca46a0852e0012"
+    },
+    {
       "number": 2860,
       "path": "research/independent-walks-tworepeat-8q/PROOF.md",
       "sha256": "1f58098e0aac31a091e57882d633d3973b74119f92cd10947190b0a30dc511d8"
@@ -59,6 +69,26 @@
       "number": 2860,
       "path": "research/independent-walks-tworepeat-8q/README.md",
       "sha256": "1d1e1b8a0e58cdc7b8b8b6f7f6e096ed0e6484aeee72c313556fbd5fa16ac46b"
+    },
+    {
+      "number": 2869,
+      "path": "research/fstar-entry-class-scope-seed63d5f999/README.md",
+      "sha256": "645dedf9b8be7f1693b0120d70046cb2c0177e109232d08d26977dd52285215a"
+    },
+    {
+      "number": 2869,
+      "path": "research/fstar-entry-class-scope-seed63d5f999/verify.py",
+      "sha256": "ced012562103a990011e05a2a280b215560097df8e05bce1dbf2fcf48dd673f6"
+    },
+    {
+      "number": 2870,
+      "path": "research/f7-17point-fourier-obstruction-seedb5e318fe/README.md",
+      "sha256": "7687d17adc0bd1b829dd9f3182aa10089ce9a2a3a422b6d8c4a4b363d11e77f2"
+    },
+    {
+      "number": 2870,
+      "path": "research/f7-17point-fourier-obstruction-seedb5e318fe/MAINTAINER-COROLLARY.md",
+      "sha256": "c9510ad1555f2bead99e320efdfcec98c29323808acf28bcd935e6c28145fbe9"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",

@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1972,
-    "partially_reviewed": 364,
+    "incorporated": 1977,
+    "partially_reviewed": 359,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "c5d332ea6d8eb783a3207bfc6a635c058d2006b23ecf58036b2a8bc8e633cd28",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "b40a78525287ecd08c81e66d56156f5325400cafb2ec40b8d3e82209c19dc90c",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "b9375089ff9e434e036fd3059e36eb088fa23a17854779b9afd17be049792029",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -11888,7 +11888,9 @@
           "kind": "review"
         }
       ],
-      "historical_mentions": [],
+      "historical_mentions": [
+        "docs/research/community-efficient1800-review.md"
+      ],
       "disposition": "partially_reviewed",
       "integration_location": [],
       "github_state": "OPEN",
@@ -60830,7 +60832,7 @@
       },
       "draft": false,
       "starting_head": "d84d3b950127ff9252e5c059a629bb654500192a",
-      "current_head": "d84d3b950127ff9252e5c059a629bb654500192a",
+      "current_head": "4ba229532a76516e5f6f5befc1d6d9dc4834f6f9",
       "previously_reviewed_heads": [],
       "historical_assessment_heads": [],
       "evidence": [
@@ -60853,7 +60855,7 @@
       "closure": null,
       "reviewed_head": "d84d3b950127ff9252e5c059a629bb654500192a",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The historical cube-XOR differential case passed, but the whole command reached 180 seconds before the larger declared coverage completed. Finish the remaining differential/certificate comparison.",
+      "unresolved_question": "Live head changed to 4ba229532a76516e5f6f5befc1d6d9dc4834f6f9. Follow-up preserves historical evidence and adds three transitive-import compatibility pins plus controls; revision diff retained, but refreshed whole-head packet, current closure authentication and full differential replay are pending. The former head reached180seconds; author fresh receipts do not replace maintainer execution.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -131542,25 +131544,34 @@
         {
           "head": "0e58de39d3576c08aa7d00bafd03371be3be9650",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full retention proof, new verifier, collector and rejection tests reviewed. Authenticates all29 original PR203 paths and upstream187/193 via raw Git objects; fresh Python ceiling/center/triangular/topology controls are separate from retained historical C++ and vector-solver receipts. Original Git recollection independently compared. Restores huxint mechanism credit and preserves current contributor history; no fresh full Fano census or new κ.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "CONTRIBUTORS.md",
+        "research/pr203-retention-receipt"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "92215b9aee32d804f6017e2d6f8f43b39945892e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2834"
+      },
       "reviewed_head": "0e58de39d3576c08aa7d00bafd03371be3be9650",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2834.json"
+        "research/community-efficient1800-audit/packets/2834.json",
+        "research/community-efficient1800-audit/checks/check-2834-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2834.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -131655,7 +131666,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2836.json"
+        "research/community-efficient1800-audit/packets/2836.json",
+        "research/community-efficient1800-audit/checks/check-2836-supplement.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132030,7 +132042,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2846.json"
+        "research/community-efficient1800-audit/packets/2846.json",
+        "research/community-efficient1800-audit/checks/check-2846-supplement.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132708,21 +132721,28 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/independent-walks-onerepeat-8q"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2861"
+      },
       "reviewed_head": "b07bc1e16752a1980c7dab098d6a4b98295d73c0",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2861.json",
-        "research/community-efficient1800-audit/checks/check-2861-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2861-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2861.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -132929,21 +132949,28 @@
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/shared-dirt-walks-8q"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2867"
+      },
       "reviewed_head": "fc3a2cb3362934b1e34df974e64f9d0acfe07b77",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2867.json",
-        "research/community-efficient1800-audit/checks/check-2867-supplement.json"
+        "research/community-efficient1800-audit/checks/check-2867-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2867.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133021,25 +133048,33 @@
         {
           "head": "153b93c1c0e9ee1c50677ae04d48f1f7f0b1700e",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full valuation normalization/pattern-invariance proof and1199-line new engine reviewed. SC/SG follow from total valuation minima; integer scaling preserves supports/zeros. Reproduced false-negative three-colour helper, repaired backtracking/budget propagation; full resolved replay, independent small-graph controls and certificate/provenance comparison required. MX/chain interfaces inherited; CP-SAT upper bounds and broader F-star remain unproved here. No κ claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/fstar-entry-class-scope-seed63d5f999"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2869"
+      },
       "reviewed_head": "153b93c1c0e9ee1c50677ae04d48f1f7f0b1700e",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2869.json"
+        "research/community-efficient1800-audit/packets/2869.json",
+        "research/community-efficient1800-audit/checks/check-2869-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2869.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133057,33 +133092,41 @@
         "name": "Aaron Wang"
       },
       "draft": false,
-      "starting_head": "88426cc42fa280513f85db44d1acebe71471ee90",
-      "current_head": "88426cc42fa280513f85db44d1acebe71471ee90",
+      "starting_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
+      "current_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
       "previously_reviewed_heads": [],
       "historical_assessment_heads": [],
       "evidence": [
         {
-          "head": "88426cc42fa280513f85db44d1acebe71471ee90",
+          "head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full Fourier lemma, new code and both vendored engines reviewed. Local split11/6 exclusion is self-contained; added maintainer corollary applies it to every hyperplane and uses Parseval1887>1143 to exclude all17-point covers without older census receipts. Registered small checks, independent FWHT and original vendor authentication required. Optional resumable anchors and predecessor census numbers remain historical, not rerun or newly admitted; no word-level frontier or κ change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
-      "reviewed_head": "88426cc42fa280513f85db44d1acebe71471ee90",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "integration_location": [
+        "research/f7-17point-fourier-obstruction-seedb5e318fe"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2870"
+      },
+      "reviewed_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2870.json"
+        "research/community-efficient1800-audit/packets/2870.json",
+        "research/community-efficient1800-audit/checks/check-2870-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2870.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133195,7 +133238,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1520,
-    "OPEN": 500
+    "MERGED": 1525,
+    "OPEN": 495
   }
 }

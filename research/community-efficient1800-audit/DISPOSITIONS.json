@@ -2174,21 +2174,25 @@
       },
       "reviewed_head": "0e58de39d3576c08aa7d00bafd03371be3be9650",
       "current_head": "0e58de39d3576c08aa7d00bafd03371be3be9650",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "CONTRIBUTORS.md",
         "research/pr203-retention-receipt"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "92215b9aee32d804f6017e2d6f8f43b39945892e",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2834"
+      },
       "scope": "Full retention proof, new verifier, collector and rejection tests reviewed. Authenticates all29 original PR203 paths and upstream187/193 via raw Git objects; fresh Python ceiling/center/triangular/topology controls are separate from retained historical C++ and vector-solver receipts. Original Git recollection independently compared. Restores huxint mechanism credit and preserves current contributor history; no fresh full Fano census or new \u03ba.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2834.json",
@@ -3067,20 +3071,24 @@
       },
       "reviewed_head": "b07bc1e16752a1980c7dab098d6a4b98295d73c0",
       "current_head": "b07bc1e16752a1980c7dab098d6a4b98295d73c0",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/independent-walks-onerepeat-8q"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2861"
+      },
       "scope": "Scoped Q=8 one-repeat (2,6) independent-dirt obstruction. Full proof and all new source reviewed: all valid ordered nonzero-slot walks, rank-four versus lower-rank cases, every short label, fixed R=112 spectrum and tariff floor. Separate implementation closely repeats the census, not a formal or human-independent proof. All declared commands and independent stored-witness/source checks required; no new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2861.json",
@@ -3236,20 +3244,24 @@
       },
       "reviewed_head": "fc3a2cb3362934b1e34df974e64f9d0acfe07b77",
       "current_head": "fc3a2cb3362934b1e34df974e64f9d0acfe07b77",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/shared-dirt-walks-8q"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2867"
+      },
       "scope": "Full scoped proof and all new code reviewed: five-source common-B shared-dirt parity readouts at Q=8, distinct-label restored pairs; exact spectra have min R=82, priced lower bound468>436. Shared parity reduces independent-dirt readout cost but path XORs remain separately charged; no shared-X schedule or new supplier is admitted. Stored champions and spectrum witnesses receive independent occurrence-DP checks; exhaustive registered censuses and controls remain required.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2867.json",
@@ -3314,20 +3326,24 @@
       },
       "reviewed_head": "153b93c1c0e9ee1c50677ae04d48f1f7f0b1700e",
       "current_head": "153b93c1c0e9ee1c50677ae04d48f1f7f0b1700e",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/fstar-entry-class-scope-seed63d5f999"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2869"
+      },
       "scope": "Full valuation normalization/pattern-invariance proof and1199-line new engine reviewed. SC/SG follow from total valuation minima; integer scaling preserves supports/zeros. Reproduced false-negative three-colour helper, repaired backtracking/budget propagation; full resolved replay, independent small-graph controls and certificate/provenance comparison required. MX/chain interfaces inherited; CP-SAT upper bounds and broader F-star remain unproved here. No \u03ba claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2869.json",
@@ -3351,20 +3367,24 @@
       },
       "reviewed_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
       "current_head": "9f55f291e9e79e628fd98f1e4f4debfc1c2106e5",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/f7-17point-fourier-obstruction-seedb5e318fe"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "61d6de6538a0c2389c6b8c29e0fc285f85ab6965",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2870"
+      },
       "scope": "Full Fourier lemma, new code and both vendored engines reviewed. Local split11/6 exclusion is self-contained; added maintainer corollary applies it to every hyperplane and uses Parseval1887>1143 to exclude all17-point covers without older census receipts. Registered small checks, independent FWHT and original vendor authentication required. Optional resumable anchors and predecessor census numbers remain historical, not rerun or newly admitted; no word-level frontier or \u03ba change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2870.json",
