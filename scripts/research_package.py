@@ -168,6 +168,48 @@ def meaningful(value):
     return isinstance(value, str) and bool(value.strip()) and not re.search(r"\bTODO\b", value, re.I)
 
 
+def brief(value):
+    text = json.dumps(value, ensure_ascii=True, sort_keys=True)
+    return text if len(text) <= 120 else text[:117] + "..."
+
+
+def card_differences(own, pinned):
+    """Name every key by which a TASK.json original_card differs from its pin."""
+    if not isinstance(own, dict):
+        return "TASK.json original_card is " + type(own).__name__ + ", expected a JSON object"
+    details = []
+    missing = [key for key in pinned if key not in own]
+    extra = [key for key in own if key not in pinned]
+    if missing:
+        details.append("missing keys: " + ", ".join(missing))
+    if extra:
+        details.append("unexpected keys: " + ", ".join(extra))
+    for key in (key for key in pinned if key in own and own[key] != pinned[key]):
+        details.append(key + " differs (TASK.json: " + brief(own[key]) + "; pinned: " + brief(pinned[key]) + ")")
+    return "; ".join(details) or "cards compare unequal without a key difference"
+
+
+def source_pin(row, base):
+    """Resolve one SOURCES.json row to its exact Git object expression.
+
+    Rows without an explicit pin keep the historical base_commit:<path> form.
+    A file vendored from a pull-request head is pinned exactly with
+    head:<40-hex sha>:<path>, so its bytes resolve at that commit, not at the
+    package base. An explicit but unparseable pin fails closed.
+    """
+    name = row["path"]
+    pin = row.get("pin")
+    if pin is None:
+        return base + ":" + name
+    if pin == "base_commit:" + name:
+        return base + ":" + name
+    match = re.fullmatch(r"head:([0-9a-f]{40}):(.+)", pin) if isinstance(pin, str) else None
+    if match is not None and match.group(2) == name:
+        return match.group(1) + ":" + name
+    raise ValueError("SOURCES.json pin for " + name + " is not a supported pin form: " + brief(pin)
+                     + "; accepted pin forms are base_commit:<path> and head:<40-hex sha>:<path>")
+
+
 def validate(root, package, check_pins=True):
     parts = PurePosixPath(package).parts
     require(len(parts) == 2 and parts[0] == "research" and re.fullmatch(r"[a-z0-9][a-z0-9-]*", parts[1]),
@@ -227,8 +269,9 @@ def validate(root, package, check_pins=True):
     require(re.fullmatch(r"[0-9a-f]{40,64}", sources["base_commit"]), "pin an exact base commit")
     require(task["base_commit"] == sources["base_commit"], "TASK and SOURCES base mismatch")
     require(all(r.get("usage") in ("input", "provenance") for r in sources["files"]), "declare source usage")
-    require({r["path"] for r in sources["files"] if r["usage"] == "input"} <= set(inputs),
-            "all live pinned inputs must be declared CI inputs")
+    undeclared = sorted({r["path"] for r in sources["files"] if r["usage"] == "input"} - set(inputs))
+    require(not undeclared,
+            "SOURCES.json input pins must be declared in VERIFY.json inputs; undeclared: " + ", ".join(undeclared))
     if check_pins:
         catalog_name = "docs/research/agent-task-catalog.json"
         require(catalog_name in {r["path"] for r in sources["files"]}, "pin the originating task catalogue")
@@ -236,7 +279,10 @@ def validate(root, package, check_pins=True):
         for name in names:
             p = PurePosixPath(name)
             require(not p.is_absolute() and ".." not in p.parts, "invalid source path")
-        specs = [sources["base_commit"] + ":" + name for name in names]
+        specs = [source_pin(row, sources["base_commit"]) for row in sources["files"]]
+        require(all(spec == sources["base_commit"] + ":" + catalog_name
+                    for name, spec in zip(names, specs) if name == catalog_name),
+                "originating task catalogue must be pinned at base_commit")
         with closing(git_blobs(root, specs)) as objects:
             for index, (obj, pinned) in enumerate(objects):
                 row = sources["files"][index]
@@ -248,7 +294,14 @@ def validate(root, package, check_pins=True):
                 if name == catalog_name:
                     catalog = json.loads(pinned)
         cards = [t for tr in catalog["tracks"] for t in tr["tasks"] if t["id"] == task["task_id"]]
-        require(len(cards) == 1 and task["original_card"] == cards[0], "original card does not match pinned catalogue")
+        require(len(cards) == 1,
+                "TASK.json task_id " + brief(task["task_id"]) + " matches " + str(len(cards))
+                + " cards in pinned " + catalog_name + " at base_commit " + sources["base_commit"]
+                + "; need exactly one")
+        if task["original_card"] != cards[0]:
+            raise ValueError("original card in TASK.json must equal the pinned catalogue card object exactly; "
+                             "copy it verbatim from " + catalog_name + " at base_commit " + sources["base_commit"]
+                             + ": " + card_differences(task["original_card"], cards[0]))
     return task, manifest
 
 
