@@ -40,7 +40,7 @@ This no-go result does not apply to the **redundant signed dictionary**, to uneq
 
 ## Reproduce this GitHub submission
 
-The focused upstream contribution contains the primary standalone standard-library verifier, an independently coded 4096-bank invoice census, and the newly discovered E8 root-line gate.
+The upstream contribution contains the primary standalone standard-library verifier, a 4096-bank invoice census, the E8 root-line gate, and two further zero-restored construction checkers.
 
 From the repository root, Python 3.10+:
 
@@ -54,12 +54,21 @@ Expected final line:
 PASS_P104_SCHEMATIC_SUBMISSION no_kappa no_native_supplier
 ```
 
-The standalone scripts emit:
+The committed checks emit:
 - `verify.py`: 2288 signed target configurations, 105 perfect matchings, abstract scalar/frame traces, 247 forbidden static noncoordinate line choices.
 - `optimize_bank.py`: every one of 4096 edge banks, unique minimum-frame rank 1312, total ADDs 288.
-- `root_line_gate.py`: all 7140 distinct E8 root-line pairs have pair-sum labels absent from the root-line family.
+- `root_line_gate.py`: all 7140 distinct E8 root-line pairs have pair-sum labels absent from the root-line family.\n- `zero_restore.py`: exact rank-one mixed helper cleanup after all outputs.\n- `rank2_gate.py`: exact rank-two framed alternative, full helper cleanup and signed cases.
 
 These are the reviewable checks committed in this PR. The expanded local laboratory was also exercised with separate optimization, E8-example and negative-control scripts, but those auxiliary scripts are **not included** in this focused GitHub submission; the PR makes no claim that its committed runner executes them. The selected frontier and `upstream/` are unchanged.
+
+## Stronger zero-restored constructions added in this PR
+
+The first one-dimensional composite-label bank is a schematic relaxation. `root_line_gate.py` proves that no sum of two distinct E8 root labels is itself an E8 root label.
+
+- `zero_restore.py` reverses every rank-one mixer preparation and zeros all 16 helper values. The exact full-bank audit chooses an eight-edge bank (one of six equivalent minima), costing **320 ADDs and 1408 rank units**, with zero-restored auxiliary endpoints. New composite rank-one physical labels remain unimplemented.
+- `rank2_gate.py` instead keeps each mixed scalar on the *rank-two* span of its two genuine root lines, which is included in a target sink whenever both originals are read. It also restores every helper to zero. Exhaustive 4096-bank search and 2288 signed cases give **320 ADDs and 1520 rank units** with 16 auxiliaries, versus 416 / 2224 for the fixed unmixed baseline.
+
+Neither route establishes a valid native E8 scalar operator, paid source/phase routing, hosting or new recursive exponent. The rank-two variant removes the nonexistent-root-line naming obstacle, not the full realization obligation.
 
 ## Critical remaining gates before claiming a new integer multiplication result
 
