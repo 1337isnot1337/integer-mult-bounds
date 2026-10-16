@@ -870,7 +870,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Candidate cache-key guard now prevents equal-hash invalid float inputs bypassing reference validation. Integration remains pending: preserve current companion certificate pins and review active runtime source-pin consumers before replacing binary_phase_frames.py; the combined prototype is not an accepted integration.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:4000case primitive comparisons, fullh8/10/26 parity circuits and live certificate,12unit tests, focused warm-key/type controls. Current companion certificate pins preserved. Do not merge until binary helper consumers are migrated: actual unchanged binary-residual source gate passes its frozen input, rejects this replacement, and passes restoration; disjoint union certificate gates and frozen replay consumers remain. Clarify that contains(one-shot iterables) corrects historical exhaustion rather than preserving every old Boolean result. Candidate patch retained, not admitted.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -881,7 +881,10 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1861.json"
+        "research/community-efficient1800-audit/packets/1861.json",
+        "research/community-efficient1800-audit/checks/check-1861-1922-edges.json",
+        "research/community-efficient1800-audit/checks/check-1861-1922-v2.json",
+        "research/community-efficient1800-audit/checks/check-1861-1922-v3.json"
       ]
     },
     {
@@ -969,7 +972,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Candidate fixes preserve empty/ragged product semantics and repair a differential harness alias that previously rebound both sides to baseline. Focused controls pass, but complete scientific replay and active source-pin consumers remain pending; preserve newer companion certificate pins instead of importing old author certificates.",
+      "unresolved_question": "Complete repaired current integration replay passes normal/-O:2500rational products,12positive-side cases, rank/positive certificates,14unit tests and actual comparator-nonvacuity controls. Current companion pins preserved. Do not merge until active joint-helper consumers are migrated: cube source gate rejects only this replacement, and PR1076 historical adapter needs an explicit accepted successor; split-skip and remaining frozen/runtime consumers also need compatibility. Candidate patch retained, not admitted.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
