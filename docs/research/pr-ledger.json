@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1992,
-    "partially_reviewed": 344,
+    "incorporated": 1994,
+    "partially_reviewed": 342,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "0b9eb31686e8da6faef8c511f53a0b247e3ea61cd42928b37abbaa5ba1edd420",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "286e39632cd7914cd21783d77d1acfe2b6d60cf98242faea823b4f9395b9757f",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -79209,25 +79209,32 @@
         {
           "head": "0c6a58aaf22e0fc1b34497f8f6f80db6212b4621",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/atomic-trio-connector"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f6abdfc11178370254923a70721346e60fc0e673",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1518"
+      },
       "reviewed_head": "0c6a58aaf22e0fc1b34497f8f6f80db6212b4621",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "The complete census excludes only ten-call schedules with one TRIO and twelve source applications. The README claims no improvement for arbitrary positive application/frame prices and any number of TRIOs, but ten-call schedules with two or more TRIOs have not been excluded by that census; extra applications could trade against fewer frame charges. Narrow the tariff claim to the proved application-budget window, or supply a bound covering higher-application ten-call words before whole-head admission.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1518.json"
+        "research/community-efficient1800-audit/packets/1518.json",
+        "research/community-efficient1800-audit/checks/check-1518.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -92057,7 +92064,7 @@
       "closure": null,
       "reviewed_head": "54d7f5fd4ef6073b6399d1e6e73773f61fe4360a",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Warm-cache input-validation regression: basis((1,)) then basis((1.0,)) accepts the float although the baseline and cold optimized call reject it. Validate row types before cache lookup or use a key preserving row types, add a warm-cache regression test and refresh affected source pins. Positive integer certificate equivalence is retained but insufficient to preserve rejection behavior.",
+      "unresolved_question": "Candidate cache-key guard now prevents equal-hash invalid float inputs bypassing reference validation. Integration remains pending: preserve current companion certificate pins and review active runtime source-pin consumers before replacing binary_phase_frames.py; the combined prototype is not an accepted integration.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -94383,7 +94390,7 @@
       "closure": null,
       "reviewed_head": "98dd6ef113e1e6a4ca3848b0889cd13b1970fd32",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Preserve zero-inner-width behavior before merging production product: product(((),), ()) formerly returns ((),) but now raises IndexError at B[0]; product(((),()), ()) similarly regresses. Add a degenerate-shape guard and regression tests, refresh the production source pin and bound replay receipt, then rerun the already-passing differential/certificate suite. Ordinary positive-shape arithmetic and complete scoped suite passed.",
+      "unresolved_question": "Candidate fixes preserve empty/ragged product semantics and repair a differential harness alias that previously rebound both sides to baseline. Focused controls pass, but complete scientific replay and active source-pin consumers remain pending; preserve newer companion certificate pins instead of importing old author certificates.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -118902,25 +118909,34 @@
         {
           "head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Reviewed integer-elimination invariant and original Fraction kernel, full changed verifier/differential harness/benchmark and declared source pins; registered bounded replay passes with unchanged inputs. Full current-input scientific acceptance and production integration remain pending; no benchmark speedup independently measured.",
+          "scope": "thakrarsagar's fraction-free exact null kernel and primitive-row acceleration retained with unchanged mathematical predicates and certificate except its verifier pin. Bounded differential tests pass; all 4,878 fresh and 202,190 inherited frame moves audited against original kernels using serial memo eviction. Fresh scalar maps, negative controls, exact pricing, 47 constraints and full certificate equality pass using authenticated completed-frame reuse after the memory stop. Two-stage verification, not a fresh full cold replay; historical timing not remeasured. Audit mode requires repeatable containers.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/recycled-bit-integration",
+        "research/recycled-bit-nesting-reuse"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f6abdfc11178370254923a70721346e60fc0e673",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2537"
+      },
       "reviewed_head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Original Python3.12 metadata and bounded3012-matrix/20000-row differential replay pass, including audit mismatch and finite nesting/nondegeneracy controls. Full --all scientific replay and input-wide equivalence remain pending; optional author benchmark reports about1.3GB RSS, above current1GiB group cap. Plan a bounded-memory complete replay without dropping coverage; do not auto-run that benchmark. Shared production verifier/certificate pins require integration review.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2537.json",
+        "research/community-efficient1800-audit/checks/check-2537-full.json",
+        "research/community-efficient1800-audit/checks/check-2537-scalar.json",
         "research/community-efficient1800-audit/checks/check-2537.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
@@ -133369,7 +133385,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1540,
-    "OPEN": 480
+    "MERGED": 1542,
+    "OPEN": 478
   }
 }

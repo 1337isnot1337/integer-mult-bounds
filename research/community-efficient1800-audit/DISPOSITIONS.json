@@ -749,20 +749,24 @@
       },
       "reviewed_head": "0c6a58aaf22e0fc1b34497f8f6f80db6212b4621",
       "current_head": "0c6a58aaf22e0fc1b34497f8f6f80db6212b4621",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/atomic-trio-connector"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f6abdfc11178370254923a70721346e60fc0e673",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1518"
+      },
       "scope": "Riquelme Soares (hevlyo)'s atomic-TRIO connector census, with a maintainer parity supplement closing the arbitrary-price gap: two complete affine orbits and 8,736 parity pairs exclude all ten-call odd-step covers, including multiple TRIOs. Normal/optimized supplement passes; unchanged standalone original 6,048,000-word census reused from the authenticated same-head batch6 receipt. Paired-readout/odd-step model only; no kappa change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/1518.json",
@@ -1921,21 +1925,25 @@
       },
       "reviewed_head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
       "current_head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/recycled-bit-integration",
         "research/recycled-bit-nesting-reuse"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "f6abdfc11178370254923a70721346e60fc0e673",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2537"
+      },
       "scope": "thakrarsagar's fraction-free exact null kernel and primitive-row acceleration retained with unchanged mathematical predicates and certificate except its verifier pin. Bounded differential tests pass; all 4,878 fresh and 202,190 inherited frame moves audited against original kernels using serial memo eviction. Fresh scalar maps, negative controls, exact pricing, 47 constraints and full certificate equality pass using authenticated completed-frame reuse after the memory stop. Two-stage verification, not a fresh full cold replay; historical timing not remeasured. Audit mode requires repeatable containers.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2537.json",
