@@ -14,6 +14,15 @@ Starting witness and restricted bound PR3010:
 PR2987's necessary boundary `k>=473` is not a sufficiency theorem.
 Frozen source files and exact Git/SHA256 pins are in [SOURCES.json](SOURCES.json).
 
+Registered replay resolves its Git provenance against the identical frozen
+exports in this PR's first commit
+`64af5a56c7e3aba128161ec215cd909dcfa0fe11`, an ancestor available in a full
+checkout of this branch. `SOURCES.json` retains every original source commit,
+path, Git blob and SHA256 in `exports` and the provenance rows' origin fields.
+The runner verifies the same blob identities and bytes without requiring an
+unrelated open-PR head in local Git history. The direct Git-free checks verify
+the frozen export hashes as before; mathematical inputs and claims are unchanged.
+
 ## The smallest decisive exchange
 
 Bin keys are `(owner_replica, child, port)`; windows use `L < time <= U`.
