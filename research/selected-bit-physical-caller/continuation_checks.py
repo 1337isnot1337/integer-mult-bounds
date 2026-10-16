@@ -1,5 +1,6 @@
 """Independent event comparison and nested fixed-role checkpoint checks."""
 from hashlib import sha256
+from dataclasses import replace
 from itertools import product
 import json
 from pathlib import Path
@@ -28,13 +29,23 @@ def value(word):
     return bytes(word.cells[1:-1])
 
 
-def signature(event):
+def signature(event, page):
+    if event.kind in ("enter", "invoke", "return"):
+        need(event.parent_identity is page.parent_identity,
+             "trace boundary belongs to the expected parent")
     request = event.request
     return (event.kind, value(event.first), value(event.second), value(event.width), value(event.depth),
             event.child_kind, event.field, event.reverse, event.source_code, event.half,
             None if request is None else
             (request.kind, value(request.coordinate), request.reference, request.reverse_adapter,
              request.child_kind, request.field, request.reverse, request.negative_inverse, request.half))
+
+
+def collect(iterator, page):
+    try:
+        return [signature(event, page) for event in iterator]
+    finally:
+        iterator.close()
 
 
 def cursor_checks():
@@ -56,31 +67,79 @@ def cursor_checks():
         columns, depth = arena.input(width), arena.input(9)
         page = Geometry(plan, arena, columns, depth, 23, object())
         retained = frozenset(arena.live)
-        expected = [signature(event) for event in execute(page)]
-        need(arena.live == retained, "source trace releases its numerical locals")
-        actual = []
-        cursor = Cursor(plan)
         tape = Tape()
-        while not cursor.done:
-            block = cursor.take()
-            # Serialize the return state BEFORE the block, then discard the
-            # cursor object. The resumed object receives no prior Python state.
-            cursor.save(tape)
-            del cursor
-            actual.extend(signature(event) for event in events(page, block))
-            cursor = Cursor.restore(plan, tape)
+        try:
+            expected = collect(execute(page), page)
+            need(arena.live == retained, "source trace releases its numerical locals")
+            actual = []
+            cursor = Cursor(plan)
+            while not cursor.done:
+                block = cursor.take()
+                # Serialize the return state BEFORE the block, then discard the
+                # cursor object. The resumed object receives no prior Python state.
+                cursor.save(tape)
+                del cursor
+                actual.extend(collect(events(page, block), page))
+                cursor = Cursor.restore(plan, tape)
+                tape.clear()
+                need(arena.live == retained, "one block closes its encoded column and child geometry")
+                checkpoints += 1
+            need(actual == expected, "same full event sequence after finite-cursor reconstruction")
+            digest.update(repr(actual).encode())
+            total += len(actual)
+            cases += 1
+        finally:
             tape.clear()
-            need(arena.live == retained, "one block closes its encoded column and child geometry")
-            checkpoints += 1
-        need(actual == expected, "same full event sequence after finite-cursor reconstruction")
-        digest.update(repr(actual).encode())
-        total += len(actual)
-        cases += 1
-        page.close()
-        arena.free_many(columns, depth)
-        need(not arena.live, "closed cursor fixture bank")
+            page.close()
+            arena.free_many(columns, depth)
+            need(not arena.live, "closed cursor fixture bank")
     return dict(cases=cases, compared_events=total, serialized_return_cursors=checkpoints,
                 digest=digest.hexdigest())
+
+
+def parent_controls():
+    """Reject each wrong-parent boundary before deterministic projection.
+
+    Credit starship-s's public audit of PR2809 head38af8fb, Discussion2319
+    comment18960884. Test both independently supplied streams; object addresses
+    never enter the stable receipt.
+    """
+    global execute, events
+    rejected = []
+    for path in ("reference", "reconstructed"):
+        for kind in ("enter", "invoke", "return"):
+            for variant, identity in (("none", None), ("foreign", object())):
+                original = execute if path == "reference" else events
+                changed = []
+                def wrong_parent(*args):
+                    iterator = original(*args)
+                    try:
+                        for event in iterator:
+                            if event.kind == kind:
+                                changed.append(kind)
+                                event = replace(event, parent_identity=identity)
+                            yield event
+                    finally:
+                        iterator.close()
+                if path == "reference":
+                    execute = wrong_parent
+                else:
+                    events = wrong_parent
+                try:
+                    try:
+                        cursor_checks()
+                    except ValueError as error:
+                        need(str(error) == "trace boundary belongs to the expected parent" and changed,
+                             "wrong-parent control reaches its intended boundary")
+                        rejected.append(path + ":" + kind + ":" + variant)
+                    else:
+                        raise ValueError("wrong parent escaped the continuation checker")
+                finally:
+                    if path == "reference":
+                        execute = original
+                    else:
+                        events = original
+    return rejected
 
 
 def nested_roles(depth=1500):
@@ -190,6 +249,6 @@ def transfer_checks():
 
 
 if __name__ == "__main__":
-    result = dict(cursor=cursor_checks(), roles=nested_roles(), transfer=transfer_checks())
+    result = dict(cursor=cursor_checks(), roles=nested_roles(), transfer=transfer_checks(), parents=parent_controls())
     print(json.dumps(result, sort_keys=True, indent=2))
     print("PASS_FIXED_ROLE_CONTINUATIONS")

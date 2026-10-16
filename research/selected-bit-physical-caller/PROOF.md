@@ -12,12 +12,13 @@ at `d97f150d89e3f3eebdf625a468a445c9c0f1e6c9`, and ywz65's two-tape controller
 from [PR2635](https://github.com/CrocSwap/integer-mult-bounds/pull/2635), at
 `1662dda699d9ea57b3fb13a23873b087d765149f`.
 
-The executable files implement the two checkpoint codecs, the actual numerical
-Frame substitution and the residual return cursor. I specify the whole caller
-below as a finite macroprogram and prove its refinement by substitution. I do
-not supply a generated transition table for that whole macroprogram or execute
-the full selected GL64 payload. Readers must assess the source-level compilation
-argument separately from the finite checks.
+I implement the finite macroprogram and its dispatch loop, both checkpoint
+codecs, the actual numerical Frame substitution and the residual return cursor.
+I execute complete reduced-source programs through the fixed-role controller.
+I do not materialize the selected GL64 word or supply one fully expanded
+microtransition table. Readers must assess the source-level compilation argument
+separately from the finite checks. Section 9 binds the implemented controller to
+the construction below.
 
 ## 1. Statement and retained hypotheses
 
@@ -374,8 +375,112 @@ logical payload scheduler. Neither it nor the
 cursor fixture executes the complete selected macroprogram from section 3.
 
 Readers can review the fixed-role source compilation independently of those
-finite controls. A generated whole-caller transition table and a complete small
-payload replay through that generated controller remain useful implementation
-checks. Stronger H2 primitives and the outer wrapper retain their own mathematical
-contracts. This package establishes no new selected frontier or complete integer
-multiplication theorem.
+finite controls. Section 9 adds complete small payload replays through the
+generated controller. Stronger H2 primitives and the outer wrapper retain their
+own mathematical contracts. I establish no new selected frontier or complete
+integer multiplication theorem.
+
+## 9. Executable fixed-role controller
+
+I implement the finite source expansion in `macro_code.compile_node`. It follows
+the retained schedule/replica/low/local order, authenticates LocalState during
+compilation and emits explicit COPY, XOR, IDLE, bridge and exchange instructions.
+It inlines each residual's finite block sequence. The compiler consumes only
+fixed-q source labels and plans; input dimensions and high fields never enter
+this pass. The complete selected expansion is effective but enormous. The
+replays materialize complete reduced-source words, not a sampled GL64 word.
+
+`macro_machine.Machine` runs one dispatch loop. Its header contains the root flag,
+program-mode label, successor PC and five Word-slot labels: modulus, one, cap,
+size and depth. I retain a derived Geometry/Layout only within the active
+residual. I close its eight index words before CALL, so no cached object or
+generator survives child descent. After RETURN I rebuild constructor-free views
+of the five restored words and derive geometry again only if another block needs
+it. I never rerun directory production, an accepted literal event or node setup
+on a parent return.
+
+The implementation uses W+s+21 reusable stream roles, where s is the largest
+local owner count plus its private role. It adds eight handoff ports, one output
+port and q²+128 scratch tapes. With the two numerical banks/templates and two
+parking tapes, it uses at most
+
+\[
+2\cdot2^{24}+W+s+q^2+162
+\]
+
+working tapes. For s=662 this is below section 2's bound, including eleven
+borrowed root input ports. The simulator creates Word backing objects lazily,
+but each object has a slot in the fixed bank. Provisioning and clearing those
+fixed slot markers adds q-dependent constant work; it does not allocate a bank
+per child. I initialize word bodies by the existing template scans.
+
+`scratch_pool.ScratchPool` selects a free role from a fixed inventory. A lease
+contains a finite slot label and an active bit. Clearing the owned scratch value
+ends that lease. A later stale close does nothing, while a stale read rejects;
+it cannot erase a newer borrower of the role. The source's lexical-lifetime
+inventory in section 5 bounds the simultaneous leases and aliases. The simulator
+may create many lease objects over time, but it retains no lease history and
+none crosses CALL. Meter and allocation counters are checker observations.
+
+I specialize the authenticated source's Tape globals and default factories for
+these leases. I add the four Stack-role releases at Callback.close and create
+borrowed Fields views without allocating discarded placeholders. Stack.pop still
+retains its reverse role. During execution I reject any new physical Tape or
+Arena constructor call. This specialization implements the source rewrite in
+section 5; it leaves the frozen files unchanged. Its Python namespace installation
+is harness setup, not an input-dependent machine operation.
+
+At successful root return I erase working bodies, permanent LEFT markers, Word
+templates and the parking-port marker. I keep only the declared output and
+borrowed inputs. Boundary probes use scanned LEFT symbols, and the controller
+checks the exact declared live numerical slots. I require borrowed root input
+ports to lie outside the reusable working bank.
+
+`macro_binding.SelectedBinding` calls the retained selected coefficient and
+descriptor routines. The selected junction replay checks a native rank-42
+descriptor, repeated frozen prefixes, the exact projected gap, encoded successor
+PC and parent restoration. It also runs actual adapter and generated-child
+coefficient evaluations for an identity projector, with independently expected
+values 0 and 2. Its 23-bit controlled body and unused stock 11 test this junction;
+they are not an admitted complete selected payload.
+
+The complete GL2(F2) controller replay executes 5859 macros from 483 descendant
+and 63 root instructions, with 12 internal calls, 156 residuals and 9216 output
+bits. It preserves the pinned logical replay's complete payload hash. The source
+recursive Invocation constructor is disabled throughout the run. It uses 24
+canonical stream roles, eight handoff ports and at most 20 live scratch leases
+from its 132-role pool.
+
+The complete GL2(F3) replay uses all 48 lows and four families, n=2, w=1, weights
+(2,1) and external gap 2. It executes 25415 instructions on 31104 bits, including
+192 MOVE, 96 COPY and 384 IDLE residuals. Independent projector formulas check
+the private COPY data before its cancelling XORs; independent address formulas
+check both intermediate sweeps and the final endpoint on all rows. I precompile
+only this fixture's finite coordinate-zero coefficients, retaining source/view
+and high-field checks. Production does not use that table. This fixture has no
+internal child, while the GL2(F2) replay tests recursive control.
+
+Additional controls reject stale leases, exhaustion and forbidden allocation.
+A complete 1458-bit nonzero remainder peel checks the unpeeled coordinates and
+external gap. A 2430-bit modulus-9 atom swap checks reuse across two radix digits.
+These tests support the source refinement and ownership annotations. They do not
+replace the parametric proof, prove stronger H2 or exhaust the selected GL64
+source and arbitrary precision domain.
+
+I also corrected the parent-identity coverage gap that starship-s reported in
+[Discussion2319](https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18960884).
+The earlier deterministic signature omitted that identity. I reproduced its
+acceptance of 214 corrupted candidate boundaries, including 42 invocations.
+I now validate identity against `page.parent_identity` on both reference and
+reconstructed paths before projection. Twelve controls cover None and foreign
+parents for ENTER, INVOKE and RETURN on both paths. I serialize no object address.
+The generated call gate separately rejects a missing parent, a different Program
+view and a wrong source code before it prepares or parks a child.
+
+For simulator efficiency, a scratch lease delegates append, rewind and clear to
+the same retained Tape methods. Those methods still perform their literal reads,
+writes and unit moves. I update the observational lease meter from their actual
+counter differences; no counter value selects computation or a head position.
+An exact-traffic control compares leased and ordinary tapes on empty, singleton
+and longer bodies. This removes repeated Python wrapper calls without introducing
+a bulk-copy or constant-time rewind primitive.

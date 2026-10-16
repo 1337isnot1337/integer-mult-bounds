@@ -1,25 +1,33 @@
 # Selected BIT caller: fixed roles, parked banks and finite returns
 
-I give a source-level fixed-tape lowering of the all-size p=1 caller in
+I implement fixed-role recursive control for the all-size p=1 caller in
 [David Arias's PR2753](https://github.com/CrocSwap/integer-mult-bounds/pull/2753).
-The construction uses permanent stream roles, two shared numerical banks, one
-parking stack and a serialized finite return label. Under the pinned caller's
+I compile its fixed source schedule to macroinstructions and execute them with
+one active frame, permanent stream roles, two numerical banks and one parking
+stack. I serialize the parent return label and state before child descent;
+I retain no parent generator or per-child tape bank. Under the pinned caller's
 input and root-coupling hypotheses, I prove an O_q(V_root)+F_q physical reserve
 and retain its O_q(V(n+w)) local toll. See [PROOF.md](PROOF.md).
 
 The executable contribution includes:
 
-* The actual PR2753 Frame integration with one bank pair, including child grants,
-  matched restoration and cleanup after constructor/deeper-child failure.
-* Stream-role serialization on the same PR2635 parking tape, a finite residual
-  return cursor and a protected result port through 1500 nested returns.
-* A complete 9216-address GL2 recursive payload check using shared numerical banks.
+* A finite instruction emitter and dispatch loop, with canonical result commits,
+  protected child handoff/return ports and complete root workspace erasure.
+* A fixed scratch pool with explicit leases, stale-access rejection and guards
+  against physical Tape or Arena allocation during execution.
+* Complete generated-controller replays on 9216 recursive GL2(F2) addresses and
+  31104 four-family GL2(F3) addresses. The latter checks 96 private COPY endpoints
+  before cancelling XORs and both intermediate family sweeps.
+* Actual selected adapter/child coefficients and typed CALL/RETURN checks, plus
+  the earlier Frame integration, 1500 nested checkpoints and residual cursors.
 
-I specify the whole caller as a finite macroprogram and prove its source
-refinement. I have not generated a whole-caller transition table or executed the
-complete selected GL64 payload through that controller. The GL2 check retains
-the logical payload scheduler. The code checks therefore support distinct parts
-of the construction; they are not a formal verification of the full theorem.
+I execute the reduced source programs through the generated controller, with the
+source recursive Invocation constructor disabled. Production uses the unchanged
+selected coefficient implementation; the reduced fixtures use their declared
+small grammars. I have not materialized the astronomical selected GL64 instruction
+word or expanded the retained primitive blocks into one complete microtransition
+table. I support the parametric claim with the source-level refinement proof;
+finite replays do not establish a formal verification of the full theorem.
 
 I retain p=1, the stronger H2 primitive obligations and the outer borrowing
 wrapper boundary. I make no exponent improvement or supplier-admission claim.
@@ -34,8 +42,9 @@ python3.12 -B scripts/research_package.py --package research/selected-bit-physic
 ```
 
 The registered suites authenticate the complete frozen source inventory and
-its transitive repository inputs before execution. They run the new controls
-with normal and optimized Python, then run the complete small recursive payload.
+its transitive repository inputs before execution. They cover the generated
+recursive and four-family controllers, selected-source junction and ownership
+controls, and normal/optimized Frame and continuation checks.
 See [VALIDATION.md](VALIDATION.md) for scope, commands and observations.
 
 ## Attribution and overlap
@@ -59,16 +68,22 @@ The numerical lifetime audits in PR2781/2796/2801, the ordered-shear machine in
 PR2776 and the separately claimed outer wrapper address complementary boundaries.
 I do not incorporate their pending claims as proof dependencies.
 
+I corrected the earlier continuation checker's parent-identity omission after
+[starship-s's audit](https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18960884).
+I now validate each boundary against its expected parent before deterministic
+signature projection, test wrong parents on both comparison paths, and reject
+wrong parent/source bindings at the generated controller's call gate.
+
 ## Open next questions
 
-* Generate the complete controller from the finite block specification and run
-  a small payload through it. Start by assigning the canonical ports in PROOF
-  sections 2–6; the current executable GL2 replay still uses logical generators.
 * Replace the retained O(wV) route/leaf routines with the required H2 primitives.
   Price the actual source-bound coefficient and movement paths; the present
   physical lowering retains the p=1 baseline.
 * Join the physical reserve with the outer stock wrapper. Coordinate with its
   active author and track all padding, restoration and preparation charges.
+* Audit the compiler and primitive specialization independently. Start with
+  the opcode/source correspondence, lease-end annotations and CALL invariants;
+  a complete expanded transition table or proof-assistant refinement remains open.
 
 The structured scope, overlap checkpoint and next steps appear in
 [TASK.json](TASK.json). This contribution follows the repository's Apache-2.0

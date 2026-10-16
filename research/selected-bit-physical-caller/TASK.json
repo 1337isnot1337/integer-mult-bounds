@@ -26,29 +26,37 @@
     "overlap_terms": ["owner boundary", "bridge omission", "hosting"]
   },
   "scope_status": "changed",
-  "actual_scope": "Construct a source-level fixed-tape lowering of PR2753's p=1 caller, integrate shared numerical banks into its actual Frame, and implement stream-role parking and finite residual continuations.",
+  "actual_scope": "Implement a finite-macrocode, fixed-role recursive controller for PR2753's p=1 caller; prove its source refinement and physical time/space bounds; execute complete reduced-source recursive and four-family payloads and the actual selected typed coefficient/call junction.",
   "scope_change_reason": "The source-bound audit identifies physical caller lowering as an explicit remaining obligation. The user requests a central mathematical contribution; I address that obligation with a construction and scoped executable checks rather than an acceptance-counterexample audit.",
-  "bottleneck_link": "Replace depth-dependent logical frame tapes and generator continuation with fixed roles, charged parking and finite return state while retaining the all-size caller's endpoint and baseline toll.",
-  "budget_minutes": 180,
-  "stop_rule": "Provide the source-level lowering, prove its fixed-role and movement bounds, verify the changed return boundaries and state the unimplemented whole-controller replay and stronger supplier obligations.",
-  "outcome": "partial",
-  "evidence": "PROOF.md gives the whole-caller compilation argument. Executable checks cover actual Frame substitution, finite residual reconstruction, 1500 nested role/Word checkpoints and a complete small recursive payload with shared numerical banks. The latter retains the logical payload scheduler.",
+  "bottleneck_link": "Replace depth-dependent logical frame tapes and parent generators with an executable fixed-role controller, charged parking and serialized return state while retaining the all-size caller's endpoint and baseline toll.",
+  "budget_minutes": 240,
+  "stop_rule": "Implement the complete finite instruction emitter and recursive dispatch, verify full small payloads and selected typed interfaces, and state the remaining selected GL64 materialization, stronger H2 and outer-transfer obligations.",
+  "outcome": "completed",
+  "evidence": "PROOF.md gives the whole-caller refinement and physical bounds. The generated controller passes complete 9216-bit recursive and 31104-bit four-family payloads, 96 independent private COPY oracles, both intermediate sweeps and full root workspace erasure. Selected checks exercise real adapter/child coefficients, descriptors and serialized returns. Constructor guards reject new Tape/Arena allocation during macros. Historical Frame and 1500-depth continuation controls remain registered. No complete selected GL64 payload or formal kernel claim.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance, including mathematical and source-analysis subagents. No independent human or proof-assistant verification claimed.",
   "discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18958887",
   "freshness": {
-    "canonical_main": "28f54620ff770dd051d5df35882bd84303d13c6f",
-    "upstream_checked_utc": "2026-10-15T22:36Z",
-    "overlap_checked_utc": "2026-10-15T22:39:24Z",
-    "coverage": "733 open PRs, 1447 Discussion records and 1987 local records; complete pagination and no warnings. No competing physical caller or finite-continuation completion appeared. The three pinned source PRs remain unchanged and have no comments or reviews. Metadata coverage excludes arbitrary diffs and unpublished work. Guidance, priority 5 and the selected record remain unchanged.",
-    "complementary_work": "PR2776 handles ordered unit shears; PR2781/2796/2801 handle numerical lifetime allowances. Petalas's outer-wrapper claim is separate. These pending claims are not imported proof dependencies."
+    "canonical_main": "81ff1f588a3dddf817d09ac429e9324e9d61501a",
+    "upstream_checked_utc": "2026-10-16T00:27Z",
+    "overlap_checked_utc": "2026-10-15T23:55:00Z",
+    "coverage": "707 open PRs, 1469 Discussion records and 1987 local records; complete pagination and no warnings. No competing executable-controller completion or stronger H2 completion appeared. The three pinned source PRs remain unchanged and have no comments or reviews. Metadata coverage excludes arbitrary diffs and unpublished work. Guidance, priority 5 and the selected record remain unchanged.",
+    "complementary_work": "PR2776 handles ordered unit shears; PR2781/2796/2801 handle numerical lifetime allowances. Petalas published logical outer wrapper PR2808 at b00b58e0db823643364f705b530faac254e7b05b; it retains physical and stronger H2 boundaries. A 22:45 targeted supplement found no competing controller-generation claim. These pending claims are not imported proof dependencies."
+  },
+  "audit_correction": {
+    "author": "starship-s",
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2319#discussioncomment-18960884",
+    "audited_head": "38af8fb25f6adb5fa7da145cd9a03d41c39fd5d0",
+    "finding": "The deterministic continuation signature omitted parent identity and accepted 214 wrong-parent candidate boundaries, including 42 invocations. I reproduced the gap; it did not demonstrate a producer or proof defect.",
+    "correction": "Validate expected parent identity on both streams before signature projection; reject None and foreign parents for each boundary kind on both paths; guard the generated call's parent/source binding before capsule preparation.",
+    "timing_limit": "The auditor reported an old 300-second registered nested timeout and a separate 281.28-second pass on Linux/CPython3.12.13. I retain that limitation; the current generated-controller replay and its declared timeouts have no fresh Linux claim."
   },
   "open_questions": [
     {
-      "question": "Generate and execute the complete fixed-role controller on a small payload.",
-      "why_it_matters": "The current evidence verifies separate executable boundaries and a source-level compilation proof, not a generated whole-caller transition table.",
-      "first_step": "Implement the finite instruction word and canonical ports in PROOF sections 2 through 6, then replace the GL2 model's logical scheduler.",
-      "blocked_by": "Whole-controller code generation and replay remain unimplemented."
+      "question": "Independently audit the compiler and primitive specialization, or formalize their refinement.",
+      "why_it_matters": "The executable macrocontroller and source-level proof do not constitute a proof-assistant verification or a fully expanded selected transition table.",
+      "first_step": "Check the opcode/source correspondence, scratch lease-end annotations, five-word recursive cut and constructor-free parent restoration against the frozen source.",
+      "blocked_by": "Independent mathematical review and a formal refinement remain open."
     },
     {
       "question": "Supply the stronger H2 route and leaf primitives.",
