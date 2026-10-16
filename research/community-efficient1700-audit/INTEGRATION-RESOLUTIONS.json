@@ -93,5 +93,47 @@
     "path": "research/p104-fusion-cost-headroom/inputs/SELECTED-AT-BASE.json",
     "resolved_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
     "reason": "Preserve original selected-record bytes and source hashes in a local historical snapshot; authenticate before use. Combined full replay plus live-record-independence and frozen-input-corruption controls pass; numerical receipt unchanged."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/README.md",
+    "resolved_sha256": "13694215d0c1a245b392f7155e8395b9c4bad9c5db3558833c784d9449616417",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/SOURCES.json",
+    "resolved_sha256": "23395a7405fecbe54a1010646299a0b48609bc72a851cd749e8dd068d6888025",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/VERIFY.json",
+    "resolved_sha256": "ed02ebf418e19ec8bb8a528349974c420ee66b0fadcb05c44bdb817226dcae68",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/verify.py",
+    "resolved_sha256": "535f5ffae540fe58c98e84904821b44ee5236ecb7c6299cfc571e7e9133266ab",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/independent_check.py",
+    "resolved_sha256": "ccb10d89b881bba7f35fd7d13d447d2c0d033a19d3da4b7d5c560f37d6883dbd",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/test_verify.py",
+    "resolved_sha256": "c2cd9c29e74171f1a40f7cca76013be5aeeb27a29bdda2e9d88125e25d9a4be4",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
+  },
+  {
+    "number": 2744,
+    "path": "research/p104-consumer-budget-audit/inputs/SELECTED-AT-BASE.json",
+    "resolved_sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
+    "reason": "Preserve original historical selected bytes and hashes in a vendored snapshot; both independent engines authenticate it. Combined replay and live-record/frozen-input controls pass with unchanged numerical receipt."
   }
 ]
