@@ -20,6 +20,7 @@ mergehead=R/git('rev-parse','--git-path','MERGE_HEAD').stdout.strip()
 if mergehead.exists():
  assert set(mergehead.read_text().splitlines())==set(heads)
 else:
+ assert not git('status','--porcelain').stdout, 'Commit reviewed audit changes before starting integration'
  a=git('merge','--no-ff','--no-commit',*heads,check=False);(P/f'merge-{label}.log').write_text(a.stdout+a.stderr);assert a.returncode==0,a.stdout+a.stderr
 for n in ns:
  for f in json.load(open(P/'packets'/f'{n}.json'))['files']:
@@ -41,7 +42,8 @@ shutil.copy2(P/'resolution-plan.json',R/'research/community-efficient1900-audit/
 git('add','--sparse','research/community-efficient1900-audit/INTEGRATION-RESOLUTIONS.json')
 assert git('show',':certificates/selected-result.json').stdout==git('show','a7482490b4ca256db67d767a33fa6f7553060807:certificates/selected-result.json').stdout
 whitespace_excludes=[':(exclude)research/a2-family-b-locus/checks/relax.py'] if 2830 in ns else []
-# The original relax.py trailing space is manifest-pinned; its exact blob is verified above.
+if 2464 in ns:whitespace_excludes.append(':(exclude)research/z4-typed-echo-supplier-instance/TASK.json')
+# These author-original whitespace bytes are preserved; exact blobs/modes were verified above.
 whitespace=git('-c','core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol','diff','--cached','--check','--','.',':(exclude)research/community-efficient1900-audit/**',*whitespace_excludes,check=False)
 assert whitespace.returncode==0, whitespace.stdout+whitespace.stderr
 msg=P/f'message-{label}.txt';msg.write_text('Integrate reviewed research PRs '+', '.join('#'+str(n)for n in ns)+'\n\nOriginal authors and predecessor credit retained. Exact-head finite checks and claim limits are recorded in research/community-efficient1900-audit. No selected frontier change.\n')

@@ -63,18 +63,27 @@
       "reviewed_head": "ef03620dff68d5be924b338f40c5c310e9359557",
       "current_head": "ef03620dff68d5be924b338f40c5c310e9359557",
       "prior_reviewed_head": "ef03620dff68d5be924b338f40c5c310e9359557",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        ".github/workflows",
+        "research/h6-banked-breakeven",
+        "research/h6-compensation-network",
+        "research/h6-independent-audit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "d736b936236ae9a0211eac016265f0eb2130f8d7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1830"
+      },
       "scope": "Ross Richardson: legal H6 edge/bucket compensation, explicit K encoder, universal affine frame-transition recipes, exact-child grid and nominal cost exclusions. Complete successor export,17 semantic controls,6 CI regressions and live selected integrity pass. Prior exhaustive census retained as source-bound author evidence; no billion-event execution or all-size supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient800-audit/packets/1830.json",
@@ -145,18 +154,24 @@
       "reviewed_head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
       "current_head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
       "prior_reviewed_head": "5c44715b6fa0806ad828e42fb53b84f6b5f7ddc6",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Reviewed; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/z4-typed-echo-supplier-instance"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "d736b936236ae9a0211eac016265f0eb2130f8d7",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2464"
+      },
       "scope": "Aaron Wang: exact order-four typed-echo word, complete declared scalar tape invoice and conditional shared-ledger moment pricing. Full51-check replay passes. Revised claims explicitly leave reader/intertwiner realization, delivery/lifetime and precision open; no realized selected supplier or new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1400-audit/packets/2464.json",

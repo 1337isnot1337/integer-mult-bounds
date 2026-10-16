@@ -1,9 +1,11 @@
 {
   "status": "PASS",
-  "checked_commit": "15b8d14826f604f96637fb4311e0f02ba26d76ba",
+  "checked_commit": "d736b936236ae9a0211eac016265f0eb2130f8d7",
   "merged_prs": [
     1007,
+    1830,
     2255,
+    2464,
     2830,
     2874,
     2876,
@@ -41,7 +43,7 @@
     2920,
     2921
   ],
-  "changed_files": 549,
+  "changed_files": 725,
   "resolved_files": [
     {
       "number": 2892,
@@ -71,7 +73,7 @@
     {
       "number": 1007,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "98ff2216d2c1b41dbc4d2bad63579465cd2dd67fdf462688cd1736f57de54e28"
+      "sha256": "9d9183faebd5a0f837989be9c2e309d7fca59aa2314e2c2419fa609c4997249d"
     },
     {
       "number": 1007,
