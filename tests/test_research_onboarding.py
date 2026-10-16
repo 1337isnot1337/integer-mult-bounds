@@ -390,6 +390,68 @@ class PackageTests(unittest.TestCase):
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn("PASS_REGISTERED_RESEARCH_PACKAGE research/fixture", result.stdout)
 
+    @unittest.skipUnless(sys.version_info[:2] == (3, 12), "generic replay environment is Python 3.12")
+    def test_cli_unicode_coverage_survives_legacy_stdout(self):
+        _, manifest = self.ready()
+        label = "Verify κ → ∑ and café 🚀"
+        manifest["commands"][0]["checks"] = label
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+        scripts = self.root / "scripts"
+        scripts.mkdir()
+        runner = scripts / "research_package.py"
+        runner.write_bytes((ROOT / "scripts/research_package.py").read_bytes())
+        verifier = self.target / "verify.py"
+        argv = [sys.executable, "-B", str(runner), "--package", "research/fixture"]
+        for encoding in ("cp1252", "ascii", "utf-8"):
+            env = dict(os.environ, PYTHONIOENCODING=encoding + ":strict", PYTHONUTF8="0")
+            with self.subTest(encoding=encoding):
+                verifier.write_text(
+                    'import json, os, sys\n'
+                    'print("CHILD " + json.dumps([sys.stdout.errors, os.environ["PYTHONIOENCODING"]]))\n',
+                    encoding="utf-8")
+                result = subprocess.run(argv, env=env, capture_output=True, timeout=30)
+                self.assertEqual(result.returncode, 0, result.stderr.decode("ascii", "replace"))
+                self.assertIn(("CHECK " + label).encode(encoding, "backslashreplace"), result.stdout)
+                # Changing the runner's display policy must not alter child policy or environment.
+                self.assertIn(('CHILD ["strict", "' + encoding + ':strict"]').encode("ascii"), result.stdout)
+                self.assertIn(b"PASS_REGISTERED_RESEARCH_PACKAGE research/fixture", result.stdout)
+                verifier.write_text('raise SystemExit(7)\n', encoding="utf-8")
+                result = subprocess.run(argv, env=env, capture_output=True, timeout=30)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(b"verification command exited 7", result.stderr)
+                self.assertNotIn(b"PASS_REGISTERED", result.stdout)
+
+    @unittest.skipUnless(sys.version_info[:2] == (3, 12), "generic replay environment is Python 3.12")
+    def test_cli_unicode_coverage_does_not_relax_source_pins(self):
+        _, manifest = self.ready()
+        manifest["commands"][0]["checks"] = "Verify κ"
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest), encoding="utf-8")
+        scripts = self.root / "scripts"
+        scripts.mkdir()
+        runner = scripts / "research_package.py"
+        runner.write_bytes((ROOT / "scripts/research_package.py").read_bytes())
+        (self.root / "input.txt").write_text("changed input\n", encoding="utf-8")
+        (self.target / "verify.py").write_text('print("UNEXPECTED_CHILD")\n', encoding="utf-8")
+        result = subprocess.run([sys.executable, "-B", str(runner), "--package", "research/fixture"],
+                                env=dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0"),
+                                capture_output=True, timeout=30)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b"working source drift: input.txt", result.stderr)
+        self.assertNotIn(b"CHECK ", result.stdout)
+        self.assertNotIn(b"UNEXPECTED_CHILD", result.stdout)
+        self.assertNotIn(b"PASS_REGISTERED", result.stdout)
+        # A non-ASCII path in a validation diagnostic must still report failure.
+        (self.root / "input.txt").write_text("pinned fixture\n", encoding="utf-8")
+        manifest["inputs"].append("κ-missing.txt")
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest), encoding="utf-8")
+        result = subprocess.run([sys.executable, "-B", str(runner), "--package", "research/fixture"],
+                                env=dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0"),
+                                capture_output=True, timeout=30)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b"missing or external file: \\u03ba-missing.txt", result.stderr)
+        self.assertNotIn(b"UNEXPECTED_CHILD", result.stdout)
+        self.assertNotIn(b"PASS_REGISTERED", result.stdout)
+
 
 class TextEncodingTests(unittest.TestCase):
     SCRIPTS = ("choose_research_task.py", "find_overlap.py", "new_research_package.py",

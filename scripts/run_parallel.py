@@ -78,10 +78,14 @@ def jobs():
 
 def run_all(commands, cwd=None):
     """Run (label, argv) pairs concurrently and return the failed labels."""
+    # Inherited optimization must not erase assertions in verification scripts
+    # or their Python children. Deliberate -O/-OO argv controls remain explicit.
+    env = os.environ.copy()
+    env.pop('PYTHONOPTIMIZE', None)
     def run(label, argv):
         start = time.monotonic()
         result = subprocess.run(argv, cwd=cwd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                text=True, errors='replace')
+                                text=True, errors='replace', env=env)
         return label, result.returncode, result.stdout, time.monotonic()-start
     failed = []
     with ThreadPoolExecutor(max_workers=jobs()) as pool:

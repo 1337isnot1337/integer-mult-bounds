@@ -1,0 +1,6 @@
+{
+  "number": 2624,
+  "status": "reviewed_pending_combined_integration",
+  "scope": "Source-retention replay now passes after restoring 28 missing exact-head inputs; original failure retained. Reviewed projection preserves current-head/review state and credits PR1572; four regression groups pass. Integrate the small generator change atop current main without reverting newer batch registries, regenerate the ledger, and verify only PR148 changes before publication; original generated ledgers are stale.",
+  "regression_log_sha256": "71f385628efaeed61b8ca36819a695a12058846f3539952fa581e781da33250f"
+}

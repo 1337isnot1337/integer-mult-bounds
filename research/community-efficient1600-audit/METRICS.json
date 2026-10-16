@@ -1,0 +1,13 @@
+{
+  "selected": 100,
+  "ready": 39,
+  "merged": 39,
+  "remaining": 61,
+  "elapsed_seconds": 2594.3,
+  "retained_receipt_process_seconds": 3641.3,
+  "successful_receipts": 63,
+  "initial_command_budget_seconds": 300,
+  "primary_check_workers": 2,
+  "token_usage": null,
+  "limits": "No matched control batch or token telemetry. Supplemental differential checks and repaired fixtures are separate receipts. Passing a finite replay does not prove the full theorem."
+}

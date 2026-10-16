@@ -7,6 +7,10 @@ theorems, but the [retained rank-eight results](#masked-exactness-the-retained-r
 below cover specific masked classes. Check [live overlap](../../autoresearch.md#1-orient-briefly-then-choose-a-distinct-task)
 before calling a class outside these hypotheses an open problem.
 
+For the fixed paired-plane masked endpoint, use the
+[paired-plane contract map](paired-plane-contract-map.md) to distinguish binary
+label identities, scalar/vector fitting rank and native payload costs.
+
 ## Shared model and the three boundaries
 
 The roots have squared norm two. If `R` contains the live E8 root-line
