@@ -57,3 +57,7 @@ The [next100-head index](../../research/community-efficient2100-audit/README.md)
 ## Twenty-second intake
 
 The [85-head remainder index](../../research/community-efficient2200-audit/README.md) records archive admissions and explicit holds at its live snapshot. Source-only publication does not validate any advertised bound or formal proof.
+
+## Twenty-third intake: attributes and package versions
+
+The [100-head index](../../research/community-efficient2300-audit/README.md) separates compatible source archives from competing versions. This batch also permits a separately reviewed additive `.gitattributes` resolution limited to research-package paths. Original author attribute files are retained in the audit; every scientific source blob remains exact. Shared-code changes and conflicting research versions are not silently overwritten. Attribute rules are checked against unrelated control paths and package probes.
