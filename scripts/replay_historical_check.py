@@ -27,6 +27,7 @@ CONFIG = {
                      ['-m', 'unittest', 'discover', '-s', 'research/r420-two-sided-basis', '-p', 'test_*.py']],
     },
     'reconciliation92': {
+        'utf8': True,
         'manifest': 'research/community-reconciliation92-audit/MANIFEST.json',
         'field': 'integrated_files',
         'preserve_prefix': True,
@@ -95,6 +96,52 @@ CONFIG['split-skip']['additional_inputs'] = [
         ],
     },
 ]
+
+
+# Reconciliation92 predates reviewed worker-budget/cancellation successors.
+# Replay the immutable runner recorded by its unchanged integrated-file manifest.
+CONFIG['reconciliation92']['additional_inputs'] = [{
+    'manifest': 'research/community-reconciliation92-audit/MANIFEST.json',
+    'field': 'integrated_files', 'path': 'scripts/run_parallel.py',
+    'input': 'run_parallel.py',
+    'sha256': 'f046e98e4c296fde954b93b466b7f359be0c05c287d96943e016f0b850587387',
+    'accepted_live_sha256': [
+        'a49e763573343a6a068b0c48c8ff422756be5a8f55902b2385fa8d13cc951fda',
+    ],
+}]
+
+# The second scheduler verifier has the same frozen reconciliation boundary.
+CONFIG['reconciliation92']['additional_inputs'].append({
+    'manifest': 'research/community-reconciliation92-audit/MANIFEST.json',
+    'field': 'integrated_files', 'path': 'scripts/verify_parallel.py',
+    'input': 'verify_parallel.py',
+    'sha256': '7751bcdd2df3c98798b1855050646744404f24d015eb4cd2b4af84bfb591cdc3',
+    'accepted_live_sha256': [
+        '22b0e66b878c886d52aaa69d233fdcaa4194cc947cab0191ca3dabee5980d6ad',
+    ],
+})
+
+# The state benchmark executes the historical helper via its cold-interface
+# checker. Use UTF-8 mode in child interpreters without changing frozen bytes.
+CONFIG['tooling-exact'] = {
+    'utf8': True,
+    'manifest': 'research/clifford-state-performance/SOURCE.json',
+    'field': 'files', 'path': 'scripts/verify_hpe_lean_binding.py',
+    'input': 'verify_hpe_lean_binding.py',
+    'sha256': '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03',
+    'accepted_live_sha256': [
+        '2fe5aac5828b1fdb79ff5e9ba87faef4db77e0c9339f362a1775b498a6d59e13',
+    ],
+    'commands': [
+        ['research/clifford-state-performance/test_state.py'],
+        ['research/gram-prefix-performance/verify.py'],
+        ['research/gram-prefix-performance/test_kernel.py', '--mutations'],
+        ['-I', 'research/r420-geometry-cache/verify.py'],
+        ['-I', 'research/owner-footprint-bitsets/verify.py'],
+        ['-I', 'research/owner-footprint-bitsets/test_masks.py'],
+        ['-I', '-O', 'research/owner-footprint-bitsets/test_masks.py'],
+    ],
+}
 
 
 def require(condition, message):
@@ -196,6 +243,8 @@ def main():
         # Retain assert-based historical checks, including nested interpreters.
         env = os.environ.copy()
         env.pop('PYTHONOPTIMIZE', None)
+        if config.get('utf8'):
+            env['PYTHONUTF8'] = '1'
         for command in commands:
             subprocess.run([sys.executable, '-B'] + command, cwd=snapshot, env=env, check=True)
         verify_unchanged(snapshot, expected)

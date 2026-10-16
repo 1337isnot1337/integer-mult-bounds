@@ -40,3 +40,31 @@ reconciliation records and their contributor attribution; Chafik Boukhalfa,
 RaD/hipotures and Rohan Garg for the split-pair lineage; and the original source
 headers. The snapshots retain the repository Apache-2.0 license. This maintenance
 adapter was prepared by Dennis with substantial OpenAI Codex assistance.
+
+## Reviewed scheduler and UTF-8 successors
+
+The reconciliation92 snapshot also restores `scripts/run_parallel.py` from
+`b84ba67156a01f9c2cb34fe1e3cb1dcdeab00d9c`, exactly matching its unchanged
+`integrated_files` pin. UTF-8 child mode preserves the original Unicode JSON
+loads on Windows. The live worker-memory, assertion-environment and
+direct-script cancellation improvements remain unchanged and separately
+authenticated before replay.
+
+`tooling-exact` runs all seven original exact-accelerator commands inside a
+private snapshot. It restores `scripts/verify_hpe_lean_binding.py` from
+`66849e1475c930fd7732b1a0067ffee7e1e95f60`, matching the unchanged Clifford
+state benchmark's context pin. The cold-interface checker executes this helper
+indirectly. Child interpreters
+therefore use explicit UTF-8 mode, retaining the frozen bytes and matching
+the current live helper's UTF-8 behavior without modifying its source. All frozen
+source manifests, rejection controls and final unchanged-file gates remain.
+
+Both new snapshots retain their original headers and Apache-2.0 licensing.
+Credit the historical reconciliation contributors, ywz65's UTF-8 repair,
+the worker-budgeting/assertion-protection/direct-script cancellation
+contributors in the retained Git history.
+Adapter and failure controls: Dennis, with substantial OpenAI Codex assistance.
+
+The reconciliation92 snapshot also restores `scripts/verify_parallel.py` from
+the same `b84ba671...` commit, matching its unchanged manifest pin. The live
+direct-script cancellation successor is independently authenticated and kept.

@@ -229,6 +229,47 @@ class HistoricalReplay(unittest.TestCase):
             with self.subTest(path=entry['path']):
                 checker.authenticated_input(ROOT, entry)
 
+    def test_scheduler_and_hpe_overlays_bind_frozen_and_live_bytes(self):
+        cases = [*checker.CONFIG['reconciliation92']['additional_inputs'],
+                 checker.CONFIG['tooling-exact']]
+        for config in cases:
+            with self.subTest(path=config['path']):
+                original = (checker.INPUTS / config['input']).read_bytes()
+                self.assertEqual(hashlib.sha256(original).hexdigest(), config['sha256'])
+                self.assertEqual(checker.authenticated_input(ROOT, config), original)
+                live = hashlib.sha256((ROOT / config['path']).read_bytes()).hexdigest()
+                self.assertIn(live, config['accepted_live_sha256'])
+                self.assertNotEqual(live, config['sha256'])
+        self.assertEqual(len(checker.CONFIG['tooling-exact']['commands']), 7)
+
+    def test_new_context_overlays_reject_real_pin_and_live_drift(self):
+        for real in [*checker.CONFIG['reconciliation92']['additional_inputs'],
+                     checker.CONFIG['tooling-exact']]:
+            with self.subTest(path=real['path']), tempfile.TemporaryDirectory() as td:
+                root, inputs = Path(td)/'repo', Path(td)/'inputs'
+                root.mkdir()
+                inputs.mkdir()
+                manifest = root / real['manifest']
+                manifest.parent.mkdir(parents=True,exist_ok=True)
+                manifest.write_text(json.dumps({real['field']:{real['path']:real['sha256']}}))
+                live = root / real['path']
+                live.parent.mkdir(parents=True,exist_ok=True)
+                live.write_bytes((ROOT/real['path']).read_bytes())
+                original = (checker.INPUTS/real['input']).read_bytes()
+                (inputs/real['input']).write_bytes(original)
+                self.assertEqual(checker.authenticated_input(root,real,inputs),original)
+                live.write_bytes(b'unreviewed live successor')
+                with self.assertRaisesRegex(ValueError,'Unrecognized live source update'):
+                    checker.authenticated_input(root,real,inputs)
+                live.write_bytes((ROOT/real['path']).read_bytes())
+                (inputs/real['input']).write_bytes(b'corrupted immutable historical blob')
+                with self.assertRaisesRegex(ValueError,'Changed historical input'):
+                    checker.authenticated_input(root,real,inputs)
+                (inputs/real['input']).write_bytes(original)
+                manifest.write_text(json.dumps({real['field']:{real['path']:'0'*64}}))
+                with self.assertRaisesRegex(ValueError,'Missing or changed predecessor source pin'):
+                    checker.authenticated_input(root,real,inputs)
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):
