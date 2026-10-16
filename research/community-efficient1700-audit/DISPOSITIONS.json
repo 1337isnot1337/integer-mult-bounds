@@ -553,20 +553,24 @@
       },
       "reviewed_head": "46c0c3554608a1096816ad668c755d3b5b7a8c0b",
       "current_head": "46c0c3554608a1096816ad668c755d3b5b7a8c0b",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-residual-live-volume"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "50f7096956f6b4b1d47da5bd586d88102a5a3b21",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2731"
+      },
       "scope": "Sharp successful completed-residual payload bound3v+3R including borrowed source, with retained-role corollary664v+3R. Complete proof, allocation hooks, ownership and origin checks reviewed;22 exports independently match original PR2697 Git blobs. All17 fixtures/231 primitive events, good/fallback returns, sharp8748 peak and rejecting controls pass normal and optimized Python. Historical selected metadata moved to provenance with full mathematical receipt unchanged. Excludes markers, numeric/control tapes, failure-path cleanup, larger recursion, physical reserve and supplier admission.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2731.json",

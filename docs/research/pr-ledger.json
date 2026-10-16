@@ -45,8 +45,8 @@
     "research/community-efficient1700-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1956,
-    "partially_reviewed": 339,
+    "incorporated": 1957,
+    "partially_reviewed": 338,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -103,7 +103,7 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "9083c5969a47b221fd9863f0d81144899533310425fa26786eab7622608e87d2",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "c5d332ea6d8eb783a3207bfc6a635c058d2006b23ecf58036b2a8bc8e633cd28",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -126710,25 +126710,33 @@
         {
           "head": "46c0c3554608a1096816ad668c755d3b5b7a8c0b",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Sharp successful completed-residual payload bound3v+3R including borrowed source, with retained-role corollary664v+3R. Complete proof, allocation hooks, ownership and origin checks reviewed;22 exports independently match original PR2697 Git blobs. All17 fixtures/231 primitive events, good/fallback returns, sharp8748 peak and rejecting controls pass normal and optimized Python. Historical selected metadata moved to provenance with full mathematical receipt unchanged. Excludes markers, numeric/control tapes, failure-path cleanup, larger recursion, physical reserve and supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/selected-residual-live-volume"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "50f7096956f6b4b1d47da5bd586d88102a5a3b21",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2731"
+      },
       "reviewed_head": "46c0c3554608a1096816ad668c755d3b5b7a8c0b",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2731.json",
+        "research/community-efficient1700-audit/checks/check-2731-combined.json",
+        "research/community-efficient1700-audit/checks/check-2731-generate.json",
         "research/community-efficient1700-audit/checks/check-2731.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
@@ -130898,7 +130906,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1504,
-    "OPEN": 475
+    "MERGED": 1505,
+    "OPEN": 474
   }
 }

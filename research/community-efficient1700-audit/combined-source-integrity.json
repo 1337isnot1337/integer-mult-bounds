@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "8165902a2d6f4acf6d67f07c497caf908a2ba6e2",
+  "checked_commit": "50f7096956f6b4b1d47da5bd586d88102a5a3b21",
   "merged_prs": [
     2478,
     2716,
@@ -12,6 +12,7 @@
     2726,
     2729,
     2730,
+    2731,
     2734,
     2735,
     2736,
@@ -68,7 +69,7 @@
     2825,
     2828
   ],
-  "changed_files": 863,
+  "changed_files": 892,
   "resolved_files": [
     {
       "number": 2729,
@@ -94,6 +95,31 @@
       "number": 2729,
       "path": "research/p104-fusion-cost-headroom/verify.py",
       "sha256": "5d6aaa9f4a111a337ba11508439806d22d5792be917a3fd6b5c2419dca89731e"
+    },
+    {
+      "number": 2731,
+      "path": "research/selected-residual-live-volume/README.md",
+      "sha256": "27832a8e64dd2fe451bd759d36b6059110a257e04e966e2d9590f553ec8cfbdc"
+    },
+    {
+      "number": 2731,
+      "path": "research/selected-residual-live-volume/RESULT.json",
+      "sha256": "9f73d4f05dd66d6d75700e5c578182aeab43910b8cc96c0ea4667d120e7c270c"
+    },
+    {
+      "number": 2731,
+      "path": "research/selected-residual-live-volume/SOURCES.json",
+      "sha256": "9f38e3f4d996ef62e4c646485fb65dcc6f358ef2ab562c81f4c0726a2fc5e9df"
+    },
+    {
+      "number": 2731,
+      "path": "research/selected-residual-live-volume/VERIFY.json",
+      "sha256": "2493e76b946f46f90070127f6638155375bb594c211a17308b8c08b37f5402e3"
+    },
+    {
+      "number": 2731,
+      "path": "research/selected-residual-live-volume/verify.py",
+      "sha256": "ffec9feef4cd6c204e49af8e88cec2392e918c6fcf2504d8aba29b9758cf0532"
     },
     {
       "number": 2734,
