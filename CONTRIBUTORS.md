@@ -710,6 +710,14 @@ The following contributions are retained at their original heads with source not
 
 The six pending contributions are credited in the pilot ledger; pending review is not rejection. Predecessor attribution, including R420, K492, PR628 and PR673 lineage, remains in each package.
 
+## Efficient fifteenth 100-PR round: #1758–#2591
+
+Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1500-review.md).
+
+- **ywz65** — [#2507](https://github.com/CrocSwap/integer-mult-bounds/pull/2507), [#2513](https://github.com/CrocSwap/integer-mult-bounds/pull/2513), [#2527](https://github.com/CrocSwap/integer-mult-bounds/pull/2527), [#2541](https://github.com/CrocSwap/integer-mult-bounds/pull/2541), [#2582](https://github.com/CrocSwap/integer-mult-bounds/pull/2582), [#2589](https://github.com/CrocSwap/integer-mult-bounds/pull/2589).
+
+Pending contributors and their obligations are listed in the review. A hold is not a rejection.
+
 ## Efficient fourteenth 100-PR round: #1155–#2490
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1400-review.md).
