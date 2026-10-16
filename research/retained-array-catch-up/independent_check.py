@@ -11,8 +11,8 @@ Shares no code with verify.py and does not import ceiling.py.
     RANKS (its from/to level fields are only cross-checked, not used).  A record snapshots its
     family's set; catch-up = |consumer set - record set| x rows (the PR1664 nested-frame distance).
     Recomputes PR2540, INIT64, d_A, the all-initial variant at three consumer timings (end, the
-    earliest timing the observed Y_(k,U) fields allow, the early relaxation), the zero-advance
-    window and the withdrawn lagging-record example.  Theorem B floors are recomputed by explicit
+    earliest timing the observed Y_(k,U) fields allow under final-value reads, and P_early: each bank
+    right after its last local call), the zero-advance window and the lagging-record example.  Theorem B floors are recomputed by explicit
     enumeration of the per-bank splits of the 62 rows (own-bank premise), by nearest-consumer
     delivery (count only) and by a direct cut loop (one consumer level).
  B. Hosted heights per family, in all 16 replicas.  The selected #1094 hosted template is replayed
@@ -165,7 +165,7 @@ def law(snapshots, stage_pair, t):
                "early": {k: last[k][k] for k in range(4)}}
     out["thmB"] = {(name, label): thm_b(rows, cons) for name, cons in timings.items()
                    for label, rows in (("original", original), ("all_initial", variant))}
-    # Withdrawn lagging example: the last write of X_(0,U) (local calls on pair 0, bridges into pair 0).
+    # Lagging example: the last write of X_(0,U) (local calls on pair 0, bridges into pair 0).
     out["x0_last_write"] = max(i for i, e in enumerate(sched)
                                if (e["kind"] == "local_cover_sweep" and stage_pair[e["stage"]] == 0)
                                or (e["kind"] == "bridge" and e["dst"] == 0))
@@ -477,8 +477,8 @@ def main():
     need(sum(v["dA"]) == 960, "d_A alone 960")
     need(v["last_write"] == [6, 27, 26, 25] and v["y_levels"] == [2, 8, 8, 8] and v["y_mass"] == 2496,
          "X_(k,U) last written at events 6/27/26/25; earliest Y-allowed consumers 2/8/8/8; 2496")
-    need(v["early"] == 1344, "early relaxation 1344")
-    need(v["allinit_reads"] == ([48, 32, 16], [0, 0, 0]), "all-initial reads: 8 x 48/32/16 at the end, 0 at the early relaxation")
+    need(v["early"] == 1344, "P_early 1344")
+    need(v["allinit_reads"] == ([48, 32, 16], [0, 0, 0]), "all-initial reads: 8 x 48/32/16 at the end, 0 at P_early")
     need((v["allinit_final"], v["allinit_y"], v["allinit_early"]) == (3456, 2304, 1152), "all-initial variant 3456 / 2304 / 1152")
     tb = v["thmB"]
     need(tb["final", "original"] == (1952, 1952, 1952) and tb["final", "all_initial"] == (1824, 1824, 1824),
@@ -486,7 +486,7 @@ def main():
     need((tb["Y", "original"], tb["Y", "all_initial"], tb["early", "original"], tb["early", "all_initial"])
          == ((1344, 608, None), (1216, 544, None), (800, 112, None), (608, 0, None)),
          "Theorem B own-bank 1344/1216 (Y), 800/608 (early); count-only 608/544 (Y), 112/0 (early)")
-    need(v["x0_last_write"] == 6 and v["x0_levels_after_13"] == 6, "X_(0,U) last written at event 6 (withdrawn example)")
+    need(v["x0_last_write"] == 6 and v["x0_levels_after_13"] == 6, "X_(0,U) last written at event 6 (lagging example)")
     need(v["zero_witness"] == (0, 6), "zero-advance window: no coordinate applied to pair 3 across six calls")
     dec = decimal_checks()
     n = frame_checks()

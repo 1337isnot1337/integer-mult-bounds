@@ -43,13 +43,17 @@ premise P_rank of §7.2: the law agrees with (C) up to one lifetime off-by-one.
 - So their (C) verdicts are derived here rather than assumed.
 - With the stated end-of-replica decoder, INIT64 + d_A costs 3,648 units per replica and the
   all-initial variant 3,456.
-- Decoding each bank as soon as its observed field Y_(k,U) is final (timing P_Y) still costs at
-  least 2,496 and 2,304.
-- A relaxation that drops that constraint (P_early) gives 1,344 and 1,152. It is a lower bound
-  for every current-frame timing.
+- Decoding each bank as soon as its observed field Y_(k,U) is final, under the final-value read
+  convention of P_obs (timing P_Y), still costs at least 2,496 and 2,304.
+- Decoding each bank right after its last local call (P_early) costs 1,344 and 1,152. This is a
+  lower bound for every current-frame timing at or after each bank's last local call. The
+  decoder-timing premise P_dec (§7.2), which the derived decoders satisfy, gives exactly those
+  timings.
 - All of these exceed the 896-unit no-saving threshold.
-- Without P_rank, philippeVV's Theorem B rejects the route only when every bank decodes at one
-  level (1,952 / 1,824 at the end). At earlier timings it needs an extra own-bank premise (§7.2).
+- P_dec is load-bearing. Decoders placed right after each bank's own last capture would cost
+  512, which leaves a κ cap above the selected κ.
+- Without P_rank, philippeVV's Theorem B rejects the route only at the end decoder P_final
+  (1,952 / 1,824). At earlier timings it needs an extra own-bank premise (§7.2).
 
 ## 1. Model and premises
 
@@ -133,10 +137,16 @@ schedule.
     - **No undershoot.** Every residual of a sweep that has reached the stated level has already
       landed: 9,280 checks of slots that have not landed yet.
   - `independent_check.py` confirms the same 21 instants in **all 16 replicas** by replaying the
-    height of each of the 896 families of each replica. It uses both conventions for slots and
-    events at equal times.
-    - The P_Y consumers of banks 1–3 and the all-initial instants are read after their time has
-      settled, because residual slots at that time belong to the sweeps at that time.
+    height of each of the 896 families of each replica.
+    - The 12 capture and P_early instants are checked under both conventions for slots and
+      events at equal times.
+    - The other 9 are read after their time has settled: the P_Y consumers of banks 1–3 and the
+      three all-initial reads with their consumers. Residual slots at that time belong to the
+      sweeps at that time, which come before the instant in event order. Under the slots-last
+      convention 5 of these 9 are not uniform, so they rest on this one reading.
+    - An AI review pass replayed the hosted template convention-free, placing each slot at the
+      schedule position of its hosting invocation. It found all 21 instants uniform at the
+      stated heights in all 16 replicas.
     - So the route masses below are the same in every replica.
 
 So one level is eight coordinates, and the nine levels are the 72 paid coordinates of each
@@ -380,14 +390,13 @@ Pair 3's **X** streams host 160 helper residuals in the same window, so their fr
 That is the selected record's own use of this window shape ("nothing touches F between ι and
 τ", idle-axis hosting §2).
 
-**(c) Withdrawn: the "48 against 24" lagging-pair example.** An earlier version claimed that (C)
-can under-price, as follows.
+**(c) Lagging-pair records do not separate the law from (C).**
 
-- **The claim.** Take a record of pair 0's X stream captured after B5 (event 13), when pair 0
+- **The candidate.** Take a record of pair 0's X stream captured after B5 (event 13), when pair 0
   sits at level 2, and consumed at the end.
   - Pair 0 advances six levels, all in idle sweep 21, while three calls happen.
-  - That would give 48 per independent row against (C)'s 24.
-- **Why it is withdrawn.** The record is not independent. In the pinned schedule:
+  - An independent row would therefore pay 48 against (C)'s 24.
+- **Why it does not separate them.** The record is not independent. In the pinned schedule:
   - X_(0,U) is last written at event 6, by the bridge X_0 += c X_1.
   - After event 13 pair 0 is touched only by:
     - idle sweep 21, a transport that keeps the logical row;
@@ -398,7 +407,7 @@ can under-price, as follows.
   Y_(0,U), which the contract observes. Then ρ_r = 0 and the law charges 0.
   - `verify.py` checks this schedule fact.
   - A control with bridge 27 reversed, so that it writes X_(0,U), makes the check fail.
-- **What remains.** This package therefore exhibits no route in which (C) under-prices.
+- **Conclusion.** This package exhibits no route in which (C) under-prices.
 
 **(d) (S).** Storage is not a moment price (Lemma 2). As a stand-in for catch-up, (S)
 under-prices current-frame consumers by 8×. Example: PR2540's 16 early records over one call
@@ -437,6 +446,19 @@ Notes on the controls:
     - the stated records or reads, at their stated capture times.
   - **What is excluded.** The former-Y ordinary endpoints (final X_(k,U)), every additional
     ordinary read, and transient stream contents.
+  - **Read convention (final-value reads).** The consumer may read a named observed field only
+    once that field holds its final value.
+    - A stream that still holds a non-final value counts as transient, even when that value is
+      a fixed combination of final fields.
+    - For example, on the literal replica-0 schedule bridges 25–27 are X_3 += X_2,
+      X_2 += X_1 and X_1 += X_0, followed by the terminal Y = −X. So X_(1,U) after event 12
+      equals Y_(0,U) − Y_(1,U), fixed at level 4, and X_(2,U) after event 18 equals
+      −Y_(0,U) + Y_(1,U) − Y_(2,U), fixed at level 6.
+    - An AI review pass in this loop derived these two identities; `verify.py` checks the last
+      writes and bridge levels but not these combinations.
+    - This convention is what gives "transient stream contents are excluded" its meaning. Under
+      a span-based reading, banks 1 and 2 could decode at levels 4 and 6, which is the P_early
+      cost. So the P_Y bracket below is relative to this convention.
   - **Where the premise comes from.** It is a premise of the QQ16 observation contract (the
     obstruction's §1 excludes "former-Y ordinary endpoint, or additional ordinary read"). It is
     not a consequence of the moment.
@@ -447,10 +469,17 @@ Notes on the controls:
 - **P_rank (contract level, unproved).**
   - **Statement.** At every cut j, the stated arrays captured below j that a decoder above j
     needs are linearly independent modulo the span of everything P_obs lets the consumers combine
-    at or above j. That span includes the retained history above j, in PR1664's sense.
-  - **Uncompressed delivery.** The contract demands each needed array itself, uncompressed, at
-    the decoder that uses it. The published contract does this: "Every retained array stays live
-    until the final decode" (final-record README @9fcd3d89).
+    at or above j. That span includes the retained history of the rows P_obs allows, in
+    PR1664's sense.
+    - It does not include the whole program's retained history. Local calls and bridges are
+      invertible and the inherited streams carry the initial data upward, so under that reading
+      the INIT and d_A rows would lie in the span and P_rank would be false.
+  - **Uncompressed delivery (our reading).** We read the published contract as delivering each
+    needed array itself, uncompressed, to the decoder that uses it.
+    - Its README states that "Every retained array stays live until the final decode"
+      (final-record README @9fcd3d89). That is the price gate's storage-lifetime convention.
+    - It does not by itself say that each array is transported to the decoder's frame.
+    - Uncompressed delivery is therefore our premise, not a statement of the published contract.
   - **Effect.** The demanded rows are then the arrays themselves. By Lemma 1 the deficit at cut j
     is the number of needed arrays captured below j whose decoder sits above j. Summed over the
     cuts, each array pays its climb to its own decoder.
@@ -470,13 +499,43 @@ Notes on the controls:
 
   Local calls overwrite X_U: x'_U = x_U − y_U backward, and x'_U = x_U − K_(s,U) f forward
   ([CONSERVED-QQ16](../joint-query/evidence/CONSERVED-QQ16.md) (1) and (3)). No bridge writes
-  X_(k,U) before bank k's first call, and `verify.py` checks this. So the stated INIT capture is
-  the latest one that needs no other read.
+  X_(k,U) before bank k's first call, and `verify.py` checks this.
+  - **Banks 1–3.** Their first call is backward, x'_U = x_U − y_U, so recovering x_U afterwards
+    needs the transient y_U. For them the stated INIT capture is the latest one that needs no
+    other read.
+  - **Bank 0 is an exception.** Its first call F0 is forward, and CONSERVED-QQ16 (3) inverts it
+    as z = w + K_(0,U) f0. f0 is a contract observation (the obstruction's §1 item 3).
+    - So B_t X_(0,U)(initial) = B_t X'_(0,U) + B_t K_(0,U) f0 for t = 0, 2. The 16 INIT0 rows
+      can therefore be formed at F0's output frame, level 0, one level above the stated
+      capture, from one X_(0,U) read after F0 plus the observed f0.
+    - This lowers every P_rank total by 16 × 8 = 128: 3,520 / 2,368 / 1,216 (original) and
+      3,328 / 2,176 / 1,024 (all-initial) at P_final / P_Y / P_early.
+    - The own-bank floor at P_Y becomes 1,216 / 1,088.
+    - The one-level 1,952 / 1,824, the own-bank P_early 800 / 608 and every count-only value
+      are unchanged.
+    - All of these are still at least 896, so no verdict changes; `verify.py` computes them.
+    - This is the first concrete step of lever 1 below (open question 1). The tables below keep
+      the stated capture times.
+- **P_dec (decoder timing).** Each bank's decoder uses an observation of its own pair that
+  exists only after that pair's last local call.
+  - The derived decoders of #2074 c18950926 have this property. Through the tail identity
+    C_k = w_k + K_(2k+2) f_(2k+2) they use the completed-X field C_k after F_(2k+2), which is
+    pair k's last local call (F8 and f8 for bank 3). Bank 0 also uses the final selected fields,
+    which F0/B1/F2 conserve.
+  - P_dec is a property of those decoders, not of the moment or of P_obs.
+  - **It is load-bearing.** Decoders placed right after each bank's own last stated capture
+    (levels 1, 3, 5, 6) are current-frame consumers that P_obs alone does not exclude. They cost
+    **512** in both variants, leaving κ caps of 0.0020286 idle-priced and 0.0020185
+    rank-8-priced, above the selected κ and PR2474.
+  - Decoders right after each backward call (levels 1, 3, 5, 7) cost 640. That still leaves a
+    positive saving, with a cap of 0.0013547 idle-priced, below the selected κ.
+  - `verify.py` computes both values, and a negative control fails if P_early is claimed as a
+    floor for such decoders.
 - **Consumer timing.** The decoder of bank k works at bank k's **current** frame (h_c = h_p in
   Proposition 3). We use three timings.
   - **P_final**, the stated contract: every bank decodes at the end, level 8, where the final
     records and the replica's data endpoint live.
-  - **P_Y**, the earliest timing the observed fields allow.
+  - **P_Y**, the earliest timing under the final-value read convention.
     - The decoder of bank k uses the final completed-X field Y_(k,U) = −final X_(k,U) (terminal
       relabel), through the tail identity C_k = w_k + K_(2k+2) f_(2k+2) (#2074 c18950926).
       Under P_obs it may not use transient contents of X_(k,U).
@@ -485,14 +544,17 @@ Notes on the controls:
       bridges 27, 26 and 25 for banks 1, 2 and 3. Those three bridges run with every pair at
       level 8. `verify.py` checks the last writes and the levels.
     - So P_Y decodes bank 0 at level 2 and banks 1–3 at level 8. Other observations can only
-      delay a decoder, so every current-frame timing admissible under P_obs has each consumer at
-      or above its P_Y level.
-  - **P_early (a relaxation)**: decode each bank at its own frame right after its last local call
-    (levels 2, 4, 6, 8).
-    - For banks 1 and 2 this ignores the last-write constraint, so it cannot be attained under
-      P_obs.
-    - It is kept as a lower bound for every current-frame timing, because catch-up only grows
+      delay a decoder. So, under P_obs with the final-value read convention and for decoders that
+      use their own Y_(k,U) (as the derived decoders do), every admissible timing has each
+      consumer at or above its P_Y level.
+  - **P_early**: decode each bank at its own frame right after its last local call (levels 2, 4,
+    6, 8).
+    - For banks 1 and 2 this ignores the final-value read convention, so it is not attainable
+      under P_obs with that convention.
+    - It lower-bounds every current-frame timing at or after each bank's last local call, which
+      is every timing P_dec admits. The reason is that above the captures, catch-up only grows
       with the consumer level.
+    - It does not bound earlier decoders (see P_dec).
     - It also assumes, in the route's favour, that the corrected fields then ride the inherited
       idle sweep to level 8 at no extra cost. If the decoded outputs were additional rows, P4
       would charge their climb.
@@ -502,7 +564,7 @@ Notes on the controls:
 
 **Catch-up per replica, original contract** (units; levels climbed in parentheses).
 
-| Records | Capture levels | P_final | P_Y | P_early (relaxation) |
+| Records | Capture levels | P_final | P_Y | P_early |
 |---|---|---|---|---|
 | INIT, banks 0–3 (16 arrays each) | −1, 2, 4, 6 | 1,152 + 768 + 512 + 256 (9, 6, 4, 2) | 384 + 768 + 512 + 256 (3, 6, 4, 2) | 384 + 256 + 256 + 256 (3, 2, 2, 2) |
 | d_A, banks 0–2 (8 arrays each) | 1, 3, 5 | 448 + 320 + 192 (7, 5, 3) | 64 + 320 + 192 (1, 5, 3) | 64 + 64 + 64 (1, 1, 1) |
@@ -545,13 +607,17 @@ threshold under the assumed centre-like convention: at C = 0 its last count with
 saving is 111 coordinate-calls, and 8 × 111 = 888 < 896 ≤ 8 × 112. `verify.py` checks that the
 pinned row agrees.
 
-**Decision: rejected in the stated model, under P_obs, P_rank, P4 and the stated capture times,
-for every current-frame consumer timing.**
+**Decision: rejected in the stated model, under P_obs, P_rank, P4, P_dec and the stated capture
+times, for every current-frame consumer timing at or after each bank's last local call.**
 
 - The stated end decoder costs 3,648 (all-initial 3,456).
-- Every timing admissible under P_obs costs at least the P_Y values, 2,496 (2,304).
-- Every current-frame timing costs at least the P_early relaxation, 1,344 (1,152).
+- Every timing admissible under P_obs with the final-value read convention, for decoders that use
+  their own Y_(k,U), costs at least the P_Y values, 2,496 (2,304).
+- Every current-frame timing that satisfies P_dec costs at least the P_early values, 1,344
+  (1,152).
 - All of these are at least 896. Adding any non-negative storage price can only raise the cost.
+- Bank 0's INIT via f0 lowers each value by 128, and every value stays at least 896.
+- Without P_dec the verdict fails at some timing: 512, as above.
 
 **Robustness.**
 
@@ -575,10 +641,35 @@ for every current-frame consumer timing.**
     deliveries, because Lemma 1 counts ranks and Theorem B counts the rank of the repair.
 - **Several consumer levels (P_Y, P_early): the count alone does not decide.** When banks decode
   at different levels, the cut argument must know which decoder needs which rows.
-  - **With an own-bank premise**, the single-level argument applies bank by bank. The premise:
-    each bank's rows come only from the captures its derived decoder uses (c18950926), and are
-    independent modulo everything else that decoder may combine; the 62 rows split freely over
-    the banks.
+  - **With an own-bank premise**, the single-level argument applies bank by bank.
+    - **The premise (strong reading).** Let W be the span of the rows P_obs lets the consumers
+      combine, C_k the captures that bank k's derived decoder uses (c18950926), and D_k the rows
+      bank k's decoder needs (m_k of them). The 62 rows split freely over the banks, and for every
+      bank k:
+      - (i) D_k ⊆ W + span C_k;
+      - (ii) D_k ∩ (W + Σ_{l≠k} span C_l) = 0, where C_l are **all** the other banks' captures,
+        not only those above the cut.
+    - **Per-cut additivity.** Fix a cut j. Let C⁺ be the captures at or above j, n⁺_{k,j} the
+      number of bank k's captures among them, and E⁺ = W + span C⁺. Lemma 1 bounds the joint
+      deficit dim(E⁺ + Σ_k D_k) − dim E⁺ = Σ_k m_k − dim ker φ, where
+      φ: ⊕_k D_k → V/E⁺ is the sum map over the banks whose consumers are above j.
+      - Project ker φ onto its first coordinate. A kernel element has
+        d_1 = e − Σ_{l≠1} d_l with e ∈ E⁺. By (i), Σ_{l≠1} D_l ⊆ W + Σ_{l≠1} span C_l, and
+        E⁺ ⊆ W + span C_1⁺ + Σ_{l≠1} span C_l. So the image lies in
+        I_1 = D_1 ∩ (W + span C_1⁺ + Σ_{l≠1} span C_l).
+      - By (ii), I_1 meets W + Σ_{l≠1} span C_l only in 0. So I_1 injects into the quotient
+        (W + span C_1⁺ + Σ_{l≠1} span C_l) / (W + Σ_{l≠1} span C_l), whose dimension is at most
+        n⁺_{1,j}. Also dim I_1 ≤ m_1.
+      - The kernel of the projection is the same sum map for the remaining banks with the same
+        E⁺, and the same two steps apply to bank 2, then bank 3. Induction gives
+        dim ker φ ≤ Σ_k min(m_k, n⁺_{k,j}), so the deficit is at least
+        Σ_k max(0, m_k − n⁺_{k,j}). Summed over the cuts, each bank pays the climbs of its m_k
+        cheapest captures, and minimizing over the free split gives the cheapest 62 own-bank
+        climbs.
+      - The argument needs only transport cost ≥ |Δheight|, not P_glob.
+      - It fails under weaker readings. An AI review pass in this loop found violations in
+        random GF(2)/GF(3) instances when (ii) is restricted to the other banks' demands or to
+        their above-cut captures.
     - The floor is then the cheapest 62 own-bank climbs: **1,344 / 1,216** at P_Y, both at least
       896.
     - At P_early it is **800 / 608**. Their κ caps are 0.0005091 / 0.0015234 idle-priced and
@@ -590,9 +681,13 @@ for every current-frame consumer timing.**
     - If the stated captures are independent, these deliveries meet the count. So an argument
       that uses only Theorem B's count and the capture heights cannot force more than these
       costs.
-    - The caps at 544, 112 and 0 are 0.0018604, 0.0041203 and 0.0047021 idle-priced, all above
-      the selected κ. So at those timings Theorem B's count alone does not reject the route.
-- **Summary of the robustness.** P_rank rejects at every current-frame timing. Theorem B alone
+    - At P_Y the original variant's 608 has cap 0.0015234 idle-priced (0.0015144 rank-8), below
+      the selected κ. There the count alone still decides against the selected record.
+    - The caps at 544 (P_Y, all-initial), 112 and 0 (P_early) are 0.0018604, 0.0041203 and
+      0.0047021 idle-priced, all above the selected κ. So at those timings Theorem B's count
+      alone does not reject the route.
+- **Summary of the robustness.** P_rank rejects at every current-frame timing P_dec admits.
+  Theorem B alone
   rejects at P_final. At earlier timings, where banks decode at different levels, it rejects
   (against the selected κ) only with the own-bank premise.
 - **Sufficiency.** Whether the contract is actually sufficient does not affect the rejection.
@@ -601,19 +696,34 @@ for every current-frame consumer timing.**
 
 **What could revive the route.**
 
-- **The binding term.** In both variants it is INIT64's catch-up: 1,920 at P_Y and 1,152 at the
-  P_early relaxation.
-- **The target.** A gain needs catch-up-weighted retention below the break-evens:
+- **The binding term.** In both variants it is INIT64's catch-up: 1,920 at P_Y and 1,152 at
+  P_early (1,792 and 1,024 with bank 0's INIT via f0).
+- **Per term, if the INIT information were free** (`verify.py` prices each term):
+  - **At the stated end decoder (P_final) no INIT lever suffices.** The original variant's d_A
+    term alone costs 960, which is at least 896. The all-initial reads alone cost 768, whose cap
+    of 0.00067848 idle-priced is below the selected κ.
+  - **At P_Y the original variant's d_A term alone is 64 + 320 + 192 = 576.** Its cap of
+    0.0016919 idle-priced beats the selected record only at the margin (576 is exactly the
+    rank-8 break-even). It loses to PR2474 and to every pending claim.
+  - **The live target is the all-initial variant at P_Y.** Its reads cost 0 + 256 + 128 = 384.
+    That leaves at most 573 − 384 = 189 units against PR2474, or 579 − 384 = 195 against the
+    selected record, for the INIT information, against 1,920 now: roughly ten times less.
+  - At P_early, a bound and not attainable under the read convention, the d_A term is 192 and
+    the reads are 0. Against PR2474 the INIT term of 1,152 would then have to fall below
+    573 − 192 = 381 (original) or 573 (all-initial).
+- **The target.** A gain needs catch-up-weighted retention below the break-evens, the largest
+  masses at which a route still gains:
   - 573 idle-priced or 568 rank-8-priced against PR2474;
   - 570 or 568 against #2843, #2848 and #2857;
   - 568 or 560 against the bit endpoint (PR589).
 - **For scale.** 62 arrays would need an average climb under about 9.2 coordinates, roughly one
   level.
-  - The stated INIT captures sit 2 to 3 levels below the P_early consumers.
+  - The stated INIT captures sit 2 to 3 levels below the P_early consumers (exactly 2 with bank 0's
+    INIT via f0).
   - At P_Y, banks 1 and 2 decode 6 and 4 levels above their INIT captures.
 - **Three levers remain:**
   1. Capture the INIT information later, by rebuilding it from rows a contract may read (open
-     question 1).
+     question 1). Bank 0's INIT via f0 is the first instance; it saves 128, and banks 1–3 remain.
   2. Read endpoint rows at the consumer frame. Such reads pay no catch-up in the moment. Their
      price is a read or observation-contract question outside the moment. One example is the
      optional PR2468-style read invoice in the price gate.
@@ -714,14 +824,20 @@ child of rank 8 is available per row, and rank-8 children are the cheapest per u
   - A contract that reads endpoint rows at the consumer frame pays no catch-up in the moment.
   - Its cost is a read-contract question that is not priced here.
 - **P_rank for INIT64 + d_A**, and for its all-initial variant, rests on finite-model evidence
-  only. Its uncompressed-delivery part is the published contract's; a compressing contract is a
-  different one (§7.2, lever 3).
+  only. Its uncompressed-delivery part is our reading of the published contract, whose README
+  states only the storage lifetime. A compressing contract is a different one (§7.2, lever 3).
 - **Consumer timing** is a premise, not a theorem.
-  - The stated contract is P_final. P_Y is the earliest timing the observed Y_(k,U) fields allow;
-    other observations can only delay it, so it is a lower bound for every admissible timing.
-  - P_early is a relaxation that P_obs does not allow for banks 1 and 2. It is kept only as a
-    lower bound, and its ride-along assumption favours the route.
+  - The stated contract is P_final.
+  - P_Y is the earliest timing under the final-value read convention of P_obs, for decoders
+    that use their own Y_(k,U). Under a span-based reading it is not a bound.
+  - P_early lower-bounds every timing at or after each bank's last local call, which is what
+    P_dec gives. P_dec is a property of the derived decoders, and it is load-bearing: without
+    it, a timing at 512 exists. P_early is not attainable under the read convention for banks
+    1 and 2, and its ride-along assumption favours the route.
   - Consumers whose outputs stay below the partners' frame are not priced.
+- **Capture times** are the price gate's. Bank 0's INIT can be formed one level later via f0
+  (−128 on every P_rank total, no verdict change). Later captures for banks 1–3 would need a
+  different read contract (lever 1).
 - **P4 (no slack in inherited words)** is supported by the coverage identity and PR1664 §5. It
   is not re-derived event by event here. Slack exhibited in an inherited word would reduce the
   forced catch-up by at most that slack.
@@ -730,14 +846,15 @@ child of rank 8 is available per row, and rank-8 children are the cheapest per u
   P_Y) and that the count-only Theorem B deliveries are attained. The rejection does not need it.
 - **Theorem B** is an unreviewed posted claim, and our per-cut application of it is written
   out in §7.2.
-  - Alone it rejects only when every bank decodes at one level (P_final).
-  - At P_Y and P_early it needs the own-bank premise, which is ours, not the claim's.
-- **Forward histories.** The derived decoders use f2, f4 and f6, which are not counted in the
-  464 array-calls.
+  - Alone it rejects only at the end decoder (P_final), where every bank decodes at level 8.
+  - At P_Y and P_early it needs the own-bank premise in the strong reading of §7.2, which is
+    ours, not the claim's.
+- **Forward histories.** The derived decoders use f2, f4, f6 and f8 (the tail identity holds for
+  every bank; bank 3 uses f8). None of them is counted in the 464 array-calls.
   - Suppose each is retained as one 8-row array, captured at its forward call's output level
-    (2, 4, 6) or input level (1, 3, 5).
-  - Then the law adds 8 × 8 × (6 + 4 + 2) = 768 to 8 × 8 × (7 + 5 + 3) = 960 under P_final, and
-    0 to 192 under P_early.
+    (2, 4, 6, 8) or input level (1, 3, 5, 7).
+  - Then the law adds 768 to 1,024 under P_final, 384 to 640 under P_Y and 0 to 256 under
+    P_early. For f2, f4 and f6 alone the ranges are 768–960, 384–576 and 0–192.
   - The row count is our reading of the 8-dimensional query outputs f = R_s x. The rejection
     does not need these additions.
 - **Non-nested frames.** Only nested chains are treated.
