@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "a2de1b834848fae079a57051623454acc692acb8",
+  "checked_commit": "b29014f4b5af3ce30417302816d7786c7fbe336c",
   "merged_prs": [
     2592,
     2593,
@@ -151,17 +151,17 @@
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.json",
-      "sha256": "f9f75e532fad3e1f00eb9c296faef65b64db52d8852f6c5f43a4d514d5bd5908"
+      "sha256": "e96e8892b53ab270f400f0940a19d9402d7371ff155e7507c616191a8b63095e"
     },
     {
       "number": 2624,
       "path": "docs/research/pr-ledger.md",
-      "sha256": "b9f0765096dbce9288a06eee3941b69caf1e6b19f73dad0c9c440a5ddbfedba2"
+      "sha256": "3f0c65f16534e11908f61b7185de940b10507aedfcc4baaa78c0690298fe07b7"
     },
     {
       "number": 2624,
       "path": "scripts/reconcile_pr_queue.py",
-      "sha256": "fa40f8ea428d2023c18c616c52bcc32f87da21605552448461975d46ce526b42"
+      "sha256": "5e7dda0066d7b53fa20a425978a888de4e3caed8a33420f2509c21204a35cb13"
     },
     {
       "number": 2625,
