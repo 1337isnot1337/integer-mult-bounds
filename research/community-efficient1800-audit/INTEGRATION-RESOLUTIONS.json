@@ -216,14 +216,6 @@
     "reason": "Replace floating rank pruning/row-space decisions by modular elimination certified equal to rational rank for guarded ternary <=8-column matrices; clear auxiliary Gram denominators exactly and verify private-coordinate diagonal structure; fail closed on shell checker crashes. Rebind internal manifest, retain original bytes. Full original search coverage and all published counts required on corrected sources."
   },
   {
-    "number": 2834,
-    "path": "CONTRIBUTORS.md",
-    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "71c6a31b962b832ec94a93f11f9af3564e07d86df8dc63e259d267f952423657",
-    "resolved_mode": "100644",
-    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
-  },
-  {
     "number": 2505,
     "path": "docs/research/research-package-guide.md",
     "original_sha256": "7cbcd8ceda6cd5126bc90f4f662d517da2ef14ac00a937e654b9d3ce9114196c",
@@ -238,5 +230,13 @@
     "resolved_sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5",
     "resolved_mode": "100644",
     "reason": "Apply original batching changes to current main, retaining later source-pin, cleanup and bytecode isolation work. Mark submission450-package count historical; actual963-package CLI and full138-test suite verified."
+  },
+  {
+    "number": 2834,
+    "path": "CONTRIBUTORS.md",
+    "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
+    "resolved_sha256": "d08b22b343541dc466f9bea767ca6af343607c10eb5e90a64fa2d609d035461d",
+    "resolved_mode": "100644",
+    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }
 ]

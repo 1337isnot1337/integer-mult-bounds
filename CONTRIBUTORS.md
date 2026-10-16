@@ -715,7 +715,7 @@ The six pending contributions are credited in the pilot ledger; pending review i
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1800-review.md).
 
 - **RossRichardson** — [#1075](https://github.com/CrocSwap/integer-mult-bounds/pull/1075), [#2831](https://github.com/CrocSwap/integer-mult-bounds/pull/2831), [#2835](https://github.com/CrocSwap/integer-mult-bounds/pull/2835), [#2845](https://github.com/CrocSwap/integer-mult-bounds/pull/2845).
-- **ywz65** — [#2514](https://github.com/CrocSwap/integer-mult-bounds/pull/2514), [#2517](https://github.com/CrocSwap/integer-mult-bounds/pull/2517), [#2539](https://github.com/CrocSwap/integer-mult-bounds/pull/2539), [#2553](https://github.com/CrocSwap/integer-mult-bounds/pull/2553).
+- **ywz65** — [#2505](https://github.com/CrocSwap/integer-mult-bounds/pull/2505), [#2514](https://github.com/CrocSwap/integer-mult-bounds/pull/2514), [#2517](https://github.com/CrocSwap/integer-mult-bounds/pull/2517), [#2539](https://github.com/CrocSwap/integer-mult-bounds/pull/2539), [#2553](https://github.com/CrocSwap/integer-mult-bounds/pull/2553).
 - **cbethin** — [#2829](https://github.com/CrocSwap/integer-mult-bounds/pull/2829).
 - **steph4n-gh** — [#2834](https://github.com/CrocSwap/integer-mult-bounds/pull/2834).
 - **josecarlosgonzalezroque-design** — [#2837](https://github.com/CrocSwap/integer-mult-bounds/pull/2837).

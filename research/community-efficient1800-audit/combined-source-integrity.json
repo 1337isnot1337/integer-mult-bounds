@@ -1,8 +1,9 @@
 {
   "status": "PASS",
-  "checked_commit": "c5dbd14b0df654d290a15cf94e32b7cb8d980f14",
+  "checked_commit": "7737b03e4c9bb76b064e7fc3fbdca7aefb194b7a",
   "merged_prs": [
     1075,
+    2505,
     2514,
     2517,
     2539,
@@ -29,8 +30,18 @@
     2870,
     2872
   ],
-  "changed_files": 357,
+  "changed_files": 362,
   "resolved_files": [
+    {
+      "number": 2505,
+      "path": "docs/research/research-package-guide.md",
+      "sha256": "9515665222ccded59bbaf73079b2cc303eb0ac854770edfb6088567223c68a4e"
+    },
+    {
+      "number": 2505,
+      "path": "scripts/research_package.py",
+      "sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5"
+    },
     {
       "number": 2514,
       "path": "scripts/find_overlap.py",
@@ -54,12 +65,12 @@
     {
       "number": 2553,
       "path": "docs/research/research-package-guide.md",
-      "sha256": "07134f578250ac262e53627b2789efc5abb2711ccac0df613b2fc11c10a51511"
+      "sha256": "9515665222ccded59bbaf73079b2cc303eb0ac854770edfb6088567223c68a4e"
     },
     {
       "number": 2553,
       "path": "scripts/research_package.py",
-      "sha256": "c4855ccca9e0f7b6af1d2d7e78f2cd3fec6d154e252c3bb3a54417feec8f57ed"
+      "sha256": "0de636fcbe932baad9113fc6a437e4de5d00e20cb500f109d3ff8f5d367a0ad5"
     },
     {
       "number": 2834,

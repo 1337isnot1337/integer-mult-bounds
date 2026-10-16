@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1983 |
-| partially reviewed | 353 |
+| incorporated | 1984 |
+| partially reviewed | 352 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -2116,7 +2116,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2502](https://github.com/CrocSwap/integer-mult-bounds/pull/2502) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |
 | [#2503](https://github.com/CrocSwap/integer-mult-bounds/pull/2503) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |
 | [#2504](https://github.com/CrocSwap/integer-mult-bounds/pull/2504) | CubeJerry | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |
-| [#2505](https://github.com/CrocSwap/integer-mult-bounds/pull/2505) | ywz65 | partially reviewed | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
+| [#2505](https://github.com/CrocSwap/integer-mult-bounds/pull/2505) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) |
 | [#2506](https://github.com/CrocSwap/integer-mult-bounds/pull/2506) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |
 | [#2507](https://github.com/CrocSwap/integer-mult-bounds/pull/2507) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |
 | [#2508](https://github.com/CrocSwap/integer-mult-bounds/pull/2508) | ywz65 | incorporated | [record 1](../../research/community-efficient1500-audit/DISPOSITIONS.json) |

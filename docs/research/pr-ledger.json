@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1983,
-    "partially_reviewed": 353,
+    "incorporated": 1984,
+    "partially_reviewed": 352,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "d007f00c61e229079fca6bfbe673e22ac1e1e91fa30684faf4e0e38e8bd8dc91",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "7a2dcb818ccc880cca9182d899aaceaa0947df556d9ce1f699f98c5ab4cf211b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -53787,9 +53787,9 @@
           "kind": "integration_or_partial_review"
         },
         {
-          "head": "4e2925b076050f8035b054f95416029a63af64fa",
+          "head": "679ac7b760ef2e01262039b906c154012548be81",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full fixed-domain butterfly proof, recipe engine, independent dyadic checker, full native-window binding and revised historical-export wrapper reviewed. All29 original Git source bindings and unchanged scientific revision authenticated; prior622/681/696 library review reused. Requires complete78728-recipe census,14 physical windows and full losing-witness/cleanup comparisons,12 adverse controls,8 export/assertion tests,10 independent tests in normal/optimized modes and minimal-source packaging controls. Excludes only the stated finite recipe family; no unrestricted circuit optimum, precision improvement, native installation or new κ.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -53797,9 +53797,9 @@
       "integration_location": [],
       "github_state": "OPEN",
       "closure": null,
-      "reviewed_head": "4e2925b076050f8035b054f95416029a63af64fa",
+      "reviewed_head": "679ac7b760ef2e01262039b906c154012548be81",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The complete butterfly/elimination recipe replay reached the 180-second budget. Finish its 78,728-recipe coverage and full losing-witness comparisons; do not infer exclusion from incomplete search.",
+      "unresolved_question": "Revised historical-export wrapper and full scientific code/proof reviewed; 29 source bindings authenticated. Complete new-head census/native replay and packaging controls remain queued behind existing serial jobs, with 900-second limits matching the revised workflow. Earlier 180-second timeout retained; not a mathematical rejection.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -94546,7 +94546,7 @@
         {
           "head": "387501825842caa3507e34f110b5f9570dc04046",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Full byte-comparison key injectivity, syntactic final-trailer contract, adapter and20 behavioral/integration controls reviewed. Only the final elapsed numeric field may differ; all diagnostic bytes, stdout and status remain significant. Confirmed exact historical pin positive control and current-runner source-drift rejection; replay migration/execution pending. No full benchmark, speedup or κ claim.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -94556,7 +94556,7 @@
       "closure": null,
       "reviewed_head": "387501825842caa3507e34f110b5f9570dc04046",
       "disposition": "partially_reviewed",
-      "unresolved_question": "The20-test collision and adapter suite passes at the submitted head, but live input scripts/run_isolated_tests.py changed on main in the already-integrated1852 assertion/process hardening. Refresh or vendor the exact admitted runner deliberately and replay the adapter against current main; retain both original normalization collision witnesses and strict diagnostic-byte comparison. Do not revert the newer runner or merely weaken its source pin.",
+      "unresolved_question": "Byte-preserving comparator, opt-in adapter and all20 control tests reviewed. Original Git source pins authenticated; source checker passes original inputs but rejects current main scripts/run_isolated_tests.py, whose assertion/cleanup/historical-skip-clones changes are newer. Preserve the historical benchmark/runner with an explicit authenticated replay migration, then run complete normal/optimized20-test receipts. Do not rebind historical measurements or claim full-suite compatibility.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -117221,25 +117221,36 @@
         {
           "head": "a357942c5ee5ce88948c120a0a174bb7dd0c2d2a",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Bounded nested research CI matrices preserving exact ordered package coverage, fresh per-package checkout/environment, four inner workers and original replay steps. Full138-test current tooling suite passes with7 platform skips; five matrix tests also pass optimized. Actual963-package CLI becomes256/256/256/195 without omissions; both workflow changes invalidate all packages, legacy CLI preserved, oversized counts fail closed. Current guards retained through explicit runner/guide resolutions. Hosted matrix execution and scientific package replays are not claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        ".github/workflows",
+        "docs/research",
+        "scripts/research_package.py",
+        "tests/test_research_matrix_batches.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "7737b03e4c9bb76b064e7fc3fbdca7aefb194b7a",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2505"
+      },
       "reviewed_head": "a357942c5ee5ce88948c120a0a174bb7dd0c2d2a",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Shared tooling/documentation lane: review actual changes against current main, preserve concurrent edits and source pins, and run the combined affected regression tests before incorporation.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2505.json"
+        "research/community-efficient1800-audit/packets/2505.json",
+        "research/community-efficient1800-audit/checks/check-2505-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2505.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133290,7 +133301,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1531,
-    "OPEN": 489
+    "MERGED": 1532,
+    "OPEN": 488
   }
 }
