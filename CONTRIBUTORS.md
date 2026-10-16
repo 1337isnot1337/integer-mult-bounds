@@ -1606,3 +1606,13 @@ Windows tooling received scoped native review. Research entries below are source
 - **Nick Petalas (@petalas)** — [#2968](https://github.com/CrocSwap/integer-mult-bounds/pull/2968): Audit high-scaling physical scratch inventory and tape costs (default tree archive).
 - **Dugongue (@Dugongue)** — [#2969](https://github.com/CrocSwap/integer-mult-bounds/pull/2969): Compose normal-45 extraction and fourteen gate rewrites: candidate κ ≈ 0.0017240352247481 (default tree archive).
 - **Nick Petalas (@petalas)** — [#2970](https://github.com/CrocSwap/integer-mult-bounds/pull/2970): Certify the F-star one-interior-label gap on tied_min (default tree archive).
+
+## Further source archival intake, 2026-10-16
+
+These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
+
+- **Rohan Guliani (@Rohansguliani)** — [#826](https://github.com/CrocSwap/integer-mult-bounds/pull/826): Independent audit: confirm κ of #699 (0.001660666354374641) and #685 (0.001660339298410333) (source archive).
+- **CubeJerry (@CubeJerry)** — [#2971](https://github.com/CrocSwap/integer-mult-bounds/pull/2971): Complete native and hosted replay of the R438 bit improvement (source archive).
+- **Hiroki KUMAZAKI (@kumagi)** — [#2972](https://github.com/CrocSwap/integer-mult-bounds/pull/2972): Audit: stock-margin chain closes for the remaining cutoff pairs (no new kappa) (source archive).
+- **Nicholas Stone (@NicholasStone)** — [#2973](https://github.com/CrocSwap/integer-mult-bounds/pull/2973): Correct word-census parity budgets; 22 <= f(7) <= 24 in the PR943 model (source archive).
+- **Ross Richardson (@RossRichardson)** — [#2974](https://github.com/CrocSwap/integer-mult-bounds/pull/2974): Independently verify PR2942 owner-to-recursive-cost bridge (source archive).
