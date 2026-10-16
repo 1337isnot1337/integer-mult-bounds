@@ -7,10 +7,9 @@ later package to an earlier package's module. Preserve full test discovery
 within each file, but do not share those imports between files.
 
 Modules are scheduled concurrently (one isolated interpreter per module,
---workers controls the width). Every module keeps the exact sequential
-command and its captured stdout/stderr bytes are replayed in sorted module
+--workers controls the width). Every module retains unittest discovery arguments and its captured stdout/stderr bytes are replayed in sorted module
 order, so the combined receipts match a sequential run module for module.
-For PR53 skip-clones, the unchanged module command runs in a temporary
+For PR53 skip-clones, the completion-checked module command runs in a temporary
 copy with its authenticated frozen source instead of the optimized successor.
 """
 import argparse
@@ -21,13 +20,27 @@ import signal
 import subprocess
 import sys
 import threading
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[1]
 
+COMPLETED = b'unittest completed successfully\n'
+BOOTSTRAP = '''from pathlib import Path
+import sys
+import unittest
+tests_dir, pattern, receipt = sys.argv[1:]
+sys.argv = [str(Path(unittest.__file__).with_name('__main__.py')),
+            'discover', '-s', tests_dir, '-p', pattern, '-v']
+program = unittest.main(module=None, exit=False)
+if not program.result.wasSuccessful():
+    raise SystemExit(1)
+Path(receipt).write_bytes(b'unittest completed successfully\\n')
+'''
 
-def module_command(python, tests_dir, name):
-    """The one command every module runs, unchanged from the sequential runner."""
-    return [python, '-m', 'unittest', 'discover', '-s', str(tests_dir), '-p', name, '-v']
+
+def module_command(python, tests_dir, name, receipt):
+    """Run discovery normally, then attest that the suite returned successfully."""
+    return [python, '-c', BOOTSTRAP, str(tests_dir), name, str(receipt)]
 
 
 def stop_module(process):
@@ -65,9 +78,8 @@ def stop_module(process):
 def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
     """Run each test module in its own interpreter; return (path, code, out, err).
 
-    Results follow the input order regardless of scheduling. The per-module
-    command and byte streams are those of a sequential run; only the
-    scheduling is concurrent.
+    Results follow the input order regardless of scheduling. Each child must return a successful unittest result; a zero process exit
+    alone is insufficient. Completion receipts are private to this invocation.
     """
     python = sys.executable if python is None else python
     tests_dir = ROOT / 'tests' if tests_dir is None else tests_dir
@@ -83,8 +95,12 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
     lock = threading.Lock()
     stopping = False
 
-    def run_one(path):
-        command = module_command(python, tests_dir, path.name)
+    completion = tempfile.TemporaryDirectory(prefix="isolated-test-completion-")
+
+    def run_one(indexed):
+        index, path = indexed
+        receipt = Path(completion.name) / str(index)
+        command = module_command(python, tests_dir, path.name, receipt)
         # Run this frozen package's original tests in its authenticated overlay.
         # Other test modules continue to exercise the live checkout unchanged.
         if (path.name == 'test_skip_clones.py'
@@ -93,7 +109,7 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                 and (ROOT / 'research/skip-clones/SOURCE.json').is_file()
                 and (ROOT / 'scripts/replay_historical_check.py').is_file()):
             command = [python, '-B', str(ROOT / 'scripts/replay_historical_check.py'),
-                       'skip-clones-tests']
+                       'skip-clones-tests', '--completion-receipt', str(receipt)]
         # Serialize launch/registration with cancellation: no worker may start
         # an unregistered module after the controlling thread takes its snapshot.
         with lock:
@@ -109,7 +125,11 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                 try:
                     out, err = process.communicate(timeout=0.2)
                     finished = True
-                    return path, process.returncode, out, err
+                    code = process.returncode
+                    if code == 0 and (not receipt.is_file() or receipt.read_bytes() != COMPLETED):
+                        code = 1
+                        err += b"Incomplete unittest run: child exited successfully before discovery and execution completed\n"
+                    return path, code, out, err
                 except subprocess.TimeoutExpired:
                     with lock:
                         if stopping:
@@ -126,7 +146,7 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
 
     pool = ThreadPoolExecutor(max_workers=workers)
     try:
-        return list(pool.map(run_one, files))
+        return list(pool.map(run_one, enumerate(files)))
     except BaseException as error:
         with lock:
             stopping = True
@@ -145,7 +165,10 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                 print(note, file=sys.stderr)
         raise
     finally:
-        pool.shutdown(wait=True, cancel_futures=stopping)
+        try:
+            pool.shutdown(wait=True, cancel_futures=stopping)
+        finally:
+            completion.cleanup()
 
 
 def main(argv=None):
