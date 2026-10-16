@@ -100,6 +100,13 @@
       "discussion_records": 1782,
       "complete_pagination": true,
       "limits": "Non-atomic public body/comment and local metadata search; arbitrary diffs and unpublished work excluded. Canonical thread through PR3036 checked separately."
+    },
+    "publication": {
+      "artifact": "https://github.com/theon199/integer-mult-bounds/tree/research/qq16-native-rounded-audit/research/qq16-native-rounded-components",
+      "verified_code_commit": "946a399d6ae1667236bb395d21c33c749e000877",
+      "fork_push": "Successful; remote ref matches the verified code commit.",
+      "pull_request": "Not created: GitHub GraphQL and REST both returned 403 Resource not accessible by integration.",
+      "discussion": "Not posted: GitHub GraphQL returned Resource not accessible by integration. The canonical thread was checked and no claim was created."
     }
   },
   "verification": {

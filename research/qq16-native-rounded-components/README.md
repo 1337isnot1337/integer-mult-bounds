@@ -168,3 +168,14 @@ native-semantic evidence. Credit Nick Petalas / PR2965, Arham Tahir / PR2995,
 Ali Romman and the QQ16 team, Sagar Thakrar, DLamdata, ywz65, starship-s,
 Ross Richardson, Douglas Colkitt and the retained supplier/native/scalar lineage
 in the [original notice](../joint-query/NOTICE.md).
+
+## Publication handoff
+
+The verified numerical code and receipt are public at fork commit
+[`946a399d6ae1667236bb395d21c33c749e000877`](https://github.com/theon199/integer-mult-bounds/commit/946a399d6ae1667236bb395d21c33c749e000877).
+The [contribution branch](https://github.com/theon199/integer-mult-bounds/tree/research/qq16-native-rounded-audit)
+may add publication-status documentation only. GitHub denied both PR creation
+and Discussion posting with `Resource not accessible by integration`; no PR
+or public CLAIM was created. The result is complete for its stated finite
+scope and released. A maintainer can review the public artifact or open the
+[fork comparison](https://github.com/CrocSwap/integer-mult-bounds/compare/main...theon199:research/qq16-native-rounded-audit?expand=1).
