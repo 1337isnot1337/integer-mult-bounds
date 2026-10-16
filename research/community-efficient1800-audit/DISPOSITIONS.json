@@ -2010,20 +2010,24 @@
       },
       "reviewed_head": "fe264d29868308c8e2ba483a7a49db5cbe928308",
       "current_head": "fe264d29868308c8e2ba483a7a49db5cbe928308",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/fixed-tape-unit-carry"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bdbd88ce585a51e8608d23b2a0ab0a4e1db39beb",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2829"
+      },
       "scope": "Unit-carry physical ordered shear and inverse y\u2192y\u00b1(x+1), arbitrary positive extents includingQ=1. All new phase/controller/oracle/integrity code and all-size split, cleanup, exact predecessor+7 transition and41V visited-span proofs reviewed. Seven retained exports authenticated against Git; prior2776 control/counter review reused at unchanged head. Fourteen tapes/552 instructions,449V bound; complete registered replay passed:270 dense cases over78 shapes,24 sparse cases,156 predecessor comparisons,12 inverse/source cases each,10 semantic and8 integrity controls. Valid-input successful contract only: arbitrary carries, caller allocation, full selectedH2 and new\u03ba remain outside scope.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2829.json",
@@ -2376,20 +2380,24 @@
       },
       "reviewed_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
       "current_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/dirty-shadow-8q-obstruction"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bdbd88ce585a51e8608d23b2a0ab0a4e1db39beb",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2840"
+      },
       "scope": "Full sym-difference collapse argument and all new code reviewed: a dirty snapshot cannot improve even-subset minima; eight-slot distinct and one-duplicate spectra, plus explicitly illegal clean-shadow counterfactual, remain finite priced-alphabet claims. Complete normal/optimized/corruption checks and independent 2,430,400 distinct plus 4,083,072 one-duplicate census passed after bounded streaming scheduling, with unchanged mathematical workers and certificate; all-slot generalization follows monotone addition of distinct labels after duplicate-pair elimination, not enumeration of every repeated chronological walk. No new supplier or \u03ba; inherits the fixed PR1898 tariff.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2840.json",

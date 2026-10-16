@@ -1,16 +1,18 @@
 {
   "status": "PASS",
-  "checked_commit": "4bb70a56013f1997481745e50005a794026ec365",
+  "checked_commit": "bdbd88ce585a51e8608d23b2a0ab0a4e1db39beb",
   "merged_prs": [
     1075,
     2514,
     2517,
     2539,
     2553,
+    2829,
     2831,
     2834,
     2835,
     2837,
+    2840,
     2841,
     2844,
     2845,
@@ -27,7 +29,7 @@
     2870,
     2872
   ],
-  "changed_files": 325,
+  "changed_files": 357,
   "resolved_files": [
     {
       "number": 2514,
@@ -62,7 +64,17 @@
     {
       "number": 2834,
       "path": "CONTRIBUTORS.md",
-      "sha256": "2dccf8eb2098274161ad65888c81d1d5f8bc95d6a7741bec851476e44e5c4b9e"
+      "sha256": "71c6a31b962b832ec94a93f11f9af3564e07d86df8dc63e259d267f952423657"
+    },
+    {
+      "number": 2840,
+      "path": "research/dirty-shadow-8q-obstruction/independent.py",
+      "sha256": "8bb865ca1881b55526a0b2e2631e81a5a89f74f3e5c050dd247f92709d5532e7"
+    },
+    {
+      "number": 2840,
+      "path": "research/dirty-shadow-8q-obstruction/model.py",
+      "sha256": "d89d610b033f451b492b183d48217b5542d4a44f56786a948d8a6a7dfb7781ce"
     },
     {
       "number": 2844,
