@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/complex-local-word-ceiling/levers.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "source-bound selected kappa and complex binding; exact integer ninth-root enclosures for every paid rank; positive a=0 control; strict rejection at a=1/9; exact RESULT.json replay"
+    }
+  ]
+}
