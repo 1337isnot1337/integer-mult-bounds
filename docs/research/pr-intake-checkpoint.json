@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Run the delta planner; source archives are published. Twelve explicit revision holds and four resource-stopped replays now have persistent scheduling states. Remaining pending substantive work is not complete.",
+  "next": "Run the delta planner; source archives are published. Two inherited-stack source blockers now have persistent scheduling states. Remaining pending substantive work is not complete.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,13 +1011,11 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "evidence": "docs/research/pr-intake-evidence/archives-20261016b.json",
+    "evidence": "docs/research/pr-intake-evidence/archives-20261016c.json",
     "merged": [
-      826,
-      2971,
-      2972,
-      2973,
-      2974
+      1252,
+      2780,
+      2975
     ]
   },
   "reported_followups": [

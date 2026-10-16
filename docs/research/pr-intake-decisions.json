@@ -41,6 +41,44 @@
       ]
     },
     {
+      "number": 1252,
+      "metadata": {
+        "number": 1252,
+        "title": "Idle pair exchanges improve the #1094 \u03ba candidate",
+        "author": {
+          "id": "MDQ6VXNlcjM4NzQ0OTQ=",
+          "is_bot": false,
+          "login": "Gonzalo-Mier",
+          "name": "Gonzalo Mier"
+        },
+        "headRefOid": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+        "isDraft": false
+      },
+      "reviewed_head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+      "current_head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/frontier1094-idle-exchanges"
+      ],
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1252",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
+      "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change. The older README candidate note is retained at its original author commit; current README and selected result are unchanged.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
+      ]
+    },
+    {
       "number": 2452,
       "metadata": {
         "number": 2452,
@@ -119,6 +157,57 @@
       "verification_evidence": [
         "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json",
         "docs/research/pr-intake-evidence/windows-native-20261016.log"
+      ]
+    },
+    {
+      "number": 2780,
+      "metadata": {
+        "number": 2780,
+        "title": "Prove paid return of every physical head for the clean six-tape multiplier",
+        "author": {
+          "id": "MDQ6VXNlcjQ5MDU0NTMy",
+          "is_bot": false,
+          "login": "Dugongue",
+          "name": ""
+        },
+        "headRefOid": "59f336094958b51b312e54deb85347e1b671172d",
+        "isDraft": false
+      },
+      "reviewed_head": "59f336094958b51b312e54deb85347e1b671172d",
+      "current_head": "59f336094958b51b312e54deb85347e1b671172d",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "multitape-origin-return/LICENSE",
+        "multitape-origin-return/MANIFEST.json",
+        "multitape-origin-return/MODULES.json",
+        "multitape-origin-return/NOTICE.md",
+        "multitape-origin-return/PORTING.json",
+        "multitape-origin-return/README.md",
+        "multitape-origin-return/REUSE.json",
+        "multitape-origin-return/SOURCES.json",
+        "multitape-origin-return/TASK.json",
+        "multitape-origin-return/VERIFY.json",
+        "multitape-origin-return/expected",
+        "multitape-origin-return/lean",
+        "multitape-origin-return/replay.py",
+        "multitape-origin-return/verify.py"
+      ],
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2780",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
+      "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
       ]
     },
     {
@@ -569,6 +658,44 @@
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/archives-20261016b.json"
+      ]
+    },
+    {
+      "number": 2975,
+      "metadata": {
+        "number": 2975,
+        "title": "Accelerate exact four-flat requirement enumeration by 33x on a pinned corpus",
+        "author": {
+          "id": "U_kgDOCRtulg",
+          "is_bot": false,
+          "login": "tekuuu",
+          "name": "Tekalign"
+        },
+        "headRefOid": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+        "isDraft": false
+      },
+      "reviewed_head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "current_head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/two-flat-cover-branching"
+      ],
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2975",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
+      "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
       ]
     }
   ]

@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2488**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2489**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2045 |
-| partially reviewed | 381 |
+| partially reviewed | 382 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -1165,7 +1165,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1248](https://github.com/CrocSwap/integer-mult-bounds/pull/1248) | mightyOil | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
 | [#1249](https://github.com/CrocSwap/integer-mult-bounds/pull/1249) | bbMisk | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
 | [#1250](https://github.com/CrocSwap/integer-mult-bounds/pull/1250) | bbMisk | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
-| [#1252](https://github.com/CrocSwap/integer-mult-bounds/pull/1252) | Gonzalo-Mier | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2600-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient400-audit/DISPOSITIONS.json) |
+| [#1252](https://github.com/CrocSwap/integer-mult-bounds/pull/1252) | Gonzalo-Mier | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2600-audit/DISPOSITIONS.json) · [record 6](../../research/community-efficient400-audit/DISPOSITIONS.json) |
 | [#1253](https://github.com/CrocSwap/integer-mult-bounds/pull/1253) | mightyOil | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
 | [#1254](https://github.com/CrocSwap/integer-mult-bounds/pull/1254) | mightyOil | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
 | [#1255](https://github.com/CrocSwap/integer-mult-bounds/pull/1255) | bitplane | incorporated | [record 1](../../research/community-efficient400-audit/DISPOSITIONS.json) |
@@ -2356,7 +2356,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2776](https://github.com/CrocSwap/integer-mult-bounds/pull/2776) | DavidAriasC | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2778](https://github.com/CrocSwap/integer-mult-bounds/pull/2778) | petalas | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2779](https://github.com/CrocSwap/integer-mult-bounds/pull/2779) | VictorLiwentao | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
-| [#2780](https://github.com/CrocSwap/integer-mult-bounds/pull/2780) | Dugongue | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
+| [#2780](https://github.com/CrocSwap/integer-mult-bounds/pull/2780) | Dugongue | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) · [record 2](../../research/community-efficient1700-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 6](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
 | [#2781](https://github.com/CrocSwap/integer-mult-bounds/pull/2781) | petalas | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2782](https://github.com/CrocSwap/integer-mult-bounds/pull/2782) | tekuuu | incorporated | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) |
 | [#2784](https://github.com/CrocSwap/integer-mult-bounds/pull/2784) | DreamingOfClouds | partially reviewed | [record 1](../../research/community-efficient1700-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
@@ -2531,3 +2531,4 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2972](https://github.com/CrocSwap/integer-mult-bounds/pull/2972) | kumagi | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2973](https://github.com/CrocSwap/integer-mult-bounds/pull/2973) | NicholasStone | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2974](https://github.com/CrocSwap/integer-mult-bounds/pull/2974) | RossRichardson | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2975](https://github.com/CrocSwap/integer-mult-bounds/pull/2975) | tekuuu | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |

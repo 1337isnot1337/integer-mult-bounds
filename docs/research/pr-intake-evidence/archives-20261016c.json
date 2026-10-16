@@ -2138,5 +2138,40 @@
       "kind": "blob",
       "oid": "faef6536b677c5c42cee578237b81fb119db3514"
     }
+  },
+  "publication": {
+    "p1252": {
+      "number": 1252,
+      "headRefOid": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      }
+    },
+    "p2780": {
+      "number": 2780,
+      "headRefOid": "59f336094958b51b312e54deb85347e1b671172d",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      }
+    },
+    "p2975": {
+      "number": 2975,
+      "headRefOid": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      }
+    }
+  },
+  "source_retention": {
+    "status": "PASS",
+    "checked_head": "47fa55b3cd8c7cf8879206f33569bc59d637dad8",
+    "installed_paths": 125,
+    "original_heads_in_ancestry": true
   }
 }

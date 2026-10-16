@@ -329,8 +329,8 @@
     {
       "number": 1204,
       "head": "d49f96b75257c8a5eb4862eb99fbaffc738dcc1b",
-      "status": "pending_review",
-      "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Unreviewed stacked changes: .gitattributes, .github/workflows/additive-cyclic-no-connector.yml, .github/workflows/community-batch952.yml, .github/workflows/community-batch970-circuits.yml, .github/workflows/community-batch970-interfaces.yml, .github/workflows/community-batch970.yml, .github/workflows/complex-t21-owners.yml, .github/workflows/cubic-cyclic-inverse.yml, .github/workflows/dirty-cubic-precision.yml, .github/workflows/frontier741.yml, .github/workflows/frontier799.yml, .github/workflows/grouped-dirty-cyclic.yml, .github/workflows/t37-owners.yml, CONTRIBUTORS.md, Makefile, README.md, certificates/checkpoints/frontier799.json, certificates/checkpoints/frontier890.json,  [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
+      "status": "waiting_revision",
+      "reason": "Current source audit confirms 2,863 unreviewed ancestor-path changes beyond the packet, including 62 nonresearch paths. Isolate the intended contribution against canonical main or supply explicit source/configuration resolutions before integration. Scientific review remains open.",
       "evidence": [
         "research/community-efficient2600-audit/INTAKE.json"
       ],
@@ -368,23 +368,6 @@
       "watch_prs": {}
     },
     {
-      "number": 1252,
-      "head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
-      "status": "pending_review",
-      "reason": "Idle-axis repartition changes the selected construction and root README; reproduce baseline emission, exact overlay phase/owner audit and repricing before admission. A standalone overlay script is not the full requested sequence.",
-      "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
-      ],
-      "policy_version": 1,
-      "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
-      "watch_paths": {
-        "README.md": "74f49a5eca5910b915cb8446462c081c0372b141",
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
-        "research/frontier1094-idle-exchanges": null
-      },
-      "watch_prs": {}
-    },
-    {
       "number": 1345,
       "head": "b54a856aa79857d91cd5d65f8f7144e26c8c084f",
       "status": "waiting_revision",
@@ -403,8 +386,8 @@
     {
       "number": 1364,
       "head": "dec22f6ae2d065a12a92a121fc68300d9c342c40",
-      "status": "pending_review",
-      "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Unreviewed stacked changes: .gitattributes, .github/workflows/additive-cyclic-no-connector.yml, .github/workflows/community-batch952.yml, .github/workflows/community-batch970-circuits.yml, .github/workflows/community-batch970-interfaces.yml, .github/workflows/community-batch970.yml, .github/workflows/complex-t21-owners.yml, .github/workflows/cubic-cyclic-inverse.yml, .github/workflows/dirty-cubic-precision.yml, .github/workflows/frontier741.yml, .github/workflows/frontier799.yml, .github/workflows/grouped-dirty-cyclic.yml, .github/workflows/t37-owners.yml, CONTRIBUTORS.md, Makefile, README.md, certificates/checkpoints/frontier799.json, certificates/checkpoints/frontier890.json,  [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
+      "status": "waiting_revision",
+      "reason": "Current source audit confirms 2,863 unreviewed ancestor-path changes beyond the packet, including 62 nonresearch paths. Isolate the intended contribution against canonical main or supply explicit source/configuration resolutions before integration. Scientific review remains open.",
       "evidence": [
         "research/community-efficient2600-audit/INTAKE.json"
       ],
@@ -427,58 +410,32 @@
     {
       "number": 1365,
       "head": "d418130e3bbee1cb6923f0f734d5788e09933f57",
-      "status": "pending_review",
-      "reason": "579-file Lean/ancestor change requires isolating the actual entrance-projector theorem, reconciling historical certificate/CI changes, and building the pinned Lean modules with axiom checks. Whole-head integration cannot be inferred from a local Python replay.",
+      "status": "deferred_replay",
+      "reason": "Dedicated formalization review deferred under current no-Lean intake constraint. 579-file Lean/ancestor change requires isolating the actual entrance-projector theorem, reconciling historical certificate/CI changes, and building the pinned Lean modules with axiom checks. Whole-head integration cannot be inferred from a local Python replay.",
       "evidence": [
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json",
         "research/community-efficient2600-audit/INTAKE.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".github/workflows/pr442-level-model.yml": null,
-        ".github/workflows/verify.yml": "971c8b966603536669d5b4fa12977fc5065f3b68",
-        "Makefile": "02055437d2b90c705e8b82d2ef2b58633101ca7d",
-        "certificates/mixed-point-audit.json": "ab462d0f1126565e1d799ab678a1efcd4a4958de",
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
-        "research/lean-contribution-archive": null,
-        "research/lean-external-review": null,
-        "research/lean-multi-host-framework": null,
-        "research/lean-multi-host-source": null,
-        "research/lean-pending-derivation": null,
-        "research/lean-pr442-level-model": null,
-        "research/lean-single-stream-obstruction": null,
-        "research/lean-source-invocation-audit": null,
-        "research/lean-whole-residual-hosting": null
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json": "e2beafe98dc03f6069dbd5ce6757f9a5349ac097"
       },
       "watch_prs": {}
     },
     {
       "number": 1494,
       "head": "80ce84e3f05f5032e16ab22576c275f2e7e485ed",
-      "status": "pending_review",
-      "reason": "603-file Lean/ancestor change requires isolating the phase-two pending-operator theorem, reconciling historical certificate/CI changes, and building the pinned Lean modules with axiom checks. Whole-head integration cannot be inferred from a local Python replay.",
+      "status": "deferred_replay",
+      "reason": "Dedicated formalization review deferred under current no-Lean intake constraint. 603-file Lean/ancestor change requires isolating the phase-two pending-operator theorem, reconciling historical certificate/CI changes, and building the pinned Lean modules with axiom checks. Whole-head integration cannot be inferred from a local Python replay.",
       "evidence": [
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json",
         "research/community-efficient2600-audit/INTAKE.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".github/workflows/pr442-level-model-phase2.yml": null,
-        ".github/workflows/pr442-level-model.yml": null,
-        ".github/workflows/verify.yml": "971c8b966603536669d5b4fa12977fc5065f3b68",
-        "Makefile": "02055437d2b90c705e8b82d2ef2b58633101ca7d",
-        "certificates/mixed-point-audit.json": "ab462d0f1126565e1d799ab678a1efcd4a4958de",
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
-        "research/lean-contribution-archive": null,
-        "research/lean-external-review": null,
-        "research/lean-multi-host-framework": null,
-        "research/lean-multi-host-source": null,
-        "research/lean-pending-derivation": null,
-        "research/lean-pr442-level-model": null,
-        "research/lean-pr442-level-model-phase2": null,
-        "research/lean-single-stream-obstruction": null,
-        "research/lean-source-invocation-audit": null,
-        "research/lean-whole-residual-hosting": null
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json": "e2beafe98dc03f6069dbd5ce6757f9a5349ac097"
       },
       "watch_prs": {}
     },
@@ -1318,16 +1275,16 @@
     {
       "number": 2411,
       "head": "a768c79ee5fd45bcfa8fc7a566646a620a7f2ef5",
-      "status": "pending_review",
-      "reason": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "status": "deferred_replay",
+      "reason": "Dedicated formalization review deferred under current no-Lean intake constraint. Resolve the documented replay entrypoint and exact mathematical scope.",
       "evidence": [
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json",
         "research/community-efficient2600-audit/INTAKE.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        "README.md": "74f49a5eca5910b915cb8446462c081c0372b141",
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
+        "docs/research/pr-intake-evidence/formal-deferrals-20261016.json": "e2beafe98dc03f6069dbd5ce6757f9a5349ac097"
       },
       "watch_prs": {}
     },
@@ -1637,101 +1594,6 @@
       "watch_prs": {}
     },
     {
-      "number": 2780,
-      "head": "59f336094958b51b312e54deb85347e1b671172d",
-      "status": "pending_review",
-      "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
-      ],
-      "policy_version": 1,
-      "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
-      "watch_paths": {
-        "multitape-origin-return/LICENSE": null,
-        "multitape-origin-return/MANIFEST.json": null,
-        "multitape-origin-return/MODULES.json": null,
-        "multitape-origin-return/NOTICE.md": null,
-        "multitape-origin-return/PORTING.json": null,
-        "multitape-origin-return/README.md": null,
-        "multitape-origin-return/REUSE.json": null,
-        "multitape-origin-return/SOURCES.json": null,
-        "multitape-origin-return/TASK.json": null,
-        "multitape-origin-return/VERIFY.json": null,
-        "multitape-origin-return/expected/AXIOMS.json": null,
-        "multitape-origin-return/lean/Check.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Absolute.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/BinaryMultiplicationOriginABI.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Complexity.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/ControlEmbedding.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/FrameRule.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationCompilerApplications.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationEngine.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationHeadReturn.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationOriginApplications.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationOriginCertificate.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationOriginRestored.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/IntegerMultiplicationProductApplications.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Locality.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/MarkedStreamModel.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/MarkedStreams.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Model.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/ParkStack.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Computability/BinaryMultiplication20261013.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Computability/BinaryMultiplicationSetup20261013.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Computability/BinaryMultitape20261013.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax13Ram20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51BinaryWordEncoding20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsEncoding20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsMicrocode20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMAlphabetEmbedding20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMBitMacros20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMCellTransferMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMCompareMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMFixedWord20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMLiteralWordMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMLookupCellMachine20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMLookupScanCorrect20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMLookupScanMachine20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMMultiplyMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMOperandSemantics20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMPolynomialBounds20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMPrependCellMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMShiftMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseEncoding20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseInvariant20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseLookup20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseMemory20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseParsing20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSparseRunBounds20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMStatementEmbedding20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSubtractMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSymbolEqualMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMSymbolMoveMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMWordOperations20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMWordTransferMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51ProofsRamToTMZeroWordMacro20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51RamPolytime20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Reused/Meta/Problem18RAMLax51TuringPolytime20261001.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/StackOriginModel.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/StackOriginSerializer.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/SubroutineContracts.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/TM2AnchoredCompiler.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/TM2Compiler.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/TM2CompilerCertificates.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/TM2HeterogeneousCompiler.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/TapeEmbedding.lean": null,
-        "multitape-origin-return/lean/MultitapeToolkit/Trace.lean": null,
-        "multitape-origin-return/lean/lake-manifest.json": null,
-        "multitape-origin-return/lean/lakefile.toml": null,
-        "multitape-origin-return/lean/lean-toolchain": null,
-        "multitape-origin-return/replay.py": null,
-        "multitape-origin-return/verify.py": null,
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
-      },
-      "watch_prs": {}
-    },
-    {
       "number": 2817,
       "head": "adb647eba5842812b36e67fe1aa2be5ecdff6b37",
       "status": "waiting_revision",
@@ -1896,7 +1758,7 @@
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        "docs/research/pr-intake-checkpoint.json": "d1c2bb472357067873e8dd8e10c3f0774ee5754f",
+        "docs/research/pr-intake-checkpoint.json": "e1c91a665235bbecaeec20567a00cb5e4cc009ad",
         "research/fstar-gap2-v11-seed42ff0611": null
       },
       "watch_prs": {}

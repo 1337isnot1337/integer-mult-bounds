@@ -107,3 +107,14 @@ original workflow continue to refer to that original version.
 The [100-head reconciliation](../../research/community-efficient2600-audit/README.md)
 separates reviewed replay-tooling and navigation fixes from two source-only
 research archives. Scientific claims and the selected bound are unchanged.
+
+## Isolated research directories outside `research/`
+
+A separately scoped source-only intake may retain a newly introduced private
+research directory (for example `multitape-origin-return/`) after confirming that
+every contribution path is inside it, the prefix is absent from main, and no
+existing file or automatic entrypoint is changed. Source identity/integrity checks
+still apply; Lean sources may be archived without running Lean, with formal
+validation explicitly open. This does not admit changes to shared `scripts/`,
+`tests/`, workflows, selected certificates or existing runtime paths through the
+archive lane. [PR2780 source scope](pr-intake-evidence/archives-20261016c.json).

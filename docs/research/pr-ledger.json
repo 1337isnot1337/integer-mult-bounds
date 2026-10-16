@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2488,
+  "inventory_count": 2489,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2045,
-    "partially_reviewed": 381,
+    "partially_reviewed": 382,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "c59120d22b215ffc42c5a605d383989313d0bcdcbb4c7b8d4d656bf6317e5882",
+    "docs/research/pr-intake-decisions.json": "bd2b4b53021eff8a0a305ccd7739ef73ea70ed3535636c9ecab9c486720cd9a3",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -71472,36 +71472,44 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change. The older README candidate note is retained at its original author commit; current README and selected result are unchanged.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/frontier1094-idle-exchanges"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1252",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
       "reviewed_head": "1b9db2faf82b8866b0bb0164501c9a627c7dca9b",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Idle-axis repartition changes the selected construction and root README; reproduce baseline emission, exact overlay phase/owner audit and repricing before admission. A standalone overlay script is not the full requested sequence.",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1252.json",
-        "research/community-efficient1900-audit/packets/1252.json",
-        "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/1252.json",
-        "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/1252.json"
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient400-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -136901,39 +136909,57 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "59f336094958b51b312e54deb85347e1b671172d",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "multitape-origin-return/LICENSE",
+        "multitape-origin-return/MANIFEST.json",
+        "multitape-origin-return/MODULES.json",
+        "multitape-origin-return/NOTICE.md",
+        "multitape-origin-return/PORTING.json",
+        "multitape-origin-return/README.md",
+        "multitape-origin-return/REUSE.json",
+        "multitape-origin-return/SOURCES.json",
+        "multitape-origin-return/TASK.json",
+        "multitape-origin-return/VERIFY.json",
+        "multitape-origin-return/expected",
+        "multitape-origin-return/lean",
+        "multitape-origin-return/replay.py",
+        "multitape-origin-return/verify.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2780",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
       "reviewed_head": "59f336094958b51b312e54deb85347e1b671172d",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2780.json",
-        "research/community-efficient2200-audit/INTAKE.json",
-        "research/community-efficient2200-audit/packets/2780.json",
-        "research/community-efficient2400-audit/INTAKE.json",
-        "research/community-efficient2400-audit/packets/2780.json",
-        "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/2780.json",
-        "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/2780.json"
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient1700-audit/DISPOSITIONS.json",
         "research/community-efficient2200-audit/DISPOSITIONS.json",
         "research/community-efficient2400-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -146501,6 +146527,56 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 2975,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2975",
+      "title": "Accelerate exact four-flat requirement enumeration by 33x on a pinned corpus",
+      "contributor": {
+        "id": "U_kgDOCRtulg",
+        "is_bot": false,
+        "login": "tekuuu",
+        "name": "Tekalign"
+      },
+      "draft": false,
+      "starting_head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "current_head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/two-flat-cover-branching"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2975",
+        "merge_commit": "47fa55b3cd8c7cf8879206f33569bc59d637dad8"
+      },
+      "reviewed_head": "1d7b491c9efad451d49dbfd36a3be7443999bf17",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016c.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -146512,7 +146588,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1858,
-    "OPEN": 251
+    "MERGED": 1861,
+    "OPEN": 249
   }
 }

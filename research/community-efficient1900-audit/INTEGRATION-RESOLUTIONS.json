@@ -60,18 +60,18 @@
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "c605dbe577ae502f984091b9878692267b1b0b6b767f9b4a982e30df56ae2b21",
+    "resolved_sha256": "7c75afa749b375c817fd13b22c1dd79fbbe608953e68e6d653b05d7663a78373",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 incremental source archives and attribution; original scientific scope retained."
+    "followup": "2026-10-16 isolated archival intake and attribution; historical scientific obligations unchanged."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "b3fa4b0bd6ac157a5077674f19060cf08df384c5527771cefcc0e33da301a4ea",
+    "resolved_sha256": "2ad650cdc381640306e805d21c0a8e3e5fdc122fba80b068df7d06a614c1867a",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 incremental source archives and attribution; original scientific scope retained."
+    "followup": "2026-10-16 isolated archival intake and attribution; historical scientific obligations unchanged."
   },
   {
     "number": 2255,
