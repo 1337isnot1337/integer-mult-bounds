@@ -2478,20 +2478,24 @@
       },
       "reviewed_head": "d8b59acaa5133a525e88be64f60b658acbb3525c",
       "current_head": "d8b59acaa5133a525e88be64f60b658acbb3525c",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-preflight-path-reuse"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "30825d93b806a437d16267d897f814e4c9c9352c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2793"
+      },
       "scope": "Opt-in selected-record source-binding path-reuse prototype; exact delta against current production checker reviewed. Both engines pass all58 inherited/new groups and optimized CLI refusal on the original selected closure; source and dependency bytes checked. Stable-filesystem assumption retained, no inter-call cache, default adoption or mathematical change. Author timing ratios retained as historical measurements, not independently remeasured. Initial missing fixture setup failure retained; complete1579-file selected inventory hydrated without weakening pins.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2793.json",
@@ -3751,20 +3755,24 @@
       },
       "reviewed_head": "8a1000c09819b43ca9a8f2929788af4af40dab70",
       "current_head": "8a1000c09819b43ca9a8f2929788af4af40dab70",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/ut4-fifteen-call-five-b"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "30825d93b806a437d16267d897f814e4c9c9352c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2828"
+      },
       "scope": "Scoped UT4 fifteen-call five-b exclusion with arbitrary finite restored dirty roles via credited pairing/span premises and new same-label compression. All registered censuses and independent controls pass; original six proof inputs/vendor/receipt checked. Additional exact replay validates rankmass>=4 and gap cutoffs. Integration corrects odd-slack wording and labels three-role totals as conservative profile completions: zero dirty-prefix realizations can include clean sides, so84,895,232 is not an exact opposite-orientation word count. Exclusion and weighted price cone remain; no native supplier or kappa change.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2828.json",
