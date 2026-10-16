@@ -45,8 +45,8 @@
     "research/community-efficient1700-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1904,
-    "partially_reviewed": 391,
+    "incorporated": 1910,
+    "partially_reviewed": 385,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -103,7 +103,7 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "28eb817832580cc6293f251b820d71c9a448fe51769ae2016ca03f6a6379e801",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "b7afc502d596b66a9f99d27dde11b1879fbae44b2445c60531a0cb313803e3c2",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -126606,25 +126606,32 @@
         {
           "head": "6b29cc86ca040cf1f23e4a104b5d279afd3dce73",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Source-bound P104 local fusion cost headroom, with exact outward rational bounds and independent decimal/sign checks. Historical selected input is now vendored byte-for-byte under its original hash; full combined replay and seven tests pass, including changed live-record independence and corrupted frozen-input rejection. Profile/native correctness remains inherited; no global supplier or kappa claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-fusion-cost-headroom"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2729"
+      },
       "reviewed_head": "6b29cc86ca040cf1f23e4a104b5d279afd3dce73",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Exact-head registered replay and local moment proof reviewed, but certificates/selected-result.json is a historical runtime pin that differs on main. Preserve the historical input in a reproducible integration without silently repinning evidence; then validate the combined package.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2729.json",
+        "research/community-efficient1700-audit/checks/check-2729-combined.json",
         "research/community-efficient1700-audit/checks/check-2729.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
@@ -126720,7 +126727,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2731.json"
+        "research/community-efficient1700-audit/packets/2731.json",
+        "research/community-efficient1700-audit/checks/check-2731.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -126843,25 +126851,32 @@
         {
           "head": "90a507b39063cfaebdf92794fcb9d18f358439a6",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "All-height recurrence and closed coefficient formulas at the fixed dyadic Omega cut. Reviewed prefix-row and inverse-phase proof; literal profiles through height 8, independent forward columns and Git-free integrity controls pass. This closes the named C2 fixed-cut question, not the C1 global maximizing-cut conjecture or a physical rounding theorem.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/leaf-omega-profile"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2735"
+      },
       "reviewed_head": "90a507b39063cfaebdf92794fcb9d18f358439a6",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2735.json"
+        "research/community-efficient1700-audit/packets/2735.json",
+        "research/community-efficient1700-audit/checks/check-2735.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -126887,25 +126902,32 @@
         {
           "head": "eba0d6111a773cd13f5c0afb4354af2c85d04c3a",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "QQ16 zero-retention completed-instruction error majorant with state-relative defects: exact all-cut forward and adjoint weights and behavioral controls pass. The 22-bit sufficient guard assumes completed line/map isometries and exact owned CLEAR; component rounding, caller entry and supplier admission remain open.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/qq16-zero-retention-defects"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2736"
+      },
       "reviewed_head": "eba0d6111a773cd13f5c0afb4354af2c85d04c3a",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2736.json"
+        "research/community-efficient1700-audit/packets/2736.json",
+        "research/community-efficient1700-audit/checks/check-2736.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127003,7 +127025,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2738.json"
+        "research/community-efficient1700-audit/packets/2738.json",
+        "research/community-efficient1700-audit/checks/check-2738.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127029,25 +127052,32 @@
         {
           "head": "e786545de95c38cb69e8006970c851b444a0630e",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "All-length dirty-padding obstruction under uniform bank XOR, additive padding/restriction and full padded exchanges. Reviewed paired-orbit group-ring determinant proof; literal closures, independent ring model, shape and failure controls pass. Fresh ownership, masked exchanges and other changed alphabets lie outside this theorem.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/dirty-padding-exchange-boundary"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2740"
+      },
       "reviewed_head": "e786545de95c38cb69e8006970c851b444a0630e",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2740.json"
+        "research/community-efficient1700-audit/packets/2740.json",
+        "research/community-efficient1700-audit/checks/check-2740.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127073,25 +127103,32 @@
         {
           "head": "fbe941c06e00e7aef64c2d11cd9ad27b7a083209",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Conditional P104 paired-chain consumer obstruction for every positive pair count and finite fully paid auxiliary-bank count. Exact source profile census, six rational base cases, affine infinite-tail proof and 11 tests pass. Assumes fixed profiles and the stated coverage law. Corrected PR2458 credit to Ross Richardson using GitHub metadata; no new supplier or kappa.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/p104-all-pair-consumer-budget"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2741"
+      },
       "reviewed_head": "fbe941c06e00e7aef64c2d11cd9ad27b7a083209",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2741.json"
+        "research/community-efficient1700-audit/packets/2741.json",
+        "research/community-efficient1700-audit/checks/check-2741.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127135,7 +127172,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2742.json"
+        "research/community-efficient1700-audit/packets/2742.json",
+        "research/community-efficient1700-audit/checks/check-2742.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127293,25 +127331,36 @@
         {
           "head": "3011db354853d71bc92a781df94adbb90f7a9f50",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Correct contributor attribution across ten Markdown files and one task-metadata field. Reviewed full diff and verified referenced PR authors against live GitHub metadata; executable code and source hashes remain unchanged. Existing consumers use frozen snapshots or historical provenance for affected text.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/bit-ledger-frame-ranks-seedfeb2",
+        "research/complex-queue-ceiling-uncovered",
+        "research/joint-dual-replay-fast",
+        "research/masked-root-star-floor",
+        "research/selected-suppliers-de-diagnostic"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2746"
+      },
       "reviewed_head": "3011db354853d71bc92a781df94adbb90f7a9f50",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2746.json"
+        "research/community-efficient1700-audit/packets/2746.json",
+        "research/community-efficient1700-audit/checks/check-2746.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -130515,7 +130564,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1452,
-    "OPEN": 527
+    "MERGED": 1458,
+    "OPEN": 521
   }
 }

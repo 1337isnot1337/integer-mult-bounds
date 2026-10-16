@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "1ed4ce84faadf12a21b3b75711b0e1ba264a8e8d",
+  "checked_commit": "03deb54d307653373ea4c96a459aceb495a55a8c",
   "merged_prs": [
     2478,
     2716,
@@ -10,14 +10,45 @@
     2723,
     2725,
     2726,
+    2729,
     2730,
     2734,
+    2735,
+    2736,
     2737,
+    2740,
+    2741,
+    2746,
     2752,
     2792
   ],
-  "changed_files": 129,
+  "changed_files": 196,
   "resolved_files": [
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/README.md",
+      "sha256": "73dd4a894de49a3622c0ec70f118af76de561e75f9eb0c2719635762cf7470b9"
+    },
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/SOURCES.json",
+      "sha256": "230ee32842abd3d8973bbe6048d74a2cc35d0941092bd881ce8f93522d90f5c9"
+    },
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/VERIFY.json",
+      "sha256": "8a98d93dd60411c0c0835844f33e227b5f27c51400b58e31c932867bd422aa1f"
+    },
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/test_verify.py",
+      "sha256": "8bb1525732da1e01c6997fd80a555b099631c109c56587782f8578c39e841fb4"
+    },
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/verify.py",
+      "sha256": "5d6aaa9f4a111a337ba11508439806d22d5792be917a3fd6b5c2419dca89731e"
+    },
     {
       "number": 2734,
       "path": "scripts/replay_historical_check.py",
@@ -39,6 +70,11 @@
       "sha256": "61e9bebe1f41ce23dd100ea368d9345e59c5568c6a21f26fd28f70155afdca75"
     },
     {
+      "number": 2741,
+      "path": "research/p104-all-pair-consumer-budget/README.md",
+      "sha256": "315b258f35f17327478087787b080c4879359ea9ac035845be10024e7da01c59"
+    },
+    {
       "number": 2752,
       "path": "scripts/research_package.py",
       "sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1"
@@ -52,6 +88,11 @@
       "number": 2792,
       "path": "tests/test_historical_check.py",
       "sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd"
+    },
+    {
+      "number": 2729,
+      "path": "research/p104-fusion-cost-headroom/inputs/SELECTED-AT-BASE.json",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
