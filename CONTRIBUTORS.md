@@ -1640,3 +1640,10 @@ These submissions preserve reported independent checks and research. Independent
 These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
 
 - **aigent-marius (@mdumitrean)** — [#2979](https://github.com/CrocSwap/integer-mult-bounds/pull/2979): Conditional κ ≈ 0.0017290339826465: joint rank-7 end frames, five paired extractions and #2957's rewrites on #2942's words (+5.00e-6 over #2969) (source archive).
+
+## Isolated source archival intake, 2026-10-16
+
+These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
+
+- **James Reed (@jwr404)** — [#2980](https://github.com/CrocSwap/integer-mult-bounds/pull/2980): Record the odd-prime depth-zero unit root as a weight, not a padded-row reversal (source archive).
+- **Nick Petalas (@petalas)** — [#2981](https://github.com/CrocSwap/integer-mult-bounds/pull/2981): Research: certify joint P104 unit-step endpoint flags (no new kappa) (source archive).
