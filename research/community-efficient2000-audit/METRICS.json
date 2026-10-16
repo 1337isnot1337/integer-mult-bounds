@@ -5,8 +5,9 @@
   "remaining_open": 100,
   "intake": {
     "held_shared_or_existing_paths": 45,
-    "archive_ready": 51,
+    "archive_ready": 50,
     "held_known_correctness": 2,
-    "held_conflicting_archive_versions": 2
+    "held_conflicting_archive_versions": 2,
+    "held_unmerged_dependencies": 1
   }
 }

@@ -1367,7 +1367,6 @@ Source-only intake; full scientific review remains open. Original predecessor cr
 - **rohanarun (@rohanarun)** — [#1207](https://github.com/CrocSwap/integer-mult-bounds/pull/1207): Conditional kappa 0.001675807682652: X54 on mixed T37 fusion providers.
 - **rohanarun (@rohanarun)** — [#1218](https://github.com/CrocSwap/integer-mult-bounds/pull/1218): Conditional kappa 0.001675809683500501: global mixed allocation with X54 and fusions.
 - **rohanarun (@rohanarun)** — [#1225](https://github.com/CrocSwap/integer-mult-bounds/pull/1225): Conditional κ = 0.001675608585476885: X54 slot on #1148's joint-entrance k8 word with #1169's exact T37 owners.
-- **Doug Colkitt (@Mister-Meeseeks)** — [#1231](https://github.com/CrocSwap/integer-mult-bounds/pull/1231): [Lean] Derive #540's pending ranges from the PR442 schedule (stacked on #540; no new kappa).
 - **DreamingOfClouds (@DreamingOfClouds)** — [#1238](https://github.com/CrocSwap/integer-mult-bounds/pull/1238): The end-cap wall: why copies are forced in the E8 skeleton's verifier model (no κ claim).
 - **rohanarun (@rohanarun)** — [#1286](https://github.com/CrocSwap/integer-mult-bounds/pull/1286): Conditional kappa 0.001676332167598458: composed pivot 531 and 543 helper-donor kernels.
 - **rohanarun (@rohanarun)** — [#1297](https://github.com/CrocSwap/integer-mult-bounds/pull/1297): Conditional kappa 0.001676854978651125: four composed helper-donor cold kernels.

@@ -11,11 +11,18 @@ def live():
  return result
 ob=live();(P/'premerge.json').write_text(json.dumps(ob,indent=2)+'\n')
 for n in ns:assert ob['p'+str(n)]['state']=='OPEN' and not ob['p'+str(n)]['isDraft'] and ob['p'+str(n)]['headRefOid']==packets[n]['head']
+allowed={f['path'] for pk in packets.values() for f in pk['files']}
+for pk in packets.values():
+ mb=git('merge-base','HEAD',pk['head']).decode().strip()
+ actual=set(git('diff','--name-only','-z',mb,pk['head']).decode().split('\0'))-{''}
+ assert actual<=allowed, ('unreviewed stacked dependencies',pk['number'],sorted(actual-allowed))
 start=git('rev-parse','HEAD').decode().strip();mergehead=R/git('rev-parse','--git-path','MERGE_HEAD').decode().strip()
 if mergehead.exists():assert set(mergehead.read_text().splitlines())==set(heads)
 else:
  assert not git('status','--porcelain').strip()
- (P/'merge.log').write_bytes(git('merge','--no-ff','--no-commit',*heads))
+ result=subprocess.run(['git','-c','gc.auto=0','merge','--no-ff','--no-commit',*heads],cwd=R,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+ (P/'merge.log').write_bytes(result.stdout)
+ if result.returncode:print(result.stdout.decode()[-3000:]);result.check_returncode()
 staged={}
 for rec in git('ls-files','--stage','-z').split(b'\0'):
  if rec:

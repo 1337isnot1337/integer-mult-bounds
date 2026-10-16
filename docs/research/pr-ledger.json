@@ -109,7 +109,7 @@
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
     "research/community-efficient1800-audit/DISPOSITIONS.json": "b5654865e30ea1bc9e2c9e20b97e168d5e7f2172e9a50b3e6a6352579e6a054b",
     "research/community-efficient1900-audit/DISPOSITIONS.json": "d4bcc935539cb9a1e92a62db3ae3e0cbc4f0c7fe9fb6775180f09f23ecca5d3a",
-    "research/community-efficient2000-audit/DISPOSITIONS.json": "ba25f21e18bd8784d9138d6dd5b8601392f8969707c5127d5a1aa533ca4708a0",
+    "research/community-efficient2000-audit/DISPOSITIONS.json": "6ff002b8dd150f9cd629f973802238f40b2a7776dd33f20270009d3a61542086",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -7386,6 +7386,8 @@
           "path": "research/community-reconciliation92-audit/SOURCES.json.gz",
           "scope": "Complete original trees and original comparison-base diffs"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/122.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/122.json"
       ],
@@ -15244,6 +15246,8 @@
           "scope": "Complete original Git trees and original comparison-base diffs"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/259.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/259.json"
       ],
       "reconciliation_evidence": [
@@ -16969,6 +16973,8 @@
           "path": "research/community-reconciliation-next100-audit/SOURCES.json.gz",
           "scope": "Complete original Git trees and original comparison-base diffs"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/283.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/283.json"
       ],
@@ -18934,6 +18940,8 @@
           "path": "research/community-reconciliation-third100-audit/REVIEW.json",
           "scope": "Individual mechanism and limitations"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/309.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/309.json"
       ],
@@ -24249,6 +24257,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/379.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/379.json"
       ],
       "reconciliation_evidence": [
@@ -29252,6 +29262,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/455.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/455.json"
       ],
       "reconciliation_evidence": [
@@ -29630,6 +29642,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/461.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/461.json"
       ],
       "reconciliation_evidence": [
@@ -29846,6 +29860,8 @@
           "path": "research/community-reconciliation-fourth100-audit/REVIEW.json",
           "scope": "Individual mechanism and limitations"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/465.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/465.json"
       ],
@@ -30837,6 +30853,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/485.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/485.json"
       ],
       "reconciliation_evidence": [
@@ -31535,6 +31553,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/498.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/498.json"
       ],
       "reconciliation_evidence": [
@@ -31612,6 +31632,8 @@
           "path": "research/community-reconciliation-fourth100-audit/REVIEW.json",
           "scope": "Individual mechanism and limitations"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/499.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/499.json"
       ],
@@ -37558,6 +37580,8 @@
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/620.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/620.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/620.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -38686,6 +38710,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/636.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/636.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -38843,6 +38869,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/638.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/638.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -38919,6 +38947,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/639.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/639.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -38994,6 +39024,8 @@
           "path": "research/community-reconciliation-fourth100-audit/REVIEW.json",
           "scope": "Individual mechanism and limitations"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/640.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/640.json"
       ],
@@ -39152,6 +39184,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/642.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/642.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -39309,6 +39343,8 @@
           "scope": "Individual mechanism and limitations"
         },
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/644.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/644.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -39465,6 +39501,8 @@
           "path": "research/community-reconciliation-fourth100-audit/REVIEW.json",
           "scope": "Individual mechanism and limitations"
         },
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/646.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/646.json"
       ],
@@ -41217,6 +41255,8 @@
       "verification_evidence": [
         "research/community-pilot20-audit/packets/671.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/671.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/671.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -41324,6 +41364,8 @@
       },
       "verification_evidence": [
         "research/community-pilot20-audit/packets/673.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/673.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/673.json"
       ],
@@ -41485,6 +41527,8 @@
       },
       "verification_evidence": [
         "research/community-pilot20-audit/packets/676.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/676.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/676.json"
       ],
@@ -41974,6 +42018,8 @@
       "verification_evidence": [
         "research/community-pilot20-audit/packets/685.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/685.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/685.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -42027,6 +42073,8 @@
       "verification_evidence": [
         "research/community-pilot20-audit/packets/686.json",
         "research/community-pilot20-audit/checks/check-686.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/686.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/686.json"
       ],
@@ -42565,6 +42613,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/697.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/697.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/697.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -42668,6 +42718,8 @@
       },
       "verification_evidence": [
         "research/community-efficient100-audit/packets/699.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/699.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/699.json"
       ],
@@ -43605,6 +43657,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/717.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/717.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/717.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -44335,6 +44389,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/732.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/732.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/732.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -45061,6 +45117,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/746.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/746.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/746.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -45680,6 +45738,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/758.json",
         "research/community-efficient100-audit/checks/check-758.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/758.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/758.json"
       ],
@@ -46561,6 +46621,8 @@
         "research/community-efficient100-audit/packets/775.json",
         "research/community-efficient100-audit/checks/check-775.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/775.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/775.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -46793,6 +46855,8 @@
         "research/community-efficient100-audit/checks/check-779-fixture.json",
         "research/community-efficient100-audit/checks/check-779-initial.json",
         "research/community-efficient100-audit/checks/check-779.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/779.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/779.json"
       ],
@@ -47360,6 +47424,8 @@
         "research/community-efficient100-audit/packets/790.json",
         "research/community-efficient100-audit/checks/check-790.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/790.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/790.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -47566,6 +47632,8 @@
       "verification_evidence": [
         "research/community-efficient100-audit/packets/794.json",
         "research/community-efficient100-audit/checks/check-794.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/794.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/794.json"
       ],
@@ -48640,6 +48708,8 @@
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/815.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/815.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/815.json"
       ],
@@ -50090,6 +50160,8 @@
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/846.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/846.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/846.json"
       ],
@@ -52346,6 +52418,8 @@
         "research/community-efficient200-audit/packets/895.json",
         "research/community-efficient200-audit/checks/check-895.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/895.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/895.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -52450,6 +52524,8 @@
         "research/community-efficient200-audit/packets/897.json",
         "research/community-efficient200-audit/checks/check-897-fixture.json",
         "research/community-efficient200-audit/checks/check-897.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/897.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/897.json"
       ],
@@ -55710,6 +55786,8 @@
         "research/community-efficient1200-audit/checks/check-962-fixture-incomplete2.json",
         "research/community-efficient1200-audit/checks/check-962.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/962.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/962.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -56468,6 +56546,8 @@
       "verification_evidence": [
         "research/community-efficient200-audit/packets/977.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/977.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/977.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -56824,6 +56904,8 @@
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/985.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/985.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/985.json"
       ],
@@ -58871,6 +58953,8 @@
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1025.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1025.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1025.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -59494,6 +59578,8 @@
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1038.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1038.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1038.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -59754,6 +59840,8 @@
         "research/community-efficient200-audit/packets/1043.json",
         "research/community-efficient200-audit/checks/check-1043.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1043.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1043.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -60007,6 +60095,8 @@
       },
       "verification_evidence": [
         "docs/research/community-batch1099-review.md",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1048.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1048.json"
       ],
@@ -60311,6 +60401,8 @@
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1054.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1054.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1054.json"
       ],
@@ -60618,6 +60710,8 @@
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1060.json",
         "research/community-efficient200-audit/checks/check-1060.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1060.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1060.json"
       ],
@@ -61808,6 +61902,8 @@
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1083.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1083.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1083.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -61963,6 +62059,8 @@
       },
       "verification_evidence": [
         "research/community-efficient200-audit/packets/1086.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1086.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1086.json"
       ],
@@ -62876,6 +62974,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1104.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1104.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1104.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -63030,6 +63130,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1107.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1107.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1107.json"
       ],
@@ -63507,6 +63609,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1117.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1117.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1117.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -63714,6 +63818,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1121.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1121.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1121.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -63869,6 +63975,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1124.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1124.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1124.json"
       ],
@@ -64179,6 +64287,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1130.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1130.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1130.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -64231,6 +64341,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1131.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1131.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1131.json"
       ],
@@ -64747,6 +64859,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1141.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1141.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1141.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -65014,6 +65128,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1147.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1147.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1147.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -65066,6 +65182,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1148.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1148.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1148.json"
       ],
@@ -65170,6 +65288,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1150.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1150.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1150.json"
       ],
@@ -65276,6 +65396,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1152.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1152.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1152.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -65379,6 +65501,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1154.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1154.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1154.json"
       ],
@@ -65543,6 +65667,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1157.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1157.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1157.json"
       ],
@@ -66007,6 +66133,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1169.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1169.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1169.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -66161,6 +66289,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1172.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1172.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1172.json"
       ],
@@ -66403,6 +66533,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1176.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1176.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1176.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -66507,6 +66639,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1178.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1178.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1178.json"
       ],
@@ -66767,6 +66901,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1183.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1183.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1183.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -66928,6 +67064,8 @@
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/1186.json",
         "research/community-efficient1100-audit/checks/check-1186.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1186.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1186.json"
       ],
@@ -67242,6 +67380,8 @@
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1192.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1192.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1192.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -67296,6 +67436,8 @@
         "research/community-efficient300-audit/packets/1193.json",
         "research/community-efficient300-audit/checks/check-1193-fixture.json",
         "research/community-efficient300-audit/checks/check-1193.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1193.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1193.json"
       ],
@@ -67407,6 +67549,8 @@
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/1195.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1195.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1195.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -67460,6 +67604,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1196.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1196.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1196.json"
       ],
@@ -67667,6 +67813,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1201.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1201.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1201.json"
       ],
@@ -67932,6 +68080,8 @@
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1207.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1207.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1207.json"
       ],
@@ -68455,6 +68605,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1218.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1218.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1218.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -68818,6 +68970,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1225.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1225.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1225.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -69107,7 +69261,7 @@
         {
           "head": "448690c3b7e5c2b5975b760075b162fe0a8cfb03",
           "evidence": "research/community-efficient2000-audit/DISPOSITIONS.json",
-          "scope": "ARCHIVE ONLY: original author sources retained; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
+          "scope": "Source-inventory triage only; substantive review remains open. held_unmerged_dependencies.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -69117,15 +69271,17 @@
       "closure": null,
       "reviewed_head": "448690c3b7e5c2b5975b760075b162fe0a8cfb03",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Lean contribution needs pinned dependency preparation, full module build, source binding and axiom/mutation checks. Python extraction alone is not formal acceptance; keep separate from selected theorem claims.",
+      "unresolved_question": "Lean contribution needs pinned dependency preparation, full module build, source binding and axiom/mutation checks. Python extraction alone is not formal acceptance; keep separate from selected theorem claims. The actual merge base with main reveals548 additional inherited paths including Makefile, CI and selected-accounting files. This is not an isolated research-only merge; preserve the dependency stack for substantive review.",
       "review_completion": {
-        "changed_file_coverage": true,
+        "changed_file_coverage": false,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1231.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1231.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1231.json"
       ],
@@ -69388,6 +69544,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1238.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1238.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1238.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -69442,6 +69600,8 @@
         "research/community-efficient1200-audit/packets/1239.json",
         "research/community-efficient1200-audit/checks/check-1239-initial-budget.json",
         "research/community-efficient1200-audit/checks/check-1239.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1239.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1239.json"
       ],
@@ -70326,6 +70486,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1261.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1261.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1261.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -70687,6 +70849,8 @@
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1274.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1274.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1274.json"
       ],
@@ -71101,6 +71265,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1286.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1286.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1286.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -71505,6 +71671,8 @@
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1297.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1297.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1297.json"
       ],
@@ -72034,6 +72202,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1309.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1309.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1309.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -72350,6 +72520,8 @@
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1319.json",
         "research/community-efficient400-audit/checks/check-1319.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1319.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1319.json"
       ],
@@ -74092,6 +74264,8 @@
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1365.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1365.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1365.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -74706,6 +74880,8 @@
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1377.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1377.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1377.json"
       ],
@@ -75323,6 +75499,8 @@
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1392.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1392.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1392.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -75892,6 +76070,8 @@
       },
       "verification_evidence": [
         "research/community-efficient1100-audit/packets/1407.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1407.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1407.json"
       ],
@@ -76566,6 +76746,8 @@
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1424.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1424.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1424.json"
       ],
@@ -77487,6 +77669,8 @@
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1444.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1444.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1444.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -78155,6 +78339,8 @@
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1458.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1458.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1458.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -78360,6 +78546,8 @@
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1464.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1464.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1464.json"
       ],
@@ -78925,6 +79113,8 @@
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1479.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1479.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1479.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -79234,6 +79424,8 @@
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1485.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1485.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1485.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -79505,6 +79697,8 @@
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1494.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1494.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1494.json"
       ],
@@ -80018,6 +80212,8 @@
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1510.json",
         "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1510.json",
+        "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1510.json"
       ],
       "current_head_observed_in": "research/community-efficient2000-audit/DISPOSITIONS.json",
@@ -80172,6 +80368,8 @@
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1513.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1513.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1513.json"
       ],
@@ -80967,6 +81165,8 @@
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1534.json",
+        "research/community-efficient2000-audit/INTAKE.json",
+        "research/community-efficient2000-audit/packets/1534.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1534.json"
       ],

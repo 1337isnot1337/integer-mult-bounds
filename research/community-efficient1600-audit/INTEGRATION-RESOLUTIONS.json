@@ -104,7 +104,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "a5a93c2ffafa56a74f03dbbfe2e72a8c60c4c6f6b7e115b324d3b2bcb961672b",
+    "resolved_sha256": "a914a0ca697e100db29bdd98c02201b481b254fbbf684683a1b224cf69bb8979",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
