@@ -44,8 +44,8 @@
     "research/community-efficient1600-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1873,
-    "partially_reviewed": 323,
+    "incorporated": 1877,
+    "partially_reviewed": 319,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -101,7 +101,7 @@
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
-    "research/community-efficient1600-audit/DISPOSITIONS.json": "8895bae984d56b350fcfa97fbf7595a721b04349d9da74741723abea04299535",
+    "research/community-efficient1600-audit/DISPOSITIONS.json": "73e183a8f9a736470d22ee1afa00f311d4d6ed5cf681b1e6b3a857ff44a15ba3",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -138,6 +138,7 @@
         "docs/research/community-round2-twitter.md",
         "docs/research/complex-decoder-scope-map.md",
         "docs/research/contribution-review.md",
+        "docs/research/p104-helper-lifetime-scope-map.md",
         "docs/research/p104-side-correction-scope-map.md",
         "docs/research/paired-plane-contract-map.md",
         "docs/research/qq16-controller-scope-map.md"
@@ -122543,25 +122544,32 @@
         {
           "head": "cc8a86bcef203c7197f0c4a0352a2c728476b604",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "commdata2338's P104 helper-lifetime navigation audit, crediting Aaron Wang's earlier scope map and each source author. Reviewed six separate information-access contracts and four successor examples, including dimension/transport/lifetime distinctions and logical/native/hosted coverage. Exact immutable source links and current retained heads checked; integration note distinguishes historical pending wording from current dispositions. Reuses existing scoped reviews; no new scientific replay or supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c6532e2c53982c57ea57ab12f3408721299b5c65",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2633"
+      },
       "reviewed_head": "cc8a86bcef203c7197f0c4a0352a2c728476b604",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2633.json"
+        "research/community-efficient1600-audit/packets/2633.json",
+        "research/community-efficient1600-audit/checks/check-2633.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -122970,25 +122978,32 @@
         {
           "head": "ea1b5ab4933ddb525c7dbf4fc77e8b4689724cf9",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's PR1048 correction map, retaining flemhhh, woklerx, Brian Ross, Hanson Sun, Ian Libanio and maintainer credit. Checked eighteen exact source bindings, the retained review scopes and links; distinguishes bracket repair, unsurcharged comparison, dyadic surcharge equality and uncompleted transport census. Integration update records PR2562's now-incorporated arithmetic scope while retaining its rank-42 exclusion and original dated source receipt. No search completion or new mathematical claim.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "docs/research"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c6532e2c53982c57ea57ab12f3408721299b5c65",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2645"
+      },
       "reviewed_head": "ea1b5ab4933ddb525c7dbf4fc77e8b4689724cf9",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2645.json"
+        "research/community-efficient1600-audit/packets/2645.json",
+        "research/community-efficient1600-audit/checks/check-2645.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125229,25 +125244,33 @@
         {
           "head": "9f668f5860b229d931d5250418c4893004c7577d",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's five-source connector contract map, crediting Ross Richardson, Cinna Davis, Adam Gall, woklerx, Arham Garg and Aaron Wang. Checked six exact README/ledger bindings and the all-positive-tariff formula, including heavy-mask restriction, delivery cuts, map-call versus tariff floors and the narrower paired-readout construction claim. Combined guide link preserves current priorities; no predecessor scientific suites or new supplier replay claimed.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "autoresearch.md",
+        "docs/research"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c6532e2c53982c57ea57ab12f3408721299b5c65",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2699"
+      },
       "reviewed_head": "9f668f5860b229d931d5250418c4893004c7577d",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2699.json"
+        "research/community-efficient1600-audit/packets/2699.json",
+        "research/community-efficient1600-audit/checks/check-2699.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125369,25 +125392,34 @@
         {
           "head": "1bb9e36aa967e2febdaf362dd98f36cc367fbb34",
           "evidence": "research/community-efficient1600-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "ywz65's opt-in closed/merged PR title/body overlap corpus. Reviewed complete pagination, separate coverage timestamps, atomic cache retention on failed fetch, update-time deduplication with open ties and rejection of unsupported closed path queries. Nineteen overlap and twenty-six onboarding tests pass on the combined implementation, preserving main's package-name extraction fix. No automatic novelty certificate, closed-file index or default extra remote scan.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "autoresearch.md",
+        "scripts/find_overlap.py",
+        "tests/test_research_overlap_closed.py"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c6532e2c53982c57ea57ab12f3408721299b5c65",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2702"
+      },
       "reviewed_head": "1bb9e36aa967e2febdaf362dd98f36cc367fbb34",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1600-audit/packets/2702.json"
+        "research/community-efficient1600-audit/packets/2702.json",
+        "research/community-efficient1600-audit/checks/check-2702.json"
       ],
       "current_head_observed_in": "research/community-efficient1600-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -125931,7 +125963,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1421,
-    "OPEN": 459
+    "MERGED": 1425,
+    "OPEN": 455
   }
 }
