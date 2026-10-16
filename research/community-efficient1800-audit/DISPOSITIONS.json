@@ -346,7 +346,7 @@
         "isDraft": false
       },
       "reviewed_head": "4e2925b076050f8035b054f95416029a63af64fa",
-      "current_head": "4e2925b076050f8035b054f95416029a63af64fa",
+      "current_head": "679ac7b760ef2e01262039b906c154012548be81",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
@@ -2010,21 +2010,28 @@
       },
       "reviewed_head": "fe264d29868308c8e2ba483a7a49db5cbe928308",
       "current_head": "fe264d29868308c8e2ba483a7a49db5cbe928308",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/fixed-tape-unit-carry"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bdbd88ce585a51e8608d23b2a0ab0a4e1db39beb",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2829"
+      },
+      "scope": "Unit-carry physical ordered shear and inverse y\u2192y\u00b1(x+1), arbitrary positive extents includingQ=1. All new phase/controller/oracle/integrity code and all-size split, cleanup, exact predecessor+7 transition and41V visited-span proofs reviewed. Seven retained exports authenticated against Git; prior2776 control/counter review reused at unchanged head. Fourteen tapes/552 instructions,449V bound; complete registered replay passed:270 dense cases over78 shapes,24 sparse cases,156 predecessor comparisons,12 inverse/source cases each,10 semantic and8 integrity controls. Valid-input successful contract only: arbitrary carries, caller allocation, full selectedH2 and new\u03ba remain outside scope.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2829.json"
+        "research/community-efficient1800-audit/packets/2829.json",
+        "research/community-efficient1800-audit/checks/check-2829.json"
       ]
     },
     {
@@ -2373,21 +2380,28 @@
       },
       "reviewed_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
       "current_head": "ad644b1eff88e7ee2ca0ee6d5561fafb439bb369",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Full mathematical/code review complete; first primary census exceeded the sampled1GiB process-group guard (1242928KiB) with no tracked input changes. Eager multimillion-item lists and a cpu_count-sized pool require bounded batching before replay. No rejection inferred; full canonical certificate, independent census and fault controls remain pending.",
-      "closure": null,
-      "scope": "Full sym-difference collapse argument and all new code reviewed: a dirty snapshot cannot improve even-subset minima; eight-slot distinct and one-duplicate spectra, plus explicitly illegal clean-shadow counterfactual, remain finite priced-alphabet claims. Fresh complete certificate comparison and independent census are required; all-slot generalization follows monotone addition of distinct labels after duplicate-pair elimination, not enumeration of every repeated chronological walk. No new supplier or \u03ba; inherits the fixed PR1898 tariff.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/dirty-shadow-8q-obstruction"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "bdbd88ce585a51e8608d23b2a0ab0a4e1db39beb",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2840"
+      },
+      "scope": "Full sym-difference collapse argument and all new code reviewed: a dirty snapshot cannot improve even-subset minima; eight-slot distinct and one-duplicate spectra, plus explicitly illegal clean-shadow counterfactual, remain finite priced-alphabet claims. Complete normal/optimized/corruption checks and independent 2,430,400 distinct plus 4,083,072 one-duplicate census passed after bounded streaming scheduling, with unchanged mathematical workers and certificate; all-slot generalization follows monotone addition of distinct labels after duplicate-pair elimination, not enumeration of every repeated chronological walk. No new supplier or \u03ba; inherits the fixed PR1898 tariff.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2840.json",
+        "research/community-efficient1800-audit/checks/check-2840-supplement.json",
         "research/community-efficient1800-audit/checks/check-2840.json"
       ]
     },
@@ -2603,21 +2617,29 @@
       },
       "reviewed_head": "f3786fa5d7e28d643f0efaf7d75089cb2909b337",
       "current_head": "f3786fa5d7e28d643f0efaf7d75089cb2909b337",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t74-retired7-increment-audit"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "107f0cba4967aafe1923e9b6b7c35b7d7b205aef",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2847"
+      },
+      "scope": "Complete 28-rule/20-control audit implementation and finite-model argument reviewed. Source-bound independent checks authenticate50 Git blobs, certify all three root brackets with rational series bounds and check15000 free-word reductions. Complete submitted replay passes all28 rules and20 negative controls in143.68seconds without input changes. Exact forward/dual free-group identity, propagated GF2 frames, complete fill and attribution are scoped to the pinned2802/2751/2818/2766 construction; random matrix checks are supplemental. Symplectic images do not establish exact native Clifford phases; parent recovery, T74 supplier admission, physical hosting, finer2818 endpoint and outer theorem remain separate. No selected \u03ba change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2847.json"
+        "research/community-efficient1800-audit/packets/2847.json",
+        "research/community-efficient1800-audit/checks/check-2847-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2847.json"
       ]
     },
     {
@@ -2852,9 +2874,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Written K3 proof reviewed conditional on the explicitly imported F1-F4 catalogue facts. Original exactness claim used floating SVD rank pruning and tolerance decisions. Prepared integer-arithmetic and fail-closed wrapper resolutions; independent exact controls and complete resolved22-command replay remain required. No native supplier or \u03ba claim.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Complete K3 written proof and all822lines of submitted computation/driver code reviewed: normalized two-sided m10,(s,t)=(1,1) P112 decoder cost\u226564, conditional on statedF1-F4 catalogue/cover facts inherited via2832/2816; not generalK1/K2 or supplier admission. Corrected floating-rank pruning with exact guarded modular elimination (Hadamard minors\u22644096<65537), auxiliary integer decomposition/diagonal checks, fail-closed shell checks and internal manifest.20840 rational rank comparisons and768 rational decomposition controls pass; exact original data/manifest authenticated. Complete original22-command census with all93sets, three repeated-column chunks, tightness witnesses and expected summaries remains required. No \u03ba claim.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -2863,7 +2885,9 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2854.json"
+        "research/community-efficient1800-audit/packets/2854.json",
+        "research/community-efficient1800-audit/checks/check-2854-supplement.json",
+        "research/community-efficient1800-audit/checks/check-2854-wrapper.json"
       ]
     },
     {
@@ -3208,7 +3232,7 @@
       "integration_location": [],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "All new audit code and used PR2804 library call paths reviewed; unchanged PR2315/2387 kernels authenticated to prior2446 review. Original49 data plus2 context inputs and6 vendor bindings verified; three independent exact rational root brackets pass. Scoped free-operator forward/dual words, twelve lenders/four pairs, recovery movement, computed2720 hypothesis proxies and two-implementation owner/profile pricing; complete registered replay still required. Native phases/operator identity, uncharged36 initial corrections, window/free-interleave and8+2 stock assumptions, two unassessed2720 premises and full supplier/outer admission remain explicit. Downstream words structural-only; no new selected\u03ba.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -3217,7 +3241,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2865.json"
+        "research/community-efficient1800-audit/packets/2865.json",
+        "research/community-efficient1800-audit/checks/check-2865-supplement.json"
       ]
     },
     {
