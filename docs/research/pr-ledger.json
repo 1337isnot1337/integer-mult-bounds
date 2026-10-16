@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "8fd5cf10975971de9026e348176d681cb6b38ff4528040a84fd182fed787f493",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "0b9eb31686e8da6faef8c511f53a0b247e3ea61cd42928b37abbaa5ba1edd420",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -118902,7 +118902,7 @@
         {
           "head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Reviewed integer-elimination invariant and original Fraction kernel, full changed verifier/differential harness/benchmark and declared source pins; registered bounded replay passes with unchanged inputs. Full current-input scientific acceptance and production integration remain pending; no benchmark speedup independently measured.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -118912,7 +118912,7 @@
       "closure": null,
       "reviewed_head": "222063b96ec1a109a8c9f40e5d615498a737c6dd",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Original Python3.12 metadata and bounded3012-matrix/20000-row differential replay pass, including audit mismatch and finite nesting/nondegeneracy controls. Full --all scientific replay and input-wide equivalence remain pending; optional author benchmark reports about1.3GB RSS, above current1GiB group cap. Plan a bounded-memory complete replay without dropping coverage; do not auto-run that benchmark. Shared production verifier/certificate pins require integration review.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -118920,7 +118920,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2537.json"
+        "research/community-efficient1800-audit/packets/2537.json",
+        "research/community-efficient1800-audit/checks/check-2537.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [

@@ -1921,9 +1921,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Original Python3.12 metadata and bounded3012-matrix/20000-row differential replay pass, including audit mismatch and finite nesting/nondegeneracy controls. Full --all scientific replay and input-wide equivalence remain pending; optional author benchmark reports about1.3GB RSS, above current1GiB group cap. Plan a bounded-memory complete replay without dropping coverage; do not auto-run that benchmark. Shared production verifier/certificate pins require integration review.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Reviewed integer-elimination invariant and original Fraction kernel, full changed verifier/differential harness/benchmark and declared source pins; registered bounded replay passes with unchanged inputs. Full current-input scientific acceptance and production integration remain pending; no benchmark speedup independently measured.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -1932,7 +1932,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/2537.json"
+        "research/community-efficient1800-audit/packets/2537.json",
+        "research/community-efficient1800-audit/checks/check-2537.json"
       ]
     },
     {
