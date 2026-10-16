@@ -2740,19 +2740,22 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Resolve the documented replay entrypoint and exact mathematical scope.",
+      "unresolved_question": "Reviewed; publication pending.",
       "closure": null,
-      "scope": "Carry forward prior unresolved obligations; this pass authenticates current metadata and the complete Git diff, not the mathematical claim.",
-      "ready_to_integrate": false,
+      "scope": "DreamingOfClouds: paper-side polar/rank and Lagrangian bounds, idempotent descent, exact ladders and restricted decoder screens. All89 standard-library checks pass. Maintainer corrections require T>=2 in the generic distinct-line converse and handle zero-dimensional descent while proving positive descent to level four. Optional GAP output is retained author evidence; marked external citations and break-even fit remain conditional. No new supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2244.json",
-        "research/community-efficient1900-audit/packets/2244.json"
+        "research/community-efficient1900-audit/packets/2244.json",
+        "research/community-efficient1900-audit/checks/check-2244-projective.json",
+        "research/community-efficient1900-audit/checks/check-2244-resolution.json",
+        "research/community-efficient1900-audit/checks/check-2244.json"
       ]
     },
     {
