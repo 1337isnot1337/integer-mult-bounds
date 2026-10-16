@@ -82,6 +82,30 @@ Every rank-cap threshold has a strict adjacent-integer certificate. A rank cap
 above 51 would require a different outer halving argument; the table does not
 show that such an argument exists.
 
+## What a combined word-and-coverage change would still have to do
+
+As a design budget, reblock **all** 5,586 units of the selected local rank mass
+into the most favorable integer blocks allowed by the chosen local block cap,
+while leaving the remaining coverage mass at rank 51. The concavity exchange
+argument is the one retained in
+[`complex-rank-one-block-budget`](../complex-rank-one-block-budget/README.md);
+this target-0.1 calculation extends its cost screen to a changed coverage law
+and the full local rank mass. It grants every block zero gathering, chronology,
+frame, copy, dirty-restoration, hosting and precision overhead.
+
+| Unpaid coordinates | Centre mass | First local block cap that passes | Ideal local profile | Bill | Extra rank-one calls allowed |
+|---:|---:|---:|---|---:|---:|
+| 3 | 0 | 50 | 111 rank-50 + 1 rank-36 | 0.999840174348039 | 0 |
+| 4 | 64 | 48 | 116 rank-48 + 1 rank-18 | 0.998499914030822 | 6 |
+
+For each row, every smaller block cap fails. The next added rank-one call also
+fails by a strict exact interval. These margins are a demanding target for an
+actual mechanism: in the three-unpaid case there is no allowance even for one
+extra rank-one call; in the four-unpaid case there are only six. The profiles
+are cost-optimal partitions of rank mass, not identities or chronological
+decoders. The prior block-budget package's warning about full physical costs
+therefore remains central here.
+
 This is a scoped result about the selected #1094 complex local word and, for
 the all-rank-51 relaxation, its width, family count and halving guard. It does
 not bound a redesigned template or rank cap, a changed operation alphabet or
@@ -117,6 +141,11 @@ are registered in [`VERIFY.json`](VERIFY.json).
   is one explicit replacement profile with all new decoder, frame, dirty-state
   and restoration costs included. The blocker is a new identity and supplier
   contract; the current word is already 15.55% over budget before hosting.
+- Can one chronological block decoder realize the ideal 3-unpaid/50-rank or
+  4-unpaid/48-rank profile within its zero-to-six-call extra budget? Start with
+  one block and record the exact input/output map, source lifetime, frame path
+  and dirty restoration. The blocker is that the present budget relaxes away
+  all physical realization and gives almost no overhead allowance.
 - Can a source-bound outer transfer improve enough that the current local
   profile's admissible `a` maps to κ > 0.1? This matters only if the new transfer
   changes the proved conversion, rather than just its numerical backoff; the

@@ -45,13 +45,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "At the explicit κ > 0.1 target, test whether any coverage-law or packing relief can make the selected complex local word pass the required a = 1/9 moment threshold when idle, hosting and centre charges are set to zero.",
-  "scope_change_reason": "The user raised the target from any positive improvement to κ > 0.1. This refines the coverage-law card into a target-specific necessary screen: if the unchanged paid word already fails after all nonlocal charges are erased, further coverage or packing work on that word cannot decide the target.",
+  "actual_scope": "At the explicit κ > 0.1 target, determine necessary joint budgets for the selected complex word, coverage law and maximum child rank, including an optimistic exact reblocking of the full local rank mass at a = 1/9.",
+  "scope_change_reason": "The user raised the target from any positive improvement to κ > 0.1. The unchanged local word and selected coverage each fail separate target screens, so this refines the coverage-law card into a joint target-scale necessary budget map. The ideal reblocking follows the existing concavity cost screen but supplies no new decoder or physical construction.",
   "bottleneck_link": "The complex supplier binds the selected result. Under the retained transfer, κ > 0.1 requires a > 1/9; the paid local word must therefore have moment below one before idle packing, hosting or centre work is charged.",
   "budget_minutes": 60,
-  "stop_rule": "Stop all packing and coverage-law optimization on the selected local word for the κ > 0.1 target: its local-only moment at a = 1/9 is strictly greater than one. Reopen only with a changed local word or a source-bound changed outer transfer.",
+  "stop_rule": "Stop packing-only and coverage-only work on the selected local word for κ > 0.1. Any continuation must provide a changed local word/contract whose fully charged moment can meet a = 1/9, or a source-bound changed outer transfer; the ideal reblocking table is only a budget gate.",
   "outcome": "partial",
-  "evidence": "An exact integer-root certificate gives a local-only moment lower endpoint above 1.155558328185663 at a = 1/9. This excludes the target for the fixed selected complex word even when idle, hosting and centre charges are zero. It does not exclude a changed word or supplier.",
+  "evidence": "Exact integer-root certificates give local-only moment above 1.155558328185663 and selected-coverage/rank-cap relaxation above 1.035561535760803 at a = 1/9. The most favorable tested combined relaxations require unpaid=3, centre=0 and rank-50 blocks (111×50+36, zero extra rank-one calls), or unpaid=4, centre=64 and rank-48 blocks (116×48+18, at most six extra rank-one calls). Neither is an identity or physical supplier.",
   "author": "OpenAI Codex",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematical analysis, exact arithmetic, verification and writing.",
   "open_questions": [
@@ -60,6 +60,12 @@
       "why_it_matters": "The selected word alone exceeds the target budget, so this is a necessary step before any new packing search can help κ > 0.1.",
       "first_step": "Write one exact replacement local profile and include decoder, frame, dirty-state and restoration costs before evaluating its moment.",
       "blocked_by": "No replacement identity and complete local cost ledger are available in this package."
+    },
+    {
+      "question": "Can one chronological block decoder realize either of the exact ideal profiles within its zero-to-six-call extra rank-one budget?",
+      "why_it_matters": "These are the first relaxed local profiles in the screened joint coverage/shape range that reach the κ = 0.1 moment threshold.",
+      "first_step": "Construct one block with a complete source/target map, frame schedule, dirty restoration and exact extra-cost count, then compare it with the 50- or 48-rank profile budget.",
+      "blocked_by": "The current package has no block identity, source lifetime proof, or chronological physical realization."
     },
     {
       "question": "Can a changed source-bound outer transfer map a smaller primitive saving to κ > 0.1?",

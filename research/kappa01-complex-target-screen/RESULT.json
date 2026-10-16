@@ -56,6 +56,44 @@
         "unpaid_coordinates": 4
       }
     ],
+    "ideal_local_blocking": [
+      {
+        "all_smaller_caps_fail": true,
+        "bill_lower": "237961961494833170576488012413441/238000000000000000000000000000000",
+        "bill_upper": "22844348303503984375342849191722263/22848000000000000000000000000000000",
+        "bill_upper_decimal": "0.999840174348039",
+        "bill_with_max_extra_lower": "237961961494833170576488012413441/238000000000000000000000000000000",
+        "bill_with_next_extra_lower": "3808235387815939037489713169800857/3808000000000000000000000000000000",
+        "centre_mass": "0",
+        "idle_rank_cap": 51,
+        "local_block_profile": {
+          "36": 1,
+          "50": 111
+        },
+        "max_extra_rank1_calls": 0,
+        "scope": "zero-cost idealization: arbitrary reblocking of all current local rank mass; no gathering, chronology, frame, copy, dirty-restoration or physical costs",
+        "smallest_passing_local_block_cap": 50,
+        "unpaid_coordinates": 3
+      },
+      {
+        "all_smaller_caps_fail": true,
+        "bill_lower": "15209150690517487191362123491963779/15232000000000000000000000000000000",
+        "bill_upper": "1086367906465534799383008820856123/1088000000000000000000000000000000",
+        "bill_upper_decimal": "0.998499914030822",
+        "bill_with_max_extra_lower": "15229406784084086589743842800423003/15232000000000000000000000000000000",
+        "bill_with_next_extra_lower": "15232782799678519822807462685166207/15232000000000000000000000000000000",
+        "centre_mass": "64",
+        "idle_rank_cap": 51,
+        "local_block_profile": {
+          "18": 1,
+          "48": 116
+        },
+        "max_extra_rank1_calls": 6,
+        "scope": "zero-cost idealization: arbitrary reblocking of all current local rank mass; no gathering, chronology, frame, copy, dirty-restoration or physical costs",
+        "smallest_passing_local_block_cap": 48,
+        "unpaid_coordinates": 4
+      }
+    ],
     "margin_lower": "1991146600776491909563465165489/12800000000000000000000000000000",
     "necessary_unpaid_coordinates_at_target": {
       "scope": "uniform coverage law, fixed width 73, nine stages, and rank cap 51; idealized rank-mass distribution only",

@@ -16,7 +16,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "source-bound selected kappa and complex binding; exact integer ninth-root enclosures for every paid rank; positive a=0 control; strict rejection at a=1/9; adjacent rank-cap thresholds; exact RESULT.json replay"
+      "checks": "source-bound selected kappa and complex binding; exact integer ninth-root enclosures for every paid rank; positive a=0 control; strict rejection at a=1/9; adjacent rank-cap thresholds; concavity-optimal whole-profile block budgets and adjacent overhead rejection; exact RESULT.json replay"
     }
   ]
 }

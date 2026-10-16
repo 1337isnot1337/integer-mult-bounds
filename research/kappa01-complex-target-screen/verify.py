@@ -134,6 +134,102 @@ def first_rank_cap_below_one(unpaid: int, centre: Q, width: int, families: int, 
     raise ValueError("no rank cap below the width passes the ideal moment")
 
 
+def block_profile(rank_mass: int, block_cap: int) -> dict[int, int]:
+    """Concavity-optimal integer partition into blocks no larger than block_cap."""
+    blocks, remainder = divmod(rank_mass, block_cap)
+    profile = {block_cap: blocks} if blocks else {}
+    if remainder:
+        profile[remainder] = profile.get(remainder, 0) + 1
+    return profile
+
+
+def reblocked_bill_interval(
+    word: dict[int, int], unpaid: int, centre: Q, width: int,
+    families: int, stages: int, idle_cap: int, block_cap: int,
+    extra_rank1: int = 0,
+):
+    """Idealize the whole local rank mass as integer blocks plus rank-cap idle."""
+    per_call_families = Q(families, stages)
+    local_mass = sum(rank * count for rank, count in word.items())
+    total_mass = (width - unpaid) * per_call_families + centre
+    idle_mass = total_mass - local_mass
+    require(idle_mass >= 0, "local word exceeds the selected coverage budget")
+    profile = block_profile(local_mass, block_cap)
+    lower = upper = Q(0)
+    for rank, count in profile.items():
+        lo, hi, _ = root_enclosure(rank, width)
+        lower += count * Q(lo, SCALE)
+        upper += count * Q(hi, SCALE)
+    idle_lo, idle_hi, _ = root_enclosure(idle_cap, width)
+    lower += idle_mass / idle_cap * Q(idle_lo, SCALE)
+    upper += idle_mass / idle_cap * Q(idle_hi, SCALE)
+    one_lo, one_hi, _ = root_enclosure(1, width)
+    lower += extra_rank1 * Q(one_lo, SCALE)
+    upper += extra_rank1 * Q(one_hi, SCALE)
+    return lower / per_call_families, upper / per_call_families, profile
+
+
+def ideal_blocking_threshold(word: dict[int, int], unpaid: int, centre: Q,
+                             width: int, families: int, stages: int, idle_cap: int):
+    """Find the smallest local block cap that passes the fully idealized bill."""
+    local_mass = sum(rank * count for rank, count in word.items())
+    total_mass = (width - unpaid) * Q(families, stages) + centre
+    require(total_mass >= local_mass, "coverage budget cannot host the current local rank mass")
+    rows = []
+    passing = []
+    for cap in range(1, idle_cap + 1):
+        lower, upper, profile = reblocked_bill_interval(
+            word, unpaid, centre, width, families, stages, idle_cap, cap
+        )
+        row = {
+            "block_cap": cap,
+            "local_block_profile": {str(r): n for r, n in sorted(profile.items())},
+            "bill_lower": str(lower),
+            "bill_upper": str(upper),
+            "bill_upper_decimal": f"{float(upper):.15f}",
+            "strictly_below_one": upper < 1,
+        }
+        rows.append(row)
+        if upper < 1:
+            passing.append(row)
+    require(bool(passing), "no local block cap up to the selected rank cap passes")
+    first = min(passing, key=lambda row: row["block_cap"])
+    cap = first["block_cap"]
+    require(all(not row["strictly_below_one"] for row in rows if row["block_cap"] < cap),
+            "a smaller block cap unexpectedly passes")
+    max_extra = 0
+    while True:
+        next_lower, next_upper, _ = reblocked_bill_interval(
+            word, unpaid, centre, width, families, stages, idle_cap, cap, max_extra + 1
+        )
+        if next_lower > 1:
+            break
+        require(next_upper < 1, "extra rank-one boundary interval is undecided")
+        max_extra += 1
+    extra_lower, _, _ = reblocked_bill_interval(
+        word, unpaid, centre, width, families, stages, idle_cap, cap, max_extra
+    )
+    next_lower, next_upper, _ = reblocked_bill_interval(
+        word, unpaid, centre, width, families, stages, idle_cap, cap, max_extra + 1
+    )
+    require(extra_lower < 1 < next_lower, "extra rank-one budget boundary is not strict")
+    return {
+        "unpaid_coordinates": unpaid,
+        "centre_mass": str(centre),
+        "idle_rank_cap": idle_cap,
+        "smallest_passing_local_block_cap": cap,
+        "all_smaller_caps_fail": True,
+        "local_block_profile": first["local_block_profile"],
+        "bill_lower": first["bill_lower"],
+        "bill_upper": first["bill_upper"],
+        "bill_upper_decimal": first["bill_upper_decimal"],
+        "max_extra_rank1_calls": max_extra,
+        "bill_with_max_extra_lower": str(extra_lower),
+        "bill_with_next_extra_lower": str(next_lower),
+        "scope": "zero-cost idealization: arbitrary reblocking of all current local rank mass; no gathering, chronology, frame, copy, dirty-restoration or physical costs",
+    }
+
+
 def result_record() -> dict[str, object]:
     selected_path = ROOT / "certificates/selected-result.json"
     assembly_path = ROOT / "research/community-frontier1094-audit/ASSEMBLY.json"
@@ -214,6 +310,18 @@ def result_record() -> dict[str, object]:
             "selected-centre rank-cap threshold drifted")
     require(cap_case["four_unpaid_selected_centre"]["minimum_rank_cap"] == 48,
             "four-unpaid selected-centre rank-cap threshold drifted")
+    block_cases = [
+        ideal_blocking_threshold(word, 3, Q(0), width, families, stages, rank_cap),
+        ideal_blocking_threshold(word, 4, Q(64), width, families, stages, rank_cap),
+    ]
+    require(block_cases[0]["smallest_passing_local_block_cap"] == 50
+            and block_cases[0]["local_block_profile"] == {"36": 1, "50": 111}
+            and block_cases[0]["max_extra_rank1_calls"] == 0,
+            "three-unpaid block budget drifted")
+    require(block_cases[1]["smallest_passing_local_block_cap"] == 48
+            and block_cases[1]["local_block_profile"] == {"18": 1, "48": 116}
+            and block_cases[1]["max_extra_rank1_calls"] == 6,
+            "four-unpaid block budget drifted")
 
     # At a=1/9, kappa=a/(1+a)=1/10.  The retained outer transfer has strict
     # reservations, so any kappa>1/10 needs a primitive a>1/9.
@@ -251,6 +359,7 @@ def result_record() -> dict[str, object]:
             "strict_rejection": lower > 1,
             "coverage_relaxations": coverage_cases,
             "rank_cap_thresholds": rank_cap_cases,
+            "ideal_local_blocking": block_cases,
             "necessary_unpaid_coordinates_at_target": {
                 "with_centre_fully_removed": 3,
                 "with_selected_centre_charge_64": 4,
