@@ -6,9 +6,13 @@ the stock-fit proof before executing a suite. I retain exact source pins in
 SOURCES.json and source.py. The archives are immutable inputs; replay does
 not regenerate or compare newly compressed containers.
 
-I have passed each suite during development. The final registered replay is
-pending at this draft checkpoint; no final eight-command pass follows from
-those individual runs. I record the completed final replay before publication.
+I passed all eight registered commands with exit code 0 on 2026-10-16 after
+merging canonical main a1bfbc677fdcbc2a27a9b3bf6c78cac8fd6da9e2. The launcher
+reported PASS_REGISTERED_RESEARCH_PACKAGE. I ran setup, selected ROOT and
+failure controls normally and with assertions disabled. I retain the complete
+typed receipts in RESULT.json; wall-clock timings are observations rather
+than acceptance conditions. The guidance and all twelve declared runtime/proof
+input paths had no changes during this submission refresh.
 
 The engine checks two 1,024-column fitted invocations separated by a 192-column
 elementary invocation on the same fixed roles. Each fitted invocation performs
