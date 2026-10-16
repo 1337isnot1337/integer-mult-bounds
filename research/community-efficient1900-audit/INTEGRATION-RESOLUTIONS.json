@@ -58,7 +58,7 @@
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "a914a0ca697e100db29bdd98c02201b481b254fbbf684683a1b224cf69bb8979",
+    "resolved_sha256": "9760ef45606cc315f46cd7ceade62fa8f774a24db55dcd208ca3e6e59bd0eaca",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained."
   },
