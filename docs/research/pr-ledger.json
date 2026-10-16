@@ -97,7 +97,7 @@
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
-    "research/community-efficient1400-audit/DISPOSITIONS.json": "8622b336e57acd9106b28f6c3058055ed9ae81fd907a75d09be4d0310d91bbc2",
+    "research/community-efficient1400-audit/DISPOSITIONS.json": "63db22b10419afb1dbd063648b567656bf078b8c7344175230a4f3fabc32cfd5",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -113764,21 +113764,23 @@
         {
           "head": "435e5c412fcad664cef2b52cf6adf1c9f23ffc87",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Whole-helper owner-fill optimum: reviewed rational dual repair, exact residue enumeration and directed moment bounds. Independently recounted all four pinned word profiles and inventories. Integration correction handles fractional degenerate basis coordinates and checks canonical-residue nonnegativity; all search, exclusion and uniqueness controls pass with unchanged results. Near-optimality concerns the fixed PR2322/PR2435 inventories, bins and dispatch; windows/families/entrance delivery and supplier admission are not certified.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-owner-fill-optimality"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "435e5c412fcad664cef2b52cf6adf1c9f23ffc87",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
