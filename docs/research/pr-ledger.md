@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 1994 |
-| partially reviewed | 342 |
+| incorporated | 1995 |
+| partially reviewed | 341 |
 | superseded | 1 |
 | unreviewed | 60 |
 
@@ -1002,7 +1002,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1073](https://github.com/CrocSwap/integer-mult-bounds/pull/1073) | thakrarsagar | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1074](https://github.com/CrocSwap/integer-mult-bounds/pull/1074) | jeremykothe2 | incorporated | [record 1](../../research/community-batch1099-audit/DISPOSITIONS.json) |
 | [#1075](https://github.com/CrocSwap/integer-mult-bounds/pull/1075) | RossRichardson | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
-| [#1076](https://github.com/CrocSwap/integer-mult-bounds/pull/1076) | navinor | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
+| [#1076](https://github.com/CrocSwap/integer-mult-bounds/pull/1076) | navinor | incorporated | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077) | woklerx | incorporated | [record 1](../../research/community-batch1099-audit/DISPOSITIONS.json) |
 | [#1078](https://github.com/CrocSwap/integer-mult-bounds/pull/1078) | bbMisk | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#1079](https://github.com/CrocSwap/integer-mult-bounds/pull/1079) | bbMisk | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |

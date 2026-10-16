@@ -1,12 +1,13 @@
 {
   "status": "PASS",
-  "checked_commit": "c74ae2d8813ef305846ceb873a5efce18a149cfe",
+  "checked_commit": "c9d9a7427a39a53164734daa31431a0593c733ec",
   "merged_prs": [
     720,
     776,
     801,
     805,
     1075,
+    1076,
     1518,
     2458,
     2493,
@@ -40,7 +41,7 @@
     2870,
     2872
   ],
-  "changed_files": 464,
+  "changed_files": 473,
   "resolved_files": [
     {
       "number": 776,
@@ -56,6 +57,11 @@
       "number": 801,
       "path": "research/label-field-census/census.py",
       "sha256": "9d211cc0c1b83c8752cf6f14ee0d6957f75a0f9f66dd80ad5b939ae566f1b1ea"
+    },
+    {
+      "number": 1076,
+      "path": "research/quadratic-affine-performance/README.md",
+      "sha256": "72f4368865b1d068b1ae6cb2182937f1d434ac2ca707a0dc575a45af56a3ed72"
     },
     {
       "number": 1518,
@@ -155,7 +161,7 @@
     {
       "number": 2834,
       "path": "CONTRIBUTORS.md",
-      "sha256": "66124bea815bab7e0cbaf212068ba6bb3b2777e590835809682e00a8521b966b"
+      "sha256": "df9caae3fbf57266b4d1b213617d731391812515dc8c51914058749aa3195c60"
     },
     {
       "number": 2840,
@@ -281,6 +287,21 @@
       "number": 1518,
       "path": "research/atomic-trio-connector/parity.py",
       "sha256": "a8863454ebec09e16ca9716c3f1f1c64676e5be2fc73a1e2838b0e13d64064f2"
+    },
+    {
+      "number": 1076,
+      "path": "research/quadratic-affine-performance/HISTORICAL-PACKED.json",
+      "sha256": "228f54fddef6ed5bd86e4c59e71d907fa022613f4dc1d9293350f5f7bcfc231b"
+    },
+    {
+      "number": 1076,
+      "path": "research/quadratic-affine-performance/historical_packed.py",
+      "sha256": "9184fa9e817bb0214dc2de37932ef7cd131f5e6c000d43d9b5f358be30bfdcb4"
+    },
+    {
+      "number": 1076,
+      "path": "research/quadratic-affine-performance/test_integration.py",
+      "sha256": "e32f1c915f798bbd45ee2708b0bfcf4ff7ac5b4a3d0c566a741cbe286fd0a114"
     }
   ],
   "selected_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",

@@ -46,8 +46,8 @@
     "research/community-efficient1800-audit/DISPOSITIONS.json"
   ],
   "counts": {
-    "incorporated": 1994,
-    "partially_reviewed": 342,
+    "incorporated": 1995,
+    "partially_reviewed": 341,
     "superseded": 1,
     "unreviewed": 60
   },
@@ -105,7 +105,7 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
     "research/community-efficient1700-audit/DISPOSITIONS.json": "03c3ee196eda62c8102ac685ba662003863fab496f21539dc208f2bc1bca590d",
-    "research/community-efficient1800-audit/DISPOSITIONS.json": "286e39632cd7914cd21783d77d1acfe2b6d60cf98242faea823b4f9395b9757f",
+    "research/community-efficient1800-audit/DISPOSITIONS.json": "c5fbeeaa4ea315c433fb490c5714ca9296499bebddd0753914066ff121567ae9",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -60934,25 +60934,37 @@
         {
           "head": "cced22b95fb5b485da05b8187c8a9754b6a8c85a",
           "evidence": "research/community-efficient1800-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Aaron Wang (navinor)'s default quadratic-affine packed-row engine: all14,662 rows compare exactly to the base engine, complete12-case certificate differs only in the helper source pin, and11engine+4repository tests pass. Current integration replay regenerates identical certificate bytes. Added actual skipped-gather control and6historical-adapter controls pass normally/optimized; complete unchanged Curtis Dransfield PR752 replay passes with exact frozen inputs restored in a temporary tree. Historical timing not a new speedup claim; no kappa change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "certificates/quadratic-affine-vectors.json",
+        "research/quadratic-affine-performance",
+        "scripts/experiments"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "c9d9a7427a39a53164734daa31431a0593c733ec",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1076"
+      },
       "reviewed_head": "cced22b95fb5b485da05b8187c8a9754b6a8c85a",
-      "disposition": "partially_reviewed",
-      "unresolved_question": "Engine regressions pass and fixtures 0–10 compare exactly, but the full benchmark reached 180 seconds during the heavy fixture. Complete all 14,662 row comparisons and the fresh certificate/hash-only comparison before changing the default checker.",
+      "disposition": "incorporated",
+      "unresolved_question": null,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1076.json"
+        "research/community-efficient1800-audit/packets/1076.json",
+        "research/community-efficient1800-audit/checks/check-1076-combined.json",
+        "research/community-efficient1800-audit/checks/check-1076-current.json",
+        "research/community-efficient1800-audit/checks/check-1076-full.json",
+        "research/community-efficient1800-audit/checks/check-1076.json"
       ],
       "current_head_observed_in": "research/community-efficient1800-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -133385,7 +133397,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 377,
-    "MERGED": 1542,
-    "OPEN": 478
+    "MERGED": 1543,
+    "OPEN": 477
   }
 }
