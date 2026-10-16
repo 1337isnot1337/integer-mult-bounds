@@ -118,7 +118,7 @@ CONFIG['reconciliation92']['additional_inputs'].append({
     'sha256': '7751bcdd2df3c98798b1855050646744404f24d015eb4cd2b4af84bfb591cdc3',
     'accepted_live_sha256': [
         '22b0e66b878c886d52aaa69d233fdcaa4194cc947cab0191ca3dabee5980d6ad',
-        '6b19ef65fc208089479ceaa6465c861c03f9f1e19da00261df24e6bd019773b5',
+        '45f5a2a8bccd62052421f20e56ad2f1f098fc44335c2a14aebf3179aa3749d89',
     ],
 })
 
@@ -243,14 +243,13 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'path': 'scripts/run_isolated_tests.py',
   'input': 'ledger-batch932-run_isolated_tests.py',
   'sha256': '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
-  'accepted_live_sha256': ['f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478',
-                           'd4e2e75a6e47664600e9eb9efeec51564309b8ee9b57b3bffde8d1d990bc7092']},
+  'accepted_live_sha256': ['fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a']},
  {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '921', 'files'],
   'path': 'tests/test_isolated_test_runner.py',
   'input': 'ledger-batch932-test_isolated_test_runner.py',
   'sha256': '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
-  'accepted_live_sha256': ['4a6f16646b7b38b7e7ef9d9bc8b96cefb6db81d8b2b2d754a42ef5b557a5cbe1']},
+  'accepted_live_sha256': ['5c2a715a66c0c87fd672ce46889cb878dd7017a8bfa0c44395b340306b1b5382']},
  {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '903', 'files'],
   'path': 'research/data-corner-performance/README.md',

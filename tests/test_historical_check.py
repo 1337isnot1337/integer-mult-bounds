@@ -303,6 +303,18 @@ class HistoricalReplay(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, 'Missing historical tracked input'):
                     checker.tracked_paths(root)
 
+    def test_live_guards_also_admit_the_actual_committed_source_bytes(self):
+        # Windows Git attributes can normalize bytes at commit time. A local
+        # working-copy hash alone is not a published source admission check.
+        for name, config in checker.CONFIG.items():
+            for entry in [config, *config.get('additional_inputs', [])]:
+                if 'accepted_live_sha256' not in entry:
+                    continue
+                with self.subTest(package=name, path=entry['path']):
+                    raw = subprocess.check_output(['git', 'show', 'HEAD:' + entry['path']], cwd=ROOT)
+                    digest = hashlib.sha256(raw).hexdigest()
+                    self.assertIn(digest, [entry['sha256'], *entry['accepted_live_sha256']])
+
     def test_real_snapshots_match_unchanged_predecessor_pins(self):
         for name, config in checker.CONFIG.items():
             with self.subTest(package=name):

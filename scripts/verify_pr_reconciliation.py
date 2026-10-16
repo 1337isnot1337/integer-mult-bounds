@@ -85,13 +85,12 @@ def check_batch932_file(item):
             '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
             ('b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8',
              '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331',
-             'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478',
-             'd4e2e75a6e47664600e9eb9efeec51564309b8ee9b57b3bffde8d1d990bc7092')),
+             'fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a')),
         'tests/test_isolated_test_runner.py': (
             '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
             ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
              '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522',
-             '4a6f16646b7b38b7e7ef9d9bc8b96cefb6db81d8b2b2d754a42ef5b557a5cbe1')),
+             '5c2a715a66c0c87fd672ce46889cb878dd7017a8bfa0c44395b340306b1b5382')),
     }
     require(name in successors and successors[name][0] == item['integrated_sha256']
             and digest in successors[name][1],
