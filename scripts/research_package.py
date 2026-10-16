@@ -5,6 +5,7 @@ Douglas Colkitt, with OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
 from contextlib import closing
+from itertools import chain
 import hashlib
 import importlib.metadata
 import json
@@ -89,21 +90,34 @@ def git_source_rows(root, base, names):
                     process.wait()
 
 
-def git_blobs(root, specs):
-    """Read exact blobs in one Git process, without retaining a cross-call cache.
+class _UnsupportedNulBatch(Exception):
+    """Git rejected the initial NUL-mode request before yielding any source."""
 
-    NUL-delimited requests preserve spaces/newlines in paths. Each reply's size
-    frames the binary content, so embedded newlines and NUL bytes are harmless.
-    The caller must close this iterator if validation stops before exhaustion.
-    """
-    with subprocess.Popen(["git", "cat-file", "--batch", "-z"], cwd=root,
-                          stdin=subprocess.PIPE, stdout=subprocess.PIPE) as process:
+
+def _git_blob_batch(root, specs, nul):
+    argv = ["git", "cat-file", "--batch"] + (["-z"] if nul else [])
+    # Usage diagnostics from the unsupported-option probe are expected. Avoid
+    # a second pipe that could block while we consume the framed stdout reply.
+    with subprocess.Popen(argv, cwd=root, stdin=subprocess.PIPE,
+                          stdout=subprocess.PIPE, stderr=subprocess.DEVNULL) as process:
         try:
-            for spec in specs:
+            for index, spec in enumerate(specs):
                 require("\0" not in spec, "invalid Git object request")
-                process.stdin.write(spec.encode("utf-8") + b"\0")
-                process.stdin.flush()
-                fields = process.stdout.readline().rstrip(b"\n").split(b" ")
+                request = spec
+                if not nul and ("\n" in spec or "\r" in spec):
+                    # Resolve one literal argument, never split a path into requests.
+                    request = git(root, "rev-parse", "--verify", "--end-of-options", spec).decode("ascii").strip()
+                    require(re.fullmatch(r"[0-9a-f]{40,64}", request), "invalid Git object ID")
+                try:
+                    process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
+                    process.stdin.flush()
+                except BrokenPipeError:
+                    header = b""
+                else:
+                    header = process.stdout.readline()
+                if nul and index == 0 and not header and process.wait(timeout=90) == 129:
+                    raise _UnsupportedNulBatch(spec)
+                fields = header.rstrip(b"\n").split(b" ")
                 require(len(fields) == 3 and re.fullmatch(rb"[0-9a-f]{40,64}", fields[0])
                         and fields[1] == b"blob" and fields[2].isdigit(),
                         "missing or non-blob Git source: " + spec)
@@ -115,9 +129,11 @@ def git_blobs(root, specs):
             process.stdin.close()
             require(process.wait(timeout=90) == 0, "Git source reader failed")
         finally:
-            # On an early pin/drift failure, EOF releases Git's request loop;
-            # closing stdout also releases a producer with an unread reply.
-            process.stdin.close()
+            # Option rejection can close stdin before our first write/flush.
+            try:
+                process.stdin.close()
+            except BrokenPipeError:
+                pass
             process.stdout.close()
             if process.poll() is None:
                 try:
@@ -125,6 +141,27 @@ def git_blobs(root, specs):
                 except subprocess.TimeoutExpired:
                     process.kill()
                     process.wait()
+
+
+def git_blobs(root, specs):
+    """Stream exact blobs, retaining the one-process NUL protocol on newer Git.
+
+    Git without -z rejects it with usage status 129. Retry only before any
+    response, replaying the consumed first request through the line protocol.
+    The fallback resolves CR/LF paths to object IDs before requesting content.
+    The caller must close this iterator if validation stops before exhaustion.
+    """
+    specs = iter(specs)
+    sentinel = object()
+    first = next(specs, sentinel)
+    if first is sentinel:
+        return
+    with closing(_git_blob_batch(root, chain((first,), specs), nul=True)) as rows:
+        try:
+            yield from rows
+        except _UnsupportedNulBatch as exc:
+            with closing(_git_blob_batch(root, chain((exc.args[0],), specs), nul=False)) as legacy:
+                yield from legacy
 
 
 def meaningful(value):
