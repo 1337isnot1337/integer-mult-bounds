@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "supplier-boundary-audit",
+  "priority_revision": 5,
+  "base_commit": "544a7e82810e30cab61c297cb2e2ea86127fe944",
+  "original_card": {
+    "id": "supplier-boundary-audit",
+    "question": "Does one selected supplier obligation follow from its actual source-bound checks?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/owner-boundary-audit/README.md"
+    ],
+    "methods": [
+      "Trace one hypothesis through the source, checker and complete caller.",
+      "Construct one semantically invalid but superficially well-formed fixture and test rejection."
+    ],
+    "acceptance_gate": "Pin the current sources and one obligation; the historical owner audit is an example, not evidence of a current bug.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/owner-boundary-audit/verify.py"
+      ],
+      "expected": "PASS_PR626_NEXT_TOUCH_BOUNDARY_AUDIT",
+      "inspect": "Identify why the timing-only omission passes but the full production controller still rejects it.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Choose one current supplier obligation and trace whether its acceptance depends on an independent check.",
+    "bottleneck_link": "Closing a current acceptance gap or proof obligation strengthens reliability even without changing kappa.",
+    "allowed_variations": [
+      "Audit one named current condition using a new semantic counterexample."
+    ],
+    "scope_change_triggers": [
+      "Reporting the historical timing-only diagnostic as a new current acceptance bug."
+    ],
+    "overlap_terms": [
+      "owner boundary",
+      "bridge omission",
+      "hosting"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Adversarial audit of the increment of pending T74 claim PR #2802 (head 17b2ee6e) over its parent PR #2751 (head 4cfbb0cc): the seven declared stages refit5/alias5/refit5c/refit7/hostmove2/alias7/refit7c (seven retired-lender aliases, two hostee moves, refits) and the FILL2751->FILL transform, checked with fresh exact code on both words: event diff, per-register occupancy timeline, forward/dual free-algebra replay plus a matrix realisation, GF(2) warp frames and refit exactness, profile/inventory recount by two subspace representations, the 271,728-role fill with word-derived R, complete profile/mass/root; the verdict is extended to PR #2818 (head 175822ae), whose words/fill/order/providers are byte-identical.",
+  "scope_change_reason": "The card asks whether one selected-supplier obligation follows from its source-bound checks. The selected supplier is unchanged, while the top pending T74 claim (#2802, repackaged by #2818) changed two acceptance checks (R read from the providers; the A-retired-lender alias control) and its new construction had no independent check; the maintainer's T74 reviews ask to separate the new construction from inherited ancestors.",
+  "bottleneck_link": "A defect would remove the +5.38e-7 kappa margin of #2802/#2818 over #2766/#2767; a pass is necessary but not sufficient (inherited T74/#1319 admission, native lowering and the PR1673 outer proof remain). It also identifies which check protects alias occupancy: the scalar replays do not.",
+  "budget_minutes": 180,
+  "stop_rule": "Publish an independent verification if S1, S2 and S5 pass, S3/S4/S6 agree and every negative control is rejected by its named rule; on any mismatch minimise a witness, post a FINDING in #2612 and ship a negative result without repair. No search; #2751's twelve-source recovery treated as a pinned parent.",
+  "outcome": "completed",
+  "evidence": "verify.py --fetch: PASS_T74_RETIRED7_INCREMENT_AUDIT rules=26/26 controls=15/15 (about 80 s). Both words: 63 relabelled B gates = 63 declared edit pairs; 62 frame changes = 62 declared refit frames; nothing else changed; 704 register segments each exactly one parent role (lenders 401/403 last act at A3175/A3174 before warps at B259/B262; 550-553/562 at B901-B910; 564/565 at B911/B912 before B941/B944); forward+dual replay over Q<free group> on 632 live inputs with 72 zero buffers and the re-derived 4547-item cleanup; 4x4 matrix realisation mod 2^61-1; 72+24 warps with G(U)=E and U the propagated frame; profile {1:2382,2:648,3:268,4:128,5:26,8:8}, inventory {4:26,5:2,7:62,8:78,9:240}; fill R=408 from the words, 271728 roles, idle {1:17316,3:6594,5:9878,32:1,48:26558}, FILL = FILL2751 minus 4662 roles; complete profile and mass 4816512; f(C) < 66304 < f(C+1e-24). Own stage-by-stage rebuild reproduces W2802 exactly; attribution: the 20 PR2766-credited frames give PR2766's claimed profile, reconstructed retired5 brackets its root at 0.001717409316335491643448, and the new retired7 part adds 385667783143020379/10^24 over retired5. Controls C4a/C4b (lender gate moved past its alias warp) are accepted by both scalar replays and rejected only by frame monotonicity and the occupancy timeline. #2818 identical.",
+  "author": "thakrarsagar",
+  "ai_assistance": "Substantial AI assistance: Claude (Anthropic, Claude Opus 5.5) wrote and ran increment_audit.py, increment_controls.py and verify.py from the written model (PR2226 PROOF.md, PR README text and the JSON layouts); PR code was read as pinned data only and never imported or executed. No human has hand-checked the findings.",
+  "open_questions": [
+    {
+      "question": "Should the stage control suites of #2802/#2818 include an occupancy control (a lender gate moved after its alias warp)?",
+      "why_it_matters": "Both scalar replays accept such a mutant (C4a/C4b); only frame monotonicity and the occupancy timeline reject it, and no shipped control exercises that path for the A-retired lenders 401/403.",
+      "first_step": "Add C4a/C4b-style mutants for A- and B-retired lenders to retired7_controls.py and #2818 stage_controls, expecting 'frame not monotone'.",
+      "blocked_by": "Author action on #2802/#2818."
+    },
+    {
+      "question": "Are refit5c's seven above-floor frames (B771, B773, B776, B778, B783, B788, restore60) actually optimal?",
+      "why_it_matters": "They are legal and fully charged, but 'certified optimal' is asserted rather than independently checked; a better frame choice could change the profile.",
+      "first_step": "Re-solve those gates' frames with an independent exact optimiser under the moment cost.",
+      "blocked_by": "A written objective for the #1186 optimal_frames certificate."
+    },
+    {
+      "question": "Do the new warps 30, 31 and 66-72 have exact native Clifford/Gaussian lifts in both orientations?",
+      "why_it_matters": "This audit checks K_G only through its binary-symplectic image; the native lowering is an inherited open obligation.",
+      "first_step": "Instantiate the exact Gaussian products of each new K_G and check every column, as PR2226 did for its 80 pairs.",
+      "blocked_by": "Native lowering inputs ship only in the full release."
+    }
+  ]
+}
