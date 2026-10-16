@@ -103,7 +103,9 @@
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "be4150fabe26f0b36ace2592334c6a22b86d7fec7d426b85c52e3fa83b0f9bb4",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
-    "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
+    "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
+    "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
+    "research/pr148-source-retention/COVERAGE.json": "40ea3e36699e760976b33dec03131e0d971a644f658aee4bff47f62b8ebd96ca"
   },
   "scope": "Reconciliation index, not blanket mathematical verification. Partial includes triage or scoped checks; mentions alone are not review. Integrated archives are distinguished from active implementations. No automatic closures.",
   "pull_requests": [
@@ -8778,6 +8780,12 @@
           "evidence": "research/overnight-pr-review-20261009/dispositions.json",
           "scope": "integrated-validated: Atom 1/2000 passes subordinate-adapter and row inequalities for the composed profile; included with separate credit despite draft status. Final integration head passed the required Linux suite; see round7 validation for exact scope.",
           "kind": "triage_or_review"
+        },
+        {
+          "head": "975c3cf5d4ee0c90d5a76500d431bfc59102bb72",
+          "evidence": "research/pr148-source-retention/README.md",
+          "scope": "PR1572 (Thiago Goulart / Tuafo) authenticates all 114 PR148 changed paths: 96 main, 4 PR181 archive, 14 recovered; 11 direct author changes. Source coverage only; Rohan Gupta / gupt1156 retains construction credit.",
+          "kind": "source_retention"
         }
       ],
       "historical_mentions": [
@@ -8789,12 +8797,21 @@
       "disposition": "partially_reviewed",
       "integration_location": [],
       "github_state": "OPEN",
-      "unresolved_question": "Whole-current-PR incorporation is not established: 14 changed paths lack byte-identical coverage in main or its checked PR181 archive. Distinguish later equivalent edits, unique content and historical implementations before closure.",
+      "unresolved_question": "PR1572 resolves the historical 14-path source gap and authenticates all 114 changed paths. Whole-PR mathematical review remains open: inspect the 11-file direct author delta and reconstruct the complete historical paired-cube verification from the pinned PR148 tree before any incorporation or closure decision. Source retention is not that execution.",
       "closure": null,
       "reconciliation_evidence": [
         "research/pr-reconciliation-20261012/content-comparison.json"
       ],
-      "current_head_observed_in": "research/pr-reconciliation-20261012/ending-snapshot.json"
+      "current_head_observed_in": "research/pr-reconciliation-20261012/ending-snapshot.json",
+      "source_retention": {
+        "head": "975c3cf5d4ee0c90d5a76500d431bfc59102bb72",
+        "applies_to_current_head": true,
+        "receipt": "research/pr148-source-retention/RESULT.json",
+        "coverage": "research/pr148-source-retention/COVERAGE.json",
+        "location": "research/pr148-source-retention/",
+        "status": "complete_historical_source_retention",
+        "scope": "Source bytes and author-delta classification only; no whole-PR mathematical review or closure."
+      }
     },
     {
       "number": 153,
