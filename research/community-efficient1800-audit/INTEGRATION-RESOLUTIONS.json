@@ -480,10 +480,74 @@
     "reason": "Preserve original author timing receipt while explicitly documenting its source-hash mismatch and retaining a fresh full same-parameter benchmark bound to submitted source. No scientific code, recipe, count or kappa changed."
   },
   {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/SOURCES.json",
+    "original_sha256": "4ac8f4f592806bad1adb4cb7310fe8ad115a1e7da3e581da487adb75ce8a2edb",
+    "resolved_sha256": "f4f3757173f73d9b53e206ca6f5282b26f0276793f0225545e2b1d9101bccc17",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/historical_replay.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "3d558dc8daae9a816719f22705c61dba513b5d27dd67f515ae502f0172e9fffa",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/VERIFY.json",
+    "original_sha256": "9b85e15adf00bed937ecd99c7309fd3620515383a903b43c29cf79701462b178",
+    "resolved_sha256": "3330b35636eff0b35b2e6a8f2ab81265f752119996ee1768bfbed50d271ca391",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/README.md",
+    "original_sha256": "844e6fd9246bca2229d87f6560739fbe97da42aae789b2265c88c394ab6f7616",
+    "resolved_sha256": "5bf0e53b16ed437816fc8bf7e2b6fd9e77814e7501af2066d457ec7e38396c9a",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/test_historical_replay.py",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "7c1ff775b93b7274748e366db736214214bc26949c9fad1061cee3d33fb9075b",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/historical/SOURCES.json",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "4ac8f4f592806bad1adb4cb7310fe8ad115a1e7da3e581da487adb75ce8a2edb",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/historical/VERIFY.json",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "9b85e15adf00bed937ecd99c7309fd3620515383a903b43c29cf79701462b178",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
+    "number": 1926,
+    "path": "research/unittest-receipt-comparison/historical/README.md",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "resolved_sha256": "844e6fd9246bca2229d87f6560739fbe97da42aae789b2265c88c394ab6f7616",
+    "resolved_mode": "100644",
+    "reason": "Preserve original comparator/tests/RESULT and archived metadata; route registered checks through exact original runner context from PR2859 with byte, completion and immutability controls. Current runner untouched."
+  },
+  {
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "eb1707850ce546b5af021d4045e7bbc987c46ae3fe57eb4ac7487ca7e4e164e9",
+    "resolved_sha256": "94f28d7a429e422e6cea1fb9d313c512b8f87cacc14dfb0d554c92f65f07db4c",
     "resolved_mode": "100644",
     "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
   }

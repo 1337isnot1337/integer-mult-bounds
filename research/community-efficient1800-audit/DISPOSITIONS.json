@@ -1004,19 +1004,23 @@
       "current_head": "387501825842caa3507e34f110b5f9570dc04046",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Byte-preserving comparator, opt-in adapter and all20 control tests reviewed. Original Git source pins authenticated; source checker passes original inputs but rejects current main scripts/run_isolated_tests.py, whose assertion/cleanup/historical-skip-clones changes are newer. Preserve the historical benchmark/runner with an explicit authenticated replay migration, then run complete normal/optimized20-test receipts. Do not rebind historical measurements or claim full-suite compatibility.",
+      "integration_location": [
+        "research/unittest-receipt-comparison"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Full byte-comparison key injectivity, syntactic final-trailer contract, adapter and20 behavioral/integration controls reviewed. Only the final elapsed numeric field may differ; all diagnostic bytes, stdout and status remain significant. Confirmed exact historical pin positive control and current-runner source-drift rejection; replay migration/execution pending. No full benchmark, speedup or \u03ba claim.",
-      "ready_to_integrate": false,
+      "scope": "Arham Tahir's byte-preserving unittest stderr comparator retains all diagnostics except the recognized final elapsed value. Both exact legacy collisions, complete original20-test receipts and real-capture/fault controls pass normal/optimized. Registered replay now uses exact archived runner in an authenticated private context; all original10files retained, four added context guards pass. No full-suite benchmark, current-runner compatibility, speedup or kappa claim. Aaron Wang/navinor predecessor credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/1926.json"
+        "research/community-efficient1800-audit/packets/1926.json",
+        "research/community-efficient1800-audit/checks/check-1926-migrated.json",
+        "research/community-efficient1800-audit/checks/check-1926.json"
       ]
     },
     {
