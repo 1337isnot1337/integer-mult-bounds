@@ -13,41 +13,60 @@ Several merged replay-speed tooling changes rewrote shared scripts
 (`scripts/exclusion_circuit.py`, `scripts/shared_point_circuit.py`,
 `scripts/experiments/disjoint_tensor.py` and others). Repository checkers pin
 the bytes of such scripts by SHA-256. Which recorded pins no longer match the
-bytes their path holds, which checkers consequently reject, and which exact
-commits invalidated each pin after its manifest last changed?
+bytes their path holds, which checker rejections can be reproduced from those
+mismatches, and which later commits touched each pinned file after its manifest
+last changed?
 
 ## What a pin means here
 
 The audit enumerates every JSON `{repo path: sha256}` entry (exact rule in
-`RESULT.json`) and separates two very different populations:
+`RESULT.json`) and classifies each by the **shape** of its container:
 
-- **Live pins**, consumed by a checker that hashes the current file:
-  - shape **L**, `check_sources`-style `"files": {path: sha256}` maps (for
-    example `research/skip-clones/SOURCE.json`), and
-  - shape **R-input**, `research_package.py` `SOURCES.json` records with
-    `usage: "input"`, which that validator checks against working bytes
-    ("working source drift").
-- **Receipts**, which record a historical digest and are never compared to
-  live bytes: `usage: "provenance"` records (shape **R-provenance**, bound to
-  the immutable blob at the package's base commit) and all other `{path: sha256}`
-  entries (shape **P**, for example the "catalogue SHA-256" recorded in claims
-  and ledgers). Drift in this population is expected and harmless.
+- shape **L**, `check_sources`-style `"files": {path: sha256}` maps (for
+  example `research/skip-clones/SOURCE.json`),
+- shape **R-input** and **R-provenance**, `research_package.py` `SOURCES.json`
+  records with `usage: "input"` and `usage: "provenance"` respectively, and
+- shape **P**, every other `{path: sha256}` entry (for example the
+  "catalogue SHA-256" recorded in claims and ledgers).
 
-Confusing the two populations is the failure mode this audit removes: a stale
-"catalogue SHA-256" in a receipt is a historical fact, while the same drift in
-an L or R-input pin disables a replay.
+Shape is a syntactic category, not a statement about what a consumer does with
+the entry. Two live-byte consumers are named and reproduced below:
+`research/skip-clones/clone_io.py:check_sources` hashes current bytes for the
+L-shaped pins of `research/skip-clones`, and `scripts/research_package.py
+--check-only` hashes current working bytes for R-input rows of the packages it
+checks ("working source drift"); for that validator, R-provenance rows bind the
+recorded git blob instead. No other consumer was audited per entry. In
+particular, P-shaped entries are not guaranteed to be inert: at this frozen
+head `scripts/verify_pr_reconciliation.py:207` hashes every current path in
+`ledger["source_sha256"]`, and `scripts/verify_replay_coverage.py:98` hashes
+every current path in `selected["source_sha256"]`, and those entries fall into
+shape P. Drift in P or R-provenance is therefore **candidate** drift: this
+package records it, and neither calls it a failure nor calls it harmless.
+
+Distinguishing the demonstrated failures from the candidate drift is the point
+of the separation: a stale digest may be a historical fact or a live check, and
+only a replayed consumer decides which.
 
 ## Established (all recomputed by `verify.py`; counts in `RESULT.json`)
 
 | Shape | Pins | Match | Drift | Unresolved | Ignored |
 |---|---:|---:|---:|---:|---:|
-| L (check_sources live) | 20,737 | 19,735 | 127 | 46 | 829 |
-| R-input (research_package live) | 1,841 | 1,814 | 22 | 0 | 5 |
-| R-provenance (historical blob) | 1,363 | 806 | 517 | 0 | 40 |
-| P (provenance receipts) | 2,457,086 | 2,379,080 | 16,673 | 2,215 | 59,118 |
+| L (check_sources-style) | 20,737 | 19,735 | 127 | 46 | 829 |
+| R-input (usage="input") | 1,841 | 1,814 | 22 | 0 | 5 |
+| R-provenance (usage="provenance") | 1,363 | 806 | 517 | 0 | 40 |
+| P (all other entries) | 2,457,086 | 2,379,080 | 16,673 | 2,215 | 59,118 |
 
-Total 2,481,027 entries across 17,525 JSON manifests (2 manifests unreadable).
-The 149 live-drift pins touch 48 distinct files.
+Total 2,481,027 entries across 17,525 tracked JSON manifests (2 manifests
+unreadable). The inventory is bound to the `git ls-files` tracked set with the
+`.json` extension matched case-insensitively: 17,529 tracked JSON files minus
+this package's own 4. Twenty-two of the manifests are tracked with an uppercase
+`.JSON` extension (`PREMERGE.JSON` and `SELECTION.JSON` in each of
+`research/community-efficient{100,...,1000}-audit/`, plus `ENDING-OPEN.JSON`
+and `NEXT-QUEUE-SUMMARY.JSON` in `research/community-efficient500-audit/`);
+they are retained and contribute zero pins. A working-tree glob or a
+case-sensitive `*.json` query drops those 22 and reports 17,503, which is how
+an earlier replay of this package failed saved-census equality in a review
+checkout. The 149 live-drift pins touch 48 distinct files.
 
 1. **Smallest falsifying instance, reproduced exactly.**
    `research/skip-clones/clone_io.py:check_sources` raises
@@ -104,9 +123,15 @@ tooling change"), and this ledger is the data that follow-up needs. This is not
 a claim that any mathematical result is wrong: the drift disables replay
 checks, it does not falsify a certificate. The audit covers JSON `{path: sha256}`
 pins only; not `Makefile` targets, environment pins, or non-JSON manifests.
-Two of 17,528 manifests were unreadable JSON and are counted, not audited.
-Drift counts for the receipt population (P, R-provenance) are context, not
-defects.
+Two of the 17,525 manifests were unreadable JSON and are counted, not audited.
+An earlier revision of this README said 17,528 here; that figure equals 17,525
+external manifests plus the three JSON files this package itself then carried
+(`RESULT.json`, `SOURCES.json`, `TASK.json`; `VERIFY.json` is written last) and
+is corrected to 17,525 everywhere. Only four drifted pins are demonstrated
+failures — the pins named in the reproduced rejections (the skip-clones pin of
+`scripts/exclusion_circuit.py` and the three registered R-input pins). The
+remaining 145 live-drift pins and all P/R-provenance drift are candidate
+drift: recorded here, with no consumer replayed against them.
 
 ## Reproduce
 
@@ -117,16 +142,20 @@ python3 -I -B research/live-pin-drift-audit-seed5985/verify.py
 Expected:
 
 ```text
-PASS_LIVE_PIN_DRIFT_AUDIT pins=2481027 manifests=17525 L(match=19735,drift=127,unresolved=46,ignored=829) R-input(match=1814,drift=22,unresolved=0,ignored=5) R-prov(match=806,drift=517,unresolved=0,ignored=40) P(match=2379080,drift=16673,unresolved=2215,ignored=59118) live_drift_paths=48 controls=7 skip_clones=ValueError
+PASS_LIVE_PIN_DRIFT_AUDIT pins=2481027 manifests=17525 L(match=19735,drift=127,unresolved=46,ignored=829) R-input(match=1814,drift=22,unresolved=0,ignored=5) R-prov(match=806,drift=517,unresolved=0,ignored=40) P(match=2379080,drift=16673,unresolved=2215,ignored=59118) live_drift_paths=48 controls=8 skip_clones=ValueError
 ```
 
-The run recomputes the whole ledger and requires it to match `RESULT.json`
-exactly. Seven controls: the headline digest is fixed; a matching pin reports
-clean (the refreshed `certificates/dyadic-central-factor.json` pin of
+The run recomputes the whole ledger over the git-tracked manifest inventory
+(case-insensitive `.json` extension) and requires it to match `RESULT.json`
+exactly, so the census is identical in a complete frozen checkout and on
+case-sensitive platforms. Eight controls: the headline digest is fixed; a
+matching pin reports clean (the refreshed `certificates/dyadic-central-factor.json` pin of
 `scripts/exclusion_circuit.py`); a corrupted digest registers as drift; a
 missing target is unresolved; a non-repository key is ignored; a malformed
-`"files"` map is not treated as an L manifest; and a second independent
-enumeration is byte-identical. `--write` regenerates `RESULT.json`.
+`"files"` map is not treated as an L manifest; a second independent
+enumeration is byte-identical; and the inventory retains a tracked
+case-variant `.JSON` manifest (the 22-file extension rule above). `--write`
+regenerates `RESULT.json`.
 
 ## Open next questions
 

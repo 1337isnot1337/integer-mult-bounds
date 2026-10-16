@@ -6,7 +6,8 @@
   "control_d_missing_target_is_unresolved": true,
   "control_e_non_repo_key_is_ignored": true,
   "control_f_shape_l_detected": true,
-  "control_g_recomputation_stable": true
+  "control_g_recomputation_stable": true,
+  "control_h_tracked_inventory_retains_case_variant_json": true
  },
  "ledger": {
   "audited_base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
@@ -3135,7 +3136,7 @@
     "pins": 1
    }
   ],
-  "enumeration_rule": "Every JSON mapping entry whose key matches ^[A-Za-z0-9_.+-]+(/[A-Za-z0-9_.+-]+)+$ and contains no \":\" and whose value matches ^[0-9a-f]{64}$. Shape L: member \"files\" whose value is such a mapping (check_sources-style live pin). Shape R-input and R-provenance: member \"files\" whose value is a list of path/usage/git_blob/sha256 records (research_package.py pins); only usage==\"input\" rows are checked by that validator against live working bytes (\"working source drift\"), usage==\"provenance\" rows bind historical blobs. Shape P: any other such entry (point-in-time provenance receipt, e.g. a catalogue digest recorded at task draw; outside the live-check claim). Classification of live pins is against the bytes a checker reads at the pinned path; other keys are counted ignored. Manifests exclude .git, .worktrees and this package.",
+  "enumeration_rule": "Every JSON mapping entry whose key matches ^[A-Za-z0-9_.+-]+(/[A-Za-z0-9_.+-]+)+$ and contains no \":\" and whose value matches ^[0-9a-f]{64}$. The manifest inventory is the git-tracked set at the checkout head (git ls-files) with the .json extension matched case-insensitively (22 tracked manifests use .JSON and are retained; a working-tree glob or a case-sensitive *.json query drops them and reports 17503 instead of 17525), excluding .git, .worktrees and this package. Shape L: member \"files\" whose value is such a mapping (check_sources-style live pin). Shape R-input and R-provenance: member \"files\" whose value is a list of path/usage/git_blob/sha256 records (research_package.py pins); for that validator only usage==\"input\" rows are checked against live working bytes (\"working source drift\"), usage==\"provenance\" rows bind historical blobs. Shape P: any other such entry (e.g. a catalogue digest recorded at task draw). Shapes are syntactic categories, not consumer semantics: the audit has not established per entry whether a consumer compares it to live bytes, and at least scripts/verify_pr_reconciliation.py:207 (ledger[\"source_sha256\"]) and scripts/verify_replay_coverage.py:98 (selected[\"source_sha256\"]) hash current bytes for some P-shaped entries. Classification of live pins is against the bytes a checker reads at the pinned path; other keys are counted ignored.",
   "json_decode_failures": 2,
   "live_drift": [
    {

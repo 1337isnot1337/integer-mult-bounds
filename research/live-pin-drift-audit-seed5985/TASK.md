@@ -20,8 +20,8 @@ Concrete object and question:
 Every live-byte source pin `{repo-relative path: sha256}` recorded in JSON
 manifests in this repository at base `0fdd7d82`. Question: which recorded pins
 no longer match the bytes their path currently holds, which registered package
-checks and frozen replays consequently reject, and exactly which commits
-invalidated each pin after its manifest froze?
+checks and frozen replays can be reproduced rejecting on those mismatches, and
+which later commits touched each pinned file after its manifest froze?
 
 Scope status: refined; reason: the drawn card asks whether one measured replay
 bottleneck can be sped up without dropping coverage. The ExclusionCircuit.verify
@@ -35,8 +35,10 @@ checks assume pinned source bytes remain unchanged after freeze. The two merged
 speedups changed `scripts/exclusion_circuit.py` bytes.
 
 Method; explicit parameter ranges/candidate alphabet:
-Stdlib-only enumeration rule (stated exactly in the README): recurse every JSON
-file in the checkout; every mapping entry whose key matches
+Stdlib-only enumeration rule (stated exactly in the README): take the JSON
+manifests from the git-tracked inventory (`git ls-files`, `.json` extension
+matched case-insensitively, this package excluded); every mapping entry whose
+key matches
 `^[A-Za-z0-9_.+-]+(/[A-Za-z0-9_.+-]+)+$`, contains no `:`, and whose value
 matches `^[0-9a-f]{64}$` is one candidate pin. A pin is **drifted** when its
 target exists in the working tree and `sha256(target bytes)` differs; a pin is

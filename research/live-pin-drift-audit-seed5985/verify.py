@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """Live-byte source-pin drift audit at base 0fdd7d82.
 
-Repository checkers read pinned source bytes in two live ways:
+Two named checkers read pinned source bytes live:
 
   L  check_sources-style: a manifest member "files" mapping repository paths
-     to SHA-256 digests of the bytes the path must currently hold;
-  R  research_package.py SOURCES.json records (path/usage/git_blob/sha256),
-     which require the pinned blob to equal the current working file.
+     to SHA-256 digests of the bytes the path must currently hold (behavior
+     reproduced for research/skip-clones/clone_io.py:check_sources);
+  R  research_package.py SOURCES.json records (path/usage/git_blob/sha256):
+     that validator checks usage=="input" rows against the current working
+     file and binds usage=="provenance" rows to the recorded git blob.
 
-This audit enumerates every JSON pin entry in the checkout, classifies each
-pin as L, R or P (a point-in-time provenance receipt, e.g. a catalogue digest
-recorded at task draw), recomputes every digest against the bytes the pinned
-path currently holds, and attributes each L/R drift to the exact commits that
-changed the pinned file after the pin's manifest last changed.
+This audit enumerates every JSON pin entry in the git-tracked inventory,
+classifies each pin by container shape as L, R-input, R-provenance or P (a
+syntactic catch-all, e.g. a catalogue digest recorded at task draw),
+recomputes every digest against the bytes the pinned path currently holds,
+and records for each L/R drift the commits that touched the pinned file after
+the pin's manifest last changed. Shape is not consumer semantics: no per-entry
+claim is made that a P or R-provenance entry is never compared to live bytes;
+see enumeration_rule in RESULT.json for the known counterexamples.
 
 Scope: an audit and a precise obstruction record. No pin, frozen package or
 certificate is modified. Aaron Wang, with help from opencode. Apache-2.0.
@@ -103,18 +108,27 @@ def is_sources_records(value):
 
 
 def walk_json():
-    for path in sorted(ROOT.rglob('*.json')):
-        parts = path.relative_to(ROOT).parts
+    """The manifest inventory is the tracked set, not the working tree.
+
+    git ls-files is identical in every complete checkout on every platform.
+    The .json extension is matched case-insensitively because 22 tracked
+    manifests use .JSON; a filesystem glob or a case-sensitive '*.json'
+    query drops them and once made this census report 17,503 instead of
+    17,525.
+    """
+    listing = git('ls-files', '-z').decode('utf-8').split('\x00')
+    for rel in sorted(p for p in listing if p and p.lower().endswith('.json')):
+        parts = rel.split('/')
         if parts[0] in EXCLUDE_DIRS or SELF in parts:
             continue
-        yield path
+        yield ROOT / rel
 
 
 def collect(node, out, shape):
     """Record every {repo path: sha256} pin with its manifest-member shape.
 
-    R-input rows are the only research_package.py rows checked against live
-    working bytes; R-provenance rows record historical blobs.
+    R-input rows are the only research_package.py rows that validator checks
+    against live working bytes; R-provenance rows record historical blobs.
     """
     if isinstance(node, dict):
         for key, value in node.items():
@@ -267,6 +281,10 @@ def controls(ledger, stable):
         {'scripts/exclusion_circuit.py': head['current_sha256']}) and not is_files_map(
         {'scripts/exclusion_circuit.py': 'nope'})
     checks['control_g_recomputation_stable'] = stable
+    inventory = [p.relative_to(ROOT).as_posix() for p in walk_json()]
+    checks['control_h_tracked_inventory_retains_case_variant_json'] = (
+        len(inventory) == ledger['manifests_seen'] and
+        any(not name.endswith('.json') for name in inventory))
     require(all(checks.values()), 'control failed: ' + json.dumps(checks, sort_keys=True))
     return checks
 
@@ -280,16 +298,22 @@ def main(argv=None):
     ledger['audited_base_commit'] = AUDITED_BASE
     ledger['enumeration_rule'] = (
         'Every JSON mapping entry whose key matches ^[A-Za-z0-9_.+-]+(/[A-Za-z0-9_.+-]+)+$ '
-        'and contains no ":" and whose value matches ^[0-9a-f]{64}$. Shape L: member "files" '
-        'whose value is such a mapping (check_sources-style live pin). Shape R-input and '
-        'R-provenance: member "files" whose value is a list of path/usage/git_blob/sha256 '
-        'records (research_package.py pins); only usage=="input" rows are checked by that '
-        'validator against live working bytes ("working source drift"), usage=="provenance" '
-        'rows bind historical blobs. Shape P: any other such entry (point-in-time provenance '
-        'receipt, e.g. a catalogue digest recorded at task draw; outside the live-check '
-        'claim). Classification of live pins is against the bytes a checker reads at the '
-        'pinned path; other keys are counted ignored. Manifests exclude .git, .worktrees '
-        'and this package.')
+        'and contains no ":" and whose value matches ^[0-9a-f]{64}$. The manifest inventory '
+        'is the git-tracked set at the checkout head (git ls-files) with the .json extension '
+        'matched case-insensitively (22 tracked manifests use .JSON and are retained; a '
+        'working-tree glob or a case-sensitive *.json query drops them and reports 17503 '
+        'instead of 17525), excluding .git, .worktrees and this package. Shape L: member '
+        '"files" whose value is such a mapping (check_sources-style live pin). Shape R-input '
+        'and R-provenance: member "files" whose value is a list of path/usage/git_blob/sha256 '
+        'records (research_package.py pins); for that validator only usage=="input" rows are '
+        'checked against live working bytes ("working source drift"), usage=="provenance" '
+        'rows bind historical blobs. Shape P: any other such entry (e.g. a catalogue digest '
+        'recorded at task draw). Shapes are syntactic categories, not consumer semantics: the '
+        'audit has not established per entry whether a consumer compares it to live bytes, and '
+        'at least scripts/verify_pr_reconciliation.py:207 (ledger["source_sha256"]) and '
+        'scripts/verify_replay_coverage.py:98 (selected["source_sha256"]) hash current bytes '
+        'for some P-shaped entries. Classification of live pins is against the bytes a checker '
+        'reads at the pinned path; other keys are counted ignored.')
     if write:
         stable = build_ledger() == {key: ledger[key] for key in
                                     ('pins_seen', 'manifests_seen', 'counts', 'live_drift',
