@@ -14,7 +14,7 @@ Setting and notation are those of #2816 (P112 = the 112 non-frame lines of E8, d
 |---|---|---|
 | E1 | **The eight slack-3 multisets are dead.** None of `[7^5,6^5,2]`, `[7^5,6^5,1,1]`, `[7^4,6^6,3]`, `[7^4,6^6,1^3]`, `[7^9,4]`, `[7^9,3,1]` (all `d = 8`) and `[7^3,6^6,2]`, `[7^3,6^6,1,1]` (`d = 7`) occurs as the minimum-weight basis of `T = S_{≤7}`; with #2816 and #2826, **no `d ≥ 1` multiset of slack `cost(T) − 8d ≤ 3` occurs** | PROVEN from Lemma B + the finite statements E1a–E1c; **CHECKED by two independent implementations** (§3) |
 | E1a | Two 6-dimensional label flats plus `s ≤ 2` lines: the qualifying directions span **≤ 4** dimensions of `R^8` (hence `< 7`) | CHECKED twice (§3.3) |
-| E1b | Two 6-dimensional label flats plus a 3-dimensional label flat: span **≤ 4**. (Relaxed to four free lines the span reaches 8 on 6 pairs of flats; the exact third-flat refinement over all 161,420 three-dimensional label subspaces gives ≤ 4 on all six.) | CHECKED twice (§3.3) |
+| E1b | Two 6-dimensional label flats plus a 3-dimensional label flat: span **≤ 7 < 8** (relaxed to four free lines; ≤ 7 on all pairs except 6), and on the 6 pairs where the relaxed span reaches 8 the exact third-flat refinement over all 161,420 three-dimensional label subspaces gives **≤ 4**. Both E1b multisets have `d = 8`, so `< 8` suffices. | CHECKED twice (§3.3) |
 | E1c | A 7-dimensional and a 4-dimensional label flat: span **≤ 4** | CHECKED twice (§3.3) |
 | E2 | **`d = 0` Carrier Lemma for `κ ≤ 3`.** If `ρS = 𝒞 ⊕ T`, `T = (ρS)_{≤7}`, `κ = cost_w(T) ≤ 3`, and `F` is a spanning family of nonzero vectors with `Σ_F w = 64 + Δ`, `Δ ≤ 7`, then at most `Δ` members of `F` are z-carrying | PROVEN (§4); finite inputs CHECKED (`carrier3.py`) |
 | E3 | **`Δ ≤ 3 ⇒ n_nf ≤ Δ` (decoder level) and `Δ ≤ 3 ⇒ ρ_0 ≤ Δ` (lift level)** | PROVEN from E1 + E2 + INHERITED (§5) |
@@ -76,7 +76,7 @@ For label flats `V_1, V_2` (dimension 6 or 7, 4), a set `X = Λ(V_1) ∪ Λ(V_2)
 | statement | multisets | what is run | bound (needed `<`) |
 |---|---|---|---|
 | E1a | `[7^5,6^5,2]`, `[7^5,6^5,1,1]` (`<8`); `[7^3,6^6,2]`, `[7^3,6^6,1,1]` (`<7`) | `(6,6)`, `s = 2`, `lim = 78`, all 159 orbit representatives of `V_1` against all 776,805 line sets of `V_2` | span **≤ 4**, ≤ 10 directions; rank histogram `1:14024 2:15950 3:1108 4:65` |
-| E1b | `[7^4,6^6,3]`, `[7^4,6^6,1^3]` (`<8`) | `(6,6)`, `s = 4`, `lim = 80`, relaxed; on every pair with relaxed rank 8 (6 pairs) the third flat `V_3` over **all 161,420** three-dimensional label subspaces | relaxed histogram `1:319084 2:592591 3:24565 4:3405 5:543 6:144 7:36 8:6`; exact refinement **≤ 4** on all 6 |
+| E1b | `[7^4,6^6,3]`, `[7^4,6^6,1^3]` (`<8`) | `(6,6)`, `s = 4`, `lim = 80`, relaxed; on every pair with relaxed rank 8 (6 pairs) the third flat `V_3` over **all 161,420** three-dimensional label subspaces | relaxed histogram `1:319084 2:592591 3:24565 4:3405 5:543 6:144 7:36 8:6`; exact refinement **≤ 4** on all 6; hence span ≤ 7 < 8 everywhere |
 | E1c | `[7^9,4]`, `[7^9,3,1]` (`<8`) | `(7,4)`, `s = 0`, `lim = 80`, 51 orbit representatives of the 7-flat | span **≤ 4**, ≤ 12 directions; `3:6 4:2` |
 | controls | — | `(6,6)`, `s = 0`, `lim = 76`: span 3, 6 directions (= S66 of #2826); `(7,7)`, `s = 0`, `lim = 76`: **rank 8 on 152 pairs** | the test is not vacuous |
 
@@ -86,7 +86,7 @@ For label flats `V_1, V_2` (dimension 6 or 7, 4), a set `X = Λ(V_1) ∪ Λ(V_2)
 * **Implementation B** (`checks/k3.c`, with `checks/gen3.py`; written separately by another card): standard `D8+` coordinates (doubled), labels = coordinates in its own `Z`-basis mod 2, its own direction/pencil derivation (120 / 1080 / 3360 finite directions and 1120 pencils, matching the theta series), its own group (derived, order 172,032, direction list verified invariant), its own flat enumeration (greedy-minimal dual bases), its own qualifier test (dual-pair counting: some `⟨w_1, w_2⟩` with `|R ∩ Z[w_1] ∩ Z[w_2]| ≥ |R| − s`), its own 128-bit exact rational rank, and its own third-flat refinement. The author of B had read the first card's theory notes and kernel before writing it, so what is shared is the mathematical reduction (Lemma B, the direction-list statement, the kill criterion), not code or coordinates.
 * The two implementations agree on **every** histogram above, and on both controls; `check_logs.py` asserts the merged chunk results of both against the numbers in the table.
 
-**Proof of E1 (PROVEN).** For each row of §3.2: `B` is λ-independent (§3.1), so a basis of `K^e`; the cover of `U_B` is as in the table (a weight-`w` piece has its label span of dimension `w`, so its support lies in a `w`-flat; a `w`-flat is contained in a 6- or 7-flat, and `Λ` is monotone); Lemma B gives `d` independent directions in `H` with `|Off| ≤ lim`; E1a–E1c give `dim span H ≤ 4 < d`. Contradiction. ∎
+**Proof of E1 (PROVEN).** For each row of §3.2: `B` is λ-independent (§3.1), so a basis of `K^e`; the cover of `U_B` is as in the table (a weight-`w` piece has its label span of dimension `w`, so its support lies in a `w`-flat; a `w`-flat is contained in a 6- or 7-flat, and `Λ` is monotone); Lemma B gives `d` independent directions in `H` with `|Off| ≤ lim`; E1a–E1c give `dim span H ≤ 7 < d` (≤ 4 for E1a and E1c, where `d` may be 7). Contradiction. ∎
 
 ### 3.4 What neither implementation re-audits
 
