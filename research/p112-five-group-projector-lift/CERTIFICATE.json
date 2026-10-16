@@ -267,7 +267,10 @@
     "cheap_pair_candidates": 91,
     "branches": 21,
     "direct_exclusions": 17,
-    "rank_tight_exclusions": 4
+    "rank_tight_exclusions": 4,
+    "cost0_types": 0,
+    "cost2_types": 20,
+    "low_tariff_exceptional_types": 4
   },
   "exceptional_branches": [
     {
@@ -334,5 +337,24 @@
         20
       ]
     }
-  ]
+  ],
+  "low_tariff_exceptional_types": [
+    [
+      9,
+      20
+    ],
+    [
+      12,
+      17
+    ],
+    [
+      17,
+      12
+    ],
+    [
+      20,
+      9
+    ]
+  ],
+  "sharp_invoice_floor": 45
 }
