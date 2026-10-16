@@ -15,6 +15,7 @@
     "research/joint-query/README.md",
     "research/joint-query/evidence/CONSERVED-QQ16.md",
     "research/qq16-complete-native-decoder/PROOF.md",
+    "research/qq16-cut-retention-census/README.md",
     "research/qq16-entry-frame-tariff/README.md",
     "research/qq16-final-record-obstruction/PROOF.md",
     "research/qq16-private-da-frame-floor-seed81b017/README.md",
@@ -30,7 +31,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Primary: 15 source pins, two archive-member pins and 35 premise lines; selected #1094 template level timeline (8 coordinates per level; bridges join equal levels); hosting at 17 route instants (2,300 distinct slots, 10,646 slot checks); catch-up law controls PR2540 128 / PR2197 144 / PR2678 1792,3696 / centre path 576; INIT64+d_A 3648 (end decoder) / 1344 (earliest decoder), all-initial variant 3456 / 1152, d_A 960, cheapest-62 1952 / 800 and 1824 / 608, array-calls 464/456, zero-advance window, withdrawn lagging example (X_(0,U) last written at event 6), forward-history add-on; pinned ceiling.py pricing (896 threshold, #1166 break-evens 573/71, PRICE-GATE.json storage ceiling, comparison table monotone in kappa); exact frame model (34,454 record/partner instances on complete GF(2)^2, GF(3)^2, GF(2)^3 domains with opt = cut bound = meeting formula; 4,044 general instances sound); two-call rational tensor toy; 14 negative controls; RESULT.json equality."
+      "checks": "Primary: 16 source pins, two archive-member pins and 36 premise lines; selected #1094 template level timeline (8 coordinates per level; bridges join equal levels; X_(k,U) last written at events 6/27/26/25 with bridges 25-27 at level 8); two-sided hosting at 21 route instants in replica 0 (14,290 overshoot and 9,280 undershoot slot checks); catch-up law controls PR2540 128 / PR2197 144 / PR2678 1792,3696 / centre path 576; INIT64+d_A 3648 (P_final) / 2496 (P_Y) / 1344 (P_early relaxation), all-initial 3456 / 2304 / 1152, d_A 960; Theorem B floors: one level 1952 / 1824, own-bank 1344 / 1216 (P_Y) and 800 / 608 (P_early), count-only deliveries 608 / 544 and 112 / 0; array-calls 464/456, zero-advance window, withdrawn lagging example (X_(0,U) last written at event 6), forward-history add-on; pinned ceiling.py pricing (896 threshold = PR2470's centre-like limit, #1166 break-evens 573/71, PRICE-GATE.json storage ceiling, comparison table monotone in kappa, route verdicts); exact frame model (34,454 record/partner instances on complete GF(2)^2, GF(3)^2, GF(2)^3 domains with opt = cut bound = meeting formula; 4,044 general instances sound); two-call rational tensor toy; 16 negative controls with asserted failure messages; RESULT.json equality."
     },
     {
       "argv": [
@@ -40,7 +41,7 @@
         "{package}/independent_check.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Independent: coordinate-set replay of a byte-identical base-template copy from the PR2346-pinned #1042 archive using idle child ranks; law values PR2540 128, INIT64+d_A 3648 / 1344, all-initial 3456 / 1152, d_A 960, cheapest-62 1952 / 800 and 1824 / 608, zero-advance window, X_(0,U) last write; per-family hosted height replay of the #1094 template at the 17 route instants under both tie conventions; Decimal-80 moment break-evens 573/71 and exact-rational 896 threshold without ceiling.py; echelon-basis Dijkstra on 2,432 GF(2)^2 record/partner instances; 2 controls rejected for their stated reasons."
+      "checks": "Independent: coordinate-set replay of a byte-identical base-template copy from the PR2346-pinned #1042 archive using idle child ranks; law values PR2540 128, INIT64+d_A 3648 / 2496 / 1344, all-initial 3456 / 2304 / 1152, d_A 960, X_(k,U) last writes; Theorem B by split enumeration (own-bank 1344 / 1216 / 800 / 608), nearest-consumer delivery (count-only 608 / 544 / 112 / 0) and a direct cut loop (one level 1952 / 1824); zero-advance window; per-family hosted height replay of the #1094 template in all 16 replicas at the 21 route instants under both tie conventions (window holds in 12 replicas); Decimal-80 moment break-evens 573/71, exact-rational 896 threshold and route verdicts without ceiling.py; echelon-basis Dijkstra on 2,432 GF(2)^2 record/partner instances; 2 controls rejected for their stated reasons."
     }
   ]
 }

@@ -323,10 +323,12 @@
   "zero witness extended past first pair-3 touch",
   "uniform lifetimes give 464 array-calls",
   "witness window stretched into pair-3 Y hosting (time + 17)",
+  "hosted residual of sweep 2 delayed to time 25 (undershoot)",
   "895 units/replica has no saving",
   "break-even 574 (S) against PR2474",
   "all-initial read of X_(1,U) barred from bank 0's consumer level",
-  "bridge 27 reversed (dst = 0): X_(0,U) written after the capture"
+  "bridge 27 reversed (dst = 0): X_(0,U) written after the capture",
+  "Theorem B at P_early without the own-bank premise"
  ],
  "pricing": {
   "breakeven_vs_PR2474": {
@@ -379,7 +381,12 @@
     "rank8_priced_kappa_cap": "0.0022704880238689",
     "units_per_replica": 464
    },
-   "INIT64_plus_dA_early_consumer_law": {
+   "INIT64_plus_dA_earliest_Y_law": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 2496
+   },
+   "INIT64_plus_dA_early_relaxation_law": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 1344
@@ -389,17 +396,12 @@
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 3648
    },
-   "all_initial_cheapest_62_early_consumer_law": {
-    "idle_priced_kappa_cap": "0.0015233811701210",
-    "rank8_priced_kappa_cap": "0.0015143670861515",
-    "units_per_replica": 608
-   },
-   "all_initial_cheapest_62_law": {
+   "all_initial_earliest_Y_law": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
-    "units_per_replica": 1824
+    "units_per_replica": 2304
    },
-   "all_initial_early_consumer_law": {
+   "all_initial_early_relaxation_law": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 1152
@@ -409,20 +411,60 @@
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 3456
    },
-   "cheapest_62_early_consumer_law": {
-    "idle_priced_kappa_cap": "0.0005090718448615",
-    "rank8_priced_kappa_cap": "0.0005051036823380",
-    "units_per_replica": 800
+   "all_initial_thmB_count_only_earliest_Y": {
+    "idle_priced_kappa_cap": "0.0018603537513912",
+    "rank8_priced_kappa_cap": "0.0018505083492553",
+    "units_per_replica": 544
    },
-   "cheapest_62_stated_law": {
+   "all_initial_thmB_count_only_early_relaxation": {
+    "idle_priced_kappa_cap": "0.0047020509675915",
+    "rank8_priced_kappa_cap": "0.0047020509675915",
+    "units_per_replica": 0
+   },
+   "all_initial_thmB_one_level_end": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
-    "units_per_replica": 1952
+    "units_per_replica": 1824
+   },
+   "all_initial_thmB_own_bank_earliest_Y": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1216
+   },
+   "all_initial_thmB_own_bank_early_relaxation": {
+    "idle_priced_kappa_cap": "0.0015233811701210",
+    "rank8_priced_kappa_cap": "0.0015143670861515",
+    "units_per_replica": 608
    },
    "d_A_only_law": {
     "idle_priced_kappa_cap": null,
     "rank8_priced_kappa_cap": null,
     "units_per_replica": 960
+   },
+   "thmB_count_only_earliest_Y": {
+    "idle_priced_kappa_cap": "0.0015233811701210",
+    "rank8_priced_kappa_cap": "0.0015143670861515",
+    "units_per_replica": 608
+   },
+   "thmB_count_only_early_relaxation": {
+    "idle_priced_kappa_cap": "0.0041202745576597",
+    "rank8_priced_kappa_cap": "0.0041157971063159",
+    "units_per_replica": 112
+   },
+   "thmB_one_level_end": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1952
+   },
+   "thmB_own_bank_earliest_Y": {
+    "idle_priced_kappa_cap": null,
+    "rank8_priced_kappa_cap": null,
+    "units_per_replica": 1344
+   },
+   "thmB_own_bank_early_relaxation": {
+    "idle_priced_kappa_cap": "0.0005090718448615",
+    "rank8_priced_kappa_cap": "0.0005051036823380",
+    "units_per_replica": 800
    }
   }
  },
@@ -463,6 +505,7 @@
   ],
   "INIT64_plus_dA_early_consumer_mass": 1344,
   "INIT64_plus_dA_mass": 3648,
+  "INIT64_plus_dA_y_mass": 2496,
   "PR2540_early_records": {
    "capture": "after F0 (event 0)",
    "capture_level": 0,
@@ -472,8 +515,6 @@
    "rows": 16
   },
   "all_initial_variant": {
-   "cheapest_62_early_mass": 608,
-   "cheapest_62_final_mass": 1824,
    "early_mass": 1152,
    "final_mass": 3456,
    "reads": [
@@ -491,7 +532,8 @@
       2
      ],
      "read": "B2 X_(1,U)",
-     "rows": 8
+     "rows": 8,
+     "y_mass": 0
     },
     {
      "bank": 1,
@@ -507,7 +549,8 @@
       4
      ],
      "read": "B4 X_(2,U)",
-     "rows": 8
+     "rows": 8,
+     "y_mass": 256
     },
     {
      "bank": 2,
@@ -523,10 +566,12 @@
       6
      ],
      "read": "B6 X_(3,U)",
-     "rows": 8
+     "rows": 8,
+     "y_mass": 128
     }
    ],
-   "source": "#2074 c18950926 item 2: the d_A records swapped for the reads B2 X_1U, B4 X_2U and B6 X_3U"
+   "source": "#2074 c18950926 item 2: the d_A records swapped for the reads B2 X_1U, B4 X_2U and B6 X_3U",
+   "y_mass": 2304
   },
   "array_calls": {
    "C_mass_published": 3712,
@@ -535,8 +580,6 @@
    "published": 464,
    "uniform_lifetime": 456
   },
-  "cheapest_62_early_consumer_mass": 800,
-  "cheapest_62_of_stated_captures_mass": 1952,
   "controls": {
    "PR2197": 144,
    "PR2540": 128,
@@ -595,12 +638,13 @@
    "histories": "f2, f4, f6: one 8-row array each, captured at the forward call's output (low end) or input level"
   },
   "hosting": {
-   "distinct_slots_checked": 2300,
-   "instants_checked": 17,
+   "distinct_slots_checked": 3644,
+   "instants_checked": 21,
    "pair3_X_hosted_slots_in_window": 160,
    "pair3_Y_hosted_slots_in_window": 0,
    "route_capture_slot_checks": 4173,
-   "slot_instant_checks": 10646
+   "slot_instant_checks": 14290,
+   "undershoot_slot_checks": 9280
   },
   "lagging_record_example_withdrawn": {
    "C_mass": 24,
@@ -624,6 +668,82 @@
    "sign_certificate": "8^15 > 7^16",
    "zero_retention_H1_minus_retained_H1": 112
   },
+  "theorem_B": {
+   "P_Y": {
+    "all_initial": {
+     "count_only": 544,
+     "one_level_cut_sum": null,
+     "own_bank": 1216
+    },
+    "original": {
+     "count_only": 608,
+     "one_level_cut_sum": null,
+     "own_bank": 1344
+    }
+   },
+   "P_early": {
+    "all_initial": {
+     "count_only": 0,
+     "one_level_cut_sum": null,
+     "own_bank": 608
+    },
+    "original": {
+     "count_only": 112,
+     "one_level_cut_sum": null,
+     "own_bank": 800
+    }
+   },
+   "P_final": {
+    "all_initial": {
+     "count_only": 1824,
+     "one_level_cut_sum": 1824,
+     "own_bank": 1824
+    },
+    "original": {
+     "count_only": 1952,
+     "one_level_cut_sum": 1952,
+     "own_bank": 1952
+    }
+   }
+  },
+  "x_last_write_event": [
+   6,
+   27,
+   26,
+   25
+  ],
+  "x_last_write_levels_all_pairs": [
+   [
+    2,
+    2,
+    -1,
+    -1
+   ],
+   [
+    8,
+    8,
+    8,
+    8
+   ],
+   [
+    8,
+    8,
+    8,
+    8
+   ],
+   [
+    8,
+    8,
+    8,
+    8
+   ]
+  ],
+  "y_consumer_levels": [
+   2,
+   8,
+   8,
+   8
+  ],
   "zero_witness": {
    "C_mass_per_array": 48,
    "S_per_array": 6,
@@ -647,10 +767,10 @@
  },
  "schema": "retained-array-catch-up/1",
  "sources": {
-  "anchored_premise_lines": 35,
-  "pinned_files": 15
+  "anchored_premise_lines": 36,
+  "pinned_files": 16
  },
- "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648 init64_dA_early=1344 dA_only=960 cheapest62=1952/800 all_initial=3456/1152 all_initial_cheapest62=1824/608 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_advance_calls=6 frame_instances=34454/4044 negative_controls=14 no_new_kappa",
+ "status": "PASS_RETAINED_ARRAY_CATCH_UP pr2540=128 init64_dA=3648/2496/1344 all_initial=3456/2304/1152 dA_only=960 thmB_one_level=1952/1824 thmB_own_bank=1344/1216/800/608 thmB_count_only=608/544/112/0 array_calls=464/456 no_saving=896 breakeven_S=573 breakeven_C=71 zero_advance_calls=6 hosted_instants=21 frame_instances=34454/4044 negative_controls=16 no_new_kappa",
  "tensor_toy": {
   "naive_wrong": 25,
   "repaired_correct": 25,
