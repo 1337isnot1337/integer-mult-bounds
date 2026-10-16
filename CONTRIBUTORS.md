@@ -715,7 +715,9 @@ The six pending contributions are credited in the pilot ledger; pending review i
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1700-review.md).
 
 - **mdumitrean** — [#2478](https://github.com/CrocSwap/integer-mult-bounds/pull/2478).
-- **petalas** — [#2734](https://github.com/CrocSwap/integer-mult-bounds/pull/2734), [#2752](https://github.com/CrocSwap/integer-mult-bounds/pull/2752).
+- **ywz65** — [#2716](https://github.com/CrocSwap/integer-mult-bounds/pull/2716), [#2719](https://github.com/CrocSwap/integer-mult-bounds/pull/2719), [#2723](https://github.com/CrocSwap/integer-mult-bounds/pull/2723), [#2726](https://github.com/CrocSwap/integer-mult-bounds/pull/2726), [#2730](https://github.com/CrocSwap/integer-mult-bounds/pull/2730).
+- **petalas** — [#2720](https://github.com/CrocSwap/integer-mult-bounds/pull/2720), [#2722](https://github.com/CrocSwap/integer-mult-bounds/pull/2722), [#2734](https://github.com/CrocSwap/integer-mult-bounds/pull/2734), [#2752](https://github.com/CrocSwap/integer-mult-bounds/pull/2752).
+- **flyingviper** — [#2725](https://github.com/CrocSwap/integer-mult-bounds/pull/2725).
 - **navinor** — [#2737](https://github.com/CrocSwap/integer-mult-bounds/pull/2737).
 - **Arham-Tahir64** — [#2792](https://github.com/CrocSwap/integer-mult-bounds/pull/2792).
 

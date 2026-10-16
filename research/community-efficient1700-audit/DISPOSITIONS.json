@@ -59,19 +59,22 @@
       "current_head": "74c96ae917fe16160db357c361058b3a6417a440",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/dihedral-arbitrary-couplings"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Scoped infinite-dihedral rank-tariff proof for arbitrary binary couplings, including nilpotents. Full registered replay checks 530 matrices, 473690 minors, exact rank-one factorizations and dirty-workspace identities; Git-free and corruption controls pass. The formal rank tariff is distinguished from native reflection cost. No new supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2716.json"
+        "research/community-efficient1700-audit/packets/2716.json",
+        "research/community-efficient1700-audit/checks/check-2716.json"
       ]
     },
     {
@@ -93,7 +96,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Execution passed, but the matched-pivot argument requires a list-compatible acyclic partition. Ordinary 3-dichromaticity and nonempty allowed lists do not imply that partition. Narrow the unsupported corollaries and correct the statement about odd denominators (which are invertible modulo 2); finish the engine proof audit before incorporation.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -104,7 +107,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2717.json"
+        "research/community-efficient1700-audit/packets/2717.json",
+        "research/community-efficient1700-audit/checks/check-2717.json"
       ]
     },
     {
@@ -126,7 +130,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Full registered invoice replay stopped by the sampled 1 GiB process-group memory guard. This is a resource hold, not a mathematical failure. PR2158 is already incorporated; this contribution adds realpath portability. Complete bounded coverage before incorporation; no Lean launched.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -137,7 +141,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2718.json"
+        "research/community-efficient1700-audit/packets/2718.json",
+        "research/community-efficient1700-audit/checks/check-2718.json"
       ]
     },
     {
@@ -158,19 +163,22 @@
       "current_head": "464c0ce41fbdd858a8c863ca5c83b8fa8ef27e03",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/dn-unrestricted-root-code-floor"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Unrestricted finite-term root-code factorization floor for the full dense D_n root Gram in characteristic other than two. Reviewed support/pivot proof and exact exhaustive support and factorization checks, including independent axis obstruction and Git-free controls. Applies to the stated root-code factor class, not all geometries; predecessor credit retained.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2719.json"
+        "research/community-efficient1700-audit/packets/2719.json",
+        "research/community-efficient1700-audit/checks/check-2719.json"
       ]
     },
     {
@@ -191,19 +199,22 @@
       "current_head": "813fae623dcf3181fb9f535852ae4c82b1b369b5",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/t74-inherited-centre-floor"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Inherited-centre floor for two pinned PR2696 words under retained partner response, invertible continuation and specified reader/descending-copy hypotheses. Exact four-column response, formal warp cancellation and mutation tests pass. This does not admit pending PR2696 or prove a universal decoder floor.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2720.json"
+        "research/community-efficient1700-audit/packets/2720.json",
+        "research/community-efficient1700-audit/checks/check-2720.json"
       ]
     },
     {
@@ -224,19 +235,22 @@
       "current_head": "a9ec1a4f45f36d4ec131e43cf8528ea0e40ea4e8",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-scratch-travel"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact address-travel comparison for two pinned QQ16 windows, with a dirty-scratch bridge and fully counted extra arithmetic. Bank-major and site-major formulas, independent dense fixtures and restoration controls pass. Whole-window retention is required; layout conversion and bit-level finite-tape implementation are excluded.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2722.json"
+        "research/community-efficient1700-audit/packets/2722.json",
+        "research/community-efficient1700-audit/checks/check-2722.json"
       ]
     },
     {
@@ -257,19 +271,22 @@
       "current_head": "18f0843079dd03f509a6724328ceba2fec325022",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/qq16-integer-row-replay"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Opt-in shared-denominator integer replay adapter for the QQ16 scalar audit. Authenticates all 29 inputs, compares complete original/adapter outputs and 712-input maps, checks randomized prefixes and corruption controls. The author benchmark is historical host-specific evidence; no new timing claim, supplier or kappa.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2723.json"
+        "research/community-efficient1700-audit/packets/2723.json",
+        "research/community-efficient1700-audit/checks/check-2723.json"
       ]
     },
     {
@@ -323,19 +340,22 @@
       "current_head": "71d24b655c2fdddc063b9aaf285e8425ce197499",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-dual-add-retiming"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "P104 X90 dual-operand ADD retiming: exact complete 358x358 scalar map, 150 dirty helpers and two new native transport column checks pass. Local profile changes by H8-H6-2H1 at unchanged rank mass 3542. Full native recipe chain, hosting and supplier admission remain inherited or open; no selected bound change.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2725.json"
+        "research/community-efficient1700-audit/packets/2725.json",
+        "research/community-efficient1700-audit/checks/check-2725.json"
       ]
     },
     {
@@ -356,19 +376,22 @@
       "current_head": "e10b65034592918dc2e0183e45e3087e005abc71",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-operand-weighted-feedback"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Operand-weighted P104 error-feedback bound under the stated rounded-child error model. Exact all-cut 844-role replay, independent reverse covectors, synthetic injection and source/typed-receipt controls pass. The 27-bit uniform guard and 26-bit b>=3 result are sufficient analytic bounds, not minimal precision or an implemented rounded supplier.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2726.json"
+        "research/community-efficient1700-audit/packets/2726.json",
+        "research/community-efficient1700-audit/checks/check-2726.json"
       ]
     },
     {
@@ -423,7 +446,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Exact-head registered replay and local moment proof reviewed, but certificates/selected-result.json is a historical runtime pin that differs on main. Preserve the historical input in a reproducible integration without silently repinning evidence; then validate the combined package.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -434,7 +457,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2729.json"
+        "research/community-efficient1700-audit/packets/2729.json",
+        "research/community-efficient1700-audit/checks/check-2729.json"
       ]
     },
     {
@@ -455,19 +479,22 @@
       "current_head": "99a81c88d095bbde548d3e67cdb986009cb3e99e",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-mixed-grid-collector"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact mixed-grid first-collector result with four extra fractional bits, private/query storage charged separately and dirty cleanup checked. Independent inverse columns, sharpness fixtures and Git-free integrity controls pass. Completed-output model only; internally rounded children and full caller integration remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2730.json"
+        "research/community-efficient1700-audit/packets/2730.json",
+        "research/community-efficient1700-audit/checks/check-2730.json"
       ]
     },
     {
