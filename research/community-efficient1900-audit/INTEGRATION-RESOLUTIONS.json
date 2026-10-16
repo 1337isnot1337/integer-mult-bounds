@@ -5,5 +5,26 @@
     "resolved_sha256": "8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a",
     "resolved_mode": "100644",
     "reason": "Apply original seven-line POSIX cleanup to current runner while retaining PR2859 all-seven-route completion overlay; focused native lifetime and historical-route tests pass."
+  },
+  {
+    "number": 2892,
+    "path": "docs/research/current-status.md",
+    "resolved_sha256": "00a08925c51b26d168b8099ddeed659ac4381f7e04f3c7fd0e9de8e71f206823",
+    "resolved_mode": "100644",
+    "reason": "Retain navigation correction and historical tail; update round1800 to42/58 and link new frozen round1900."
+  },
+  {
+    "number": 2906,
+    "path": "scripts/replay_historical_check.py",
+    "resolved_sha256": "e119b4689a47bb8672ed8709900939717330f87734b34bad2e5638b42d9ec0cc",
+    "resolved_mode": "100755",
+    "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round."
+  },
+  {
+    "number": 2906,
+    "path": "scripts/verify_pr_reconciliation.py",
+    "resolved_sha256": "44dad30df306cf110ec0dc56beb8329336b5e5d9a1b726491eab7ea69f3b9eed",
+    "resolved_mode": "100644",
+    "reason": "Bind only the fully reviewed runner SHA as an additional exact historical successor; retain immutable archives and all prior accepted hashes. Ledger verifier also registers the new round."
   }
 ]

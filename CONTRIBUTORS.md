@@ -710,6 +710,17 @@ The following contributions are retained at their original heads with source not
 
 The six pending contributions are credited in the pilot ledger; pending review is not rejection. Predecessor attribution, including R420, K492, PR628 and PR673 lineage, remains in each package.
 
+## Efficient nineteenth 100-PR round: new submissions and carried-forward reviews
+
+See the [review and exact-head evidence](docs/research/community-efficient1900-review.md).
+The selected κ is unchanged; predecessor notices and original author history remain intact.
+
+- **Nick Petalas / petalas** — [#2906](https://github.com/CrocSwap/integer-mult-bounds/pull/2906), POSIX solver cleanup after isolated test modules exit; [#2921](https://github.com/CrocSwap/integer-mult-bounds/pull/2921), fail-closed payload inventories. Builds on Aaron Wang/navinor, woklerx, ywz65, commdata2338, Josie Elliston, Maxime Fleury and Antoine Olivier; full predecessor credit remains in the contributions.
+- **Arham Tahir / Arham-Tahir64** — [#2892](https://github.com/CrocSwap/integer-mult-bounds/pull/2892), current-status review navigation and frozen counts, refreshed during maintainer integration.
+- Maintainer integration by Douglas Colkitt with OpenAI Codex assistance adds native macOS process-observer replays, preserves current historical routes and authenticates the exact runner successor.
+
+Pending contributors and remaining obligations appear in the review; a hold is not a rejection.
+
 ## Efficient eighteenth 100-PR round: new arrivals and earlier follow-ups
 
 Original contributor commits and predecessor notices are preserved. These are scoped research and verification contributions, with no selected κ change. See the [review and exact-head evidence](docs/research/community-efficient1800-review.md).

@@ -145,6 +145,13 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
             # An unexpected worker exception must leave a live child visible
             # to the controlling thread's cleanup snapshot.
             if finished:
+                # Pipe EOF and leader exit do not imply solver completion: a
+                # descendant may have closed its inherited capture streams.
+                # Keep ownership until POSIX group cleanup succeeds, including
+                # ordinary success/failure. Windows exited leaders need a Job
+                # Object; the existing taskkill cancellation contract is unchanged.
+                if os.name != 'nt':
+                    stop_module(process)
                 with lock:
                     active.discard(process)
 

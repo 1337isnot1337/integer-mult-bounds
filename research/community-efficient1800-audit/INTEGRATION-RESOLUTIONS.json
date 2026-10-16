@@ -276,16 +276,18 @@
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "778673752cb9b5359ec15f6f80e49c9343fea877506246cbeee16216a98f7787",
     "resolved_mode": "100644",
-    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
-    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+    "resolved_sha256": "e119b4689a47bb8672ed8709900939717330f87734b34bad2e5638b42d9ec0cc",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
   {
     "number": 2579,
     "path": "scripts/run_isolated_tests.py",
     "original_sha256": "c2ecb3545101bafd16a6c51f04fce4777f99df4550a1c5e4796f99224a87d6b0",
     "resolved_mode": "100644",
-    "resolved_sha256": "2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa",
-    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+    "resolved_sha256": "8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
   {
     "number": 2579,
@@ -428,24 +430,27 @@
     "path": "scripts/replay_historical_check.py",
     "original_sha256": "8846c0a47ddb31b0d097cd30ed9226202da572915a9b4b8675ee63f8d53a2b5e",
     "resolved_mode": "100755",
-    "resolved_sha256": "e8108b2e8984742ac0f9660c37020ee7632173443082afbc988d63c0863fc4e0",
-    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+    "resolved_sha256": "e119b4689a47bb8672ed8709900939717330f87734b34bad2e5638b42d9ec0cc",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
   {
     "number": 2859,
     "path": "scripts/run_isolated_tests.py",
     "original_sha256": "f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478",
     "resolved_mode": "100644",
-    "resolved_sha256": "2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa",
-    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+    "resolved_sha256": "8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
   {
     "number": 2859,
     "path": "scripts/verify_pr_reconciliation.py",
     "original_sha256": "a6e3a6cbfb74bbdd6e11db2ed5cd13f983141c6591bcaacef69437309da27d30",
     "resolved_mode": "100644",
-    "resolved_sha256": "b2cd4cb786dbfd4e0ff231170305aaad2a67c030d6a1de824d0d5cd4522533b1",
-    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18."
+    "resolved_sha256": "44dad30df306cf110ec0dc56beb8329336b5e5d9a1b726491eab7ea69f3b9eed",
+    "reason": "Compose reviewed PR2859 historical compatibility and selected-record CI repairs with current actual-child completion, cancellation and efficient1800 ledger safeguards. Exact original archives remain; local all-route controls and source-bound hosted evidence retained in batch18.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
   {
     "number": 2859,
@@ -547,8 +552,9 @@
     "number": 2834,
     "path": "CONTRIBUTORS.md",
     "original_sha256": "49e4d5c31cb34b62b86ec480a345d27567d9820f39bcacac707bc17cbe4773c5",
-    "resolved_sha256": "94f28d7a429e422e6cea1fb9d313c512b8f87cacc14dfb0d554c92f65f07db4c",
+    "resolved_sha256": "3c227e24b708c877e23475a7466f3d5208a77b46072a54ee9ceba14be395bf07",
     "resolved_mode": "100644",
-    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay."
+    "reason": "Retain exact additive huxint PR203 mechanism credit from the author while preserving current main contributor entries and generated batch credits. Historical source retention is not a fresh C++/solver replay.",
+    "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   }
 ]
