@@ -1587,16 +1587,15 @@
     },
     {
       "number": 2832,
-      "head": "4f01fe4eac42c0134c41425b40c44b005126b235",
+      "head": "0da81b22178e70dbf59a23dda02371c6201fa4f3",
       "status": "waiting_revision",
-      "reason": "Theorem TF consequence uses a single fold parameter to cancel all proportional MD terms, but proportionality ratios may differ. The retained P112 decoder has16 MD terms p=(x_i,+/-x_i),q=p/8, exact target diag(G/2,G/2), and total cost128; ratios+1 and-1 require incompatible cancelling parameters. This exposes a gap in the conditional-under-H argument, not a proof or refutation of H. Supply common-ratio/common-annihilator hypotheses or a different proof. Section4.1 also needs justification: m=8k+e does not by itself restrict each call to8+e terms; this example has16 per call with e=0. Re-audit dependent batching consequences and add regression before a full replay.",
+      "reason": "Theorem TF consequence uses a single fold parameter to cancel all proportional MD terms, but proportionality ratios may differ. The retained P112 decoder has16 MD terms p=(x_i,+/-x_i),q=p/8, exact target diag(G/2,G/2), and total cost128; ratios+1 and-1 require incompatible cancelling parameters. This exposes a gap in the conditional-under-H argument, not a proof or refutation of H. Supply common-ratio/common-annihilator hypotheses or a different proof. Section4.1 also needs justification: m=8k+e does not by itself restrict each call to8+e terms; this example has16 per call with e=0. Re-audit dependent batching consequences and add regression before a full replay. Revised head adds checks and a proof map but says no claim changed; the flagged argument remains. Two manifest-listed logs are also absent.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
       ],
       "policy_version": 1,
-      "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
       "watch_paths": {
-        "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/decoder-floors-reduction": null
       },
       "watch_prs": {}
@@ -1735,6 +1734,1315 @@
       "watch_paths": {
         "docs/research/pr-intake-evidence/pr2978-source-hold.json": "c8cec2cedcb07593aeb943ab819a14513c8a1519"
       },
+      "watch_prs": {}
+    },
+    {
+      "number": 2982,
+      "head": "b9ac0d07eb9cdc31c4dca8dcc218943998edd3e8",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2984,
+      "head": "34d7c3feaf87b878d9524c215b678403b8afdc08",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2985,
+      "head": "b07b0e3226bcbe32a90c1b43ab225c339086f7b5",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/one-sided-residue-closures/evidence/logs/nj4.out; missing flat manifest file research/one-sided-residue-closures/provenance/generator/land7.out. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/one-sided-residue-closures": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 2986,
+      "head": "f610bda7818df522c26b28f5766a06c5ef5c270c",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2987,
+      "head": "02c3047a1e78e6e35e7573c12434ba26f6f9bd96",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2989,
+      "head": "133cd8a7c5ce16a3d66e3372c5fdd9e88067d75b",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2990,
+      "head": "9158ee6d097e8058b177c54a1f68a6c30249c8f8",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2991,
+      "head": "7d9452f7b99901c78f49fcb1244d5c3a87dbca02",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2992,
+      "head": "b31bf0360ad702b1be71dea7a33edc11711084af",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2993,
+      "head": "34a7003866390618b8e8006dc483e7a37a37903f",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2994,
+      "head": "900ab6c9e1f9cc5dcc1ca93ed7db966e7cf883a5",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2995,
+      "head": "8ba0358b62edbeb16a0842473500c468d8c0759b",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2996,
+      "head": "4d772802fe86e5185d5468db86b36472e6c81b96",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2997,
+      "head": "16e790e10cc0bc737b9cd269020d3d967d36430f",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2998,
+      "head": "3aa400ed59d19b9d6c08e22d1b75edb36a1d3e27",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 2999,
+      "head": "ac6025235b6f1233291000d35a067198628569e9",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3000,
+      "head": "4c0cf223e3e4a06099704b34202a5015f1ab1e62",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3002,
+      "head": "0bc34c304441740273e30e06cb28710bdd3d788d",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3003,
+      "head": "38a0eddf69de8d64840353b5e1ed53bb37b6bc68",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3004,
+      "head": "ce08d19f6e43bbc6f552858d93154efe3aa98916",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3005,
+      "head": "68e67922294d96a42f479f80fdc352eb04a9b550",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3006,
+      "head": "1432a43a331ec857f45093a1d6e16acdbe9849e2",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3007,
+      "head": "3cb500b743f36e13d21b6a46f126846bf36bad32",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3008,
+      "head": "948a997eba1aaf13d04e2b52edf70404860d19dc",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3009,
+      "head": "95568ae83a73ace578e3972a01aef55c889e58a2",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3010,
+      "head": "87ca15cf005ab232ca0104ec5137014ac754f487",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3011,
+      "head": "c5b58be95592a408d0cc42b0b829a3b543fd4b3b",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3012,
+      "head": "63c6525120c20543c4a7acae1a1e1ea36e099b81",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: research/fstar-boxfloor-minimal-seed758ae8fe/predecessor/pr2978/data/box-search-kj-receipt.json: Expecting value: line 1 column 1 (char 0); research/fstar-boxfloor-minimal-seed758ae8fe/predecessor/pr2978/predecessor/pr2963/predecessor/pr2914/CERTIFICATE.json: Expecting value: line 1 column 1 (char 0). Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/fstar-boxfloor-minimal-seed758ae8fe": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3013,
+      "head": "504dc9a15f7a874a47564cdf3ae6857bbbc8d000",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3014,
+      "head": "16e8db5656b4fea487a2212395f39707bf134f7a",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3015,
+      "head": "e244296debb45fe6f4da84d29e4d64fbab55fda0",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3016,
+      "head": "4471aa49f9f0dd9332b0f1819bead8e331e824db",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3017,
+      "head": "0f493f4c264fbc70ee14364b68af260d858c143c",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3018,
+      "head": "ca7113157d7c959fdfa9d7cd17ef92d3877070d0",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3019,
+      "head": "44d12bdeb8ade4066645bd968bebd4756b06200a",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3020,
+      "head": "e49abeef32a376f9e8500999ef15594af2587779",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3021,
+      "head": "217edac2ebfa6250536bd6df153de14901a69395",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3022,
+      "head": "553dc9d8fc8c1489aa2b0378331a0de4b5e9b44e",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3023,
+      "head": "02ebc2ff8243baa9febbb6954f9169e4c216a65e",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3024,
+      "head": "315df10c07cf8b8ee9af9b2122750635bb2582ae",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3025,
+      "head": "a544ef068a46f4de3bc47d1d02149cbdc3ba547f",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3026,
+      "head": "d323df51afdb616d73ff577179bfb76d8832450d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3027,
+      "head": "e686b4a622846c01ac80d038d1441434e9c0b13c",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3028,
+      "head": "9d10633660a3dff5469f4e7a0a009a6c9994c0d7",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3029,
+      "head": "6a2de790fadcf87db02eaa99b19b92eed5aa0d3f",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/two-sided-deficiency-budget/evidence/orig_chk8_B78.log; missing flat manifest file research/two-sided-deficiency-budget/evidence/orig_chk8_B80_first40.log. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/two-sided-deficiency-budget": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3030,
+      "head": "78e77d820393c6b8648b47af219e991edfcc54e6",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3031,
+      "head": "e75906fc4e8b9f756a9877b2e467f4e564851c7d",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: research/fstar-boxfloor-v5-seedab80f07c/predecessor/pr3012/predecessor/pr2978/data/box-search-kj-receipt.json: Expecting value: line 1 column 1 (char 0); research/fstar-boxfloor-v5-seedab80f07c/predecessor/pr3012/predecessor/pr2978/predecessor/pr2963/predecessor/pr2914/CERTIFICATE.json: Expecting value: line 1 column 1 (char 0). Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/fstar-boxfloor-v5-seedab80f07c": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3032,
+      "head": "5b1a7939393ef2778ec058ee8367cdad52c86fb3",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3033,
+      "head": "b12bbaeb5ca2e83f15433fc2dd0ba3b766595281",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3034,
+      "head": "a05791d428f5d06802fb4c96b33732e6347c64eb",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3035,
+      "head": "0cc430349a3f3dc200666bc22e997076e0a557ed",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3036,
+      "head": "3717c1e684553c57bc73300410df65438a9ef095",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3037,
+      "head": "02a1c41e8e016d3d0be64c62c8b4734f9c494236",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3038,
+      "head": "c7d0d7be056ba77fda1c168641b2bcffb10cf43d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3039,
+      "head": "f0d6a48245e44fc29cfe077d21ca2521c2a8d941",
+      "status": "waiting_revision",
+      "reason": "The per-group inequality does not justify excluding every mixed complete profile. PR3066 supplies a free/charged cost-alphabet counterexample; scope the obstruction to individual charged groups and re-audit the call-level inference. No physical decoder or improved supplier follows from that counterexample.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/block-climb-complete-profile-seed1ed712": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3040,
+      "head": "53fc5af5b778b8bbe6472d69a4f112d76febc108",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/e8-rank8-rigidity-small-deletions/evidence/cubev8.out; missing flat manifest file research/e8-rank8-rigidity-small-deletions/evidence/R1-RIG3/fr_40.out. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/e8-rank8-rigidity-small-deletions": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3041,
+      "head": "b89c9eef729eb1e5889e2095d59a6fbf4738447d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3042,
+      "head": "84cc406ad91ec53fff329a11a445d7effe564a77",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3043,
+      "head": "b5cabfb02a3d8bc3121825144373b03a5648479d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3044,
+      "head": "1f922b25abff2d7fd87fa5b29619160862a06b59",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3045,
+      "head": "16feea078f5542964ae85ca1b1f35bb94314ae78",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/nondense-pairing-square-floors/evidence/a1_brute.log; missing flat manifest file research/nondense-pairing-square-floors/evidence/a1_e8.log. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/nondense-pairing-square-floors": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3046,
+      "head": "5549524f7894120b7e993522eb3a59956df5c5c3",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3047,
+      "head": "8beaff37e90aa63141ec148ba85da4d6fc80c935",
+      "status": "ready_to_integrate",
+      "reason": "Scoped tooling/documentation integration complete; scientific and hosted/platform-specific replays are outside this review.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3048,
+      "head": "71a0ec5012a04965826c62ad27532b5a4e014480",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3049,
+      "head": "3d61d02651e4ba9d92229d9943d073e9c427ab95",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/one-sided-residue-closures-2/checks/all.out; missing flat manifest file research/one-sided-residue-closures-2/evidence/sc_rerun751/7-5-1-s0_M1r0J2j1.out. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/one-sided-residue-closures-2": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3050,
+      "head": "7c9d6b8b01606fa51032c0166f5ed522c8fa5735",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3051,
+      "head": "10a45bd361554709840becb5bc26016ca49944c3",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3052,
+      "head": "ae6dcf7e04de89198f8cd5321766d62bf6ee187b",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3053,
+      "head": "a977fd1989c092d6946766fe0e66625935799058",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3054,
+      "head": "4773c3ea67b471415870e38411fae313ec44a675",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3055,
+      "head": "9dc841c9a101435fdd15e0f7623bf16b6d0363e9",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3056,
+      "head": "9e4acb6049a6c1897ad8d515892f67204ab1d8c0",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3057,
+      "head": "8892832224cffb73553cc921e4e3b1ae75d7b886",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3058,
+      "head": "e67ca5f26351e09c5bb314821633e511212f88ec",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3059,
+      "head": "0b8b44c6cc367725a8737f8b3cd997f42d3bd0d9",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3060,
+      "head": "df16ae619b858c5344a797c4424e0bafc2e69f62",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3063,
+      "head": "3f384b8b7daccb2c8e12013fd81a738202ce0f8d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3064,
+      "head": "239447f19b9365194bca2583014c947db5de8ea4",
+      "status": "pending_review",
+      "reason": "Dedicated workflow targets the contributor fork and includes a full-release job. Review/adapt workflow scope and dependency stack separately; author reports local resource exhaustion and the complete release is still pending. No automatic expensive retry.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/rank7-t148-restore-release": "7832bbee9316692d2ffca563b437bfe778b53b08",
+        "research/rank7-t740-release": "69f6c0b23a88c3839f9db45afe164f78ed70f907",
+        "research/t148-carrier-skips": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3065,
+      "head": "1cd7d3af6f41dc53e02c26f0b2cf6ffb11106fc8",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3066,
+      "head": "8aa53674536727123436d3f76adb8f5dac6ddea1",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3067,
+      "head": "e1e28b4070ae52efa5a9d0aa826bc588be7206f2",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3068,
+      "head": "7d2c519a1fdcc6bf66f6f08757eed7c48762d3f2",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3069,
+      "head": "cd02d94c5eb3c0e1452cc94aeb2231c4d704a684",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3070,
+      "head": "3e9445ed10067912838bd83222ea4066dcfbc62d",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3071,
+      "head": "6730b594ad6b0164d484ff1570d774d510fad130",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3072,
+      "head": "cd1bbd05251f9d8e15cbb0192f1bfe83dc138f5e",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3073,
+      "head": "9e808b67bc395dc91b55493a6fdce0863240bf1c",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3074,
+      "head": "3cc41f260c31052c933d0e75ea02f2b7677e780c",
+      "status": "waiting_revision",
+      "reason": "Source-integrity clarification required: missing flat manifest file research/one-sided-padding-lemma/expected/pad_audit.out. Restore missing/valid artifacts or explicitly separate generated outputs and inert predecessor evidence from the retained-source manifest. No mathematical rejection is inferred.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {
+        "research/one-sided-padding-lemma": null
+      },
+      "watch_prs": {}
+    },
+    {
+      "number": 3075,
+      "head": "378b8e47fc01412cbc0bc49f0d7a3d40eb1d9442",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3076,
+      "head": "2037b8e4a8c03c2015f88904449f60d1fdf58ef3",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3077,
+      "head": "9e52b244e07b1d981dd945bba7ac6c16fa7fdd43",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3078,
+      "head": "3da2ea9729f70b074713a5d0f69f0bdab32f2b47",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3079,
+      "head": "8aee45e6a918c99cdca98431c3e791d2b3fd4206",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3080,
+      "head": "fd5ff58c6c438c438481bc4bff8c86e2d4fbe865",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3081,
+      "head": "d764f9c11c86c40d35fd67811e60284feb1b8f10",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3082,
+      "head": "c9c6b59ce5f526a0082d06b24470b7ac946e62da",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3083,
+      "head": "a2ff82111b42aa4abe38e2f8f0386c804111d17f",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3084,
+      "head": "4b763c20da54e4e29e3edfdd1c3e251f5ede37e0",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3085,
+      "head": "6d5db23b5ba34b20493fe9eea98d08682495a821",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Source-only preservation does not validate a supplier, theorem, new kappa or selected-frontier change.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-pass-20261016.json"
+      ],
+      "policy_version": 1,
+      "baseline": "d8e0f83f00191df62174b641e9fff055c357f641",
+      "watch_paths": {},
       "watch_prs": {}
     }
   ]

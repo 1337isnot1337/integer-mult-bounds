@@ -131,3 +131,7 @@ prior completed checks, remaining obligations and a default-tree invariance chec
 [PR275](pr-intake-evidence/pr275-historical-retention.json) is this case: its five
 package-wide unittest wrappers and workflows stay inactive; its two previously
 passed primary reviews remain credited.
+
+## Delta intake through PR3085
+
+The [exact-head delta](pr-intake-evidence/queue-pass-20261016.json) covers 100 actionable heads: 81 source archives, eight reviewed tooling/documentation changes, ten revision holds and one pending workflow/release review. Available local manifest pins and source identities were checked; vendored manifests may describe larger predecessor snapshots and do not certify absent dependencies. No archive scientific replay, Lean or Docker was run. The [check receipts](pr-intake-evidence/queue-pass-20261016-checks.txt) cover tooling only. Publication state and individual remaining obligations are in the central ledger.

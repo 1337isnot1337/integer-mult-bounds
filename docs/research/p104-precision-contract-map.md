@@ -1,5 +1,9 @@
 # Which P104 precision contract is established?
 
+This navigation map summarizes the cited contracts. It does not independently
+validate every row; consult the [review ledger](pr-ledger.json) for exact-head
+review and archival status.
+
 Use this map before reopening a P104 precision handoff. The retained packages
 cover different words, entrances and numerical implementations. In particular,
 **seven extra fractional bits at one layer is an exact-grid statement; it is
