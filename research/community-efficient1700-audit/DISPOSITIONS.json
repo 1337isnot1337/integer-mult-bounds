@@ -907,15 +907,17 @@
       "current_head": "8571b04372f539b725e7f27d1ab00c506ca616fd",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/covariant-reader-lift"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Native covariant action for the pinned full dirty reader under its inherited framed interpretation. Reviewed order-four chart proof and all scalar/native code; all 704 columns, exact Pauli/state phases, inverse orders, phase-prefix bounds and deliberate faults pass. Changes the query generator and eight helper outputs, with restoration through the stated word; physical placement and all original centre children remain charged/open. No supplier or kappa improvement.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -1162,7 +1164,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Complete node-count storage replay reached its declared 600-second limit with no modified artifacts. Full command coverage remains pending; timeout is not a mathematical rejection. Reuse the completed exact-head setup and inspect the expensive fixture before a dedicated bounded replay.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1173,7 +1175,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2749.json"
+        "research/community-efficient1700-audit/packets/2749.json",
+        "research/community-efficient1700-audit/checks/check-2749.json"
       ]
     },
     {
@@ -1303,19 +1306,23 @@
       "current_head": "23d8aa7f11cd6a2e9d44a6ce4f6beebe1016492c",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/p104-internal-grid-collector"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Exact internal-grid audit of the pinned first P104 collector at every actual instruction prefix. Four extra fractional bits keep the fixed quantizer exact for coarse-grid entrances; smaller guards fail on explicit delta inputs. Complete rational-column and inverse checks, separate query/private storage and cycle scratch bills, and integrity controls cover the stated contract. Removed an unused live-selected-record dependency while preserving original provenance hashes and the unchanged numerical receipt. Full recursive caller and tape admission remain open.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2754.json"
+        "research/community-efficient1700-audit/packets/2754.json",
+        "research/community-efficient1700-audit/checks/check-2754-combined.json",
+        "research/community-efficient1700-audit/checks/check-2754.json"
       ]
     },
     {
@@ -1336,19 +1343,22 @@
       "current_head": "fce2366c5dfd3d0ee52f9bb6322fb16006e72f7a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/compact-repair-partition-audit-seed66"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Scoped proof that communication-free exceptional-repair cells must be unions of cycles of the post-raw correction. Reviewed source-word saturation derivation, all-target arithmetic and keyed-permutation checks, two complete payload fixtures and corruption controls, plus the aggregate tariff identity. Dispatcher, gathering, parking and physical access remain unpriced; inherited recursive moment is not reverified.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2756.json"
+        "research/community-efficient1700-audit/packets/2756.json",
+        "research/community-efficient1700-audit/checks/check-2756.json"
       ]
     },
     {
@@ -1381,7 +1391,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2757.json"
+        "research/community-efficient1700-audit/packets/2757.json",
+        "research/community-efficient1700-audit/checks/check-2757.json"
       ]
     },
     {
@@ -1402,19 +1413,22 @@
       "current_head": "ef041c010b32f037dddf2f67a96a53d435966746",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-continuation-storage"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Source-bound all-depth continuation-stack content and backing-cell bounds for the specified evaluator. Reviewed actual allocation/pop order and recurrence; synthetic grammar, literal GL64, direct-write census and integrity controls pass. Grammar sharpness is not a claim about all selected executions. Other numerical/caller arenas, Python heap and physical placement are excluded.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2758.json"
+        "research/community-efficient1700-audit/packets/2758.json",
+        "research/community-efficient1700-audit/checks/check-2758.json"
       ]
     },
     {
@@ -1435,19 +1449,22 @@
       "current_head": "2fd8fbe0d2f57c4a8ebb7b7c9ae45df1fcf69be9",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-word-scratch"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Source-bound sharp arithmetic scratch liveness lemma: inversion needs at most ten additional numerical words including nested arithmetic. Reviewed complete source lifetimes, alias handling and nonunit cleanup; literal census and independent integer/occupied-cell checks test sharpness. Exceptional failure requires explicit caller rollback; retained caller residents, fixed backing and total supplier admission remain separate.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2759.json"
+        "research/community-efficient1700-audit/packets/2759.json",
+        "research/community-efficient1700-audit/checks/check-2759.json"
       ]
     },
     {
