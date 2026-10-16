@@ -927,6 +927,44 @@
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr2978-source-hold.json"
       ]
+    },
+    {
+      "number": 2979,
+      "metadata": {
+        "number": 2979,
+        "title": "Conditional \u03ba \u2248 0.0017290339826465: joint rank-7 end frames, five paired extractions and #2957's rewrites on #2942's words (+5.00e-6 over #2969)",
+        "author": {
+          "id": "MDQ6VXNlcjMwNTExNDU2",
+          "is_bot": false,
+          "login": "mdumitrean",
+          "name": "aigent-marius"
+        },
+        "headRefOid": "be191346391661f4d35fc0d1508d0a6029572576",
+        "isDraft": false
+      },
+      "reviewed_head": "be191346391661f4d35fc0d1508d0a6029572576",
+      "current_head": "be191346391661f4d35fc0d1508d0a6029572576",
+      "disposition": "partially_reviewed",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/rank7-joint-endframes"
+      ],
+      "unresolved_question": "Independent scientific mechanism/proof review and complete native/outer replay remain open. The proposed kappa is an author claim, not the selected result.",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2979",
+        "merge_commit": "30f016dd79ee6a23c40d7dab44a9466c148c42dd"
+      },
+      "scope": "Exact-source archival intake only. No submitted scientific code executed and no selected-bound update.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archive-pr2979.json"
+      ]
     }
   ]
 }

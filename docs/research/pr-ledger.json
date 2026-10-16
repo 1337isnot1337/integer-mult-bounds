@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2491,
+  "inventory_count": 2492,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2045,
-    "partially_reviewed": 384,
+    "partially_reviewed": 385,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "9672f42645505f95d57c15c8fda2d4e37b8a3f5a04b174a5f8e3ddd0a753101c",
+    "docs/research/pr-intake-decisions.json": "c7abab74b143c94b13671e78b0c6bf1d826c1f1f4929a23e11bb83b267212913",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -146712,6 +146712,56 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 2979,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2979",
+      "title": "Conditional κ ≈ 0.0017290339826465: joint rank-7 end frames, five paired extractions and #2957's rewrites on #2942's words (+5.00e-6 over #2969)",
+      "contributor": {
+        "id": "MDQ6VXNlcjMwNTExNDU2",
+        "is_bot": false,
+        "login": "mdumitrean",
+        "name": "aigent-marius"
+      },
+      "draft": false,
+      "starting_head": "be191346391661f4d35fc0d1508d0a6029572576",
+      "current_head": "be191346391661f4d35fc0d1508d0a6029572576",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "be191346391661f4d35fc0d1508d0a6029572576",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact-source archival intake only. No submitted scientific code executed and no selected-bound update.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/rank7-joint-endframes"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2979",
+        "merge_commit": "30f016dd79ee6a23c40d7dab44a9466c148c42dd"
+      },
+      "reviewed_head": "be191346391661f4d35fc0d1508d0a6029572576",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete native/outer replay remain open. The proposed kappa is an author claim, not the selected result.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archive-pr2979.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -146723,7 +146773,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1863,
+    "MERGED": 1864,
     "OPEN": 249
   }
 }

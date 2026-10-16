@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2491**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2492**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2045 |
-| partially reviewed | 384 |
+| partially reviewed | 385 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -2534,3 +2534,4 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2975](https://github.com/CrocSwap/integer-mult-bounds/pull/2975) | tekuuu | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2977](https://github.com/CrocSwap/integer-mult-bounds/pull/2977) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2978](https://github.com/CrocSwap/integer-mult-bounds/pull/2978) | navinor | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2979](https://github.com/CrocSwap/integer-mult-bounds/pull/2979) | mdumitrean | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |

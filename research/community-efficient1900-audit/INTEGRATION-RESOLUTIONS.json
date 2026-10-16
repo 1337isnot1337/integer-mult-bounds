@@ -60,18 +60,18 @@
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.json",
-    "resolved_sha256": "38dec3c864c63e9f3ea187e33f4a5407aee7db70fc04becd0b89be6efea50baf",
+    "resolved_sha256": "c1454cfcaef0ff18813e9559c8dd485770b27f8962831fc39605bf1566833dc6",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 final incoming source-integrity hold; prior scientific source and scope unchanged."
+    "followup": "2026-10-16 PR2979 source archive with unverified scientific claim; selected result unchanged."
   },
   {
     "number": 1007,
     "path": "docs/research/pr-ledger.md",
-    "resolved_sha256": "917b3934a670f2919e2c80a910d231110b99262d22542b28ce16add367aa1c4b",
+    "resolved_sha256": "4570e50e0421fcc33f4d9019abe44386044f8badedee5e2bb353757c3429f4ea",
     "resolved_mode": "100644",
     "reason": "Apply append-only historical evidence helper to the current generator and regenerate the current ledger; preserve every later review, closure, attribution and source pin. Author originals retained.",
-    "followup": "2026-10-16 final incoming source-integrity hold; prior scientific source and scope unchanged."
+    "followup": "2026-10-16 PR2979 source archive with unverified scientific claim; selected result unchanged."
   },
   {
     "number": 2255,
