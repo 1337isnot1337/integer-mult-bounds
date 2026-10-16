@@ -61,6 +61,27 @@ necessary budget thresholds: the current word's local-only bill is 1.155558,
 so changing coverage alone still cannot work. The two ideal passes have less
 than 0.22% and 0.73% headroom before any actual lower-rank work is charged.
 
+The same exact relaxation gives the minimum maximum-child rank needed for each
+coverage choice. With the selected law, even a free local word needs rank cap
+70; the selected halving guard allows only 51. Removing the centre charge
+lowers the requirement to 65, and allowing two unpaid coordinates with no
+centre lowers it to 57. The two relaxed combinations that fit under rank 51
+are three unpaid coordinates with no centre, or four with the selected centre
+charge:
+
+| Unpaid coordinates | Centre mass | Minimum rank cap | Allowed by current guard? |
+|---:|---:|---:|:---:|
+| 1 | 64 | 70 | no |
+| 1 | 0 | 65 | no |
+| 2 | 0 | 57 | no |
+| 3 | 0 | 51 | yes, at the boundary |
+| 3 | 64 | 55 | no |
+| 4 | 64 | 48 | yes |
+
+Every rank-cap threshold has a strict adjacent-integer certificate. A rank cap
+above 51 would require a different outer halving argument; the table does not
+show that such an argument exists.
+
 This is a scoped result about the selected #1094 complex local word and, for
 the all-rank-51 relaxation, its width, family count and halving guard. It does
 not bound a redesigned template or rank cap, a changed operation alphabet or

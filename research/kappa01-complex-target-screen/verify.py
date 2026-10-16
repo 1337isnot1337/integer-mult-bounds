@@ -117,6 +117,23 @@ def rank_mass_bill_interval(unpaid: int, centre: Q, width: int, families: int, s
     return lower, upper
 
 
+def first_rank_cap_below_one(unpaid: int, centre: Q, width: int, families: int, stages: int):
+    """Return the first integer rank cap whose ideal rank-mass bill is < 1."""
+    for cap in range(1, width):
+        lower, upper = rank_mass_bill_interval(unpaid, centre, width, families, stages, cap)
+        if upper < 1:
+            previous = rank_mass_bill_interval(unpaid, centre, width, families, stages, cap - 1)
+            require(previous[0] > 1, "rank-cap threshold is not adjacent and strict")
+            return {
+                "minimum_rank_cap": cap,
+                "previous_rank_cap_bill_lower": str(previous[0]),
+                "minimum_rank_cap_bill_upper": str(upper),
+                "strict_adjacent_threshold": True,
+                "allowed_by_selected_halving_guard": cap <= 51,
+            }
+    raise ValueError("no rank cap below the width passes the ideal moment")
+
+
 def result_record() -> dict[str, object]:
     selected_path = ROOT / "certificates/selected-result.json"
     assembly_path = ROOT / "research/community-frontier1094-audit/ASSEMBLY.json"
@@ -158,6 +175,21 @@ def result_record() -> dict[str, object]:
             "bill_upper_decimal": f"{float(b_hi):.15f}",
             "strictly_below_one": b_hi < 1,
         })
+    rank_cap_cases = []
+    for label, unpaid, centre in (
+        ("selected_coverage", 1, Q(64)),
+        ("one_unpaid_centre_free", 1, Q(0)),
+        ("two_unpaid_centre_free", 2, Q(0)),
+        ("three_unpaid_centre_free", 3, Q(0)),
+        ("three_unpaid_selected_centre", 3, Q(64)),
+        ("four_unpaid_selected_centre", 4, Q(64)),
+    ):
+        rank_cap_cases.append({
+            "label": label,
+            "unpaid_coordinates": unpaid,
+            "centre_mass": str(centre),
+            **first_rank_cap_below_one(unpaid, centre, width, families, stages),
+        })
     case = {item["label"]: item for item in coverage_cases}
     require(Q(case["selected_coverage"]["bill_lower"]) > 1,
             "selected coverage does not fail even under ideal rank-cap repacking")
@@ -169,6 +201,19 @@ def result_record() -> dict[str, object]:
             "three-unpaid selected-centre necessity control failed")
     require(case["four_unpaid_selected_centre"]["strictly_below_one"],
             "four-unpaid selected-centre ideal positive control failed")
+    cap_case = {item["label"]: item for item in rank_cap_cases}
+    require(cap_case["selected_coverage"]["minimum_rank_cap"] == 70,
+            "selected-law rank-cap threshold drifted")
+    require(cap_case["one_unpaid_centre_free"]["minimum_rank_cap"] == 65,
+            "centre-free rank-cap threshold drifted")
+    require(cap_case["two_unpaid_centre_free"]["minimum_rank_cap"] == 57,
+            "two-unpaid rank-cap threshold drifted")
+    require(cap_case["three_unpaid_centre_free"]["minimum_rank_cap"] == 51,
+            "three-unpaid rank-cap threshold drifted")
+    require(cap_case["three_unpaid_selected_centre"]["minimum_rank_cap"] == 55,
+            "selected-centre rank-cap threshold drifted")
+    require(cap_case["four_unpaid_selected_centre"]["minimum_rank_cap"] == 48,
+            "four-unpaid selected-centre rank-cap threshold drifted")
 
     # At a=1/9, kappa=a/(1+a)=1/10.  The retained outer transfer has strict
     # reservations, so any kappa>1/10 needs a primitive a>1/9.
@@ -205,6 +250,7 @@ def result_record() -> dict[str, object]:
             "positive_control_a_zero_bill": str(zero_saving_bill),
             "strict_rejection": lower > 1,
             "coverage_relaxations": coverage_cases,
+            "rank_cap_thresholds": rank_cap_cases,
             "necessary_unpaid_coordinates_at_target": {
                 "with_centre_fully_removed": 3,
                 "with_selected_centre_charge_64": 4,

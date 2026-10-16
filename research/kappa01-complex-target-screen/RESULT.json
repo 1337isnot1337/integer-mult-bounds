@@ -63,6 +63,68 @@
       "with_selected_centre_charge_64": 4
     },
     "positive_control_a_zero_bill": "3591/4672",
+    "rank_cap_thresholds": [
+      {
+        "allowed_by_selected_halving_guard": false,
+        "centre_mass": "64",
+        "label": "selected_coverage",
+        "minimum_rank_cap": 70,
+        "minimum_rank_cap_bill_upper": "9797631764118346442284957340973/9800000000000000000000000000000",
+        "previous_rank_cap_bill_lower": "1007616471305122569076896236103/1006250000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 1
+      },
+      {
+        "allowed_by_selected_halving_guard": false,
+        "centre_mass": "0",
+        "label": "one_unpaid_centre_free",
+        "minimum_rank_cap": 65,
+        "minimum_rank_cap_bill_upper": "624439992152395604538087614451/625000000000000000000000000000",
+        "previous_rank_cap_bill_lower": "8006612917081945075334347210767/8000000000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 1
+      },
+      {
+        "allowed_by_selected_halving_guard": false,
+        "centre_mass": "0",
+        "label": "two_unpaid_centre_free",
+        "minimum_rank_cap": 57,
+        "minimum_rank_cap_bill_upper": "189944952232181576961696754089/190000000000000000000000000000",
+        "previous_rank_cap_bill_lower": "28046991260652147831368873194003/28000000000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 2
+      },
+      {
+        "allowed_by_selected_halving_guard": true,
+        "centre_mass": "0",
+        "label": "three_unpaid_centre_free",
+        "minimum_rank_cap": 51,
+        "minimum_rank_cap_bill_upper": "636152477351584517820136541243/637500000000000000000000000000",
+        "previous_rank_cap_bill_lower": "500042148655795789002015342167/500000000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 3
+      },
+      {
+        "allowed_by_selected_halving_guard": false,
+        "centre_mass": "64",
+        "label": "three_unpaid_selected_centre",
+        "minimum_rank_cap": 55,
+        "minimum_rank_cap_bill_upper": "12014850967323687265887481562951/12031250000000000000000000000000",
+        "previous_rank_cap_bill_lower": "151302068266237043989696392042049/151200000000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 3
+      },
+      {
+        "allowed_by_selected_halving_guard": true,
+        "centre_mass": "64",
+        "label": "four_unpaid_selected_centre",
+        "minimum_rank_cap": 48,
+        "minimum_rank_cap_bill_upper": "1279366518742944333090361454417/1280000000000000000000000000000",
+        "previous_rank_cap_bill_lower": "6592146282583123607445330144057/6580000000000000000000000000000",
+        "strict_adjacent_threshold": true,
+        "unpaid_coordinates": 4
+      }
+    ],
     "rank_terms": [
       {
         "count": 2412,
