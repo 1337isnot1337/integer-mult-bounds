@@ -54,7 +54,7 @@ jobs:
           python -B research/community-frontier799-audit/check_pr806_trace.py
       - name: Current ledger and archive integrity controls
         run: |
-          python -B scripts/verify_pr_reconciliation.py
+          python -B scripts/replay_historical_check.py tooling-ledger
           python -B -m unittest discover -s tests -p 'test_historical_check.py' -v
           python -B -m unittest discover -s tests -p 'test_*reconciliation*.py' -v
           python -B -O -m unittest discover -s tests -p 'test_*reconciliation*.py' -v

@@ -94,3 +94,49 @@ the performance tests are fetched only in the tests matrix group.
 Credit Wentao Li's preserved optimization baselines, the copied/strip/pair graph
 contributors and retained source headers. Adapter and regression controls:
 Dennis, with substantial OpenAI Codex assistance; Apache-2.0.
+
+## Ledger review contexts
+
+`tooling-ledger` retains the current ledger checker, but restores the historical
+HPE helper required by `community-hyperplane599-audit/SOURCE.json` and the original
+K492 HPE transport helper pinned by `community-k492-audit/SOURCE.json`. The latter
+snapshot is from `5c5567d15bd019186519a4db267914257b5f1ac0`; the unchanged review
+pins authenticate both. The reviewed UTF-8 and integer-row transport successors
+remain untouched in the live checkout. Current ledger records and archive
+controls are still checked; this does not roll the ledger back to an older copy.
+All unit and corruption tests continue to run separately against the live tree.
+Credit the K492 owner-repair authors and Wentao Li's production optimization,
+along with the original helper headers. Adapter: Dennis with OpenAI Codex.
+
+The ledger snapshot also restores exact source bytes for subsequent accepted
+factory pins, CI documentation, scheduling, data-corner and assertion-safety
+updates. Each is checked directly against the unchanged per-PR coverage record,
+not an invented new historical pin. The full current ledger, decisions and
+archive checks still run. This is an integrity audit of the historical reviewed
+bytes, not a claim that later live implementations are unchanged or reviewed
+by that historical batch. Live tests and production jobs retain those successors.
+
+| Snapshot | Historical path | Exact source commit |
+| --- | --- | --- |
+| `ledger-frontier741-SOURCE-PINS.json` | `research/complex-factory5-resynthesis/SOURCE-PINS.json` | `2cdd93d0250554e5160edbb8535c4500c4227349` |
+| `ledger-frontier741-verify.py` | `research/complex-factory5-resynthesis/verify.py` | `2cdd93d0250554e5160edbb8535c4500c4227349` |
+| `ledger-frontier741-SOURCES.json` | `research/supplier-circuit-consolidation/SOURCES.json` | `2cdd93d0250554e5160edbb8535c4500c4227349` |
+| `ledger-frontier741-ci-verification.md` | `docs/ci-verification.md` | `877def00b10effdf176ec93d0d3e2e93f2f452e9` |
+| `ledger-frontier890-verify_complex741_parallel.py` | `scripts/verify_complex741_parallel.py` | `3b83e4f14825ce1ae038a8c8159f130646991086` |
+| `ledger-batch932-run_isolated_tests.py` | `scripts/run_isolated_tests.py` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch932-test_isolated_test_runner.py` | `tests/test_isolated_test_runner.py` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch932-README.md` | `research/data-corner-performance/README.md` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch932-SOURCE.json` | `research/data-corner-performance/SOURCE.json` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch932-replay.py` | `research/data-corner-performance/replay.py` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch932-test_replay.py` | `research/data-corner-performance/test_replay.py` | `550746fd233635cfdb08b36f9f27e1d434ffd4e1` |
+| `ledger-batch1047-README.md` | `research/p112-free-sink-audit97/README.md` | `e2e0960be93535e867210dac58dc77d832cbc8dd` |
+| `ledger-batch1047-independent.py` | `research/p112-free-sink-audit97/independent.py` | `e2e0960be93535e867210dac58dc77d832cbc8dd` |
+| `ledger-batch1099-README.md` | `research/r439-omission-atlas-seed81/README.md` | `0a31ad88419a4eebf515d3df4f6732c4e38c0029` |
+| `ledger-batch1099-verify.py` | `research/r439-omission-atlas-seed81/verify.py` | `0a31ad88419a4eebf515d3df4f6732c4e38c0029` |
+
+Nested ledger/reconciliation replays carry an SHA256-authenticated complete
+tracked-input catalogue into Git-free copies, including the final byte gate.
+A real nested replay regression exercises this path under an optimized parent.
+The live isolated-runner extension and its failure-reporting test are separately
+admitted as exact successor hashes in the current ledger checker; no frozen
+coverage manifest is rewritten and arbitrary changes still reject.

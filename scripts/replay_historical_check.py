@@ -189,6 +189,115 @@ CONFIG['legacy-test-split-skip'] = {**CONFIG['split-skip'],
     'commands': [CONFIG['split-skip']['commands'][-1]]}
 
 
+# The current ledger checker authenticates immutable review contexts, including
+# helpers that subsequently gained reviewed production optimizations.
+CONFIG['tooling-ledger'] = {
+    **CONFIG['tooling-exact'],
+    'manifest': 'research/community-hyperplane599-audit/SOURCE.json',
+    'field': 'source_files',
+    'commands': [['scripts/verify_pr_reconciliation.py']],
+    'additional_inputs': [{
+        'manifest': 'research/community-k492-audit/SOURCE.json',
+        'field': 'source_files',
+        'path': 'research/complex-k492-owner-repair/code/hpe_audit_and_transport.py',
+        'input': 'k492_hpe_audit_and_transport.py',
+        'sha256': 'c9a05ff291016b870b4fc925b317abd9c3a604c73ffc8920dfdbbeb475e20aa3',
+        'accepted_live_sha256': ['d777db4abe316594df5cd3dc1269b42f4af4a8c87d4d0df500d32655e3775b87'],
+    }],
+}
+
+
+CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/community-frontier741-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '681', 'files'],
+  'path': 'research/complex-factory5-resynthesis/SOURCE-PINS.json',
+  'input': 'ledger-frontier741-SOURCE-PINS.json',
+  'sha256': '79e00db34b721dc38830a7816f3126a09615d49c12f1b6a630147f1f50378f63',
+  'accepted_live_sha256': ['9581d53e525c4f7f7a6e9bd96c02814cb3ab7be7734c5de3c42cc74042df8718']},
+ {'manifest': 'research/community-frontier741-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '681', 'files'],
+  'path': 'research/complex-factory5-resynthesis/verify.py',
+  'input': 'ledger-frontier741-verify.py',
+  'sha256': 'edbae43b68c0e4f65978a2f9b9a739867128f4ef19d8bbe81d06ed2e5bc165f1',
+  'accepted_live_sha256': ['90c917080f577f24390b1ba8ab059e052314eb0cee2cccb2e4321bcc2c6cf74a']},
+ {'manifest': 'research/community-frontier741-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '681', 'files'],
+  'path': 'research/supplier-circuit-consolidation/SOURCES.json',
+  'input': 'ledger-frontier741-SOURCES.json',
+  'sha256': 'ef2568aac251c94d86736936b9d8c7507d224b129da2907d1bc6a1c2b5546742',
+  'accepted_live_sha256': ['ad8665bf62453b4597f798aeeec1fa9d145413dbb725f11893a5345ba5a4ee4b']},
+ {'manifest': 'research/community-frontier741-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '695', 'files'],
+  'path': 'docs/ci-verification.md',
+  'input': 'ledger-frontier741-ci-verification.md',
+  'sha256': 'a854022e0e1d5d4db4d60e586be3ea56005013ef14a1fc06d02bc06e8529c4b0',
+  'accepted_live_sha256': ['ae5bcac684ce2188632f38dee8ed46ebdc9588f490401505aa1cac33c55d84db']},
+ {'manifest': 'research/community-frontier890-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '853', 'files'],
+  'path': 'scripts/verify_complex741_parallel.py',
+  'input': 'ledger-frontier890-verify_complex741_parallel.py',
+  'sha256': '616cff67233958647dd1e6f33dcc5ffc6132df68e0e1230dc768e820d00155a1',
+  'accepted_live_sha256': ['f368e6ed6461806107ab425cbe15f5c6dc9056a2bd29a90ed75d22791744c61b']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '921', 'files'],
+  'path': 'scripts/run_isolated_tests.py',
+  'input': 'ledger-batch932-run_isolated_tests.py',
+  'sha256': '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
+  'accepted_live_sha256': ['f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '921', 'files'],
+  'path': 'tests/test_isolated_test_runner.py',
+  'input': 'ledger-batch932-test_isolated_test_runner.py',
+  'sha256': '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
+  'accepted_live_sha256': ['4a6f16646b7b38b7e7ef9d9bc8b96cefb6db81d8b2b2d754a42ef5b557a5cbe1']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '903', 'files'],
+  'path': 'research/data-corner-performance/README.md',
+  'input': 'ledger-batch932-README.md',
+  'sha256': 'eaa548973e42e1ca6695fb3d6a8ae3c738ff29a5c4ccd053c9bf44f6eacb545c',
+  'accepted_live_sha256': ['6e8b28070731ab42fca90519f16eb17f9a19b86362b2b8533fa2ddcb2bdd6e0c']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '903', 'files'],
+  'path': 'research/data-corner-performance/SOURCE.json',
+  'input': 'ledger-batch932-SOURCE.json',
+  'sha256': 'ceda6f692682d98f7a4bc258717764ea2b549304b5808ba380f7ee48783dcb53',
+  'accepted_live_sha256': ['513628ac6fc4941c7bf2f9b890099ed163d9f2521f4461d3f42f07773d04eef1']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '903', 'files'],
+  'path': 'research/data-corner-performance/replay.py',
+  'input': 'ledger-batch932-replay.py',
+  'sha256': 'ce7cceeabb816d4a70aaa6352d5ba0432ac7dea4f66f903e3af4fa91aa44c822',
+  'accepted_live_sha256': ['eb96c629a8732216fc1bf6243ada832d0041b467ede3af7a70e07783900694ba']},
+ {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '903', 'files'],
+  'path': 'research/data-corner-performance/test_replay.py',
+  'input': 'ledger-batch932-test_replay.py',
+  'sha256': '5f134d0cf4e3c4b79e0aa274117523582badbe8e6431554832f0277bb644724e',
+  'accepted_live_sha256': ['0c7ab29c0f5628ec1943501f79f6144d2d474efd837c44dbb9ee5dd97b569ad1']},
+ {'manifest': 'research/community-batch1047-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '1035', 'files'],
+  'path': 'research/p112-free-sink-audit97/README.md',
+  'input': 'ledger-batch1047-README.md',
+  'sha256': 'c792fc8f5de0c784049904c6febf3eed9b20e2462b30dc643c72730470d72b79',
+  'accepted_live_sha256': ['6924c590eaa9a954d986153fa417c3f1ee074bcb194a42c79e1e37cb69f2cd4a']},
+ {'manifest': 'research/community-batch1047-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '1035', 'files'],
+  'path': 'research/p112-free-sink-audit97/independent.py',
+  'input': 'ledger-batch1047-independent.py',
+  'sha256': '46806efe1ee7744c810a69981d471b42dfceaa336fee226991c55ba1edfd129f',
+  'accepted_live_sha256': ['c77cf3dd1234c26cfb7df2d356752721e8b1b37169f20543678fe2f4d07a53f8']},
+ {'manifest': 'research/community-batch1099-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '1017', 'files'],
+  'path': 'research/r439-omission-atlas-seed81/README.md',
+  'input': 'ledger-batch1099-README.md',
+  'sha256': '6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f',
+  'accepted_live_sha256': ['812fabd455a7d1f77331e59d57150f28ff8ddc6ff47f9a54c5b24970f6dcc00a']},
+ {'manifest': 'research/community-batch1099-audit/CONTENT-COVERAGE.json',
+  'field': ['pull_requests', '1017', 'files'],
+  'path': 'research/r439-omission-atlas-seed81/verify.py',
+  'input': 'ledger-batch1099-verify.py',
+  'sha256': '127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866',
+  'accepted_live_sha256': ['6c3c94b01e3db5fb6d9e45eda4f60628252de1fab218e6e8233cc7949afd8966']}])
+
 def require(condition, message):
     if not condition:
         raise ValueError(message)
@@ -203,7 +312,18 @@ def safe_path(root, name):
 
 def authenticated_input(root, config, inputs=INPUTS):
     manifest = json.loads(safe_path(root, config['manifest']).read_bytes())
-    entry = manifest[config['field']].get(config['path'])
+    fields = config['field']
+    pins = manifest
+    for key in ([fields] if isinstance(fields, str) else fields):
+        pins = pins[key]
+    if isinstance(pins, list):
+        matches = [item['integrated_sha256'] for item in pins
+                   if item.get('integrated_path') == config['path']
+                   and item.get('integrated_sha256')]
+        require(len(matches) == 1, 'Missing or duplicate predecessor source pin')
+        entry = matches[0]
+    else:
+        entry = pins.get(config['path'])
     if isinstance(entry, dict):
         require(entry.get('representation') == 'bytes', 'Expected exact byte representation')
         entry = entry.get('sha256')
@@ -223,6 +343,17 @@ def authenticated_input(root, config, inputs=INPUTS):
 
 
 def tracked_paths(root):
+    catalog = root / '.historical-ci-tracked.json'
+    if catalog.is_file():
+        raw = catalog.read_bytes()
+        require(hashlib.sha256(raw).hexdigest() == os.environ.get('HISTORICAL_CI_CATALOG_SHA256'),
+                'Changed historical tracked-input catalog')
+        paths = json.loads(raw)
+        require(isinstance(paths, list) and len(paths) == len(set(paths)),
+                'Invalid historical tracked-input catalog')
+        for name in paths:
+            require(safe_path(root, name).is_file(), 'Missing historical tracked input')
+        return paths
     raw = subprocess.check_output(['git', 'ls-files', '-z'], cwd=root)
     return [p.decode('utf-8') for p in raw.split(b'\0') if p]
 
@@ -288,6 +419,12 @@ def main():
         # Retain assert-based historical checks, including nested interpreters.
         env = os.environ.copy()
         env.pop('PYTHONOPTIMIZE', None)
+        # A ledger replay invokes reconciliation92 recursively. Carry the full
+        # original tracked inventory into Git-free child copies, authenticating
+        # its exact bytes rather than rediscovering only a subset of the tree.
+        catalog = json.dumps(paths, ensure_ascii=True).encode('ascii')
+        (snapshot / '.historical-ci-tracked.json').write_bytes(catalog)
+        env['HISTORICAL_CI_CATALOG_SHA256'] = hashlib.sha256(catalog).hexdigest()
         if config.get('utf8'):
             env['PYTHONUTF8'] = '1'
         for command in commands:

@@ -74,6 +74,7 @@ def check_batch932_file(item):
     not permission to change any other bytes or the frozen batch932 receipt.
     Also authenticate the exact PR53 replay adapter and its test from c58c1778;
     this extension retains the earlier assertion guard and every module.
+    Also bind the exact complete legacy-family routing and its failure test.
     """
     name = item['integrated_path']
     digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
@@ -83,11 +84,13 @@ def check_batch932_file(item):
         'scripts/run_isolated_tests.py': (
             '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
             ('b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8',
-             '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331')),
+             '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331',
+             'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478')),
         'tests/test_isolated_test_runner.py': (
             '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
             ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
-             '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522')),
+             '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522',
+             '4a6f16646b7b38b7e7ef9d9bc8b96cefb6db81d8b2b2d754a42ef5b557a5cbe1')),
     }
     require(name in successors and successors[name][0] == item['integrated_sha256']
             and digest in successors[name][1],
@@ -207,48 +210,53 @@ def archive_inventory(package, manifest):
     return archive
 
 
+def decision_paths(root=ROOT):
+    """Authoritative family order shared by the ledger checker and its tests."""
+    return (root / 'research/community-family533-audit/DISPOSITIONS.json',
+            root / 'research/community-family588-audit/DISPOSITIONS.json',
+            root / 'research/community-hyperplane599-audit/DISPOSITIONS.json',
+            root / 'research/community-cold617-audit/DISPOSITIONS.json',
+            root / 'research/community-k492-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier741-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier799-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier890-audit/DISPOSITIONS.json',
+            root / 'research/community-batch932-audit/DISPOSITIONS.json',
+            root / 'research/community-batch952-audit/DISPOSITIONS.json',
+            root / 'research/community-batch970-audit/DISPOSITIONS.json',
+            root / 'research/community-batch1047-audit/DISPOSITIONS.json',
+            root / 'research/community-batch1099-audit/DISPOSITIONS.json',
+            root / 'research/pr-reconciliation100-20261013/DISPOSITIONS.json',
+            root / 'research/community-historical-five-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation92-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-next100-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-third100-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-fourth100-audit/DISPOSITIONS.json',
+            root / 'research/community-pilot20-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient100-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient200-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient300-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient400-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient500-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient600-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient700-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient800-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient900-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1000-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1100-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1200-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1300-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1400-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1500-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1600-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1700-audit/DISPOSITIONS.json')
+
+
 def main():
     ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
     snapshot = json.loads((AUDIT / 'starting-snapshot.json').read_text())
     expected = {p['number']: p for p in snapshot['pull_requests']}
     family_decisions = {}
-    for family_path in (ROOT / 'research/community-family533-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-family588-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-hyperplane599-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-cold617-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-k492-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier741-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier799-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier890-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch932-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch952-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch970-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch1047-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch1099-audit/DISPOSITIONS.json',
-                        ROOT / 'research/pr-reconciliation100-20261013/DISPOSITIONS.json',
-                        ROOT / 'research/community-historical-five-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation92-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-next100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-third100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-fourth100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-pilot20-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient200-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient300-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient400-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient500-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient600-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient700-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient800-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient900-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1000-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1200-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1300-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1400-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1500-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1600-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient1700-audit/DISPOSITIONS.json'):
+    for family_path in decision_paths():
         if not family_path.exists():
             continue
         family = json.loads(family_path.read_text())
