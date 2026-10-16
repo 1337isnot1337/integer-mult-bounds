@@ -40,7 +40,7 @@
   },
   "scope_status": "changed",
   "actual_scope": "Problem X, bit side (Discussion #2278, limits-1 expXL): is Boot(PG(2,16)-M) = 772 for the Hermitian Singer code, via an order of cost 772 with a feasible back-arc flow, or is there a certified Boot > 772? Includes an independent re-implementation of the limits-1 order checker.",
-  "scope_change_reason": "Donor assignment: the canonical #2278 thread names this as the remaining bit-side open target, and the predecessor order checker had no independent implementation. The work is an independent check plus a bounded search, not a supplier or moment change.",
+  "scope_change_reason": "Donor assignment: the canonical #2278 thread names this as the remaining bit-side open target, and the predecessor order checker had no independent implementation. The work is an independent check plus a bounded search, not a supplier or moment change. The original card acceptance gate (supplier/moment ledger) does not apply to this question; the closest fit was chosen only to register the package.",
   "bottleneck_link": "Side result for the Problem X bit-side route. q = 16 is a test instance (dim C/E = 0.1767 is below the 0.193 threshold); the kappa-relevant instance is PG(2,64)-M. No kappa or frontier change.",
   "budget_minutes": 150,
   "stop_rule": "Stop on an order of cost 772 (then verify flow), a certified bound >= 773, or the 150-minute cap (last 30 minutes for verification). Stopped on the time cap.",

@@ -1,7 +1,7 @@
 # Bootstrap orders on PG(2,16)−M: independent checks, an exact merge-family optimum, and a bounded search
 
 **Status: search result plus an exact optimum inside one structured family. No new bound on Boot, no κ claim.**
-Author-checked; not independently reviewed. Base: canonical `main` at `1b8ec21e`. LOCAL-ONLY until pushed.
+Author-checked; one separate AI review agent tried to break it (below); no human review. Base: canonical `main` at `1b8ec21e`.
 
 Predecessor and source of the question: Philippe Van Velzen (philippeVV), `limits-1` at
 `ed21d6245f8ce1a62e21205be7bedc24271dd772` (`research/complex-budget-law/limits-1/bootstrap/`, expXL) and
@@ -39,7 +39,7 @@ PG(2,64)−M at s = 0.2154). Either outcome here is evidence about that route, n
 | Graph identity | `graph16_59.txt` is the Singer incidence graph of PG(2,16) with difference set D′ ∪ {59} minus the invariant matching point i — line i+59. Rebuilt byte for byte from 17 integers; ord784 is the alternating cyclic order with multiplier 118 and line offset 81 | measured |
 | Independent checker | Separate implementation (scipy Dinic, and stdlib Dinic in `verify.py`) agrees with `check_order.py` on ord784 (784, max cut 1568, flow 784/784), its reversal, a two-swap (789, flow 785/789, infeasible) and 3 random orders; both reject duplicate or missing vertices. `check_order.py` accepts a degree-preserving rewired graph that contains a 4-cycle; this checker rejects it | measured |
 | Lower bound | 751 (Laplacian λ₂ = 11 at the size-273 prefix). Reproduces limits-1. No bound above 751 was certified | measured |
-| Cut-only ceiling | limits-1's `o3_52` order has max prefix cut 1544, so no bound that uses only prefix cut sizes can exceed 772 | measured |
+| Cut-width ceiling | limits-1's `o3_52` order has max prefix cut 1544, so max_t min_{\|S\|=t} \|∂S\|/2 ≤ 772: bisection, spectral and cut-width bounds cannot certify Boot > 772. (The total ascent of the profile is also a function of the cuts and equals 2·cost, so this is a statement about cut-width-type bounds, not every cut functional.) | measured |
 | **Exact merge-family optimum** | Over all 144 × 144 × 273 = **5,660,928** families "points P_{m_p i}, lines L_{m_l l + c}, any interleaving", the exact DP minimum is **784**. Only m_p = m_l ∈ {118, 155 = −118} with c ∈ {81, 199, 236} attain it. Next values: 785 (4 families), 786 (2), 787 (4) | measured (exact within the family) |
 | Bounded search | No order below 784. Best non-cyclic order: **785 (max prefix cut 1570, flow 567/785, infeasible)**. Ledger below | search result, not a bound |
 
@@ -91,8 +91,16 @@ python3.12 scripts/research_package.py --package research/pg16m-bootstrap-orders
 ```
 
 `verify.py` rebuilds the graph and ord784 and checks their pinned SHA256 values, re-evaluates every order in
-`RESULT.json` (cost, ½|j − 8|, cut ascent, split identity at every prefix, max cut, Dinic flow), replays the exact merge
-DP on 43 recorded families in pure Python, and runs 4 corrupted-input controls plus the two-swap flow control.
+`RESULT.json` (cost, max cut, Dinic flow), replays the exact merge DP in pure Python on 47 recorded families (all 6
+optima, the reversed-multiplier family and 40 random ones), and runs 4 corrupted-input controls plus the two-swap flow
+control. The ½Σ|j − 8|, cut-ascent and split-identity checks hold by algebra on any 16-regular graph; they are sanity
+checks on the implementation, not evidence about the orders.
+
+What the registered replay does **not** cover: the global merge-DP minimum of 784 over all 5,660,928 families. That
+rests on the numba sweep (`search/merge_dp.py`). The review agent independently re-implemented the DP from the limits-1
+graph file and reproduced it on two full slices: the diagonal m_p = m_l (39,312 families; counts 784:6, 785:4, 786:2,
+787:4, 788:2, 789:8, identical to `RESULT.json`) and the row m_p = 118 (39,312 families; 784 only at m_l = 118), plus
+300 random families (minimum 855). It did not rerun the full sweep.
 
 Search tools (not part of the registered replay; numpy, scipy, numba): `search/merge_dp.py` (full sweep),
 `search/sa_part.py`, `search/beam.py`, `search/polish.py`, `search/indep_check.py`, `search/controls.py`,
