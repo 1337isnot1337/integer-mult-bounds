@@ -87,8 +87,9 @@
     "number": 2624,
     "path": "scripts/reconcile_pr_queue.py",
     "original_sha256": "d1160464aa095e81eb5b5f406832cc523ec2d6c44a70f5306f928f9a79efba95",
-    "resolved_sha256": "f04838040a31ad7830a82f91a5604e17048935c99f4c2b5c6612bd66ba6d6481",
-    "reason": "Port only PR148 source-retention projection onto the current generator, preserving every newer batch registry and review rule."
+    "resolved_sha256": "53ac50514bd298418a312e2d15e282e5633f83f53fadb8615b3a70c8eeea951b",
+    "reason": "Port only PR148 source-retention projection onto the current generator, preserving every newer batch registry and review rule.",
+    "subsequent_extension": "Batch17 appends its disposition source to the unchanged ordered family registry; ledger prefix verification passes."
   },
   {
     "number": 2602,
