@@ -1549,3 +1549,36 @@ The following contributions are preserved with independent scientific review sti
 - **rohanarun (@rohanarun)** — [#1157](https://github.com/CrocSwap/integer-mult-bounds/pull/1157): Conditional κ = 0.001674137810105185: X54 slot on the seven-slot k8 word with the exact T37 owner optimum. [default-tree source archive](https://github.com/CrocSwap/integer-mult-bounds/tree/c5647aecc8ff44e49776860bb75520bfe3e88f1e).
 - **Joel Pulikkan (@GamingPuzzled)** — [#962](https://github.com/CrocSwap/integer-mult-bounds/pull/962): Conditional κ = 0.001661960547713947: T37 owner map on PR890's U8 word (independent cross-check of #942). [historical snapshot only](https://github.com/CrocSwap/integer-mult-bounds/tree/50c6ae8151493af21d284afe34fb35f68f6d4934).
 - **Joel Pulikkan (@GamingPuzzled)** — [#620](https://github.com/CrocSwap/integer-mult-bounds/pull/620): Research notes (no κ claim): E8 decoder floors are tight; extension-ring, triple and Lorentzian units lose after helpers; cold-end, dispatch and fusion-search negatives. [historical snapshot only](https://github.com/CrocSwap/integer-mult-bounds/tree/a2b34f010d20b3ed04d07a54dce0b7f8ec12925f).
+
+## Twenty-fifth research archive and workflow intake
+
+Original research sources are preserved with independent scientific review still open. Replay workflow configuration was reviewed separately; no hosted or local scientific replay was run for this intake. These contributions do not change the selected bound.
+
+- **Nick Petalas (@petalas)** — [#2922](https://github.com/CrocSwap/integer-mult-bounds/pull/2922): Formalize the P104 affine-complement endpoint lemma in Lean.
+- **Nick Petalas (@petalas)** — [#2713](https://github.com/CrocSwap/integer-mult-bounds/pull/2713): Formalize the P104 endpoint-run rank and moment lower bound.
+- **Gareth Davidson (@bitplane)** — [#2422](https://github.com/CrocSwap/integer-mult-bounds/pull/2422): Compose signed record phases with the selected tensor action in Lean.
+- **Gareth Davidson (@bitplane)** — [#2414](https://github.com/CrocSwap/integer-mult-bounds/pull/2414): Measure 11.46x faster warm native compilation with complete replay.
+- **Gareth Davidson (@bitplane)** — [#2404](https://github.com/CrocSwap/integer-mult-bounds/pull/2404): Formalize normal-class rank and complete count/price bounds in Lean.
+- **kazoemo (@AAAmirinu)** — [#2378](https://github.com/CrocSwap/integer-mult-bounds/pull/2378): Formalize selected monomial coordinate and signed-word interfaces.
+- **Gareth Davidson (@bitplane)** — [#2295](https://github.com/CrocSwap/integer-mult-bounds/pull/2295): Discharge the selected BIT fractional-moment premise in Lean.
+- **Gareth Davidson (@bitplane)** — [#2289](https://github.com/CrocSwap/integer-mult-bounds/pull/2289): Formally audit the selected BIT stopped-recurrence implication.
+- **Gareth Davidson (@bitplane)** — [#2267](https://github.com/CrocSwap/integer-mult-bounds/pull/2267): Formalize rectangular decoder rank and minor cost interfaces in Lean.
+- **Gareth Davidson (@bitplane)** — [#1309](https://github.com/CrocSwap/integer-mult-bounds/pull/1309): [Lean] Prove unitary prefix bounds on the existing Lemma G semantics.
+- **Joel Pulikkan (@GamingPuzzled)** — [#1239](https://github.com/CrocSwap/integer-mult-bounds/pull/1239): Conditional κ = 0.001675809683500501: source-holder fusions and X54 on #1193's mixed T37 construction (independent; equals #1218).
+- **chafreaky (@chafreaky)** — [#1196](https://github.com/CrocSwap/integer-mult-bounds/pull/1196): Conditional κ = 0.001675608585476885: joint entrances and X54 with T37 owners.
+- **chafreaky (@chafreaky)** — [#1152](https://github.com/CrocSwap/integer-mult-bounds/pull/1152): Conditional κ = 0.001674340686401949: rank-seven helper ends with T37 owner packing.
+- **Ali Romman (@aliromman)** — [#1141](https://github.com/CrocSwap/integer-mult-bounds/pull/1141): Add a reversible quadratic phase stream with linear scalar work.
+- **chafreaky (@chafreaky)** — [#1131](https://github.com/CrocSwap/integer-mult-bounds/pull/1131): Conditional κ = 0.001674097969905390: seven-slot k8 with T37 whole-owner packing.
+- **Ali Romman (@aliromman)** — [#1054](https://github.com/CrocSwap/integer-mult-bounds/pull/1054): Conditional accuracy: all-length cubic precision for the dirty stride inverse.
+- **Ali Romman (@aliromman)** — [#1038](https://github.com/CrocSwap/integer-mult-bounds/pull/1038): Construction: reversible quadratic phases for the dirty stride solver (no new kappa).
+- **chafreaky (@chafreaky)** — [#1025](https://github.com/CrocSwap/integer-mult-bounds/pull/1025): Research: averaged cyclotomic heights give O(r² log² r) precision (no new kappa).
+- **Ali Romman (@aliromman)** — [#985](https://github.com/CrocSwap/integer-mult-bounds/pull/985): Research: dirty arbitrary-stride cyclic inverse on two tapes (no new kappa).
+- **chafreaky (@chafreaky)** — [#977](https://github.com/CrocSwap/integer-mult-bounds/pull/977): Research: cubic arbitrary-stride inversion without a length admission (no new kappa).
+- **Ross Richardson (@RossRichardson)** — [#931](https://github.com/CrocSwap/integer-mult-bounds/pull/931): Scoped negative result: bounded butterfly search misses the PR681 factory cost.
+- **Rohan Guliani (@Rohansguliani)** — [#846](https://github.com/CrocSwap/integer-mult-bounds/pull/846): Research: pay for preparation, execution, restoration and tape for #621's cyclic inverse at every stride (no κ claim).
+- **Jason Willems (@at1as)** — [#775](https://github.com/CrocSwap/integer-mult-bounds/pull/775): Scoped negative result: coupled partial read exchanges on P6k4.
+- **Scott Woolsey Biggart (@swbiggart)** — [#697](https://github.com/CrocSwap/integer-mult-bounds/pull/697): Research construction: direct-source E8 with 120 fewer helpers.
+- **chafreaky (@chafreaky)** — [#685](https://github.com/CrocSwap/integer-mult-bounds/pull/685): Conditional κ = 0.001660339298410333: four entrance promotions and 72 cold ends.
+- **Ross Richardson (@RossRichardson)** — [#2960](https://github.com/CrocSwap/integer-mult-bounds/pull/2960): Independently verify PR2942 joint helper restoration.
+- **Nick Petalas (@petalas)** — [#2959](https://github.com/CrocSwap/integer-mult-bounds/pull/2959): Derive the QQ16 decoder's entry norm and grid from exact F0/B1.
+- **Sudarsh Chaturvedi (@Sudarsh3301)** — [#2956](https://github.com/CrocSwap/integer-mult-bounds/pull/2956): Research: PG(2,16)-M bootstrap orders, merge-family optimum 784 (no bound, no kappa).

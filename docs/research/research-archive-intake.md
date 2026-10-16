@@ -77,3 +77,21 @@ This lane does not admit shared production/CI changes, known correctness objecti
 or unresolved source integrity failures. All scientific obligations remain open.
 The [twenty-fourth 100-head index](../../research/community-efficient2400-audit/README.md)
 records the archival mode for each contribution and grouped manifest holds.
+
+## Research replay workflows
+
+Archival acceptance alone does not approve a workflow. The
+[twenty-fifth intake](../../research/community-efficient2500-audit/README.md)
+separately reviews eligible workflow configuration: manual dispatch only,
+read-only repository permissions, no persisted checkout credentials, immutable
+action references, explicit job timeouts, and one matrix leg at a time.
+Original workflow files and exact resolutions are retained in that audit;
+scientific replay commands and author evidence are unchanged.
+
+These workflows share the `research-archive-replay` concurrency group. GitHub
+retains one running and one pending invocation; a newer pending invocation can
+replace an older pending one. Dispatch deliberately one at a time rather than
+using this as a FIFO batch queue. No workflow was dispatched during intake.
+Configuration review is not a successful hosted replay, dependency audit,
+Lean kernel check, or mathematical validation. Historical receipts that pin an
+original workflow continue to refer to that original version.
