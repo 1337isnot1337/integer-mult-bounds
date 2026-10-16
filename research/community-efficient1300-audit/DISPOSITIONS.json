@@ -213,7 +213,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Fresh registered replay fails only the frozen actual_factors_sha256 commitment. Local/native, owners/charts, separate invoice and exact outer pass; every other independent receipt field matches. Regenerated payload matches PR2265 independently published canonical pin, but old compressed commitment remains unrecovered. Requested original payload/canonical source-bound repair: https://github.com/CrocSwap/integer-mult-bounds/pull/2260#issuecomment-6203453534. Optional Lean kernel audit not freshly rerun.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -224,7 +224,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2260.json"
+        "research/community-efficient1300-audit/packets/2260.json",
+        "research/community-efficient1300-audit/checks/check-2260.json"
       ]
     },
     {
@@ -320,7 +321,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
+      "unresolved_question": "Full finite supplier/200-digit endpoint/54-row retuned outer replay passes48.655s, with explicit canonical-payload comparison replacing unreproducible predecessor gzip commitment. Supplier70files exact2260. New endpoint, binding, outer arithmetic and parameter proofs reviewed. Complete shared PR1673 capped-fusion, PR1758 accretive Toeplitz/union and PR1786 fine-padding analytic/tape dependency audit remains pending; finite replays alone do not establish these. Original2260 commitment remains unresolved. General accretive Theorem4.1 needs a scale qualification (H=tI counterexample); unit-diagonal application may be unaffected. Shared correction requested at1758#issuecomment-6203527654.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -331,7 +332,8 @@
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2265.json"
+        "research/community-efficient1300-audit/packets/2265.json",
+        "research/community-efficient1300-audit/checks/check-2265.json"
       ]
     },
     {
@@ -1001,18 +1003,24 @@
       },
       "reviewed_head": "8c60765b5dea9d862b3b190d55da102a576031bf",
       "current_head": "8c60765b5dea9d862b3b190d55da102a576031bf",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-complex-layer-closure"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "12edc35a354c809e0ab01a3c093a2175450ec80c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2287"
+      },
+      "scope": "Jose Manuel/jmbarrancoml's written selected-complex layer construction. Reviewed all14 changed files, complete caller/owner/private-work accounting, common-label tensor composition, mandatory zero-remainder translations, proper-width recursion, one root precision grid and stopped-depth cost. Normal and optimized source-bound replays pass local frames, charts,482 events/144 calls,69120 hosted roles, Gaussian arithmetic and coarse moment/guard checks. Matched the already-reviewed PR2234 ordinary-interchange and PR2250 compact-adapter domains, full spectators and restoration; vendor streams are exact predecessor bytes. Inherited native word/phase certificates remain premises; this is not a fresh full supplier execution, formal physical compiler or outer multiplication verification. No selected frontier change. Rohan Arun,Jeremy Kothe,Hao Yan,DreamingOfClouds,Zhihao Chen,chafreaky,Dugongue,DaysSky,icekylinx,bitplane,jamesyc and other retained lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2287.json",
@@ -1337,18 +1345,24 @@
       },
       "reviewed_head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
       "current_head": "8507498d363735ced0b0a3f02d5ecf80ed3e3805",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-conservative-outer"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "12edc35a354c809e0ab01a3c093a2175450ec80c",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2298"
+      },
+      "scope": "Jose Manuel/jmbarrancoml's conditional conservative outer transfer at kappa=1/20000000. Reviewed all10 files, the epsilon=1/40 extension of PR2287, exact-K and nonadjacent layouts, signed packing/sign extension, both source-normalization factors, disk margins, exact carry output and seven strict cost gaps. Normal/optimized checks pass264 polynomial products,32 rounded convolutions,16608 CRT records,285 recovery pairs and compressed large-parameter witnesses. Matched frozen source06-08 and published Gaussian/prime interfaces; proof dependencies2234/2250/2287 are exact-head/hash bound. Accepted as a written conditional composition, retaining named callee and analytic premises; tests do not execute Gaussian routines or the full selected suppliers, and no unconditional/formal multiplication theorem or selected frontier change follows. Harvey,van der Hoeven,Philipp,Douglas Colkitt and retained selected-supplier contributors credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2298.json",
@@ -2672,21 +2686,29 @@
       },
       "reviewed_head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
       "current_head": "bf1742aee4d855efb8bbd44a8419eddb33a679e5",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/t74-low-alias-borrowing"
+      ],
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "a535b43d6296b4b70d3298f98e485677273cfba1",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2339"
+      },
+      "scope": "Sagar Thakrar's T74 low-alias local construction and independent audit. Reviewed all40 files, anticipatory correction structure, exact free-group forward/dual maps, nested frames, private cleanup and rebuilt profiles. Primary replay passes both80-alias words with28 controls each and exact model-price/cap checks; full NumPy rebuild reproduces both words' decompressed bytes and both witnesses exactly, including320 Gaussian handoff/exit products on512 columns and23 inherited rejection controls per word. Each word uses400 helpers,624 independent dirty inputs,44 cleanup buffers and local mass5264. The sixteen-helper obstruction is scoped to fixed words/schedule/lender conditions; corrected that wording and separated icekylinx from Zhihao Chen in attribution. Model prices are not constructed suppliers; native lowering, owner fill, physical buffer/compensation charges and outer admission remain open. No kappa change. Cinna Davis,Jeremy Kothe,Dugongue,Vlado Vojdanovski,Rohan Arun,mdumitrean,Ali Romman,Thomas DiFiore and retained compiler/ceiling lineage credited.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
-        "published": false
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1300-audit/packets/2339.json"
+        "research/community-efficient1300-audit/packets/2339.json",
+        "research/community-efficient1300-audit/checks/check-2339-supplement.json",
+        "research/community-efficient1300-audit/checks/check-2339.json"
       ]
     },
     {

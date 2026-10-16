@@ -22,15 +22,17 @@
     },
     {
       "path": "research/r439-omission-atlas-seed81/README.md",
-      "usage": "input",
+      "usage": "provenance",
       "git_blob": "7a5feccdb32ebc8441317b31b7bbdfa82862a7b6",
-      "sha256": "6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f"
+      "sha256": "6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f",
+      "note": "Atlas README at package base_commit; working tree may carry production packed-lanes note. This package does not execute the atlas checker."
     },
     {
       "path": "research/r439-omission-atlas-seed81/verify.py",
-      "usage": "input",
+      "usage": "provenance",
       "git_blob": "759d18d73dbab5d7620ce61395110aa57c06f901",
-      "sha256": "127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866"
+      "sha256": "127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866",
+      "note": "Literal-era digest retained as provenance after research/omission-lanes-production/; this package has its own independent replay and does not execute the atlas checker."
     }
   ]
 }
