@@ -6,9 +6,8 @@ On Ross's Mac the tested interpreter is
 `/Users/ross/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3`.
 
 ```sh
-python3 -I -O -B research/h6-compensation-network/verify.py
-python3 -I -O -B research/h6-compensation-network/gate/replay.py
 python3 -I -O -B research/h6-compensation-network/ci.py
+python3 -I -B research/h6-compensation-network/test_ci.py
 make selected-record-check
 git ls-remote origin refs/heads/main
 ```
@@ -52,7 +51,7 @@ completed successfully on 15 October 2026 with CPython 3.12.15 and NumPy
 fresh-export gate, 17 semantic corruption controls plus the K-coefficient
 and transitive-source mutations, selected-record integrity, and the
 unchanged-checkout check. These hosted results are separate from the earlier
-local runs and do not cover later documentation revisions.
+local runs and do not cover later revisions.
 
 The wider [Verify research artifacts run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563165671)
 has five failed jobs and 22 cancellations. A successful dedicated H6 job
@@ -100,3 +99,31 @@ the hosted replay hook. Prior audit, frozen H6/PR606,
 `upstream/`, selected certificate and imported exact lowerer remain unchanged.
 These local validation runs preceded the subsequent user-requested PR
 submission. No merge, supplier admission or frontier adoption is claimed.
+
+## Current-main integration — 2026-10-16
+
+Canonical main `67b122d33d6c599a49f65d50afa2f3fe8d790d02` adds selected-record
+proof-supplement metadata, changing that file's digest while retaining the
+same kappa. A merge with the original H6 head therefore failed the old CI
+wrapper's inherited-input check. This revision keeps the original mathematical
+benchmark: only `certificates/selected-result.json` is read from the Git commit
+already recorded in `gate/PINS.json`, checked against its unchanged SHA-256,
+and copied into the disposable export. All other 89 inherited checkout files
+still require their exact pins. All exported sources are byte snapshots, and
+the inner gate still compares the full 90-file closure against its original
+base before replay and source-mutation controls.
+
+The wrapper records both the historical benchmark and the live selected-record
+digest, and checks that the checkout is unchanged. The workflow separately
+verifies the current selected record. This separation preserves a historical
+cost comparison without bypassing live selected-record integrity or silently
+repricing against a different target.
+
+Six regressions cover the updated live record, unchanged ordinary inputs,
+wrong historical object bytes or digest, unavailable Git history and a missing
+benchmark pin. The full replay remains the twelve-stage successor plus the semantic,
+coefficient and transitive-source mutation gates. `test_ci.py` joins the source
+inventory, which now contains 20 scripts and the same six specifications.
+Scientific pins, proofs, matrices, fixtures, invoices and retained receipts are
+unchanged. The revision's actual execution results and hosted status are
+reported separately in the PR comment, pinned to its published head.

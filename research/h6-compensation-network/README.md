@@ -5,7 +5,7 @@ network on all 30,960 ports. Its ordinary helpers have legal monotone frames,
 both orientations restore every arbitrary dirt column, and its K interface
 is an explicit 816-center word. The address-bucket construction reduces
 compensation helpers from 480,337,920 to 227,312,640. Its complete nominal
-invoice still fails the selected target by a large margin.
+invoice still fails the pinned selected target by a large margin.
 
 This is a finished finite construction/accounting contribution toward a
 supplier. It does not admit a new multiplication theorem or κ. The full
@@ -24,7 +24,7 @@ have separate reproducible checks.
   helper-loading question. It also credits the later independent
   [PR1698 arithmetic handoff](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18918248).
 - Inherited local base: `92d165a607454e457c42180c10d79821df6d84d7`.
-- Selected-main snapshot: `0b1cccf86e2f5132ed286a26ef0a681a495740ea`.
+- Historical selected-main snapshot: `0b1cccf86e2f5132ed286a26ef0a681a495740ea`.
 - H6 fork source: `b496aed769dd724cd1ff6b921cade626562be27b`, retained
   unchanged at `research/h6-banked-breakeven`.
 - Selected conditional κ: `836330098538459/500000000000000000`
@@ -263,9 +263,8 @@ No new selected κ, frontier move or all-size supplier claim is made.
 Use Python 3.11+ with NumPy; the audited runtime is Python 3.12.14/NumPy 2.3.5.
 
 ```sh
-python3 -I -O -B research/h6-compensation-network/verify.py
-python3 -I -O -B research/h6-compensation-network/gate/replay.py
 python3 -I -O -B research/h6-compensation-network/ci.py
+python3 -I -B research/h6-compensation-network/test_ci.py
 make selected-record-check
 ```
 
@@ -277,6 +276,20 @@ inside that export, while the original checkout is checked unchanged. Gzip
 mathematical equality still uses canonical decompressed payloads. Temporary
 directories use the platform default rather than a macOS-specific path.
 
+On current main, `ci.py` reads the historical `certificates/selected-result.json`
+from its recorded Git commit and checks its original SHA-256 before writing
+it into the disposable export. This is the fixed price-comparison input:
+the current selected record has gained proof-supplement metadata. All other
+89 inherited files must still match their pins in the working checkout.
+The receipt reports historical and live selected-record digests separately;
+the live record is checked by `make selected-record-check` and the workflow's
+separate integrity step. Neither the original pin nor the live file is rewritten.
+`test_ci.py` checks this boundary, including rejection of changed ordinary
+inputs and missing or changed historical Git objects. The lower-level
+`verify.py` and `gate/replay.py` commands expect the complete historical input
+closure and write receipts; use them inside the pinned export, not directly
+against a checkout with a newer selected record.
+
 This job covers the successor's finite replay and retained predecessor
 evidence; it does not rerun the prior billion-pair audit or admit the all-size
 supplier. The [dedicated hosted run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563166103/job/115849082010)
@@ -285,8 +298,8 @@ completed successfully on 15 October 2026. It checked out synthetic merge
 `a6578b3dfad3d0b3279b1b6db23940b0660f9e5f` with original base
 `0b1cccf86e2f5132ed286a26ef0a681a495740ea`. The fresh-export gate,
 selected-record integrity and unchanged-checkout checks passed. This hosted
-result applies to that tested merge; later documentation revisions are
-covered by their separately reported checks.
+result applies to that tested merge; later revisions are covered by their
+separately reported checks.
 
 The wider [Verify research artifacts run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/38563165671)
 has five failed jobs and 22 cancellations. Its outcome is separate from the
@@ -294,8 +307,10 @@ dedicated H6 replay; no whole-repository CI pass is claimed. The generic
 research jobs alone do not execute this package.
 
 Keep full Git history: the gate checks inherited blobs at `92d165a6`.
-For the optional complete predecessor audit, first fetch its pinned published
-source commit, which is separate from this branch's ancestry:
+For the optional complete predecessor audit, use the original scientific
+checkout `a6578b3dfad3d0b3279b1b6db23940b0660f9e5f` so its historical inputs
+match, and first fetch its pinned published source commit, which is separate
+from this branch's ancestry:
 
 ```sh
 git fetch https://github.com/DreamingOfClouds/integer-mult-bounds.git b496aed769dd724cd1ff6b921cade626562be27b
