@@ -97,7 +97,7 @@
     "research/community-efficient1100-audit/DISPOSITIONS.json": "3c7e70f27db16bfb9c96b8349504c6d81f82e78f4c53529a87a482aa284483e6",
     "research/community-efficient1200-audit/DISPOSITIONS.json": "171b4d2fb9515ec833ffb1dc655ed91a5be98f39768ca8360a2dc99f772376b9",
     "research/community-efficient1300-audit/DISPOSITIONS.json": "fb7d0677a65d594b5993a25ee97190f23e7c145d8d74fdb993b8eaa2c8b4be96",
-    "research/community-efficient1400-audit/DISPOSITIONS.json": "63db22b10419afb1dbd063648b567656bf078b8c7344175230a4f3fabc32cfd5",
+    "research/community-efficient1400-audit/DISPOSITIONS.json": "8e3cf9f2ade48eb1185aacb892907a95360cc59417fc9d872d7267886597a714",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353"
   },
@@ -111644,21 +111644,23 @@
         {
           "head": "723307cb14ecf731b9b16a2422d07afc2e200df9",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Complete-vector control resource theorem: reviewed all-depth coupled width/branching proof, sharp rational envelopes, global field ages after resets, source interpreter meters and conditional O_q(e*w^3)/w^592 consequence. Normal and optimized replays pass112347 abstract cases,628 source programs and4920 coordinates; four behavioral corruption tests detect rebound-source branch loss and head undercharge. Depth-four sharpness uses one coordinate plus the proved multiplicity, not a full-vector run. Fixed arithmetic, call-site discipline and physical compiler hypotheses remain; no supplier or kappa change.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-control-request-mass"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "723307cb14ecf731b9b16a2422d07afc2e200df9",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -111689,21 +111691,23 @@
         {
           "head": "20fb6953b0d2077c19e45f731ec587ebefb9a380",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "80-alias owner-fill negative result: reviewed builder, independent complete fill recount, 800-bit directed moment brackets and rationally repaired 1163-pattern dual. All declared replays pass, including 266400 roles, 3175 charts, positive controls and targeted mutations. Exact prior PR2315 checker/enclosure kernels reused. Certified fixed-inventory ceiling b < 0.0016867 and attainable profile near 0.0016865432 do not improve the supplier; documentation distinguishes numerical variant equality from certified caps. Optional heuristic regeneration not rerun; native lowering, lender lifetimes, invoice and outer admission remain open.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-80alias-owner-fill"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "20fb6953b0d2077c19e45f731ec587ebefb9a380",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -112387,21 +112391,23 @@
         {
           "head": "a419c9966ccff084dc0907c6476752fb8d8d6f08",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "PR2322 move-pricing audit: reviewed all eight pinned word recounts, exact per-register decomposition, independent GF2 recount, target merge census and certified rational-dual cap0.001697195759. All declared commands pass. Integration clarifies that move gains and high-alias neutrality are floating-point LP estimates, not exact price certificates; the cap is separately rigorous. Proposed handoffs/changed high-rank lenders still require native legality, hosting and supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-2322-move-prices"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "a419c9966ccff084dc0907c6476752fb8d8d6f08",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -113028,21 +113034,23 @@
         {
           "head": "c0b8224f4331dfc4a4b115bd728b0bbee437fbed",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Live-row reserve compatibility: reviewed conditional all-depth mixed-radix induction and exact gate (P/gcd(P,W))^D divides t, including unchanged-format minimality. Complete codec, symbolic-payload restoration, independent Cartesian replay and CLI source/receipt/guard-removal controls pass. The selected factor9475^D is a changed-interface cardinality result, not a paid adapter, reduced workspace bill or admitted selected supplier. Predecessor credit and all physical hypotheses remain explicit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/selected-live-row-divisor"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "c0b8224f4331dfc4a4b115bd728b0bbee437fbed",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -113311,21 +113319,23 @@
         {
           "head": "15c4098832135aa29ba4eb685a2a598066823f7c",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "PR2322 restoration-climb census: reviewed event instrumentation and both word counts356 full-cleanup/78 cold helpers,525 final rank units and355 proposed conversion sites. Complete extended8953-pattern pricing run passes. Documentation now separates exact census and stock-capacity checks from numerical LP estimates and inherited outer assumptions. No conversion is constructed; other-register costs, legality and modified supplier admission remain open. The10.8% figure is a numerical relaxation estimate, not a certified realized gain.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-restoration-climb-prices"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "15c4098832135aa29ba4eb685a2a598066823f7c",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -113958,21 +113968,23 @@
         {
           "head": "a3aabff9471dfdc3e85b065616e45a317f38882e",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "PR2435 independent owner/word audit: reviewed the literal frame-only difference from PR2322, complete owner/window/capacity/prefix recount, namespace, X2 and73-column chart checks. Reused the exact previously reviewed PR2315 scalar kernel (only retained historical attribution differs from main). Both658-input forward/dual scalar replays, all289044 owner rows,9129 charts and targeted mutations pass. The24 raised entrances, native lowering, invoice, precision and outer supplier admission remain unproved by this audit.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-2435-fill-independent-check"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "a3aabff9471dfdc3e85b065616e45a317f38882e",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -114194,21 +114206,23 @@
         {
           "head": "dafaf7731cc5113f77fe74256d1a628c74da12ef",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Cold-restoration screen: reviewed dependency-cone extraction, reader clearing, cleanup rewrite and complete exact forward/dual free-group replay for eight screened conversions in each provider. All are legal in the local model but their reader-frame joins are FULL, so none saves rank. Exact reviewed predecessor kernels reused. Integration explicitly labels the separate438/525 holder calculation and8.86% numerical price as unproved heuristics with a known gap; the unattached54/525 span report is not verified. No general restoration barrier or supplier improvement follows.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-cold-restoration-screen"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "dafaf7731cc5113f77fe74256d1a628c74da12ef",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -114283,21 +114297,23 @@
         {
           "head": "9e26d91b71d1805042285141b246a4407d75abb3",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Entrance-raise price screen: reviewed instrumentation and exact four-word register recount; complete numerical ladder replay passes. Independent per-register diagnostic corrects prose:48 partners replace3 by2+1 and24 replace3+1 by2+2, preserving the aggregate delta. Reuses exact reviewed PR2387 kernels. Prices remain floating-point estimates at ten sampled raise counts, not a certified global optimum or constructed further raise; proposed conditional source gains do not establish entrance delivery or supplier admission.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-entrance-raise-prices"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "9e26d91b71d1805042285141b246a4407d75abb3",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
@@ -114864,21 +114880,23 @@
         {
           "head": "0804003fadf7779176d95f0da2c08a118b8884f0",
           "evidence": "research/community-efficient1400-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "PR2435/2447 owner-map audit and four-move optimum: reviewed actual role reassignments, repacked slices, disjoint family/window checks, pending-axis charts and directed endpoint brackets. Complete replay passes289044 roles with9131 charts for the four-move map and9531 for PR2447. Corrected self-catching negative controls; accept-all and wrong-reason regressions pass. Optimality uses the reviewed/corrected PR2442 fixed-inventory certificate. Entrance delivery, revised invoice and full supplier/outer admission remain outside scope.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "research/t74-2435-optimal-owner-map"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "0804003fadf7779176d95f0da2c08a118b8884f0",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
