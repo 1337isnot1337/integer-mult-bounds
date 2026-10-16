@@ -140,3 +140,11 @@ A real nested replay regression exercises this path under an optimized parent.
 The live isolated-runner extension and its failure-reporting test are separately
 admitted as exact successor hashes in the current ledger checker; no frozen
 coverage manifest is rewritten and arbitrary changes still reject.
+
+`checkpoint-ci-inputs` runs the unchanged CI-input regression module in the
+exact HPE context required by `certificates/checkpoints/frontier1042.json`'s
+original `proof_supplements` pin. This retains all 35 current selected live pins,
+complete current inventories and trigger-coverage controls, while allowing the
+named historical checkpoint to be checked with its own source bytes. Neither
+selected record nor checkpoint is modified. The live UTF-8 helper remains.
+This is not a new selected cold replay or a selected-frontier change.

@@ -243,7 +243,8 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'path': 'scripts/run_isolated_tests.py',
   'input': 'ledger-batch932-run_isolated_tests.py',
   'sha256': '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
-  'accepted_live_sha256': ['f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478']},
+  'accepted_live_sha256': ['f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478',
+                           'd4e2e75a6e47664600e9eb9efeec51564309b8ee9b57b3bffde8d1d990bc7092']},
  {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '921', 'files'],
   'path': 'tests/test_isolated_test_runner.py',
@@ -298,6 +299,18 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'input': 'ledger-batch1099-verify.py',
   'sha256': '127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866',
   'accepted_live_sha256': ['6c3c94b01e3db5fb6d9e45eda4f60628252de1fab218e6e8233cc7949afd8966']}])
+
+# The CI-input regression checks the current selected record and its named
+# historical checkpoint. Only that checkpoint's original HPE supplement differs
+# from today's reviewed UTF-8 successor; no selected record or live pin is edited.
+CONFIG['checkpoint-ci-inputs'] = {
+    **CONFIG['tooling-exact'],
+    'manifest': 'certificates/checkpoints/frontier1042.json',
+    'field': 'proof_supplements',
+    'commands': [['-m', 'unittest', 'discover', '-s', 'tests',
+                  '-p', 'test_selected_ci_inputs.py', '-v']],
+}
+
 
 def require(condition, message):
     if not condition:
