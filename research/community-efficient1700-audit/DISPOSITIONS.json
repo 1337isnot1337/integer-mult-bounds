@@ -785,20 +785,24 @@
       },
       "reviewed_head": "833b8e05bbed0d77419c1d05d057bfde34bac551",
       "current_head": "833b8e05bbed0d77419c1d05d057bfde34bac551",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/coxeter-root-tariff"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "540eb529dc85bd285da73eb9c6db1fd48fe06e46",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2738"
+      },
       "scope": "Coxeter root-cut lower bound and matching formal rank tariff with conjugacy-class-constant prices, arbitrary binary couplings and dirty workspace. Reviewed proof uses the cited positive-root/inversion-length facts; full Cartan, affine-probe, weighted-Dijkstra, formal endpoint and corruption checks pass. This is a formal group-algebra tariff, not a native tape supplier or new kappa.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2738.json",
@@ -969,20 +973,24 @@
       },
       "reviewed_head": "0166260409f55a56e7fefa48d859f7dd5b42b300",
       "current_head": "0166260409f55a56e7fefa48d859f7dd5b42b300",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "disposition": "incorporated",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p104-consumer-budget-audit"
       ],
-      "unresolved_question": "Publication and live merge observation pending.",
-      "closure": null,
+      "unresolved_question": null,
+      "closure": {
+        "kind": "merged",
+        "merge_commit": "540eb529dc85bd285da73eb9c6db1fd48fe06e46",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2744"
+      },
       "scope": "Independent conditional P104 five-forward/four-dual consumer budget obstruction for two pinned profiles, including full endpoint credit, optimistic dual discounts and all finite fully paid bank counts. Complete scalar and inverse-transpose reconstruction and rational budget checks pass. Historical selected input is vendored under its original hashes; both engines ignore live-record changes and reject corrupted frozen input. Full combined replay passes with unchanged numerical receipt; no global owner construction or kappa claim.",
       "ready_to_integrate": true,
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1700-audit/packets/2744.json",

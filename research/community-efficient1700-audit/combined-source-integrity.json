@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "88d089b73f33f751d8875cf34cf11effd9758f79",
+  "checked_commit": "540eb529dc85bd285da73eb9c6db1fd48fe06e46",
   "merged_prs": [
     2478,
     2716,
@@ -16,13 +16,15 @@
     2735,
     2736,
     2737,
+    2738,
     2740,
     2741,
+    2744,
     2746,
     2752,
     2792
   ],
-  "changed_files": 196,
+  "changed_files": 224,
   "resolved_files": [
     {
       "number": 2729,
@@ -75,6 +77,36 @@
       "sha256": "315b258f35f17327478087787b080c4879359ea9ac035845be10024e7da01c59"
     },
     {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/README.md",
+      "sha256": "13694215d0c1a245b392f7155e8395b9c4bad9c5db3558833c784d9449616417"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/SOURCES.json",
+      "sha256": "23395a7405fecbe54a1010646299a0b48609bc72a851cd749e8dd068d6888025"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/VERIFY.json",
+      "sha256": "ed02ebf418e19ec8bb8a528349974c420ee66b0fadcb05c44bdb817226dcae68"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/independent_check.py",
+      "sha256": "ccb10d89b881bba7f35fd7d13d447d2c0d033a19d3da4b7d5c560f37d6883dbd"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/test_verify.py",
+      "sha256": "c2cd9c29e74171f1a40f7cca76013be5aeeb27a29bdda2e9d88125e25d9a4be4"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/verify.py",
+      "sha256": "535f5ffae540fe58c98e84904821b44ee5236ecb7c6299cfc571e7e9133266ab"
+    },
+    {
       "number": 2752,
       "path": "scripts/research_package.py",
       "sha256": "c6b3d2994453408dbdd8bc824cc2fd9471febdd078b98722a1c31a758da04ec1"
@@ -92,6 +124,11 @@
     {
       "number": 2729,
       "path": "research/p104-fusion-cost-headroom/inputs/SELECTED-AT-BASE.json",
+      "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
+    },
+    {
+      "number": 2744,
+      "path": "research/p104-consumer-budget-audit/inputs/SELECTED-AT-BASE.json",
       "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32"
     }
   ],
