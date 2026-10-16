@@ -7,10 +7,11 @@ The checkers, their pins, and the live selected record remain unchanged.
 import argparse
 import hashlib
 import json
+import os
+from pathlib import Path, PurePosixPath
 import subprocess
 import sys
 import tempfile
-from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
 INPUTS = Path(__file__).with_name('historical-ci-inputs')
@@ -192,8 +193,11 @@ def main():
         commands = list(config['commands'])
         if args.native:
             commands.append(['research/r420-two-sided-basis/native.py'])
+        # Retain assert-based historical checks, including nested interpreters.
+        env = os.environ.copy()
+        env.pop('PYTHONOPTIMIZE', None)
         for command in commands:
-            subprocess.run([sys.executable, '-B'] + command, cwd=snapshot, check=True)
+            subprocess.run([sys.executable, '-B'] + command, cwd=snapshot, env=env, check=True)
         verify_unchanged(snapshot, expected)
     print('PASS_HISTORICAL_CHECK', args.package, 'input_sha256=' + config['sha256'], flush=True)
 
