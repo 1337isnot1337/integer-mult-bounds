@@ -51,7 +51,10 @@ subproblem. Its claims are labelled by evidence status and exact source heads.
   checked headrooms is not new coverage.
   The [bootstrap obligation map](selected-bootstrap-scope-map.md) separates
   conditional BIT coefficient proposals, time and fresh-field implications,
-  and the remaining implementation premises. These are not supplier admission.
+  and the remaining implementation premises. Its
+  [caller and storage successor](selected-bit-caller-storage-map.md) distinguishes
+  the newer first-range and all-size logical callers from physical tape,
+  stronger time and outer-wrapper obligations. These are not supplier admission.
 
 These pending proposals have not been independently replayed for this guidance
 update and are not new admitted suppliers. Pin and check the dependencies needed

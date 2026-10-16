@@ -103,7 +103,7 @@
     "research/community-efficient1400-audit/DISPOSITIONS.json": "2f2441efc1a432801b506691d98b51f5202f683d741af38ec9af5ee1a2901b3b",
     "research/community-efficient1500-audit/DISPOSITIONS.json": "76e20c6cfd32c5e8a8bde3a21d1a8656e6c8694b05d86497ef5c5ca2894bb923",
     "research/community-efficient1600-audit/DISPOSITIONS.json": "5bef5fe7572f0db19916a3fbd539395b0d10a33f38114afc5ea6fe5383d22495",
-    "research/community-efficient1700-audit/DISPOSITIONS.json": "55ccd35bedc473aa32067a3d492fc263daa0c6da6b51a09ce6604f044094f03a",
+    "research/community-efficient1700-audit/DISPOSITIONS.json": "2411869ed4db572441017965c6f31947f5bcb3e1fa50633dd06641a8d97ec662",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr148-source-retention/RESULT.json": "2a67759d9f899d732c9925f0eadde9bab146fedd1c036822372c03f5e1b92204",
@@ -127935,25 +127935,28 @@
         {
           "head": "982c54b986c9f44e7524e5faa9522b809e793ded",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Documentation map of nine pinned BIT caller/storage contributions, with explicit first-range versus all-size logical and physical boundaries. Checked all 13 immutable source links, 25 relative links, nine declared replay routes, contributor identities and stock arithmetic against source statements. Historical author replays remain attributed reports; this navigation update does not admit the pending suppliers.",
           "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
+      "integration_location": [
+        "docs/research"
+      ],
       "github_state": "OPEN",
       "closure": null,
       "reviewed_head": "982c54b986c9f44e7524e5faa9522b809e793ded",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Publication and live merge observation pending.",
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2760.json"
+        "research/community-efficient1700-audit/packets/2760.json",
+        "research/community-efficient1700-audit/checks/check-2760.json"
       ],
       "current_head_observed_in": "research/community-efficient1700-audit/DISPOSITIONS.json",
       "reconciliation_evidence": [
@@ -127979,7 +127982,7 @@
         {
           "head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Scoped same-walk readout obstruction: correlated dirty shadows collapse by symmetric difference, and independently dirty connectors cannot improve the even-subset cost by its triangle inequality. Reviewed the complete primary, independent census and controls. Snapshot creation and physical implementation remain separately charged; independent walks and transfers lie outside the result. Registered exhaustive replay must finish before incorporation.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -127989,7 +127992,7 @@
       "closure": null,
       "reviewed_head": "cd4ff9427c3e35efb4de09bbf1137e7b68732ecf",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
@@ -128023,7 +128026,7 @@
         {
           "head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
           "evidence": "research/community-efficient1700-audit/DISPOSITIONS.json",
-          "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+          "scope": "Independent forward-rational and backward-adjoint audit of all 1152 bridge-aware centre-source rows. Reviewed complete scalar projection, dense controller and rank code; the wrong-sign control preserves endpoint identity and full rank while changing 930 intermediate rows. Native frames/address maps and output-response injectivity remain outside this projection; no child deletion, supplier admission or kappa improvement.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -128033,7 +128036,7 @@
       "closure": null,
       "reviewed_head": "24b985e05d77a6005e3b18cdd4a7c33da9c0d260",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "review_completion": {
         "changed_file_coverage": false,
         "scoped_mechanism_review": false,
