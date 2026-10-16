@@ -1704,5 +1704,58 @@
       "kind": "blob",
       "oid": "f8ceb099f18cfbe83d38859263c422ce26842b31"
     }
+  },
+  "publication": {
+    "p826": {
+      "number": 826,
+      "headRefOid": "ea3ceae40d5fa19dc0361d3f15546df0182459c4",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      }
+    },
+    "p2971": {
+      "number": 2971,
+      "headRefOid": "cc009708e5d7ca1e76a3263eb4e9efce57ac7d10",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      }
+    },
+    "p2972": {
+      "number": 2972,
+      "headRefOid": "d6b883f97d2fd176171553b695005a132156d961",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      }
+    },
+    "p2973": {
+      "number": 2973,
+      "headRefOid": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      }
+    },
+    "p2974": {
+      "number": 2974,
+      "headRefOid": "9cffaeb321429eb0b3f192aef05ce4ff3dae4b9f",
+      "state": "MERGED",
+      "isDraft": false,
+      "mergeCommit": {
+        "oid": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      }
+    }
+  },
+  "source_retention": {
+    "status": "PASS",
+    "checked_head": "445dad73a56a978b0314d0975839e7bb3cf1e2f3",
+    "installed_paths": 84,
+    "original_heads_in_ancestry": true
   }
 }

@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2484,
+  "inventory_count": 2488,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2045,
-    "partially_reviewed": 377,
+    "partially_reviewed": 381,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "55febbdea859c4fd5ae95de162fa41529bc9ea27a5f7cfcb2bb55c64f918c5c5",
+    "docs/research/pr-intake-decisions.json": "c59120d22b215ffc42c5a605d383989313d0bcdcbb4c7b8d4d656bf6317e5882",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -49754,36 +49754,44 @@
           "evidence": "research/community-efficient2600-audit/DISPOSITIONS.json",
           "scope": "Cached exact-head obligations and source-only triage; held_shared_or_existing_obligation.",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "ea3ceae40d5fa19dc0361d3f15546df0182459c4",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change. Generated contributor/ledger metadata resolved against current authoritative dispositions; original self-attested validation text retained only at original author commit.",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "integration_location": [],
-      "github_state": "OPEN",
-      "closure": null,
+      "integration_location": [
+        "research/pr-record699-685-audit"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/826",
+        "merge_commit": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      },
       "reviewed_head": "ea3ceae40d5fa19dc0361d3f15546df0182459c4",
       "disposition": "partially_reviewed",
-      "unresolved_question": "Research audit also edits generated ledger/contributor state. Reconcile numerical replay scope with current authoritative dispositions for #699/#685; do not overwrite the newer ledger.",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
       "review_completion": {
-        "changed_file_coverage": false,
+        "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
-        "research/community-efficient1800-audit/packets/826.json",
-        "research/community-efficient1900-audit/packets/826.json",
-        "research/community-efficient2500-audit/INTAKE.json",
-        "research/community-efficient2500-audit/packets/826.json",
-        "research/community-efficient2600-audit/INTAKE.json",
-        "research/community-efficient2600-audit/packets/826.json"
+        "docs/research/pr-intake-evidence/archives-20261016b.json"
       ],
-      "current_head_observed_in": "research/community-efficient2600-audit/DISPOSITIONS.json",
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "research/community-efficient200-audit/DISPOSITIONS.json",
         "research/community-efficient1800-audit/DISPOSITIONS.json",
         "research/community-efficient1900-audit/DISPOSITIONS.json",
         "research/community-efficient2500-audit/DISPOSITIONS.json",
-        "research/community-efficient2600-audit/DISPOSITIONS.json"
+        "research/community-efficient2600-audit/DISPOSITIONS.json",
+        "docs/research/pr-intake-decisions.json"
       ]
     },
     {
@@ -146293,6 +146301,206 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 2971,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2971",
+      "title": "Complete native and hosted replay of the R438 bit improvement",
+      "contributor": {
+        "id": "MDQ6VXNlcjgwMjk5Njgz",
+        "is_bot": false,
+        "login": "CubeJerry",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "cc009708e5d7ca1e76a3263eb4e9efce57ac7d10",
+      "current_head": "cc009708e5d7ca1e76a3263eb4e9efce57ac7d10",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "cc009708e5d7ca1e76a3263eb4e9efce57ac7d10",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/r438-native-rehost"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2971",
+        "merge_commit": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      },
+      "reviewed_head": "cc009708e5d7ca1e76a3263eb4e9efce57ac7d10",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016b.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2972,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2972",
+      "title": "Audit: stock-margin chain closes for the remaining cutoff pairs (no new kappa)",
+      "contributor": {
+        "id": "MDQ6VXNlcjE1MzM0MQ==",
+        "is_bot": false,
+        "login": "kumagi",
+        "name": "Hiroki KUMAZAKI"
+      },
+      "draft": false,
+      "starting_head": "d6b883f97d2fd176171553b695005a132156d961",
+      "current_head": "d6b883f97d2fd176171553b695005a132156d961",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "d6b883f97d2fd176171553b695005a132156d961",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/stock-margin-chain"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2972",
+        "merge_commit": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      },
+      "reviewed_head": "d6b883f97d2fd176171553b695005a132156d961",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016b.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2973,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2973",
+      "title": "Correct word-census parity budgets; 22 <= f(7) <= 24 in the PR943 model",
+      "contributor": {
+        "id": "MDQ6VXNlcjk0NjMxMDU=",
+        "is_bot": false,
+        "login": "NicholasStone",
+        "name": "Nicholas Stone"
+      },
+      "draft": false,
+      "starting_head": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+      "current_head": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/f7-weight-parity-census-correction"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2973",
+        "merge_commit": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      },
+      "reviewed_head": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016b.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 2974,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2974",
+      "title": "Independently verify PR2942 owner-to-recursive-cost bridge",
+      "contributor": {
+        "id": "MDQ6VXNlcjU2NTI3MTY=",
+        "is_bot": false,
+        "login": "RossRichardson",
+        "name": "Ross Richardson"
+      },
+      "draft": false,
+      "starting_head": "9cffaeb321429eb0b3f192aef05ce4ff3dae4b9f",
+      "current_head": "9cffaeb321429eb0b3f192aef05ce4ff3dae4b9f",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "9cffaeb321429eb0b3f192aef05ce4ff3dae4b9f",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Source/integrity archival acceptance only; no submitted scientific code executed or selected-bound change.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [
+        "research/normal45-owner-cost-bridge"
+      ],
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2974",
+        "merge_commit": "445dad73a56a978b0314d0975839e7bb3cf1e2f3"
+      },
+      "reviewed_head": "9cffaeb321429eb0b3f192aef05ce4ff3dae4b9f",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Independent scientific mechanism/proof review and complete source-bound replay remain open. Author-reported PASS receipts and claimed bounds are not maintainer validation.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": true
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/archives-20261016b.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -146304,7 +146512,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 1853,
-    "OPEN": 252
+    "MERGED": 1858,
+    "OPEN": 251
   }
 }

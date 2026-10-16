@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Nine integrations published. Continue pending substantive reviews and new arrivals using pr_intake.py; unchanged revision holds remain dormant. Windows run is complete; do not restart it.",
+  "next": "Run the delta planner; source archives are published. Twelve explicit revision holds and four resource-stopped replays now have persistent scheduling states. Remaining pending substantive work is not complete.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1009,5 +1009,27 @@
       2970
     ],
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
-  }
+  },
+  "latest_publication": {
+    "evidence": "docs/research/pr-intake-evidence/archives-20261016b.json",
+    "merged": [
+      826,
+      2971,
+      2972,
+      2973,
+      2974
+    ]
+  },
+  "reported_followups": [
+    {
+      "source_pr": 2973,
+      "source_head": "d48f3945dbb1ef5d06835744c4082b3bd04181c0",
+      "affected_prs": [
+        2542,
+        2634,
+        2691
+      ],
+      "scope": "Contributor reports a parity-budget defect in earlier word-census engines. This intake archives the correction but does not independently validate it. Review before relying on the earlier exclusions."
+    }
+  ]
 }

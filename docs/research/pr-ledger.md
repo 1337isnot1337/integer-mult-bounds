@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2484**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2488**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2045 |
-| partially reviewed | 377 |
+| partially reviewed | 381 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -766,7 +766,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#823](https://github.com/CrocSwap/integer-mult-bounds/pull/823) | FanPUYen | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#824](https://github.com/CrocSwap/integer-mult-bounds/pull/824) | navinor | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#825](https://github.com/CrocSwap/integer-mult-bounds/pull/825) | navinor | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
-| [#826](https://github.com/CrocSwap/integer-mult-bounds/pull/826) | Rohansguliani | partially reviewed | [record 1](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient200-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
+| [#826](https://github.com/CrocSwap/integer-mult-bounds/pull/826) | Rohansguliani | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient200-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 6](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
 | [#827](https://github.com/CrocSwap/integer-mult-bounds/pull/827) | cbethin | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
 | [#828](https://github.com/CrocSwap/integer-mult-bounds/pull/828) | mihir-s-05 | incorporated | [record 1](../../research/community-batch970-audit/DISPOSITIONS.json) |
 | [#830](https://github.com/CrocSwap/integer-mult-bounds/pull/830) | Ryan-Haines | incorporated | [record 1](../../research/community-efficient200-audit/DISPOSITIONS.json) |
@@ -2527,3 +2527,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2968](https://github.com/CrocSwap/integer-mult-bounds/pull/2968) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2969](https://github.com/CrocSwap/integer-mult-bounds/pull/2969) | Dugongue | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#2970](https://github.com/CrocSwap/integer-mult-bounds/pull/2970) | petalas | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2971](https://github.com/CrocSwap/integer-mult-bounds/pull/2971) | CubeJerry | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2972](https://github.com/CrocSwap/integer-mult-bounds/pull/2972) | kumagi | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2973](https://github.com/CrocSwap/integer-mult-bounds/pull/2973) | NicholasStone | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#2974](https://github.com/CrocSwap/integer-mult-bounds/pull/2974) | RossRichardson | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
