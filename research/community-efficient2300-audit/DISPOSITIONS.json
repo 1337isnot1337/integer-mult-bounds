@@ -18,22 +18,31 @@
       "reviewed_head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
       "current_head": "34e1080739e5e8a4349f8582c31dca798c308d4a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/paired-extension-cap-fill-rewrites"
+      ],
       "unresolved_question": "Full substantive review remains open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2948",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2948.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2948.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2948.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2948.json"
       ]
@@ -55,20 +64,31 @@
       "reviewed_head": "7a43b24c4b6729d171f3a2a11ef3b7dc77aabaa4",
       "current_head": "7a43b24c4b6729d171f3a2a11ef3b7dc77aabaa4",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/aphase-residue-composition",
+        "research/gmx-t74-borrow43-handoff",
+        "research/t248-dirtentry-residue"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2856",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2856.json",
         "research/community-efficient1900-audit/packets/2856.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2856.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2856.json"
       ]
@@ -90,20 +110,29 @@
       "reviewed_head": "d01045dfb67428679618027dff552f1d032fa999",
       "current_head": "d01045dfb67428679618027dff552f1d032fa999",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43-handoff"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2853",
+        "merge_commit": "d5684178f0d7225b6a3fbc07218e7775c77dcf4c"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2853.json",
         "research/community-efficient1900-audit/packets/2853.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2853.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2853.json"
       ]
@@ -140,6 +169,8 @@
         "research/community-efficient1800-audit/packets/2852.json",
         "research/community-efficient1900-audit/packets/2852.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2852.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2852.json"
       ]
     },
@@ -175,6 +206,8 @@
         "research/community-efficient1800-audit/packets/2843.json",
         "research/community-efficient1900-audit/packets/2843.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2843.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2843.json"
       ]
     },
@@ -209,6 +242,8 @@
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2833.json",
         "research/community-efficient1900-audit/packets/2833.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2833.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2833.json"
       ]
@@ -248,6 +283,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2818.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2818.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2818.json"
       ]
     },
@@ -285,6 +322,8 @@
         "research/community-efficient2200-audit/packets/2767.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2767.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2767.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2767.json"
       ]
@@ -324,6 +363,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2745.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2745.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2745.json"
       ]
     },
@@ -362,6 +403,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2733.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2733.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2733.json"
       ]
     },
@@ -399,6 +442,8 @@
         "research/community-efficient2200-audit/packets/2679.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2679.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2679.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2679.json"
       ]
@@ -439,6 +484,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2673.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2673.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2673.json"
       ]
     },
@@ -476,6 +523,8 @@
         "research/community-efficient2200-audit/packets/2588.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2588.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2588.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2588.json"
       ]
@@ -515,6 +564,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2575.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2575.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2575.json"
       ]
     },
@@ -552,6 +603,8 @@
         "research/community-efficient2100-audit/packets/2559.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2559.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2559.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2559.json"
       ]
@@ -591,6 +644,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2526.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2526.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2526.json"
       ]
     },
@@ -628,6 +683,8 @@
         "research/community-efficient2100-audit/packets/2474.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2474.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2474.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2474.json"
       ]
@@ -667,6 +724,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2462.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2462.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2462.json"
       ]
     },
@@ -704,6 +763,8 @@
         "research/community-efficient2100-audit/packets/2447.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2447.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2447.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2447.json"
       ]
@@ -743,6 +804,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2435.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2435.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2435.json"
       ]
     },
@@ -781,6 +844,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2374.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2374.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2374.json"
       ]
     },
@@ -816,6 +881,8 @@
         "research/community-efficient1800-audit/packets/2349.json",
         "research/community-efficient1900-audit/packets/2349.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2349.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2349.json"
       ]
     },
@@ -836,20 +903,29 @@
       "reviewed_head": "2900774d7e3b40dc2d0e7e96579d543699dded3e",
       "current_head": "2900774d7e3b40dc2d0e7e96579d543699dded3e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43-width-exchange"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2312",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2312.json",
         "research/community-efficient1900-audit/packets/2312.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2312.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2312.json"
       ]
@@ -871,20 +947,29 @@
       "reviewed_head": "9f67406e9972be9a97139f68ca29ea27a7545655",
       "current_head": "9f67406e9972be9a97139f68ca29ea27a7545655",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43-k518-506"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2302",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2302.json",
         "research/community-efficient1900-audit/packets/2302.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2302.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2302.json"
       ]
@@ -906,20 +991,29 @@
       "reviewed_head": "ba5e316fe247355397f63b6fcb3cfef78c11fa82",
       "current_head": "ba5e316fe247355397f63b6fcb3cfef78c11fa82",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43-refit"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2288",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2288.json",
         "research/community-efficient1900-audit/packets/2288.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2288.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2288.json"
       ]
@@ -941,20 +1035,29 @@
       "reviewed_head": "9c71e6194841d7355efa343b7cd5646359fad364",
       "current_head": "9c71e6194841d7355efa343b7cd5646359fad364",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43-gridmax"
+      ],
       "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2281",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2281.json",
         "research/community-efficient1900-audit/packets/2281.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2281.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2281.json"
       ]
@@ -976,16 +1079,23 @@
       "reviewed_head": "b479fc5567bc09ab9185bffe89b62594f36d74e5",
       "current_head": "b479fc5567bc09ab9185bffe89b62594f36d74e5",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-borrow43"
+      ],
       "unresolved_question": "Reviewed independent audit PR2315 reproduces both symbolic borrowed words,437-helper fill and moment, but does not establish native Clifford phases/lowering, X2 pending-axis disjointness and73-column charts, or outer/assembly proofs. Clarify and bind76 cleanup buffers in physical accounting and replace stale pre-borrow admission receipts. These remain explicit review obligations, not a mathematical rejection.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2269",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1300-audit/packets/2269.json",
@@ -993,6 +1103,8 @@
         "research/community-efficient2100-audit/packets/2269.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2269.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2269.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2269.json"
       ]
@@ -1014,16 +1126,23 @@
       "reviewed_head": "6b09c565887c400ca01fafb067bc9d855f1ef9fc",
       "current_head": "6b09c565887c400ca01fafb067bc9d855f1ef9fc",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/selective-borrowing-outer-retune"
+      ],
       "unresolved_question": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2265",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1500-audit/packets/2265.json",
@@ -1031,6 +1150,8 @@
         "research/community-efficient2100-audit/packets/2265.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2265.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2265.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2265.json"
       ]
@@ -1052,16 +1173,23 @@
       "reviewed_head": "fc09a70baf7d6bcff935df226f6fc9e6c6c0131d",
       "current_head": "fc09a70baf7d6bcff935df226f6fc9e6c6c0131d",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/capped-fusion-t74-k554"
+      ],
       "unresolved_question": "Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2220",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1200-audit/packets/2220.json",
@@ -1070,6 +1198,8 @@
         "research/community-efficient2100-audit/packets/2220.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2220.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2220.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2220.json"
       ]
@@ -1091,20 +1221,30 @@
       "reviewed_head": "68639f8b34e4a9554d634de881f14b1c84ad8b68",
       "current_head": "68639f8b34e4a9554d634de881f14b1c84ad8b68",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/exact-coarse-exponential",
+        "research/t74-exact-coarse-integration"
+      ],
       "unresolved_question": "Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2184",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient1800-audit/packets/2184.json",
         "research/community-efficient1900-audit/packets/2184.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2184.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2184.json"
       ]
@@ -1145,6 +1285,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2180.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2180.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2180.json"
       ]
     },
@@ -1184,6 +1326,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2161.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2161.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2161.json"
       ]
     },
@@ -1221,6 +1365,8 @@
         "research/community-efficient2100-audit/packets/2044.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2044.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2044.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2044.json"
       ]
@@ -1260,6 +1406,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1928.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1928.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1928.json"
       ]
     },
@@ -1297,6 +1445,8 @@
         "research/community-efficient2100-audit/packets/1905.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1905.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1905.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1905.json"
       ]
@@ -1336,6 +1486,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1904.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1904.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1904.json"
       ]
     },
@@ -1373,6 +1525,8 @@
         "research/community-efficient2100-audit/packets/1839.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1839.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1839.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1839.json"
       ]
@@ -1412,6 +1566,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1800.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1800.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1800.json"
       ]
     },
@@ -1449,6 +1605,8 @@
         "research/community-efficient2100-audit/packets/1789.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1789.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1789.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1789.json"
       ]
@@ -1488,6 +1646,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1758.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1758.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1758.json"
       ]
     },
@@ -1525,6 +1685,8 @@
         "research/community-efficient2100-audit/packets/1754.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1754.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1754.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1754.json"
       ]
@@ -1564,6 +1726,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1731.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1731.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1731.json"
       ]
     },
@@ -1601,6 +1765,8 @@
         "research/community-efficient2100-audit/packets/1725.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1725.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1725.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1725.json"
       ]
@@ -1640,6 +1806,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1721.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1721.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1721.json"
       ]
     },
@@ -1677,6 +1845,8 @@
         "research/community-efficient2100-audit/packets/1712.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1712.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1712.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1712.json"
       ]
@@ -1716,6 +1886,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1688.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1688.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1688.json"
       ]
     },
@@ -1753,6 +1925,8 @@
         "research/community-efficient2100-audit/packets/1683.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1683.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1683.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1683.json"
       ]
@@ -1792,6 +1966,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1681.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1681.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1681.json"
       ]
     },
@@ -1812,16 +1988,23 @@
       "reviewed_head": "be7362c7c7007390a07cf207483c1dbe3b3ab2e6",
       "current_head": "be7362c7c7007390a07cf207483c1dbe3b3ab2e6",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-p566-ep450"
+      ],
       "unresolved_question": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Then check the exact endpoint-enclosure engine and strict outer witness against the admitted supplier; extra decimal digits do not resolve missing construction premises.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1677",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient700-audit/packets/1677.json",
@@ -1829,6 +2012,8 @@
         "research/community-efficient2100-audit/packets/1677.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1677.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1677.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1677.json"
       ]
@@ -1850,16 +2035,23 @@
       "reviewed_head": "b8ab040dbb7638e79249e763c60e877765d9d3b7",
       "current_head": "b8ab040dbb7638e79249e763c60e877765d9d3b7",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-k554-signed-001"
+      ],
       "unresolved_question": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Review the new helper kernel/restoration argument and replay its complete native and whole-call interfaces separately from the unchanged ancestor.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1672",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient700-audit/packets/1672.json",
@@ -1867,6 +2059,8 @@
         "research/community-efficient2100-audit/packets/1672.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1672.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1672.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1672.json"
       ]
@@ -1888,16 +2082,23 @@
       "reviewed_head": "f852af5e178ce035cd46181a29d9330bcbcaa206",
       "current_head": "f852af5e178ce035cd46181a29d9330bcbcaa206",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-p566-ep400"
+      ],
       "unresolved_question": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Then check the exact endpoint-enclosure engine and strict outer witness against the admitted supplier; extra decimal digits do not resolve missing construction premises.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1661",
+        "merge_commit": "f852af5e178ce035cd46181a29d9330bcbcaa206"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient700-audit/packets/1661.json",
@@ -1905,6 +2106,8 @@
         "research/community-efficient2100-audit/packets/1661.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1661.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1661.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1661.json"
       ]
@@ -1944,6 +2147,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1644.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1644.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1644.json"
       ]
     },
@@ -1964,16 +2169,23 @@
       "reviewed_head": "3339744de1bbcc82844c890101856c31e3610d02",
       "current_head": "3339744de1bbcc82844c890101856c31e3610d02",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep300"
+      ],
       "unresolved_question": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Then check the exact endpoint-enclosure engine and strict outer witness against the admitted supplier; extra decimal digits do not resolve missing construction premises.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1640",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient700-audit/packets/1640.json",
@@ -1981,6 +2193,8 @@
         "research/community-efficient2100-audit/packets/1640.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1640.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1640.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1640.json"
       ]
@@ -2002,16 +2216,23 @@
       "reviewed_head": "6986056504a372b8a2dd74c66000da108a549be6",
       "current_head": "6986056504a372b8a2dd74c66000da108a549be6",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep400"
+      ],
       "unresolved_question": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Then check the exact endpoint-enclosure engine and strict outer witness against the admitted supplier; extra decimal digits do not resolve missing construction premises.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1601",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient700-audit/packets/1601.json",
@@ -2019,6 +2240,8 @@
         "research/community-efficient2100-audit/packets/1601.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1601.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1601.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1601.json"
       ]
@@ -2040,16 +2263,24 @@
       "reviewed_head": "18009ebf530ccd4b197c13333e651b7218df13ed",
       "current_head": "18009ebf530ccd4b197c13333e651b7218df13ed",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep200r",
+        "research/t74-repaired-outer210"
+      ],
       "unresolved_question": "Outer-only refinement of pending PR1319, explicitly superseded numerically by PR1578. Parent physical/controller/invoice and regenerated-artifact obligations remain; later digits do not establish supplier admission. Preserve parallel attribution when this family is consolidated.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1586",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1586.json",
@@ -2057,6 +2288,8 @@
         "research/community-efficient2100-audit/packets/1586.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1586.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1586.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1586.json"
       ]
@@ -2096,6 +2329,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1582.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1582.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1582.json"
       ]
     },
@@ -2133,6 +2368,8 @@
         "research/community-efficient2100-audit/packets/1578.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1578.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1578.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1578.json"
       ]
@@ -2172,6 +2409,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1549.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1549.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1549.json"
       ]
     },
@@ -2192,16 +2431,23 @@
       "reviewed_head": "527d7623009f295b7311e98ae36f5e2fbdbbc3e5",
       "current_head": "527d7623009f295b7311e98ae36f5e2fbdbbc3e5",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep200r"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1536",
+        "merge_commit": "527d7623009f295b7311e98ae36f5e2fbdbbc3e5"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1536.json",
@@ -2209,6 +2455,8 @@
         "research/community-efficient2100-audit/packets/1536.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1536.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1536.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1536.json"
       ]
@@ -2230,16 +2478,23 @@
       "reviewed_head": "968d7ea2be07c376ceaee24d659b4298628e9767",
       "current_head": "968d7ea2be07c376ceaee24d659b4298628e9767",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep200g195"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1513",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1513.json",
@@ -2249,6 +2504,8 @@
         "research/community-efficient2000-audit/packets/1513.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1513.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1513.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1513.json"
       ]
@@ -2270,16 +2527,23 @@
       "reviewed_head": "4adcd51fd74f6cf64970e2dd87b33b1a7864e408",
       "current_head": "4adcd51fd74f6cf64970e2dd87b33b1a7864e408",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep200"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1510",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1510.json",
@@ -2289,6 +2553,8 @@
         "research/community-efficient2000-audit/packets/1510.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1510.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1510.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1510.json"
       ]
@@ -2310,16 +2576,23 @@
       "reviewed_head": "0a211a4608d2c3d295f8bb94b12ca446714186ab",
       "current_head": "0a211a4608d2c3d295f8bb94b12ca446714186ab",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-ep120"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1479",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient600-audit/packets/1479.json",
@@ -2329,6 +2602,8 @@
         "research/community-efficient2000-audit/packets/1479.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1479.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1479.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1479.json"
       ]
@@ -2350,16 +2625,23 @@
       "reviewed_head": "fec30ff23f972fdc59aeec24bc5bd64b8638d8aa",
       "current_head": "fec30ff23f972fdc59aeec24bc5bd64b8638d8aa",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-fine60"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1458",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1458.json",
@@ -2369,6 +2651,8 @@
         "research/community-efficient2000-audit/packets/1458.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1458.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1458.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1458.json"
       ]
@@ -2390,16 +2674,23 @@
       "reviewed_head": "e8281be5d0123527bd467e92c4f7005d2ab33b3f",
       "current_head": "e8281be5d0123527bd467e92c4f7005d2ab33b3f",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-outer70"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1444",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1444.json",
@@ -2409,6 +2700,8 @@
         "research/community-efficient2000-audit/packets/1444.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1444.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1444.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1444.json"
       ]
@@ -2430,16 +2723,23 @@
       "reviewed_head": "7b6b538212812e01c45a51966837598a197a799b",
       "current_head": "7b6b538212812e01c45a51966837598a197a799b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gmx-t74-grid24"
+      ],
       "unresolved_question": "Refines only the outer witness of the pending PR1319 family. Review the arithmetic separately, but whole-head admission requires resolving the parent regenerated-container binding and completing its controller/invoice/geometry replay; do not promote an unadmitted parent through a finer numerical grid.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1377",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient500-audit/packets/1377.json",
@@ -2449,6 +2749,8 @@
         "research/community-efficient2000-audit/packets/1377.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1377.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1377.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1377.json"
       ]
@@ -2470,16 +2772,23 @@
       "reviewed_head": "336d0ee3ea8026f9388ccafee91c923a434d0328",
       "current_head": "336d0ee3ea8026f9388ccafee91c923a434d0328",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/global-mixed-x54-fusions-k531"
+      ],
       "unresolved_question": "Supplier-family review pending: bind native local replay, physical owners and complete admission; reconcile overlapping historical package versions.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1274",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1274.json",
@@ -2489,6 +2798,8 @@
         "research/community-efficient2000-audit/packets/1274.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1274.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1274.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1274.json"
       ]
@@ -2510,16 +2821,23 @@
       "reviewed_head": "f8fede235d45ea3aada5cbb28704c8a2ecd0f3d7",
       "current_head": "f8fede235d45ea3aada5cbb28704c8a2ecd0f3d7",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/global-mixed-x54-grid24"
+      ],
       "unresolved_question": "Supplier-family review pending: bind native local replay, physical owners and complete admission; reconcile overlapping historical package versions.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1261",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient400-audit/packets/1261.json",
@@ -2529,6 +2847,8 @@
         "research/community-efficient2000-audit/packets/1261.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1261.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1261.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1261.json"
       ]
@@ -2550,16 +2870,23 @@
       "reviewed_head": "4d2cc9df55ed5a17786b7c0a200d70332afbe41e",
       "current_head": "4d2cc9df55ed5a17786b7c0a200d70332afbe41e",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        ".gitattributes",
+        "research/gauge44-ends7-t16"
+      ],
       "unresolved_question": "Whole-head supplier review remains open for `research/gauge44-ends7-t16`. Bind its exact native providers, physical owner allocation and admission evidence, then reconcile changed predecessor blobs before merge. Path overlap with a replayed descendant does not establish complete coverage; see SUPPLIER-FAMILIES.json.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1172",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient300-audit/packets/1172.json",
@@ -2569,6 +2896,8 @@
         "research/community-efficient2000-audit/packets/1172.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1172.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1172.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1172.json"
       ]
@@ -2610,6 +2939,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1130.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1130.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1130.json"
       ]
     },
@@ -2649,6 +2980,8 @@
         "research/community-efficient2000-audit/packets/1124.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1124.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1124.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1124.json"
       ]
@@ -2690,6 +3023,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1121.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1121.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1121.json"
       ]
     },
@@ -2729,6 +3064,8 @@
         "research/community-efficient2000-audit/packets/1117.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1117.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1117.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1117.json"
       ]
@@ -2770,6 +3107,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1107.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1107.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1107.json"
       ]
     },
@@ -2810,6 +3149,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1104.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1104.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1104.json"
       ]
     },
@@ -2830,18 +3171,26 @@
       "reviewed_head": "bbf10e5254321a17910ff425be913ffb20e36203",
       "current_head": "bbf10e5254321a17910ff425be913ffb20e36203",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/weighted-wrapper-contract"
+      ],
       "unresolved_question": "Full substantive review remains open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2950",
+        "merge_commit": "aed132b5d72e4f30cac0d4948847198708649cdc"
+      },
       "scope": "ARCHIVE ONLY: original author research sources retained; root attributes use an explicit additive resolution with original attribute blobs preserved separately; source identity, new research paths, syntax and available flat manifest pins checked. No author code execution, mathematical validation, full reproduction or new selected kappa. Stored author receipts retain their original status.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2950.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2950.json"
       ]
@@ -2879,6 +3228,8 @@
         "research/community-efficient2200-audit/packets/2922.json",
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2922.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2922.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2922.json"
       ]
@@ -2919,6 +3270,8 @@
         "research/community-efficient2200-audit/INTAKE.json",
         "research/community-efficient2200-audit/packets/2713.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2713.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2713.json"
       ]
     },
@@ -2957,6 +3310,8 @@
         "research/community-efficient2100-audit/packets/2422.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2422.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2422.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2422.json"
       ]
@@ -2997,6 +3352,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2414.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2414.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2414.json"
       ]
     },
@@ -3036,6 +3393,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2404.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2404.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2404.json"
       ]
     },
@@ -3073,6 +3432,8 @@
         "research/community-efficient2100-audit/packets/2378.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2378.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2378.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2378.json"
       ]
@@ -3113,6 +3474,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2295.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2295.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2295.json"
       ]
     },
@@ -3151,6 +3514,8 @@
         "research/community-efficient2100-audit/packets/2289.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2289.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2289.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2289.json"
       ]
@@ -3192,6 +3557,8 @@
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/2267.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/2267.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/2267.json"
       ]
     },
@@ -3229,6 +3596,8 @@
         "research/community-efficient2100-audit/packets/1699.json",
         "research/community-efficient2100-audit/INTAKE.json",
         "research/community-efficient2100-audit/packets/1699.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1699.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1699.json"
       ]
@@ -3269,6 +3638,8 @@
         "research/community-efficient2000-audit/packets/1309.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1309.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1309.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1309.json"
       ]
@@ -3312,6 +3683,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1239.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1239.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1239.json"
       ]
     },
@@ -3351,6 +3724,8 @@
         "research/community-efficient2000-audit/packets/1196.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1196.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1196.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1196.json"
       ]
@@ -3392,6 +3767,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1152.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1152.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1152.json"
       ]
     },
@@ -3431,6 +3808,8 @@
         "research/community-efficient2000-audit/packets/1141.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1141.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1141.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1141.json"
       ]
@@ -3472,6 +3851,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1131.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1131.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1131.json"
       ]
     },
@@ -3511,6 +3892,8 @@
         "research/community-efficient2000-audit/packets/1054.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1054.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1054.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1054.json"
       ]
@@ -3552,6 +3935,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1038.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1038.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1038.json"
       ]
     },
@@ -3591,6 +3976,8 @@
         "research/community-efficient2000-audit/packets/1025.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/1025.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/1025.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/1025.json"
       ]
@@ -3632,6 +4019,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/985.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/985.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/985.json"
       ]
     },
@@ -3672,6 +4061,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/977.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/977.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/977.json"
       ]
     },
@@ -3707,6 +4098,8 @@
         "research/community-efficient1800-audit/packets/931.json",
         "research/community-efficient1800-audit/checks/check-931.json",
         "research/community-efficient1900-audit/packets/931.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/931.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/931.json"
       ]
@@ -3747,6 +4140,8 @@
         "research/community-efficient2000-audit/packets/846.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/846.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/846.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/846.json"
       ]
@@ -3789,6 +4184,8 @@
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/775.json",
         "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/775.json",
+        "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/775.json"
       ]
     },
@@ -3828,6 +4225,8 @@
         "research/community-efficient2000-audit/packets/732.json",
         "research/community-efficient2000-audit/INTAKE.json",
         "research/community-efficient2000-audit/packets/732.json",
+        "research/community-efficient2300-audit/INTAKE.json",
+        "research/community-efficient2300-audit/packets/732.json",
         "research/community-efficient2300-audit/INTAKE.json",
         "research/community-efficient2300-audit/packets/732.json"
       ]
