@@ -1630,3 +1630,7 @@ These submissions preserve reported independent checks and research. Independent
 These submissions preserve reported independent checks and research. Independent maintainer scientific replay remains open; no selected-bound update.
 
 - **Nick Petalas (@petalas)** — [#2977](https://github.com/CrocSwap/integer-mult-bounds/pull/2977): Audit selected scatter parity across word and record checks (source archive).
+
+## PR275 historical source retention
+
+- **George Lydakis (@lydakis)** — [#275](https://github.com/CrocSwap/integer-mult-bounds/pull/275): finite assembly and source-bound applications, with the complete expanded submission preserved at [its original commit](https://github.com/CrocSwap/integer-mult-bounds/tree/524375c61b75dc10cef68a71d504e79e7e7f138c). Two primary package reviews previously passed; the remaining scientific packages and proposed test/CI changes are not newly validated or installed.
