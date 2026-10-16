@@ -1626,9 +1626,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Scoped Q=8 dirty-parity obstruction in the common-B alphabet. Reviewed all 1122 checker/model/test lines and the zero-slot repair lemma: repaired odd readouts have exactly even-subset optimum. Distinct-seven and exactly-one-duplicate layers are separated; full declared exhaustive replays remain the acceptance gate. Independent implementation duplicates parts of the DP logic, so its agreement is corroboration, not a different-method universal proof.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
@@ -1837,19 +1837,22 @@
       "current_head": "687372b807f5ec635f6a748c2585fc0090a7dc2a",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "integration_location": [
+        "research/selected-callback-word-liveness"
+      ],
+      "unresolved_question": "Publication and live merge observation pending.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
-      "ready_to_integrate": false,
+      "scope": "Source-level all-depth numerical liveness of Callback.weight and initialized Page.evaluate. Reviewed complete lifetime argument and 522 new checker/test lines against actual controller, numeric, matrix, record and arithmetic allocation/free paths; literal fixtures attain residue/index maxima separately. Bound includes all entry residents and retained forms, but excludes form construction, serialized continuation/backing, physical placement and full caller reserve/admission.",
+      "ready_to_integrate": true,
       "review_completion": {
-        "changed_file_coverage": false,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": false
       },
       "verification_evidence": [
-        "research/community-efficient1700-audit/packets/2770.json"
+        "research/community-efficient1700-audit/packets/2770.json",
+        "research/community-efficient1700-audit/checks/check-2770.json"
       ]
     },
     {
@@ -1947,7 +1950,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "The declared default replay checks consistency of the load-bearing Sidon/near-Sidon census receipts but does not rerun the zero-count shards; --full is separate and estimated at 17 minutes. Complete search-engine/coverage review and an appropriate full or independently certified census are needed before accepting the new exclusions. No rejection follows from this coverage gap.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -1980,7 +1983,7 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Review must separate the valid matched-pivot computations from inherited claims that PR2717/2747 closed residue classes. Ordinary 3-dichromaticity does not imply a D-compatible acyclic partition (see retained PR2717 counterexample). README distinguishes these notions later, but its opening and closure lineage need qualification; full engine audit remains pending.",
       "closure": null,
       "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
       "ready_to_integrate": false,
@@ -2126,9 +2129,9 @@
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance.",
+      "unresolved_question": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation.",
       "closure": null,
-      "scope": "Exact-head metadata and complete changed-file inventory collected; substantive review is in progress.",
+      "scope": "Scoped partitioned independent-walk Q=7 obstruction with distinct labels in each walk. Reviewed all 796 model/check/test lines and the independent-dirt convolution: only (2,5)/(3,4) shapes are admitted; rank/span and even Hamming-cost identity justify the first shape, exhaustive convolution the second. Transfers, shared prefixes and repeated labels remain outside; full execution is still required.",
       "ready_to_integrate": false,
       "review_completion": {
         "changed_file_coverage": false,
