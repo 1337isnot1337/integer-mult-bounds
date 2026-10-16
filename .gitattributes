@@ -15,6 +15,8 @@ references/partial-gauge/pr97/** whitespace=-blank-at-eof
 references/three-stage-cover/pr117/** -whitespace
 # PR186's manifest hashes original bytes, including two CRLF JSON artifacts.
 research/coordinated-frames-and-entrance-banks/** -text -whitespace
+# Preserve the exact vendored PR1 head bytes authenticated by the retention receipt.
+research/pr1-retention-receipt/inputs/** -text -whitespace
 # Frozen PR210 package and round-nine evidence retain their audited bytes.
 research/five-stage-source527-banks/** -text -whitespace
 research/community-round9-audit/** -text -whitespace
