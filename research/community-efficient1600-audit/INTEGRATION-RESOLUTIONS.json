@@ -104,7 +104,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.json",
     "original_sha256": "8dc2d23c4fee6f509eeea800ed338ab90c1e3b19525fbfbf50be26ec28867a1b",
-    "resolved_sha256": "f87872a4223a7f4e04d39bc23ed0a64f05d178452e7f8112271260dc2d546030",
+    "resolved_sha256": "424fca5e23941302a6d4007135dfbe9ca675f379f20600a5c9e5158b1664032e",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
@@ -112,7 +112,7 @@
     "number": 2624,
     "path": "docs/research/pr-ledger.md",
     "original_sha256": "6cc2b2eb566858e080b2a7520f6ea430ec122f2ed6fc4f5e3b20fd5992bd8666",
-    "resolved_sha256": "fc1055385fb1ad07e5d7bfdff9954fbb28b645f4e1ea2deb29b6ffbd7a20525a",
+    "resolved_sha256": "45de6f5b17faa7b565e7fd073161517b9a8e00b2ad9c322e8bdf60dd65130b92",
     "reason": "Regenerated from the reviewed current generator, including this batch integration receipts; retains the independently checked PR148-only source projection and all newer review/attribution records.",
     "followup": "Round1900: reviewed solver lifetime repair, exact historical successor pin, updated ledger/navigation and contributor credit; no selected change."
   },
@@ -161,7 +161,7 @@
   {
     "number": 2633,
     "path": "docs/research/bottleneck-brief.md",
-    "resolved_sha256": "63bbd370628e67a942040e06bff1694f41aca725f2e8a4a334c14a9eb2cf822e",
+    "resolved_sha256": "46b10d4d47ee63d6a8df1eec00e5d025e87c209fb2b58f4541b25b70e45e8878",
     "reason": "Preserve newer main guidance/package-name extraction and combine independent navigation pointers; explicitly mark historical source-status snapshots without changing their pinned evidence. Later PR2760 adds the independent BIT caller/storage pointer while retaining this P104 helper-lifetime link.",
     "original_sha256": "eb180df23bbb377a05e9b1fa37799b736b07c6e1639495f451e51e8a7afcaed3",
     "followup": "Round1900 PR2903: retain prior P104/BIT navigation and add the independently reviewed QQ16 numerical-contract pointer; no selected change."

@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 2040 |
-| partially reviewed | 374 |
+| incorporated | 2043 |
+| partially reviewed | 371 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -2490,7 +2490,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2924](https://github.com/CrocSwap/integer-mult-bounds/pull/2924) | Sudarsh3301 | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2925](https://github.com/CrocSwap/integer-mult-bounds/pull/2925) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2927](https://github.com/CrocSwap/integer-mult-bounds/pull/2927) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
-| [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
+| [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928) | petalas | incorporated | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
 | [#2930](https://github.com/CrocSwap/integer-mult-bounds/pull/2930) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2931](https://github.com/CrocSwap/integer-mult-bounds/pull/2931) | hevlyo | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2932](https://github.com/CrocSwap/integer-mult-bounds/pull/2932) | ToikY | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
@@ -2505,7 +2505,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2942](https://github.com/CrocSwap/integer-mult-bounds/pull/2942) | mdumitrean | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2943](https://github.com/CrocSwap/integer-mult-bounds/pull/2943) | ToikY | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2944](https://github.com/CrocSwap/integer-mult-bounds/pull/2944) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
-| [#2945](https://github.com/CrocSwap/integer-mult-bounds/pull/2945) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
+| [#2945](https://github.com/CrocSwap/integer-mult-bounds/pull/2945) | petalas | incorporated | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
 | [#2947](https://github.com/CrocSwap/integer-mult-bounds/pull/2947) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
 | [#2948](https://github.com/CrocSwap/integer-mult-bounds/pull/2948) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2300-audit/DISPOSITIONS.json) |
 | [#2949](https://github.com/CrocSwap/integer-mult-bounds/pull/2949) | petalas | partially reviewed | [record 1](../../research/community-efficient2200-audit/DISPOSITIONS.json) |
@@ -2515,7 +2515,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#2953](https://github.com/CrocSwap/integer-mult-bounds/pull/2953) | petalas | partially reviewed | [record 1](../../research/community-efficient2400-audit/DISPOSITIONS.json) |
 | [#2956](https://github.com/CrocSwap/integer-mult-bounds/pull/2956) | Sudarsh3301 | partially reviewed | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) |
 | [#2957](https://github.com/CrocSwap/integer-mult-bounds/pull/2957) | jeremykothe2 | partially reviewed | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
-| [#2958](https://github.com/CrocSwap/integer-mult-bounds/pull/2958) | petalas | partially reviewed | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
+| [#2958](https://github.com/CrocSwap/integer-mult-bounds/pull/2958) | petalas | incorporated | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
 | [#2959](https://github.com/CrocSwap/integer-mult-bounds/pull/2959) | petalas | partially reviewed | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) |
 | [#2960](https://github.com/CrocSwap/integer-mult-bounds/pull/2960) | RossRichardson | partially reviewed | [record 1](../../research/community-efficient2500-audit/DISPOSITIONS.json) |
 | [#2961](https://github.com/CrocSwap/integer-mult-bounds/pull/2961) | navinor | partially reviewed | [record 1](../../research/community-efficient2600-audit/DISPOSITIONS.json) |

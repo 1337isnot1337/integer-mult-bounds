@@ -159,7 +159,7 @@
   {
     "number": 2760,
     "path": "docs/research/bottleneck-brief.md",
-    "resolved_sha256": "63bbd370628e67a942040e06bff1694f41aca725f2e8a4a334c14a9eb2cf822e",
+    "resolved_sha256": "46b10d4d47ee63d6a8df1eec00e5d025e87c209fb2b58f4541b25b70e45e8878",
     "reason": "Retain the already-integrated P104 helper-lifetime navigation pointer while adding the independent selected-BIT caller/storage pointer; all remaining authored text retained.",
     "followup": "Round1900 PR2903: retain prior P104/BIT navigation and add the independently reviewed QQ16 numerical-contract pointer; no selected change."
   },

@@ -1,22 +1,21 @@
 # PR queue: next actions
 
-Snapshot after the twenty-fifth intake: **101 non-draft PRs remain open**. Twenty-eight contributions were archived this round, including 25 separately reviewed manual workflow configurations. Scientific claims remain unvalidated by intake; selected κ is unchanged.
+Snapshot after the twenty-sixth intake: **100 non-draft PRs remain open**. Three scoped tooling/navigation changes and two source-only archives were integrated. The selected result is unchanged.
 
 | Lane | Open non-draft PRs |
 | --- | ---: |
-| new head | 1 |
-| shared code or docs | 31 |
-| research plus attributes | 1 |
-| held known correctness | 14 |
-| held known correctness or integrity | 48 |
-| held intake errors | 3 |
-| held unreviewed stack | 2 |
-| held unmerged dependencies | 1 |
+| new head | 4 |
+| held known correctness or integrity | 65 |
+| shared code or docs | 28 |
+| research versions or new files | 2 |
+| held known correctness | 1 |
 
 ## Efficient next pass
 
-Refresh live heads and compare to the [exact queue snapshot](../../research/community-efficient2500-audit/QUEUE-final.json). Skip unchanged revision holds. Prioritize shared-code changes with affected-consumer tests; #2958 addresses replay-inventory omissions and is a useful next target. #2957 adds a research package plus root attributes and needs its own source/attribute intake.
+Refresh live heads against the [exact queue snapshot](../../research/community-efficient2600-audit/QUEUE-final.json). Reuse unchanged dispositions. Shared-code classification is not a count of fresh actionable PRs: many entries already have concrete source-consumer migration or correctness objections. Read their remaining obligations before allocating another replay.
 
-CI configuration for 25 proposals is now manual-only. No jobs were dispatched. #1699 shares the copied evidence-manifest mismatch, and #732 conflicts with the frozen global-star package; both remain open.
+#2958 and #2928 are integrated with defect-sensitive tooling checks. #2945 navigation now distinguishes PR2809 source archival publication from scientific acceptance. See the [test scope](../../research/community-efficient2600-audit/TEST-SCOPE.md) for the sparse-checkout limitation on unrelated historical inventory tests.
 
-The [previous grouped integrity report](../../research/community-efficient2400-audit/manifest-issues.json) records the 36 related revision holds and one separate hash mismatch. The #1699 copy adds another instance. Resolve the common provenance question once without silently rewriting frozen evidence. Known proof objections and stacked dependencies retain their exact obligations in the central ledger.
+Next candidates include Windows replay-lifetime tooling (#2469/#2452) and the remaining mixed research/workflow proposals. Keep source-bound historical consumers intact. #1861/#1922 remain blocked on additional legacy consumer migration despite prior focused optimization passes; do not rerun their unchanged broad suites.
+
+The shared evidence-manifest issue and other known proof/integrity holds remain open. No automatic retry of prior resource-stopped scientific workloads.

@@ -17,17 +17,25 @@
       },
       "reviewed_head": "320907eb27c5f4df9519f88c6f8ba4217d944174",
       "current_head": "320907eb27c5f4df9519f88c6f8ba4217d944174",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Scoped review complete; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research",
+        "scripts/research_package.py",
+        "tests/test_research_replay_selection.py"
+      ],
+      "unresolved_question": "",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2958",
+        "merge_commit": "916ecdd9d6e666fcad9b25369d055311f6ce8204"
+      },
       "scope": "Replay inventory completeness: complete selection suite; new regressions fail baseline and pass candidate under normal and optimized Python. No mathematical change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",
@@ -54,17 +62,23 @@
       },
       "reviewed_head": "a54d85a97f0be518369e08d300f38add810516ca",
       "current_head": "a54d85a97f0be518369e08d300f38add810516ca",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Scoped review complete; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "docs/research"
+      ],
+      "unresolved_question": "",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2945",
+        "merge_commit": "916ecdd9d6e666fcad9b25369d055311f6ce8204"
+      },
       "scope": "Source-bound navigation review:33local links/anchors checked, four source heads/statuses matched to current ledger. Resolve newly archived PR2809 availability and distinguish author replay reports; no theorem or source-callee admission.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2200-audit/INTAKE.json",
@@ -94,17 +108,25 @@
       },
       "reviewed_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
       "current_head": "4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c",
-      "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
-      "unresolved_question": "Scoped review complete; publication pending.",
-      "closure": null,
+      "disposition": "incorporated",
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/selected-ci-branch-order",
+        "scripts/check_selected_ci_inputs.py",
+        "tests/test_selected_ci_inputs.py"
+      ],
+      "unresolved_question": "",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2928",
+        "merge_commit": "916ecdd9d6e666fcad9b25369d055311f6ce8204"
+      },
       "scope": "Ordered branch exclusion and unsupported-pattern guards: focused parser, record/exit, complete fixture CLI tests pass normal/optimized; regressions fail baseline. Installed selected-workflow branch filters pass. Unchanged live-inventory suites were not completed in sparse checkout; no scientific or all-source replay claimed.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2200-audit/INTAKE.json",
@@ -1264,16 +1286,22 @@
       "reviewed_head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
       "current_head": "df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "research/f7-18point-tight-classes-seed4c1e7b30"
+      ],
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2961",
+        "merge_commit": "916ecdd9d6e666fcad9b25369d055311f6ce8204"
+      },
       "scope": "ARCHIVE ONLY: Exact original research blobs retained in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2600-audit/INTAKE.json",
@@ -1297,16 +1325,22 @@
       "reviewed_head": "b74b25f3ccc84c16e1a801d73b2f47e5ea764c78",
       "current_head": "b74b25f3ccc84c16e1a801d73b2f47e5ea764c78",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
-      "integration_location": [],
+      "github_state": "MERGED",
+      "integration_location": [
+        "https://github.com/CrocSwap/integer-mult-bounds/tree/b74b25f3ccc84c16e1a801d73b2f47e5ea764c78"
+      ],
       "unresolved_question": "Independent mechanism/proof review and source-bound replay remain open.",
-      "closure": null,
+      "closure": {
+        "kind": "merged_for_historical_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/2957",
+        "merge_commit": "916ecdd9d6e666fcad9b25369d055311f6ce8204"
+      },
       "scope": "ARCHIVE ONLY: Complete original commit retained in main ancestry at the linked immutable tree; its differing files and attributes are deliberately NOT installed in the default checkout. Source diff, identity, syntax and available flat manifest pins checked. No submitted code run, scientific validation or selected-frontier change.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/community-efficient2500-audit/INTAKE.json",

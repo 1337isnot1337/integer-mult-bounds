@@ -1,6 +1,6 @@
 # Twenty-sixth 100-head reconciliation
 
-Shared tooling/navigation review plus source archival intake. **0 merged; 100 remain open in this batch.** No scientific claim or new κ was validated. Focused tooling tests ran under a sampled1GiB watchdog and150-second per-command limit; no Lean or Docker ran. Archived scientific claims retain their proof/replay obligations.
+Shared tooling/navigation review plus source archival intake. **5 merged; 95 remain open in this batch.** No scientific claim or new κ was validated. Focused tooling tests ran under a sampled1GiB watchdog and150-second per-command limit; no Lean or Docker ran. Archived scientific claims retain their proof/replay obligations.
 
 Competing package versions are retained at their complete original Git commits in canonical main ancestry. The links below identify the precise version; those versions do not overwrite frozen default-tree packages. New isolated packages use their exact original blobs in the default tree. Root attributes in historical snapshots remain inactive.
 
@@ -8,9 +8,9 @@ Competing package versions are retained at their complete original Git commits i
 
 | PR / author | Intake | Source / retained version |
 | --- | --- | --- |
-| [#2958](https://github.com/CrocSwap/integer-mult-bounds/pull/2958) / petalas | reviewed_ready | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/320907eb27c5f4df9519f88c6f8ba4217d944174) |
-| [#2945](https://github.com/CrocSwap/integer-mult-bounds/pull/2945) / petalas | reviewed_ready | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/a54d85a97f0be518369e08d300f38add810516ca) |
-| [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928) / petalas | reviewed_ready | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c) |
+| [#2958](https://github.com/CrocSwap/integer-mult-bounds/pull/2958) / petalas | Reviewed tooling/navigation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/320907eb27c5f4df9519f88c6f8ba4217d944174) |
+| [#2945](https://github.com/CrocSwap/integer-mult-bounds/pull/2945) / petalas | Reviewed tooling/navigation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/a54d85a97f0be518369e08d300f38add810516ca) |
+| [#2928](https://github.com/CrocSwap/integer-mult-bounds/pull/2928) / petalas | Reviewed tooling/navigation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/4d2e1d0d845aac7ad4ff2e899c3286e1da4dfd4c) |
 | [#2780](https://github.com/CrocSwap/integer-mult-bounds/pull/2780) / Dugongue | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/59f336094958b51b312e54deb85347e1b671172d) |
 | [#2469](https://github.com/CrocSwap/integer-mult-bounds/pull/2469) / ywz65 | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/65080e406c9edb0e93daa631f90b3fa4e4461910) |
 | [#2452](https://github.com/CrocSwap/integer-mult-bounds/pull/2452) / ywz65 | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/5208ab2780550273b1d8933ff584ce7581fb242d) |
@@ -39,8 +39,8 @@ Competing package versions are retained at their complete original Git commits i
 | [#485](https://github.com/CrocSwap/integer-mult-bounds/pull/485) / DreamingOfClouds | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/af51ea7ad6570f04c8424be7cc6f4070bfd1e6ff) |
 | [#275](https://github.com/CrocSwap/integer-mult-bounds/pull/275) / lydakis | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/524375c61b75dc10cef68a71d504e79e7e7f138c) |
 | [#122](https://github.com/CrocSwap/integer-mult-bounds/pull/122) / SovereignSteak | held_shared_or_existing_obligation | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/b1a6f24e57141637b3ff040d6f2ce9d896ffb9bb) |
-| [#2961](https://github.com/CrocSwap/integer-mult-bounds/pull/2961) / navinor | archive_ready | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd) |
-| [#2957](https://github.com/CrocSwap/integer-mult-bounds/pull/2957) / jeremykothe2 | archive_ready | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/b74b25f3ccc84c16e1a801d73b2f47e5ea764c78) |
+| [#2961](https://github.com/CrocSwap/integer-mult-bounds/pull/2961) / navinor | Default-tree archive | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/df2eba6c6c3dcc88b49b3b9a9c9c2e710710d7fd) |
+| [#2957](https://github.com/CrocSwap/integer-mult-bounds/pull/2957) / jeremykothe2 | Historical snapshot | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/b74b25f3ccc84c16e1a801d73b2f47e5ea764c78) |
 | [#1699](https://github.com/CrocSwap/integer-mult-bounds/pull/1699) / chafreaky | held_known_correctness_or_integrity | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/9f0c00d353b521c6840729861e48d7d0da20d345) |
 | [#1534](https://github.com/CrocSwap/integer-mult-bounds/pull/1534) / midhatn | held_known_correctness_or_integrity | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/8485ba77eb2ebf9d1e1ea38fa663c760ea788d95) |
 | [#732](https://github.com/CrocSwap/integer-mult-bounds/pull/732) / lukemansoor | held_known_correctness_or_integrity | [Exact author commit](https://github.com/CrocSwap/integer-mult-bounds/tree/80431a74c31e807581f5c2258c87abe2084caacd) |
