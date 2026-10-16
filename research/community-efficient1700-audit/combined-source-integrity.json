@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "checked_commit": "6a4119cabb772f30c52b4aa9d00236de1a8ebdd3",
+  "checked_commit": "d7ce0c0e9ae0dba302e2a32905f68760ec2dca16",
   "merged_prs": [
     2478,
     2716,
@@ -45,12 +45,19 @@
     2792,
     2794,
     2795,
+    2796,
     2797,
     2798,
     2799,
-    2803
+    2801,
+    2803,
+    2807,
+    2811,
+    2812,
+    2813,
+    2814
   ],
-  "changed_files": 507,
+  "changed_files": 623,
   "resolved_files": [
     {
       "number": 2729,
@@ -166,6 +173,21 @@
       "number": 2792,
       "path": "tests/test_historical_check.py",
       "sha256": "be3a431b28b42e64c58495efe0dcbb06ca867150296c57d83f77c99f49d7a2bd"
+    },
+    {
+      "number": 2811,
+      "path": "research/qq16-rounded-pair-bit-circuit/README.md",
+      "sha256": "7357e10ce43ab8eaea5f39f00a9166877bd6e13803c1ab0a1aeec890b02d6646"
+    },
+    {
+      "number": 2811,
+      "path": "research/qq16-rounded-pair-bit-circuit/SOURCES.json",
+      "sha256": "316f4b3c834679b0565a70fadee9927a2c2cd142e97f10c4209541a1e0c4c745"
+    },
+    {
+      "number": 2811,
+      "path": "research/qq16-rounded-pair-bit-circuit/VERIFY.json",
+      "sha256": "0d0dd6e22b4e309e978b25a64bec9199a378ca6766aac7e394480889d69a8ab7"
     },
     {
       "number": 2729,
