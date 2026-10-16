@@ -11,6 +11,8 @@ Modules are scheduled concurrently (one isolated interpreter per module,
 order, so the combined receipts match a sequential run module for module.
 For PR53 skip-clones, the completion-checked module command runs in a temporary
 copy with its authenticated frozen source instead of the optimized successor.
+Each module and historical wrapper uses a private bytecode-cache namespace.
+The owned temporary directory is removed after workers finish or are stopped.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
@@ -38,9 +40,16 @@ Path(receipt).write_bytes(b'unittest completed successfully\\n')
 '''
 
 
+def isolated_python(python, cache):
+    # -B prevents writes, not reads. An explicit fresh prefix also overrides
+    # inherited PYTHONPYCACHEPREFIX without changing the caller's environment.
+    return [python, '-B', '-X', 'pycache_prefix=' + str(cache)]
+
+
 def module_command(python, tests_dir, name, receipt):
     """Run discovery normally, then attest that the suite returned successfully."""
-    return [python, '-c', BOOTSTRAP, str(tests_dir), name, str(receipt)]
+    cache = Path(str(receipt) + '-pycache')
+    return isolated_python(python, cache) + ['-c', BOOTSTRAP, str(tests_dir), name, str(receipt)]
 
 
 def stop_module(process):
@@ -112,8 +121,10 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                 and Path(cwd).resolve() == ROOT.resolve()
                 and (ROOT / 'research/skip-clones/SOURCE.json').is_file()
                 and (ROOT / 'scripts/replay_historical_check.py').is_file()):
-            command = [python, '-B', str(ROOT / 'scripts/replay_historical_check.py'),
-                       legacy[path.name], '--completion-receipt', str(receipt)]
+            cache = Path(str(receipt) + '-wrapper-pycache')
+            command = isolated_python(python, cache) + [
+                str(ROOT / 'scripts/replay_historical_check.py'),
+                legacy[path.name], '--completion-receipt', str(receipt)]
         # Serialize launch/registration with cancellation: no worker may start
         # an unregistered module after the controlling thread takes its snapshot.
         with lock:
