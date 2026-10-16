@@ -22,9 +22,13 @@ if mergehead.exists():
 else:
  assert not git('status','--porcelain').stdout, 'Commit reviewed audit changes before starting integration'
  a=git('merge','--no-ff','--no-commit',*heads,check=False);(P/f'merge-{label}.log').write_text(a.stdout+a.stderr);assert a.returncode==0,a.stdout+a.stderr
+staged={}
+for record in git('ls-files','--stage','-z').stdout.split('\0'):
+ if record:
+  meta,path=record.split('\t',1);fields=meta.split();assert fields[2]=='0', ('unmerged index',path);staged[path]=fields
 for n in ns:
  for f in json.load(open(P/'packets'/f'{n}.json'))['files']:
-  got=git('ls-files','--stage','--',f['path']).stdout.split();v=f['source']
+  got=staged.get(f['path'],[]);v=f['source']
   resolution=next((r for r in json.load(open(P/'resolution-plan.json')) if r['number']==n and r['path']==f['path']),None)
   resolved=resolution is not None and got and hashlib.sha256(subprocess.check_output(['git','show',':'+f['path']],cwd=R)).hexdigest()==resolution['resolved_sha256']
   assert resolved or (not got if v is None else len(got)>=3 and got[0]==v['mode'] and got[1]==v['oid']),(n,f['path'],got,v)
