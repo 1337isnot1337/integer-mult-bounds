@@ -51,10 +51,10 @@
   "ai_assistance": "Substantial automated assistance in development and internal read-only checking; no independent human or proof-kernel review claimed.",
   "open_questions": [
     {
-      "question": "Can actual common weight-five support close one remaining beta shape?",
+      "question": "Can a common union of two actual small-piece supports close one remaining beta shape?",
       "why_it_matters": "Two (5,4) shapes remain outside the ten-line weight-certified cover.",
-      "first_step": "Pin the actual pieces and a common support at the twelve/fourteen-line boundary; test the structured premise on a small instance.",
-      "blocked_by": "The unstructured separate-twelve-deletion span-four bound is false; a structured common-set theorem is missing."
+      "first_step": "Pin the weight-three/four supports for the twelve-line cover of 3,4^2,6^6, or weight-two/five supports for the fourteen-line cover of 2,5^3,6^5; test the resulting common-set premise.",
+      "blocked_by": "The unstructured separate-twelve-deletion span-four bound is false. A stronger theorem must retain the actual common union of supports; no five-flat containment is assumed."
     },
     {
       "question": "Can a smaller geometric proof replace the all-pair span census?",

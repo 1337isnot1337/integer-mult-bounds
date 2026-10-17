@@ -66,10 +66,11 @@ source-import ancestor and byte-identical predecessor excerpts.
 
 ## Open next questions
 
-Can a common deletion set consisting of a weight-five piece's actual support
-give a stronger rank-six theorem? The remaining `3,4^2,6^6` shape needs a
-twelve-line weight-certified cover; `2,5^3,6^5` needs fourteen. First pin the
-actual pieces and common support. A root-only, separate-twelve-deletion probe
+Can the union of two actual small-piece supports give a stronger common-set
+rank-six theorem? The remaining `3,4^2,6^6` shape has a twelve-line cover from
+weights three and four; `2,5^3,6^5` has a fourteen-line cover from weights two
+and five. First pin those pieces and their common deletion set. These unions
+need not lie in a five-flat. A root-only, separate-twelve-deletion probe
 already gives five independent directions, so an unstructured span-four
 extension is false. That probe is not a complete twelve-deletion census or
 a counterexample to the structured common-set question.
