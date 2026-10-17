@@ -147,3 +147,7 @@ The [exact-head delta](pr-intake-evidence/queue-catchup-20261017.json) covers 79
 ## Delta intake through PR3197
 
 The [exact-head delta](pr-intake-evidence/queue-tail-20261017.json) covers two closing-delta heads: PR3197 retained as a source archive, and revised PR3184 held because its metadata changes do not resolve the physical-operator objection. No scientific verifier was run.
+
+## Delta intake through PR3297
+
+The [exact-head delta](pr-intake-evidence/queue-refresh-20261017.json) covers 100 heads: 97 research archives (one historical version and three separately reviewed manual workflows), and three explicit operator-correctness holds. No contribution verifier or full supplier replay was executed. Exact source identities, contributor credit and open scientific obligations are recorded in the ledger.
