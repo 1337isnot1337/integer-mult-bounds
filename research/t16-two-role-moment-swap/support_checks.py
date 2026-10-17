@@ -63,7 +63,7 @@ def compare_reports(output, frozen, message):
     if actual_bytes != expected_bytes:
         need(len(actual_bytes) <= 512 * 1024, "diagnostic report byte budget")
         encoded = base64.b64encode(gzip.compress(actual_bytes, mtime=0)).decode("ascii")
-        need(len(encoded) <= 32768, "diagnostic report transport budget")
+        need(len(encoded) <= 128 * 1024, "diagnostic report transport budget")
         print("INDEPENDENT_REPORT_ACTUAL_GZIP_BASE64", encoded, flush=True)
         actual, expected = json.loads(actual_bytes), json.loads(expected_bytes)
         need(

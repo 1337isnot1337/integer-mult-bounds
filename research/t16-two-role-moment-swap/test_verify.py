@@ -173,6 +173,22 @@ class SwapTests(unittest.TestCase):
                     gzip.decompress(base64.b64decode(encoded)), actual.read_bytes()
                 )
                 self.assertIn(field, lines[1])
+            full = (self.package / "support/exact-score/RESULT.json").read_bytes()
+            frozen.write_bytes(full)
+            mutant = json.loads(full)
+            mutant["assembly_sha256"] = "0" * 64
+            actual.write_text(json.dumps(mutant, indent=2))
+            stdout = io.StringIO()
+            with (
+                redirect_stdout(stdout),
+                self.assertRaisesRegex(ValueError, "changed report"),
+            ):
+                support_checks.compare_reports(actual, frozen, "changed report")
+            encoded = stdout.getvalue().splitlines()[0].split(" ", 1)[1]
+            self.assertGreater(len(encoded), 32768)
+            self.assertEqual(
+                gzip.decompress(base64.b64decode(encoded)), actual.read_bytes()
+            )
 
     def test_independent_owner_controls(self):
         controls = self.auditor.controls(
