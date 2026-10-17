@@ -67,6 +67,16 @@
       "argv": ["{python}", "-O", "-Werror", "-B", "{package}/test_verify.py"],
       "timeout_seconds": 60,
       "checks": "The same ten construction/control groups remain active with Python assertions disabled; the unchanged full strict predecessor deliberately runs without optimization."
+    },
+    {
+      "argv": ["{python}", "-Werror", "-B", "{package}/test_transport.py"],
+      "timeout_seconds": 60,
+      "checks": "Nine closed-graph transport groups: full-content serialization-only control, changed/missing/extra cost fields, type changes, cap/inequality/source mutations, forged live hash, fixed owner/controller identity, bad score and invoice review, exact frozen review-to-score edge, duplicate keys and nonfinite JSON."
+    },
+    {
+      "argv": ["{python}", "-O", "-Werror", "-B", "{package}/test_transport.py"],
+      "timeout_seconds": 60,
+      "checks": "The same nine exact full-content/hash-graph transport groups remain active with assertions disabled."
     }
   ]
 }

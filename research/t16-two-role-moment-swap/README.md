@@ -62,9 +62,18 @@ compares the full invoice. The same replay also runs the three independent
 source-closed checks retained under `support/`: code-disjoint exact arithmetic,
 strict construction admission, and full-invoice/proof-scope continuity. All bind
 the identical OWNERS/PLAN/SPEC and actual ASSEMBLY/invoice hashes. The numerical
-bundle is explicit immutable version 3. Ten construction behavioral groups run
+bundle is explicit immutable version 3. Generated raw invoice hashes may be
+rebound only after complete typed JSON equality of the actual invoice and the
+entire assembly with its single named invoice reference. All other fields and
+fixed input hashes remain checked. Exact fresh score/reviewer bytes must then
+match the explicitly source-rebound expected reports. Actual raw witnesses and
+the closed hash-graph proof are printed for hosted review. See PROOF.md.
+Ten construction behavioral groups run
 normally and optimized; the independent scorer adds eleven groups, construction
 admission six rejection controls, and invoice review thirteen rejection controls.
+Two additional diagnostic groups preserve exact failing reports and raw inputs.
+Nine normal/optimized transport groups reject changed costs, keys, types,
+cap/inequality fields, unrelated hashes, forged bindings and bad reports.
 Their faults include one-sided moves, wrong roles, stale profiles, malformed
 inputs, predecessor corruption and exhausted census budgets. No solver is needed.
 

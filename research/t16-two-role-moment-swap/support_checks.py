@@ -7,6 +7,7 @@ import subprocess
 import sys
 
 import replay
+import transport
 from swap import need
 
 MANIFEST_HASHES = {
@@ -111,7 +112,7 @@ def preserve_raw_artifacts(work):
         )
 
 
-def score(package, work):
+def score(package, work, graph):
     bundle = package / "support/exact-score"
     strict = work / "strict"
     output = work / "INDEPENDENT-SCORE.json"
@@ -135,7 +136,11 @@ def score(package, work):
         "score",
     )
     try:
-        compare_reports(output, bundle / "RESULT.json", "independent score differs")
+        compare_reports(
+            output,
+            transport.expected_score(package, work, graph),
+            "independent score differs",
+        )
     except ValueError:
         preserve_raw_artifacts(work)
         raise
@@ -144,7 +149,7 @@ def score(package, work):
     return output, bundle / "score.py"
 
 
-def construction(main, package, work):
+def construction(main, package, work, graph):
     bundle = package / "support/construction"
     pins = bundle / "SOURCES-PR3308.json"
     output = work / "INDEPENDENT-ADMISSION.json"
@@ -185,7 +190,7 @@ def construction(main, package, work):
         "admission-tests",
     )
     actual = json.loads(output.read_text())
-    frozen = json.loads((bundle / "ADMISSION.json").read_text())
+    frozen = transport.expected_construction(bundle, graph)
     for key in (
         "candidate_data",
         "profile",
@@ -203,7 +208,7 @@ def construction(main, package, work):
         )
 
 
-def invoice(main, package, work, report, scorer):
+def invoice(main, package, work, report, scorer, graph):
     bundle = package / "support/invoice"
     output = work / "INDEPENDENT-INVOICE.json"
     command(
@@ -223,8 +228,9 @@ def invoice(main, package, work, report, scorer):
         work,
         "invoice-review",
     )
-    need(
-        output.read_bytes() == (bundle / "RESULT.json").read_bytes(),
+    compare_reports(
+        output,
+        transport.expected_invoice(package, work, graph, report),
         "independent invoice differs",
     )
 
@@ -232,7 +238,9 @@ def invoice(main, package, work, report, scorer):
 def run(main, package, work):
     for name, expected in MANIFEST_HASHES.items():
         authenticate(package / "support" / name, expected)
-    report, scorer = score(package, work)
-    construction(main, package, work)
-    invoice(main, package, work, report, scorer)
+    preserve_raw_artifacts(work)
+    graph = transport.attest(package, work)
+    report, scorer = score(package, work, graph)
+    construction(main, package, work, graph)
+    invoice(main, package, work, report, scorer, graph)
     print("PASS_THREE_SOURCE_BOUND_INDEPENDENT_GATES", flush=True)

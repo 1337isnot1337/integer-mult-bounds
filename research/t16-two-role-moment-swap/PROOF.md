@@ -75,6 +75,40 @@ The complex side binds. The retained outer construction gives
 PR1094 and PR3308. The conservative complex surcharge control also improves.
 `RESULT.json` records their exact differences and cap comparisons.
 
+## Exact transport of generated receipt hashes
+
+The hosted arithmetic report exposed two changed raw references: the full invoice
+SHA256 and the dependent assembly SHA256. Every arithmetic report value and the
+other five input hashes matched. Arithmetic success alone did not admit those
+changed references. The original failing reports and immutable v3 evidence stay
+unchanged. Actual hosted witnesses from run `39075529422` then proved that the
+entire typed invoice object is identical. The literal byte difference is only
+the ordering of ten `providers.gauge44.artifacts` mapping entries. The dependent
+assembly differs only at its raw invoice reference. No gzip or decimal
+portability assumption is used.
+
+`transport.attest()` permits a serialization difference only after the ENTIRE
+actual invoice equals the frozen invoice as typed canonical JSON, with no omitted
+keys or values and with array order retained. Actual owner and controller bytes
+must remain exactly fixed and match their declared live hashes. The ENTIRE actual
+assembly must then equal the frozen assembly after replacing only
+`input_sha256.fresh_invoice` by the independently recomputed actual invoice SHA256.
+Every cost, cap, inequality, control, scope string and other input hash remains.
+
+Only after these whole-input checks may the expected score rebind its two named
+raw references. The construction report can rebind only its assembly/invoice
+artifact references. The fresh immutable invoice reviewer runs on the actual
+fresh score and copied scorer source. Its expected report rebinds only its two
+top-level raw references and the three corresponding score-binding references.
+The fresh reports still have to match those explicitly derived expected bytes.
+No generic hash ignore or arbitrary hash replacement exists.
+
+The registered run emits lossless bounded actual invoice, assembly, owner and
+controller witnesses plus `TRANSPORT.json`. Unknown keys, changed charges or
+inequalities, type changes, unrelated hashes, forged bindings and bad score or
+review fields reject in normal and optimized tests. This is an integration
+transport rule, not a new scientific supplier premise.
+
 ## Inherited obligations and engineering limits
 
 The selected conditional scope remains intact. Source-bound reuse of selected
