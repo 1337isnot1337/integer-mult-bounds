@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_utc": "2026-10-17T23:19:39.768107+00:00",
+  "checked_utc": "2026-10-17T23:22:07.274991+00:00",
   "platform": "macOS-27.0.1-arm64-arm-64bit-Mach-O",
   "python_registered": "Python 3.12.15",
   "python_alternate": "Python 3.15.0",
@@ -93,5 +93,58 @@
     }
   ],
   "coverage": "New finite near-axis proof, ordered-axis transport, all cut35 branches, separate reconstruction and five behavior/source groups. Inherited historical premises are not replayed.",
-  "review": "Local two-representation review; no separate agent, human or proof-kernel review."
+  "review": "Local two-representation review; no separate agent, human or proof-kernel review.",
+  "initial_export": {
+    "commit": "00dd734e9d13b428daa5258bc622dbe65e042d42",
+    "math_checks": "Both passed read-only Git-free optimized Python3.14.8",
+    "test_status": "One failed private mutation fixture because copytree preserved read-only modes. Replaced by bounded writable byte copies; corrected committed export recorded separately."
+  },
+  "corrected_fixture_checks": [
+    {
+      "argv": [
+        "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/batch-002/worker-5/python/cpython-3.12.15-macos-aarch64-none/bin/python3.12",
+        "-W",
+        "error",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-mixed566-cut35"
+      ],
+      "exit_code": 0,
+      "log": "registered-corrected.log",
+      "log_sha256": "0721cd4334b033caf45e8a4fd15f6c6427cb285174fad23aa47c2158a3a4d9db"
+    },
+    {
+      "argv": [
+        "/opt/homebrew/bin/python3.15",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-mixed566-cut35/test_verify.py"
+      ],
+      "exit_code": 0,
+      "log": "controls-corrected.log",
+      "log_sha256": "a26585d38f849015880abda4ef0eae092661d719fce2ac636cf4f350f9e31f35"
+    },
+    {
+      "argv": [
+        "uvx",
+        "--cache-dir",
+        "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/batch-002/worker-5/uv-cache",
+        "--from",
+        "ruff==0.14.0",
+        "ruff",
+        "check",
+        "--cache-dir",
+        "/Users/nick/.cache/integer-mult-bounds-runs/orchestrator-20261017T223700Z-2d47ba0f/batch-002/worker-5/ruff-cache",
+        "--select",
+        "E,F,B,I,UP",
+        "research/p112-mixed566-cut35"
+      ],
+      "exit_code": 0,
+      "log": "ruff-corrected.log",
+      "log_sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18"
+    }
+  ]
 }

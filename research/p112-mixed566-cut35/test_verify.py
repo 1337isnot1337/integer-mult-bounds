@@ -2,15 +2,35 @@
 
 import json
 import os
-import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from common import HERE, INPUTS, ROOT, authenticate, same
+from common import HERE, INPUTS, ROOT, authenticate, require, same
 from verify import arithmetic
+
+
+def copy_fixture(root):
+    """Copy bounded regular byte inputs without inherited read-only modes."""
+    authenticate()
+    package = root / "research" / HERE.name
+    package.mkdir(parents=True)
+    sources = tuple(HERE.iterdir())
+    require(len(sources) <= 20, "fixture file capacity")
+    for source in sources:
+        if source.name == "__pycache__":
+            continue
+        require(source.is_file() and not source.is_symlink(), "regular fixture")
+        raw = source.read_bytes()
+        require(len(raw) <= 200_000, "fixture byte capacity")
+        (package / source.name).write_bytes(raw)
+    for relative in INPUTS:
+        target = root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((ROOT / relative).read_bytes())
+    return package
 
 
 class Controls(unittest.TestCase):
@@ -40,12 +60,7 @@ class Controls(unittest.TestCase):
     def test_actual_corrupted_cli(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            package = root / "research" / HERE.name
-            shutil.copytree(HERE, package, ignore=shutil.ignore_patterns("__pycache__"))
-            for relative in INPUTS:
-                target = root / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes((ROOT / relative).read_bytes())
+            package = copy_fixture(root)
             for relative in INPUTS:
                 target = root / relative
                 original = target.read_bytes()
@@ -73,12 +88,7 @@ class Controls(unittest.TestCase):
     def test_actual_incomplete_or_false_receipt(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            package = root / "research" / HERE.name
-            shutil.copytree(HERE, package, ignore=shutil.ignore_patterns("__pycache__"))
-            for relative in INPUTS:
-                target = root / relative
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes((ROOT / relative).read_bytes())
+            package = copy_fixture(root)
             original = json.loads((HERE / "RESULT.json").read_bytes())
             for mutant in ("omit84", "false44", "wrongtype"):
                 receipt = json.loads(json.dumps(original))
