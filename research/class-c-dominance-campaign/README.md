@@ -2,18 +2,26 @@
 
 **Scoped correction and conditional scheduling result; no geometric span pass.**
 The source tables list particular covers, rather than their full upward closure
-in flat dimension. PR #3315 correctly finds a three-configuration literal cover
+in flat dimension. PR #3315's initial audited head `c4fe4244b52bb9111b9117aba066229316fc58ab`
+correctly finds a three-configuration literal cover
 of the 16 coverable HARD rows. That is not the geometric campaign minimum:
 **`6554` at target `T=7`, together with `5555` at `T=8`, would suffice** if both
 complete uniform span checks passed. Row 37 remains outside this implication.
 
-There is also a concrete correction to PR #3315's all-row statement. Its named
+There is also a concrete correction to that head's all-row statement. Its named
 literal set `{5544,5555,6554}` covers only **55 of the 64** table-coverable rows,
 missing **4,5,6,17,20,28,33,66,69** (zero-based `row_idx`, exactly as in the CSV).
 The literal minimum over all 70 source rows is four configurations, versus
 three over the HARD subset. Both implementations independently find these
 minima. The PR's vendored `rows70.csv` and the original help-package file have
 the same Git blob, `ee12fc8e3c528a509a06274c3ed264508c2c06a8`.
+
+After our advance claim, the author adopted dimension closure at head
+`240e7f68c6be0cd7193abdd1d686ec5b90ab5355`, explicitly credited the observation,
+and left the same-target substitution lemma as an open premise in the
+[correction](https://github.com/CrocSwap/integer-mult-bounds/discussions/2954#discussioncomment-19006436).
+This package discharges that implication and retains threshold-aware certificates.
+It does not describe the amended checker as still using literal incidence.
 
 With the proved dimension transfer, **two configurations suffice conditionally
 for all 64 table-coverable rows**: `6554@T6` and `5555@T8`.
@@ -24,7 +32,9 @@ work or expose a crack; no CPU-hour saving is claimed.
 ## Precise implication and proof
 
 Use the model in [DreamingOfClouds' discussion #2954](https://github.com/CrocSwap/integer-mult-bounds/discussions/2954).
-For a binary flat `V` in `F_2^9`, let `Lambda(V)` be its live P112 labels. For four
+For a binary flat `V` in `F_2^9`, let `Lambda(V)` be the P112 lines whose binary
+labels lie in `V`. Thus `V subset W` directly implies `Lambda(V) subset Lambda(W)`.
+For four
 flats define `X(V)=union_i Lambda(V_i)` and
 
 ```

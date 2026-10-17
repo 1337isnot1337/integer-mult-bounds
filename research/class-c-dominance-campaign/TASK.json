@@ -86,6 +86,32 @@
       "limits": "No arbitrary diff or unpublished-work coverage; sparse local checkout and no closed-PR remote snapshot."
     },
     "predecessor_pr": 3315,
-    "predecessor_head": "c4fe4244b52bb9111b9117aba066229316fc58ab"
+    "predecessor_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
+    "predecessor_refreshed_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355",
+    "predecessor_correction": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2954#discussioncomment-19006436",
+    "predecessor_change": "Author adopted the dominance observation after our claim and explicitly left the same-target substitution lemma open. This package supplies that implication; initial literal arithmetic is historical.",
+    "submission_overlap": {
+      "open_prs": {
+        "fetched_at": "2026-10-17T21:59:37.877947+00:00",
+        "complete_pagination": true,
+        "records": 248
+      },
+      "discussions": {
+        "fetched_at": "2026-10-17T22:01:04.820007+00:00",
+        "complete_pagination": true,
+        "records": 2170
+      },
+      "warnings": []
+    },
+    "submission_main": "b0186c6b75280913969f101c169fe3fb07afd137",
+    "submission_guidance": "Priority revision 6 and selected record unchanged. Read changed P104 navigation in current-priorities.md; unrelated to this class-C scope. New source-history publication preflight is optional; direct exported replay is self-contained."
+  },
+  "verification": {
+    "python": "3.12.12 (main, Oct  9 2025, 11:07:00) [Clang 17.0.0 (clang-1700.4.4.1)]",
+    "platform": "macOS-26.5.2-arm64-arm-64bit",
+    "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE research/class-c-dominance-campaign outcome=completed",
+    "commit_byte_check": "PASS at e7269dbed047ad6ac89c1642db18ee3413a85a09, 10 files; final publication bytes will be rechecked",
+    "optimized_direct_scripts": "Both passed under Python3.12 -O -B",
+    "internal_review": "A separate Luna task reviewed the actual README proof, both checkers, RESULT and pinned inputs; reran both optimized scripts and found no blocking mismatch. Its Lambda-inclusion clarification was incorporated. This is internal AI review, not independent human, geometry or proof-kernel validation."
   }
 }
