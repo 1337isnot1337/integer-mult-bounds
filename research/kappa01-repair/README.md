@@ -15,6 +15,12 @@ assignment, not a randomly drawn donation task. Source base:
 package and five sibling packages. The selected conditional result remains
 `836330098538459/500000000000000000 = 0.001672660197076918`.
 
+This rechecks the conditional complex row in [PR #3107](https://github.com/CrocSwap/integer-mult-bounds/pull/3107).
+It complements [PR #3111](https://github.com/CrocSwap/integer-mult-bounds/pull/3111),
+which prices the selected bit supplier's fixed local histogram: the present
+audit corrects the private-copy coverage charge and studies replacement
+scalar-query geometries.
+
 ## What fails in the proposed passing row
 
 The predecessor [budget screen](../kappa010-complex-lever-floor/README.md)
