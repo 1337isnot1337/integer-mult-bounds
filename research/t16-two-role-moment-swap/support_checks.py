@@ -1,5 +1,7 @@
 """Replay three source-closed checks on the identical freshly admitted map."""
 
+import base64
+import gzip
 import json
 import subprocess
 import sys
@@ -56,6 +58,37 @@ def command(arguments, work, name):
     print(output.decode("utf-8"), end="", flush=True)
 
 
+def compare_reports(output, frozen, message):
+    actual_bytes, expected_bytes = output.read_bytes(), frozen.read_bytes()
+    if actual_bytes != expected_bytes:
+        need(len(actual_bytes) <= 512 * 1024, "diagnostic report byte budget")
+        encoded = base64.b64encode(gzip.compress(actual_bytes, mtime=0)).decode("ascii")
+        need(len(encoded) <= 32768, "diagnostic report transport budget")
+        print("INDEPENDENT_REPORT_ACTUAL_GZIP_BASE64", encoded, flush=True)
+        actual, expected = json.loads(actual_bytes), json.loads(expected_bytes)
+        need(
+            isinstance(actual, dict)
+            and isinstance(expected, dict)
+            and len(actual) <= 64
+            and len(expected) <= 64,
+            "report field budget",
+        )
+        differences = {
+            key: {
+                "actual": str(actual.get(key))[:1500],
+                "expected": str(expected.get(key))[:1500],
+            }
+            for key in set(actual) | set(expected)
+            if actual.get(key) != expected.get(key)
+        }
+        print(
+            "INDEPENDENT_REPORT_DIFFERENCES",
+            json.dumps(differences, sort_keys=True),
+            flush=True,
+        )
+    need(actual_bytes == expected_bytes, message)
+
+
 def score(package, work):
     bundle = package / "support/exact-score"
     strict = work / "strict"
@@ -79,10 +112,7 @@ def score(package, work):
         work,
         "score",
     )
-    need(
-        output.read_bytes() == (bundle / "RESULT.json").read_bytes(),
-        "independent score differs",
-    )
+    compare_reports(output, bundle / "RESULT.json", "independent score differs")
     command(["-Werror", bundle / "test_score.py"], work, "score-tests")
     command(["-O", "-Werror", bundle / "test_score.py"], work, "score-tests-optimized")
     return output, bundle / "score.py"

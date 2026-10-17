@@ -1,14 +1,18 @@
 """Behavioral controls for the two-role map and its complete finite census."""
 
+import base64
 import gzip
+import io
 import json
 import tempfile
 import unittest
 from collections import Counter
+from contextlib import redirect_stdout
 from copy import deepcopy
 from pathlib import Path
 from unittest.mock import patch
 
+import support_checks
 import swap
 import verify
 
@@ -142,6 +146,33 @@ class SwapTests(unittest.TestCase):
             )
             with self.assertRaisesRegex(ValueError, "preimage"):
                 verify.predecessor(self.root, package, export)
+
+    def test_report_diagnostics_preserve_faulty_bytes_and_reject(self):
+        with tempfile.TemporaryDirectory() as directory:
+            actual, frozen = (
+                Path(directory) / "actual.json",
+                Path(directory) / "frozen.json",
+            )
+            frozen.write_text(
+                json.dumps({"kappa": "1/1000", "assembly_sha256": "f" * 64})
+            )
+            support_checks.compare_reports(frozen, frozen, "changed report")
+            for field, value in (("kappa", "1/999"), ("assembly_sha256", "0" * 64)):
+                mutant = json.loads(frozen.read_text())
+                mutant[field] = value
+                actual.write_text(json.dumps(mutant))
+                stdout = io.StringIO()
+                with (
+                    redirect_stdout(stdout),
+                    self.assertRaisesRegex(ValueError, "changed report"),
+                ):
+                    support_checks.compare_reports(actual, frozen, "changed report")
+                lines = stdout.getvalue().splitlines()
+                encoded = lines[0].split(" ", 1)[1]
+                self.assertEqual(
+                    gzip.decompress(base64.b64decode(encoded)), actual.read_bytes()
+                )
+                self.assertIn(field, lines[1])
 
     def test_independent_owner_controls(self):
         controls = self.auditor.controls(
