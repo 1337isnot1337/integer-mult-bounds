@@ -75,3 +75,30 @@ It does not automatically change track weights, suppress tasks, or infer that
 unstructured discussions are inactive. Multiple/malformed metadata blocks are
 reported, not silently treated as valid claims. Task IDs should match the
 catalogue where possible; a genuinely different scope can use a descriptive ID.
+
+## Changed-path overlap snapshots
+
+A `find_overlap.py --path PATTERN` report binds each file inventory to both
+`head` and `base` commits. GitHub's changed-file pages depend on both endpoints;
+a fixed head and unchanged file count do not by themselves identify one diff.
+Every continuation page must preserve both OIDs and the advertised count. A
+mismatch rejects that refresh and retains the previous cache with a warning.
+
+Joined path results show `head`/`base` for the file snapshot,
+`body_head`/`body_base` for PR metadata, and separate `head_matches` and
+`base_matches` flags. Check both flags and `truncated`. Coverage also lists
+`unverified_heads` and `unverified_bases`, even when no path matches the query.
+A missing legacy base remains unknown; it is never copied from another snapshot.
+Online path queries refresh endpoint-incomplete sources. Offline or failed
+refreshes keep the old evidence and explicitly report the missing binding.
+Body-only searches do not pay for the file index.
+
+This is a consistency check, not an atomic GitHub snapshot, a diff-content
+search, proof of novelty or scientific review. A base can advance between
+requests even when its head does not; recheck relevant live PRs before claiming
+work. The same-head/same-count base-change regression is in
+`tests/test_research_pr_file_pages.py`; migration and joined-report controls are
+in `tests/test_research_pr_base_binding.py`.
+
+Tekalign, with substantial OpenAI Codex assistance, extending the retained
+changed-file pagination and head-binding work. Apache-2.0.
