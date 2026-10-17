@@ -41,6 +41,14 @@ search found at most **12** disjoint frames, and a bounded exact-cover search
 found no partition into 14. The construction here is 12 frames plus an exactly
 coloured 16-label remainder (five more classes).
 
+**Related work checked.** PR2118 (`paired-plane-local-swap-seed9c65a5`) already
+rematched two edges of PR1825's matching, but to lower a different quantity, the
+B14 support-pairing invoice (126 → 96), not this fitting rank. PR3045 and PR1744
+bound fitting ranks for port-level root-code masks; PR3045's P112 floor of 64 is
+for square root-code decoders, not this plane-level mask (where PR2484's 49 is
+already lower). No earlier package, open PR or discussion post found during a
+2026-10-17 search reports a plane-mask fitting rank below 49.
+
 ## Why it matters, and what it does not show
 
 The plane-port coverage law leaves two unpaid coordinates per family, the
@@ -77,7 +85,7 @@ Run locally with Python 3.10.6; the registered Python 3.12 replay was not run.
 
 ## Credit
 
-ywz65 (PR2471) for the model, clique bound and bracket; thakrarsagar (PR2484) for the
+1337isnot1337 (PR2118) for the first local rematch of these planes; ywz65 (PR2471) for the model, clique bound and bracket; thakrarsagar (PR2484) for the
 exact rank 49, the verifier functions reused here, and the open question; Cinna
 Davis (PR1825 matching, PR2126 fit); Adam Gall (PR1889 mask); ctoth (plane-port
 law, discussion 1587). Found and checked by Claude (Anthropic) via Claude Code, in a

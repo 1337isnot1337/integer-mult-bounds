@@ -112,7 +112,7 @@ def main():
     result, pairs, orth = check(cert, labels)
     result["controls"] = controls(cert, labels, pairs0, orth0)
     result["status"] = "PASS_PAIRED_PLANE_REMATCH_RANK34"
-    result["pr1825_matching_exact_rank"] = 49
+    result["pr1825_matching_exact_rank_cited_from_pr2484"] = 49
     # Pairwise orthogonal Gram-I2 planes have orthonormal, hence independent, spanning labels: 2k <= 9, k <= 4.
     result["colouring_method_floor"] = 2 * -(-56 // 4)
     want = json.loads((HERE / "RESULT.json").read_text(encoding="utf-8")) if (HERE / "RESULT.json").exists() else None
