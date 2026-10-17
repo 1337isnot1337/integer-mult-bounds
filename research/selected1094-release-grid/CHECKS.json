@@ -18,7 +18,19 @@
   "limits": [
     "Complete selected circuit replay/Lean/Docker not run; selected finite construction inherited",
     "Vendored base_two_moment.py retains one trailing blank line byte-identical to selected engine. git diff --check reports that preserved source line; new wrapper/prose have no whitespace errors.",
-    "No standalone Ruff executable was available; no shared install was performed.",
-    "Official committed read-only export replay and designated peer receipt follow scientific commit."
-  ]
+    "No standalone Ruff executable was available; no shared install was performed."
+  ],
+  "actual_committed_export": {
+    "scientific_commit": "b7d9770b3150a43f8661a73ed60c83185ec33fe6",
+    "archive_sha256": "546b71a23779a7d4b058e5b941189368fa4553dbd6b61e7bc2c3eea2419e2045",
+    "regular_only": true,
+    "inode_disjoint": true,
+    "read_only": true,
+    "git_free": true,
+    "TMPDIR": "unset",
+    "normal": "CPython3.12.15 PASS",
+    "optimized": "CPython3.13.16 PASS",
+    "identical_stdout_sha256": "4bef30d845ba941d8a811fddf3df4456d79b25470591e41edaaa31be7ab1ed21",
+    "actual_designated_receipt_sha256": "5a19f9adc0b05dc7b050dad42f8d2c0e217ef7677576c6b884746ac490454acb"
+  }
 }
