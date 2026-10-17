@@ -92,18 +92,20 @@ one unpaid coordinate; the exact five-plane P112 decoder supplies five but its
 copy invoice is far above this screen's six-unit slack. The refreshed main also
 contains [a scoped P112 six-mode floor](../p112-six-mode-exclusion/README.md):
 for its fixed PR2757 cover and aligned mode family, it reports cost at least 297
-against the necessary gate C <= 296. I have not independently replayed that
-package here, and its stated scope does not cover changed covers or mode
+against the necessary gate C <= 296. I ran both registered Python 3.12 checks
+(`verify.py` and `independent.py`); both report PASS with minimum 297 across 5,440
+term-count cases. These are independent implementation checks, not a formal
+proof-assistant result. The stated scope does not cover changed covers or mode
 assignments. It closes that particular six-mode route, not every possible
 six-unpaid endpoint. This package does not price a physical weighted batch or
 change the bit supplier, so the selected bound does not move.
 
-The next decision is a complete six-unpaid endpoint invoice. First derive one
-source-to-target contract and its dirty-state correction from the selected
-labels, then charge its decoder and all hosted batch transitions against the
-six-unit allowance. If that invoice exceeds the allowance, stop this route
-under the current coverage and rank-cap model. A separate bit-side construction
-must also pass `a=1/9` before a selected κ above 0.1 is possible.
+The next decision is a changed P112 cover or mode assignment, not another search
+inside the fixed aligned family. Specify its coverage identity and exact
+source-to-target contract, then derive the dirty-state correction and complete
+decoder plus hosted-batch invoice against the six-unit allowance. Stop if that
+invoice exceeds the allowance. A separate bit-side construction must also pass
+`a=1/9` before a selected κ above 0.1 is possible.
 
 ## Open next questions
 
