@@ -56,6 +56,9 @@ lemma, these three applications and their checks. The original notice and
 license are retained. [SOURCES.json](SOURCES.json) pins every retained file by
 source commit, Git blob and SHA256. Source equality is checked at replay;
 origin-byte equality was separately checked against those Git objects.
+Pending-PR Git history is not required for replay. The generic metadata pins
+resolve only at main; the vendored originals have their own explicit byte
+inventory, checked by `verify.py`.
 
 PR3167 at `c2c7508f2d731feea550f1628601aebd35c6e147` is an overlap control,
 not a new dependency of the theorem. Every weight-certified four-piece

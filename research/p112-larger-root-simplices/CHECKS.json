@@ -61,6 +61,7 @@
     "No independent human/proof-kernel review or hosted CI result is claimed.",
     "No complete C5 cell, C(P112)>=64, native/outer replay, supplier admission or new kappa is claimed.",
     "The generic selected-frontier cold replay was not run because no selected construction or input was changed.",
-    "The cover audit excludes only weight-certified predecessor applications, not all possible geometric covers."
+    "The cover audit excludes only weight-certified predecessor applications, not all possible geometric covers.",
+    "Generic Git provenance pins resolve only at main. Pending source heads are authenticated through the retained-file byte inventory and the separately executed origin comparison, avoiding dependence on unmerged Git objects in hosted CI."
   ]
 }
