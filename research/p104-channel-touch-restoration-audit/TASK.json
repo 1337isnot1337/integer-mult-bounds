@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "task_id": "p104-side-correction",
+  "priority_revision": 6,
+  "selected_kappa": "0.001672660197076918",
+  "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "switched_from": "PR #3259 fixed-cover support cut",
+  "switch_reason": "research/p104-pooled-cut-independent on pinned main, head b572b0c25569898579041200e95731c5a43c9189, already registers a Python 3.12 verifier for the same missing pair C[71,102]=-1/2, forward cone 1725, and backward cone 37 under the immutable-X, unread-Y, independent-dirt, monotone equal-frame contract. That package is Nick Petalas's PR #3259 certification of the PR #3182 cut. A second census of that cut is not the live gap.",
+  "actual_scope": "Independent replay of the published 208-flag matching against the 4058-event channel witness: first-touch chronology and a complete endpoint frame-restoration census.",
+  "outcome": "completed",
+  "author": "Wentao Li",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing.",
+  "no_new_kappa": true,
+  "open_questions": [
+    "Exact coefficient delivery, logical dirty-state restoration, and a chronological correction schedule remain unbuilt. Frame inequality in the published word does not by itself price a repair."
+  ]
+}
