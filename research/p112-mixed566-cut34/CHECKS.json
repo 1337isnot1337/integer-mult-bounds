@@ -1,0 +1,67 @@
+{
+  "phase": "local registered and diagnostic checks passed; committed export pending",
+  "scientific_baseline": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "claim": "Conditional mixed566 commoncut34 only",
+  "performed": [
+    {
+      "argv": [
+        "/Users/nick/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12",
+        "-W",
+        "error",
+        "-B",
+        "scripts/research_package.py",
+        "--package",
+        "research/p112-mixed566-cut34"
+      ],
+      "exit_code": 0,
+      "evidence": "registered-final.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "research/p112-mixed566-cut34/verify.py"
+      ],
+      "exit_code": 0,
+      "evidence": "optimized-primary.log"
+    },
+    {
+      "argv": [
+        "python3",
+        "-W",
+        "error",
+        "-B",
+        "-m",
+        "py_compile",
+        "research/p112-mixed566-cut34/test_verify.py",
+        "research/p112-mixed566-cut34/independent.py",
+        "research/p112-mixed566-cut34/verify.py"
+      ],
+      "exit_code": 0,
+      "evidence": "compile.log"
+    },
+    {
+      "argv": [
+        "ruff==0.14.0",
+        "check",
+        "research/p112-mixed566-cut34"
+      ],
+      "exit_code": 0,
+      "evidence": "ruff.log"
+    }
+  ],
+  "unrun": [
+    "inherited capacity/concentration/E6/Weyl/pair-union/four-puncture proofs and heavy suites",
+    "selected cold replay",
+    "Lean/Docker",
+    "human/proof-kernel review",
+    "hosted CI"
+  ],
+  "python_versions": {
+    "registered": "Python 3.12.15",
+    "direct": "Python 3.15.0"
+  }
+}
