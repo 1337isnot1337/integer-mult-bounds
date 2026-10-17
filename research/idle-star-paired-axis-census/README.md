@@ -1,6 +1,6 @@
 # T740 idle-axis reassignment: exact transfer census and CP-SAT screen
 
-**Scoped negative result; no new κ or admitted supplier.** PR #3184 claims a conditional κ of `0.001730189061233850760095…` from redistributing idle rank-48 axes. PR #3187 gives an exact physical-operator counterexample to its first committed one-stream move. This package checks two ways to repair that failure: move one axis between the four rank-48 children, or move the same residual axis on both channels of one child pair so its phase is scalar.
+**Scoped negative result; no new κ or admitted supplier.** PR #3184 claims a conditional κ of `0.001730189061233850760095…` from redistributing idle rank-48 axes. PR #3187 gives an exact physical-operator counterexample to its first committed star move. This package extends that check to every eligible one-axis transfer and paired transfer on the four rank-48 children, independently replays PR3184's actual replica-0/port-0 star, and tests a relaxed CP-SAT assignment optimum.
 
 ## Result
 
@@ -16,6 +16,10 @@ For a concrete single-axis witness, port 0 moves axis 7 from child 8 to child 12
 
 Within the paired-transfer family, eligible axes are pairwise orthogonal: each source residual basis is orthonormal, and forward candidates are orthogonal to the full reverse destination basis. At the character equal to any one selected axis, every other moved phase is inactive, so any simultaneous nonempty set of those paired transfers retains a one-transfer counterexample.
 
+The same isolation argument covers every **same-centre star** among children 8, 10, 12 and 13 in the audited owner-replica-0 recipes. PR3184 chooses distinct moved axes from one orthonormal donor basis; each leaf must already be orthogonal to its incoming axes. At the character equal to any moved axis, all the other moved phases are inactive, so the star's operator equals that single-axis overlay. Since the exact census rejects every eligible single-axis overlay, no nonempty star in this class preserves the operator.
+
+We also replayed PR3184's pinned `replica=0, port=0` star from commit `6faefe1`: child 10 sends axes `[16,32,64]` to child 12 and `[128,256,4096]` to child 13, giving ranks `[48,42,51,51]` on children `(8,10,12,13)`. At character 16, the full star replay equals its isolated `10→12` single move and differs from baseline in three matrix entries. `RESULT.json` stores the full matrices. This independently reproduces the physical mismatch and explains why changing the other five axes in that star cannot repair it.
+
 ## OR-Tools assignment search
 
 To test whether cycles could evade those one- and two-axis screens, `ortools_screen.py` models each port's 192 residual-axis tokens as an assignment to children 8, 10, 12 and 13. It preserves the token multiset, fixed hosted axes and pairwise GF(2) orthogonality, and caps each resulting child rank at 51. CP-SAT minimizes the local moment surrogate `Σ r^(1-a)` at `a = 0.00167546`, then minimizes the number of moved tokens. The exact eight-stream replay screens each port's minimum-move optimum at the 73 unit characters, the moved axes, their pairwise XORs and 72 adjacent-pair characters; it stops at the first mismatch.
@@ -24,7 +28,7 @@ All 112 port models were optimal. Each found the same best rank profile `[51,51,
 
 To reproduce the optional artifact, use Python 3.10.12 with OR-Tools 9.11.4210 and run `python3.10 -B research/idle-star-paired-axis-census/ortools_screen.py > research/idle-star-paired-axis-census/ORTOOLS-RESULT.json`. The registered exact-replay package does not depend on OR-Tools. `ORTOOLS-RESULT.json` records the solver candidates and their first exact replay counterexamples.
 
-The exact census does not cover arbitrary simultaneous single-axis moves whose moved vectors are not pairwise orthogonal, other child/time pairs, nonzero replicas, or all operator-preserving assignments. The CP-SAT result supplies a strongest rank-profile candidate for the stated four-child assignment model, but only one assignment at that profile is replayed per port. Neither experiment claims a general obstruction. The selected record and frontier are unchanged.
+The exact census and star-isolation argument cover owner replica zero and the same-centre star class only; multi-donor cycles can combine nonorthogonal moved axes, and other child/time pairs and nonzero replicas remain open. The CP-SAT result supplies the best rank-profile candidate for its stated four-child assignment relaxation, but only one minimum-move assignment at that profile is replayed per port. Neither experiment claims a general obstruction. The selected record and frontier are unchanged.
 
 ## Reproduce
 
@@ -35,11 +39,11 @@ python3 scripts/research_package.py --package research/idle-star-paired-axis-cen
 python3.12 scripts/research_package.py --package research/idle-star-paired-axis-census
 ```
 
-The verifier independently implements the exact eight-stream Gaussian-integer replay. Live main inputs are pinned in `SOURCES.json`; the retained fill, journal and provider table are checked against the SHA256 and Git-blob IDs recorded from PR3148. The original PR3133 notice and credits are retained under `vendor/`.
+The verifier independently implements the exact eight-stream Gaussian-integer replay. Live main inputs are pinned in `SOURCES.json`; the retained fill, journal and provider table are checked against the SHA256 and Git-blob IDs recorded from PR3148. PR3184's complete star-move artifact is retained and pinned to its exact head for the added witness. The original PR3133 notice and credits are retained under `vendor/`.
 
 ## Open next questions
 
-See the structured tasks in [TASK.json](TASK.json). The remaining question within this slice is whether a different assignment at `[51,51,51,39]` can preserve the complete operator; prioritize it only if the resulting four-child moment change can affect the full charged supplier profile. A different child/time pair needs its own insertion-to-insertion intertwiner and source-bound replay.
+See the structured tasks in [TASK.json](TASK.json). The remaining question within this slice is whether a multi-donor cycle with nonorthogonal moved axes can preserve the complete operator; first charge its maximum possible profile change against the full supplier bill. A different child/time pair needs its own insertion-to-insertion intertwiner and source-bound replay.
 
 ## Credit
 
