@@ -1849,3 +1849,9 @@ Five shared-tooling fixes received focused review. The 67 research contributions
 - **Jose Manuel (@jmbarrancoml)** — [#3194](https://github.com/CrocSwap/integer-mult-bounds/pull/3194): Prove native F2 innovation beyond the earlier centre history (source archive).
 - **Nick Petalas (@petalas)** — [#3195](https://github.com/CrocSwap/integer-mult-bounds/pull/3195): Research: exclude P112 5,5,6^6,7 by deleting one piece (source archive).
 - **Gonzalo Mier (@Gonzalo-Mier)** — [#3196](https://github.com/CrocSwap/integer-mult-bounds/pull/3196): Audit paired idle-axis transfers across T740 ports (source archive).
+
+## Delta intake through PR3197, 2026-10-17
+
+One additional research contribution retained as a source archive; scientific validation remains open. Revised PR3184 remains on hold. No frontier change.
+
+- **Nick Petalas (@petalas)** — [#3197](https://github.com/CrocSwap/integer-mult-bounds/pull/3197): Research: exclude P112 4^3,6^6,7 by deleting one piece (source archive).

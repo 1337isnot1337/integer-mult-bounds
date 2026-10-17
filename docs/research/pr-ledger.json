@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 2697,
+  "inventory_count": 2698,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2060,
-    "partially_reviewed": 575,
+    "partially_reviewed": 576,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "6e3419ede2048e2a1129d643c5808ea9f2e6b5768045b051e450e9aeb377acb1",
+    "docs/research/pr-intake-decisions.json": "05c84dbf9665afad529eabc7ffc589e63b9628fc85bcf39e52306d170fa7b723",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -156383,7 +156383,9 @@
       },
       "draft": false,
       "starting_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
-      "previously_reviewed_heads": [],
+      "previously_reviewed_heads": [
+        "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481"
+      ],
       "historical_assessment_heads": [],
       "evidence": [
         {
@@ -156391,15 +156393,21 @@
           "evidence": "docs/research/pr-intake-evidence/queue-catchup-20261017.json",
           "scope": "Changed-head source/integrity triage; no scientific replay. ",
           "kind": "integration_or_partial_review"
+        },
+        {
+          "head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
+          "evidence": "docs/research/pr-intake-evidence/queue-tail-20261017.json",
+          "scope": "Changed-head source/integrity triage; no scientific replay. ",
+          "kind": "integration_or_partial_review"
         }
       ],
       "historical_mentions": [],
-      "reviewed_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
-      "current_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
+      "reviewed_head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
+      "current_head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa.",
+      "unresolved_question": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa. Revised metadata and optional fill discovery do not repair the operator identity.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
@@ -156407,7 +156415,7 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-catchup-20261017.json"
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
@@ -156956,6 +156964,51 @@
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3196",
         "merge_commit": "7db27e8fe131323b945633ca5731885c74d387c6"
       }
+    },
+    {
+      "number": 3197,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3197",
+      "title": "Research: exclude P112 4^3,6^6,7 by deleting one piece",
+      "contributor": {
+        "id": "MDQ6VXNlcjc0MjEzNDY=",
+        "is_bot": false,
+        "login": "petalas",
+        "name": "Nick Petalas"
+      },
+      "draft": false,
+      "starting_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+          "evidence": "docs/research/pr-intake-evidence/queue-tail-20261017.json",
+          "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. ",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "reviewed_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "current_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [
+        "research/p112-weight-seven-deletion"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -156968,6 +157021,6 @@
   "github_dispositions": {
     "CLOSED": 379,
     "MERGED": 2053,
-    "OPEN": 265
+    "OPEN": 266
   }
 }

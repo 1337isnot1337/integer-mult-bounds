@@ -143,3 +143,7 @@ The [exact-head delta](pr-intake-evidence/queue-next-20261017.json) covers 27 he
 ## Delta intake through PR3196
 
 The [exact-head delta](pr-intake-evidence/queue-catchup-20261017.json) covers 79 heads: 67 research archives (one historical version and three with separately reviewed manual replay configurations), five reviewed tooling fixes, and seven holds. PR3111 is available at its exact commit without replacing the retained main package. The seven holds concern missing manifest evidence or explicit source-bound objections; see the exact-head ledger for required repairs. No workflow was dispatched. The [test receipts](pr-intake-evidence/queue-catchup-20261017-checks.txt) cover shared tooling only.
+
+## Delta intake through PR3197
+
+The [exact-head delta](pr-intake-evidence/queue-tail-20261017.json) covers two closing-delta heads: PR3197 retained as a source archive, and revised PR3184 held because its metadata changes do not resolve the physical-operator objection. No scientific verifier was run.

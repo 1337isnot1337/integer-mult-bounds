@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2697**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2698**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2060 |
-| partially reviewed | 575 |
+| partially reviewed | 576 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -2728,7 +2728,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#3181](https://github.com/CrocSwap/integer-mult-bounds/pull/3181) | dcharb78 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3182](https://github.com/CrocSwap/integer-mult-bounds/pull/3182) | dcharb78 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3183](https://github.com/CrocSwap/integer-mult-bounds/pull/3183) | dcharb78 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
-| [#3184](https://github.com/CrocSwap/integer-mult-bounds/pull/3184) | rohanarun | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
+| [#3184](https://github.com/CrocSwap/integer-mult-bounds/pull/3184) | rohanarun | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-tail-20261017.json) |
 | [#3185](https://github.com/CrocSwap/integer-mult-bounds/pull/3185) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3186](https://github.com/CrocSwap/integer-mult-bounds/pull/3186) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3187](https://github.com/CrocSwap/integer-mult-bounds/pull/3187) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
@@ -2740,3 +2740,4 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#3194](https://github.com/CrocSwap/integer-mult-bounds/pull/3194) | jmbarrancoml | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3195](https://github.com/CrocSwap/integer-mult-bounds/pull/3195) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
 | [#3196](https://github.com/CrocSwap/integer-mult-bounds/pull/3196) | Gonzalo-Mier | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-catchup-20261017.json) |
+| [#3197](https://github.com/CrocSwap/integer-mult-bounds/pull/3197) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-tail-20261017.json) |

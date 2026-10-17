@@ -8467,18 +8467,18 @@
           "login": "rohanarun",
           "name": ""
         },
-        "headRefOid": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
+        "headRefOid": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
         "isDraft": false,
         "number": 3184,
         "title": "Conditional κ = 0.001730189061233850760095: idle rank-48 star exchanges on #3148's T740 fill (+4.12e-7)",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3184"
       },
-      "reviewed_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
-      "current_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
+      "reviewed_head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
+      "current_head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [],
-      "unresolved_question": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa.",
+      "unresolved_question": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa. Revised metadata and optional fill discovery do not repair the operator identity.",
       "scope": "Changed-head source/integrity triage; no scientific replay. ",
       "review_completion": {
         "changed_file_coverage": true,
@@ -8487,7 +8487,7 @@
         "published": false
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-catchup-20261017.json"
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
       ]
     },
     {
@@ -8911,6 +8911,40 @@
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3196",
         "merge_commit": "7db27e8fe131323b945633ca5731885c74d387c6"
       }
+    },
+    {
+      "number": 3197,
+      "metadata": {
+        "author": {
+          "id": "MDQ6VXNlcjc0MjEzNDY=",
+          "is_bot": false,
+          "login": "petalas",
+          "name": "Nick Petalas"
+        },
+        "headRefOid": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+        "isDraft": false,
+        "number": 3197,
+        "title": "Research: exclude P112 4^3,6^6,7 by deleting one piece",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3197"
+      },
+      "reviewed_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "current_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [
+        "research/p112-weight-seven-deletion"
+      ],
+      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. ",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": false,
+        "required_execution_complete": false,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
+      ]
     }
   ]
 }

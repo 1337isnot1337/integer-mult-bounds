@@ -4245,14 +4245,14 @@
     },
     {
       "number": 3184,
-      "head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
+      "head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
       "status": "waiting_revision",
-      "reason": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa.",
+      "reason": "PR3187 supplies an exact physical-stream operator counterexample to the first committed idle-star move. Commutation and preserved axis multisets do not establish the needed intertwining identity. Repair the operator proof/candidate and replay the complete overlay-aware construction before claiming this kappa. Revised metadata and optional fill discovery do not repair the operator identity.",
       "evidence": [
-        "docs/research/pr-intake-evidence/queue-catchup-20261017.json"
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
       ],
       "policy_version": 1,
-      "baseline": "997e6a9ca7b4f95d50e366f61412fd640d72a88a",
+      "baseline": "09fbc0f002fc5b04814272c89edbd557b2a8285d",
       "watch_paths": {
         "research/rank7-idle-star-stream-obstruction": "f790d4dc01fcc8928b50caae7e358e89ad4277f7",
         "research/idle-star-paired-axis-census": "b87a2a9d4400c32e5d7527687320522b4c293e6c"
@@ -4402,6 +4402,19 @@
       ],
       "policy_version": 1,
       "baseline": "997e6a9ca7b4f95d50e366f61412fd640d72a88a",
+      "watch_paths": {},
+      "watch_prs": {}
+    },
+    {
+      "number": 3197,
+      "head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-tail-20261017.json"
+      ],
+      "policy_version": 1,
+      "baseline": "09fbc0f002fc5b04814272c89edbd557b2a8285d",
       "watch_paths": {},
       "watch_prs": {}
     }

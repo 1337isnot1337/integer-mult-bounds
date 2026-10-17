@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Prepared 72 integrations from 79 actionable heads; verify exact GitHub publication receipts after push. Seven concrete holds recorded. No hosted or scientific replay started; skip-ci avoids an unbudgeted all-package sweep for the shared runner change.",
+  "next": "72 GitHub merges confirmed; PR3197 source archive prepared in the closing delta. Revised PR3184 remains held: metadata edits do not address the physical-stream counterexample. Finish publication and refresh once. Scientific/frontier validation is separate.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,9 +1011,8 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "7db27e8fe131323b945633ca5731885c74d387c6",
-    "merged": [],
-    "prepared": [
+    "source_publication_commit": "4390d1f8c3a968a44bd15cd3654e7ac0c157ff89",
+    "merged": [
       3111,
       3112,
       3113,
@@ -1087,10 +1086,14 @@
       3195,
       3196
     ],
-    "archive_count": 67,
+    "prepared": [
+      3197
+    ],
+    "archive_count": 68,
     "reviewed_tooling_count": 5,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-catchup-20261017.json"
+      "docs/research/pr-intake-evidence/queue-catchup-20261017.json",
+      "docs/research/pr-intake-evidence/queue-tail-20261017.json"
     ],
     "selected_frontier_changed": false
   },
