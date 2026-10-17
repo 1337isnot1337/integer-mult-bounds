@@ -1,0 +1,17 @@
+{
+  "status": "local checks passed; peer review and committed export pending",
+  "utc": "2026-10-17T20:01:52.057442+00:00",
+  "baseline": "463113d675af7410ac91d53a4fed51ec6494eb9a",
+  "environment": "CPython3.12.15 macOS arm64; standard library",
+  "registered": "PASS all three commands with -W error; controls under -O",
+  "primary": "3780orthogonalplanes,896live-axis fibers times10795sixspaces; A2 and chamber receipts match RESULT.json",
+  "independent": "788035ambient sixspaces,16support20sets,120fourframes,1920intersections and3780orthogonal-pair orbit",
+  "controls": "7groups passed; includes malformed inventory, corrupted source, symlink, oversized file and absent-puncture control",
+  "diagnostics": "Ruff check and format check passed",
+  "limits": [
+    "Global g(5)=12/g(6)=20 historical censuses inherited, not rerun",
+    "Weyl-chamber theorem is a written dependency",
+    "Independent checker shares authenticated geometry; no independent A2/global-capacity proof",
+    "No Lean, Docker, full selected cold replay, supplier or kappa claim"
+  ]
+}
