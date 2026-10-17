@@ -25,6 +25,12 @@ of the two providers authenticated by PR2918 at
 `51309592971e3b5be935599eed2a95404dc7781e`, carrying the PR2894 providers at
 `18d03c447886895ef9abf888398178e0428533ca`.
 
+The entrance coordinates are taken immediately after the provider's 84-event
+prelude, which `M` omits. Its only non-target operations are 24 invertible warps
+on protected registers outside `H`. Hence these coordinates still range
+independently over the full module, and the eligible coordinates are unchanged.
+The allowed entrance recoding below is applied at this declared cut.
+
 As in that package, the live non-target coordinate set is
 
 ```
@@ -55,13 +61,16 @@ final climbs. It has a fixed finite data-dependency network satisfying:
    resets or other operations carrying a dependency to a smaller or
    incomparable frame.
 3. Inputs consist of the live non-target state at this cut, together with
-   any constants or ancillas independent of every original input. There
+   any constants or ancillas whose joint tuple is independent of the complete
+   entrance tuple and can be fixed identically in compared executions. There
    are no target reads, additional source reads, earlier snapshots, or
    retained data-dependent side values.
-4. Schedule and frame choices are independent of data. A data-dependent
-   control may be allowed only if every one of its data dependencies is
-   an explicit network edge obeying the same frame rules. External branch,
-   control, or timing side channels are not part of the interface.
+4. The network, output identities and the frame assigned to every node are
+   fixed independently of input values. Data-dependent local branching is
+   allowed only inside a node's local function; every potential branch input
+   and every data/control dependency is an explicit incoming edge obeying
+   rule 1. Branch choice, output selection/presence, timing and frame choice
+   provide no additional observation.
 
 **Theorem.** Under these assumptions, no output at a final frame `E` with
 `dim_GF(2) E<=7` can equal a nonconstant function of `h` for all entrance
@@ -70,8 +79,10 @@ are all contained in one common such `E`.
 
 For a fresh eligible-input extraction using an allowed entrance recoding
 and this suffix interface, endpoint rank eight is therefore necessary.
-PR2908's calibrated rank-eight entrance/output pair attains that threshold
-algebraically. This comparison allows its `H`-only entrance recoding; it
+For every nonzero `W`, PR2908's calibrated rank-eight entrance/output pair
+attains that threshold algebraically. For `W=0` no nonconstant quantity exists
+at any rank, so there is no sharp recovery threshold. This comparison allows
+the `H`-only entrance recoding; it
 does not assert that a suffix alone, with identity entrance map, attains
 the threshold.
 
@@ -84,8 +95,14 @@ word. The available terminal support at an endpoint `E` is
 R(E) = {r in L : F_r is a subspace of E}.
 ```
 
-The frame replay includes all scalar incidents, target writes' source
-incidents, prelude warps, inserted `B` warps, and restore incidents. Warps
+The frame replay includes all recorded scalar incidents in `A`, `B` and
+`restore`, including their target writes' source incidents, as well as prelude
+warps and inserted `B` warps. The separate 176 target-only `cut` operations
+have unspecified (`None`) frames in the provider. They are interpreted using
+the inherited center-cut convention: every source is a recorded center whose
+current frame already equals its `center_frames` entry at the end of `A`.
+Both verification paths check this equality; neither reconstructs additional
+physical frame moves for that separate cut. Warps
 replace their incoming frame by the recorded outgoing frame. Taking the
 union of all historical frames would give a different and incorrect
 support. The middle operator omits target writes but retains all 4,583
@@ -261,7 +278,8 @@ The terminal gates are
 ```
 
 Register42 is available at `E52`. These actual pre/post maps give the
-rank-eight algebraic witness in the same eligible-entrance class. The
+rank-eight algebraic witness in the same eligible-entrance class. For nonzero
+`W`, its recovered coordinate `h_408` is nonconstant. The
 lower bound and this witness establish a sharp endpoint-rank threshold
 for that interface; they do not re-prove the inherited native supplier,
 buffers, target compensation, owner allocation, or complete cost ledger.

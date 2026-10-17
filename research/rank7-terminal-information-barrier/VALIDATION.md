@@ -29,6 +29,23 @@ It found exact agreement. Mathematical review confirmed the causal and
 indistinguishability arguments and led to the explicit linear-encoding
 restriction on the secondary dimension bounds.
 
+A fresh pre-submission review additionally compared all 520 complete operator
+rows and 11,912 coefficients on each provider, all 520 frames, the endpoint
+partition and the rank-eight inverse vector. Fourteen disposable variants with
+named validation checks removed were detected by the existing controls; a valid
+alternative gzip encoding separately tested source-byte authentication, and a
+noncommuting two-generator fixture checked word direction and cancellation.
+This was additional author-review work, not a third registered independent
+verifier; its scripts and receipts are retained by the author outside the package.
+
+The pre-submission mathematical fixes make the post-prelude entrance cut and
+inherited center-cut frame convention explicit, fix the dependency graph and
+output identities against control side channels, require joint ancillary
+independence, and qualify sharpness by a nonzero module. The task card now
+declares changed scope: this negative result does not satisfy the original
+positive-construction acceptance gate. Fresh mathematical and packaging reviews
+found no remaining issue within those stated limits.
+
 This receipt records local computation and AI-assisted mathematical review.
 It is not hosted CI, human peer review, formal-kernel verification, a full native
 supplier replay, or admission of a new multiplication bound. The original selected

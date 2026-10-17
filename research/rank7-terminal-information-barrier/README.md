@@ -8,6 +8,12 @@ processing whose complete data dependencies obey monotone frame inclusion.
 All inputs retain the independent arbitrary-dirty contract. The word, entrance
 cut, protected inputs and observation interface are fixed.
 
+The entrance cut is immediately after the 84-event prelude. The separate
+target-only center cut uses the inherited, checked `center_frames` convention;
+this package does not reconstruct extra physical moves for its unspecified
+frames. Output registers and frames in the suffix are fixed independently of
+data, with all branch and control dependencies included.
+
 This strengthens PR2918's one-helper, one-endpoint, scalar paired-boundary
 obstruction. It concerns deterministic recovery for every input, not statistical
 mutual information. [PROOF.md](PROOF.md) gives the complete theorem and limits.
@@ -43,7 +49,8 @@ states. Monotone frame dependencies confine any output at endpoint `E` to the
 already masked terminal support `R(E)`.
 
 The known PR2908 rank-eight paired extraction passes both verification paths.
-Consequently eight is the sharp endpoint threshold in this frozen interface
+For every nonzero dyadic module, eight is the sharp endpoint threshold in this
+frozen interface
 when the permitted eligible-input preprocessing is included. This does not
 assert that an output-only suffix can attain the threshold.
 
@@ -118,7 +125,8 @@ Prepared for Ross Richardson with substantial OpenAI Codex assistance, including
 separately assigned helper-boundaries, observation-kernels and exact-verification
 specialists. PR2918 is Ross Richardson's scoped obstruction; Jeremy Diviney's
 PR2908 supplies the rank-eight extraction, and Jeremy Kothe's PR2894 supplies the
-parent words. PR2979 supplies the prior all-endpoint screening comparison.
+parent words. Marius-Paul Dumitrean's PR2979 supplies the prior all-endpoint
+screening comparison.
 Earlier contributions and license notices remain in
 `research/helper408-rank7-pairing/NOTICE.md` and its `sources/CREDITS.md`.
 This package is under the repository's Apache-2.0 license. No new copies of
