@@ -1,5 +1,5 @@
 {
-  "status": "passed-local-before-export",
+  "status": "passed committed export and designated scoped peer review",
   "at": "2026-10-17T21:41:49.160073+00:00",
   "python_registered": "CPython3.12.15 macOSarm64",
   "commands": [
@@ -52,5 +52,21 @@
     "Docker",
     "native/physical/consumer/supplier/outeradmission"
   ],
-  "export": "Pending actual committed read-only Git-free execution before evidence-ready; cache receipt will record completion."
+  "export": {
+    "scientific_commit": "7d8675f8c4d1ea080851fa0f56144130b347a09c",
+    "archive_sha256": "1d99bd630a62385eb014b075268f4aca61c7abc8001b2b102b6e8745c0cbb3c4",
+    "regular_only": true,
+    "inode_disjoint": true,
+    "readonly": true,
+    "git_free": true,
+    "all_three_commands": "PASS CPython3.12.15 normal and CPython3.13.16 optimized",
+    "all_hashes_unchanged": true
+  },
+  "peer_review": {
+    "receipt": "REVIEW.json",
+    "sha256": "0017a4696b790d5e3a4165797290e778cb17afc0b89eda7ddeace4683fa42091",
+    "status": "no blocking finding in scoped internal read-only review",
+    "reviewed_commit": "7d8675f8c4d1ea080851fa0f56144130b347a09c"
+  },
+  "publication_change": "Only CHECKS.json metadata changed and exact REVIEW.json added after scientific freeze; proof/code/source/witness bytes unchanged."
 }
