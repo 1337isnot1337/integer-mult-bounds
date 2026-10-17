@@ -1,7 +1,6 @@
 """Behavior and source-boundary controls, including optimized CLI rejection."""
 
 import json
-import os
 import subprocess
 import sys
 import tempfile
@@ -119,8 +118,4 @@ class Controls(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    require(
-        os.environ.get("TMPDIR") is not None,
-        "set session-owned TMPDIR for private controls",
-    )
     unittest.main()
