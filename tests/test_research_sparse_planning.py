@@ -59,6 +59,16 @@ class SparsePlanningTests(unittest.TestCase):
         self.assertEqual(runner.plan(self.root,['scripts/research_package.py']),['research/alpha','research/hidden'])
         self.assertFalse((self.root/self.manifest).exists())
 
+    def test_explanations_bind_identical_manifest_bytes_in_sparse_checkout(self):
+        expected = runner.plan_details(self.root, ['inputs/value.txt'])
+        self.sparse()
+        actual = runner.plan_details(self.root, ['inputs/value.txt'])
+        self.assertEqual(actual, expected)
+        self.assertEqual(len(actual), 2)
+        for row in actual:
+            self.assertEqual(row['causes']['declared_inputs'], ['inputs/value.txt'])
+            self.assertEqual(len(row['manifest_sha256']), 64)
+
     def test_entire_research_directory_may_be_omitted(self):
         self.sparse(whole_research=True)
         self.assertFalse((self.root/'research').exists())
