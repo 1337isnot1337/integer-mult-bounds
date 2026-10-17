@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "baseline": "24db9bfffd4a7c812545ea6ae58853cb9ef094b2",
-  "scope": "33 actionable heads; delta-only intake. Source archives remain scientifically unvalidated.",
+  "scope": "34 PRs plus a concurrent revision; delta-only intake. Source archives remain scientifically unvalidated.",
   "contributions": [
     {
       "number": 3298,
@@ -4620,6 +4620,132 @@
       "lane": "archive",
       "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. ",
       "remaining": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa."
+    },
+    {
+      "number": 3331,
+      "head": "499c02bcd6febeada7f3f9db21ed4431c901d9b5",
+      "merge_base": "24db9bfffd4a7c812545ea6ae58853cb9ef094b2",
+      "title": "Add exact scalar-shadow row update lemma",
+      "author": {
+        "id": "U_kgDOCcbgOg",
+        "is_bot": false,
+        "login": "1337isnot1337",
+        "name": "Cinna Davis"
+      },
+      "files": [
+        {
+          "path": "research/stream-shadow-row-update/PrintAxioms.lean",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "03d9529aa00f9186bbfaf647f18059601b8a49ab"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/README.md",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a495fa7737783bff38d9315f6b0654ac9de61fe7"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/SOURCES.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "dbbd92ca53ba8c8a50d0a0013ef2ceaa9d68de77"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/StreamShadowRowUpdate.lean",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "0bd93b3e1e691d2c210e47a1753b74b6703b1adb"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/TASK.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "79aa97951d5e3202642955467c84bb43f011257b"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/VERIFY.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "bfc8ee2868ab6d7528b50de9ef6597983f5b984f"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/lake-manifest.json",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "e2e03cc1987bad8322e980cb5615a1d8ce8968e4"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/lakefile.toml",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "aac19bc005cbd1102cb38199b48849524bacb1b0"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/lean-toolchain",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "980709bbbae28702ec58c368b84fdf6638093c63"
+          },
+          "baseline": null,
+          "change": "A"
+        },
+        {
+          "path": "research/stream-shadow-row-update/verify.py",
+          "source": {
+            "mode": "100644",
+            "kind": "blob",
+            "oid": "a1d8f17e2edb570288e82695926d54c213357129"
+          },
+          "baseline": null,
+          "change": "A"
+        }
+      ],
+      "errors": [],
+      "syntax": {
+        "python": 1,
+        "json": 4
+      },
+      "manifests": [],
+      "shared": [],
+      "conflicts": [],
+      "lane": "archive",
+      "additional_scope": "Lean proof sources archived without building Lean or fetching Mathlib. Author kernel/axiom claims remain unverified here.",
+      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. Lean proof sources archived without building Lean or fetching Mathlib. Author kernel/axiom claims remain unverified here.",
+      "remaining": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa."
     }
   ],
   "source_retention": {
@@ -4656,7 +4782,8 @@
       3327,
       3328,
       3329,
-      3330
+      3330,
+      3331
     ],
     "historical_only": [
       3315
@@ -4665,7 +4792,8 @@
     "workflow_resolutions": [],
     "corrected_source_commit": "f9ea583c46057863bca1c68ba509de15a70642f4",
     "initial_3315_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
-    "corrected_3315_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355"
+    "corrected_3315_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355",
+    "closing_source_commit": "97173ade2371bc3999dabdec64f233760d400220"
   },
   "checks": [
     {
@@ -4701,6 +4829,6 @@
   "integration_resolutions": [
     "PR3314 describes current archive status; contributor replay claims remain attributed. No supplier or priority-weight change."
   ],
-  "publication": "published",
+  "publication": "prepared_not_yet_pushed",
   "frontier_changed": false
 }

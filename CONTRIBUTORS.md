@@ -1960,7 +1960,7 @@ One additional research contribution retained as a source archive; scientific va
 
 ## Delta intake through PR3330, 2026-10-17
 
-31 research contributions retained as source archives (including PR3315’s corrected historical version), one reviewed publication-tooling change and one reviewed navigation update. Scientific validation remains open; no frontier change.
+32 research contributions retained as source archives (including PR3315’s corrected historical version), one reviewed publication-tooling change and one reviewed navigation update. Scientific validation remains open; no frontier change.
 
 - **Tekalign (@tekuuu)** — [#3298](https://github.com/CrocSwap/integer-mult-bounds/pull/3298): Tooling: complete the P104 tensor collector replay with exact packed arithmetic (source archive).
 - **Nick Petalas (@petalas)** — [#3299](https://github.com/CrocSwap/integer-mult-bounds/pull/3299): Prove a universal P112 mixed-rank common-cut32 contract (source archive).
@@ -1995,3 +1995,4 @@ One additional research contribution retained as a source archive; scientific va
 - **Cinna Davis (@1337isnot1337)** — [#3328](https://github.com/CrocSwap/integer-mult-bounds/pull/3328): Research: isolate orthogonal remainder overlays (no new κ) (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#3329](https://github.com/CrocSwap/integer-mult-bounds/pull/3329): research: audit centre triangle-count lower bound (source archive).
 - **Tekalign (@tekuuu)** — [#3330](https://github.com/CrocSwap/integer-mult-bounds/pull/3330): Research: reduce selected BIT route interchange calls with paid permutation frames (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#3331](https://github.com/CrocSwap/integer-mult-bounds/pull/3331): Add exact scalar-shadow row update lemma (source archive).

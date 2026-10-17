@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "97 source archives confirmed merged;33-head remainder prepared (31 archives, one source-history preflight, one P104 navigation update). Verify GitHub publication receipts and refresh queue. Three kappa claims3198/3200/3251 held for physical-operator objections.47 focused tests passed. No scientific/Lean/Docker replay or workflow dispatch; publication skips CI.",
+  "next": "130 merges confirmed; final arrival PR3331 archived without Lean execution and awaiting publication. Finish receipts and final queue refresh. 47 focused tooling tests passed. Three new kappa claims remain held; selected result unchanged.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,7 +1011,7 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "22382d9c0a6e152ea9b9944f00144f357824354e",
+    "source_publication_commit": "97173ade2371bc3999dabdec64f233760d400220",
     "merged": [
       3199,
       3201,
@@ -1109,9 +1109,7 @@
       3294,
       3295,
       3296,
-      3297
-    ],
-    "prepared": [
+      3297,
       3298,
       3299,
       3300,
@@ -1146,7 +1144,10 @@
       3329,
       3330
     ],
-    "archive_count": 128,
+    "prepared": [
+      3331
+    ],
+    "archive_count": 129,
     "reviewed_tooling_count": 2,
     "evidence": [
       "docs/research/pr-intake-evidence/queue-refresh-20261017.json",

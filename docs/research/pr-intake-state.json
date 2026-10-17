@@ -6155,6 +6155,19 @@
       "baseline": "24db9bfffd4a7c812545ea6ae58853cb9ef094b2",
       "watch_paths": {},
       "watch_prs": {}
+    },
+    {
+      "number": 3331,
+      "head": "499c02bcd6febeada7f3f9db21ed4431c901d9b5",
+      "status": "ready_to_integrate",
+      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "evidence": [
+        "docs/research/pr-intake-evidence/queue-remainder-20261017.json"
+      ],
+      "policy_version": 1,
+      "baseline": "24db9bfffd4a7c812545ea6ae58853cb9ef094b2",
+      "watch_paths": {},
+      "watch_prs": {}
     }
   ]
 }
