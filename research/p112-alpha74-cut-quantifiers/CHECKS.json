@@ -88,7 +88,18 @@
       "main": 7
     }
   },
-  "export": "Pending committed read-only Git-free replay; do not claim evidence-ready before it passes.",
+  "export": {
+    "scientific_commit": "e848b4d38d8de0d91e0aa52ef833be7e62124cee",
+    "status": "PASS_ALL_THREE_ACTUAL_COMMITTED_READONLY_GITFREE_COMMANDS",
+    "python": "CPython 3.13",
+    "archive_sha256": "ff9f85d9ffcfa7c5006039e3a18509a112f904289622782850b99ef8e6d21a2b",
+    "package_and_input_files": 16,
+    "regular_only_single_linked_inode_disjoint": true,
+    "permission_method": "Only new private export files changed via validated O_NOFOLLOW fd/fstat/fchmod; separate O_DIRECTORY descriptors for owned directories. No links or shared targets.",
+    "byte_stability": "All16exportedpackage/inputhashes unchanged after all3commands; actual designated reviewer also verified all16againstworkingtree andcommit.",
+    "peer_receipt": "REVIEW.json retained verbatim; reviewer ran all3optimizedcommands under CPython3.12.15, using own TMPDIR.",
+    "publication_delta": "Only CHECKS.json and new REVIEW.json differ from the scientific freeze; mathematical/source bytes unchanged."
+  },
   "bounded_search": "PR3154 modified proposer limited to one seven-flat representative48 and eight-root four-flats; two55second timeouts retained in session cache. No search completeness or negative theorem inferred. Exact candidate proof uses only canonical geometry and WITNESS.json.",
   "orientation": [
     "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
