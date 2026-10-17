@@ -17,7 +17,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Authenticate pins; derive routes by chart swaps; exact reduced-triple census on the 17-coordinate active block; compare class histogram and braid edges to the audited receipt; check every relation multiplies to the identity; exhaust support-seven incidence structures (only the 30 labelled Fano planes) and Fano flag labellings against all six-cycle relations (none); positive control finds a labelling under a free relation set."
+      "checks": "Authenticate pins; derive routes by chart swaps; exact reduced-triple census on the 17-coordinate active block; compare class histogram and braid edges to the audited receipt; check every relation multiplies to the identity; exhaust support-seven incidence structures (only the 30 labelled Fano planes) and Fano flag labellings against all six-cycle relations (none); a planted Z2^4 Fano labelling is recovered from its own cycle words and rejected once one relation class is removed."
     }
   ]
 }

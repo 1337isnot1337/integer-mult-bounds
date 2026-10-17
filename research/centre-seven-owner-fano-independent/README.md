@@ -22,9 +22,11 @@ search in place of the written argument.
 | Fano plane cannot be labelled | Written braid-pair / triangle-free argument | Exhaustive backtracking over all route labels of the 21 flags. Labels at each owner and on each line must be distinct. Each of the 28 six-cycles must read as a group relation. Result: no labelling. |
 
 The labelling search uses only the relation words. It does not use the fact
-that they are braids or that the braid graph has no triangles. A positive
-control admits every cyclically reduced six-letter word over 7 letters, and
-the same search then finds a labelling.
+that they are braids or that the braid graph has no triangles. Two controls
+show that the search is not vacuous. A Fano labelling is planted in the group
+Z2^4 (label = point code XOR line code). When only its 28 cycle words are
+admitted, the search recovers it. When one relation class is removed, the
+search no longer accepts it.
 
 The six-cycle condition is necessary. For a cycle g–L1–h–L3–k–L2–g with port
 labels a,b (at L1), c,d (at L3), e,f (at L2), the regular action

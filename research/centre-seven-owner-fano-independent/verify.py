@@ -250,12 +250,23 @@ def build():
     need(len(cycles) == 28, 'Heawood six-cycle count')
     need(not found, 'a Fano labelling meets every six-cycle relation')
 
-    # Positive control: with every cyclically reduced 6-word over 7 letters
-    # admitted, the same search must find labellings.
-    free = {w for w in __import__('itertools').product(range(7), repeat=6)
-            if all(w[i] != w[(i + 1) % 6] for i in range(6))}
-    _, free_found = labelings(FANO, free, range(7), first=True)
-    need(free_found, 'search positive control found nothing')
+    # Positive control: plant a Fano labelling realised in the abelian group
+    # Z2^4 (label = point code XOR line code; every six-cycle word XORs to 0),
+    # admit only its own cycle words, and require the search to recover it.
+    # Removing one admitted cycle word must lose it: the pruning is not vacuous.
+    points, line_codes = (1, 2, 4, 8, 3, 5, 6), (9, 10, 12, 7, 11, 13, 14)
+    planted = {(p, l): points[p] ^ line_codes[l]
+               for l, line in enumerate(FANO) for p in line}
+    planted_words = {tuple(planted[f] for f in c) for c in cycles}
+    need(all(w[0] ^ w[1] ^ w[2] ^ w[3] ^ w[4] ^ w[5] == 0 for w in planted_words),
+         'planted words are group relations')
+    _, control = labelings(FANO, closed_under_symmetry(planted_words), range(16))
+    need(planted in control, 'search positive control lost the planted labelling')
+    admitted = closed_under_symmetry(planted_words)
+    dropped = admitted - closed_under_symmetry([min(planted_words)])
+    need(dropped != admitted, 'mutant removes a relation class')
+    _, mutant = labelings(FANO, dropped, range(16))
+    need(planted not in mutant, 'search accepted a labelling with a missing relation')
 
     return {
         'status': 'PASS_CENTRE_SEVEN_OWNER_FANO_INDEPENDENT',
@@ -270,7 +281,9 @@ def build():
         'support_seven_structures_all_fano': True,
         'fano_six_cycles': len(cycles),
         'fano_labellings_meeting_all_relations': 0,
-        'positive_control_found_labelling': True,
+        'positive_control_planted_labelling_recovered': True,
+        'positive_control_labellings_found': len(control),
+        'mutant_control_rejects_planted': True,
         'scope': 'independent finite check of the audited support-7 exclusion; no supplier, tariff or kappa change',
     }
 
@@ -285,7 +298,7 @@ def main():
         args.write.write_bytes(canonical(result))
     else:
         need(canonical(result) == (HERE / 'RESULT.json').read_bytes(), 'receipt mismatch')
-    print('PASS_CENTRE_SEVEN_OWNER_FANO_INDEPENDENT relations=50 fano_structures_only '
+    print('PASS_CENTRE_SEVEN_OWNER_FANO_INDEPENDENT braid_edges=50 fano_structures_only '
           'fano_labellings=0 no_new_kappa')
 
 
