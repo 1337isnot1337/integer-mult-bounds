@@ -86,7 +86,7 @@ def pull_file_record(pull):
         connection = page["files"]
         if connection is None:
             raise ValueError("PR file continuation unavailable")
-    return {"number": pull["number"], "paths": sorted(paths),
+    return {"number": pull["number"], "head": pull["headRefOid"], "paths": sorted(paths),
             "truncated": connection is None or len(paths) != pull["changedFiles"]}
 
 
@@ -142,7 +142,8 @@ def path_report(pr_records, file_rows, patterns):
         pull = pulls.get(row["number"], {})
         matches.append({"kind": "pr", "number": row["number"], "title": pull.get("title", ""),
                         "url": pull.get("url") or f"https://github.com/{REPO}/pull/{row['number']}",
-                        "head": pull.get("head"),
+                        "head": row.get("head"), "body_head": pull.get("head"),
+                        "head_matches": bool(row.get("head") and row["head"] == pull.get("head")),
                         "updated_at": pull.get("updated_at"), "draft": pull.get("draft", False),
                         "matched_paths": matched, "changed_paths": len(row["paths"]),
                         "truncated": row.get("truncated", False)})
@@ -258,6 +259,10 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
             except (KeyError, ValueError, TypeError):
                 cached = None
         fresh = cached is not None and age is not None and 0 <= age <= max_age
+        if name == "pr_files" and cached:
+            # Old schema-1 caches omitted file heads. Refresh just this source;
+            # offline/failed refreshes retain the evidence with explicit warnings.
+            fresh = fresh and all(row.get("head") for row in cached["records"])
         if offline:
             warnings.append(f"{name}: offline; cached data may miss current changes")
         elif refresh or not fresh:
@@ -410,12 +415,21 @@ def main():
         if source:
             coverage["pr_files"]["records"] = len(source["records"])
             pulls = snapshot["sources"].get("open_prs", {"records": []})["records"]
+            heads = {pull["number"]: pull.get("head") for pull in pulls}
+            file_heads = {row["number"]: row.get("head") for row in source["records"]}
+            unverified = sorted(number for number in heads.keys() | file_heads.keys()
+                                if not file_heads.get(number) or file_heads[number] != heads.get(number))
+            coverage["pr_files"]["unverified_heads"] = unverified
+            if unverified:
+                warnings.append(f"pr_files: file-head binding unverified for {len(unverified)} PRs; "
+                                "paths may be stale. Refresh and recheck the heads listed in coverage.")
             path_matches = path_report(pulls, source["records"], patterns)
     matches = search(records, terms, args.all_terms, reference_terms) if any(t.strip() for t in terms) else []
     if patterns and matches:
         # With both axes given, a record must match at least one term and one path.
-        hits = {m["number"]: m["matched_paths"] for m in path_matches}
-        matches = [dict(m, matched_paths=hits[m.get("number")]) for m in matches
+        hits = {m["number"]: m for m in path_matches}
+        matches = [dict(m, **{key: hits[m["number"]][key]
+                             for key in ("matched_paths", "head", "body_head", "head_matches")}) for m in matches
                    if m.get("kind") == "pr" and m.get("number") in hits]
     if patterns and not any(t.strip() for t in terms):
         matches = []
@@ -432,7 +446,9 @@ def main():
         report["path_patterns"] = patterns
         report["path_limits"] = ("Path matching covers the changed file paths GitHub reports for open PRs, "
                                  "not diff contents; all available file pages are followed. Missing lists or "
-                                 "advertised-count shortfalls are flagged truncated.")
+                                 "advertised-count shortfalls are flagged truncated. Head identifies the file "
+                                 "snapshot; body_head identifies PR metadata. Unverified joins are flagged, "
+                                 "including inventories with no matching path.")
         report["path_matches_total"] = len(path_matches)
         report["path_matches"] = path_matches[:args.limit]
     if args.json_output:
@@ -455,6 +471,8 @@ def main():
             print(f"\n[{match['kind']}] {match['title']}\n{match.get('url', match.get('path'))}")
             if match.get("head"):
                 print("Head: " + match["head"])
+            if match.get("head_matches") is False:
+                print("File-head binding unverified; body head: " + str(match.get("body_head")))
             print(match["excerpt"])
         if patterns:
             print(f"\n{len(path_matches)} open PRs match paths {patterns}; "
@@ -464,6 +482,8 @@ def main():
                 print(f"\n[pr {match['number']}] {match['title']}{flags}\n{match['url']}")
                 if match.get("head"):
                     print("Head: " + match["head"])
+                if not match["head_matches"]:
+                    print("File-head binding unverified; body head: " + str(match["body_head"]))
                 print("Matched paths: " + ", ".join(match["matched_paths"]))
 
 

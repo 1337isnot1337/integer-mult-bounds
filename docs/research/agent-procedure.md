@@ -149,6 +149,11 @@ The helper does not search every code diff or nested source file. Remote paginat
 reported as such; snapshots are cached outside the checkout for five minutes.
 Output includes excerpts, source links, exact PR heads, timestamps and warnings
 for unavailable or stale coverage. No matches does not establish novelty.
+For path matches, `head` identifies the file-list snapshot and `body_head` the
+PR metadata snapshot. `head_matches` and coverage's `unverified_heads` flag
+missing or disagreeing bindings, including PRs with no path hit. Recheck those
+PRs before treating the path search as current; offline legacy caches retain
+unknown file heads rather than borrowing a head from PR metadata.
 Canonical positive integers in task overlap terms match PR references, rather than
 decimal or commit-hash fragments. Explicit positional terms retain literal matching;
 leading-zero words stay literal. See [reference matching](overlap-task-reference-matching.md)
