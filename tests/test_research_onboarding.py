@@ -116,8 +116,8 @@ class OverlapTests(unittest.TestCase):
 class OverlapPathIndexTests(unittest.TestCase):
     """Changed-file index for open PRs (discussion 1200 request: search by path)."""
 
-    ROWS = [{"number": 7, "paths": ["docs/research/current-status.md", "README.md"], "truncated": False},
-            {"number": 8, "paths": ["research/lean-external-review/EXPLAINER.md"], "truncated": True}]
+    ROWS = [{"number": 7, "head": "a" * 40, "paths": ["docs/research/current-status.md", "README.md"], "truncated": False},
+            {"number": 8, "head": "b" * 40, "paths": ["research/lean-external-review/EXPLAINER.md"], "truncated": True}]
 
     def test_path_report_exact_glob_substring_and_rejection(self):
         prs = [{"kind": "pr", "number": 7, "title": "T", "body": "b", "url": "u7", "head": "a" * 40,
@@ -153,21 +153,21 @@ class OverlapPathIndexTests(unittest.TestCase):
         with patch.object(overlap, "graphql", side_effect=pages) as call:
             rows = overlap.fetch_pr_files()
         self.assertEqual(call.call_count, 2)
-        self.assertEqual(rows[0], {"number": 1, "paths": ["a.txt", "b.txt"], "truncated": False})
-        self.assertEqual(rows[1], {"number": 2, "paths": ["c.txt"], "truncated": True})
+        self.assertEqual(rows[0], {"number": 1, "head": "abc", "paths": ["a.txt", "b.txt"], "truncated": False})
+        self.assertEqual(rows[1], {"number": 2, "head": "abc", "paths": ["c.txt"], "truncated": True})
 
     def test_fetch_pr_files_skips_unavailable_file_lists(self):
         page = {"repository": {"pullRequests": {
             "pageInfo": {"hasNextPage": False, "endCursor": None},
-            "nodes": [{"number": 376, "files": None},
+            "nodes": [{"number": 376, "headRefOid": "abc", "files": None},
                       {"number": 9, "headRefOid": "abc", "changedFiles": 1,
                        "files": {"pageInfo": {"hasNextPage": False},
                                               "nodes": [{"path": "ok.md"}, None]}}]}}}
         with patch.object(overlap, "graphql", return_value=page):
             rows = overlap.fetch_pr_files()
-        self.assertEqual(rows[0], {"number": 9, "paths": ["ok.md"], "truncated": False})
+        self.assertEqual(rows[0], {"number": 9, "head": "abc", "paths": ["ok.md"], "truncated": False})
         # An unavailable file list is recorded as empty and flagged, never silently trusted.
-        self.assertEqual(rows[1], {"number": 376, "paths": [], "truncated": True})
+        self.assertEqual(rows[1], {"number": 376, "head": "abc", "paths": [], "truncated": True})
 
     def test_fetch_pr_files_retries_transient_page_failures(self):
         page = {"repository": {"pullRequests": {
@@ -179,7 +179,7 @@ class OverlapPathIndexTests(unittest.TestCase):
         with patch.object(overlap, "graphql", side_effect=[boom, boom, page]) as call, \
              patch.object(overlap.time, "sleep") as slept:
             rows = overlap.fetch_pr_files()
-        self.assertEqual(rows, [{"number": 1, "paths": ["a.md"], "truncated": False}])
+        self.assertEqual(rows, [{"number": 1, "head": "abc", "paths": ["a.md"], "truncated": False}])
         self.assertEqual(call.call_count, 3)
         self.assertEqual(slept.call_count, 2)
         with patch.object(overlap, "graphql", side_effect=[boom] * 4), \
@@ -188,7 +188,7 @@ class OverlapPathIndexTests(unittest.TestCase):
                 overlap.fetch_pr_files()
 
     def test_pr_files_fetched_only_when_requested_and_cached(self):
-        rows = [{"number": 3, "paths": ["x.md"], "truncated": False}]
+        rows = [{"number": 3, "head": "a" * 40, "paths": ["x.md"], "truncated": False}]
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp) / "cache.json"
             with patch.object(overlap, "gh_json", return_value=[[]]), \
@@ -211,7 +211,7 @@ class OverlapPathIndexTests(unittest.TestCase):
                 self.assertTrue(any("pr_files" in w for w in warnings))
 
     def test_pr_files_refresh_failure_keeps_old_records(self):
-        rows = [{"number": 5, "paths": ["keep.md"], "truncated": False}]
+        rows = [{"number": 5, "head": "a" * 40, "paths": ["keep.md"], "truncated": False}]
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp) / "cache.json"
             with patch.object(overlap, "gh_json", return_value=[[]]), \
