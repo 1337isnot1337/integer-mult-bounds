@@ -1,0 +1,34 @@
+name: P112 ten-deletion span
+
+on:
+  pull_request:
+    paths:
+      - 'research/p112-ten-deletion-span/**'
+      - 'research/one-sided-six-multisets/data/**'
+      - '.github/workflows/p112-ten-deletion-span.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'research/p112-ten-deletion-span/**'
+      - 'research/one-sided-six-multisets/data/**'
+      - '.github/workflows/p112-ten-deletion-span.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check native environment and replay
+        run: |
+          c++ --version
+          python -W error -B scripts/research_package.py --package research/p112-ten-deletion-span

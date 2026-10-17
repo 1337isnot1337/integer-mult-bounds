@@ -29,5 +29,23 @@
       "git_blob": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
       "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
     }
+  ],
+  "derived_sources": [
+    {
+      "path": "census.cpp",
+      "commit": "a1aba8389b87412e6f72ccf4d11f31e0ea232327",
+      "source_path": "research/p112-mixed-rank-reduction/census.cpp",
+      "git_blob": "151cfea7281a469863518434d0eaf29ac6732f87",
+      "sha256": "05a5f12ba29d96934cb0b163fbfc4be97b715242cb7978398ce6a0322eb65734",
+      "usage": "derivation provenance; successor bytes intentionally differ"
+    },
+    {
+      "path": "geometry.py",
+      "commit": "a1aba8389b87412e6f72ccf4d11f31e0ea232327",
+      "source_path": "research/p112-mixed-rank-reduction/geometry.py",
+      "git_blob": "000f835a62374400a54328bb503df166258684ae",
+      "sha256": "d377d28ab319f50fa56b0b004462b457a63b24b8d4e35da79efc6612cddc8f36",
+      "usage": "derivation provenance; successor bytes intentionally differ"
+    }
   ]
 }
