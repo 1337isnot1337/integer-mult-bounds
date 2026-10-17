@@ -55,13 +55,16 @@ def graphql(query, variables):
 def pull_records(pages):
     return [{"kind": "pr", "number": pr["number"], "title": pr["title"],
              "body": pr.get("body") or "", "url": pr["html_url"],
-             "head": pr["head"]["sha"], "updated_at": pr["updated_at"],
+             "head": pr["head"]["sha"], "base": pr.get("base", {}).get("sha"),
+             "updated_at": pr["updated_at"],
              "draft": pr.get("draft", False), "state": pr["state"]}
             for page in pages for pr in page]
 
 
 def pull_file_record(pull):
-    """Collect every available path, bound to one head and advertised count."""
+    """Collect every available path, bound to both endpoints and advertised count."""
+    if not pull.get("headRefOid") or not pull.get("baseRefOid"):
+        raise ValueError("PR file inventory is missing a head or base OID")
     connection = pull.get("files")
     paths, cursors = set(), set()
     while connection is not None:
@@ -75,18 +78,20 @@ def pull_file_record(pull):
         page = graphql('''query($number:Int!, $cursor:String!) {
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
             pullRequest(number:$number) {
-              headRefOid changedFiles files(first:100,after:$cursor) {
+              headRefOid baseRefOid changedFiles files(first:100,after:$cursor) {
                 pageInfo {hasNextPage endCursor} nodes {path}
               }
             }
           }
         }''', {"number": pull["number"], "cursor": cursor})["repository"]["pullRequest"]
-        if (page["headRefOid"], page["changedFiles"]) != (pull["headRefOid"], pull["changedFiles"]):
+        if ((page.get("headRefOid"), page.get("baseRefOid"), page["changedFiles"])
+                != (pull["headRefOid"], pull["baseRefOid"], pull["changedFiles"])):
             raise ValueError("PR changed during file pagination")
         connection = page["files"]
         if connection is None:
             raise ValueError("PR file continuation unavailable")
-    return {"number": pull["number"], "head": pull["headRefOid"], "paths": sorted(paths),
+    return {"number": pull["number"], "head": pull["headRefOid"], "base": pull["baseRefOid"],
+            "paths": sorted(paths),
             "truncated": connection is None or len(paths) != pull["changedFiles"]}
 
 
@@ -109,7 +114,7 @@ def fetch_pr_files():
           repository(owner:"CrocSwap",name:"integer-mult-bounds") {
             pullRequests(first:10,states:OPEN,after:$cursor) {
               pageInfo {hasNextPage endCursor}
-              nodes {number headRefOid changedFiles files(first:100) {
+              nodes {number headRefOid baseRefOid changedFiles files(first:100) {
                 pageInfo {hasNextPage endCursor}
                 nodes {path}
               }}
@@ -144,6 +149,8 @@ def path_report(pr_records, file_rows, patterns):
                         "url": pull.get("url") or f"https://github.com/{REPO}/pull/{row['number']}",
                         "head": row.get("head"), "body_head": pull.get("head"),
                         "head_matches": bool(row.get("head") and row["head"] == pull.get("head")),
+                        "base": row.get("base"), "body_base": pull.get("base"),
+                        "base_matches": bool(row.get("base") and row["base"] == pull.get("base")),
                         "updated_at": pull.get("updated_at"), "draft": pull.get("draft", False),
                         "matched_paths": matched, "changed_paths": len(row["paths"]),
                         "truncated": row.get("truncated", False)})
@@ -259,10 +266,10 @@ def remote_snapshot(cache, offline=False, refresh=False, max_age=300, need_files
             except (KeyError, ValueError, TypeError):
                 cached = None
         fresh = cached is not None and age is not None and 0 <= age <= max_age
-        if name == "pr_files" and cached:
-            # Old schema-1 caches omitted file heads. Refresh just this source;
+        if need_files and name in ("pr_files", "open_prs") and cached:
+            # Old schema-1 caches omitted endpoints. Refresh only affected sources;
             # offline/failed refreshes retain the evidence with explicit warnings.
-            fresh = fresh and all(row.get("head") for row in cached["records"])
+            fresh = fresh and all(row.get("head") and row.get("base") for row in cached["records"])
         if offline:
             warnings.append(f"{name}: offline; cached data may miss current changes")
         elif refresh or not fresh:
@@ -423,13 +430,22 @@ def main():
             if unverified:
                 warnings.append(f"pr_files: file-head binding unverified for {len(unverified)} PRs; "
                                 "paths may be stale. Refresh and recheck the heads listed in coverage.")
+            bases = {pull["number"]: pull.get("base") for pull in pulls}
+            file_bases = {row["number"]: row.get("base") for row in source["records"]}
+            unverified_bases = sorted(number for number in bases.keys() | file_bases.keys()
+                                      if not file_bases.get(number) or file_bases[number] != bases.get(number))
+            coverage["pr_files"]["unverified_bases"] = unverified_bases
+            if unverified_bases:
+                warnings.append(f"pr_files: file-base binding unverified for {len(unverified_bases)} PRs; "
+                                "paths may be stale. Refresh and recheck the bases listed in coverage.")
             path_matches = path_report(pulls, source["records"], patterns)
     matches = search(records, terms, args.all_terms, reference_terms) if any(t.strip() for t in terms) else []
     if patterns and matches:
         # With both axes given, a record must match at least one term and one path.
         hits = {m["number"]: m for m in path_matches}
         matches = [dict(m, **{key: hits[m["number"]][key]
-                             for key in ("matched_paths", "head", "body_head", "head_matches")}) for m in matches
+                             for key in ("matched_paths", "head", "body_head", "head_matches",
+                                         "base", "body_base", "base_matches")}) for m in matches
                    if m.get("kind") == "pr" and m.get("number") in hits]
     if patterns and not any(t.strip() for t in terms):
         matches = []
@@ -446,8 +462,9 @@ def main():
         report["path_patterns"] = patterns
         report["path_limits"] = ("Path matching covers the changed file paths GitHub reports for open PRs, "
                                  "not diff contents; all available file pages are followed. Missing lists or "
-                                 "advertised-count shortfalls are flagged truncated. Head identifies the file "
-                                 "snapshot; body_head identifies PR metadata. Unverified joins are flagged, "
+                                 "advertised-count shortfalls are flagged truncated. Head/base identify the file "
+                                 "snapshot; body_head/body_base identify PR metadata. Both endpoints must match. "
+                                 "This is not an atomic server snapshot. Unverified joins are flagged, "
                                  "including inventories with no matching path.")
         report["path_matches_total"] = len(path_matches)
         report["path_matches"] = path_matches[:args.limit]

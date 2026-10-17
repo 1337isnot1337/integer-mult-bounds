@@ -22,7 +22,7 @@ def page(paths, start=0):
 
 def fixture():
     paths = [f'research/case/{i:03d}.py' for i in range(250)]
-    pull = {'number': 42, 'headRefOid': 'a' * 40, 'changedFiles': len(paths), 'files': page(paths)}
+    pull = {'number': 42, 'headRefOid': 'a' * 40, 'baseRefOid': 'd' * 40, 'changedFiles': len(paths), 'files': page(paths)}
     return paths, pull
 
 
@@ -37,7 +37,7 @@ class PullFilePages(unittest.TestCase):
             return {'repository': {'pullRequest': continuation}}
         with patch.object(overlap, 'graphql', side_effect=api):
             row = overlap.pull_file_record(pull)
-        self.assertEqual(row, {'number': 42, 'head': 'a' * 40, 'paths': paths, 'truncated': False})
+        self.assertEqual(row, {'number': 42, 'head': 'a' * 40, 'base': 'd' * 40, 'paths': paths, 'truncated': False})
         self.assertEqual([c['cursor'] for c in calls], ['100', '200'])
         matches = overlap.path_report([], [row], ['research/case/249.py'])
         self.assertEqual(matches[0]['matched_paths'], [paths[-1]])
@@ -47,7 +47,7 @@ class PullFilePages(unittest.TestCase):
         paths, pull = fixture()
         good = {**pull, 'files': page(paths, 100)}
         variants = []
-        for key, value in [('headRefOid', 'b' * 40), ('changedFiles', 251), ('files', None)]:
+        for key, value in [('headRefOid', 'b' * 40), ('baseRefOid', 'e' * 40), ('baseRefOid', None), ('changedFiles', 251), ('files', None)]:
             variants.append({**good, key: value})
         stuck = copy.deepcopy(good)
         stuck['files']['pageInfo']['endCursor'] = '100'
@@ -142,8 +142,8 @@ class PullFilePages(unittest.TestCase):
                     self.assertEqual(cache.read_bytes(), raw)
 
     def test_cli_covers_missing_inventory_and_matching_head_control(self):
-        body = {'kind': 'pr', 'number': 42, 'head': 'a' * 40, 'title': 'needle', 'body': ''}
-        bound = {'number': 42, 'head': 'a' * 40, 'paths': ['new.py'], 'truncated': False}
+        body = {'kind': 'pr', 'number': 42, 'head': 'a' * 40, 'base': 'd' * 40, 'title': 'needle', 'body': ''}
+        bound = {'number': 42, 'head': 'a' * 40, 'base': 'd' * 40, 'paths': ['new.py'], 'truncated': False}
         for files, expected in [([], [42]), ([bound], [])]:
             with self.subTest(files=files), tempfile.TemporaryDirectory() as directory:
                 sources = {name: {'fetched_at': overlap.now(), 'complete_pagination': True,
@@ -193,7 +193,7 @@ class PullFilePages(unittest.TestCase):
                                           ('pr_files', [{'number': 42, 'paths': ['old.py']}])]}
             cache.write_text(json.dumps({'schema_version': 1, 'repository': overlap.REPO,
                                          'sources': sources}), encoding='utf-8')
-            replacement = [{'number': 42, 'head': 'c' * 40, 'paths': ['new.py'], 'truncated': False}]
+            replacement = [{'number': 42, 'head': 'c' * 40, 'base': 'd' * 40, 'paths': ['new.py'], 'truncated': False}]
             with (patch.object(overlap, 'gh_json', side_effect=AssertionError('body refresh')),
                   patch.object(overlap, 'fetch_pr_files', return_value=replacement) as fetch):
                 snapshot, warnings = overlap.remote_snapshot(cache, need_files=True)
