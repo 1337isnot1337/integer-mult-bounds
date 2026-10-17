@@ -13,8 +13,8 @@ enumeration, comparison of every equality witness, and Git-free replay.
 Power of Ten applies to all new code. The unchanged geometry.py is retained
 byte-for-byte with its source attribution and SHA256 pin.
 
-All control flow is structured and nonrecursive. The primary flat census
-has 84 pivot triples, at most 18 free bits each and exactly 788,035 kernels.
+All executed verification control flow is structured and nonrecursive. The primary
+flat census has 84 pivot triples, at most 18 free bits each and exactly 788,035 kernels.
 The separate census has 56 pivot sets, exactly 97,155 five-directions and
 eight cosets each. Its even-only contribution is the explicit Gaussian
 binomial 10,795. The frame traversals have finite state limits and explicit
@@ -53,6 +53,23 @@ compilation targets external bytecode paths. No repository-wide Python
 type/lint policy is introduced for this isolated package. Available Ruff
 checks, if run, are recorded in CHECKS.json; unavailable analysis is labelled.
 Include the package in a repository policy when one is adopted.
+
+## Cold-checkout repair
+
+The repair archives PR3154's exact 2,144-byte filter and authenticates it together
+with the unchanged 14,278-byte caller data. Both original SHA256 and Git blob
+pins are checked on every replay; origin heads and attribution are preserved.
+The source-only filter has inherited recursion, but is never imported or
+executed. Editing it would destroy its provenance and is outside this repair.
+
+`cold_source_check.py` scopes a test-only substitution of the Git blob reader to
+reject non-ancestor commits, then delegates all allowed ancestor blobs to the
+real validator. This reproduces the old hosted error without deleting shared Git
+objects or creating another checkout. At most sixteen source specs are allowed.
+The substitution has exactly two targets, the saved real reader and the rejecting
+wrapper, and is restored by its context manager. Registered commands retain
+warnings-as-errors, and source/receipt mutation tests remain active under `-O`.
+The mathematical enumerators and receipts are unchanged.
 
 All reported support, rank and coverage numbers are exact integer results,
 checked by different enumerations. No runtime speedup or benchmark claim

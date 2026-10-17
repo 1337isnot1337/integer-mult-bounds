@@ -108,7 +108,7 @@ class A3Controls(unittest.TestCase):
     def test_changed_retained_source_rejects(self):
         with tempfile.TemporaryDirectory() as name:
             directory = Path(name)
-            for filename in ("SOURCES.json", "geometry.py", "caller-data.json"):
+            for filename in ("SOURCES.json", "geometry.py", "caller-data.json", "original-bk1b.py"):
                 (directory / filename).write_bytes((verify.PACKAGE / filename).read_bytes())
             with patch.object(verify, "PACKAGE", directory):
                 verify.source_check()
@@ -116,6 +116,29 @@ class A3Controls(unittest.TestCase):
                     stream.write("\n# changed\n")
                 with self.assertRaisesRegex(ValueError, "geometry hash"):
                     verify.source_check()
+
+    def test_changed_archived_predecessor_rejects(self):
+        sources = verify.read_json(verify.PACKAGE / "SOURCES.json")
+        for filename in ("original-bk1b.py", "caller-data.json"):
+            with tempfile.TemporaryDirectory() as name:
+                directory = Path(name)
+                for row in sources["archived_sources"]:
+                    (directory / row["local_path"]).write_bytes(
+                        (verify.PACKAGE / row["local_path"]).read_bytes())
+                with patch.object(verify, "PACKAGE", directory):
+                    verify.archived_source_check(sources)
+                    target = directory / filename
+                    target.write_bytes(target.read_bytes() + b"\nchanged archive\n")
+                    with self.assertRaisesRegex(ValueError, "archive SHA256"):
+                        verify.archived_source_check(sources)
+        changed = copy.deepcopy(sources)
+        changed["archived_sources"][0]["git_blob"] = "0" * 40
+        with self.assertRaisesRegex(ValueError, "archive Git blob"):
+            verify.archived_source_check(changed)
+        changed = copy.deepcopy(sources)
+        changed["archived_sources"][0]["pin"] = "head:" + "0" * 40 + ":wrong/path"
+        with self.assertRaisesRegex(ValueError, "archive origin pin"):
+            verify.archived_source_check(changed)
 
     def test_input_capacity_and_binary_domain_reject(self):
         for values in ((512,), (0,), tuple([1] * 121)):

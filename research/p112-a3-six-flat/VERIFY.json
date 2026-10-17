@@ -3,7 +3,7 @@
   "status": "ready",
   "python": "3.12",
   "requirements": [],
-  "inputs": [],
+  "inputs": ["scripts/research_package.py"],
   "commands": [
     {
       "argv": [
@@ -37,7 +37,18 @@
         "{package}/test_verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Fifteen behavioral groups and complete cross-implementation equality evidence."
+      "checks": "Sixteen behavioral groups, archived-source rejection controls and complete cross-implementation equality evidence."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/cold_source_check.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Real metadata validation with only ancestor Git sources available, plus exact archived predecessor SHA256/Git-blob authentication."
     }
   ]
 }

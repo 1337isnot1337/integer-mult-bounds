@@ -26,6 +26,22 @@ def read_json(path):
     return json.loads(path.read_bytes())
 
 
+def archived_source_check(sources):
+    rows = sources["archived_sources"]
+    require(len(rows) == 2 and {r["local_path"] for r in rows}
+            == {"original-bk1b.py", "caller-data.json"}, "archive inventory")
+    head = sources["predecessors"][0]["head"]
+    for row in rows:
+        require(row["pin"] == "head:" + head + ":" + row["path"], "archive origin pin")
+        path = PACKAGE / row["local_path"]
+        require(path.is_file() and not path.is_symlink() and path.stat().st_size <= 20_000,
+                "archive source capacity")
+        raw = path.read_bytes()
+        require(hashlib.sha256(raw).hexdigest() == row["sha256"], "archive SHA256")
+        blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+        require(blob == row["git_blob"], "archive Git blob")
+
+
 def source_check():
     sources = read_json(PACKAGE / "SOURCES.json")
     origin = sources["retained_geometry"]
@@ -37,8 +53,9 @@ def source_check():
     raw = path.read_bytes()
     require(hashlib.sha256(raw).hexdigest() == origin["sha256"] == rows[0]["sha256"],
             "geometry hash")
+    archived_source_check(sources)
     caller = sources["retained_caller"]
-    rows = [r for r in sources["files"] if r["path"] == caller["origin_path"]]
+    rows = [r for r in sources["archived_sources"] if r["path"] == caller["origin_path"]]
     require(len(rows) == 1 and rows[0]["usage"] == "provenance", "caller pin")
     path = PACKAGE / "caller-data.json"
     require(path.is_file() and not path.is_symlink() and path.stat().st_size <= 20_000,

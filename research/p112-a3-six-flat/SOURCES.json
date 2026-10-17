@@ -21,6 +21,25 @@
       "sha256": "b8ac379e41f5ad83bdb6c7f7c55129fc3d9c07801ea61591478f25d72ff0b021"
     },
     {
+      "path": "research/p112-a3-six-flat/original-bk1b.py",
+      "usage": "provenance",
+      "pin": "head:443ea34f1fcb09bba084b416ced1731621e444fc:research/p112-a3-six-flat/original-bk1b.py",
+      "origin_pin": "head:708f0ad8928c383de8294aea3c126e9461d2066d:research/p112-reduction-to-conjectures/checks/TWOSIDE/bk1b.py",
+      "git_blob": "7e73f346afb284ab9f4d08efc26c8006acb6da3a",
+      "sha256": "a045b1927675a59275e53008ea2de00b495f986ca95651e25052d85454ec19cf"
+    },
+    {
+      "path": "research/p112-a3-six-flat/caller-data.json",
+      "usage": "provenance",
+      "pin": "head:2a79c8314ae10b677bc7c1dd593d0c3d06b7cd15:research/p112-a3-six-flat/caller-data.json",
+      "origin_pin": "head:708f0ad8928c383de8294aea3c126e9461d2066d:research/p112-reduction-to-conjectures/checks/OS-CHARGE2/data.json",
+      "git_blob": "2b799f9238d11018edb2aa6ac542024dfabcb1b3",
+      "sha256": "8e4b2a306dfe3499b9d2104753a4cb203e14fbfa94fda03f6a415da956ba642b"
+    }
+  ],
+  "archived_sources": [
+    {
+      "local_path": "original-bk1b.py",
       "path": "research/p112-reduction-to-conjectures/checks/TWOSIDE/bk1b.py",
       "usage": "provenance",
       "pin": "head:708f0ad8928c383de8294aea3c126e9461d2066d:research/p112-reduction-to-conjectures/checks/TWOSIDE/bk1b.py",
@@ -28,6 +47,7 @@
       "sha256": "a045b1927675a59275e53008ea2de00b495f986ca95651e25052d85454ec19cf"
     },
     {
+      "local_path": "caller-data.json",
       "path": "research/p112-reduction-to-conjectures/checks/OS-CHARGE2/data.json",
       "usage": "provenance",
       "pin": "head:708f0ad8928c383de8294aea3c126e9461d2066d:research/p112-reduction-to-conjectures/checks/OS-CHARGE2/data.json",

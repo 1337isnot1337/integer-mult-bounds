@@ -25,11 +25,13 @@ TMPDIR="$RUN/tmp" uv run --python 3.12 --no-project python -W error -B \
   scripts/research_package.py --package research/p112-a3-six-flat
 ```
 
-The registered commands run `verify.py`, `independent.py` and fifteen
-behavioral groups under optimization, sequentially. Direct commands need
-only this package and work in a Git-free export. The registered launcher
-also needs Git history for source provenance. Each verifier's optional
-`--output NEW_EXTERNAL_PATH` creates a new receipt and refuses to overwrite
+The registered commands run `verify.py`, `independent.py`, sixteen
+behavioral groups under optimization and `cold_source_check.py`, sequentially.
+The first three commands need only this package and work in a Git-free export.
+The cold-source regression and registered launcher also need Git history for
+reachable source-history provenance. The regression makes non-ancestor source
+commits unavailable while using the real metadata validator for every allowed
+source. Each verifier's optional `--output NEW_EXTERNAL_PATH` creates a new receipt and refuses to overwrite
 existing files. Default replay compares the committed receipts.
 
 The primary checker enumerates 788,035 annihilator kernels. The separate
@@ -40,6 +42,28 @@ all 240 singleton closures. The tests compare complete maximizing sets and
 equality witnesses, and reject changed source, labels, singleton cost and
 coverage receipts. Source pins, environments, commands and limitations
 are in SOURCES.json, VERIFY.json, CHECKS.json and ENGINEERING.md.
+
+## Cold-checkout source provenance
+
+The original metadata required two blobs at pending PR3154 head
+`708f0ad8928c383de8294aea3c126e9461d2066d`. Canonical CI did not fetch that
+foreign commit, so registered replay failed in provenance validation before
+running any mathematical checker. A populated local object store hid the gap.
+
+Both exact predecessor files are now archived in this package: `original-bk1b.py`
+and the existing `caller-data.json`. Their original paths, head, SHA256 and Git
+blob IDs remain in `SOURCES.json.archived_sources`. Replay authenticates both
+hashes for both copies, and rejects changed bytes, blob IDs and origin pins.
+The filter is retained as source evidence, not executed or rewritten.
+
+The generic launcher retains all five Git-source provenance checks. The two
+foreign-head rows now resolve identical blobs in this PR's own reachable history:
+filter archive commit `443ea34f1fcb09bba084b416ced1731621e444fc` and original PR
+head `2a79c8314ae10b677bc7c1dd593d0c3d06b7cd15` for the existing caller data.
+The original foreign pins remain recorded separately; capture equality was
+checked against PR3154. No source hash, scientific receipt, mathematical assertion
+or workflow check is removed. No peer repair head or accidentally cached Git
+object is required. The scoped repair evidence is in `CI-REPAIR.json`.
 
 ## Open next questions
 
