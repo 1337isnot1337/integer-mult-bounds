@@ -56,7 +56,7 @@ class Controls(unittest.TestCase):
         with tempfile.TemporaryDirectory(prefix="mixed-cut40-") as directory:
             root = Path(directory)
             package = root / "research/p112-mixed-sharp39"
-            shutil.copytree(PACKAGE, package)
+            shutil.copytree(PACKAGE, package, copy_function=shutil.copyfile)
             target = root / GEOMETRY
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / GEOMETRY, target)
