@@ -57,9 +57,9 @@ respectively, two orthogonal root lines and three A2 root lines. This also
 forces rank six, so h,k span the scalar extension of that rational normal
 plane. This argument applies over K without giving it a real ordering.
 
-In the E6/A2 branch, `N = |U minus S| >= 78-46 = 32`. A coordinate with
-exactly one nonzero piece must lie in the projective evaluation fiber of
-that piece's fixed coefficient column. Nonsingleton coordinates have at
+In the E6/A2 branch, `N = |U minus S| >= 78-46 = 32`. A coordinate of U
+outside S with exactly one nonzero piece must lie in the projective
+evaluation fiber of that piece's fixed coefficient column. Nonsingleton coordinates have at
 least two incidences. The inherited joint bound gives
 
 ```
