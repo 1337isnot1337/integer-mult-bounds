@@ -31,7 +31,7 @@ def run():
     for prefix_n, unused_n, row_n in ((1, 1, 1), (2, 3, 11), (3, 2, 17)):
         shape = (prefix_n, 4, 3, unused_n, row_n)
         keys = ((3, 2), (0, 0), (1, 2))
-        engine = BankPackets(4, 3, len(keys))
+        engine = BankPackets(4, 3, len(keys) + 2)
         engine.select(keys)
         counts = tuple(Count.literal(n) for n in (prefix_n, unused_n, row_n))
         bank, stale = Tape(), Tape()
@@ -74,7 +74,8 @@ def run():
         stale.clear()
     return {"transactions": cases, "outer_prefixes": [1, 2, 3],
             "stale_bank_rejections": cases, "sha256": dig.hexdigest(),
-            "scope": "Generic complete encoded bank boundary; selected cover and recursive execution remain unfinished."}
+            "unused_packet_roles": 2,
+            "scope": "Generic complete encoded bank boundary with a partially selected fixed inventory."}
 
 
 if __name__ == "__main__":

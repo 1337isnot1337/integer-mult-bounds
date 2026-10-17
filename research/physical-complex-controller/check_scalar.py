@@ -75,7 +75,7 @@ def run():
     return {"catalogue": inventory(selected["programs"]), "physical_literals": len(catalogue),
             "packet_sha256": digest.hexdigest(), "scalar_peak_leases": engine.pool.peak,
             "normalizer_peak_leases": normalizer.pool.peak, "cohort_inputs": len(api["inputs"]),
-            "scope": "Full scalar literal packets and shared normalization cohort only; recursive controller unfinished."}
+            "scope": "Full scalar literal packets and shared normalization cohort; complete controller checks run separately."}
 
 
 if __name__ == "__main__":

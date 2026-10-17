@@ -13,7 +13,18 @@ from scratch_pool import ScratchPool
 from session import (OuterScope, borrowed_tape, erase_marker, initialize_marker,
                      sealed_constructors)
 from stream import Counter
-from words import BLANK, need
+from words import BLANK, LEFT, need
+
+
+def arm_empty(tape):
+    need(tape.read() == BLANK, "empty owned packet port")
+    tape.step(-1)
+    try:
+        need(tape.read() in (LEFT, BLANK), "owned packet origin")
+        if tape.read() == BLANK:
+            tape.write(LEFT)
+    finally:
+        tape.step(1)
 
 
 def skip(source, extent):
@@ -52,7 +63,7 @@ index, decoded length or per-row tape allocation appears in the scans.
     def select(self, keys):
         need(self.state == "closed" and not self.pool.live and
              all(t.read() == BLANK for t in (*self.packets, self.output)), "closed bank selection")
-        need(type(keys) is tuple and len(keys) == self.slots and len(set(keys)) == self.slots,
+        need(type(keys) is tuple and 0 < len(keys) <= self.slots and len(set(keys)) == len(keys),
              "distinct compiled owner slots")
         need(all(type(key) is tuple and len(key) == 2 and
                  type(key[0]) is int and 0 <= key[0] < self.families and
@@ -77,7 +88,7 @@ index, decoded length or per-row tape allocation appears in the scans.
         source = borrowed_tape(bank)
         need(source not in (*self.packets, self.output, *self.pool.tapes), "distinct borrowed bank")
         for tape in self.packets:
-            initialize_marker(tape)
+            arm_empty(tape)
         self._start_scratch()
         extent = remaining = None
         self.source = source
@@ -122,7 +133,7 @@ index, decoded length or per-row tape allocation appears in the scans.
         for count in (prefixes, unused_rows, row_bits):
             positive(count)
         need(self.output.read() == BLANK, "consume earlier replacement")
-        initialize_marker(self.output)
+        arm_empty(self.output)
         self._start_scratch()
         extent = remaining = None
         source.rewind()

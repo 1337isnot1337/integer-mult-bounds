@@ -21,6 +21,7 @@ MEMBERS = {
     "phases": ("base/work/complex-nine-native/DATA-PHASES.json", "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"),
     "native": ("base/providers/gauge44/CLIFFORD-RECIPES.json", "d0768f2164d5f64a2fdbec422f1cfde4e400818792f1904ca541958377243731"),
     "residuals": ("base/providers/gauge44/RESIDUAL-ADAPTERS.json", "383f40aadd00a4ac700dfd0d4c22d6c6c0be9a9863116e4d69c7acd23bafae0c"),
+    "sigmas": ("hosted/ACTUAL-SIGMAS.json.gz", "f12383eb2691fe33cc9f0525ccb5f6429db6d7bbf0eec76e97f50e752f943dd9"),
 }
 
 
