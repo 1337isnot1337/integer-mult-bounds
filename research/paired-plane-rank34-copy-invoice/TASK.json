@@ -68,10 +68,14 @@
   "checkpoint": {
     "canonical_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
     "priority_revision": 6,
-    "utc": "2026-10-17T22:29:36Z",
-    "open_pr_records": 257,
-    "discussion_records": 2181,
+    "utc": "2026-10-17T22:37:04Z",
+    "open_pr_records": 258,
+    "discussion_records": 2187,
     "complete_pagination": true,
-    "decision": "Take the unclaimed rank34 native-cost handoff; no matching search or family expansion."
-  }
+    "decision": "Canonical main/priorities/selected record unchanged. A near-simultaneous same-scope claim at comment19007604 was found on refresh; preserve the independent implementation and coordinate one focused source-bound result with explicit concurrent credit."
+  },
+  "concurrent_work": [
+    "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007604",
+    "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007618"
+  ]
 }

@@ -23,7 +23,7 @@
     {
       "path": "research/paired-plane-rank34-copy-invoice/predecessor/PR3335-CERTIFICATE.json",
       "usage": "input",
-      "pin": "head:1d46df8b5aeac49d165cae58c1dd1036666bb789:research/paired-plane-rematch-rank34/CERTIFICATE.json",
+      "pin": "head:5685c6288205e463e4ca28355fc3a3458da27334:research/paired-plane-rank34-copy-invoice/predecessor/PR3335-CERTIFICATE.json",
       "git_blob": "a99dfa5e83d5f70b4ef8d9cf2fa7a275aeddf8bb",
       "sha256": "cd5edbe9bf46aa544ee47450adcf0c2dc9eee5a57acda8bc6f4b726ab7f2ae47"
     },
@@ -45,5 +45,15 @@
       "git_blob": "3987979ad291ede0df559364b428bef4e29b68f2",
       "sha256": "7925698eceedc34212aa1a8ec1596af5c6c3029a2a71ed17f90b25b18a736ded"
     }
-  ]
+  ],
+  "upstream_certificate": {
+    "repository": "CrocSwap/integer-mult-bounds",
+    "pr": 3335,
+    "head": "1d46df8b5aeac49d165cae58c1dd1036666bb789",
+    "path": "research/paired-plane-rematch-rank34/CERTIFICATE.json",
+    "git_blob": "a99dfa5e83d5f70b4ef8d9cf2fa7a275aeddf8bb",
+    "sha256": "cd5edbe9bf46aa544ee47450adcf0c2dc9eee5a57acda8bc6f4b726ab7f2ae47",
+    "retention_commit": "5685c6288205e463e4ca28355fc3a3458da27334",
+    "binding": "The retained copy was compared byte for byte with git show of the fetched exact upstream PR head. Generic replay pins the reachable retention commit; direct replay authenticates the retained bytes by SHA256."
+  }
 }

@@ -22,6 +22,14 @@ Its labels come from the selected1094 replay archive, with both the compressed
 input and its DATA-PHASES member authenticated before parsing. No predecessor
 Python implementation is imported.
 
+SOURCES.json pins the vendored copy at retention commit
+`5685c6288205e463e4ca28355fc3a3458da27334`, an ancestor of this contribution.
+Its `upstream_certificate` records the original PR head, path, Git blob and
+SHA256. The retained bytes were compared with that exact fetched upstream blob.
+Registered replay needs this contribution's Git history; it does not require
+a separate fetch of the unrelated PR3335 commit. Direct replay authenticates
+the retained fixture by SHA256 and runs without Git.
+
 | Literal support size | Channels | Full-port rank per channel | Copy charge |
 |---|---:|---:|---:|
 | 2 | 8 | 4 | 32 |
@@ -160,8 +168,14 @@ Entry overlap used complete pagination: 257 open PRs (including drafts) at
 main packages. PR3335 supplies the matching/rank result and asks for this cost
 follow-up; PR2203 supplies the direct native 224 bill on the old matching;
 PR2532 and the full-port proof preserve the integral/full-span rules.
-These are complementary scopes. The query does not cover every diff or prove
-novelty. The current status is maintained in
+Pre-submission refresh at 2026-10-17T22:37:04Z covered 258 open PRs
+and 2,187 Discussion records, with main unchanged. It revealed a
+[near-simultaneous same-question claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007604).
+This checker was implemented independently; the concurrent audit is explicitly
+credited, and publication is coordinated in the existing thread. The
+[concurrent block-rank audit](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007618)
+asks a different question and excludes this tariff scope. The query does not
+cover every diff or prove novelty. The current status is maintained in
 [the canonical claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007603).
 
 Credit Matarener/Mark and Claude for PR3335's rematching and exact rank 34;
