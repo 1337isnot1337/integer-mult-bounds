@@ -20,7 +20,9 @@ not a realizable supplier.
 from __future__ import annotations
 
 import hashlib
+from importlib.util import module_from_spec, spec_from_file_location
 import json
+import sys
 from fractions import Fraction as Q
 from pathlib import Path
 
@@ -31,10 +33,21 @@ BIT_RESULT = "research/bit-revision3-levers-seed03/RESULT.json"
 COMPLEX_RESULT = "research/complex-local-word-ceiling/RESULT.json"
 PAIRED_PLANE_TASK = "research/paired-plane-identity-fit-seed21ef98/TASK.json"
 BOTTLENECK_BRIEF = "docs/research/bottleneck-brief.md"
+BIT_LEVERS = "research/bit-revision3-levers-seed03/levers.py"
 
 
 def read_json(path: str):
     return json.loads((ROOT / path).read_text())
+
+
+def load_bit_levers():
+    """Load the pinned outward-rational bit moment engine for a profile screen."""
+    spec = spec_from_file_location("pinned_bit_revision3_levers", ROOT / BIT_LEVERS)
+    need(spec is not None and spec.loader is not None, "bit moment engine unavailable")
+    module = module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module
 
 
 def need(ok: bool, message: str) -> None:
@@ -160,6 +173,58 @@ def main() -> None:
 
     bit_screen = supplier_screen("bit", 64, Q(296, 3), Q(63), 4)
     complex_screen = supplier_screen("complex", 73, Q(896, 9), Q(64), 2)
+    bit_levers = load_bit_levers()
+    bit_local = {int(r): Q(n) for r, n in bit_replay["local_histogram"].items()}
+    bit_local_mass = Q(bit_replay["local_mass"])
+    bit_two_unpaid = {}
+    for centre in (0, 63):
+        H = bit_levers.relaxed(bit_local, 64, Q(296, 3), centre, 53, unpaid=2)
+        lo, hi = bit_levers.bill(H, 64, Q(296, 3), Q(1, 9))
+        bit_two_unpaid[str(centre)] = {
+            "unpaid_coordinates": 2,
+            "centre_mass_per_call": centre,
+            "idle_rank_cap": 53,
+            "moment_interval_at_a_1_over_9": [str(lo), str(hi)],
+            "moment_approx": format(float((lo + hi) / 2), ".12f"),
+            "below_one": hi < 1,
+        }
+
+    def first_uniform_bit_rank(centre: int) -> int:
+        for rank in range(1, 54):
+            H = bit_levers.relaxed({rank: bit_local_mass / rank}, 64,
+                                   Q(296, 3), centre, 53, unpaid=2)
+            _, hi = bit_levers.bill(H, 64, Q(296, 3), Q(1, 9))
+            if hi < 1:
+                return rank
+        raise ValueError("no uniform local bit rank passes at cap 53")
+
+    bit_uniform_rank_boundary = {
+        "centre_free": first_uniform_bit_rank(0),
+        "centre_retained": first_uniform_bit_rank(63),
+    }
+    bit_uniform_rank_adjacent = {}
+    for label, centre in (("centre_free", 0), ("centre_retained", 63)):
+        passing_rank = bit_uniform_rank_boundary[label]
+        rows = {}
+        for rank in (passing_rank - 1, passing_rank):
+            H = bit_levers.relaxed({rank: bit_local_mass / rank}, 64,
+                                   Q(296, 3), centre, 53, unpaid=2)
+            lo, hi = bit_levers.bill(H, 64, Q(296, 3), Q(1, 9))
+            rows[str(rank)] = {
+                "moment_interval_at_a_1_over_9": [str(lo), str(hi)],
+                "moment_approx": format(float((lo + hi) / 2), ".12f"),
+                "below_one": hi < 1,
+            }
+        bit_uniform_rank_adjacent[label] = rows
+    need(not bit_two_unpaid["0"]["below_one"] and not bit_two_unpaid["63"]["below_one"],
+         "fixed selected bit profile with two unpaid coordinates unexpectedly passes")
+    need(bit_uniform_rank_boundary == {"centre_free": 48, "centre_retained": 53},
+         "bit uniform local-rank target changed")
+    need(not bit_uniform_rank_adjacent["centre_free"]["47"]["below_one"]
+         and bit_uniform_rank_adjacent["centre_free"]["48"]["below_one"]
+         and not bit_uniform_rank_adjacent["centre_retained"]["52"]["below_one"]
+         and bit_uniform_rank_adjacent["centre_retained"]["53"]["below_one"],
+         "bit uniform local-rank adjacent boundary")
     plane_cost = paired_plane["cost_accounting"]
     need(plane_cost["unpaid_coordinates"] == 2 and plane_cost["centre_charge"] == 112
          and plane_cost["local_mass"] == 5634,
@@ -206,6 +271,15 @@ def main() -> None:
         "target_primitive_saving_a": "1/9",
         "comparison": "For a=1/9 the ninth power of the optimistic moment floor is S^9/(R*m^8), checked exactly.",
         "bit": bit_screen,
+        "bit_fixed_profile_two_unpaid": {
+            "source_result": BIT_RESULT,
+            "selected_local_profile": {str(r): str(n) for r, n in sorted(bit_local.items())},
+            "local_rank_mass": str(bit_local_mass),
+            "actual_profile_at_u2_R53": bit_two_unpaid,
+            "first_uniform_local_rank_at_u2_R53": bit_uniform_rank_boundary,
+            "adjacent_uniform_rank_checks": bit_uniform_rank_adjacent,
+            "scope": "Fixed selected bit local profile under a hypothetical u=2 law, with or without its centre; separate from the all-mass-at-cap necessary floor. No new bit endpoint or supplier is constructed.",
+        },
         "complex": complex_screen,
         "paired_plane_identity_fit_candidate": {
             "source_task": PAIRED_PLANE_TASK,

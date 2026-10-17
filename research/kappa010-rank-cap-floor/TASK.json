@@ -45,21 +45,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "For the donor-set target κ > 0.1, certify the most favorable aggregate moment permitted by the current bit and complex coverage laws and rank caps; identify the exact unpaid-coordinate or depth thresholds needed to reopen the budget.",
-  "scope_change_reason": "The user raised the target from the repository's planning target κ > 0.01 to κ > 0.1. Before constructing an endpoint change, this exact target-level screen tests whether the existing coverage identities and depth envelopes can possibly support it.",
+  "actual_scope": "For the donor-set target \u03ba > 0.1, certify aggregate moment floors under current bit and complex coverage/rank caps, exact unpaid/depth thresholds, and the fixed selected bit profile under a hypothetical two-unpaid-coordinate law.",
+  "scope_change_reason": "The user raised the target from the repository planning target \u03ba > 0.01 to \u03ba > 0.1. The initial exact target-level screen found that u=2 just opens the ideal bit floor. A bounded follow-up applies the pinned selected bit histogram to that changed law to measure how far the actual profile remains from the aggregate floor before pursuing any new endpoint.",
   "bottleneck_link": "A fixed rank-mass budget and child-rank cap impose a lower bound on the recursive moment. This proves whether either supplier can reach a=1/9 even after granting perfect high-rank repacking and deleting centre cost.",
   "budget_minutes": 480,
   "stop_rule": "Stop this aggregate screen once the strict a=1/9 obstruction and exact unpaid/rank boundaries are certified. Do not expand to another search unless one complete dirty endpoint or row-coefficient invoice can realize a passing boundary with margin.",
   "outcome": "partial",
-  "evidence": "Exact rational ninth-power comparisons prove that with one unpaid coordinate the centre-free minimum moment is >1 at bit R=53 and complex R=51. At the current caps, the ideal aggregate floor first drops below one at bit u=2 and complex u=3 centre-free / u=4 with centre retained. The pinned paired-plane identity-fit candidate (u=2,c=112) has floor approximately 1.02818 at a=1/9 and also needs u=4 to pass this aggregate budget. With one unpaid coordinate, deleting centre requires R=56 (bit) and R=65 (complex), first allowed by the halving guard at depths 6 and 6. This is a necessary-budget screen only; no supplier, replacement coverage identity, or higher-depth row invoice is constructed.",
+  "evidence": "Exact rational ninth-power comparisons prove that with one unpaid coordinate the centre-free minimum moment is >1 at bit R=53 and complex R=51. At the current caps, the ideal aggregate floor first drops below one at bit u=2 and complex u=3 centre-free / u=4 with centre retained. The pinned paired-plane identity-fit candidate (u=2,c=112) has floor approximately 1.02818 at a=1/9 and also needs u=4 to pass this aggregate budget. With one unpaid coordinate, deleting centre requires R=56 (bit) and R=65 (complex), first allowed by the halving guard at depths 6 and 6. This is a necessary-budget screen only; no supplier, replacement coverage identity, or higher-depth row invoice is constructed. For the pinned selected bit histogram, u=2 and R=53 still give moment 1.365696 with the centre and 1.355508 without it. If all 5,129 local rank mass is fractionally repacked at a uniform rank, first passing ranks are 53 with the centre (rank52 gives 1.001209) and 48 centre-free (rank47 gives 1.000411). This is a fixed-profile screen only.",
   "author": "Codex with OpenAI assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance; exact arithmetic, verifier, and report prepared with AI assistance.",
   "open_questions": [
     {
-      "question": "Can two unpaid coordinates be carried through one complete dirty-input endpoint on the bit side?",
-      "why_it_matters": "Two is the minimum count that makes the aggregate floor pass at the current bit cap, but the actual endpoint could repay the apparent slack through the consumer or restoration.",
-      "first_step": "Trace a named two-coordinate candidate through one complete selected bit call and record all source, frame, consumer, and restoration charges.",
-      "blocked_by": "The current endpoint contract retains one unpaid coordinate and no changed complete call is available."
+      "question": "Can one complete bit endpoint leave two coordinates unpaid and replace the selected local profile by high-rank children?",
+      "why_it_matters": "The aggregate floor passes at u=2 only narrowly with the centre (0.999452); the fixed selected bit histogram still costs 1.365696 at R=53.",
+      "first_step": "Trace one named two-coordinate candidate through a complete selected bit call, then price its local child-rank profile, source delivery, frame, consumer and restoration.",
+      "blocked_by": "No changed complete call or local high-rank consumer is source-bound."
     },
     {
       "question": "Can the complex supplier leave four coordinates unpaid while retaining the current centre charge?",
@@ -77,7 +77,7 @@
   "upstream_checkpoint": {
     "commit": "18aacb215fc3717b06be8ceb9fca62aeca0d3e99",
     "priority_revision": 6,
-    "checked_utc": "2026-10-17T01:20:09Z",
-    "comparison": "Canonical main was refreshed from the original d8e0f83 base. The relevant guidance diff adds a P104 precision-contract pointer to bottleneck-brief.md; the selected record, current priorities, and quantitative predecessor receipts used here are unchanged."
+    "checked_utc": "2026-10-17T02:01:40Z",
+    "comparison": "Canonical origin/main was refreshed before this submission checkpoint and remains 18aacb215fc3717b06be8ceb9fca62aeca0d3e99. No changes appeared in the current-priorities, task-catalogue, family-status, selected-result, bottleneck-brief, or paired-plane contract-map files since the prior checkpoint. The P104 precision-contract pointer remains present; selected κ and quantitative predecessor receipts are unchanged."
   }
 }

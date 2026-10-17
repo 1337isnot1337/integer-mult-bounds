@@ -40,6 +40,12 @@ If the centre/copy charge is also removed, the minimum unpaid counts become 2 (b
 
 These passing threshold rows are **necessary budget openings only**. They place all paid rank mass at the maximum rank, which is an intentionally generous relaxation and not a decodable local word. The deeper guard depths have not been shown to fit their row-coefficient invoices. No second unpaid coordinate, high-rank local consumer, physical endpoint, dirty-state restoration, bit/complex composition, or complete supplier has been constructed here. The result is scoped to the two current coverage identities and their rank/depth envelopes; a different outer algorithm remains open.
 
+## Fixed bit word with two unpaid coordinates
+
+The all-mass-at-cap row can hide a large local-profile gap. I also evaluated the source-bound selected bit histogram `{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` (rank mass 5,129) under the hypothetical `u=2` coverage law, with the best admitted idle cap `R=53`. At `a=1/9` its exact outward-rational moment is **1.365696** with the existing centre charge `c=63`, or **1.355508** after deleting that charge. So changing coverage alone does not rescue the selected bit word.
+
+For comparison, the necessary all-mass-at-cap floor with `u=2` and `c=63` is only **0.999452**. Holding the selected local rank mass at 5,129 and fractionally repacking it at one uniform local rank, the first passing rank is **53** with the centre retained; rank 52 gives 1.001209. If the centre is deleted, rank 48 first passes (0.998447), while rank 47 gives 1.000411. This quantifies the missing mechanism: a bit-side endpoint must both leave a second coordinate unpaid and replace the selected low-rank local profile with children near the maximum admitted rank. It is a scoped profile screen, not a universal obstruction or a constructed supplier.
+
 ## Reproduction
 
 ```sh
@@ -62,6 +68,6 @@ This refines the `coverage-law-change` card for the user-set target κ > 0.1. It
 
 The bit-side predecessor is Sagar Thakrar's `bit-revision3-levers-seed03`, building on DreamingOfClouds' PR589 / `format-limits`, eumemic's PR555, and the PR510 / PR442 template lineage. The complex predecessor is Douglas Colkitt's `complex-local-word-ceiling`, building on PR1012, the selected #1094 construction, and the credited frame/ownership chain. No predecessor artifacts were modified. The task began on `d8e0f83f00191df62174b641e9fff055c357f641`; canonical main was refreshed at `18aacb215fc3717b06be8ceb9fca62aeca0d3e99` (priority revision 6) on 2026-10-17. The only relevant guidance change adds a P104 precision-map pointer; the selected record and quantitative predecessor receipts are unchanged; the used κ conversion is unchanged.
 
-A fresh overlap refresh on 2026-10-17 covered 259 open PRs and 1,866 discussions (complete pagination). It surfaced open PR #3093, which audits the paid terms of two fixed local profiles (#2979 and #3042) at the same target. That is complementary to this package's lower bound over every histogram admitted by the current aggregate coverage laws and rank caps; this package also computes the unpaid/rank thresholds for both suppliers. PRs #3064 and #3097 and Discussions #1163, #1166 and #1167 were also checked. The overlap helper reports possible overlap, not novelty; see the exact scopes and recheck before expanding the work.
+The overlap helper refreshed open PRs on 2026-10-17 at 02:00:46 UTC: 262 records with complete pagination, including PR #3093's fixed-profile screens and the present target work. Its complete 1,866-discussion snapshot was last fetched at 01:23:03 UTC and is stale for a new expansion. Earlier checks surfaced PRs #3064 and #3097 and Discussions #1163, #1166 and #1167. The fixed-bit-profile result extends this package's own aggregate screen; no novelty is claimed. Recheck active discussions before opening another research round.
 
 Prepared by Codex with OpenAI assistance. New work is Apache-2.0.
