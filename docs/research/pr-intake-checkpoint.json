@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "72 GitHub merges confirmed; PR3197 source archive prepared in the closing delta. Revised PR3184 remains held: metadata edits do not address the physical-stream counterexample. Finish publication and refresh once. Scientific/frontier validation is separate.",
+  "next": "Zero actionable heads at closing refresh. 73 PRs merged: 68 source archives and five reviewed tooling changes. Seven new/updated holds: 3120,3143,3147,3154,3181,3184,3190. 136 drafts,100 waiting revisions,seven deferred replays remain. Refresh once next session; do not rereview dormant holds. Selected kappa unchanged. No scientific, Lean, Docker or hosted replay run; skip-ci avoids an unbudgeted all-package sweep. Tooling:154 tests,18 platform skips. Exact source/publication evidence in latest_publication.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,7 +1011,7 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "4390d1f8c3a968a44bd15cd3654e7ac0c157ff89",
+    "source_publication_commit": "1d46d1603",
     "merged": [
       3111,
       3112,
@@ -1084,11 +1084,10 @@
       3193,
       3194,
       3195,
-      3196
-    ],
-    "prepared": [
+      3196,
       3197
     ],
+    "prepared": [],
     "archive_count": 68,
     "reviewed_tooling_count": 5,
     "evidence": [
@@ -1110,12 +1109,12 @@
     }
   ],
   "latest_queue": {
-    "observed_at": "2026-10-17T02:04:56.981485+00:00",
-    "open_count": 236,
+    "observed_at": "2026-10-17T16:51:45.943740+00:00",
+    "open_count": 243,
     "actionable_count": 0,
     "counts": {
-      "draft": 135,
-      "waiting_revision": 94,
+      "draft": 136,
+      "waiting_revision": 100,
       "deferred_replay": 7
     }
   }

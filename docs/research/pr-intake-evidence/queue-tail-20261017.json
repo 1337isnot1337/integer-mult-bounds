@@ -350,6 +350,16 @@
     "PR3184 metadata revision leaves the recorded physical-operator objection unresolved."
   ],
   "integration_resolutions": [],
-  "publication": "prepared_not_yet_pushed",
-  "frontier_changed": false
+  "publication": "published",
+  "frontier_changed": false,
+  "closing_queue": {
+    "observed_at": "2026-10-17T16:51:45.943740+00:00",
+    "open_count": 243,
+    "actionable_count": 0,
+    "counts": {
+      "draft": 136,
+      "waiting_revision": 100,
+      "deferred_replay": 7
+    }
+  }
 }

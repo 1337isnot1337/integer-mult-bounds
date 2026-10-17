@@ -8930,7 +8930,7 @@
       "reviewed_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
       "current_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-weight-seven-deletion"
       ],
@@ -8940,11 +8940,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-tail-20261017.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3197",
+        "merge_commit": "4390d1f8c3a968a44bd15cd3654e7ac0c157ff89"
+      }
     }
   ]
 }

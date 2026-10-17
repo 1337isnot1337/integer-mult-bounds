@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "05c84dbf9665afad529eabc7ffc589e63b9628fc85bcf39e52306d170fa7b723",
+    "docs/research/pr-intake-decisions.json": "02d9a9ecb498593c75b99767d9ee07fc9350b585dbee5a2eb0e17b2f837054d7",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -156991,7 +156991,7 @@
       "reviewed_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
       "current_head": "3949cc17a4fa4f108a044f532a5d58323c6cb6d2",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/p112-weight-seven-deletion"
       ],
@@ -157000,7 +157000,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-tail-20261017.json"
@@ -157008,7 +157008,12 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3197",
+        "merge_commit": "4390d1f8c3a968a44bd15cd3654e7ac0c157ff89"
+      }
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -157020,7 +157025,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 2053,
-    "OPEN": 266
+    "MERGED": 2054,
+    "OPEN": 265
   }
 }
