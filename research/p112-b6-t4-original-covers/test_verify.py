@@ -30,9 +30,9 @@ def source_controls():
             target = Path(temp) / str(mode)
             shutil.copytree(ROOT, target, ignore=shutil.ignore_patterns("__pycache__"))
             # The source export may be read-only; only private mutant copies change.
+            target.chmod(0o700)
             for file in target.rglob("*"):
-                if file.is_file():
-                    file.chmod(0o600)
+                file.chmod(0o700 if file.is_dir() else 0o600)
             manifest = v.read_json(target / "SOURCES.json")
             if mode == 0:
                 manifest["retained_files"][0]["usage"] = "provenance"
