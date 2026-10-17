@@ -190,6 +190,34 @@ class SwapTests(unittest.TestCase):
                 gzip.decompress(base64.b64decode(encoded)), actual.read_bytes()
             )
 
+    def test_raw_artifact_diagnostics_are_complete(self):
+        names = (
+            "ASSEMBLY.json",
+            "global/audit/PREFIX-AND-INVOICE.json",
+            "global/audit/OWNERS-AND-PROFILE.json",
+            "global/audit/ASYNC-AUDIT.json",
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            for name in names:
+                target = work / "strict" / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(
+                    (self.package / "support/construction/raw" / name).read_bytes()
+                )
+            stdout = io.StringIO()
+            with redirect_stdout(stdout):
+                support_checks.preserve_raw_artifacts(work)
+            lines = stdout.getvalue().splitlines()
+            self.assertEqual(len(lines), len(names))
+            for line, name in zip(lines, names):
+                marker, recorded_name, digest, encoded = line.split(" ", 3)
+                self.assertEqual(marker, "INDEPENDENT_RAW_ARTIFACT_GZIP_BASE64")
+                self.assertEqual(recorded_name, name)
+                raw = (work / "strict" / name).read_bytes()
+                self.assertEqual(gzip.decompress(base64.b64decode(encoded)), raw)
+                self.assertEqual(digest, verify.replay.sha(work / "strict" / name))
+
     def test_independent_owner_controls(self):
         controls = self.auditor.controls(
             self.geo, self.widths, self.local, self.new, self.plan, self.idle, 16

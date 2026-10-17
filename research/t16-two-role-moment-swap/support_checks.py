@@ -89,6 +89,28 @@ def compare_reports(output, frozen, message):
     need(actual_bytes == expected_bytes, message)
 
 
+def preserve_raw_artifacts(work):
+    names = (
+        "ASSEMBLY.json",
+        "global/audit/PREFIX-AND-INVOICE.json",
+        "global/audit/OWNERS-AND-PROFILE.json",
+        "global/audit/ASYNC-AUDIT.json",
+    )
+    for name in names:
+        path = work / "strict" / name
+        need(path.stat().st_size <= 512 * 1024, "raw artifact byte budget")
+        raw = path.read_bytes()
+        encoded = base64.b64encode(gzip.compress(raw, mtime=0)).decode("ascii")
+        need(len(encoded) <= 128 * 1024, "raw artifact transport budget")
+        print(
+            "INDEPENDENT_RAW_ARTIFACT_GZIP_BASE64",
+            name,
+            replay.sha(path),
+            encoded,
+            flush=True,
+        )
+
+
 def score(package, work):
     bundle = package / "support/exact-score"
     strict = work / "strict"
@@ -112,7 +134,11 @@ def score(package, work):
         work,
         "score",
     )
-    compare_reports(output, bundle / "RESULT.json", "independent score differs")
+    try:
+        compare_reports(output, bundle / "RESULT.json", "independent score differs")
+    except ValueError:
+        preserve_raw_artifacts(work)
+        raise
     command(["-Werror", bundle / "test_score.py"], work, "score-tests")
     command(["-O", "-Werror", bundle / "test_score.py"], work, "score-tests-optimized")
     return output, bundle / "score.py"
