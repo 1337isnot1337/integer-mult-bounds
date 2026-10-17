@@ -72,7 +72,7 @@
   },
   "checkpoints": [
     {
-      "utc": "2026-10-17T22:27:52Z",
+      "utc": "2026-10-17T22:29:30Z",
       "main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
       "priority_revision": 6,
       "decision": "Start one isolated session; preserve all pre-existing worktrees and frozen inputs."
@@ -82,6 +82,12 @@
       "main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
       "priority_revision": 6,
       "decision": "Canonical main unchanged. Continue the fixed-certificate audit and explicit local-reweighting boundary; no matching search or supplier expansion."
+    },
+    {
+      "utc": "2026-10-17T22:44:44Z",
+      "main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+      "priority_revision": 6,
+      "decision": "Main unchanged. Final overlap found concurrent PR3345 with the literal invoice. Preserve and publish this branch as independent native/rational corroboration on that PR; do not create a duplicate invoice PR. PR3347 covers block rank and is distinct."
     }
   ],
   "overlap": {
@@ -91,5 +97,32 @@
     "complete_pagination": true,
     "warnings": [],
     "scope": "Open PR bodies including drafts; discussions/comments/replies; local README/TASK/ledger. No arbitrary code diffs or remote closed PR bodies; not a novelty certificate. Existing 2-integral/native224 results are credited rather than rediscovered."
+  },
+  "session_started_utc": "2026-10-17T22:27:52Z",
+  "verification_started_utc": "2026-10-17T22:42:19Z",
+  "final_overlap": {
+    "searched_at": "2026-10-17T22:44:35.721060+00:00",
+    "open_prs": 262,
+    "discussion_records": 2192,
+    "complete_pagination": true,
+    "warnings": [],
+    "concurrent_pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/3345",
+    "concurrent_head": "529959bb00abd01664b7109d2e40574ecb0c8da1",
+    "decision": "Credit and corroborate the concurrent literal-invoice implementation; publish only the native/rational review supplement."
+  },
+  "validation": {
+    "scientific_commit": "fd37c0fe841d814f2bdcc178d58888ec47dc86a3",
+    "platform": "Darwin arm64",
+    "python_versions": [
+      "3.12.14",
+      "3.14.7"
+    ],
+    "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed",
+    "semantic_integrity_control_groups": 16,
+    "native_controls": 3,
+    "source_history_and_commit_bytes": "PASS_RESEARCH_COMMIT_BYTES:18 files; all declared source pins are ancestors",
+    "committed_export": "PASS_COMMITTED_GIT_FREE_READ_ONLY_EXPORT:18 files; all3 standalone commands under both interpreters; receipts and inputs unchanged",
+    "reviewed_concurrent_head": "529959bb00abd01664b7109d2e40574ecb0c8da1",
+    "remaining": "Complete native gathering/endpoint/dirty-helper/restoration word, physical consumer/hosting/precision/all-size supplier, selected replay and independent human/formal review remain unrun. No new kappa or frontier change."
   }
 }

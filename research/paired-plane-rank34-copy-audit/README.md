@@ -2,6 +2,14 @@
 
 **Scoped independent audit and cost obstruction. No new supplier or kappa.**
 
+This public supplement accompanies independent feedback on concurrent
+[PR3345](https://github.com/CrocSwap/integer-mult-bounds/pull/3345), reviewed head
+`529959bb00abd01664b7109d2e40574ecb0c8da1`. That PR is the single submission
+for the literal invoice. The additional result here is the arbitrary-weight
+orthogonal-local floor and native drop/entry checks. The independent scientific
+implementation and receipts are retained at commit
+`fd37c0fe841d814f2bdcc178d58888ec47dc86a3`; no duplicate invoice PR is opened.
+
 [PR3335](https://github.com/CrocSwap/integer-mult-bounds/pull/3335), exact head
 `1d46df8b5aeac49d165cae58c1dd1036666bb789`, supplies a valid rematching of the
 112 selected P112 ports with strict scalar fitting rank 34. This package
@@ -197,6 +205,8 @@ Sagar Thakrar / PR3232's signed-Gram support charging are predecessors.
 The native compiler/interpreter retain Chafik Boukhalfa / PR1991, Ali Romman /
 PR1862, icekylinx and retained campaign attribution. Selected labels and geometry
 retain Rohan Arun, Jeremy Kothe, Hao Yan and their supplier lineage's credit.
+The near-simultaneous Arham Tahir / Codex investigation published PR3345's
+literal invoice independently; this supplement credits and corroborates it.
 
 Arham Tahir, with substantial OpenAI Codex assistance in proof, implementation,
 checking and writing. No subagents or independent human review. Apache-2.0;
