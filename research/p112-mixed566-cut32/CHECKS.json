@@ -72,7 +72,15 @@
       "main": 8
     }
   },
-  "export": "Required committed Git-free replay will be recorded in the final review/publication receipt; not yet run when this source receipt was written.",
+  "export": {
+    "scientific_commit": "2925148daade0fbd90d90b28cb1a438475a92d7d",
+    "status": "PASS_ALL_THREE_COMMITTED_READONLY_GITFREE_COMMANDS",
+    "python": "CPython3.12.15",
+    "archive_sha256": "7ab16532ec6a901bdbc0d582dda590579199f512a057b0a0f09389f50a1c7d41",
+    "regular_files": 15,
+    "safety": "Official archive rejects links; extracted files regular-only, single-linked and inode-disjoint before validated non-following fd permissions. Controls write fresh private copies, with no chmod.",
+    "peer": "Verbatim REVIEW.json; all15hashes verified before/after and all3optimized commands passed in reviewer-owned TMPDIR."
+  },
   "unrun": [
     "Inherited global capacities and E6 joint bounds",
     "PR3295 axis/small-fiber/concentration/transport censuses",
