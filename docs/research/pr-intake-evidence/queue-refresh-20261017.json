@@ -15131,5 +15131,15 @@
     "PR3261/3276/3287 workflows made manual-only with immutable actions, read-only permissions, no persisted credentials and shared serial replay concurrency."
   ],
   "publication": "published",
-  "frontier_changed": false
+  "frontier_changed": false,
+  "closing_queue": {
+    "observed_at": "2026-10-17T22:01:17.801381+00:00",
+    "open_count": 246,
+    "actionable_count": 0,
+    "counts": {
+      "draft": 136,
+      "waiting_revision": 103,
+      "deferred_replay": 7
+    }
+  }
 }

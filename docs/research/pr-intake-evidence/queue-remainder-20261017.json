@@ -4829,6 +4829,16 @@
   "integration_resolutions": [
     "PR3314 describes current archive status; contributor replay claims remain attributed. No supplier or priority-weight change."
   ],
-  "publication": "prepared_not_yet_pushed",
-  "frontier_changed": false
+  "publication": "published",
+  "frontier_changed": false,
+  "closing_queue": {
+    "observed_at": "2026-10-17T22:01:17.801381+00:00",
+    "open_count": 246,
+    "actionable_count": 0,
+    "counts": {
+      "draft": 136,
+      "waiting_revision": 103,
+      "deferred_replay": 7
+    }
+  }
 }

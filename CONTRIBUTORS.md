@@ -1958,7 +1958,7 @@ One additional research contribution retained as a source archive; scientific va
 - **Matarener (@Matarener)** — [#3296](https://github.com/CrocSwap/integer-mult-bounds/pull/3296): Research: PR #3190's remainder moves change the exact physical operator (affects #3198/#3200/#3251; no new κ) (source archive).
 - **thakrarsagar (@thakrarsagar)** — [#3297](https://github.com/CrocSwap/integer-mult-bounds/pull/3297): Prove complete T740 residual-phase identifiability (source archive).
 
-## Delta intake through PR3330, 2026-10-17
+## Delta intake through PR3331, 2026-10-17
 
 32 research contributions retained as source archives (including PR3315’s corrected historical version), one reviewed publication-tooling change and one reviewed navigation update. Scientific validation remains open; no frontier change.
 

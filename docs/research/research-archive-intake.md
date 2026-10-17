@@ -152,6 +152,6 @@ The [exact-head delta](pr-intake-evidence/queue-tail-20261017.json) covers two c
 
 The [exact-head delta](pr-intake-evidence/queue-refresh-20261017.json) covers 100 heads: 97 research archives (one historical version and three separately reviewed manual workflows), and three explicit operator-correctness holds. No contribution verifier or full supplier replay was executed. Exact source identities, contributor credit and open scientific obligations are recorded in the ledger.
 
-## Delta intake through PR3330
+## Delta intake through PR3331
 
 The [exact-head delta](pr-intake-evidence/queue-remainder-20261017.json) covers 34 PRs plus the concurrent PR3315 revision:32 research archives, the reviewed opt-in source-history preflight, and a reviewed P104 navigation update. PR3315’s original default-tree planning claim is superseded: use [the corrected historical source](https://github.com/CrocSwap/integer-mult-bounds/tree/240e7f68c6be0cd7193abdd1d686ec5b90ab5355/research/k2-class-c-config-audit), which gives a two-config planning result conditional on geometric dominance. Scientific replay and frontier admission remain separate. Focused tooling checks are recorded in the [test receipts](pr-intake-evidence/queue-remainder-20261017-checks.txt).

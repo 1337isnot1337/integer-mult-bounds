@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "130 merges confirmed; final arrival PR3331 archived without Lean execution and awaiting publication. Finish receipts and final queue refresh. 47 focused tooling tests passed. Three new kappa claims remain held; selected result unchanged.",
+  "next": "Zero actionable heads at closing refresh.131 PRs merged:129 source archives, one reviewed source-history preflight, one reviewed P104 navigation update. Three new holds3198/3200/3251 remain tied to physical-operator objections.136 drafts,103 waiting revisions,seven deferred replays remain.47 focused tests passed; no contribution verifier,Lean,Docker or full supplier replay.Three manual-only workflows reviewed but not dispatched. PR3315 revised during publication; corrected historical head240e7f68c6be0cd7193abdd1d686ec5b90ab5355 supersedes its original default-tree planning claim. Refresh once next session; do not rereview dormant holds. Selected kappa unchanged.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,7 +1011,7 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "97173ade2371bc3999dabdec64f233760d400220",
+    "source_publication_commit": "989a6b224",
     "merged": [
       3199,
       3201,
@@ -1142,11 +1142,10 @@
       3327,
       3328,
       3329,
-      3330
-    ],
-    "prepared": [
+      3330,
       3331
     ],
+    "prepared": [],
     "archive_count": 129,
     "reviewed_tooling_count": 2,
     "evidence": [
@@ -1195,12 +1194,12 @@
     }
   ],
   "latest_queue": {
-    "observed_at": "2026-10-17T16:51:45.943740+00:00",
-    "open_count": 243,
+    "observed_at": "2026-10-17T22:01:17.801381+00:00",
+    "open_count": 246,
     "actionable_count": 0,
     "counts": {
       "draft": 136,
-      "waiting_revision": 100,
+      "waiting_revision": 103,
       "deferred_replay": 7
     }
   }
