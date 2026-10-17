@@ -89,9 +89,14 @@ frozen sources and writes only its own [RESULT.json](RESULT.json).
 
 The six-unpaid coverage law is hypothetical. The current selected endpoint has
 one unpaid coordinate; the exact five-plane P112 decoder supplies five but its
-copy invoice is far above this screen's six-unit slack. This package does not
-construct a six-plane dirty-input endpoint or price a physical weighted batch.
-It also leaves the bit supplier unchanged, so the selected bound does not move.
+copy invoice is far above this screen's six-unit slack. The refreshed main also
+contains [a scoped P112 six-mode floor](../p112-six-mode-exclusion/README.md):
+for its fixed PR2757 cover and aligned mode family, it reports cost at least 297
+against the necessary gate C <= 296. I have not independently replayed that
+package here, and its stated scope does not cover changed covers or mode
+assignments. It closes that particular six-mode route, not every possible
+six-unpaid endpoint. This package does not price a physical weighted batch or
+change the bit supplier, so the selected bound does not move.
 
 The next decision is a complete six-unpaid endpoint invoice. First derive one
 source-to-target contract and its dirty-state correction from the selected
@@ -102,12 +107,14 @@ must also pass `a=1/9` before a selected κ above 0.1 is possible.
 
 ## Open next questions
 
-1. Can a six-unpaid source-to-target endpoint be realized on the selected P112
-   labels? It matters because six is the first coverage point tested here that
-   crosses `a=1/9` with the weighted profile. First step: solve and dirty-replay
-   one exact six-plane block contract and record its complete decoder invoice.
-   Blocker: the five-plane construction is the largest pinned local endpoint
-   currently replayed in this checkout.
+1. Can a changed P112 cover or mode assignment escape the fixed aligned six-mode
+   floor while realizing the six-unpaid contract? It matters because six is the
+   first coverage point tested here that crosses a=1/9, while the aligned
+   PR2757 family is reported to miss its necessary C <= 296 gate by one. First
+   step: specify a changed endpoint geometry and derive its full dirty-input
+   decoder invoice before searching. Blocker: no replacement boundary or bit
+   supplier is supplied; the cited floor has not been independently replayed
+   in this package.
 2. Can the 256 groups be physically fused for at most six rank-one-equivalent
    units per call? It matters because the moment leaves only that much
    idle-displacing headroom. First step: implement one source-bound mixed-rank
