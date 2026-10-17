@@ -111,7 +111,7 @@ The separate checker selects small subsets first, then endpoints. It uses
 excess coordinates for the historical filter and an independent capacity
 table. It reconstructs all successful assignment counts, checks every
 retained witness's disjoint partition and deletion dimension, and checks
-the minimum achievable cut when the endpoint contract is imposed. A
+the minimum support-cap sum over these assignments when the endpoint contract is imposed. A
 null minimum means too few compatible endpoints. These exhaustive checks
 cover this fixed inventory, including non-prefix assignments; they do not
 enumerate arbitrary new theorems or actual coefficient realizations.
