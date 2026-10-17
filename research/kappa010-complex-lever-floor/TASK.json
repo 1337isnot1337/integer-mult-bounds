@@ -45,33 +45,39 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "At the donor-set target κ > 0.1, test whether a tensorized block-valued paired-plane endpoint can combine with seven two-output anchors under the selected complex budget and the dirty-output contract.",
-  "scope_change_reason": "The first target screen showed that one unpaid coordinate and the selected local profile are far below κ=0.1. The exact block-rank receipt offers a distinct vector-valued endpoint, so this bounded continuation tensorizes its pinned rank-49 fit, reprices every support under the full port-space tariff, and checks the complete d-fold profile against the anchor's mandatory dirty-output updates.",
-  "bottleneck_link": "The complex supplier binds the selected κ. At κ=0.1 the primitive moment must be below one at a=1/9; the exact interval screen computes how much unpaid coverage is needed even after optimistic local repacking and centre deletion.",
+  "actual_scope": "At the donor target \u03ba > 0.1, correct the scalar-versus-recursive-rank accounting for the tensorized paired-plane fitting endpoint combined with seven arbitrary-dirty anchors; screen each modeled tensor multiplicity against the exact complex moment and separately report the known scalar guard invoice.",
+  "scope_change_reason": "The previous negative screen charged the q\u22122 dirty-target ADD floor as rank-one-equivalent child mass. The pinned arbitrary-dirty anchor receipt charges its 224 ADDs per block separately in the scalar compiler envelope. Correcting this model changes d=3 from failure to an exact relaxed moment pass, so the earlier fixed-route rejection was too strong. Source placement and the full native decoder cost remain open.",
+  "bottleneck_link": "The complex supplier binds the selected \u03ba. At \u03ba=0.1 the primitive moment must be below one at a=1/9; the exact interval screen computes how much unpaid coverage is needed even after optimistic local repacking and centre deletion.",
   "budget_minutes": 60,
-  "stop_rule": "Stop after checking every integer tensor multiplicity d against the exact target moment and mass capacity under the minimum one-target dirty-update count. Do not search more supports or anchor schedules unless a changed recursive-child contract can reduce that update charge and comes with a complete dirty-state example and source-bound placement.",
+  "stop_rule": "The corrected exact screen is complete for d=1..7, with d=8 mass-infeasible. Do not expand to more supports or anchor schedules until one complete d=3 block is bound to a selected-provider trace with its query/decoder operations, dirty inverse, frames, scalar guard and recursive-child bill. Treat a passing relaxed moment as an exploration lead only.",
   "outcome": "partial",
-  "evidence": "The prior exact screens remain: the selected local word has moment 1.151904798395 at its largest feasible centre-free unpaid count u=17; the seven-anchor/centre-free/rank-16 relaxation first passes at u=10, and retaining the centre shifts that boundary to u=11. This continuation reconstructs the pinned 49-support paired-plane fit and finds its full port-space copy profile {2:2,4:31,6:16}, mass 224 per payload copy. For d tensor copies (u=2d), the most favorable seven-anchor base mass is repacked at rank 51 and each 112-output block is charged only the necessary q-2=110 dirty-target additions. At d=1..5, exact target moments remain above one (best case d=5: 1.007213975257 without centre, 1.018472569178 with centre); the fee frontiers are only 96 and 76 per block. At d=6, the minimum local mass exceeds the coverage capacity by 208/9, and each extra copy worsens that gap by 3808/9. Thus this fixed tensorized decoder plus additive anchor contract cannot reach a=1/9. No multi-target recursive child, fused endpoint, source alignment, physical supplier or κ improvement is constructed.",
+  "evidence": "At a=1/9, exact outward-rational moments with scalar ADDs separate are d=1: 1.021884/1.033143, d=2: 1.003115/1.014374, d=3: 0.984346/0.995605, through d=7: 0.909271/0.920530 (centre-free/retained). d=8 exceeds mass capacity by 298/3. The arbitrary-dirty seven-anchor receipt separately budgets 1,568 unit ADD macros at 10,688,681,187,742 < 2^48. Decoder-native query preparation, placement and full supplier transfer are unknown. The unchanged bit primitive endpoint a=0.001733427039589844234749 converts to a complete \u03ba cap near 0.001730427469823603, still far below 0.1.",
   "author": "Codex with OpenAI assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance for scope refinement, exact interval calculation, verifier implementation and report writing.",
   "open_questions": [
     {
-      "question": "Can a changed recursive child update multiple dirty output destinations and beat the one-ADD-per-destination floor?",
-      "why_it_matters": "The best additive d=5 endpoint still needs at least 14 fewer rank-one-equivalent updates per block centre-free, or 34 fewer with the centre retained, before any other unknown costs.",
-      "first_step": "Give a complete q=3 dirty-input map with its child outputs, output writes, and exact restoration; then derive how the same contract scales to q=112.",
-      "blocked_by": "No selected-provider child with a multi-destination dirty-output contract or source-bound seven-anchor placement is available."
+      "question": "Can one d=3 paired-plane block be composed with a selected-provider trace?",
+      "why_it_matters": "d=3 is the first exact target-moment pass, including with the centre retained.",
+      "first_step": "Bind the 112 source and arbitrary-dirty target coordinates, all 49 support queries, child payloads and inverse to one chronological subword.",
+      "blocked_by": "No such product grouping, frame chronology or source locations are established."
     },
     {
-      "question": "Can a different endpoint mask lower the full port-space charge per unpaid dimension?",
-      "why_it_matters": "The pinned paired-plane support fit costs 224 per payload copy, while the fixed tensorized construction misses the target after the mandatory anchor updates.",
-      "first_step": "Specify a changed directed zero mask and compute one exact fitting factorization plus its full group-space charge before screening a larger cover.",
-      "blocked_by": "The rank-49d theorem and charge profile apply only to the fixed selected matching and strict plane mask."
+      "question": "What is the complete scalar and native invoice for that block?",
+      "why_it_matters": "The known anchor ADD schedule fits the scalar guard, but omitted query setup, child wrappers and cleanup may invalidate the relaxed pass.",
+      "first_step": "Write the literal one-block operation schedule, including dirty-state restoration, then apply the existing scalar adapters and recursive ranks.",
+      "blocked_by": "The algebraic fitting certificate supplies no native schedule or provider placement."
+    },
+    {
+      "question": "What distinct bit-side mechanism could raise its endpoint above 0.1?",
+      "why_it_matters": "The selected bit endpoint near 0.00173343 would cap the complete result even if the complex-side target were met.",
+      "first_step": "Name a bit-side mechanism with an exact target profile and fully charged supplier transfer.",
+      "blocked_by": "No bit-side candidate is part of this investigation."
     }
   ],
   "upstream_checkpoint": {
     "commit": "18aacb215fc3717b06be8ceb9fca62aeca0d3e99",
     "priority_revision": 6,
-    "checked_utc": "2026-10-17T01:20:09Z",
-    "comparison": "Canonical main was refreshed from the original d8e0f83 base. The relevant guidance diff adds a P104 precision-contract pointer to bottleneck-brief.md; the selected record, current priorities, and quantitative predecessor receipts used here are unchanged."
+    "checked_utc": "2026-10-17T01:52:15Z",
+    "comparison": "Immediately before PR submission, fetched canonical origin/main; it remains exactly 18aacb215fc3717b06be8ceb9fca62aeca0d3e99. Priority revision 6, task catalogue, family status, selected record, and bottleneck guidance have no changes from the prior checkpoint."
   }
 }

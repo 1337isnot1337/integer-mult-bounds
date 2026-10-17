@@ -232,15 +232,30 @@ def paired_plane_port_charge() -> dict:
 
 def block_anchor_case(base_mass: int, blocks: int, fee_per_block: int,
                       copies: int, centre: int) -> dict:
-    """Target moment for d tensor copies, with all remaining base mass at rank 51."""
+    """Target moment under an explicit rank-one-equivalent fee sensitivity.
+
+    Scalar ADDs are not part of the exponent profile.  This fee parameter is
+    retained only to show how a separately established interface cost would
+    affect the moment if it were translated to rank-one-equivalent units.
+    """
     unpaid = 2 * copies
-    local: dict[int, Q | int] = {51: Q(base_mass, 51), 1: blocks * fee_per_block}
+    local: dict[int, Q | int] = {51: Q(base_mass, 51)}
+    if fee_per_block:
+        local[1] = blocks * fee_per_block
     if centre:
         # Retaining the centre also retains its eight rank-8 children.
         local[8] = 8
     for rank, count in ((2, 2 * copies), (4, 31 * copies), (6, 16 * copies)):
         local[rank] = count
     return result_case(local, centre, unpaid)
+
+
+def block_mass_excess(base_mass: int, copies: int) -> Q:
+    """Paid rank mass minus coverage capacity, with scalar ADDs separate."""
+    unpaid = 2 * copies
+    local_mass = Q(base_mass + 224 * copies)
+    coverage = Q(73 - unpaid) * Q(896, 9)
+    return local_mass - coverage
 
 
 def maximum_block_anchor_fee(base_mass: int, blocks: int,
@@ -268,11 +283,13 @@ def main() -> None:
     selected = read_json("certificates/selected-result.json")
     ceiling = read_json("research/complex-local-word-ceiling/RESULT.json")
     anchor = read_json("research/complex-two-output-sum-anchor-seed65ce19/RESULT.json")
+    dirty_anchor = read_json("research/complex-dirty-output-temporary-sum-anchor/RESULT.json")
     five_plane = read_json("research/five-plane-port-p112-seed1f7fdfe4/RESULT.json")
     five_plane_sources = read_json("research/five-plane-port-p112-seed1f7fdfe4/SOURCES.json")
     assert selected["decimal"] == "0.001672660197076918"
     assert ceiling["status"] == "PASS_COMPLEX_LOCAL_WORD_CEILING"
     assert anchor["status"] == "PASS_TWO_OUTPUT_TEMPORARY_SUM_ANCHOR"
+    assert dirty_anchor["status"] == "PASS_DIRTY_OUTPUT_TEMPORARY_SUM_ANCHOR"
     assert five_plane["status"] == "completed_local_algebraic_construction"
 
     m = ceiling["model"]["m"]
@@ -292,10 +309,10 @@ def main() -> None:
     )
     assert archive_sha == archive_source["sha256"] == "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
 
-    # The predecessor's selected profile is source-bound in its result.  Seven
-    # q=112 blocks replace 332 rank-one children by 112 rank-one children each,
-    # while e=112 charges the 112 local affine additions at one hypothetical
-    # rank-one-equivalent unit each.
+    # The predecessor's selected profile is source-bound in its result. Seven
+    # q=112 blocks replace 332 rank-one children by 112 each. Keep e=112 only
+    # as a rank-one-equivalent tariff sensitivity; scalar ADDs are screened
+    # separately below.
     selected_profile = {int(r): int(n) for r, n in anchor["cost_screen"]["selected_profile"].items()}
     blocks = anchor["cost_screen"]["max_direct_blocks_in_rank_one_profile"]
     affine_fee = anchor["cost_screen"]["affine_additions_per_block"]
@@ -315,6 +332,17 @@ def main() -> None:
     base_rank1 = anchored[1] - blocks * affine_fee
     base_mass = sum(r * n for r, n in {**anchored, 1: base_rank1}.items() if r != 8)
     assert base_mass == 3982
+    dirty_budget = dirty_anchor["budget"]
+    dirty_profile = {int(r): int(n) for r, n in
+                     dirty_budget["hypothetical_profile_after_seven_blocks"].items()}
+    assert dirty_profile == {1: 872, 2: 418, 3: 432, 4: 142, 5: 82, 8: 8}
+    assert sum(r * n for r, n in dirty_profile.items() if r != 8) == base_mass
+    scalar_invoice = dirty_budget["separate_scalar_invoice"]
+    assert scalar_invoice["added_unit_addition_macros_per_call"] == 1568
+    assert int(scalar_invoice["new_local_primitive_bound_upper"]) < int(scalar_invoice["guard"])
+    unchanged_bit_a = Q(dirty_budget["local_complex_ceiling"]["unchanged_bit_endpoint"])
+    unchanged_bit_kappa = unchanged_bit_a / (1 + unchanged_bit_a)
+    assert str(unchanged_bit_a) == "1733427039589844234749/1000000000000000000000000"
 
     # Compare the existing five-plane P112 algebraic port decoder, whose
     # RESULT/SOURCES bind it to the exact same selected replay archive.  This
@@ -403,16 +431,55 @@ def main() -> None:
     assert fee_boundaries["u10_centre_free"]["extra_allowance_after_112_affine_units"] == 58
     assert fee_boundaries["u11_centre_retained"]["extra_allowance_after_112_affine_units"] == 95
 
-    # Try the explicit block-valued escape from the scalar endpoint audit:
-    # tensor d copies of the pinned 49-support paired-plane fit.  The exact
-    # support spaces are repriced by their full F2 pairing ranks.  The anchor
-    # still has 110 dirty destinations that each require a one-target ADD, so
-    # use e=110 per block as the most favorable ordinary affine schedule.
+    # Try the explicit block-valued endpoint: tensor d copies of the pinned
+    # 49-support paired-plane fit. The 110-update dirty-target floor and the
+    # anchor's 224-add schedule are scalar operations, not rank-one-equivalent
+    # exponent costs. The known anchor scalar invoice is screened separately;
+    # the decoder's own linear setup/cleanup remains unpriced.
     plane_decoder = paired_plane_port_charge()
     assert plane_decoder["port_space_copy_profile"] == {"2": 2, "4": 31, "6": 16}
     assert plane_decoder["port_space_mass_per_payload_copy"] == 224
     min_dirty_updates = anchor["cost_screen"]["block_width_q"] - 2
     assert min_dirty_updates == 110
+    assert dirty_anchor["q112"]["affine_additions"] == 224
+    assert scalar_invoice["added_unit_addition_macros_per_call"] == blocks * 224
+
+    zero_fee_endpoint = []
+    for copies in range(1, 8):
+        centre_rows = {
+            str(centre): block_anchor_case(base_mass, blocks, 0, copies, centre)
+            for centre in (0, 64)
+        }
+        zero_fee_endpoint.append({
+            "payload_copies": copies,
+            "unpaid_coordinates": 2 * copies,
+            "scalar_dirty_update_floor_per_block": min_dirty_updates,
+            "zero_rank_one_equivalent_fee_moments": centre_rows,
+            "rank_one_equivalent_fee_frontier_per_block": {
+                str(centre): maximum_block_anchor_fee(base_mass, blocks,
+                                                       copies, centre)
+                for centre in (0, 64)
+            },
+        })
+    assert [x["zero_rank_one_equivalent_fee_moments"]["0"]["below_one"]
+            for x in zero_fee_endpoint] == [False, False, True, True, True, True, True]
+    assert [x["zero_rank_one_equivalent_fee_moments"]["64"]["below_one"]
+            for x in zero_fee_endpoint] == [False, False, True, True, True, True, True]
+    assert [x["rank_one_equivalent_fee_frontier_per_block"] for x in zero_fee_endpoint[:5]] == [
+        {"0": None, "64": None},
+        {"0": None, "64": None},
+        {"0": (28, 29), "64": (8, 9)},
+        {"0": (62, 63), "64": (42, 43)},
+        {"0": (96, 97), "64": (76, 77)},
+    ]
+    d3_centre_free = zero_fee_endpoint[2]["zero_rank_one_equivalent_fee_moments"]["0"]
+    d3_centre_retained = zero_fee_endpoint[2]["zero_rank_one_equivalent_fee_moments"]["64"]
+    assert Q(d3_centre_free["moment_interval_at_a_1_over_9"][1]) < 1
+    assert Q(d3_centre_retained["moment_interval_at_a_1_over_9"][1]) < 1
+
+    # Preserve the old e=110 result only as an intentionally pessimistic
+    # rank-one-equivalent tariff sensitivity; it is not the project's scalar
+    # operation cost model.
     stacked_endpoint = []
     for copies in range(1, 6):
         centre_rows = {
@@ -425,26 +492,21 @@ def main() -> None:
         stacked_endpoint.append({
             "payload_copies": copies,
             "unpaid_coordinates": 2 * copies,
-            "minimum_dirty_updates_per_block": min_dirty_updates,
-            "at_minimum_affine_fee": centre_rows,
-            "maximum_passing_affine_fee_per_block": {
-                str(centre): maximum_block_anchor_fee(base_mass, blocks,
-                                                       copies, centre)
-                for centre in (0, 64)
-            },
+            "scalar_dirty_update_floor_per_block": min_dirty_updates,
+            "if_mispriced_as_rank_one_equivalent_fee_110_per_block": centre_rows,
         })
-    assert [x["maximum_passing_affine_fee_per_block"] for x in stacked_endpoint] == [
+    assert [x["rank_one_equivalent_fee_frontier_per_block"] for x in zero_fee_endpoint[:5]] == [
         {"0": None, "64": None},
         {"0": None, "64": None},
         {"0": (28, 29), "64": (8, 9)},
         {"0": (62, 63), "64": (42, 43)},
         {"0": (96, 97), "64": (76, 77)},
     ]
-    # At d=6 the minimum local rank mass already exceeds the allowed mass;
-    # each further copy adds 224 paid units and removes 2W coverage units.
-    d6_excess = Q(base_mass + 224 * 6 + blocks * min_dirty_updates) - (Q(73 - 12) * families)
+    # With scalar ADDs separate, the exponent profile remains mass-feasible
+    # through d=7; at d=8 even its zero-tariff profile exceeds capacity.
+    d8_excess = block_mass_excess(base_mass, 8)
     per_copy_excess = Q(224) + 2 * families
-    assert d6_excess == Q(208, 9) and per_copy_excess == Q(3808, 9) > 0
+    assert d8_excess == Q(298, 3) and per_copy_excess == Q(3808, 9) > 0
 
     # Positive control: the same highly optimistic rank-16 profile does pass
     # the repository's much smaller planning target a=1/99 with only one
@@ -519,20 +581,36 @@ def main() -> None:
             "base_mass_repacked_at_rank": 51,
             "base_mass_before_endpoint_and_dirty_updates": base_mass,
             "anchor_blocks": blocks,
-            "minimum_one_target_dirty_updates_per_block": min_dirty_updates,
-            "minimum_affine_fee_per_block_used": min_dirty_updates,
-            "d_1_through_5_target_moments": stacked_endpoint,
-            "d6_minimum_fee_mass_excess": str(d6_excess),
+            "dirty_output_anchor_source_result": "research/complex-dirty-output-temporary-sum-anchor/RESULT.json",
+            "dirty_output_anchor_scalar_invoice": scalar_invoice,
+            "unchanged_bit_side_primitive_endpoint_a": str(unchanged_bit_a),
+            "unchanged_bit_side_kappa_cap": str(unchanged_bit_kappa),
+            "unchanged_bit_side_kappa_cap_decimal": format(float(unchanged_bit_kappa), ".15f"),
+            "one_target_dirty_update_floor_per_block_scalar_additions": min_dirty_updates,
+            "actual_dirty_anchor_additions_per_block": 224,
+            "separate_scalar_cost_model": {
+                "rank_one_equivalent_fee_in_exponent_profile": 0,
+                "known_seven_block_anchor_additions_are_within_selected_scalar_guard": True,
+                "decoder_linear_setup_cleanup_cost": "unknown; not in the anchor scalar invoice",
+                "interpretation": "ADDs are screened in the scalar compiler envelope; they are not automatically rank-one-equivalent child costs.",
+            },
+            "d_1_through_7_zero_fee_target_moments": zero_fee_endpoint,
+            "first_passing_d_centre_free": 3,
+            "first_passing_d_centre_retained": 3,
+            "d_1_through_5_if_charged_110_rank_one_equivalent_units_per_block": stacked_endpoint,
+            "d8_zero_fee_mass_excess": str(d8_excess),
             "mass_excess_growth_per_extra_copy": str(per_copy_excess),
-            "conclusion": "The tensorized pinned fit plus the seven-anchor map, with at least q-2 one-target dirty updates per block, misses a=1/9 for d=1..5; d>=6 exceeds the coverage mass even before other costs.",
-            "scope": "This excludes only the stated fit, additive anchor contract, and selected-profile relaxation. A different support fit, changed endpoint mask, or multi-target recursive child needs its own full charge and dirty-state proof.",
+            "conclusion": "Under the corrected separated-scalar model, the zero-rank-one-fee exponent relaxation first passes a=1/9 at d=3 (moment 0.984346 centre-free, 0.995605 with centre); d=1,2 fail and d=8 is mass-infeasible. This is only a relaxed profile result. The earlier d=1..5 failure used a hypothetical rank-one-equivalent ADD tariff and is retained as sensitivity, not as the selected scalar cost model.",
+            "scope": "The exact paired-plane factorization and dirty-output anchor are not composed into a selected-provider source block. Decoder linear setup/cleanup, frames, precision, tape, restoration and whole-supplier transfer remain unpriced; no new kappa is established.",
         },
         "scope": [
             "A failure rejects only the stated selected-profile or seven-anchor budget models; it is not a barrier for other algorithms.",
             "The passing u=10 case places all 4,766 units of paid local rank mass into fractional rank-16 children and grants centre removal and a changed coverage law for free.",
             "No source alignment, full dirty endpoint, rank-16 decoder, restoration schedule, physical invoice, supplier transfer, or new kappa is constructed.",
             "The hypothetical 112-unit block fee prices affine additions only; all other interface charges are waived.",
-            "The new d-fold screen uses the pinned paired-plane support fit's port-space charge and the q-2 dirty-output update floor; it does not exclude changed masks or recursive children that update multiple dirty destinations under a different contract.",
+            "The d-fold screen separates scalar ADD guard costs from the exponent rank profile; the rank-one-equivalent fee rows are tariff sensitivities only.",
+            "The d=3 moment pass uses a fractional rank-51 repacking of the remaining 3,982 rank mass and waives decoder linear setup/cleanup and source placement; it is not an implementation or kappa improvement.",
+            "The existing bit-side endpoint remains unchanged and still caps the selected complete construction far below 0.1.",
         ],
     }
     (HERE / "RESULT.json").write_text(json.dumps(result, indent=2) + "\n")
@@ -545,6 +623,7 @@ def main() -> None:
     print("  max rank-one-equivalent fee per block: e=", e10_free[0], "at u=10/centre-free; e=", e11_centre[0], "at u=11/centre-retained")
     print("  five-plane u=5 decoder profile at a=1/9:", p112_actual["moment_approx"], "; rank-16 requires u=", p112_rank16_first_free, "centre-free or", p112_rank16_first_centre, "with centre")
     print("  five-plane paid local terms alone:", format(float((p112_local_only[0] + p112_local_only[1]) / 2), ".12f"), ">1")
+    print("  paired-plane d=3 with separate scalar ADD invoice:", d3_centre_free["moment_approx"], "centre-free;", d3_centre_retained["moment_approx"], "with centre")
 
 
 if __name__ == "__main__":
