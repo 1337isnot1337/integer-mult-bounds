@@ -1,8 +1,27 @@
 {
+  "actual_cli_failure_control": {
+    "mutation": "Replace the first rank-five critical closure SHA256 by64 zero digits in the exported RESULT.json",
+    "result": "Both actual primary and separate verifier processes reject; exact original export bytes restored"
+  },
+  "cold_export_replay": {
+    "commands": [
+      "verify.py",
+      "independent.py",
+      "test_verify.py"
+    ],
+    "mode": "Optimized, warning-strict, read-only, initially cache-free and Git absent from PATH",
+    "python": "CPython3.13.5",
+    "result": "PASS all commands and ten groups, no exported-byte change"
+  },
   "commands": [
     "python3.12 -I -Werror -B scripts/research_package.py --package research/p112-six-piece-concentration",
     "python3.13 -I -O -Werror -B research/p112-six-piece-concentration/test_verify.py"
   ],
+  "committed_source_preflight": {
+    "package_and_input_files": 17,
+    "result": "PASS exact committed bytes and deterministic export integrity",
+    "scientific_commit": "1482e8ffb53625fd422ce2c89a8b87c89e37fe8f"
+  },
   "diagnostics": "Ruff0.17.1 E,F,I,B,UP,RUF,PLE,PLW,S,C4,SIM; format; Python warnings as errors",
   "evidence_scope": "Written conditional profile exclusion with new exact finite concentration and source closure; not a supplier or kappa",
   "function_lengths": {

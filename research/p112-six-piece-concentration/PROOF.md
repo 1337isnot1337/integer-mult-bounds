@@ -80,6 +80,8 @@ For an orthogonal root pair a,b, a full D6 axis fiber consists of the33 full
 E8 root lines with `a dot r !=0, b dot r =0`, or the reversed condition.
 Each such fiber spans eight binary dimensions in the nine-bit label space.
 
+PR3283 previously used an eleven-label rank-five concentration lemma. The new
+checks lower that singleton requirement to ten and add rank-six concentration.
 The replay proves these finite statements in a canonical orthogonal plane:
 
 | Ambient binary rank | Axis labels required | All ambient spaces checked | Qualifying intersections |

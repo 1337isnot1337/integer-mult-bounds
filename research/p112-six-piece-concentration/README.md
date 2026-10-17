@@ -67,7 +67,10 @@ Credit Nick Petalas's PR3278/3267/3260/3262/3269 for shortening and capacity
 premises, PR3282 for literal caller reconciliation, PR3286 for the concurrent
 counterexample that rules out the uniform route, DreamingOfClouds/PR3154 for
 the TWOSIDE reduction, and the retained E8/P112 root/simplex lineage including
-joaqcoo. PR3289's original-cover reconciliation concerns other rows. The analytic
+joaqcoo. PR3283's eleven-label rank-five closure lemma is a related predecessor;
+the new checks use ten labels and add the rank-six concentration statement.
+Its inspected head was `089575ca9fdf03c734feecc2ae8a830fccb21812`.
+PR3289's original-cover reconciliation concerns other rows. The analytic
 A2 and D6 capacity18 investigations have separate predicates and are not claimed
 or used as new results here. New material by Nick Petalas, Apache-2.0.
 
