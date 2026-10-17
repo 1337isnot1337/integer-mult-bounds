@@ -1,5 +1,5 @@
 {
-  "status": "passed-local-registered",
+  "status": "passed-designated-peer-and-committed-export",
   "python": "CPython3.12.15",
   "registered_command": "python3.12 -W error -B scripts/research_package.py --package research/p112-mixed566-cut33",
   "results": [
@@ -19,5 +19,6 @@
     "Initial registered commands used -I, which omits script-local common import; removed -I from child commands. Generic runner still isolates bytecode cache.",
     "Initial independent expectation28 was too loose for >=9-label five-space cases; actual exhaustive max26, with small-five<=8 plus20 giving final28. Corrected before freeze."
   ],
-  "export": "pending scientific commit export; readiness not yet claimed"
+  "export": "Scientific b81f9b05d and corrected d5ddb7bda: official16file export/integrity, regular-only inode-disjoint readonly Git-free, all3 actual optimized CPython3.13.16 scripts PASS; hashes unchanged.",
+  "peer": "Worker2 designated receipt REVIEW.json, original all16hashes and3actual optimized3.12 export scripts PASS; corrected proof-only delta checked; no blocking finding; explicit small-fiber premise clarification resolved."
 }
