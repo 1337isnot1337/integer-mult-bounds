@@ -2490,8 +2490,8 @@
     },
     {
       "number": 3315,
-      "head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
-      "merge_base": "463113d675af7410ac91d53a4fed51ec6494eb9a",
+      "head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355",
+      "merge_base": "c4fe4244b52bb9111b9117aba066229316fc58ab",
       "title": "Audit the class-C 4-flat covering-config census of #2954: the cheapest config is useless for the hard rows, 3 of 5 are redundant (no kappa claim)",
       "author": {
         "id": "U_kgDOERZpVQ",
@@ -2505,92 +2505,75 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
+            "oid": "10d06e9031b381109195578c08eaeb3448ac694b"
+          },
+          "baseline": {
+            "mode": "100644",
+            "kind": "blob",
             "oid": "e16043bc047b46aba482fe1309d3b7730d26a7ed"
           },
-          "baseline": null,
-          "change": "A"
+          "change": "M"
         },
         {
           "path": "research/k2-class-c-config-audit/RESULT.json",
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "2912d97c539b477297816b580a93ef4c3ee0c02b"
+            "oid": "cbe59b2b6633e2fe242341bff52c317fec48c9d2"
           },
-          "baseline": null,
-          "change": "A"
-        },
-        {
-          "path": "research/k2-class-c-config-audit/SOURCES.json",
-          "source": {
+          "baseline": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "9f5bf1cedae679b6a2c975ffd2762b61f3dd024d"
+            "oid": "2912d97c539b477297816b580a93ef4c3ee0c02b"
           },
-          "baseline": null,
-          "change": "A"
+          "change": "M"
         },
         {
           "path": "research/k2-class-c-config-audit/TASK.json",
           "source": {
             "mode": "100644",
             "kind": "blob",
+            "oid": "ed76cb46b2600355f18a57ce528c7c6fbbac66f1"
+          },
+          "baseline": {
+            "mode": "100644",
+            "kind": "blob",
             "oid": "b725c62812353588865450a03917acddae0c7048"
           },
-          "baseline": null,
-          "change": "A"
-        },
-        {
-          "path": "research/k2-class-c-config-audit/VERIFY.json",
-          "source": {
-            "mode": "100644",
-            "kind": "blob",
-            "oid": "a5c86c9d66d3fb1b56c0a7495d439c57f7b7e8ca"
-          },
-          "baseline": null,
-          "change": "A"
-        },
-        {
-          "path": "research/k2-class-c-config-audit/inputs/rows17.csv",
-          "source": {
-            "mode": "100644",
-            "kind": "blob",
-            "oid": "ef453f30c2ccd567214ce5487fad51a9c7609390"
-          },
-          "baseline": null,
-          "change": "A"
-        },
-        {
-          "path": "research/k2-class-c-config-audit/inputs/rows70.csv",
-          "source": {
-            "mode": "100644",
-            "kind": "blob",
-            "oid": "ee12fc8e3c528a509a06274c3ed264508c2c06a8"
-          },
-          "baseline": null,
-          "change": "A"
+          "change": "M"
         },
         {
           "path": "research/k2-class-c-config-audit/verify.py",
           "source": {
             "mode": "100644",
             "kind": "blob",
+            "oid": "2f5776c107127a331f66e6bf91eb33ff2ec59117"
+          },
+          "baseline": {
+            "mode": "100644",
+            "kind": "blob",
             "oid": "b82a50facb597843ddf861156a56d9d5f73fb3a3"
           },
-          "baseline": null,
-          "change": "A"
+          "change": "M"
         }
       ],
       "errors": [],
       "syntax": {
         "python": 1,
-        "json": 4
+        "json": 2
       },
       "manifests": [],
       "shared": [],
-      "conflicts": [],
-      "lane": "archive",
-      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. ",
+      "conflicts": [
+        "research/k2-class-c-config-audit/README.md",
+        "research/k2-class-c-config-audit/RESULT.json",
+        "research/k2-class-c-config-audit/TASK.json",
+        "research/k2-class-c-config-audit/verify.py"
+      ],
+      "lane": "historical_archive",
+      "previously_archived_default_tree_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
+      "additional_scope": "The original default-tree version interprets config incidence literally and overstates the required campaign. The corrected historical version uses dominance closure and gives a conditional two-config planning result; geometric dominance remains unproved. Use this exact historical head for the corrected claim, not the original package on main.",
+      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. Complete original version retained in Git ancestry; existing main-tree package unchanged. The original default-tree version interprets config incidence literally and overstates the required campaign. The corrected historical version uses dominance closure and gives a conditional two-config planning result; geometric dominance remains unproved. Use this exact historical head for the corrected claim, not the original package on main.",
       "remaining": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa."
     },
     {
@@ -4675,9 +4658,14 @@
       3329,
       3330
     ],
-    "historical_only": [],
+    "historical_only": [
+      3315
+    ],
     "files": 372,
-    "workflow_resolutions": []
+    "workflow_resolutions": [],
+    "corrected_source_commit": "f9ea583c46057863bca1c68ba509de15a70642f4",
+    "initial_3315_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
+    "corrected_3315_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355"
   },
   "checks": [
     {

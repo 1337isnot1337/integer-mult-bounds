@@ -1960,7 +1960,7 @@ One additional research contribution retained as a source archive; scientific va
 
 ## Delta intake through PR3330, 2026-10-17
 
-31 research contributions retained as source archives, one reviewed publication-tooling change and one reviewed navigation update. Scientific validation remains open; no frontier change.
+31 research contributions retained as source archives (including PR3315’s corrected historical version), one reviewed publication-tooling change and one reviewed navigation update. Scientific validation remains open; no frontier change.
 
 - **Tekalign (@tekuuu)** — [#3298](https://github.com/CrocSwap/integer-mult-bounds/pull/3298): Tooling: complete the P104 tensor collector replay with exact packed arithmetic (source archive).
 - **Nick Petalas (@petalas)** — [#3299](https://github.com/CrocSwap/integer-mult-bounds/pull/3299): Prove a universal P112 mixed-rank common-cut32 contract (source archive).
@@ -1979,7 +1979,7 @@ One additional research contribution retained as a source archive; scientific va
 - **thakrarsagar (@thakrarsagar)** — [#3312](https://github.com/CrocSwap/integer-mult-bounds/pull/3312): Reduce exact Fano census memory with compact singleton storage (source archive).
 - **Nick Petalas (@petalas)** — [#3313](https://github.com/CrocSwap/integer-mult-bounds/pull/3313): Prove the mixed native F0 witness uniformly in precision (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#3314](https://github.com/CrocSwap/integer-mult-bounds/pull/3314): Docs: map current P104 support and chronology work (reviewed tooling).
-- **muatfannajm-dot (@muatfannajm-dot)** — [#3315](https://github.com/CrocSwap/integer-mult-bounds/pull/3315): Audit the class-C 4-flat covering-config census of #2954: the cheapest config is useless for the hard rows, 3 of 5 are redundant (no kappa claim) (source archive).
+- **muatfannajm-dot (@muatfannajm-dot)** — [#3315](https://github.com/CrocSwap/integer-mult-bounds/pull/3315): Audit the class-C 4-flat covering-config census of #2954: the cheapest config is useless for the hard rows, 3 of 5 are redundant (no kappa claim) (historical source archive).
 - **Cinna Davis (@1337isnot1337)** — [#3316](https://github.com/CrocSwap/integer-mult-bounds/pull/3316): Research: prove the repeated-root UT5 target needs five calls (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#3317](https://github.com/CrocSwap/integer-mult-bounds/pull/3317): Research: prove conditional Q8 regular-action bit-cell rank floor (source archive).
 - **Cinna Davis (@1337isnot1337)** — [#3318](https://github.com/CrocSwap/integer-mult-bounds/pull/3318): Research: prove the 10-XOR minimum over all boundary pairs in the fixed connector (source archive).

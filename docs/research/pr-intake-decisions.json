@@ -13426,17 +13426,18 @@
         "isDraft": false,
         "number": 3315,
         "title": "Audit the class-C 4-flat covering-config census of #2954: the cheapest config is useless for the hard rows, 3 of 5 are redundant (no kappa claim)",
-        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3315"
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3315",
+        "head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355"
       },
-      "reviewed_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
-      "current_head": "c4fe4244b52bb9111b9117aba066229316fc58ab",
+      "reviewed_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355",
+      "current_head": "240e7f68c6be0cd7193abdd1d686ec5b90ab5355",
       "disposition": "partially_reviewed",
       "github_state": "OPEN",
       "integration_location": [
-        "research/k2-class-c-config-audit"
+        "https://github.com/CrocSwap/integer-mult-bounds/tree/240e7f68c6be0cd7193abdd1d686ec5b90ab5355"
       ],
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
-      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. ",
+      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. Complete original version retained in Git ancestry; existing main-tree package unchanged. The original default-tree version interprets config incidence literally and overstates the required campaign. The corrected historical version uses dominance closure and gives a conditional two-config planning result; geometric dominance remains unproved. Use this exact historical head for the corrected claim, not the original package on main.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
