@@ -38,15 +38,15 @@ frozen archives and their notices.
 
 In `production_native.py` I construct the actual Catalogue, Specifications,
 selected topology, SelectedBinding, complete mode-zero program and Ordinary
-instance, with capacity2^24 and the unchanged Profile. I fix
+instance, with capacity 2^24 and the unchanged Profile. I fix
 
     q* = 213*2^80+1 = 257501199577916014212415489.
 
-In `check_prime.py` I verify the base7 Proth certificate from PR2234 and
-the selected rational units, ranks and chart preparations. I check636 frame
-projectors,2395 normalized low/high residual pairs,111 port bases and111
+In `check_prime.py` I verify the base 7 Proth certificate from PR2234 and
+the selected rational units, ranks and chart preparations. I check 636 frame
+projectors, 2,395 normalized low/high residual pairs, 111 port bases and 111
 rho15 charts. I retain the source column-order splitting rule. For a local
-64-dimensional residual, I append56 coordinate kernel columns to the
+64-dimensional residual, I append 56 coordinate kernel columns to the
 checked eight-dimensional split; for an idle residual I use its coordinate
 split. I build full charts from the checked matrices and coordinate
 embeddings/permutations. Multiplication by any fixed member of GL64 preserves
@@ -58,17 +58,17 @@ materializes the GL64 program and allocates q*^2-scale inventories. I claim
 finite compilation, not practical compilation. In numerical fixtures I label
 the elementary q=2 backend and never substitute it for this factory.
 
-In `scalar_program.py` I lower349 normalized literals from both complete
+In `scalar_program.py` I lower 349 normalized literals from both complete
 R480 words. For ADD a/2^k, I copy the source into a zero third word, build
 |a| by binary Horner steps, apply k exact halvings, add with the required
 sign and clear the third word. I preserve the source at each prefix.
 SCALE uses signed powers of two. I check exact affine rows at each prefix.
-The largest program has33 instructions, denominator65536 and prefix L1 norm
-65537. I extend PR3098's31-template lowering domain without changing its
+The largest program has 33 instructions, denominator 65536 and prefix L1 norm
+65537. I extend PR3098's 31-template lowering domain without changing its
 physical instruction body.
 
-In `native_program.py` I retain24767 events per orientation in order and
-emit31755 instructions per orientation. I map a directed residual to its
+In `native_program.py` I retain 24,767 events per orientation in order and
+emit 31,755 instructions per orientation. I map a directed residual to its
 right monomial, one rank-r child and its left monomial. I invert the declared
 pre/post helper wrappers and preserve endpoint directions. I retain phase
 section markers and literal identity adapters. I use the separately supplied
@@ -91,12 +91,12 @@ the familiar cardinality
 
     Gamma = 2^1296 product(i=1..36)(2^(2i)-1).
 
-I check the complete small groups through dimension5 and bounded73-dimensional
+I check the complete small groups through dimension 5 and bounded 73-dimensional
 round trips. I do not enumerate Gamma. These matrices and ordinals belong
 to fixed finite control, independent of numerical input precision.
 
-In `selected_binding.py` I bind all482 chronological events,144 local calls,
-101376 owner entries and10002 emitted helper charts. For a common cover d
+In `selected_binding.py` I bind all 482 chronological events, 144 local calls,
+101,376 owner entries and 10,002 emitted helper charts. For a common cover d
 and owner chart sigma, I select the physical owner g=d sigma^-1. The archive
 stores columns of sigma; I use them as rows of its inverse. I gather the
 whole owner packet, apply P_d^-1 and the pulled-back data entrance alignment,
@@ -104,7 +104,7 @@ execute the complete local program, then apply its exit alignment and P_d.
 I apply no data-family Pauli to helper packets.
 
 For an idle child I use the exact unconsumed axis suffix and complete its
-orthogonal chart. I perform its child call before X_(g theta). I retain6822
+orthogonal chart. I perform its child call before X_(g theta). I retain 6,822
 nonzero translations after hosting consumed the positive-rank part.
 I keep bridges at their physical family/cover positions, perform terminal
 Y translations before (X,Y)->(Y,-X), and finally use the output-coordinate
@@ -118,7 +118,7 @@ the compiled child histogram against
 
     {1:349604,2:60192,3:62585,4:20448,5:11808,7:7,8:1152,48:4866}.
 
-I account for70032 fixed subgroups per cover. Empty identity corrections
+I account for 70,032 fixed subgroups per cover. Empty identity corrections
 need no payload scan; I preserve their place in the finite schedule.
 
 ## One active node and physical returns
@@ -131,7 +131,7 @@ In `bank_packets.py` I scan the complete current bank to gather the selected
 family/cover packets. I keep the current bank until I have constructed the
 complete replacement, then commit that replacement. I preserve the entire
 unused-row and spectator rectangle. At smaller global groups I leave the
-unused roles in the fixed704-packet inventory empty.
+unused roles in the fixed 704-packet inventory empty.
 
 In `machine.py` I stop at e<73 or e^1000<d. Otherwise I process the leftmost
 e mod73 selected chunks with the exact leaf, retain them as spectators and
@@ -201,22 +201,22 @@ H0 has row L1 norm one and componentwise truncation decreases absolute values.
 
 ## Inventory, height, time and space
 
-I allocate678 tapes outside Machine,3348 complex-controller tapes excluding
+I allocate 678 tapes outside Machine, 3,348 complex-controller tapes excluding
 the shared native backend, and
 
     6(C+1)+Wb+Sb+2q^2+417
 
 native tapes, with C=2^24,Wb=28416,Sb=662. I include the two numerical-codec
-tapes that use dictionary storage. In total I own2q^2+100696823 physical
+tapes that use dictionary storage. In total I own 2q^2+100696823 physical
 tapes; the caller supplies eight input ports. I allocate no extra tape
 inventory per cover matrix, scalar literal or recursive depth. I count
 fixed source tables separately from numerical work. I do not reuse PR2287's
 720-slot estimate for this implementation.
 
-The two local words require80397 and80421 scalar microinstructions.
-Across80 forward and64 backward calls, plus their standalone COPY/CLEAR,
-I charge11581648 passes per cover before bridges. This stays below PR2287's
-20936640 scalar allowance. Each Horner prefix has height at most
+The two local words require 80,397 and 80,421 scalar microinstructions.
+Across 80 forward and 64 backward calls, plus their standalone COPY/CLEAR,
+I charge 11,581,648 passes per cover before bridges, within PR2287's
+20,936,640 scalar allowance. Each Horner prefix has height at most
 max(bit_length(|a|),k), within the credited source charge. Monomial movements
 and unit phases add no coefficient height.
 
@@ -245,7 +245,7 @@ I retain the long-record hypothesis to pay polynomial descriptor and per-row
 preparation costs. I claim no new moment or multiplication exponent.
 
 At a child cut I park at most V+712(V/L) payload bits and19 metadata/header
-roles. I use732 role delimiters and one frame delimiter. Along a branch the
+roles. I use 732 role delimiters and one frame delimiter. Along a branch the
 payload volumes are V/L^j, so parked payload occupies at most
 
     4(1+712/L)V/(1-1/L).
