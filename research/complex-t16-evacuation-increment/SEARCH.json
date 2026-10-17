@@ -60,14 +60,12 @@
     }
   ],
   "overlap": {
-    "method": "Repository overlap helper and fully paginated PR/discussion snapshot.",
-    "snapshot": "/tmp/research-loop-overlap.json, fetched 2026-10-17 19:54 UTC; 310 open PRs and 2,095 discussions.",
-    "finding": "No matching open T16 owner-map/selected-packing PR in that snapshot; nearby open work was on T740 or T16 audit tooling.",
-    "limitation": "The local full snapshot is the latest usable overlap artifact. A pre-submission git fetch failed with DNS error `Could not resolve host: github.com`; GitHub API access and available browsing returned no usable live PR/discussion inventory. Treat the negative match as time-bounded, not proof of novelty.",
-    "pre_submission_attempts": [
-      "git fetch --no-tags origin main in the isolated submission clone: failed because github.com did not resolve",
-      "GitHub REST API open-PR/discussion URLs: inaccessible through the available web reader"
-    ]
+    "method": "Complete paginated GitHub REST inventory of open pull requests and repository discussions; title/body search plus inspection of nearest prior T16 results.",
+    "checked_utc": "2026-10-17 21:23:20 UTC",
+    "snapshot": "evidence/OVERLAP.json; 350 open PRs and 321 discussion records returned by the API.",
+    "finding": "No open PR for this T16 multi-role owner-packing improvement. Nearest work is distinct: Discussion #1332 / closed PR #1343 exactly censused single whole-helper moves and found no legal strictly improving one-role relocation, explicitly excluding multi-role repacking; this contribution changes multiple owner rows jointly and passes full replay. Discussion #1265 / closed PR #1276 bounded within-group repartitions of the selected map\u2019s unhosted idle rank-48 children (kappa ceiling 0.001673151843213755, no admitted gain); this full owner repack reaches 0.001673618490895016 by changing hosted-helper placements and the aggregate idle profile. Discussion #1339 / PR #1387 priced a structural idle-axis optimum but its overlay failed the actual stream-composition check. Open PR #1807 certifies selected owner-row bindings in Lean, and #3209 changes T16 audit parsing; neither changes the packing.",
+    "added_value": "An exact-replayed, multi-row legal owner-map improvement beyond the single-relocation census and idle-only repartition domains, with exact pricing and independent controls.",
+    "limits": "A matching title or nearby scoped result is not proof of global novelty; this claim is restricted to the fixed selected word and supplier."
   },
   "interpretation": {
     "word_ceiling": "ceiling.ceiling() gives a_hi = 0.001690054109089; under kappa < a/(1+a), the kappa ceiling is about 0.001687202645325402.",
@@ -127,5 +125,10 @@
       }
     ],
     "conclusion": "This small sample does not establish local optimality. It shows no utility for spending more search budget on this objective/neighbourhood combination now."
+  },
+  "upstream_refresh": {
+    "command": "git fetch --no-tags origin main",
+    "result": "PASS; origin/main resolved to the package base commit 463113d675af7410ac91d53a4fed51ec6494eb9a before submission.",
+    "guidance": "No newer main changes were present at the refresh; the package source bindings remain on the refreshed base."
   }
 }

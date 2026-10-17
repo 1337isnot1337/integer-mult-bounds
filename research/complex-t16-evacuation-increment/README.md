@@ -49,24 +49,26 @@ running an optimizer.
 
 ## Search overlap
 
-The most recent complete local PR/discussion overlap snapshot was fetched on
-2026-10-17 at 19:54 UTC (310 open PRs and 2,095 discussions). It showed no
-matching open T16 owner-map/selected-packing PR; nearby open work concerned
-T740 or T16 audit tooling. Network/DNS failures prevented a newer live refresh
-during packaging, so this snapshot is evidence of the check performed, not a
-claim that overlap is impossible. See `SEARCH.json` and rerun the live overlap
-check before relying on novelty.
+The live overlap refresh on 2026-10-17 at 21:23 UTC returned 350 open PRs and
+321 discussion records. It found no matching open T16 owner-packing PR. The
+nearest scoped results are a census of single whole-helper relocations
+(Discussion #1332 / closed PR #1343), which explicitly excluded multi-row
+repacking, and a rank-48 idle-only repartition ceiling (Discussion #1265 /
+closed PR #1276) below this candidate's κ. An idle-axis overlay (Discussion
+#1339 / PR #1387) did not pass actual stream composition. These checks support
+the stated scoped distinction, not a claim of global novelty. The returned
+inventory and details are recorded in `evidence/OVERLAP.json` and `SEARCH.json`.
 
 ## Open next questions
 
-The structured questions are in `TASK.json`. The most direct OR-Tools follow-up
-is to price residual bins with the exact supplier engines and use those prices
-to guide adaptive CP-SAT neighbourhoods. This candidate improved exact κ even
-though its `Σ f ln(f)` surrogate is higher than its predecessor's, so the
-surrogate can mis-rank nearby maps. First derive stable scaled marginal costs
-for the residual profile, then compare those neighborhoods against the current
-best using strict replay. A proof-quality bound on the remaining κ gap is still
-open.
+The structured questions are in `TASK.json`. Three bounded probes of a rounded
+exact-moment objective did not improve the candidate, so that
+objective/neighbourhood combination is not the next search to repeat. A more
+promising question is whether exact supplier prices can drive a decomposed
+master problem with pricing cuts instead of a single rounded surrogate. This
+candidate improved exact κ even though its `Σ f ln(f)` surrogate is higher than
+its predecessor's, so the surrogate can mis-rank nearby maps. A proof-quality
+bound on the remaining κ gap is also open.
 
 ## Credit
 
