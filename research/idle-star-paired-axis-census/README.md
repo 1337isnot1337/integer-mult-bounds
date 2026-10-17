@@ -1,6 +1,6 @@
 # T740 idle-axis reassignment: exact transfer census and CP-SAT screen
 
-**Scoped negative result; no new κ or admitted supplier.** PR #3184 claims a conditional κ of `0.001730189061233850760095…` from redistributing idle rank-48 axes. PR #3187 gives an exact physical-operator counterexample to its first committed star move. This package extends that check to every eligible one-axis transfer and paired transfer on the four rank-48 children, independently replays PR3184's actual replica-0/port-0 star, and tests a relaxed CP-SAT assignment optimum.
+**Scoped negative result; no new κ or admitted supplier.** PR #3184 claims a conditional κ of `0.001730189061233850760095…` from redistributing idle rank-48 axes. PR #3187 gives an exact physical-operator counterexample to its first committed star move. This package extends that check to every eligible one-axis transfer and paired transfer on the four rank-48 children, independently replays PR3184's actual replica-0/port-0 star, and screens assignment optima with OR-Tools.
 
 ## Result
 
@@ -28,7 +28,19 @@ All 112 port models were optimal. Each found the same best rank profile `[51,51,
 
 To reproduce the optional artifact, use Python 3.10.12 with OR-Tools 9.11.4210 and run `python3.10 -B research/idle-star-paired-axis-census/ortools_screen.py > research/idle-star-paired-axis-census/ORTOOLS-RESULT.json`. The registered exact-replay package does not depend on OR-Tools. `ORTOOLS-RESULT.json` records the solver candidates and their first exact replay counterexamples.
 
-The exact census and star-isolation argument cover owner replica zero and the same-centre star class only; multi-donor cycles can combine nonorthogonal moved axes, and other child/time pairs and nonzero replicas remain open. The CP-SAT result supplies the best rank-profile candidate for its stated four-child assignment relaxation, but only one minimum-move assignment at that profile is replayed per port. Neither experiment claims a general obstruction. The selected record and frontier are unchanged.
+## Exact-coordinate CP-SAT upper screen
+
+The original assignment model optimizes rank without enforcing physical equality. The optional `operator_ortools_screen.py` instead asks whether any rank-changing assignment can pass the exact operator test on all 73 coordinate Fourier characters, before considering a moment objective. For each port it enumerates all 256 phase-delta vectors in `Z4^4` at each coordinate character using the exact Gaussian-integer replay. In every one of the 112 port recipes, only the zero delta preserves the matrix at each character. The SHA256 of each port's complete 73-table receipt is `ed9ef60a17efb46b44a064986acf28935c7ab07a46ddc8007dc802bbc8200a83`.
+
+CP-SAT then asks for `max(child rank) >= 49` while assigning the 192 residual-axis tokens arbitrarily among children `(8,10,12,13)`, fixing hosted axes, keeping final child bases orthonormal and capping rank at 51. It deliberately omits per-axis translation and commuting restrictions, so its assignment model is a superset of the physically eligible moves. All 112 models are `INFEASIBLE`. Since a truly operator-preserving reassignment must preserve these 73 exact matrices, this rules out a rank change in this four-child, owner-replica-zero assignment class under the fixed inventory and schedule. It is a finite-mode result, not an all-character symbolic proof or a theorem about other owner replicas, children, schedules or suppliers.
+
+Reproduce the optional 47-minute run with Python 3.10.12 and OR-Tools 9.11.4210:
+
+```sh
+python3.10 research/idle-star-paired-axis-census/operator_ortools_screen.py
+```
+
+The result is recorded in `OPERATOR-ORTOOLS-RESULT.json`; this search is kept outside the registered replay so normal package CI does not require OR-Tools or a long run. The active [Discussion #2612 claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/2612#discussioncomment-19002311) asks whether added paid phase children can repair an operator-failing reassignment while preserving a moment saving. This screen supplies a finite-coordinate no-repair result only for the stated owner-zero four-child slice; it does not establish repair cost or κ. The selected record and frontier are unchanged.
 
 ## Reproduce
 
@@ -43,7 +55,7 @@ The verifier independently implements the exact eight-stream Gaussian-integer re
 
 ## Open next questions
 
-See the structured tasks in [TASK.json](TASK.json). The remaining question within this slice is whether a multi-donor cycle with nonorthogonal moved axes can preserve the complete operator; first charge its maximum possible profile change against the full supplier bill. A different child/time pair needs its own insertion-to-insertion intertwiner and source-bound replay.
+See the structured tasks in [TASK.json](TASK.json). The four-child owner-replica-zero slice has no rank-changing assignment passing even the 73 coordinate modes in the broader CP-SAT relaxation. Discussion #2612 now investigates whether added paid phase children can repair an operator-failing reassignment; avoid duplicating that repair-cost work. A distinct next direction is a different child/time pair or owner replica; it needs its own insertion-to-insertion intertwiner and source-bound replay, and should be priced before a large search.
 
 ## Credit
 

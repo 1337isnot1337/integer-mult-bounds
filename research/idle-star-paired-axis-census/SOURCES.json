@@ -87,7 +87,7 @@
       "canonical_main": "463113d675af7410ac91d53a4fed51ec6494eb9a",
       "priority_revision": 6,
       "selected_kappa": "0.001672660197076918",
-      "note": "Refreshed before the PR update. Priority revision and selected result are unchanged; source files pinned above are unchanged. This checkpoint is context, not an input to verify.py."
+      "note": "Canonical main was refreshed before this submission. Priority revision, selected result and pinned source files are unchanged. This checkpoint is context, not an input to verify.py."
     },
     "pr3184_artifact_head": "6faefe19f592220c16722a6682c22c8fbccd4bb4",
     "pr3184_star_moves_sha256": "ea833cc374c16c4bed4da6328a77353171944d947bed1d28085212ffad786e90"
