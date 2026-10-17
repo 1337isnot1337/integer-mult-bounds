@@ -347,7 +347,12 @@ def main():
           % ("all checks passed" if result["all_checks_passed"]
              else "SOME CHECKS FAILED", all_controls_rejected))
 
-    with open(os.path.join(HERE, "RESULT.json"), "w", encoding="utf-8") as fh:
+    # newline="\n" so the emitted bytes match the repository's canonical
+    # LF index form (*.gitattributes: * text=auto eol=lf); otherwise a Windows
+    # run would write CRLF and `check_research_commit.py` would report a
+    # working/commit byte difference with an empty `git diff`.
+    with open(os.path.join(HERE, "RESULT.json"), "w", encoding="utf-8",
+              newline="\n") as fh:
         json.dump(result, fh, indent=2, sort_keys=True)
         fh.write("\n")
     if result["all_checks_passed"] and all_controls_rejected:
