@@ -72,7 +72,7 @@ python3 scripts/research_package.py --package research/paired-plane-rematch-rank
 `verify.py --write` regenerates RESULT.json. It needs the standard library only.
 `discover/` keeps the randomized search scripts as provenance; they use local
 absolute paths and are not part of verification.
-Run locally with Python 3.10.6; the registered Python 3.12 replay was not run.
+Registered replay passes locally with Python 3.12.10 (`PASS_REGISTERED_RESEARCH_PACKAGE`).
 
 ## Open next questions
 
