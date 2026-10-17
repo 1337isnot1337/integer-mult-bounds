@@ -1,0 +1,27 @@
+name: Connector representation domain audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'research/connector-domain-completeness/**'
+      - 'research/connector-covering-code/cycle_search.cpp'
+      - 'research/connector-covering-code/README.md'
+      - '.github/workflows/connector-domain-completeness.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact representation domains and compiled rejection controls
+        env:
+          CXX: g++
+        run: python -I -O -B research/connector-domain-completeness/verify.py --controls
