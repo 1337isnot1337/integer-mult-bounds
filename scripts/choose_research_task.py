@@ -25,15 +25,58 @@ def canonical(value):
     return json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
 
 
+def check_catalog_files(root, required):
+    """Allow deliberate sparse omissions, not deletions or changed index inputs."""
+    missing = {}
+    for name, error in required:
+        path = root / name
+        if not path.resolve().is_relative_to(root.resolve()):
+            raise ValueError(error)
+        if path.is_file():
+            continue
+        if path.exists() or path.is_symlink() or path.resolve() != root.resolve() / name:
+            raise ValueError(error)
+        missing[name] = error
+    if not missing:
+        return []
+    omitted = {}
+    try:
+        def git(*args):
+            return subprocess.run(
+                ["git", "--literal-pathspecs", *args, "--", *missing], cwd=root,
+                check=True, capture_output=True, text=True, encoding="utf-8",
+            ).stdout.split("\0")
+        for entry in git("ls-files", "-t", "--stage", "-z"):
+            if not entry:
+                continue
+            metadata, name = entry.split("\t", 1)
+            flag, mode, blob, stage = metadata.split()
+            if flag == "S" and mode in ("100644", "100755") and stage == "0":
+                omitted[name] = blob
+        committed = {}
+        for entry in git("ls-tree", "-r", "-z", "HEAD"):
+            if not entry:
+                continue
+            metadata, name = entry.split("\t", 1)
+            mode, kind, blob = metadata.split()
+            if kind == "blob" and mode in ("100644", "100755"):
+                committed[name] = blob
+    except (OSError, subprocess.CalledProcessError):
+        omitted = {}
+        committed = {}
+    for name, error in missing.items():
+        if name not in omitted or omitted[name] != committed.get(name):
+            raise ValueError(error)
+    return sorted(missing)
+
+
 def validate_catalog(catalog, root):
     if catalog.get("schema_version") != 1:
         raise ValueError("unsupported catalogue schema")
     revision = catalog.get("priority_revision")
     if type(revision) is not int or revision < 1:
         raise ValueError("priority_revision must be a positive integer")
-    log = root / catalog["priority_log"]
-    if not log.resolve().is_relative_to(root.resolve()) or not log.is_file():
-        raise ValueError("missing or external priority log")
+    required = [(catalog["priority_log"], "missing or external priority log")]
     tracks = catalog.get("tracks", [])
     if not tracks:
         raise ValueError("empty catalogue")
@@ -78,14 +121,12 @@ def validate_catalog(catalog, root):
             if not step.get("expected") or not step.get("inspect") or not step.get("command"):
                 raise ValueError("incomplete first step")
             script = step["command"][-1]
-            if not (root / script).is_file():
-                raise ValueError("missing first-step script: " + script)
+            required.append((script, "missing first-step script: " + script))
             for name in task["starting_points"]:
-                path = root / name
-                if not path.resolve().is_relative_to(root.resolve()) or not path.is_file():
-                    raise ValueError(f"missing or external starting point: {name}")
+                required.append((name, f"missing or external starting point: {name}"))
     if sum(t["weight"] for t in tracks) != 100:
         raise ValueError("track weights must sum to 100")
+    return check_catalog_files(root, required)
 
 
 def scope_key(task_id, method):
@@ -149,7 +190,7 @@ def main():
     try:
         catalog_bytes = (ROOT / CATALOG).read_bytes()
         catalog = json.loads(catalog_bytes)
-        validate_catalog(catalog, ROOT)
+        omitted = validate_catalog(catalog, ROOT)
         result = select(catalog, args.seed if args.seed is not None else secrets.token_hex(16), args.track, args.task)
         selected_bytes = (ROOT / "certificates/selected-result.json").read_bytes()
         selected = json.loads(selected_bytes)
@@ -186,6 +227,11 @@ def main():
             "status": "SUGGESTIONS_ONLY_NOT_RESERVED",
             "next_step": "First check #1166 for a suitable open handoff. Use these suggestions if none fits, check live overlap and existing coverage, then record a bounded scope. Claims never exclude independent audits.",
         })
+        if omitted:
+            result["sparse_checkout"] = {
+                "omitted_catalogue_paths": omitted,
+                "scope": "These absent regular files match HEAD and skip-worktree index entries. Materialize the chosen task's inputs before running it; this validates catalogue references, not replay dependencies.",
+            }
     except (OSError, ValueError, KeyError, TypeError) as exc:
         parser.error(str(exc))
     print(json.dumps(result, indent=2))

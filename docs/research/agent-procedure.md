@@ -121,6 +121,13 @@ that a task is open. A deterministic seed is a reproducibility aid, not novelty.
 Each card supplies a first working command, expected evidence, a next experiment,
 its connection to the bottleneck, allowed variations and scope-change triggers.
 
+In a sparse checkout, the helper can validate omitted catalogue references when
+they are regular files in `HEAD` with matching skip-worktree index entries. It
+reports these as `sparse_checkout.omitted_catalogue_paths`. For absent paths,
+ordinary deletions and staged content replacements still fail. Materialize the
+chosen card's inputs before running its commands. This reference check does not
+resolve replay dependencies.
+
 Use the overlap helper before choosing a card and refresh before submission:
 
 ```sh
