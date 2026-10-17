@@ -138,4 +138,4 @@ The [exact-head delta](pr-intake-evidence/queue-pass-20261016.json) covers 100 a
 
 ## Delta intake through PR3110
 
-The [exact-head delta](pr-intake-evidence/queue-next-20261017.json) covers 27 heads: 24 research archives (one historical version and one with separately reviewed manual replay configuration), two reviewed tooling fixes, and one retained integrity hold. PR3093 is available at its original commit without replacing the frozen main package. PR3064’s full release remains pending; its workflow was not dispatched. The [test receipts](pr-intake-evidence/queue-next-20261017-checks.txt) cover shared tooling only.
+The [exact-head delta](pr-intake-evidence/queue-next-20261017.json) covers 27 heads: 24 research archives (two historical versions and one with separately reviewed manual replay configuration), two reviewed tooling fixes, and one retained integrity hold. PR3093 and the concurrent PR3107 revision are available at their exact commits without replacing the retained main packages. PR3064’s full release remains pending; its workflow was not dispatched. The [test receipts](pr-intake-evidence/queue-next-20261017-checks.txt) cover shared tooling only.

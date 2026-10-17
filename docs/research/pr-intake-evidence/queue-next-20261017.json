@@ -4563,7 +4563,7 @@
     },
     {
       "number": 3107,
-      "head": "e697fb9ef8d57a3ddf843ac5a38ae70b3633ca6b",
+      "head": "7d40236bf22109ad64ae95a1d25eff7fa40478b5",
       "merge_base": "18aacb215fc3717b06be8ceb9fca62aeca0d3e99",
       "title": "Kappa 0.1 budget screens; corrected paired-plane route",
       "author": {
@@ -4578,7 +4578,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "ce19880da40407d1f33e1caedb231d3126ce205c"
+            "oid": "2f95f32b2e99a00a86fa5e2283d2957b12accc4f"
           },
           "baseline": null,
           "change": "A"
@@ -4588,7 +4588,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "c1a382ac0a9388877bf3d5087015c163aefc3156"
+            "oid": "7d7f5a588276ba488d95dc4a68674f73466ed1b1"
           },
           "baseline": null,
           "change": "A"
@@ -4598,7 +4598,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "ab674a435af8bac0c1c80509f89f5356f224efa4"
+            "oid": "1dcd1c163a1a7cee5051c49ee61695f683f02fed"
           },
           "baseline": null,
           "change": "A"
@@ -4608,7 +4608,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "ad3a8c69b82b6407e8ea45ad940ed81773d80a73"
+            "oid": "e9a02d9b0f12e9190255ab67a0e375454f0a847a"
           },
           "baseline": null,
           "change": "A"
@@ -4618,7 +4618,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "32341c1783842ee7581ce393a8c586214735f263"
+            "oid": "57e69111f7775670bfe102c418d2d37532f1efd1"
           },
           "baseline": null,
           "change": "A"
@@ -4628,7 +4628,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "e3526874d4a982f60dc56463861fdb45f1ca74c0"
+            "oid": "8da3232eb88fb8801f9b344e7c14031a6d38e936"
           },
           "baseline": null,
           "change": "A"
@@ -4638,7 +4638,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "312f71e4b5a52205b90822c5d0027489afb4c736"
+            "oid": "31422dfff3f12043bb1ee8d566208b415dd65806"
           },
           "baseline": null,
           "change": "A"
@@ -4648,7 +4648,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "0a2908963b937161ee9f9dd69c260e9234703372"
+            "oid": "8015a60919aadfa70e8e9ac155640c79a4513915"
           },
           "baseline": null,
           "change": "A"
@@ -4668,7 +4668,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "f18e058d34a209348e5f5c2c7e24bd55181e97ac"
+            "oid": "136d87124af2ac59da6b64adac7ea78aca8b1b72"
           },
           "baseline": null,
           "change": "A"
@@ -4678,7 +4678,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "25d776f6ef8db7e8bc8bea6438e4500b5ee1d8ee"
+            "oid": "9d69dc91b7730e6348484fdc1548f381d4c15f77"
           },
           "baseline": null,
           "change": "A"
@@ -4688,7 +4688,7 @@
           "source": {
             "mode": "100644",
             "kind": "blob",
-            "oid": "5bad90be193e8afa556759c2a129b977f43615a2"
+            "oid": "2b90028816ccadfc8de200472f05d4264278a5f8"
           },
           "baseline": null,
           "change": "A"
@@ -4702,8 +4702,10 @@
       "manifests": [],
       "shared": [],
       "conflicts": [],
-      "lane": "archive",
-      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed.",
+      "lane": "historical_archive",
+      "initial_archived_head": "e697fb9ef8d57a3ddf843ac5a38ae70b3633ca6b",
+      "revision_scope": "Concurrent revision clarified that the paired-plane port-space charges are a conditional profile sensitivity, and added fixed-bit profile screens. Initial author version remains in the default tree; revised complete source is retained in Git ancestry. Neither version is scientifically validated.",
+      "scope": "Source-only archival intake: exact Git inventory/modes, Python/JSON syntax and available local manifest pins checked. No scientific verifier executed. Complete original version retained in Git ancestry; existing main-tree package unchanged.",
       "remaining": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa."
     },
     {
@@ -6684,9 +6686,11 @@
       3110
     ],
     "historical_only": [
-      3093
+      3093,
+      3107
     ],
-    "files": 436
+    "files": 436,
+    "concurrent_revision_retention_commit": "970ea2f6cc0fe5b7fa44787bee6b8fa4d059980b"
   },
   "checks": [
     {
@@ -6736,13 +6740,273 @@
     "85 tests ran, four platform-specific skips; macOS CPython 3.14.6.",
     "Real sparse chooser smoke passed with 30 explicitly reported omitted paths.",
     "508 default-tree research file entries match original blobs/modes; all accepted original heads retained.",
-    "PR3093 existing package subtree unchanged; use its exact source commit.",
+    "PR3093 and the concurrent PR3107 revision retain historical source versions; existing main package subtrees are unchanged.",
     "PR3064 workflow static configuration review passed; scientific commands unchanged, no dispatch, Lean, Docker or expensive replay."
   ],
   "integration_resolutions": [
     "PR3064 replaces fork-specific push/call triggers with manual-only canonical dispatch and shared serial concurrency.",
     "PR3110 adds one exact vendored-source -text attribute rule."
   ],
-  "publication": "prepared_not_yet_pushed",
-  "frontier_changed": false
+  "publication": "published",
+  "frontier_changed": false,
+  "unrelated_wake_acknowledgements": [
+    {
+      "number": 485,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 499,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 895,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 897,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1193,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1681,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1683,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1688,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1712,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1721,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1725,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1731,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1754,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1758,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1786,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1789,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1800,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1839,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1904,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1905,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 1928,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2044,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2161,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2180,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2349,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2374,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2435,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2447,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2462,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2474,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2526,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2559,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2575,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2588,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2673,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2679,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2733,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2745,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2767,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2818,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2843,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    },
+    {
+      "number": 2852,
+      "previous_blob": "b0c9fb23a013c646206bc6de9605ea2d54d3a842",
+      "current_blob": "5a34da7b20728bef603e5db635b2b5007776cf37",
+      "scope": "Scheduling only. The added -text rule targets one new vendored JSON file and does not address this unchanged hold. No scientific replay or review completion."
+    }
+  ],
+  "concurrent_revision": {
+    "number": 3107,
+    "initial_archived_head": "e697fb9ef8d57a3ddf843ac5a38ae70b3633ca6b",
+    "revised_archived_head": "7d40236bf22109ad64ae95a1d25eff7fa40478b5",
+    "scope": "Rechecked all 12 source entries, including revised Python/JSON syntax; retained revised source in ancestry. The initial main-tree snapshot is unchanged. Scientific review remains open."
+  }
 }

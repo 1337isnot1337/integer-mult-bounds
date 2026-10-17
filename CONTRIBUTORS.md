@@ -1744,7 +1744,7 @@ Source archives preserve author claims and attribution; independent scientific r
 
 ## Delta intake through PR3110, 2026-10-17
 
-Two shared-tooling fixes received focused review. The 24 research contributions are source archives, including one historical version and one separately reviewed manual workflow; scientific validation remains open. No frontier change.
+Two shared-tooling fixes received focused review. The 24 research contributions are source archives, including two historical versions and one separately reviewed manual workflow; scientific validation remains open. No frontier change.
 
 - **Nick Petalas (@petalas)** — [#3086](https://github.com/CrocSwap/integer-mult-bounds/pull/3086): Prove the sharp native format at the rank-seven A13 half-ADD (source archive).
 - **Jose Manuel (@jmbarrancoml)** — [#3087](https://github.com/CrocSwap/integer-mult-bounds/pull/3087): Implement encoded physical Gaussian monomial phases (source archive).
@@ -1767,7 +1767,7 @@ Two shared-tooling fixes received focused review. The 24 research contributions 
 - **Arham-Tahir64 (@Arham-Tahir64)** — [#3104](https://github.com/CrocSwap/integer-mult-bounds/pull/3104): Fix stale commit attribution in PR path overlap reports (reviewed tooling).
 - **Arham-Tahir64 (@Arham-Tahir64)** — [#3105](https://github.com/CrocSwap/integer-mult-bounds/pull/3105): Close the three-line F-star census remainder with a correct joint quotient (source archive).
 - **Jose Manuel (@jmbarrancoml)** — [#3106](https://github.com/CrocSwap/integer-mult-bounds/pull/3106): Bind and execute the first selected whole-family prefix (source archive).
-- **Gonzalo Mier (@Gonzalo-Mier)** — [#3107](https://github.com/CrocSwap/integer-mult-bounds/pull/3107): Kappa 0.1 budget screens; corrected paired-plane route (source archive).
+- **Gonzalo Mier (@Gonzalo-Mier)** — [#3107](https://github.com/CrocSwap/integer-mult-bounds/pull/3107): Kappa 0.1 budget screens; corrected paired-plane route (historical source archive).
 - **Aaron Wang (@navinor)** — [#3108](https://github.com/CrocSwap/integer-mult-bounds/pull/3108): KB3j: the (4,2) and (3,3) A-vanish walks - budget-honest partial with receipts; even-half self-sum profiles classified (outcome=partial; no new kappa) (source archive).
 - **Jose Manuel (@jmbarrancoml)** — [#3109](https://github.com/CrocSwap/integer-mult-bounds/pull/3109): Derive a batched reversible lifting bound with paid history (source archive).
 - **Aaron Wang (@navinor)** — [#3110](https://github.com/CrocSwap/integer-mult-bounds/pull/3110): Rank-shape fully charged block-climb gate screen: exact zero-charge thresholds - no new kappa (source archive).
