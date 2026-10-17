@@ -138,6 +138,7 @@ class A2Controls(unittest.TestCase):
             shutil.copyfile(PACKAGE / "SOURCES.json", package / "SOURCES.json")
             shutil.copytree(PACKAGE / "vendor", package / "vendor")
             target = package / "vendor/geometry.py"
+            target.chmod(target.stat().st_mode | 0o200)  # Only the private mutant copy.
             target.write_bytes(target.read_bytes() + b"\n# altered retained bytes\n")
             with self.assertRaises(ValueError):
                 verify.bind_sources(package)
