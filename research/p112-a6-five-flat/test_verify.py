@@ -95,6 +95,7 @@ class BindingTests(unittest.TestCase):
             shutil.copytree(verify.PACKAGE / "vendor", package / "vendor")
             shutil.copyfile(verify.PACKAGE / "SOURCES.json", package / "SOURCES.json")
             source = package / "vendor/geometry.py"
+            source.chmod(0o600)  # Only this disposable copy must be mutable.
             source.write_bytes(source.read_bytes() + b"\n# mutant\n")
             with patch.object(verify, "PACKAGE", package), self.assertRaises(ValueError):
                 verify.bind_sources()

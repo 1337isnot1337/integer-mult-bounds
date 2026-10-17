@@ -76,7 +76,8 @@
     "resolved_findings": [
       "Underlying root-simplex proof retained and pinned; original relative links explained.",
       "CHECKS.json now supplies the referenced validation evidence.",
-      "Exploratory scratch log used manually entered future timestamps. They were explicitly superseded by a parent-observed correction and were not used as chronological evidence. The abandoned independent full census was never run."
+      "Exploratory scratch log used manually entered future timestamps. They were explicitly superseded by a parent-observed correction and were not used as chronological evidence. The abandoned independent full census was never run.",
+      "The first read-only committed export passed the mathematical replay but its mutation test failed because copytree preserved source permissions. The test now grants write permission only to its disposable copy; the complete export replay is rerun before publication."
     ],
     "attention": "Only maximal5,6^8 is counted as a new profile. Four dominated shapes use the earlier cut theorem; the fifth follows the existing132-versus137/142 bounds. Initial new five-flat census was omitted after a structural transfer reused the existing weighted theorem."
   },
