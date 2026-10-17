@@ -176,6 +176,9 @@ def main() -> None:
     bit_levers = load_bit_levers()
     bit_local = {int(r): Q(n) for r, n in bit_replay["local_histogram"].items()}
     bit_local_mass = Q(bit_replay["local_mass"])
+    bit_local_only_lo, bit_local_only_hi = bit_levers.bill(
+        bit_local, 64, Q(296, 3), Q(1, 9)
+    )
     bit_two_unpaid = {}
     for centre in (0, 63):
         H = bit_levers.relaxed(bit_local, 64, Q(296, 3), centre, 53, unpaid=2)
@@ -218,6 +221,8 @@ def main() -> None:
         bit_uniform_rank_adjacent[label] = rows
     need(not bit_two_unpaid["0"]["below_one"] and not bit_two_unpaid["63"]["below_one"],
          "fixed selected bit profile with two unpaid coordinates unexpectedly passes")
+    need(bit_local_only_lo > 1,
+         "selected bit local profile alone unexpectedly reaches the target")
     need(bit_uniform_rank_boundary == {"centre_free": 48, "centre_retained": 53},
          "bit uniform local-rank target changed")
     need(not bit_uniform_rank_adjacent["centre_free"]["47"]["below_one"]
@@ -275,10 +280,17 @@ def main() -> None:
             "source_result": BIT_RESULT,
             "selected_local_profile": {str(r): str(n) for r, n in sorted(bit_local.items())},
             "local_rank_mass": str(bit_local_mass),
+            "local_only_moment_interval_at_a_1_over_9": [
+                str(bit_local_only_lo), str(bit_local_only_hi)
+            ],
+            "local_only_moment_approx": format(
+                float((bit_local_only_lo + bit_local_only_hi) / 2), ".12f"
+            ),
+            "local_only_below_one": bit_local_only_hi < 1,
             "actual_profile_at_u2_R53": bit_two_unpaid,
             "first_uniform_local_rank_at_u2_R53": bit_uniform_rank_boundary,
             "adjacent_uniform_rank_checks": bit_uniform_rank_adjacent,
-            "scope": "Fixed selected bit local profile under a hypothetical u=2 law, with or without its centre; separate from the all-mass-at-cap necessary floor. No new bit endpoint or supplier is constructed.",
+            "scope": "The pinned selected bit local histogram alone has moment above one at a=1/9, so any profile-preserving coverage-only change at the same families-per-call is insufficient; the u=2 and uniform-rank rows are narrower sensitivities. No new bit endpoint or supplier is constructed.",
         },
         "complex": complex_screen,
         "paired_plane_identity_fit_candidate": {

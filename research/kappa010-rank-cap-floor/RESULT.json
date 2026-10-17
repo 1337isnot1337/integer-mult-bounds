@@ -100,6 +100,12 @@
       "7": "19"
     },
     "local_rank_mass": "5129",
+    "local_only_moment_interval_at_a_1_over_9": [
+      "1921383040434905601017631659884927637082654655778498244349731/1606938044258990275541962092341162602522202993782792835301376",
+      "960691520217452800508815829942463818541327327889249122174883/803469022129495137770981046170581301261101496891396417650688"
+    ],
+    "local_only_moment_approx": "1.195679601525",
+    "local_only_below_one": false,
     "actual_profile_at_u2_R53": {
       "0": {
         "unpaid_coordinates": 2,
@@ -166,7 +172,7 @@
         }
       }
     },
-    "scope": "Fixed selected bit local profile under a hypothetical u=2 law, with or without its centre; separate from the all-mass-at-cap necessary floor. No new bit endpoint or supplier is constructed."
+    "scope": "The pinned selected bit local histogram alone has moment above one at a=1/9, so any profile-preserving coverage-only change at the same families-per-call is insufficient; the u=2 and uniform-rank rows are narrower sensitivities. No new bit endpoint or supplier is constructed."
   },
   "complex": {
     "supplier": "complex",
