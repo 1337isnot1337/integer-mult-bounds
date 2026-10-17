@@ -228,6 +228,62 @@ affected verifier before regenerating its receipt. The preflight never changes
 files or normalizes scientific evidence. Passing it does not run the verifier,
 validate the mathematics, or establish equivalence to a hosted CI environment.
 
+### Check declared source history before publication
+
+A correct source pin can work locally because another research branch left its
+commit in the shared object store. A clean hosted checkout may not contain that
+unmerged commit. To reject that dependency before pushing, opt in to the
+publication preflight's history check:
+
+```sh
+python3 -B scripts/check_research_commit.py --package research/my-experiment \
+  --check-source-history
+```
+
+After the existing byte comparison, this reads `SOURCES.json` from the exact
+publication commit. It requires the base commit and every supported explicit
+`head:` source-pin commit to be ancestors of that publication. Separate local
+branches and cached objects do not satisfy the check. Git replacement objects
+and legacy grafts cannot supply the ancestry. A shallow repository fails with
+a request for full history. The successful result lists the checked commit IDs
+in `source_history_commits`; the default byte-only command is unchanged.
+
+If a pending predecessor fails, retain its exact bytes, hashes and credit in
+your own published history or a self-contained committed export, then bind the
+package to that retained source. Do not weaken hash or mathematical assertions.
+The repaired PR3234 and PR3227 provenance chains motivated this opt-in check.
+An intentional external dependency can remain external, but this stricter
+publication check will not pass it. Document and test its explicit fetch step
+instead of treating the local object cache as evidence of cold availability.
+
+This is a conservative check of **declared Git-history availability**, not full
+metadata validation or a cold replay. Run the registered metadata and verifier
+commands separately. It does not discover pins embedded in scripts or archives,
+transitive imports, submodules, LFS payloads, dependencies or network services.
+No source bytes, pins, Git refs or frozen evidence are changed. The new path
+limits source metadata to 16 MiB, 100,000 rows and 256 distinct commits, with a
+30-second timeout on each Git query. The checkout must remain stable.
+
+Regression commands:
+
+```sh
+python3 -W error -B -m unittest discover -s tests -p 'test_research_source_history.py' -v
+python3 -W error -B -m unittest discover -s tests -p 'test_research_commit_bytes.py' -v
+```
+
+The tests build synthetic Git histories and a bare object-only fixture, without
+cloning the project or fetching remote objects. A valid side-commit pin passes
+byte-only comparison but fails ancestry; exporting only the publication's
+reachable objects confirms that the foreign commit is missing. Ancestor pins
+pass the same cold object test. Replacement/graft, shallow-history, malformed
+metadata, resource-limit, Git-failure and actual CLI controls remain active
+under optimized Python. This is not a theorem or supplier-admission check.
+
+Open next questions are explicit dependency declarations for script-embedded
+Git references and separately fetched sources. Start with one actual replay's
+source manifest and fetch command. Automatic import inference is not supplied
+by this check and would need its own contract and failure controls.
+
 The planner groups at most 256 package paths into each reusable-workflow batch,
 so a shared-runner change can select more than GitHub's single-matrix limit.
 Batches run one at a time and each batch runs at most four isolated package jobs;

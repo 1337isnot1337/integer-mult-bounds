@@ -20,7 +20,7 @@ claims or change the frontier.
 
 | Card | Starting evidence | Next decision |
 |---|---|---|
-| `p104-side-correction` | Reviewed #1991 channel; author-checked #2981 joint endpoint flags | Can one named static collection acquire and deliver the right coefficients chronologically, restore dirty state, and fit the complete physical bill? |
+| `p104-side-correction` | Reviewed #1991 channel; source-archived #2981 static joint endpoint flags; see [Oct. 17 support/chronology handoff](p104-live-support-map.md) | Review the submitted #3259 fixed-cover support cut and its contract. If changing the contract, bind the change to a real source/consumer path, exact coefficients, dirty restoration and a complete physical bill. |
 | `joint-query-controller` | Reviewed #1969 words; author-checked #2965 producer-defect transfer | Can an actual producer meet the completed-output error budgets, including dirty helpers, and feed an affordable consumer? |
 | `selected-stock-envelope` | Reviewed stock obligations; author-checked #2972 cutoff chain | Derive the actual selected stock coefficient; cutoff comparisons alone do not supply it. |
 | `independent-moment` | Author-checked #2979 joint rank-7 frame/circuit proposal | Independently check one coordinated group and its losing single-change control, then trace the changed costs through the complete invoice. |
