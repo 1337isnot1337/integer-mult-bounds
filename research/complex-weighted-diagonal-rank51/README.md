@@ -60,9 +60,16 @@ extends the rank-one scheduling count to 134 batches, retaining a fixed group
 size of 16. [The rank-six heterogeneous block](../complex-rank6-hetero21-seedfb19/README.md)
 checks the direct-sum tensor `(2,2,1,1) → 6` but finds only 13 strict source
 windows. This package instead allows unequal-rank climbs to share any summed
-rank through 51 and screens the result at the explicit 0.1 target. The source
-overlap scan was stale/offline and returned no exact match; these predecessors
-are close overlaps, so this package makes no broad novelty claim.
+rank through 51 and screens the result at the explicit 0.1 target. A focused
+overlap refresh on 2026-10-17 03:02 UTC covered all 243 open PRs and 1,874
+discussions with complete pagination; it surfaced this PR and the #1166
+handoff mentioning prior gauge44 rank-2 retiming, but no second exact open-PR
+match. The current-main [kappa01 target screen](../kappa01-target-screen/README.md)
+and [rank-cap floor](../kappa010-rank-cap-floor/README.md) bound the selected
+profile and aggregate coverage model. They are compatible with this changed
+rank histogram: the hypothetical six-unpaid endpoint and complete interface
+invoice remain open. These related results and the close predecessors above
+mean this package makes no broad novelty claim.
 
 ## Reproduce
 
