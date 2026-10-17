@@ -97,8 +97,13 @@ against the necessary gate C <= 296. I ran both registered Python 3.12 checks
 term-count cases. These are independent implementation checks, not a formal
 proof-assistant result. The stated scope does not cover changed covers or mode
 assignments. It closes that particular six-mode route, not every possible
-six-unpaid endpoint. This package does not price a physical weighted batch or
-change the bit supplier, so the selected bound does not move.
+six-unpaid endpoint. A separate current-main [complex lever screen](../kappa010-complex-lever-floor/README.md)
+reports a different d=3 paired-plane profile with moment 0.995605 at a=1/9
+and the centre retained; I reran its registered verifier on Python 3.12 and it
+passes. That screen still lacks a source-bound native block and a bit-side
+improvement, and no composition with this batch schedule is claimed. This
+package does not price a physical weighted batch or change the bit supplier, so
+the selected bound does not move.
 
 The next decision is a changed P112 cover or mode assignment, not another search
 inside the fixed aligned family. Specify its coverage identity and exact
