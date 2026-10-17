@@ -135,3 +135,7 @@ passed primary reviews remain credited.
 ## Delta intake through PR3085
 
 The [exact-head delta](pr-intake-evidence/queue-pass-20261016.json) covers 100 actionable heads: 81 source archives, eight reviewed tooling/documentation changes, ten revision holds and one pending workflow/release review. Available local manifest pins and source identities were checked; vendored manifests may describe larger predecessor snapshots and do not certify absent dependencies. No archive scientific replay, Lean or Docker was run. The [check receipts](pr-intake-evidence/queue-pass-20261016-checks.txt) cover tooling only. Publication state and individual remaining obligations are in the central ledger.
+
+## Delta intake through PR3110
+
+The [exact-head delta](pr-intake-evidence/queue-next-20261017.json) covers 27 heads: 24 research archives (one historical version and one with separately reviewed manual replay configuration), two reviewed tooling fixes, and one retained integrity hold. PR3093 is available at its original commit without replacing the frozen main package. PR3064’s full release remains pending; its workflow was not dispatched. The [test receipts](pr-intake-evidence/queue-next-20261017-checks.txt) cover shared tooling only.
