@@ -308,6 +308,45 @@ def check_baseline(context, residual, blocks):
     return len(modes)
 
 
+def check_single_transfers(context, blocks, children):
+    baseline = context["residual"]
+    eligible = failures = 0
+    witness = None
+    for donor in children:
+        for receiver in children:
+            if donor == receiver:
+                continue
+            for axis in sorted(set(baseline[donor])):
+                if any(parity(axis, v) for v in context["full_axes"][receiver]):
+                    continue
+                if len(baseline[receiver]) + 1 > 51:
+                    continue
+                trial = {child: list(values) for child, values in baseline.items()}
+                trial[donor].remove(axis)
+                trial[receiver].append(axis)
+                if any(
+                    not orthonormal(context["hosted_axes"].get(child, []) + trial[child])
+                    for child in (donor, receiver)
+                ):
+                    continue
+                eligible += 1
+                original = replay(context, baseline, axis, blocks)
+                altered = replay(context, trial, axis, blocks)
+                differences = matrix_differences(original, altered)
+                if differences:
+                    failures += 1
+                    if witness is None:
+                        witness = {
+                            "donor": donor,
+                            "receiver": receiver,
+                            "axis": axis,
+                            "baseline": original,
+                            "overlay": altered,
+                            "differences": differences,
+                        }
+    return eligible, failures, witness
+
+
 def check_candidate_pair(context, blocks, source_children, target_children):
     # Each selected axis is an orthogonal source-basis vector and is orthogonal
     # to every original destination axis, including the destination's hosted slice.
@@ -397,8 +436,10 @@ def run():
     require(len(recipes) == 112, "port recipe count")
     blocks = stage_blocks(template)
 
+    single_count = single_failures = 0
     forward_count = reverse_count = forward_failures = reverse_failures = 0
     per_port = []
+    first_single_witness = None
     first_forward_witness = None
     baseline_modes = None
     for port in range(112):
@@ -410,6 +451,13 @@ def run():
             replay(context, context["residual"], 0, blocks) == identity(),
             "zero-character baseline identity control",
         )
+        single, single_bad, single_witness = check_single_transfers(
+            context, blocks, (8, 10, 12, 13)
+        )
+        single_count += single
+        single_failures += single_bad
+        if port == 0:
+            first_single_witness = single_witness
         f, ff, fw = check_candidate_pair(
             context, blocks, (8, 10), (12, 13)
         )
@@ -420,22 +468,27 @@ def run():
         reverse_count += r
         forward_failures += ff
         reverse_failures += rf
-        per_port.append([port, f, ff, r, rf])
+        per_port.append([port, single, single_bad, f, ff, r, rf])
         if port == 0:
             first_forward_witness = fw
     require(check_mutations(base, journal), "mutated journal preimage accepted")
     require(baseline_modes == 147, "baseline positive-control mode count")
-    require(forward_count == forward_failures and reverse_count == reverse_failures, "unrejected eligible transfer")
+    require(single_count == single_failures, "unrejected eligible single transfer")
+    require(single_count == 21504 and all(row[1] == row[2] == 192 for row in per_port), "single transfer census")
+    require(forward_count == forward_failures and reverse_count == reverse_failures, "unrejected eligible paired transfer")
     require(forward_count == reverse_count == 2688, "paired transfer count")
-    require(all(row[1] == row[2] == row[3] == row[4] == 24 for row in per_port), "per-port paired census")
+    require(all(row[3] == row[4] == row[5] == row[6] == 24 for row in per_port), "per-port paired census")
+    require(first_single_witness is not None, "exact single-transfer witness")
     require(first_forward_witness is not None and first_forward_witness["axis"] == 7, "exact forward witness")
     return {
-        "status": "PASS_NO_OPERATOR_PRESERVING_RANK_CHANGING_PAIRED_TRANSFER",
+        "status": "PASS_NO_OPERATOR_PRESERVING_SINGLE_OR_PAIRED_RANK_TRANSFER",
         "base_main": BASE_MAIN,
         "fill_payload_sha256": FILL_SHA256,
         "authenticated_fill_rows": TOTAL_ROWS,
         "ports": 112,
         "baseline_modes_port0": baseline_modes,
+        "single_transfer": {"eligible": single_count, "fail_at_own_axis_character": single_failures},
+        "port0_single_witness": first_single_witness,
         "forward": {"eligible": forward_count, "fail_at_own_axis_character": forward_failures},
         "reverse": {"eligible": reverse_count, "fail_at_own_axis_character": reverse_failures},
         "port0_forward_witness": first_forward_witness,
@@ -458,8 +511,9 @@ def main():
         require(result == expected, "stored result differs")
     print(
         result["status"]
-        + f" ports={result['ports']} forward={result['forward']['eligible']}"
-        + f" reverse={result['reverse']['eligible']} baseline_modes={result['baseline_modes_port0']}"
+        + f" ports={result['ports']} single={result['single_transfer']['eligible']}"
+        + f" paired={result['forward']['eligible']}/{result['reverse']['eligible']}"
+        + f" baseline_modes={result['baseline_modes_port0']}"
         + " no_new_kappa"
     )
 

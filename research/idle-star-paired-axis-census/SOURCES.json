@@ -74,6 +74,12 @@
   "context": {
     "pr3184_head": "ffab383a5f78eb1a4ad4c7c7259a4f32b86f9481",
     "pr3187_head": "85cc6be02f5f912ac203449e06523ad53e6054d2",
-    "note": "PR3187\u2019s physical counterexample motivated this complementary census; the replay implementation in this package is independent."
+    "note": "PR3187’s physical counterexample motivated this complementary census; the replay implementation in this package is independent.",
+    "submission_refresh": {
+      "canonical_main": "463113d675af7410ac91d53a4fed51ec6494eb9a",
+      "priority_revision": 6,
+      "selected_kappa": "0.001672660197076918",
+      "note": "Refreshed before the PR update. Priority revision and selected result are unchanged; source files pinned above are unchanged. This checkpoint is context, not an input to verify.py."
+    }
   }
 }
