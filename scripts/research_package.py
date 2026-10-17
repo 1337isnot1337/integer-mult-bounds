@@ -684,28 +684,87 @@ def run_package(root, package, install=False):
     print("PASS_REGISTERED_RESEARCH_PACKAGE " + package + " outcome=" + task["outcome"])
 
 
+def planning_manifests(root, tracked):
+    """Include deliberate sparse omissions without disguising deletions or drift.
+
+    The fallback follows the chooser's PR3102 contract: one stage-zero regular
+    skip-worktree index entry must match the exact HEAD mode and blob. This is
+    declaration discovery only, not permission to replay absent package code.
+    """
+    committed = {name for name in tracked
+                 if name.startswith("research/") and name.count("/") == 2
+                 and name.endswith("/VERIFY.json")}
+    # Explicit scandir retains error detection; only an absent directory is OK.
+    try:
+        with os.scandir(root / "research") as entries:
+            local = {Path(entry.path) / "VERIFY.json" for entry in entries}
+    except FileNotFoundError:
+        local = set()
+    present, missing = {}, set()
+    for path in sorted(local | {root / name for name in committed}):
+        name = path.relative_to(root).as_posix()
+        symlink_free_relative_path(root, name)
+        try:
+            mode = path.lstat().st_mode
+        except (FileNotFoundError, NotADirectoryError):
+            if name in committed:
+                missing.add(name)
+            continue
+        require(stat.S_ISREG(mode), "non-regular replay manifest: " + name)
+        present[name] = path
+    fallback = {}
+    if missing:
+        indexed, objects = {}, {}
+        for record in git(root, "ls-files", "-t", "--stage", "-z", "--", "research").split(b"\0"):
+            if not record:
+                continue
+            header, raw_name = record.split(b"\t", 1)
+            name = raw_name.decode("utf-8")
+            if name in missing:
+                indexed.setdefault(name, []).append(header.split())
+        for record in git(root, "ls-tree", "-r", "-z", "HEAD", "--", "research").split(b"\0"):
+            if not record:
+                continue
+            header, raw_name = record.split(b"\t", 1)
+            name = raw_name.decode("utf-8")
+            if name in missing:
+                objects[name] = header.split()
+        for name in sorted(missing):
+            metadata = objects.get(name, [])
+            require(len(metadata) == 3 and metadata[0] in (b"100644", b"100755")
+                    and metadata[1] == b"blob"
+                    and indexed.get(name) == [[b"S", metadata[0], metadata[2], b"0"]],
+                    "missing replay manifest is not an unchanged sparse HEAD input: " + name
+                    + "; materialize it or commit its intended deletion")
+            # A regular file occupying the package directory is not an omission.
+            require(not (root / name).parent.exists() or (root / name).parent.is_dir(),
+                    "non-directory replay package: " + name)
+        names = sorted(missing)
+        with closing(git_blobs(root, [objects[n][2].decode("ascii") for n in names])) as rows:
+            for (oid, raw), name in zip(rows, names):
+                require(oid.encode("ascii") == objects[name][2], "sparse manifest blob mismatch: " + name)
+                fallback[name] = raw
+    # Preserve Path's component ordering: package "a" precedes "a-extra".
+    for name in sorted(present.keys() | fallback.keys(), key=lambda name: PurePosixPath(name).parts):
+        yield root / name, fallback[name] if name in fallback else present[name].read_bytes(), name in fallback
+
+
 def plan_details(root, changed):
     """One selection pass with exact causes; no replay or acceptance decision."""
     changed = set(changed)
     # A removed input is absent from HEAD, including an old case-only rename
     # spelling on case-insensitive filesystems. Git's exact changed paths remain
     # eligible so its consumer is selected, rather than rejected or skipped.
-    tracked = tracked_input_paths(root) | changed
+    head_tracked = tracked_input_paths(root)
+    tracked = head_tracked | changed
     replay_changed = sorted(changed.intersection({
         "scripts/research_package.py", ".github/workflows/research-packages.yml",
         ".github/workflows/research-package-batch.yml"}))
     packages = []
-    # glob suppresses scan errors, which can publish an incomplete replay matrix.
-    # Inventory immediate children explicitly; only an absent opt-in is harmless.
-    with os.scandir(root / "research") as entries:
-        paths = sorted(Path(entry.path) / "VERIFY.json" for entry in entries)
-    for path in paths:
-        try:
-            path.lstat()
-        except (FileNotFoundError, NotADirectoryError):
-            continue
+    sparse_count = 0
+    for path, raw, sparse in planning_manifests(root, head_tracked):
+        sparse_count += sparse
         package = path.parent.relative_to(root).as_posix()
-        raw = path.read_bytes()
         manifest = json.loads(raw.decode("utf-8"))
         # Parse only for selection; validate fully in the isolated replay job.
         inputs = manifest.get("inputs", [])
@@ -722,6 +781,9 @@ def plan_details(root, changed):
         if any(causes.values()):
             packages.append({"package": package, "causes": causes,
                              "manifest_sha256": hashlib.sha256(raw).hexdigest()})
+    if sparse_count:
+        print(f"Planning includes {sparse_count} unchanged sparse manifests from HEAD; "
+              "materialize packages and inputs before replay.", file=sys.stderr)
     return packages
 
 
@@ -735,7 +797,7 @@ def write_plan_explanation(path, base, head, changed, details):
     report = {
         "schema_version": 1, "base": base, "head": head,
         "mode": "all-tracked" if base is None else "commit-diff",
-        "scope": "Selection from working manifests, not replay or mathematical acceptance. "
+        "scope": "Selection from working or authenticated sparse HEAD manifests, not replay or mathematical acceptance. "
                  "Manifest hashes bind the declarations read; checkout must remain stable.",
         "changed_paths": sorted(set(changed) - {""}), "selected": details,
         "unmatched_paths": sorted(set(changed) - matched - {""}),
