@@ -55,6 +55,12 @@ The five group gains sum to 3.4042e-6 against a joint stage-one rise of
 the open question in [rank7-v45-shipped-invoice](../rank7-v45-shipped-invoice/README.md):
 the cap rise is attributable to each group, V45 included, within this relaxation.
 
+Nearest parallel work: [PR #3237](https://github.com/CrocSwap/integer-mult-bounds/pull/3237)
+(commdata2338, head `9881b9d5`, open) certifies that widening V45 endpoints on
+the **final** words fails the complete budget. This package instead prices the
+original **stage-one** groups and subsets on the parent words and re-solves all
+four shipped caps; the two are complementary and neither imports the other.
+
 ## Controls
 
 `RESULT.json` records five checks:
