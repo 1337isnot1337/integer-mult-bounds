@@ -143,8 +143,14 @@ The source base is `463113d675af7410ac91d53a4fed51ec6494eb9a`; all live
 input SHA256/Git-blob pins are in `SOURCES.json`. `verify.py` adapts the exact
 Gaussian-rational arithmetic, authenticated source-context loader and cut
 calculation from Ross Richardson's PR3254 at
-`897bfb42c389d24d2d54a381a216e1f876b42109`. The physical event interpreter
-and T740 data have the Gonzalo-Mier/PR3199 and retained predecessor lineage.
+`897bfb42c389d24d2d54a381a216e1f876b42109`. Its exact predecessor file/head
+hashes are retained as explicit citations in
+`SOURCES.json.predecessor_citations`, not generic-replay Git dependencies.
+They were read and verified locally during construction; the generic hosted
+replay does not fetch or reverify that sibling fork head. Every runtime input
+and actual declared Git dependency remains pinned to canonical ancestry.
+The physical event interpreter and T740 data have the Gonzalo-Mier/PR3199 and
+retained predecessor lineage.
 The exact bytes that are authenticated are compiled directly with assertions
 enabled; no bytecode importer is trusted for that source execution.
 

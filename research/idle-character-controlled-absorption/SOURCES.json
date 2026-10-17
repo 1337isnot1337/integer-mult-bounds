@@ -117,24 +117,34 @@
       "sha256": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e"
     },
     {
-      "path": "research/idle-single-child-absorption/PROOF.md",
-      "usage": "provenance",
-      "pin": "head:897bfb42c389d24d2d54a381a216e1f876b42109:research/idle-single-child-absorption/PROOF.md",
-      "git_blob": "9a8475d4e21b02b513a8922cab4bc2d6389b9b10",
-      "sha256": "636e78118ad03210e1b68c164b8c855ed5677b9dcf6d9fd67a3baa987663fcfc"
-    },
-    {
-      "path": "research/idle-single-child-absorption/verify.py",
-      "usage": "provenance",
-      "pin": "head:897bfb42c389d24d2d54a381a216e1f876b42109:research/idle-single-child-absorption/verify.py",
-      "git_blob": "6131a2319c407eb2e0c7426f4a58d263cc0017da",
-      "sha256": "63ac40552d5f82b56a023a7b1d09d3e49a3b53d7cc1374de0d3231cf55bf1324"
-    },
-    {
       "path": "research/clifford-reciprocal-basis-obstruction/README.md",
       "usage": "provenance",
       "git_blob": "6aff66509d3748445d33847e90a0abbafca14263",
       "sha256": "ecef2b644bfb28083d9220f56aed2903c778c96851d5c6daa749bd974bbbdf24"
+    }
+  ],
+  "predecessor_citations": [
+    {
+      "recorded_source_pin": {
+        "path": "research/idle-single-child-absorption/PROOF.md",
+        "usage": "provenance",
+        "pin": "head:897bfb42c389d24d2d54a381a216e1f876b42109:research/idle-single-child-absorption/PROOF.md",
+        "git_blob": "9a8475d4e21b02b513a8922cab4bc2d6389b9b10",
+        "sha256": "636e78118ad03210e1b68c164b8c855ed5677b9dcf6d9fd67a3baa987663fcfc"
+      },
+      "source_url": "https://github.com/RossRichardson/integer-mult-bounds/blob/897bfb42c389d24d2d54a381a216e1f876b42109/research/idle-single-child-absorption/PROOF.md",
+      "verification_scope": "Exact cited bytes were read and verified locally during construction. This predecessor-only citation is not a runtime input or a generic-replay Git dependency; hosted replay does not fetch or reverify this sibling fork head."
+    },
+    {
+      "recorded_source_pin": {
+        "path": "research/idle-single-child-absorption/verify.py",
+        "usage": "provenance",
+        "pin": "head:897bfb42c389d24d2d54a381a216e1f876b42109:research/idle-single-child-absorption/verify.py",
+        "git_blob": "6131a2319c407eb2e0c7426f4a58d263cc0017da",
+        "sha256": "63ac40552d5f82b56a023a7b1d09d3e49a3b53d7cc1374de0d3231cf55bf1324"
+      },
+      "source_url": "https://github.com/RossRichardson/integer-mult-bounds/blob/897bfb42c389d24d2d54a381a216e1f876b42109/research/idle-single-child-absorption/verify.py",
+      "verification_scope": "Exact cited bytes were read and verified locally during construction. This predecessor-only citation is not a runtime input or a generic-replay Git dependency; hosted replay does not fetch or reverify this sibling fork head."
     }
   ]
 }

@@ -69,8 +69,13 @@ supplier/outer interfaces; unknown costs are not zero.
 ## Sources and credit
 
 Base `463113d675af7410ac91d53a4fed51ec6494eb9a`, priority revision 6; live
-inputs and the PR3254 predecessor head are pinned in
-[SOURCES.json](SOURCES.json). Credit Ross Richardson/PR3254 and PR3220,
+inputs are pinned in [SOURCES.json](SOURCES.json). Its `predecessor_citations`
+section retains PR3254's exact head/file hashes as citations. Those bytes were
+read locally during construction; they are neither runtime inputs nor
+automatically fetched/reverified by the generic hosted replay. Every declared
+Git dependency instead resolves from canonical ancestry, so the replay does
+not require the sibling fork commit to be present. Credit Ross
+Richardson/PR3254 and PR3220,
 PR3229's distinct independent-group sharing premise, Arham Tahir's adjacent
 reciprocal Clifford-basis obstruction, Gonzalo-Mier/PR3199,
 Nick Petalas/PR3187, Gareth Davidson/PR1387, Jeremy Diviney/PR3148,
