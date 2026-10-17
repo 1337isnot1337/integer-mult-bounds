@@ -16,6 +16,7 @@ The owned temporary directory is removed after workers finish or are stopped.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+import math
 import os
 from pathlib import Path
 import signal
@@ -23,6 +24,7 @@ import subprocess
 import sys
 import threading
 import tempfile
+import time
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -84,7 +86,16 @@ def stop_module(process):
         raise RuntimeError(f'module {process.pid}: ' + '; '.join(problems))
 
 
-def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
+def module_budget(value):
+    """Reject NaN/infinity as well as nonpositive deadline budgets."""
+    seconds = float(value)
+    if not math.isfinite(seconds) or seconds <= 0:
+        raise ValueError('module timeout must be finite and positive')
+    return seconds
+
+
+def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
+                module_timeout=None):
     """Run each test module in its own interpreter; return (path, code, out, err).
 
     Results follow the input order regardless of scheduling. Each child must return a successful unittest result; a zero process exit
@@ -93,6 +104,8 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
     python = sys.executable if python is None else python
     tests_dir = ROOT / 'tests' if tests_dir is None else tests_dir
     cwd = ROOT if cwd is None else cwd
+    if module_timeout is not None:
+        module_timeout = module_budget(module_timeout)
     if workers is None:
         workers = os.cpu_count() or 1
     workers = max(1, min(workers, len(files)))
@@ -134,11 +147,14 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                                        cwd=cwd, env=env, start_new_session=True,
                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             active.add(process)
+            deadline = None if module_timeout is None else time.monotonic() + module_timeout
         finished = False
+        cleaned = False
         try:
             while True:
                 try:
-                    out, err = process.communicate(timeout=0.2)
+                    remaining = 0.2 if deadline is None else max(0, deadline - time.monotonic())
+                    out, err = process.communicate(timeout=min(0.2, remaining))
                     finished = True
                     code = process.returncode
                     if code == 0 and (not receipt.is_file() or receipt.read_bytes() != COMPLETED):
@@ -152,6 +168,21 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                             # pipes. Do not make cancellation wait for their EOF.
                             finished = True
                             return path, -1, b'', b''
+                    if deadline is not None and time.monotonic() >= deadline:
+                        stop_module(process)
+                        cleaned = True
+                        try:
+                            out, err = process.communicate(timeout=2)
+                        except subprocess.TimeoutExpired as error:
+                            # A deliberately detached child may retain a pipe.
+                            # Preserve captured bytes without waiting for its EOF.
+                            out, err = error.output or b'', error.stderr or b''
+                            process.stdout.close()
+                            process.stderr.close()
+                        finished = True
+                        err += (f'Module timeout after {module_timeout:g}s: {path.name}; '
+                                'unittest completion is not accepted\n').encode('utf-8')
+                        return path, 124, out, err
         finally:
             # An unexpected worker exception must leave a live child visible
             # to the controlling thread's cleanup snapshot.
@@ -161,7 +192,7 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None):
                 # Keep ownership until POSIX group cleanup succeeds, including
                 # ordinary success/failure. Windows exited leaders need a Job
                 # Object; the existing taskkill cancellation contract is unchanged.
-                if os.name != 'nt':
+                if os.name != 'nt' and not cleaned:
                     stop_module(process)
                 with lock:
                     active.discard(process)
@@ -197,12 +228,15 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--workers', type=int, default=None,
                         help='concurrent test-module processes (default: CPU count)')
+    parser.add_argument('--module-timeout', type=module_budget, default=None,
+                        help='positive seconds per launched module; timeout fails (default: unlimited)')
     args = parser.parse_args(argv)
     files = sorted((ROOT / 'tests').glob('test*.py'))
     if not files:
         raise RuntimeError('No test modules discovered')
     failed = []
-    for path, code, out, err in run_modules(files, workers=args.workers):
+    for path, code, out, err in run_modules(files, workers=args.workers,
+                                          module_timeout=args.module_timeout):
         print('Checking ' + path.name, flush=True)
         sys.stdout.buffer.write(out)
         sys.stdout.flush()

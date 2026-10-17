@@ -139,3 +139,31 @@ every test file in a fresh interpreter so import state cannot select another
 package's graph or verifier. No test files are omitted. The enlarged-frame job
 installs Boost headers if needed and repeats its sufficient-prime proof on every
 run; the diagnostic three-prime profiler is not used as the exact certificate.
+
+### Bound an isolated test module
+
+For a local or CI run with a known per-module budget:
+
+```sh
+python3 scripts/run_isolated_tests.py --workers 4 --module-timeout 600
+```
+
+The optional timeout is a finite positive number of seconds, measured from each
+module's actual process launch. Waiting for a worker does not consume it.
+Omitting the option preserves the unlimited default. On expiry the module
+returns failure code 124 with captured diagnostics; even a completion receipt
+cannot turn a timeout into success. Other modules continue, and the final CLI
+exit remains nonzero. No test or assertion is skipped to meet the deadline.
+
+The runner stops the owned process group on POSIX. On Windows its existing
+`taskkill` plus leader cleanup applies while the module is running; descendants
+that detach, and Windows descendants after an already-exited leader, retain
+the existing cleanup limitations. After cleanup, capture has a bounded drain
+so an inherited pipe cannot impose an unlimited EOF wait. Cleanup failures
+propagate through the existing cancellation path instead of becoming a pass.
+This is a failure bound, not a speedup or a new mathematical result.
+
+Regression command: `python3 -B -m unittest discover -s tests -p 'test_isolated*.py'`.
+The deadline controls exercise hung imports, partial output, child cleanup,
+queue waiting, ordinary success/failure, premature zero exits and invalid
+budgets. Tekalign, with substantial OpenAI Codex assistance; Apache-2.0.
