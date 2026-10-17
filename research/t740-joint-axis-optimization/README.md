@@ -51,9 +51,14 @@ valid realized fraction is therefore **not established**.
 The result is conditional on PR #3200's source stack. It neither validates the PR #3200 baseline
 nor discharges its supplier, controller, native-admission or outer-release obligations. The
 selected record remains unchanged. The cached overlap scan covered 275 open PRs and 2,050
-discussions (complete pagination at 2026-10-17 18:40 UTC); it identified PR #3199 as the nearest
-operator-level screen. A later refresh could not reach GitHub, so these counts are a dated snapshot,
-not a novelty certificate.
+discussions (complete pagination at 2026-10-17 18:40 UTC). The nearest related work includes
+[PR #3199](https://github.com/CrocSwap/integer-mult-bounds/pull/3199), whose exact-coordinate
+CP-SAT screen covers rank changes among four idle children, [PR #3204](https://github.com/CrocSwap/integer-mult-bounds/pull/3204),
+which states a broader four-site rigidity result, and [PR #3220](https://github.com/CrocSwap/integer-mult-bounds/pull/3220),
+which prices additive phase-child repairs. This package contributes one concrete global rank-only
+incumbent using partially hosted donors (children 14 and 15) and its exact operator counterexample;
+it does not duplicate or replace those broader results. A later overlap refresh could not reach
+GitHub, so these counts are a dated snapshot, not a novelty certificate.
 
 ## Reproduce
 
