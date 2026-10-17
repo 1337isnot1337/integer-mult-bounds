@@ -2,7 +2,7 @@
 
 Jeremy Diviney, with substantial OpenAI Codex assistance. Apache-2.0.
 
-**Finite checks pass; the complete release is in progress.** A new, literal
+**Finite checks and the complete composed release pass.** A new, literal
 145-row exchange attains the fixed-inventory packing cap of dcharb78's
 [PR3133](https://github.com/CrocSwap/integer-mult-bounds/pull/3133) words:
 
@@ -25,6 +25,19 @@ existing ten-copy interleaving method, differential checker and cap proof
 (PR3024), and the three-allocation-argument integration pattern (PR3030).
 PR3133's local words, ordered widths and source validators are unchanged.
 The old PR3024 exchange cannot simply be reused on this different inventory.
+
+The pre-submission overlap refresh found Gonzalo Mier's earlier
+[handoff #3145](https://github.com/CrocSwap/integer-mult-bounds/discussions/3145)
+and Hiroki Kumazaki's
+[stopped transport attempt](https://github.com/CrocSwap/integer-mult-bounds/discussions/3145#discussioncomment-18992630).
+That attempt found no matching preimages for the old journals and requested a
+new journal generated from the changed fill. This package provides that new
+journal, constructed before reading that handoff in detail; it does not dispute
+the old-journal failure or claim priority for the T740 objective. No fresh
+flow census is required by this particular deterministic repair. PR3143's fill,
+provider bytes and both words equal the pinned PR3133 inputs. The complete run
+uses PR3133's original endpoint precision and strictly exceeds PR3143's more
+precise T74 result.
 
 ## Exact exchange
 
@@ -83,8 +96,8 @@ chronology needs 740 replicas.
 All **91** private cleanup buffers are charged. Physical stock is
 `896*740 + 408 + 8 + 91 + 2 = 663549`, compared with PR3133's 66,813.
 The larger fixed stock is a material cost of this small exponent improvement.
-The finite stock bound fits the retained 2,048-bit payload; the actual strict
-prefix and outer invoice must also pass the complete replay.
+The complete strict replay rebuilt the actual prefix and outer invoice: the
+prefix requirement is 1,479 bits, within the paid 2,048-bit payload.
 
 ## Reproduction and evidence
 
@@ -120,8 +133,13 @@ row and checks the recipe; it does not claim a release. The full controller
 changes exactly `--fill`, `--order`, and `--dispatch` in PR3133's final admission
 command. All scientific source stages remain unchanged.
 
-The recorded full run uses an authenticated retained cache. Full release status,
-actual prefix cost and runtime will be recorded before submission.
+The recorded full run uses an authenticated retained cache. All eleven source
+stages passed in 30.1 minutes with two low-priority single-thread audit
+workers. Both current native providers were rebuilt; two retained native
+providers and the retained parent were reused explicitly. A full fresh retained
+bootstrap was not rerun in this session. Exact logs, raw receipts and scope are
+in `evidence/`; `RUN.json` records the executed command. The public exporter,
+materializer and recipe dry run also passed independently of this execution.
 
 ## Scope and expansion decision
 
