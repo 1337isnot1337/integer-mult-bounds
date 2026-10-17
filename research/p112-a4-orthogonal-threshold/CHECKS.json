@@ -49,7 +49,19 @@
     "No full C5, decoder floor, supplier or kappa claim.",
     "Hosted CI is separate."
   ],
-  "committed_export": "not yet run at this evidence checkpoint; final publication must check the exact committed bytes",
+  "committed_export": {
+    "source_commit": "bdd52d5819984075b6bec7742af2d9c8394a59b2",
+    "files": 17,
+    "archive_integrity": "PASS_RESEARCH_EXPORT",
+    "publication_byte_check": "PASS_RESEARCH_COMMIT_BYTES",
+    "replay": "primary, independent and thirteen behavioral groups pass from exact read-only Git-free export under optimized CPython3.13.16, warnings as errors, unrelated cwd, external TMPDIR, no pycache",
+    "commands": [
+      "python3 -B scripts/check_research_commit.py --package research/p112-a4-orthogonal-threshold",
+      "python3 -B scripts/export_research_package.py export --package research/p112-a4-orthogonal-threshold --ref SOURCE_COMMIT --output $RUN/a4-committed.tar",
+      "python3 -B scripts/export_research_package.py check $RUN/a4-committed.tar",
+      "After checked extraction and chmod read-only: python3.13 -O -W error -B EXPORT/research/p112-a4-orthogonal-threshold/SCRIPT, for verify.py, independent.py and test_verify.py"
+    ]
+  },
   "mathematical_files_sha256": {
     "geometry.py": "b8ac379e41f5ad83bdb6c7f7c55129fc3d9c07801ea61591478f25d72ff0b021",
     "algebra.py": "3d43c3ec2193d1867327afedd2d2f8064527248104ba2e83fefc49b57f23e588",
@@ -61,5 +73,23 @@
     "RESULT.json": "6900030ca2e9c648cb5d52b7f18d4a2e684458d67164c7c4ce0104e2c861149b",
     "INDEPENDENT.json": "cd19543b377d2ef19df969235fecbe2565a974432e2f0e18b7e5022119db9c7c",
     "PROOF.md": "c418a5d91ffc2a74c6a2a3206838019db41e75734f0625b383ddec5f43915004"
+  },
+  "overlap": {
+    "snapshot_at": "2026-10-17T18:13:56.836898+00:00",
+    "coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-17T18:13:25.621470+00:00",
+        "complete_pagination": true,
+        "records": 262
+      },
+      "discussions": {
+        "fetched_at": "2026-10-17T18:13:56.770447+00:00",
+        "complete_pagination": true,
+        "records": 2031
+      }
+    },
+    "warnings": [],
+    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission.",
+    "specific_matches": "PR3211 and its pointers, this investigation and local package; no novelty guarantee"
   }
 }
