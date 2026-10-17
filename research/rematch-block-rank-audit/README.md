@@ -173,10 +173,13 @@ receipt. Input bytes are checked before and after mathematical replay.
 
 ## Scope and handoff
 
-The actual complete source and reader copy tariff is a separate concurrent
-claim in [Discussion1587](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007603).
-This package does not reprice its channels or repeat the direct-block native
-implementation. It does not prove a native recipe, chronological acquisition,
+The actual complete source and reader copy tariff is the separate concurrent
+[PR3345](https://github.com/CrocSwap/integer-mult-bounds/pull/3345), head
+`529959bb00abd01664b7109d2e40574ecb0c8da1`, following the
+[Discussion1587 claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007603).
+Its author-checked invoice was read at the submission checkpoint, not replayed
+here. This package does not reprice its channels or repeat the direct-block
+native implementation. It does not prove a native recipe, chronological acquisition,
 restoration, storage, hosting, precision/tape, all-size supplier, bit supplier,
 complete paid invoice, outer transfer or multiplication theorem. The selected
 frontier is unchanged. No selected cold replay or formal-kernel build ran.
@@ -189,9 +192,11 @@ frontier is unchanged. No selected cold replay or formal-kernel build ran.
    or prove a universal structural inequality. The 28-support packing argument
    alone is the blocker; no additional matching search is justified by this
    audit.
-2. Can a changed matching or changed source/reader contract lower the complete
-   physical invoice? First join the concurrent full-plane tariff receipt to
-   an explicit message/consumer program. Scalar dimension, payload rank,
+2. Can genuinely fractional source/reader factors, or a changed physical
+   contract, lower the complete invoice? The concurrent tariff result rules
+   out merely regrouping these integral support-partition factors under its
+   stated model. First join a different exact factorization's complete-plane
+   tariff to an explicit message/consumer program. Scalar dimension, payload rank,
    acquisition, restoration and storage must be charged separately. This
    package provides the fixed-mask dimension boundary only.
 

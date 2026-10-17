@@ -52,7 +52,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after this exact source-bound implication and its semantic controls; no new matching or native/supplier construction. Reserve final 15 minutes for verification and handoff.",
   "outcome": "completed",
-  "evidence": "Independent standard-library reconstruction of all 112 selected labels, 56 rematched planes, 11,440 forced port entries, 34 disjoint supports and 17-clique identity minor. Written all-field/all-positive-dimension rank-34d proof; noncommuting charted ranks for d=1,2,3 over GF(2),GF(3),GF(101), all 224 source and dirty-target coordinate columns, eight semantic controls, exact 27-line logical counterexample to support-count-as-rank lower bounds, and five CLI integrity rejections.",
+  "evidence": "Independent standard-library reconstruction of all 112 selected labels, 56 rematched planes, 11,440 forced port entries, 34 disjoint supports and 17-clique identity minor. Written all-field/all-positive-dimension rank-34d proof; noncommuting charted ranks for d=1,2,3 over GF(2),GF(3),GF(101), all 224 source and dirty-target coordinate columns, eight semantic/input controls, exact 27-line logical counterexample to support-count-as-rank lower bounds, and five CLI integrity rejections.",
   "author": "Arham Tahir with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, implementation, checking and prose. No subagents or independent human/formal-kernel review.",
   "open_questions": [
@@ -63,10 +63,10 @@
       "blocked_by": "No universal all-matching lower proof is supplied by this audit; it gives no P112 counterexample below 28."
     },
     {
-      "question": "Can a changed matching or source/reader contract lower the complete physical invoice?",
+      "question": "Can genuinely fractional source/reader factors or a changed physical contract lower the complete invoice?",
       "why_it_matters": "The exact channel dimension is only one admission obligation; it is not a native copy price.",
-      "first_step": "Join the concurrent full-plane tariff receipt to an explicit message/consumer program, retaining acquisition, restoration and storage charges.",
-      "blocked_by": "Native recipes, consumer continuation, hosting, precision/tape, both suppliers and outer admission remain separate."
+      "first_step": "Use the concurrent PR3345 tariff as a scoped baseline; give a different exact factorization with complete-plane pairing charges and a concrete consumer, acquisition, restoration and storage ledger.",
+      "blocked_by": "No lower-cost off-partition factorization or paid physical consumer is supplied; native recipes, hosting, precision/tape, both suppliers and outer admission remain separate."
     }
   ],
   "chooser": {
@@ -78,7 +78,10 @@
     "main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
     "priority_revision": 6,
     "checked_at": "2026-10-17T22:31:00Z",
-    "decision": "narrow to complementary block interface audit; frozen inputs retained"
+    "decision": "Finish this complementary block-interface audit; main/priority/selected record and scientific predecessor unchanged. PR3345 now supplies the separate author-checked tariff receipt; no dependent construction expansion.",
+    "submission_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "submission_checked_at": "2026-10-17T22:40:42Z",
+    "predecessor_head_rechecked": "1d46df8b5aeac49d165cae58c1dd1036666bb789"
   },
   "claim": "https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19007618",
   "overlap": {
@@ -91,15 +94,46 @@
       "PR3335 scalar certificate",
       "ywz65 paired-plane-block-rank (old matching, rank49d)",
       "PR2484 exact rank49",
-      "Concurrent Discussion1587 comment19007603 one-total tariff audit"
+      "Concurrent Discussion1587 comment19007603 one-total tariff audit",
+      "PR3345 at 529959bb00abd01664b7109d2e40574ecb0c8da1: concurrent completed full-port tariff, read not replayed"
     ],
     "distinct_failure_mode": "Fixed new matching with arbitrary noncommuting payload blocks; scope audit of colouring-only global lower bound. No repetition of the concurrent tariff calculation.",
-    "limitations": "Non-atomic PR bodies, Discussion comments/replies and local package notes; no all-diff, all-closed-PR or unpublished coverage guarantee."
+    "limitations": "Non-atomic PR bodies, Discussion comments/replies and local package notes; no all-diff, all-closed-PR or unpublished coverage guarantee.",
+    "submission_coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-17T22:40:42.816043+00:00",
+        "complete_pagination": true,
+        "records": 260
+      },
+      "discussions": {
+        "fetched_at": "2026-10-17T22:41:23.643955+00:00",
+        "complete_pagination": true,
+        "records": 2188
+      }
+    },
+    "submission_warnings": []
   },
   "execution": {
     "session_started_utc": "2026-10-17T22:26:52Z",
     "budget_minutes": 60,
     "verification_reserve_minutes": 15,
     "loop_skills": "loop-budget, loop-triage and loop-verifier not installed in available skill roots; no loop tooling installed or initialized; explicit upstream checkpoints and budget used."
+  },
+  "validation": {
+    "python": "3.12.14 (main, Aug 12 2026, 13:57:54) [Clang 21.0.0 (clang-2100.1.1.101)]",
+    "platform": "macOS-26.3.1-arm64-arm-64bit",
+    "registered_replay": "PASS_PACKAGE_METADATA_AND_PINS; PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed",
+    "direct_normal_and_optimized": "PASS, warnings treated as errors",
+    "integrity_controls_rejected": 5,
+    "committed_export": "PASS_RESEARCH_COMMIT_BYTES (9 package/input files); deterministic exporter/check; normal and optimized direct replay and integrity suite passed without Git/network; all 10 exported files including transport manifest unchanged",
+    "lint": "Ruff is not installed; Python AST parsing and Git whitespace checks passed. No Ruff success claimed.",
+    "unrun": [
+      "Formal-kernel compilation",
+      "Native/physical construction and complete cold replay",
+      "Hosting, precision/tape, bit supplier and outer admission",
+      "Independent human review",
+      "Hosted CI (separate after publication)"
+    ],
+    "semantic_and_input_controls_rejected": 8
   }
 }
