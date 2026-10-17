@@ -1,6 +1,6 @@
 # T740 idle-axis reassignment: exact transfer census and CP-SAT screen
 
-**Scoped negative result; no new κ or admitted supplier.** PR #3184 claims a conditional κ of `0.001730189061233850760095…` from redistributing idle rank-48 axes. PR #3187 gives an exact physical-operator counterexample to its first committed star move. This package extends that check to every eligible one-axis transfer and paired transfer on the four rank-48 children, independently replays PR3184's actual replica-0/port-0 star, and screens assignment optima with OR-Tools.
+**Scoped negative result; no new κ or admitted supplier.** PR #3184's replica-0/port-0 star is one source-pinned move checked here. At the final live-overlap snapshot (2026-10-17 18:20 UTC), the latest open conditional claim in this branch was PR #3200 at `0.001734807021726127552033`; the selected κ remains `0.001672660197076918`. This package does not validate or refute PR #3200's complete allocation or invoice. PR #3187 supplies an exact physical-operator counterexample to PR #3184's first committed star move. This package extends that check to every eligible one-axis transfer and paired transfer on four rank-48 children, independently replays PR3184's actual replica-0/port-0 star, and screens assignment optima with OR-Tools.
 
 ## Result
 
@@ -40,7 +40,7 @@ Reproduce the optional 47-minute run with Python 3.10.12 and OR-Tools 9.11.4210:
 python3.10 research/idle-star-paired-axis-census/operator_ortools_screen.py
 ```
 
-The result is recorded in `OPERATOR-ORTOOLS-RESULT.json`; this search is kept outside the registered replay so normal package CI does not require OR-Tools or a long run. The active [Discussion #2612 claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/2612#discussioncomment-19002311) asks whether added paid phase children can repair an operator-failing reassignment while preserving a moment saving. This screen supplies a finite-coordinate no-repair result only for the stated owner-zero four-child slice; it does not establish repair cost or κ. The selected record and frontier are unchanged.
+The result is recorded in `OPERATOR-ORTOOLS-RESULT.json`; this search is kept outside the registered replay so normal package CI does not require OR-Tools or a long run. Related work was posted during this investigation: [PR #3204](https://github.com/CrocSwap/integer-mult-bounds/pull/3204) claims a broader written four-site rank-rigidity proof under the fixed schedule, and [PR #3220](https://github.com/CrocSwap/integer-mult-bounds/pull/3220) analyzes added paid phase-child repairs in a bounded domain. This CP-SAT result is only a finite-coordinate cross-check on the source-bound owner-zero fill; it does not replace #3204's proof or settle the wider repair question in #3220. The selected record and frontier are unchanged.
 
 ## Reproduce
 
@@ -55,7 +55,7 @@ The verifier independently implements the exact eight-stream Gaussian-integer re
 
 ## Open next questions
 
-See the structured tasks in [TASK.json](TASK.json). The four-child owner-replica-zero slice has no rank-changing assignment passing even the 73 coordinate modes in the broader CP-SAT relaxation. Discussion #2612 now investigates whether added paid phase children can repair an operator-failing reassignment; avoid duplicating that repair-cost work. A distinct next direction is a different child/time pair or owner replica; it needs its own insertion-to-insertion intertwiner and source-bound replay, and should be priced before a large search.
+See the structured tasks in [TASK.json](TASK.json). The four-child owner-replica-zero slice has no rank-changing assignment passing even the 73 coordinate modes in the broader CP-SAT relaxation. PRs #3204 and #3220 cover the broader four-site rigidity and bounded paid-repair questions, respectively; do not duplicate those scopes. A distinct next direction is another child/time pair or owner replica; it needs its own insertion-to-insertion intertwiner and source-bound replay, and should be priced before a large search.
 
 ## Credit
 
