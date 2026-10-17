@@ -113,6 +113,14 @@ proof-assistant review is claimed.
 
 ## Sources, credit and limits
 
+Local validation used CPython 3.12.15 and 3.13.5 on Linux x86_64,
+kernel `6.6.87.2-microsoft-standard-WSL2`, with Ruff 0.17.1. Registered replay,
+normal and optimized direct checks, metadata/pins and all 11 publication-byte
+comparisons passed. A committed export containing only this package and its
+three declared inputs passed optimized replay and all nine groups on Python
+3.13.5 in a read-only Git-free directory. All 12 exported files, including the
+transport manifest, retained their hashes. Hosted CI is recorded separately.
+
 Base main `463113d675af7410ac91d53a4fed51ec6494eb9a`, priority revision 6.
 [SOURCES.json](SOURCES.json) pins the checker, exporter and selected tuned word.
 All three inputs are on canonical main, not unmerged PR heads. The registered
