@@ -684,13 +684,14 @@ def run_package(root, package, install=False):
     print("PASS_REGISTERED_RESEARCH_PACKAGE " + package + " outcome=" + task["outcome"])
 
 
-def plan(root, changed):
+def plan_details(root, changed):
+    """One selection pass with exact causes; no replay or acceptance decision."""
     changed = set(changed)
     # A removed input is absent from HEAD, including an old case-only rename
     # spelling on case-insensitive filesystems. Git's exact changed paths remain
     # eligible so its consumer is selected, rather than rejected or skipped.
     tracked = tracked_input_paths(root) | changed
-    replay_changed = bool(changed.intersection({
+    replay_changed = sorted(changed.intersection({
         "scripts/research_package.py", ".github/workflows/research-packages.yml",
         ".github/workflows/research-package-batch.yml"}))
     packages = []
@@ -704,7 +705,8 @@ def plan(root, changed):
         except (FileNotFoundError, NotADirectoryError):
             continue
         package = path.parent.relative_to(root).as_posix()
-        manifest = json.loads(path.read_text(encoding="utf-8"))
+        raw = path.read_bytes()
+        manifest = json.loads(raw.decode("utf-8"))
         # Parse only for selection; validate fully in the isolated replay job.
         inputs = manifest.get("inputs", [])
         require(isinstance(inputs, list), "declare input paths for CI invalidation")
@@ -712,10 +714,40 @@ def plan(root, changed):
             # Do not require existence: a deleted input must still trigger replay.
             symlink_free_relative_path(root, name)
             require_tracked_input(name, tracked)
-        if (changed.intersection(inputs) or any(p.startswith(package + "/") for p in changed)
-                or replay_changed):
-            packages.append(package)
+        causes = {
+            "declared_inputs": sorted(changed.intersection(inputs)),
+            "package_files": sorted(p for p in changed if p.startswith(package + "/")),
+            "shared_controls": replay_changed,
+        }
+        if any(causes.values()):
+            packages.append({"package": package, "causes": causes,
+                             "manifest_sha256": hashlib.sha256(raw).hexdigest()})
     return packages
+
+
+def plan(root, changed):
+    return [row["package"] for row in plan_details(root, changed)]
+
+
+def write_plan_explanation(path, base, head, changed, details):
+    """Publish a complete sidecar before stdout/GitHub matrix publication."""
+    matched = {name for row in details for names in row["causes"].values() for name in names}
+    report = {
+        "schema_version": 1, "base": base, "head": head,
+        "mode": "all-tracked" if base is None else "commit-diff",
+        "scope": "Selection from working manifests, not replay or mathematical acceptance. "
+                 "Manifest hashes bind the declarations read; checkout must remain stable.",
+        "changed_paths": sorted(set(changed) - {""}), "selected": details,
+        "unmatched_paths": sorted(set(changed) - matched - {""}),
+    }
+    fd, temporary = tempfile.mkstemp(prefix=".replay-plan-", dir=path.parent)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as stream:
+            json.dump(report, stream, indent=2)
+            stream.write("\n")
+        os.replace(temporary, path)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
 
 
 def replay_matrix(packages, batch_size=None):
@@ -739,9 +771,15 @@ def main():
     ap.add_argument("--install-deps", action="store_true", help="explicit opt-in to install manifest's allowed pinned dependencies")
     ap.add_argument("--changed-since", help="plan affected opt-in packages relative to this Git commit")
     ap.add_argument("--github-output", type=Path)
+    ap.add_argument("--explain-plan", type=Path,
+                    help="write exact replay-selection causes to JSON; matrix output stays unchanged")
     ap.add_argument("--matrix-batch-size", type=int,
                     help="group planned packages for bounded reusable-workflow matrices (1..256)")
     args = ap.parse_args()
+    if args.explain_plan and (not args.changed_since or args.package or args.print_card):
+        ap.error("--explain-plan requires --changed-since without --package or --print-card")
+    if args.explain_plan and args.github_output and args.explain_plan.resolve() == args.github_output.resolve():
+        ap.error("--explain-plan and --github-output must use different files")
     try:
         if args.print_card:
             require(args.package,
@@ -749,13 +787,18 @@ def main():
             sys.stdout.write(json.dumps(catalogue_card(ROOT, args.package, args.print_card), indent=2) + "\n")
         elif args.changed_since:
             if set(args.changed_since) == {"0"}:
+                base = None
                 changed = git(ROOT, "ls-files", "-z").decode().split("\0")
             else:
                 base = git(ROOT, "rev-parse", "--verify", args.changed_since + "^{commit}").decode().strip()
                 # A rename must invalidate both the removed input and its new path.
                 changed = git(ROOT, "diff", "--no-renames", "--name-only", "-z", base, "HEAD").decode().split("\0")
-            packages = plan(ROOT, changed)
+            details = plan_details(ROOT, changed)
+            packages = [row["package"] for row in details]
             matrix = json.dumps(replay_matrix(packages, args.matrix_batch_size))
+            if args.explain_plan:
+                head = git(ROOT, "rev-parse", "--verify", "HEAD^{commit}").decode().strip()
+                write_plan_explanation(args.explain_plan, base, head, changed, details)
             print(matrix)
             if args.github_output:
                 with args.github_output.open("a", encoding="utf-8") as out:

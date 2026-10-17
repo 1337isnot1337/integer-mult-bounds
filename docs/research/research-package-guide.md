@@ -172,6 +172,38 @@ and its declared inputs with deterministic archive metadata and an offline
 integrity check. Export is separate from mathematical verification and does
 not infer transitive dependencies.
 
+## Explain replay selection
+
+```sh
+python3 scripts/research_package.py --changed-since origin/main \
+  --explain-plan /tmp/replay-reasons.json
+```
+
+The normal stdout matrix and `--github-output` fields stay unchanged. The
+optional JSON sidecar names every selected package and all three independent
+causes: changed files inside its directory, changed declared inputs, and changed
+shared replay controls. It includes the resolved base/head, exact changed and
+unmatched paths, and SHA256 of each selected working `VERIFY.json`. A removed
+or renamed input is reported under its old spelling when that triggers a replay.
+The all-zero base mode is labelled `all-tracked` with a null base.
+
+Selection and explanation use one pass. A validation or sidecar-write failure
+publishes no new stdout/GitHub matrix; a previous complete sidecar is left alone
+on validation failure. Use the command exit status and base/head to distinguish
+an old report. The sidecar is atomically replaced after complete serialization.
+It explains the current filesystem-based planner, including its sparse-checkout
+limits; it is not a claim that working manifests equal HEAD or that dependencies
+were inferred transitively. Keep the checkout stable during planning. No verifier
+runs and no mathematical acceptance follows from selection.
+
+Regression command:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_research_plan_explanations.py' -v
+```
+Tekalign, with substantial OpenAI Codex assistance; the existing selector and
+its invalidation rules retain Douglas Colkitt and Charles Bethin's attribution.
+
 ## Check publication bytes
 
 After committing a package and before publishing it, optionally compare its
