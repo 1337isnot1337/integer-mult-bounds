@@ -39,13 +39,21 @@ character, yet the operator changes in **every** port. In 56 ports the moves are
 the two hosted-remainder donations above. The other 56 carry #3184-type star moves
 among unhosted children, which is consistent with #3187.
 
+**Every single-axis remainder transfer fails too.** `census.py` enumerates every
+hosted child with a nonempty remainder as donor, every other idle child as receiver
+and every remainder axis, at all 112 ports of owner replica 0. Of these, **3,809**
+pass #3190's declared rule (5,575 do not). **All 3,809** change the exact operator
+at their own moved-axis character, and none survives. In 47 ports no transfer passes
+the rule at all. `CENSUS.json` stores the per-port counts.
+
 ## Consequence and limits
 
 The literal move sets of #3190, #3198, #3200 and #3251 are not operator-preserving
 under their stated contract. Their claimed gains over #3148 come entirely from
-these moves, so this construction does not support them. The result does not
-show that every remainder transfer fails, or that no repaired or differently
-scheduled exchange exists. Other owner replicas are not replayed; the literal
+these moves, so this construction does not support them. At owner replica 0, no
+single-axis remainder transfer survives either. Multi-axis or simultaneous
+transfers, other replicas' hostings, and repaired or rescheduled exchanges are not
+covered. Other owner replicas are not replayed; the literal
 counterexample is enough to reject the move set as committed. #3220's repair-cost
 bound and native, owner and outer obligations are separate.
 
@@ -65,6 +73,7 @@ byte-for-byte and pinned to its head.
 ```sh
 python3 -B research/pr3190-remainder-stream-obstruction/verify.py              # port-0 witness, ~35 s
 python3 -B research/pr3190-remainder-stream-obstruction/verify.py --all-ports  # all 112 ports
+python3 -B research/pr3190-remainder-stream-obstruction/census.py              # 9,384 candidates, ~90 s
 python3 scripts/research_package.py --package research/pr3190-remainder-stream-obstruction --check-only
 ```
 
@@ -74,11 +83,12 @@ Python 3.10.6; the registered Python 3.12 replay was not run.
 
 ## Open next questions
 
-Is any hosted-remainder donation operator-preserving in this fixed schedule? If
-none is, #3190's mechanism yields no legal gain and the chain falls back to #3148.
-If some are, a corrected move set gives a smaller honest gain. A first step is to
-extend #3204's rigidity argument to the hosted children 4, 6, 14 and 15, or to
-enumerate single-axis remainder transfers per port with this replay.
+No single-axis remainder transfer survives at owner replica 0. Can a written
+argument, extending #3204's rigidity proof to hosted children 4, 6, 14 and 15,
+cover simultaneous transfers and every replica's hosting? That would turn this
+finite census into a theorem that #3190's mechanism gives no legal gain, so that
+the chain falls back to #3148. Repairs (#3220) and a changed schedule would be
+the remaining routes.
 
 ## Credit
 

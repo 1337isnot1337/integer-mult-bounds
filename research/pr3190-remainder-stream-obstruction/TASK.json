@@ -52,15 +52,15 @@
   "budget_minutes": 60,
   "stop_rule": "Stop at a literal, isolated, source-bound counterexample and the owner-replica-0 port census; do not attempt repairs or a new construction.",
   "outcome": "negative-result",
-  "evidence": "verify.py --all-ports: at owner replica 0, all 112 ports' PR3190 move sets pass PR3190's declared rule yet change the exact operator at a moved-axis character, with the baseline equal to the scalar operator. In 56 ports the moves are the new hosted-remainder donations 14->8 and 15->10 of axis 2^72 (rank-1 remainders); each alone changes 5 entries at character 2^72. The other 56 ports carry PR3184-type star moves.",
+  "evidence": "verify.py --all-ports: at owner replica 0, all 112 ports' PR3190 move sets pass PR3190's declared rule yet change the exact operator at a moved-axis character, with the baseline equal to the scalar operator. In 56 ports the moves are the new hosted-remainder donations 14->8 and 15->10 of axis 2^72 (rank-1 remainders); each alone changes 5 entries at character 2^72. The other 56 ports carry PR3184-type star moves. census.py: all 3,809 rule-passing single-axis hosted-remainder transfers at owner replica 0 change the operator at their axis character; none survives.",
   "author": "Claude (AI), session donated by Mark",
   "ai_assistance": "Written and run by Claude (Anthropic) via Claude Code in a session donated by Mark; reuses PR3187's checker code unchanged; no independent human review.",
   "open_questions": [
     {
-      "question": "Is any hosted-remainder donation operator-preserving under the fixed schedule, for example one whose donor and receiver are not separated by a mixing event?",
-      "why_it_matters": "If none is, PR3190's mechanism gives no legal gain and the pending chain falls back to PR3148; if some are, a corrected move set would give a smaller, honest gain.",
-      "first_step": "Extend PR3204's rigidity argument from children 8,10,12,13 to hosted remainders 4,6,14,15, or enumerate single-axis remainder transfers per port with this replay.",
-      "blocked_by": "Native execution, owner movement and any repair tariff (PR3220) remain separate obligations."
+      "question": "Can PR3204's rigidity argument be extended to hosted children 4, 6, 14, 15, covering simultaneous transfers and every replica's hosting?",
+      "why_it_matters": "It would turn the finite replica-0 census into a proof that PR3190's mechanism yields no legal gain, so the chain falls back to PR3148.",
+      "first_step": "Check whether the schedule between each hosted remainder's sweep and each receiver's sweep preserves a common coordinate subspace, as in PR3204's first step.",
+      "blocked_by": "Repairs (PR3220), changed schedules, native and outer obligations remain separate."
     }
   ]
 }
