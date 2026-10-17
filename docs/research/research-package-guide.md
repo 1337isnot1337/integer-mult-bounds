@@ -165,6 +165,13 @@ Each gets a fresh runner and explicit commands. It does not run every historical
 `verify.py`. New hooks do not replace existing cold-replay obligations, and a
 passing metadata check is not acceptance of a mathematical result.
 
+## Export committed bytes
+
+Use the [committed package exporter](package-export.md) to snapshot one package
+and its declared inputs with deterministic archive metadata and an offline
+integrity check. Export is separate from mathematical verification and does
+not infer transitive dependencies.
+
 ## Check publication bytes
 
 After committing a package and before publishing it, optionally compare its
