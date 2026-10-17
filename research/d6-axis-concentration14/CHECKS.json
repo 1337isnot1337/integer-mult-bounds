@@ -68,5 +68,16 @@
     "status": "no blocking finding in scoped internal read-only review",
     "reviewed_commit": "7d8675f8c4d1ea080851fa0f56144130b347a09c"
   },
-  "publication_change": "Only CHECKS.json metadata changed and exact REVIEW.json added after scientific freeze; proof/code/source/witness bytes unchanged."
+  "publication_change": "Scientific proof/witness/source/math-verifier bytes remain unchanged. After the original metadata/receipt publication, the test harness lost only its unused os import and unnecessary required-TMPDIR gate. Both exact review receipts are retained.",
+  "portability_correction": {
+    "reviewed_commit": "1480e53d6740d27c2b5d9329dc6f4b11c1737717",
+    "delta": "Only five test lines deleted: unused os import and required-TMPDIR guard. No mathematical/source change.",
+    "registered_replay": "All three Python3.12 registered commands PASS after correction.",
+    "committed_export": "All three actual optimized isolated Python3.12 commands PASS; regular-only, inode-disjoint, read-only and Git-free.",
+    "TMPDIR_absent_actual_entry_point": "PASS all three test groups, with process-local tempfile root in session cache.",
+    "peer_receipt": "REVIEW-PORTABILITY.json",
+    "peer_receipt_sha256": "0ae3789071028c48aa26f2d6308779c7f70009b66506c7ef696ecf60ebd5f947",
+    "unchanged_scientific_hashes": 13,
+    "status": "PASS_NARROW_PORTABILITY_SUPPLEMENT"
+  }
 }
