@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/ceiling.py",
+    "research/complex-two-output-sum-anchor-seed65ce19/RESULT.json",
+    "research/five-plane-port-p112-seed1f7fdfe4/RESULT.json",
+    "research/five-plane-port-p112-seed1f7fdfe4/SOURCES.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Binds the selected κ, ceiling model, two-output-anchor receipt, and the five-plane profile's identical selected replay archive; reconstructs the seven-block hypothetical profile; checks exact outward-rational moment intervals at a=1/9 for selected, anchor, five-plane and fractional local-rank models; certifies adjacent unpaid-count, fixed-u rank and per-block-fee boundaries with centre absent/present; and checks a passing a=1/99 positive control. This is a scoped aggregate budget screen, not a supplier or κ claim."
+    }
+  ]
+}
