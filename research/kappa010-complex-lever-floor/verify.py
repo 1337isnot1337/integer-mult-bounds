@@ -15,8 +15,11 @@ from __future__ import annotations
 
 import importlib.util
 import hashlib
+import io
 import json
 import sys
+import tarfile
+from collections import Counter
 from fractions import Fraction as Q
 from pathlib import Path
 
@@ -134,6 +137,124 @@ def maximum_passing_fee(base_mass: int, blocks: int,
 
     lo, hi = 0, 1000
     assert passes(lo) and not passes(hi)
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if passes(mid):
+            lo = mid
+        else:
+            hi = mid
+    return lo, hi
+
+
+def rank_mod2(matrix: list[list[int]]) -> int:
+    rows = [sum((value & 1) << j for j, value in enumerate(row)) for row in matrix]
+    width = len(matrix[0]) if matrix else 0
+    pivot = 0
+    for col in range(width):
+        row = next((r for r in range(pivot, len(rows)) if (rows[r] >> col) & 1), None)
+        if row is None:
+            continue
+        rows[pivot], rows[row] = rows[row], rows[pivot]
+        for r in range(len(rows)):
+            if r != pivot and ((rows[r] >> col) & 1):
+                rows[r] ^= rows[pivot]
+        pivot += 1
+        if pivot == len(rows):
+            break
+    return pivot
+
+
+def paired_plane_port_charge() -> dict:
+    """Reprice the pinned 49-support fit under full port-space pairing ranks."""
+    cert_path = "research/paired-plane-minrank-bracket-audit/CERTIFICATE.json"
+    matching_path = "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json"
+    block_result_path = "research/paired-plane-block-rank/RESULT.json"
+    archive_path = "research/community-frontier1094-audit/selected-replay.tar.gz"
+    cert_raw = (ROOT / cert_path).read_bytes()
+    matching_raw = (ROOT / matching_path).read_bytes()
+    block_result_raw = (ROOT / block_result_path).read_bytes()
+    assert hashlib.sha256(cert_raw).hexdigest() == "6f5d3478290156c4fe703104572cc3aa593ad50079476ae08c942833714e3179"
+    assert hashlib.sha256(matching_raw).hexdigest() == "4fd648f7b5178bff5441bf364d58234b7bc1a43b924bc6da03013c948f1473b1"
+    assert hashlib.sha256(block_result_raw).hexdigest() == "8b78968378d7ed824ac2418fe40b36db04d9522c117349778655191b4ee10d6d"
+    cert = json.loads(cert_raw)
+    matching = json.loads(matching_raw)
+    block_result = json.loads(block_result_raw)
+    assert cert["result"]["min_scalar_fitting_rank"] == 49
+    assert block_result["status"] == "PASS_PAIRED_PLANE_BLOCK_RANK"
+    assert block_result["theorem"].startswith("minimum rank is 49*d")
+    archive = (ROOT / archive_path).read_bytes()
+    member_name = "candidate/strict/global/base/work/complex-nine-native/DATA-PHASES.json"
+    with tarfile.open(fileobj=io.BytesIO(archive), mode="r:gz") as tar:
+        member = tar.extractfile(member_name)
+        assert member is not None
+        payload = member.read()
+    assert hashlib.sha256(payload).hexdigest() == "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
+    labels_by_port = {row["port"]: row["q"] for row in json.loads(payload)["recipes"]}
+    assert sorted(labels_by_port) == list(range(112))
+    labels = [labels_by_port[i] for i in range(112)]
+    pairs = matching["matching"]
+    assert len(pairs) == 56 and sorted(i for pair in pairs for i in pair) == list(range(112))
+    owner = [-1] * 112
+    planes = []
+    for plane_id, (left, right) in enumerate(pairs):
+        a, b = labels[left], labels[right]
+        dot = lambda x, y: (x & y).bit_count() & 1
+        assert dot(a, a) == dot(b, b) == 1 and dot(a, b) == 0
+        owner[left] = owner[right] = plane_id
+        planes.append((a, b))
+    supports = cert["rank49_supports"]
+    assert len(supports) == 49 and sorted(i for support in supports for i in support) == list(range(112))
+    profile: Counter[int] = Counter()
+    for support in supports:
+        plane_ids = [owner[port] for port in support]
+        assert len(set(plane_ids)) == len(plane_ids)
+        for i, plane_i in enumerate(plane_ids):
+            for plane_j in plane_ids[i + 1:]:
+                assert all(dot(x, y) == 0
+                           for x in planes[plane_i] for y in planes[plane_j])
+        vectors = [v for plane_id in plane_ids for v in planes[plane_id]]
+        gram = [[dot(x, y) for y in vectors] for x in vectors]
+        # A permitted support consists of mutually orthogonal nondegenerate
+        # planes, so its complete port-space charge is the rank of this Gram
+        # matrix, exactly twice the support size.
+        assert rank_mod2(gram) == 2 * len(support)
+        profile[2 * len(support)] += 1
+    assert dict(sorted(profile.items())) == {2: 2, 4: 31, 6: 16}
+    assert sum(rank * count for rank, count in profile.items()) == 224
+    return {
+        "scalar_factor_count": 49,
+        "support_size_histogram": {str(k // 2): n for k, n in sorted(profile.items())},
+        "port_space_copy_profile": {str(k): n for k, n in sorted(profile.items())},
+        "port_space_mass_per_payload_copy": 224,
+        "scope": "Pinned disjoint-support fit, priced by full port-space Gram ranks; not a lower bound on every decoder or a native schedule.",
+    }
+
+
+def block_anchor_case(base_mass: int, blocks: int, fee_per_block: int,
+                      copies: int, centre: int) -> dict:
+    """Target moment for d tensor copies, with all remaining base mass at rank 51."""
+    unpaid = 2 * copies
+    local: dict[int, Q | int] = {51: Q(base_mass, 51), 1: blocks * fee_per_block}
+    if centre:
+        # Retaining the centre also retains its eight rank-8 children.
+        local[8] = 8
+    for rank, count in ((2, 2 * copies), (4, 31 * copies), (6, 16 * copies)):
+        local[rank] = count
+    return result_case(local, centre, unpaid)
+
+
+def maximum_block_anchor_fee(base_mass: int, blocks: int,
+                             copies: int, centre: int) -> tuple[int, int] | None:
+    """Largest integer per-block ADD fee after the d-fold plane decoder."""
+    def passes(fee: int) -> bool:
+        try:
+            return block_anchor_case(base_mass, blocks, fee, copies, centre)["below_one"]
+        except ValueError:
+            return False
+
+    if not passes(0):
+        return None
+    lo, hi = 0, 1000
     while lo + 1 < hi:
         mid = (lo + hi) // 2
         if passes(mid):
@@ -282,6 +403,49 @@ def main() -> None:
     assert fee_boundaries["u10_centre_free"]["extra_allowance_after_112_affine_units"] == 58
     assert fee_boundaries["u11_centre_retained"]["extra_allowance_after_112_affine_units"] == 95
 
+    # Try the explicit block-valued escape from the scalar endpoint audit:
+    # tensor d copies of the pinned 49-support paired-plane fit.  The exact
+    # support spaces are repriced by their full F2 pairing ranks.  The anchor
+    # still has 110 dirty destinations that each require a one-target ADD, so
+    # use e=110 per block as the most favorable ordinary affine schedule.
+    plane_decoder = paired_plane_port_charge()
+    assert plane_decoder["port_space_copy_profile"] == {"2": 2, "4": 31, "6": 16}
+    assert plane_decoder["port_space_mass_per_payload_copy"] == 224
+    min_dirty_updates = anchor["cost_screen"]["block_width_q"] - 2
+    assert min_dirty_updates == 110
+    stacked_endpoint = []
+    for copies in range(1, 6):
+        centre_rows = {
+            str(centre): block_anchor_case(base_mass, blocks, min_dirty_updates,
+                                           copies, centre)
+            for centre in (0, 64)
+        }
+        assert all(Q(row["moment_interval_at_a_1_over_9"][0]) > 1
+                   for row in centre_rows.values())
+        stacked_endpoint.append({
+            "payload_copies": copies,
+            "unpaid_coordinates": 2 * copies,
+            "minimum_dirty_updates_per_block": min_dirty_updates,
+            "at_minimum_affine_fee": centre_rows,
+            "maximum_passing_affine_fee_per_block": {
+                str(centre): maximum_block_anchor_fee(base_mass, blocks,
+                                                       copies, centre)
+                for centre in (0, 64)
+            },
+        })
+    assert [x["maximum_passing_affine_fee_per_block"] for x in stacked_endpoint] == [
+        {"0": None, "64": None},
+        {"0": None, "64": None},
+        {"0": (28, 29), "64": (8, 9)},
+        {"0": (62, 63), "64": (42, 43)},
+        {"0": (96, 97), "64": (76, 77)},
+    ]
+    # At d=6 the minimum local rank mass already exceeds the allowed mass;
+    # each further copy adds 224 paid units and removes 2W coverage units.
+    d6_excess = Q(base_mass + 224 * 6 + blocks * min_dirty_updates) - (Q(73 - 12) * families)
+    per_copy_excess = Q(224) + 2 * families
+    assert d6_excess == Q(208, 9) and per_copy_excess == Q(3808, 9) > 0
+
     # Positive control: the same highly optimistic rank-16 profile does pass
     # the repository's much smaller planning target a=1/99 with only one
     # unpaid coordinate when the centre is free.
@@ -349,11 +513,26 @@ def main() -> None:
             "moment_interval": [str(planning[0]), str(planning[1])],
             "below_one": planning[1] < 1,
         },
+        "tensorized_paired_plane_anchor_screen": {
+            "predecessor_support_fit": plane_decoder,
+            "payload_copy_to_unpaid_rule": "u=2d",
+            "base_mass_repacked_at_rank": 51,
+            "base_mass_before_endpoint_and_dirty_updates": base_mass,
+            "anchor_blocks": blocks,
+            "minimum_one_target_dirty_updates_per_block": min_dirty_updates,
+            "minimum_affine_fee_per_block_used": min_dirty_updates,
+            "d_1_through_5_target_moments": stacked_endpoint,
+            "d6_minimum_fee_mass_excess": str(d6_excess),
+            "mass_excess_growth_per_extra_copy": str(per_copy_excess),
+            "conclusion": "The tensorized pinned fit plus the seven-anchor map, with at least q-2 one-target dirty updates per block, misses a=1/9 for d=1..5; d>=6 exceeds the coverage mass even before other costs.",
+            "scope": "This excludes only the stated fit, additive anchor contract, and selected-profile relaxation. A different support fit, changed endpoint mask, or multi-target recursive child needs its own full charge and dirty-state proof.",
+        },
         "scope": [
             "A failure rejects only the stated selected-profile or seven-anchor budget models; it is not a barrier for other algorithms.",
             "The passing u=10 case places all 4,766 units of paid local rank mass into fractional rank-16 children and grants centre removal and a changed coverage law for free.",
             "No source alignment, full dirty endpoint, rank-16 decoder, restoration schedule, physical invoice, supplier transfer, or new kappa is constructed.",
             "The hypothetical 112-unit block fee prices affine additions only; all other interface charges are waived.",
+            "The new d-fold screen uses the pinned paired-plane support fit's port-space charge and the q-2 dirty-output update floor; it does not exclude changed masks or recursive children that update multiple dirty destinations under a different contract.",
         ],
     }
     (HERE / "RESULT.json").write_text(json.dumps(result, indent=2) + "\n")

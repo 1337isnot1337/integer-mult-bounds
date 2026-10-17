@@ -447,10 +447,213 @@
     ],
     "below_one": true
   },
+  "tensorized_paired_plane_anchor_screen": {
+    "predecessor_support_fit": {
+      "scalar_factor_count": 49,
+      "support_size_histogram": {
+        "1": 2,
+        "2": 31,
+        "3": 16
+      },
+      "port_space_copy_profile": {
+        "2": 2,
+        "4": 31,
+        "6": 16
+      },
+      "port_space_mass_per_payload_copy": 224,
+      "scope": "Pinned disjoint-support fit, priced by full port-space Gram ranks; not a lower bound on every decoder or a native schedule."
+    },
+    "payload_copy_to_unpaid_rule": "u=2d",
+    "base_mass_repacked_at_rank": 51,
+    "base_mass_before_endpoint_and_dirty_updates": 3982,
+    "anchor_blocks": 7,
+    "minimum_one_target_dirty_updates_per_block": 110,
+    "minimum_affine_fee_per_block_used": 110,
+    "d_1_through_5_target_moments": [
+      {
+        "payload_copies": 1,
+        "unpaid_coordinates": 2,
+        "minimum_dirty_updates_per_block": 110,
+        "at_minimum_affine_fee": {
+          "0": {
+            "unpaid_coordinates": 2,
+            "centre_mass_per_call": 0,
+            "moment_interval_at_a_1_over_9": [
+              "62660255440094272239401714095862532199079860773608618652163195874189099204391/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+              "125320510880188544478803428191725064398159721547217237304326391748378198408819/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+            ],
+            "moment_approx": "1.082289055372",
+            "below_one": false
+          },
+          "64": {
+            "unpaid_coordinates": 2,
+            "centre_mass_per_call": 64,
+            "moment_interval_at_a_1_over_9": [
+              "126624166992095007254153517696958624746758615026232628224155127456303652022417/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "63312083496047503627076758848479312373379307513116314112077563728151826011227/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+            ],
+            "moment_approx": "1.093547649292",
+            "below_one": false
+          }
+        },
+        "maximum_passing_affine_fee_per_block": {
+          "0": null,
+          "64": null
+        }
+      },
+      {
+        "payload_copies": 2,
+        "unpaid_coordinates": 4,
+        "minimum_dirty_updates_per_block": 110,
+        "at_minimum_affine_fee": {
+          "0": {
+            "unpaid_coordinates": 4,
+            "centre_mass_per_call": 0,
+            "moment_interval_at_a_1_over_9": [
+              "30786808946538878778882432014492160025924816298651980069965375464230836622065/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+              "123147235786155515115529728057968640103699265194607920279861501856923346488295/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+            ],
+            "moment_approx": "1.063520285343",
+            "below_one": false
+          },
+          "64": {
+            "unpaid_coordinates": 4,
+            "centre_mass_per_call": 64,
+            "moment_interval_at_a_1_over_9": [
+              "124450891898061977890879817563202200452298158673623311199690237564848800101895/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "62225445949030988945439908781601100226149079336811655599845118782424400050965/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+            ],
+            "moment_approx": "1.074778879264",
+            "below_one": false
+          }
+        },
+        "maximum_passing_affine_fee_per_block": {
+          "0": null,
+          "64": null
+        }
+      },
+      {
+        "payload_copies": 3,
+        "unpaid_coordinates": 6,
+        "minimum_dirty_updates_per_block": 110,
+        "at_minimum_affine_fee": {
+          "0": {
+            "unpaid_coordinates": 6,
+            "centre_mass_per_call": 0,
+            "moment_interval_at_a_1_over_9": [
+              "120973960692122485752256027924212215809238808841998603255396611965468494567737/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "30243490173030621438064006981053053952309702210499650813849152991367123641943/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+            ],
+            "moment_approx": "1.044751515315",
+            "below_one": false
+          },
+          "64": {
+            "unpaid_coordinates": 6,
+            "centre_mass_per_call": 64,
+            "moment_interval_at_a_1_over_9": [
+              "30569404201007237131901529357361444039459425580253498543806336918348487045343/28948022309329048855892746252171976963317496166410141009864396001978282409984",
+              "122277616804028948527606117429445776157837702321013994175225347673393948181407/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+            ],
+            "moment_approx": "1.056010109235",
+            "below_one": false
+          }
+        },
+        "maximum_passing_affine_fee_per_block": {
+          "0": [
+            28,
+            29
+          ],
+          "64": [
+            8,
+            9
+          ]
+        }
+      },
+      {
+        "payload_copies": 4,
+        "unpaid_coordinates": 8,
+        "minimum_dirty_updates_per_block": 110,
+        "at_minimum_affine_fee": {
+          "0": {
+            "unpaid_coordinates": 8,
+            "centre_mass_per_call": 0,
+            "moment_interval_at_a_1_over_9": [
+              "59400342799044728194491163895227895757389176244694643115465861037006821323607/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+              "7425042849880591024311395486903486969673647030586830389433232629625852665453/7237005577332262213973186563042994240829374041602535252466099000494570602496"
+            ],
+            "moment_approx": "1.025982745286",
+            "below_one": false
+          },
+          "64": {
+            "unpaid_coordinates": 8,
+            "centre_mass_per_call": 64,
+            "moment_interval_at_a_1_over_9": [
+              "120104341709995919164332417295689351863377245968404677150760457781939096260849/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "120104341709995919164332417295689351863377245968404677150760457781939096260883/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+            ],
+            "moment_approx": "1.037241339206",
+            "below_one": false
+          }
+        },
+        "maximum_passing_affine_fee_per_block": {
+          "0": [
+            62,
+            63
+          ],
+          "64": [
+            42,
+            43
+          ]
+        }
+      },
+      {
+        "payload_copies": 5,
+        "unpaid_coordinates": 10,
+        "minimum_dirty_updates_per_block": 110,
+        "at_minimum_affine_fee": {
+          "0": {
+            "unpaid_coordinates": 10,
+            "centre_mass_per_call": 0,
+            "moment_interval_at_a_1_over_9": [
+              "116627410504056427025708627656699367220317896136779969206466832182558790726691/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+              "29156852626014106756427156914174841805079474034194992301616708045639697681681/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+            ],
+            "moment_approx": "1.007213975257",
+            "below_one": false
+          },
+          "64": {
+            "unpaid_coordinates": 10,
+            "centre_mass_per_call": 64,
+            "moment_interval_at_a_1_over_9": [
+              "58965533307981444900529358580966463784458394807897680063147783945242122170163/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+              "14741383326995361225132339645241615946114598701974420015786945986310530542545/14474011154664524427946373126085988481658748083205070504932198000989141204992"
+            ],
+            "moment_approx": "1.018472569178",
+            "below_one": false
+          }
+        },
+        "maximum_passing_affine_fee_per_block": {
+          "0": [
+            96,
+            97
+          ],
+          "64": [
+            76,
+            77
+          ]
+        }
+      }
+    ],
+    "d6_minimum_fee_mass_excess": "208/9",
+    "mass_excess_growth_per_extra_copy": "3808/9",
+    "conclusion": "The tensorized pinned fit plus the seven-anchor map, with at least q-2 one-target dirty updates per block, misses a=1/9 for d=1..5; d>=6 exceeds the coverage mass even before other costs.",
+    "scope": "This excludes only the stated fit, additive anchor contract, and selected-profile relaxation. A different support fit, changed endpoint mask, or multi-target recursive child needs its own full charge and dirty-state proof."
+  },
   "scope": [
     "A failure rejects only the stated selected-profile or seven-anchor budget models; it is not a barrier for other algorithms.",
     "The passing u=10 case places all 4,766 units of paid local rank mass into fractional rank-16 children and grants centre removal and a changed coverage law for free.",
     "No source alignment, full dirty endpoint, rank-16 decoder, restoration schedule, physical invoice, supplier transfer, or new kappa is constructed.",
-    "The hypothetical 112-unit block fee prices affine additions only; all other interface charges are waived."
+    "The hypothetical 112-unit block fee prices affine additions only; all other interface charges are waived.",
+    "The new d-fold screen uses the pinned paired-plane support fit's port-space charge and the q-2 dirty-output update floor; it does not exclude changed masks or recursive children that update multiple dirty destinations under a different contract."
   ]
 }

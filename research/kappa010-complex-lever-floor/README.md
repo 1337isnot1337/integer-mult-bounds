@@ -45,11 +45,29 @@ The target also leaves little room for a complete anchor invoice. With all 4,766
 
 This gives a concrete target-scale requirement for this bundle: even after granting all its local and consumer costs for free, it needs **ten unpaid coordinates per live family** if the centre is actually removed, or eleven if the centre charge remains. The existing selected contract has one. The local anchor result does not realize any replacement coverage identity, and fractional rank-16 repacking is not a decoder.
 
+## Tensorized paired-plane endpoint: additive composition still misses
+
+I checked a more aggressive escape using the exact [block-valued paired-plane endpoint](../paired-plane-block-rank/README.md) and its [49-support scalar fit](../paired-plane-minrank-bracket-audit/README.md). The fixed fit partitions the 112 ports into supports of sizes `{1: 2, 2: 31, 3: 16}`. Under the full port-space charge used by PR2203, a support of size `s` touches `s` mutually orthogonal nondegenerate planes and costs rank `2s`. Its exact copy profile is therefore `{2: 2, 4: 31, 6: 16}`, with mass **224 per payload copy**. Tensoring the fit by `d` copies gives unpaid count `u=2d` and multiplies this profile by `d`; the all-size block-rank receipt confirms the fixed mask has normalized query rank `49d`.
+
+Now combine those `d` copies with the seven-anchor profile. After replacing seven groups of 332 rank-one children by 112 children, the non-centre base mass is 3,982. I grant the strongest allowed idle/consumer relaxation by placing all of it at rank 51, and charge only the unavoidable dirty-output affine updates: each of the 110 arbitrary dirty destinations must receive a nonzero product-dependent correction, and one `ADD` changes one destination, so every 112-output block needs at least `q−2 = 110` additions. This is more favorable than the anchor's actual 112-add schedule. If the centre remains, its eight rank-8 children are restored to the profile along with its 64-unit charge.
+
+| Payload copies `d` | Unpaid `u=2d` | Target moment at the minimum 110 additions, centre-free / retained | Maximum affordable additions per block, centre-free / retained |
+|---:|---:|---:|---:|
+| 1 | 2 | 1.082289 / 1.093548 | none; it fails with zero additions |
+| 2 | 4 | 1.063520 / 1.074779 | none; it fails with zero additions |
+| 3 | 6 | 1.044752 / 1.056010 | 28 / 8 |
+| 4 | 8 | 1.025983 / 1.037241 | 62 / 42 |
+| 5 | 10 | 1.007214 / 1.018473 | 96 / 76 |
+
+The entries are certified outward-rational intervals; decimals are only for reading. Thus every `d≤5` fails even after allowing all remaining mass to use rank-51 children and reducing the anchor to its 110-update lower bound. For `d≥6`, the same minimum invoice already exceeds the coverage mass: at `d=6` it is over by exactly `208/9`, and each extra copy increases the excess by `3808/9`. Keeping the centre adds its charge and children equally on the two sides of this mass comparison, so it does not repair the excess.
+
+This closes only the **tensorized paired-plane fit plus additive seven-anchor map** under the selected coverage law and the one-target `ADD` contract. It does not price a changed support mask or a recursive child that jointly updates multiple dirty destinations. Such a child would have to reduce the 110-update floor by at least 14 (centre-free) or 34 (centre-retained) in the best `d=5` row, while also supplying the endpoint identity and full source/restoration contract. The fitted matrix alone does not do that. No supplier or κ improvement is claimed.
+
 ## Scope and next step
 
 The result rejects only the fixed selected profile and the stated seven-anchor/centre-free/rank-16 relaxation. It is not a theorem about other local words, suppliers, recursion widths or multiplication algorithms. It also does not independently reprove the predecessor anchor's local bilinear map.
 
-The next decisive experiment is a complete dirty-input endpoint with enough named live families to establish at least ten unpaid coordinates after source delivery and restoration. If that endpoint exists, its exact rank-16 consumer and all source, frame, routing, precision and cleanup charges must fit while preserving the budget slack. The most relevant blockers are the absence of a source-bound set of seven anchor locations and of a rank-16 consumer at the selected provider boundary. Until one complete endpoint clears those obligations, further lowering or anchor searches are not justified by this screen.
+The next decisive experiment must change the endpoint or the recursive consumer together: the additive d-fold plane decoder cannot fit beside even the minimum dirty-output updates, while d≥6 also violates the paid-mass envelope. A bounded follow-up should start with one complete dirty-input block whose child output writes more than one dirty destination, then price that changed contract against the d=5 target row. The blocker is that no such multi-target recursive child or selected-provider placement is currently source-bound. Further searches over the same scalar support fit or anchor schedule cannot change this decision.
 
 ## Reproduction
 
@@ -61,11 +79,11 @@ python3 scripts/research_package.py --package research/kappa010-complex-lever-fl
 python3.12 scripts/research_package.py --package research/kappa010-complex-lever-floor
 ```
 
-The verifier binds the selected record, current local ceiling model, and two-output-anchor result in [SOURCES.json](SOURCES.json). It checks the exact `a=1/9` interval boundaries `u=23/24`, `u=9/10` and `u=10/11`, the rank/unpaid and fee frontiers, plus the lower `a=1/99` positive control.
+The verifier binds the selected record, current local ceiling model, two-output-anchor result, and paired-plane fit receipts in [SOURCES.json](SOURCES.json). It checks the exact `a=1/9` interval boundaries `u=23/24`, `u=9/10` and `u=10/11`, the rank/unpaid and fee frontiers, the 49-support full port-space profile, every tensor multiplicity `d=1..5` at its minimum dirty-update count, the `d≥6` mass excess, and the lower `a=1/99` positive control.
 
 ## Predecessors and credit
 
-This is a target refinement of the `coverage-law-change` question, motivated by the donor-set target κ > 0.1. The local two-output temporary-sum map and its seven-block hypothesis are Cinna / commdata2338's [two-output anchor](../complex-two-output-sum-anchor-seed65ce19/README.md); retain its predecessor attributions. The interval ceiling and selected profile are credited in [complex-local-word-ceiling](../complex-local-word-ceiling/README.md). This package adds only the target-0.1 combined-lever evaluation. Prepared by Codex with substantial OpenAI assistance; no independent human review is claimed. New work is Apache-2.0.
+This is a target refinement of the `coverage-law-change` question, motivated by the donor-set target κ > 0.1. The local two-output temporary-sum map and its seven-block hypothesis are Cinna / commdata2338's [two-output anchor](../complex-two-output-sum-anchor-seed65ce19/README.md); retain its predecessor attributions. The paired-plane construction retains the credits in its own README, including thakrarsagar's 49-support fit, ywz65's block-rank extension, Adam Gall's strict mask, and the PR1825 matching and PR2203 native payload accounting. The interval ceiling and selected profile are credited in [complex-local-word-ceiling](../complex-local-word-ceiling/README.md). This package adds only target-specific combined-lever budgets. Prepared by Codex with substantial OpenAI assistance; no independent human review is claimed. New work is Apache-2.0.
 
 A fresh overlap refresh on 2026-10-17 covered 259 open PRs and 1,866 discussions (complete pagination). Open PR #3093 checks two fixed local profiles (#2979 and #3042) at the same target. This package instead evaluates the selected profile, the pinned five-plane profile and the seven-anchor/centre/rank-16 relaxation, including exact unpaid-coordinate and per-block-fee boundaries; the scopes are complementary. Local matches include the earlier `kappa01-complex-target-screen`, the P112 five-plane decoder and prior coverage-law packages, so novelty is not claimed. Relevant PRs #3064 and #3097 and Discussions #1163, #1166, #1167 and #2838 were also checked. Canonical main was refreshed at `18aacb215fc3717b06be8ceb9fca62aeca0d3e99` (priority revision 6); the selected record and quantitative predecessor receipts are unchanged.
 

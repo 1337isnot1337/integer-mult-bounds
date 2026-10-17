@@ -45,33 +45,27 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "At the donor-set target κ > 0.1, determine the exact unpaid-coordinate boundary for the strongest already explored complex-side lever bundle: seven two-output anchors, centre removal, and rank-16 repacking.",
-  "scope_change_reason": "The user raised the target to κ > 0.1. The exact rank-cap screen showed that the current one-unpaid coverage law cannot reach it under the selected envelopes. This follow-up evaluates the concrete anchor/centre/rank-16 combination at a=1/9 and identifies the additional coverage change it would require.",
+  "actual_scope": "At the donor-set target κ > 0.1, test whether a tensorized block-valued paired-plane endpoint can combine with seven two-output anchors under the selected complex budget and the dirty-output contract.",
+  "scope_change_reason": "The first target screen showed that one unpaid coordinate and the selected local profile are far below κ=0.1. The exact block-rank receipt offers a distinct vector-valued endpoint, so this bounded continuation tensorizes its pinned rank-49 fit, reprices every support under the full port-space tariff, and checks the complete d-fold profile against the anchor's mandatory dirty-output updates.",
   "bottleneck_link": "The complex supplier binds the selected κ. At κ=0.1 the primitive moment must be below one at a=1/9; the exact interval screen computes how much unpaid coverage is needed even after optimistic local repacking and centre deletion.",
   "budget_minutes": 60,
-  "stop_rule": "Stop after certifying the exact a=1/9 boundary for the fixed selected profile and the seven-anchor/centre-free/rank-16 bundle. Do not expand into another anchor or decoder search until one complete dirty endpoint can realize the required ten unpaid coordinates with a priced consumer and source chronology.",
+  "stop_rule": "Stop after checking every integer tensor multiplicity d against the exact target moment and mass capacity under the minimum one-target dirty-update count. Do not search more supports or anchor schedules unless a changed recursive-child contract can reduce that update charge and comes with a complete dirty-state example and source-bound placement.",
   "outcome": "partial",
-  "evidence": "The certified outward-rational moment engine gives 1.151904798395 for the selected profile at its largest feasible centre-free unpaid count u=17, so the unchanged local word cannot be rescued by coverage changes alone. For seven hypothetical q=112 anchors, charging 112 rank-one-equivalent units per block, deleting the centre and repacking all 4,766 remaining rank mass into fractional rank-16 children, the exact target boundary is u=9 failing (moment 1.006167823580) and u=10 passing (0.991912305880). Retaining the 64-unit centre charge shifts the boundary to u=11. At u=4, the local uniform child rank must be at least 42 centre-free or 47 with the centre charge retained, while idle remainder stays at the rank-51 cap. At u=10 centre-free, total block fee e=170 passes and e=171 fails, leaving 58 units beyond the 112 affine additions. The pinned five-plane u=5 profile has local-terms-only moment 1.165241830803 at a=1/9, so coverage changes alone cannot rescue that fixed profile; rank-16 repacking still needs u=11 centre-free or u=12 with centre. No complete endpoint, high-rank decoder, source alignment, physical cost or supplier is constructed.",
+  "evidence": "The prior exact screens remain: the selected local word has moment 1.151904798395 at its largest feasible centre-free unpaid count u=17; the seven-anchor/centre-free/rank-16 relaxation first passes at u=10, and retaining the centre shifts that boundary to u=11. This continuation reconstructs the pinned 49-support paired-plane fit and finds its full port-space copy profile {2:2,4:31,6:16}, mass 224 per payload copy. For d tensor copies (u=2d), the most favorable seven-anchor base mass is repacked at rank 51 and each 112-output block is charged only the necessary q-2=110 dirty-target additions. At d=1..5, exact target moments remain above one (best case d=5: 1.007213975257 without centre, 1.018472569178 with centre); the fee frontiers are only 96 and 76 per block. At d=6, the minimum local mass exceeds the coverage capacity by 208/9, and each extra copy worsens that gap by 3808/9. Thus this fixed tensorized decoder plus additive anchor contract cannot reach a=1/9. No multi-target recursive child, fused endpoint, source alignment, physical supplier or κ improvement is constructed.",
   "author": "Codex with OpenAI assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance for scope refinement, exact interval calculation, verifier implementation and report writing.",
   "open_questions": [
     {
-      "question": "Can a complete dirty-input endpoint leave ten coordinates unpaid per live family?",
-      "why_it_matters": "Ten is the first passing boundary even after granting centre removal and fractional rank-16 repacking.",
-      "first_step": "Bind one named candidate block to a selected-provider trace and prove coefficient delivery, entry/exit state and restoration.",
-      "blocked_by": "No source-bound locations or replacement coverage identity are available."
+      "question": "Can a changed recursive child update multiple dirty output destinations and beat the one-ADD-per-destination floor?",
+      "why_it_matters": "The best additive d=5 endpoint still needs at least 14 fewer rank-one-equivalent updates per block centre-free, or 34 fewer with the centre retained, before any other unknown costs.",
+      "first_step": "Give a complete q=3 dirty-input map with its child outputs, output writes, and exact restoration; then derive how the same contract scales to q=112.",
+      "blocked_by": "No selected-provider child with a multi-destination dirty-output contract or source-bound seven-anchor placement is available."
     },
     {
-      "question": "Can the selected provider supply a rank-16 consumer for the remaining 4,766 local rank mass?",
-      "why_it_matters": "The fractional rank-16 relaxation is what reduces the target requirement from 24 unpaid coordinates to ten.",
-      "first_step": "Exhibit an exact local decoder and trace its frames and calls through one complete selected-word boundary.",
-      "blocked_by": "The two-output anchor package has no selected-provider rank-16 consumer."
-    },
-    {
-      "question": "Can seven anchors be placed within the target budget e<=170 per block?",
-      "why_it_matters": "The 112 affine additions leave only 58 rank-one-equivalent units for every other interface cost.",
-      "first_step": "Find one source-bound occurrence with the required clean outputs and price acquisition, routing, frames and cleanup.",
-      "blocked_by": "No selected trace alignment has been established."
+      "question": "Can a different endpoint mask lower the full port-space charge per unpaid dimension?",
+      "why_it_matters": "The pinned paired-plane support fit costs 224 per payload copy, while the fixed tensorized construction misses the target after the mandatory anchor updates.",
+      "first_step": "Specify a changed directed zero mask and compute one exact fitting factorization plus its full group-space charge before screening a larger cover.",
+      "blocked_by": "The rank-49d theorem and charge profile apply only to the fixed selected matching and strict plane mask."
     }
   ],
   "upstream_checkpoint": {

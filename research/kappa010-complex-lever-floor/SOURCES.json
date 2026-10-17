@@ -49,6 +49,24 @@
       "usage": "input",
       "git_blob": "c24daf067f9c543421d89ca2eeaa4eb78a57fb6f",
       "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
+    },
+    {
+      "path": "research/paired-plane-minrank-bracket-audit/CERTIFICATE.json",
+      "usage": "input",
+      "git_blob": "393db5def16d76b3a0ebddc983c9bab6c3cc25fc",
+      "sha256": "6f5d3478290156c4fe703104572cc3aa593ad50079476ae08c942833714e3179"
+    },
+    {
+      "path": "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json",
+      "usage": "input",
+      "git_blob": "7ca668d7d50c7276e89b0f6f9575e1b9f1ad9ef6",
+      "sha256": "4fd648f7b5178bff5441bf364d58234b7bc1a43b924bc6da03013c948f1473b1"
+    },
+    {
+      "path": "research/paired-plane-block-rank/RESULT.json",
+      "usage": "input",
+      "git_blob": "2b137330e7edbbbe7bc07843a2708791b731add7",
+      "sha256": "8b78968378d7ed824ac2418fe40b36db04d9522c117349778655191b4ee10d6d"
     }
   ]
 }
