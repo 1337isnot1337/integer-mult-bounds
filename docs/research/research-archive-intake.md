@@ -151,3 +151,7 @@ The [exact-head delta](pr-intake-evidence/queue-tail-20261017.json) covers two c
 ## Delta intake through PR3297
 
 The [exact-head delta](pr-intake-evidence/queue-refresh-20261017.json) covers 100 heads: 97 research archives (one historical version and three separately reviewed manual workflows), and three explicit operator-correctness holds. No contribution verifier or full supplier replay was executed. Exact source identities, contributor credit and open scientific obligations are recorded in the ledger.
+
+## Delta intake through PR3330
+
+The [exact-head delta](pr-intake-evidence/queue-remainder-20261017.json) covers 33 heads:31 research archives, the reviewed opt-in source-history preflight, and a reviewed P104 navigation update. Scientific replay and frontier admission remain separate. Focused tooling checks are recorded in the [test receipts](pr-intake-evidence/queue-remainder-20261017-checks.txt).

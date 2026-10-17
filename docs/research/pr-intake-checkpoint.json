@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "First100 new heads prepared:97 source archives,3 holds (3198,3200,3251) tied to operator objections. Verify publication, then process remaining33 new heads with delta intake. No scientific/Lean/Docker execution. Three reviewed manual-only workflows not dispatched.",
+  "next": "97 source archives confirmed merged;33-head remainder prepared (31 archives, one source-history preflight, one P104 navigation update). Verify GitHub publication receipts and refresh queue. Three kappa claims3198/3200/3251 held for physical-operator objections.47 focused tests passed. No scientific/Lean/Docker replay or workflow dispatch; publication skips CI.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,9 +1011,8 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "source_publication_commit": "87866a06e67dcb98eaf78fc380a357a6641cd0ee",
-    "merged": [],
-    "prepared": [
+    "source_publication_commit": "22382d9c0a6e152ea9b9944f00144f357824354e",
+    "merged": [
       3199,
       3201,
       3202,
@@ -1112,10 +1111,46 @@
       3296,
       3297
     ],
-    "archive_count": 97,
-    "reviewed_tooling_count": 0,
+    "prepared": [
+      3298,
+      3299,
+      3300,
+      3301,
+      3302,
+      3303,
+      3304,
+      3305,
+      3306,
+      3307,
+      3308,
+      3309,
+      3310,
+      3311,
+      3312,
+      3313,
+      3314,
+      3315,
+      3316,
+      3317,
+      3318,
+      3319,
+      3320,
+      3321,
+      3322,
+      3323,
+      3324,
+      3325,
+      3326,
+      3327,
+      3328,
+      3329,
+      3330
+    ],
+    "archive_count": 128,
+    "reviewed_tooling_count": 2,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-refresh-20261017.json"
+      "docs/research/pr-intake-evidence/queue-refresh-20261017.json",
+      "docs/research/pr-intake-evidence/queue-remainder-20261017.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1129,6 +1164,33 @@
         2691
       ],
       "scope": "Contributor reports a parity-budget defect in earlier word-census engines. This intake archives the correction but does not independently validate it. Review before relying on the earlier exclusions."
+    },
+    {
+      "source_pr": 3214,
+      "affected_prs": [
+        3182
+      ],
+      "scope": "Source-bound audit reports premature output-loop exit and mismatched secondary-cycle encoding. PR3252 gives a repaired support implication and PR3259 separately audits the pooled cut; all are source archives pending independent scientific validation.",
+      "source_head": "faa6323371db1c5fbb43ab04c6e00715d2328bc6"
+    },
+    {
+      "source_pr": 3291,
+      "affected_prs": [
+        3147
+      ],
+      "scope": "Reports a concrete triangle-count counterexample and proposes a corrected fifteen-owner floor. Existing PR3147 hold is not discharged by this independent submission; correction and complete review remain required.",
+      "source_head": "5d027c3c8724aec4501e0e2876388bebefa00ef7"
+    },
+    {
+      "source_pr": 3296,
+      "affected_prs": [
+        3190,
+        3198,
+        3200,
+        3251
+      ],
+      "scope": "Reports literal hosted-remainder operator counterexamples. PR3311 contributes a separate source-bound reconstruction. No new kappa admitted; candidate repair required.",
+      "source_head": "6f78fe217ed63ef84096d53ed3651b38bab81e15"
     }
   ],
   "latest_queue": {
