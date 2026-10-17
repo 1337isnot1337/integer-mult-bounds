@@ -65,16 +65,25 @@
   "freshness": {
     "upstream_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
     "priority_revision": 6,
-    "checked_at_utc": "2026-10-17T22:32:00Z",
+    "checked_at_utc": "2026-10-17T22:42:13Z",
     "selected_record_sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129",
-    "decision": "Continue this bounded import-boundary repair; guidance and inputs unchanged at task-narrowing checkpoint. Frozen predecessor and selected inputs remain unchanged.",
+    "decision": "Continue and submit the saved result. Canonical main remained 6f100d4bb, priority revision 6; guidance, selected record and relevant runtime/test sources were unchanged. No new competing bytecode/descendant claim was found. Scientific sources remain pinned to the entry commit.",
     "overlap": {
-      "open_prs": 257,
-      "discussion_records": 2181,
-      "local_records": 3738,
-      "complete_remote_pagination": true,
-      "checked_at_utc": "2026-10-17T22:29:30.907242+00:00",
-      "limitations": "No arbitrary diffs or unpublished work; closed PRs covered only through local notes and ledger."
+      "coverage": {
+        "open_prs": {
+          "fetched_at": "2026-10-17T22:42:05.764210+00:00",
+          "complete_pagination": true,
+          "records": 261
+        },
+        "discussions": {
+          "fetched_at": "2026-10-17T22:42:46.271519+00:00",
+          "complete_pagination": true,
+          "records": 2191
+        }
+      },
+      "local_records": 3740,
+      "warnings": [],
+      "limitations": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."
     }
   },
   "verification": {
@@ -84,7 +93,7 @@
       "Python 3.12.14",
       "Python 3.14.7"
     ],
-    "registered_replay": "PASS on CPython 3.12.14 (primary differential and eleven regression groups; eight registered-interpreter groups added and checked separately before final replay).",
+    "registered_replay": "PASS on CPython 3.12.14: sixteen-run differential, eleven bytecode groups and eight retained registered-interpreter groups.",
     "direct_cli_matrix": "11/11 groups pass on CPython 3.11.15, 3.12.14 and 3.14.7 with optimized 3.14 parent and -W error.",
     "isolated_suite": "48 collected, 34 passed, 14 preexisting platform skips on macOS. The final eleven-group file was rerun after strengthening the no-write observer.",
     "actual_runner_integration": {
@@ -106,12 +115,25 @@
         "baseline_failure": "Unrecognized live source update: scripts/run_isolated_tests.py"
       }
     ],
-    "historical_suite": "Before publication, 27 collected; two tests fail on stale allowlists. Original canonical main rejects both the unchanged CI document and its own deadline-enabled runner too. Own successor runner digest admitted; final committed-head check pending.",
+    "historical_suite": "Final scientific-commit run: 27 collected, 25 passed; test_live_guards_also_admit_the_actual_committed_source_bytes fails and test_real_snapshots_match_unchanged_predecessor_pins errors, both solely on unchanged docs/ci-verification.md. Its exact baseline failure was reproduced using the original canonical-main checker, live document and manifest. Own committed successor runner hash passes. No unrelated allowlist change made.",
     "limitations": [
       "No independent human or subagent review.",
       "No native Windows/Linux runtime or hosted-CI success claimed.",
       "No repository-wide suite or selected cold replay.",
       "Environment-ignoring/overriding descendants remain out of scope."
+    ],
+    "optimized_differential": "The complete sixteen-run differential matches RESULT.json under both optimized CPython 3.12.14 and optimized CPython 3.14.7, with -W error, -I and -B.",
+    "publication_preflight": "PASS_RESEARCH_COMMIT_BYTES at scientific commit 2824fc68ffe792a3d8060f4acaea88f1fc123df4: all 13 package/dependency files match committed bytes; sole source commit 6f100d4bb5083f8c35d96fd95a539811c62f245c is publication ancestry.",
+    "commands": [
+      "python3.12 -B scripts/research_package.py --package research/isolated-descendant-bytecode",
+      "python3.12 -W error -B -m unittest discover -s tests -p test_isolated*.py -v",
+      "python3.12 -W error -B -m unittest discover -s tests -p test_historical_check.py -v",
+      "python3.12 -B scripts/research_package.py --package research/isolated-test-bytecode",
+      "python3.11 -W error -I -B tests/test_isolated_test_bytecode.py -v",
+      "python3.14 -W error -I -O -B tests/test_isolated_test_bytecode.py -v",
+      "python3.12 -W error -I -O -B research/isolated-descendant-bytecode/verify.py",
+      "python3.14 -W error -I -O -B research/isolated-descendant-bytecode/verify.py",
+      "python3.12 -B scripts/check_research_commit.py --package research/isolated-descendant-bytecode --check-source-history"
     ]
   },
   "session": {
@@ -119,6 +141,6 @@
     "requested_budget_minutes": 60,
     "loop_skills": "loop-budget, loop-triage and loop-verifier were not installed in the available skill roots. No loop skill was installed or scheduler enabled. Repository checkpoint and budget procedure used directly.",
     "applied_skill": "minimal-fix",
-    "next_phase": "Finalize verification and public handoff; preserve this bounded result, with no new research round."
+    "next_phase": "Publication and concise handoff only. One bounded result established; no additional research round or family expansion justified."
   }
 }
