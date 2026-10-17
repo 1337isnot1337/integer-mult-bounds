@@ -10,6 +10,16 @@
     {
       "argv": [
         "{python}",
+        "-O",
+        "-B",
+        "{package}/source_closure.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Every source pin is reachable from PR history; exact predecessor archive bytes; unavailable-head and archive-hash failure controls"
+    },
+    {
+      "argv": [
+        "{python}",
         "-B",
         "{package}/verify.py"
       ],

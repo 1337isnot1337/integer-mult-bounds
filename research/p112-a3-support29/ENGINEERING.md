@@ -11,8 +11,8 @@ the evidence: actual rational witness ranks, literal code identities,
 separate lattice/subset/frame algorithms and semantic rejection controls
 replace inference from a passing import. Prose was edited with unslop.
 
-Power of Ten inspection: traversals have finite input-derived bounds;
-no recursion or process spawning is used. Frame DFS visits at most
+Power of Ten inspection: mathematical traversals have finite input-derived
+bounds; no recursion or process spawning is used by those traversals. Frame DFS visits at most
 400,000 nodes, holds at most 1,000 pending nodes and returns 2,025 frames.
 Independent traversal has eight levels and at most 200,000 entries per level.
 RREF free bits are at most eighteen, labels are nine-bit, and binary spans
@@ -47,3 +47,28 @@ independently repeat six-flat capacity, full singleton closure or Weyl/chamber
 classification. Internal mathematical review corrected an initially omitted
 (8,4) puncture class. Internal code review tightened witness rank receipt
 fields. Neither review is independent human or proof-kernel review.
+
+## CI source-closure repair
+
+The source-distribution correction preserves all mathematical code, proof,
+original receipts and four exact predecessor files. Only replay metadata,
+source archives and a package-local source-closure guard are added or changed.
+The guard was run red against the original manifest after all foreign objects
+had been fetched locally; ordinary pin validation passed in that same warm
+repository. This distinguishes history closure from incidental object presence.
+
+The new guard uses at most 32 source rows and bounded, read-only Git subprocesses
+with ten-second timeouts. It checks commit ancestry and immutable blob hashes;
+its offline mode checks all four archived files plus the live geometry input.
+A missing-head control and a changed-archive-hash control must both fail.
+Exceptions remain active under optimization. There is no network fetch, new
+checkout, recursion or dynamic source execution in this guard.
+
+The existing managed-runtime allocation deviation applies to these bounded
+manifest/byte buffers. Revisit it if source count or file sizes become variable
+service inputs. The unchanged vendor Python file is a frozen provenance copy,
+not imported or rewritten by this repair. New-code diagnostics use Ruff and
+warning-as-error execution; generic subprocess trust-boundary findings are
+reviewed explicitly rather than suppressed. The Git executable is a trusted
+local prerequisite, and every subprocess has an explicit argument array with
+validated commit syntax and no shell.

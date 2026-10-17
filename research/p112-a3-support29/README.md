@@ -24,19 +24,42 @@ TMPDIR="$RUN/tmp" uv run --python 3.12 --no-project python -W error -B \
   scripts/research_package.py --package research/p112-a3-support29
 ```
 
-The registered replay runs the primary checker, separate checker and
-fourteen behavioral groups sequentially. It checks all 788,035 six-flats,
+The registered replay first checks source-history closure, then runs the
+primary checker, separate checker and fourteen behavioral groups sequentially. It checks all 788,035 six-flats,
 2,025 punctures, 17,472 eleven-label subsets and the literal boundary
 witness. Primary witness ranks are exact rational ranks; separate literal
 code identities and two modular rank checks corroborate them. Ten-label
 rank-five controls and mutations of witness/source are rejected.
 RESULT.json and INDEPENDENT.json preserve the exact receipts.
 
-For a Git-free export, retain this package and the pinned
-`research/p112-ten-piece-simplex/geometry.py`, then run `verify.py`,
-`independent.py` and `test_verify.py` directly. The registered launcher also
-needs Git history for provenance. `verify.py --output NEW_EXTERNAL_PATH`
-creates a new receipt and refuses to overwrite existing files.
+For a Git-free export, retain this entire package, including `vendor/`, and
+the pinned `research/p112-ten-piece-simplex/geometry.py`. Run
+`source_closure.py --export-only`, then `verify.py`, `independent.py` and
+`test_verify.py` directly. The registered launcher also needs this PR's Git
+history for provenance. `verify.py --output NEW_EXTERNAL_PATH` creates a
+new receipt and refuses to overwrite existing files.
+
+### CI source closure repair
+
+The original hosted replay stopped before mathematics because four provenance
+files were pinned at unrelated, unmerged PR heads. Those Git objects could
+exist in a contributor's shared local repository but be absent in CI, even
+with full-history checkout. Planning passed because it did not resolve the
+source blobs.
+
+`vendor/` now retains the exact four original files, with identical Git blob
+IDs and SHA256 hashes. SOURCES.json binds them to archive commit
+`f02c7f4e575b0ef9351899e8c88b8c626d60e9d5`, an ancestor of this repair, and
+retains every original pin and contributor head. No peer repair head or
+foreign object is needed. The original mathematical code, proof and receipts
+are unchanged.
+
+`source_closure.py` rejects any pin outside this PR's ancestry even when its
+objects happen to exist locally. It also verifies the exact archived/input
+bytes and exercises unavailable-head and changed-archive failure controls.
+The export-only mode checks archive/input bytes without Git; it does not
+claim to validate Git provenance. This guards the cold-source failure rather
+than weakening the existing metadata checks.
 
 ## Open next questions
 
