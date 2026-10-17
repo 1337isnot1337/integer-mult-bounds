@@ -226,7 +226,7 @@ def paired_plane_port_charge() -> dict:
         "support_size_histogram": {str(k // 2): n for k, n in sorted(profile.items())},
         "port_space_copy_profile": {str(k): n for k, n in sorted(profile.items())},
         "port_space_mass_per_payload_copy": 224,
-        "scope": "Pinned disjoint-support fit, priced by full port-space Gram ranks; not a lower bound on every decoder or a native schedule.",
+        "scope": "Pinned disjoint-support fit, priced by full port-space Gram ranks. These ranks are not established as recursive child ranks or native COPY costs; this conversion is conditional and not a lower bound on every decoder.",
     }
 
 
@@ -594,14 +594,15 @@ def main() -> None:
                 "decoder_linear_setup_cleanup_cost": "unknown; not in the anchor scalar invoice",
                 "interpretation": "ADDs are screened in the scalar compiler envelope; they are not automatically rank-one-equivalent child costs.",
             },
+            "recursive_rank_mapping_assumption": "For this conditional moment screen only, the 2s port-space Gram rank of a support of size s is inserted as a recursive child rank. The paired-plane fitting-rank theorem does not establish this native/profile mapping.",
             "d_1_through_7_zero_fee_target_moments": zero_fee_endpoint,
             "first_passing_d_centre_free": 3,
             "first_passing_d_centre_retained": 3,
             "d_1_through_5_if_charged_110_rank_one_equivalent_units_per_block": stacked_endpoint,
             "d8_zero_fee_mass_excess": str(d8_excess),
             "mass_excess_growth_per_extra_copy": str(per_copy_excess),
-            "conclusion": "Under the corrected separated-scalar model, the zero-rank-one-fee exponent relaxation first passes a=1/9 at d=3 (moment 0.984346 centre-free, 0.995605 with centre); d=1,2 fail and d=8 is mass-infeasible. This is only a relaxed profile result. The earlier d=1..5 failure used a hypothetical rank-one-equivalent ADD tariff and is retained as sensitivity, not as the selected scalar cost model.",
-            "scope": "The exact paired-plane factorization and dirty-output anchor are not composed into a selected-provider source block. Decoder linear setup/cleanup, frames, precision, tape, restoration and whole-supplier transfer remain unpriced; no new kappa is established.",
+            "conclusion": "With scalar ADDs separate and the 2s support port-space charge conditionally treated as recursive child rank, the relaxed a=1/9 moment first passes at d=3 (0.984346 centre-free, 0.995605 with centre); d=1,2 fail and d=8 is mass-infeasible. The 49d fitting-rank theorem does not establish this native/profile mapping. The earlier d=1..5 failure used a hypothetical rank-one-equivalent ADD tariff and is retained only as sensitivity.",
+            "scope": "The exact paired-plane fitting matrix and dirty-output anchor are not composed into a selected-provider source block. Port-space support charges are not proven recursive child ranks or native COPY costs; query preparation, payloads, wrappers, frames, precision, tape, restoration and whole-supplier transfer remain unpriced. No new kappa is established.",
         },
         "scope": [
             "A failure rejects only the stated selected-profile or seven-anchor budget models; it is not a barrier for other algorithms.",
@@ -609,7 +610,7 @@ def main() -> None:
             "No source alignment, full dirty endpoint, rank-16 decoder, restoration schedule, physical invoice, supplier transfer, or new kappa is constructed.",
             "The hypothetical 112-unit block fee prices affine additions only; all other interface charges are waived.",
             "The d-fold screen separates scalar ADD guard costs from the exponent rank profile; the rank-one-equivalent fee rows are tariff sensitivities only.",
-            "The d=3 moment pass uses a fractional rank-51 repacking of the remaining 3,982 rank mass and waives decoder linear setup/cleanup and source placement; it is not an implementation or kappa improvement.",
+            "The conditional d=3 moment pass uses a fractional rank-51 repacking of remaining mass and assumes the port-space support charge is a recursive child rank; it waives decoder payload implementation and source placement and is not an implementation or kappa improvement.",
             "The existing bit-side endpoint remains unchanged and still caps the selected complete construction far below 0.1.",
         ],
     }

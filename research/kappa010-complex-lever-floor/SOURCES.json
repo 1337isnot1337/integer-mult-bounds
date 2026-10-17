@@ -15,6 +15,12 @@
       "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0"
     },
     {
+      "path": "docs/research/paired-plane-contract-map.md",
+      "usage": "provenance",
+      "git_blob": "0f772c8f8618ef837f684e76960175d9bdc656ce",
+      "sha256": "defab882dd6f6ec10c5329059c6ed45d3afcc92d1a7ad6b753036d3d7411a229"
+    },
+    {
       "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
       "usage": "input",
       "git_blob": "c24daf067f9c543421d89ca2eeaa4eb78a57fb6f",
@@ -69,6 +75,12 @@
       "sha256": "68475b19da4a6f3af799425a12072391b481ede51c8b269684f238befdb04bbf"
     },
     {
+      "path": "research/paired-plane-block-rank/README.md",
+      "usage": "provenance",
+      "git_blob": "d0d06862952ba99c25a732ce9f43cee7f0f039cb",
+      "sha256": "0d9e5849dc7440738526c3020a669cc239254a8e16413e7df69108f9572fcf1e"
+    },
+    {
       "path": "research/paired-plane-block-rank/RESULT.json",
       "usage": "input",
       "git_blob": "2b137330e7edbbbe7bc07843a2708791b731add7",
@@ -79,6 +91,12 @@
       "usage": "input",
       "git_blob": "393db5def16d76b3a0ebddc983c9bab6c3cc25fc",
       "sha256": "6f5d3478290156c4fe703104572cc3aa593ad50079476ae08c942833714e3179"
+    },
+    {
+      "path": "research/paired-plane-minrank-bracket-audit/README.md",
+      "usage": "provenance",
+      "git_blob": "a3bdd766b456c63c8291421e859bede8a9d045c6",
+      "sha256": "72cde76019024794f1e1126d3961cb88655336deb9c901edb35817287df50fe0"
     },
     {
       "path": "research/paired-plane-scalar-mask-obstruction/PR1825-CERTIFICATE.json",

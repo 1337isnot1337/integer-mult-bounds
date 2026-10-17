@@ -45,13 +45,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "At the donor target \u03ba > 0.1, correct the scalar-versus-recursive-rank accounting for the tensorized paired-plane fitting endpoint combined with seven arbitrary-dirty anchors; screen each modeled tensor multiplicity against the exact complex moment and separately report the known scalar guard invoice.",
-  "scope_change_reason": "The previous negative screen charged the q\u22122 dirty-target ADD floor as rank-one-equivalent child mass. The pinned arbitrary-dirty anchor receipt charges its 224 ADDs per block separately in the scalar compiler envelope. Correcting this model changes d=3 from failure to an exact relaxed moment pass, so the earlier fixed-route rejection was too strong. Source placement and the full native decoder cost remain open.",
+  "actual_scope": "At the donor target \u03ba > 0.1, correct the scalar-versus-recursive-rank accounting for the tensorized paired-plane fitting endpoint combined with seven arbitrary-dirty anchors; screen all multiplicities under an explicitly conditional mapping from port-space Gram charge to recursive child rank, and separately report the known scalar guard invoice.",
+  "scope_change_reason": "The previous negative screen charged the q\u22122 dirty-target ADD floor as rank-one-equivalent child mass. The pinned arbitrary-dirty anchor receipt charges its 224 ADDs per block separately in the scalar compiler envelope. Correcting this changes d=3 from failure to a conditional exact moment pass. The algebraic fitting-rank theorem does not establish that its port-space charge is a native recursive child rank; source placement and the full decoder cost remain open.",
   "bottleneck_link": "The complex supplier binds the selected \u03ba. At \u03ba=0.1 the primitive moment must be below one at a=1/9; the exact interval screen computes how much unpaid coverage is needed even after optimistic local repacking and centre deletion.",
   "budget_minutes": 60,
   "stop_rule": "The corrected exact screen is complete for d=1..7, with d=8 mass-infeasible. Do not expand to more supports or anchor schedules until one complete d=3 block is bound to a selected-provider trace with its query/decoder operations, dirty inverse, frames, scalar guard and recursive-child bill. Treat a passing relaxed moment as an exploration lead only.",
   "outcome": "partial",
-  "evidence": "At a=1/9, exact outward-rational moments with scalar ADDs separate are d=1: 1.021884/1.033143, d=2: 1.003115/1.014374, d=3: 0.984346/0.995605, through d=7: 0.909271/0.920530 (centre-free/retained). d=8 exceeds mass capacity by 298/3. The arbitrary-dirty seven-anchor receipt separately budgets 1,568 unit ADD macros at 10,688,681,187,742 < 2^48. Decoder-native query preparation, placement and full supplier transfer are unknown. The unchanged bit primitive endpoint a=0.001733427039589844234749 converts to a complete \u03ba cap near 0.001730427469823603, still far below 0.1.",
+  "evidence": "At a=1/9, exact outward-rational moments with scalar ADDs separate are d=1: 1.021884/1.033143, d=2: 1.003115/1.014374, d=3: 0.984346/0.995605, through d=7: 0.909271/0.920530 (centre-free/retained). d=8 exceeds mass capacity by 298/3. The arbitrary-dirty seven-anchor receipt separately budgets 1,568 unit ADD macros at 10,688,681,187,742 < 2^48. Decoder-native query preparation, placement and full supplier transfer are unknown. The unchanged bit primitive endpoint a=0.001733427039589844234749 converts to a complete \u03ba cap near 0.001730427469823603, still far below 0.1. The 2s support port-space charges are inserted as recursive child ranks only as a conditional modelling step; the scalar/block fitting-rank theorem does not certify that transfer. The {2,4,6} profile is the full port-space support Gram charge, not an admitted recursive child profile; using it in the moment is conditional.",
   "author": "Codex with OpenAI assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance for scope refinement, exact interval calculation, verifier implementation and report writing.",
   "open_questions": [
@@ -63,9 +63,9 @@
     },
     {
       "question": "What is the complete scalar and native invoice for that block?",
-      "why_it_matters": "The known anchor ADD schedule fits the scalar guard, but omitted query setup, child wrappers and cleanup may invalidate the relaxed pass.",
-      "first_step": "Write the literal one-block operation schedule, including dirty-state restoration, then apply the existing scalar adapters and recursive ranks.",
-      "blocked_by": "The algebraic fitting certificate supplies no native schedule or provider placement."
+      "why_it_matters": "The known anchor ADD schedule fits the scalar guard, but the paired-plane support charge is not yet an admitted recursive-child profile and omitted query setup, payloads, wrappers and cleanup may invalidate the relaxed pass.",
+      "first_step": "Give an explicit native realization for one support, prove how its full port-space charge maps to recursive child ranks, and list the literal operations including dirty-state restoration.",
+      "blocked_by": "The algebraic fitting certificate supplies query dimension and a support partition, not a native schedule or child-profile mapping."
     },
     {
       "question": "What distinct bit-side mechanism could raise its endpoint above 0.1?",
@@ -77,7 +77,7 @@
   "upstream_checkpoint": {
     "commit": "18aacb215fc3717b06be8ceb9fca62aeca0d3e99",
     "priority_revision": 6,
-    "checked_utc": "2026-10-17T01:52:15Z",
-    "comparison": "Immediately before PR submission, fetched canonical origin/main; it remains exactly 18aacb215fc3717b06be8ceb9fca62aeca0d3e99. Priority revision 6, task catalogue, family status, selected record, and bottleneck guidance have no changes from the prior checkpoint."
+    "checked_utc": "2026-10-17T01:56:48Z",
+    "comparison": "Immediately before PR update, fetched canonical origin/main; it remains exactly 18aacb215fc3717b06be8ceb9fca62aeca0d3e99. Priority revision 6, task catalogue, family status, selected record, bottleneck guidance, and paired-plane contract map are unchanged from the prior checkpoint."
   }
 }

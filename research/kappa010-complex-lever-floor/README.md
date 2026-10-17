@@ -1,4 +1,4 @@
-# κ = 0.1 budget screens and a corrected paired-plane route
+# κ = 0.1 budget screens and conditional paired-plane sensitivity
 
 **Scoped budget screen; no κ improvement or supplier is claimed.** The selected conditional result remains κ = 0.001672660197076918. This checks what the already explored two-output anchor, centre removal, rank-16 repacking and a changed coverage law would need to accomplish at `κ=1/10`.
 
@@ -47,13 +47,13 @@ This gives a concrete target-scale requirement for this bundle: even after grant
 
 ## Tensorized paired-plane endpoint: separate scalar work from child rank
 
-The exact [block-valued paired-plane endpoint](../paired-plane-block-rank/README.md) and its [49-support fitting matrix](../paired-plane-minrank-bracket-audit/README.md) partition the 112 ports into supports of sizes `{1: 2, 2: 31, 3: 16}`. Under the full port-space charge used by PR2203, a support of size `s` costs rank `2s`; the per-copy child profile is `{2: 2, 4: 31, 6: 16}`, with mass **224**. Tensor multiplicity `d` gives profile mass `224d`; the proposed two-plane coverage rule is `u=2d`.
+The exact scalar fitting matrix in the [49-support certificate](../paired-plane-minrank-bracket-audit/README.md) partitions the 112 ports into supports of sizes `{1: 2, 2: 31, 3: 16}`. Its ordinary scalar rank is 49. Separately, charging each support by its full port-space Gram rank `2s` gives the profile `{2: 2, 4: 31, 6: 16}` and mass **224** per copy. The moment table below conditionally inserts those port-space charges as recursive child ranks; neither the scalar rank-49 theorem nor the all-size block-rank theorem establishes that native/profile mapping. Tensor multiplicity `d` gives modeled profile mass `224d`; `u=2d` is the proposed two-plane coverage rule, not a source-bound hosted identity.
 
 The previous screen treated the minimum `q−2=110` dirty-target `ADD`s per block as rank-one-equivalent fees inside the exponent moment. That was only a hypothetical tariff. The arbitrary-dirty anchor's source package explicitly charges its 224 scalar additions per block in the scalar compiler envelope separately. The corrected screen therefore keeps scalar `ADD`s out of the recursive child-rank profile and reports rank-one-equivalent fees only as sensitivity cases.
 
 Seven hypothetical q=112 dirty-output anchors replace 332 rank-one children by 112 per block. After deleting the centre path, the remaining mass is 3,982. I grant an optimistic consumer by fractionally repacking it at the maximum idle rank 51. The exact moment intervals at `a=1/9` then give:
 
-| Tensor copies `d` | Proposed unpaid `u=2d` | Centre-free moment | Moment with centre |
+| Tensor copies `d` | Proposed unpaid `u=2d` | Centre-free moment* | Moment with centre* |
 |---:|---:|---:|---:|
 | 1 | 2 | 1.021884 | 1.033143 |
 | 2 | 4 | 1.003115 | 1.014374 |
@@ -65,7 +65,9 @@ Seven hypothetical q=112 dirty-output anchors replace 332 rank-one children by 1
 
 The intervals are outward-rational and the decimals are for orientation. In this relaxation, `d=3` is the first moment pass even with the centre retained. The zero-fee mass capacity is feasible through `d=7`; `d=8` exceeds it by exactly `298/3`. This corrects the earlier fee-based rejection. It does **not** establish that the tensorized endpoint can be placed in the selected provider, or that the proposed `u=2d` coverage identity holds for a complete hosted call.
 
-The exact arbitrary-dirty anchor receipt also checks its known scalar invoice: seven blocks use 1,568 unit-addition macros, giving a conservative local primitive bound of **10,688,681,187,742**, below the strict `2^48` guard **281,474,976,710,656**. This covers the anchor schedule only. The paired-plane factorization's child implementation, operand preparation, frame paths, precision/tape effects, restoration, and complete source placement remain to be priced. As a sensitivity, if other interface charges were translated to rank-one-equivalent units, the passing `d=3` row has room for at most 28 per block without the centre or 8 with it; no such conversion is claimed for scalar `ADD`s.
+`*` These are exact moments of the **assumed** child-rank profile `{2:2d, 4:31d, 6:16d}` plus a fractional rank-51 repacking. They are not moments of an admitted native decoder.
+
+The exact arbitrary-dirty anchor receipt also checks its known scalar invoice: seven blocks use 1,568 unit-addition macros, giving a conservative local primitive bound of **10,688,681,187,742**, below the strict `2^48` guard **281,474,976,710,656**. This covers the anchor schedule only. The paired-plane factorization's native payloads, query preparation, child wrappers, frame paths, precision/tape effects, restoration, and complete source placement remain unpriced. As a sensitivity, if other interface charges were translated to rank-one-equivalent units, the modeled `d=3` row has room for at most 28 per block without the centre or 8 with it; no such conversion is claimed for scalar `ADD`s.
 
 The unchanged bit-side primitive endpoint is `a=0.001733427039589844234749`, which converts to a complete `κ` cap of about `0.001730427469823603`. Even if this complex-side relaxation were made real, the complete selected construction would still be capped far below `κ>0.1`. No new κ or supplier is claimed.
 
@@ -73,7 +75,7 @@ The unchanged bit-side primitive endpoint is `a=0.001733427039589844234749`, whi
 
 This is a corrected, optimistic moment screen for a fixed support fit, seven dirty-output anchor replacements, and a proposed two-unpaid-coordinate-per-copy law. The algebraic fitting matrix has exact source-bound premises, but the work here does not compose its 49-support channels with the selected supplier's chronological operand and frame trace. The rank-51 repacking also grants every remaining local mass unit its best permitted idle rank. Unknown costs remain unknown; they are not zero in a supplier claim.
 
-The next useful test is one complete source-bound block: bind its 112 input and dirty output coordinates to a selected-provider trace, state how the 49 support queries are produced and decoded, and account for every child payload, scalar operation, frame, inverse, precision effect, and caller transfer. A pass there would make the d=3 profile a meaningful construction target. Separately, the bit-side mechanism needs a distinct path capable of moving its endpoint from about `0.00173343` to above `0.1`; this complex-side result cannot do that work.
+The next useful test is one complete source-bound block: bind its 112 input and dirty output coordinates to a selected-provider trace, state how the 49 support queries are produced and decoded, prove how their port-space cost maps to recursive child ranks, and account for every child payload, scalar operation, frame, inverse, precision effect, and caller transfer. A pass there would make the d=3 model a meaningful construction target. Separately, the bit-side mechanism needs a distinct path capable of moving its endpoint from about `0.00173343` to above `0.1`; this complex-side screen cannot do that work.
 
 ## Reproduction
 
