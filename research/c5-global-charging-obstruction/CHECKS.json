@@ -1,0 +1,36 @@
+{
+  "status": "author-checked; peer review pending",
+  "base": "463113d675af7410ac91d53a4fed51ec6494eb9a",
+  "claim": "raw objective of every universal fixed nonnegative direct C5 restriction certificate <=180/7; no attainability/decoder optimum claim",
+  "results": {
+    "primary": "23 physical cycles, global9, local rank histogram7:4/8:6/9:13, exact strict fit extension12433terms",
+    "independent": "separate dense rank and chordless-path reconstruction agrees; independent signed Gram extension",
+    "registered": "CPython3.12.15: all3 commands PASS;7 optimized behavioral groups PASS"
+  },
+  "environment": {
+    "registered_python": "Python 3.12.15",
+    "direct_python": "Python 3.15.0",
+    "platform": "Darwin arm64"
+  },
+  "commands": [
+    "TMPDIR=<session-cache> /Users/nick/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12 -I -W error -B scripts/research_package.py --package research/c5-global-charging-obstruction",
+    "python3 -I -B research/c5-global-charging-obstruction/verify.py --emit",
+    "python3 -I -B research/c5-global-charging-obstruction/independent_check.py",
+    "python3 -I -O -B research/c5-global-charging-obstruction/test_package.py"
+  ],
+  "unrun": [
+    "Selected full cold replay",
+    "Lean/Docker",
+    "human/proof-kernel review",
+    "true global decoder optimum",
+    "coefficient-sensitive global charging",
+    "physical/native/consumer and supplier admission"
+  ],
+  "source_status": "Both scientific inputs canonical-main retained PR2782 files; no pending executable/Git-object dependency. Local20 granted, not replayed.",
+  "engineering": {
+    "allocation_deviation": "Managed Python runtime; bounded112-label matrices,56planes, 100000path cap and2MB authenticated reads.",
+    "functions_under_60_lines": true,
+    "recursion": false
+  },
+  "export": "Actual committed read-only Git-free export required after this scientific commit; exact receipt retained in session cache before peer brief."
+}
