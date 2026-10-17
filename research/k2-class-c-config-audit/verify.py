@@ -53,6 +53,33 @@ README_PAIRS = {
     "5555": 3.3e8,   # (5,5,5,5) a=5 b=5
 }
 
+# Published in Discussion #2954: "Covering configs: (6,5,5,4) covers 62 of the
+# 70 rows, (5,5,5,5) 27, (6,5,4,4) 40, (5,5,5,4) 23, (6,5,4,3) 16".
+#
+# These totals are the decisive evidence for WHAT THE COVER RELATION IS. They
+# are reproduced exactly by DOMINANCE CLOSURE (a config may serve any row its
+# listed config is dominated by), and NOT by literal CSV incidence. Treating the
+# relation as literal incidence understates 6554 badly (39, not 62) and yields
+# the wrong minimum cover.
+PUBLISHED_TOTALS = {
+    "6554": 62,
+    "5555": 27,
+    "6544": 40,
+    "5554": 23,
+    "6543": 16,
+}
+
+
+def dominates(a, b):
+    """True if config `a` is coordinatewise >= config `b` (both stored in
+    non-increasing dimension order), i.e. `a` can serve every row `b` can.
+
+    The published per-config totals pin this down: they are exactly the
+    dominance-closed row counts, so this is the help package's own cover
+    relation, recovered from its published numbers rather than assumed.
+    """
+    return all(x >= y for x, y in zip(parse_config(a), parse_config(b)))
+
 
 def parse_config(tok):
     """'6554' -> (6,5,5,4); raise on malformed input."""
@@ -69,6 +96,45 @@ def parse_config(tok):
 def config_cost(tok):
     """X = sum of g over the four flat dimensions."""
     return sum(G[d] for d in parse_config(tok))
+
+
+def relation_data(rows70):
+    """Return (all_configs, literal_counts, dominance_closed_counts).
+
+    `literal`  : a config serves exactly the rows that list it.
+    `closed`   : a config also serves the rows of any config it dominates.
+    """
+    uni = sorted({c for r in rows70 for c in r["configs"]})
+    literal = {c: {r["row_idx"] for r in rows70 if c in r["configs"]}
+               for c in uni}
+    closed = {}
+    for c in uni:
+        donors = [d for d in uni if dominates(c, d)]
+        closed[c] = {r["row_idx"] for r in rows70
+                     if any(d in r["configs"] for d in donors)}
+    return uni, literal, closed
+
+
+def dominance_checks(rows70):
+    """Pin the cover relation down from the published per-config totals.
+
+    Split out of main() so the rejecting controls exercise it too.
+    """
+    _, literal, closed = relation_data(rows70)
+    tot_ok, det = True, []
+    for c, want in sorted(PUBLISHED_TOTALS.items()):
+        tot_ok = tot_ok and len(closed[c]) == want
+        det.append("%s closed=%d literal=%d published=%d%s"
+                   % (c, len(closed[c]), len(literal[c]), want,
+                      "" if len(closed[c]) == want else "  <-- MISMATCH"))
+    return [
+        {"name": "dominance closure reproduces all 5 published per-config totals",
+         "ok": tot_ok, "detail": "; ".join(det)},
+        {"name": "literal incidence does NOT reproduce the published totals",
+         "ok": any(len(literal[c]) != want
+                   for c, want in PUBLISHED_TOTALS.items()),
+         "detail": "so literal incidence is the wrong cover relation"},
+    ]
 
 
 def load_rows(path):
@@ -176,9 +242,18 @@ def self_test(rows70, rows17):
             r["configs"] = ["5555", "6544"]
     mutants.append(("edit row 35 configs in rows17 only", rows70, m17))
 
+    # M5: target the decisive dominance check directly. Adding 6554 to one
+    #     more row moves its dominance-closed count off the published 62.
+    m = clone(rows70)
+    for r in m:
+        if r["row_idx"] == 3:
+            r["configs"] = sorted(set(r["configs"]) | {"6554"})
+    mutants.append(("add 6554 to row 3 (closed total 62 -> 63)", m, rows17))
+
     out = []
     for name, a, b in mutants:
         checks, _, _, _ = run_checks(a, b)
+        checks.extend(dominance_checks(a))
         failed = [c["name"] for c in checks if not c["ok"]]
         out.append({"mutant": name, "rejected": bool(failed),
                     "failed_checks": failed})
@@ -193,46 +268,64 @@ def main():
     rows17 = load_rows(os.path.join(HERE, "inputs", "rows17.csv"))
 
     checks, all_cfgs, cost, rrc_killed = run_checks(rows70, rows17)
+
+    def check(name, good, detail=""):
+        checks.append({"name": name, "ok": bool(good), "detail": detail})
+        return good
+
     surviving = {r["row_idx"] for r in rows70} - rrc_killed
 
     def ok(name):
         return next(c["ok"] for c in checks if c["name"] == name)
 
     # ---- E. minimal config set covering the 17 surviving rows ---------
+    # Two cover relations are computed and both reported:
+    #   literal   -- a config serves exactly the rows that list it;
+    #   dominance -- a config also serves rows of any config it dominates.
+    # PUBLISHED_TOTALS decides which one is the help package's relation.
+    checks.extend(dominance_checks(rows70))
     need = [r["row_idx"] for r in rows17]
     universe = sorted({c for r in rows17 for c in r["configs"]})
-    cover_of = {
-        c: {r["row_idx"] for r in rows17 if c in r["configs"]} for c in universe
-    }
+    all_universe, literal, closed = relation_data(rows70)
+
+    cover_of = {c: closed[c] for c in universe}
+    cover_of_lit = {c: literal[c] for c in universe}
     uncoverable = [i for i in need if not any(i in cover_of[c] for c in universe)]
 
-    def min_cover(targets, pool):
+    def min_cover(targets, pool, rel):
         """Exact minimum set cover by brute force. Callers must pass only
         targets that some pool member actually covers."""
         targets = set(targets)
         if not targets:
             return []
-        best = None
         for k in range(1, len(pool) + 1):
             for combo in combinations(sorted(pool), k):
                 got = set()
                 for c in combo:
-                    got |= cover_of[c]
+                    got |= rel[c]
                 if targets <= got:
-                    best = list(combo)
-                    break
-            if best:
-                break
-        return best or []
+                    return list(combo)
+        return []
 
-    minimal = min_cover([i for i in need if i not in uncoverable], universe)
+    minimal = min_cover([i for i in need if i not in uncoverable], universe,
+                        cover_of)
     redundant = [c for c in universe if c not in minimal]
+    # Contrast only: the same computation under the wrong (literal) relation,
+    # kept so the difference is auditable rather than merely asserted.
+    minimal_literal = min_cover([i for i in need if i not in uncoverable],
+                                universe, cover_of_lit)
+    check("6554 dominates 5544, 6444, 6544 and 6543",
+          all(dominates("6554", d) for d in ("5544", "6444", "6544", "6543")),
+          "dims 6554=(6,5,5,4)")
 
     # ---- F. coverage of all 70 rows by the minimal set -----------------
     allrows = [r["row_idx"] for r in rows70]
-    uncoverable70 = [i for i in allrows if not any(i in cover_of[c] for c in universe)]
-    minimal70 = min_cover([i for i in allrows if i not in uncoverable70], universe)
-    redundant70 = [c for c in universe if c not in minimal70]
+    cover70 = {c: closed[c] for c in all_universe}
+    uncoverable70 = [i for i in allrows
+                     if not any(i in cover70[c] for c in all_universe)]
+    minimal70 = min_cover([i for i in allrows if i not in uncoverable70],
+                          all_universe, cover70)
+    redundant70 = [c for c in all_universe if c not in minimal70]
 
     # ---- G. which configs are reachable only from RRC-killed rows -----
     killed_only_configs = sorted(
@@ -292,11 +385,20 @@ def main():
         "rrc_killed_count": len(rrc_killed),
         "surviving_row_indices": sorted(surviving),
         "configs_appearing_in_17_rows": universe,
-        "cover_of_config": {c: sorted(cover_of[c]) for c in universe},
+        "cover_of_config_dominance": {c: sorted(cover_of[c]) for c in universe},
+        "cover_of_config_literal": {c: sorted(cover_of_lit[c])
+                                  for c in universe},
+        "published_per_config_totals": PUBLISHED_TOTALS,
+        "row_counts_literal": {c: len(literal[c]) for c in all_universe},
+        "row_counts_dominance_closed": {c: len(closed[c])
+                                       for c in all_universe},
+        "cover_relation": "dominance (recovered from the 5 published totals)",
         "rows17_with_no_config": none17,
         "rows70_with_no_config": none70,
         "rows_not_coverable_by_any_listed_config": uncoverable,
         "minimal_config_set_for_17_rows": minimal,
+        "minimal_config_set_for_17_rows_LITERAL_relation_WRONG":
+            minimal_literal,
         "redundant_configs_for_17_rows": redundant,
         "minimal_config_set_for_70_rows": minimal70,
         "redundant_configs_for_70_rows": redundant70,
@@ -331,7 +433,15 @@ def main():
     print("configs appearing on the 17 surviving rows:", universe)
     print("rows among the 17 with NO config at all   :", none17)
     print("rows among the 70 with NO config at all   :", none70)
-    print("cover the 16 rows that have a config    :", minimal)
+    print("cover relation (recovered from totals)  : dominance closure")
+    print("  cfg   literal  dominance-closed  published(#2954)")
+    for c in all_universe:
+        st = PUBLISHED_TOTALS.get(c)
+        print("  %s     %4d        %4d            %s"
+              % (c, len(literal[c]), len(closed[c]),
+                 st if st else "-"))
+    print("cover the 16 hard rows that have a cfg   :", minimal)
+    print("  (same, under the WRONG literal relation):", minimal_literal)
     print("configs redundant for those 16 rows      :", redundant)
     print("cover all 64 rows that have a config    :", minimal70)
     print("configs redundant for all 70 rows       :", redundant70)
