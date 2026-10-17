@@ -1,0 +1,56 @@
+{
+  "status": "passed-local-before-export",
+  "at": "2026-10-17T21:41:49.160073+00:00",
+  "python_registered": "CPython3.12.15 macOSarm64",
+  "commands": [
+    {
+      "command": "TMPDIR=SESSION/tmp python3.12 -Werror -B scripts/research_package.py --package research/d6-axis-concentration14",
+      "result": "PASS all3 registered commands; threshold14,sharp13,7560pairorbit;10795spaces,120maximizers;3behavioral groups including7CLI rejects"
+    },
+    {
+      "command": "ruff check research/d6-axis-concentration14 --select E,F,B,I",
+      "result": "PASS"
+    },
+    {
+      "command": "ruff format research/d6-axis-concentration14 --check",
+      "result": "PASS all4Python files"
+    },
+    {
+      "command": "AST compile with warnings as errors, function-length inspection",
+      "result": "PASS all4 files; allfunctions<=60lines"
+    }
+  ],
+  "functions": {
+    "test_verify.py:private_export": 14,
+    "test_verify.py:run": 8,
+    "test_verify.py:test_sharpness_and_rank_boundary": 16,
+    "test_verify.py:test_corruptions_and_private_export": 46,
+    "test_verify.py:test_optimized_export_and_formatting": 11,
+    "independent.py:table": 9,
+    "independent.py:main": 32,
+    "common.py:require": 3,
+    "common.py:canonical": 2,
+    "common.py:read_json": 5,
+    "common.py:authenticate": 45,
+    "common.py:basis": 12,
+    "common.py:span": 7,
+    "common.py:coordinates": 5,
+    "common.py:quadratic": 6,
+    "common.py:polar": 2,
+    "common.py:root_data": 8,
+    "verify.py:model": 29,
+    "verify.py:sections": 35,
+    "verify.py:transport": 35,
+    "verify.py:compute": 36,
+    "verify.py:main": 17
+  },
+  "independence": "Corroboration has separate coordinate-table/enumeration, shared canonical geometry/authentication. No independent human/kernel review.",
+  "unrun": [
+    "historicalfullcensuses",
+    "selectedcoldreplay",
+    "Lean",
+    "Docker",
+    "native/physical/consumer/supplier/outeradmission"
+  ],
+  "export": "Pending actual committed read-only Git-free execution before evidence-ready; cache receipt will record completion."
+}
