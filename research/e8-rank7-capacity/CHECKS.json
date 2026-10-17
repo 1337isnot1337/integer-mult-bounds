@@ -1,0 +1,21 @@
+{
+  "environment": {
+    "author_python": "CPython3.12.15 and3.15.0/macOSarm64",
+    "dependencies": "standard library"
+  },
+  "scope": "Analytic binary rank7 support bound/equality plus complete finite frame counts; no new numerical capacity, shortening, decoder or supplier result.",
+  "checks": {
+    "direct_primary": "PASS full36 P11236 equality5440/448",
+    "direct_independent": "PASS43180 affine sections and full equality digest",
+    "optimized_controls": "PASS six source/four geometry groups",
+    "registered_replay": "PASS CPython3.12.15",
+    "ruff": "PASS after removing predecessor execution; literal-only authenticated parsing",
+    "committed_export": "pending scientific commit"
+  },
+  "unrun": [
+    "selected cold replay",
+    "Lean/Docker",
+    "full supplier/caller/scalar coefficient audit",
+    "independent human/proof-kernel review"
+  ]
+}
