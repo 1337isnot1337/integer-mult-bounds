@@ -90,12 +90,13 @@ On the complement of S there is a fixed two-by-three matrix A with
 (c_h(t), c_k(t))^T = A (q_1(t), q_2(t), q_3(t))^T.
 ```
 
-At a coordinate where exactly one piece q_i is nonzero, the nonzero evaluation
-pair is proportional to column i of A. Such singleton sites for q_i lie in
-ONE projective fiber. A zero column has no such sites. Besides three large
+At a coordinate in U outside S where exactly one piece q_i is nonzero,
+the nonzero evaluation pair is proportional to column i of A. Such singleton
+sites for q_i lie in ONE projective fiber. A zero column has no such sites. Besides three large
 27-line fibers, the A2 plane has three one-line fibers.
 
-Let M_i be total residual support of piece i and J_i its singleton support.
+Let M_i be total residual support of piece i and let J_i count its singleton
+sites in U outside S.
 For i=1,2, the global capacity 12 and fiber capacity ten give M_i+J_i<=22.
 For the rank-six piece, M_3+J_3<=32. To see the latter, a one-line fiber gives
 the stronger bound 21. For a large fiber in a seven-space W, let V be the
