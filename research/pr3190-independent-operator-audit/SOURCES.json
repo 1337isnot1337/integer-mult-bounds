@@ -21,11 +21,11 @@
       "sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
     },
     {
-      "path": "research/pr3190-remainder-stream-obstruction/vendor/PR3190-MOVES.json.gz",
+      "path": "research/pr3190-independent-operator-audit/vendor/PR3190-MOVES.json.gz",
       "usage": "provenance",
       "git_blob": "e8401e6d138d9fcf9725530e7ae36d2db1386bda",
       "sha256": "c76310bc9bdb7e693bdb8910e7ea084354251110a02ee629e3e8aad7418b695f",
-      "pin": "head:7f4ba27cb43666e974e369350bbc47dab0ce0456:research/pr3190-remainder-stream-obstruction/vendor/PR3190-MOVES.json.gz"
+      "pin": "head:32a3fa83aaa639570db53beb381016711aa6f5b5:research/pr3190-independent-operator-audit/vendor/PR3190-MOVES.json.gz"
     },
     {
       "path": "research/rank7-idle-star-stream-obstruction/vendor/BASE-FILL.json.gz",
@@ -115,10 +115,13 @@
     },
     {
       "local_path": "vendor/PR3190-MOVES.json.gz",
-      "head": "7f4ba27cb43666e974e369350bbc47dab0ce0456",
-      "upstream_path": "research/pr3190-remainder-stream-obstruction/vendor/PR3190-MOVES.json.gz",
+      "head": "32a3fa83aaa639570db53beb381016711aa6f5b5",
+      "upstream_path": "research/pr3190-independent-operator-audit/vendor/PR3190-MOVES.json.gz",
       "sha256": "c76310bc9bdb7e693bdb8910e7ea084354251110a02ee629e3e8aad7418b695f",
-      "git_blob": "e8401e6d138d9fcf9725530e7ae36d2db1386bda"
+      "git_blob": "e8401e6d138d9fcf9725530e7ae36d2db1386bda",
+      "origin_head": "5e4a3235169edddd033889da4e9f47635ff50c3e",
+      "origin_path": "research/rank7-idle-remainder-donors-t740/MOVES.json.gz",
+      "origin_git_blob": "e8401e6d138d9fcf9725530e7ae36d2db1386bda"
     },
     {
       "local_path": "vendor/PROVIDERS.json",

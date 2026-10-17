@@ -40,6 +40,13 @@ def pinned_inputs():
         blob = b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw
         actual_blob = hashlib.sha1(blob, usedforsecurity=False).hexdigest()
         need(actual_blob == row["git_blob"], "retained Git blob mismatch: " + row["local_path"])
+        if path.name == "PR3190-MOVES.json.gz":
+            need(
+                row.get("origin_head") == "5e4a3235169edddd033889da4e9f47635ff50c3e"
+                and row.get("origin_path") == "research/rank7-idle-remainder-donors-t740/MOVES.json.gz"
+                and row.get("origin_git_blob") == actual_blob,
+                "upstream PR3190 move-list provenance record",
+            )
         upstream = source_rows.get(row["upstream_path"])
         need(upstream is not None, "retained input lacks a source row: " + row["upstream_path"])
         need(upstream["sha256"] == row["sha256"] and upstream["git_blob"] == row["git_blob"],

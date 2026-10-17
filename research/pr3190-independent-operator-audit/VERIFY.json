@@ -5,6 +5,7 @@
   "requirements": [],
   "inputs": [
     "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "research/pr3190-independent-operator-audit/vendor/PR3190-MOVES.json.gz",
     "research/rank7-idle-star-stream-obstruction/vendor/BASE-FILL.json.gz",
     "research/rank7-idle-star-stream-obstruction/vendor/EXCHANGE.json",
     "research/rank7-idle-star-stream-obstruction/vendor/PROVIDERS.json",
