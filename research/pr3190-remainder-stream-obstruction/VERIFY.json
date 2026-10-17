@@ -38,7 +38,7 @@
         "-B",
         "{package}/census.py"
       ],
-      "timeout_seconds": 900,
+      "timeout_seconds": 600,
       "checks": "every single-axis hosted-remainder transfer passing PR3190's rule at owner replica 0 changes the exact operator; equality with CENSUS.json"
     }
   ]
