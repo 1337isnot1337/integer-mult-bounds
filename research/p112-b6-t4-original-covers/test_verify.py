@@ -26,7 +26,7 @@ def fails(call):
 def source_controls():
     # Each copy is private, below the caller's session TMPDIR.
     with tempfile.TemporaryDirectory(prefix="original-cover-controls-") as temp:
-        for mode in range(7):
+        for mode in range(8):
             target = Path(temp) / str(mode)
             shutil.copytree(ROOT, target, ignore=shutil.ignore_patterns("__pycache__"))
             # The source export may be read-only; only private mutant copies change.
@@ -48,6 +48,8 @@ def source_controls():
                 (target / "vendor/PR3282-RESULT.json").write_text("{}")
             elif mode == 5:
                 (target / "vendor/unexpected.txt").write_text("not declared")
+            elif mode == 6:
+                manifest["schema_version"] = True
             else:
                 receipt = v.read_json(target / "RESULT.json")
                 receipt["rows"][0]["attempts"]["alpha74"]["count"] += 1
@@ -89,7 +91,7 @@ def main():
     v.sources(ROOT)
     source_controls()
     caller_controls()
-    print("PASS_CONTROLS seven source/receipt cases;five caller checks")
+    print("PASS_CONTROLS eight source/receipt cases;five caller checks")
 
 
 if __name__ == "__main__":

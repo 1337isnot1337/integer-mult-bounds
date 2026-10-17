@@ -105,7 +105,11 @@ def read_json(path):
 
 def sources(root):
     manifest = read_json(root / "SOURCES.json")
-    require(manifest == EXPECTED_SOURCES, "source inventory/schema/usage changed")
+    require(
+        json.dumps(manifest, sort_keys=True)
+        == json.dumps(EXPECTED_SOURCES, sort_keys=True),
+        "source inventory/schema/usage changed",
+    )
     expected = {r["path"] for r in manifest["retained_files"]}
     actual = set()
     for index, entry in enumerate((root / "vendor").iterdir()):
