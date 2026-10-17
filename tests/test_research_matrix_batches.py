@@ -35,8 +35,13 @@ class MatrixBatchTests(unittest.TestCase):
                          {'include': [{'package': 'research/a'}, {'package': 'research/b'}]})
 
     def test_nested_workflow_change_selects_every_registered_package(self):
-        expected = sorted(p.parent.relative_to(ROOT).as_posix()
-                          for p in (ROOT / 'research').glob('*/VERIFY.json'))
+        committed = {str(Path(name).parent.as_posix())
+                     for name in package.tracked_input_paths(ROOT)
+                     if name.startswith('research/') and name.count('/') == 2
+                     and name.endswith('/VERIFY.json')}
+        materialized = {p.parent.relative_to(ROOT).as_posix()
+                        for p in (ROOT / 'research').glob('*/VERIFY.json')}
+        expected = sorted(committed | materialized)
         self.assertEqual(package.plan(ROOT, ['.github/workflows/research-package-batch.yml']), expected)
 
     def test_grouped_cli_output_keeps_total_package_count(self):

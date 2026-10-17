@@ -208,3 +208,39 @@ Link an existing retrospective instead of duplicating it. Include the task or
 priority revision, outcome, largest friction/detour and one suggested change.
 Directors record resulting decisions in the priority log, not a log entry for
 every agent session.
+
+## Planning in a sparse checkout
+
+Replay selection inventories both committed `research/*/VERIFY.json` paths and
+working manifests. Omitting a package directory from a sparse checkout must not
+omit its declared input dependencies from the matrix. Absent manifests are read
+from Git only when one stage-zero, regular, `skip-worktree` index entry has the
+same mode and blob as HEAD. The planner reports the number of such declarations
+on stderr; stdout and GitHub matrix formats stay unchanged.
+
+An ordinary missing file, staged content/mode change, unmerged index entry,
+symlink manifest or unreadable inventory still fails. Commit an intentional opt-in
+removal before planning that deletion. Existing working edits and new local
+manifests are read as before, and all declared input spelling checks still run.
+A fully omitted `research/` directory is supported when its manifests satisfy
+the same Git/index checks. The checkout must remain stable during planning.
+
+This discovers declarations; it does **not** make sparse packages executable.
+Materialize a selected package and its required inputs before actual validation
+or replay. Partial clones may need Git's normal fetches for missing manifest
+blobs. The fix needs only those declarations, not the full source packages.
+Immutable inputs and upstream archives are unchanged.
+
+At base `997e6a9ca7b4f95d50e366f61412fd640d72a88a`, HEAD contains 1,244 registered
+manifests, while the contributor's sparse checkout initially materialized 18.
+The earlier filesystem-only scan returned an 18-package global-trigger matrix.
+The real sparse/full fixture and rejection controls can be reproduced with:
+
+```sh
+python3 -B -m unittest discover -s tests -p 'test_research_sparse_planning.py' -v
+```
+
+Tekalign, with substantial OpenAI Codex assistance. Apache-2.0. The exact
+HEAD/index fallback premise follows Arham-Tahir64's PR3102 sparse-reference work;
+this applies it to replay declarations. The original planner, canonical Git
+spelling, symlink and inventory-error controls retain their predecessor credit.
