@@ -48,6 +48,10 @@ def source_controls():
         root = Path(directory)
         package = root / "research/e8-a2-analytic-rank6"
         shutil.copytree(v.PACKAGE, package)
+        # Only this private disposable copy is made writable for mutation controls.
+        for copied in package.rglob("*"):
+            copied.chmod(0o755 if copied.is_dir() else 0o644)
+        package.chmod(0o755)
         target = root / v.GEOMETRY
         target.parent.mkdir(parents=True)
         raw = v.read_bytes(v.ROOT / v.GEOMETRY)
