@@ -64,3 +64,5 @@ resolves the excluded fifth core with a different cover. Retain Tekalign's
 PR2782 geometry, Arham Tahir/PR2879, Sagar Thakrar/PR2484, Cinna Davis/PR1825,
 Adam Gall/PR1889, Nick Petalas/PR3248, PR3232, ctoth, Philippe Van Velzen
 and the retained E8/P112 lineage. Apache-2.0.
+
+A [concurrent public investigation](https://github.com/CrocSwap/integer-mult-bounds/discussions/1587#discussioncomment-19003766) claims the same four-core obligation and proposes exact rational separating inequalities. This package independently uses complete finite-state count closure. Both claims appeared before publication; no priority, exclusivity or literature-wide novelty is asserted. The overlap was disclosed before publication and acknowledged by the internal reviewer.
