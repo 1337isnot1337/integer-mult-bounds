@@ -127,6 +127,27 @@
       "usage": "input",
       "git_blob": "6c0f54527d879396f689523bfde19928a9b6157c",
       "sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc"
+    },
+    {
+      "path": "research/rank7-idle-donors-exact-r438/BINS.json.gz",
+      "usage": "provenance",
+      "git_blob": "fc2446437c8ba8b5f10aa4cefd5290927c64dc26",
+      "sha256": "fee514002092bdbe0874d8c1f6b355340fca621a39c2aa77281a6a4fca266606",
+      "pin": "head:d7d6254416f0b3ffe659079cca42fd152df63a36:research/rank7-idle-donors-exact-r438/BINS.json.gz"
+    },
+    {
+      "path": "research/rank7-idle-donors-exact-r438/MOVES.json.gz",
+      "usage": "provenance",
+      "git_blob": "d2b8831feb9dd56b5a92aee70401b97f779b1764",
+      "sha256": "ec9c11b924e4ab9de4f66cb42cc914fb7eb8c80c0f16f7a34d1dcf51f73ad52e",
+      "pin": "head:d7d6254416f0b3ffe659079cca42fd152df63a36:research/rank7-idle-donors-exact-r438/MOVES.json.gz"
+    },
+    {
+      "path": "research/rank7-idle-donors-exact-r438/RESULT.json",
+      "usage": "provenance",
+      "git_blob": "e20225791d140383404496879103e1a849722d95",
+      "sha256": "151aa6b7e5d6c13f07028c14cf17568ccb62b496ba21467725b5588a4b323578",
+      "pin": "head:d7d6254416f0b3ffe659079cca42fd152df63a36:research/rank7-idle-donors-exact-r438/RESULT.json"
     }
   ]
 }

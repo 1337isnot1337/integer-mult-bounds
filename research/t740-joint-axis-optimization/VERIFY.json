@@ -33,7 +33,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 240,
-      "checks": "Authenticate PR #3200 and the merged operator-audit sources; verify the hypothetical rank-only profile/root; positive-control the exact baseline; replay all six owner-zero port-zero transfers; check equality at coordinate characters 2^0 through 2^52 and reproduce the exact Gaussian-integer matrix mismatch at 2^53; reject profile and foreign-axis controls. No OR-Tools is needed for this verification."
+      "checks": "Authenticate PR #3200 and PR #3251 artifacts plus the merged operator-audit sources; verify the rank-only and PR #3251 numerical profiles; positive-control the exact baseline; replay all six owner-zero port-zero moves for each candidate; reproduce the rank-only mismatch at 2^53 and the higher PR #3251 candidate mismatch at 2^52; reject profile and foreign-axis controls. No OR-Tools is needed for verification."
     }
   ]
 }

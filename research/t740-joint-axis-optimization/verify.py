@@ -171,6 +171,69 @@ def main():
             witness['first_coordinate_character_mismatch']['matrix_differences'] == differences,
             'frozen exact operator witness')
 
+    # The refreshed overlap scan found a newer, numerically higher per-group claim in PR #3251.
+    # Its verifier is the PR #3200 rank/profile audit, so bind its frozen output separately and
+    # test the same owner-zero port-zero group with the exact eight-stream operator.
+    source_rows = {row['path']: row for row in load(HERE / 'SOURCES.json')['files']}
+    pr3251_head = 'd7d6254416f0b3ffe659079cca42fd152df63a36'
+    pr3251_paths = {
+        'BINS.json.gz': 'research/rank7-idle-donors-exact-r438/BINS.json.gz',
+        'MOVES.json.gz': 'research/rank7-idle-donors-exact-r438/MOVES.json.gz',
+        'RESULT.json': 'research/rank7-idle-donors-exact-r438/RESULT.json',
+    }
+    pr3251_files = {}
+    for name, source_path in pr3251_paths.items():
+        row = source_rows.get(source_path)
+        require(row is not None and row['usage'] == 'provenance' and
+                row['pin'] == f'head:{pr3251_head}:{source_path}',
+                'PR #3251 exact source pin: ' + name)
+        local_path = HERE / 'vendor' / 'pr3251' / name
+        raw = local_path.read_bytes()
+        require(hashlib.sha256(raw).hexdigest() == row['sha256'],
+                'vendored PR #3251 artifact differs from its pinned source: ' + name)
+        pr3251_files[name] = load(local_path)
+    pr3251_bins = pr3251_files['BINS.json.gz']
+    pr3251_moves = pr3251_files['MOVES.json.gz']['moves']
+    pr3251_result = pr3251_files['RESULT.json']
+    require(pr3251_result['status'] == 'PASS_IDLE_DONOR_EXACT_R438_T740' and
+            pr3251_result['axis_moves'] == len(pr3251_moves) == 435604,
+            'PR #3251 frozen candidate receipt')
+    _, pr3251_kappa, _ = verifier.run(recipes, pr3251_bins, pr3251_moves, pr3251_result)
+    require(pr3251_kappa > hypothetical_kappa and
+            pr3251_kappa == F(pr3251_result['kappa']),
+            'PR #3251 rank/profile headline is numerically above the rank-only candidate')
+    pr3251_group = next(g for g in pr3251_bins['groups'] if g[0] == 0 and g[1] == 0)
+    require(pr3251_group[2] == owner_group[2], 'PR #3251 owner-zero port-zero source pattern')
+    pr3251_group_moves = [m for m in pr3251_moves if m[0] == 0 and m[1] == 0]
+    require(len(pr3251_group_moves) == 6, 'PR #3251 owner-zero port-zero move count')
+    pr3251_trial = {c: list(axes) for c, axes in baseline.items()}
+    for rep, port, source, target, axis in pr3251_group_moves:
+        require(axis in pr3251_trial[source], 'PR #3251 transfer axis exists in exact source context')
+        pr3251_trial[source].remove(axis)
+        pr3251_trial[target].append(axis)
+    pr3251_changed = {c: [len(baseline[c]), len(pr3251_trial[c])]
+                      for c in range(len(caps)) if len(baseline[c]) != len(pr3251_trial[c])}
+    require({str(c): value for c, value in pr3251_changed.items()} == expected_changed,
+            'PR #3251 exact operator overlay rank vector')
+    for bit in range(52):
+        character_before = 1 << bit
+        require(operator.replay(context, baseline, character_before, blocks) ==
+                operator.replay(context, pr3251_trial, character_before, blocks),
+                f'PR #3251 operator mismatch precedes frozen witness at bit {bit}')
+    pr3251_character = 1 << 52
+    pr3251_before = operator.replay(context, baseline, pr3251_character, blocks)
+    pr3251_after = operator.replay(context, pr3251_trial, pr3251_character, blocks)
+    require(pr3251_before != pr3251_after, 'PR #3251 candidate must fail exact operator equality')
+    pr3251_differences = operator.matrix_differences(pr3251_before, pr3251_after)
+    require(pr3251_differences == expected_differences,
+            'PR #3251 exact operator mismatch witness')
+    pr3251_witness = load(HERE / 'PR3251-OPERATOR-WITNESS.json')
+    require(pr3251_witness['source_head'] == pr3251_head and
+            pr3251_witness['headline_kappa'] == pr3251_result['kappa_decimal'] and
+            pr3251_witness['first_coordinate_character_mismatch']['character'] == pr3251_character and
+            pr3251_witness['first_coordinate_character_mismatch']['matrix_differences'] == pr3251_differences,
+            'frozen PR #3251 exact operator witness')
+
     # Controls: deleting one rank-only move changes the frozen profile, and a foreign axis
     # is rejected by the predecessor's independent physical-move audit.
     controls = {}
@@ -192,6 +255,8 @@ def main():
     require(len(controls) == 2, 'mutation controls')
     print('PASS_T740_RANK_ONLY_CANDIDATE_REJECTED moves=%d controls=%d hypothetical_kappa=%s cap_fraction=%s checked_before=53 exact_operator_character=2^53 matrix_entries=%d' %
           (len(moves), len(controls), hypothetical_kappa, hypothetical_fraction, len(differences)))
+    print('PASS_PR3251_NUMERIC_REPLAY_REJECTED_OPERATOR moves=%d kappa=%s source_head=%s checked_before=52 exact_operator_character=2^52 matrix_entries=%d' %
+          (len(pr3251_moves), pr3251_kappa, pr3251_head, len(pr3251_differences)))
 
 
 if __name__ == '__main__':
