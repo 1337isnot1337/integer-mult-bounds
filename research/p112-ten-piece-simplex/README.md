@@ -89,8 +89,11 @@ root-simplex argument, geometry code and earlier nine-piece exclusions;
 audited prior cover contracts. Geometry and label reconstruction retain the
 E8/P112 and one-sided decoder lineage, including DreamingOfClouds's source
 packages and joaqcoo's original decoder model. Exact heads, paths, Git blobs,
-hashes and code origins are in [SOURCES.json](SOURCES.json). Predecessor files
-are unchanged. New work and reused code are Apache-2.0.
+hashes and code origins are in [SOURCES.json](SOURCES.json). Historical source
+records were checked locally; the replay uses the self-contained proof/code
+and declared P112 input. Required provenance uses canonical main only, so
+fresh CI needs no unrelated unmerged PR commits or preserved merge strategy.
+Predecessor files are unchanged. New work and reused code are Apache-2.0.
 
 Internal read-only mathematical review corroborated the counting argument and
 separately enumerated the prior covers. Independent human review, proof-kernel

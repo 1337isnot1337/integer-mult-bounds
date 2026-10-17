@@ -35,6 +35,10 @@
     {
       "command": "Invoke verify.py --output on an in-checkout path and an existing external path",
       "result": "both reject; no in-checkout file created; existing receipt is not overwritten"
+    },
+    {
+      "command": "Validate all historical source heads with the initial registered replay; retain their exact heads/blobs/hashes as historical citations, outside required replay pins",
+      "result": "historical source records verified locally; required replay provenance uses canonical main only and does not depend on unrelated PR commits or the contribution merge strategy"
     }
   ],
   "coverage": {
