@@ -32,6 +32,18 @@
       ],
       "timeout_seconds": 120,
       "checks": "Same explicit contracts and receipt comparison under optimization"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/test_source_auth.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Private actual CLI mutants reject executable usage reclassification,Boolean schema version and changed code bytes BEFORE execution"
     }
   ]
 }

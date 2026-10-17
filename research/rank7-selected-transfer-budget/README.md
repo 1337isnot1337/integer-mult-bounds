@@ -101,6 +101,7 @@ From the repository root, Python 3.12 and the standard library suffice:
 python3 -B research/rank7-selected-transfer-budget/verify.py
 python3 -O -W error -B research/rank7-selected-transfer-budget/verify.py
 python3 -B scripts/research_package.py --package research/rank7-selected-transfer-budget
+python3 -O -W error -B research/rank7-selected-transfer-budget/test_source_auth.py
 ```
 
 The direct verifier is read-only and needs neither Git nor a network connection.
@@ -109,7 +110,16 @@ It rejects Boolean counts, noncanonical/full-width ranks and zero counts.
 The 395/396 and 730/731 signs are separate behavioral controls; the strict
 trial and selected-rate one-per-invocation tests have opposite outcomes.
 Typed canonical receipt comparison distinguishes Boolean and integer values.
-Source hashes authenticate bytes, not mathematical admission.
+The fixed SOURCES.json byte hash binds the exact path/usage inventory before
+any executable source is consumed; its schema version must be an integer, so
+Boolean true is rejected. The retained outer engine is compiled from the same
+immutable bytes that passed authentication, without rereading its path. Three
+actual CLI controls use writable private copies, inject a marker-writing outer
+engine, and test usage reclassification, Boolean schema and changed executable
+bytes. Every mutation rejects before its marker or exception executes. The
+control script uses a private temporary directory by default and accepts an
+existing scratch parent through --work. Source hashes authenticate bytes, not
+mathematical admission.
 
 The complete source replay passed with exit0 and is documented in REPLAY.json.
 It freshly bootstrapped retained evidence, rebuilt both current native providers,

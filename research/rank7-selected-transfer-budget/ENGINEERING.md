@@ -36,3 +36,14 @@ Rule10 uses AST parsing and Python warnings as errors. No linter is installed in
 the existing runtime, so no linter success is claimed and no shared installation
 is changed. All commands and observed outcomes are recorded with committed and
 export evidence. Read-only inherited construction code is retained unchanged.
+
+The scoped source-authentication correction binds the fixed source-manifest
+bytes and an integer-only version before following its rows. The outer engine
+receives immutable authenticated bytes rather than a path to reread. The new
+test_source_auth.py uses three actual optimized CLI rejection controls. Each
+creates only regular writable private copies, bounded by64 package files and16
+external inputs of at most16MiB each. Each subprocess has a15-second timeout,
+and its private temporary root is removed on every structured exit. The default
+needs no environment variable; --work selects an existing private scratch parent.
+This test-only subprocess/tempfile use is separate from the read-only verifier.
+The original scientific freeze and first review receipt remain preserved.

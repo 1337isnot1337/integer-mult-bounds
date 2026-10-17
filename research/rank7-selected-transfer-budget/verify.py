@@ -13,29 +13,46 @@ PACKAGE = Path(__file__).resolve().parent
 ROOT = PACKAGE.parents[1]
 SAVING = Q(17, 10000)
 KAPPA = Q(1697, 1000000)
+SOURCE_MANIFEST_SHA = "f07640bb4bff5d74469161c1ff6bc69f02f3a190e31e4ab06818d0d782606775"
+OUTER_PATH = "research/complex-k492-owner-repair/vendor/multicold/engines/outer.py"
+
+
+def source_bytes(path):
+    require(path.is_file() and not path.is_symlink(), "regular source")
+    require(path.stat().st_size <= 2**24, "input size")
+    return path.read_bytes()
 
 
 def read(path):
-    require(path.is_file() and not path.is_symlink(), "regular source")
-    require(path.stat().st_size <= 2**24, "input size")
-    return json.loads(path.read_bytes())
+    return json.loads(source_bytes(path))
 
 
 def authenticated_inputs():
-    sources = read(PACKAGE / "SOURCES.json")
+    raw_manifest = source_bytes(PACKAGE / "SOURCES.json")
+    sources = json.loads(raw_manifest)
+    require(type(sources) is dict and
+            set(sources) == {"schema_version", "base_commit", "files"}, "source schema keys")
+    require(type(sources["schema_version"]) is int and sources["schema_version"] == 1,
+            "integer source schema")
+    require(hashlib.sha256(raw_manifest).hexdigest() == SOURCE_MANIFEST_SHA,
+            "fixed source manifest bytes")
     require(type(sources["files"]) is list and len(sources["files"]) <= 16,
             "bounded source inventory")
     result = {}
+    outer_source = None
     for row in sources["files"]:
         if row["usage"] == "input":
             path = ROOT / row["path"]
-            require(path.is_file() and not path.is_symlink() and
-                    path.stat().st_size <= 2**24, "regular bounded input")
-            require(hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"],
+            raw = source_bytes(path)
+            require(hashlib.sha256(raw).hexdigest() == row["sha256"],
                     "source hash: " + row["path"])
             if path.suffix == ".json":
-                result[row["path"]] = read(path)
-    return result
+                result[row["path"]] = json.loads(raw)
+            elif row["path"] == OUTER_PATH:
+                require(outer_source is None, "one executable source")
+                outer_source = raw
+    require(type(outer_source) is bytes, "authenticated executable required")
+    return result, outer_source
 
 
 def allowance(histogram, live, saving, lower_count, calls):
@@ -133,11 +150,12 @@ def finite_evidence(claim):
 
 
 
-def selected_outer():
+def selected_outer(outer_source):
     """Retained engine, with finite arithmetic separated from its premises."""
-    path = ROOT / "research/complex-k492-owner-repair/vendor/multicold/engines/outer.py"
+    path = ROOT / OUTER_PATH
     module = types.ModuleType("authenticated_selected_outer")
-    exec(compile(path.read_bytes(), str(path), "exec"), module.__dict__)
+    require(type(outer_source) is bytes, "immutable authenticated executable bytes")
+    exec(compile(outer_source, str(path), "exec"), module.__dict__)
     eta = beta = Q(1, 10**24)
     s = (1 - beta) * SAVING - Q(1, 10**27)
     chain = [Q(384599, 10**10)]
@@ -162,7 +180,7 @@ def selected_outer():
 
 
 def main():
-    inputs = authenticated_inputs()
+    inputs, outer_source = authenticated_inputs()
     claim = inputs["research/rank7-joint-endframes/CLAIM.json"]
     raw = inputs["research/rank7-joint-endframes/allocation/PROFILE.json"]
     require(raw == claim["profile"], "literal complete source profile")
@@ -195,7 +213,7 @@ def main():
               "at_selected_limiting_rate": current,
               "bit_with_surcharge": dyadic(bit_bill), "controls": controls(),
               "bit_surcharge_control": bit_surcharge_control(bit, bit_histogram),
-              "selected_outer_arithmetic": selected_outer(),
+              "selected_outer_arithmetic": selected_outer(outer_source),
               "actual_finite_invoice": finite_evidence(claim),
               "scope": "Conditional supplied histogram only. New physical/admissibility costs and the selected analytic transfer must be discharged separately."}
     require(json.dumps(result, sort_keys=True) ==
