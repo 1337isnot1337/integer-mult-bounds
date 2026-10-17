@@ -35,15 +35,19 @@ def read(path, capacity):
 
 def authenticate():
     inventory = json.loads(read(HERE / "SOURCES.json", 32768))
+    require(inventory["schema_version"] == 1, "source inventory schema")
     rows = inventory["files"]
     require(type(rows) is list and len(rows) == 4, "four fixed source pins")
     expected = {
-        CERT,
-        ARCHIVE,
-        "certificates/selected-result.json",
-        "docs/research/agent-task-catalog.json",
+        (CERT, "input"),
+        (ARCHIVE, "input"),
+        ("certificates/selected-result.json", "provenance"),
+        ("docs/research/agent-task-catalog.json", "provenance"),
     }
-    require({row["path"] for row in rows} == expected, "fixed source inventory")
+    require(
+        {(row["path"], row["usage"]) for row in rows} == expected,
+        "fixed source inventory",
+    )
     for row in rows:
         if row["usage"] == "input":
             raw = read(ROOT / row["path"], 24_000_000)

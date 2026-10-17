@@ -5,6 +5,7 @@ import itertools
 import json
 import unittest
 from fractions import Fraction as Q
+from unittest.mock import patch
 
 import sources
 import verify
@@ -80,6 +81,27 @@ class Controls(unittest.TestCase):
         bad["programs"]["B_1_2"].pop()
         with self.assertRaisesRegex(ValueError, "event inventory"):
             sources.expand(bad, "B_1_2")
+        # Reclassifying a live source as documentary must not bypass its hash.
+        manifest_path = sources.HERE / "SOURCES.json"
+        inventory = json.loads(manifest_path.read_text())
+        original_read = sources.read
+        for index in (2, 3):
+            bad = copy.deepcopy(inventory)
+            self.assertEqual(bad["files"][index]["usage"], "input")
+            bad["files"][index]["usage"] = "provenance"
+            with (
+                patch.object(
+                    sources,
+                    "read",
+                    side_effect=lambda path, cap, bad=bad: (
+                        json.dumps(bad).encode()
+                        if path == manifest_path
+                        else original_read(path, cap)
+                    ),
+                ),
+                self.assertRaisesRegex(ValueError, "fixed source inventory"),
+            ):
+                sources.authenticate()
 
     def test_grid_width_and_declared_scope(self):
         result = json.loads((sources.HERE / "RESULT.json").read_text())
