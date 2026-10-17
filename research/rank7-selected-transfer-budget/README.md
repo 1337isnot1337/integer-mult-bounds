@@ -166,3 +166,7 @@ checked after the shared intake. Its coverage is 247 open PRs at 22:04:28 UTC,
 on October 17, 2026. Newly closed non-prior-batch bodies, arbitrary diffs and
 unpublished work are outside complete coverage. No search match is not proof
 of novelty.
+
+## Scoped review
+
+The designated review passed at scientific commit `3b703079ffb97b1347ac142fcae8e218365daac1` plus authentication fix `4f5b5ce946cf46afcdf1567a70aae305ee70e1e4`. [REVIEW.json](REVIEW.json) retains the final receipt verbatim (SHA256 `17a9e5b6d368affc52d43c4c5e5ce12c0e2cffd3d6437f527dd443cf873dc3fb`). [REVIEW-ROUND1.json](REVIEW-ROUND1.json) preserves the original executable-input usage finding. The fix binds exact manifest bytes and executes the authenticated bytes; the original bypass now rejects before execution. Arithmetic, source evidence and the no-new-kappa scope are unchanged. This is an internal scoped review, with inherited all-size and compiler premises unproved here.
