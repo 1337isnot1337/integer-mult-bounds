@@ -15130,6 +15130,6 @@
   "integration_resolutions": [
     "PR3261/3276/3287 workflows made manual-only with immutable actions, read-only permissions, no persisted credentials and shared serial replay concurrency."
   ],
-  "publication": "prepared_not_yet_pushed",
+  "publication": "published",
   "frontier_changed": false
 }
