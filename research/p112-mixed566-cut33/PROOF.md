@@ -27,6 +27,8 @@ admission. The following premises remain inherited.
   normalization argument. Its standard Weyl-chamber theorem is unrun.
 * PR3295 gives concentration when a rank-five/six piece has at least10/18
   labels in one full D6 axis. Its full-root support then lies in that axis.
+  PR3299's inherited premise4 also supplies rank-five capacity8 in either
+  small D6 fiber. Either small full fiber has at most12 roots in total.
 * PR3292 proves that an arbitrary ambient binary rank-six space meets a
   D6 axis in at most18 live labels after FOUR orthogonal punctures.
   It also gives the structural decomposition used below.
@@ -144,8 +146,10 @@ need not be confined to an axis.
 ## D6 unions84 and85
 
 Now N>=51, so the same identity gives J_i>=c_i-1. In particular the
-singleton thresholds are at least11,19,19. All singleton fibers are large
-axes, and PR3295's10/18 concentration confines every piece to its axis.
+singleton thresholds are at least11,19,19. A rank-five piece has at most8
+sites in a small fiber by the inherited small-fiber premise, while a
+rank-six piece has at most12 there. All singleton fibers are therefore
+large axes, and PR3295's10/18 concentration confines every piece to its axis.
 
 If all pieces use one axis, they cover at most33 sites. Otherwise one axis
 has one piece and the other has two. If the rank-five piece is alone, the
