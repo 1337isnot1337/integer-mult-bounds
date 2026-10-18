@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "notes/paired-cube-assembly.tex",
+    "notes/structured-bulk-assembly.tex",
+    "notes/three-stage-cover-assembly.tex",
+    "notes/three-stage-cover-rows.tex",
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/community-frontier1094-audit/INDEPENDENT1094.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "research/complex-571-hpem46c/code/assemble.py",
+    "research/complex-571-hpem46c/code/invoice_allcold.py",
+    "research/complex-local-word-ceiling/RESULT.json",
+    "research/complex-local-word-ceiling/ceiling.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "27 source bindings; selected invoice member hash and recomputed S/row/router/literal/C0; guard thresholds by two methods; exact t_max per reading/prefix; (R,S) region; ceilings R=51..72 by own decimal intervals cross-checked with unmodified child_cost and ceiling.ceiling at R=51; RESULT.json byte match; 11 negative controls"
+    }
+  ]
+}
