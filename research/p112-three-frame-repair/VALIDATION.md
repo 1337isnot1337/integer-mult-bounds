@@ -67,11 +67,11 @@ authenticates those retained bytes and needs no pending Git history.
 Publication checks use:
 
 ```sh
-python3 -I -B scripts/check_research_commit.py \
+python3 -B scripts/check_research_commit.py \
   --package research/p112-three-frame-repair --check-source-history
-python3 -I -B scripts/export_research_package.py export \
+python3 -B scripts/export_research_package.py export \
   --package research/p112-three-frame-repair --ref HEAD --output "$run/package.tar"
-python3 -I -B scripts/export_research_package.py check "$run/package.tar"
+python3 -B scripts/export_research_package.py check "$run/package.tar"
 ```
 
 Here `run` names an external session-owned directory. After export integrity
