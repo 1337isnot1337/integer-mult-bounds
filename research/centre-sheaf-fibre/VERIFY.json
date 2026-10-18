@@ -6,7 +6,9 @@
   "inputs": ["research/centre-block-repair-information/independent.py", "research/community-frontier1094-audit/selected-replay.tar.gz"],
   "commands": [
     {"argv": ["{python}", "-I", "-B", "{package}/test_sheaf.py"], "timeout_seconds": 60, "checks": "Independent small matrix, proper-subblock and bounded nonnegative-fibre controls; not actual physical semantics."},
-    {"argv": ["{python}", "-I", "-B", "{package}/verify.py", "--emit-geometry"], "timeout_seconds": 300, "checks": "Authenticate original selected archive and credited source extractor, test the full112-port subgroup/coset reduction and emit bounded derived geometry."},
-    {"argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"], "timeout_seconds": 300, "checks": "Repeat all actual mathematical guards under optimization."}
+    {"argv": ["{python}", "-I", "-B", "{package}/verify.py", "--emit-geometry"], "timeout_seconds": 300, "checks": "Authenticate original selected archive and credited source extractor, test all112 ports and emit derived geometry."},
+    {"argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"], "timeout_seconds": 300, "checks": "Repeat source-bound primary guards under optimization."},
+    {"argv": ["{python}", "-I", "-B", "{package}/independent.py"], "timeout_seconds": 120, "checks": "Separate raw-archive parser, sparse forward coefficient propagation, row-matrix routes, left group closure, modular minors and direct routed residuals."},
+    {"argv": ["{python}", "-I", "-O", "-B", "{package}/independent.py"], "timeout_seconds": 120, "checks": "Repeat the independent source and algebra audit with explicit checks under optimization."}
   ]
 }
