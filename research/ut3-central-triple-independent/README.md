@@ -45,6 +45,7 @@ Everything below is measured on this implementation.
 | Both-new twelve-call word on `r = 3, 4, 5` | realizes the target; every extra register fixed |
 | Single-deletion controls, both words | 24 of 24 deletions fail |
 | Block collapse versus the direct matrix product, 40 random words | 0 mismatches |
+| Block relation on the class sums, kernel dimension | rank 18 of 27, kernel 9 = the equal triples |
 | Stacked corner: block ranks, total rank | 2, 2, 2 and rank 6 |
 | Uniform random words, length 6-11, `r = 3` | 20000 trials, 0 realizing |
 | Class-sum-feasible words, shapes 4+4 to 6+5, `r = 3` | 18734 tested, 0 realizing |
@@ -52,7 +53,10 @@ Everything below is measured on this implementation.
 The class-sum-feasible family is the useful part of the search. Expanding the
 product of the calls gives `I + sum_k E(g_k) tensor N_k` plus the surviving
 second-order corners; the vanishing of the `(0,1)` and `(1,2)` blocks then
-forces the three per-letter-class idempotent sums on each side to agree. The
+forces the three per-letter-class idempotent sums on each side to agree, and
+that relation is checked here as a linear map: rank 18 on a 27-dimensional
+domain, so its kernel is exactly the nine-dimensional space of equal triples.
+The
 search samples that family shape by shape, with class multisets built from
 cancellation pairs plus one unpaired idempotent where the parity requires it.
 All eight call-count shapes from `4+4` to `6+5` were drawn at least 1150 times

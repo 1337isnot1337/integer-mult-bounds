@@ -1,5 +1,10 @@
 {
  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+ "block_relation": {
+  "domain_dim": 27,
+  "kernel_dim": 9,
+  "rank": 18
+ },
  "collapse": {
   "mismatches": 0,
   "trials": 40
@@ -29,7 +34,7 @@
   "physical realisation, hosting or price of the twelve formal calls"
  ],
  "package": "research/ut3-central-triple-independent",
- "receipt_sha256": "9489a03aa7c5ecfee868ae53bfe9d998ec704d8081bff876082259cdbdf58418",
+ "receipt_sha256": "a5c3f2fc2b3ad05bc721752d9f149c0a150afc7de551aa782db93a526cbc9db7",
  "schema_version": 1,
  "search": {
   "class_sum_feasible": {

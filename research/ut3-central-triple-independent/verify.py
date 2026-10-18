@@ -356,6 +356,51 @@ def search_class_sum_feasible(draws: int, rng: random.Random) -> dict:
             "tested_by_shape": dict(sorted(shape_counts.items()))}
 
 
+def block_relation_check() -> dict:
+    """The (0,1) block of a realizing word vanishes, so the linear relation
+    sum_alpha m_alpha x N_alpha = 0 must hold for the three per-letter-class
+    idempotent sums N_alpha.  Its kernel is computed by Gaussian elimination
+    on the 27 images of the coordinate matrices; the equal-triples space is
+    contained in it and has the same dimension, so the relation is
+    equivalent to N_1 = N_w = N_w2."""
+    def flat(rows: list[int]) -> int:
+        width = len(rows)
+        value = 0
+        for i, row in enumerate(rows):
+            for j in range(width):
+                if (row >> j) & 1:
+                    value |= 1 << (i * width + j)
+        return value
+
+    images = []
+    for slot in range(3):
+        base = nilpotent(slot)
+        for p in range(3):
+            for q in range(3):
+                projector = [1 << q if i == p else 0 for i in range(3)]
+                images.append(flat(M.kron_block_rows(base, projector, 3)))
+    basis: list[int] = []
+    for vector in images:
+        cur = vector
+        for b in basis:
+            cur = min(cur, cur ^ b)
+        if cur:
+            basis.append(cur)
+            basis.sort(reverse=True)
+    rank = len(basis)
+    # equal triples must be killed: m_1 + m_w + m_w2 = 0
+    equal_image = 0
+    for slot in range(3):
+        base = nilpotent(slot)
+        for p in range(3):
+            for q in range(3):
+                projector = [1 << q if i == p else 0 for i in range(3)]
+                equal_image ^= flat(M.kron_block_rows(base, projector, 3))
+    need(equal_image == 0, "equal triple killed by the block relation")
+    need(rank == 18 and 27 - rank == 9, "block relation kernel is the equal triples")
+    return {"domain_dim": 27, "rank": rank, "kernel_dim": 27 - rank}
+
+
 def main() -> int:
     rng = random.Random(20261018)
     result = {
@@ -366,6 +411,7 @@ def main() -> int:
         "matrix_census_r3": matrix_census(3),
         "witnesses": witness_checks(),
         "collapse": collapse_check(40, rng),
+        "block_relation": block_relation_check(),
         "corner": corner_certificate(),
         "search": {
             "uniform": search_uniform(20000, rng),
