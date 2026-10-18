@@ -2,6 +2,7 @@
  "aggregate_witness_recount": {
   "bins": 1491840,
   "capacity_rank_units": 35804160,
+  "controls_rejected": 6,
   "idle": {
    "1": 174156,
    "3": 48334,
@@ -29,6 +30,12 @@
    "rank_mass": 48178440,
    "shift_from_PR3148_lower": -9.664152523913857e-05
   }
+ },
+ "coverage_law": {
+  "forced_capacity_54W": 35804160,
+  "per_call_mass_minus_width_units": 1856,
+  "rank_mass_72W_plus_64N": 48165120,
+  "rank_mass_moved_PR3148_to_PR3605": 97186
  },
  "histograms": {
   "PR3148": {
@@ -139,6 +146,8 @@
   },
   "least relabels putting the PR3605 root below 0.00173": 3,
   "least relabels putting the PR3605 root below the PR3148 root": 98,
+  "most rank-mass units moved that cannot put the PR3605 root below 0.00173": 133,
+  "most rank-mass units moved that cannot put the PR3605 root below the PR3148 root": 4678,
   "one width-8 role moved from a full bin to an empty capacity-48 bin": {
    "bracket_30_digits": [
     "865003138289842471247704021/500000000000000000000000000000",

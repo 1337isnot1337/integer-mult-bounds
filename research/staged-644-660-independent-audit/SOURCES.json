@@ -166,7 +166,7 @@
       "source_pr": 3605,
       "git_blob": "a5e828b6de7eb691e94eec1ee52ea47fd9a2971f",
       "sha256": "c10a0eb62799f73dd577a5bec86e91b0124ec8b2cdf95bd68807299cf1521866",
-      "usage": "read for the aggregate-witness legality checks that root.py reimplements; not imported or executed"
+      "usage": "read for the aggregate-witness legality checks that root.py reimplements (all but the literal T37 order and the owner.windows window classes/bin counts); not imported or executed"
     }
   ],
   "snapshot_provenance": "Exact Git blob bytes of PR3605 head 3efbb5de (unmerged at base 20ecf289); verify.py authenticates them by SHA256. The PR3133 parent words and PR3148 claim are read from main and pinned in files. Provenance rows: Arham Tahir's coupled-carrier-independent-audit/verify.py, whose frame-bill and free-word structure audit_core.py re-implements without importing; and the inherited auditor audit_local.py, which only the optional crosscheck_inherited.py executes (it also checks this SHA256 itself)."

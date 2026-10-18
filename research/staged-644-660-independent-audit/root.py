@@ -164,9 +164,10 @@ def aggregate_idle(cert, inventory, local):
     z rows are (group, macro-call, width, roles).  Checks record types and ranges,
     duplicate records, bin counts, capacities, the open/closed windows as published,
     width supply = role flow, the per-call demand S*inventory for all 333 macro-calls,
-    the per-copy group capacity, and the witness's own inventory and profile fields
-    (the same legality checks as PR3605 owners/verify_aggregate.py, reimplemented).
-    The windows themselves are taken as published, not derived from the source template.
+    the per-copy group capacity, the complete paid rank mass 65088*37*S, and the witness's
+    own inventory and profile fields: every check of PR3605 owners/verify_aggregate.py,
+    reimplemented, except its two template-derived ones (the literal T37 order, and the
+    window classes and bin counts from owner.windows).  Windows are taken as published.
     """
     widths, S, groups = cert['widths'], cert['S'], cert['groups']
     need(widths == [4, 5, 6, 7, 8, 9] and S == 20 and len(cert['order']) == 333, 'aggregate shape')
@@ -199,8 +200,24 @@ def aggregate_idle(cert, inventory, local):
     need(all(demand[t, w] == S * inventory[w] for t in range(333) for w in widths), 'per-call width demand')
     need(all(n <= S * groups[g][3] for (g, t), n in per_copy.items()), 'per-copy group capacity')
     profile = Counter({r: 333 * S * n for r, n in local.items()}) + idle
+    need(sum(r * n for r, n in profile.items()) == 65088 * 37 * S, 'complete paid rank mass')
     need({int(r): n for r, n in cert['profile'].items()} == profile, 'witness profile field')
     return idle, sum(S * g[3] for g in groups), sum(S * g[3] * g[0] for g in groups)
+
+
+def unit_spread(b):
+    """Interval for c(b) = (73^b - (73/48)^b)/(73*663040), the largest change of M(b) per unit of
+    rank mass moved between ranks in [1, 48]."""
+    top, low = moment({1: 1}, b), moment({48: 1}, b)
+    return down(top[0] - low[1] / 48), up(top[1] - low[0] / 48)
+
+
+def safe_units(hist, point):
+    """Largest integer m with m*c(point) < 1 - M(point) certified, so that every mass-conserving
+    change moving at most m units (ranks in [1, 48]) keeps M(point) < 1, i.e. the root above point."""
+    gap, spread = 1 - moment(hist, point)[1], unit_spread(point)[1]
+    need(gap > 0, 'point not below the root', point)
+    return math.ceil(gap / spread) - 1
 
 
 def relabel(hist, k):
@@ -243,25 +260,38 @@ def main():
     need(times(local_new) + idle_new == Counter(new), 'PR3605 H = 6660 L + I')
     need(times(local_old) + idle_old == Counter(old), 'PR3148 H = 6660 L + I')
     mass = lambda h: sum(r * c for r, c in h.items())
-    need(mass(new) == mass(old) == 65088 * 740, 'rank mass invariant')
+    # Coverage law mass(H) = 72W + 64N (W = 896*740 live stock, N = 6660 calls; PR1012 deficit form).
+    need(mass(new) == mass(old) == 72 * STOCK + 64 * CALLS == 65088 * 740, 'coverage law (rank mass invariant)')
     cert_path = HERE / 'inputs' / 'AGGREGATE-INTEGER-FLOW.json.gz'
     need(hashlib.sha256(cert_path.read_bytes()).hexdigest() == pins['inputs/AGGREGATE-INTEGER-FLOW.json.gz'], 'aggregate pin')
     audited_widths = {4: 26, 5: 2, 6: 18, 7: 52, 8: 97, 9: 213}   # derived from frames by verify.py
     idle_count, bin_count, capacity = aggregate_idle(json.loads(gzip.decompress(cert_path.read_bytes())), audited_widths, local_new)
     need(idle_count == idle_new, 'aggregate witness idle histogram differs from DERIVATION.md', dict(idle_count))
     need(capacity == mass(idle_new) + CALLS * sum(w * c for w, c in audited_widths.items()), 'capacity balance')
+    # mass(H) = N*(mass(L) - sum w*n_w) + capacity.  The per-call constant is 1856 for both audited
+    # words, so the coverage law forces total owner capacity 54W for PR3605 and PR3148 alike.
+    parent_widths = {**audited_widths, 7: 50, 8: 99}
+    per_call = {name: mass(loc) - sum(w * c for w, c in ws.items())
+                for name, loc, ws in (('PR3605', local_new, audited_widths), ('PR3148', local_old, parent_widths))}
+    forced = mass(new) - CALLS * per_call['PR3605']
+    need(per_call['PR3605'] == per_call['PR3148'] == 1856 and forced == 54 * STOCK == capacity
+         == mass(idle_old) + CALLS * sum(w * c for w, c in parent_widths.items()), 'coverage law forces capacity 54W')
     cert = json.loads(gzip.decompress(cert_path.read_bytes()))
     window_cut = [row[:] for row in cert['z']]
     j = next(j for j, row in enumerate(window_cut) if cert['groups'][row[0]][1] >= 0)
     window_cut[j][1] = cert['groups'][window_cut[j][0]][1]           # role on the excluded lower endpoint
-    for label, bad_cert, widths in (('parent widths 7:50/8:99', cert, {**audited_widths, 7: 50, 8: 99}),
-                                    ('one pattern record deleted', {**cert, 'x': cert['x'][1:]}, audited_widths),
-                                    ('one pattern record duplicated', {**cert, 'x': cert['x'] + cert['x'][:1]}, audited_widths),
-                                    ('one role-flow record deleted', {**cert, 'z': cert['z'][1:]}, audited_widths),
-                                    ('role on an excluded lower window endpoint', {**cert, 'z': window_cut}, audited_widths)):
+    parent_cert = {**cert, 'inventory': {str(w): n for w, n in parent_widths.items()}}
+    for label, bad_cert, widths, reason in (
+            ('parent widths against the witness inventory field', cert, parent_widths, 'witness inventory field'),
+            ('parent widths, inventory field also set to them', parent_cert, parent_widths, 'per-call width demand'),
+            ('one pattern record deleted', {**cert, 'x': cert['x'][1:]}, audited_widths, 'bin inventory'),
+            ('one pattern record duplicated', {**cert, 'x': cert['x'] + cert['x'][:1]}, audited_widths, 'duplicate pattern record'),
+            ('one role-flow record deleted', {**cert, 'z': cert['z'][1:]}, audited_widths, 'pattern supply differs from role flow'),
+            ('role on an excluded lower window endpoint', {**cert, 'z': window_cut}, audited_widths, 'source window')):
         try:
             aggregate_idle(bad_cert, widths, local_new)
-        except RootFailure:
+        except RootFailure as error:
+            need(str(error).startswith(reason), 'aggregate control rejected for the wrong reason:', label, '/', error)
             continue
         raise RootFailure('aggregate control accepted: ' + label)
 
@@ -269,6 +299,7 @@ def main():
            'rank_mass': mass(new), 'stock_times_dimension': M_DIM * STOCK, 'histograms': {},
            'aggregate_witness_recount': {'idle': {str(k): v for k, v in sorted(idle_count.items())},
                                          'bins': bin_count, 'capacity_rank_units': capacity,
+                                         'controls_rejected': 6,
                                          'scope': 'arithmetic of the published integer witness with the audited '
                                                   'widths; windows as published; no literal journal or chronology'}}
     published = {'PR3605': (new, [Q(x) for x in pr3605['root_interval']], 24),
@@ -301,9 +332,12 @@ def main():
     out['attribution'] = attribution
     out['root_delta_PR3605_minus_PR3148'] = [str(roots['PR3605'][0] - roots['PR3148'][1]),
                                              str(roots['PR3605'][1] - roots['PR3148'][0])]
-    # Mass-changing sensitivity: one idle child added or removed (rank mass changes by r).
-    # At fixed window classes, bin counts and widths the capacity balance fixes mass(I), so
-    # these perturbations model group-geometry or width errors, not placement errors.
+    out['coverage_law'] = {'rank_mass_72W_plus_64N': 72 * STOCK + 64 * CALLS, 'per_call_mass_minus_width_units': 1856,
+                           'forced_capacity_54W': forced,
+                           'rank_mass_moved_PR3148_to_PR3605': sum(r * (new.get(r, 0) - old.get(r, 0))
+                                                                   for r in set(new) | set(old) if new.get(r, 0) > old.get(r, 0))}
+    # Slopes only: one child added or removed changes rank mass by r, so each perturbed histogram
+    # violates the coverage law checked above and could not pass undetected.  They show scale.
     sensitivity = {}
     for r in (1, 48):
         for sign in (1, -1):
@@ -314,13 +348,13 @@ def main():
                 'bracket_30_digits': [str(a), str(b)],
                 'shift_from_PR3605_lower': float(a - roots['PR3605'][0])}
     out['mass_changing_sensitivity_PR3605'] = sensitivity
-    # Mass-conserving sensitivity.  Idle ranks are capacities minus pattern widths, so lie in
-    # [1, 48] (capacities 8/16/32/48).  For a change moving m units of idle mass, linearity of M
-    # and 1 <= (73/r)^b / (73/48)^b <= 73^b / (73/48)^b give |dM(b)| <= m*(73^b-(73/48)^b)/(73*663040)
-    # at every b>0, with equality for relabel(.., m/48).  Since M increases in b, every such
-    # change leaves the root between those of relabel(.., +k) and relabel(.., -k) when m <= 48k.
+    # Mass-conserving sensitivity (every error the coverage law cannot see).  Let m be the
+    # positive-part rank mass sum_{dH_r>0} r*dH_r of a change dH with sum r*dH_r = 0.  If every
+    # rank before and after lies in [1, 48], linearity of M and (73/48)^b <= (73/r)^b <= 73^b give
+    # |dM(b)| <= m*c(b) at every b>0 (unit_spread), with equality for relabel(.., m/48).  Since M
+    # increases in b, m <= safe_units(H, b0) keeps the root above b0.
     capacities = sorted({g[0] for g in cert['groups']})
-    need(capacities == [8, 16, 32, 48] and max(idle_new) == 48, 'idle ranks within [1,48]')
+    need(capacities == [8, 16, 32, 48] and min(new) >= 1 and max(new) == max(old) == 48, 'ranks within [1,48]')
     conserving = {}
     for k in (1, -1):
         a, b = bracket(relabel(new, k), 30)
@@ -338,6 +372,11 @@ def main():
     k_threshold = min_relabels(new, Q(173, 100000), Q(173, 100000))
     conserving['least relabels putting the PR3605 root below the PR3148 root'] = k_gain
     conserving['least relabels putting the PR3605 root below 0.00173'] = k_threshold
+    m_gain, m_threshold = safe_units(new, roots['PR3148'][1]), safe_units(new, Q(173, 100000))
+    need(48 * (k_gain - 1) <= m_gain < 48 * k_gain and 48 * (k_threshold - 1) <= m_threshold < 48 * k_threshold,
+         'direct threshold disagrees with the relabel counts', m_gain, m_threshold)
+    conserving['most rank-mass units moved that cannot put the PR3605 root below the PR3148 root'] = m_gain
+    conserving['most rank-mass units moved that cannot put the PR3605 root below 0.00173'] = m_threshold
     out['mass_conserving_sensitivity_PR3605'] = conserving
     out['local_delta_per_call'] = {str(r): local_new[r] - local_old[r] for r in sorted(set(local_new) | set(local_old)) if local_new[r] != local_old[r]}
     out['idle_delta'] = {str(r): idle_new[r] - idle_old[r] for r in sorted(set(idle_new) | set(idle_old)) if idle_new[r] != idle_old[r]}
