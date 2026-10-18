@@ -41,6 +41,21 @@ dependencies or make a Git-dependent checker portable. The generic registered
 runner still needs Git history for its provenance checks. The exported manifest
 is preserved unchanged; successful export is not a successful registered replay.
 
+## File and directory conflicts
+
+The regular-file inventory must also form a valid tree: a member cannot be an
+ancestor of another member, regardless of archive order. The receipt occupies
+`.research-export.json` as a file, so inputs below that path are rejected before
+an export is published. Distinct lexical prefixes such as
+`.research-export.json.notes/input` remain valid. This prevents a successful
+integrity check on a bundle that necessarily fails extraction because a path
+would have to be both a file and a directory.
+
+File-tree validation and its CLI/extraction regression tests were prepared for
+roger-sato with substantial OpenAI Codex assistance, retaining Tekalign's exporter
+and transport-integrity scope. Run them with
+`python3.12 -B -m unittest discover -s tests -p 'test_research_export_topology.py' -v`.
+
 ## Evidence and scope
 
 Base `997e6a9ca7b4f95d50e366f61412fd640d72a88a`; verification-engineering seed 87.
