@@ -19,11 +19,12 @@ def result():
     return _CACHE[0]
 
 
-def fails(fn, *args):
+def fails(why, fn, *args):
+    """True when fn stops with the FAIL message that names `why`."""
     try:
         fn(*args)
     except SystemExit as exc:
-        return str(exc).startswith("FAIL")
+        return str(exc).startswith("FAIL: " + why)
     return False
 
 
@@ -31,7 +32,7 @@ class Controls(unittest.TestCase):
     def test_tampered_input_hash(self):
         bad = {k: "0" * 64 for k in V["INPUTS"]}
         with mock.patch.dict(V["load"].__globals__["INPUTS"], bad):
-            self.assertTrue(fails(V["load"]))
+            self.assertTrue(fails("input hash", V["load"]))
 
     def test_oracle_rejects_an_unsound_test(self):
         # A test that grants only shared snapshots misses helper paths.
@@ -39,7 +40,8 @@ class Controls(unittest.TestCase):
         with mock.patch.dict(g, {"small_sharp": lambda inst: {
                 (t, s) for s, xc in enumerate(inst[1])
                 for t, yc in enumerate(inst[2]) if set(xc) & set(yc)}}):
-            self.assertTrue(fails(V["oracle"], 7, ((3, 400),), 120))
+            self.assertTrue(fails("oracle: exhaustive untimed support differs",
+                                  V["oracle"], 7, ((3, 400),), 120))
 
     def test_oracle_rejects_a_too_tight_exhaustive_search(self):
         # An exhaustive search that never switches helper type misses the
@@ -47,7 +49,8 @@ class Controls(unittest.TestCase):
         g = V["unpooled_relay_example"].__globals__
         with mock.patch.dict(g, {"small_exact": lambda inst: (
                 V["small_sharp"](inst), {})}):
-            self.assertTrue(fails(V["unpooled_relay_example"]))
+            self.assertTrue(fails("pooling is needed",
+                                  V["unpooled_relay_example"]))
 
     def test_dropping_shared_type_breaks_pr3427_masks(self):
         # Pairing a source snapshot and a target snapshot that are each
@@ -69,9 +72,9 @@ class Controls(unittest.TestCase):
                for s in range(4)]
         self.assertNotEqual(tuple(got), g["PR3427_SOURCE_MASKS"])
 
-    def test_dropping_containment_is_unsound_in_principle(self):
+    def test_dropping_containment_loses_exactness_in_principle(self):
         # Containment V <= W is not decisive at P104 (verify.py checks this),
-        # but it is needed in general.  F_2^4, one pooled type with line <e1>
+        # but without it the test over-grants: it stays sound, not exact.  F_2^4, one pooled type with line <e1>
         # and hyperplane <e1,e2,e3>: X0 passes the admitted plane <e1,e2>,
         # Y0 the admitted plane <e1,e3>, and no path joins them.
         key = V["key"]
@@ -83,12 +86,19 @@ class Controls(unittest.TestCase):
         self.assertTrue(V["small_admit"](ty, v) and V["small_admit"](ty, w))
         self.assertNotIn((0, 0), V["small_exact"](inst)[0])
         self.assertNotIn((0, 0), V["small_sharp"](inst))
+        # A test without containment grants the unreachable pair (0,0).
+        self.assertTrue(V["small_admit"](ty, v) and V["small_admit"](ty, w)
+                        and not V["le"](v, w))
 
-    def test_wrong_rectangle_is_rejected(self):
+    def test_wrong_rank_block_is_rejected(self):
+        # The block is a maximum independent set, so any added port meets a
+        # supported pair; a shrunk block fails the size-23 check.
         g = V["rank_consequence"].__globals__
         r = result()
-        with mock.patch.dict(g, {"RANK_ROWS": g["RANK_ROWS"] + (71,)}):
-            self.assertTrue(fails(V["rank_consequence"], r))
+        for bad, why in ((g["MIS_BLOCK"] + (45,), "principal block"),
+                         (g["MIS_BLOCK"][1:], "maximum independent set")):
+            with mock.patch.dict(g, {"MIS_BLOCK": bad}):
+                self.assertTrue(fails(why, V["rank_consequence"], r))
 
     def test_y_relay_counterexample_is_a_real_escape(self):
         self.assertEqual(V["y_relay_counterexample"](), (1, True))

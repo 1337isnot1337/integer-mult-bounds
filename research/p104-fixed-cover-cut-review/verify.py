@@ -14,6 +14,8 @@ Frames are GF(2) subspaces of F_2^n held as canonical reduced-echelon keys.
          instance, an explicit checked program for every reachable helper pair,
          and random checked programs, all with exact Fraction coefficients.
   ROWS   single-relaxation support rows (unpriced; operations counted).
+  RANK   a maximum unsupported principal block of C (rank(U-I) >= 23 under
+         PR3427's contract) and the matching number of the missing entries.
 """
 
 import hashlib
@@ -490,6 +492,7 @@ def p104():
     roles = channel_roles(word)
     geo = covers(cert, paths)
     C = required(e8_ports(fixture))
+    need(len(word["program"]) == 4058, "4,058 channel events")
     hist, first = channel_run(word, C)
     lay, fwd, back, f5 = layered(geo, paths)
     miss_l = missing(C, lay)
@@ -500,6 +503,9 @@ def p104():
     need(sharp == sharp_by_edges(geo, paths), "sharp criterion: two loop orders")
     need(sharp == full_memory(geo, paths), "PR3252 full-memory test = sharp")
     need(all(sharp[t] & ~lay[t] == 0 for t in range(104)), "sharp <= layered")
+    # A target path that reaches FULL would share it with every source.
+    need(all(len(paths["X%d" % s][-1]) == 9 for s in range(104)),
+         "every X path ends at FULL")
     need(not any(set(paths["X%d" % s]) & set(paths["Y%d" % t])
                  for s in range(104) for t in range(104)),
          "no X path shares a frame with a Y path")
@@ -517,6 +523,7 @@ def p104():
     return {"roles": roles, "geo": geo, "paths": paths, "C": C,
             "layered": lay, "sharp": sharp, "missing_layered": miss_l,
             "missing_sharp": missing(C, sharp), "forward": fwd,
+            "backward": bin(back).count("1"),
             "hist": hist, "first_Y71_X102": first}
 
 
@@ -567,6 +574,10 @@ def rows(r):
             cap = j == len(paths["Y%d" % t]) - 1
             arrivals[(len(w), cap)] = arrivals.get((len(w), cap), 0) + \
                 bin(xin[(t, j)]).count("1")
+    lower = {}  # target snapshots below the cap that receive content
+    for t, j, w in ys:
+        if xin[(t, j)] and j < len(paths["Y%d" % t]) - 1:
+            lower[len(w)] = lower.get(len(w), 0) + 1
     need(all(xin[(t, len(paths["Y%d" % t]) - 1)] == r["sharp"][t]
              for t in range(104)), "every supported pair arrives at the cap")
     need(len({paths["Y%d" % t][-1] for t in range(104)}) == 104,
@@ -594,6 +605,7 @@ def rows(r):
     return {"R1_correction_only_Y_relay": count(r1),
             "R1u_without_target_order": count(r1u),
             "R1_arrivals_dim_cap": sorted(arrivals.items()),
+            "R1_lower_snapshots_by_dim": sorted(lower.items()),
             "R1c_Y_relay_with_channel_content": count(r1c),
             "R2_free_nested_flags": count(free),
             "R3_old_channel_helper_reads": count(r3),
@@ -633,52 +645,92 @@ def bareiss_det(m):
     return sign * a[n - 1][n - 1]
 
 
-def greedy_rectangle(sharp, C):
-    """Deterministic greedy: for each seed column grow S while the common
-    unsupported row set R keeps min(|R|,|S|) increasing; keep max rank."""
-    n = len(C)
-    uns = [[not sharp[t] >> s & 1 for s in range(n)] for t in range(n)]
-    best = (0, (), ())
-    for s0 in range(n):
-        S, R = [s0], [t for t in range(n) if uns[t][s0]]
-        while True:
-            cand = sorted(((min(len(r2), len(S) + 1), len(r2), -s, r2)
-                           for s in range(n) if s not in S
-                           for r2 in [[t for t in R if uns[t][s]]]),
-                          reverse=True)
-            if not cand or cand[0][0] <= min(len(R), len(S)):
-                break
-            S.append(-cand[0][2])
-            R = cand[0][3]
-        rk = frac_rank([[C[t][s] for s in S] for t in R])
-        if rk > best[0]:
-            best = (rk, tuple(sorted(R)), tuple(sorted(S)))
-    return best
+def max_clique(adj):
+    """Exact maximum clique size: branch and bound with a greedy colouring
+    bound (vertex sets are bitmasks)."""
+    best = [0]
+
+    def expand(size, P):
+        order, U, col = [], P, 0
+        while U:
+            col, Q = col + 1, U
+            while Q:
+                v = (Q & -Q).bit_length() - 1
+                Q &= ~adj[v] & ~(1 << v)
+                U &= ~(1 << v)
+                order.append((col, v))
+        for col, v in reversed(order):
+            if size + col <= best[0]:
+                return
+            if P & adj[v]:
+                expand(size + 1, P & adj[v])
+            best[0] = max(best[0], size + 1)
+            P &= ~(1 << v)
+    expand(0, (1 << len(adj)) - 1)
+    return best[0]
 
 
-RANK_ROWS = (2, 4, 5, 13, 15, 25, 32, 36, 39, 48, 52, 73, 76, 82, 87, 89,
-             94, 98, 102)
-RANK_COLS = (2, 5, 11, 13, 15, 16, 20, 25, 28, 32, 40, 48, 61, 65, 76, 84,
-             94, 102)
-MINOR_ROWS = (2, 4, 5, 13, 15, 25, 32, 36, 39, 48, 52, 73, 76, 82, 87, 94,
-              102)
-MINOR_COLS = (2, 5, 11, 13, 15, 16, 20, 25, 28, 32, 40, 48, 61, 65, 76, 94,
-              102)
+def max_clique_bk(adj):
+    """Second exact method: Bron-Kerbosch with pivoting and a size bound."""
+    best = [0]
+
+    def bk(size, P, X):
+        if not P:
+            best[0] = max(best[0], size)
+            return
+        if size + bin(P).count("1") <= best[0]:
+            return
+        piv = max((v for v in range(len(adj)) if (P | X) >> v & 1),
+                  key=lambda v: bin(P & adj[v]).count("1"))
+        cand = P & ~adj[piv]
+        while cand:
+            v = (cand & -cand).bit_length() - 1
+            cand &= cand - 1
+            bk(size + 1, P & adj[v], X & adj[v])
+            P &= ~(1 << v)
+            X |= 1 << v
+    bk(0, (1 << len(adj)) - 1, 0)
+    return best[0]
+
+
+MIS_BLOCK = (8, 11, 17, 18, 23, 30, 34, 37, 42, 50, 51, 58, 59, 63, 70, 71,
+             78, 80, 84, 87, 91, 96, 100)
 
 
 def rank_consequence(r):
     """Any D = U^-1 - G/2 vanishes on unsupported pairs, so on an unsupported
-    rectangle (U^-1 - I)[R,S] = -C[R,S] and rank(U - I) >= rank C[R,S]."""
-    sharp, C = r["sharp"], r["C"]
-    need(all(not sharp[t] >> s & 1 for t in RANK_ROWS for s in RANK_COLS),
-         "rectangle unsupported")
-    need(greedy_rectangle(sharp, C) == (17, RANK_ROWS, RANK_COLS),
-         "greedy rectangle")
-    rk = frac_rank([[C[t][s] for s in RANK_COLS] for t in RANK_ROWS])
-    det = bareiss_det([[int(8 * C[t][s]) for s in MINOR_COLS]
-                       for t in MINOR_ROWS])
-    need(rk == 17 and det != 0, "rank 17 by elimination and a nonzero minor")
+    rectangle (U^-1 - I)[R,S] = -C[R,S] and rank(U - I) >= rank C[R,S].
+    A principal block C[S,S] is unsupported exactly when S is independent in
+    the undirected support graph (diagonal pairs are never supported)."""
+    sharp, C, S = r["sharp"], r["C"], MIS_BLOCK
+    need(all(not sharp[t] >> s & 1 for t in S for s in S),
+         "principal block unsupported")
+    free = [sum(1 << s for s in range(104) if s != t and not (
+        sharp[t] >> s & 1 or sharp[s] >> t & 1)) for t in range(104)]
+    need(max_clique(free) == max_clique_bk(free) == len(S) == 23,
+         "maximum independent set has size 23 by two exact searches")
+    rk = frac_rank([[C[t][s] for s in S] for t in S])
+    det = bareiss_det([[int(2 * C[t][s]) for s in S] for t in S])
+    need(rk == 23 and det == 2 ** 30,
+         "rank 23 by elimination and det(2C[S,S]) = 2^30")
     return rk, det
+
+
+def matching_number(pairs, n=104):
+    """Maximum bipartite matching (Kuhn); equals the minimum vertex cover."""
+    adj, match = [[] for _ in range(n)], [-1] * n
+    for t, s in pairs:
+        adj[t].append(s)
+
+    def augment(t, seen):
+        for s in adj[t]:
+            if s not in seen:
+                seen.add(s)
+                if match[s] < 0 or augment(match[s], seen):
+                    match[s] = t
+                    return True
+        return False
+    return sum(augment(t, set()) for t in range(n))
 
 
 # ------------------------------------------------- small-domain oracle
@@ -1269,6 +1321,16 @@ def main():
     need(len(zero_off) == 5720 and all(lay[t] >> s & 1 for t, s in zero_off)
          and all(lay[t] >> t & 1 for t in range(104)),
          "PR3259's test grants all 5,720 zero off-diagonal and 104 diagonal pairs")
+    need(sum(1 for t, s in ms if s < 4) == 92 and all(
+        lay[t] >> s & 1 for t, s in ms if s < 4),
+        "PR3427's masks exclude 92 required entries that PR3259's test grants")
+    rows_hit = [sum(1 for t, _ in ms if t == u) for u in range(104)]
+    cols_hit = [sum(1 for _, s in ms if s == u) for u in range(104)]
+    cover = matching_number(ms)
+    need(cover == 104 and min(rows_hit) == 14 and min(cols_hit) == 9,
+         "missing entries: perfect matching (vertex cover 104), "
+         "row min 14, column min 9")
+    need(r["backward"] == 37, "backward cone 37")
     need(r["first_Y71_X102"] == [3378, "1/2", "D11", 5],
          "channel's first X102 delivery into Y71")
     rw = rows(r)
@@ -1276,6 +1338,8 @@ def main():
     need(rw["R1u_without_target_order"] == (2682, True), "R1u")
     need(rw["R1_arrivals_dim_cap"] == [((5, False), 31), ((6, False), 24),
                                        ((8, True), 2310)], "R1 arrivals")
+    need(rw["R1_lower_snapshots_by_dim"] == [(5, 19), (6, 7)],
+         "R1 lower arrivals sit on 19 + 7 target snapshots")
     need(rw["R1c_Y_relay_with_channel_content"] == (2682, True), "R1c")
     need(rw["R2_free_nested_flags"] == (2682, True), "R2")
     need(rw["R3_old_channel_helper_reads"] == (2682, True), "R3")
@@ -1289,16 +1353,29 @@ def main():
     print(json.dumps({"channel_roles": r["roles"], "layered_missing":
                       r["missing_layered"], "forward_cone": r["forward"],
                       "channel_first_Y71_X102": r["first_Y71_X102"],
-                      "rank_bound": rk, "minor_det_8C": det,
+                      "rank_bound": rk, "mis_block": MIS_BLOCK,
+                      "det_2C_block": det,
                       "sharp_missing": len(ms), "sharp_missing_by_value":
                       by_value, "layered_grants_sharp_missing": reopened,
-                      "unsupported_pairs": 8506, "sharp_support":
-                      "2309 own port pairs + [73,83]", "rows": rw,
+                      "counts": {
+                          "pairs": len(pairs), "required_entries": 4992,
+                          "channel_events": 4058,
+                          "sharp_supported_pairs": 2310,
+                          "layered_supported_pairs": 10815,
+                          "unsupported_pairs": 8506,
+                          "own_port_pairs": 2309, "extra_pair": [73, 83],
+                          "layered_zero_off_diagonal": len(zero_off),
+                          "layered_diagonal": 104, "backward_cone":
+                          r["backward"], "pr3427_cols_0_3_missing": 92,
+                          "missing_vertex_cover": cover,
+                          "missing_row_min": min(rows_hit),
+                          "missing_col_min": min(cols_hit)},
+                      "rows": rw,
                       "oracle": checked, "negative_controls": escapes},
                      sort_keys=True))
     print("PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 "
-          "sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 "
-          "rows=5 oracle_instances=%d oracle_programs=%d no_kappa" % (
+          "sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=23 "
+          "vertex_cover=104 rows=5 oracle_instances=%d oracle_programs=%d no_kappa" % (
               sum(n for _, n in ORACLE_TRIALS) * 2,
               checked["programs"] + checked["unpooled_programs"]))
 

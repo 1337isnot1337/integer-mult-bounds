@@ -1,35 +1,57 @@
-# P104 fixed-cover support cut: hypothesis review and a sharper criterion
+# P104 fixed-cover support cut: hypothesis review and the full count under the one-helper criterion
 
 **Statement.** PR3259's path-embedding argument is a **valid** necessary support
-test under its fixed-cover contract, taken in its pooled form (K1-K7 in
-[PROOF-REVIEW.md](PROOF-REVIEW.md)). That contract is closed by a much larger
-obstruction than one coefficient: **2,682 of the 4,992 required entries of
-`C = I - G/2` are unsupported**, with at least one in every row and every
-column.
+test under its fixed-cover contract, taken in its pooled form (K1-K7 below).
+That contract is closed by a much larger obstruction than one coefficient:
+**2,682 of the 4,992 required entries of `C = I - G/2` are unsupported**.
+They contain a perfect matching, so no fewer than 104 rows and columns
+together cover them; every row has at least 14 and every column at least 9.
+
+Contract legend (full text in [PROOF-REVIEW.md](PROOF-REVIEW.md)): K1 fixed
+pooled cover through `L/A/B/H`; K2 monotone helpers; K3 equal-frame mixing;
+K4 immutable X on its frozen frame path; K5 unread Y on its frozen frame
+path; K6 no other source-dependent state; K7 independent dirt. Rows R1-R3
+below each relax one of them.
 
 The 2,682 count rests on two sound tests that agree on all 10,816
 source/target pairs:
 
-- PR3427's one-recombined-helper lemma, re-proved here in every dimension
-  case. It keeps the fact that PR3259's test discards: the frames along a
-  dependency path are nested.
+- PR3427's one-recombined-helper criterion, re-proved here in every
+  dimension case. It keeps the fact that PR3259's test discards: the frames
+  along a dependency path are nested.
 - PR3252's full-memory recurrence, whose proof is reviewed valid here,
   implemented anew over the whole pool. It is multi-hop and does not assume
   the lemma.
 
-For the pooled untimed relaxation the lemma is exact: no sound untimed test
-can exclude more pairs. The supported pairs have a simple form. They are the
-2,309 compatible slot pairs read as port pairs, plus one extra pair, so
-`2,682 = 4,992 - 2,309 - 1`. PR3259's single missing entry,
-`C[71,102] = -1/2`, belongs to its looser relaxation. Applied to all 104
-columns, PR3427's source-preconditioner bound rises from `rank(U-I) >= 4` to
-**`rank(U-I) >= 17`** under PR3427's own contract.
+**What PR3427 already has, and what is new.** PR3427 states the one-helper
+criterion, calls it exact for the pooled untimed relaxation and gives its
+untimed converse. Its published masks for sources 0-3 already exclude 92
+required entries that PR3259's test grants, so PR3427's certificate already
+implies that PR3259's test is not sharp. New here:
+
+- the step-by-step review of PR3259 and PR3252;
+- the criterion's full 104-column count, 2,682, with its closed form: the
+  supported pairs are the 2,309 compatible slot pairs read as port pairs,
+  plus `(73,83)`, so `2,682 = 4,992 - 2,309 - 1`;
+- a multi-hop computation of the same support that does not assume the
+  lemma;
+- `rank(U-I) >= 23` under PR3427's own contract, against its published 4,
+  from a fully unsupported, nonsingular 23-by-23 principal block;
+- the 104 vertex cover and the single-relaxation rows R1-R3.
+
+PR3259's single missing entry, `C[71,102] = -1/2`, belongs to its looser
+relaxation. Under the criterion an entry's support depends only on the
+frames of its source and target paths and on the cover. So a reopening that
+keeps K1-K3, K6, K7 and the K4/K5 roles (X unwritten, Y unread), and changes
+only individual X or Y frame paths, must change at least 104 of them. This
+makes no cost claim.
 
 This is an author-checked, AI-assisted audit: a scoped proof review, a finite
-certificate and small-domain checks. Four AI review passes in the same loop
-(reproducibility, mathematics, provenance, referee) checked the first
-version, and this revision addresses their findings. No independent human or
-formal-kernel review has been done. The audit constructs nothing and is not a
+certificate and small-domain checks. Seven AI review passes in the same loop,
+over two rounds (reproducibility, mathematics, provenance and referee; then
+mathematics, reproducibility and referee), checked the package, and this
+revision addresses their findings. No independent human or formal-kernel
+review has been done. The audit constructs nothing and is not a
 complete multiplication theorem. It proves no P104 impossibility outside the
 stated contract, and κ and the selected frontier are unchanged.
 
@@ -44,8 +66,9 @@ stated contract, and κ and the selected frontier are unchanged.
 | Control: PR3259 layered test, rebuilt | Missing set `{(71,102)}`. Forward counts `16,25,52,365,1725,2283,2285,2297`. Backward cone 37, disjoint. |
 | Sharp criterion: one criterion in two loop orders, plus PR3252's multi-hop recurrence | All three computations agree on every pair. 2,310 supported pairs, against 10,815 for PR3259's test. 2,682 required entries unsupported: 1,801 at `-1/2` and 881 at `+1/2`. 8,506 pairs unsupported in all. |
 | Shape of the sharp support | Exactly the 2,309 compatible slot pairs `(a,b)` read as (target `b//2`, source `a//2`), all distinct and all required, plus `(73,83)`. All supported pairs are off-diagonal required entries. PR3259's test grants 2,681 of the 2,682 missing entries, all 5,720 zero off-diagonal pairs and all 104 diagonal pairs. |
-| Cross-check with PR3427 | The four published per-source masks (sources 0-3) are reproduced exactly. |
-| Consequence for PR3427 | A 19-by-18 rectangle of unsupported pairs has `rank C[R,S] = 17`, giving `rank(U-I) >= 17`. A 17-by-17 minor has `det(8C) = 2^43`. |
+| Cover of the missing entries | A maximum matching of the 2,682 missing entries has size 104, so the minimum vertex cover is 104 (König). Missing entries per row: at least 14; per column: at least 9. |
+| Cross-check with PR3427 | The four published per-source masks (sources 0-3) are reproduced exactly. They exclude 92 required entries, all granted by PR3259's test. |
+| Consequence for PR3427 | A maximum independent set of the undirected support graph has 23 ports (two exact searches). Its 23-by-23 principal block is fully unsupported with `det(2C[S,S]) = 2^30`, so `rank C[S,S] = 23` and `rank(U-I) >= 23`. |
 | Small domains, pooled | 4,500 seeded `F_2^3`/`F_2^4` instances. On every one, an exhaustive untimed reachability, which does not assume the lemma, equals the one-helper test. Its 4,264 helper-only pairs are each realized by an explicit program in the checked interpreter. PR3259's test is strictly looser on 54 instances (75 pairs), and the exhaustive search confirms those pairs unreachable. |
 | Small domains, unpooled | 4,500 instances with six rigid types. The exhaustive support lies inside PR3259's test every time, and 8,978 helper-only pairs are realized. 33 pairs on 26 instances lie outside the one-helper test, each realized by a legal program: the lemma needs pooling. |
 | Random programs | 18,000 seeded checked programs with exact `Fraction` coefficients, two per instance; all lie inside the exhaustive support. Pooled: 1,043 nonzero coefficients counted per program, 604 of them on pairs whose X and Y chains share no frame, and 633 (13 + 620) passed between helpers of different types. Unpooled: 1,887 coefficients. The random programs found none of the 33 unpooled escapes, so they are a soundness sample, not the evidence for the lemma. |
@@ -68,12 +91,13 @@ The sharp criterion and the rows relax the relative timing of different
 registers but keep the order of operations along one dependency path; that
 order is what makes path frames nested. R1 applies it at a target used as a
 relay. Content written into `Y_u` at one of its frames can be read only at
-that frame or a later one, because `Y_u`'s frames ascend in time. Every program obeys this. With it,
-correction content reaches targets at their final caps (2,310 arrivals) and at
-55 frames of dimension 5 or 6 (31 and 24). A cap can feed only itself, since
-the 104 caps are distinct, and the 55 lower arrivals relay nothing new, so R1
-reopens nothing. R1u drops the order and reopens everything. R1's zero rests
-on that order.
+that frame or a later one, because `Y_u`'s frames ascend in time. Every
+program obeys this. With it, correction content reaches targets at their
+final caps (2,310 source arrivals) and in 55 further source arrivals at 26
+lower target snapshots (31 arrivals on 19 dimension-5 snapshots, 24 on 7
+dimension-6 snapshots). A cap can feed only itself, since the 104 caps are
+distinct, and the lower arrivals relay nothing new, so R1 reopens nothing.
+R1u drops the order and reopens everything. R1's zero rests on that order.
 
 R1c and R3 use the channel's actual coefficients, recorded from the exact run
 of its 4,058 events. The channel first puts `X102` into `Y71` at event 3378,
@@ -86,13 +110,18 @@ and cost are unknown.
 Among the rows computed here, two hypotheses each reopen every entry: the
 fixed cover (K1) and the exclusion of the channel's source-dependent state
 (K6, with its exposure through Y). The rows are not a complete map. Not
-computed at P104: frame descent (K2), cross-frame mixing (K3), changed source
+computed as rows at P104: frame descent (K2), cross-frame mixing (K3), changed source
 or target frame paths and source mutation (K4, K5), dependent dirt (K7) and
 extra correlated storage. The small-domain controls show that descent,
 cross-frame mixing, off-cover flags and correlated old state can each escape
-both tests. Under PR3427's preconditioner contract, which relaxes K4, a source
-preconditioner needs `rank(U-I) >= 17`. Any reopening must change at least one
-of K1-K7, or add storage, and must cover all 2,682 entries with a full bill.
+both tests. Changing a frozen target path also suffices at support level, one
+row at a time: every X path ends at FULL, so a target that visits FULL shares
+that frame with every source and can receive its whole row by equal-frame
+adds (pending #3618's T48 prices one such row at +2 rank mass). Path changes
+alone must touch at least 104 registers (the vertex cover above). Under
+PR3427's preconditioner contract, which relaxes K4, a source preconditioner
+needs `rank(U-I) >= 23`. Any reopening must change at least one of K1-K7, or
+add storage, and must cover all 2,682 entries with a full bill.
 
 The 2,682 count binds only corrections that keep the fixed cover, the frozen X
 and Y frame paths and the untouched channel state. Routes that change any of
@@ -127,8 +156,8 @@ conflict with its closure.
   dirty-restoration chronology on the published word.
 - Clear Insight (Clear1nsight), #3609
   (`13f974dae4af66027afb01f3ab42df9e830c2e90`), completes the omitted P104
-  section at the word's entrance with sources moved and Y temporarily
-  writable (outside K4 and K5).
+  section at the word's entrance with sources moved and Y read and
+  rescaled (outside K4 and K5).
 - James Reed (jwr404), #3580 (`c867e61e2ea790738474025b6200bf8475e56957`),
   indexes the #3259 replay for the
   [live support map](../../docs/research/p104-live-support-map.md).
@@ -142,27 +171,33 @@ python3 -I -O -Werror -B research/p104-fixed-cover-cut-review/verify.py
 python3 -I -O -Werror -B research/p104-fixed-cover-cut-review/test_verify.py
 ```
 
-The verifier prints one JSON receipt with every count quoted above. Its last
-line is
+The verifier asserts every count quoted above and prints the main ones in
+one JSON receipt. Its last line is
 
 ```
-PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 rows=5 oracle_instances=9000 oracle_programs=18000 no_kappa
+PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=23 vertex_cover=104 rows=5 oracle_instances=9000 oracle_programs=18000 no_kappa
 ```
 
 The registered replay is
 `python3.12 -B scripts/research_package.py --package research/p104-fixed-cover-cut-review`.
 Every check raises `SystemExit("FAIL: ...")`, so checks stay active under `-O`.
 
-**Negative controls that must fail.** `test_verify.py` checks seven:
+**Negative controls that must fail.** `test_verify.py` checks that each
+deliberate defect stops `verify.py` with its own `FAIL` message:
 
-- a tampered input hash is rejected;
-- an unsound "shared snapshot only" test is rejected by the oracle;
-- an exhaustive search that never switches helper type is rejected, because
-  it misses the fixed unpooled two-type relay;
+- a tampered input hash;
+- an unsound "shared snapshot only" test inside the oracle;
+- an exhaustive search that never switches helper type, which misses the
+  fixed unpooled two-type relay;
+- a wrong rank block: one port added (it meets a supported pair) or one
+  removed (the block is no longer maximum).
+
+It also checks three facts:
+
 - dropping the shared-helper-type requirement changes PR3427's masks;
-- dropping containment `V <= W` is unsound on a fixed `F_2^4` instance (at
-  P104 containment is never decisive, which `verify.py` asserts);
-- a wrong rank rectangle is rejected;
+- dropping containment `V <= W` over-grants on a fixed `F_2^4` instance: the
+  test stays sound but is no longer exact (at P104 containment is never
+  decisive, which `verify.py` asserts);
 - the fixed Y-relay program is a real escape.
 
 Inside `verify.py`, five contract violations must each produce a coefficient
@@ -190,13 +225,17 @@ independently and sorted.
   memories `S + L(h,d) + L(w,d)`, minimal-memory pruning), rewritten over
   all 2,309 types and 104 sources. It is multi-hop and does not assume the
   lemma.
-- The rank bound uses a deterministic greedy. For each seed column it
-  repeatedly adds the column that maximizes `min(|R'|, |S|+1)`, then `|R'|`,
-  with ties to the smallest index, where `R'` is the set of rows still
-  unsupported. It stops when `min(|R|,|S|)` stops growing and keeps the
-  rectangle of largest rank. Exact `Fraction` elimination gives the rank, and
-  an independent integer Bareiss determinant confirms it. The greedy is not
-  optimal, so 17 is a lower bound.
+- The rank bound uses a maximum independent set S of the undirected support
+  graph: no pair of S is supported in either order. Two exact searches, a
+  branch and bound with a greedy colouring bound and a pivoted
+  Bron-Kerbosch, both give size 23. Exact `Fraction` elimination gives
+  `rank C[S,S] = 23`, and an integer Bareiss determinant gives
+  `det(2C[S,S]) = 2^30`, so `det C[S,S] = 2^7`. No unsupported principal
+  block is larger; a non-principal rectangle or a min-rank argument could
+  give more, so 23 is a lower bound.
+- Kuhn's augmenting-path matching on the 2,682 missing entries gives size
+  104, a perfect matching, so by König's theorem every set of rows and
+  columns covering them has at least 104 members.
 - The small-domain oracle draws seeded random instances (seed `20261018`):
   3,000 over `F_2^3` and 1,500 over `F_2^4` in each family. Coverage is these
   instances, not every instance.
@@ -244,21 +283,24 @@ The selected cold replay is unchanged and was not rerun.
 
 ## Open next questions
 
-1. *Is 17 the true rank bound?* A min-rank completion of `-C` on all 8,506
-   unsupported pairs may force a rank well above 17. A larger rank would
-   further constrain any joint native source preparation under PR3427's
-   contract. A first step is an exact lower bound by larger or overlapping
-   rectangles, or by a min-rank argument. It needs no new matching search.
+1. *Is 23 the true rank bound?* 23 is optimal among principal blocks. A
+   non-principal unsupported rectangle, or a min-rank completion of `-C` on
+   all 8,506 unsupported pairs, may force more. A larger rank would further
+   constrain any joint native source preparation under PR3427's contract. It
+   needs no new matching search.
 2. *Which changed contract reopens all 2,682 entries at least cost?* An entry
    is supported when one helper type admits a source frame and a nested
-   target frame. Under the present cover that happens only through the
-   entry's own compatible slot pair, apart from `(73,83)`, which goes through
-   X83's dimension-4 frame. A changed cover must supply such a type for every
-   missing entry; relaxing the cover (R2) does this at support level. The first priced data
-   point is pending #3618's T48, which corrects a whole target row on one
-   target lift for +2 rank mass by changing the target's path rather than
-   the cover. Coefficients, dirt and every cost of a complete reopening
-   remain unknown.
+   target frame. Under the present cover the supported entries are exactly
+   those whose own slot pair is compatible, plus `(73,83)`, via X83's
+   dimension-4 frame. This describes the set, not the route: a review pass
+   found some supported entries also reached through other types (not
+   asserted by the verifier). A changed cover must supply such a type for every missing entry;
+   relaxing the cover (R2) does this at support level. Path changes alone
+   must touch at least 104 registers. The first priced data point is pending
+   #3618's T48, which corrects a whole target row on one target lift for +2
+   rank mass by changing the target's path rather than the cover. Whether
+   such costs add up across rows, and the coefficients, dirt and every cost
+   of a complete reopening, remain unknown.
 3. *Is there a non-trivial use of channel state?* R1c and R3 reopen everything
    only because the channel already carries `G/2`. One would need a
    coefficient-level construction that reads channel state and restores it,
@@ -277,7 +319,8 @@ The selected cold replay is unchanged and was not rerun.
 - commdata2338: PR3214 `faa6323371db1c5fbb43ab04c6e00715d2328bc6` (output
   repair).
 - Jose Manuel (jmbarrancoml): PR3427 `344774ba08a73fc3a85fdcb93fb319927bde3ea2`
-  (the one-helper lemma and the rank-four theorem extended here).
+  (the one-helper criterion and its untimed exactness, the four-column masks
+  and the rank-four theorem extended here).
 - James Reed (jwr404): the merged #3497-#3519 series (heads
   `a8804afd46ee63b202291ab3bcebd1eb2b83ecfc` through
   `d8928dd94a3450c5145a847507e7fb466dbc5c00`) already reproduced the X102

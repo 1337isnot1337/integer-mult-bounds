@@ -17,9 +17,9 @@ proves no P104 impossibility outside the stated contract.
 
 ## Verdict
 
-These verdicts come from an author-checked, AI-assisted review. Four AI review
-passes in the same loop checked the first version; no independent human or
-formal-kernel review has been done.
+These verdicts come from an author-checked, AI-assisted review. Seven AI
+review passes in the same loop, over two rounds, checked the package; no
+independent human or formal-kernel review has been done.
 
 1. **PR3259's argument is valid as a necessary support test under its stated
    contract.** Each step below is valid as written. Two steps need a sentence
@@ -34,17 +34,23 @@ formal-kernel review has been done.
    relaxation grants 10,815 source/target pairs, against 2,310 for the sharp
    criterion. "Exactly one missing coefficient" describes PR3259's test, not the
    contract. PR3259 itself says that passing its test is not a realization.
-   What is new here is that the same contract excludes 2,681 of the entries
-   that pass.
+   PR3427 already states this criterion and its untimed exactness, and its
+   published masks for sources 0-3 already exclude 92 required entries that
+   PR3259's test grants. What is new here is the step-by-step review, the
+   full 104-column count with its closed form, a multi-hop check that does
+   not assume the lemma, the rank and vertex-cover consequences, and the
+   rows R1-R3.
 3. Consequently the fixed-cover contract is closed by a much larger obstruction
    than one coefficient. A contract change that only reopens `C[71,102]` does
    not complete the correction. Examples are PR3427's rank-one source shear, a
-   moved helper, or one extra dependency.
+   moved helper, or one extra dependency. The pending concrete corrections
+   (README, "Concurrent pending work") change a frozen path, the channel or
+   storage, so they lie outside K1-K7 and are not judged here.
 4. **PR3427 consumes its own one-helper lemma and PR3252's full-memory
    operations, not PR3259's layered recurrence.** The lemma is valid. Its
    published four-column support masks are reproduced exactly by code written
    for this review. Its rank theorem stands as stated. Applied to all 104
-   columns, the same argument gives **`rank(U-I) >= 17`** (section below).
+   columns, the same argument gives **`rank(U-I) >= 23`** (section below).
 5. **PR3252's theorem is valid** for its stated recurrence and contract.
 
 ## Contract, as used
@@ -227,8 +233,16 @@ a dimension-4 frame of X83 admitted, with Y73's cap, by one pool type. Hence
 and dropping the containment `V <= W` changes no pair, so containment is never
 decisive here. The verifier asserts each of these facts.
 
+The 2,682 missing entries contain a perfect matching: Kuhn's augmenting-path
+matching has size 104, so by König's theorem no fewer than 104 rows and
+columns cover them. Every row holds at least 14 and every column at least 9.
+Under the criterion an entry's support depends only on the frames of its
+source and target paths and on the cover, so a reopening that keeps K1-K3,
+K6, K7 and the K4/K5 roles and changes only individual X or Y frame paths
+must change at least 104 of them. This makes no cost claim.
+
 For sources 0-3 the per-source target masks equal PR3427's published masks
-exactly. Those masks come from PR3427's direct criterion and from PR3252's
+exactly. They exclude 92 required entries, all granted by PR3259's test. Those masks come from PR3427's direct criterion and from PR3252's
 full-memory operations.
 
 ## PR3252 PROOF.md (shorter review)
@@ -278,7 +292,7 @@ found.
 - The consumption is justified. The lemma is valid, and the four-column masks
   are reproduced exactly by an engine that shares no code with PR3427.
 
-## Consequence for PR3427: rank(U-I) >= 17
+## Consequence for PR3427: rank(U-I) >= 23
 
 PR3427's contract adds an invertible scalar source preconditioner U to K1-K7.
 The prepared sources `X' = UX` stay in the original frames, so the support
@@ -296,18 +310,23 @@ rank(U - I) = rank(V - I) >= rank C[R,S],
 
 using `V - I = -V(U - I)` for the equality.
 
-A deterministic greedy finds a rectangle. For each seed column it repeatedly
-adds the column that maximizes `min(|R'|, |S|+1)`, then `|R'|`, with ties to
-the smallest index, where `R'` is the set of rows still unsupported. It stops
-when `min(|R|,|S|)` stops growing and keeps the rectangle of largest rank.
-It finds a 19-by-18 rectangle of unsupported pairs with
-`rank C[R,S] = 17`. Exact `Fraction` elimination gives the rank. A 17-by-17
-minor has integer `det(8C) = 2^43`, by Bareiss elimination, so
-`det C = 2^-8`.
+A principal block `C[S,S]` is fully unsupported exactly when S is
+independent in the undirected support graph: no pair of S is supported in
+either order (diagonal pairs never are). A maximum independent set has 23
+ports,
 
-Thus `rank(U-I) >= 17` under PR3427's contract, against its published 4.
-This prices no joint preparation. The greedy is not optimal, and a min-rank
-completion may force more.
+```
+S = 8 11 17 18 23 30 34 37 42 50 51 58 59 63 70 71 78 80 84 87 91 96 100,
+```
+
+by two exact searches (a branch and bound with a greedy colouring bound and
+a pivoted Bron-Kerbosch). Exact `Fraction` elimination gives
+`rank C[S,S] = 23`, and an integer Bareiss determinant gives
+`det(2C[S,S]) = 2^30`, so `det C[S,S] = 2^7`.
+
+Thus `rank(U-I) >= 23` under PR3427's contract, against its published 4.
+This prices no joint preparation. No unsupported principal block does
+better; a non-principal rectangle or a min-rank completion may force more.
 
 ## Load-bearing hypotheses (support level, sharp criterion)
 
@@ -330,10 +349,12 @@ keep the order of operations along one dependency path.
 its frames can be read only at that frame or a later one. Every program obeys
 this, because `Y_u`'s frames ascend in time; it is the path order that makes
 path frames nested, applied at a target used as a relay. Correction content
-reaches targets at their final caps (2,310 arrivals, one for each supported
-pair) and at 55 frames of dimension 5 or 6 (31 and 24). Content at a cap can
-be read only at that cap, which feeds only itself because the 104 caps are
-distinct. The 55 lower arrivals relay nothing new. So R1 reopens nothing. R1u
+reaches targets at their final caps (2,310 source arrivals, one for each
+supported pair) and in 55 further source arrivals at 26 lower target
+snapshots (31 arrivals on 19 dimension-5 snapshots, 24 on 7 dimension-6
+snapshots). Content at a cap can be read only at that cap, which feeds only
+itself because the 104 caps are distinct. The lower arrivals relay nothing
+new. So R1 reopens nothing. R1u
 drops the order, lets cap content be read at the target's low frames, and
 reopens everything. R1's zero therefore rests on that order.
 
@@ -355,15 +376,19 @@ Known rows are cited, not recomputed:
 - PR3013: component/containment pooling reaches all 4,992 entries.
 - PR3427: a one-H2 source shear removes the `(71,102)` requirement, but
   `D[3,2]` stays unsupported. A source preconditioner needs `rank(U-I) >= 4`
-  (17 by the section above).
+  (23 by the section above).
 
 Reading. Among the rows computed here, two hypotheses each reopen every entry:
 the fixed cover (K1) and the exclusion of the channel's source-dependent state
 (K6, including its exposure through Y). Unread Y matters at P104 only through
 that exposure, given each target's write-before-read order. The rows are not a
-complete map. Not computed at P104: frame descent (K2), cross-frame mixing
+complete map. Not computed as rows at P104: frame descent (K2), cross-frame mixing
 (K3), changed source or target frame paths and source mutation (K4, K5),
 dependent dirt (K7) and extra correlated storage. The small-domain negative
 controls show that descent, cross-frame mixing, off-cover flags and correlated
-old state can each escape both tests. A reopening must change at least one of
-K1-K7, or add storage, and must cover all 2,682 entries with a full bill.
+old state can each escape both tests. Changing a frozen target path also
+suffices at support level, one row at a time: every X path ends at FULL, so a
+target that visits FULL shares that frame with every source (pending #3618's
+T48 prices one such row at +2 rank mass). Path changes alone must touch at
+least 104 registers. A reopening must change at least one of K1-K7, or add
+storage, and must cover all 2,682 entries with a full bill.
