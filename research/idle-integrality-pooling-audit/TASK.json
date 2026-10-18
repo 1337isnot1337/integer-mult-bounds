@@ -80,6 +80,14 @@
       "priority_revision": 6,
       "audited_head": "c7c68f89e020f9e62f38514afdfc99dda01430d4",
       "decision": "Main and audited head unchanged. A concurrent same-boundary claim and exact-price-engine finding appeared during this session; narrow novelty to separate binomial arithmetic, fixed-N repricing and selected shared-bin source coverage, and join its canonical investigation."
+    },
+    {
+      "utc": "2026-10-18T19:33:51Z",
+      "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "priority_revision": 6,
+      "audited_head": "c7c68f89e020f9e62f38514afdfc99dda01430d4",
+      "concurrent_pr3747_head": "98847f9aba65ba835a15725c9f173c04a98788b3",
+      "decision": "All heads unchanged. Finish the complementary separately implemented replay/source finding and release the claim; do not publish a duplicate correction PR."
     }
   ],
   "family_expansion_decision": "Finish the complementary source/arithmetic check as a Discussion handoff after concurrent PR3747 covers the same correction. No second PR or construction round.",
@@ -135,5 +143,12 @@
     },
     "publication_decision": "Publish the complementary independent replay and literal shared-bin result in the existing investigation, with a public fork commit. Do not open a duplicate aggregation-correction PR."
   },
-  "evidence_status": "author-executed separately implemented corroboration, public fork artifact; no independent human/formal acceptance"
+  "evidence_status": "author-executed separately implemented corroboration, public fork artifact; no independent human/formal acceptance",
+  "budget_closeout": {
+    "planned_minutes": 60,
+    "planned_verification_reserve_minutes": 15,
+    "started_utc": "2026-10-18T19:14:13Z",
+    "bounded_milestone_complete_before_utc": "2026-10-18T19:33:51Z",
+    "stop_reason": "The declared separating audit milestone is complete and PR3747 has already published the same correction. Finish verification and a public complementary handoff instead of expanding or producing a duplicate PR."
+  }
 }
