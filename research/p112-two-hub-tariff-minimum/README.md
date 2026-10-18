@@ -105,30 +105,86 @@ checks stay enabled under `-O`.
 
 ### Environment actually used for this package
 
-CPython 3.12 is **not installed in the machine that produced this package**, so
-the registered replay command above was **not** run here. What was actually
-run, on CPython 3.15.0:
+CPython 3.12 **is** installed on the machine that produced this package, but it
+is not on `PATH`. It lives in the main checkout's virtualenv, which is read and
+executed here and never modified:
 
 ```text
-python3 -W error -B scripts/research_package.py \
-  --package research/p112-two-hub-tariff-minimum --check-only
-  -> PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
-
-python3 -W error -B research/p112-two-hub-tariff-minimum/verify.py
-  -> PASS_TWO_HUB_TARIFF_MINIMUM
-python3 -W error -B research/p112-two-hub-tariff-minimum/independent.py
-  -> PASS_TWO_HUB_TARIFF_MINIMUM_INDEPENDENT
-python3 -W error -B research/p112-two-hub-tariff-minimum/test_controls.py
-  -> PASS_TWO_HUB_TARIFF_MINIMUM_CONTROLS
+$ /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -VV
+Python 3.12.15 (main, Oct 14 2026, 00:55:37) [Clang 23.1.3]
 ```
 
-Measured wall times for the three scientific commands on that interpreter:
-0.06 s, 0.02 s and 1.14 s. The structural metadata and pin validation passes;
-the full `scripts/research_package.py` replay under CPython 3.12, Ruff
-lint/format, `scripts/check_research_commit.py --check-source-history`, the
-selected cold replay, Lean and Docker are **all unrun** and are listed as open
-obligations. No `CHECKS.json` receipt is claimed, because the receipt generator
-is the 3.12 replay that did not run.
+An earlier revision of this package stated that CPython 3.12 was not installed
+and therefore left the registered replay unrun. That premise was wrong, and the
+limitations recorded under it are corrected below.
+
+The registered full replay was run from a clean checkout of this package's
+publication commit, with `TMPDIR` pointed at a private external run directory
+for the disposable control copies:
+
+```sh
+$ /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B \
+    scripts/research_package.py --package research/p112-two-hub-tariff-minimum
+CHECK Retained predecessor SHA256 pins; replay of the seven source exclusions ...
+CHECK Separate integer-only implementation sharing no code: ...
+CHECK Ten actual mutation groups rejected by both scientific programs ...
+PASS_TWO_HUB_TARIFF_MINIMUM {"attained_by_retained_witness": true, "baseline_charge": 42, "minimum_charge": 54, "no_new_kappa": true, "ports": 42, "row_units": 27, "rows": 21}
+PASS_TWO_HUB_TARIFF_MINIMUM_INDEPENDENT {"forced_reader_rows": ["dxy", "dzw", "gtxy"], "minimum_charge": 54, "no_new_kappa": true, "reader_rows": 14, "row_units": 27, "source_rows": 7, "witness_charge_total": 54}
+PASS_TWO_HUB_TARIFF_MINIMUM_CONTROLS {"mutation_groups": 10, "positive_runs": 3, "rejecting_runs": 20}
+PASS_REGISTERED_RESEARCH_PACKAGE research/p112-two-hub-tariff-minimum outcome=completed
+```
+
+Exit status `0`. Measured wall time for the whole replay, covering all three
+declared commands and the twenty rejecting control runs: real `1.10` s, user
+`0.77` s, sys `0.19` s. The three `CHECK` lines are the tails of the coverage
+descriptions declared in [VERIFY.json](VERIFY.json), shortened here for width.
+
+The publication preflight also passes, including declared source history:
+
+```sh
+$ /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B \
+    scripts/check_research_commit.py \
+    --package research/p112-two-hub-tariff-minimum --check-source-history
+PASS_RESEARCH_COMMIT_BYTES {"commit": "545a8fd9…", "files": 13, "package": "research/p112-two-hub-tariff-minimum", "source_history_commits": ["20ecf289…"]}
+```
+
+Exit status `0`. The commit prefix and the full unabridged line are in
+[CHECKS.json](CHECKS.json). `files` counts the package files and declared
+inputs present at the checked commit.
+
+Ruff is not installed in that virtualenv
+(`/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -m ruff` reports
+`No module named ruff`). It was run through `uvx` instead, pinned for the run:
+
+```text
+$ uvx ruff@0.14.5 check --isolated research/p112-two-hub-tariff-minimum
+All checks passed!
+
+$ uvx ruff@0.14.5 format --isolated --diff research/p112-two-hub-tariff-minimum
+2 files would be reformatted, 1 file already formatted
+```
+
+The format differences are **recorded and not applied**. This repository
+configures no Ruff and runs no Ruff job; `ruff format --check` on the shared
+scripts `scripts/research_package.py`, `scripts/check_research_commit.py` and
+`scripts/new_research_package.py` reports that all three would be reformatted
+as well. Applying Ruff's default 88-column style here would make this package
+diverge from the repository it ships in.
+
+### Replay receipt
+
+[CHECKS.json](CHECKS.json) is a run receipt, not a mathematical result. It
+records the interpreter, the environment, the exact commands and their exit
+statuses and standard output, and the SHA256 of every package file that the
+replay read. It is generated from captured run output rather than written by
+hand. It is bound to file hashes rather than to a commit, so committing the
+receipt itself does not invalidate it: its own bytes are deliberately outside
+the hashed set. That is also why a preflight run at the commit that adds
+`CHECKS.json` reports `files: 14` rather than `13`, with otherwise identical
+output. [RESULT.json](RESULT.json) remains the mathematical receipt.
+
+Still unrun and still open obligations: the selected cold replay, Lean, Docker,
+independent human review and formal proof-kernel review.
 
 ## Limitations
 

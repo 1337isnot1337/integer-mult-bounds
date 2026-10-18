@@ -48,7 +48,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop at the exact finite optimum with an attainment certificate, a separate independent implementation, actual rejecting controls and publication. No graph search, no characteristic-two construction, no physical caller, no supplier invoice and no kappa claim.",
   "outcome": "completed",
-  "evidence": "PROOF.md, RESULT.json, ORIGINS.json, two independently written exact searches (rational linear feasibility and integer span table), ten actual mutation groups with twenty rejecting runs, and full reproduction of the predecessor's nine measured charges and its 1764-entry Gram identity from the retained bytes. Structural metadata and pin validation pass under scripts/research_package.py --check-only on CPython 3.15.0.",
+  "evidence": "PROOF.md, RESULT.json, ORIGINS.json, two independently written exact searches (rational linear feasibility and integer span table), ten actual mutation groups with twenty rejecting runs, and full reproduction of the predecessor's nine measured charges and its 1764-entry Gram identity from the retained bytes. The registered full replay scripts/research_package.py --package research/p112-two-hub-tariff-minimum passes under CPython 3.12.15 with PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed, and scripts/check_research_commit.py --check-source-history passes with the declared base commit in publication ancestry. CHECKS.json records that run's interpreter, commands, exit statuses, output and per-file SHA256 hashes.",
   "author": "Nick Petalas",
   "ai_assistance": "Author-written and self-checked. Independent human review and formal proof-kernel review are not claimed.",
   "credit": "The twenty-one premises, the charge model, the 42-port construction and the attainment witness are Nick Petalas's PR3583, which retains Philippe Van Velzen's expanded identity, ctoth's coverage question and the actual-reader lineage. The predecessor chain PR3506/3524/3535/3547/3557/3573 is unchanged.",
@@ -73,10 +73,11 @@
     }
   ],
   "unrun_obligations": [
-    "The registered full replay scripts/research_package.py under CPython 3.12: 3.12 is not installed on the machine that produced this package.",
-    "Ruff lint and format.",
-    "scripts/check_research_commit.py --package ... --check-source-history.",
     "The selected full cold replay, Lean and Docker.",
-    "Independent human review and formal proof-kernel review."
+    "Independent human review and formal proof-kernel review.",
+    "Ruff format: ruff 0.14.5 format --isolated --diff would reformat verify.py and test_controls.py under Ruff's default 88-column style. It is recorded and not applied because this repository configures no Ruff and its own shared scripts fail the same check. Ruff lint (ruff check --isolated) passes with no findings."
+  ],
+  "corrections": [
+    "An earlier revision of this package recorded 'CPython 3.12 is not installed on this machine' and therefore left the registered replay, the source-history preflight, Ruff and the CHECKS.json receipt unrun. That premise was wrong: CPython 3.12.15 is installed at /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 in the main checkout's virtualenv and is simply not on PATH. All four obligations were run and their real output is recorded in README.md and CHECKS.json."
   ]
 }
