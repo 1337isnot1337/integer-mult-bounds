@@ -50,7 +50,7 @@
   "outcome": "completed",
   "evidence": "PROOF.md, RESULT.json, ORIGINS.json, two independently written exact searches (rational linear feasibility and integer span table), ten actual mutation groups with twenty rejecting runs, and full reproduction of the predecessor's nine measured charges and its 1764-entry Gram identity from the retained bytes. The registered full replay scripts/research_package.py --package research/p112-two-hub-tariff-minimum passes under CPython 3.12.15 with PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed, and scripts/check_research_commit.py --check-source-history passes with the declared base commit in publication ancestry. CHECKS.json records that run's interpreter, commands, exit statuses, output and per-file SHA256 hashes.",
   "author": "Nick Petalas",
-  "ai_assistance": "Author-written and self-checked. Independent human review and formal proof-kernel review are not claimed.",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
   "credit": "The twenty-one premises, the charge model, the 42-port construction and the attainment witness are Nick Petalas's PR3583, which retains Philippe Van Velzen's expanded identity, ctoth's coverage question and the actual-reader lineage. The predecessor chain PR3506/3524/3535/3547/3557/3573 is unchanged.",
   "open_questions": [
     {
