@@ -94,3 +94,17 @@ skeptical review.
 
 Author Wentao Li `<wentaol4@illinois.edu>`. Neutral disclosure: substantial AI
 assistance. Tip commit message must not contain `Co-authored-by: Victor Li`.
+
+## Verified PASS lines (this tip's parent content; final tip records them)
+
+Replay on tip  (content commit before this handoff rewrite):
+
+
+
+Attribution: Research: present-head flag-0 span audit — Y34 hosts head 232 only at terminal transport (no new kappa)
+
+Pin matched flag 0 (X0→Y34, head 232): all 15 Y34 updates are head-free in
+span; source keeps 232 after the literal drop at 591; co-hosted dirty
+restoration is unavailable on the published channel ahead of the I-G/2 tail.
+
+Prepared by Wentao Li with substantial AI assistance. has no . Author Wentao Li <wentaol4@illinois.edu>.
