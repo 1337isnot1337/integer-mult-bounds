@@ -25,7 +25,7 @@ Result (independently checked, AI-assisted; no human review): no correctness def
     and PR3633's profile is exactly 488 x the unique LP minimum, so it attains that ceiling.  κ reproduces in two
     rational enclosures.  Two process defects are reported: tautological inherited controls, and platform-dependent
     native pins.
-Artifact: {{PR_LINK}}.  Replay: python3 -I -B research/t488-independent-audit/verify.py --fetch (212/212 controls)
+Artifact: PR #3694 (https://github.com/CrocSwap/integer-mult-bounds/pull/3694).  Replay: python3 -I -B research/t488-independent-audit/verify.py --fetch (212/212 controls)
 Claim: released (advisory claim at discussions/1166#discussioncomment-19017329)
 ```
 
