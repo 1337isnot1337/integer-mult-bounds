@@ -3,6 +3,7 @@
 ## Candidate
 
 - Branch: `cursor/p104-present-head-flag9-60b9`
+- Tip: `ae18b8db189f777bef159530d5395ebfe024f7b1`
 - Package: `research/p104-present-head-flag9-audit/`
 - Base: `6f100d4bb5083f8c35d96fd95a539811c62f245c`
 - Card: `p104-side-correction` (refined), priority revision 6
