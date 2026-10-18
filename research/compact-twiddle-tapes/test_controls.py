@@ -58,7 +58,7 @@ def main():
         ('arithmetic', 'else a ^ b', 'else a & b', 'wrong circuit value'),
         ('move-count', 'self.counts[2] += 1', 'self.counts[2] += 2', 'primitive invoice mismatch'),
         ('counter', "counter.write('0' if symbol == '1' else '1')",
-         "counter.write('1' if symbol == '1' else '0')", 'tape capacity exceeded'),
+         "counter.write('1' if symbol == '1' else '0')", 'counter underflow'),
         ('erasure', "tape.write('_')", "tape.write('0')", 'return invariant failed'),
         ('program-head', '    home(program)\n', '    program.read()\n', 'return invariant failed')]
     passed = []

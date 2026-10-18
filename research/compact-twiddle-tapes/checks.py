@@ -5,7 +5,7 @@ import itertools
 import json
 from types import ModuleType
 
-from machine import encode, execute, require
+from machine import Tape, encode, execute, fetch, require
 
 
 def sources(package):
@@ -25,7 +25,25 @@ def sources(package):
 
 def access_cost(wire):
     h = max(1, wire.bit_length())
-    return 15 * h + 29 + wire * (4 * h + 19) - 5 * wire.bit_count()
+    return 8 * h + 27 + 17 * wire - 5 * wire.bit_count()
+
+
+def access_cases():
+    """Check every address through ten bits, including every borrow boundary."""
+    digest = hashlib.sha256()
+    wire_text = '^' + '01' * 512 + '_'
+    for wire in range(1024):
+        field = bin(wire)[2:][::-1] + '#$'
+        program, wires, counter = Tape(field, True), Tape(wire_text), Tape('_' * 13)
+        bit = fetch(program, wires, counter)
+        cost = sum(sum(t.counts) for t in (program, wires, counter))
+        require(bit == wire % 2, 'wrong access value')
+        require(cost == access_cost(wire), 'primitive invoice mismatch')
+        require(program.head == len(field) - 1 and ''.join(program.cells) == field
+                and wires.head == counter.head == 0 and ''.join(wires.cells) == wire_text
+                and all(x == '_' for x in counter.cells), 'return invariant failed')
+        digest.update(json.dumps([wire, cost]).encode())
+    return {'indices': 1024, 'sha256': digest.hexdigest()}
 
 
 def invoice(inputs, gates, outputs):
@@ -163,5 +181,6 @@ def comparison(package, circuit_module):
 
 def collect(package):
     circuit = sources(package)
-    return {'schema_version': 1, 'generic': generic_cases(), 'twiddle': twiddle_cases(circuit),
+    return {'schema_version': 1, 'access': access_cases(), 'generic': generic_cases(),
+            'twiddle': twiddle_cases(circuit),
             'rejections': rejections(), 'comparison': comparison(package, circuit)}

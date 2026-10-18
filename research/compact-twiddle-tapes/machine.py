@@ -135,56 +135,56 @@ def encode(inputs, gates, outputs):
 def load(program, counter):
     counter.write('^')
     counter.move(1)
+    any_one = False
     for _ in range(len(counter.cells)):
         symbol = program.read()
         if symbol == '#':
             counter.write('$')
             program.move(1)
             home(counter)
-            return
+            return not any_one
+        any_one = any_one or symbol == '1'
         counter.write(symbol)
         counter.move(1)
         program.move(1)
     raise ValueError('counter capacity exceeded')
 
 
-def is_zero(counter):
-    counter.move(1)
-    any_one = False
-    for _ in range(len(counter.cells)):
-        symbol = counter.read()
-        if symbol == '$':
-            home(counter)
-            return not any_one
-        any_one = any_one or symbol == '1'
-        counter.move(1)
-    raise ValueError('counter end missing')
-
-
 def decrement(counter):
+    """Keep canonical width; detect zero without a separate full-width scan."""
     counter.move(1)
+    crossed_zero = False
     for _ in range(len(counter.cells)):
         symbol = counter.read()
         require(symbol in '01', 'counter underflow')
         counter.write('0' if symbol == '1' else '1')
         if symbol == '1':
+            counter.move(1)
+            last = counter.read() == '$'
+            if last and crossed_zero:
+                counter.write('_')
+                counter.move(-1)
+                counter.write('$')
+            else:
+                counter.move(-1)
             home(counter)
-            return
+            return last and not crossed_zero
+        crossed_zero = True
         counter.move(1)
     raise ValueError('counter decrement exceeded extent')
 
 
 def fetch(program, wires, counter):
-    load(program, counter)
+    zero = load(program, counter)
     wires.move(1)
     for _ in range(len(wires.cells)):
-        if is_zero(counter):
+        if zero:
             bit = wires.read()
             require(bit in '01', 'wire is not a bit')
             home(wires)
             erase(counter)
             return int(bit)
-        decrement(counter)
+        zero = decrement(counter)
         wires.move(1)
     raise ValueError('wire traversal exceeded extent')
 

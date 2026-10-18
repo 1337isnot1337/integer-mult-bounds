@@ -40,8 +40,8 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "All finite supplied binary-index topological AND/XOR programs on five fixed tapes, exact restoration/primitive/storage proof and specialization to canonical synthetic twiddle circuits.",
-  "scope_change_reason": "Replace PR3534 supplied unary operands with compact binary operands to execute the O(p log p) storage side of the written canonical circuit simulation. This changes program representation and adds a private counter role; it does not execute shape/topology production or packet composition.",
+  "actual_scope": "All finite supplied binary-index topological AND/XOR programs on five fixed tapes, normalized counter proof with exact access bill F(w)=8h(w)+27+17w-5popcount(w), restoration and O(p\u00b2) work/O(p log(p+2)) charged cells for the canonical synthetic twiddle circuits.",
+  "scope_change_reason": "Replace PR3534 supplied unary operands with compact binary operands and normalize the private counter after decrement. This combines unary O(p\u00b2) time with the compact storage of the written canonical circuit simulation, without executing shape/topology production or packet composition.",
   "bottleneck_link": "Closes the executed compact control-storage implication in synthetic exponent production under explicit source bands. The complete producer/consumer and supplier invoice remain open.",
   "budget_minutes": 60,
   "stop_rule": "One compact interpreter and exact invoice, canonical header specialization, controls and Git-free replay; no additional construction round.",
