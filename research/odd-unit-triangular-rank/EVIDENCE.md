@@ -60,6 +60,14 @@ including repeated special ports and nonidentity diagonal values. A
 separate full d3 fitting matrix attains the weighted rank-eight bound.
 Both actual optimized baseline and flag CLIs reject changed source bytes.
 
+For the triangular-selector limit, I ran a subset dynamic program over
+explicit annihilators, without using the written prefix-rank upper bound.
+At dimensions three and five, I checked 8 and 32,768 sink subsets, with
+12 and 245,760 transitions, respectively. These states cover all 3!
+and 15! orders of the nonzero sinks. I obtained maximum regular selector
+sizes 1 and 17 and reconstructed triangular witnesses. I prove the
+all-dimensional limit in PROOF.md; I claim no optimal fitting matrix.
+
 The arbitrary-multiplicity and field quantifiers follow from PROOF.md.
 Finite replays do not exhaust those domains. Source-analysis agents
 checked the proof and its scope separately during this AI-assisted

@@ -47,6 +47,45 @@ def rank_mod(matrix, prime):
     return r
 
 
+def all_sink_orders(width, expected):
+    """Optimize over sink orders by subset DP using explicit annihilators."""
+    require(width in (2, 4), "bounded sink-order dynamic program")
+    vectors = list(itertools.product((0, 1), repeat=width))[1:]
+    n = len(vectors)
+    single = [sum(1 << i for i, x in enumerate(vectors) if form(x, y) == 0)
+              for y in vectors]
+    annihilators = [0]*(1 << n)
+    annihilators[0] = (1 << n) - 1
+    optimum, previous = [0]*(1 << n), [0]*(1 << n)
+    transitions = 0
+    for subset in range(1, 1 << n):
+        first = subset & -subset
+        annihilators[subset] = annihilators[subset ^ first] & single[first.bit_length() - 1]
+        remaining, best = subset, -1
+        while remaining:
+            bit = remaining & -remaining
+            score = optimum[subset ^ bit]
+            if score > best:
+                best, previous[subset] = score, bit
+            remaining ^= bit
+            transitions += 1
+        optimum[subset] = best + annihilators[subset].bit_count()
+    require(optimum[-1] == expected, "optimal regular selector over all sink orders")
+    subset, order = (1 << n) - 1, []
+    while subset:
+        bit = previous[subset]
+        order.append(vectors[bit.bit_length() - 1])
+        subset ^= bit
+    order.reverse()
+    witness = [(x, y) for stop, y in enumerate(order) for x in vectors
+               if all(form(x, z) == 0 for z in order[:stop + 1])]
+    require(len(witness) == len(set(witness)) == expected, "sink-order optimum witness")
+    require(all(form(y, x) == 0 for i, (_, y) in enumerate(witness) for x, _ in witness[i:]),
+            "sink-order witness is triangular")
+    return {"dimension": width + 1, "sink_subsets": 1 << n,
+            "transitions": transitions, "regular_selector_maximum": expected}
+
+
 def run_dimension(d):
     k, width = (d - 1)//2, d - 1
     vectors = sorted(itertools.product((0, 1), repeat=width), key=number)
@@ -174,4 +213,5 @@ if __name__ == "__main__":
     require(len(sys.argv) == 1, "unknown independent flag arguments")
     authenticate()
     print(json.dumps({"status": "PASS_INDEPENDENT_ODD_FLAGS",
-                      "certificates": [run_dimension(d) for d in (3, 5, 7)]}, sort_keys=True))
+                      "certificates": [run_dimension(d) for d in (3, 5, 7)],
+                      "all_sink_orders": [all_sink_orders(2, 1), all_sink_orders(4, 17)]}, sort_keys=True))

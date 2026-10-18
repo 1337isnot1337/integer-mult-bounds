@@ -35,7 +35,7 @@
     {
       "argv": ["{python}", "-I", "-O", "-Werror", "-B", "{package}/odd_flags_independent.py"],
       "timeout_seconds": 120,
-      "checks": "Separate abstract symplectic-coordinate construction, explicit ambient isometry, complete transvection/swap orbits, six flag digests, exact singular-core peeling over F2/F3/F5/F7 and the d3 rank-eight attainment fixture; no primary geometry imports."
+      "checks": "Separate abstract symplectic-coordinate construction, explicit ambient isometry, complete transvection/swap orbits, six flag digests, exact singular-core peeling over F2/F3/F5/F7, the d3 rank-eight attainment fixture and a subset DP over all sink orders at d3/d5; no primary geometry imports."
     }
   ]
 }

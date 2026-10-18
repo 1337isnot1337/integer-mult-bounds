@@ -57,6 +57,13 @@ idempotents over characteristic zero, I also derive the necessary count
 `44 J_1>=75 J_15`. I use the trace and the bound above; I do not
 construct such a mixture or price its native copies.
 
+I also prove that no convex average of triangular principal-minor size
+bounds can improve the uniform regular-type coefficient rho. I bound
+the size of an arbitrary triangular selector by its successive sink
+spans; either flag attains that limit. I leave the optimal fitting rank
+open. A subset dynamic program checks all sink orders at dimensions
+three and five, including orders outside the flag families.
+
 The checkers verify the complete finite selectors and type orbits,
 nonuniform multiplicities, repeated-port minors over Q/F2/F3/F5, the
 retained projector's exact factor identity, and fourteen failure controls.

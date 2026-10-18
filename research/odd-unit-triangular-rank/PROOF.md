@@ -360,7 +360,8 @@ Equation (7) retains more information than (8). In fact
 
 The weighted maximum improves the balanced expression unless
 v_C=(t-2)v_D, although integer ceilings can erase that gain. I claim no
-optimal fitting matrix or general optimality of the selector method.
+optimal fitting matrix. Below I prove the precise limit of convex
+averaging of triangular principal-minor bounds on the regular types.
 
 For an actual bit window h_b=rank_Q N, (8) gives
 
@@ -391,3 +392,39 @@ derive its native copy invoice. I retain the literal identity and
 characteristic-zero hypotheses for the trace argument from section 3.
 I leave lower-charge mixtures, lower-rank totals, sufficiently
 non-additive assemblies and changed fitting masks open.
+
+### Optimal uniform coefficient from triangular selectors
+
+Take one occurrence of each regular type (x,y), with x,y nonzero and
+x dot y=0, in H of dimension m=2k. Consider any ordered triangular
+selector, including selectors outside the two flag families. Order its
+distinct sinks y_i by first occurrence and let r_i be their prefix rank.
+Every selected source at sink y_i is orthogonal to y_1,...,y_i: its
+position follows their first occurrences, and its own type is admissible.
+There are at most f(r_i)=2^(m-r_i)-1 such nonzero sources. Distinct types
+with this sink have distinct sources, so the selector has size at most
+sum_i f(r_i).
+
+Let A_r count the distinct sinks whose prefix rank is at most r. They
+lie in a subspace of dimension at most r, so A_r<=2^r-1. Since f(m)=0,
+I sum by parts to obtain
+
+    sum_i f(r_i)
+      = sum_(r=1)^(m-1) A_r (f(r)-f(r+1))
+      <= sum_(r=1)^(m-1) (2^r-1) 2^(m-r-1)
+      = (m-2) 2^(m-1)+1 = L.                        (10)
+
+Either complete flag attains L regular types. Thus I obtain the exact
+maximum over triangular selectors for this uniform, distinct-type
+population. I use that population as a test of any proposed universal
+linear coefficient from convex averages of these minor-size bounds.
+It has n(t-1) regular types, while each minor and each convex average
+has value at most L. No such average gives a coefficient greater than
+rho_d=L/(n(t-1)); the balanced flags attain rho_d for arbitrary
+multiplicities. Repeated occurrences do not invalidate this limitation,
+because the distinct-type population is one allowed multiset.
+
+I restrict this optimality claim to convex averages of triangular
+principal-minor size bounds. I leave stronger fitting-rank inequalities,
+nontriangular minors and more general combinations of rank information
+open. I do not infer that a fitting matrix of rank L exists at d>=5.
