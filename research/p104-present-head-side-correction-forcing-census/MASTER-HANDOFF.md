@@ -3,6 +3,7 @@
 ## Candidate
 
 - Branch: `cursor/present-head-forcing-census-6ab7`
+- Content tip: `293b90598af0e7632cdd398da7171c509091f17e` (scientific package commit)
 - Package: `research/p104-present-head-side-correction-forcing-census/`
 - Base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90` (CrocSwap `main`)
 - Card: `p104-side-correction` (refined), priority revision 6
