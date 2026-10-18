@@ -74,12 +74,14 @@ width below `10⁻¹⁵`.
 ## What this changes
 
 1. **A price for making the bit side bind.** Under the retained balanced
-   reduction the selected κ is limited by the complex primitive, and the complex
-   side stops binding exactly when its certified saving reaches the bit
-   primitive's. At the published approximate bit budget `0.00173343`, that needs
-   **φ ≥ 2.3949 %**, i.e. 133.8 of the 5,586 paid mass units per call — under a
-   relaxation that charges nothing for the removal. A proposal that removes less
-   cannot make the bit side bind, whatever its other merits.
+   reduction the selected κ is limited by the complex primitive, and that
+   primitive can only stop binding if its saving reaches the bit primitive's.
+   On this word's packing relaxation that requires **φ ≥ 2.3949 %** at the
+   published approximate bit budget `0.00173343`, i.e. 133.8 of the 5,586 paid
+   mass units per call — under a relaxation that charges nothing for the
+   removal. So any proposal on this word that removes less cannot make the bit
+   side bind, whatever its other merits; a proposal that removes more has only
+   passed this screen and still owes a construction.
 2. **Mass elimination is a weak lever.** The entire paid word is worth only
    `8.0916×` the inherited ceiling, and `1/99` needs `φ ≥ 92.77 %`. Even
    deleting every paid child and paying all 7,232 mass units as ideal rank-51
