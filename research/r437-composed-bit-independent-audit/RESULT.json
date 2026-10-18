@@ -1,4 +1,9 @@
 {
+ "c1043_certificate_vs_rebuilt": {
+  "adds_equal": true,
+  "gates_equal": true,
+  "local_profile_equal": true
+ },
  "compensation_facts": {
   "e464_D0_is_589_D0_with_column_deleted": false,
   "e470_D0_is_589_D0_with_column_deleted": true,
@@ -139,9 +144,10 @@
  "hosting": {
   "banks": 0,
   "calls": 288,
+  "calls_bound_to_local_programs": true,
   "copy_in_range": true,
   "deficit": 10272,
-  "emitted_local_events": 7814016,
+  "emitted_local_events_count": 7814016,
   "every_occurrence_once": true,
   "hosted_occurrences": 125856,
   "idle_children_per_replica": {
@@ -598,7 +604,10 @@
    3528,
    4096
   ],
+  "payload_below_2_104": true,
+  "payload_prefix_bits": 93,
   "prefix_bits": 177,
+  "row_below_inherited_cap_20161": true,
   "row_coefficient": 18355,
   "two_level_bits": [
    393,
@@ -631,7 +640,6 @@
    },
    "split_exact": true
   },
-  "control_one_child_per_replica_relabelled_rejected": true,
   "selected589_control": {
    "bracket": {
     "c": "1733427039589844234749/1000000000000000000000000",
@@ -660,6 +668,24 @@
    }
   }
  },
+ "price_mutants": [
+  {
+   "expected_failing_bound": "moment_upper_at_c_below_one",
+   "failing_bound": [
+    "moment_upper_at_c_below_one"
+   ],
+   "mutant": "one_rank2_child_as_rank3",
+   "rejected": true
+  },
+  {
+   "expected_failing_bound": "moment_lower_at_next_grid_above_one",
+   "failing_bound": [
+    "moment_lower_at_next_grid_above_one"
+   ],
+   "mutant": "one_rank42_child_as_rank34",
+   "rejected": true
+  }
+ ],
  "profile_delta": {
   "additive": true,
   "composed": {

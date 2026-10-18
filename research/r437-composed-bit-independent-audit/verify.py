@@ -2,10 +2,12 @@
 
 Usage (repository root):  python3 -I -B research/r437-composed-bit-independent-audit/verify.py [--write]
 
-Inputs: the selected #589 word and #1043's FRAME-PATHS.json from main, plus PR #3647's
-R438 (helper464 GL) word, R437 word and R437 record stream vendored under inputs/ (all
-sha256-pinned in SOURCES.json).
-Semantics: wordsem.py (written for this audit from the format of the selected #589 package).
+Inputs: from main, the selected #589 word, its selection9-p111.json hosting patterns and #1043's
+FRAME-PATHS.json and CERTIFICATE.json; from PR #3647, the R438 (helper464 GL) word, the R437 word,
+the R437 record stream and the hosted template, vendored under inputs/ (all sha256-pinned in
+SOURCES.json).
+Semantics: wordsem.py, records.py, hosting.py and price.py, written for this audit from the
+selected #589 chain's sources on main (see README); nothing from PR #3647, #1043 or main is imported.
 Without --write the computed result must equal the committed RESULT.json.
 Standard library only.  Sagar Thakrar (thakrarsagar), with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5).  Apache-2.0.
@@ -352,16 +354,25 @@ def run():
     F = price.Q
     res['price'] = dict(R437=price.bracket(hres['whole_profile'], tpl['m'], tpl['live'], F(*C_R437)))
     wp = hres['whole_profile']
-    # price control: one rank-2 child relabelled as rank 3 (32 such children = one per replica) must move c
-    bad = dict(wp)
-    bad[2] -= 32
-    bad[3] += 32
-    b2 = price.bracket(bad, tpl['m'], tpl['live'], F(*C_R437))
-    res['price']['control_one_child_per_replica_relabelled_rejected'] = not (
-        b2['moment_upper_at_c_below_one'] and b2['moment_lower_at_next_grid_above_one'])
+    # price controls: relabel a single child of the whole profile; a worse child must break the
+    # bound at c, a better one the bound at the next grid point
+    res['price_mutants'] = []
+    for label, src, dst, side in (('one_rank2_child_as_rank3', 2, 3, 'moment_upper_at_c_below_one'),
+                                  ('one_rank42_child_as_rank34', 42, 34, 'moment_lower_at_next_grid_above_one')):
+        bad = dict(wp)
+        bad[src] -= 1
+        bad[dst] = bad.get(dst, 0) + 1
+        b2 = price.bracket(bad, tpl['m'], tpl['live'], F(*C_R437))
+        res['price_mutants'].append(dict(mutant=label, rejected=not (b2['moment_upper_at_c_below_one'] and
+                                                                     b2['moment_lower_at_next_grid_above_one']),
+                                         failing_bound=[k for k in ('moment_upper_at_c_below_one',
+                                                                    'moment_lower_at_next_grid_above_one')
+                                                        if not b2[k]], expected_failing_bound=side))
+    local_adds = res['words']['R437_pr']['scalar_adds']['total']
+    need(local_adds == res['records']['forward']['adds'] == 24208, 'local ADD count')
     res['precision_R437'] = price.precision(res['records']['forward']['cancellation_free_row_l1'],
                                             res['records']['reverse']['cancellation_free_row_l1'],
-                                            sum(wp.values()), max(wp), r437['R'], local_adds=24208)
+                                            sum(wp.values()), max(wp), r437['R'], local_adds=local_adds)
     res['precision_R437']['children'] = sum(wp.values())
     # positive control 1: selected #589 from main only (word -> local profile; selection9-p111.json
     # patterns -> idle remainders on the same nine windows) must give the selected bit value
@@ -394,7 +405,14 @@ def run():
         whole_profile=dict(sorted(whole589.items())),
         bracket=price.bracket(dict(whole589), 64, 28416, F(*C_589)))
     # positive control 2: #1043's published hosted profile splits over the rebuilt E470 local profile
-    cert = json.load(open(os.path.join(ROOT, CERT1043)))['hosted']['candidate']['invoice']['bit_profile']
+    certj = json.load(open(os.path.join(ROOT, CERT1043)))
+    cert = certj['hosted']['candidate']['invoice']['bit_profile']
+    lc = certj['hosted']['candidate']['parent']['local_checks']['forward']
+    c470w = res['words']['C470_rebuilt_1043']
+    res['c1043_certificate_vs_rebuilt'] = dict(
+        local_profile_equal={int(k): x for k, x in lc['profile'].items()} == {int(k): x for k, x in c470w['profile'].items()},
+        adds_equal=lc['adds'] == c470w['scalar_adds']['total'],
+        gates_equal=certj['native']['candidate']['interface']['gates'] == c470w['gates'])
     cert = {int(k): x for k, x in cert.items()}
     loc470 = {int(k): x for k, x in res['words']['C470_rebuilt_1043']['profile'].items()}
     idle470 = {k: cert.get(k, 0) - 288 * loc470.get(k, 0) for k in set(cert) | set(loc470)}
@@ -402,9 +420,8 @@ def run():
         idle_children_per_replica={k: x // 32 for k, x in sorted(idle470.items()) if x},
         split_exact=all(x >= 0 and x % 32 == 0 for x in idle470.values()),
         bracket=price.bracket(cert, 64, 28416, F(*C_1043)))
-    # Bounded cross-check of the published whole profile (PR #3647 README/COMPOSED-PROOF): split it
-    # into 288 local calls of the audited local profile plus a per-replica idle remainder.  The
-    # remainder itself (matching, owners, hosting) is NOT rederived here.
+    # Arithmetic split of the profile published in PR #3647's README/COMPOSED-PROOF into 288 local
+    # calls plus a per-replica idle remainder; hosting.check above rederives the remainder itself.
     claimed = {1: 380160, 2: 400864, 3: 22176, 4: 26592, 5: 29376, 6: 17376, 7: 26496, 34: 64, 42: 352}
     loc = {int(k): x for k, x in res['words']['R437_pr']['profile'].items()}
     calls, replicas = 9 * 32, 32
@@ -445,7 +462,7 @@ def run():
           and all(res['hosting'][k] for k in ('windows_rederived_equal', 'every_occurrence_once', 'stage_inside_window',
                                               'width_matches_word', 'copy_in_range', 'offsets_disjoint_within_rank',
                                               'remainders_equal_published', 'owners_match_slots_and_blocks',
-                                              'local_programs_equal_records'))
+                                              'local_programs_equal_records', 'calls_bound_to_local_programs'))
           and res['hosting']['banks'] == 0 and res['hosting']['hosted_occurrences'] == 125856
           and res['hosting']['whole_profile'] == res['whole_profile_split']['claimed']
           and res['hosting']['template_source_record_sha256'] == res['records']['pr_stream_sha256']
@@ -460,11 +477,13 @@ def run():
           and res['hosting']['schedule_equals_main_recipe']
           and all(res['native'][k] for k in ('projector_rank_equals_dim', 'nested_projector_identity',
                                              'address_exchange_identity_on_focus'))
-          and res['price']['control_one_child_per_replica_relabelled_rejected']
+          and all(m['rejected'] and m['failing_bound'] == [m['expected_failing_bound']] for m in res['price_mutants'])
+          and all(res['c1043_certificate_vs_rebuilt'].values())
           and all(m['rejected'] for m in res['hosting_mutants'])
           and res['precision_R437']['prefix_bits'] == 177 and res['precision_R437']['coefficient_bits'] == [177, 177]
           and res['precision_R437']['two_level_bits'] == [393, 393] and res['precision_R437']['charged_two_level_bits'] == 512
-          and res['precision_R437']['row_coefficient'] == 18355 and res['precision_R437']['halving_depth'] == 2)
+          and res['precision_R437']['row_coefficient'] == 18355 and res['precision_R437']['halving_depth'] == 2
+          and res['precision_R437']['row_below_inherited_cap_20161'] and res['precision_R437']['payload_below_2_104'])
     res['status'] = 'PASS_INDEPENDENT_R437_WORD_AUDIT' if ok else 'FAIL'
     return res, time.process_time() - t0
 

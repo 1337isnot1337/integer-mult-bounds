@@ -67,6 +67,30 @@
       "usage": "provenance",
       "git_blob": "7d697cb45203fe72d97037403d6da41f71f3b7fd",
       "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482"
+    },
+    {
+      "path": "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py",
+      "usage": "provenance",
+      "git_blob": "3df12bd632f1fdba825ced57110a1fee82eb2857",
+      "sha256": "6368196a393ac25bb2918880e4c4bd31ed733b762c27b6873ab391cbc0c5c3c8"
+    },
+    {
+      "path": "research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py",
+      "usage": "provenance",
+      "git_blob": "238226c568742dd5723b03eabae564a2eaa2bda9",
+      "sha256": "4bf6768224a3fac81ccda26df24f3763f9a4fbc35ad62bef2888595cdae519fe"
+    },
+    {
+      "path": "research/e8-bit-carrier-skeleton/code/bit/checkers/columns_h.cpp",
+      "usage": "provenance",
+      "git_blob": "00c5a3a5d81d083582f60f33dd2e7bea5049c37f",
+      "sha256": "d1297f9052be4f2496e1ff2a77e4db2c0cdbd7d460d489b4c03e50bf317238ce"
+    },
+    {
+      "path": "research/e8-bit-carrier-skeleton/code/bit/checkers/columns_k.cpp",
+      "usage": "provenance",
+      "git_blob": "42bb232fbec4de703e70cc13dc2f39a3b43a3a01",
+      "sha256": "1c344d18fcd494eeca93e259f10cafae7705780e6592f6dcb35b34752dab9bc2"
     }
   ],
   "snapshot": [

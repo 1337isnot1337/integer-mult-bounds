@@ -11,6 +11,8 @@ invocation at stage s only when that invocation lies strictly between the last t
 Each of the 2v (side, port) data families of p receives one copy of the child; a hosted residual
 owns coordinates [off, off + w) of one copy, and that child keeps the remaining rank.
 """
+import hashlib
+import json
 from collections import Counter, defaultdict
 
 from wordsem import need
@@ -188,13 +190,17 @@ def check(template, word, geo, records, local_profile):
         good_calls &= sorted(data_fams) == list(range(block, block + V2))
     res['owners_match_slots_and_blocks'] = good_calls
     res['hosted_occurrences'] = hosted
+    # template bank counters (a count read from the template; the owners check already implies none)
     res['banks'] = sum(template['banks_per_stage'].values()) + sum(template['hosting']['banks_per_stage'].values())
-    res['emitted_local_events'] = len(calls) * len(records)
+    res['emitted_local_events_count'] = len(calls) * len(records)
 
-    # 6. local programs bound to the audited record stream (both orientations)
+    # 6. local programs bound to the audited record stream (both orientations), and every call
+    # bound to the program of its orientation by its local_hash
     lp = template['local_programs']
     res['local_programs_equal_records'] = all(lp[k] == events_from_records(records, k == 'reverse')
                                               for k in ('forward', 'reverse'))
+    digest = {k: hashlib.sha256(json.dumps(lp[k], separators=(',', ':')).encode()).hexdigest() for k in lp}
+    res['calls_bound_to_local_programs'] = all(c['local_hash'] == digest[c['orientation']] for c in calls)
 
     # 7. whole paid profile = calls x local profile + replicas x idle remainders
     whole = Counter()

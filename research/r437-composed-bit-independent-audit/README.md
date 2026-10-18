@@ -14,9 +14,15 @@ passes**:
   with arbitrary dirty contents. The two edits compose with no interaction
   beyond the single-change controls. The SOURCE77 read at frame 186 is in
   chronological order, and the literal word gives the claimed local profile.
+- **One new admission item.** E464 (the helper464 GL edit) changes the
+  arbitrary-dirt content, though not the clean content, of the two captured
+  retained totals h477 and h478, through helper 340's column. PR #3647 does
+  not state this. Whether the inherited capture contract is neutral to that
+  dirt pattern is not checked here ([Open question 1](#open-next-questions)).
 - **Records and hosting.** The PR's 27,132-record stream is byte-identical to
   an independent lowering of the word. The hosted template's 125,856 helper
-  placements satisfy the selected chain's idle-hosting rule.
+  placements satisfy the selected chain's idle-hosting rule, and all 288 calls
+  are bound to the audited local programs.
 - **Price.** The whole paid profile and the invoice's precision fields follow
   from these. The price root gives
   **c = 868314126713557740143/5·10^23 = 0.001736628253427115480286**, and the
@@ -30,7 +36,8 @@ under the selected chain's inherited semantics: word format, hosting rule,
 invoice formula and price equation. It makes no κ claim and changes no
 frontier, and it does not admit PR #3647. Physical-owner, native-transport and
 all-size assumptions stay as inherited (see Scope). The selected record stays
-`0.001672660197076918`. The complex side binds today.
+`0.001672660197076918`. The complex side binds today, and it would still bind
+if the pending complex chain PR #3653/PR #3682 were admitted (see below).
 
 Reproduce from the repository root (standard library only, about 15 s):
 
@@ -44,14 +51,54 @@ recomputes everything and requires byte equality with the committed
 
 ## Why it matters, and to whom
 
-The selected #589 bit supplier caps the retained balanced transfer at
-a/(1+a) = 0.0017304274698236. The pending complex chain of PR #3653 and
-PR #3682 claims κ = 0.0017304189, which is 8.57e-9 below that cap. **If that
-chain is admitted, the bit primitive binds**, and further gains need an
-admitted better bit supplier. PR #3647 makes the highest open bit claim, with
-cap c/(1+c) = 0.0017336176. Before this package it had author checks only.
-PR #3668 (jwr404) checks the histogram-to-c arithmetic on the *published*
-histogram. Here that histogram is rederived from the word and the template.
+**This package has no near-term κ consequence.** PR #3647's c = 0.0017366283
+is the highest open bit-supplier value we found. This package is an
+independent finite check of it, for the intake of PR #3647 and of the PRs
+that build on it (#3668, #3690). It would matter for κ only after a complex
+gain of about 3.0e-6 beyond the pending chain; past that point the bit
+supplier caps κ.
+
+The bit side does not bind today, and it would not bind if the pending complex
+chain PR #3653 (rohanarun) / PR #3682 (zxv) were admitted. That chain's complex
+root is C = 0.0017304188998 (PR #3653 head `607a09ff`,
+`research/retimed-t488-composition/numerics/README.md`). Under either
+consistent outer convention the bit side keeps about 3.0e-6 of headroom
+(exact rational arithmetic, rounded here):
+
+| Outer convention | Complex side | Selected #589 bit side | Headroom | With PR #3647's c |
+|---|---:|---:|---:|---:|
+| retained transfer, κ = a/(1+a) (the selected record) | C/(1+C) = 0.0017274297 | 0.0017304275 | 2.998e-6 | 0.0017336176 (6.188e-6) |
+| modern outer used by #3653: κ = C − 10^-46 − 10^-70, and the bit enters only as bit root > effective exponent | 0.0017304189 | 0.0017334270 | 3.008e-6 | 0.0017366283 (6.209e-6) |
+
+The modern-outer row matches the two modern-outer ledgers archived on main
+(`research/half-stage-evacuation/evidence/OUTER-LEDGER.json` and
+`research/rank7-t740-carrier-skips/evidence/OUTER-LEDGER.json`). In both,
+κ + `actual_bit_above_effective` equals the #589 bit root 0.0017334270
+up to 10^-46.
+
+> **Correction.** An earlier draft of this package, and this loop's #1166
+> claim, compared #589's retained cap a/(1+a) = 0.0017304275 with #3653's
+> modern-outer κ = 0.0017304189. That 8.57e-9 gap mixes two conventions. The
+> draft concluded that the bit side would bind once the chain was admitted;
+> that conclusion was wrong and is withdrawn.
+
+**Other checks of PR #3647.**
+
+- The author's own verifiers.
+- **PR #3668** (jwr404) checks the histogram-to-c arithmetic on the
+  *published* histogram.
+- **PR #3690** (zxv, head `03c141ef`, opened 2026-10-18 15:26Z while this
+  audit was running) serves a different purpose: the ordinary coupling at
+  c = 1/576. Using predecessor and author code, it reconstructs the 903,456
+  paid requests from the actual R437 word, owners and residual idles. It also
+  passes the 7,814,016 local-call events through the retained chronology
+  controller and reruns the author's cold verifier. It therefore overlaps this
+  package's paid-profile reconstruction.
+
+What this package adds is a reimplementation that imports nothing: the word
+identity by two methods, both single-change controls, SOURCE chronology, the
+record lowering, hosting legality under the selected rule, and the c bracket
+with main-only positive controls, each with mutants.
 
 ## What was audited
 
@@ -76,10 +123,16 @@ histogram. Here that histogram is rederived from the word and the template.
   - word format: `research/e8-bit-p111-tuned/code/xcheck_p.py` and
     `code/pwordl.py`;
   - record and event layout, parent recipe, idle ranks and prefix bound: the
-    nine-stage caller `vendor/pr510/…/global_k.py`;
-  - invoice coefficient formula: `vendor/pr510/e8-r480-nine-stage/code/assemble9.py`;
+    nine-stage caller
+    `research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/vendor/e8-r715-eleven-stage-whole/code/global_k.py`;
+  - invoice coefficient formula and ROW cap:
+    `research/e8-bit-p111-tuned/vendor/pr510/e8-r480-nine-stage/code/assemble9.py`;
+  - payload-prefix cap: `research/e8-bit-carrier-skeleton/code/bit/checkers/columns_h.cpp`
+    and `columns_k.cpp`, as run by the selected `verify.sh`;
   - idle-hosting rule: `research/e8-bit-carrier-skeleton/code/hub/idle-axis-hosting/hosting_core.py`;
-  - price equation: `…/e8-r740-replica32/code/engines/moment.py`.
+  - price equation: `research/e8-bit-carrier-skeleton/code/hub/e8-r740-replica32/code/engines/moment.py`.
+
+  Each of these files is pinned by Git blob and SHA256 in SOURCES.json.
 
   **No code from PR #3647, #1043 or main is imported or run.** Each rule is
   reimplemented here from its source text.
@@ -88,12 +141,17 @@ histogram. Here that histogram is rederived from the word and the template.
 
 | Edit | Removed | Added |
 |---|---|---|
-| E464 (PR #3647 ancestry) | `A[224] = [56, h464, [x54]]`; the three-gate D4 node `A[1986..1988]` at frame 506, two of whose gates read h464 | ten gates at frame 506 on h340, h241 and h349, which read x6, x56, h233, h319, h322, h462 and h463 (25 operands) |
+| E464 (PR #3647 ancestry) | `A[224] = [56, h464, [x54]]`; the three-gate D4 node `A[1986..1988]` at frame 506, two of whose gates read h464 | ten gates at frame 506 on the role registers h340, h241 and h349. They read x6, x56, h233, h319, h322, h462 and h463 (18 operands) and the role registers themselves (7), 25 operands in all |
 | E470 (#1043) | `A[230] = [79, h470, [x77]]` and `A[1993] = [79, h444, [h470]]` | `[186, h444, [x77]]` in place of `A[1993]` |
 
 In both edits the deleted helper is removed, higher ids are renumbered, D0 is
 rebuilt from the raw word, and C is rebuilt as the literal reverse of every A/B
 gate whose destination is a source or helper, at the full frame.
+
+The ten GL gates are **taken as data** from the PR's R438 word (its
+`A[1985..1994]`); they are not re-synthesized here. The composition check
+therefore confirms the deletions, the renumbering and the D0/C rebuild. The
+node's own correctness comes from the identity check.
 
 ## Results (all exact; numbers from RESULT.json)
 
@@ -127,20 +185,21 @@ gate whose destination is a source or helper, at the full frame.
      rational orthogonal projector P_F is built from its lines. Its rank and
      trace equal the frame dimension for all 636 frames. All 2,384 distinct
      climbs A → B of R437 satisfy P_A P_B = P_B P_A = P_A.
-   - **Address exchange.** Write D_U = [[I−U, U], [U, I−U]] for the
-     address-half exchange. On the 27 transitions of the changed registers
-     (receiver 444, SOURCE77 and the GL roles 340/241/349),
-     D_(P_B−P_A) D_(P_A) = D_(P_B) is checked literally. This identity follows
-     from the nesting in general: X = P_B − P_A satisfies X P_A = 0.
+     The address-exchange identity D_(P_B−P_A) D_(P_A) = D_(P_B) is also
+     evaluated on the 27 changed-register transitions. It follows from the
+     nesting in general, so it adds no separate coverage.
 2. **Composition.** Applying E464 and E470 literally to #589 and rebuilding D0
    and C gives the PR's R437 word. All fields are equal; only the `stats`
    metadata differs (`extra_carriers` 10 → 8). E464 alone gives the PR's R438
-   word. E470 alone reproduces #1043's published results:
+   word (with the GL node taken from it, as above). E470 alone reproduces
+   #1043's published results:
    - every frame path in its `FRAME-PATHS.json` (660 candidate and 661 baseline
-     paths);
-   - its D0 change from 18,085 to 18,030 ADDs;
-   - its 2,573-gate C;
-   - its profile table.
+     paths), machine-checked;
+   - its local profile `{1:1321, 2:1344, 3:78, 4:44, 5:102, 6:11, 7:18}`, its
+     24,248 ADDs and its gate counts 111/2074/712/2573, machine-checked against
+     its `CERTIFICATE.json`;
+   - its D0 count of 18,030 ADDs (from #589's 18,085), which equals the value
+     stated in its PROOF.md. This one is compared by hand.
 3. **No interaction.** Traces are aligned gate by gate across about 5,350
    common gates per comparison. The deleted helpers' columns are projected
    away, and survivors are renamed.
@@ -184,14 +243,17 @@ gate whose destination is a source or helper, at the full frame.
    columns with 24,208 ADDs, 9 rank-7 COPYs and the local profile. The
    cancellation-free row bounds are 49,347 forward (16 bits) and 1,113,998
    reverse (21 bits). The template's forward and reverse local programs equal
-   the events derived from this stream.
+   the events derived from this stream. The replay is over F2. Coefficient
+   signs are bound by the byte equality with the independent lowering and by
+   the local-program comparison, not by the replay itself.
 6. **Hosting.**
    - **Schedule and windows.** The template's parent schedule equals the one
      derived here from main's nine-stage recipe, including idle ranks
      14, 7, 28, 7, 42, 7, 42, 28, 14 and 0. Under the selected rule, its nine
-     idle windows are recomputed and equal the template's. The rule: a stage
-     may use a pair's idle child only if it runs strictly after the pair's last
-     local or bridge touch and is not on that pair.
+     idle windows are recomputed and equal the template's. The rule: a stage's
+     local sweep may use a pair's idle child only if, in the schedule, it runs
+     strictly after the pair's last local or bridge touch and strictly before
+     the idle child, and it is not on that pair.
    - **Slots.** Each replica has 3,933 slots. Each (stage, helper) occurrence
      appears exactly once, with width 8 as the word requires. Its stage lies in
      its window, and its offsets are disjoint inside the child's rank.
@@ -200,8 +262,11 @@ gate whose destination is a source or helper, at the full frame.
    - **Owners.** All 288 calls (9 stages × 32 replicas) match the slots and the
      selected data route. The data families form the call's pair block, with
      the sides swapped in reverse sweeps. Each hosted helper sits in a
-     different pair's idle child at its slot. In total 125,856 occurrences are
-     hosted, with 0 banks and 7,814,016 local events.
+     different pair's idle child at its slot. Each call's `local_hash` equals
+     the SHA256 of its orientation's local program (160 forward, 128 reverse).
+     In total 125,856 occurrences are hosted. The template's bank counters are
+     0, which the owners check already implies. The 7,814,016 local events are
+     a count (288 × 27,132), not a separate check.
 7. **Whole paid profile and invoice.** 288 × the local profile plus 32 × the
    idle children gives
    `{1:380160, 2:400864, 3:22176, 4:26592, 5:29376, 6:17376, 7:26496, 34:64, 42:352}`.
@@ -212,9 +277,14 @@ gate whose destination is a source or helper, at the full frame.
    - the coefficient has 177 bits;
    - the two-level coefficient has 393 bits, charged 512;
    - halving depth 2, with 2·42² = 3,528 < 4,096;
-   - ROW = 2·(64² + 1) + 9,909 + 252 = 18,355 < 20,161.
+   - ROW = 2·(64² + 1) + 9,909 + 252 = 18,355, below the inherited cap 20,161
+     asserted in `assemble9.py`;
+   - local payload prefix 64 · 49,347³ · 1,113,998² has 93 bits, under the
+     2^104 cap of the selected chain's `columns_h.cpp`/`columns_k.cpp`
+     checkers. Selected #589's published value, in `tune/EXPECTED.json`, is
+     also 93.
 
-   The ROW constants 9,909 and 252 are inherited.
+   The ROW constants 9,909 and 252 and both caps are inherited.
 8. **Price.** The equation is
    `Σ r·n_r/(m·W) (m/r)^a + 32·m·N/(10^16·W) m^a = 1` with m = 64 and
    W = 28,416, including the inherited bad-class fallback. It is solved with
@@ -247,13 +317,18 @@ gate whose destination is a source or helper, at the full frame.
 | two slots made to overlap | disjointness and owner checks fail |
 | a slot dropped | occurrence, remainder, owner and profile checks fail |
 | one idle rank changed | window, remainder and profile checks fail |
-| one rank-2 child per replica relabelled as rank 3 in the whole profile | the c bracket fails |
+| one rank-2 child of the whole profile relabelled as rank 3 | the bound at c fails |
+| one rank-42 child of the whole profile relabelled as rank 34 | the bound at the next grid point fails |
 | the composed word itself (positive control) | accepted |
 
-The early-read row shows that the identity check alone does not enforce SOURCE
-chronology. The chronology comparison with #589 is a separate, load-bearing
-check. In the price bracket, each next grid point acts as a built-in negative
-control.
+The early-read row shows that the identity and legality checks alone would
+not detect a moved SOURCE climb. The audit adopts equality with #589's SOURCE
+chronology as a **sufficient inherited condition**. It does not show that an
+earlier climb would break the inherited contract. In the price bracket, each
+next grid point acts as a built-in negative control. The verifier requires
+each mutant's rejected flag to match its expectation, and each price mutant
+to fail the expected bound. The rejection reasons are pinned through byte
+equality with RESULT.json.
 
 ## Scope, inherited assumptions and unresolved obligations
 
@@ -265,7 +340,7 @@ These results are checked:
 - SOURCE write boundaries and chronology against #589;
 - the local profile and ADD counts;
 - the byte binding of the records and the template's local programs to the
-  word;
+  word, and of every call to its local program;
 - the hosting slot assignment under the selected idle rule;
 - the whole paid profile, the invoice precision fields and the price root.
 
@@ -275,12 +350,13 @@ These are **not** checked:
   and route formulas, not against a physical register machine. The private
   centre reserve (physical = 28,416 + 9) and the cover classes are not
   checked.
-- **Native transport.** Only the projector and address-exchange identities
-  above are checked. The physical register machine, data precision and cover
-  classes are not.
+- **Native transport.** Only the projector identities above are checked. The
+  physical register machine, data precision and cover classes are not. Nor is
+  the capture contract's neutrality to the changed h477/h478 dirt
+  (Open question 1).
 - **Inherited formulas.** The invoice formula, the 10^-16 fallback, the ROW
-  constants and the price equation are used as stated in the selected sources,
-  not re-derived.
+  constants and caps, the payload cap and the price equation are used as
+  stated in the selected sources, not re-derived.
 - **Route factors.** The geometry's `max_route_factors` term is covered only by
   the envelope; any value below 2^40 gives the same bit lengths.
 - **Inherited assumptions.** These are unchanged from selected #589: the
@@ -292,8 +368,8 @@ These are **not** checked:
 This is a finite certificate for one local supplier instance and its hosted
 invoice. It is not a scoped all-size proof or a multiplication theorem, and it
 does not admit PR #3647. It also makes no κ claim. Today the complex primitive
-binds. The bit side would bind only if the pending complex chain
-(PR #3653/PR #3682) were admitted.
+binds, and it would still bind, with about 3.0e-6 of bit headroom, if the
+pending complex chain (PR #3653/PR #3682) were admitted.
 
 ## Open next questions
 
@@ -313,11 +389,24 @@ binds. The bit side would bind only if the pending complex chain
    property? First step: a read-only census of carriers with one birth whose
    reads are confined to one node frame. This is an expansion question: record
    the family's five-point expansion decision before any construction round.
-3. **Which admission dependencies remain?** For PR #3647 to supply the bit side,
-   the complex chain PR #3653/PR #3682 must first make the bit side binding.
-   After that, maintainers must accept the inherited interfaces. First step:
-   reconcile this package's checks with the PR #3653/#3682 review state when
-   that chain is reviewed.
+3. **Which admission dependencies remain for PR #3647?** No complex claim we
+   know of would make the bit side bind, so this is not urgent. It becomes
+   relevant once a complex gain of more than about 3.0e-6 beyond PR #3653/#3682
+   is in view. First step: in the intake review of #3647, #3668 and #3690,
+   map this package's checks and Open question 1 against the inherited
+   interface list.
+4. **Is PR #3647's hosting price-optimal under the audited rule?** In window 6
+   the PR places its two stage-6 leftovers (helpers 421 and 422) in separate
+   copies 209 and 210, giving per-replica remainders `{34:2, 42:11}`. Moving
+   slot `[6,210,0,8,6,422]` to `[6,209,8,8,6,422]` gives `{26:1, 42:12}` at the
+   same rank mass. The root then rises from 0.0017366282534 to
+   0.0017366460420 (+1.78e-8). One AI review pass found this. It was
+   re-checked locally with this package's slot checks and price engine; that
+   run is not shipped. Only slot legality and the price equation were
+   checked: the call owners were not regenerated, and the physical layer was
+   not checked. It is an observation for PR #3647's author, not an audit
+   claim. First step: regenerate the owners for the merged slot and rerun
+   the owners check.
 
 ## Predecessors and credit
 
@@ -332,18 +421,37 @@ binds. The bit side would bind only if the pending complex chain
   NOTICEs): every semantic rule used here.
 - **PR #3668** (jwr404): histogram-to-c arithmetic on the published
   histogram. This package rederives the histogram instead.
+- **PR #3690** (zxv): concurrent paid-request reconstruction and ordinary
+  coupling for R437, built on predecessor and author code. Its overlap with
+  this package is described under "Why it matters".
+- **Related and not audited.** PR #3645 (RossRichardson, R429 at `99b901c9`)
+  and PR #3672 (jwr404, at `8f735782`) are local R438 variants, and neither
+  claims a c. The complex chain is PR #3653 (rohanarun) and PR #3682 (zxv),
+  cited only for its root.
 - This loop's earlier audit, PR #3687, supplied the audit pattern only. It
   covered a different, complex supplier.
 
 ## Provenance
 
-The four files in [inputs/](inputs/) are byte-preserved copies of PR #3647's
-Apache-2.0 package files. The record stream is wrapped in gzip, and the verifier
-checks its uncompressed SHA256. That package's LICENSE and UPSTREAM-NOTICE.md
-carry their notices and predecessor credits.
+The four files in [inputs/](inputs/) are byte-preserved copies of files from
+PR #3647 by ai-nanachi (head `36ff4414`, package
+`research/bit-p111-r437-gl464-470-20261018`), used under Apache-2.0. The
+record stream is wrapped in gzip, and the verifier checks its uncompressed
+SHA256. The inherited predecessor credits are listed in that package's
+UPSTREAM-NOTICE.md (Git blob `90ac2537`) and its LICENSE (blob `261eeb9e`).
+Those files are not on main yet, so the credit is restated here.
+
+These inputs are pinned in the `snapshot` rows of [SOURCES.json](SOURCES.json),
+not by `head:` pins. The PR is unmerged and its files are not at the base
+commit. Each snapshot row records the source PR, commit, path, Git blob and
+SHA256, and `verify.py` checks every SHA256 before use. The generic runner
+ignores the `snapshot` key, so that binding is enforced by this package's
+verifier.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Base commit
 `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. The checks are finite exact
-computations in Python 3 (standard library). No human or formal-kernel review
-is claimed. Apache-2.0.
+computations in Python 3 (standard library). The package was reviewed by four
+independent AI review passes in the same loop (one round: reproducibility,
+mathematics/accounting, provenance, referee), and their fixes are applied
+here. No human or formal-kernel review is claimed. Apache-2.0.
