@@ -40,8 +40,14 @@ route totals are respectively:
     13436164 -> 11537646
     1685 -> 1685
 
-Publication verification commands and results are recorded in the PR and local
-round77-evidence logs. The package command is:
+The complete four-command registered replay passed. All four scientific suites
+then passed with -O from a read-only Git-free export of scientific freeze
+`bb6afaf55a24d0841b99fcb5c938fe20dbdb2eac`; all 58 exported files remained
+byte-identical. Actual optimized CLI mutants rejected a changed source and a
+changed typed result. Publication byte/history checks covered all 57 package/input
+files. This final validation update changes only this document; scientific code,
+proof, inputs and receipts match the replayed freeze. Exact commands and logs
+are retained in round77-evidence. The package command is:
 
     python3.12 -B scripts/research_package.py --package research/dyadic-affine-streams
 
