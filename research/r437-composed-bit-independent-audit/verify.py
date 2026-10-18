@@ -27,6 +27,8 @@ from wordsem import (Geometry, Reject, bits, canonical, check_final_frames, chec
                      check_pullback, forward, load, need, paths, profile, pullback, rebuild_DC,
                      reverse_orientation)
 import compose  # noqa: E402
+import hosting  # noqa: E402
+import price  # noqa: E402
 import records  # noqa: E402
 from compose import apply  # noqa: E402
 
@@ -35,6 +37,12 @@ PATHS1043 = 'research/bit-boundary-persistence/FRAME-PATHS.json'
 R438 = 'research/r437-composed-bit-independent-audit/inputs/FINAL-R438-WORD.json.gz'
 R437 = 'research/r437-composed-bit-independent-audit/inputs/R437-COMPOSED-WORD.json.gz'
 RECORDS = 'research/r437-composed-bit-independent-audit/inputs/R437-RECORDS.bin.gz'
+TEMPLATE = 'research/r437-composed-bit-independent-audit/inputs/R437-GLOBAL-TEMPLATE.json.gz'
+SEL589 = 'research/e8-bit-p111-tuned/data/selection9-p111.json'
+CERT1043 = 'research/bit-boundary-persistence/CERTIFICATE.json'
+C_R437 = (868314126713557740143, 500000000000000000000000)
+C_589 = (1733427039589844234749, 10**24)
+C_1043 = (433544072119966441673, 250000000000000000000000)
 
 
 def sha(path):
@@ -292,9 +300,102 @@ def run():
         pr_stream_sha256=hashlib.sha256(raw).hexdigest(), pr_stream_bytes=len(raw), records=len(theirs),
         independent_lowering_byte_equal=records.pack(mine) == raw,
         kinds={k: x for k, x in sorted(collections.Counter(r[0] for r in theirs).items())},
-        forward=dict(bad_columns=len(fwd[0]), profile=fwd[1], adds=fwd[2], copies=fwd[3]),
-        reverse=dict(bad_columns=len(rev[0]), profile=rev[1], adds=rev[2], copies=rev[3]))
+        forward=dict(bad_columns=len(fwd[0]), profile=fwd[1], adds=fwd[2], copies=fwd[3],
+                     cancellation_free_row_l1=fwd[4], bits=fwd[4].bit_length()),
+        reverse=dict(bad_columns=len(rev[0]), profile=rev[1], adds=rev[2], copies=rev[3],
+                     cancellation_free_row_l1=rev[4], bits=rev[4].bit_length()))
     res['mutants'] = mutants(w589, node, geo)
+
+    # Stretch: hosted template -> whole paid profile -> price bracket (bounded; see README)
+    with open(os.path.join(ROOT, TEMPLATE), 'rb') as fh:
+        tpl = json.loads(gzip.decompress(fh.read()))
+    hres = hosting.check(tpl, r437, geo, theirs, res['words']['R437_pr']['profile'])
+    hres['template_canonical_sha256'] = hashlib.sha256(canonical(tpl)).hexdigest()
+    hres['template_source_record_sha256'] = tpl['source_record_sha256']
+    res['hosting'] = hres
+    # hosting controls (each must break at least one hosting check)
+    hk = ('windows_rederived_equal', 'every_occurrence_once', 'stage_inside_window', 'offsets_disjoint_within_rank',
+          'remainders_equal_published', 'owners_match_slots_and_blocks')
+    hmut = []
+    slots0 = tpl['hosting']['slots']
+    def overlap(sl):
+        first = {}
+        for i, x in enumerate(sl):
+            if (x[0], x[1]) in first:
+                sl[i] = x[:2] + [sl[first[x[0], x[1]]][2]] + x[3:]
+                return
+            first[x[0], x[1]] = i
+    for label, edit in (
+            ('slot_moved_outside_window', lambda sl: sl.__setitem__(0, [6] + sl[0][1:])),
+            ('slot_offsets_overlap', overlap),
+            ('slot_dropped', lambda sl: sl.pop()),
+            ('idle_rank_changed', None)):
+        t2 = dict(tpl)
+        t2['hosting'] = dict(tpl['hosting'], slots=[list(x) for x in slots0])
+        if edit:
+            edit(t2['hosting']['slots'])
+        else:
+            t2['schedule'] = [dict(e, rank=e['rank'] + 1) if e.get('idx') == 6 else e for e in tpl['schedule']]
+        try:
+            r2 = hosting.check(t2, r437, geo, theirs, res['words']['R437_pr']['profile'])
+            broken = [k for k in hk if not r2[k]] + (['whole_profile'] if r2['whole_profile'] != hres['whole_profile'] else [])
+        except Reject as e:
+            broken = ['rejected: %s' % e]
+        hmut.append(dict(mutant=label, rejected=bool(broken), broken=broken))
+    res['hosting_mutants'] = hmut
+    F = price.Q
+    res['price'] = dict(R437=price.bracket(hres['whole_profile'], tpl['m'], tpl['live'], F(*C_R437)))
+    wp = hres['whole_profile']
+    # price control: one rank-2 child relabelled as rank 3 (32 such children = one per replica) must move c
+    bad = dict(wp)
+    bad[2] -= 32
+    bad[3] += 32
+    b2 = price.bracket(bad, tpl['m'], tpl['live'], F(*C_R437))
+    res['price']['control_one_child_per_replica_relabelled_rejected'] = not (
+        b2['moment_upper_at_c_below_one'] and b2['moment_lower_at_next_grid_above_one'])
+    res['precision_R437'] = price.precision(res['records']['forward']['cancellation_free_row_l1'],
+                                            res['records']['reverse']['cancellation_free_row_l1'],
+                                            sum(wp.values()), max(wp), r437['R'], local_adds=24208)
+    res['precision_R437']['children'] = sum(wp.values())
+    # positive control 1: selected #589 from main only (word -> local profile; selection9-p111.json
+    # patterns -> idle remainders on the same nine windows) must give the selected bit value
+    sel = json.load(open(os.path.join(ROOT, SEL589)))['bit']
+    win = hosting.windows(hosting.nine_stage_schedule())
+    idle589 = collections.Counter()
+    per_stage = collections.Counter()
+    legal = True
+    for idx, pat, copies in sel['patterns']:
+        idle589[win[idx][1] - sum(pat)] += copies
+    cover = collections.Counter()
+    capacity = collections.Counter()
+    for idx, pat, copies in sel['patterns']:
+        cover[idx] += copies
+        capacity[idx] += copies * len(pat)
+    for idx, w, st, cnt in sel['stages']:
+        legal &= st in win[idx][2] and w == 8
+        per_stage[st] += cnt
+        capacity[idx] -= cnt
+    legal &= all(cover[idx] == 2 * v for idx, (p, r, st) in win.items() if r) and not +capacity and not -capacity
+    idle589 = {k: x for k, x in idle589.items() if k}
+    whole589 = collections.Counter()
+    for k, x in res['words']['selected589']['profile'].items():
+        whole589[int(k)] += 288 * x
+    for k, x in idle589.items():
+        whole589[k] += 32 * x
+    res['price']['selected589_control'] = dict(
+        idle_children_per_replica=dict(sorted(idle589.items())), stages_legal=legal,
+        every_stage_hosts_all_helpers=all(per_stage[st] == w589['R'] for st in range(9)),
+        whole_profile=dict(sorted(whole589.items())),
+        bracket=price.bracket(dict(whole589), 64, 28416, F(*C_589)))
+    # positive control 2: #1043's published hosted profile splits over the rebuilt E470 local profile
+    cert = json.load(open(os.path.join(ROOT, CERT1043)))['hosted']['candidate']['invoice']['bit_profile']
+    cert = {int(k): x for k, x in cert.items()}
+    loc470 = {int(k): x for k, x in res['words']['C470_rebuilt_1043']['profile'].items()}
+    idle470 = {k: cert.get(k, 0) - 288 * loc470.get(k, 0) for k in set(cert) | set(loc470)}
+    res['price']['c1043_control'] = dict(
+        idle_children_per_replica={k: x // 32 for k, x in sorted(idle470.items()) if x},
+        split_exact=all(x >= 0 and x % 32 == 0 for x in idle470.values()),
+        bracket=price.bracket(cert, 64, 28416, F(*C_1043)))
     # Bounded cross-check of the published whole profile (PR #3647 README/COMPOSED-PROOF): split it
     # into 288 local calls of the audited local profile plus a per-replica idle remainder.  The
     # remainder itself (matching, owners, hosting) is NOT rederived here.
@@ -334,7 +435,26 @@ def run():
           and res['records']['independent_lowering_byte_equal']
           and res['records']['pr_stream_sha256'] == 'caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb'
           and all(res['records'][o]['bad_columns'] == 0 and res['records'][o]['profile'] == res['words']['R437_pr']['profile']
-                  for o in ('forward', 'reverse')))
+                  for o in ('forward', 'reverse'))
+          and all(res['hosting'][k] for k in ('windows_rederived_equal', 'every_occurrence_once', 'stage_inside_window',
+                                              'width_matches_word', 'copy_in_range', 'offsets_disjoint_within_rank',
+                                              'remainders_equal_published', 'owners_match_slots_and_blocks',
+                                              'local_programs_equal_records'))
+          and res['hosting']['banks'] == 0 and res['hosting']['hosted_occurrences'] == 125856
+          and res['hosting']['whole_profile'] == res['whole_profile_split']['claimed']
+          and res['hosting']['template_source_record_sha256'] == res['records']['pr_stream_sha256']
+          and all(b['moment_upper_at_c_below_one'] and b['moment_lower_at_next_grid_above_one']
+                  for b in (res['price']['R437'], res['price']['selected589_control']['bracket'],
+                            res['price']['c1043_control']['bracket']))
+          and res['price']['selected589_control']['stages_legal']
+          and res['price']['selected589_control']['every_stage_hosts_all_helpers']
+          and res['price']['c1043_control']['split_exact']
+          and res['hosting']['schedule_equals_main_recipe']
+          and res['price']['control_one_child_per_replica_relabelled_rejected']
+          and all(m['rejected'] for m in res['hosting_mutants'])
+          and res['precision_R437']['prefix_bits'] == 177 and res['precision_R437']['coefficient_bits'] == [177, 177]
+          and res['precision_R437']['two_level_bits'] == [393, 393] and res['precision_R437']['charged_two_level_bits'] == 512
+          and res['precision_R437']['row_coefficient'] == 18355 and res['precision_R437']['halving_depth'] == 2)
     res['status'] = 'PASS_INDEPENDENT_R437_WORD_AUDIT' if ok else 'FAIL'
     return res, time.process_time() - t0
 

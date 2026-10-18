@@ -43,6 +43,30 @@
       "usage": "provenance",
       "git_blob": "a90bed93e227c3916aca67817794f35e24123ceb",
       "sha256": "6d8fccd44508e4705b6446e0a64482a5221a3efc5663c5ca7ae90d44581ac50a"
+    },
+    {
+      "path": "research/e8-bit-p111-tuned/data/selection9-p111.json",
+      "usage": "input",
+      "git_blob": "e69ea66a3add357f570fc5552ab6368b3c8f9bb2",
+      "sha256": "4ab1ed4529683cd184987f8bc3031fb7408b9cd22c25ab9cf541a8aaf896eaf1"
+    },
+    {
+      "path": "research/bit-boundary-persistence/CERTIFICATE.json",
+      "usage": "input",
+      "git_blob": "56400920050c523e6e399f2455137b36c35cf528",
+      "sha256": "32c6cd6103006d627909cabdaf5083238c661a6582016a8b21075bd01c892eff"
+    },
+    {
+      "path": "research/e8-bit-carrier-skeleton/code/hub/idle-axis-hosting/hosting_core.py",
+      "usage": "provenance",
+      "git_blob": "68b536daa9e6546c0aa046934bf840aaa3c3fde3",
+      "sha256": "d8b90cd5d152df3c7c351230863d9e61816ad5e1f21d69bea1a86a5daad559a3"
+    },
+    {
+      "path": "research/e8-bit-carrier-skeleton/code/hub/e8-r740-replica32/code/engines/moment.py",
+      "usage": "provenance",
+      "git_blob": "7d697cb45203fe72d97037403d6da41f71f3b7fd",
+      "sha256": "81cbc864e106418fc7854322746f72180cb8110ff39f74450a3b8d55a82c1482"
     }
   ],
   "snapshot": [
@@ -71,6 +95,14 @@
       "sha256": "6e556dae1a2f56f3893afa9b316f6029712c6b79a3536a429f8d83cac79163e9",
       "uncompressed_sha256": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
       "note": "gzip (level 9, mtime 0) of the PR file; the verifier checks the decompressed SHA256"
+    },
+    {
+      "local": "inputs/R437-GLOBAL-TEMPLATE.json.gz",
+      "source_path": "research/bit-p111-r437-gl464-470-20261018/generated/GLOBAL-TEMPLATE.json.gz",
+      "source_commit": "36ff441479ff9c7e70d83f0becccd44da50effb8",
+      "source_pr": 3647,
+      "git_blob": "df9238596dbe8cd355a65aa170caa54f543c39cd",
+      "sha256": "00dee04c5372ac300b678c4ac1e6770c178923099d2d4bf01be9e4bccd2a1e72"
     }
   ]
 }

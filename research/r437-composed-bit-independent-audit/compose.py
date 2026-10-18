@@ -54,9 +54,9 @@ def apply(w589, new_node=None, do464=False, do470=False, read=None, read_at=None
     dead = sorted(([464] if do464 else []) + ([470] if do470 else []))
     v = w['v']
     for q in dead:
-        for sec in ('A', 'B', 'D', 'C'):
+        for sec in ('A', 'B'):
             for g in w[sec]:
-                need(q != g[1] and q not in g[2] or sec in ('D', 'C'), 'deleted helper %d still used in %s' % (q, sec))
+                need(q != g[1] and q not in g[2], 'deleted helper %d still used in %s' % (q, sec))
         need(q not in w['ret'], 'deleted helper is retained')
 
     def ren(r):

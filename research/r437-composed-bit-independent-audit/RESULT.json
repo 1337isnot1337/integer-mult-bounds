@@ -136,6 +136,174 @@
   "selected589_equals_baseline": true
  },
  "frames": 636,
+ "hosting": {
+  "banks": 0,
+  "calls": 288,
+  "copy_in_range": true,
+  "deficit": 10272,
+  "emitted_local_events": 7814016,
+  "every_occurrence_once": true,
+  "hosted_occurrences": 125856,
+  "idle_children_per_replica": {
+   "2": 431,
+   "4": 444,
+   "6": 444,
+   "7": 666,
+   "34": 2,
+   "42": 11
+  },
+  "local_programs_equal_records": true,
+  "offsets_disjoint_within_rank": true,
+  "owners_match_slots_and_blocks": true,
+  "rank_mass": 1808352,
+  "remainders_equal_published": true,
+  "schedule_equals_main_recipe": true,
+  "slots": 3933,
+  "stage_inside_window": true,
+  "template_canonical_sha256": "2e868ff427654e47df34779299545c53aa05b8c96697ee126e80e7bc6a50990a",
+  "template_source_record_sha256": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
+  "whole_profile": {
+   "1": 380160,
+   "2": 400864,
+   "3": 22176,
+   "4": 26592,
+   "5": 29376,
+   "6": 17376,
+   "7": 26496,
+   "34": 64,
+   "42": 352
+  },
+  "width_matches_word": true,
+  "windows": {
+   "0": [
+    1,
+    14,
+    [
+     0,
+     1
+    ]
+   ],
+   "1": [
+    1,
+    7,
+    [
+     2
+    ]
+   ],
+   "2": [
+    2,
+    28,
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ],
+   "3": [
+    2,
+    7,
+    [
+     4
+    ]
+   ],
+   "4": [
+    3,
+    42,
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   ],
+   "5": [
+    3,
+    7,
+    [
+     6
+    ]
+   ],
+   "6": [
+    0,
+    42,
+    [
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ]
+   ],
+   "7": [
+    1,
+    28,
+    [
+     5,
+     6,
+     7,
+     8
+    ]
+   ],
+   "8": [
+    2,
+    14,
+    [
+     7,
+     8
+    ]
+   ],
+   "9": [
+    3,
+    0,
+    []
+   ]
+  },
+  "windows_rederived_equal": true
+ },
+ "hosting_mutants": [
+  {
+   "broken": [
+    "stage_inside_window",
+    "offsets_disjoint_within_rank",
+    "remainders_equal_published",
+    "owners_match_slots_and_blocks",
+    "whole_profile"
+   ],
+   "mutant": "slot_moved_outside_window",
+   "rejected": true
+  },
+  {
+   "broken": [
+    "offsets_disjoint_within_rank",
+    "owners_match_slots_and_blocks"
+   ],
+   "mutant": "slot_offsets_overlap",
+   "rejected": true
+  },
+  {
+   "broken": [
+    "every_occurrence_once",
+    "remainders_equal_published",
+    "owners_match_slots_and_blocks",
+    "whole_profile"
+   ],
+   "mutant": "slot_dropped",
+   "rejected": true
+  },
+  {
+   "broken": [
+    "windows_rederived_equal",
+    "remainders_equal_published",
+    "whole_profile"
+   ],
+   "mutant": "idle_rank_changed",
+   "rejected": true
+  }
+ ],
  "mutants": [
   {
    "expect_rejected": true,
@@ -291,11 +459,89 @@
   }
  ],
  "pins": {
+  "research/bit-boundary-persistence/CERTIFICATE.json": "32c6cd6103006d627909cabdaf5083238c661a6582016a8b21075bd01c892eff",
   "research/bit-boundary-persistence/FRAME-PATHS.json": "0d347b9e4d8a8336a707565deceb1d505cd138c97a56831643583b83d91c3b4f",
+  "research/e8-bit-p111-tuned/data/selection9-p111.json": "4ab1ed4529683cd184987f8bc3031fb7408b9cd22c25ab9cf541a8aaf896eaf1",
   "research/e8-bit-p111-tuned/tune/bitE8mut-p111-tuned.json.gz": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
   "research/r437-composed-bit-independent-audit/inputs/FINAL-R438-WORD.json.gz": "5aa4d91fb0062265b25fb8f322a57b76d89caaf055b4110cf6fdb761f0b27463",
   "research/r437-composed-bit-independent-audit/inputs/R437-COMPOSED-WORD.json.gz": "e432182d5b62c8bbefeb871fce30317234d707e5e18d4295e65ac21f7fd8365e",
+  "research/r437-composed-bit-independent-audit/inputs/R437-GLOBAL-TEMPLATE.json.gz": "00dee04c5372ac300b678c4ac1e6770c178923099d2d4bf01be9e4bccd2a1e72",
   "research/r437-composed-bit-independent-audit/inputs/R437-RECORDS.bin.gz": "6e556dae1a2f56f3893afa9b316f6029712c6b79a3536a429f8d83cac79163e9"
+ },
+ "precision_R437": {
+  "charged_prefix_bits": 192,
+  "charged_two_level_bits": 512,
+  "children": 903456,
+  "coefficient_bits": [
+   177,
+   177
+  ],
+  "halving_depth": 2,
+  "halving_inequality": [
+   3528,
+   4096
+  ],
+  "prefix_bits": 177,
+  "row_coefficient": 18355,
+  "two_level_bits": [
+   393,
+   393
+  ]
+ },
+ "price": {
+  "R437": {
+   "c": "868314126713557740143/500000000000000000000000",
+   "moment_lower_at_next_grid_above_one": true,
+   "moment_upper_at_c_below_one": true,
+   "next_grid": "1736628253427115480287/1000000000000000000000000"
+  },
+  "c1043_control": {
+   "bracket": {
+    "c": "433544072119966441673/250000000000000000000000",
+    "moment_lower_at_next_grid_above_one": true,
+    "moment_upper_at_c_below_one": true,
+    "next_grid": "1734176288479865766693/1000000000000000000000000"
+   },
+   "idle_children_per_replica": {
+    "2": 430,
+    "4": 441,
+    "6": 443,
+    "7": 666,
+    "10": 5,
+    "12": 3,
+    "14": 1,
+    "42": 9
+   },
+   "split_exact": true
+  },
+  "control_one_child_per_replica_relabelled_rejected": true,
+  "selected589_control": {
+   "bracket": {
+    "c": "1733427039589844234749/1000000000000000000000000",
+    "moment_lower_at_next_grid_above_one": true,
+    "moment_upper_at_c_below_one": true,
+    "next_grid": "6933708158359376939/4000000000000000000000"
+   },
+   "every_stage_hosts_all_helpers": true,
+   "idle_children_per_replica": {
+    "2": 435,
+    "4": 444,
+    "6": 444,
+    "7": 666,
+    "42": 9
+   },
+   "stages_legal": true,
+   "whole_profile": {
+    "1": 381024,
+    "2": 400416,
+    "3": 22752,
+    "4": 26880,
+    "5": 29376,
+    "6": 17376,
+    "7": 26784,
+    "42": 288
+   }
+  }
  },
  "profile_delta": {
   "additive": true,
@@ -328,6 +574,8 @@
   "forward": {
    "adds": 24208,
    "bad_columns": 0,
+   "bits": 16,
+   "cancellation_free_row_l1": 49347,
    "copies": 9,
    "profile": {
     "1": 1320,
@@ -352,6 +600,8 @@
   "reverse": {
    "adds": 24208,
    "bad_columns": 0,
+   "bits": 21,
+   "cancellation_free_row_l1": 1113998,
    "copies": 9,
    "profile": {
     "1": 1320,

@@ -56,7 +56,8 @@ def pack(records):
 def replay(word, geo, records, reverse):
     """F2 replay of a record stream.  Reverse orientation: records in reverse order, every MOVE
     undone (a strict climb of the orthogonal complement), coefficients negated, COPY/ERASE
-    exchanged around the same centre.  Returns (bad columns, profile, adds, copies)."""
+    exchanged around the same centre.  Returns (bad columns, profile, adds, copies, max
+    cancellation-free row l1 norm)."""
     v, R = word['v'], word['R']
     n = 2 * v + R
     centre = n
@@ -65,6 +66,8 @@ def replay(word, geo, records, reverse):
     cur = list(word['final'] if reverse else word['start']) + [-1]
     val = [1 << i for i in range(n)] + [0]
     hist, adds, copies, held = Counter(), 0, 0, None
+    norm = [1] * n + [0]          # cancellation-free row l1 bound, as in the selected caller
+    maxnorm = 1
     for op, x, y, c, f, z in (reversed(records) if reverse else records):
         if op == 0:
             old, new = (c, y) if reverse else (y, c)
@@ -79,16 +82,18 @@ def replay(word, geo, records, reverse):
             need(c in (1, -1), 'coefficient')
             if c & 1:
                 val[x] ^= val[y]
+            norm[x] += abs(c) * norm[y]
+            maxnorm = max(maxnorm, norm[x])
             adds += 1
         elif op == (3 if reverse else 2):
             need(held is None and y == centre and cur[x] == c and val[centre] == 0, 'COPY discipline')
-            held, cur[centre], val[centre] = x, f, val[x]
+            held, cur[centre], val[centre], norm[centre] = x, f, val[x], norm[x]
             hist[abs(dim(c) - dim(f))] += 1
             copies += 1
         else:
             need(held == x and y == centre and cur[x] == c and cur[centre] == f and val[centre] == val[x],
                  'ERASE discipline')
-            held, cur[centre], val[centre] = None, -1, 0
+            held, cur[centre], val[centre], norm[centre] = None, -1, 0, 0
     need(held is None and cur[:n] == list(word['start'] if reverse else word['final']), 'end frames')
     bad = [i for i in range(n) if val[i] != (1 << i) ^ ((1 << (i - v)) if v <= i < 2 * v else 0)]
-    return bad, dict(sorted(hist.items())), adds, copies
+    return bad, dict(sorted(hist.items())), adds, copies, maxnorm
