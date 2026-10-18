@@ -14,7 +14,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from verify import WEIGHT16, need, sources  # noqa: E402
+from verify import WEIGHT16, cycles as primary_cycles, need, sources  # noqa: E402
 
 PASS_LINE = (
     "PASS_C5_FIT_LEVEL_CANCELLATION_CHARGE_INDEPENDENT "
@@ -130,9 +130,16 @@ def support_masks(support, cycles):
 
 def main() -> None:
     planes, matching = geometry()
-    cycles = cycle_sets(planes)
+    # Independent chordless-path census checks the same 23 vertex sets; charging
+    # uses the primary cyclic order so WEIGHT16 indices stay aligned.
+    independent_sets = cycle_sets(planes)
+    ordered = primary_cycles(planes)
+    need(
+        {frozenset(c) for c in ordered} == {frozenset(c) for c in independent_sets},
+        "cycle set agreement",
+    )
     ranks = []
-    for cycle in cycles:
+    for cycle in ordered:
         local = tuple(q for i in cycle for q in planes[i])
         ranks.append(rank(local, local))
     need(Counter(ranks) == {7: 4, 8: 6, 9: 13}, "independent rank histogram")
@@ -149,9 +156,9 @@ def main() -> None:
     need(j_free == 45 and one_j == Fraction(561, 16), "floors")
     need(j_free > Fraction(180, 7) and one_j > Fraction(180, 7), "beat ceiling")
 
-    tables = local_tables(planes, cycles)
+    tables = local_tables(planes, ordered)
     supports = named_supports()
-    masks = [support_masks(s, cycles) for s in supports]
+    masks = [support_masks(s, ordered) for s in supports]
     labels = [tuple(q for i in s for q in planes[i]) for s in supports]
     checked = 0
     min_slack = None
