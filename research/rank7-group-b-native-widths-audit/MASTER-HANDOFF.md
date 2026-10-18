@@ -20,6 +20,7 @@ placements. No new kappa.
 - Task card: `independent-moment` (priority revision 6)
 - Predecessor head #2979: `be191346391661f4d35fc0d1508d0a6029572576`
 - Branch: `cursor/group-b-native-widths-60b9`
+- Content tip SHA: `5241640244d2521818a6fe3b1f6c34e99d67a4e3`
 - Package: `research/rank7-group-b-native-widths-audit/`
 
 ## Exact commands
