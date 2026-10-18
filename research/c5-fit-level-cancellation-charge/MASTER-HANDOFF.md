@@ -19,6 +19,7 @@ Pinned CrocSwap main tip (branch base): `20ecf2891d80b5acf18d980b2164fb44ea7faa9
 Scientific geometry base (SOURCES): `463113d675af7410ac91d53a4fed51ec6494eb9a`.
 Branch: `cursor/c5-fit-level-cancellation-charge-ee22`.
 Scientific package tip: `5586f4aa59090c96d8752a335e6e88d4f8d829b4` (Wentao-only; no `Co-authored-by: Victor Li`).
+Branch tip: this commit on `cursor/c5-fit-level-cancellation-charge-ee22` (`git rev-parse HEAD`).
 Package: `research/c5-fit-level-cancellation-charge/`.
 
 ## Switch
