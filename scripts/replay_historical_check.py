@@ -107,6 +107,8 @@ CONFIG['reconciliation92']['additional_inputs'] = [{
     'sha256': 'f046e98e4c296fde954b93b466b7f359be0c05c287d96943e016f0b850587387',
     'accepted_live_sha256': [
         'a49e763573343a6a068b0c48c8ff422756be5a8f55902b2385fa8d13cc951fda',
+        # Direct-script POSIX descendants are stopped after leader completion.
+        '3e27934d4c5185e44bf88e0bc51cdb0af97286e033feb78494f071cd381b1e35',
     ],
 }]
 
