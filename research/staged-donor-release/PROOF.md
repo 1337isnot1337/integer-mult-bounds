@@ -46,6 +46,19 @@ The complete finite release remains conditional on these predecessor premises.
 PR3562's ordinary-backend route is not a universal cap; its distinct physical
 root/movement hypotheses are lead4 and cannot be silently inserted here.
 
+## Numeric fields and historical template prose
+
+The strict supplier/VERIFY/ASSEMBLY records contain the separate coarse online
+saving `0.001727429722725848`. The claimed conditional endpoint comes from the
+certified `complex_lower=0.001730418899766071163804` and the modern joint outer
+ledger, subtracting both exact release backoffs. These are different layers,
+not interchangeable κ fields. The stored OUTER-CLAIM `branch` string retains
+historical 3000-digit/e-3080 prose. The actual `outer_refinement`, `retuned_slacks`,
+numeric ledger and release use endpoint precision24 and the e-104 free scale.
+The inherited template prose is preserved as source history; it is not the
+numeric parameter record for this release. All applicable numeric binding and
+strict-margin checks pass.
+
 ## Checks and limits
 
 `python3 -B research/staged-donor-release/delay_release.py --out /tmp/fresh-delayed-words`
