@@ -9,7 +9,7 @@ the tests and their expected semantic results.
 | Suite | Evidence |
 | --- | --- |
 | sources | Whole 16-file predecessor export, shared Count/Tape cohort, seven local runtime modules, two external source hashes; changed binding and second-runtime rejection |
-| budget | 8128 exact precision plans and 241 twiddle-bound controls; strict 243<256 Karatsuba inequality; favorable and unfavorable outer powers |
+| budget | 8128 exact precision plans and 241 twiddle-bound controls; strict 243<256 Karatsuba inequality; favorable and unfavorable outer powers; full Fourier power bound to the authenticated predecessor |
 | words | 45 signed codec/add/subtract cases, shifts and ties; 35 unsigned packet calls through 257 bits; actual three-child recurrence and restoration |
 | twiddles | 23 coefficients in six forward/opposite packets, including L=16; exact norms, separate certified intervals, conjugation, protected output and invalid descriptors |
 | fft | Four exact butterfly cases, including a physical premature-DIF-truncation mutant |
@@ -74,4 +74,13 @@ I rerun the registered suites on those final entry points.
 The finite evidence does not establish the universal runtime recurrence,
 the trigonometric tail proof or the inherited supplier refinement. Read
 [PROOF.md](PROOF.md) for those arguments and their explicit hypotheses.
+
+In a source trace after initial publication, I found that I had labelled the
+primitive exponent 332353/332929 as the complete Fourier power. I corrected
+the proof and bound the budget check to PR3640's authenticated calculation.
+The full power is .99827619697, above both the relaxed native exponent and
+the primitive exponent. The product's .603 allowance still fits. I changed
+no data-word, transform, rounding or restoration implementation in this
+correction; the published receipt identifies the corrected commit and replay.
+
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance.

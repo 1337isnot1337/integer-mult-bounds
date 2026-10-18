@@ -224,8 +224,12 @@ pools, borrowed packets and the scalar continuation stack in the space
 bound. Their metadata extent O(A+p+log(C+1)) also fits in O(V).
 
 For `ell=Theta(p^(1-epsilon))`, after dividing by V the online exponent is
-`8/5-epsilon`. At epsilon=997/1000 it is 603/1000, less than the inherited
-Fourier exponent `1-576/332929`. Setup also fits because M=2^Theta(p).
+`8/5-epsilon`. At epsilon=997/1000 it is 603/1000. In the pinned PR3640
+proof, the primitive exponent is `tau=332353/332929`, the relaxed native
+exponent is `alpha=99827101/100000000`, and the complete Fourier exponent is
+`Phi=1-(997/1000)(1-alpha)=99827619697/100000000000`.
+I compare the product with Phi; I do not substitute tau for the full transform
+cost. Setup also fits because M=2^Theta(p).
 This is a specialization of the full invoice, not a selected-frontier
 update. At epsilon=1/40 the same product exponent exceeds 1; this proof
 does not justify substituting it into that conservative parameter regime.
@@ -257,7 +261,7 @@ If one complete normalized Fourier call costs `T_F`, I charge the whole
 composition at `3T_F+T_product+O(CMr(p+A))`, plus the same global
 descriptor allowance. The final term includes the widened output copy.
 Under A=Theta(p), that term and the output storage fit in O(V). If the
-inherited Fourier hypotheses give `T_F=O(Vp^(1-a))`, a=576/332929, the
+inherited Fourier hypotheses give `T_F=O(Vp^Phi)` with Phi as above, the
 epsilon=.997 specialization above gives the same complete conditional
 allowance for this convolution caller.
 

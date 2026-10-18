@@ -11,7 +11,7 @@ exact recovery and return the normalized product in the original packet
 order. Under `A=Theta(p)` and `M=2^A`, I charge
 `O(CMr(ell+1)p^(8/5)+rp^3)` bit steps and O(V) cells, where
 `V=2(p+2)CMr`. At `ell=Theta(p^(1-epsilon))`, epsilon=.997, the online
-power per input bit is .603, within the inherited Fourier allowance.
+power per input bit is .603, below the complete Fourier power .99827619697.
 I retain the setup term and the outer hypotheses in [PROOF.md](PROOF.md).
 
 Through the complete convolution caller, you receive width `p+2+A` at unchanged

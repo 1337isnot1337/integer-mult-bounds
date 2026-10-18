@@ -1,7 +1,8 @@
 """Exact finite controls for the inequalities in the written universal proof."""
 
 from fractions import Fraction
-from ring_sources import require
+import importlib.util
+from ring_sources import active, require
 
 
 def ceiling_log(value):
@@ -30,14 +31,27 @@ def run():
         require((1 << (R-Q-12)) <= 2*T, "Taylor tail in R ulps")
         twiddles += 1
     epsilon = Fraction(997, 1000)
-    a = Fraction(576, 332929)
-    product_power, fourier_power = Fraction(8, 5)-epsilon, 1-a
-    require(product_power < fourier_power < 1, "complete favorable outer allowance")
+    # Bind the full Fourier cost to the authenticated predecessor. Its primitive
+    # rate tau differs from the relaxed native rate alpha and the completed
+    # Fourier power after the encoded batch cap.
+    path = active().fourier_package / "check_fourier.py"
+    spec = importlib.util.spec_from_file_location("ring_fourier_budget_source", path)
+    inherited = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(inherited)
+    source = inherited.budget()
+    alpha, tau = Fraction(source["alpha"]), Fraction(source["tau"])
+    product_power = Fraction(8, 5)-epsilon
+    fourier_power = 1-epsilon*(1-alpha)
+    require(fourier_power == 1-Fraction(source["saturated_saving"])
+            == Fraction(99827619697, 100000000000), "authenticated complete Fourier power")
+    require(product_power < tau < alpha < fourier_power < 1,
+            "primitive, relaxed native and complete Fourier rates remain distinct")
     require(Fraction(8, 5)-Fraction(1, 40) > 1, "conservative epsilon does not give this allowance")
     # These exact controls distinguish the strict sign of the complete invoice.
     require(Fraction(2, 1)-epsilon > fourier_power,
             "quadratic data products would fail this same Fourier allowance")
     return {"finite_precision_plans": plans, "finite_twiddle_bounds": twiddles,
             "karatsuba_inequality": [3**5, 2**8], "epsilon": str(epsilon),
-            "product_power": str(product_power), "fourier_power": str(fourier_power),
+            "product_power": str(product_power), "primitive_power": str(tau),
+            "relaxed_native_power": str(alpha), "fourier_power": str(fourier_power),
             "scope": "Finite exact controls; PROOF.md supplies universal arguments and outer hypotheses."}
