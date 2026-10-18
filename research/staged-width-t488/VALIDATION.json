@@ -1,5 +1,5 @@
 {
-  "status": "LITERAL_AND_FINITE_PASS_FULL_ADMISSION_NOT_RUN",
+  "status": "LITERAL_AND_FINITE_PASS_FULL_ADMISSION_RUNNING",
   "literal": {
     "roles": 1791936,
     "physical": 437757,
@@ -7,8 +7,9 @@
     "independent_audit": "PASS"
   },
   "full_admission": {
-    "status": "not_run",
-    "portable_complete_command_terminal": false
+    "status": "running",
+    "portable_complete_command_terminal": false,
+    "coverage": "Source-bound admission with authenticated same-session fresh changed-native reuse; terminal result pending."
   },
   "scope": "No complete T488 release claimed.",
   "finite": {
@@ -18,6 +19,13 @@
     "entry_auth_guards": 2,
     "ceiling_patterns": 2551,
     "ceiling_controls": 9,
-    "profile_source": "Actual aggregate reconstruction passed to verify_price.check"
+    "profile_source": "Actual aggregate reconstruction passed to verify_price.check",
+    "isolated_declared_closure": {
+      "head": "ab09e419bb1435285c9b00088d5889c46c17f57e",
+      "source_history": "PASS",
+      "sanitized_finite_replay": "PASS",
+      "original_unmerged_predecessor_commits_present": false,
+      "scope": "Minimal declared Git closure, not a full clone; finite checks only."
+    }
   }
 }
