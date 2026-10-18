@@ -449,6 +449,8 @@ def run():
           and res['hosting']['banks'] == 0 and res['hosting']['hosted_occurrences'] == 125856
           and res['hosting']['whole_profile'] == res['whole_profile_split']['claimed']
           and res['hosting']['template_source_record_sha256'] == res['records']['pr_stream_sha256']
+          # canonical template content digest published in PR #3647's EXPECTED.json
+          and res['hosting']['template_canonical_sha256'] == '2e868ff427654e47df34779299545c53aa05b8c96697ee126e80e7bc6a50990a'
           and all(b['moment_upper_at_c_below_one'] and b['moment_lower_at_next_grid_above_one']
                   for b in (res['price']['R437'], res['price']['selected589_control']['bracket'],
                             res['price']['c1043_control']['bracket']))

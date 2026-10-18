@@ -337,6 +337,11 @@ binds. The bit side would bind only if the pending complex chain
 
 ## Provenance
 
+The four files in [inputs/](inputs/) are byte-preserved copies of PR #3647's
+Apache-2.0 package files. The record stream is wrapped in gzip, and the verifier
+checks its uncompressed SHA256. That package's LICENSE and UPSTREAM-NOTICE.md
+carry their notices and predecessor credits.
+
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Base commit
 `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. The checks are finite exact
