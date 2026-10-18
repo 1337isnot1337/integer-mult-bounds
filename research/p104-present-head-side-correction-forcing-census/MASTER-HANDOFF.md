@@ -3,11 +3,12 @@
 ## Candidate
 
 - Branch: `cursor/present-head-forcing-census-6ab7`
-- Content tip: `293b90598af0e7632cdd398da7171c509091f17e` (scientific package commit)
+- Content tip: scientific package at `293b90598af0e7632cdd398da7171c509091f17e`; master path-fix commit is the packaging tip (read with `git rev-parse origin/cursor/present-head-forcing-census-6ab7`).
 - Package: `research/p104-present-head-side-correction-forcing-census/`
 - Base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90` (CrocSwap `main`)
 - Card: `p104-side-correction` (refined), priority revision 6
 - κ: unchanged `0.001672660197076918`
+- Master repair: `test_package.py` used a hardcoded `/workspace` root for pin/corruption fixtures; replaced with `HERE.parents[1]` so gates pass from any worktree.
 
 ## Claim
 

@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 import independent
 import verify
@@ -107,7 +108,7 @@ def test_hash_rejection():
             / "P104-FIXTURE.json",
         }
         for rel, dest in mapping.items():
-            dest.write_bytes((Path("/workspace") / rel).read_bytes())
+            dest.write_bytes((ROOT / rel).read_bytes())
         # Corrupt one pin target in the temp tree.
         bad = native / "LOWRANK-WITNESS.json"
         bad.write_bytes(bad.read_bytes() + b"\n")
@@ -152,7 +153,7 @@ def test_sources_pins():
     for row in manifest["files"]:
         if row["usage"] != "input":
             continue
-        raw = (Path("/workspace") / row["path"]).read_bytes()
+        raw = (ROOT / row["path"]).read_bytes()
         need(hashlib.sha256(raw).hexdigest() == row["sha256"], row["path"])
 
 
