@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/rank7-joint-endframes/data/WORD-base.json.gz",
+    "research/rank7-joint-endframes/data/WORD-extra.json.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact reverse-adjoint formal-warp expansion on both hash-pinned providers; exhaustive rank-seven singles and rank-eight pair/triple joins; rank-eight endpoint singletons; unique eligible readout identity; required-readout deletion controls."
+    }
+  ]
+}

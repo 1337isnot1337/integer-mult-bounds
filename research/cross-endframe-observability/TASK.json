@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-new-helper-inventory",
+  "priority_revision": 6,
+  "base_commit": "d8e0f83f00191df62174b641e9fff055c357f641",
+  "original_card": {
+    "id": "complex-new-helper-inventory",
+    "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/heterogeneous-owner-assembly/README.md",
+      "certificates/selected-result.json",
+      "research/selected-k8-unrestricted-ends/README.md"
+    ],
+    "methods": [
+      "Propose a changed helper inventory and derive an optimistic exact moment.",
+      "Design a small completed instance and independently verify its endpoint and rank bill."
+    ],
+    "acceptance_gate": "A new physically realizable contract outside the frozen catalogue whose per-call profile, screened with ceiling.ceiling(), beats the selected word's packing ceiling; a lower cap does not establish identical circuitry or order attainable optima, and is insufficient to pass the stronger-budget target under this model. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin.",
+    "bottleneck_link": "Packing of the selected word is capped at +0.87% (ceiling model); only a lower local excess spend or a changed coverage law raises the cap.",
+    "allowed_variations": [
+      "Narrow to one changed boundary or helper type with explicit counts.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Mixing only providers already inside the pinned catalogue.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "helper inventory",
+      "heterogeneous-owner",
+      "mutable leaver"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Test whether pooling observations from incomparable rank-seven terminal subspaces of PR2979's changed word creates a new eligible linear input direction, and census all rank-eight joins among the observed rank-seven endpoint classes.",
+  "scope_change_reason": "The card's helper-inventory gate needs a new physical consumer and complete invoice. Before designing one, this scoped detour tests a premise left outside the recent endpoint-by-endpoint obstruction: whether several incomparable endpoints jointly expose an input form that no endpoint exposes alone. It establishes a local information identity and a bounded negative census, not a new helper inventory or supplier.",
+  "bottleneck_link": "A jointly observable eligible form could be a new helper interface, but it changes kappa only if a named caller consumes it and the added rank-eight storage, synthesis, restoration and recursive bill are favorable. The result currently supplies no such consumer or price.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop the local census when all rank-seven singleton endpoints and every pair/triple with a rank-eight join have been checked on both pinned orientations. Continue to construction only after naming a caller and pricing the complete transfer and restoration contract.",
+  "outcome": "partial",
+  "evidence": "verify.py independently parses both pinned PR2979 words, expands exact rational formal-warp adjoints, and checks 49 rank-seven endpoint classes, 126 rank-eight endpoint classes, all 413 rank-eight pair joins and all 2,571 rank-eight triple joins. Exactly one pair and one triple class expose an eligible form; both give the same four-register identity. All 497 protected input columns and nonempty warp words cancel, and removing any one of the four readouts destroys the eligible signal. No consumer, complete invoice, or kappa improvement is established.",
+  "author": "OpenAI Codex",
+  "ai_assistance": "Substantial OpenAI Codex assistance for the research direction, exact checker, computation and documentation. No independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Can a downstream caller consume the four-register readout as one helper without materializing and restoring a new rank-eight register?",
+      "why_it_matters": "This is the only route by which the information identity could alter the paid profile; a readout alone does not improve kappa.",
+      "first_step": "Name one actual caller, write its exact input/output and dirty-state contract, then price readout synthesis, rank-eight storage, restoration and the full recursive profile before changing the word.",
+      "blocked_by": "No concrete caller or interface contract currently accepts this 14-coordinate linear form."
+    },
+    {
+      "question": "Do sparse pools whose join has rank nine expose additional useful forms at tolerable cost?",
+      "why_it_matters": "The rank-eight-join census finds only one direction, while global pooling has much larger nullity; the next possible observability gain may require a full-rank join.",
+      "first_step": "Run a sparse exact-kernel search over rank-seven/rank-eight endpoint classes, minimizing distinct registers and endpoint classes while tracking the join rank and eligible rank.",
+      "blocked_by": "No cost model currently prices a rank-nine pooled readout, and sparse-kernel minimality is not established."
+    }
+  ]
+}
