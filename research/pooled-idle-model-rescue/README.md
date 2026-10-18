@@ -79,6 +79,22 @@ Two cautions, both load-bearing:
   (`0.001688603446527` per call, from PR #3729; `0.001690044548223` pooled, here). A candidate
   supplier is billed against a different number depending on an unstated contract choice.
 
+## Relation to concurrent integrality work
+
+Live overlap at the submission checkpoint (450 open PR bodies, complete pagination, read
+2026-10-18 ~19:30 UTC; bounded non-atomic coverage, not a novelty proof):
+
+| Work | What it establishes | Relation here |
+|---|---|---|
+| PR #3729 | per-call integer idle ceiling `0.001688603446527`, DP-based | **Cited, not duplicated.** This package's `unpaid = 1` per-call figure is theirs. |
+| PR #3737 / #3749 (jwr404) | the aggregate `{51:4647, 27:1}` at idle mass 237024 has moment below one where 144 per-call copies do not, with bracket `1690044548222/10^15`–`1690044548223/10^15` | **Overlap on Result 1.** Their aggregate bracket and this package's pooled ceiling are the same quantity, reached independently. Their credit stands; the conversion here was written before their PR was visible. |
+| PR #3747 (Arham-Tahir64) | identifies the missing equal-mass-per-call restriction and gives the same aggregate-vs-per-call counterexample in the unrestricted aggregate cost model | Same overlap; theirs additionally names the modelling restriction. |
+
+**What is not covered by any of them:** all three treat the baseline `unpaid = 1` word. PR #3729
+states that at `unpaid = 2` "under this per-call model that premise admits no integer packing
+at all". That is true per call and false pooled, as this package shows. The `13918` and `222688`
+idle masses appear nowhere in the PR or discussion search.
+
 ## What each model is good for
 
 Pooling only relaxes: it allows children to be shared across calls, so its ceiling is always
