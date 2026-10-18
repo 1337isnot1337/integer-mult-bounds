@@ -591,6 +591,10 @@
      "wrong_entrance_plane": "phase-exact all-column residual"
     },
     "local_checks_sha256": "ecd130a4e78b50d4a7206a3840c7cb4822e70899566abeba4c8d4db9104c5ef5",
+    "pair_classes": {
+     "parent": 57,
+     "staged": 58
+    },
     "parent_bindings": {
      "644": {
       "climb_ranks": [
@@ -704,9 +708,9 @@
      "spectator_axes": 1
     },
     "parent_word_sha256": "300a9b8ad1d554f0e6f84f43f3f5fd870a5b4e5f81ad856900b6e8999684892e",
-    "residual_classes": {
-     "parent": 57,
-     "staged": 58
+    "residual_recipes": {
+     "parent": 56,
+     "staged": 57
     },
     "residuals": {
      "137": {
@@ -799,6 +803,7 @@
       "spectator_axes": 2
      }
     },
+    "warp_records": 72,
     "word_sha256": "735c540b1fe29d0ceeb4d2f304ec941e5f2bd3bc92bafc8cce2b4f9a67a3b653"
    },
    "extra": {
@@ -1379,6 +1384,10 @@
      "wrong_entrance_plane": "phase-exact all-column residual"
     },
     "local_checks_sha256": "ecd130a4e78b50d4a7206a3840c7cb4822e70899566abeba4c8d4db9104c5ef5",
+    "pair_classes": {
+     "parent": 57,
+     "staged": 58
+    },
     "parent_bindings": {
      "644": {
       "climb_ranks": [
@@ -1492,9 +1501,9 @@
      "spectator_axes": 1
     },
     "parent_word_sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0",
-    "residual_classes": {
-     "parent": 57,
-     "staged": 58
+    "residual_recipes": {
+     "parent": 56,
+     "staged": 57
     },
     "residuals": {
      "137": {
@@ -1587,6 +1596,7 @@
       "spectator_axes": 2
      }
     },
+    "warp_records": 72,
     "word_sha256": "886338fc32da14f3389a82c8120a1bcf9c5e2f0ec3e9b2d377fdae809e1d977f"
    }
   }

@@ -5,17 +5,20 @@
 PR3605 lowers helpers 644 and 660 from width 8 to width 7 by letting them enter
 at `span(429,30)` instead of `span(30)`. Its consumers reuse those STAGED
 words: #3624, #3626, #3630, #3633 and #3638. PR3687 checked the words as exact
-free-operator identities. It left one question open: do the **native phases** of
-the paired `span(429,30)` entrance hold, checked without the `bw_*` lineage code?
-This package answers that question for both providers and both orientations.
-The answer is **yes**.
+free-operator identities. Its first open question asks whether the **native
+phases** of the paired `span(429,30)` entrance hold, checked without the `bw_*`
+lineage code. This package answers that question for both providers and both
+orientations. The answer is **yes**.
 
-- **The width-7 residual is exact.** The emitted recipe for `span(429,30) -> FULL`
-  satisfies `R · F_7 · L = T_E^-1 · T_FULL` on all 512 Gaussian columns,
-  including global phase. Its wrapped form `L^-1 T_E^-1 T_FULL R^-1 = F_7` and
-  inverse-transpose form also hold. The check uses Sagar Thakrar's separately
-  written kernel `research/frontier1094-recipes-exact-seed76/clifford.py`,
-  which imports no repository code. No `bw_*` module takes part in it.
+- **The width-7 residual is exact.** Operators are written in product order,
+  with the rightmost acting first. The emitted recipe for
+  `span(429,30) -> FULL` satisfies `L · F_7 · R = T_FULL · T_E^-1` on all 512
+  Gaussian columns, including global phase. The wrapped form
+  `L^-1 · T_FULL · T_E^-1 · R^-1 = F_7` and the inverse-transpose form follow
+  from it, and both are evaluated as well. The check uses Sagar Thakrar's
+  separately written kernel
+  `research/frontier1094-recipes-exact-seed76/clifford.py`, which imports no
+  repository code. No `bw_*` module takes part in it.
 - **The emitted program uses exactly this recipe for 644 and 660.** The
   unchanged producer emits one `pre`/`post` residual wrapper pair at frame
   `[429,30]`, with no terminal field. There is one ordinary `new_to_old` exit
@@ -26,15 +29,17 @@ The answer is **yes**.
   cleanup gates.
 - **Only this residual changes.** As a single-change control, the parent PR3133
   words go through the same producer. There, 644/660 enter at `span(30)` with
-  width 8, and their first climb is 3 instead of 2; the later climbs are
-  identical. Across all 408 helpers, only 644 and 660 change their
-  entrance/terminal pair. The residual classes go from 57 to 58, and the new
-  class is `([429,30], FULL)`.
+  width 8, and their first climb is 3 instead of 2. Every climb ends at the
+  same frame as in the staged words; only the first climb's start differs.
+  Across all 408 helpers, only 644 and 660 change their entrance/terminal pair.
+  The serialized residual recipes go from 56 to 57, and the new one is
+  `([429,30], FULL)`. Counting the unwrapped cold class `([], FULL)`, which has
+  no recipe, the entrance/terminal pair classes go from 57 to 58.
 
 Expected verifier line:
 
 ```text
-PASS_STAGED_644_660_NATIVE_BINDING providers=2 helpers=644,660 entrance=span(429,30) terminal=FULL residual_width=7 parent_width=8 shared_key=137 climb_recipes=10 controls=7x2 single_change=2 both_orientations no_new_kappa
+PASS_STAGED_644_660_NATIVE_BINDING providers=2 helpers=644,660 entrance=span(429,30) terminal=FULL residual_width=7 parent_width=8 shared_key=137 climb_recipes=10 recipes=56->57 controls=7x2 single_change=2 both_orientations no_new_kappa
 ```
 
 ## What the check does
@@ -66,10 +71,11 @@ These include a missing `post` wrapper, a wrong wrapper frame, a restored-helper
 terminal field, a deleted or mis-ranked climb, and an entry adapter in place of
 the exit adapter. They also cover a moved exit adapter, an added private
 buffer, a sign-flipped scalar and the wrong orientation. Word, recipe and
-source-pin corruptions are covered as well. One finding came from a wrong test
-expectation: `[30,429]`, the same plane with its basis reordered, passes the
-identity. So the kernel checks the subspace, not the order of its basis. The
-same-plane case is not a control here.
+source-pin corruptions are covered as well. One observation came from a wrong
+test expectation. `[30,429]`, the same two vectors in the other order, passes
+the identity, while `[435,30]`, another basis of the same plane, fails. So the
+frame operator depends on the stored basis rather than only on the plane. The
+wrong-entrance test therefore uses a different plane, `[430,30]`.
 
 ## Sources
 
@@ -89,9 +95,13 @@ input by Git blob and SHA-256.
   `bw_transport.py`, `bw_emit.py` and `vendor/clifford/clifford_exact.py`. They
   are producers, not independent evidence.
 
-The author's own checks are PR3605's full native chain and `check_residual.py`.
-Both use the `bw_gauss` lineage kernel (`bw_adapters.py`, `bw_gauss.py`). They
-check one abstract `(E,U)` pair and do not bind the emitted helper events.
+PR3605's own registered chain already checks the emitted program with the
+lineage code. `bw_audit_local.py` checks every residual wrapper, climb and
+scalar frame, `bw_adapters.py` checks every entrance recipe, and both rely on
+the `bw_gauss` kernel. `check_residual.py` checks the one changed `(E,U)` pair
+with the same kernel. What was missing, as PR3687 says, is a check that does
+not use that lineage. This package supplies one: the separate kernel for the
+identity, plus its own source-to-emission binding.
 
 **Local-only cross-check (not part of the registered replay).** The producer's
 own `bw_adapters.py` needs numpy. Under Python 3.13.1 and numpy 2.2.2 (not
@@ -119,8 +129,9 @@ provenance pins (for example
 
 This checks the native entrance of the two changed helpers. It does not check:
 
-- the native phases of the other 57 residual classes, the 240 warps or the
-  scalar macros under an independent kernel;
+- the native phases of the other 56 serialized residual recipes, the 72 warp
+  records (240 emitted warp events) or the scalar macros under an independent
+  kernel;
 - the retimed or delayed consumer words;
 - owner journals, physical stock, prefix, precision and tape;
 - the T740 or consumer releases;
@@ -137,9 +148,9 @@ The structured list is in [TASK.json](TASK.json).
    unchanged, this check covers those consumers too. First step: vendor those
    words and run `native.provider()` on each, with the STAGED words as the
    control.
-2. **Do all 58 residual classes and 240 warps pass the separate kernel?**
-   Loop `check_recipe` over every reconstructed adapter key, and check each
-   warp record as a monomial identity.
+2. **Do all 57 serialized residual recipes and 72 warp records pass the
+   separate kernel?** Loop `check_recipe` over every reconstructed adapter key,
+   and check each warp record as a monomial identity.
 3. **Is the complete emitted 644/660 lane phase-exact under an independent
    simulator?** This would need an emitted-event interpreter for the scalar
    macros and warps, compared with PR3687's free-operator endpoint.

@@ -136,6 +136,24 @@
       "sha256": "0884b14d6d77cde419a3c773ad9b21d0d18de1e6e20e6b6d5add458ed32ba4cb"
     },
     {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/bw_audit_local.py",
+      "usage": "provenance",
+      "git_blob": "912a0c447c2ad34eb5ef3270e04ad0a73ca20a55",
+      "sha256": "08d5864d9b77902fc5ab5a062a8ea843fe1e572243b8c580abb0a421b2e46d07"
+    },
+    {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/bw_phases.py",
+      "usage": "provenance",
+      "git_blob": "99f351785ebca5fbf3336bedcd7b48bac9c255e5",
+      "sha256": "9d1a620e26715f4c42fd0347ecc14ef5a4a9031867869b64e8bae4d8526a821e"
+    },
+    {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/bw_check_recipes.py",
+      "usage": "provenance",
+      "git_blob": "6db8ad50eb2562700432a852501aad720aa34816",
+      "sha256": "d600b959a0ac462dc28deb8c0d5d8f9e0c76d7f7d7b6f92a296c5ef9e0a1de19"
+    },
+    {
       "path": "research/frontier1094-recipes-exact-seed76/README.md",
       "usage": "provenance",
       "git_blob": "4a4747e0c302e58cc8f4c5516d57dc8b81ce95d0",

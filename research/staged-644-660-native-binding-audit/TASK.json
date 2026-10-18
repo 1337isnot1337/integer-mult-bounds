@@ -52,7 +52,7 @@
   "budget_minutes": 60,
   "stop_rule": "Finish the finite native binding and separate-kernel identity for helpers 644/660 and the parent single-change control. No owner journal, release, consumer, retimed word, root or kappa work; stop at a source mismatch or a failed identity.",
   "outcome": "completed",
-  "evidence": "RESULT.json via verify.py: for both providers and both orientations, helpers 644/660 have one pre/post residual wrapper pair at frame span(429,30) with no terminal field, one new_to_old exit adapter at FULL, no private buffer, and climbs [2,1,2,1,1] / [2,2,1,1,1] summing to 7; all 17 direct scalar clocks per helper match the source word. The shared recipe (key 137) satisfies R F_7 L = T_E^-1 T_FULL phase-exactly on all 512 columns, with both wrapped and inverse-transpose forms, under the separate kernel; ten distinct climb recipes also pass. The parent PR3133 words give width 8 with first climbs 3 instead of 2, and only 644/660 change entrance/terminal pairs (57 -> 58 residual classes). Seven residual controls per provider are rejected: three at the all-column operator check (global phase, parent right-wrapper alias, wrong plane [429,18]) and four at the width check. test_verify.py: 6 tests; emitted-stream, recipe, word and pin corruptions are rejected. Local-only (not registered): the producer's own bw_adapters.py under Python 3.13.1 and numpy 2.2.2 writes a RESIDUAL-ADAPTERS.json whose LF-normalized bytes equal this package's reconstruction for both providers.",
+  "evidence": "RESULT.json via verify.py: for both providers and both orientations, helpers 644/660 have one pre/post residual wrapper pair at frame span(429,30) with no terminal field, one new_to_old exit adapter at FULL, no private buffer, and climbs [2,1,2,1,1] / [2,2,1,1,1] summing to 7; all 17 direct scalar clocks per helper match the source word. The shared recipe (key 137) satisfies L*F_7*R = T_FULL*T_E^-1 (operator order, rightmost first) phase-exactly on all 512 columns under the separate kernel; the wrapped and inverse-transpose forms, which follow from it, are also evaluated. Ten distinct climb recipes also pass. The parent PR3133 words give width 8 with first climbs 3 instead of 2, every climb ending at the same frame; only 644/660 change entrance/terminal pairs. Serialized residual recipes go 56 -> 57; pair classes go 57 -> 58, counting the unwrapped cold class ([], FULL). Seven residual controls per provider are rejected: three at the all-column operator check (global phase, parent right-wrapper alias, wrong plane [429,18]) and four at the width check. test_verify.py: 6 tests; emitted-stream, recipe, word and pin corruptions are rejected. Local-only (not registered): the producer's own bw_adapters.py under Python 3.13.1 and numpy 2.2.2 writes a RESIDUAL-ADAPTERS.json whose LF-normalized bytes equal this package's reconstruction for both providers.",
   "author": "Mainzu",
   "ai_assistance": "Substantial assistance from Claude Code (Anthropic, Claude Opus 5.5) for source search, the verifier and drafting; no independent human review is claimed.",
   "open_questions": [
@@ -63,8 +63,8 @@
       "blocked_by": "Those words are on unmerged PR heads not fetched here; their retimed scalar chronology needs its own source-to-emission comparison."
     },
     {
-      "question": "Do all 58 residual classes and all 240 warps of the staged words pass the separate kernel, not only the changed class?",
-      "why_it_matters": "This package checks the one residual class that PR3605 changes; the other 57 are inherited from the PR3133 parent and rely on the bw_gauss lineage check or earlier group audits.",
+      "question": "Do all 57 serialized residual recipes and all 72 warp records (240 emitted warp events) of the staged words pass the separate kernel, not only the changed recipe?",
+      "why_it_matters": "This package checks the one residual recipe that PR3605 changes; the other 56 are inherited from the PR3133 parent and rely on the bw_gauss lineage check or earlier group audits.",
       "first_step": "Loop check_recipe over every key of the reconstructed adapter file and check each warp K record as a monomial identity with the same kernel; record the runtime.",
       "blocked_by": "Not attempted in this session; it extends coverage rather than answering PR3687's open question."
     },
@@ -79,7 +79,7 @@
     {
       "pr": 3605,
       "head": "3efbb5de06a49ffeea6684482f2d3fe48cdca3fb",
-      "scope": "Author's full native chain on the staged words (transport, adapters, emit, bw_audit_local, bw_phases, bw_check_recipes) and check_residual.py for the abstract span(429,30)->FULL pair, all with the bw_gauss lineage kernel."
+      "scope": "Author's registered native chain on the staged words: bw_audit_local.py checks every emitted residual wrapper, climb and scalar frame, bw_adapters.py checks every entrance recipe, bw_phases.py and bw_check_recipes.py run as well, and check_residual.py checks the changed span(429,30)->FULL pair; all rely on the bw_gauss lineage kernel. Independence from that lineage is the missing coverage."
     },
     {
       "pr": 3687,

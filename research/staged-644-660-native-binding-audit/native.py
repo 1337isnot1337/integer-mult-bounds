@@ -234,6 +234,12 @@ def emitted_binding(word, canonical, stream, helper, backward=False):
             "direct_scalar_sha256": digest(encoded(scalars))}
 
 
+def recipe_classes(adapters):
+    """Serialized residual recipes by literal entrance and terminal vectors."""
+    return {encoded([row["vectors"], row.get("terminal_vectors", FULL)])
+            for row in adapters["recipes"].values()}
+
+
 def pair_inventory(canonical, word):
     """Original helper id -> literal entrance/terminal vectors for every compact helper."""
     kept = [r for r in range(704) if r not in word["removed"]]
@@ -281,8 +287,14 @@ def provider(blobs, tag, work, compiler, kernel, climb_recipes):
                                              orientation == "backward")
                 for orientation, stream in programs_parent.items()}
         require(rows["forward"]["entrance"] == PARENT_ENTRANCE, "parent entrance span(30)")
+        old_climbs, new_climbs = rows["forward"]["climbs"], bindings[str(h)]["forward"]["climbs"]
+        # Every climb ends at the same frame; only the first climb's start differs.
+        require(len(old_climbs) == len(new_climbs) and
+                [c["new"] for c in old_climbs] == [c["new"] for c in new_climbs] and
+                [c["old"] for c in old_climbs[1:]] == [c["old"] for c in new_climbs[1:]],
+                "parent and staged climb frames")
         parent_bindings[str(h)] = {"entrance": PARENT_ENTRANCE,
-                                   "climb_ranks": [c["rank"] for c in rows["forward"]["climbs"]],
+                                   "climb_ranks": [c["rank"] for c in old_climbs],
                                    "direct_scalar_count": rows["forward"]["direct_scalar_count"]}
     op = compiler.canonical_frame(9, tuple(PARENT_ENTRANCE)).adjoint().then(
         compiler.canonical_frame(9, tuple(FULL)))
@@ -296,7 +308,12 @@ def provider(blobs, tag, work, compiler, kernel, climb_recipes):
             all(old[h] == (PARENT_ENTRANCE, FULL) and new[h] == (ENTRANCE, FULL) for h in changed),
             "only the two staged entrances change")
     classes_old, classes_new = set(map(str, old.values())), set(map(str, new.values()))
-    require(classes_new - classes_old == {str((ENTRANCE, FULL))}, "one new residual class")
+    require(classes_new - classes_old == {str((ENTRANCE, FULL))}, "one new entrance/terminal class")
+    # The pair classes include the unwrapped cold class ([], FULL), which has no recipe.
+    parent_adapters = adapter_file(compiler, canonical_parent)
+    recipes_old, recipes_new = recipe_classes(parent_adapters), recipe_classes(adapters)
+    require(recipes_new - recipes_old == {encoded([ENTRANCE, FULL])} and
+            len(recipes_new) == len(recipes_old) + 1, "one new serialized residual recipe")
 
     key = bindings["644"]["forward"]["recipe_key"]
     rec = adapters["recipes"][key]
@@ -322,7 +339,9 @@ def provider(blobs, tag, work, compiler, kernel, climb_recipes):
             "adapter_sha256": digest(encoded(adapters)), "bindings": bindings,
             "residuals": residuals, "parent_bindings": parent_bindings,
             "parent_residual": parent_check, "changed_helpers": changed,
-            "residual_classes": {"parent": len(classes_old), "staged": len(classes_new)},
+            "pair_classes": {"parent": len(classes_old), "staged": len(classes_new)},
+            "residual_recipes": {"parent": len(recipes_old), "staged": len(recipes_new)},
+            "warp_records": len(canonical["warps"]),
             "controls": controls}
 
 

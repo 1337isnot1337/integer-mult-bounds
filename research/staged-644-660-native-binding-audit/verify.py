@@ -27,6 +27,8 @@ def compute():
         require(row["parent_residual"]["rank"] == 8, "parent residual width 8: " + tag)
         require(row["changed_helpers"] == list(HELPERS), "single-change control: " + tag)
         require(len(row["controls"]) == 7, "seven residual controls: " + tag)
+        require(row["residual_recipes"] == {"parent": 56, "staged": 57} and
+                row["pair_classes"] == {"parent": 57, "staged": 58}, "class inventory: " + tag)
         for h in HELPERS:
             ranks = [c["rank"] for c in row["bindings"][str(h)]["forward"]["climbs"]]
             parent = row["parent_bindings"][str(h)]["climb_ranks"]
@@ -48,7 +50,7 @@ def main():
         print(result["status"]
               + " providers=2 helpers=644,660 entrance=span(429,30) terminal=FULL"
               + f" residual_width=7 parent_width=8 shared_key={key}"
-              + f" climb_recipes={len(result['native']['climb_recipes'])}"
+              + f" climb_recipes={len(result['native']['climb_recipes'])} recipes=56->57"
               + " controls=7x2 single_change=2 both_orientations no_new_kappa")
 
 
