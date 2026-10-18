@@ -39,7 +39,7 @@ replayed. No new kappa is claimed.
 
 usage: verify.py [--write]
 
-Nick Petalas, donated research session (worker 7), with AI assistance.
+Produced by Nick Petalas with AI assistance.
 Apache-2.0.
 """
 from __future__ import annotations
