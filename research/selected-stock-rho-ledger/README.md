@@ -126,6 +126,8 @@ source text, not typed in. Nothing from the repository is imported or executed.
   `1 − s`, and PR1965's premises (`L ≥ 2`, `L·gap² ≥ 36`,
   `0 < gap ≤ 1 − s`). The tightest stage is stage 1
   in both branches, at `H = 6,562,783`. The guards are only 16 and 17.
+  No selected step bootstraps the complex layer (see "Where the H3 fit
+  applies"), so these are consistency checks, not obligations.
 
 ## What the 9909 and 252 slots pay for
 
@@ -157,6 +159,31 @@ The selected certificate charges the complex row
   cap, and it grows with `w`. So the row ledger cannot be holding that
   stock. It is borrowed inside the call, as fact 6 says, and this is the
   same w-shape point as fact 5 and the `ledger_constant_as_rho` control.
+
+## Where the H3 fit applies
+
+No selected step bootstraps the m=73 complex layer.
+
+- **The bootstrap chain is the bit chain.** The selected assembler builds
+  one seven-step chain per branch, then calls
+  `A.assembly(chain[-1],bb,...)` (PR1087 `code/assemble.py` L205–214).
+- **The complex saving is a fixed input.** The pinned `engines/outer.py`
+  (`research/complex-k492-owner-repair/vendor/multicold/`, the copy PR1087
+  pins) takes the chain's end as `bit_saving` and the complex root `bb` as
+  `complex_saving` (L16–17).
+- **It only caps `s`.** The complex saving reaches the chain only through
+  `s=min(c,(1-beta)*bb)-1/10^27` (`assemble.py` L206). That cap is what the
+  outer slacks `complex_above_bit=b-a` and `leaf_saving_above_bit=(1-beta)*b-a`
+  need (outer.py L27, L29).
+- **The layer itself has no stage.** Its fallbacks are elementary kernels,
+  not a previous-stage algorithm. PR2287 says "If D<=Q0, apply the selected
+  C kernels individually" (L139) and "The base cutoff is max(73,d^beta)"
+  (L424). Where its compact-field inequality fails, it uses "individual
+  kernels" (L442–443).
+
+So this package's m=73 sigma is a consistency bound, not an obligation of
+the selected record. The H3 envelope the record needs belongs to the bit
+producer, for example PR2084's conditional 8194.
 
 ## Controls
 
@@ -209,7 +236,9 @@ The structured versions are in [TASK.json](TASK.json). The earlier first
 question, which reading the selected layer realizes, is answered by fact 6.
 The earlier second question, covering all fourteen stages, is answered in
 "What follows for `rho`". The earlier third question, about the external
-ledger, is answered in "What the 9909 and 252 slots pay for".
+ledger, is answered in "What the 9909 and 252 slots pay for". The previous
+version's second question, whether an H3 envelope applies to the complex
+layer at all, is answered in "Where the H3 fit applies": it does not.
 
 1. **A source-bound replay of PR3385.** `rho = 0` uses written constructions
    that have had a scoped review: PR2287's layer and the PR2234/PR2899 B1
@@ -218,17 +247,7 @@ ledger, is answered in "What the 9909 and 252 slots pay for".
    scientific review and source-bound replay". First step: run its
    registered replay (Python 3.12). Then check B1's borrowing fit `k < e/2`
    at the compact-field widths where PR3385's adapters call it.
-2. **Does an H3 envelope apply to the complex layer at all?** PR2287 takes
-   its rows from its own prefix of `q0` chunks, not from bootstrap borrowing.
-   The bootstrap's stopped producer is the PR589 BIT
-   (`docs/research/selected-bootstrap-scope-map.md`). If the complex layer
-   never enters a bootstrap fit, the m=73 sigma is a consistency bound
-   rather than an obligation. If an H3 fit did apply, it would also have to
-   count the three H-bit compact fields, about `3dG/K` axes (PR3385
-   L177–178). That amount does not have the `sigma·w·(1+log2 e)` shape.
-   First step: find any selected composition that bootstraps the complex
-   layer.
-3. **The 1024 prefix term.** It is bound here only to the invoice
+2. **The 1024 prefix term.** It is bound here only to the invoice
    (`2·512`). This package does not trace which construction step uses it.
 
 ## Credit
@@ -244,6 +263,9 @@ ledger, is answered in "What the 9909 and 252 slots pay for".
   of the 18355 formula.
 - Josie Elliston (PR1965) and ToikY (`selected-bootstrap-stock-audit`)
   supplied the stage receipt and guard.
+- philippeVV (Discussion #1166, comment 18932239) independently named the
+  PR589 BIT, not the m=73 supplier, as the stopped producer, minutes after
+  PR2084 opened.
 - Jose Manuel supplied the selected complex layer and its physical
   controller (PR2287, PR3385), the compact adapters (PR2250, which retains
   Douglas Colkitt's compact-control method), the selected BIT interchange

@@ -68,7 +68,7 @@
   "budget_minutes": 90,
   "stop_rule": "Stop once each ledger term is bound to source and every callee of the selected complex layer is classified from pinned source; do not re-derive the completed-callee proofs themselves.",
   "outcome": "partial",
-  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and five provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62.",
+  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and six provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62.",
   "author": "Mainzu",
   "ai_assistance": "Substantial assistance from Claude Code (Anthropic, Claude Opus 5.5) for source search, the verifier and drafting; no independent human review is claimed.",
   "open_questions": [
@@ -77,12 +77,6 @@
       "why_it_matters": "rho = 0 uses written constructions incorporated after scoped review (PR2287, PR2250, PR2234, PR2899); PR3385, which binds them physically, has had source-only archival intake.",
       "first_step": "Run PR3385's registered replay on Python 3.12, then compare B1's fit threshold with the (f-1)G-bit compact-field pieces.",
       "blocked_by": "Nothing technical; the registered replay needs Python 3.12."
-    },
-    {
-      "question": "Does an H3 stock envelope apply to the selected complex layer at all, given that PR2287 takes its rows from its own q0-chunk prefix rather than from bootstrap borrowing?",
-      "why_it_matters": "The bootstrap's stopped producer is the PR589 BIT. If the complex layer never enters a bootstrap fit, the m=73 sigma is a consistency bound rather than an obligation. If it did apply, it would also have to count the three H-bit compact fields (about 3dG/K axes), which do not have the sigma*w*(1+log2 e) shape.",
-      "first_step": "Search the selected composition for any step that bootstraps the complex layer.",
-      "blocked_by": "Nothing technical."
     },
     {
       "question": "Which construction step uses the 1024 = 2*512 prefix term of the complex row?",
