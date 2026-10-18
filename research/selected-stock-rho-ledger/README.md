@@ -11,7 +11,8 @@ sigma <= (43/26)*(1-s)*(A+B) + rho,    A = 0,  B = 2642
 
 That leaves `rho`, the leaf reserve, as the only unbound term. This package
 traces every non-complex term of the selected row ledger to its source. It
-shows that those terms cannot serve as `rho`. It then reads the merged
+shows that those terms cannot serve as `rho`, and that the selected layer's
+construction uses none of them. It then reads the merged
 selected complex layer to settle how its callees get their stock: the layer's
 only row stock is its own divisor, so `S_leaf = 1` and `rho = 0`. This holds
 conditionally on that chain. All fourteen recorded stage guards pass either
@@ -48,8 +49,15 @@ source text, not typed in. Nothing from the repository is imported or executed.
    and ordinary-leaf reserves" (`58344+9909+252`, `10284+9909+252`). The
    367-level coarse-bit family is not the selected PR589 BIT producer, whose
    halving depth is 2.
-3. **1024 is the prefix term.** `invoice_allcold.py` sets
-   `row_prefix_extra = 2*payload`, and `charged_prefix_bits = 512`.
+3. **1024 is the row surcharge for the 512-bit prefix payload.** The payload
+   is the invoice's precision reserve: the bits by which an intermediate value
+   of the selected complex program may grow. PR1087's invoice needs the local
+   prefix bits plus `37+144+144+4` (`code/assemble.py` L165). These pay for
+   the input conversion, one bit per complete invocation sweep, one bit per
+   bridge sweep, and a 4-bit margin. Here that totals 397 (tarball README
+   L14). `code/invoice_allcold.py` charges `payload = 512` (L263, L285–288)
+   and adds `row_prefix_extra = 2*payload` to the complex row (L278, L297).
+   "What the 1024 term pays for" traces the factor 2.
 4. **The selected BIT ledger stacks the same constants.** PR510's
    `assemble9.py` computes `row = DEPTH*(m*m+1)+9909+252 = 18355`. With
    PR589's `nine.bit` record (m=64, maximum child 42, 28,425 physical roles,
@@ -160,6 +168,52 @@ The selected certificate charges the complex row
   cap, and it grows with `w`. So the row ledger cannot be holding that
   stock. It is borrowed inside the call, as fact 6 says, and this is the
   same w-shape point as fact 5 and the `ledger_constant_as_rho` control.
+
+## What the 1024 term pays for
+
+The 1024 is a precision reserve billed as row stock, and the selected layer
+does not use it.
+
+- **The factor 2 is the halving depth.**
+  - The term entered with Dugongue's PR514. That PR replaced the old 192-bit
+    local prefix allowance with a 512-bit global one, for asynchronous
+    scheduling.
+  - Its invoice says "512 bits are charged, and an additional 2*512 enters
+    the two-level physical row bound". PR523 vendors it unchanged, with the
+    same Git blob as PR514's head, at
+    `research/punctured112-global/vendor/pr514/code/audit_async_invoice.py`
+    (scope L96, row formula L87).
+  - The PR484 invoice it replaced, vendored alongside, has no payload term
+    (`vendor/audit_scalar_invoice.py` L78).
+  - Two levels halve the width, because `73² > 2·48²` (PR2287 L129–130). So
+    the payload is billed once per halving level, like the stock bits.
+  - Hao Yan's PR858 T16 proof, whose controller PR1087 uses (tarball README
+    L20–21), calls this "the retained row formula"
+    (`research/complex-double-replica-owners/PROOF.md` L166–170).
+  - The same sentence appears earlier in Dugongue's closed
+    [PR505](https://github.com/CrocSwap/integer-mult-bounds/pull/505).
+- **No source says why a precision reserve is row stock.**
+  - PR505, PR514, PR858, PR1087 and the assembly notes all state or compute
+    the term. None names a construction step that needs `2^512` extra rows at
+    each halving level.
+  - The assembly notes' "physically preceding prefix" is a different object.
+    It is the run of `q0 = ⌈log2 Q⌉` chunks that supplies the rows. Its single
+    padding grows volume by less than two (`structured-bulk-assembly.tex`
+    L84–91). Neither the prefix nor the padding is 512 bits.
+- **The selected layer keeps rows and precision apart.**
+  - PR2287 reserves exactly `L^D0(d)` rows, from `q0 = ⌈log2 L⌉·D0(d)` chunks
+    (L136–147). That is the `2·2642` term.
+  - It supplies precision separately, with `Δ = ⌈C0·d⌉` guard bits on each
+    component (L374–380).
+  - It calls the finite 397-bit bound "useful bindings, but they are not this
+    all-depth proof" (L363–364).
+  - PR3385 does the same physically. It pads the row range once to a multiple
+    of `L^D0(d)` (`PROOF.md` L190–197), and it appends `Δ` low zeros and
+    `Δ+1` sign bits to each component (L199–201).
+- **So 1024 is inherited slack, like 9909 and 252.** The marker's lean row
+  of 6308 still contains it. The selected layer's own row need is the stock
+  term `2·2642` alone. Removing the 1024 would not change κ, because only the
+  retained 20161 enters the outer assembly.
 
 ## Where the H3 fit applies
 
@@ -273,26 +327,34 @@ Each of these must be rejected:
   package.
 - The PR2084 coefficient is used as that package's conditional result, not
   re-derived.
+- "No source says why" covers only the sources named in "What the 1024 term
+  pays for". It does not show that no construction could use such a reserve.
+  It shows only that the selected layer's construction does not.
 - This is a finite source-bound audit, not a supplier replay or a
   multiplication theorem.
 - Overlap covered open and closed PRs and package READMEs. It also covered
   Discussion search for the terms in TASK.json, Discussions #2238 and #2319
-  in full, and the latest 100 comments of #1166.
+  in full, and the latest 100 comments of #1166. For the 1024 term it also
+  covered PR and code search for `row_prefix_extra`, `charged_prefix_bits`
+  and "two-level row".
 
 ## Open next questions
 
-The structured versions are in [TASK.json](TASK.json). The earlier first
-question, which reading the selected layer realizes, is answered by fact 6.
-The earlier second question, covering all fourteen stages, is answered in
-"What follows for `rho`". The earlier third question, about the external
-ledger, is answered in "What the 9909 and 252 slots pay for". The previous
-version's second question, whether an H3 envelope applies to the complex
-layer at all, is answered in "Where the H3 fit applies": it does not. The
-previous version's first question, a replay of PR3385 and B1's fit at the
-compact widths, is answered in "PR3385 replay and B1's fit".
+None remain within this card's scope. [TASK.json](TASK.json) records the
+reason: every ledger term is now bound, and the H3 envelope that the record
+needs belongs to the bit producer (PR2084), outside this package.
 
-1. **The 1024 prefix term.** It is bound here only to the invoice
-   (`2·512`). This package does not trace which construction step uses it.
+The last question was which construction step uses the 1024 prefix term.
+"What the 1024 term pays for" answers it: none in the selected layer. The
+earlier questions are answered here:
+
+- which reading the selected layer realizes: fact 6;
+- all fourteen stages: "What follows for `rho`";
+- what the 9909 and 252 slots pay for: "What the 9909 and 252 slots pay for";
+- whether an H3 envelope applies to the complex layer: "Where the H3 fit
+  applies" (it does not);
+- the PR3385 replay and B1's fit at compact widths: "PR3385 replay and B1's
+  fit".
 
 ## Credit
 
@@ -320,6 +382,8 @@ compact widths, is answered in "PR3385 replay and B1's fit".
 - Jeremy Kothe (PR1087) and Rohan Arun (PR1094) supplied the selected
   assembler and invoice. The partial-gauge, three-stage, paired-cube and
   structured-bulk assembly notes keep their original attribution.
+- Dugongue (PR505, PR514) introduced the 512-bit global prefix allowance and
+  its two-level row charge. Hao Yan (PR858) retained it in the T16 reserves.
 
 Prepared by Mainzu, with substantial Claude Code (Anthropic) assistance. No
 independent human review is claimed. Apache-2.0.

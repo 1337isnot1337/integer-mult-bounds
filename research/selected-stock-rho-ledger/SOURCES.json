@@ -57,6 +57,12 @@
       "sha256": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045"
     },
     {
+      "path": "research/complex-double-replica-owners/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "eb980efd5f34eb913714d1e6cb0860ced13ef1bb",
+      "sha256": "db99599e3966bec253c577c23915e2a2899c4c4e8568044efc11c7918b137bbc"
+    },
+    {
       "path": "research/complex-k492-owner-repair/vendor/multicold/engines/outer.py",
       "usage": "provenance",
       "git_blob": "43007488ad2c43187c77cc6798beff8b1cd76ad2",
@@ -115,6 +121,18 @@
       "usage": "provenance",
       "git_blob": "81b330a4b886a0f4deab7b0811478bab3fbc107a",
       "sha256": "7f8338e748bcd42fbef1e7cc47b6c5040dfb3aad216e34759bcb12b8e14f7705"
+    },
+    {
+      "path": "research/punctured112-global/vendor/pr514/code/audit_async_invoice.py",
+      "usage": "provenance",
+      "git_blob": "568edf53a03fa3cfb854586c8f097dbc89a908ae",
+      "sha256": "04e29dab19cd659f42c926c5dba5ca72e5f789fb31d9fee45c22eb76b7689ac9"
+    },
+    {
+      "path": "research/punctured112-global/vendor/pr514/vendor/audit_scalar_invoice.py",
+      "usage": "provenance",
+      "git_blob": "b03fdf510f19c9c8d2563d58747235c8c19e3596",
+      "sha256": "652eed65fe8f72ab486dcdbe761f401f8a2d43530f2fb0c5c7777be488cd4648"
     },
     {
       "path": "research/selected-bit-parent-reserve/README.md",

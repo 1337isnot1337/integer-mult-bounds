@@ -62,21 +62,15 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Source-bind the non-complex terms of the selected m=73 row ledger (9909, 252, 1024), show they do not bind the leaf reserve rho in sigma <= (43/26)(1-s)(A+B) + rho, and settle rho from the merged selected complex layer (PR2287/PR3385 with PR2250, PR2234, PR2899) check it against all fourteen recorded stage guards, and say what the 9909 and 252 slots pay for in the selected layer.",
+  "actual_scope": "Source-bind the non-complex terms of the selected m=73 row ledger (9909, 252, 1024), show they do not bind the leaf reserve rho in sigma <= (43/26)(1-s)(A+B) + rho, and settle rho from the merged selected complex layer (PR2287/PR3385 with PR2250, PR2234, PR2899) check it against all fourteen recorded stage guards, and say what the 9909, 252 and 1024 terms pay for in the selected layer.",
   "scope_change_reason": "The card asks for an explicit envelope. #3113 and #3421 bound B and A for the m=73 producer and left rho as the only unbound term; this package addresses only rho. It finds rho = 0 conditionally on the merged selected-complex chain, whose authors mark parts of it as under review.",
   "bottleneck_link": "Inherited implementation obligation (H3 stock fit) for the selected result; it changes no supplier, kappa or cutoff. It prevents an external-ledger constant from being counted as a proved borrowed-stock coefficient.",
   "budget_minutes": 90,
   "stop_rule": "Stop once each ledger term is bound to source and every callee of the selected complex layer is classified from pinned source; do not re-derive the completed-callee proofs themselves.",
   "outcome": "partial",
-  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and twelve provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62. Local evidence outside verify.py (README, \"PR3385 replay and B1's fit\"): PR3385's registered replay fails on Windows only, at the frozen PR2753 verifier's path-separator check; with a local relative-path shim, which is not the registered replay, all three suites pass and all nine EVIDENCE.md receipt hashes match. B1 is fitted only at compact width (f-1)G >= 27,312,693 bits at q*, and elementary below that; neither branch takes caller row stock.",
+  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and fifteen provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62. Local evidence outside verify.py (README, \"PR3385 replay and B1's fit\"): PR3385's registered replay fails on Windows only, at the frozen PR2753 verifier's path-separator check; with a local relative-path shim, which is not the registered replay, all three suites pass and all nine EVIDENCE.md receipt hashes match. B1 is fitted only at compact width (f-1)G >= 27,312,693 bits at q*, and elementary below that; neither branch takes caller row stock. Source reading outside verify.py (README, \"What the 1024 term pays for\"): 1024 is PR514's two-level row surcharge (halving depth 2 times the 512-bit precision payload), and no pinned source names a construction step for it. The selected layer reserves only L^D0(d) rows and supplies precision with guard bits (PR2287 L136-147, L374-380; PR3385 L190-201), so the term is inherited slack.",
   "author": "Mainzu",
   "ai_assistance": "Substantial assistance from Claude Code (Anthropic, Claude Opus 5.5) for source search, the verifier and drafting; no independent human review is claimed.",
-  "open_questions": [
-    {
-      "question": "Which construction step uses the 1024 = 2*512 prefix term of the complex row?",
-      "why_it_matters": "It is the one ledger term this package binds only to the invoice.",
-      "first_step": "Trace charged_prefix_bits and row_prefix_extra in invoice_allcold.py to the construction notes.",
-      "blocked_by": "Nothing technical."
-    }
-  ]
+  "open_questions": [],
+  "no_open_questions_reason": "Every ledger term is now bound: 9909 and 252 are historical family charges, and 1024 is PR514's two-level row surcharge for the 512-bit precision payload. The selected layer's construction uses none of them, and rho = 0 is settled conditionally. No selected step bootstraps the m=73 layer, so further m=73 sigma work would only refine a consistency bound; the H3 envelope the record needs belongs to the bit producer (PR2084), outside this package."
 }
