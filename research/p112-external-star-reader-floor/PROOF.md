@@ -114,7 +114,9 @@ with arbitrary seed values and support. Its PROOF.md and README were read in
 full before synthesis. The initial two-target external-star idea was already
 covered and is not a new result. If that seed lies in the pair span, PR3463
 at 194518404309c76b542e57efa52c0ed6e57cc48c covers it instead. No proof gap
-in either source is asserted. Their exact proof hashes are provenance pins.
+in either source is asserted. Their exact proof hashes and public heads are
+comparison receipts in SOURCES.json. They are not replay dependencies or
+publication-ancestry pins; both pending commits remain outside this branch.
 
 The uncovered continuation is k>=3 target indicators with k+1 terms and an
 external query dimension. Neither predecessor quantifies over this target

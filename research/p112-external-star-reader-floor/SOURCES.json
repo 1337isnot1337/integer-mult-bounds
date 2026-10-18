@@ -19,20 +19,6 @@
       "usage": "input",
       "git_blob": "d9a4f84211182ca200c081ea061d724c8a2cfb70",
       "sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
-    },
-    {
-      "path": "research/p112-unrestricted-three-query/PROOF.md",
-      "usage": "provenance",
-      "pin": "head:7b698dc958695d0a788327ddf8866b10a59e4c37:research/p112-unrestricted-three-query/PROOF.md",
-      "git_blob": "cdd2b5a7180db6599a00a6bd54628f621aee8308",
-      "sha256": "1a26304177e6cd9a4a06596ed1f5dea1b4780e78a20e058726f2139f9b115ceb"
-    },
-    {
-      "path": "research/p112-extension-field-reader-floor/PROOF.md",
-      "usage": "provenance",
-      "pin": "head:194518404309c76b542e57efa52c0ed6e57cc48c:research/p112-extension-field-reader-floor/PROOF.md",
-      "git_blob": "8384509583211cd62224593ba73feb319282cc66",
-      "sha256": "55a8dd86269cc430ecc424624795d79bfaa8a0a5e4e585a4894577e27ded23f7"
     }
   ],
   "retained_rank32": {
@@ -44,5 +30,23 @@
     "git_blob": "7919f7b0639f6d6e008ae03a44a636ad031ebae6",
     "sha256": "2e990b02186660c68d9d38cabc864d662b01458b3eafeab774a8b8406bbfb57b",
     "role": "Unchanged retained fixture; replay needs no pending commit. Geometry checked directly."
-  }
+  },
+  "comparison_sources": [
+    {
+      "origin": "https://github.com/CrocSwap/integer-mult-bounds/pull/3414",
+      "commit": "7b698dc958695d0a788327ddf8866b10a59e4c37",
+      "path": "research/p112-unrestricted-three-query/PROOF.md",
+      "git_blob": "cdd2b5a7180db6599a00a6bd54628f621aee8308",
+      "sha256": "1a26304177e6cd9a4a06596ed1f5dea1b4780e78a20e058726f2139f9b115ceb",
+      "role": "Public scope comparison only; not an input, proof dependency or publication-ancestry pin."
+    },
+    {
+      "origin": "https://github.com/CrocSwap/integer-mult-bounds/pull/3463",
+      "commit": "194518404309c76b542e57efa52c0ed6e57cc48c",
+      "path": "research/p112-extension-field-reader-floor/PROOF.md",
+      "git_blob": "8384509583211cd62224593ba73feb319282cc66",
+      "sha256": "55a8dd86269cc430ecc424624795d79bfaa8a0a5e4e585a4894577e27ded23f7",
+      "role": "Public scope comparison only; not an input, proof dependency or publication-ancestry pin."
+    }
+  ]
 }

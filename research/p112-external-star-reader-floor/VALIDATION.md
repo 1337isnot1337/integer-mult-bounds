@@ -7,8 +7,10 @@ the two different transfers. It is not a full multiplication theorem check.
 The primary program uses packed binary elimination and GF4 polynomial
 arithmetic. The separate program imports none of it, uses explicit coordinate
 lists and a row-array binary elimination, and replaces GF4 support equality
-with binary support domination. SOURCE pins include the exact PR3414 proof
-that already covers the initial pair idea and PR3463's pair-span proof.
+with binary support domination. SOURCES.json records the exact PR3414 proof
+that already covers the initial pair idea and PR3463's pair-span proof as
+public comparison receipts, separate from input/provenance Git pins. Their
+pending commits are not publication ancestors or replay dependencies.
 No predecessor implementation is imported. The unchanged retained PR3370
 certificate is authenticated and its partition/Gram hypotheses are rechecked.
 
