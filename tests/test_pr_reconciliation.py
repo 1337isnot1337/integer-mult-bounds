@@ -225,6 +225,24 @@ class AssertionSafetyRefresh(unittest.TestCase):
                 with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
                     checker.check_batch932_file(item)
 
+    def test_current_successor_cache_and_timeout_edits_fail(self):
+        item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutations = [
+            current.replace(b'cwd=cwd, env=module_env, start_new_session=True',
+                            b'cwd=cwd, env=env, start_new_session=True'),
+            current.replace(b'if deadline is not None and time.monotonic() >= deadline:',
+                            b'if False:'),
+        ]
+        original_read = Path.read_bytes
+        for mutated in mutations:
+            self.assertNotEqual(current, mutated)
+            def read(path):
+                return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+            with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(
+                    ValueError, 'Changed integrated file: scripts/run_isolated_tests.py'):
+                checker.check_batch932_file(item)
+
     def test_forged_predecessor_and_cross_file_successor_fail(self):
         for item in self.items:
             item['integrated_sha256'] = '0' * 64

@@ -75,6 +75,9 @@ def check_batch932_file(item):
     Also authenticate the exact PR53 replay adapter and its test from c58c1778;
     this extension retains the earlier assertion guard and every module.
     Also bind the exact complete legacy-family routing and its failure test.
+    The da400586 runner retains Nick Petalas's 9158ee6d private caches,
+    Tekalign's 54bbb81c optional deadlines and Douglas Colkitt's descendant
+    cache propagation. Admit only that complete successor, preserving receipts.
     """
     name = item['integrated_path']
     digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
@@ -85,7 +88,8 @@ def check_batch932_file(item):
             '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
             ('b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8',
              '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331',
-             'fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a', 'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478', '6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88', '2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa', '8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a')),
+             'fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a', 'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478', '6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88', '2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa', '8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a',
+             'ef5035e6216d39569da670f32b2717c870b23c418016fd134cc0a72649fb912a')),
         'tests/test_isolated_test_runner.py': (
             '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
             ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
