@@ -7,7 +7,8 @@
 - Base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90` (CrocSwap `main`)
 - Card: `p104-side-correction` (refined), priority revision 6
 - κ: unchanged `0.001672660197076918`
-- Tip SHA: fill after push (`git rev-parse HEAD`)
+- Content tip: `42e62a310eb3a4cf80488506ff6baff1d53addd6` (scientific package)
+- Branch tip: same as content tip until further packaging commits; master reads `git rev-parse origin/cursor/present-head-full-row-census-ad52`
 
 ## Claim
 
