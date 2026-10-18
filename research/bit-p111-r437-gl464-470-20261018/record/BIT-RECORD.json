@@ -14,6 +14,11 @@
   "whole_kappa_changed": false,
   "complex_b_changed": false,
   "submission_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
-  "publication": "NOT_SUBMITTED",
-  "maintainer_admission": "PENDING"
+  "publication": "OPEN",
+  "maintainer_admission": "PENDING",
+  "PR_number": 3647,
+  "PR_url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3647",
+  "PR_created_at": "2026-10-18T12:51:17Z",
+  "initial_published_head": "fa99ed2b225c6e02b07e7f2a80d51b518e1a290b",
+  "hosted_CI": "Not claimed PASS; initial-head run39129033340 action_required/jobs0"
 }
