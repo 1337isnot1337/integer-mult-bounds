@@ -65,6 +65,24 @@ A gain is available only if a legal packing realizes the histogram.
 | Selected endpoint `a_c` with moment one | certified bracket `[0.0016754626768076, 0.0016754626768085]`; the exact moment at the published a_c is `1 − (1.30 ± 0.06)e-24`, so the published value is a truncation of the root |
 | Selected κ = a/(1+a) at a_c | the published 18-digit value is the truncated decimal of `a_c/(1+a_c) = 0.00167266019707691866` |
 
+## Related open work
+
+Open PR #3729 (`research/complex-idle-integrality-ceiling`) prices the same selected word
+under a stricter premise: idle counts are integers *within one call*, so each call packs
+`1646 = 32·51 + 14`.
+
+- **Agreement, per call.** Its published per-call ceiling `a < 0.001688603446527` lies inside
+  this package's independently certified per-call bracket
+  `[0.0016886034465262156, 0.0016886034465271038]`; its quoted κ gain `+0.782985%` equals this
+  package's certified per-call κ gain `+0.782985%`; and both find the same per-call optimum
+  `32×51 + 14` per call (`{51:4608, 14:144}` in aggregate).
+- **What differs.** This package prices the per-call premise as one row of a cap table, not as
+  the corrected ceiling: the aggregate rows pool the idle mass across calls
+  (`4647×51 + 27` at cap 51), which the per-call premise forbids. The aggregate rows are the
+  ones comparable with the selected word's own idle histogram, whose rank-48 count `4866` is
+  not divisible by 144. Which premise the physical invoice realizes is a separate open
+  question, raised for the record by the peer audit in PR #3747 and not adjudicated here.
+
 ## Controls
 
 Nine controls must hold (`verify.py`, all certified, no sampling):
