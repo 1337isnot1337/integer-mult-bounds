@@ -39,6 +39,22 @@ commit, and the internal support-certificate byte pin was refreshed.
 
 ## Final integration
 
-The metadata and source-pin check passed after manifest integration. The
-final registered replay and committed Git-free export replay are pending;
-this paragraph will be replaced with their actual results before publication.
+The metadata, source-pin and committed-byte/source-history checks passed.
+The full registered replay at scientific commit
+`9189ab27d9539d035318ee93e03e7608789cee9c` passed all five commands in
+627.72 seconds. Only this validation record was updated afterward.
+
+The committed package and its thirteen declared inputs were exported from
+that commit and verified against the export manifest. A fresh extraction,
+with no Git directory and PATH pointing to a nonexistent tools directory,
+passed all five direct commands in 596.61 seconds. The command times were
+26.52, 184.59, 197.02, 177.08 and 11.41 seconds respectively. All 37 extracted
+files (including the export manifest) remained byte-identical after replay.
+The standard-library Python executable was supplied by absolute path.
+The archive SHA256 was
+`58bfd0d5dc9631c1768a812f70ffbad88ae522752cb409925f6d14d44d9be211`.
+
+No scientific program, certificate, source input or replay command changed
+after these runs. Final publication checks compare those scientific bytes
+and validate the final documentation/export integrity separately. These are
+local receipts; no hosted CI completion is asserted.
