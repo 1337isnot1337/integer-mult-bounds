@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "task_id": "centre-path-sharing",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "centre-path-sharing",
+    "question": "Can the 64-per-call centre path (eight rank-8 COPY/ERASE totals through the private temporary) be shared across calls or shrunk?",
+    "starting_points": ["docs/research/research-family-status.md", "research/complex-local-word-ceiling/README.md", "research/split-centres-global/proofs/PR386-BIT-GEOMETRY.txt", "certificates/selected-result.json"],
+    "methods": ["Derive a fully charged favorable relaxation for sharing one centre path across k calls, including restoration, hosting and precision.", "Prove a lower bound on copied information per call for the selected decoder contract."],
+    "acceptance_gate": "Show the changed centre charge and copy profile per call with every added restoration or hosting cost charged, and its ceiling via ceiling.ceiling(centre=...). A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {"command": ["python3", "-B", "research/complex-local-word-ceiling/verify.py"], "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING", "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.", "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."},
+    "first_experiment": "Write the per-call centre charge and copy children for sharing across k = 2 calls, charge the sharing overhead, and screen it; stop this route if even the ideal sharing gains under 10%. Ideal budgets: free 2.80x, shared by two 1.90x (levers.py).",
+    "bottleneck_link": "The centre path consumes 64 of about 99.6 unpaid coordinates per call, i.e. about 64% of the raw deficit.",
+    "allowed_variations": ["One sharing pattern across a fixed number of calls.", "One reduced copied-total contract for the existing decoder.", "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."],
+    "scope_change_triggers": ["Removing copies without a replacement contract for the decoder's copied totals.", "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."],
+    "overlap_terms": ["centre path", "copied totals", "private temporary", "shared centre", "batching"]
+  },
+  "scope_status": "changed",
+  "actual_scope": "User-assigned sheaf and integer-fibre approach to PR3147, refined to the complete112-port common observation kernel on PR3656's4080-owner subgroup. Test exact coset elimination and global compatibility before claiming a dimension.",
+  "scope_change_reason": "The simple circle route already has PR3151 and PR3194 obstructions. PR3656 supplies a concrete common-kernel witness but leaves its full kernel dimension open. This closes a different information obligation rather than repeating a circle cancellation or the single-triple census.",
+  "bottleneck_link": "Determines whether the first concrete large block has useful hidden information capacity or only its known one-dimensional perturbation. Information coordinates are not recursive tariffs.",
+  "budget_minutes": null,
+  "stop_rule": "Stop after one complete source-bound local-to-global kernel certificate or a counterexample to the proposed reduction. No physical supplier expansion without a changed favourable full boundary and cost ledger.",
+  "outcome": "partial",
+  "evidence": "Eight generic finite-group, matrix and nonnegative-fibre control tests pass normally and with -O on local CPython3.13.5. Actual archive-dependent subgroup and coset reduction await execution; draft status until verified.",
+  "author": "Clear1nsight",
+  "ai_assistance": "Substantial OpenAI assistance in proof, implementation, tests and writing. No separate agent, independent human or proof-kernel review is claimed.",
+  "open_questions": [
+    {"question": "Does exact outgoing-coset elimination reduce all112 ports on the named block to the known triple?", "why_it_matters": "It decides the full common-kernel dimension without an enormous dense matrix.", "first_step": "Run the authenticated source extractor and finite coset/rank certificate, then independently verify the derived geometry.", "blocked_by": "Archive-dependent execution not yet completed."},
+    {"question": "Can a different owner block or output contract yield an affordable physical sharing mechanism?", "why_it_matters": "A scalar kernel does not remove a paid recursive call.", "first_step": "Specify the actual source and return interfaces, chronology and all cost allowances before expanding search.", "blocked_by": "No native acquisition, restoration, hosting or complete supplier bill is supplied."}
+  ],
+  "coordination": {"assigned_pr": 3147, "specific_predecessor_pr": 3656, "specific_predecessor_head": "69e745992b966c647e10696b980cb4c96d7ebeed", "entry_canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90", "overlap": "Targeted live PR searches for sheaf, centre, kernel and the named predecessors; current PR3656 had no comments. Not a complete Discussion or arbitrary-diff census.", "claim_attempt": "Upstream PR3656 claim comment rejected by integration with HTTP403. Not published.", "environment": "Container DNS unavailable; no local repository/selected archive. Fork branch is writable. Registered source-dependent CI, if available, will be distinguished from local generic tests."},
+  "family_gate": {"decision": "narrow", "reason": "One bounded information theorem and primitive fibre result only; no numerical saving, no full supplier or selected-frontier change."}
+}
