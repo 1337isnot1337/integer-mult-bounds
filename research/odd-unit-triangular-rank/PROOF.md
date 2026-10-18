@@ -1,6 +1,6 @@
 # Fitting rank for odd binary types
 
-I use the standard binary dot product on V=F2^d, with d=5 or 6. Write
+I first use the standard binary dot product on V=F2^d, with d=5 or 6. Write
 O={x:x dot x=1} and j=(1,...,1). An admissible type is a pair (q,w) in
 O times O with w dot q=1. A port list may contain any finite multiplicities
 of these types. For its v distinct port positions I define the binary mask
@@ -19,6 +19,7 @@ I prove, over every coefficient field K,
 
 These statements require the odd-type representation above. They are not
 bounds for arbitrary binary matrices of rank five or six.
+Section 5 extends the selector argument to every ambient dimension d>=2.
 
 ## 1. A triangular selector
 
@@ -177,3 +178,72 @@ producer, complete supplier, selected-frontier update or new multiplication
 exponent. The proof uses the explicit finite geometry above for a theorem
 over arbitrary finite multiplicities; the bounded replays corroborate its
 finite ingredients and failure controls rather than exhaust its quantifiers.
+
+## 5. General ambient dimension
+
+I now take any integer d>=2 and retain the same odd-type and fitting
+conditions. I use the ordered affine flag from section 1 in the odd
+hyperplane e_0-perp. The first sink contributes 2^(d-2) types. For each
+prefix rank r=2,...,d-1, I have 2^(r-2) sinks, each contributing
+2^(d-r-1) types. Thus the prefix selector has d*2^(d-3) types. For d=2
+this expression equals one and there are no higher-rank prefixes.
+
+For completeness, write the subset index as m. The sink w_m has low
+coordinate 1+wt(m) modulo two and higher coordinates m. To select its
+diagonal type, its pairing with w_0 forces wt(m) even. Pairing with all
+earlier sinks then requires every bit through the highest bit of m to
+be one. Hence m=2^(2t)-1, including m=0. I obtain d/2 diagonal types
+when d is even and (d-1)/2 when d is odd.
+
+For even d, the odd-vector stabilizer uses a nondegenerate alternating
+space of dimension d-2, as in section 2. The admissible type orbits have
+the following sizes and selector counts:
+
+| Orbit | Size | Selected |
+|---|---:|---:|
+| diagonal | 2^(d-1) | d/2 |
+| cross | 2^(d-1)(2^(d-2)-1) | (d/2)(2^(d-2)-1) |
+
+At d=2 I omit the empty cross orbit. Both nonempty orbit fractions equal
+d/2^d. The same multiplicity argument proves, over any coefficient field,
+
+    d even, d>=2: rank N >= ceil((d/2^d) v).            (4)
+
+For odd d, I append (j,j) and use the alternating space j-perp of
+dimension d-1. Put t=2^(d-2) and n=2t-1. The four-orbit table becomes:
+
+| Orbit | Size | Selected |
+|---|---:|---:|
+| special | 1 | 1 |
+| one-special | 2n | t |
+| other diagonal | n | (d-1)/2 |
+| cross | n(t-2) | ((d-2)t-(d-1))/2 |
+
+I count the one-special entries by taking q=j for each of the t prefix
+sinks. At d=3 the cross orbit is empty and the other fractions give
+rank N>=ceil(v/3). For odd d>=5 the cross fraction is
+
+    rho_d = ((d-2)t-(d-1)) / (2n(t-2)).
+
+I have t>d-1 for d>=5: it holds at d=5, and increasing d by two
+multiplies t by four while increasing d-1 by two. Direct comparison
+then gives rho_d <= (d-1)/(2n) <= t/(2n) <= 1. Thus
+
+    d odd, d>=5: rank N >= ceil(rho_d v).               (5)
+
+The stronger weighted bound uses the four individual orbit fractions.
+Equations (4) and (5) recover the source cases 3/32 and 1/9. They concern
+the same odd-type fitting model; no new native-cost or supplier conclusion
+follows from changing the ambient dimension alone. `general.py` checks
+the finite geometry for d=2,...,8 and the formula's edge cases. The
+general proof uses the affine ranks and symplectic decompositions above,
+not extrapolation from that replay.
+
+Writing rho for the applicable uniform coefficient, the same rank-one
+factorization argument gives J>=ceil(rho v). Constant-charge beta terms
+therefore cost at least beta*ceil(rho v). Constant-rank R masked totals
+need aggregate rank at least R*ceil(rho v). A literal identity sum of
+rank-R idempotents over characteristic zero can exist only if R*rho<=1.
+For example, in dimension five the charge-five-only floor is 5/9, and
+rank-15 idempotents alone cannot resolve I_v. These are necessary tests
+under the fitting model, not constructions or complete supplier prices.

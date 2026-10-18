@@ -3,7 +3,7 @@
 I used CPython 3.12.13 and its standard library. I passed the primary
 replay under `-I -O -Werror -B`, the independent vector-coordinate replay
 under `-I -Werror -B`, and the nine-control replay under optimized Python.
-I also passed the registered three-command replay and metadata/source-pin
+I also passed the registered replay and metadata/source-pin
 validation. I record committed-byte/history and hosted status in the PR.
 
 The primary and independent engines reconstruct 136 and 512 admissible
@@ -38,6 +38,15 @@ The arbitrary-multiplicity and field quantifiers follow from PROOF.md.
 Finite replays do not exhaust those domains. Source-analysis agents
 checked the proof and its scope separately during this AI-assisted
 session; I claim no independent human or formal-kernel review.
+
+For the general-dimensional extension, I checked every admissible type,
+selector entry and generated orbit for dimensions two through eight:
+10,964 types and 451 selected types across those seven fixtures. The
+uniform fractions are 1/2, 1/3, 1/4, 1/9, 3/32, 11/270 and 1/32. I also
+checked exact odd-fraction comparisons through dimension 49. These are
+finite corroboration; the affine-flag and symplectic arguments prove the
+general formulas. The original h5/h6 checker implementations remain
+separate from this extension checker.
 
 I ran the card's existing ceiling control separately and obtained
 `PASS_COMPLEX_LOCAL_WORD_CEILING`. It only orients the selected-word

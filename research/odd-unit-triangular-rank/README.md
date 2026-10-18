@@ -34,6 +34,13 @@ bound. One checker uses integer bitsets and a small generator family;
 another uses Boolean coordinate tuples, all even transvections and
 adjacent coordinate swaps. They share only source authentication.
 
+I also extend the same proof to general ambient dimensions. For even
+d>=2 I obtain `rank N>=ceil(d v/2^d)`; section 5 of PROOF.md gives the
+odd-dimensional weighted formula, including the d=3 edge case. A bounded
+general checker verifies the finite geometry through dimension eight.
+The general corollary also gives a charge-five-only floor of 5/9 in
+dimension five and excludes an identity sum of rank-15 idempotents there.
+
 The checkers verify the complete finite selectors and type orbits,
 nonuniform multiplicities, repeated-port minors over Q/F2/F3/F5, the
 retained projector's exact factor identity, and nine failure controls.
@@ -47,7 +54,7 @@ python3.12 -B scripts/research_package.py --package research/odd-unit-triangular
 python3.12 -B scripts/check_research_commit.py --package research/odd-unit-triangular-rank --check-source-history
 ```
 
-Direct commands use `verify.py`, `independent.py` and `test_controls.py`.
+Direct commands use `verify.py`, `independent.py`, `test_controls.py` and `general.py`.
 They read immutable source bytes and use exceptions that remain active
 under optimized Python. The source archive includes its license and
 requires no unmerged foreign Git objects. I do not execute the
