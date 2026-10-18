@@ -263,12 +263,27 @@ with `r!=s`; their common blocker is `(s,r)`. Hence either all three even
 lines have one type, or there are exactly two types `R_r,L_s` with
 `r!=s`, of multiplicities two and one.
 
-Suppose first that all three are `R_r`. Their two blocker odd lines have
-first anchors `s,t`, which are independent over `F_2`. Their rational `p`
-rows are therefore independent. The `q` row of every even line annihilates
-both blocker rows, so all three even `q` rows are proportional in a common
+Suppose first that all three are `R_r`. If one required blocker type is
+duplicated among the three odd lines, write its two occurrences as `O_1,O_2`
+of type `(s,r)`, and the unique other blocker as `O_3` of type `(t,r)`.
+Let `c` be the coordinate in `s intersect r` and `d` the other coordinate
+of `r`. SG makes both entries between `O_1,O_2` nonzero, since their common
+anchor type has odd diagonal dot product. An edge between any two even
+lines, colored `d`, together with the odd pair colored `c`, is a 2+2
+witness. If no such even edge exists, the three even lines are mutually
+zero in both directions. Each must be reciprocally zero to the unique
+`O_3`, since only that odd line can block its color `d`. Those four lines
+then give a diagonal rank-four principal minor, a contradiction. This
+argument does not assume that different even lines choose the same
+occurrence of the duplicated blocker type.
+
+Otherwise the required types `(s,r)` and `(t,r)` each occur exactly once.
+Their first anchors `s,t` are independent over `F_2`, so their rational `p`
+rows are independent. Every even line must be reciprocally zero to both of
+these specific odd lines. Its `q` row therefore annihilates their common
+two-dimensional span, so all three even `q` rows are proportional in a
 one-dimensional space. Since their diagonal entries are nonzero, every
-entry between these even lines is nonzero. Select one blocker `(s,r)`, let
+entry between these even lines is nonzero. Select the blocker `(s,r)`, let
 `c` be the coordinate in `s intersect r`, and let `d` be the coordinate in
 `r\s`. Use its full anchors on the blocker and unit labels `e_d` on all
 three even lines. Put the blocker first. Its forward dot to any even line
@@ -279,7 +294,9 @@ reversing the witness order. SG, primitive rows, and rational independence
 are symmetric under this swap; no new canonical normalization is needed.
 
 Finally suppose there are two `R_r` lines and one `L_s`, with `r!=s`.
-The same annihilator argument makes every cross-entry between the two
+Their blocker union consists of three distinct types, so each type has
+exactly one occurrence among the three odd lines. The same annihilator
+argument therefore makes every cross-entry between the two
 `R_r` lines nonzero. Give that pair the color in `r\s`, give the `L_s`
 line the color in `s\r`, and give their shared odd blocker `(s,r)` the
 color in `r intersect s`. This is a 2+1+1 witness. Multiplicities one and

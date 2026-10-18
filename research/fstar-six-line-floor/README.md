@@ -52,6 +52,12 @@ rescalings and a global valuation shift preserve the expected anchors. An
 abstract rank-six example has box two, recording why the rank-three premise
 cannot be dropped. Both normal and isolated optimized replays are registered.
 
+A separate exact rational fixture exercises repeated blocker types whose
+actual rows differ: the even target rows span dimension two, so a common
+annihilator cannot be inferred from matching types alone. The proof treats
+this multiplicity case using a 2+2 witness or a rank-four contradiction.
+The fixture checks the valid pair order and rejects its reversal.
+
 From the repository root, using Python 3.12 (tested with 3.12.15):
 
 ```sh

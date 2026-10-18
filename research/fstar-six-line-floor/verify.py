@@ -147,6 +147,54 @@ def rational_controls(fixture):
             "zero_entries_retained": True}
 
 
+def duplicate_blocker_control():
+    """Actual rational rows refute a shared-physical-blocker inference."""
+    P = [(1, 0, 1), (1, 2, 1), (0, 1, 1),
+         (1, -1, -2), (1, -1, -4), (1, -1, -2)]
+    Q = [(1, -3, 2), (1, -7, 2), (1, 1, 0),
+         (1, 1, -1), (-1, 1, -1), (1, 1, -1)]
+    data = admitted_data(P, Q)
+    require(data["gamma"] == 0 and data["rank"] == 3, "Duplicate-blocker normalization")
+    require(data["a0"] == [5, 5, 6, 3, 3, 3] and data["b0"] == [3, 3, 3, 7, 7, 7],
+            "Duplicate-blocker anchors differ")
+    require(data["tau"] == [1, 1, 1, 2, 2, 2], "Duplicate-blocker tied sets differ")
+    matrix = data["M"]
+    blockers = {3: 0, 4: 1, 5: 0}
+    for even, blocker in blockers.items():
+        other = 1 - blocker
+        require(matrix[even][blocker] == matrix[blocker][even] == 0,
+                "Required physical blocker does not block")
+        require(matrix[even][other] != 0 and matrix[other][even] != 0,
+                "Different physical duplicate unexpectedly blocks")
+        require(matrix[even][2] == matrix[2][even] == 0, "Unique blocker does not block")
+    require(box.rational_rank([Q[3], Q[4]]) == 2,
+            "Control must have nonproportional even target rows")
+    require(box.dot(data["a0"][0], data["b0"][1]) == 1
+            and box.dot(data["a0"][1], data["b0"][0]) == 1,
+            "Odd pair is not forced nonzero by SG")
+    require(matrix[0][1] != 0 and matrix[1][0] != 0 and matrix[4][3] == 4,
+            "Required pair entries are not nonzero")
+    labels = [1, 1, 0, 2, 2, 0]
+    witness = {"a": labels, "b": labels, "kept": [0, 1, 3, 4], "order": [0, 1, 4, 3]}
+    require(box.check_witness(data["a0"], data["b0"], data["arcs"], witness),
+            "Repaired odd-pair plus even-pair witness failed")
+    wrong = {**witness, "order": [0, 1, 3, 4]}
+    require(not box.check_witness(data["a0"], data["b0"], data["arcs"], wrong),
+            "Reversing the only admissible even-pair direction was accepted")
+    # If all even edges were absent, the unique blocker and three evens
+    # would form this diagonal minor. This is a contradiction, not a realization.
+    indices = [2, 3, 4, 5]
+    forced_minor = [[matrix[i][i] if i == j else 0 for j in indices] for i in indices]
+    require(box.rational_rank(forced_minor) == 4, "No-even-edge rank contradiction failed")
+    return {"P": P, "Q": Q, "M": [[int(x) for x in row] for row in matrix],
+            "a0": data["a0"], "b0": data["b0"], "tau": data["tau"], "rank": 3,
+            "physical_blockers": [[i, j] for i, j in blockers.items()],
+            "even_target_row_rank": 2, "witness": witness,
+            "wrong_even_pair_direction_rejected": True,
+            "no_even_edge_forced_minor_rank": 4,
+            "no_even_edge_minor_is_counterfactual": True}
+
+
 def authentication_control():
     # Intercept only the frozen input read; all actual files remain untouched.
     from unittest.mock import patch
@@ -175,6 +223,7 @@ def build():
             "sharp_fixture": fixture, "source_comparison": reference_check(inputs, fixture),
             "affine_controls": affine_controls(), "witness_controls": witness_controls(fixture),
             "necessity_controls": necessity_controls(), "rational_controls": rational_controls(fixture),
+            "duplicate_blocker_control": duplicate_blocker_control(),
             "source_corruption_rejected_before_execution": authentication_control(),
             "exhaustive_six_line_census_claimed": False, "formal_proof_claimed": False}
     return json.loads(json.dumps(receipt))
