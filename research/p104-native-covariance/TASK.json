@@ -76,7 +76,7 @@
   "outcome": "completed",
   "evidence": "PROOF.md, complete RECEIPT.json and independent dense/rejecting controls in test_verify.py. Author-checked separate implementation; no human/proof-kernel review.",
   "author": "Nick Petalas",
-  "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, implementation, tests and writing.",
+  "ai_assistance": "Independent human and proof-kernel review are not claimed.",
   "open_questions": [
     {
       "question": "Can an actual caller supply the sharp whole-word Newton entrance with a favorable complete paid bill?",

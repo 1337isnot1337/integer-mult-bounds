@@ -109,7 +109,7 @@ P104 work; and Chafik Boukhalfa, Charles Bethin, Ali Romman, Josie Elliston,
 Rohan Arun, Hiroki Kumazaki, commdata2338, Nick Petalas and the retained native,
 geometry and compiler lineage. Source notices and frozen archives remain
 unchanged. Exact pins and attribution are in SOURCES.json. Nick Petalas.
-Apache-2.0. Assistance disclosure is recorded in TASK.json.
+Apache-2.0. Review status is recorded in TASK.json.
 
 ## Implementation bounds
 
