@@ -49,9 +49,12 @@ mask entry is one. Thus, if n_t is the multiplicity of type t,
     rank N >= sum_(t in S) n_t.                         (1)
 
 The prefix sink ranks are 1,2,3,3,4,4,4,4,5,...,5. The vector j is
-independent of their span: a dot j=1 while a annihilates W. The affine
-equations defining each block are consistent, since q=a+j satisfies
-them. A prefix of rank r therefore gives 2^(d-r-1) labels q. I obtain:
+independent of their span: a dot j=1 while a annihilates W. The equations
+q dot j=1 and q dot w_i=1 therefore have rank r+1 for a prefix of rank r.
+They are consistent: each linear relation among the odd w_i uses an even
+number of them, so the prescribed right sides satisfy that relation.
+Independent linear forms give every remaining right side. Each block
+therefore has 2^(d-r-1) labels q. I obtain:
 
 | d | Prefix block sizes | Added type | Total |
 |---|---|---|---:|
