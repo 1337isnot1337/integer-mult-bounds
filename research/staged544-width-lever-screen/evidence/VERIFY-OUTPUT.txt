@@ -6,7 +6,11 @@
   "F_lower_at_a_hi": "0.000000000000000000052805837005",
   "primal_min_y": "7"
  },
- "free_reduction_theorem": {
+ "monotone_price_lemma": {
+  "slack_lemma_premises": {
+   "dual_feasible_widths_4_to_9": true,
+   "margin_minus_pi4_minus_3": "0.986093083432664503980103"
+  },
   "patterns_widths_1_to_9": 318840,
   "patterns_widths_4_to_9": 2551,
   "min_reduced_cost_all": "0.000000000000000000000000000000",
@@ -28,7 +32,8 @@
    ]
   ],
   "monotone": true,
-  "holds": true
+  "holds": true,
+  "note": "free reductions keep F(a_hi) > 0; under the per-call conservation (section 5) such a move is not realizable"
  },
  "prices_at_a_hi": {
   "helper_pi": {
@@ -55,7 +60,6 @@
    "8->7": "0.987736781185353068089966",
    "9->8": "0.987736781185353068089966"
   },
-  "entrance_raise_1_to_2": "0.997602347205330147005789",
   "delete_rank1_child": "-1.000000000000000000000000",
   "primal_y": {
    "8:000010": "672",
@@ -79,13 +83,14 @@
    "4->2": "1.991791369039984911721564",
    "4->1": "2.986093083432664503980103"
   },
-  "explicit_4_to_3_move_cost_lower_enclosure": "0.997602347205330147005789",
+  "width_unit_price_4_to_3_exact": "0.991791369039984911721564",
   "exact_range_helper_calls_per_replica": {
    "5->4": "18",
    "6->5": "28",
    "7->6": "28",
    "8->7": "30",
-   "9->8": "28"
+   "9->8": "28",
+   "4->3": "324/5"
   },
   "tight_extension_min_reduced_cost": "0.000000000000000000000000000000",
   "tight_extension_limiting_patterns": {
@@ -133,24 +138,40 @@
    ]
   }
  },
- "staging_screen_per_helper_call": {
-  "single_child_compensation_upper_reference": {
+ "staging_screen_per_width_unit": {
+  "single_child_rank1_deletion_upper_reference": {
+   "4->3": "0.008208630960015088278435",
    "5->4": "0.000000000000000000000000",
    "6->5": "0.012263218814646931910033",
    "7->6": "0.012263218814646931910033",
    "8->7": "0.012263218814646931910033",
-   "9->8": "0.012263218814646931910033",
-   "4->3": "0.008208630960015088278435"
+   "9->8": "0.012263218814646931910033"
   },
-  "pr3734_local_saving": "0.991001081580029037511288",
-  "pr3734_net_gain": "0.003264300394675969421322",
-  "pr3734_reshaping_cost": "0.008998918419970962488711"
+  "documented_signature": {
+   "1": 3,
+   "2": 1,
+   "3": -2
+  },
+  "documented_signature_saving": "0.991001081580029037511288",
+  "documented_signature_gain": {
+   "4->3": "-0.000790287459955874210276",
+   "5->4": "-0.008998918419970962488711",
+   "6->5": "0.003264300394675969421322",
+   "7->6": "0.003264300394675969421322",
+   "8->7": "0.003264300394675969421322",
+   "9->8": "0.003264300394675969421322"
+  },
+  "gap_signature_vs_rank1_deletion": "0.008998918419970962488711"
  },
  "first_order_float": {
   "dF_da_at_ceiling": 184132.35902592752,
   "ceiling_change_per_unit_F_decrease": 5.430875948638614e-06
  },
- "paid_rank_identity": {
+ "per_call_local_rank_minus_hosted_width": {
+  "staged544": 1856,
+  "pr3682": 1856
+ },
+ "paid_rank_total": {
   "pr3682_finite": {
    "T": 360,
    "paid_rank_sum": 23431680,
@@ -184,11 +205,13 @@
  },
  "controls_failed_as_required": {
   "perturb_pi9_up_1e-30": true,
-  "granularity_raised_pi3_infeasible_on_1_to_9": true,
-  "non_monotone_extension_rejected": true,
-  "bound_at_a_lo_not_positive": true,
+  "tight_extension_raised_1e-30_infeasible": true,
+  "non_monotone_extension_rejected_by_monotone_check": true,
   "one_8_to_9_widening_per_call_breaks_bound": true,
-  "volume_identity_detects_plus_one": true
+  "paid_rank_check_detects_plus_one": true
+ },
+ "consistency_checks": {
+  "bound_at_a_lo_not_positive": true
  },
  "status": "PASS",
  "failures": []

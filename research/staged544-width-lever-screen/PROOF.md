@@ -38,9 +38,11 @@ The ten patterns found by HiGHS equal PR3815's basis. Their exact primal is
 This reproduces PR3815's bracket with an independent enclosure. It is not a
 new result.
 
-## 3. Theorem (weak duality with monotone prices)
+## 3. Weak-duality screen, prices and the monotone-price lemma
 
-Let `pi_w` (w = 1..9) and `mu_c` satisfy
+`(pi_4..pi_9, mu)` is PR3815's basis dual (its `ceiling_certificate.py` solves
+it), here solved exactly with `h_lo` at `a_hi`. Let `pi_w` (w = 1..9) and
+`mu_c` satisfy
 
 (D) `sum_w pi_w p_w + mu_c <= h_lo(l_p)` for **every** pattern of widths 1..9
 in every bin (318,840 patterns).
@@ -51,110 +53,121 @@ local profile `n'`, every packing satisfies
 `F'(a_hi) >= 9 sum_r n'_r h_lo(r) + 9 sum_w pi_w s'_w + sum_c mu_c B_c - 896 h_hi(73).`   (*)
 
 Proof: multiply (D) by `y_p >= 0`, sum, and use the two equality constraints.
+Moving `z` helper-calls from width `w` to `v < w` changes the right side of (*)
+by `z (pi_v - pi_w)`; changing the local profile changes it by
+`9 sum (n'_r - n_r) h_lo(r)`.
 
-**Reductions.** Let `s'` arise from `s` by moving `z_{w->v} >= 0`
-helper-calls from width `w` to any `v < w` (`v >= 1`). The right side of (*)
-equals the staged544 bound plus `sum z_{w->v} (pi_v - pi_w)` plus
-`9 sum (n'_r - n_r) h_lo(r)`. If `pi` is nonincreasing in width, every
-reduction term is nonnegative.
+**Two extensions.** `verify.py` uses two duals that agree on widths 4..9:
 
-`verify.py` takes `pi_4..pi_9` and `mu` from the basis. It sets `pi_1, pi_2,
-pi_3` to the largest values that keep (D) feasible, maximizing `pi_3` first
-(with `pi_1 = pi_2 = pi_3`), then `pi_2`, then `pi_1`. It then checks the
-following:
+- the *cheapest* extension `pi_1 = pi_2 = pi_3 = pi_4` (printed as
+  `helper_pi`), used for the lemma below;
+- the *tight* extension: `pi_3`, then `pi_2`, then `pi_1` raised to the
+  largest values keeping (D). Its limiting patterns are exact fills:
+  `3 + 5*9 = 48` limits `pi_3`, `2 + 5*9 = 47` (leftover 1) limits `pi_2`, and
+  `1 + 4 + 3*9 = 32` limits `pi_1`. It gives the 4->v prices.
 
-- (D) holds on all 318,840 patterns. The minimum reduced cost is exactly 0.
-  An unbounded-knapsack recursion over used volume gives the same minimum.
-- `pi_1 >= pi_2 >= ... >= pi_9`, and every `pi_w <= 0`. Hence unhosting a
-  helper (width 0) is also never improving.
-- the staged544 bound is `F(a_hi) >= 5.28e-20 > 0`.
+Both satisfy (D) on all 318,840 patterns with minimum reduced cost exactly 0,
+by enumeration and by an unbounded-knapsack recursion over used volume.
 
-**Corollary (free reductions).** If the local profile is unchanged, no reduction
-of any hosted widths raises the ideal ceiling above `a_hi`. This covers any
-amount, any widths and widths down to 1 or unhosting, at zero entrance cost.
-Each reduction unit costs at least `pi_v - pi_w` in `F`:
+**Slack lemma.** If (D) holds on the 2,551 width-4..9 patterns and
+`pi_4 <= -3`, the cheapest extension satisfies (D) on all width-1..9 patterns.
+Proof: take a pattern `p` with `s` helpers of width at most 3 and total width
+`v <= 3s`, leftover `l`. Removing them gives a width-4..9 pattern `p'` with
+leftover `l + v`. Since `h` is concave with `h(0) = 0` and `h(1) = 1`,
+`h(l + v) - h(l) <= h(v) <= v`. So
+`RC(p) = RC(p') + h(l) - h(l + v) - s pi_4 >= RC(p') + s(-pi_4 - 3) >= 0`.
+Here `pi_4 = 1 - h(5)` and the margin `-pi_4 - 3 = 0.986093083432664503980103`
+dwarfs the enclosure width. The 318,840-pattern enumeration is a second check
+of this lemma and is needed only for the tight extension.
 
-| move | exact price at a_hi | range on the basis (helper-calls) |
-|---|---|---|
-| 9->8, 8->7, 7->6, 6->5 | 0.987736781185353068089966 | 28, 30, 28, 28 |
-| 5->4 | 1 (exactly: `[9,9,9,5]` and `[9,9,9,4]` are both basic) | 18 |
-| 4->3 | >= 0.991791369039984911721564 (dual bound) | n/a |
+**Monotone-price lemma (free reductions).** The cheapest extension is
+nonincreasing in width and every `pi_w <= 0`. So any width reduction (to any
+width `>= 1`, or unhosting) with an unchanged local profile keeps
+`F(a_hi) >= 5.28e-20 > 0`: it never raises the ideal ceiling. Under the
+conservation of section 4 such a move is not realizable; the lemma is a
+statement about the model, not a staging closure.
 
-The value `V` is convex in the right-hand side, so a price is a lower bound for
-every further unit in that direction. Inside the listed range the same basis
-stays primal-feasible, and the price is the exact change. HiGHS gives
-0.9877367811860, 1.0 and 0.9917913690369 for single units of 8->7, 5->4
-and 4->3. The 4->3 dual bound is therefore attained to about 3e-12 in floating
-point; exact attainment is not claimed.
+**Prices.** The value `V` is convex in the right-hand side, so a price is a lower
+bound for every further unit in that direction; inside the listed range the
+same basis stays primal feasible and the price is exact.
 
-**Why monotonicity is not automatic.** A narrower helper fits gaps that wider
-ones cannot. The limiting patterns of the tight extension are exact fills:
-`48 = 3 + 5*9` limits `pi_3`, `48 = 2 + 5*9` (leftover 1) limits `pi_2`, and
-`32 = 1 + 4 + 3*9` limits `pi_1`. So the width-4..9 dual (2,551 patterns) does
-not by itself give a monotone feasible extension. The control
-`granularity_raised_pi3_infeasible_on_1_to_9` raises `pi_1..pi_3` by 1e-30 above
-the tight value. The prices stay monotone and feasible on all 2,551 width-4..9
-patterns, but some width-1..9 pattern becomes infeasible.
+| move | exact price at a_hi | closed form | range (helper-calls per replica) |
+|---|---|---|---|
+| 9->8, 8->7, 7->6, 6->5 | 0.987736781185353068089966 | `(h(48)-h(3)-5h(5))/20` | 28, 30, 28, 28 |
+| 5->4 | 1 | `h(1)-h(0)`; `[9,9,9,5]` and `[9,9,9,4]` are both basic | 18 |
+| 4->3 | 0.991791369039984911721564 | `h(5)-h(3)-1` | 324/5 |
 
-## 4. Paid-rank identity and what the corollary does not cover
+The 6..9 closed form is PR3682's 8->7 width shadow (`price.py`); the dual is
+affine on widths 5..9, so the same price holds for every step there. For 4->3,
+add the column `[3,9^5]` (48-bin), which has reduced cost 0 under the tight
+extension. Moving `k` units along `+[3,9^5] - [4,9,9,9] + [9,9,9] - [9^5]`
+keeps every bin and width row except `3` and `4` fixed, all four columns are
+tight, and the basic entries `y[4,9,9,9] = 234` and `y[9^5] = 324/5` stay
+nonnegative for `k <= 324/5`. By complementary slackness the change in `V` is
+exactly `k (pi_3 - pi_4) = k (h(5) - h(3) - 1)`. `verify.py` checks the
+tightness, the cost and the range in exact arithmetic. HiGHS gives
+0.9877367811860, 1.0 and 0.9917913690369 for single units of 8->7, 5->4 and
+4->3, agreeing to about 3e-12.
 
-On three pinned T360 profiles, `sum_r n_r r = (896*73 - 320) T = 23,431,680`:
+## 4. Per-call conservation and staging screens
 
-- PR3682's finite profile (LEAD1-PRICE.json);
-- PR3734's finite profile (inputs/PROFILE.json);
-- PR3815's clock fill (inputs/PROFILE.json).
+Per call, local paid rank minus hosted helper width is 1856 on both pinned
+(inventory, local) pairs: staged544 `5134 - 3278` and PR3682 `5135 - 3279`.
+With the bins this gives total paid rank `9*1856 + sum c B_c = 65088 =
+896*73 - 320` per replica. PR3605 states the same conservation for its two
+staging units ("the local rank mass falls by 2, exactly matching the
+owned-width decrease"). The three pinned T360 profiles (PR3682 finite, PR3734
+finite, PR3815 clock fill) all total 23,431,680 = 65088 x 360; the last two
+share one (inventory, local) pair, so for them this is implied arithmetic.
+The conservation is observed, not proved. Where it holds, a reduction with an
+unchanged local profile is not realizable: each width unit must remove one unit
+of local paid rank.
 
-The identity was observed on these three profiles; it is not proved here. If it
-holds for every literal construction of this template, a free reduction is
-not realizable. It adds `w - v` units of paid leftover with no offsetting local
-change. A real staging move must then remove `w - v` units of local paid rank.
-PR3734's change does exactly this: width 8->7 together with local
-`{1:+3, 2:+1, 3:-2}`, a rank-sum change of -1 per call. So the corollary in
-section 3 is **not** an upper relaxation of real staging. The correct screen is (*)
-with the actual `n'`.
+**Screens.** By (*), a width unit `w -> w-1` together with a local change of
+saving `S` changes `F` by at least `price - S`, exactly within the ranges:
 
-**Staging screen.** Suppose one unit `w -> w-1` is paid by removing one unit
-from a single local child (`r -> r-1`). That saves `h(r) - h(r-1) <= h(1) = 1`
-by concavity, with equality when a rank-1 child is deleted. By (*), the change
-in `F` is at least `price - 1`. The ceiling can therefore rise only if the
-price is below 1:
+- *Documented signature.* PR3605 derives the per-helper staging delta
+  `3H1 + H2 - 2H3`, i.e. `{1:+3,2:+1,3:-2}` (one pivot and two donor climbs).
+  PR3734's local change from PR3682 is the same delta (`verify.py` checks it).
+  Its saving is `2h(3) - 3 - h(2) = 0.991001081580029037511288`. The gain per
+  width unit is +0.003264300394675969421322 for 6..9,
+  -0.008998918419970962488711 for 5->4 and -0.000790287459955874210276 for
+  4->3.
+- *Rank-1 deletion (hypothetical).* A single-child decrement `r -> r-1`
+  saves `h(r) - h(r-1) <= h(1) = 1` by concavity, with equality for deleting a
+  rank-1 child. Gain at most 0.012263218814646931910033 for 6..9, 0 for 5->4
+  (in any amount) and 0.008208630960015088278435 for 4->3. No staging with this
+  compensation is known and its realization is not priced.
 
-- w in {6..9}: gain at most 0.012263218814646931910033 per helper-call. This is
-  exact within the ranges above for a rank-1 deletion.
-- w = 5: gain at most 0. Single-child-compensated 5->4 staging never raises
-  the ceiling, in any amount.
-- w = 4: gain at most 0.008208630960015088278435.
+The gap between the two is `1 - 0.991001... = 0.008998918419970962488711` per
+unit. Local rewrites that also merge children (for example PR3682's
+`{1:-2,2:-2,3:+2}`) save at zero rank change and are priced by the local term
+of (*); they are a separate local-word lever.
 
-Local rewrites that also merge or split children are priced exactly by
-`9 sum (n'_r - n_r) h(r)` in (*). They are a separate local-word lever.
+## 5. PR3682 -> staged544 split (exact at a_hi)
 
-## 5. PR3682 -> staged544 decomposition (exact at a_hi)
+At fixed `a`, `F(s, n) = 9 sum n_r h(r) + V(s) - 896 h(73)` is additively
+separable in inventory and local profile, so the 2x2 interaction is
+identically 0. `verify.py` solves all four corners exactly (each primal
+`y >= 0`, dual feasible on 2,551 patterns, enclosure gap below 1e-70). They
+share one basis, so the width part (one 8->7 per call, inside the range 30)
+equals 9 x the price:
 
-All four corners have the same optimal basis. Each primal is `y >= 0` with
-dual feasibility on 2,551 patterns, and each enclosure gap is below 1e-70.
-Because `(pi, mu)` depends only on `a`, the interaction term is exactly 0. The
-four corners are PR3682 (inventory `{...,7:52,8:97,...}`, local
-`{1:2437,2:724,3:226,...}`), width-only, local-only and staged544:
-
-- width part (one 8->7 per call): +8.889631030668177612809695088162
-  = 9 x 0.987736781185353068089966...;
+- width part: +8.889631030668177612809695088162;
 - local part: -8.919009734220261337601597266358, a saving of
   0.991001081580029037511288 per call;
 - total -0.029378703552083724791902178195, or 0.003264300394675969421322
-  per call.
+  per call (the documented-signature gain).
 
-Under the identity neither single change is realizable. The width-only change
-moves the ideal root down to about 0.0016821 and the local-only change moves it
-up to about 0.0017788 (HiGHS, float). PR3734's gain is the margin of its local
-saving over the exact width-unit price. Against the single-child reference, its
-local change gives up 0.008998918419970962488711 per call to reshaping:
-`{1:+4,2:+1,3:-2}` has zero rank change and a positive cost. That is about 73%
-of the 0.012263 available.
+Either change alone breaks the conservation. The width-only change moves the
+ideal root down to about 0.0016821 and the local-only change moves it up to
+about 0.0017788 (HiGHS, float).
 
 ## 6. Scope
 
 This is a clock-free, fractional relaxation with fixed idle bins. Sections 3 and 4
 are exact statements about it. Template, stock and clock (chronological)
-effects are not modeled. The paid-rank identity is observed, not derived. The
-first-order conversion `dF/da ~ 184132` is floating point. No kappa,
-supplier or admission claim is made.
+effects are not modeled. The conservation is observed, not derived, and the
+documented signature is observed, not proved forced. `mu` is used only as a
+subgradient bin price. The first-order conversion `dF/da ~ 184132` is floating
+point. No kappa, supplier or admission claim is made.

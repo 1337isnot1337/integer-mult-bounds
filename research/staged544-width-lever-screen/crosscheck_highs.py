@@ -3,10 +3,12 @@
 
 Patterns are generated as integer partitions (descending part lists), not by the
 count-vector recursion of verify.py. Reduction columns move one helper-call from
-width w to any width v < w at zero cost ("free") or, for the staging move w -> w-1,
-at the local entrance price h(2) - h(1) ("stage"). Prints JSON with roots and the
-positive (basic) patterns, which verify.py re-checks exactly.
-Requires numpy and scipy (see VERIFY.json requirements).
+width w to any width v < w at zero cost ("free") or, for the move w -> w-1, at
+h(2) - h(1) ("stage"). The "stage" mode is the superseded task-card model, which
+adds local rank; it is NOT the staging accounting of README/PROOF and is kept only
+as recorded output. Prints JSON with roots and the positive (basic) patterns.
+Requires numpy 2.5.4 and scipy 1.18.1 (as used for evidence/HIGHS.json); not part
+of the registered replay, see README.
 """
 import json
 import math
