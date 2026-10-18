@@ -157,21 +157,29 @@ def load_hist(obj):
     return {int(k): int(v) for k, v in obj.items()}
 
 
-def aggregate_idle(cert, inventory):
+def aggregate_idle(cert, inventory, local):
     """Recount PR3605's idle histogram from its published aggregate integer witness.
 
     Groups are [capacity, lo, hi, bins]; x rows are (group, width pattern, count);
-    z rows are (group, macro-call, width, roles).  Checks bin counts, capacities,
-    the open/closed windows as published, width supply = role flow, and the
-    per-call demand S*inventory for all 333 macro-calls.  The windows themselves
-    are taken as published, not derived from the source template.
+    z rows are (group, macro-call, width, roles).  Checks record types and ranges,
+    duplicate records, bin counts, capacities, the open/closed windows as published,
+    width supply = role flow, the per-call demand S*inventory for all 333 macro-calls,
+    the per-copy group capacity, and the witness's own inventory and profile fields
+    (the same legality checks as PR3605 owners/verify_aggregate.py, reimplemented).
+    The windows themselves are taken as published, not derived from the source template.
     """
     widths, S, groups = cert['widths'], cert['S'], cert['groups']
     need(widths == [4, 5, 6, 7, 8, 9] and S == 20 and len(cert['order']) == 333, 'aggregate shape')
-    idle, bins, supply, flow, demand = Counter(), Counter(), Counter(), Counter(), Counter()
+    need({int(w): n for w, n in cert['inventory'].items()} == inventory, 'witness inventory field')
+    idle, bins, supply, flow, demand, per_copy = (Counter() for _ in range(6))
+    seen_x, seen_z = set(), set()
     for g, pattern, n in cert['x']:
+        need(type(g) is int and 0 <= g < len(groups) and len(pattern) == 6 and type(n) is int and n > 0
+             and all(type(k) is int and k >= 0 for k in pattern), 'pattern record', g)
+        need((g, tuple(pattern)) not in seen_x, 'duplicate pattern record', g)
+        seen_x.add((g, tuple(pattern)))
         used = sum(w * k for w, k in zip(widths, pattern))
-        need(n > 0 and min(pattern) >= 0 and used <= groups[g][0] and sum(pattern) <= S, 'pattern', g)
+        need(used <= groups[g][0] and sum(pattern) <= S, 'pattern', g)
         bins[g] += n
         if used < groups[g][0]:
             idle[groups[g][0] - used] += n
@@ -179,12 +187,43 @@ def aggregate_idle(cert, inventory):
             supply[g, w] += n * k
     need(all(bins[g] == S * groups[g][3] for g in range(len(groups))), 'bin inventory')
     for g, t, w, n in cert['z']:
-        need(n > 0 and groups[g][1] < t <= groups[g][2], 'source window', g, t)
+        need(all(type(k) is int for k in (g, t, w, n)) and 0 <= g < len(groups) and 0 <= t < 333
+             and w in widths and n > 0, 'role-flow record', g, t)
+        need((g, t, w) not in seen_z, 'duplicate role-flow record', g, t, w)
+        seen_z.add((g, t, w))
+        need(groups[g][1] < t <= groups[g][2], 'source window', g, t)
         flow[g, w] += n
         demand[t, w] += n
+        per_copy[g, t] += n
     need(flow == +supply, 'pattern supply differs from role flow')
     need(all(demand[t, w] == S * inventory[w] for t in range(333) for w in widths), 'per-call width demand')
+    need(all(n <= S * groups[g][3] for (g, t), n in per_copy.items()), 'per-copy group capacity')
+    profile = Counter({r: 333 * S * n for r, n in local.items()}) + idle
+    need({int(r): n for r, n in cert['profile'].items()} == profile, 'witness profile field')
     return idle, sum(S * g[3] for g in groups), sum(S * g[3] * g[0] for g in groups)
+
+
+def relabel(hist, k):
+    """k rank-48 idle children relabelled as 48k rank-1 children (k<0: the reverse); rank mass unchanged."""
+    out = dict(hist)
+    out[48] -= k
+    out[1] += 48 * k
+    need(min(out.values()) >= 0, 'relabel exceeds the histogram')
+    return out
+
+
+def min_relabels(hist, lo_point, hi_point):
+    """Least k>0 proved to put the root below [lo_point, hi_point]: lower M_k(lo_point) > 1 while
+    upper M_(k-1)(hi_point) < 1.  M is linear in the histogram; the float guess is only a start.
+    """
+    base, one = moment(hist, lo_point)[0], moment(relabel(hist, 1), lo_point)[0]
+    k = max(1, math.ceil((1 - base) / (one - base)))
+    while moment(relabel(hist, k), lo_point)[0] <= 1:
+        k += 1
+    while k > 1 and moment(relabel(hist, k - 1), lo_point)[0] > 1:
+        k -= 1
+    need(k == 1 or moment(relabel(hist, k - 1), hi_point)[1] < 1, 'relabel threshold undecided', k)
+    return k
 
 
 def main():
@@ -208,15 +247,20 @@ def main():
     cert_path = HERE / 'inputs' / 'AGGREGATE-INTEGER-FLOW.json.gz'
     need(hashlib.sha256(cert_path.read_bytes()).hexdigest() == pins['inputs/AGGREGATE-INTEGER-FLOW.json.gz'], 'aggregate pin')
     audited_widths = {4: 26, 5: 2, 6: 18, 7: 52, 8: 97, 9: 213}   # derived from frames by verify.py
-    idle_count, bin_count, capacity = aggregate_idle(json.loads(gzip.decompress(cert_path.read_bytes())), audited_widths)
+    idle_count, bin_count, capacity = aggregate_idle(json.loads(gzip.decompress(cert_path.read_bytes())), audited_widths, local_new)
     need(idle_count == idle_new, 'aggregate witness idle histogram differs from DERIVATION.md', dict(idle_count))
     need(capacity == mass(idle_new) + CALLS * sum(w * c for w, c in audited_widths.items()), 'capacity balance')
     cert = json.loads(gzip.decompress(cert_path.read_bytes()))
+    window_cut = [row[:] for row in cert['z']]
+    j = next(j for j, row in enumerate(window_cut) if cert['groups'][row[0]][1] >= 0)
+    window_cut[j][1] = cert['groups'][window_cut[j][0]][1]           # role on the excluded lower endpoint
     for label, bad_cert, widths in (('parent widths 7:50/8:99', cert, {**audited_widths, 7: 50, 8: 99}),
                                     ('one pattern record deleted', {**cert, 'x': cert['x'][1:]}, audited_widths),
-                                    ('one role-flow record deleted', {**cert, 'z': cert['z'][1:]}, audited_widths)):
+                                    ('one pattern record duplicated', {**cert, 'x': cert['x'] + cert['x'][:1]}, audited_widths),
+                                    ('one role-flow record deleted', {**cert, 'z': cert['z'][1:]}, audited_widths),
+                                    ('role on an excluded lower window endpoint', {**cert, 'z': window_cut}, audited_widths)):
         try:
-            aggregate_idle(bad_cert, widths)
+            aggregate_idle(bad_cert, widths, local_new)
         except RootFailure:
             continue
         raise RootFailure('aggregate control accepted: ' + label)
@@ -257,17 +301,44 @@ def main():
     out['attribution'] = attribution
     out['root_delta_PR3605_minus_PR3148'] = [str(roots['PR3605'][0] - roots['PR3148'][1]),
                                              str(roots['PR3605'][1] - roots['PR3148'][0])]
-    # Sensitivity of the PR3605 root to a single idle child of rank 1 or 48 (exact brackets).
+    # Mass-changing sensitivity: one idle child added or removed (rank mass changes by r).
+    # At fixed window classes, bin counts and widths the capacity balance fixes mass(I), so
+    # these perturbations model group-geometry or width errors, not placement errors.
     sensitivity = {}
     for r in (1, 48):
         for sign in (1, -1):
             hist = dict(new)
             hist[r] += sign
             a, b = bracket(hist, 30)
-            sensitivity['%+d rank-%d child' % (sign, r)] = {
+            sensitivity['%+d rank-%d child (rank mass %+d)' % (sign, r, sign * r)] = {
                 'bracket_30_digits': [str(a), str(b)],
                 'shift_from_PR3605_lower': float(a - roots['PR3605'][0])}
-    out['single_child_sensitivity_PR3605'] = sensitivity
+    out['mass_changing_sensitivity_PR3605'] = sensitivity
+    # Mass-conserving sensitivity.  Idle ranks are capacities minus pattern widths, so lie in
+    # [1, 48] (capacities 8/16/32/48).  For a change moving m units of idle mass, linearity of M
+    # and 1 <= (73/r)^b / (73/48)^b <= 73^b / (73/48)^b give |dM(b)| <= m*(73^b-(73/48)^b)/(73*663040)
+    # at every b>0, with equality for relabel(.., m/48).  Since M increases in b, every such
+    # change leaves the root between those of relabel(.., +k) and relabel(.., -k) when m <= 48k.
+    capacities = sorted({g[0] for g in cert['groups']})
+    need(capacities == [8, 16, 32, 48] and max(idle_new) == 48, 'idle ranks within [1,48]')
+    conserving = {}
+    for k in (1, -1):
+        a, b = bracket(relabel(new, k), 30)
+        conserving['%+d relabel (rank-48 idle child <-> 48 rank-1 children)' % k] = {
+            'bracket_30_digits': [str(a), str(b)], 'shift_from_PR3605_lower': float(a - roots['PR3605'][0])}
+    move8 = dict(new)                                         # one width-8 role: full bin -> empty 48-bin
+    move8[8] += 1
+    move8[48] -= 1
+    move8[40] = 1
+    need(mass(move8) == mass(new), 'width-8 move conserves mass')
+    a, b = bracket(move8, 30)
+    conserving['one width-8 role moved from a full bin to an empty capacity-48 bin'] = {
+        'bracket_30_digits': [str(a), str(b)], 'shift_from_PR3605_lower': float(a - roots['PR3605'][0])}
+    k_gain = min_relabels(new, *roots['PR3148'])
+    k_threshold = min_relabels(new, Q(173, 100000), Q(173, 100000))
+    conserving['least relabels putting the PR3605 root below the PR3148 root'] = k_gain
+    conserving['least relabels putting the PR3605 root below 0.00173'] = k_threshold
+    out['mass_conserving_sensitivity_PR3605'] = conserving
     out['local_delta_per_call'] = {str(r): local_new[r] - local_old[r] for r in sorted(set(local_new) | set(local_old)) if local_new[r] != local_old[r]}
     out['idle_delta'] = {str(r): idle_new[r] - idle_old[r] for r in sorted(set(idle_new) | set(idle_old)) if idle_new[r] != idle_old[r]}
     encoded = json.dumps(out, indent=1, sort_keys=True) + '\n'

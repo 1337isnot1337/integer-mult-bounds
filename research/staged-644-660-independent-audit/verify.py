@@ -26,7 +26,7 @@ import sys
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
-import audit_core as C  # noqa: E402  (package-local; its bytes are authenticated in main)
+import audit_core as C  # noqa: E402  (package-local; bound by the package and commit-byte checks, not hashed here)
 from audit_core import need, AuditFailure  # noqa: E402
 
 P = [429, 30]                       # span(429,30): the new entrance and release frame

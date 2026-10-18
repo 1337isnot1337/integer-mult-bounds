@@ -31,6 +31,18 @@
       "usage": "input",
       "git_blob": "decc8f26d8aab108baf75f0d8b2d1012eb06d076",
       "sha256": "495d030f1e03b90e954dad3043994f03293d41b9ed220a3beaef849df435d3f0"
+    },
+    {
+      "path": "research/coupled-carrier-independent-audit/verify.py",
+      "usage": "provenance",
+      "git_blob": "18044e841b53b3d3779d8f7c15f19d98ba3f00fe",
+      "sha256": "59d7f658992afbcb0e86b763c07d73f706b3841f177522126cd3def5adffc41d"
+    },
+    {
+      "path": "research/rank7-coupled-586-588-carrier-fold/vendor/audit_local.py",
+      "usage": "provenance",
+      "git_blob": "8224873d0497cf0b4c202f31b145fa273553d978",
+      "sha256": "a38940094f7d19cd6376aafdd4734fa68eabc9aff4c98c3c4a3e9540328b1c90"
     }
   ],
   "snapshot": [
@@ -139,7 +151,23 @@
       "git_blob": "aa3d8e87fc139d636cd19eaa4cd375fca2c780cf",
       "sha256": "338165d75d87a1a576750ec92772640e641bc91076e91b686d8ec7ad6f9d6d19",
       "usage": "identity of the main-branch input with its predecessor head"
+    },
+    {
+      "source_path": "research/staged-644-660-width-reduction/check_residual.py",
+      "source_commit": "3efbb5de06a49ffeea6684482f2d3fe48cdca3fb",
+      "source_pr": 3605,
+      "git_blob": "7e75bde5b4c3a0d345b89e71631abeb9994781ec",
+      "sha256": "e34b06ae725f062d15ad83cbd3ef2f91d3d78c380ccc93c8d2deba1c9e354c70",
+      "usage": "cited for the native rank-7 residual identity, which this package does not check; not imported or executed"
+    },
+    {
+      "source_path": "research/staged-644-660-conditional-release/owners/verify_aggregate.py",
+      "source_commit": "3efbb5de06a49ffeea6684482f2d3fe48cdca3fb",
+      "source_pr": 3605,
+      "git_blob": "a5e828b6de7eb691e94eec1ee52ea47fd9a2971f",
+      "sha256": "c10a0eb62799f73dd577a5bec86e91b0124ec8b2cdf95bd68807299cf1521866",
+      "usage": "read for the aggregate-witness legality checks that root.py reimplements; not imported or executed"
     }
   ],
-  "snapshot_provenance": "Exact Git blob bytes of PR3605 head 3efbb5de (unmerged at base 20ecf289); verify.py authenticates them by SHA256. The PR3133 parent words and PR3148 claim are read from main and pinned in files."
+  "snapshot_provenance": "Exact Git blob bytes of PR3605 head 3efbb5de (unmerged at base 20ecf289); verify.py authenticates them by SHA256. The PR3133 parent words and PR3148 claim are read from main and pinned in files. Provenance rows: Arham Tahir's coupled-carrier-independent-audit/verify.py, whose frame-bill and free-word structure audit_core.py re-implements without importing; and the inherited auditor audit_local.py, which only the optional crosscheck_inherited.py executes (it also checks this SHA256 itself)."
 }

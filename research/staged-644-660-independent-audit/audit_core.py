@@ -1,8 +1,13 @@
 """Independent exact semantics and binary-frame bill for the BORROW-WORD format.
 
-Standard library only. No predecessor evaluator, producer, cleanup generator or
-frame solver is imported; the word format and its semantic contract were read
-from the pinned PR3133/PR3605 sources and are credited there.
+Standard library only. Nothing is imported from the audited authors' code
+(PR3133/PR3605 producers, cleanup generator, evaluator or frame solver); the word
+format and its semantic contract were read from those pinned sources and are
+credited there.  The frame-bill and free-word structure (point-set spans, warp
+frame and lifted-frame checks, target levels keyed by register, dual symbol
+naming) re-implements, without importing, Arham Tahir's
+research/coupled-carrier-independent-audit/verify.py (Apache-2.0) and shares its
+reading of the contract, so this module is not independent of that audit.
 
 Sagar Thakrar (thakrarsagar), with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). Apache-2.0.
@@ -89,7 +94,9 @@ def lagrangian_action_ok(images, U, E):
     """K_G(x,z)=(Gx, Gx+G^{-T}(x+z)) is symplectic and maps L_U to L_E, L_0 and L_FULL to themselves.
 
     L_U={(x,x+p): x in U, p in U^perp}.  This is the binary frame action only; it
-    is not a Clifford phase or Gaussian-product certificate.
+    is not a Clifford phase or Gaussian-product certificate.  For invertible G with
+    G(U)=E it is implied by the frame-map check (<G^-T p, Gu> = <p, u>), so it is a
+    consistency check of the implementation, not extra evidence.
     """
     inverse = [0] * 512
     for x, y in enumerate(images):
