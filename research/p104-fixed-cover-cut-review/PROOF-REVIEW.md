@@ -29,7 +29,9 @@ proves no P104 impossibility outside the stated contract.
    unsupported**, with at least one in every row and every column. PR3259's
    relaxation grants 10,815 source/target pairs, against 2,310 for the sharp
    criterion. "Exactly one missing coefficient" describes PR3259's test, not the
-   contract.
+   contract. PR3259 itself says that passing its test is not a realization.
+   What is new here is that the same contract excludes 2,681 of the entries
+   that pass.
 3. Consequently the fixed-cover contract is closed by a much larger obstruction
    than one coefficient. A contract change that only reopens `C[71,102]` does
    not complete the correction. Examples are PR3427's rank-one source shear, a
