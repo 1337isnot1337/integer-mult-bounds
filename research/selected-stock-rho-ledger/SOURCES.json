@@ -45,6 +45,12 @@
       "sha256": "ccf34a6d37c4af14bebeab15be50ab204eb1caebe546385520050ec30089441d"
     },
     {
+      "path": "research/bit2234-stock-threshold/README.md",
+      "usage": "provenance",
+      "git_blob": "ede0d322c477af91d4c2cc33db0fd10958f45eab",
+      "sha256": "1e050c9f963421d751d9208092f9a15321ed77810e03912df8eb5eb56bbb06e7"
+    },
+    {
       "path": "research/community-frontier1094-audit/ASSEMBLY.json",
       "usage": "input",
       "git_blob": "5fd676df060f3b450782fdf5ff5f6beb63a5eeb0",
@@ -69,16 +75,46 @@
       "sha256": "4bf6768224a3fac81ccda26df24f3763f9a4fbc35ad62bef2888595cdae519fe"
     },
     {
+      "path": "research/physical-complex-controller/EVIDENCE.md",
+      "usage": "provenance",
+      "git_blob": "e71b5fbc4d867572695e52a1b10aa8aa074b837d",
+      "sha256": "24b50eaa5dc28570d7118703cd3547c8232e56231f3fc5ca05e19ab116678370"
+    },
+    {
       "path": "research/physical-complex-controller/PROOF.md",
       "usage": "provenance",
       "git_blob": "c505caecc7ced19a4efc35c423efedda9427bea5",
       "sha256": "471185621c0ecce295ffd327b1244aed234efe5ff05a804aaaa11316f1a8319e"
     },
     {
+      "path": "research/physical-complex-controller/check_monomial.py",
+      "usage": "provenance",
+      "git_blob": "0369562c62d0c79c41a7ebed7a0e7b894908f4b1",
+      "sha256": "a301d39afb7475615716e2426c3df8fe0f6e8fa710c13f70ecb2a9026f52cd6d"
+    },
+    {
+      "path": "research/physical-ordinary-interchange/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "12be1f06062090fcc68e598bae250f185e3d8524",
+      "sha256": "8a1c2145cd8f080026488a571d95813c09679aa323f19aeaef0ea98030136e1c"
+    },
+    {
       "path": "research/physical-ordinary-interchange/README.md",
       "usage": "provenance",
       "git_blob": "66e3e174a890fd731a7562fec5358400534ea75b",
       "sha256": "dec1ca108a1dbd2d81df6f18d4e75040ce7538c804ed697478ae360af8f6b86a"
+    },
+    {
+      "path": "research/physical-ordinary-interchange/inputs/pr2809.tar",
+      "usage": "provenance",
+      "git_blob": "21ff4b5b9942dbc82b60b4546d39785daa22ba86",
+      "sha256": "ee1d4ec05e3c872d264be3b38f71a8c153acf37427f5d3ba87f8e15440c9ccf0"
+    },
+    {
+      "path": "research/physical-ordinary-interchange/ordinary.py",
+      "usage": "provenance",
+      "git_blob": "81b330a4b886a0f4deab7b0811478bab3fbc107a",
+      "sha256": "7f8338e748bcd42fbef1e7cc47b6c5040dfb3aad216e34759bcb12b8e14f7705"
     },
     {
       "path": "research/selected-bit-parent-reserve/README.md",

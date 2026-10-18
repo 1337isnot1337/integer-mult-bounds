@@ -69,8 +69,9 @@ source text, not typed in. Nothing from the repository is imported or executed.
    internal borrowed stock.
 6. **The selected complex layer's only row stock is its own divisor.** Jose
    Manuel's PR2287 (`selected-complex-layer-closure/PROOF.md`) is the written
-   all-size m=73 layer. PR3385 implements it physically; that archive has had
-   intake checks only, with no scientific verifier run. PR2287 sets
+   all-size m=73 layer. PR3385 implements it physically; the PR ledger records
+   intake checks only for that archive, with no scientific verifier run. A
+   local replay is in "PR3385 replay and B1's fit". PR2287 sets
    `W = 14336` and `L = W·|O(73,2)|`. Its only row stock is `L^D0(d)`, taken
    from a prefix of `q0 = ceil(log2 L)·D0(d)` chunks. A child receives `U`
    with `L^D0(e') | U`, and "a completed child restores its own row labels".
@@ -185,6 +186,52 @@ So this package's m=73 sigma is a consistency bound, not an obligation of
 the selected record. The H3 envelope the record needs belongs to the bit
 producer, for example PR2084's conditional 8194.
 
+## PR3385 replay and B1's fit
+
+This is local evidence, outside this package's verifier. It was run with
+Python 3.12.10 on Windows 11 at `2b4a97e`. PR3385's 38 package files there
+have the same Git blobs as its head `7e5a187`.
+
+- **The registered replay fails on Windows only.** It stops in the second
+  check. The cause is a frozen predecessor verifier: member
+  `inputs/pr2753/verify.py` of
+  `research/physical-ordinary-interchange/inputs/pr2809.tar` (L72–75). It
+  compares `str(path.relative_to(...))` with `/`-separated names. On Windows
+  that string uses `\`, so it raises "no omitted or extra predecessor files".
+  This is a portability issue, not a mathematical failure.
+- **With a local path shim, all three suites pass.** The shim only makes
+  relative paths print with `/`. It is not part of this package, and the run
+  is not the registered replay.
+  - The `sources`, `execution` and `planning` suites print their PASS
+    markers, over 16 checks.
+  - All nine receipt hashes in PR3385's `EVIDENCE.md` (L17–25) match.
+  - The fixtures reach only B1's elementary branch (`check_monomial.py`
+    L66–67).
+  - On this laptop the `execution` suite took 727 s, longer than its
+    registered 420 s timeout.
+- **B1 borrows only on very wide compact fields.**
+  - The adapters call B1 only on compact fields of width `nG`, with
+    `n = f-1` (PR2250 `PROOF.md` L20, L73–74).
+  - B1 turns `b` bits into `e = ceil(b/log2 q)` radix-q digits (PR2234
+    `PROOF.md` L412–413).
+  - B1 runs its fitted branch only if `2k < e` and the body has at least 64
+    atoms (PR2899 `PROOF.md` L71–78).
+  - At `q* = 213·2^80+1` (PR3385 `PROOF.md` L43), `k < e/2` holds for
+    every `e >= 311311` and fails at `e = 311310`
+    (`bit2234-stock-threshold/README.md` L34–35, L137–140).
+  - So B1 is fitted when `(f-1)G >= bitlength(q*^311310) = 27,312,693`
+    bits. Below that it runs its elementary branch, as PR2234 (L408–410),
+    PR2899 (L80–85) and PR3385 (`PROOF.md` L185–186) say.
+  - The widths can only reach that size when the precision p is at least
+    19,782,090. This uses `f = floor(e/73)` (PR2287 L159–160), plus
+    `d = floor(p^(997/1000))` and `D <= d` (PR3385 `PROOF.md` L9–10).
+  - A local exact-integer check, not part of this package, confirms these
+    numbers. It also finds no fitted width below 311311 at q*.
+- **Neither branch takes row stock from the caller.** The fitted branch
+  borrows `k` leading digits of its own earlier chunk (PR2234 L382–388). The
+  elementary branch is one atom swap over `Z/q^e` (PR2899 `ordinary.py`
+  L106–114). So `rho = 0` is unaffected.
+
 ## Controls
 
 Each of these must be rejected:
@@ -217,9 +264,11 @@ Each of these must be rejected:
   a scoped review of written constructions with passing replays. None is an
   executed GL64 or O(73,2) machine or a formal proof. PR2234 itself says
   "Independent mathematical review remains necessary" (PROOF.md L432).
-- PR3385, the physical controller, is only `partially_reviewed`: source-only
-  archival intake with no scientific verifier run. So are #3113 (B) and
-  #3421 (`A = 0`).
+- PR3385, the physical controller, is only `partially_reviewed` in the PR
+  ledger, after source-only archival intake. The local Windows run in "PR3385
+  replay and B1's fit" used a path shim. It is not the registered replay and
+  not an independent review of PR3385's refinement. #3113 (B) and #3421
+  (`A = 0`) are also only `partially_reviewed`.
 - No physical O(73,2)/GL64 payload has been run by those sources or by this
   package.
 - The PR2084 coefficient is used as that package's conditional result, not
@@ -238,16 +287,11 @@ The earlier second question, covering all fourteen stages, is answered in
 "What follows for `rho`". The earlier third question, about the external
 ledger, is answered in "What the 9909 and 252 slots pay for". The previous
 version's second question, whether an H3 envelope applies to the complex
-layer at all, is answered in "Where the H3 fit applies": it does not.
+layer at all, is answered in "Where the H3 fit applies": it does not. The
+previous version's first question, a replay of PR3385 and B1's fit at the
+compact widths, is answered in "PR3385 replay and B1's fit".
 
-1. **A source-bound replay of PR3385.** `rho = 0` uses written constructions
-   that have had a scoped review: PR2287's layer and the PR2234/PR2899 B1
-   callee. PR3385 is the physical controller that binds the compact
-   adapters to B1/C0, and its ledger entry still asks for "independent
-   scientific review and source-bound replay". First step: run its
-   registered replay (Python 3.12). Then check B1's borrowing fit `k < e/2`
-   at the compact-field widths where PR3385's adapters call it.
-2. **The 1024 prefix term.** It is bound here only to the invoice
+1. **The 1024 prefix term.** It is bound here only to the invoice
    (`2·512`). This package does not trace which construction step uses it.
 
 ## Credit
@@ -263,6 +307,8 @@ layer at all, is answered in "Where the H3 fit applies": it does not.
   of the 18355 formula.
 - Josie Elliston (PR1965) and ToikY (`selected-bootstrap-stock-audit`)
   supplied the stage receipt and guard.
+- Aakash (`bit2234-stock-threshold`) proved the sharp 311311 borrowing-fit
+  cutoff that the B1 threshold uses.
 - philippeVV (Discussion #1166, comment 18932239) independently named the
   PR589 BIT, not the m=73 supplier, as the stopped producer, minutes after
   PR2084 opened.

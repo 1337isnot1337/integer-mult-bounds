@@ -68,16 +68,10 @@
   "budget_minutes": 90,
   "stop_rule": "Stop once each ledger term is bound to source and every callee of the selected complex layer is classified from pinned source; do not re-derive the completed-callee proofs themselves.",
   "outcome": "partial",
-  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and six provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62.",
+  "evidence": "verify.py: 62 exact checks over 15 pinned inputs plus three PR1087 tarball members (and twelve provenance pins), and 16 mutation controls that must each be rejected. Marker PASS_SELECTED_STOCK_RHO_LEDGER ... L_bits=2642 S_leaf=1 ... stages=14 H_min=6562783 lean_row=6308 qadic_bit_row>=655356>20161 controls=16 checks=62. Local evidence outside verify.py (README, \"PR3385 replay and B1's fit\"): PR3385's registered replay fails on Windows only, at the frozen PR2753 verifier's path-separator check; with a local relative-path shim, which is not the registered replay, all three suites pass and all nine EVIDENCE.md receipt hashes match. B1 is fitted only at compact width (f-1)G >= 27,312,693 bits at q*, and elementary below that; neither branch takes caller row stock.",
   "author": "Mainzu",
   "ai_assistance": "Substantial assistance from Claude Code (Anthropic, Claude Opus 5.5) for source search, the verifier and drafting; no independent human review is claimed.",
   "open_questions": [
-    {
-      "question": "Does a source-bound replay of PR3385 confirm the physical binding of the compact adapters to B1/C0, and does B1's borrowing fit k < e/2 hold at the compact-field widths where those adapters call it?",
-      "why_it_matters": "rho = 0 uses written constructions incorporated after scoped review (PR2287, PR2250, PR2234, PR2899); PR3385, which binds them physically, has had source-only archival intake.",
-      "first_step": "Run PR3385's registered replay on Python 3.12, then compare B1's fit threshold with the (f-1)G-bit compact-field pieces.",
-      "blocked_by": "Nothing technical; the registered replay needs Python 3.12."
-    },
     {
       "question": "Which construction step uses the 1024 = 2*512 prefix term of the complex row?",
       "why_it_matters": "It is the one ledger term this package binds only to the invoice.",
