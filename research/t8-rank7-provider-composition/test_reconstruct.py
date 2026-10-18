@@ -11,7 +11,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import reconstruct as r  # noqa: E402 - isolated-script bootstrap
 
-ROOT = Path(os.environ.get("T16_RESEARCH_ROOT", r.HERE / "source-inputs")).resolve()
+ROOT = Path(os.environ.get("T8_RESEARCH_ROOT", r.HERE / "source-inputs")).resolve()
 
 
 class CertificateControls(unittest.TestCase):
@@ -28,9 +28,9 @@ class CertificateControls(unittest.TestCase):
             r.reconstruct(ROOT, certificate=cert)
 
     def test_positive_literal_and_both_provider_contract(self):
-        self.assertEqual(len(self.rows), 58752)
-        self.assertEqual(self.audit["rank_mass"], 1041408)
-        self.assertEqual(self.audit["idle"], {1: 4147, 2: 110, 3: 1091, 5: 456, 8: 2, 48: 6078})
+        self.assertEqual(len(self.rows), 29376)
+        self.assertEqual(self.audit["rank_mass"], 520704)
+        self.assertEqual(self.audit["idle"], {1: 1964, 3: 534, 5: 172, 7: 2, 48: 3050})
 
     def test_duplicate_and_missing_flow(self):
         self.rejected(lambda c: c["flow"].append(c["flow"][0][:]), "duplicate flow")
@@ -60,7 +60,7 @@ class CertificateControls(unittest.TestCase):
             groups = sorted(grouped)
             for row in c["flow"]:
                 group = c["allocation"][row[0]][0]
-                bad = next((t for t in range(144) if t not in groups[group][1]), None)
+                bad = next((t for t in range(72) if t not in groups[group][1]), None)
                 if bad is not None:
                     row[1] = bad
                     return
@@ -69,7 +69,7 @@ class CertificateControls(unittest.TestCase):
         self.rejected(change, "flow outside window")
 
     def test_literal_time_width_and_family_controls(self):
-        for field, value in [("time", 143), ("width", 10), ("family", 16 * 896)]:
+        for field, value in [("time", 71), ("width", 10), ("family", 8 * 896)]:
             rows = copy.deepcopy(self.rows)
             rows[0][field] = value
             with self.assertRaises(self.auditor.Reject):
@@ -80,7 +80,7 @@ class CertificateControls(unittest.TestCase):
                     rows,
                     self.plan,
                     self.audit["idle"],
-                    16,
+                    8,
                 )
 
     def test_local_source_corruption_precedes_reconstruction(self):
@@ -94,13 +94,52 @@ class CertificateControls(unittest.TestCase):
 
     def test_modern_two_provider_dispatch(self):
         fill, order, dispatch, audit = r.modern_inputs(ROOT, self.rows, self.plan)
-        self.assertEqual(len(fill["rows"]), 58752)
+        self.assertEqual(len(fill["rows"]), 29376)
         self.assertEqual(dispatch[0], [0, 0, "extra"])
         self.assertTrue(all(row[2] == "gauge44" for row in dispatch[1:]))
         bad = copy.deepcopy(self.rows)
         bad[0]["width"] += 1
         with self.assertRaisesRegex(ValueError, "actual provider width"):
             r.modern_inputs(ROOT, bad, self.plan)
+
+    def test_fixed_replica_and_source_projection_controls(self):
+        source = r.read(r.HERE / "PLAN-3413.json")
+        mutations = [
+            (lambda plan: plan["order"].pop(), "call inventory"),
+            (lambda plan: plan["order"][0].__setitem__(1, 8), "call inventory"),
+            (lambda plan: plan["order"][0].__setitem__(1, False), "integer T8 calls"),
+            (lambda plan: plan.__setitem__("T", 16), "fixed T8 geometry"),
+            (lambda plan: plan.__setitem__("T", 8.0), "integer geometry"),
+        ]
+        for change, message in mutations:
+            with self.subTest(message=message):
+                plan = copy.deepcopy(self.plan)
+                change(plan)
+                with self.assertRaisesRegex(ValueError, message):
+                    r.projected_order(source, plan)
+        plan = copy.deepcopy(self.plan)
+        second = next(i for i, call in enumerate(plan["order"]) if call == [1, 0])
+        plan["order"][0], plan["order"][second] = (
+            plan["order"][second],
+            plan["order"][0],
+        )
+        with self.assertRaisesRegex(ValueError, "retained-replica projection"):
+            r.projected_order(source, plan)
+
+    def test_retained_t8_window_is_rederived(self):
+        plan = copy.deepcopy(self.plan)
+        key = next(iter(plan["windows"]))
+        plan["windows"][key][1].append(71)
+        with self.assertRaises(self.auditor.Reject):
+            self.auditor.audit(
+                self.geo,
+                self.widths,
+                self.local,
+                self.rows,
+                plan,
+                self.audit["idle"],
+                8,
+            )
 
     def test_duplicate_json_key(self):
         with self.assertRaisesRegex(ValueError, "duplicate JSON key"):

@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Reconstruct the literal T16 candidate and replay its complete finite admission."""
+"""Reconstruct the literal T8 candidate and replay its complete finite admission."""
 import argparse
 from fractions import Fraction
 import hashlib
@@ -12,8 +12,8 @@ import tempfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-KAPPA = Fraction('0.001727254340596650594393') - Fraction(1, 10**46) - Fraction(1, 10**70)
-BASELINE = Fraction('0.001727153212938552593775') - Fraction(1, 10**46) - Fraction(1, 10**70)
+KAPPA = Fraction('0.001728992447095271166656') - Fraction(1, 10**46) - Fraction(1, 10**70)
+BASELINE = Fraction('0.001727254340596650594393') - Fraction(1, 10**46) - Fraction(1, 10**70)
 
 
 def need(value, message):
@@ -46,29 +46,29 @@ def verify(work, main_files):
          'complete admission required')
     need(release['status'] == 'PASS_RELEASE', 'complete release required')
     need(Fraction(result['kappa']) == Fraction(release['kappa_decimal']) == KAPPA > BASELINE,
-         'exact scoped T16 gain')
+         'exact scoped T8 gain')
     need(hashlib.sha256(release_path.read_bytes()).hexdigest()
          == result['release_receipt_sha256'], 'release receipt binding')
     invoice = read(admission / 'discovery/global/audit/PREFIX-AND-INVOICE.json')
-    need(invoice['private_zero_buffers'] == 91 and invoice['physical'] == 14845,
+    need(invoice['private_zero_buffers'] == 91 and invoice['physical'] == 7677,
          'fully charged private buffers and physical families')
     need(invoice['physical_stock_identity'] == {
-        'data_and_owner_families': 14336, 'local_helpers': 408,
+        'data_and_owner_families': 7168, 'local_helpers': 408,
         'private_centres': 8, 'private_zero_buffers': 91, 'coefficient_work': 2},
          'physical stock decomposition')
     expected = read(HERE / 'EXPECTED.json')
     profile = read(work / 'allocation/MODERN-OWNER-AUDIT.json')['profile']
     need(profile == expected['profile'], 'literal paid profile')
     need(all(stage['exit_code'] == 0 for stage in result['stages']), 'all stages completed')
-    receipt = {'status': 'PASS_T16_RANK7_PROVIDER_COMPOSITION', 'kappa': str(KAPPA),
-               'kappa_decimal': result['kappa_decimal'], 'baseline_pr': 3457,
+    receipt = {'status': 'PASS_T8_RANK7_PROVIDER_COMPOSITION', 'kappa': str(KAPPA),
+               'kappa_decimal': result['kappa_decimal'], 'baseline_pr': 3465,
                'baseline_kappa': str(BASELINE), 'gain': str(KAPPA - BASELINE),
-               'replicas': 16, 'calls': 144, 'helpers_per_call': 408,
-               'roles': 58752, 'profile': profile,
+               'replicas': 8, 'calls': 72, 'helpers_per_call': 408,
+               'roles': 29376, 'profile': profile,
                'release_receipt_sha256': result['release_receipt_sha256'],
                'source_manifest_sha256': result['source_manifest_sha256'],
                'native_receipt_sha256': result['native_receipt_sha256'],
-               'scope': 'Complete conditional finite T16 admission and modern outer arithmetic. '
+               'scope': 'Complete conditional finite T8 admission and modern outer arithmetic. '
                         'Both native providers reused from authenticated prior fresh executions. '
                         'Below the T740 frontier; inherited all-size assumptions remain.'}
     (work / 'RESULT.json').write_text(json.dumps(receipt, indent=2) + '\n')
@@ -81,7 +81,7 @@ def main():
     parser.add_argument('--main-files', type=Path, default=ROOT)
     args = parser.parse_args()
     if args.work is None:
-        parent = Path(tempfile.mkdtemp(prefix='t16-rank7-', dir=os.environ.get('TMPDIR')))
+        parent = Path(tempfile.mkdtemp(prefix='t8-rank7-', dir=os.environ.get('TMPDIR')))
         work = parent / 'run'
     else:
         work = args.work.resolve()

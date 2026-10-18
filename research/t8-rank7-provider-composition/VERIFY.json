@@ -542,7 +542,7 @@
         "{package}/reconstruct.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Authenticate literal sources and bothactualproviderframes; verify integerflows, edgecoloring, all58752owners, modern sourcewindows, bothproviderdispatch and expectedcompleteprofile."
+      "checks": "Authenticate literal sources and bothactualproviderframes; verify integerflows, edgecoloring, all29376owners, modern sourcewindows, bothproviderdispatch and expectedcompleteprofile."
     },
     {
       "argv": [
@@ -564,7 +564,7 @@
         "{package}/test_reconstruct.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Nine behavioral groups reject malformedcounts, duplicate/missingflows, windowfaults, actualownerfaults, sourcecorruption and providerwidth mismatch."
+      "checks": "Eleven behavioral groups reject malformedcounts, duplicate/missingflows, windowfaults, actualownerfaults, sourcecorruption and providerwidth mismatch."
     },
     {
       "argv": [
@@ -576,7 +576,7 @@
         "{package}/test_reconstruct.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Repeat ninebehavioralgroups underoptimizedPython; explicit scientific source/flow/owner checks remainactive."
+      "checks": "Repeat eleven behavioralgroups underoptimizedPython; explicit scientific source/flow/owner checks remainactive."
     },
     {
       "argv": [

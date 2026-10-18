@@ -11,3 +11,9 @@ This descendant improves the allocation of PR3457 while preserving its current r
 New work is the six-width chronological allocation certificate, its source-bound deterministic reconstruction, compact-helper correspondence, and combination of these existing scientific interfaces. Solver discovery is not part of verification. No private optimizer, orchestration script, or research notebook is required for replay.
 
 PR3457, exact head `e47d1dd9e38241b902545dbc41d1bbe7fa0c4bcd`, supplies the complete prior composition, scientific reconstructor, source-closed replay and preserved native-cache provenance. The present increment is the two-pattern bounded allocation repair and its exact paid-profile gain. PR3361 supplies the high-precision current-word cap interval used only for the reported comparison ratio. All preceding credits remain applicable.
+
+## T8 descendant
+
+PR3465 (52c8434c4b184dbbd3e080aff43b0a9714fe8bf1) supplies the immediate scientific package and complete T16 construction. This descendant changes the replica architecture and its allocation, while retaining PR3413 chronology ancestry, PR3133 current native providers, and the inherited admission/source materializer unchanged except fixed-T8 expected bindings. The native cache remains explicitly attributed to prior fresh PR3148 execution.
+
+T8 itself is prior art: `research/gauge44-slots-arcflow`, `gauge44-slots-deepen-arcflow`, `gauge44-slots-balance-arcflow`, and `gauge44-slots-t16-arcflow` retain older eight-replica constructions and comparisons (including the PR1005/PR1018 480-helper ancestry). This contribution claims the actual current 408-helper supplier composition, projected schedule and complete new allocation/admission, not the first eight-replica architecture.

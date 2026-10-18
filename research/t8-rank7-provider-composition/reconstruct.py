@@ -97,15 +97,64 @@ def sources(root, package=HERE):
     return auditor, geometry, inventories[0][0], Counter(inventories[0][1])
 
 
+def projected_order(source, plan):
+    """Bind this fixed T8 construction to replicas 0..7 of the retained T16 order."""
+    need(
+        all(
+            isinstance(call, list)
+            and len(call) == 2
+            and all(type(value) is int for value in call)  # noqa: E721 - reject bool
+            for call in source["order"]
+        ),
+        "integer source calls",
+    )
+    original = [tuple(call) for call in source["order"]]
+    need(
+        source["T"] == 16
+        and len(original) == 144
+        and set(original) == {(s, r) for s in range(9) for r in range(16)},
+        "retained T16 inventory",
+    )
+    need(
+        all(
+            [s for s, r in original if r == owner] == list(range(9))
+            for owner in range(16)
+        ),
+        "retained source progression",
+    )
+    need(
+        all(type(plan[key]) is int for key in ("T", "M", "L", "live")),  # noqa: E721
+        "integer geometry",
+    )
+    need(
+        (plan["T"], plan["M"], plan["L"], plan["live"]) == (8, 73, 9, 7168),
+        "fixed T8 geometry",
+    )
+    need(
+        all(
+            isinstance(call, list)
+            and len(call) == 2
+            and all(type(value) is int for value in call)  # noqa: E721 - reject bool
+            for call in plan["order"]
+        ),
+        "integer T8 calls",
+    )
+    order = [tuple(call) for call in plan["order"]]
+    need(
+        len(order) == 72 and set(order) == {(s, r) for s in range(9) for r in range(8)},
+        "complete T8 call inventory",
+    )
+    need(
+        order == [call for call in original if call[1] < 8],
+        "retained-replica projection",
+    )
+    return order
+
+
 def reconstruct(root, package=HERE, certificate=None):
     auditor, geometry, widths, local = sources(root, package)
-    plan = read(package / "PLAN-3413.json")
-    order = [tuple(x) for x in plan["order"]]
-    need(
-        len(order) == 144
-        and set(order) == {(s, r) for s in range(9) for r in range(16)},
-        "call inventory",
-    )
+    plan = read(package / "PLAN-T8.json")
+    order = projected_order(read(package / "PLAN-3413.json"), plan)
     spans, positions = auditor.windows(geometry, order)
     grouped = defaultdict(list)
     for (owner, child), (lo, hi) in spans.items():
@@ -121,11 +170,11 @@ def reconstruct(root, package=HERE, certificate=None):
         for (capacity, times), keys in sorted(grouped.items())
     ]
     need(
-        len(groups) == 144 and all(len(keys) == 2 for _, _, keys in groups),
+        len(groups) == 72 and all(len(keys) == 2 for _, _, keys in groups),
         "window groups",
     )
     # Distinct eligible children at one call cannot alias one physical family.
-    for t in range(144):
+    for t in range(72):
         eligible = [
             (o, geometry["place"][c])
             for _, times, keys in groups
@@ -134,7 +183,7 @@ def reconstruct(root, package=HERE, certificate=None):
         ]
         need(len(eligible) == len(set(eligible)), "eligible physical-family alias")
     cert = read(package / "CERTIFICATE.json") if certificate is None else certificate
-    need(cert["schema"] == "t16-rank7-pattern-flow-v1", "certificate schema")
+    need(cert["schema"] == "t8-rank7-pattern-flow-v1", "certificate schema")
     patterns, allocation, flow = (cert[k] for k in ("patterns", "allocation", "flow"))
     need(
         1 <= len(patterns) <= 100 and len(allocation) <= 2000 and len(flow) <= 30000,
@@ -148,19 +197,19 @@ def reconstruct(root, package=HERE, certificate=None):
         need(sum(w * n for w, n in zip(WIDTHS, counts)) <= capacity, "overfull pattern")
     bins, occupied = Counter(), set()
     for g, p, count in allocation:
-        integer(g, 0, 143)
+        integer(g, 0, 71)
         integer(p, 0, len(patterns) - 1)
         integer(count, 1, 224)
         need((g, p) not in occupied, "duplicate pattern allocation")
         occupied.add((g, p))
         need(groups[g][0] == patterns[p][0], "allocation capacity")
         bins[g] += count
-    need(all(bins[g] == 224 for g in range(144)), "group bin inventory")
+    need(all(bins[g] == 224 for g in range(72)), "group bin inventory")
     demands, supplies, degrees, seen = Counter(), Counter(), Counter(), set()
     by_allocation = defaultdict(lambda: defaultdict(lambda: [0] * 6))
     for a, t, k, n in flow:
         integer(a, 0, len(allocation) - 1)
-        integer(t, 0, 143)
+        integer(t, 0, 71)
         integer(k, 0, 5)
         integer(n, 1, 224)
         need((a, t, k) not in seen, "duplicate flow")
@@ -173,7 +222,7 @@ def reconstruct(root, package=HERE, certificate=None):
         need(degrees[a, t] <= count, "one call exceeds pattern bin count")
         by_allocation[a][t][k] = n
     need(
-        all(demands[t, k] == INVENTORY[k] for t in range(144) for k in range(6)),
+        all(demands[t, k] == INVENTORY[k] for t in range(72) for k in range(6)),
         "per-call width demand",
     )
     need(
@@ -187,7 +236,7 @@ def reconstruct(root, package=HERE, certificate=None):
     coloring = module("rank7_coloring", package / "coloring.py")
     available = {
         (t, k): deque(h for h, width in enumerate(widths) if width == w)
-        for t in range(144)
+        for t in range(72)
         for k, w in enumerate(WIDTHS)
     }
     rows, used = [], Counter()
@@ -226,7 +275,7 @@ def reconstruct(root, package=HERE, certificate=None):
         geometry["rank"][c] - used_width[o, c, p] for o, c in spans for p in range(112)
     )
     idle.pop(0, None)
-    audit = auditor.audit(geometry, widths, local, rows, plan, idle, 16)
+    audit = auditor.audit(geometry, widths, local, rows, plan, idle, 8)
     expected = read(package / "EXPECTED.json")
     need(
         hashlib.sha256(canonical(rows)).hexdigest()
@@ -283,14 +332,14 @@ def modern_inputs(root, rows, plan):
             "actual provider width order",
         )
     result, _, _ = engine.check(
-        16, order, fill, dispatch, None, sourceplan, template, providers
+        8, order, fill, dispatch, None, sourceplan, template, providers
     )
     opposite = {
         call: "gauge44" if name == "extra" else "extra"
         for call, name in dispatch.items()
     }
     other, _, _ = engine.check(
-        16, order, fill, opposite, None, sourceplan, template, providers
+        8, order, fill, opposite, None, sourceplan, template, providers
     )
     need(result["profile"] == other["profile"], "both-provider finite profile")
     expected = read(HERE / "EXPECTED.json")
@@ -310,7 +359,7 @@ def main():
     rows, plan, audit = reconstruct(args.root.resolve())
     fill, order, dispatch, modern = modern_inputs(args.root.resolve(), rows, plan)
     if args.output is None:
-        print("PASS_T16_RANK7_PATTERN_RECONSTRUCTION", audit["roles"])
+        print("PASS_T8_RANK7_PATTERN_RECONSTRUCTION", audit["roles"])
         return
     args.output.mkdir(parents=True, exist_ok=False)
     (args.output / "OWNERS.json.gz").write_bytes(
@@ -322,7 +371,7 @@ def main():
     (args.output / "ORDER.json").write_bytes(canonical(order))
     (args.output / "DISPATCH.json").write_bytes(canonical(dispatch))
     (args.output / "MODERN-OWNER-AUDIT.json").write_bytes(canonical(modern))
-    print("PASS_T16_RANK7_PATTERN_RECONSTRUCTION", audit["roles"])
+    print("PASS_T8_RANK7_PATTERN_RECONSTRUCTION", audit["roles"])
 
 
 if __name__ == "__main__":

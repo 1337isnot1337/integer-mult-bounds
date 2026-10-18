@@ -16,6 +16,8 @@ def prices(root, profile):
         root / "research/frontier1094-idle-star-ceiling/analyze.py",
     )
     engine.ROOT = root
+    engine.W = 896 * 8
+    engine.DEFICIT = 320 * 8
     engine.ENGINE_ROOT = (
         root / "research/complex-k492-owner-repair/vendor/multicold/engines"
     )
