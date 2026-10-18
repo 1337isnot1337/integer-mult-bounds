@@ -22,14 +22,18 @@
   "files_sha256": {
     "PREDECESSORS.json": "49323afbedf803cdefda273bd91609209f03d9dc255ab0017be2de23bbacd672",
     "PROOF.md": "17ae621b09e6615765554af1230609fd72bf2183b5388d3ba850c5e8b59d77b6",
-    "README.md": "f3bebd023b68984c40a424de5b82a006fe206f839c8db821520d01d59336c470",
+    "README.md": "c0250e0b7df7bb443f460f12875b0c406666dd522e03617eb696bab23c4be46c",
     "RESULT.json": "fee42444598eb46d5ff4d5755d90f247131bc52164185657758ef0a8f89cde70",
     "SOURCES.json": "12b6c9f423c949f01f1c9b43fec849bd06e4e5e234152ad7d9f47e3d23abd606",
-    "TASK.json": "562c494ea38bed56917efc78f75be6f1174286318577777dbe6f476fafad6f23",
+    "TASK.json": "31ff83d51911a951c363a8f082f0c5a411b022e56c93e5041aa4e7e24f563908",
     "VERIFY.json": "2c78bb015542023e12d4ffe7b5af63beb2515ef14f782e797e2f5a11d88e1e06",
     "common.py": "1d961418a0935e50e06632c0cf21cd2be1a12dd3234c7970d65a8b90b29a541b",
     "independent.py": "f3467394488641e540295979001decb23b9160b7c82a73fb973d6bebc7224529",
     "test_controls.py": "f6f254e4e642b295371411df7ffb9464557d92039481dc8761aae3647d9d6500",
     "verify.py": "f86e259f3535256ea71922e58260dab060f0ce79aae3a39efccfceb7e25b0426"
+  },
+  "metadata_correction": {
+    "prior_commit": "b065d755a7cf74f016cab09fdf285a65fb9f9a2d",
+    "scope": "Neutral review-status wording in TASK.json and README.md; scientific proof, code, inputs and RESULT.json unchanged."
   }
 }

@@ -70,5 +70,4 @@ from actual inputs.
 
 Credit Nick Petalas/PR3397 and PR3405, PR3161/3162 and the root-simplex package,
 DreamingOfClouds/PR3154, joaqcoo and the retained E8/P112 lineage. Apache-2.0.
-Automated assistance was used for research and implementation. Human and
-proof-kernel review are unrun.
+Human and proof-kernel review are unrun.

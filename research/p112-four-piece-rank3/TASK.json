@@ -60,7 +60,7 @@
   "outcome": "completed",
   "evidence": "PROOF.md, RESULT.json, two exhaustive finite section implementations, actual optimized rejecting CLI controls and exact five-site coefficient witness.",
   "author": "Nick Petalas",
-  "ai_assistance": "Automated assistance was used for research, implementation and checking. No independent human or proof-kernel review is claimed.",
+  "ai_assistance": "Independent human and proof-kernel review are not claimed.",
   "open_questions": [
     {
       "question": "Does the exclusion extend to first-piece binary support rank 4 with other bounds5,6,6?",
