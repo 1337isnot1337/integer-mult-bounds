@@ -74,5 +74,17 @@
     "priority_revision": 6,
     "checked_utc": "2026-10-18T12:39:18Z",
     "scope": "Canonical fetch unchanged. Initial complete overlap body/comment pagination348 open PRs and2454 discussions; not a source-level novelty proof."
+  },
+  "final_overlap": {
+    "checked_utc": "2026-10-18T13:33:05Z",
+    "open_prs": 374,
+    "discussion_records": 2464,
+    "complete_pagination": true,
+    "warnings": [],
+    "concurrent_work": [
+      "3642@044d24f12e74f228dd462c07ae2d7f3ea35e2be9",
+      "3653@607a09ff441c79b215a8127a81f4cc70021d0d9b"
+    ],
+    "scope": "Same retiming/normalized endpoint now publicly reported; localT360 package matches it with smaller stock. No priority/new frontier claim."
   }
 }

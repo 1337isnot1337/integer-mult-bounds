@@ -7,7 +7,9 @@ H1+H2. The unchanged T360 allocation then supports
 
 `κ = 0.001730418899766071163804 − 10^-46 − 10^-70`.
 
-This is a strict conditional gain over PR3638/PR3633 of
+Final refresh found concurrent [PR3642](https://github.com/CrocSwap/integer-mult-bounds/pull/3642) and [PR3653](https://github.com/CrocSwap/integer-mult-bounds/pull/3653). This package matches PR3653’s reported endpoint with smaller T360 stock; it claims no priority or further frontier increase. See [CONCURRENT-WORK.md](CONCURRENT-WORK.md).
+
+This remains a strict conditional gain over the pinned PR3638/PR3633 predecessor of
 `0.000000322536237447629574` on their common release grid. The local profile is
 `{1:2437,2:724,3:226,4:102,5:20,8:8}`. Widths, 408 helpers, 91 private buffers,
 1,321,920 literal roles and 323,069 physical families stay fixed. The complete
