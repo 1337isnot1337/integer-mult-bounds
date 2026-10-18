@@ -65,3 +65,10 @@ The original card is `p104-side-correction`, priority revision six. This is a
 declared interface result. Inherited alphabet/covariance proofs, noncone
 admission, physical pricing, all-size transfer, human/formal review, Lean,
 Docker and the selected cold replay are not supplied by these finite checks.
+
+The final overlap refresh found Clear1nsight's concurrent
+[general 58-bank claim](https://github.com/CrocSwap/integer-mult-bounds/discussions/2750#discussioncomment-19009685),
+posted after this two-source investigation began. That claim targets the full
+correlated cone entrance and an encoder. This independent two-source result
+supplies a sharp calibration case and does not claim that broader classification
+or duplicate a published general result. Its evidence status remains provisional.
