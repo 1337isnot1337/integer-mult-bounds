@@ -1,0 +1,4040 @@
+{
+  "SOURCES_sha256": "53304943d977fa3a7c1c63e6e07745f6cef2cc8c2e80e629ff1da6427684145f",
+  "full_array_comparison": {
+    "comparison": "Complete arrays and frames compared before hashes, not hashes alone.",
+    "final_query_restored": true,
+    "final_required_X0_nonzero": true,
+    "full_p_coordinates": 512,
+    "original_failure_checked": {
+      "address": 10,
+      "coefficient": "1/4",
+      "component": "real",
+      "event": 1099,
+      "exact_increment": "-1/2",
+      "kind": "nonintegral_fractional_addend",
+      "source": "Y90",
+      "target": "D1"
+    },
+    "returned_Y_Gaussian_coordinates": 1024,
+    "strong_checkpoint_Gaussian_coordinates": 9216,
+    "strong_checkpoint_banks": 18
+  },
+  "implementation_and_proof_sha256": {
+    "COSTS.md": "bdfdd28d468196c2ad87779d5981577b68f0badddb5f10b2f9cbdfd21d7e6e66",
+    "PROOF.md": "c7ea8909156b0faeb828b413cef28d64fffb5568e50454a11cfb8d2c4bf55347",
+    "literal.py": "c6539b1eddaa1ac334717ae8dc16d530c250f6b7b86fbb5bdd7c97f882fd8860",
+    "observable.py": "117ab7d91aea94c8dac6f38d36dbc89d42a8ceae4ce05f51bd3b8d58e3c5a869",
+    "primary.py": "754af4926caded102503759a6313d01a04a04bee3ad602ed5161fcb92152c0ed",
+    "verify.py": "4f7b325b40a498a06bd13f0a680b17e89157dc1636165d166281383112c6c55b"
+  },
+  "input_sha256": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "NOTICE": "b49022cb4104d90b182e4c335f670faf45529025b15db77bf0291835083c28bd",
+    "research/p104-omitted-completion/CERTIFICATE.json": "f68a2e6f3bd771b9692772909df200102350a80deda35532f3cc348b75d0c044",
+    "research/p104-omitted-completion/PROOF.md": "d77dfddc22ec31b24b75f00bb0e78034e8d1abd37972651c80458a4339904961",
+    "research/p104-omitted-completion/README.md": "2d49ed6d8676a8f24dc453437ec320b23735dc3d979660a7d24fde71d34a9556",
+    "research/p104-omitted-frame-adapters/ADAPTERS.json": "db424edfb316f06f4913946b2b0cafa2f200b75392cacb35244b8705db02387c",
+    "research/p104-omitted-frame-adapters/PROOF.md": "f0ffae7c84f27bc0f4ae674335e639f79e73ec3c1c8f94ce7e18ec2e3d2aaf2b",
+    "research/p104-omitted-frame-adapters/README.md": "066c97976eaf2f2d8b61a11d43b8e44fd5338e47500290751566ecfa2ff02795",
+    "research/p104-rounded-collector/PREDECESSORS.json": "89f17ce76729101536cfc0be02ad153451c6606ebcfd3a1d6588226a83c88c64",
+    "research/p104-rounded-collector/README.md": "a77514952eda13fac047c5a4daba92d6c01d3e83bb1b41da4b87211bec6c37c9",
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz": "ab91c78835c3e10cf3b2cb8a5d4e0b7cfc3df1ae5a811298d27842f2193e1e3d",
+    "research/p104-rounded-collector/inputs/WORD.json": "cec1fb3fbd0067b500ad5119a62ba60685be718e769374d7ec8abdd2beaa7e50",
+    "research/p104-stagewise-entrance/PROOF.md": "4fb79a8da2740ac9608d5e153aec3199ab14e3955cf44710bb0a7f111d745fe1",
+    "research/p104-stagewise-entrance/admission.py": "00bd8c666fa758e76e47fb3e8835dd71770d1ce32c55d71d8d003dca2da15709",
+    "research/p104-stagewise-entrance/classifier.py": "3e42ba4e5fa1cc819f3e7b773b38ca47476bf85f581f888cc99690e1cf2f2b40",
+    "research/p104-stagewise-entrance/inputs/PR3382_PROOF.md": "1ca8c0e7e78f0f39de6cff7accc68ccd3901bfb50759bf7a2e2896bcf63bf081",
+    "research/p104-stagewise-entrance/inputs/PR3416_PROOF.md": "0dc1c35158902299fc8748c8baf89205483562f041e9050580e6579c331ebeb5",
+    "research/p104-stagewise-entrance/inputs/pr3382_model.py": "74c83367887dd885137b222155c86389fe0be9f1293a6f0e5fdb51d71f435fdd",
+    "research/p104-stagewise-entrance/source.py": "c54dabffe141de6befb6069e145c5ccbde629e76afb0f0afa3eb07bd72ab4b25",
+    "upstream/LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "literal": {
+    "actual_final_Y_frame_dimensions": {
+      "8": 104
+    },
+    "all_Y_target_events": 728,
+    "all_native_occurrences_bound": 2070,
+    "cross_bank_Y_writes": 0,
+    "derivation": {
+      "cancellation_event": 1819,
+      "coefficient_mask": 15,
+      "coefficient_slot": 44,
+      "inverse_path_arithmetic": {
+        "active_native_events_completed": 6,
+        "active_native_rank_mass": 8,
+        "completed_literal_ideal_pairs": 2048,
+        "native_events_entered": 6
+      },
+      "p_sha256": "2d5e9e5b5d2ef3cbee879749e9f67b3c78c20eef2edf8f0b7737a0a65230503b",
+      "profile": "E9 delta15 = -4 on the 32 supersets of mask15",
+      "read_event": 1817,
+      "source_path": [
+        195,
+        992,
+        1133,
+        1238,
+        1397,
+        1598
+      ]
+    },
+    "fixture_scope": "Y91=p,Y90=-p or Y91=4p,Y90=-4p; all other initial banks zero.",
+    "status": "PASS_TWO_LITERAL_KERNEL_PROBES",
+    "strong": {
+      "checkpoint_sha256": {
+        "1099": {
+          "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "X0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16"
+        },
+        "2121": {
+          "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "Q0": "648f2ef2e11e1a2eb087fc3cfbff190aae11af7a0abe557cee5738ce25fa7dbf",
+          "X0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16"
+        },
+        "3278": {
+          "G0": "e93d0327a8c3216c69d3afd82905eb340e8f9841790b7cba526ff24705b6fb7a",
+          "Q0": "648f2ef2e11e1a2eb087fc3cfbff190aae11af7a0abe557cee5738ce25fa7dbf",
+          "X0": "60fbb391fd8655c034e8cdce3209d3968c5e6f59919329cf96089e9304571329"
+        },
+        "4241": {
+          "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "X0": "e6180b612b15c05c676deb0ea8725a25b756ed63d5d23272b07a72d9ffda3bf8"
+        },
+        "5086": {
+          "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "X0": "5fdfccc38ead92cc1384c30545bb386a16cb30eba045845e3d4cab4d44f0f752"
+        },
+        "5397": {
+          "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+          "X0": "d624d7f0549dbe555a7734a646f6161b64efbc082338c5a14d6b1b7d5398b385"
+        }
+      },
+      "counts": {
+        "active_native_events_completed": 223,
+        "active_native_rank_mass": 401,
+        "completed_literal_ideal_pairs": 102656,
+        "events_completed": 5398,
+        "fractional_adds": 1438,
+        "native_events_entered": 2070,
+        "nonzero_fractional_adds": 33,
+        "private_zero": 8,
+        "private_zero_erase": 8,
+        "signs": 208,
+        "weighted_adds": 3104,
+        "zero_native_events": 1847,
+        "zero_native_pairs_proved_zero": 804096
+      },
+      "final_Q0_sha256": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+      "final_X0_sha256": "d624d7f0549dbe555a7734a646f6161b64efbc082338c5a14d6b1b7d5398b385",
+      "final_frames_checked": true,
+      "first_completed_event_outside_B9": null,
+      "first_literal_failure": null,
+      "multiplier": 4,
+      "nonzero_final_banks": [
+        "X0",
+        "X1",
+        "X100",
+        "X11",
+        "X12",
+        "X15",
+        "X16",
+        "X19",
+        "X20",
+        "X24",
+        "X25",
+        "X28",
+        "X29",
+        "X3",
+        "X33",
+        "X34",
+        "X37",
+        "X38",
+        "X41",
+        "X42",
+        "X45",
+        "X46",
+        "X48",
+        "X49",
+        "X52",
+        "X53",
+        "X56",
+        "X57",
+        "X6",
+        "X60",
+        "X61",
+        "X64",
+        "X65",
+        "X68",
+        "X69",
+        "X7",
+        "X72",
+        "X73",
+        "X76",
+        "X77",
+        "X8",
+        "X80",
+        "X81",
+        "X83",
+        "X84",
+        "X87",
+        "X88",
+        "X90",
+        "X91",
+        "X96",
+        "X97",
+        "X99",
+        "Y90",
+        "Y91"
+      ],
+      "status": "PASS_EXACT_LITERAL_WORD"
+    },
+    "unscaled": {
+      "checkpoint_sha256": {},
+      "counts": {
+        "active_native_events_completed": 4,
+        "active_native_rank_mass": 7,
+        "completed_literal_ideal_pairs": 1792,
+        "events_completed": 1099,
+        "fractional_adds": 100,
+        "native_events_entered": 368,
+        "nonzero_fractional_adds": 0,
+        "signs": 104,
+        "weighted_adds": 627,
+        "zero_native_events": 364,
+        "zero_native_pairs_proved_zero": 194048
+      },
+      "final_Q0_sha256": null,
+      "final_X0_sha256": null,
+      "final_frames_checked": false,
+      "first_completed_event_outside_B9": null,
+      "first_literal_failure": {
+        "actual_word_event": [
+          "add",
+          "D1",
+          "Y90",
+          "1/4",
+          [
+            381,
+            241,
+            2
+          ]
+        ],
+        "address": 10,
+        "coefficient": "1/4",
+        "component": "real",
+        "event": 1099,
+        "exact_increment": "-1/2",
+        "kind": "nonintegral_fractional_addend",
+        "source": "Y90",
+        "source_value": [
+          -2,
+          0
+        ],
+        "target": "D1"
+      },
+      "multiplier": 1,
+      "nonzero_final_banks": null,
+      "status": "EXACT_LITERAL_FAILURE"
+    },
+    "zero_branch_rule": "Every affine monomial and each exact signed-floor pair sends an all-zero field to zero."
+  },
+  "observable": {
+    "Q0_after_2121_initial_row": {
+      "Q0": [
+        1,
+        1
+      ],
+      "Y0": [
+        1,
+        4
+      ],
+      "Y1": [
+        -1,
+        4
+      ],
+      "Y10": [
+        -1,
+        4
+      ],
+      "Y11": [
+        1,
+        4
+      ],
+      "Y16": [
+        -1,
+        4
+      ],
+      "Y17": [
+        1,
+        4
+      ],
+      "Y18": [
+        -1,
+        4
+      ],
+      "Y19": [
+        1,
+        4
+      ],
+      "Y2": [
+        1,
+        4
+      ],
+      "Y25": [
+        -1,
+        4
+      ],
+      "Y26": [
+        1,
+        4
+      ],
+      "Y27": [
+        -1,
+        4
+      ],
+      "Y28": [
+        1,
+        4
+      ],
+      "Y3": [
+        -1,
+        4
+      ],
+      "Y33": [
+        1,
+        4
+      ],
+      "Y38": [
+        -1,
+        4
+      ],
+      "Y39": [
+        1,
+        4
+      ],
+      "Y4": [
+        1,
+        4
+      ],
+      "Y42": [
+        -1,
+        4
+      ],
+      "Y43": [
+        1,
+        4
+      ],
+      "Y44": [
+        -1,
+        4
+      ],
+      "Y45": [
+        1,
+        4
+      ],
+      "Y49": [
+        -1,
+        4
+      ],
+      "Y5": [
+        -1,
+        4
+      ],
+      "Y50": [
+        1,
+        4
+      ],
+      "Y51": [
+        -1,
+        4
+      ],
+      "Y52": [
+        1,
+        4
+      ],
+      "Y55": [
+        -1,
+        4
+      ],
+      "Y56": [
+        1,
+        4
+      ],
+      "Y6": [
+        1,
+        4
+      ],
+      "Y61": [
+        -1,
+        4
+      ],
+      "Y62": [
+        1,
+        4
+      ],
+      "Y65": [
+        -1,
+        4
+      ],
+      "Y66": [
+        1,
+        4
+      ],
+      "Y67": [
+        -1,
+        4
+      ],
+      "Y68": [
+        1,
+        4
+      ],
+      "Y71": [
+        -1,
+        4
+      ],
+      "Y72": [
+        1,
+        4
+      ],
+      "Y77": [
+        -1,
+        4
+      ],
+      "Y78": [
+        1,
+        4
+      ],
+      "Y79": [
+        -1,
+        4
+      ],
+      "Y8": [
+        -1,
+        4
+      ],
+      "Y80": [
+        1,
+        4
+      ],
+      "Y84": [
+        -1,
+        4
+      ],
+      "Y85": [
+        1,
+        4
+      ],
+      "Y88": [
+        -1,
+        4
+      ],
+      "Y89": [
+        1,
+        4
+      ],
+      "Y9": [
+        1,
+        4
+      ],
+      "Y90": [
+        1,
+        4
+      ],
+      "Y97": [
+        -1,
+        4
+      ],
+      "Y98": [
+        -1,
+        4
+      ],
+      "Y99": [
+        1,
+        4
+      ]
+    },
+    "Y_endpoint_audit": {
+      "Y90": [
+        [],
+        [
+          258,
+          130,
+          64,
+          32,
+          16,
+          10,
+          6,
+          1
+        ]
+      ],
+      "Y91": [
+        [],
+        [
+          257,
+          129,
+          65,
+          33,
+          16,
+          8,
+          4,
+          2
+        ]
+      ],
+      "all_final_dimensions": 8,
+      "all_initial_frames_empty": true,
+      "all_transport_only": true,
+      "bindings_sha256": "ff10f1e88bfb8e1008a3ab71e2bd02a9aa4ea4e0f7a7e2e7faa2a7aabce480bd",
+      "count": 104
+    },
+    "completion": {
+      "A_pair_difference": [
+        -1,
+        1,
+        0,
+        0,
+        1,
+        -1,
+        1,
+        1
+      ],
+      "C_X0": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "X0_Y_nonzeros": 49,
+      "X0_Y_row": {
+        "Y0": [
+          -1,
+          1
+        ],
+        "Y10": [
+          1,
+          2
+        ],
+        "Y100": [
+          -1,
+          2
+        ],
+        "Y12": [
+          -1,
+          2
+        ],
+        "Y15": [
+          1,
+          2
+        ],
+        "Y17": [
+          -1,
+          2
+        ],
+        "Y18": [
+          1,
+          2
+        ],
+        "Y2": [
+          -1,
+          2
+        ],
+        "Y20": [
+          -1,
+          2
+        ],
+        "Y24": [
+          1,
+          2
+        ],
+        "Y26": [
+          -1,
+          2
+        ],
+        "Y27": [
+          1,
+          2
+        ],
+        "Y29": [
+          -1,
+          2
+        ],
+        "Y34": [
+          -1,
+          2
+        ],
+        "Y37": [
+          1,
+          2
+        ],
+        "Y39": [
+          -1,
+          2
+        ],
+        "Y4": [
+          -1,
+          2
+        ],
+        "Y41": [
+          1,
+          2
+        ],
+        "Y43": [
+          -1,
+          2
+        ],
+        "Y44": [
+          1,
+          2
+        ],
+        "Y46": [
+          -1,
+          2
+        ],
+        "Y48": [
+          1,
+          2
+        ],
+        "Y5": [
+          1,
+          2
+        ],
+        "Y50": [
+          -1,
+          2
+        ],
+        "Y51": [
+          1,
+          2
+        ],
+        "Y53": [
+          -1,
+          2
+        ],
+        "Y55": [
+          1,
+          2
+        ],
+        "Y57": [
+          -1,
+          2
+        ],
+        "Y60": [
+          1,
+          2
+        ],
+        "Y62": [
+          -1,
+          2
+        ],
+        "Y64": [
+          1,
+          2
+        ],
+        "Y66": [
+          -1,
+          2
+        ],
+        "Y67": [
+          1,
+          2
+        ],
+        "Y69": [
+          -1,
+          2
+        ],
+        "Y7": [
+          1,
+          2
+        ],
+        "Y71": [
+          1,
+          2
+        ],
+        "Y73": [
+          -1,
+          2
+        ],
+        "Y76": [
+          1,
+          2
+        ],
+        "Y78": [
+          -1,
+          2
+        ],
+        "Y79": [
+          1,
+          2
+        ],
+        "Y81": [
+          -1,
+          2
+        ],
+        "Y83": [
+          1,
+          2
+        ],
+        "Y85": [
+          -1,
+          2
+        ],
+        "Y87": [
+          1,
+          2
+        ],
+        "Y89": [
+          -1,
+          2
+        ],
+        "Y9": [
+          -1,
+          2
+        ],
+        "Y91": [
+          -1,
+          2
+        ],
+        "Y96": [
+          1,
+          2
+        ],
+        "Y98": [
+          1,
+          2
+        ]
+      },
+      "X0_frame_gap": [
+        [
+          386
+        ],
+        [
+          256,
+          128,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ]
+      ],
+      "X0_omitted_from_4027_event_projection": true,
+      "X0_pair_coefficient": [
+        -1,
+        2
+      ],
+      "adapter_rank": 8,
+      "adapter_recipe_sha256": "62f7e95c40996e996f905becdba1ddb45c32608184219ae86ed79ebf647d5e07",
+      "credited_adapter_certificate": {
+        "dirty_endpoint_sha256": "569b0a2de4937fb733483c087e17cf33ea606894c840ac5b3d7df495de631013",
+        "exact_anchor_sha256": "eec3e01fe7fb375eb78aebfd09970bfd453a5851ae72b872290a926d7e1203e1",
+        "rank": 8,
+        "signed_pauli_sha256": "681f11ff6e4b83925f8a1073d156f51e30e5691776100e564155a32158082c80"
+      }
+    },
+    "controls": {
+      "omitted_Q0_cleanup_4241_pair": [
+        -1,
+        4
+      ],
+      "omitted_sign_5086_X0_pair": [
+        1,
+        2
+      ],
+      "source_corruption_rejected": [
+        "WORD",
+        "PR3462 certificate",
+        "PR3469 adapters"
+      ]
+    },
+    "event_numbering": "zero-based source WORD program indices",
+    "five_source_groups": [
+      {
+        "bank": "D31",
+        "reads": [
+          {
+            "event": 1090,
+            "frame": [
+              157,
+              56,
+              2
+            ],
+            "slot": 0,
+            "source": "Y27"
+          },
+          {
+            "event": 1129,
+            "frame": [
+              152,
+              56,
+              5,
+              2
+            ],
+            "slot": 1,
+            "source": "Y26"
+          },
+          {
+            "event": 1231,
+            "frame": [
+              320,
+              152,
+              56,
+              5,
+              2
+            ],
+            "slot": 2,
+            "source": "Y99"
+          }
+        ],
+        "rho_coefficient": [
+          1,
+          4
+        ]
+      },
+      {
+        "bank": "D30",
+        "reads": [
+          {
+            "event": 1093,
+            "frame": [
+              80,
+              61,
+              2
+            ],
+            "slot": 3,
+            "source": "Y93"
+          },
+          {
+            "event": 1126,
+            "frame": [
+              272,
+              80,
+              61,
+              2
+            ],
+            "slot": 4,
+            "source": "Y94"
+          },
+          {
+            "event": 1226,
+            "frame": [
+              272,
+              157,
+              80,
+              61,
+              2
+            ],
+            "slot": 5,
+            "source": "Y96"
+          },
+          {
+            "event": 1228,
+            "frame": [
+              272,
+              157,
+              80,
+              61,
+              2
+            ],
+            "slot": 6,
+            "source": "Y95"
+          },
+          {
+            "event": 1389,
+            "frame": [
+              272,
+              152,
+              80,
+              56,
+              5,
+              2
+            ],
+            "slot": 7,
+            "source": "Y102"
+          },
+          {
+            "event": 1391,
+            "frame": [
+              272,
+              152,
+              80,
+              56,
+              5,
+              2
+            ],
+            "slot": 8,
+            "source": "Y101"
+          },
+          {
+            "event": 1393,
+            "frame": [
+              272,
+              152,
+              80,
+              56,
+              5,
+              2
+            ],
+            "slot": 9,
+            "source": "Y100"
+          }
+        ],
+        "rho_coefficient": [
+          1,
+          4
+        ]
+      },
+      {
+        "bank": "D29",
+        "reads": [
+          {
+            "event": 1177,
+            "frame": [
+              204,
+              40,
+              21,
+              2
+            ],
+            "slot": 10,
+            "source": "Y65"
+          },
+          {
+            "event": 1294,
+            "frame": [
+              137,
+              69,
+              40,
+              21,
+              2
+            ],
+            "slot": 11,
+            "source": "Y64"
+          },
+          {
+            "event": 1296,
+            "frame": [
+              137,
+              69,
+              40,
+              21,
+              2
+            ],
+            "slot": 12,
+            "source": "Y63"
+          },
+          {
+            "event": 1453,
+            "frame": [
+              137,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 13,
+            "source": "Y70"
+          },
+          {
+            "event": 1455,
+            "frame": [
+              137,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 14,
+            "source": "Y69"
+          },
+          {
+            "event": 1457,
+            "frame": [
+              137,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 15,
+            "source": "Y68"
+          },
+          {
+            "event": 1459,
+            "frame": [
+              137,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 16,
+            "source": "Y66"
+          }
+        ],
+        "rho_coefficient": [
+          1,
+          4
+        ]
+      },
+      {
+        "bank": "D28",
+        "reads": [
+          {
+            "event": 1087,
+            "frame": [
+              85,
+              56,
+              2
+            ],
+            "slot": 17,
+            "source": "Y103"
+          },
+          {
+            "event": 1162,
+            "frame": [
+              64,
+              45,
+              21,
+              2
+            ],
+            "slot": 18,
+            "source": "Y31"
+          },
+          {
+            "event": 1271,
+            "frame": [
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 19,
+            "source": "Y22"
+          },
+          {
+            "event": 1421,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 20,
+            "source": "Y29"
+          },
+          {
+            "event": 1423,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 21,
+            "source": "Y28"
+          },
+          {
+            "event": 1425,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              5,
+              2
+            ],
+            "slot": 22,
+            "source": "Y23"
+          },
+          {
+            "event": 1633,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 23,
+            "source": "Y78"
+          },
+          {
+            "event": 1635,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 24,
+            "source": "Y75"
+          },
+          {
+            "event": 1637,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 25,
+            "source": "Y74"
+          },
+          {
+            "event": 1639,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 26,
+            "source": "Y73"
+          },
+          {
+            "event": 1641,
+            "frame": [
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 27,
+            "source": "Y72"
+          }
+        ],
+        "rho_coefficient": [
+          1,
+          4
+        ]
+      },
+      {
+        "bank": "D27",
+        "reads": [
+          {
+            "event": 1157,
+            "frame": [
+              360,
+              136,
+              21,
+              2
+            ],
+            "slot": 28,
+            "source": "Y98"
+          },
+          {
+            "event": 1159,
+            "frame": [
+              360,
+              136,
+              21,
+              2
+            ],
+            "slot": 29,
+            "source": "Y97"
+          },
+          {
+            "event": 1281,
+            "frame": [
+              260,
+              136,
+              108,
+              21,
+              2
+            ],
+            "slot": 30,
+            "source": "Y79"
+          },
+          {
+            "event": 1283,
+            "frame": [
+              260,
+              136,
+              108,
+              21,
+              2
+            ],
+            "slot": 31,
+            "source": "Y71"
+          },
+          {
+            "event": 1446,
+            "frame": [
+              260,
+              136,
+              65,
+              45,
+              21,
+              2
+            ],
+            "slot": 32,
+            "source": "Y84"
+          },
+          {
+            "event": 1448,
+            "frame": [
+              260,
+              136,
+              65,
+              45,
+              21,
+              2
+            ],
+            "slot": 33,
+            "source": "Y77"
+          },
+          {
+            "event": 1450,
+            "frame": [
+              260,
+              136,
+              65,
+              45,
+              21,
+              2
+            ],
+            "slot": 34,
+            "source": "Y25"
+          },
+          {
+            "event": 1614,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 35,
+            "source": "Y92"
+          },
+          {
+            "event": 1616,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 36,
+            "source": "Y88"
+          },
+          {
+            "event": 1618,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 37,
+            "source": "Y87"
+          },
+          {
+            "event": 1620,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 38,
+            "source": "Y83"
+          },
+          {
+            "event": 1622,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 39,
+            "source": "Y76"
+          },
+          {
+            "event": 1624,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 40,
+            "source": "Y67"
+          },
+          {
+            "event": 1626,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 41,
+            "source": "Y32"
+          },
+          {
+            "event": 1628,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 42,
+            "source": "Y30"
+          },
+          {
+            "event": 1630,
+            "frame": [
+              260,
+              136,
+              64,
+              44,
+              20,
+              2,
+              1
+            ],
+            "slot": 43,
+            "source": "Y24"
+          },
+          {
+            "event": 1817,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 44,
+            "source": "Y91"
+          },
+          {
+            "event": 1819,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 45,
+            "source": "Y90"
+          },
+          {
+            "event": 1821,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 46,
+            "source": "Y89"
+          },
+          {
+            "event": 1823,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 47,
+            "source": "Y86"
+          },
+          {
+            "event": 1825,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 48,
+            "source": "Y85"
+          },
+          {
+            "event": 1827,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 49,
+            "source": "Y82"
+          },
+          {
+            "event": 1829,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 50,
+            "source": "Y81"
+          },
+          {
+            "event": 1831,
+            "frame": [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            "slot": 51,
+            "source": "Y80"
+          }
+        ],
+        "rho_coefficient": [
+          1,
+          4
+        ]
+      }
+    ],
+    "method": "One-output reverse adjoints and exact source/certificate binding",
+    "named_cuts": [
+      {
+        "Y90_coefficient": [
+          1,
+          4
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "D1",
+        "event_after": 1099,
+        "frame": [
+          381,
+          241,
+          2
+        ],
+        "pair_value": [
+          -1,
+          4
+        ],
+        "row_nonzeros": 2,
+        "row_sha256": "fa8a19592fb03fe68e15265ce1c867abd266ff975996f89d3b50079ba1b0ffbb"
+      },
+      {
+        "Y90_coefficient": [
+          1,
+          4
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "C",
+        "event_after": 2118,
+        "frame": [
+          257,
+          129,
+          65,
+          33,
+          16,
+          9,
+          5,
+          2
+        ],
+        "pair_value": [
+          -1,
+          4
+        ],
+        "row_nonzeros": 41,
+        "row_sha256": "e49a9689915288de08ec0572c70e1b36b02a85f585524744c1a3d116d5d25b9a"
+      },
+      {
+        "Y90_coefficient": [
+          1,
+          4
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "Q0",
+        "event_after": 2121,
+        "frame": [
+          400
+        ],
+        "pair_value": [
+          -1,
+          4
+        ],
+        "row_nonzeros": 53,
+        "row_sha256": "7bebb4c2c0a7d4a73fc93a4ad334a9f44144af637ae6edf4af0a919fa1acd7c4"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "D1",
+        "event_after": 2166,
+        "frame": [
+          256,
+          128,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "pair_value": [
+          0,
+          1
+        ],
+        "row_nonzeros": 14,
+        "row_sha256": "87b913ba1e957ccc8a7ca30ab1cc561bf908fb732eba1ee7d2aa14e21f54d30a"
+      },
+      {
+        "Y90_coefficient": [
+          1,
+          4
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "G0",
+        "event_after": 3025,
+        "frame": [
+          400
+        ],
+        "pair_value": [
+          -1,
+          4
+        ],
+        "row_nonzeros": 54,
+        "row_sha256": "32508d0d53fcfa8cc3baf0d5134f504d4cb9d926017c8de1aaf8a95cd8cb1644"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          1,
+          2
+        ],
+        "bank": "X0",
+        "event_after": 3278,
+        "frame": [
+          400,
+          85
+        ],
+        "pair_value": [
+          1,
+          2
+        ],
+        "row_nonzeros": 54,
+        "row_sha256": "1a6002dc5e52bf9b40115d0669c39f2be7f79df0810c943b3aff8fa6b553c76e"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "G0",
+        "event_after": 4104,
+        "frame": [
+          256,
+          128,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "pair_value": [
+          0,
+          1
+        ],
+        "row_nonzeros": 1,
+        "row_sha256": "2eda07511cf5fda52a7308b91e5fc723f6df9eca4ecf28dba056b082a0f115e5"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          0,
+          1
+        ],
+        "bank": "Q0",
+        "event_after": 4241,
+        "frame": [
+          256,
+          128,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "pair_value": [
+          0,
+          1
+        ],
+        "row_nonzeros": 49,
+        "row_sha256": "d051afff9b765c8a5d6d46d8a5a48ff466490d9f99d1d6930df2e3309e3427fe"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          1,
+          2
+        ],
+        "bank": "X0",
+        "event_after": 5085,
+        "frame": [
+          258,
+          130,
+          64,
+          32,
+          16,
+          8,
+          4,
+          1
+        ],
+        "pair_value": [
+          1,
+          2
+        ],
+        "row_nonzeros": 50,
+        "row_sha256": "3e765afac1feda7fc2907bea738a36491b0008ce02b61696588fd1935385afa8"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          -1,
+          2
+        ],
+        "bank": "X0",
+        "event_after": 5086,
+        "frame": [
+          258,
+          130,
+          64,
+          32,
+          16,
+          8,
+          4,
+          1
+        ],
+        "pair_value": [
+          -1,
+          2
+        ],
+        "row_nonzeros": 50,
+        "row_sha256": "85441f9058afd3756b5b26c74467d68b26f5b0869bacfd15b9b4525e8d856d94"
+      },
+      {
+        "Y90_coefficient": [
+          0,
+          1
+        ],
+        "Y91_coefficient": [
+          -1,
+          2
+        ],
+        "bank": "X0",
+        "event_after": 5190,
+        "frame": [
+          256,
+          128,
+          64,
+          32,
+          16,
+          8,
+          4,
+          2,
+          1
+        ],
+        "pair_value": [
+          -1,
+          2
+        ],
+        "row_nonzeros": 50,
+        "row_sha256": "85441f9058afd3756b5b26c74467d68b26f5b0869bacfd15b9b4525e8d856d94"
+      }
+    ],
+    "named_native_paths": {
+      "D1": [
+        {
+          "event": 969,
+          "instruction": [
+            "transport",
+            "D1",
+            [],
+            [
+              381,
+              241,
+              2
+            ],
+            3
+          ]
+        },
+        {
+          "event": 1101,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              381,
+              241,
+              2
+            ],
+            [
+              360,
+              228,
+              21,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1176,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              360,
+              228,
+              21,
+              2
+            ],
+            [
+              325,
+              201,
+              45,
+              21,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1293,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              325,
+              201,
+              45,
+              21,
+              2
+            ],
+            [
+              264,
+              132,
+              77,
+              45,
+              21,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1582,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              264,
+              132,
+              77,
+              45,
+              21,
+              2
+            ],
+            [
+              260,
+              132,
+              65,
+              33,
+              21,
+              12,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1771,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              260,
+              132,
+              65,
+              33,
+              21,
+              12,
+              2
+            ],
+            [
+              257,
+              129,
+              65,
+              33,
+              16,
+              9,
+              5,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 2159,
+          "instruction": [
+            "transport",
+            "D1",
+            [
+              257,
+              129,
+              65,
+              33,
+              16,
+              9,
+              5,
+              2
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        }
+      ],
+      "G0": [
+        {
+          "event": 2993,
+          "instruction": [
+            "transport",
+            "G0",
+            [],
+            [
+              400
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3276,
+          "instruction": [
+            "transport",
+            "G0",
+            [
+              400
+            ],
+            [
+              400,
+              85
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3546,
+          "instruction": [
+            "transport",
+            "G0",
+            [
+              400,
+              85
+            ],
+            [
+              268,
+              156,
+              85
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3709,
+          "instruction": [
+            "transport",
+            "G0",
+            [
+              268,
+              156,
+              85
+            ],
+            [
+              268,
+              128,
+              73,
+              28
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3911,
+          "instruction": [
+            "transport",
+            "G0",
+            [
+              268,
+              128,
+              73,
+              28
+            ],
+            [
+              268,
+              128,
+              73,
+              41,
+              28
+            ],
+            1
+          ]
+        },
+        {
+          "event": 4102,
+          "instruction": [
+            "transport",
+            "G0",
+            [
+              268,
+              128,
+              73,
+              41,
+              28
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            4
+          ]
+        }
+      ],
+      "Q0": [
+        {
+          "event": 979,
+          "instruction": [
+            "transport",
+            "Q0",
+            [],
+            [
+              400
+            ],
+            1
+          ]
+        },
+        {
+          "event": 4103,
+          "instruction": [
+            "transport",
+            "Q0",
+            [
+              400
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            8
+          ]
+        }
+      ],
+      "X0": [
+        {
+          "event": 0,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              386
+            ],
+            [],
+            1
+          ]
+        },
+        {
+          "event": 3103,
+          "instruction": [
+            "transport",
+            "X0",
+            [],
+            [
+              453
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3277,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              453
+            ],
+            [
+              400,
+              85
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3514,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              400,
+              85
+            ],
+            [
+              400,
+              80,
+              5
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3748,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              400,
+              80,
+              5
+            ],
+            [
+              400,
+              80,
+              40,
+              5
+            ],
+            1
+          ]
+        },
+        {
+          "event": 3998,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              400,
+              80,
+              40,
+              5
+            ],
+            [
+              258,
+              130,
+              64,
+              32,
+              16,
+              8,
+              4,
+              1
+            ],
+            4
+          ]
+        },
+        {
+          "event": 5190,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              258,
+              130,
+              64,
+              32,
+              16,
+              8,
+              4,
+              1
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        }
+      ],
+      "Y90": [
+        {
+          "event": 194,
+          "instruction": [
+            "transport",
+            "Y90",
+            [],
+            [
+              398
+            ],
+            1
+          ]
+        },
+        {
+          "event": 993,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              398
+            ],
+            [
+              381,
+              241,
+              2
+            ],
+            2
+          ]
+        },
+        {
+          "event": 1100,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              381,
+              241,
+              2
+            ],
+            [
+              272,
+              156,
+              109,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1135,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              272,
+              156,
+              109,
+              2
+            ],
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1240,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ],
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1399,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ],
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1600,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ],
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1820,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 5384,
+          "instruction": [
+            "transport",
+            "Y90",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            [
+              258,
+              130,
+              64,
+              32,
+              16,
+              10,
+              6,
+              1
+            ],
+            1
+          ]
+        }
+      ],
+      "Y91": [
+        {
+          "event": 195,
+          "instruction": [
+            "transport",
+            "Y91",
+            [],
+            [
+              481
+            ],
+            1
+          ]
+        },
+        {
+          "event": 992,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              481
+            ],
+            [
+              272,
+              156,
+              109,
+              2
+            ],
+            3
+          ]
+        },
+        {
+          "event": 1133,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              272,
+              156,
+              109,
+              2
+            ],
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1238,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ],
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1397,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ],
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1598,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ],
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 1818,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        },
+        {
+          "event": 5385,
+          "instruction": [
+            "transport",
+            "Y91",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            [
+              257,
+              129,
+              65,
+              33,
+              16,
+              8,
+              4,
+              2
+            ],
+            1
+          ]
+        }
+      ]
+    },
+    "restoration": {
+      "C": "actual 2114..2128 collector has zero adjoint at erasure",
+      "D1_Q0_G0": "initial normalized rows; physical final frame F",
+      "Y": "normalized source payloads retained at their actual final frames"
+    },
+    "rho5_pair_response": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "schema_version": 1,
+    "scope_limits": [
+      "No literal full-word admission is proved by this scalar audit",
+      "No fresh full-map rank, recipient closure, or adapter optimality is claimed",
+      "Paid acquisition, physical layouts/routes, widths, and supplier advantage are not inferred"
+    ],
+    "separation": {
+      "Q0_after_2121": "-p/4",
+      "X0_after_3278": "+p/2",
+      "X0_final": "-p/2",
+      "claim": "The required X0 residual cannot factor through rho5 alone",
+      "formal_pair": "Y91=p, Y90=-p, all other initial increments zero",
+      "limitation": "This does not erase retained Y/coefficient outputs or prove a benefit from L/S",
+      "physical_meaning": "X0 increment is J_F(-p/2), conditional on native covariance and admission",
+      "rho5": "zero on all five group readouts",
+      "strong_4p_X0_final": "-2p"
+    },
+    "source_read_audit": {
+      "all_D27_source_reads": [
+        916,
+        2030,
+        2034
+      ],
+      "all_pair_reads": [
+        {
+          "event": 1099,
+          "instruction": [
+            "add",
+            "D1",
+            "Y90",
+            "1/4",
+            [
+              381,
+              241,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1132,
+          "instruction": [
+            "add",
+            "D13",
+            "Y91",
+            "-1/4",
+            [
+              272,
+              156,
+              109,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1134,
+          "instruction": [
+            "add",
+            "D13",
+            "Y90",
+            "-1/4",
+            [
+              272,
+              156,
+              109,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1237,
+          "instruction": [
+            "add",
+            "D7",
+            "Y91",
+            "1/4",
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1239,
+          "instruction": [
+            "add",
+            "D7",
+            "Y90",
+            "1/4",
+            [
+              272,
+              156,
+              85,
+              56,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1396,
+          "instruction": [
+            "add",
+            "D16",
+            "Y91",
+            "1/4",
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1398,
+          "instruction": [
+            "add",
+            "D16",
+            "Y90",
+            "1/4",
+            [
+              272,
+              156,
+              84,
+              56,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1597,
+          "instruction": [
+            "add",
+            "D26",
+            "Y91",
+            "1/4",
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1599,
+          "instruction": [
+            "add",
+            "D26",
+            "Y90",
+            "1/4",
+            [
+              272,
+              152,
+              80,
+              56,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1817,
+          "instruction": [
+            "add",
+            "D27",
+            "Y91",
+            "1/4",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1819,
+          "instruction": [
+            "add",
+            "D27",
+            "Y90",
+            "1/4",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2166,
+          "instruction": [
+            "add",
+            "D1",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2177,
+          "instruction": [
+            "add",
+            "D13",
+            "Y91",
+            "1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2178,
+          "instruction": [
+            "add",
+            "D13",
+            "Y90",
+            "1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2215,
+          "instruction": [
+            "add",
+            "D7",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2216,
+          "instruction": [
+            "add",
+            "D7",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2280,
+          "instruction": [
+            "add",
+            "D16",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2281,
+          "instruction": [
+            "add",
+            "D16",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2369,
+          "instruction": [
+            "add",
+            "D26",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2370,
+          "instruction": [
+            "add",
+            "D26",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2473,
+          "instruction": [
+            "add",
+            "D27",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2474,
+          "instruction": [
+            "add",
+            "D27",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4231,
+          "instruction": [
+            "add",
+            "Q7",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4232,
+          "instruction": [
+            "add",
+            "Q6",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4233,
+          "instruction": [
+            "add",
+            "Q4",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4234,
+          "instruction": [
+            "add",
+            "Q3",
+            "Y91",
+            "1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4235,
+          "instruction": [
+            "add",
+            "Q1",
+            "Y91",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4236,
+          "instruction": [
+            "add",
+            "Q7",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4237,
+          "instruction": [
+            "add",
+            "Q6",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4238,
+          "instruction": [
+            "add",
+            "Q4",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4239,
+          "instruction": [
+            "add",
+            "Q3",
+            "Y90",
+            "1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4240,
+          "instruction": [
+            "add",
+            "Q1",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4241,
+          "instruction": [
+            "add",
+            "Q0",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        }
+      ],
+      "events": [
+        {
+          "event": 1099,
+          "instruction": [
+            "add",
+            "D1",
+            "Y90",
+            "1/4",
+            [
+              381,
+              241,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 1817,
+          "instruction": [
+            "add",
+            "D27",
+            "Y91",
+            "1/4",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 1819,
+          "instruction": [
+            "add",
+            "D27",
+            "Y90",
+            "1/4",
+            [
+              256,
+              136,
+              64,
+              40,
+              16,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 2118,
+          "instruction": [
+            "add",
+            "C",
+            "D1",
+            1,
+            [
+              257,
+              129,
+              65,
+              33,
+              16,
+              9,
+              5,
+              2
+            ]
+          ]
+        },
+        {
+          "event": 2121,
+          "instruction": [
+            "add",
+            "Q0",
+            "C",
+            "1",
+            [
+              400
+            ]
+          ]
+        },
+        {
+          "event": 2166,
+          "instruction": [
+            "add",
+            "D1",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 3025,
+          "instruction": [
+            "add",
+            "G0",
+            "Q0",
+            1,
+            [
+              400
+            ]
+          ]
+        },
+        {
+          "event": 3278,
+          "instruction": [
+            "add",
+            "X0",
+            "G0",
+            -2,
+            [
+              400,
+              85
+            ]
+          ]
+        },
+        {
+          "event": 4104,
+          "instruction": [
+            "add",
+            "G0",
+            "Q0",
+            -1,
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 4241,
+          "instruction": [
+            "add",
+            "Q0",
+            "Y90",
+            "-1/4",
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 5086,
+          "instruction": [
+            "sign",
+            "X0",
+            "-1",
+            [
+              258,
+              130,
+              64,
+              32,
+              16,
+              8,
+              4,
+              1
+            ]
+          ]
+        },
+        {
+          "event": 5190,
+          "instruction": [
+            "transport",
+            "X0",
+            [
+              258,
+              130,
+              64,
+              32,
+              16,
+              8,
+              4,
+              1
+            ],
+            [
+              256,
+              128,
+              64,
+              32,
+              16,
+              8,
+              4,
+              2,
+              1
+            ],
+            1
+          ]
+        }
+      ],
+      "intervening_event": {
+        "event": 1818,
+        "instruction": [
+          "transport",
+          "Y91",
+          [
+            256,
+            136,
+            64,
+            40,
+            16,
+            4,
+            2,
+            1
+          ],
+          [
+            256,
+            128,
+            64,
+            32,
+            16,
+            8,
+            4,
+            2,
+            1
+          ],
+          1
+        ]
+      }
+    },
+    "source_sha256": {
+      "PR3462 certificate": "f68a2e6f3bd771b9692772909df200102350a80deda35532f3cc348b75d0c044",
+      "PR3469 adapters": "db424edfb316f06f4913946b2b0cafa2f200b75392cacb35244b8705db02387c",
+      "WORD": "cec1fb3fbd0067b500ad5119a62ba60685be718e769374d7ec8abdd2beaa7e50"
+    },
+    "status": "PASS",
+    "word_operation_counts": {
+      "add": 3104,
+      "erase": 8,
+      "sign": 208,
+      "transport": 2070,
+      "zero": 8
+    }
+  },
+  "primary": {
+    "chart_oracle_paths": {
+      "[256, 128, 64, 32, 16, 8, 4, 2, 1]": [
+        [
+          972,
+          false
+        ],
+        [
+          4164,
+          false
+        ]
+      ],
+      "[257, 129, 65, 33, 16, 8, 4, 2]": [
+        [
+          0,
+          true
+        ],
+        [
+          4768,
+          false
+        ]
+      ],
+      "[258, 130, 64, 32, 16, 10, 6, 1]": [
+        [
+          1,
+          true
+        ],
+        [
+          4771,
+          false
+        ]
+      ],
+      "[258, 130, 64, 32, 16, 8, 4, 1]": [
+        [
+          972,
+          false
+        ],
+        [
+          4164,
+          false
+        ],
+        [
+          5190,
+          true
+        ]
+      ],
+      "[400, 85]": [
+        [
+          976,
+          false
+        ],
+        [
+          3277,
+          false
+        ]
+      ],
+      "[400]": [
+        [
+          979,
+          false
+        ]
+      ],
+      "[]": []
+    },
+    "coefficient_column": {
+      "K_inverse_returns_coefficients": true,
+      "component_height": 1,
+      "gap": {
+        "bank": "D27",
+        "event": 1817,
+        "frame": [
+          256,
+          136,
+          64,
+          40,
+          16,
+          4,
+          2,
+          1
+        ],
+        "kind": "zero",
+        "next_event": 1819,
+        "path_to_read": [
+          917,
+          1161,
+          1285,
+          1452,
+          1632
+        ],
+        "source": "Y91",
+        "source_path_to_read": [
+          195,
+          992,
+          1133,
+          1238,
+          1397,
+          1598
+        ],
+        "transport_event": null
+      },
+      "in_4B9": false,
+      "in_B9": true,
+      "mask": 15,
+      "nonzero_coordinates": 256,
+      "p_sha256": "2d5e9e5b5d2ef3cbee879749e9f67b3c78c20eef2edf8f0b7737a0a65230503b",
+      "slot": 44,
+      "source_support": [
+        "Y91",
+        "Y90"
+      ]
+    },
+    "collector": {
+      "completed_native_pairs": 3584,
+      "counts": {
+        "add": 11,
+        "erase": 1,
+        "transport": 2,
+        "zero": 1
+      },
+      "events": [
+        2114,
+        2128
+      ],
+      "native_Gaussian_quarter_turns": 3584,
+      "native_floor_halves": 14336,
+      "native_rank_mass": 14,
+      "owned_zero_Gaussian_banks": 1,
+      "real_ADD_SUB_before_SWAP_phase_lowering": 39936,
+      "scope": "Existing eighth collector only. Both transports, all four wrappers and cleanup included; no physical or recursive price inferred.",
+      "wrapper_Gaussian_SWAPs": 1744,
+      "wrapper_phase_histogram": {
+        "0": 512,
+        "1": 512,
+        "2": 512,
+        "3": 512
+      },
+      "wrappers": [
+        {
+          "Gaussian_SWAP": 448,
+          "cycles": 64,
+          "event": 2120,
+          "phase_histogram": {
+            "0": 128,
+            "1": 128,
+            "2": 128,
+            "3": 128
+          },
+          "side": "right"
+        },
+        {
+          "Gaussian_SWAP": 448,
+          "cycles": 64,
+          "event": 2120,
+          "phase_histogram": {
+            "0": 128,
+            "1": 128,
+            "2": 128,
+            "3": 128
+          },
+          "side": "left"
+        },
+        {
+          "Gaussian_SWAP": 384,
+          "cycles": 128,
+          "event": 2122,
+          "phase_histogram": {
+            "0": 128,
+            "1": 128,
+            "2": 128,
+            "3": 128
+          },
+          "side": "right"
+        },
+        {
+          "Gaussian_SWAP": 464,
+          "cycles": 48,
+          "event": 2122,
+          "phase_histogram": {
+            "0": 128,
+            "1": 128,
+            "2": 128,
+            "3": 128
+          },
+          "side": "left"
+        }
+      ]
+    },
+    "strong_checkpoint_hashes": {
+      "1099": {
+        "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "X0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16"
+      },
+      "2121": {
+        "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "Q0": "648f2ef2e11e1a2eb087fc3cfbff190aae11af7a0abe557cee5738ce25fa7dbf",
+        "X0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16"
+      },
+      "3278": {
+        "G0": "e93d0327a8c3216c69d3afd82905eb340e8f9841790b7cba526ff24705b6fb7a",
+        "Q0": "648f2ef2e11e1a2eb087fc3cfbff190aae11af7a0abe557cee5738ce25fa7dbf",
+        "X0": "60fbb391fd8655c034e8cdce3209d3968c5e6f59919329cf96089e9304571329"
+      },
+      "4241": {
+        "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "X0": "e6180b612b15c05c676deb0ea8725a25b756ed63d5d23272b07a72d9ffda3bf8"
+      },
+      "5086": {
+        "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "X0": "5fdfccc38ead92cc1384c30545bb386a16cb30eba045845e3d4cab4d44f0f752"
+      },
+      "5397": {
+        "G0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "Q0": "c8e145f4220685e764568718191bfa96c3227f8b845bc8032698b49d8f8b4d16",
+        "X0": "d624d7f0549dbe555a7734a646f6161b64efbc082338c5a14d6b1b7d5398b385"
+      }
+    },
+    "symbolic": {
+      "ADD_product_denominators": {
+        "1": 3006,
+        "2": 52,
+        "4": 46
+      },
+      "erasure_events": [
+        2039,
+        2052,
+        2063,
+        2076,
+        2089,
+        2102,
+        2113,
+        2128
+      ],
+      "final_nonzero_coefficients": {
+        "X0": [
+          -1,
+          2
+        ],
+        "X1": [
+          -1,
+          2
+        ],
+        "X100": [
+          -1,
+          2
+        ],
+        "X11": [
+          1,
+          2
+        ],
+        "X12": [
+          -1,
+          2
+        ],
+        "X15": [
+          1,
+          2
+        ],
+        "X16": [
+          -1,
+          2
+        ],
+        "X19": [
+          1,
+          2
+        ],
+        "X20": [
+          -1,
+          2
+        ],
+        "X24": [
+          1,
+          2
+        ],
+        "X25": [
+          -1,
+          2
+        ],
+        "X28": [
+          1,
+          2
+        ],
+        "X29": [
+          -1,
+          2
+        ],
+        "X3": [
+          -1,
+          2
+        ],
+        "X33": [
+          1,
+          2
+        ],
+        "X34": [
+          -1,
+          2
+        ],
+        "X37": [
+          1,
+          2
+        ],
+        "X38": [
+          -1,
+          2
+        ],
+        "X41": [
+          1,
+          2
+        ],
+        "X42": [
+          -1,
+          2
+        ],
+        "X45": [
+          1,
+          2
+        ],
+        "X46": [
+          -1,
+          2
+        ],
+        "X48": [
+          1,
+          2
+        ],
+        "X49": [
+          -1,
+          2
+        ],
+        "X52": [
+          1,
+          2
+        ],
+        "X53": [
+          -1,
+          2
+        ],
+        "X56": [
+          1,
+          2
+        ],
+        "X57": [
+          -1,
+          2
+        ],
+        "X6": [
+          1,
+          2
+        ],
+        "X60": [
+          1,
+          2
+        ],
+        "X61": [
+          -1,
+          2
+        ],
+        "X64": [
+          1,
+          2
+        ],
+        "X65": [
+          -1,
+          2
+        ],
+        "X68": [
+          1,
+          2
+        ],
+        "X69": [
+          -1,
+          2
+        ],
+        "X7": [
+          1,
+          2
+        ],
+        "X72": [
+          1,
+          2
+        ],
+        "X73": [
+          -1,
+          2
+        ],
+        "X76": [
+          1,
+          2
+        ],
+        "X77": [
+          -1,
+          2
+        ],
+        "X8": [
+          -1,
+          2
+        ],
+        "X80": [
+          1,
+          2
+        ],
+        "X81": [
+          -1,
+          2
+        ],
+        "X83": [
+          1,
+          2
+        ],
+        "X84": [
+          -1,
+          2
+        ],
+        "X87": [
+          1,
+          2
+        ],
+        "X88": [
+          -1,
+          2
+        ],
+        "X90": [
+          1,
+          2
+        ],
+        "X91": [
+          -1,
+          2
+        ],
+        "X96": [
+          1,
+          2
+        ],
+        "X97": [
+          -1,
+          2
+        ],
+        "X99": [
+          1,
+          2
+        ],
+        "Y90": [
+          -1,
+          1
+        ],
+        "Y91": [
+          1,
+          1
+        ]
+      },
+      "maximum_absolute_normalised_coefficient": [
+        1,
+        1
+      ],
+      "opcode_counts": {
+        "add": 3104,
+        "erase": 8,
+        "sign": 208,
+        "transport": 2070,
+        "zero": 8
+      },
+      "scope": "One symbolic paired family, every5398 event, including all208 signs; no rank census.",
+      "six_first_collector_coefficients": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "stored_denominators": {
+        "1": 4928,
+        "2": 390,
+        "4": 72
+      }
+    }
+  },
+  "schema_version": 1,
+  "scope": "A source-bound consumer/caller audit with two finite fixtures and a written all-B9 paired-family implication. No paid caller, supplier, enlarged-domain advantage or kappa claim.",
+  "status": "PASS_P104_KERNEL_CONSUMER",
+  "typed_receipt_control": "Boolean true is distinct from integer1"
+}

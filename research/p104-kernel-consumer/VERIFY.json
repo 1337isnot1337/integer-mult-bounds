@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p104-rounded-collector/inputs/NATIVE.json.gz",
+    "research/p104-rounded-collector/inputs/WORD.json",
+    "research/p104-stagewise-entrance/PROOF.md",
+    "research/p104-stagewise-entrance/admission.py",
+    "research/p104-stagewise-entrance/classifier.py",
+    "research/p104-stagewise-entrance/inputs/PR3382_PROOF.md",
+    "research/p104-stagewise-entrance/inputs/PR3416_PROOF.md",
+    "research/p104-stagewise-entrance/inputs/pr3382_model.py",
+    "research/p104-stagewise-entrance/source.py",
+    "research/p104-omitted-completion/CERTIFICATE.json",
+    "research/p104-omitted-completion/README.md",
+    "research/p104-omitted-completion/PROOF.md",
+    "research/p104-omitted-frame-adapters/ADAPTERS.json",
+    "research/p104-omitted-frame-adapters/README.md",
+    "research/p104-omitted-frame-adapters/PROOF.md",
+    "LICENSE",
+    "NOTICE",
+    "upstream/LICENSE",
+    "research/p104-rounded-collector/PREDECESSORS.json",
+    "research/p104-rounded-collector/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate20 frozen inputs; independent full p and physical arrays; exact event1099 failure;5398-event strong control; full symbolic paired-family denominator certificate; reverse X0 row, late-sign and cleanup controls; actual collector cost inventory; typed read-only receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the identical bounded mathematical contract with Python assertions disabled; explicit guards and complete typed receipt remain required."
+    }
+  ]
+}
