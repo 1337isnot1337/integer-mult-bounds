@@ -8,6 +8,8 @@ here. Adapted from research/rank7-group-d-native-widths-audit/native.py (Wentao
 Li), itself adapted from the group-A/B/C audits, to PR3605's ordinary FULL-terminal
 helpers 644/660. Unlike the restored group helpers, these have no private buffer:
 they are wrapped by one residual pair and leave through one ordinary exit adapter.
+The consumer words that retime the 644/660 releases (PR3642/PR3653 RETIMED, PR3682
+DELAYED) go through the same binding, with PR3605's STAGED words as the control.
 """
 
 import copy
@@ -15,9 +17,10 @@ import os
 import subprocess
 import sys
 
-from common import (COMPILER, CONTAINED_LINE, ENGINE, ENTRANCE, FULL, HELPERS, KERNEL,
-                    PARENT_ENTRANCE, WRONG_ENTRANCE, decode, digest, encoded, module,
-                    parent_name, reject, require, staged_name)
+from common import (COMPILER, CONSUMERS, CONTAINED_LINE, DONORS, ENGINE, ENTRANCE, FULL,
+                    HELPERS, KERNEL, PARENT_ENTRANCE, PROVIDERS, WRONG_ENTRANCE,
+                    consumer_name, decode, digest, encoded, module, parent_name,
+                    recorded_receipts, reject, require, staged_name)
 
 
 def bind_program_receipts(programs, checks):
@@ -47,7 +50,9 @@ def generate(blobs, raw_word, work):
                               *map(str, args)], env=env, capture_output=True,
                              text=True, timeout=120, check=False)
         require(run.returncode == 0, script + ": " + run.stderr[-2000:])
-    checks = (output / "LOCAL-CHECKS.json").read_bytes()
+    # bw_emit.py writes this receipt with write_text (CRLF on Windows); digest the
+    # LF form so the receipt is platform-independent and matches recorded runs.
+    checks = (output / "LOCAL-CHECKS.json").read_bytes().replace(b"\r\n", b"\n")
     canonical = decode((output / "CANONICAL-WORD.json.gz").read_bytes(), True)
     programs = decode((output / "LOCAL-PROGRAMS.json.gz").read_bytes(), True)
     bind_program_receipts(programs, decode(checks))
@@ -234,6 +239,28 @@ def emitted_binding(word, canonical, stream, helper, backward=False):
             "direct_scalar_sha256": digest(encoded(scalars))}
 
 
+def check_climb(compiler, kernel, old, new, climb_recipes):
+    """Lower one climb with the source compiler and check it with the separate kernel."""
+    identity = encoded([old, new]).decode().strip()
+    if identity not in climb_recipes:
+        op = compiler.canonical_frame(9, tuple(old)).adjoint().then(
+            compiler.canonical_frame(9, tuple(new)))
+        candidate, _ = compiler.lower_child(op)
+        climb_recipes[identity] = check_recipe(kernel, decode(encoded(candidate)), old, new)["rank"]
+    return identity
+
+
+def climb_chains(word, canonical, stream):
+    """Original helper id -> its emitted [old, new, rank] climbs in stream order."""
+    kept = [r for r in range(704) if r not in word["removed"]]
+    chains = {}
+    for event in stream:
+        if event[0] == "climb":
+            old, new = (canonical["frames"][f] for f in event[3:5])
+            chains.setdefault(kept[event[2]], []).append([old, new, event[5]])
+    return chains
+
+
 def recipe_classes(adapters):
     """Serialized residual recipes by literal entrance and terminal vectors."""
     return {encoded([row["vectors"], row.get("terminal_vectors", FULL)])
@@ -268,13 +295,7 @@ def provider(blobs, tag, work, compiler, kernel, climb_recipes):
         if key not in residuals:
             residuals[key] = check_recipe(kernel, row, ENTRANCE, FULL)
         for climb in forward["climbs"]:
-            identity = encoded([climb["old"], climb["new"]]).decode().strip()
-            if identity not in climb_recipes:
-                op = compiler.canonical_frame(9, tuple(climb["old"])).adjoint().then(
-                    compiler.canonical_frame(9, tuple(climb["new"])))
-                candidate, _ = compiler.lower_child(op)
-                climb_recipes[identity] = check_recipe(kernel, decode(encoded(candidate)),
-                                                       climb["old"], climb["new"])["rank"]
+            check_climb(compiler, kernel, climb["old"], climb["new"], climb_recipes)
     require(len(residuals) == 1, "one shared entering residual class")
 
     # Single-change control: the parent PR3133 word through the same producer.
@@ -334,23 +355,89 @@ def provider(blobs, tag, work, compiler, kernel, climb_recipes):
         lambda: check_recipe(kernel, rec, WRONG_ENTRANCE, FULL), "wrong plane")
     controls["parent_recipe_at_new_entrance"] = reject(
         lambda: check_recipe(kernel, parent_recipe, ENTRANCE, FULL), "parent recipe")
-    return {"word_sha256": digest(raw), "parent_word_sha256": digest(raw_parent),
-            "local_checks_sha256": checks_sha, "parent_local_checks_sha256": parent_checks_sha,
-            "adapter_sha256": digest(encoded(adapters)), "bindings": bindings,
-            "residuals": residuals, "parent_bindings": parent_bindings,
-            "parent_residual": parent_check, "changed_helpers": changed,
-            "pair_classes": {"parent": len(classes_old), "staged": len(classes_new)},
-            "residual_recipes": {"parent": len(recipes_old), "staged": len(recipes_new)},
-            "warp_records": len(canonical["warps"]),
+    record = {"word_sha256": digest(raw), "parent_word_sha256": digest(raw_parent),
+              "local_checks_sha256": checks_sha, "parent_local_checks_sha256": parent_checks_sha,
+              "adapter_sha256": digest(encoded(adapters)), "bindings": bindings,
+              "residuals": residuals, "parent_bindings": parent_bindings,
+              "parent_residual": parent_check, "changed_helpers": changed,
+              "pair_classes": {"parent": len(classes_old), "staged": len(classes_new)},
+              "residual_recipes": {"parent": len(recipes_old), "staged": len(recipes_new)},
+              "warp_records": len(canonical["warps"]),
+              "controls": controls}
+    return record, (word, canonical, programs, adapters, bindings)
+
+
+def consumer(blobs, stem, tag, work, compiler, kernel, donor_recipes, staged, receipt):
+    """Bind a consumer word that retimes the 644/660 releases; the STAGED word is the control."""
+    raw = blobs[consumer_name(stem, tag)]
+    canonical, programs, checks_sha = generate(blobs, raw, work / stem)
+    require(checks_sha == receipt, "recorded consumer native receipt")
+    record = compare(staged, decode(raw, True), canonical, programs, compiler, kernel, donor_recipes)
+    return {"word_sha256": digest(raw), "local_checks_sha256": checks_sha, **record}
+
+
+def compare(staged, word, canonical, programs, compiler, kernel, donor_recipes):
+    """Consumer emission against the STAGED control: entrance side, 644/660, donors."""
+    s_word, s_canonical, s_programs, s_adapters, s_bindings = staged
+    # Entrance side: every serialized recipe and warp record, and every helper's
+    # entrance/terminal pair, equal the STAGED word's.
+    adapters = adapter_file(compiler, canonical)
+    require(adapters == s_adapters, "unchanged serialized residual adapters")
+    require(pair_inventory(canonical, word) == pair_inventory(s_canonical, s_word),
+            "unchanged entrance/terminal pairs")
+    frames = lambda row: [[c["old"], c["new"], c["rank"]] for c in row["climbs"]]
+    bindings, keys, ranks, clocks, scalars, controls = {}, {}, {}, {}, {}, {}
+    for h in HELPERS:
+        rows = {orientation: emitted_binding(word, canonical, stream, h, orientation == "backward")
+                for orientation, stream in programs.items()}
+        before, forward = s_bindings[str(h)]["forward"], rows["forward"]
+        require(forward["entrance"] == ENTRANCE and forward["recipe_key"] == before["recipe_key"] and
+                frames(forward) == frames(before) and
+                [c["rank"] for c in rows["backward"]["climbs"]] == [c["rank"] for c in forward["climbs"]],
+                "unchanged entrance, recipe key and climb frames")
+        ranks[str(h)] = check_recipe(kernel, adapters["recipes"][forward["recipe_key"]],
+                                     ENTRANCE, FULL)["rank"]
+        (old_scalars, old_climbs), (new_scalars, new_climbs) = (source_events(w, h)
+                                                                for w in (s_word, word))
+        clocks[str(h)] = {"staged": [c[:2] for c in old_climbs], "consumer": [c[:2] for c in new_climbs]}
+        scalars[str(h)] = sum(row not in old_scalars for row in new_scalars)
+        # The binding sees the retiming: the STAGED word does not describe this program.
+        controls[str(h)] = reject(lambda h=h: emitted_binding(s_word, canonical, programs["forward"], h),
+                                  "staged word on consumer program")
+        keys[str(h)] = forward["recipe_key"]
+        bindings[str(h)] = {orientation: digest(encoded(row)) for orientation, row in rows.items()}
+    # Only the two release donors change climbs: one direct climb replaces their first
+    # two (H1 + H2 -> H3), and the separate kernel checks that new climb recipe.
+    old, new = climb_chains(s_word, s_canonical, s_programs["forward"]), climb_chains(
+        word, canonical, programs["forward"])
+    require(sorted(h for h in old.keys() | new.keys() if old.get(h) != new.get(h)) == list(DONORS),
+            "only the donors' climb chains change")
+    merged = {}
+    for h in DONORS:
+        before, after = old[h], new[h]
+        require([c[2] for c in before[:2]] == [1, 2] and after[1:] == before[2:] and
+                after[0] == [before[0][0], before[1][1], 3], "one merged donor climb")
+        merged[str(h)] = check_climb(compiler, kernel, after[0][0], after[0][1], donor_recipes)
+    return {"adapter_sha256": digest(encoded(adapters)), "binding_sha256": bindings,
+            "recipe_keys": keys, "residual_ranks": ranks, "climb_clocks": clocks,
+            "changed_scalar_clocks": scalars,
+            "donor_climb_ranks": {str(h): [[c[2] for c in old[h]], [c[2] for c in new[h]]]
+                                  for h in DONORS},
+            "merged_donor_climbs": merged, "events": {o: len(p) for o, p in programs.items()},
             "controls": controls}
 
 
 def audit(blobs, work):
     compiler = module(blobs[COMPILER], "staged_pair_source_compiler")
     kernel = module(blobs[KERNEL], "staged_pair_independent_kernel")
-    climb_recipes = {}
-    providers = {}
-    for tag in ("base", "extra"):
+    receipts = recorded_receipts()
+    climb_recipes, donor_recipes, providers, consumers = {}, {}, {}, {}
+    for tag in PROVIDERS:
         (work / tag).mkdir()
-        providers[tag] = provider(blobs, tag, work / tag, compiler, kernel, climb_recipes)
-    return {"providers": providers, "climb_recipes": climb_recipes}
+        providers[tag], staged = provider(blobs, tag, work / tag, compiler, kernel, climb_recipes)
+        for stem in CONSUMERS:
+            consumers.setdefault(stem, {})[tag] = consumer(
+                blobs, stem, tag, work / tag, compiler, kernel, donor_recipes, staged,
+                receipts[stem][tag])
+    return {"providers": providers, "consumers": consumers, "climb_recipes": climb_recipes,
+            "donor_climb_recipes": donor_recipes}

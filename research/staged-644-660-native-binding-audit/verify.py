@@ -11,7 +11,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import native
-from common import HELPERS, PACKAGE, authenticate, decode, require
+from common import CONSUMERS, HELPERS, PACKAGE, authenticate, decode, require
 
 
 def compute():
@@ -34,6 +34,16 @@ def compute():
             parent = row["parent_bindings"][str(h)]["climb_ranks"]
             require(sum(ranks) == 7 and sum(parent) == 8 and ranks[1:] == parent[1:] and
                     ranks[0] + 1 == parent[0], "only the first native climb changes: " + tag)
+    require(list(record["consumers"]) == list(CONSUMERS), "consumer inventory")
+    for stem, rows in record["consumers"].items():
+        for tag, row in rows.items():
+            staged = record["providers"][tag]
+            keys = [row["recipe_keys"][str(h)] for h in HELPERS]
+            require(row["residual_ranks"] == {"644": 7, "660": 7} and
+                    keys == [staged["bindings"][str(h)]["forward"]["recipe_key"] for h in HELPERS] and
+                    row["adapter_sha256"] == staged["adapter_sha256"] and len(row["controls"]) == 2,
+                    "consumer keeps the staged width-7 entrance residual: " + stem + " " + tag)
+    require(list(record["donor_climb_recipes"].values()) == [3, 3], "two merged donor climb recipes")
     require(authenticate() == blobs, "source stability during replay")
     return decode(json.dumps(result).encode())
 
@@ -42,7 +52,7 @@ def main():
     require(sys.argv[1:] in ([], ["--emit"]), "usage: verify.py [--emit]")
     result = compute()
     if sys.argv[1:]:
-        print(json.dumps(result, indent=2, sort_keys=True))
+        print(json.dumps(result, indent=1, sort_keys=True))
     else:
         require(decode((PACKAGE / "RESULT.json").read_bytes()) == result, "deterministic receipt")
         base = result["native"]["providers"]["base"]
@@ -51,7 +61,9 @@ def main():
               + " providers=2 helpers=644,660 entrance=span(429,30) terminal=FULL"
               + f" residual_width=7 parent_width=8 shared_key={key}"
               + f" climb_recipes={len(result['native']['climb_recipes'])} recipes=56->57"
-              + " controls=7x2 single_change=2 both_orientations no_new_kappa")
+              + " controls=7x2 single_change=2 both_orientations no_new_kappa"
+              + " consumers=" + ",".join(CONSUMERS) + f" consumer_width=7 consumer_key={key}"
+              + " consumer_pair_changes=0 recorded_receipts=4 merged_donor_climbs=2")
 
 
 if __name__ == "__main__":

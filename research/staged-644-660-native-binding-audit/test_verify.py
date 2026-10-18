@@ -16,8 +16,9 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import native
-from common import (ENTRANCE, FULL, KERNEL, PACKAGE, PARENT_ENTRANCE, ROOT, authenticate,
-                    decode, module, staged_name)
+from common import (COMPILER, DONORS, ENTRANCE, FULL, HELPERS, KERNEL, PACKAGE,
+                    PARENT_ENTRANCE, ROOT, authenticate, consumer_name, decode, module,
+                    recorded_receipts, staged_name)
 
 
 class BoundaryTests(unittest.TestCase):
@@ -27,6 +28,7 @@ class BoundaryTests(unittest.TestCase):
         cls.result = decode((PACKAGE / "RESULT.json").read_bytes())
         cls.row = cls.result["native"]["providers"]["base"]
         cls.kernel = module(cls.blobs[KERNEL], "staged_pair_test_kernel")
+        cls.compiler = module(cls.blobs[COMPILER], "staged_pair_test_compiler")
         cls.tmp = tempfile.TemporaryDirectory(prefix="staged-pair-tests-")
         raw = cls.blobs[staged_name("base")]
         cls.word = decode(raw, True)
@@ -35,6 +37,11 @@ class BoundaryTests(unittest.TestCase):
         cls.r = cls.row["bindings"]["644"]["forward"]["compact_helper"]
         cls.recipe = cls.row["residuals"]["137"]["recipe"]
         cls.parent_recipe = cls.row["parent_residual"]["recipe"]
+        cls.adapters = native.adapter_file(cls.compiler, cls.canonical)
+        raw = cls.blobs[consumer_name("RETIMED644-660", "base")]
+        cls.retimed = decode(raw, True)
+        cls.retimed_canonical, cls.retimed_programs, cls.retimed_checks = native.generate(
+            cls.blobs, raw, Path(cls.tmp.name) / "retimed")
 
     @classmethod
     def tearDownClass(cls):
@@ -46,9 +53,10 @@ class BoundaryTests(unittest.TestCase):
     def bind(self, stream, word=None, helper=644, backward=False):
         return native.emitted_binding(word or self.word, self.canonical, stream, helper, backward)
 
-    def assertRejects(self, action):
-        with self.assertRaises((ValueError, AssertionError)):
+    def assertRejects(self, action, message=""):
+        with self.assertRaises((ValueError, AssertionError)) as caught:
             action()
+        self.assertIn(message, str(caught.exception))
 
     def index(self, stream, kind, *head):
         return next(i for i, e in enumerate(stream)
@@ -116,6 +124,48 @@ class BoundaryTests(unittest.TestCase):
         # A different plane through the parent line 30 (430 is not in span(429,30)).
         self.assertRejects(lambda: check(self.recipe, [430, 30]))
 
+    def compare(self, adapters=None, canonical=None, forward=None):
+        bindings = {str(h): {"forward": self.bind(self.programs["forward"], helper=h)}
+                    for h in HELPERS}
+        staged = (self.word, self.canonical, self.programs, adapters or self.adapters, bindings)
+        programs = dict(self.retimed_programs, forward=forward or self.retimed_programs["forward"])
+        return native.compare(staged, self.retimed, canonical or self.retimed_canonical,
+                              programs, self.compiler, self.kernel, {})
+
+    def test_consumer_positive_and_receipt(self):
+        row = self.result["native"]["consumers"]["RETIMED644-660"]["base"]
+        self.assertEqual(self.retimed_checks, recorded_receipts()["RETIMED644-660"]["base"])
+        self.assertEqual(self.retimed_checks, row["local_checks_sha256"])
+        self.assertEqual(self.compare(), {k: v for k, v in row.items()
+                                          if k not in ("word_sha256", "local_checks_sha256")})
+        for h in HELPERS:  # The retimed word does not describe the STAGED program either.
+            self.assertRejects(lambda: native.emitted_binding(
+                self.retimed, self.canonical, self.programs["forward"], h),
+                "source-to-emission direct scalar/climb clocks")
+
+    def test_consumer_corruptions(self):
+        adapters = copy.deepcopy(self.adapters)
+        adapters["recipes"]["137"]["left"]["phase"] ^= 1
+        self.assertRejects(lambda: self.compare(adapters=adapters),
+                           "unchanged serialized residual adapters")
+        # Moving the span(429,30) entrance from 644 to its donor 640 keeps the recipe set.
+        canonical = copy.deepcopy(self.retimed_canonical)
+        kept = [r for r in range(704) if r not in self.retimed["removed"]]
+        a, b = kept.index(644), kept.index(DONORS[0])
+        canonical["start"][a], canonical["start"][b] = canonical["start"][b], canonical["start"][a]
+        self.assertRejects(lambda: self.compare(canonical=canonical),
+                           "unchanged entrance/terminal pairs")
+        # An extra changed climb chain outside the donors.
+        s = copy.deepcopy(self.retimed_programs["forward"])
+        del s[next(i for i, e in enumerate(s) if e[0] == "climb" and
+                   kept[e[2]] not in (*HELPERS, *DONORS))]
+        self.assertRejects(lambda: self.compare(forward=s), "only the donors' climb chains change")
+        # The donor stops at its old intermediate frame span(429,30) instead of one merged climb.
+        s = copy.deepcopy(self.retimed_programs["forward"])
+        i = next(i for i, e in enumerate(s) if e[0] == "climb" and kept[e[2]] == DONORS[0])
+        s[i][4:6] = [self.retimed_canonical["frames"].index(ENTRANCE), 1]
+        self.assertRejects(lambda: self.compare(forward=s), "one merged donor climb")
+
     def test_source_pin_corruption(self):
         with tempfile.TemporaryDirectory(prefix="staged-pair-pins-") as work:
             root = Path(work)
@@ -123,9 +173,11 @@ class BoundaryTests(unittest.TestCase):
                 (root / name).parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(ROOT / name, root / name)
             self.assertEqual(authenticate(root), self.blobs)
-            target = root / staged_name("extra")
-            raw = bytearray(target.read_bytes()); raw[-5] ^= 1; target.write_bytes(bytes(raw))
-            self.assertRejects(lambda: authenticate(root))
+            for target in (root / staged_name("extra"), root / consumer_name("DELAYED", "base")):
+                good = target.read_bytes()
+                raw = bytearray(good); raw[-5] ^= 1; target.write_bytes(bytes(raw))
+                self.assertRejects(lambda: authenticate(root))
+                target.write_bytes(good)
 
 
 if __name__ == "__main__":

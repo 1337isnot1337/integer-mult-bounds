@@ -100,6 +100,97 @@
       "pin": "head:f798838eb8ede4178e94f240e7b7e54b3f80c82d:research/staged-644-660-independent-audit/README.md"
     },
     {
+      "path": "research/staged-release-retiming-t530/local-audit/words/RETIMED644-660-base.json.gz",
+      "usage": "provenance",
+      "git_blob": "d69125e0c7d34af9299e411ada5c30dfc7b95ad1",
+      "sha256": "6df3356808e29909776be8bc0faf03df983401a267c2d740d1ac2dbcaa278269",
+      "pin": "head:6568db75adbb61437190545f6fef1534c70e91e5:research/staged-release-retiming-t530/local-audit/words/RETIMED644-660-base.json.gz"
+    },
+    {
+      "path": "research/staged-release-retiming-t530/local-audit/words/RETIMED644-660-extra.json.gz",
+      "usage": "provenance",
+      "git_blob": "f3c580b06506e8888fe766c9a1e0bb1a748d7b74",
+      "sha256": "65624efec36b35934b750c1741ba2ad4e6df3cff86e44536b0c016ebddb0fb55",
+      "pin": "head:6568db75adbb61437190545f6fef1534c70e91e5:research/staged-release-retiming-t530/local-audit/words/RETIMED644-660-extra.json.gz"
+    },
+    {
+      "path": "research/retimed-t488-composition/local-audit/words/RETIMED644-660-base.json.gz",
+      "usage": "provenance",
+      "git_blob": "d69125e0c7d34af9299e411ada5c30dfc7b95ad1",
+      "sha256": "6df3356808e29909776be8bc0faf03df983401a267c2d740d1ac2dbcaa278269",
+      "pin": "head:607a09ff441c79b215a8127a81f4cc70021d0d9b:research/retimed-t488-composition/local-audit/words/RETIMED644-660-base.json.gz"
+    },
+    {
+      "path": "research/retimed-t488-composition/local-audit/words/RETIMED644-660-extra.json.gz",
+      "usage": "provenance",
+      "git_blob": "f3c580b06506e8888fe766c9a1e0bb1a748d7b74",
+      "sha256": "65624efec36b35934b750c1741ba2ad4e6df3cff86e44536b0c016ebddb0fb55",
+      "pin": "head:607a09ff441c79b215a8127a81f4cc70021d0d9b:research/retimed-t488-composition/local-audit/words/RETIMED644-660-extra.json.gz"
+    },
+    {
+      "path": "research/staged-donor-release/lead1-words/DELAYED-base.json.gz",
+      "usage": "provenance",
+      "git_blob": "7ccd0962b89adb78e643689573333059262d27b7",
+      "sha256": "0aca7560603d65902a50d68af43f594abd93b09594bac24878b846b1e51475fa",
+      "pin": "head:431e6c6023ef352c41696469de7fb614cd4ded8c:research/staged-donor-release/lead1-words/DELAYED-base.json.gz"
+    },
+    {
+      "path": "research/staged-donor-release/lead1-words/DELAYED-extra.json.gz",
+      "usage": "provenance",
+      "git_blob": "3f1fb47183d97bf4b544ea51c59394bb6a9801ee",
+      "sha256": "6928ad79dc683e7e7bbf4b5da60f2df91f478c58b797922d6df41d9d43c87048",
+      "pin": "head:431e6c6023ef352c41696469de7fb614cd4ded8c:research/staged-donor-release/lead1-words/DELAYED-extra.json.gz"
+    },
+    {
+      "path": "research/staged-release-retiming-t530/local-audit/receipts/native-base/native/local/LOCAL-CHECKS.json",
+      "usage": "provenance",
+      "git_blob": "fffbfc2f9096d3d1fad0842f6b0898585a4e47b9",
+      "sha256": "11743473efa1822069303b49c62b1853af4236f46ef54b4778a27e2e70d79d06",
+      "pin": "head:6568db75adbb61437190545f6fef1534c70e91e5:research/staged-release-retiming-t530/local-audit/receipts/native-base/native/local/LOCAL-CHECKS.json"
+    },
+    {
+      "path": "research/staged-release-retiming-t530/local-audit/receipts/native-extra/native/local/LOCAL-CHECKS.json",
+      "usage": "provenance",
+      "git_blob": "fffbfc2f9096d3d1fad0842f6b0898585a4e47b9",
+      "sha256": "11743473efa1822069303b49c62b1853af4236f46ef54b4778a27e2e70d79d06",
+      "pin": "head:6568db75adbb61437190545f6fef1534c70e91e5:research/staged-release-retiming-t530/local-audit/receipts/native-extra/native/local/LOCAL-CHECKS.json"
+    },
+    {
+      "path": "research/staged-donor-release/evidence/native-base/LOCAL-CHECKS.json",
+      "usage": "provenance",
+      "git_blob": "39d91d34bc6115d89c8577e7a75ed59dbed4b3df",
+      "sha256": "7ff1aabbc1cab42fd4c045859071657dbccdeb398a52334b13f072f0731c87d5",
+      "pin": "head:431e6c6023ef352c41696469de7fb614cd4ded8c:research/staged-donor-release/evidence/native-base/LOCAL-CHECKS.json"
+    },
+    {
+      "path": "research/staged-donor-release/evidence/native-extra/LOCAL-CHECKS.json",
+      "usage": "provenance",
+      "git_blob": "39d91d34bc6115d89c8577e7a75ed59dbed4b3df",
+      "sha256": "7ff1aabbc1cab42fd4c045859071657dbccdeb398a52334b13f072f0731c87d5",
+      "pin": "head:431e6c6023ef352c41696469de7fb614cd4ded8c:research/staged-donor-release/evidence/native-extra/LOCAL-CHECKS.json"
+    },
+    {
+      "path": "research/staged-release-retiming-t530/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "54ec7d1ab72fd639a35bc1aa7127d1eb33719f01",
+      "sha256": "bee5879b1f48a5a4efec30f75f2f8a348f1bd1eaf5ddf04f7d92a9cf1a904125",
+      "pin": "head:6568db75adbb61437190545f6fef1534c70e91e5:research/staged-release-retiming-t530/PROOF.md"
+    },
+    {
+      "path": "research/retimed-t488-composition/README.md",
+      "usage": "provenance",
+      "git_blob": "f0f003474aa97ca112807829d281708795e0e228",
+      "sha256": "dac5a44abfe961bc86446a6ca6c3b6c76afe588d44c725911e7bd391b1c059b7",
+      "pin": "head:607a09ff441c79b215a8127a81f4cc70021d0d9b:research/retimed-t488-composition/README.md"
+    },
+    {
+      "path": "research/staged-donor-release/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "a9da712a7dd24194ab3fff64246adeba2bdf608d",
+      "sha256": "89ce2b0aa2dcf84ebcab04aedc451420815bc48af25c69998594910e9976a31b",
+      "pin": "head:431e6c6023ef352c41696469de7fb614cd4ded8c:research/staged-donor-release/PROOF.md"
+    },
+    {
       "path": "research/rank7-group-d-native-widths-audit/native.py",
       "usage": "provenance",
       "git_blob": "8b98cbd4fe82562fbf0a71965a264d05c1c01660",
