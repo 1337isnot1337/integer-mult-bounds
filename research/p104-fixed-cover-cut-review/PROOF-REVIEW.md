@@ -142,6 +142,16 @@ conclusion can fail. The verifier's `F_2^4` example relays across two rigid
 types at a shared plane. It lies in PR3259's test but outside the one-helper
 test.
 
+*Second methods.* Two checks support the lemma beyond the written proof.
+
+- **Small domains.** The oracle runs 9,000 checked programs on pooled
+  `F_2^3`/`F_2^4` instances with exact `Fraction` coefficients. It finds
+  1,043 nonzero helper-path coefficients, 633 of them relayed across
+  different helper types. Every one lies in the one-helper test.
+- **P104.** A new implementation of PR3252's multi-hop full-memory
+  recurrence, which does not assume the lemma, gives the same support on all
+  10,816 pairs.
+
 *Converse (untimed).* If the condition holds, one helper of type `(a,b)` with
 that full flag reads `X_s` at V and writes `Y_t` at W. With chronology relaxed,
 the criterion is therefore exact. No sound untimed support test under K1-K7 can
