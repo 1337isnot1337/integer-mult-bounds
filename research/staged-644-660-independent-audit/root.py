@@ -349,10 +349,11 @@ def main():
                 'shift_from_PR3605_lower': float(a - roots['PR3605'][0])}
     out['mass_changing_sensitivity_PR3605'] = sensitivity
     # Mass-conserving sensitivity (every error the coverage law cannot see).  Let m be the
-    # positive-part rank mass sum_{dH_r>0} r*dH_r of a change dH with sum r*dH_r = 0.  If every
-    # rank before and after lies in [1, 48], linearity of M and (73/48)^b <= (73/r)^b <= 73^b give
-    # |dM(b)| <= m*c(b) at every b>0 (unit_spread), with equality for relabel(.., m/48).  Since M
-    # increases in b, m <= safe_units(H, b0) keeps the root above b0.
+    # positive-part rank mass sum_{dH_r>0} r*dH_r of a change dH with sum r*dH_r = 0.  If the
+    # removed mass sits at published ranks (<= 48, checked below) and every true rank is >= 1,
+    # linearity of M and (73/48)^b <= (73/r)^b <= 73^b give dM(b) <= m*c(b) at every b>0
+    # (unit_spread), with equality for relabel(.., m/48).  Since M increases in b,
+    # m <= safe_units(H, b0) keeps the root above b0.
     capacities = sorted({g[0] for g in cert['groups']})
     need(capacities == [8, 16, 32, 48] and min(new) >= 1 and max(new) == max(old) == 48, 'ranks within [1,48]')
     conserving = {}

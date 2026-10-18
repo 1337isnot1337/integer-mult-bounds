@@ -8,8 +8,11 @@ parent words as the single-change control. **The changed words pass at head
 literal inverse, and their binary frames give exactly the claimed profile and
 widths. A pass makes these words an independently checked local input for the
 open staged-width chain that reuses them unchanged. It does not cover the
-retimed words of #3642/#3653, the native phases of the new entrance frame, or
-any owner journal. Those remain load-bearing.
+retimed words of #3642/#3653/#3682, the native phases of the new entrance
+frame, or any owner journal. Those remain load-bearing.
+
+Reproduce (standard library, about 1–2 min):
+`python3 -I -B research/staged-644-660-independent-audit/verify.py && python3 -I -B research/staged-644-660-independent-audit/root.py`
 
 In detail, the changed `base` and `extra` words are exact arbitrary-dirty
 identities in both orientations, with 632 independent inputs and 91 private
@@ -52,10 +55,12 @@ submission):
   are the supplier words.
 - *Parent only.* #3642 `044d24f1` (roger-sato, T530) and #3653
   `607a09ff` (rohanarun, T488, vendoring #3642) carry the same STAGED blobs, but
-  their claims run `RETIMED644-660` words (`d69125e0`/`f3c580b0`). Those add two
-  commuting release retimings on top of the audited words, and **they are not
-  checked here**. Only their STAGED parent is. These are currently the two
-  highest staged-width claims.
+  their claims run `RETIMED644-660` words (`d69125e0`/`f3c580b0`). #3682
+  `431e6c60` (zxv, T360) also vendors the STAGED blobs and runs its own
+  `DELAYED` words (`7ccd0962`/`3f1fb471`), which apply the same two commuting
+  release retimings to different bytes. **None of these retimed words is
+  checked here**; only their STAGED parent is. #3653 and #3682 report the same
+  endpoint, the highest among these staged-width claims.
 
 PR3605's own semantic check runs the pinned inherited interpreter
 (`audit_local.py`). This package supplies a separately implemented check of
@@ -213,10 +218,10 @@ decomposition is `H = 6660·L + I`. The local change is +6 rank-1, +2 rank-2
 and −4 rank-3 children per call. The idle change is
 `{1:+996, 3:−617, 4:+1, 5:−3083, 6:+3, 48:+616}`.
 
-Swapping one component at a time does not conserve mass and moves the root by
-about ±9.7e-5. Those hybrids (0.0018266 and 0.0016331) are arithmetic
-counterfactuals, not realized journals. **The net gain is a 0.2% residual of
-two opposite mass shifts.**
+Swapping one component at a time moves the root by about ±9.7e-5 (hybrids
+0.0018266 and 0.0016331). Both hybrids violate the coverage law below (rank
+mass 48,165,120 ∓ 13,320), so this split is bookkeeping, not a measure of
+fragility.
 
 **Recount from the aggregate owner witness.** `root.py` recounts PR3605's
 published aggregate integer witness
@@ -229,10 +234,12 @@ published aggregate integer witness
   macro-calls.
 - It passes every check of PR3605's `verify_aggregate.py` (reimplemented)
   except the two derived from the source template: record types and ranges,
-  no duplicate records, bin counts, open/closed windows, supply equal to flow,
-  per-call demand, the per-copy group capacity, the complete paid rank mass,
-  and its own inventory and profile fields. Not reimplemented: the literal
-  T37 order, and the window classes and bin counts from `owner.windows`.
+  no duplicate records, pattern records filling every declared bin (S × bins),
+  open/closed windows, supply equal to flow, per-call demand, the per-copy
+  group capacity, the complete paid rank mass, and its own inventory and
+  profile fields. Not reimplemented: the literal T37 order, and whether the
+  declared window classes and bin counts equal those `owner.windows` derives
+  from the template.
 - The capacity balance `35,804,160 = mass(I) + 6660·3279` holds, so
   `mass(I) = 13,966,020`.
 - Six controls are rejected, each for its expected reason (asserted, as
@@ -247,55 +254,37 @@ published aggregate integer witness
 The witness's source windows are taken as published. The literal journal of
 2,717,280 helper roles (6660 × 408) and its chronology are not re-derived here.
 
-**How fragile is the gain?** Every complete histogram in this model obeys the
-coverage law `Σ r·H[r] = 72W + 64N`, with live stock W = 663,040 and N = 6,660
-calls (the deficit form of PR1012, as used in
-`research/complex-queue-ceiling-census`). Both histograms meet it at
-48,165,120, and `root.py` checks it.
+**How fragile is the gain?**
 
-For both audited words, a call's local rank mass minus its helper width units
-is the same: 5,137 − 3,281 = 5,135 − 3,279 = 1,856. Since
-`mass(H) = N·1,856 + total owner capacity`, the law forces total owner capacity
-35,804,160 = 54W, for PR3605 and PR3148 alike. The witness meets it.
-
-- *Mass-changing errors cannot pass undetected.* A wrong capacity or bin
-  count, or an added or dropped idle child, changes `mass(H)` and breaks the
-  law. The ±1-child brackets in `ROOT-RESULT.json` are therefore only slopes of
-  law-violating histograms, kept to show scale: one rank-48 child would move
-  the root by `∓3.498e-7`, one rank-1 child by `∓7.34e-9`.
-- *Every undetected error conserves rank mass.* Let `m` be the rank mass it
-  moves, the positive part of the net histogram change:
-  `m = Σ_{ΔH[r] > 0} r·ΔH[r]`. Suppose every rank before and after lies in
-  [1, 48]. (Idle ranks are capped by the largest capacity, 48, and the local
-  ranks here are at most 8.) `M` is linear in the histogram and
-  `(73/48)^b ≤ (73/r)^b ≤ 73^b`, so `|ΔM(b)| ≤ m·c(b)` at every `b`, with
-  `c(b) = (73^b − (73/48)^b)/(73·663040)`. Equality holds when rank-48
-  children are relabelled as 48 rank-1 children. `M` increases in `b`, so
-  `m < (1 − M(b0))/c(b0)` keeps the root above `b0`. `root.py` evaluates this
-  threshold with exact intervals:
-  - at PR3148's root (upper 30-digit endpoint), any such error moving at most
-    **4,678** units keeps the PR3605 root above it, so it cannot cancel the
-    gain;
-  - at 0.00173, any such error moving at most **133** units keeps the root
-    above 0.00173.
-
-  The relabels show these thresholds are nearly attained. By exact intervals,
-  98 relabels (4,704 units) are the fewest that put the root below PR3148's,
-  and 3 (144 units) the fewest that put it below 0.00173; `root.py` checks
-  that both counts agree with the direct thresholds. One relabel moves the
-  root by `∓2.35e-9`. Moving one width-8 role from a full bin to an empty
-  capacity-48 bin moves it by `−2.73e-10`. The inequality itself is the short
-  written argument above (repeated in a `root.py` comment); the thresholds and
-  relabel counts are exact computations.
-
-So the size of the gain is not where the open risk lies. Owner-layer errors
-(window classes, bin assignment, the literal journal) decide legality. They
-change the gain's size only if they move more than 4,678 units of rank mass.
-Per-call errors in the words or the native entrance act 6,660 times, so they
-can: PR3605 and PR3148 have the same total owner capacity yet differ by 97,186
-units of moved rank mass. The open risks are therefore the native residual
-(open question 1) and window and journal legality (questions 3 and 4), not
-more digits of the root.
+- *Coverage law.* Every complete histogram here obeys `Σ r·H[r] = 72W + 64N`
+  (W = 663,040, N = 6,660; inherited, see Scope). `root.py` checks both
+  histograms meet it at 48,165,120, and that both words have the same per-call
+  constant (local rank mass − helper width units = 1,856), which forces total
+  owner capacity 54W = 35,804,160, the witness's. So a wrong capacity, bin
+  count or added/dropped child breaks the law; the ±1-child shifts in
+  `ROOT-RESULT.json` (rank-48: `∓3.498e-7`) are slopes of law-violating
+  histograms only.
+- *Mass-conserving errors.* Let `m = Σ_{ΔH[r] > 0} r·ΔH[r]` be the rank mass
+  an error moves. If the removed mass sits at published ranks (at most 48,
+  checked by `root.py`) and every true rank is at least 1, linearity and
+  `(73/48)^b ≤ (73/r)^b ≤ 73^b` give `ΔM(b) ≤ m·c(b)`, with
+  `c(b) = (73^b − (73/48)^b)/(73·663040)`; since `M` increases in `b`,
+  `m < (1 − M(b0))/c(b0)` keeps the root above `b0`. This inequality is a
+  written argument; its thresholds are exact-interval computations: an error
+  can **cancel the gain over PR3148 only if it moves more than 4,678 units**,
+  and take the root below 0.00173 only above 133. Both are nearly attained:
+  98 rank-48 → 48 × rank-1 relabels (4,704 units) and 3 relabels (144 units)
+  are the fewest that do. Smaller errors still change the gain's size (one
+  relabel: `∓2.35e-9`; one width-8 role moved to an empty capacity-48 bin:
+  `−2.73e-10`).
+- *Where the risk is.* PR3605 and PR3148 differ by 97,186 moved units:
+  66,600 from the per-call word change and 30,586 from idle/owner repacking,
+  including 616 extra empty capacity-48 bins (29,568 units). So small
+  accounting slips cannot cancel the gain, but a window or journal legality
+  failure could, because the idle/owner repacking the gain depends on moves
+  6.5 times the threshold. The open risks are the native residual (open
+  question 1) and window and journal legality (questions 3 and 4), not more
+  digits of the root.
 
 ## Scope, inherited assumptions and unrun obligations
 
@@ -314,13 +303,17 @@ actual invertible warps.
 Not checked:
 
 - native Gaussian/Clifford phases and the rank-7 residual `C_[7]⊗I_[2]` on 512 columns;
-- the `RETIMED644-660` words of #3642/#3653;
+- the `RETIMED644-660` words of #3642/#3653 and the `DELAYED` words of #3682;
 - the owner source windows and the literal T740 owner journal (the idle profile is recounted only from the aggregate witness), and every consumer's own owner journal and root;
 - the PR3605 conditional release and full fresh-bootstrap wrapper replay requested in Ross's #1166 handoff (#3681 claims this replay with the inherited code; not reviewed here);
 - physical/prefix/outer release, precision, the inherited all-size hypotheses H1–H5 and the formal kernel.
 
 The binary-frame contract is taken from the inherited format. It is not
-derived from first principles. Gzip streams are not compared; payloads and
+derived from first principles. The coverage law `Σ r·H[r] = 72W + 64N` for
+this template (the PR1012 deficit form, as used in
+`research/complex-queue-ceiling-census`) is likewise inherited and cited, not
+re-derived: `root.py` only checks that the published histograms meet it, and
+the mass-changing/mass-conserving classification above depends on it. Gzip streams are not compared; payloads and
 pinned byte digests are.
 
 ## Reproduce
@@ -335,8 +328,10 @@ python3 -I -B research/staged-644-660-independent-audit/root.py
 Expected output:
 
 - `verify.py`: two `CHECKED` lines, then
-  `PASS_INDEPENDENT_STAGED_644_660_WORD_AUDIT` (about 35 s);
-- `root.py`: `PASS_EXACT_MOMENT_BRACKETS` (about 45 s).
+  `PASS_INDEPENDENT_STAGED_644_660_WORD_AUDIT`;
+- `root.py`: `PASS_EXACT_MOMENT_BRACKETS`.
+
+Together they take about 1–2 min, depending on machine load.
 
 Both compare against the committed receipts `RESULT.json` and
 `ROOT-RESULT.json`; `--write` regenerates a receipt deliberately. Failures
@@ -373,19 +368,20 @@ The structured list is in [TASK.json](TASK.json).
    needs an independent check of the rank-7 residual on all 512 Gaussian
    columns, without the `bw_*` lineage code. #3681's full wrapper replay runs
    the inherited native chain, so independence is the open part.
-2. **Are the `RETIMED644-660` words of #3642/#3653 correct?** First step: run
-   this package's interpreter on them, with the audited STAGED words as the
+2. **Are the retimed words correct?** These are the `RETIMED644-660` words of
+   #3642/#3653 and the separately built `DELAYED` words of #3682. First step:
+   run this package's interpreter on each, with the audited STAGED words as the
    single-change control. Check the identity, the claimed per-invocation change
    (−2 rank-1, −2 rank-2, +2 rank-3 children), unchanged widths and
    release-retiming mutants. This is cheap and is now the most
    decision-relevant local check.
 3. **Is each live consumer's own owner journal legal?** These are T450
-   (#3624), T530 (#3626), T488 (#3633), T360 (#3638) and the retimed T530/T488
-   (#3642/#3653); #3630 is a ceiling bound, not an allocation. Where a
-   consumer's histogram is checked against the coverage law, as here, the
-   same argument applies: the window bounds and literal chronology decide
-   legality, and an owner error changes the gain's size only by moving more
-   rank mass than that consumer's own threshold.
+   (#3624), T530 (#3626), T488 (#3633), T360 (#3638), the retimed T530/T488
+   (#3642/#3653) and the retimed T360 (#3682); #3630 is a ceiling bound, not
+   an allocation. Where a consumer's histogram is checked against the coverage
+   law, as here, the same argument applies: the window bounds and literal
+   chronology decide legality, and an owner error can cancel that consumer's
+   gain only by moving more rank mass than its own threshold.
 4. **Are PR3605's own T740 owner windows legal?** PR3605's own κ is already
    superseded by its consumers, so this is lower priority. The remaining check
    is the 333 source windows of the aggregate witness. First step: derive the window classes from the T37
