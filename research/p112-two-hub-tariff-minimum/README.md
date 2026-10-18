@@ -177,13 +177,14 @@ diverge from the repository it ships in.
 
 [CHECKS.json](CHECKS.json) is a run receipt, not a mathematical result. It
 records the interpreter, the environment, the exact commands and their exit
-statuses and standard output, and the SHA256 of every package file that the
-replay read. It is generated from captured run output rather than written by
-hand. It is bound to file hashes rather than to a commit, so committing the
-receipt itself does not invalidate it: its own bytes are deliberately outside
-the hashed set. That is also why a preflight run at the commit that adds
-`CHECKS.json` reports `files: 14` rather than `13`, with otherwise identical
-output. [RESULT.json](RESULT.json) remains the mathematical receipt.
+statuses and standard output, and the SHA256 of every file in this package
+directory at the replayed commit. It is generated from captured run output
+rather than written by hand. It is bound to file hashes rather than to a
+commit, so committing the receipt itself does not invalidate it: its own bytes
+are deliberately outside the hashed set. That is also why a preflight run at
+the commit that adds `CHECKS.json` reports `files: 14` rather than `13`, with
+otherwise identical output. [RESULT.json](RESULT.json) remains the
+mathematical receipt.
 
 Still unrun and still open obligations: the selected cold replay, Lean, Docker,
 independent human review and formal proof-kernel review.
