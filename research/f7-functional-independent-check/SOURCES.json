@@ -31,27 +31,6 @@
    "usage": "provenance",
    "sha256": "d2507c556e23b36601d64c24ac394ab7192bd897d25f94e18471c86f83617efb",
    "git_blob": "83b23ff085f24451350dd9fe54b8efad68dc80dd"
-  },
-  {
-   "path": "research/f7-bit0-functional-classification/README.md",
-   "usage": "provenance",
-   "pin": "head:13db47d8d31603c1391572009e1eb7a22675a219:research/f7-bit0-functional-classification/README.md",
-   "sha256": "8176c8a889671f67ebcd6f1b9e9efddae55cfbbff4b486442a9b63977e9c4844",
-   "git_blob": "4618c68ffc94be30055537bca4e49696946437dc"
-  },
-  {
-   "path": "research/f7-bit0-functional-classification/RESULT.json",
-   "usage": "provenance",
-   "pin": "head:13db47d8d31603c1391572009e1eb7a22675a219:research/f7-bit0-functional-classification/RESULT.json",
-   "sha256": "5938908a76c497bad4c301eed0f12822fc16b0fbbbff2c0bc5150d82f2052105",
-   "git_blob": "84017d1265858fe976bd317c95d287c92fc4cb7e"
-  },
-  {
-   "path": "research/f7-bit0-functional-classification/verify.py",
-   "usage": "provenance",
-   "pin": "head:13db47d8d31603c1391572009e1eb7a22675a219:research/f7-bit0-functional-classification/verify.py",
-   "sha256": "a0c93985734fa6855c5561a1b4eb730ef0af6ddd25bfdac1ef8b61d840efbe83",
-   "git_blob": "f554ec10c8ac5e30e067b01adf9b68b2eb80906a"
   }
  ]
 }

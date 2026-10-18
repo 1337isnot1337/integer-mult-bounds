@@ -17,6 +17,19 @@ This package recomputes that certificate from scratch and extends it to three
 domains the published table does not contain, including `(5, 14)`, which the
 published package lists as its open next question 2.
 
+The claim under check is fixed at that package's own publication head
+`13db47d8d31603c1391572009e1eb7a22675a219`, where its `README.md`,
+`RESULT.json` and `verify.py` have SHA-256
+`8176c8a889671f67ebcd6f1b9e9efddae55cfbbff4b486442a9b63977e9c4844`,
+`5938908a76c497bad4c301eed0f12822fc16b0fbbbff2c0bc5150d82f2052105` and
+`a0c93985734fa6855c5561a1b4eb730ef0af6ddd25bfdac1ef8b61d840efbe83` and Git
+blob ids `4618c68ffc94be30055537bca4e49696946437dc`,
+`84017d1265858fe976bd317c95d287c92fc4cb7e` and
+`f554ec10c8ac5e30e067b01adf9b68b2eb80906a`. Those three objects are not
+ancestors of this package's publication commit (the checked PR is still open),
+so they are recorded here rather than in `SOURCES.json`, whose rows must be
+ancestors.
+
 ## What is reproduced, and how
 
 `verify.py` is a separate implementation. It imports, executes and copies no
