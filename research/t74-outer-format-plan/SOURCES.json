@@ -242,10 +242,21 @@
     {
       "pr": 3477,
       "head": "75343dd7e067c40d18c243ea97231b7006680eef",
+      "path": "research/t74-physical-layer/t74_root.py",
+      "git_blob": "acfdd538c4e6d9b4c2b0c3ed2c8f6b0c2b87575d",
+      "sha256": "7bf9001c8fcaa3d9ac9883f3378aa747f39b373d9f88bfc47933797c25e562fd",
+      "usage": "Public comparison/source attribution receipt. Not an executable input or publication-ancestry pin; native theorem remains conditional."
+    }
+  ],
+  "retained_proof_premises": [
+    {
+      "pr": 3477,
+      "head": "75343dd7e067c40d18c243ea97231b7006680eef",
       "path": "research/t74-physical-layer/PROOF.md",
       "git_blob": "2a8bfe5d6d1599b859da9836ce4c2ff1de5d9036",
       "sha256": "1054f13f3e370a2e5d5f5cbc0e767e84927d4879f4c7be54cccb9b9a6a58e8ba",
-      "usage": "Public comparison/source attribution receipt. Not an executable input or publication-ancestry pin; native theorem remains conditional."
+      "usage": "Retained verbatim conditional proof premise and attribution. Package-local publication bytes, not a dependency on an unmerged Git-history object.",
+      "storage": "research/t74-outer-format-plan/premises/pr3477-PROOF.md"
     },
     {
       "pr": 3477,
@@ -253,15 +264,8 @@
       "path": "research/t74-physical-layer/LAYER-BOUND.md",
       "git_blob": "8931fa16114ef4149250644f8179bf89a23716ce",
       "sha256": "40438e1981a5003c84f1d57552f407215abf4c7dc8ffab241d0788a637dd3856",
-      "usage": "Public comparison/source attribution receipt. Not an executable input or publication-ancestry pin; native theorem remains conditional."
-    },
-    {
-      "pr": 3477,
-      "head": "75343dd7e067c40d18c243ea97231b7006680eef",
-      "path": "research/t74-physical-layer/t74_root.py",
-      "git_blob": "acfdd538c4e6d9b4c2b0c3ed2c8f6b0c2b87575d",
-      "sha256": "7bf9001c8fcaa3d9ac9883f3378aa747f39b373d9f88bfc47933797c25e562fd",
-      "usage": "Public comparison/source attribution receipt. Not an executable input or publication-ancestry pin; native theorem remains conditional."
+      "usage": "Retained verbatim conditional proof premise and attribution. Package-local publication bytes, not a dependency on an unmerged Git-history object.",
+      "storage": "research/t74-outer-format-plan/premises/pr3477-LAYER-BOUND.md"
     }
   ]
 }

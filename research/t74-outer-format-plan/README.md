@@ -37,6 +37,8 @@ All 74 retained runtime files are byte-authenticated by `RETENTION.json`.
 Canonical bytes are explicit live inputs. The other 38 files are retained
 unchanged under `retained/`, with their original notices. The original archive
 and public comparison heads/blob IDs/SHA256 are recorded in SOURCES.json.
+The two conditional T74 proof premises are retained verbatim under `premises/`,
+with exact origin hashes and credit. Other public comparisons are receipts.
 There is no fetch step or dependency on an unmerged Git object. Existing
 source activation temporarily loads its closed nested archives; those private
 directories are explicitly closed before interpreter exit.
