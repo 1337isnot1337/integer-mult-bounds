@@ -10,6 +10,15 @@ import runpy
 V = runpy.run_path(str(Path(__file__).resolve().parent / "verify.py"))
 
 
+_CACHE = []
+
+
+def result():
+    if not _CACHE:
+        _CACHE.append(V["p104"]())
+    return _CACHE[0]
+
+
 def fails(fn, *args):
     try:
         fn(*args)
@@ -34,7 +43,7 @@ class Controls(unittest.TestCase):
 
     def test_dropping_nesting_breaks_pr3427_masks(self):
         g = V["sharp_by_frames"].__globals__
-        r = V["p104"]()
+        r = result()
         loose = [0] * 104
         geo, paths = r["geo"], r["paths"]
         masks = V["endpoint_masks"](geo)
@@ -52,7 +61,7 @@ class Controls(unittest.TestCase):
 
     def test_wrong_rectangle_is_rejected(self):
         g = V["rank_consequence"].__globals__
-        r = V["p104"]()
+        r = result()
         with mock.patch.dict(g, {"RANK_ROWS": g["RANK_ROWS"] + (71,)}):
             self.assertTrue(fails(V["rank_consequence"], r))
 

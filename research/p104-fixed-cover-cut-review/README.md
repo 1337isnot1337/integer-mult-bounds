@@ -8,8 +8,10 @@ fact gives a valid criterion, **one recombined helper per path**. This lemma is
 stated in PR3427 and re-proved here in every dimension case. It is exact for
 untimed support. Under it, **2,682 of the 4,992 required entries of
 `C = I - G/2` are unsupported**, with at least one in every row and every
-column. PR3259's single missing entry, `C[71,102] = -1/2`, is a property of its
-looser relaxation.
+column. PR3252's full-memory recurrence is a separate sound test, reviewed
+valid here. A new implementation of it over the whole pool gives exactly the
+same support, 2,310 pairs, on all 104 columns. PR3259's single missing entry,
+`C[71,102] = -1/2`, is a property of its looser relaxation.
 
 PR3427 states the lemma, but it has not been evaluated beyond PR3427's four
 source columns. Applied to all 104 columns, it raises PR3427's
@@ -29,7 +31,7 @@ selected frontier are unchanged.
 | PR3252 PROOF.md (memory relaxation) | Valid for its recurrence and contract. |
 | What PR3427 consumes | Its own one-helper lemma and PR3252's full-memory operations, not PR3259's recurrence. Both are justified. |
 | Control: PR3259 layered test, rebuilt | Missing set `{(71,102)}`. Forward counts `16,25,52,365,1725,2283,2285,2297`. Backward cone 37, disjoint. |
-| Sharp criterion (two loop orders) | 2,682 required entries unsupported: 1,801 at `-1/2` and 881 at `+1/2`. 2,310 supported pairs, against 10,815 for PR3259's test. |
+| Sharp criterion: two loop orders, plus PR3252's full-memory recurrence as a third method | 2,682 required entries unsupported: 1,801 at `-1/2` and 881 at `+1/2`. 2,310 supported pairs, against 10,815 for PR3259's test. All three methods agree on every pair. |
 | Cross-check with PR3427 | The four published per-source masks (sources 0-3) are reproduced exactly. |
 | Consequence for PR3427 | A 19-by-18 rectangle of unsupported pairs has `rank C[R,S] = 17`, giving `rank(U-I) >= 17`. A 17-by-17 minor has `det(8C) = 2^43`. |
 | Oracle, coefficient level | 4,500 seeded legal programs over `F_2^3` and `F_2^4`, with exact `Fraction` coefficients. 269 nonzero helper-path coefficients, 107 of them for pairs with no common snapshot. None lies outside the sharp test. |
@@ -63,7 +65,7 @@ counted at P104 here. Cited, not recomputed:
 
 ## Reproduce
 
-From the repository root, with the standard library (about 20 s):
+From the repository root, with the standard library (about 2 minutes in all):
 
 ```sh
 python3 -I -O -Werror -B research/p104-fixed-cover-cut-review/verify.py
@@ -99,8 +101,13 @@ independently and sorted.
 
 - The layered control hosts every d-flat of each interval literally, then
   takes one read-first step per layer.
-- The sharp criterion is computed twice. One method uses echelon keys with
-  helper-type masks. The other uses point-set bitmaps, looped per helper type.
+- The sharp criterion is computed in three ways:
+  - echelon keys with helper-type masks;
+  - point-set bitmaps, looped per helper type;
+  - PR3252's full-memory recurrence (carry, admitted reads, relay of old
+    memories `S + L(h,d) + L(w,d)`, minimal-memory pruning), rewritten over
+    all 2,309 types and 104 sources. It is a multi-hop recurrence and does
+    not assume the one-helper lemma.
 - The rank bound uses a deterministic greedy over 104 seed columns. Each
   step adds the column that most increases `min(|R|,|S|)`, ties to the
   smallest index. Exact `Fraction` elimination gives the rank, and an

@@ -161,14 +161,16 @@ delivers a nonzero coefficient outside both PR3259's test and the sharp test.
 | Required entries unsupported | 1 (`(71,102)`) | 2,682 (every row and column) |
 | Values of unsupported entries | `-1/2` | 1,801 at `-1/2`, 881 at `+1/2` |
 
-The sharp criterion is computed in two ways:
+The sharp criterion is computed in three ways:
 
 - reduced-echelon keys with helper-type masks;
-- point-set bitmaps looped by helper type.
+- point-set bitmaps looped by helper type;
+- an independent multi-hop implementation of PR3252's full-memory recurrence
+  over the whole pool.
 
-The two agree. For sources 0-3 the per-source target masks equal PR3427's
-published masks exactly. Those masks come from PR3427's direct criterion and
-from PR3252's full-memory operations.
+All three agree on all 10,816 pairs. For sources 0-3 the per-source target
+masks equal PR3427's published masks exactly. Those masks come from PR3427's
+direct criterion and from PR3252's full-memory operations.
 
 ## PR3252 PROOF.md (shorter review)
 
@@ -189,9 +191,12 @@ PR3259's K1-K7 written with per-helper bounds `L(h,d) <= F(h,d) <= U(h,d)`.
 
 The full-memory mode keeps a lower bound on the frame the signal used. Like any
 sound untimed test under this contract, it cannot be stricter than the sharp
-criterion, which is exact. On PR3427's four columns it equals the sharp
-criterion. This review does not compare the two on the other columns. The
-one-step mode forgets that bound and is weaker. PR3252's finite checks use fixed matchings and F_2^3
+criterion, which is exact. A new implementation over the whole 2,309-type pool
+and all 104 sources (`full_memory` in the verifier) **equals the sharp criterion
+on every pair**: 2,310 supported pairs and the same 2,682 unsupported required
+entries. The 2,682 count therefore rests on two separately proved sound tests,
+computed by different algorithms. The one-step mode forgets the memory bound
+and is weaker; it was not run. PR3252's finite checks use fixed matchings and F_2^3
 interval fixtures. The proof is universal over its contract, and no gap was
 found.
 

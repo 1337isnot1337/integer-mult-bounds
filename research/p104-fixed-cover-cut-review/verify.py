@@ -7,7 +7,8 @@ Frames are GF(2) subspaces of F_2^n held as canonical reduced-echelon keys.
   P104   rebuilds frames, covers, the 2,309-edge pool and the 4,992 required
          entries; replays PR3259's layered relaxation with a literal frame-hosting
          index (control) and evaluates the path-nested one-helper criterion
-         (sharp untimed support) by two loop orders.
+         (sharp untimed support) by two loop orders and by an independent
+         full-memory recurrence in the manner of PR3252.
   ORACLE exhaustive/bounded small programs with exact Fraction coefficients.
   ROWS   three single-relaxation witnesses (unpriced; operations counted).
 """
@@ -349,6 +350,76 @@ def sharp_by_edges(geo, paths):
     return out
 
 
+def full_memory(geo, paths):
+    """Method 3: PR3252's full-memory recurrence, reimplemented over the whole
+    pool.  Carry old memories; insert each admitted source snapshot; relay only
+    old memories S over contacts as S + L(h,d) + L(w,d) when it fits both
+    upper bounds; output a source at a target snapshot containing a memory.
+    Memories are grouped by subspace key with a source bitmask."""
+    L, A, B, H, edges = geo
+    n = len(edges)
+    out = [sum(1 << s for s in range(104)
+               if set(paths["X%d" % s]) & set(paths["Y%d" % t]))
+           for t in range(104)]
+    snaps = {"X": {}, "Y": {}}
+    for k in "XY":
+        for i in range(104):
+            for f in paths[k + str(i)]:
+                snaps[k][f] = snaps[k].get(f, 0) | 1 << i
+    mem = [{} for _ in range(n)]
+    for d in range(1, 9):
+        ivs = [interval(L, A, B, H, e, d) for e in edges]
+        hosts, mine = {}, []
+        for i, (lo, hi) in enumerate(ivs):
+            fl = flats_between(lo, hi, d)
+            mine.append(fl)
+            for f in fl:
+                hosts[f] = hosts.get(f, 0) | 1 << i
+        nxt = [dict(m) for m in mem]
+        for h in range(n):
+            nb = 0
+            for f in mine[h] if mem[h] else ():
+                nb |= hosts[f]
+            nb &= ~(1 << h)
+            while nb:
+                w = (nb & -nb).bit_length() - 1
+                nb &= nb - 1
+                for S, sm in mem[h].items():
+                    T = key(S + ivs[h][0] + ivs[w][0])
+                    if len(T) <= d and le(T, ivs[h][1]) and le(T, ivs[w][1]):
+                        nxt[w][T] = nxt[w].get(T, 0) | sm
+        for f, sm in snaps["X"].items():
+            m = hosts.get(f, 0) if len(f) == d else 0
+            while m:
+                i = (m & -m).bit_length() - 1
+                m &= m - 1
+                nxt[i][f] = nxt[i].get(f, 0) | sm
+        mem = [prune(m) for m in nxt]
+        for f, tm in snaps["Y"].items():
+            m = hosts.get(f, 0) if len(f) == d else 0
+            while m:
+                i = (m & -m).bit_length() - 1
+                m &= m - 1
+                src = sum_or(sm for S, sm in mem[i].items() if le(S, f))
+                for t in range(104):
+                    if tm >> t & 1:
+                        out[t] |= src
+    return out
+
+
+def prune(m):
+    """Keep, per source, only subset-minimal memories (outputs unchanged)."""
+    keep = {}
+    for S in sorted(m, key=len):
+        sm = m[S]
+        for S2, sm2 in keep.items():
+            if len(S2) < len(S) and le(S2, S):
+                sm &= ~sm2
+        if sm:
+            keep[S] = sm
+    return keep
+
+
 def missing(C, support):
     return [(t, s) for t in range(104) for s in range(104)
             if C[t][s] != 0 and not support[t] >> s & 1]
@@ -367,6 +438,7 @@ def p104():
     need(bin(back).count("1") == 37 and back & f5 == 0, "backward 37, disjoint")
     sharp = sharp_by_frames(geo, paths)
     need(sharp == sharp_by_edges(geo, paths), "sharp criterion: two loop orders")
+    need(sharp == full_memory(geo, paths), "PR3252 full-memory test = sharp")
     need(all(sharp[t] & ~lay[t] == 0 for t in range(104)), "sharp <= layered")
     return {"roles": roles, "geo": geo, "paths": paths, "C": C,
             "layered": lay, "sharp": sharp, "missing_layered": miss_l,
