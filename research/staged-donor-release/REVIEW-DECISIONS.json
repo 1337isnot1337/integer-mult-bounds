@@ -22,6 +22,13 @@
       "conclude": "YES",
       "outcome": "SUCCESS_KAPPA",
       "review": "reviews/lead1/REVIEW-TERMINAL.md"
+    },
+    {
+      "artifact": "2b0c3deffe4ff261e7f36826299b264b81b2c39c",
+      "scientific_artifact": "a3bdc591920a4b9003d8442d1fcca24218153661",
+      "conclude": "YES",
+      "outcome": "SUCCESS_KAPPA_OVER_PINNED_BASELINE_MATCHES_CONCURRENT_ENDPOINT",
+      "review": "reviews/lead1/REVIEW-CONCURRENCY.md"
     }
   ],
   "scope": "Conditional finite construction; inherited theorem conditions, unrun full portable/no-reuse tails and unpublished hosting/CI status remain explicit. No selected-record update."
