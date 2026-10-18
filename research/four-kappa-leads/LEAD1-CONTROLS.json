@@ -1,0 +1,48 @@
+{
+  "status": "PASS_SOURCE_BOUND_ENDPOINT_CONTROLS",
+  "transport_sha256": "9818e08b819310b40f1441b89be8c4369584a5b3fa5dfe9b86b1df9a7f5d6a76",
+  "checks": [
+    {
+      "provider": "base",
+      "control": "valid",
+      "exit_code": 0,
+      "endpoint_rejected": false,
+      "log_sha256": "95cb00222fe4cb97f16c798b92d70399cf30cf47fc73451dd48cd14836f2b32a"
+    },
+    {
+      "provider": "base",
+      "control": "omit-release",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    },
+    {
+      "provider": "base",
+      "control": "wrong-sign",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    },
+    {
+      "provider": "extra",
+      "control": "valid",
+      "exit_code": 0,
+      "endpoint_rejected": false,
+      "log_sha256": "ad2b47262347369bebe6eeea0c7fa686e4b74f94575e638ff2d2b9592620ed53"
+    },
+    {
+      "provider": "extra",
+      "control": "omit-release",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    },
+    {
+      "provider": "extra",
+      "control": "wrong-sign",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    }
+  ]
+}
