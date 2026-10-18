@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-18T02:27:07.303454+00:00",
+  "status": "CANDIDATE_VALIDATION_IN_PROGRESS",
+  "completed": [
+    {
+      "command": "python3 -B research/coupled-cap740-grid35/verify.py",
+      "exit_code": 0,
+      "scope": "Pinned PR3361 baseline, at its exact head before switching to contribution branch"
+    },
+    {
+      "command": "python3 -B research/coupled-carrier-cap740/verify.py",
+      "exit_code": 0,
+      "scope": "Both exact words, all owner rows, exact cap and stored-release checks"
+    },
+    {
+      "command": "python3 -B research/coupled-cap740-binomial40/verify.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3.12 -B research/coupled-cap740-binomial40/test_controls.py",
+      "exit_code": 0
+    }
+  ],
+  "pending": [
+    "Fresh T740 cold replay with fresh retained bootstrap",
+    "make frontier1094-verify on isolated canonical-main checkout",
+    "Registered package replay"
+  ],
+  "failures": [
+    {
+      "command": "make verify",
+      "base": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+      "exit_code": 2,
+      "reason": "scripts/partial_swap/shared.py verify unpacks target into t0,t1,t2; graph(25) deliberately includes singleton target keys for retained totals; copied-fixed-reversed-producer fails before candidate code is involved.",
+      "checker_modified": false
+    }
+  ],
+  "claims": {
+    "new_circuit": false,
+    "selected_frontier_changed": false,
+    "maintainer_acceptance": false,
+    "complete_theorem_formalization": false
+  }
+}
