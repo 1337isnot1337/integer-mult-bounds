@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/f7-weight-parity-census-correction/SOURCES.json",
+    "research/f7-weight-parity-census-correction/TASK.json",
+    "research/f7-weight-parity-census-correction/MATH.md",
+    "research/f7-weight-parity-census-correction/engine/corrected_census.c",
+    "research/f7-weight-parity-census-correction/engine/README.md",
+    "research/f7-weight-parity-census-correction/engine/SUMMARIES.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_10.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_8.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_9_9.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l20_10_7.json",
+    "research/f7-weight-parity-census-correction/engine/results/n7_l18_9_9.json",
+    "research/f7-weight-parity-census-correction/math/check_math.py",
+    "research/f7-weight-parity-census-correction/validation/check_corrected_c.py",
+    "research/f7-weight-parity-census-correction/validation/brute_validation.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--skip-probe"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Engine-integrity diff against the pinned corrected_census.c (only the documented L<=22 gate lines may differ), the predecessor package's own math check, the predecessor's brute-force cross-check of the extended engine over all small splits and all four budget modes with cap and fail-closed controls, and node-exact replay of all six recorded L20/L18 receipts of the pinned package with the extended binary."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--skip-replay"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Fresh capped length-22 probes at the nine open splits, compared against the committed RESULT.json session receipt: each recorded-complete split must complete again with the identical node count and zero hits; each recorded-aborted split must abort at the cap with zero hits; the fresh cap must not exceed the recorded cap. A probe counts as a finite split exclusion only when its process exits 0 with complete=true and zero hits; capped runs are lower bounds on the tree size and never exclusions."
+    }
+  ],
+  "notes": "C11 compiler with unsigned __int128 required (clang or GCC). No Python dependencies. Default probe cap 2,000,000,000 nodes per split, probes in parallel threads; --probe-cap lowers it (must stay at or below the recorded cap). RESULT.json is the committed receipt and is never rewritten; each run writes LAST-RUN.json. Timing fields are excluded from all equality checks."
+}
