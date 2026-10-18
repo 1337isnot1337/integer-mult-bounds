@@ -86,8 +86,9 @@ scratch `h`. For each of the four terms, with `a=(M[:,q],-C^T M[:,q])` and
 ```
 
 All 25 independent columns are checked, including arbitrary scratch dirt.
-This costs **100 scalar ADDs**, reuses one restored dirty scratch, and requires
-eight independent output centre roles. It constructs a scalar linear map under
+This costs **100 scalar ADDs**, reuses one restored dirty scratch, and is verified
+in a model with eight independent output centre roles, of which only two are
+actively updated. Eight is not a demonstrated minimum. It constructs a scalar linear map under
 that explicit abstract contract. It is not a physical rank-one recursive COPY.
 
 The exact first-block source registers would be
@@ -157,7 +158,7 @@ coordinate is exhibited in either actual supplier.
 |---|---|
 | Mixed coefficient identity and native-label support ranks | proved by exact finite algebra |
 | One-unit centre coefficient tariff | sensitivity assumption only |
-| One dirty scalar augmented block | constructively upper-bounded: 100 ADDs, one scratch, eight independent output centres |
+| One dirty scalar augmented block | constructively upper-bounded: 100 ADDs, one scratch, two active independent centre outputs in an eight-centre model |
 | Actual acquisition of eight source forms and charts | unknown |
 | Physical rank-one recursive implementation | unknown |
 | Full changed live-port consumer and centre lifetime | unknown |

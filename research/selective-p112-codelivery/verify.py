@@ -219,7 +219,9 @@ def run():
             need(rows == expected, 'all 25 dirty scalar columns and scratch restoration')
             need(adds == 2*(support(e)+support(m)+support(cm)), 'full dirty scratch ADD bill')
             scratch_receipt = {'columns_checked':25,'adds':adds,'private_dirty_scratch_roles':1,
-                'new_independent_centre_output_roles':8,'scratch_restored':True,
+                'model_centre_output_roles':8,
+                'actively_updated_centre_output_roles':sum(any(row) for row in cm),
+                'scratch_restored':True,
                 'native_COPY':False,'source_acquisition_and_chart_adapters':'UNSUPPLIED',
                 'does_not_realize_selected_pre_B_contract':True}
     need(profile == Counter({1:16,2:40}), 'selective augmented support rank profile')

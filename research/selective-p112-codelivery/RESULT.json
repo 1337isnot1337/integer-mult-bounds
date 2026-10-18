@@ -3909,11 +3909,12 @@
   ],
   "complete_supplier_cost": "UNKNOWN",
   "dirty_scratch_scalar_control": {
+    "actively_updated_centre_output_roles": 2,
     "adds": 100,
     "columns_checked": 25,
     "does_not_realize_selected_pre_B_contract": true,
+    "model_centre_output_roles": 8,
     "native_COPY": false,
-    "new_independent_centre_output_roles": 8,
     "private_dirty_scratch_roles": 1,
     "scratch_restored": true,
     "source_acquisition_and_chart_adapters": "UNSUPPLIED"
