@@ -10,7 +10,8 @@ Leaf reserve `rho` remains unbound. Selected κ is unchanged at
 `0.001672660197076918`.
 
 Pinned main: `6f100d4bb5083f8c35d96fd95a539811c62f245c`.
-Branch tip: see git rev-parse after push.
+Branch: `cursor/selected-stock-a-zero-60b9`.
+Tip SHA: `b33fefcb5c614dd6a22737ead16865aa1bad85cb`.
 Package: `research/selected-stock-shape-a-zero/`.
 
 ## Switch
