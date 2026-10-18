@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2832**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **2929**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -8,8 +8,8 @@ The ledger separates historical review from integration. A prior snapshot or a m
 
 | Disposition | Count |
 |---|---:|
-| incorporated | 2062 |
-| partially reviewed | 708 |
+| incorporated | 2064 |
+| partially reviewed | 803 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -1244,7 +1244,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1361](https://github.com/CrocSwap/integer-mult-bounds/pull/1361) | thakrarsagar | incorporated | [record 1](../../research/community-efficient500-audit/DISPOSITIONS.json) |
 | [#1363](https://github.com/CrocSwap/integer-mult-bounds/pull/1363) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient500-audit/DISPOSITIONS.json) |
 | [#1364](https://github.com/CrocSwap/integer-mult-bounds/pull/1364) | GamingPuzzled | partially reviewed | [record 1](../../research/community-efficient1200-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient1800-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient1900-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient2400-audit/DISPOSITIONS.json) · [record 5](../../research/community-efficient2600-audit/DISPOSITIONS.json) |
-| [#1365](https://github.com/CrocSwap/integer-mult-bounds/pull/1365) | cheesegrader | partially reviewed | [record 1](../../research/community-efficient2000-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2600-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient500-audit/DISPOSITIONS.json) |
+| [#1365](https://github.com/CrocSwap/integer-mult-bounds/pull/1365) | cheesegrader | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
 | [#1366](https://github.com/CrocSwap/integer-mult-bounds/pull/1366) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient500-audit/DISPOSITIONS.json) |
 | [#1367](https://github.com/CrocSwap/integer-mult-bounds/pull/1367) | 1337isnot1337 | incorporated | [record 1](../../research/community-efficient500-audit/DISPOSITIONS.json) |
 | [#1368](https://github.com/CrocSwap/integer-mult-bounds/pull/1368) | Arham-Tahir64 | incorporated | [record 1](../../research/community-efficient500-audit/DISPOSITIONS.json) |
@@ -1349,7 +1349,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#1488](https://github.com/CrocSwap/integer-mult-bounds/pull/1488) | bbMisk | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
 | [#1490](https://github.com/CrocSwap/integer-mult-bounds/pull/1490) | bbMisk | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
 | [#1491](https://github.com/CrocSwap/integer-mult-bounds/pull/1491) | commdata2338 | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
-| [#1494](https://github.com/CrocSwap/integer-mult-bounds/pull/1494) | cheesegrader | partially reviewed | [record 1](../../research/community-efficient2000-audit/DISPOSITIONS.json) · [record 2](../../research/community-efficient2500-audit/DISPOSITIONS.json) · [record 3](../../research/community-efficient2600-audit/DISPOSITIONS.json) · [record 4](../../research/community-efficient600-audit/DISPOSITIONS.json) |
+| [#1494](https://github.com/CrocSwap/integer-mult-bounds/pull/1494) | cheesegrader | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
 | [#1495](https://github.com/CrocSwap/integer-mult-bounds/pull/1495) | commdata2338 | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
 | [#1496](https://github.com/CrocSwap/integer-mult-bounds/pull/1496) | commdata2338 | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
 | [#1497](https://github.com/CrocSwap/integer-mult-bounds/pull/1497) | an664 | incorporated | [record 1](../../research/community-efficient600-audit/DISPOSITIONS.json) |
@@ -2794,7 +2794,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#3248](https://github.com/CrocSwap/integer-mult-bounds/pull/3248) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
 | [#3249](https://github.com/CrocSwap/integer-mult-bounds/pull/3249) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
 | [#3250](https://github.com/CrocSwap/integer-mult-bounds/pull/3250) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
-| [#3251](https://github.com/CrocSwap/integer-mult-bounds/pull/3251) | rohanarun | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
+| [#3251](https://github.com/CrocSwap/integer-mult-bounds/pull/3251) | rohanarun | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
 | [#3252](https://github.com/CrocSwap/integer-mult-bounds/pull/3252) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
 | [#3253](https://github.com/CrocSwap/integer-mult-bounds/pull/3253) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
 | [#3254](https://github.com/CrocSwap/integer-mult-bounds/pull/3254) | RossRichardson | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-refresh-20261017.json) |
@@ -2875,3 +2875,100 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#3329](https://github.com/CrocSwap/integer-mult-bounds/pull/3329) | 1337isnot1337 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-remainder-20261017.json) |
 | [#3330](https://github.com/CrocSwap/integer-mult-bounds/pull/3330) | tekuuu | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-remainder-20261017.json) |
 | [#3331](https://github.com/CrocSwap/integer-mult-bounds/pull/3331) | 1337isnot1337 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-remainder-20261017.json) |
+| [#3332](https://github.com/CrocSwap/integer-mult-bounds/pull/3332) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3333](https://github.com/CrocSwap/integer-mult-bounds/pull/3333) | 1337isnot1337 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3334](https://github.com/CrocSwap/integer-mult-bounds/pull/3334) | krzysztofwojt | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3335](https://github.com/CrocSwap/integer-mult-bounds/pull/3335) | Matarener | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3336](https://github.com/CrocSwap/integer-mult-bounds/pull/3336) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3337](https://github.com/CrocSwap/integer-mult-bounds/pull/3337) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3338](https://github.com/CrocSwap/integer-mult-bounds/pull/3338) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3339](https://github.com/CrocSwap/integer-mult-bounds/pull/3339) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3340](https://github.com/CrocSwap/integer-mult-bounds/pull/3340) | 1337isnot1337 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3341](https://github.com/CrocSwap/integer-mult-bounds/pull/3341) | 1337isnot1337 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3342](https://github.com/CrocSwap/integer-mult-bounds/pull/3342) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3343](https://github.com/CrocSwap/integer-mult-bounds/pull/3343) | tekuuu | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3344](https://github.com/CrocSwap/integer-mult-bounds/pull/3344) | Matarener | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3345](https://github.com/CrocSwap/integer-mult-bounds/pull/3345) | Arham-Tahir64 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3346](https://github.com/CrocSwap/integer-mult-bounds/pull/3346) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3347](https://github.com/CrocSwap/integer-mult-bounds/pull/3347) | Arham-Tahir64 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3348](https://github.com/CrocSwap/integer-mult-bounds/pull/3348) | Arham-Tahir64 | incorporated | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3349](https://github.com/CrocSwap/integer-mult-bounds/pull/3349) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3350](https://github.com/CrocSwap/integer-mult-bounds/pull/3350) | Clear1nsight | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3351](https://github.com/CrocSwap/integer-mult-bounds/pull/3351) | Arham-Tahir64 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3352](https://github.com/CrocSwap/integer-mult-bounds/pull/3352) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3353](https://github.com/CrocSwap/integer-mult-bounds/pull/3353) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3354](https://github.com/CrocSwap/integer-mult-bounds/pull/3354) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3356](https://github.com/CrocSwap/integer-mult-bounds/pull/3356) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3357](https://github.com/CrocSwap/integer-mult-bounds/pull/3357) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3358](https://github.com/CrocSwap/integer-mult-bounds/pull/3358) | 1337isnot1337 | incorporated | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3359](https://github.com/CrocSwap/integer-mult-bounds/pull/3359) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3360](https://github.com/CrocSwap/integer-mult-bounds/pull/3360) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3361](https://github.com/CrocSwap/integer-mult-bounds/pull/3361) | dataisfire | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3362](https://github.com/CrocSwap/integer-mult-bounds/pull/3362) | tekuuu | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3363](https://github.com/CrocSwap/integer-mult-bounds/pull/3363) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3364](https://github.com/CrocSwap/integer-mult-bounds/pull/3364) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3365](https://github.com/CrocSwap/integer-mult-bounds/pull/3365) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3366](https://github.com/CrocSwap/integer-mult-bounds/pull/3366) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3367](https://github.com/CrocSwap/integer-mult-bounds/pull/3367) | Gonzalo-Mier | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3368](https://github.com/CrocSwap/integer-mult-bounds/pull/3368) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3369](https://github.com/CrocSwap/integer-mult-bounds/pull/3369) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3370](https://github.com/CrocSwap/integer-mult-bounds/pull/3370) | tekuuu | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3371](https://github.com/CrocSwap/integer-mult-bounds/pull/3371) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3372](https://github.com/CrocSwap/integer-mult-bounds/pull/3372) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3373](https://github.com/CrocSwap/integer-mult-bounds/pull/3373) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3374](https://github.com/CrocSwap/integer-mult-bounds/pull/3374) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3375](https://github.com/CrocSwap/integer-mult-bounds/pull/3375) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3376](https://github.com/CrocSwap/integer-mult-bounds/pull/3376) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3377](https://github.com/CrocSwap/integer-mult-bounds/pull/3377) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3378](https://github.com/CrocSwap/integer-mult-bounds/pull/3378) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3379](https://github.com/CrocSwap/integer-mult-bounds/pull/3379) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3380](https://github.com/CrocSwap/integer-mult-bounds/pull/3380) | tekuuu | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3381](https://github.com/CrocSwap/integer-mult-bounds/pull/3381) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3382](https://github.com/CrocSwap/integer-mult-bounds/pull/3382) | Clear1nsight | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3383](https://github.com/CrocSwap/integer-mult-bounds/pull/3383) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3384](https://github.com/CrocSwap/integer-mult-bounds/pull/3384) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3385](https://github.com/CrocSwap/integer-mult-bounds/pull/3385) | jmbarrancoml | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3386](https://github.com/CrocSwap/integer-mult-bounds/pull/3386) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3387](https://github.com/CrocSwap/integer-mult-bounds/pull/3387) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3388](https://github.com/CrocSwap/integer-mult-bounds/pull/3388) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3389](https://github.com/CrocSwap/integer-mult-bounds/pull/3389) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3390](https://github.com/CrocSwap/integer-mult-bounds/pull/3390) | hexapode | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3391](https://github.com/CrocSwap/integer-mult-bounds/pull/3391) | PellaML | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3392](https://github.com/CrocSwap/integer-mult-bounds/pull/3392) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3393](https://github.com/CrocSwap/integer-mult-bounds/pull/3393) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3394](https://github.com/CrocSwap/integer-mult-bounds/pull/3394) | Dugongue | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3395](https://github.com/CrocSwap/integer-mult-bounds/pull/3395) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3396](https://github.com/CrocSwap/integer-mult-bounds/pull/3396) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3397](https://github.com/CrocSwap/integer-mult-bounds/pull/3397) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3398](https://github.com/CrocSwap/integer-mult-bounds/pull/3398) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3399](https://github.com/CrocSwap/integer-mult-bounds/pull/3399) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3400](https://github.com/CrocSwap/integer-mult-bounds/pull/3400) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3401](https://github.com/CrocSwap/integer-mult-bounds/pull/3401) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3402](https://github.com/CrocSwap/integer-mult-bounds/pull/3402) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3403](https://github.com/CrocSwap/integer-mult-bounds/pull/3403) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3404](https://github.com/CrocSwap/integer-mult-bounds/pull/3404) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3405](https://github.com/CrocSwap/integer-mult-bounds/pull/3405) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3406](https://github.com/CrocSwap/integer-mult-bounds/pull/3406) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3407](https://github.com/CrocSwap/integer-mult-bounds/pull/3407) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3408](https://github.com/CrocSwap/integer-mult-bounds/pull/3408) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3409](https://github.com/CrocSwap/integer-mult-bounds/pull/3409) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3410](https://github.com/CrocSwap/integer-mult-bounds/pull/3410) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3411](https://github.com/CrocSwap/integer-mult-bounds/pull/3411) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3412](https://github.com/CrocSwap/integer-mult-bounds/pull/3412) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3413](https://github.com/CrocSwap/integer-mult-bounds/pull/3413) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3414](https://github.com/CrocSwap/integer-mult-bounds/pull/3414) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3415](https://github.com/CrocSwap/integer-mult-bounds/pull/3415) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3416](https://github.com/CrocSwap/integer-mult-bounds/pull/3416) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3417](https://github.com/CrocSwap/integer-mult-bounds/pull/3417) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3418](https://github.com/CrocSwap/integer-mult-bounds/pull/3418) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3419](https://github.com/CrocSwap/integer-mult-bounds/pull/3419) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3420](https://github.com/CrocSwap/integer-mult-bounds/pull/3420) | thakrarsagar | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3421](https://github.com/CrocSwap/integer-mult-bounds/pull/3421) | VictorLiwentao | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3422](https://github.com/CrocSwap/integer-mult-bounds/pull/3422) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3423](https://github.com/CrocSwap/integer-mult-bounds/pull/3423) | Clear1nsight | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3424](https://github.com/CrocSwap/integer-mult-bounds/pull/3424) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3425](https://github.com/CrocSwap/integer-mult-bounds/pull/3425) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3426](https://github.com/CrocSwap/integer-mult-bounds/pull/3426) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3427](https://github.com/CrocSwap/integer-mult-bounds/pull/3427) | jmbarrancoml | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3428](https://github.com/CrocSwap/integer-mult-bounds/pull/3428) | jwr404 | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |
+| [#3429](https://github.com/CrocSwap/integer-mult-bounds/pull/3429) | petalas | partially reviewed | [Exact-head intake](../../docs/research/pr-intake-evidence/queue-oct18-20261018.json) |

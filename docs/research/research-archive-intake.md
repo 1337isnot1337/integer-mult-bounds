@@ -155,3 +155,7 @@ The [exact-head delta](pr-intake-evidence/queue-refresh-20261017.json) covers 10
 ## Delta intake through PR3331
 
 The [exact-head delta](pr-intake-evidence/queue-remainder-20261017.json) covers 34 PRs plus the concurrent PR3315 revision:32 research archives, the reviewed opt-in source-history preflight, and a reviewed P104 navigation update. PR3315’s original default-tree planning claim is superseded: use [the corrected historical source](https://github.com/CrocSwap/integer-mult-bounds/tree/240e7f68c6be0cd7193abdd1d686ec5b90ab5355/research/k2-class-c-config-audit), which gives a two-config planning result conditional on geometric dominance. Scientific replay and frontier admission remain separate. Focused tooling checks are recorded in the [test receipts](pr-intake-evidence/queue-remainder-20261017-checks.txt).
+
+## Delta intake through PR3429
+
+The [exact-head delta](pr-intake-evidence/queue-oct18-20261018.json) covers 100 heads: 95 source archives, a reviewed descendant-bytecode fix and a reviewed worker-width report. PR1365/1494 remain deferred for formalization review; PR3251 remains on hold pending resolution of physical-operator counteraudits. Archive acceptance is not mathematical validation. No selected-frontier change.
