@@ -15,7 +15,8 @@ when `l_p > 0`. With `h(l) = l^(1-a)` and `h(0) = 0`,
 
 `F(a) = 9 sum_r n_r h(r) + sum_p y_p h(l_p) - 896 h(73)`.
 
-As in PR3815, `F(a) = 73^(-a) (sum n_r r (73/r)^a - 65408)` and every paid rank
+As in PR3815, `F(a) = 73^(-a) (sum N_r r (73/r)^a - 65408)`, where `N_r` is
+the full paid histogram (local children and bin remainders), and every paid rank
 is below 73, so `F` has one root and "root < a" iff `F(a) > 0`. This holds for
 every inventory and local profile below (all paid ranks stay at most 48), for
 integer or fractional `y`, and for any clock: the clock only restricts `y`.
@@ -62,7 +63,7 @@ by `z (pi_v - pi_w)`; changing the local profile changes it by
 - the *cheapest* extension `pi_1 = pi_2 = pi_3 = pi_4` (printed as
   `helper_pi`), used for the lemma below;
 - the *tight* extension: `pi_3`, then `pi_2`, then `pi_1` raised to the
-  largest values keeping (D). Its limiting patterns are exact fills:
+  largest values keeping (D). Its limiting patterns are:
   `3 + 5*9 = 48` limits `pi_3`, `2 + 5*9 = 47` (leftover 1) limits `pi_2`, and
   `1 + 4 + 3*9 = 32` limits `pi_1`. It gives the 4->v prices.
 
@@ -83,7 +84,7 @@ of this lemma and is needed only for the tight extension.
 **Monotone-price lemma (free reductions).** The cheapest extension is
 nonincreasing in width and every `pi_w <= 0`. So any width reduction (to any
 width `>= 1`, or unhosting) with an unchanged local profile keeps
-`F(a_hi) >= 5.28e-20 > 0`: it never raises the ideal ceiling. Under the
+`F(a_hi) >= 5.28e-20 > 0`: it keeps the ideal ceiling below `a_hi`. Under the
 conservation of section 4 such a move is not realizable; the lemma is a
 statement about the model, not a staging closure.
 
@@ -129,6 +130,7 @@ saving `S` changes `F` by at least `price - S`, exactly within the ranges:
 - *Documented signature.* PR3605 derives the per-helper staging delta
   `3H1 + H2 - 2H3`, i.e. `{1:+3,2:+1,3:-2}` (one pivot and two donor climbs).
   PR3734's local change from PR3682 is the same delta (`verify.py` checks it).
+  All three observed units are 8->7 moves; for the other widths the screen assumes the same signature.
   Its saving is `2h(3) - 3 - h(2) = 0.991001081580029037511288`. The gain per
   width unit is +0.003264300394675969421322 for 6..9,
   -0.008998918419970962488711 for 5->4 and -0.000790287459955874210276 for

@@ -5,7 +5,7 @@
 Model (PR3815 ceiling_certificate.py, PR3734 inventory): per owner replica, 9 calls of
 408 helpers; idle bins {8:672,16:448,32:448,48:448}; each helper occupies its hosted
 width in one bin and each bin remainder l>0 is paid as one rank-l child; local paid
-profile per call; 896 live rank-73 families. F(a) = sum n_r r^(1-a) - 896*73^(1-a) per
+profile per call; 896 live rank-73 families. F(a) = sum N_r r^(1-a) - 896*73^(1-a) over the full paid histogram N per
 replica has the sign of a strictly increasing function, so "ceiling < a" iff F(a) > 0.
 
 Checks (all exact rational arithmetic; h(l) = l^(1-a) enclosed by series with
@@ -340,6 +340,9 @@ def main():
             ((48, (0, 0, 0, 0, 0, 0, 0, 0, 5)), -1)]
     rc_path = [tab[left(c, q)][0] - mu[c] - sum(pt[w] * q[w - 1] for w in WIDTHS) for (c, q), _ in path]
     need(all(r == 0 for r in rc_path), "4->3 path columns not all tight")
+    net = [sum(g * q[i] for (c, q), g in path) for i in range(9)]
+    net_bins = {cap: sum(g for (c, q), g in path if c == cap) for cap in CAPS}
+    need(net == [0, 0, 1, -1, 0, 0, 0, 0, 0] and not any(net_bins.values()), "4->3 path direction")
     yb = dict(zip(B, y))
     range43 = min(yb[cq] for cq, g in path if g < 0)
     cost43 = sum(g * tab[left(c, q)][0] for (c, q), g in path)
@@ -418,8 +421,7 @@ def main():
     for w in (1, 2, 3):
         pi_nm[w] = pi[4] - Q(1, 10 ** 30)
     pg = dict(pt)
-    for w in (1, 2, 3):
-        pg[w] = pt[3] + Q(1, 10 ** 30)              # monotone, feasible on widths 4..9, too high for 1..9
+    pg[3] += Q(1, 10 ** 30)
     ctl["tight_extension_raised_1e-30_infeasible"] = min_reduced_cost_enum(pg, mu, tab, WIDTHS)[0] < 0
     ctl["non_monotone_extension_rejected_by_monotone_check"] = not monotone(pi_nm)
     lo_tab = h_table(a_lo)

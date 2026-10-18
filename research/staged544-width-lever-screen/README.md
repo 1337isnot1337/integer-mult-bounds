@@ -32,16 +32,17 @@ bracket `[0.001730578437266246818740, ...741]` (this bracket reproduces PR3815).
    on all 318,840 width-1..9 patterns; `verify.py` checks the four-column
    move and its range exactly. Outside a range the price is a lower bound
    for every further unit (convexity of the LP value).
-2. **Staging screens (exact arithmetic, per width unit).** A literal staging
-   move must also change the local profile (item 4). Its net change in `F` is
-   (local saving) minus (price):
+2. **Staging screens (exact arithmetic, per width unit).** Under the observed
+   conservation (item 4), a literal staging move must also change the local
+   profile. Its net change in `F` is (local saving) minus (price):
    - **Documented signature.** All three observed staging units (644 and 660
      in PR3605, 544 in PR3734) change the local profile by `{1:+3,2:+1,3:-2}`
      per unit (PR3605 PROOF: `3H1 + H2 - 2H3`), saving
      0.991001081580029037511288. Gain: **+0.003264300394675969421322** for
      6..9, **-0.008998918419970962488711** for 5->4 and
-     **-0.000790287459955874210276** for 4->3. So with this signature only
-     width-6..9 staging pays, and 5->4 and 4->3 staging lose.
+     **-0.000790287459955874210276** for 4->3. All three observed units are 8->7 moves; for the other widths the screen assumes the same signature.
+     So with this signature only width-6..9 staging pays, and 5->4 and 4->3
+     staging lose; a candidate's own local saving should be priced with (*).
    - **Hypothetical rank-1 deletion** (single-child compensation, saving
      `h(1) = 1`, the most any single-child decrement `r -> r-1` saves). Gain at
      most **0.012263218814646931910033** for 6..9, **0** for 5->4 (in any
@@ -72,12 +73,12 @@ bracket `[0.001730578437266246818740, ...741]` (this bracket reproduces PR3815).
    with an unchanged local profile is not realizable, which is why item 2
    prices staging with a local change.
 5. **Monotone-price lemma (free reductions).** With `pi_1 = pi_2 = pi_3 =
-   pi_4`, the prices are nonincreasing and nonpositive and still dual feasible
+   pi_4`, the helper duals `pi_w` are nonincreasing in `w`, nonpositive and still dual feasible
    on all width-1..9 patterns. This follows from PR3815's 2,551-pattern dual
    and `pi_4 <= -3` by a two-line slack lemma (PROOF section 3); `verify.py`
    also checks it on all 318,840 patterns. Hence a width reduction (to any
-   width `>= 1`, or unhosting) with an unchanged local profile never raises
-   the ideal ceiling. Under item 4 such a move is not realizable, so this is a
+   width `>= 1`, or unhosting) with an unchanged local profile keeps the
+   ideal ceiling below `a_hi = 0.001730578437266246818741`. Under item 4 such a move is not realizable, so this is a
    consistency statement about the model, not a staging closure.
 6. **PR3682 -> staged544 split at `a_hi`.** `F` is additively separable in
    inventory and local profile at fixed `a`, so the 2x2 interaction is
@@ -103,14 +104,19 @@ engine of #3605 and #3734, and partly answers PR3815's open question 1. The
 family is tracked in #3606; it is not a revision-6 lead.
 
 - With the documented staging signature, only width-6..9 staging pays
-  (+0.003264 per width unit); 5->4 and 4->3 staging lose.
+  (+0.003264 per width unit); 5->4 and 4->3 staging lose. The signature was
+  observed only on 8->7 units; for other widths it is an assumption.
+- By weak duality (*), `k` width-6..9 units with the documented signature, in
+  any number and mix and also outside the ranges, leave
+  `F(a_hi) >= 5.28e-20 - k x 0.003264300394675969421322`. To first order this
+  is at most about 1.6e-7 of ideal ceiling per fully staged helper (nine
+  units), before clock and admission costs.
 - A candidate staging is decided by one exact inequality: its local saving per
   width unit must exceed the price in item 1 (within the ranges).
 - Even a hypothetical rank-1-deletion compensation cannot make 5->4 staging
   pay.
-- The largest identified slack is the 0.008999 per unit between the documented
-  signature and a rank-1 deletion. Whether a literal staging can avoid it is
-  open.
+- The gap between the documented signature and a hypothetical rank-1 deletion
+  is 0.008999 per unit; whether a literal staging can narrow it is open.
 - Free width reduction is not a lever (item 5).
 
 ## Reproduce
@@ -128,8 +134,8 @@ and 3.14.4.
 **Negative controls (each must fail; the verifier asserts they do):**
 
 - `pi_9 + 1e-30` makes the dual infeasible.
-- Raising the tight `pi_1..pi_3` by 1e-30 makes some width-1..9 pattern
-  infeasible (the tight extension, and so the exact 4->3 price, is tight).
+- Raising the tight `pi_3` by 1e-30 makes the pattern `[3,9^5]` infeasible
+  (the tight extension, and so the exact 4->3 price, is tight).
 - A non-monotone extension is rejected by the same `monotone` check the lemma
   uses.
 - One 8->9 widening per call drops the bound to `<= 0` (widening is priced as a
@@ -138,7 +144,8 @@ and 3.14.4.
   profiles pass.
 
 One consistency check (not a mutation): the dual bound at `a_lo` is not
-positive, as implied by `F_upper(a_lo) < 0` and weak duality.
+positive, as implied by `F_upper(a_lo) < 0` and weak duality. The `pi_9`
+control and this check reproduce PR3815's two controls.
 
 **Second, independent method (floating point):** `crosscheck_highs.py` used
 Python 3.14.4, numpy 2.5.4 and scipy 1.18.1 HiGHS. It generates patterns as
@@ -171,8 +178,9 @@ wall, PR3630 and PR3638 priced other inventories with fixed widths.
 
 New here:
 
-- evaluation of that dual exactly at `a_hi`, the common 6..9 price (affine dual
-  on widths 5..9), `5->4 = 1` and the exact `4->3 = h(5)-h(3)-1`;
+- reading PR3815's `a_hi` dual (which PR3815 already solves exactly at
+  `a_hi`) as width-unit prices: the common 6..9 price (affine dual on widths
+  5..9), `5->4 = 1` and the exact `4->3 = h(5)-h(3)-1`;
 - the basis ranges (18 to 30, and 324/5 for 4->3);
 - the extension of the dual to widths 1..9 (cheapest and tight), with the slack
   lemma;
@@ -209,7 +217,8 @@ them. This is a stated gap.
   and stated by PR3605 for its staging; not derived. The non-realizability of
   free reductions depends on it.
 - **Staging signature.** The documented signature is what the three observed
-  staging units use; it is not proved to be forced. The rank-1-deletion
+  staging units use; all three are 8->7 moves, so for other widths it is an
+  assumption. It is not proved to be forced. The rank-1-deletion
   reference has no known realization.
 - **Admission costs not priced.** All admission costs of a changed inventory are
   unknown and are not zero. These include physical stock, coverage law and
@@ -224,10 +233,11 @@ them. This is a stated gap.
 
 - **Is the staging signature `{1:+3,2:+1,3:-2}` forced?** A literal width-6..9
   staging with a smaller gap to a rank-1 deletion would gain up to 0.008999 per
-  width unit more. First step: in PR3734's frames, check whether PR3682's
-  delayed donor release (`{1:-2,2:-2,3:+2}`, worth about 0.0066 per call) can be
-  re-applied on top of the staged544 local profile; then price the result
-  with (*).
+  width unit more. The PR3682 -> staged544 local delta equals the signature,
+  which suggests PR3682's delayed donor release (`{1:-2,2:-2,3:+2}`, worth
+  about 0.0066 per call) survives in PR3734. First step: check in PR3734's
+  frames whether that release survives, or whether an analogous release applies
+  to helper 544's donors; then price the result with (*).
 - **Does the per-call conservation (local paid rank minus hosted width = 1856)
   hold for every literal construction of this template?** First step: derive it
   from the owner and frame accounting in PR3734's `owner_audit.py`, or find a
@@ -235,8 +245,9 @@ them. This is a stated gap.
 - **What do bin-count changes offer?** `mu` gives subgradient bin prices. First
   step: write a candidate template's bin counts and evaluate (*), re-solving the
   LP outside the (unknown) bin ranges. New bin ranks are constrained by
-  concurrent PR3836 (Matarener), which shows the idle alphabet is forced within
-  bridge-based nine-stage schedules; changing bin counts stays open.
+  concurrent PR3836 (Matarener, unmerged), which reports, by a census within
+  its class, that the idle alphabet is forced within bridge-based nine-stage
+  schedules; changing bin counts stays open.
 
 ## Credit
 
@@ -255,6 +266,8 @@ enclosures, enumeration, knapsack check and LP algebra are new.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Reviewed by four AI review passes in the
-same loop (reproducibility, mathematical audit, provenance, referee), followed
-by one revision; no human or formal-kernel verification is claimed.
+same loop (reproducibility, mathematical audit, provenance, referee), then one
+revision, a re-verification round by two of them (mathematical audit, referee)
+and a second, text-level revision; no human or formal-kernel verification is
+claimed.
 Apache-2.0.
