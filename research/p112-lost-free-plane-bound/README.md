@@ -46,7 +46,7 @@ one proposed.
 - **CP-SAT bound |S| ≤ 51, not a certificate.** `tools/solve.py` uses an exact model: bit-encoded planes,
   parity constraints, the no-five-orthogonal cut, the ≤ 28 plane-orthogonal neighbours cut (philippeVV
   result 1), one port fixed (valid by transitivity) and lex-leader cuts from sampled isometries. Its proven
-  objective bound fell from 89 to 51 over about 7 hours on a laptop
+  objective bound fell from 89 to 51 over about 7 hours on a laptop, and a further one-hour run with the lex-leader cuts did not lower it
   ([evidence/progress.log](evidence/progress.log)). This is solver output; no proof log is supplied, and
   `verify.py` does not rely on it.
 - **Negative screens** (not used in the proof): exact maxima inside unions of 2 and 3 disjoint frames are
