@@ -1,5 +1,5 @@
 {
-  "status": "LITERAL_AND_FINITE_PASS_FULL_ADMISSION_RUNNING",
+  "status": "PASS_COMPLETE_SOURCE_BOUND_ADMISSION",
   "literal": {
     "roles": 1791936,
     "physical": 437757,
@@ -7,11 +7,23 @@
     "independent_audit": "PASS"
   },
   "full_admission": {
-    "status": "running",
+    "status": "PASS",
     "portable_complete_command_terminal": false,
-    "coverage": "Source-bound admission with authenticated same-session fresh changed-native reuse; terminal result pending."
+    "coverage": "Completed source-bound admission with authenticated same-session fresh changed-native reuse. No fresh complete portable CLI claim.",
+    "completed_stages": [
+      "owners",
+      "parent-lift",
+      "rebind",
+      "discovery",
+      "outer-check_ledger.py",
+      "outer-independent_check.py",
+      "release"
+    ],
+    "result_sha256": "50698ed610dd4b2ebfab2c9a92b657f16d3e1987da8d564c13a588a25b1437e4",
+    "release_receipt_sha256": "dd5c6eea88986c57ccd9ce76c2702c60817237db1935729568134dbd001007b5",
+    "execution_coverage": "EXECUTION-COVERAGE.json"
   },
-  "scope": "No complete T488 release claimed.",
+  "scope": "Complete source-bound conditional release with authenticated same-session native reuse; inherited mathematical premises remain.",
   "finite": {
     "status": "PASS",
     "owner_guards": 14,

@@ -8,4 +8,4 @@ Let F(k)=sum_r n_r (r/73)^(1-k)/(896T). All paid ranks are below73, so F is stri
 
 The separate ceiling certificate checks all2551 nonnegative capacity patterns, exact dual inequalities and equality for the candidate. Its canonical projection includes source order/dispatch, groups, widths, inventory, local profile, x/z and paid profile; private discovery metadata is omitted without changing these fields.
 
-Full supplier, stock, prefix, precision, physical and outer obligations remain in replay.py. Expected physical stock is437757, stock logarithmic bound1324, prefix1479 and reserve1512. These are expectations until an actual full release passes. No stored T450/T530 owner or release receipt is substituted for a T488 replay.
+The complete source-bound release passes supplier, stock, prefix, precision, physical and outer checks. Its authenticated invoice charges physical stock437757, stock logarithmic bound1324, prefix1479 and reserve1512. Stored receipts are checked separately from a fresh full replay. No stored T450/T530 owner or release receipt is substituted for a T488 replay.

@@ -556,7 +556,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "checks": "Exact actual source-clock aggregate and normalized price/root comparison; 14 owner semantic/optimized controls; two replay-mode and two pre-import authentication controls; canonical scientific-projection binding, all2551 exact packing-pattern dual inequalities and nine ceiling controls. Literal reconstruction and complete admission remain separate optional scientific replay commands, not implied by finite PASS.",
+      "checks": "Exact aggregate, price and fixed-model ceiling checks; owner, import and optimized-mode controls; authenticated stored complete-release receipts and rejection controls. Fresh full replay is separate.",
       "timeout_seconds": 300
     }
   ]
