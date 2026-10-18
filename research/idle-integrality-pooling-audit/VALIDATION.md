@@ -1,0 +1,25 @@
+# Validation and limits
+
+Scientific baseline: canonical main `20ecf2891d80b5acf18d980b2164fb44ea7faa90`, priority revision 6, selected-record SHA256 `bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129`. The entry fetch and three required entry documents were read before task selection. Main inputs and frozen source bytes remain unchanged.
+
+Environment: macOS 26.3.1, arm64; CPython 3.12.14 and 3.14.7; Git 2.53.0. Standard library only. No dependency installation, native build, Docker, Lean or repository-wide suite.
+
+## Executed checks
+
+- `python3 -B scripts/research_baseline.py`: `PASS_RESEARCH_BASELINE_BINDINGS_ONLY`. Selected source bindings and diagnostic arithmetic only.
+- `python3.12 -I -B research/idle-integrality-pooling-audit/verify.py`: `PASS_IDLE_INTEGRALITY_POOLING_AUDIT`.
+- `python3.12 -I -O -B research/idle-integrality-pooling-audit/test_verify.py`: all eight groups passed. This includes 72 square and ten cube calibrations, small exhaustive partitions, histogram domain and normalization controls, five owner-ledger corruptions, and retained/main-source corruption checks.
+- `python3.12 -B scripts/research_package.py --package research/idle-integrality-pooling-audit`: `PASS_REGISTERED_RESEARCH_PACKAGE`; both registered commands ran successfully.
+- The direct verifier and test suite also passed with CPython 3.14.7.
+
+`RESULT.json` is deterministic mathematical output, not a timing log. All acceptance/rejection decisions use exact integers and fractions. The independent engine confirms the primary PR's two per-call bracket signs, then separates that model from the pooled one. It does not execute the primary DP. The pooled optimizer proof is credited reuse from PR1685; the price implementation and selected capacity recount are newly implemented for this audit.
+
+The selected PR1094 archive's `t16/indep16.py` and `hosting/PROOF.md` were read without execution and compared byte-for-byte to the declared main inputs. SHA256 values matched: `1beb512a1d072f81d3e8e492c8827636029686897093bd433e4d4c92d0c830c7` and `45bb3de8a10298a4cf5a278c3343be22a7d2e735be93a4e9454f24df7275faf0`. Replays use the declared main files, not the archive or a foreign cached Git commit.
+
+## Coordination coverage
+
+Entry `find_overlap.py --refresh` reported 444 open PRs fetched at 2026-10-18 19:16:17 UTC and 2495 Discussion records at 19:17:01 UTC, with complete pagination and no warnings. A targeted cached query inspected PR3729, the adjacent per-call arithmetic PR3737, prior pooled integrality work and relevant board posts. This searches titles/bodies/comments and local notes, not every code diff, and is not proof of novelty. The audit claim was posted as a reply to the existing ceiling finding, rather than opening a duplicate investigation thread.
+
+## Remaining obligations
+
+No actual owner map realizes the pooled histogram here. The literal recount authenticates declared windows but does not derive them from source events or replay native frames, phases, compiler/precision/tape costs or supplier admission. The all-size/analytic interfaces and selected cold replay are unrun. The new domain inference and proof have not received independent human or formal proof-kernel review. A stronger physical bound remains possible, provided its additional source restrictions are proved and stated.
