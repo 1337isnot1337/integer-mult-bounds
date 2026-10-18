@@ -8,15 +8,15 @@ four-block forward repair adds 276 scalar operations with no recursive delta.
 These are stopping results for the stated candidates, not a general exclusion
 of changed consumers or native co-delivery.
 
-This is local-only research on branch `codex/selective-p112-codelivery`, based
+This research package is on branch `codex/selective-p112-codelivery`, based
 on canonical main `20ecf2891d80b5acf18d980b2164fb44ea7faa90`, priority revision 6.
 The selected conditional κ remains 0.001672660197076918. Live comparison at
 entry found PR3653 `607a09ff441c79b215a8127a81f4cc70021d0d9b` and PR3682
 `431e6c6023ef352c41696469de7fb614cd4ded8c` reporting the same stronger conditional
 endpoint, .001730418899766071163804 − 10^-46 − 10^-70. This package does not
 improve either endpoint. Those complete releases were not independently replayed.
-No PR was prepared or published because the assignment requires a supported
-increase before preparing one.
+The human subsequently requested submission of this scoped finding, including
+its negative repair results. Submission does not claim a new supplier or κ.
 
 ## Exact selective composition
 
@@ -25,6 +25,10 @@ Pins: PR3566 `ebd6b92c43239d76b1a59e29f574563494388f6a`, PR3604
 `7e7a889cbf6da2c4461af806fe52a888c621a7e7`.
 [SOURCES.json](SOURCES.json) binds retained source bytes, original Git blobs,
 and the two extracted selected-archive members. Frozen predecessors are unchanged.
+The `retained_sources` inventory records the original foreign PR commit/blob/hash
+pins; the direct verifier authenticates and compiles their package-local copies.
+The generic `files` provenance inventory uses only the canonical base, so a clean
+CI checkout does not need unrelated PR histories to replay this package.
 
 The original completion has centre-support vector
 `[2,8,9,2,8,9,8,9,8,8,2,8,9,2]`. Select only zero-based blocks `0,3,10,13`,

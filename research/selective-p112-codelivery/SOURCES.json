@@ -5,6 +5,47 @@
   "checked_utc": "2026-10-18T14:56:19.984534+00:00",
   "files": [
     {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "67f085acd86acd7d4e03922d9cf4b26bca66fed5",
+      "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0"
+    },
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "b1fea0c94436b236cc2b7d41a7be032811b94c81",
+      "sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
+    },
+    {
+      "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
+      "usage": "provenance",
+      "git_blob": "c24daf067f9c543421d89ca2eeaa4eb78a57fb6f",
+      "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
+    }
+  ],
+  "selected_archive": {
+    "commit": "7156bb98f78b7492002010e8729d59fe38b92e60",
+    "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
+    "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+    "members": [
+      {
+        "archive_member": "candidate/strict/global/base/providers/gauge44/CANONICAL-WORD.json.gz",
+        "retained_path": "vendor/word.json.gz",
+        "sha256": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219",
+        "payload_sha256": "4ddb29fb9bc6f27e0c0fbfcf19a2a93a3496ad900d0f6d89059d0305c9576c0c"
+      },
+      {
+        "archive_member": "candidate/strict/global/base/providers/gauge44/LOCAL-PROGRAMS.json.gz",
+        "retained_path": "vendor/programs.json.gz",
+        "sha256": "241fde27d4e43f5a9cb6b128f9f76c5131a53d09f0371676163f914d0b0fef3a",
+        "payload_sha256": "9f41d53659e9be84e20c661560c5687abbf5cd0660cdecbe01ad5eb29e6b8ee3"
+      }
+    ]
+  },
+  "schema_version": 1,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "retained_sources": [
+    {
       "commit": "7156bb98f78b7492002010e8729d59fe38b92e60",
       "source_path": "research/p112-centre-co-delivery/verify.py",
       "retained_path": "vendor/research/p112-centre-co-delivery/verify.py",
@@ -163,45 +204,7 @@
       "path": "research/complex-local-word-ceiling/ceiling.py",
       "usage": "provenance",
       "pin": "head:20ecf2891d80b5acf18d980b2164fb44ea7faa90:research/complex-local-word-ceiling/ceiling.py"
-    },
-    {
-      "path": "docs/research/agent-task-catalog.json",
-      "usage": "provenance",
-      "git_blob": "67f085acd86acd7d4e03922d9cf4b26bca66fed5",
-      "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0"
-    },
-    {
-      "path": "certificates/selected-result.json",
-      "usage": "provenance",
-      "git_blob": "b1fea0c94436b236cc2b7d41a7be032811b94c81",
-      "sha256": "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
-    },
-    {
-      "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
-      "usage": "provenance",
-      "git_blob": "c24daf067f9c543421d89ca2eeaa4eb78a57fb6f",
-      "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
     }
   ],
-  "selected_archive": {
-    "commit": "7156bb98f78b7492002010e8729d59fe38b92e60",
-    "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
-    "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
-    "members": [
-      {
-        "archive_member": "candidate/strict/global/base/providers/gauge44/CANONICAL-WORD.json.gz",
-        "retained_path": "vendor/word.json.gz",
-        "sha256": "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219",
-        "payload_sha256": "4ddb29fb9bc6f27e0c0fbfcf19a2a93a3496ad900d0f6d89059d0305c9576c0c"
-      },
-      {
-        "archive_member": "candidate/strict/global/base/providers/gauge44/LOCAL-PROGRAMS.json.gz",
-        "retained_path": "vendor/programs.json.gz",
-        "sha256": "241fde27d4e43f5a9cb6b128f9f76c5131a53d09f0371676163f914d0b0fef3a",
-        "payload_sha256": "9f41d53659e9be84e20c661560c5687abbf5cd0660cdecbe01ad5eb29e6b8ee3"
-      }
-    ]
-  },
-  "schema_version": 1,
-  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90"
+  "retained_source_policy": "Original commit/blob/SHA256 provenance is retained in retained_sources. Live execution compiles only package-local bytes after SHA256 authentication. Generic Git provenance checks use only base-commit objects so clean CI need not fetch unrelated PR histories."
 }

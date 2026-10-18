@@ -64,9 +64,7 @@ def rank(a):
 
 def run():
     pins = json.loads((HERE/'SOURCES.json').read_text())
-    for f in pins['files'] + pins['selected_archive']['members']:
-        if 'retained_path' not in f:
-            continue  # Git provenance; not a live standalone execution input.
+    for f in pins['retained_sources'] + pins['selected_archive']['members']:
         raw = (HERE/f['retained_path']).read_bytes()
         need(hashlib.sha256(raw).hexdigest() == f['sha256'],
              'changed retained source: '+f['retained_path'])

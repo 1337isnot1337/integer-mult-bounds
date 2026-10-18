@@ -42,7 +42,6 @@
     "http://127.0.0.1:8747/api/lineage/leads"
   ],
   "registry_staleness": "Local four-kappa campaign/LEADS.json takes precedence over lagging pursuing labels.",
-  "publication": "No pushes, Discussion writes, PR creation, merges or selected-frontier changes.",
   "direct_head_refresh": {
     "3566": {
       "headRefOid": "ebd6b92c43239d76b1a59e29f574563494388f6a",
@@ -87,5 +86,26 @@
       "updatedAt": "2026-10-18T14:32:47Z"
     }
   },
-  "direct_head_refresh_utc": "2026-10-18T15:05:34.156720+00:00"
+  "direct_head_refresh_utc": "2026-10-18T15:05:34.156720+00:00",
+  "initial_handoff_publication": "No pushes, Discussion writes, PR creation, merges or selected-frontier changes.",
+  "submission_checkpoint": {
+    "checked_utc": "2026-10-18T15:27:21.958851+00:00",
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "guidance_changes_since_research_base": false,
+    "user_authorization": "Prepare and submit a PR for this research finding",
+    "overlap_coverage": {
+      "open_prs": {
+        "fetched_at": "2026-10-18T15:24:31.038954+00:00",
+        "complete_pagination": true,
+        "records": 394
+      },
+      "discussions": {
+        "fetched_at": "2026-10-18T15:25:14.716392+00:00",
+        "complete_pagination": true,
+        "records": 2469
+      }
+    },
+    "overlap_warnings": [],
+    "limits": "Remote PR scope is open PRs including drafts. Closed work is searched through local READMEs, TASK metadata and ledger only. No code diffs or arbitrary package files are searched. Recheck relevant heads before submission."
+  }
 }

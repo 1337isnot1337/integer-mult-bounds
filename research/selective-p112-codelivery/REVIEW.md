@@ -53,3 +53,12 @@ replay was performed. This is independent same-session AI review, not human
 approval or formal proof-kernel certification. A final follow-up checks the
 committed wording/receipt correction and final handoff without reopening the
 unchanged construction.
+
+The final follow-up explicitly confirmed **CONCLUDE: YES** on handoff commit
+`3e9546b23472b69851937b973da773faec25b0b5`. The reviewer inspected its complete
+diff against the initial reviewed commit and confirmed the active-centre
+correction, attribution, unresolved obligations and scoped stopping language.
+No identity, operation count or cost conclusion changed. Freshness and additional
+validation receipts were author-reported and were not independently repeated
+by the reviewer. Later publication metadata records the human's request to
+submit this finding and does not extend that scientific review.

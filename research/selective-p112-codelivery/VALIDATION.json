@@ -71,5 +71,17 @@
     "reviewed_commit": "bdbda8c442c734fe5a1dadafab6005f6ae08bf50",
     "verdict": "CONCLUDE: YES",
     "nonblocking_correction": "Eight centre roles describe the scalar model, with only two actively updated; not a resource minimum. Applied to README and output receipt."
+  },
+  "publication_packaging": {
+    "checked_utc": "2026-10-18T15:27:21.958229+00:00",
+    "source_pin_reorganization": "All retained source commit/blob/hash rows and archive pins compare equal to the Astra-reviewed handoff; only inventory placement changed.",
+    "RESULT_unchanged_from_reviewed_handoff": true,
+    "registered_replay": "PASS",
+    "isolated_git_checkout_validation": {
+      "result": "PASS",
+      "isolation": "Fresh Git repository with only the package, runner, and exact canonical-base provenance objects; foreign PR commits absent.",
+      "generic_registered_replay": "PASS",
+      "base_provenance_object_count": 10
+    }
   }
 }
