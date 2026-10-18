@@ -19,6 +19,8 @@ not open a CrocSwap PR that reprints them.
 - Task card: `independent-moment` (priority revision 6)
 - Predecessor head #2979: `be191346391661f4d35fc0d1508d0a6029572576`
 - Branch: `cursor/group-d-native-widths-60b9`
+- Content tip SHA: `79cfa71e44968c0d6f5ca5df92a038aea12e354a`
+- Publish tip: branch HEAD of `cursor/group-d-native-widths-60b9` (docs-only handoff commits may follow content tip)
 - Package: `research/rank7-group-d-native-widths-audit/`
 
 ## Exact commands
