@@ -97,14 +97,33 @@ def check_batch932_file(item):
             'Changed integrated file: ' + name)
 
 
+def project_family_decision(previous, decision):
+    """Carry optional metadata through incremental decisions, as the ledger does.
+
+    Keep mandatory fields from the latest decision: an incomplete later row
+    must not inherit an earlier head or disposition and silently pass.
+    """
+    projected = dict(decision)
+    for field in ('closure', 'review_completion', 'verification_evidence'):
+        if field not in projected and field in previous:
+            projected[field] = previous[field]
+    return projected
+
+
 def check_family_decision(item, decision):
     """Bind projected ledger state to its authoritative, pinned family decision."""
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
-              'github_state', 'integration_location', 'unresolved_question', 'closure')
-    for field in fields + ('review_completion', 'verification_evidence'):
+              'github_state', 'integration_location', 'unresolved_question')
+    if 'closure' not in decision:
+        # New intake rows may omit an unrecorded closure. No receipt may be
+        # invented; an earlier explicit null or receipt is carried above and
+        # still requires the corresponding ledger key below.
+        require(item.get('closure') is None,
+                f'#{decision["number"]}: ledger differs from family decision: closure')
+    for field in fields + ('closure', 'review_completion', 'verification_evidence'):
         if field in fields or field in decision:
             # JSON equality must distinguish true from 1, including nested flags.
-            require(field in item and json.dumps(item[field], sort_keys=True) ==
+            require(field in item and field in decision and json.dumps(item[field], sort_keys=True) ==
                     json.dumps(decision[field], sort_keys=True),
                     f'#{decision["number"]}: ledger differs from family decision: {field}')
 
@@ -266,6 +285,7 @@ def main():
     snapshot = json.loads((AUDIT / 'starting-snapshot.json').read_text())
     expected = {p['number']: p for p in snapshot['pull_requests']}
     family_decisions = {}
+    family_projections = {}
     for family_path in decision_paths():
         if not family_path.exists():
             continue
@@ -276,12 +296,14 @@ def main():
             # The generator applies later rounds in this order; retain the final
             # authoritative projection without rewriting historical metadata.
             family_decisions[row['number']] = row
+            family_projections[row['number']] = project_family_decision(
+                family_projections.get(row['number'], {}), row)
             if row['number'] not in expected:
                 expected[row['number']] = row['metadata']
     actual = {p['number']: p for p in ledger['pull_requests']}
     require(len(actual) == len(ledger['pull_requests']) == len(expected), 'Duplicate or missing PR')
     require(actual.keys() == expected.keys(), 'Starting PR set changed')
-    for number, decision in family_decisions.items():
+    for number, decision in family_projections.items():
         check_family_decision(actual[number], decision)
     for number, pr in actual.items():
         require(pr['starting_head'] == expected[number]['headRefOid'], f'#{number}: starting head changed')
@@ -592,7 +614,7 @@ def main():
         if companion_path.exists():
             for companion in json.loads(companion_path.read_text())['pull_requests']:
                 item = actual[companion['number']]
-                check_companion_review(item, companion, family_decisions.get(companion['number']))
+                check_companion_review(item, companion, family_projections.get(companion['number']))
         print('PASS batch970 batch: reviewed sources, finite replays, scoped claims and closure bindings')
     receipt_path = ROOT / 'docs/research/community-batch1047-integration.json'
     if receipt_path.exists():
