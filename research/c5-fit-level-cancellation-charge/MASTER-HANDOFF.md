@@ -18,6 +18,7 @@ on the `2,547,216`-rectangle census. Diagonal tariff 224 and J-extension tariff
 Pinned CrocSwap main tip (branch base): `20ecf2891d80b5acf18d980b2164fb44ea7faa90`.
 Scientific geometry base (SOURCES): `463113d675af7410ac91d53a4fed51ec6494eb9a`.
 Branch: `cursor/c5-fit-level-cancellation-charge-ee22`.
+Scientific package tip: `5586f4aa59090c96d8752a335e6e88d4f8d829b4` (Wentao-only; no `Co-authored-by: Victor Li`).
 Package: `research/c5-fit-level-cancellation-charge/`.
 
 ## Switch
