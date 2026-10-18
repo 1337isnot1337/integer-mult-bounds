@@ -10,9 +10,12 @@ import json
 import zipfile
 import subprocess
 import sys
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
+initial_head_for_decision = runpy.run_path(
+    str(Path(__file__).with_name('pr_intake_initial_heads.py')))['initial_head_for_decision']
 
 
 def require(condition, message):
@@ -277,7 +280,8 @@ def main():
             # authoritative projection without rewriting historical metadata.
             family_decisions[row['number']] = row
             if row['number'] not in expected:
-                expected[row['number']] = row['metadata']
+                expected[row['number']] = dict(row['metadata'], headRefOid=initial_head_for_decision(
+                    ROOT, family_path.relative_to(ROOT).as_posix(), row))
     actual = {p['number']: p for p in ledger['pull_requests']}
     require(len(actual) == len(ledger['pull_requests']) == len(expected), 'Duplicate or missing PR')
     require(actual.keys() == expected.keys(), 'Starting PR set changed')
