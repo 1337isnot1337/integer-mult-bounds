@@ -30,7 +30,7 @@ class CertificateControls(unittest.TestCase):
     def test_positive_literal_and_both_provider_contract(self):
         self.assertEqual(len(self.rows), 58752)
         self.assertEqual(self.audit["rank_mass"], 1041408)
-        self.assertEqual(self.audit["idle"], {1: 4376, 3: 1090, 5: 458, 48: 6078})
+        self.assertEqual(self.audit["idle"], {1: 4147, 2: 110, 3: 1091, 5: 456, 8: 2, 48: 6078})
 
     def test_duplicate_and_missing_flow(self):
         self.rejected(lambda c: c["flow"].append(c["flow"][0][:]), "duplicate flow")

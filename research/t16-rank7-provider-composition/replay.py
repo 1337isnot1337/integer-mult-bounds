@@ -15,8 +15,8 @@ _spec = importlib.util.spec_from_file_location('scientific_materialize', HERE / 
 _materialize = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_materialize)
 build, need = _materialize.build, _materialize.need
-EXPECTED_PROFILE = {1:354728, 2:104256, 3:33922, 4:14688, 5:3338, 8:1152, 48:6078}
-EXPECTED_KAPPA = Fraction('0.001727153212938552593775') - Fraction(1,10**46) - Fraction(1,10**70)
+EXPECTED_PROFILE = {1:354499, 2:104366, 3:33923, 4:14688, 5:3336, 8:1154, 48:6078}
+EXPECTED_KAPPA = Fraction('0.001727254340596650594393') - Fraction(1,10**46) - Fraction(1,10**70)
 RECIPE_SHA = '54b4e3d38bf16b81d87827275325dfe0bf0b5cb6f7e4ce7543a1061c6ad89122'
 OVERLAY_SHA = '053de667b534bef38f71f0c86f39647c3af501a3f940bb3e3e797d4373ee2144'
 

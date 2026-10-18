@@ -1,23 +1,24 @@
-# Rank-seven local supplier composed with the T16 chronology
+# Full-bin patterns improve the rank-seven T16 allocation
 
-This candidate replaces PR3413's 480-helper local supplier with the authenticated 408-helper rank-seven supplier from PR3133/PR3148, then constructs a new allocation on PR3413's actual sixteen-replica chronology. It is a changed local-word composition, not another seed in PR3413's attained fixed-inventory packing envelope.
+This is a focused descendant of [PR3457](https://github.com/CrocSwap/integer-mult-bounds/pull/3457), exact head `e47d1dd9e38241b902545dbc41d1bbe7fa0c4bcd`. It retains that construction's 408-helper rank-seven words, T16 call chronology and complete admission machinery. The new allocation admits two previously omitted full-bin patterns, `[7,7,9,9]` in capacity 32 and `[7,7,7,9,9,9]` in capacity 48, then repairs a bounded set of actual chronological groups. `BOUNDED-DOMAIN.md` records the precise discovery scope and limits; no packing optimum is claimed.
 
 **Complete finite admission passes.** The modern conditional exponent is
-`κ = 0.001727153212938552593775 - 10^-46 - 10^-70`, improving the admitted T16 construction in PR3413. This remains below the supported T740 construction and is a scoped T16 improvement, not a global frontier claim.
+`κ = 0.001727254340596650594393 - 10^-46 - 10^-70`, an exact improvement of `0.000000101127658098000618` over PR3457. It remains below the supported T740 construction. This is a scoped T16 improvement; selected records remain unchanged.
 
-The complex profile endpoint is `0.001727153212938552593775`, versus PR3413's `0.001676895884165954931459`. The complete admission freshly reconstructs this allocation, parent lift, physical/controller invoice, discovery ledger and modern outer release. It authenticates and reuses the two current native providers from a completed fresh PR3148 native replay; this run does not claim to rebuild those native providers again. The ancestral T16 pricing routine separately reports `0.001724175298032885` under its older outer adapter; that diagnostic is not the admitted modern exponent.
-
-The certificate reconstructs all 58,752 helper occurrences across 144 complete calls. Its 181 group/pattern allocations and 1,167 nonzero flows are checked in exact integer arithmetic, then deterministically expanded by the credited bipartite edge-coloring algorithm. Verification uses no optimizer. Independent source-derived owner checks cover both actual local providers.
+The certificate reconstructs 58,752 helper occurrences across all 144 calls from 189 group/pattern allocations and 1,222 nonzero integer flows. Verification has no optimizer dependency. The idle-profile change is `-229 H1 + 110 H2 + H3 - 2 H5 + 2 H8`; the concavity decomposition in the proof makes this a strict paid-profile gain throughout `0<a<1`.
 
 | Quantity | Value |
 | --- | --- |
-| Idle profile | `4376 H1 + 1090 H3 + 458 H5 + 6078 H48` |
-| Full paid profile | `{1:354728,2:104256,3:33922,4:14688,5:3338,8:1152,48:6078}` |
+| Idle profile | `4147 H1 + 110 H2 + 1091 H3 + 456 H5 + 2 H8 + 6078 H48` |
+| Full paid profile | `{1:354499,2:104366,3:33923,4:14688,5:3336,8:1154,48:6078}` |
 | Rank mass / deficit | `1,041,408 / 5,120` |
-| Compact helpers per call | `408` |
+| Helpers per call / private cleanup families | `408 / 91` |
+| Complete physical stock | `14,845` |
 | Dispatch | `(0,0): extra`; remaining 143 calls: `gauge44` |
 
-`SOURCE-ORIGINS.json` identifies exact historical Git objects for all fifteen unchanged scientific inputs. Their verbatim copies in `source-inputs/` make these checks independent of a checkout, historical refs, private directories or an optimizer installation. `PLAN-3413.json` is the retained geometry/chronology input; its old provider metadata is not reused as a new native binding. Reconstruction emits modern `FILL.json.gz`, `ORDER.json` and `DISPATCH.json` for the separate admission adapter.
+Both exact moment engines certify complex endpoint `0.001727254340596650594393`. It realizes approximately **99.85413418259235506%** of the same current-word packing cap; `CAP-RATIO.json` gives exact rational inputs and bounds, credited to PR3361. The ancestral pricing adapter separately gives `0.001724276077257820`; that diagnostic is not the modern admitted exponent.
+
+Complete admission freshly checks this changed allocation, parent lift, physical/controller invoice, discovery ledger and modern outer release. It authenticates and reuses both native providers from a prior fresh PR3148 replay. No new native-provider rebuild is claimed. The fifteen scientific inputs, canonical-source closure, compressed overlay and native-cache provenance are unchanged from PR3457. `SOURCE-ORIGINS.json` and `PREDECESSOR-3457.json` retain exact source identities. No private solver is required.
 
 ## Reproduce
 
@@ -38,10 +39,12 @@ Use `reconstruct.py --output /absolute/new/owned/directory` to save the literal 
 
 Nine test groups exercise valid reconstruction and reject duplicate/missing flow, fractional or Boolean counts, width/bin corruption, unavailable windows, literal role time/width/family faults, source-byte corruption, mismatched native widths and duplicate JSON keys.
 
-`PROOF.md` explains the exact allocation argument. `CREDITS.md` preserves the predecessor algorithms and provider ancestry. PR3390 and the earlier T16 work remain valid historical branch improvements; this composition uses the newer PR3413 chronology and current rank-seven supplier rather than claiming those predecessors as new work.
+`PROOF.md` explains the exact allocation argument. `CREDITS.md` preserves the predecessor algorithms and provider ancestry. PR3390 and the earlier T16 work remain valid historical branch improvements; this descendant preserves PR3457’s composition of the PR3413 chronology and current rank-seven supplier, and claims only its new bounded allocation improvement.
 
 ## Open next questions
 
-1. Can the same allocation recipe reduce replicas further while retaining actual source windows, provider bindings and the complete bill? The present result establishes this specific T16 construction, not an optimum over changed local words or architectures.
-2. Can a changed recursive interface improve the global T740 endpoint? This T16 architecture comparison does not establish that claim, and another fixed-inventory allocation is not a new mechanism.
+1. Can a distinct omitted pattern or changed chronology improve the remaining gap with exact source windows and the complete bill? This bounded construction is not a global or chronological packing optimum.
+2. Can a changed recursive interface improve the global T740 endpoint? Further fixed-word allocations remain below its attained cap.
 3. The inherited all-size compiler, common-label/mutable-source realization, whole-call hosting, precision/tape, exact recovery and analytic assumptions remain distinct from finite replay.
+
+The retained fill uses 115 capacity-32 bins of the newly admitted `[7,7,9,9]` pattern. The capacity-48 candidate pattern was allowed in discovery but is unused in this certificate; no gain is attributed to it.
