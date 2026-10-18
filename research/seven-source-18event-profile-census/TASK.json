@@ -1,4 +1,4 @@
-{
+{{"benchmark_reference":"Cropped-sparse-mask connector certificate construction","declared_interface":{"evaluation_mode":"exact_unit_and_weighted_call_counting","input_sources":7,"target_masks":63},"open_questions":[{"id":1,"question":"What is the minimum complete-call schedule for the 98 nonzero seven-source masks of Hamming weight at most four?"}],"package":"research/seven-source-18event-profile-census","schema_version":1,"status":"CLOSED_OPEN_QUESTION_1_OF_PR2397"}
   "actual_scope": "Resolve Open Question #1 of PR #2397 by proving that profile (6,2,2,2,2,2,2) cannot cover all 63 masks (sharp maximum 61/63 across 105 canonical words) and classifying all 54 canonical full-63 words of profile (4,4,2,2,2,2,2).",
   "acceptance_gate": "PASS_SEVEN_SOURCE_18EVENT_PROFILE_CENSUS",
   "author": "nightangelflowerwin-ops",
