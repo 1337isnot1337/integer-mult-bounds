@@ -89,7 +89,12 @@ local rank caps. PR1685 already supplies the unrestricted pooled optimum and
 concavity proof. This audit adds the separating domain counterexample, correct
 fixed-N repricing, replication identities and source-bound shared-bin check.
 [TASK.json](TASK.json) records scope, checkpoints and remaining obligations.
-The claim is [the reply to the ceiling finding](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19022496).
+The original claim is [the reply to the ceiling finding](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166#discussioncomment-19022496).
+The submission refresh found a [concurrent same-boundary investigation](https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19022491)
+and [preliminary counterexample](https://github.com/CrocSwap/integer-mult-bounds/pull/3729#issuecomment-6254060645)
+using the predecessor price engine. We join that investigation and claim no
+priority over its counterexample. The separate binomial engine, corrected
+fixed-N bracket and literal shared-bin coverage are this package’s added check.
 
 ## Open next questions
 

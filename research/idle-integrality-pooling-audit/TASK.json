@@ -79,6 +79,13 @@
       "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
       "priority_revision": 6,
       "decision": "start isolated audit; preserve frozen predecessor inputs"
+    },
+    {
+      "utc": "2026-10-18T19:28:00Z",
+      "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "priority_revision": 6,
+      "audited_head": "c7c68f89e020f9e62f38514afdfc99dda01430d4",
+      "decision": "Main and audited head unchanged. A concurrent same-boundary claim and exact-price-engine finding appeared during this session; narrow novelty to separate binomial arithmetic, fixed-N repricing and selected shared-bin source coverage, and join its canonical investigation."
     }
   ],
   "family_expansion_decision": "Finish the bounded domain audit and hand off the missing physical-decomposition lemma; do not start a packing search or admit a supplier.",
@@ -123,6 +130,9 @@
       "3737": "same per-call histogram arithmetic, not aggregate scope",
       "1685": "credited aggregate optimum",
       "3701": "paid local rank caps"
-    }
+    },
+    "concurrent_finding": "https://github.com/CrocSwap/integer-mult-bounds/pull/3729#issuecomment-6254060645",
+    "canonical_investigation": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19022491",
+    "additional_coverage": "The concurrently reported aggregation counterexample is not claimed as uniquely new. This package adds import-free positive-binomial pricing, the corrected fixed-144 root bracket and an independent literal owner-capacity recount with a four-call shared remainder witness."
   }
 }
