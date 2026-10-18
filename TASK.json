@@ -1,0 +1,34 @@
+{
+  "actual_scope": "Resolve Open Question #1 of PR #2397 by proving that profile (6,2,2,2,2,2,2) cannot cover all 63 masks (sharp maximum 61/63 across 105 canonical words) and classifying all 54 canonical full-63 words of profile (4,4,2,2,2,2,2).",
+  "acceptance_gate": "PASS_SEVEN_SOURCE_18EVENT_PROFILE_CENSUS",
+  "author": "nightangelflowerwin-ops",
+  "benchmark_reference": "Cropped-sparse-mask connector certificate construction",
+  "bottleneck_link": "https://github.com/CrocSwap/integer-mult-bounds/blob/main/research/seven-source-18event-connector/README.md",
+  "budget_minutes": 60,
+  "category": "sparse_connector",
+  "declared_interface": {
+    "evaluation_mode": "exact_unit_and_weighted_call_counting",
+    "input_sources": 7,
+    "target_masks": 63
+  },
+  "evidence": "verify.py replays the 10,395-word 6-source projection bound (max 39/41), all 105 canonical 61/63 words of profile (6,2,2,2,2,2,2), all 54 canonical (108 ordered) 63/63 words of profile (4,4,2,2,2,2,2), dirty-state replay, and 8 negative controls.",
+  "methods": [
+    "Six-source double-occurrence projection obstruction (10,395 canonical 12-event words)",
+    "Exact lifted census of the 192,972,780-word (6,2,2,2,2,2,2) domain",
+    "Three-stage dual sub-alphabet projection census of the 1,447,295,850-word (4,4,2,2,2,2,2) domain"
+  ],
+  "open_questions": [
+    {
+      "id": 1,
+      "question": "What is the minimum complete-call schedule for the 98 nonzero seven-source masks of Hamming weight at most four?"
+    }
+  ],
+  "outcome": "completed",
+  "package": "research/seven-source-18event-profile-census",
+  "schema_version": 1,
+  "scope_change_reason": "Directly closes Open Question #1 in research/seven-source-18event-connector (PR #2397) with an exact projection proof and complete canonical censuses for both 144-call 18-event profiles.",
+  "scope_status": "changed",
+  "status": "CLOSED_OPEN_QUESTION_1_OF_PR2397",
+  "task_id": "connector-alphabet-change",
+  "title": "Seven-source 18-event connector profile census and (6,2,2,2,2,2,2) exclusion"
+}
