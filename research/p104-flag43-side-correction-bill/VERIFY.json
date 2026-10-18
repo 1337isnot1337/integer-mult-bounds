@@ -47,7 +47,7 @@
         "-B",
         "{package}/test_package.py"
       ],
-      "timeout_seconds": 900,
+      "timeout_seconds": 600,
       "checks": "Temp-tree clean pass with byte-identical tree; 14 rejections by both scanners under -O: certificate bill/obstruction corruptions, duplicate JSON key, witness and #3508 certificate byte flips, new-recipe phase corruption, wrong coefficient, undercharged lift, wrong common chart, unrestored source and unclosed private lifetime"
     }
   ]
