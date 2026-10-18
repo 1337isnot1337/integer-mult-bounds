@@ -61,5 +61,12 @@
       "first_step": "Map one five-frame block and its consumer through the selected native owner/frame trace, then check whether the next block uses the same address register and whether restoration can be deferred.",
       "blocked_by": "The predecessor has no native owner map, physical schedule or restoration receipt for the five-plane endpoint."
     }
-  ]
+  ],
+  "upstream_refresh": {
+    "canonical_main": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "priority_revision": 6,
+    "checked_utc": "2026-10-18T03:15:29Z",
+    "reviewed_changes": "Refreshed current-priorities.md, research-family-status.md and agent-procedure.md. Priority revision remains 6; the changed P104 row is unrelated. The selected record, task card and all pinned predecessor inputs are byte-identical across this base refresh.",
+    "overlap_refresh": "scripts/find_overlap.py --task coverage-law-change --refresh completed against 394 open PRs and 2319 discussions on 2026-10-18. A targeted offline search of that fresh cache found no phrase matches; this is not a novelty certificate. Relevant live predecessors #1900 and #2041 were rechecked, and the new result remains scoped to conditional global endpoint cancellation."
+  }
 }
