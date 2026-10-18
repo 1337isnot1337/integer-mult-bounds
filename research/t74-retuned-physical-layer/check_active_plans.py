@@ -45,8 +45,10 @@ def run():
 
     plan = ActiveWidthPlan(2, 1, 4, guard_exponent=2)
     reports = []
+    comparison_raw = (5, 2, 1, 0, 2, 1, 0)
+    comparison = None
     for raw in ((2, 0, 1, 2, 3, 2, 0), (2, 1, 0, 1, 1, 1, 0),
-                (5, 2, 1, 0, 2, 1, 0), (8, 6, 0, 2, 1, 3, 0)):
+                comparison_raw, (8, 6, 0, 2, 1, 3, 0)):
         counts = tuple(Count.literal(x) for x in raw)
         before = tuple(bytes(x.tape.cells) for x in counts)
         with no_decode():
@@ -57,19 +59,20 @@ def run():
                 "planner borrows inputs and closes scratch")
         reports.append({"precision": raw[0], "selected": raw[1], "d": observed["d"],
                         "H": observed["H"], "gaussians": observed["gaussians"]})
+        if raw == comparison_raw:
+            comparison = observed
         plan.clear()
         require(all(t.read() == BLANK for t in plan.roles.values()), "plan role cleanup")
         for count in counts:
             count.close()
-    counts = tuple(Count.literal(x) for x in (8, 2, 0, 0, 1, 1, 0))
+    require(comparison is not None, "observed actual-width comparison plan")
+    counts = tuple(Count.literal(x) for x in comparison_raw)
     old = RootPlan(2, 1, 4, guard_exponent=2)
     with no_decode():
         old.compute(*counts)
-        plan.compute(*counts)
-    require(value(old.count("d")) == 7 and value(plan.count("d")) == 2
-            and value(old.count("H")) > value(plan.count("H")), "old precision-width plan differs")
+    require(value(old.count("d")) == 4 and comparison["d"] == 2
+            and value(old.count("H")) > comparison["H"], "old precision-width plan differs")
     old.clear()
-    plan.clear()
     for count in counts:
         count.close()
     counts = tuple(Count.literal(x) for x in (2, 2, 0, 0, 1, 1, 0))
@@ -87,5 +90,6 @@ def run():
     for count in counts:
         count.close()
     return {"status": "PASS_ACTIVE_WIDTH_ENCODED_PLANS", "plans": reports,
-            "old_planner_control": {"old_d": 7, "new_d": 2}, "root_cap_rejected": True,
+            "old_planner_control": {"precision": 5, "selected": 2, "old_d": 4, "new_d": comparison["d"]},
+            "root_cap_rejected": True,
             "scope": "Actual formulas with reduced fixed constants; no production fast payload."}

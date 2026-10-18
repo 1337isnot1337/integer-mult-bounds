@@ -1,11 +1,20 @@
 # Evidence and limitations
 
-I used CPython 3.12.13 and the standard library. I passed all six registered
-verification groups with -I -O -Werror -B on 2026-10-18. I measured about
+I used CPython 3.12.13 and the standard library. At the initial head f9118aaf8,
+I passed all six registered verification groups with -I -O -Werror -B on
+2026-10-18. I measured about
 2.4 seconds for the science checks, 0.01 for source deltas, 102 for encoded
 plans, 7 for native flow, 140 for physical returns and 1 for source controls
 on this Mac. I record committed-export and hosted status in the PR after
 those checks finish.
+
+On Ubuntu with CPython 3.12.15, CI run39107485027 passed science and source
+contracts, then timed out in the encoded-plan group after 240 seconds. I
+retained the four full-field cases and reused the observed p=5,g=2 result
+for the old/new comparison, removing a separate repeated new-plan execution.
+I raised that group's allowance to 300 seconds within the repository's
+1200-second total budget. I passed the revised optimized plan group in
+75 seconds on the same Mac. I retain the other endpoint and negative controls.
 
 I replay PR3562's actual optimized certificate in a cold exported namespace.
 I use its ordinary exponent with the complete 2,394,506-child T74 histogram.
@@ -23,8 +32,8 @@ inherited execution and root methods. These are source-binding checks, not
 a formal proof of the inherited mathematics.
 
 Four literal Count plans agree with a separate full-field integer oracle,
-including zero width and varied spectators. At p=8,g=2, the old planner
-chooses d=7 and the new planner chooses d=2. An out-of-domain width rejects
+including zero width and varied spectators. At p=5,g=2, the old planner
+chooses d=4 and the new planner chooses d=2. An out-of-domain width rejects
 while preserving descriptors and clearing owned work. These small production-
 formula plans take the fallback; the reduced fast root uses an explicitly
 declared fixture plan.
