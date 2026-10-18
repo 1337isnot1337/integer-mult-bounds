@@ -7,42 +7,70 @@
       "control": "valid",
       "exit_code": 0,
       "endpoint_rejected": false,
-      "log_sha256": "95cb00222fe4cb97f16c798b92d70399cf30cf47fc73451dd48cd14836f2b32a"
+      "log_sha256": "912da5c69252a47dd82b3dd02a75f69519de43d05ce37fd63dc455315e295b7f"
     },
     {
       "provider": "base",
-      "control": "omit-release",
+      "control": "omit-release-644",
       "exit_code": 1,
       "endpoint_rejected": true,
       "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
     },
     {
       "provider": "base",
-      "control": "wrong-sign",
+      "control": "wrong-sign-644",
       "exit_code": 1,
       "endpoint_rejected": true,
       "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    },
+    {
+      "provider": "base",
+      "control": "omit-release-660",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "7415a2086c69858488094fc3102766a0c3f53ecd637852ac5f0612ff3a6960aa"
+    },
+    {
+      "provider": "base",
+      "control": "wrong-sign-660",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "7415a2086c69858488094fc3102766a0c3f53ecd637852ac5f0612ff3a6960aa"
     },
     {
       "provider": "extra",
       "control": "valid",
       "exit_code": 0,
       "endpoint_rejected": false,
-      "log_sha256": "ad2b47262347369bebe6eeea0c7fa686e4b74f94575e638ff2d2b9592620ed53"
+      "log_sha256": "08199ef6bbb9959ae9de501a2bf8c4c0c8c3291334f8ec2e05e6e688ed04ef7a"
     },
     {
       "provider": "extra",
-      "control": "omit-release",
+      "control": "omit-release-644",
       "exit_code": 1,
       "endpoint_rejected": true,
       "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
     },
     {
       "provider": "extra",
-      "control": "wrong-sign",
+      "control": "wrong-sign-644",
       "exit_code": 1,
       "endpoint_rejected": true,
       "log_sha256": "fe440dff56d88ffb1254befeb9b4d0034da4e471e63f93c0a0eaf1b472ae7b70"
+    },
+    {
+      "provider": "extra",
+      "control": "omit-release-660",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "7415a2086c69858488094fc3102766a0c3f53ecd637852ac5f0612ff3a6960aa"
+    },
+    {
+      "provider": "extra",
+      "control": "wrong-sign-660",
+      "exit_code": 1,
+      "endpoint_rejected": true,
+      "log_sha256": "7415a2086c69858488094fc3102766a0c3f53ecd637852ac5f0612ff3a6960aa"
     }
   ]
 }

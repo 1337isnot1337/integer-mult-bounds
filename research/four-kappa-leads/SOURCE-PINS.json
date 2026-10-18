@@ -58,5 +58,29 @@
     "path": "research/three-kappa-leads/PRICE-EXPECTED.json",
     "retained": "sources/T360-PRICE.json",
     "sha256": "7bec25697c7e4fc4397faca94dc05300b97bf701cf4b49af19cc4ff7e4b014a7"
+  },
+  {
+    "head": "d62e1acd7518a231440383f0d0dddf54d6edf8c1",
+    "path": "research/three-kappa-leads/evidence/NATIVE-RECEIPT.json",
+    "retained": "sources/owner-transfer/NATIVE-RECEIPT.json",
+    "sha256": "063ca4d8c1486786088a2fbf40101bd9ed0d32e393139edbfdaa290255a48a00"
+  },
+  {
+    "head": "d62e1acd7518a231440383f0d0dddf54d6edf8c1",
+    "path": "research/three-kappa-leads/evidence/INDEPENDENT-OWNERS.json",
+    "retained": "sources/owner-transfer/INDEPENDENT-OWNERS.json",
+    "sha256": "a3ca166e604b7227f2c50a47709ecb79b7899fdace8d8d1a618648593f8c2c3b"
+  },
+  {
+    "head": "d62e1acd7518a231440383f0d0dddf54d6edf8c1",
+    "path": "research/three-kappa-leads/evidence/EVIDENCE-PINS.json",
+    "retained": "sources/owner-transfer/EVIDENCE-PINS.json",
+    "sha256": "42ab91ec20edef9acd89a50c6734d2de1c3e918f8ea1fd357744db75bc85b058"
+  },
+  {
+    "head": "d62e1acd7518a231440383f0d0dddf54d6edf8c1",
+    "path": "research/three-kappa-leads/evidence/FILL-BINDING.json",
+    "retained": "sources/owner-transfer/FILL-BINDING.json",
+    "sha256": "53d6ad1803352e697ff0fb368ce050ffdcb490274c4b5ab91466e4cb6b696106"
   }
 ]

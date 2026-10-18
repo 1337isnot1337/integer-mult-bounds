@@ -1,6 +1,6 @@
 # Lead 1: delayed donor release on the staged words
 
-LOCAL-ONLY working result; complete release pending. No selected-frontier change.
+LOCAL-ONLY working result; repaired complete release running. No selected-frontier change.
 
 The changed producer neighborhood is helper644/donor640 and its symmetric
 helper660/donor656. Unlike another endpoint extraction on PR3133, the input
@@ -49,13 +49,13 @@ root/movement hypotheses are lead4 and cannot be silently inserted here.
 
 ## Checks and limits
 
-`python3 -B research/four-kappa-leads/delay_release.py`
+`python3 -B research/four-kappa-leads/delay_release.py --out /tmp/fresh-delayed-words`
 `python3 -B research/four-kappa-leads/price.py`
 `/tmp/three-kappa-env/bin/python -B research/four-kappa-leads/controls.py --transport TRANSPORT`
 Two new five-stage native runs: Python3.12.8,numpy1.26.4,scipy1.15.3,
 sympy1.14.0,mpmath1.3.0; assertions enabled, one job.
 Original stages and exact source inventories are in evidence/native-*.
-No Lean,Docker or complete no-reuse cold CLI was run. The APFS copy adapter
+No Lean, Docker or complete no-reuse cold CLI was run. The first full attempt correctly rejected a missing declared retiming stage in the source reconstruction. V2 preserves the PR3605 intermediate and all original reconstruction controls, appends the new stage plus an independent reconstruction, and reruns the complete release. Preparatory discovery/outer arithmetic is explicitly reused under exact changed-source coverage; both actual native words and every scientific native/global engine are unchanged. The portable archive retains the exact V1 differing source bytes and manifest as well as V2, so this reuse has a self-contained source closure. The APFS copy adapter
 only clones regular file bytes; all scientific validators remain unchanged.
 
 ## Comparator, scope and credit

@@ -11,11 +11,12 @@ def main():
   t=Path(td)
   for provider in ('base','extra'):
    old=json.load(gzip.open(P/'sources'/f'STAGED644-660-{provider}.json.gz'));x,_=build(old)
-   for name in ('valid','omit-release','wrong-sign'):
+   for name in ('valid','omit-release-644','wrong-sign-644','omit-release-660','wrong-sign-660'):
     y=copy.deepcopy(x)
     if name!='valid':
-     idx=next(i for i,g in enumerate(y['B']) if g[:5]==['add',640,644,2,1])
-     if name=='wrong-sign':y['B'][idx][3]*=-1
+     h=644 if name.endswith('644') else 660;d,q=(640,2) if h==644 else (656,-1)
+     idx=next(i for i,g in enumerate(y['B']) if g[:5]==['add',d,h,q,1])
+     if name.startswith('wrong-sign'):y['B'][idx][3]*=-1
      else:
       y['B'].pop(idx)
       for rec in y['warps']:

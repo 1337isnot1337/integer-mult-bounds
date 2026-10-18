@@ -18,6 +18,7 @@ def build(w):
    if g[0]=='add':assert g[1]!=h and g[2]!=d
    else:assert g[1] not in (h,d)
    assert all(r[1][1] not in (h,d) for r in at.get(i,[]))
+  assert all(r[1][1] not in (h,d) for r in at.get(stop,[]))
   moves[start]=(stop,['add',d,h,q,1,w['B'][stop][-1]])
  b=[];warps=[None]*len(w['warps'])
  for i in range(len(w['B'])+1):
@@ -30,7 +31,8 @@ def build(w):
  return x,dict(bill=bill,inventory=inv,moves=moves,delta=dict(Counter(bill)-Counter()))
 
 if __name__=='__main__':
- out=P/'lead1-words';out.mkdir(exist_ok=True)
+ import argparse
+ ap=argparse.ArgumentParser();ap.add_argument('--out',type=Path,required=True);a=ap.parse_args();out=a.out.resolve();assert not out.exists();out.mkdir()
  for provider in ('base','extra'):
   w=json.load(gzip.open(P/'sources'/f'STAGED644-660-{provider}.json.gz'));x,r=build(w)
   (out/f'DELAYED-{provider}.json.gz').write_bytes(gzip.compress(json.dumps(x,separators=(',',':')).encode(),mtime=0))
