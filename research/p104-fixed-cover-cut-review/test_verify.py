@@ -74,9 +74,10 @@ class Controls(unittest.TestCase):
 
     def test_dropping_containment_loses_exactness_in_principle(self):
         # Containment V <= W is not decisive at P104 (verify.py checks this),
-        # but without it the test over-grants: it stays sound, not exact.  F_2^4, one pooled type with line <e1>
-        # and hyperplane <e1,e2,e3>: X0 passes the admitted plane <e1,e2>,
-        # Y0 the admitted plane <e1,e3>, and no path joins them.
+        # but without it the test over-grants: it stays sound, not exact.
+        # F_2^4, one pooled type with line <e1> and hyperplane <e1,e2,e3>:
+        # X0 passes the admitted plane <e1,e2>, Y0 the admitted plane
+        # <e1,e3>, and no path joins them.
         key = V["key"]
         full = key([1, 2, 4, 8])
         ty = {0: (), 1: key([1]), 3: key([1, 2, 4]), 4: full}
@@ -86,9 +87,9 @@ class Controls(unittest.TestCase):
         self.assertTrue(V["small_admit"](ty, v) and V["small_admit"](ty, w))
         self.assertNotIn((0, 0), V["small_exact"](inst)[0])
         self.assertNotIn((0, 0), V["small_sharp"](inst))
-        # A test without containment grants the unreachable pair (0,0).
-        self.assertTrue(V["small_admit"](ty, v) and V["small_admit"](ty, w)
-                        and not V["le"](v, w))
+        # The containment-free variant grants the unreachable pair (0,0).
+        self.assertFalse(V["le"](v, w))
+        self.assertIn((0, 0), V["small_sharp"](inst, nested=False))
 
     def test_wrong_rank_block_is_rejected(self):
         # The block is a maximum independent set, so any added port meets a

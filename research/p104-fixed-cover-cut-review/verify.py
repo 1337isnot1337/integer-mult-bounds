@@ -12,7 +12,9 @@ Frames are GF(2) subspaces of F_2^n held as canonical reduced-echelon keys.
          recurrence in the manner of PR3252.
   ORACLE seeded random small instances: an exhaustive untimed reachability per
          instance, an explicit checked program for every reachable helper pair,
-         and random checked programs, all with exact Fraction coefficients.
+         and two random programs (one directed, run in the checked
+         interpreter; one uniform, legal by construction), all with exact
+         Fraction coefficients.
   ROWS   single-relaxation support rows (unpriced; operations counted).
   RANK   a maximum unsupported principal block of C (rank(U-I) >= 23 under
          PR3427's contract) and the matching number of the missing entries.
@@ -520,9 +522,27 @@ def p104():
     sup = {(t, s) for t in range(104) for s in range(104) if sharp[t] >> s & 1}
     need(sup == own | {(73, 83)} and C[73][83] != 0,
          "sharp support = own port pairs + (73,83)")
+    # Routes, not just the set: the pool types admitting each supported pair.
+    masks, adm = endpoint_masks(geo), {}
+    for f in {f for k in "XY" for i in range(104) for f in paths[k + str(i)]}:
+        adm[f] = admit_mask(geo, masks, f)
+    idx = {(b // 2, a // 2): i for i, (a, b) in enumerate(geo[4])}
+    tys = {(t, s): sum_or(adm[v] & adm[w] for v in paths["X%d" % s]
+                          for w in paths["Y%d" % t] if le(v, w))
+           for t, s in sup}
+    other = {p for p, m in tys.items()
+             if m & ~(1 << idx[p] if p in idx else 0)}
+    i83 = geo[4].index((17, 147))
+    need(all(tys[p] >> i & 1 for p, i in idx.items()) and len(other) == 32
+         and (73, 83) in other and tys[(73, 83)] == 1 << i83 and
+         [(len(v), len(w)) for v in paths["X83"] for w in paths["Y73"]
+          if le(v, w) and (adm[v] & adm[w]) >> i83 & 1] == [(4, 8)],
+         "routes: 31 own pairs also via another type; (73,83) only via "
+         "type (17,147), X83's dim-4 frame to Y73's cap")
     return {"roles": roles, "geo": geo, "paths": paths, "C": C,
             "layered": lay, "sharp": sharp, "missing_layered": miss_l,
             "missing_sharp": missing(C, sharp), "forward": fwd,
+            "non_own_type_pairs": len(other),
             "backward": bin(back).count("1"),
             "hist": hist, "first_Y71_X102": first}
 
@@ -713,7 +733,11 @@ def rank_consequence(r):
     det = bareiss_det([[int(2 * C[t][s]) for s in S] for t in S])
     need(rk == 23 and det == 2 ** 30,
          "rank 23 by elimination and det(2C[S,S]) = 2^30")
-    return rk, det
+    # Rectangle ceiling: C[R,S] = I[R,S] - (G/2)[R,S] with R & S independent.
+    g = frac_rank([[int(t == s) - C[t][s] for s in range(104)]
+                   for t in range(104)])
+    need(g == 8, "rank G/2 = 8")
+    return rk, det, g
 
 
 def matching_number(pairs, n=104):
@@ -842,14 +866,16 @@ def small_admit(fixed, f):
     return le(lo, f) and le(f, hi)
 
 
-def small_sharp(inst):
+def small_sharp(inst, nested=True):
+    """nested=False drops the containment V <= W (a probe, not a test)."""
     n, xs, ys, types = inst
     sup = set()
     for s, xc in enumerate(xs):
         for t, yc in enumerate(ys):
             if set(xc) & set(yc) or any(
-                    le(v, w) and any(small_admit(ty, v) and small_admit(ty, w)
-                                     for ty in types)
+                    (le(v, w) or not nested) and any(
+                        small_admit(ty, v) and small_admit(ty, w)
+                        for ty in types)
                     for v in xc for w in yc if 1 <= len(v) <= len(w) <= n - 1):
                 sup.add((t, s))
     return sup
@@ -1215,8 +1241,10 @@ ORACLE_TRIALS = ((3, 3000), (4, 1500))
 def oracle(seed=20261018, trials=ORACLE_TRIALS, steps=120):
     """Seeded random small instances, each checked three ways: an exhaustive
     untimed reachability (small_exact), an explicit checked program for every
-    reachable helper pair (realize), and random checked programs.  Pooled
-    instances (P104-like): the exhaustive support equals the one-helper test.
+    reachable helper pair (realize), and two random legal programs
+    (directed: run by execute; uniform: legal by construction, never run by
+    execute).  Pooled instances (P104-like): the exhaustive support equals
+    the one-helper test.
     Unpooled rigid instances: it lies in PR3259's layered test (no pooling
     needed there) and its escapes from the one-helper test are counted."""
     rng, wrng = Rng(seed), Rng(seed + 1)
@@ -1346,7 +1374,7 @@ def main():
     need(rw["R2_witness_dims"] == [(1, 8)], "R2 witness")
     need(rw["R3_witness_states"] == [("D11", 5)], "R3 witness")
     need(rw["R1c_witness_reads"] == [5], "R1c feedback witness")
-    rk, det = rank_consequence(r)
+    rk, det, g_rank = rank_consequence(r)
     checked, escapes = oracle()
     need(checked == ORACLE_EXPECTED, "oracle receipt %r" % (checked,))
     need(escapes == ESCAPES_EXPECTED, "negative controls %r" % (escapes,))
@@ -1364,6 +1392,9 @@ def main():
                           "layered_supported_pairs": 10815,
                           "unsupported_pairs": 8506,
                           "own_port_pairs": 2309, "extra_pair": [73, 83],
+                          "non_own_type_pairs": r["non_own_type_pairs"],
+                          "rank_G_half": g_rank,
+                          "rectangle_rank_cap": 23 + g_rank,
                           "layered_zero_off_diagonal": len(zero_off),
                           "layered_diagonal": 104, "backward_cone":
                           r["backward"], "pr3427_cols_0_3_missing": 92,

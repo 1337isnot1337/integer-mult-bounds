@@ -17,8 +17,8 @@ proves no P104 impossibility outside the stated contract.
 
 ## Verdict
 
-These verdicts come from an author-checked, AI-assisted review. Seven AI
-review passes in the same loop, over two rounds, checked the package; no
+These verdicts come from an author-checked, AI-assisted review. Ten AI
+review passes in the same loop, over three rounds, checked the package; no
 independent human or formal-kernel review has been done.
 
 1. **PR3259's argument is valid as a necessary support test under its stated
@@ -30,16 +30,17 @@ independent human or formal-kernel review has been done.
    Reinstating that fact gives a valid criterion with **one recombined helper
    per path**. That lemma is stated in PR3427 and is re-proved below with every
    dimension case. Under it, **2,682 of the 4,992 required entries are
-   unsupported**, with at least one in every row and every column. PR3259's
-   relaxation grants 10,815 source/target pairs, against 2,310 for the sharp
-   criterion. "Exactly one missing coefficient" describes PR3259's test, not the
-   contract. PR3259 itself says that passing its test is not a realization.
+   unsupported**, containing a perfect matching (at least 14 per row and 9
+   per column). PR3259's relaxation grants 10,815 source/target pairs,
+   against 2,310 for the sharp criterion. "Exactly one missing coefficient"
+   describes PR3259's test, not the contract. PR3259 itself says that passing its test is not a realization.
    PR3427 already states this criterion and its untimed exactness, and its
    published masks for sources 0-3 already exclude 92 required entries that
    PR3259's test grants. What is new here is the step-by-step review, the
-   full 104-column count with its closed form, a multi-hop check that does
-   not assume the lemma, the rank and vertex-cover consequences, and the
-   rows R1-R3.
+   full 104-column count with its closed form, a multi-hop (PR3252
+   full-memory) check over all 104 columns and 2,309 types that does not
+   assume the lemma (PR3427 ran the same operations on its four columns),
+   the rank and vertex-cover consequences, and the rows R1-R3.
 3. Consequently the fixed-cover contract is closed by a much larger obstruction
    than one coefficient. A contract change that only reopens `C[71,102]` does
    not complete the correction. Examples are PR3427's rank-one source shear, a
@@ -183,12 +184,15 @@ such pairs.
   precision can be tested. On 4,500 unpooled instances the same search finds
   33 pairs on 26 instances outside the one-helper test, each realized by a
   legal program, so the check has teeth. The 9,000 random pooled programs
-  (1,043 nonzero coefficients counted per program, 604 of them on pairs whose
-  X and Y chains share no frame) are a soundness sample only; on unpooled
-  instances they found none of the 33 escapes.
+  (4,500 directed programs run in the checked interpreter and 4,500 uniform
+  programs legal by construction; 1,043 nonzero coefficients counted per
+  program, 604 of them on pairs whose X and Y chains share no frame) are a
+  soundness sample only; on unpooled instances they found none of the 33
+  escapes.
 - **P104.** A new implementation of PR3252's multi-hop full-memory
-  recurrence, which does not assume the lemma, gives the same support on all
-  10,816 pairs.
+  recurrence over all 104 columns, which does not assume the lemma, gives the
+  same support on all 10,816 pairs. PR3427 ran the same operations on its
+  four columns.
 
 *Converse (untimed).* If the condition holds, one helper of type `(a,b)` with
 that full flag reads `X_s` at V and writes `Y_t` at W. With the relative timing
@@ -215,7 +219,7 @@ delivers a nonzero coefficient outside both PR3259's test and the sharp test.
 | Quantity | PR3259 layered test | Sharp one-helper criterion |
 |---|---:|---:|
 | Supported source/target pairs | 10,815 | 2,310 |
-| Required entries unsupported | 1 (`(71,102)`) | 2,682 (every row and column) |
+| Required entries unsupported | 1 (`(71,102)`) | 2,682 (a perfect matching; at least 14 per row, 9 per column) |
 | Values of unsupported entries | `-1/2` | 1,801 at `-1/2`, 881 at `+1/2` |
 | Pairs granted with `C = 0` | 5,720 off-diagonal and 104 diagonal | none |
 
@@ -228,10 +232,12 @@ PR3252's full-memory recurrence over the whole pool. All three agree on all
 The sharp support has a simple shape. It is exactly the 2,309 compatible slot
 pairs `(a,b)` read as port pairs (target `b//2`, source `a//2`), which are
 distinct and all required, plus the pair `(73,83)`. That extra pair comes from
-a dimension-4 frame of X83 admitted, with Y73's cap, by one pool type. Hence
-`2,682 = 4,992 - 2,309 - 1`. At P104 no X path shares a frame with a Y path,
-and dropping the containment `V <= W` changes no pair, so containment is never
-decisive here. The verifier asserts each of these facts.
+a dimension-4 frame of X83 admitted, with Y73's cap, by one pool type,
+`(17,147)`, and by no other. Each own pair is admitted by its own type, and 31
+of them also by another type. Hence `2,682 = 4,992 - 2,309 - 1`. At P104 no X
+path shares a frame with a Y path, and dropping the containment `V <= W`
+changes no pair, so containment is never decisive here. The verifier asserts
+each of these facts.
 
 The 2,682 missing entries contain a perfect matching: Kuhn's augmenting-path
 matching has size 104, so by König's theorem no fewer than 104 rows and
@@ -242,8 +248,9 @@ K6, K7 and the K4/K5 roles and changes only individual X or Y frame paths
 must change at least 104 of them. This makes no cost claim.
 
 For sources 0-3 the per-source target masks equal PR3427's published masks
-exactly. They exclude 92 required entries, all granted by PR3259's test. Those masks come from PR3427's direct criterion and from PR3252's
-full-memory operations.
+exactly. They exclude 92 required entries, all granted by PR3259's test.
+Those masks come from PR3427's direct criterion and from PR3252's full-memory
+operations.
 
 ## PR3252 PROOF.md (shorter review)
 
@@ -276,9 +283,9 @@ and all 104 sources (`full_memory` in the verifier) **equals the sharp criterion
 on every pair**: 2,310 supported pairs and the same 2,682 unsupported required
 entries. The 2,682 count therefore rests on two separately proved sound tests,
 computed by different algorithms. The one-step mode forgets the memory bound
-and is weaker; it was not run. PR3252's finite checks use fixed matchings and F_2^3
-interval fixtures. The proof is universal over its contract, and no gap was
-found.
+and is weaker; it was not run. PR3252's finite checks use fixed matchings and
+F_2^3 interval fixtures. The proof is universal over its contract, and no gap
+was found.
 
 ## What PR3427 consumes
 
@@ -289,6 +296,13 @@ found.
 - It cites PR3259 for the 2,309-pair pool and as the motivation for the
   one-shear candidate at `(71,102)`. It does not need PR3259's recurrence to be
   correct or sharp.
+- At code level it depends on PR3259 more than the citation suggests. Both of
+  its methods execute PR3259's `verify.py` routines for inputs, frame paths,
+  endpoints, interval bounds and contacts. Its boundary check also replays
+  PR3259's layered recurrence and asserts that the missing set is exactly
+  `(71,102)`. That replay serves only the one-shear boundary; the rank
+  theorem does not depend on it. The independent engine here covers the
+  shared geometry code.
 - The consumption is justified. The lemma is valid, and the four-column masks
   are reproduced exactly by an engine that shares no code with PR3427.
 
@@ -327,13 +341,20 @@ a pivoted Bron-Kerbosch). Exact `Fraction` elimination gives
 Thus `rank(U-I) >= 23` under PR3427's contract, against its published 4.
 This prices no joint preparation. No unsupported principal block does
 better; a non-principal rectangle or a min-rank completion may force more.
+Rectangles alone cannot go past 31. On an unsupported rectangle,
+`C[R,S] = I[R,S] - (G/2)[R,S]`; `R ∩ S` is independent, since each of its
+pairs is unsupported in both orders, so `|R ∩ S| <= 23`; and
+`rank(G/2) = 8` (asserted). Hence `rank C[R,S] <= |R ∩ S| + 8 <= 31`.
 
 ## Load-bearing hypotheses (support level, sharp criterion)
 
 The rows are support-level necessary-test relaxations. They are unpriced and
-give no coefficient or dirty restoration. Each row relaxes one item. Like the
-sharp criterion, they relax the relative timing of different registers but
-keep the order of operations along one dependency path.
+give no coefficient or dirty restoration. Each row relaxes one item. The five
+rows R1, R1u, R1c, R2 and R3 relax three hypotheses: K5 in three variants
+(R1u was added at a round-1 review's request), K1 and K6. The task's stop
+rule planned at most three rows; TASK.json records the deviation. Like the
+sharp criterion, the rows relax the relative timing of different registers
+but keep the order of operations along one dependency path.
 
 | Relaxed item | Reaches `(71,102)` | Sharp-missing entries reopened | Minimal witness (operations counted, unpriced) |
 |---|---|---:|---|
@@ -381,14 +402,16 @@ Known rows are cited, not recomputed:
 Reading. Among the rows computed here, two hypotheses each reopen every entry:
 the fixed cover (K1) and the exclusion of the channel's source-dependent state
 (K6, including its exposure through Y). Unread Y matters at P104 only through
-that exposure, given each target's write-before-read order. The rows are not a
-complete map. Not computed as rows at P104: frame descent (K2), cross-frame mixing
-(K3), changed source or target frame paths and source mutation (K4, K5),
-dependent dirt (K7) and extra correlated storage. The small-domain negative
+that exposure, given each target's write-before-read order. The rows are not
+a complete map. Not computed as rows at P104: frame descent (K2), cross-frame
+mixing (K3), changed source or target frame paths and source mutation (K4,
+K5), dependent dirt (K7) and extra correlated storage. The small-domain negative
 controls show that descent, cross-frame mixing, off-cover flags and correlated
 old state can each escape both tests. Changing a frozen target path also
 suffices at support level, one row at a time: every X path ends at FULL, so a
 target that visits FULL shares that frame with every source (pending #3618's
 T48 prices one such row at +2 rank mass). Path changes alone must touch at
 least 104 registers. A reopening must change at least one of K1-K7, or add
-storage, and must cover all 2,682 entries with a full bill.
+storage, and must support all 4,992 required entries, in particular the 2,682
+missing here, with a full bill; a changed cover or path can lose some of the
+2,310 pairs supported now.
