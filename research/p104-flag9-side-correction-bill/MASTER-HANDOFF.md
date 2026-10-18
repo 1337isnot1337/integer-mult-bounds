@@ -8,6 +8,7 @@ On the published P104 native word, flag 9's `I−G/2` entry `(23,4)` (`G=−1` �
 
 - Base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90` (CrocSwap `main`)
 - Branch: `cursor/flag9-side-correction-bill-30d6` (VictorLiwentao fork)
+- Tip: `89dbb7ced3b892ce030d31e4027eb9cba73af173`
 - Content tip: `f2c20bc4d82558bb4ff280a49814e70778816e96` (package body)
 - Package: `research/p104-flag9-side-correction-bill/`
 - All VERIFY commands PASS (including `PASS_REGISTERED_RESEARCH_PACKAGE`).
