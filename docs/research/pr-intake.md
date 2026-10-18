@@ -33,7 +33,8 @@ unchanged scientific inputs whose exact coverage remains valid.
 ## What wakes an old entry
 
 - A different PR head.
-- A changed or removed watched main file/directory or review evidence blob.
+- A changed or removed watched main file/directory or review evidence blob,
+  including executable-bit and regular-file/symlink changes with identical bytes.
 - A watched PR head change or its departure from the open queue (not proof it merged).
 - A scheduling policy-version change.
 - `--wake PR_NUMBER` after new relevant external evidence or explicit direction.
@@ -44,6 +45,21 @@ shared production paths when they can resolve a hold. The whole main commit,
 queue length, passage of time, unrelated CI activity and compaction are **not**
 reasons to repeat a review. Increment `POLICY_VERSION` only when existing cached
 scheduling decisions genuinely require reconsideration.
+
+New records retain both object IDs (`watch_paths`) and Git modes (`watch_modes`).
+For older records, the planner recovers missing file modes from their recorded
+`baseline` in memory, grouping only the required paths into one read per baseline.
+It does not rewrite the cache or wake entries just because the record format is
+older. Closed/draft PRs, pending reviews, and entries already woken by another
+known change or `--wake` need no historical mode lookup. Otherwise, if required
+history is unavailable, planning reports an error instead of preserving an
+unchanged hold or ready-to-integrate decision;
+make that recorded history available or review the dependency and refresh its
+record with `record`.
+If the baseline is available but its file object differs from the cached object
+(or is absent), the planner reactivates only that entry with an explicit
+baseline-mismatch reason. It cannot safely recover the reviewed file's mode from
+that baseline, and leaves the persistent record for the reviewer to refresh.
 
 ## Persist each changed decision once
 
