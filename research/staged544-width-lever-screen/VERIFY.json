@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Exact staged544 ceiling bracket; dual feasibility on all 318,840 width-1..9 patterns (enumeration plus knapsack); monotone nonpositive prices; free-reduction theorem; width-unit prices and ranges; paid-rank identity on 3 profiles; exact PR3682->staged544 decomposition; six negative controls must fail. Prints PASS_STAGED544_WIDTH_LEVER_SCREEN."
+    }
+  ]
+}
