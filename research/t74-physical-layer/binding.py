@@ -45,6 +45,10 @@ class T74Binding(SelectedBinding):
         self.template = template
         need((template["m"], template["live"], template["physical"]) == (73, 66304, 66813),
              "complete T74 namespace")
+        need(template["private_namespace"] == {"centers": [66304, 66312], "reserved_tableau": [66312, 66720],
+             "zero_buffers": [66720, 66811], "coefficient": [66811, 66813]}, "actual private namespace")
+        need(set(template["local_providers"]) == set(self.providers) and
+             template["private_zero_buffer_lowering"]["frame"] == "FULL", "complete provider/private contract")
         need(len(template["calls"]) == 666 and len(template["execution_schedule"]) == 2222,
              "complete changed call/event inventory")
         self.events = tuple(template["execution_schedule"])

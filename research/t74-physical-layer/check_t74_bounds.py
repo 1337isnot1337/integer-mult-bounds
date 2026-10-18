@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Check the changed finite scalar, tape and numerical-height allowances."""
+"""Check the T74 finite scalar, tape and numerical-height allowances."""
 from math import prod
 from pathlib import Path
 import json
