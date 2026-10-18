@@ -3,8 +3,8 @@
 ## Candidate
 
 - Branch: `cursor/p104-present-head-flag0-audit-60b9` (VictorLiwentao fork)
-- Content tip: fill after commit (`git rev-parse HEAD`)
-- Packaging tip: same tip once `MASTER-HANDOFF.md` carries the committed SHA
+- Content tip: `ebcc53a61625a0fea7f2b63dc6a4f124161513a9` (scientific package commit)
+- Packaging tip: fill with the commit that carries this finalized handoff
 - Package: `research/p104-present-head-flag0-audit/`
 - Base: CrocSwap main `6f100d4bb5083f8c35d96fd95a539811c62f245c`
 - Card: `p104-side-correction` (refined), priority revision 6
@@ -95,16 +95,17 @@ skeptical review.
 Author Wentao Li `<wentaol4@illinois.edu>`. Neutral disclosure: substantial AI
 assistance. Tip commit message must not contain `Co-authored-by: Victor Li`.
 
-## Verified PASS lines (packaging tip `7b2111c77fb3ff1ae976dd693b91866160a2d3f3`)
+## Verified PASS lines
 
-Replay on tip  (content commit before this handoff rewrite):
+Replayed on content tip `ebcc53a61625a0fea7f2b63dc6a4f124161513a9`:
 
+```text
+PASS_P104_PRESENT_HEAD_FLAG0 flag=0 head=232 preterminal_hosting=0 preterminal_span_hosting=0 drop_event=591 arrive_event=3500 source_span_drops=0 head_free_target_updates=15/15 no_new_kappa
+PASS_P104_PRESENT_HEAD_FLAG0_INDEPENDENT flag=0 head=232 preterminal_hosting=0 preterminal_span_hosting=0 drop_event=591 arrive_event=3500 source_span_drops=0 head_free_target_updates=15/15 no_new_kappa
+PASS_P104_PRESENT_HEAD_FLAG0_TESTS groups=6
+PASS_REGISTERED_RESEARCH_PACKAGE research/p104-present-head-flag0-audit outcome=completed
+PASS_PACKAGE_METADATA_AND_PINS (not a mathematical acceptance check)
+```
 
-
-Attribution: Research: present-head flag-0 span audit — Y34 hosts head 232 only at terminal transport (no new kappa)
-
-Pin matched flag 0 (X0→Y34, head 232): all 15 Y34 updates are head-free in
-span; source keeps 232 after the literal drop at 591; co-hosted dirty
-restoration is unavailable on the published channel ahead of the I-G/2 tail.
-
-Prepared by Wentao Li with substantial AI assistance. has no . Author Wentao Li <wentaol4@illinois.edu>.
+`git log -1 --format=%B` on every tip commit of this branch has no
+`Co-authored-by: Victor Li`. Author Wentao Li `<wentaol4@illinois.edu>`.
