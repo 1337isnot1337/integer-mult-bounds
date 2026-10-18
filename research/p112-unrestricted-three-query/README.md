@@ -71,6 +71,5 @@ boundary. PR3383 owns the fixed-rowspace self-Gram floor, while PR3345 and
 Philippe Van Velzen retain the integral expanded-identity argument. Credit stays
 with Matarener/Mark/PR3335, ctoth, ywz65, Sagar Thakrar, Cinna Davis, Adam Gall,
 Jeremy Diviney and the retained E8/P112/native/compiler/supplier lineage.
-Prepared by Nick Petalas. Apache-2.0. TASK.json records preparation and review
-status. The two implementations are author computation, not independent human
-or formal-kernel acceptance.
+Prepared by Nick Petalas. Apache-2.0. The two implementations are author
+computation, not independent human or formal-kernel acceptance.
