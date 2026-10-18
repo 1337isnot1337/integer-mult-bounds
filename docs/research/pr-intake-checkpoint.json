@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Zero actionable heads at closing refresh.131 PRs merged:129 source archives, one reviewed source-history preflight, one reviewed P104 navigation update. Three new holds3198/3200/3251 remain tied to physical-operator objections.136 drafts,103 waiting revisions,seven deferred replays remain.47 focused tests passed; no contribution verifier,Lean,Docker or full supplier replay.Three manual-only workflows reviewed but not dispatched. PR3315 revised during publication; corrected historical head240e7f68c6be0cd7193abdd1d686ec5b90ab5355 supersedes its original default-tree planning claim. Refresh once next session; do not rereview dormant holds. Selected kappa unchanged.",
+  "next": "First 97 contributions merged and closure verified; second 99 prepared with exact source retention checked. One reactivated CI hold remains unchanged; no Lean or scientific replay. Finish push/closure receipts, then refresh queue. Selected kappa unchanged.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1191,6 +1191,14 @@
       ],
       "scope": "Reports literal hosted-remainder operator counterexamples. PR3311 contributes a separate source-bound reconstruction. No new kappa admitted; candidate repair required.",
       "source_head": "6f78fe217ed63ef84096d53ed3651b38bab81e15"
+    },
+    {
+      "source_pr": 3452,
+      "source_head": "dc49c7d7c2fca45e18a9a3da7c9f40aca97d1701",
+      "affected_prs": [
+        2890
+      ],
+      "scope": "Archived source reports an explicit counterexample to Lemma C5 nonparallel-center classification and supplies a corrected arbitrary-field classification. Independent proof validation remains open; consult correction before relying on the predecessor lemma."
     }
   ],
   "latest_queue": {

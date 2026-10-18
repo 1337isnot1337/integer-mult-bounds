@@ -159,3 +159,7 @@ The [exact-head delta](pr-intake-evidence/queue-remainder-20261017.json) covers 
 ## Delta intake through PR3429
 
 The [exact-head delta](pr-intake-evidence/queue-oct18-20261018.json) covers 100 heads: 95 source archives, a reviewed descendant-bytecode fix and a reviewed worker-width report. PR1365/1494 remain deferred for formalization review; PR3251 remains on hold pending resolution of physical-operator counteraudits. Archive acceptance is not mathematical validation. No selected-frontier change.
+
+## Delta intake through PR3528
+
+The [exact-head delta](pr-intake-evidence/queue-oct18b-20261018.json) covers 100 heads: 99 source archives, including historical-only PR3436 and the superseded PR3457 allocation. The unchanged PR2361 CI proposal remains on hold. PR3452 reports a correction to PR2890 Lemma C5; PR3458 reports a cheaper algebraic decoder with native/complete-supplier obligations still open. Archive acceptance is not mathematical validation. No selected-frontier change.
