@@ -28,7 +28,8 @@ I also distinguish DreamingOfClouds/PR2244, at
 `8ef6fa81403973d3cacaf865bdabe9797a6c34a0`, whose
 [line-system saturation theorem](https://github.com/CrocSwap/integer-mult-bounds/blob/8ef6fa81403973d3cacaf865bdabe9797a6c34a0/research/line-system-saturation/README.md#L94-L104)
 permits nonsymmetric scalar decoders under a symmetric alternating support
-majorant C and dense mask B=J+C. This package also allows independent odd
+majorant C and dense mask B=J+C. I also retain its Lagrangian-averaging
+method credit. This package also allows independent odd
 source and sink labels. The earlier bound may be stronger on its
 common-label subclass; I claim no priority for general fitting-rank methods.
 

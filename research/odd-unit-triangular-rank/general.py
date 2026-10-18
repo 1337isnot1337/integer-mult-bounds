@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded finite checks of the general-dimensional selector proof."""
+"""Baseline hyperplane selectors; odd_flags.py checks the stronger odd bound."""
 
 import argparse
 from collections import deque
@@ -116,7 +116,7 @@ def run(maximum):
          "dimension-five charge/rank consequences")
     need(2*coefficient(2) == 1, "equal-rank obstruction must be strict")
     return {"status": "PASS_GENERAL_ODD_TYPE_SELECTOR", "dimensions": results,
-            "scope": "Finite geometry through dimension eight; PROOF.md supplies all-dimension quantifiers."}
+            "scope": "Baseline hyperplane geometry through dimension eight; odd_flags.py verifies the stronger odd selectors."}
 
 
 if __name__ == "__main__":

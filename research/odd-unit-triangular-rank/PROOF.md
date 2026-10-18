@@ -15,11 +15,12 @@ positive, integral, or has a prescribed factorization.
 I prove, over every coefficient field K,
 
     d=6: rank_K N >= ceil(3v/32),
-    d=5: rank_K N >= ceil(v/9).
+    d=5: rank_K N >= ceil(17v/105).
 
 These statements require the odd-type representation above. They are not
 bounds for arbitrary binary matrices of rank five or six.
-Section 5 extends the selector argument to every ambient dimension d>=2.
+Section 5 gives the general even-dimensional bound and an odd baseline.
+Section 6 proves the stronger odd-dimensional theorem using two flags.
 
 ## 1. A triangular selector
 
@@ -106,14 +107,15 @@ integer cardinalities as rational numbers, not matrices over K, so the
 argument also covers fields whose characteristic divides the group order.
 For d=6 both fractions equal 3/32. Hence rank N>=3v/32.
 
-For d=5, write v_special, v_one, v_diagonal and v_cross for occurrence
+For the baseline d=5 selector, write v_special, v_one, v_diagonal and v_cross for occurrence
 counts, including repetitions. I obtain the stronger inequality
 
     rank N >= v_special + (4/15)v_one
               + (2/15)v_diagonal + (1/9)v_cross.        (2)
 
-Every coefficient in (2) is at least 1/9, proving the stated uniform
-bound. Taking ceilings is valid because rank is an integer.
+Every coefficient in (2) is at least 1/9. This gives a baseline bound;
+the two flags in section 6 improve it. Taking ceilings is valid because
+rank is an integer.
 
 ## 3. Copy terms and linear rank slack
 
@@ -128,14 +130,15 @@ zero. I may remove such terms and form a new fitting N from the remaining
 terms. The new N still has rank at most their number J. I apply the rank
 bound to this N; free terms cannot inflate the count needed below.
 
-If every remaining beta_l is five, then in dimension six
+If every remaining beta_l is at least five, then in dimension six
 
     J >= ceil(3v/32),
     C >= 5 ceil(3v/32) >= (15/32)v.
 
 The ratio 15/32=.46875 exceeds the source's .45 screen by 3/160. This is
-a lower bound for the beta-five-only class. Lower-charge mixtures do not
-inherit C=5J, and I make no claim that the complete small-unit lane is closed.
+a lower bound under the declared additive support-rank tariff. Mixtures
+with lower charges need their own invoice; I do not close the complete
+small-unit lane.
 
 If each X_l has rational rank 16, the total rank satisfies
 
@@ -162,10 +165,11 @@ the nonzero fitting diagonal.
 
 ## 4. Paired windows and remaining scope
 
-For a bit twin whose actual window is h_b=rank_Q N, the bounds imply
-v<=9h_b in dimension five and 3v<=32h_b in dimension six. In particular,
-h_b<=5 permits at most 45 and 53 ports respectively; (2) can tighten the
-first restriction. The previous source rows were v<=16h_b and v<=17h_b.
+For a bit twin whose actual window is h_b=rank_Q N, section 6 gives
+17v<=105h_b in dimension five, while 3v<=32h_b holds in dimension six.
+In particular, h_b<=5 permits at most 30 and 53 ports respectively.
+The weighted flag maximum can tighten the first restriction. The previous
+source rows were v<=16h_b and v<=17h_b.
 I do not replace the bit twin's copy invoice by the complex invoice.
 
 The retained rank-16 projector remains valid as a local example. Its
@@ -221,7 +225,7 @@ dimension d-1. Put t=2^(d-2) and n=2t-1. The four-orbit table becomes:
 
 I count the one-special entries by taking q=j for each of the t prefix
 sinks. At d=3 the cross orbit is empty and the other fractions give
-rank N>=ceil(v/3). For odd d>=5 the cross fraction is
+rank N>=ceil(v/3). For this baseline selector at odd d>=5 the cross fraction is
 
     rho_d = ((d-2)t-(d-1)) / (2n(t-2)).
 
@@ -231,8 +235,8 @@ then gives rho_d <= (d-1)/(2n) <= t/(2n) <= 1. Thus
 
     d odd, d>=5: rank N >= ceil(rho_d v).               (5)
 
-The stronger weighted bound uses the four individual orbit fractions.
-Equations (4) and (5) recover the source cases 3/32 and 1/9. They concern
+Its weighted bound uses the four individual orbit fractions.
+Equations (4) and (5) give 3/32 and the baseline 1/9. They concern
 the same odd-type fitting model; no new native-cost or supplier conclusion
 follows from changing the ambient dimension alone. `general.py` checks
 the finite geometry for d=2,...,8 and the formula's edge cases. The
@@ -244,6 +248,134 @@ factorization argument gives J>=ceil(rho v). Constant-charge beta terms
 therefore cost at least beta*ceil(rho v). Constant-rank R masked totals
 need aggregate rank at least R*ceil(rho v). A literal identity sum of
 rank-R idempotents over characteristic zero can exist only if R*rho<=1.
-For example, in dimension five the charge-five-only floor is 5/9, and
-rank-15 idempotents alone cannot resolve I_v. These are necessary tests
-under the fitting model, not constructions or complete supplier prices.
+Section 6 strengthens the odd-dimensional coefficient. These remain
+necessary tests under the fitting model, not constructions or complete
+supplier prices.
+
+## 6. Stronger odd-dimensional flags
+
+Let d=2k+1>=3, j=(1,...,1), and H=j-perp. The binary form on H is
+nondegenerate and alternating, with dimension 2k. Write q=j+x and w=j+y
+for x,y in H. Admissible types satisfy x dot y=0. For port positions s,t,
+
+    B_st = 1 + y_s dot x_t  in F2.
+
+I lift the resulting bit, not the integer expression 1+y_s dot x_t,
+into the coefficient field. This distinction matters when the binary
+pairing is one.
+
+Put t=2^(d-2), n=2t-1, and L=(d-3)t+1. There are four type orbits under
+symplectic isometries of H and source/sink exchange: the special type
+(x,y)=(0,0); 2n one-special types; n other diagonal types; and n(t-2)
+cross types. The last orbit is empty at d=3.
+
+### Exact removal of special ports
+
+A port with w=j has an isolated nonzero row in N. A port with q=j has
+an isolated nonzero column. Let p count all occurrences of such ports,
+including repetitions, counting each occurrence once. The row-special
+class has w=j and q!=j; the column-special class has q=j and w!=j;
+the special class has q=w=j. Order these as row-special, regular,
+column-special, and special. The fitting matrix has block form
+
+    [ D_B  0   0   0 ]
+    [ E    M   0   0 ]
+    [ F    G   D_A 0 ]
+    [ 0    0   0   D_S ],
+
+where the D blocks are invertible diagonal matrices. Row and column
+elimination remove E,F,G without changing M. Therefore, over any field,
+
+    rank N = p + rank M.                              (6)
+
+Thus these ports contribute one rank each, rather than a fractional
+contribution. The regular port counts below are v_D for other diagonal
+types and v_C for cross types; v=p+v_D+v_C.
+
+### Two complete flags
+
+Choose a symplectic basis e_1,f_1,...,e_k,f_k of H. I use two orders:
+
+    low:  e_1,f_1,e_2,f_2,...,e_k,f_k,
+    high: e_1,...,e_k,f_1,...,f_k.
+
+For either order, enumerate all y in binary subset order, starting at
+zero. At y_i, include every x orthogonal to the span of y_0,...,y_i.
+Every selected mask entry from an earlier row to a later column is one,
+so this again gives a triangular fitting principal matrix. Each flag
+contains every special and one-special type.
+
+Let P_r be the span of the first r basis vectors. Binary subset order
+has 2^(r-1) new sinks in P_r outside P_(r-1). Each allows 2^(2k-r)
+labels. The rank-zero block contributes 2^(2k)=2t, and each rank
+r=1,...,2k contributes t. Thus each selector has (d+1)t types, of which
+4t-1 are special or one-special. Its regular count is L.
+
+A regular diagonal selection at level r is a vector in
+rad(P_r) outside P_(r-1). In low order the radical has one new vector
+at each odd r and none at even r, giving k diagonal selections. In high
+order the first k prefix spaces are isotropic and contribute
+1+2+...+2^(k-1)=2^k-1. Later radicals lie inside the previous prefix,
+so they contribute no new diagonal selection. Write
+
+    D_low=k,       D_high=2^k-1.
+
+For d>=5, average each flag over the finite symmetry group. The two
+weighted rank bounds are
+
+    R_D = p + (D/n) v_D + ((L-D)/(n(t-2))) v_C,
+    rank N >= ceil(max(R_low,R_high)).                 (7)
+
+Every type occurrence contributes separately. I average integer counts
+over the rationals, so no group-order inverse is needed in the
+coefficient field.
+
+### Balanced coefficient and scope
+
+Put D_star=L/(t-1). For k>=2,
+
+    D_star = 2k-2 + (2k-1)/(t-1),
+    k < D_star < 2^k-1.
+
+The lower inequality follows from 2k-2>=k, with a positive remainder.
+For the upper one, t>2k holds at k=2 and persists as k increases; it
+implies D_star<2k-1<=2^k-1. Hence the high-flag
+weight alpha=(D_star-k)/(2^k-1-k) lies strictly between zero and one.
+This mixture equalizes the two regular orbit densities at
+
+    rho_d = L/(n(t-1)).
+
+As an orbit density, rho_d lies in (0,1]. I obtain the conclusions
+
+    rank N >= p + ceil(rho_d (v-p)) >= ceil(rho_d v).  (8)
+
+At d=3 both flags coincide, the cross orbit is empty, and the same
+conclusion holds with rho_3=1/3. I do not divide by the vanished mixing
+denominator. The exact d=5 and d=7 coefficients are 17/105 and 43/651;
+the high-flag weights are 3/7 and 9/31.
+
+Equation (7) retains more information than (8). In fact
+
+    R_high-R_low = ((2^k-1-k)/n)(v_D-v_C/(t-2)).
+
+The weighted maximum improves the balanced expression unless
+v_C=(t-2)v_D, although integer ceilings can erase that gain. I claim no
+optimal fitting matrix or general optimality of the selector method.
+
+For an actual bit window h_b=rank_Q N, (8) gives
+
+    v <= p + floor((h_b-p)/rho_d).
+
+At d=5, h_b<=5 permits at most 30 ports. After zero-charge terms are
+removed, if every remaining copy charge is at least b, section 3 gives
+C>=b ceil(max(R_low,R_high))>=b rho_d v. In particular, the d=5 floor
+for charges at least five is 17/21, above the source's .7275 scouting
+screen. That comparison does not certify a supplier or its bit-copy bill.
+
+The rank-slack and literal-idempotent conclusions also use the stronger
+rho_d. For constant masked-total rank r, aggregate rank is at least
+r ceil(rho_d v). A rank-additive assembly, or a literal identity sum of
+rank-r idempotents over characteristic zero, is impossible if r rho_d>1.
+The identity qualification from section 3 remains necessary. Lower-charge
+mixtures, lower-rank totals, sufficiently non-additive assemblies and
+changed fitting masks remain open.
