@@ -1,0 +1,16 @@
+{
+  "status": "PASS_COMPLETE_CONDITIONAL_RELEASE_AWAITING_TERMINAL_AI_REVIEW",
+  "kappa": "17304188997660711638039999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
+  "kappa_decimal": "0.0017304188997660711638039999999999999999999998999999999999999999999999",
+  "physical": 323069,
+  "roles": 1321920,
+  "prefix_bits": 1478,
+  "required_reserve_bits": 1511,
+  "charged_prefix_bits": 2048,
+  "execution_driver_commit": "29b904054c67a40b140806698398a4af547f1d03",
+  "execution_driver_sha256": "65ccd047fec3c9e9c533c20136a4598f0148111e2235a5756a500875e97ce334",
+  "full_default_cli_tail_run": false,
+  "no_reuse_retained_parent_run": false,
+  "source_history_full_clone_run": false,
+  "source_reconstruction_repair_and_preparation_reuse": "evidence/complete/REUSE-COVERAGE.json"
+}

@@ -1,6 +1,6 @@
 # Lead 1: delayed donor release on the staged words
 
-LOCAL-ONLY working result; repaired complete release running. No selected-frontier change.
+LOCAL-ONLY complete conditional finite release; renewed independent terminal approval pending. No selected-frontier change.
 
 The changed producer neighborhood is helper644/donor640 and its symmetric
 helper660/donor656. Unlike another endpoint extraction on PR3133, the input
@@ -31,7 +31,7 @@ equalities; the unchanged RHS has zero dual delta. An actual existing primal
 is retained, so this negative local delta is an upper bound using that fill,
 not just a favorable dual screen. The resulting finite full-profile root is
 in [0.001730418899766071163804,0.001730418899766071163805]. This is a
-profile endpoint, not yet a completed outer or multiplication theorem.
+profile endpoint, now bound to the completed original finite outer release; it is not a complete multiplication theorem.
 
 ## Obligation ledger
 
@@ -39,8 +39,7 @@ Proved/finite checked: literal commuting identity, full local frame chains,
 actual entrances and residual widths, complete local bill, both dirty endpoint
 orientations, native five-stage phases and recipes, old exact dual calibration.
 Constructive inherited upper bound: same integral T360 fill/owner inventory and
-unchanged private stock. Its source/native rebinding and all admission gates
-are being replayed, and are not marked passed until receipts exist.
+unchanged private stock. Its source/native rebinding and all original finite admission gates passed. Terminal receipts and the explicit preparatory reuse coverage are in evidence/complete.
 Unknown/inherited: all-size compiler, uniform source/hosting and refined primes,
 rounded recursive precision/tape/recovery, bootstrap and analytic/bit H1-H5.
 The complete finite release remains conditional on these predecessor premises.
@@ -49,9 +48,9 @@ root/movement hypotheses are lead4 and cannot be silently inserted here.
 
 ## Checks and limits
 
-`python3 -B research/four-kappa-leads/delay_release.py --out /tmp/fresh-delayed-words`
-`python3 -B research/four-kappa-leads/price.py`
-`/tmp/three-kappa-env/bin/python -B research/four-kappa-leads/controls.py --transport TRANSPORT`
+`python3 -B research/staged-donor-release/delay_release.py --out /tmp/fresh-delayed-words`
+`python3 -B research/staged-donor-release/price.py`
+`/tmp/three-kappa-env/bin/python -B research/staged-donor-release/controls.py --transport TRANSPORT`
 Two new five-stage native runs: Python3.12.8,numpy1.26.4,scipy1.15.3,
 sympy1.14.0,mpmath1.3.0; assertions enabled, one job.
 Original stages and exact source inventories are in evidence/native-*.
@@ -78,8 +77,7 @@ Independent AI review will be retained separately; no human or kernel review.
 
 ## Open next questions
 
-Does the complete original admission retain its strict margins after the
-literal source/profile rebinding? Finish that check before a kappa claim.
+The complete original admission retains its strict finite margins after the literal source/profile rebinding. Obtain the renewed independent terminal review before concluding this investigation.
 Later compensated releases after pivot updates and jointly changed interior
 consumers remain outside the two commuting shifts proved here. No general
 mechanism exhaustion or claim of optimality is intended.

@@ -3,7 +3,7 @@ from pathlib import Path
 from fractions import Fraction as Q
 import hashlib,json
 P=Path(__file__).parent
-PINS_SHA=None # Freeze only once terminal evidence exists.
+PINS_SHA='5f2a64d8df97ab0f94f7c1524af917945b6292be277e8bd2393ea4b8cf78f1ef'
 def need(ok,msg):
  if not ok:raise ValueError(msg)
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
