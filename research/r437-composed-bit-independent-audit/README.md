@@ -32,7 +32,7 @@ frontier, and it does not admit PR #3647. Physical-owner, native-transport and
 all-size assumptions stay as inherited (see Scope). The selected record stays
 `0.001672660197076918`. The complex side binds today.
 
-Reproduce from the repository root (standard library only, about 10 s):
+Reproduce from the repository root (standard library only, about 15 s):
 
 ```sh
 python3 -I -B research/r437-composed-bit-independent-audit/verify.py
