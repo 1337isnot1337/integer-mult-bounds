@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Halving degree of the selected complex finite invoice: exact t_max, the admissible
-(child rank R, stock bits S) region, and ideal local-word ceilings at R = 51, 57, 72.
+"""Halving degree of the selected complex finite invoice under the inherited degree-t ledger:
+exact t_max, the admissible (child rank R, stock bits S) region, and ideal local-word
+ceilings at R = 51, 57, 72.
 
 Scoped finite statement under inherited hypotheses (see PROOF.md). No kappa, no supplier.
 usage: verify.py [--write]   (default: recompute and require byte equality with RESULT.json)
@@ -17,10 +18,11 @@ if not __debug__:
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 M = 73                                   # complex parent dimension (assemble.py halving 73*73)
-RETAINED = 20161                         # assemble.py:133 retained_row_coefficient
-RESERVE, FACTOR = 10 ** 6, Q(51, 25)     # assemble.py:185 degree_gap = 10**6 - (51/25)*20161
-BIT_RESERVES = 9909 + 252                # invoice_allcold.py:269; notes/*-assembly.tex
-PAYLOAD = 512                            # invoice_allcold.py:254 payload=512
+SEL = 'research/complex-sw4-frame8/code/'  # selected assembler (SELECTED-SOURCE.json manifest)
+RETAINED = 20161                         # assemble.py:159 retained_row_coefficient
+RESERVE, FACTOR = 10 ** 6, Q(51, 25)     # assemble.py:213 degree_gap = 10**6 - (51/25)*20161
+BIT_RESERVES = 9909 + 252                # invoice_allcold.py:278; notes/*-assembly.tex
+PAYLOAD = 512                            # invoice_allcold.py:263 payload=512
 INVOICE = 'candidate/strict/global/audit/PREFIX-AND-INVOICE.json'
 INVOICE_SHA = '212cf4ee3b16081bf66f300fa18b4070d25c17210c21c78c2967892c91870d12'
 FAMILIES, STAGES, CENTRE = 2 * 4 * 112, 9, 64   # complex-local-word-ceiling model
@@ -33,8 +35,12 @@ def text(rel):
 
 def bind_sources():
     """Every t-dependent invoice term, bound to literal pinned source text."""
+    manifest = json.loads(text(json.loads(text('certificates/selected-result.json'))['source_manifest']))
+    for f in ('assemble.py', 'invoice_allcold.py'):
+        want = manifest['files'].get(SEL + f)
+        assert hashlib.sha256((ROOT / SEL / f).read_bytes()).hexdigest() == want, f'{f} is not the selected source'
     need = {
-        'research/complex-571-hpem46c/code/invoice_allcold.py': [
+        SEL + 'invoice_allcold.py': [
             'row=2*stock.bit_length()+9909+252+2*payload',
             'used=max(rebased,parent_pervertex); retained=None; payload=512',
             'half=m//2; group=2**(half*half)',
@@ -43,20 +49,28 @@ def bind_sources():
             'logical=group*used+64; router=compiler*(logical+1)*(stock+1)**2',
             'literal=2*g_bound*stock**2+8*streamed_mass+4*stock+4+32*m',
             'tape=2*total_mass+18<c0,row=row<20161,halving=m*m>2*maxchild*maxchild)',
+            'inequalities=dict(local_primitive_bound=primitive_bound<2**48,',
+            'logical=logical<2**6050,router=router<g_bound,literal=literal<e_bound,',
             'row_prefix_extra=2*payload'],
-        'research/complex-571-hpem46c/code/assemble.py': [
+        SEL + 'assemble.py': [
             "assert 0<finite['physical_row_coefficient']<finite['retained_row_coefficient']==20161",
             "assert finite['physical_row_coefficient']==2*stock.bit_length()+9909+252+1024",
             "row=finite['physical_row_coefficient']<20161,halving=73*73>2*48*48)",
             "'rows':{'degree_gap':Q(10**6)-Q(51*20161,25)}",
+            'precision=32*73*total_mass*total_mass<2**210000',
+            'cut=max(ceil(36/gap**2),ceil(2*(4+512)/gap))',
             'and m*m>2*max(h)**2'],
+        # The outer engine consumes degree_gap only as a positivity slack (no kappa margin).
+        'research/contextual-provider-pooling/engines/outer.py': [
+            "row_product_gap=bridge['rows']['degree_gap'])"],
         # The same lineage instantiates the guard at halving degrees 4 and 24: stock bits are
         # multiplied by the least halving degree, 9909+252 is unchanged, the bridge reserve is chosen.
         'notes/paired-cube-assembly.tex': [
             'The least halving degree for $72\\to60$ is four, contributing 10,284 to',
             '10284+9909+252=20445,\\qquad', '70000-\\frac{51}{25}\\,20445=\\frac{141461}{5}>0.',
             'Thus the fixed external reserve $p^{70000}$ suffices.',
-            'A full $W$-role permutation costs at most $W^2$ elementary exchanges;'],
+            'A full $W$-role permutation costs at most $W^2$ elementary exchanges;',
+            'E=64(W+m_c+G+1)^3,\\quad B=s+E,\\quad C_0=32m_cB^2.'],
         'notes/three-stage-cover-assembly.tex': [
             'The least halving degree for $70\\to68$ is 24, contributing 58,344.',
             '58344+9909+252=68505,\\qquad', '160000-\\frac{51}{25}\\,68505=20249.8>0.',
@@ -65,6 +79,7 @@ def bind_sources():
         'notes/three-stage-cover-rows.tex': [
             'The finite cover requires a row divisor $W(w)$ at each coarse level.'],
         'notes/structured-bulk-assembly.tex': [
+            ' \\log_2Q\\le\\frac{51}{25}K\\log_2p,',
             'The sufficient stock is $p^{108000}$, since',
             'holds eventually for every fixed $\\epsilon<1$.'],
     }
@@ -90,7 +105,7 @@ def least_degree(m, r):
 
 
 def least_degree_recurrence(m, r):
-    """Second method: iterate the coarse recurrence n -> r*floor(n/m) from n0 = m^T (floors exact)
+    """Implementation cross-check (algebraically the same comparison): iterate the coarse recurrence n -> r*floor(n/m) from n0 = m^T (floors exact)
     and return the first level t with 2*n_t < n0."""
     T = 80
     n0 = n = m ** T
@@ -156,6 +171,7 @@ def bind_invoice(inv, H, mass):
     router = inv['compiler'] * (logical + 1) * (stock + 1) ** 2
     literal = 2 * 2 ** 30000 * stock ** 2 + 8 * g * mass + 4 * stock + 4 + 32 * M
     total = g * mass + 2 ** 100000
+    assert inv['local_primitive_bound'] < 2 ** 48 and logical < 2 ** 6050
     assert router.bit_length() == fin['router_bits'] and literal.bit_length() == fin['literal_bits']
     assert (32 * M * total * total).bit_length() == fin['required_C0_bits']
     assert router < 2 ** 30000 and literal < 2 ** 100000 and total < 2 ** 100001
@@ -195,6 +211,18 @@ def t_max(S, reading, prefix):
 def s_max(t, reading, prefix):
     """Largest S with row(t, S) < cap, i.e. S <= (cap - 1 - 10161 - prefix(t)) / t."""
     return (CAP[reading] - 1 - BIT_RESERVES - PREFIX[prefix](t)) // t
+
+
+def sharp_row(R, S, prefix):
+    """Conditional what-if (not an adopted row bound): the depth component t*S repriced at the sharp
+    asymptotic coefficient c = 1/log2(73/R) of selected-coarse-depth-stock, other terms kept; the
+    per-level prefix is scaled by the same c. Returns ceil(c*S) + 10161 + prefix, exact away from ties."""
+    c = EVEN.divide(EVEN.ln(D(2)), EVEN.ln(EVEN.divide(D(M), D(R))))
+    terms = [EVEN.multiply(c, D(S))] + ([EVEN.multiply(c, D(PAYLOAD))] if prefix == 'per_level' else [])
+    for x in terms:                                  # 60-digit value is far from an integer
+        assert abs(x - x.to_integral_value()) > D('1e-20')
+    pre = 2 * PAYLOAD if prefix == 'fixed' else int(terms[1].to_integral_value(rounding=ROUND_CEILING))
+    return int(terms[0].to_integral_value(rounding=ROUND_CEILING)) + BIT_RESERVES + pre
 
 
 # ---------- ideal ceilings: own decimal interval method (correctly rounded ln/exp + 1 ulp) ----------
@@ -340,6 +368,25 @@ def main():
     crossing = dict(bit_lower_decimal=dec(bit_lower, 22), least_R_with_ceiling_above_bit=min(above),
                     least_degree=tmin[min(above)], ceiling_at_that_R=dec(table[min(above)]),
                     ceiling_one_rank_below=dec(table[min(above) - 1]))
+    for R in ceilings:
+        cap = min(Q(ceilings[R]['a_ceiling']), bit_lower)   # the selected bit endpoint caps any conversion
+        ceilings[R]['kappa_upper_bound_with_bit_cap_decimal'] = dec(cap / (1 + cap))
+    crossing['kappa_cap_from_bit_endpoint_decimal'] = dec(bit_lower / (1 + bit_lower))
+    # Conditional what-if under reading A: sharper depth coefficient (selected-coarse-depth-stock).
+    sharp = {}
+    for prefix in PREFIX:
+        ok = [R for R in range(49, M) if sharp_row(R, S, prefix) < RETAINED]
+        assert ok == list(range(49, max(ok) + 1))
+        Rs = max(ok)
+        sharp[f'A_retained/{prefix}'] = dict(R_max=Rs, row_at_R_max=sharp_row(Rs, S, prefix),
+                                            row_at_R_max_plus_1=sharp_row(Rs + 1, S, prefix),
+                                            ceiling=dec(table[Rs]), gain_over_R51_percent=dec(100 * (table[Rs] / a51 - 1), 5))
+    assert {k: v['R_max'] for k, v in sharp.items()} == {'A_retained/fixed': 59, 'A_retained/per_level': 58}
+    # Robustness and direct answers.
+    prefix3_max = RETAINED - 1 - 3 * S - BIT_RESERVES                 # any prefix(3) <= this admits t = 3 under A
+    assert prefix3_max == 2073 and row(3, S, 'fixed') < RETAINED and 256 * 9 > prefix3_max
+    depth6 = row(6, S, 'fixed')                                       # kappa010-rank-cap-floor OQ3 (depth six)
+    assert depth6 == 27037 and RETAINED <= depth6 < CAP['B_bridge']
     controls = run_controls(S, inv, H, mass)
     return dict(
         status='PASS_COMPLEX_HALVING_DEGREE_INVOICE_SCOPED',
@@ -357,13 +404,17 @@ def main():
         r_max_by_degree={str(t): rmax[t] for t in (2, 3, 4, 5, 6, 8, 10, 16, 25, 50, 51, 152, 181)},
         local_word={str(r): n for r, n in sorted(local.items())}, idle_mass_per_call=idle_mass(local),
         ceilings=ceilings, ceiling_by_rank={str(R): dec(v) for R, v in table.items()},
-        bit_endpoint_crossing=crossing, controls=controls)
+        bit_endpoint_crossing=crossing, controls=controls,
+        invoice_independent=dict(R_max_any_degree=max(rmax.values()), note='R <= 72 for every t: R = 73 never meets the guard'),
+        sharp_depth_coefficient_what_if_A=sharp, A_admits_t3_for_any_prefix3_at_most=prefix3_max,
+        depth6_row_fixed_prefix=dict(row=depth6, fits_A=depth6 < RETAINED, fits_B=depth6 < CAP['B_bridge']))
 
 
-def must_fail(name, fn):
+def must_fail(name, fn, why):
     try:
         fn()
-    except AssertionError:
+    except AssertionError as e:
+        assert why in str(e), f'control {name} failed for another reason: {e}'
         return name
     raise AssertionError(f'control {name} unexpectedly passed')
 
@@ -377,17 +428,18 @@ def run_controls(S, inv, H, mass):
         node[path[-1]] = value
         return lambda: bind_invoice(x, H, mass)
     return [
-        must_fail('reading_A_t4', lambda: check_point(4, 57, S, 'A_retained', 'fixed')),
-        must_fail('reading_A_per_level_t4', lambda: check_point(4, 57, S, 'A_retained', 'per_level')),
-        must_fail('guard_R58_t3', lambda: check_point(3, 58, S, 'B_bridge', 'fixed')),
-        must_fail('guard_R72_t50', lambda: check_point(50, 72, S, 'B_bridge', 'fixed')),
-        must_fail('guard_R73_t200', lambda: check_point(200, 73, S, 'B_bridge', 'fixed')),
-        must_fail('reading_B_t182', lambda: check_point(182, 72, S, 'B_bridge', 'fixed')),
-        must_fail('reading_B_per_level_t153', lambda: check_point(153, 72, S, 'B_bridge', 'per_level')),
-        must_fail('bridge_cap_plus_one', lambda: check_point(2, 51, S, 'B_bridge', 'fixed', cap=CAP['B_bridge'] + 1)),
-        must_fail('prefix_mutation', mutated(['row_prefix_extra'], 0)),
-        must_fail('stock_bits_mutation', mutated(['finite', 'physical_stock_bits'], S + 1)),
-        must_fail('physical_mutation', mutated(['physical'], inv['physical'] * 2)),
+        must_fail('reading_A_t4', lambda: check_point(4, 57, S, 'A_retained', 'fixed'), 'row 21753 >= cap 20161'),
+        must_fail('reading_A_per_level_t4', lambda: check_point(4, 57, S, 'A_retained', 'per_level'), 'row 22777 >= cap 20161'),
+        must_fail('guard_R58_t3', lambda: check_point(3, 58, S, 'B_bridge', 'fixed'), 'guard fails at t=3, R=58'),
+        must_fail('guard_R72_t50', lambda: check_point(50, 72, S, 'B_bridge', 'fixed'), 'guard fails at t=50, R=72'),
+        must_fail('guard_R73_t200', lambda: check_point(200, 73, S, 'B_bridge', 'fixed'), 'guard fails at t=200, R=73'),
+        must_fail('reading_B_t182', lambda: check_point(182, 72, S, 'B_bridge', 'fixed'), 'row 492029 >= cap 490196'),
+        must_fail('reading_B_per_level_t153', lambda: check_point(153, 72, S, 'B_bridge', 'per_level'), 'row 492723 >= cap 490196'),
+        must_fail('bridge_cap_plus_one', lambda: check_point(2, 51, S, 'B_bridge', 'fixed', cap=CAP['B_bridge'] + 1),
+                  'bridge degree_gap not positive'),
+        must_fail('prefix_mutation', mutated(['row_prefix_extra'], 0), 'prefix'),
+        must_fail('stock_bits_mutation', mutated(['finite', 'physical_stock_bits'], S + 1), 'stock bits'),
+        must_fail('physical_mutation', mutated(['physical'], inv['physical'] * 2), 'stock bits'),
     ]
 
 

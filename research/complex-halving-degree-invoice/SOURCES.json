@@ -51,22 +51,16 @@
       "sha256": "301fb8a0e4ab7e3c383ff974c54c08178283b2a3453c5282757f692a3c7a4bfd"
     },
     {
+      "path": "research/community-frontier1094-audit/SELECTED-SOURCE.json",
+      "usage": "input",
+      "git_blob": "6a75493790b4eff9c4a98051ef8b01d6aad0d5a8",
+      "sha256": "79b3de5db3dbcb9829789ba58e9e45758926031e2a7d80667a08429d369be53b"
+    },
+    {
       "path": "research/community-frontier1094-audit/selected-replay.tar.gz",
       "usage": "input",
       "git_blob": "c24daf067f9c543421d89ca2eeaa4eb78a57fb6f",
       "sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6"
-    },
-    {
-      "path": "research/complex-571-hpem46c/code/assemble.py",
-      "usage": "input",
-      "git_blob": "1261127a6055cc36b11a62ee47de9aa54ba65855",
-      "sha256": "71fca807f2e70ed7439e369be4bb3be21b487e942b92f0e7629d7521e9398a65"
-    },
-    {
-      "path": "research/complex-571-hpem46c/code/invoice_allcold.py",
-      "usage": "input",
-      "git_blob": "9285e15f8c48196af2656ba1ffdb565702214eb6",
-      "sha256": "b37ba38a558889becb489f0faffa50c7b0ae9edd79e8bd6154003ca7b900e65a"
     },
     {
       "path": "research/complex-local-word-ceiling/RESULT.json",
@@ -79,6 +73,24 @@
       "usage": "input",
       "git_blob": "6c0f54527d879396f689523bfde19928a9b6157c",
       "sha256": "86a1432870b3b21d8454106ec9162fddc0471472d9214c590a1420f2426cedfc"
+    },
+    {
+      "path": "research/complex-sw4-frame8/code/assemble.py",
+      "usage": "input",
+      "git_blob": "2e098cabbd09edcca56780469b083385b1bc365e",
+      "sha256": "bb32035aefe575da3335da4e907553e2e6fdca0a0f997db569cab651c2ddb008"
+    },
+    {
+      "path": "research/complex-sw4-frame8/code/invoice_allcold.py",
+      "usage": "input",
+      "git_blob": "b244cd59940659465c07b013ebe3225077496f45",
+      "sha256": "141bd2fd58bbfb5b8d0fc8f56f61c45586d5608a5af3487c6b883dd987f998ec"
+    },
+    {
+      "path": "research/contextual-provider-pooling/engines/outer.py",
+      "usage": "input",
+      "git_blob": "43007488ad2c43187c77cc6798beff8b1cd76ad2",
+      "sha256": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c"
     }
   ]
 }
