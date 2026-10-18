@@ -245,7 +245,9 @@ CONFIG['tooling-ledger']['additional_inputs'].extend([{'manifest': 'research/com
   'sha256': '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
   'accepted_live_sha256': ['fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a', 'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478', '6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88', '2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa', '8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a',
                            # Current-source imports in ordinary and historical test children.
-                           '93e49175a84ebcb3fe5e38503416ffae9c9f44754c3e974bf9c8ffaa6920f1bf']},
+                           '93e49175a84ebcb3fe5e38503416ffae9c9f44754c3e974bf9c8ffaa6920f1bf',
+                           # Inherited cache policy for ordinary Python descendants.
+                           'ef5035e6216d39569da670f32b2717c870b23c418016fd134cc0a72649fb912a']},
  {'manifest': 'research/community-batch932-audit/CONTENT-COVERAGE.json',
   'field': ['pull_requests', '921', 'files'],
   'path': 'tests/test_isolated_test_runner.py',

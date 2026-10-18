@@ -12,6 +12,8 @@ order, so the combined receipts match a sequential run module for module.
 For PR53 skip-clones, the completion-checked module command runs in a temporary
 copy with its authenticated frozen source instead of the optimized successor.
 Each module and historical wrapper uses a private bytecode-cache namespace.
+Ordinary Python descendants inherit a private namespace and suppress cache writes;
+children that ignore or override their environment need their own cache policy.
 The owned temporary directory is removed after workers finish or are stopped.
 """
 import argparse
@@ -138,13 +140,17 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
             command = isolated_python(python, cache) + [
                 str(ROOT / 'scripts/replay_historical_check.py'),
                 legacy[path.name], '--completion-receipt', str(receipt)]
+        # -X options do not propagate to Python processes launched by tests.
+        # Keep their inherited cache policy private to this module as well.
+        module_env = dict(env, PYTHONPYCACHEPREFIX=str(receipt) + '-descendant-pycache',
+                          PYTHONDONTWRITEBYTECODE='1')
         # Serialize launch/registration with cancellation: no worker may start
         # an unregistered module after the controlling thread takes its snapshot.
         with lock:
             if stopping:
                 return path, -1, b'', b''
             process = subprocess.Popen(command,
-                                       cwd=cwd, env=env, start_new_session=True,
+                                       cwd=cwd, env=module_env, start_new_session=True,
                                        stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             active.add(process)
             deadline = None if module_timeout is None else time.monotonic() + module_timeout
