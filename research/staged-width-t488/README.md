@@ -24,3 +24,11 @@ Then run complete replay into another fresh directory:
 python3 -B research/staged-width-t488/replay.py --work /tmp/t488-release --allocation /tmp/t488-owners --main-files . --t8-package research/t8-rank7-two-swaps
 ```
  This may take substantially longer and is not part of the finite registered check. The package authenticates five stored terminal receipts separately from fresh replay. The completed execution reused authenticated native caches freshly checked earlier in this session. Its source manifest and scientific driver match the portable materialization, but the complete fresh portable CLI has not run end to end.
+
+## Review corrections (PR3694)
+
+Sagar Thakrar's independent [PR3694](https://github.com/CrocSwap/integer-mult-bounds/pull/3694) reproduced the literal allocation, invoice and fixed-inventory ceiling, and identified two inherited checker defects. The owner auditor now routes both real data and corrupted fixtures through the same five validation rules. The finite replay includes independent production-callsite tests: disabling each rule, all five rules, or the production call itself is detected. These small fixtures exercise the actual extracted production statements; they are separate from the complete literal replay.
+
+Fresh native canonical authentication now hashes decompressed bytes, accepting gzip header or compression differences while rejecting changed payloads. Historical container hashes and the frozen admission receipts remain unchanged. Portable tests exercise the actual authentication loop using synthetic payloads; local checks also covered both retained native providers.
+
+The corrected auditor passed a local replay of all 1,791,936 literal roles, with the same profile and physical stock. This correction does not change κ or the scientific program, and is not a new full native or seven-stage admission run. The registered finite checks include both regression tests.

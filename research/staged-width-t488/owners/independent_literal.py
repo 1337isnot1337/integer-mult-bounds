@@ -25,6 +25,28 @@ NATIVE=Path(os.environ['OWNER_NATIVE_DIR']).resolve()
 S=Path(os.environ['OWNER_SOURCE_REPO']).resolve()/'research/rank7-joint-endframes/allocation/vendor'
 def need(v,m):
  if not v:raise ValueError(m)
+
+def validate_owner_constraints(d):
+ """The five owner rules, shared by full-journal validation and corrupt fixtures."""
+ need(np.array_equal(d['times'],np.repeat(np.arange(d['calls']),d['helpers'])) and np.array_equal(d['helpers_by_row'],np.tile(np.arange(d['helpers']),d['calls'])),'complete literal ordered helper identities')
+ need(np.all((d['lower']<d['window_times'])&(d['window_times']<=d['upper'])),'strict/closed actual source windows')
+ keys=np.sort(d['family_keys']);need(np.all(keys[1:]!=keys[:-1]),'same-call physical family uniqueness')
+ need(np.array_equal(d['offsets'],d['expected_offsets']),'every chronological pending mask is a compact prefix')
+ need(dict(d['histogram'])==d['profile'] and sum(r*n for r,n in d['histogram'].items())==d['mass'],'independent complete histogram')
+def owner_control_tests():
+ from copy import deepcopy
+ good=dict(times=np.array([0,0]),helpers_by_row=np.array([0,1]),calls=1,helpers=2,window_times=np.array([0,0]),lower=np.array([-1,-1]),upper=np.array([0,0]),family_keys=np.array([0,1]),offsets=np.array([0,0]),expected_offsets=np.array([0,0]),histogram={1:2},profile={1:2},mass=2)
+ validate_owner_constraints(good)
+ mutations=[('duplicate helper','helpers_by_row',np.array([0,0]),'complete literal ordered helper identities'),('strict lower endpoint used as available','window_times',np.array([-1,0]),'strict/closed actual source windows'),('same-call family reused','family_keys',np.array([0,0]),'same-call physical family uniqueness'),('unpaid chronological hole','offsets',np.array([1,0]),'every chronological pending mask is a compact prefix'),('one unpaid rank1 child','profile',{1:3},'independent complete histogram')]
+ controls=[]
+ for name,key,value,rule in mutations:
+  bad=deepcopy(good);bad[key]=value
+  try:validate_owner_constraints(bad)
+  except ValueError as exc:need(str(exc)==rule,'wrong control rejection '+name)
+  else:raise ValueError('control accepted '+name)
+  controls.append(name)
+ return controls
+
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p):
  b=p.read_bytes();return json.loads(gzip.decompress(b) if p.suffix=='.gz' else b)
@@ -43,7 +65,9 @@ paths += [NATIVE/f'checked-{p}/CANONICAL-WORD.json.gz' for p in ('base','extra')
 source_pins=read(R/'SOURCE-PINS.json')
 repo=Path(os.environ['OWNER_SOURCE_REPO']).resolve()
 for rel,digest in source_pins['repo_files'].items():need(sha(repo/rel)==digest,'retained source pin '+rel)
-for tag in ('base','extra'):need(sha(NATIVE/f'checked-{tag}/CANONICAL-WORD.json.gz')==source_pins['native_canonical'][tag]['canonical_sha256'],'actual native canonical pin')
+for tag in ('base','extra'):
+ payload=gzip.decompress((NATIVE/f'checked-{tag}/CANONICAL-WORD.json.gz').read_bytes())
+ need(hashlib.sha256(payload).hexdigest()==source_pins['native_canonical'][tag]['canonical_payload_sha256'],'actual native canonical payload pin')
 pins={str(p):sha(p) for p in paths}
 expected=read(R/'EXPECTED.json');need(hashlib.sha256(gzip.decompress(paths[0].read_bytes())).hexdigest()==expected['payload_sha256'],'freshT488payload')
 baseorder=read(R/'ORDER37.json')+[[s,r+37]for s,r in read(R/'T8-ORDER.json')]+[[s,r+45]for s,r in read(R/'T16-ORDER.json')]
@@ -94,34 +118,26 @@ j=read(A/'FILL.json.gz');need(j['columns']==['time','helper','owner_replica','ch
 need(all(len(row)==6 and all(type(v) is int for v in row) for row in j['rows']),'literal integer roles')
 rows=np.array(j['rows'],dtype=np.int64);del j
 need(rows.shape==(N*408,6),'literal role shape')
-need(np.array_equal(rows[:,0],np.repeat(np.arange(N),408)) and np.array_equal(rows[:,1],np.tile(np.arange(408),N)),'complete literal ordered helper identities')
+need(np.all((rows[:,0]>=0)&(rows[:,0]<N)&(rows[:,1]>=0)&(rows[:,1]<408)),'safe time/helper indexing bounds')
 t,h,o,c,p,z=rows.T
 need(np.all((o>=0)&(o<T)&(c>=0)&(c<K)&(p>=0)&(p<112)),'owner bounds')
 need(np.all(cap[o,c]>0),'declared source child')
-need(np.all((lo[o,c]<t)&(t<=hi[o,c])),'strict/closed actual source windows')
+# The shared validator below checks the actual source windows.
 family=o*896+fam[c]*112+p
 key=t*(896*T)+family
-sort=np.sort(key);need(np.all(sort[1:]!=sort[:-1]),'same-call physical family uniqueness')
+# The shared validator below checks physical family keys.
 w=bycall[t,h];need(np.all((z>=0)&(z+w<=cap[o,c])),'actual widths and capacity')
 binid=(o*K+c)*112+p
 idx=np.lexsort((t,binid));bins=binid[idx];ws=w[idx];starts=np.r_[True,bins[1:]!=bins[:-1]]
 cs=np.cumsum(ws,dtype=np.int64)-ws;baseline=np.maximum.accumulate(np.where(starts,cs,0));expected=cs-baseline
-need(np.array_equal(z[idx],expected),'every chronological pending mask is a compact prefix')
+# The shared validator below checks every chronological prefix.
 used=np.zeros(T*K*112,np.int64);np.add.at(used,binid,w)
 allcap=np.repeat(cap.reshape(-1),112);valid=allcap>0
 need(np.all(used[~valid]==0) and np.all(used<=allcap),'full used-bin mass')
 idle=Counter(map(int,(allcap-used)[valid]));idle.pop(0,None)
 H=Counter({r:n*N for r,n in L.items()});H.update(idle)
-need(dict(H)==profile and sum(r*n for r,n in H.items())==65088*T,'independent complete histogram')
-# Small semantic predicates test each independent gate on actual changed inputs.
-controls=[]
-def reject(name,test):
- need(not test(), 'control accepted '+name);controls.append(name)
-reject('duplicate helper',lambda: np.array_equal(np.r_[rows[0,1],rows[:-1,1]],np.tile(np.arange(408),N)))
-reject('strict lower endpoint used as available',lambda: bool(lo[o[0],c[0]]<lo[o[0],c[0]]<=hi[o[0],c[0]]))
-reject('same-call family reused',lambda: len({int(family[0]),int(family[0])})==2)
-reject('unpaid chronological hole',lambda: int(z[idx[0]])+1==int(expected[0]))
-bad=dict(profile);bad[1]+=1;reject('one unpaid rank1 child',lambda:dict(H)==bad)
+validate_owner_constraints(dict(times=t,helpers_by_row=h,calls=N,helpers=408,window_times=t,lower=lo[o,c],upper=hi[o,c],family_keys=key,offsets=z[idx],expected_offsets=expected,histogram=H,profile=profile,mass=65088*T))
+controls=owner_control_tests()
 need(all(sha(Path(p))==v for p,v in pins.items()),'input drift')
 result={'status':'PASS_INDEPENDENT_LITERAL_OWNER_WINDOWS_FAMILIES_PREFIXES_AND_INVOICE','replicas':T,'calls':N,'roles':len(rows),'physical':896*T+509,'idle':dict(sorted(idle.items())),'profile':dict(sorted(H.items())),'input_sha256':pins,'script_sha256':sha(Path(__file__)),'controls':controls,'scope':'Independent finite vectorized audit; no producer, solver, retained owner checker or reconstructor imports. Actual native frames are authenticated input data; their separate full operator proofs are required.'}
 Path(os.environ['OWNER_AUDIT_OUTPUT']).write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')

@@ -34,6 +34,7 @@ def main():
                 'WITNESS_RECORD', 'WITNESS_DISCOVER'):
         env.pop(key, None)
     for name in ('owners/verify_owner.py', 'owners/test_owner_guards.py',
+                 'test_owner_callsite.py', 'test_native_payload_entry.py',
                  'test_replay_guards.py', 'test_entry_auth.py',
                  'verify_evidence.py', 'test_evidence.py'):
         command = [sys.executable, '-B', str(HERE / name)]

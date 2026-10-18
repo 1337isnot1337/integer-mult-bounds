@@ -543,6 +543,8 @@
     "research/shared-kernel-packing/vendor/pr2857/shared_kernel.py",
     "research/shared-kernel-packing/vendor/pr2857/words/WORD-base.json.gz",
     "research/shared-kernel-packing/vendor/pr2857/words/WORD-extra.json.gz",
+    "research/staged-width-t488/test_native_payload_entry.py",
+    "research/staged-width-t488/test_owner_callsite.py",
     "research/t8-rank7-two-swaps/MATERIALIZE.json",
     "research/t8-rank7-two-swaps/derived-overlay.tar.gz",
     "research/t8-rank7-two-swaps/materialize.py",
