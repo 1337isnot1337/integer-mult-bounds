@@ -1,9 +1,9 @@
 {
-  "status": "ACTUAL_R437_INTEGER_STAGE_WINDOW_MATCHING_PASS",
-  "fixed_pattern_edit": "Window6 empty/single/full5 patterns 10/1/211\u219211/2/209; removes9residualslots. No LP/randomsearch.",
+  "status": "ACTUAL_INTEGER_STAGE_WINDOW_MATCHING_PASS_NO_SOLVER",
+  "baseline_slotlist_exact_match": true,
+  "baseline_slots": 3951,
+  "new_slots": 3933,
   "flow": 3933,
-  "per_stage_supply": 437,
-  "hosted_slots_perrep": 3933,
   "patterns": [
     [
       0,
@@ -50,14 +50,15 @@
     [
       6,
       [],
-      11
+      12
     ],
     [
       6,
       [
+        8,
         8
       ],
-      2
+      1
     ],
     [
       6,
@@ -87,7 +88,7 @@
       222
     ]
   ],
-  "stage_window_counts": [
+  "stage_counts": [
     [
       0,
       8,
@@ -173,6 +174,14 @@
       222
     ]
   ],
+  "remaining_idle": {
+    "6": 444,
+    "7": 666,
+    "4": 444,
+    "2": 431,
+    "26": 1,
+    "42": 12
+  },
   "windows": {
     "0": [
       1,
@@ -256,18 +265,7 @@
       ]
     ]
   },
-  "remaining_idle_rank_profile_perrep": {
-    "6": 444,
-    "7": 666,
-    "4": 444,
-    "2": 431,
-    "34": 2,
-    "42": 11
-  },
-  "W": 28416,
-  "new_private_helper_banks": 0,
-  "all_remaining_suffixes_contiguous": true,
-  "CPU_seconds": 0.078125,
-  "source_api_path": "C:\\Users\\AI\\Documents\\\u6570\u5b66\\session-research\\oct12-pr555-bit-nine-peer-first\\inputs\\research\\e8-bit-p111\\vendor\\pr510\\e8-r480-nine-stage\\vendor\\e8-r715-eleven-stage-whole\\code\\hosting_k.py",
-  "source_api_sha256": "081c3b95b18d900d97ce82af64fb428f085b6adc6d8ca93ea920797dad7eb81e"
+  "new_stock_W": 28416,
+  "no_new_grammar": true,
+  "scope": "Existing HK.expand packs offsets from0 so every remaining idle is contiguous in the inherited pending-idle ordering; actual emitter/auditor next."
 }

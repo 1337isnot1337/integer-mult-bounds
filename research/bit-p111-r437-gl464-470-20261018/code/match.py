@@ -13,10 +13,11 @@ oy,oz,val=HK.load_selection(BASE/'OLD-SELECTION.json','bit');oldslots,oldrem=HK.
 oldt=json.loads(gzip.decompress((BASE/'BASELINE-HOST-TEMPLATE.json.gz').read_bytes()))
 assert [list(x)for x in oldslots]==oldt['hosting']['slots']
 assert oldt['live']==28416 and all(n==0 for n in oldt['banks_per_stage'].values())
-# Exact new ideal pattern: ten empty rank42 pieces, one with one8-slot,
-# all other pieces completely filled. No optimization or new primitive.
+# Sagar Thakrar / PR3700 OQ4: coalesce the two stage6 leftovers.
+# Window6:209 five-slot families, one two-slot family, twelve empty.
+# Same eligibility/capacity, no new primitive or WORD change.
 y=oy.copy();assert y[6,()]==9 and y[6,(8,)*5]==213
-del y[6,()];del y[6,(8,)*5];y[6,()]=11;y[6,(8,)]=2;y[6,(8,)*5]=209
+del y[6,()];del y[6,(8,)*5];y[6,()]=12;y[6,(8,8)]=1;y[6,(8,)*5]=209
 capacity={i:sum(len(p)*n for(j,p),n in y.items()if j==i)for i in win};assert sum(capacity.values())==9*437
 # Deterministic integer maxflow with nine real stage supplies and actual
 # untouched-window eligibility edges. This constructs a witness, not LP cost.

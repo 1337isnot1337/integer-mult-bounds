@@ -2,8 +2,8 @@
   "word_gzip_sha256": "e432182d5b62c8bbefeb871fce30317234d707e5e18d4295e65ac21f7fd8365e",
   "word_content_sha256": "da77deaf11368d016622348227657b98404b6afbc7e4f3d6fe9a246baae0dcce",
   "records_sha256": "caeb2eb0e417992788c32c1f5812ada60b46d1dfdba9f4ac376299b2dede13cb",
-  "template_content_sha256": "2e868ff427654e47df34779299545c53aa05b8c96697ee126e80e7bc6a50990a",
-  "program_sha256": "d8ae6356093ce525db39c00169ad905b57fd86ec6f5f4d9761b0f196532f0d3d",
+  "template_content_sha256": "c425a64739981b3ae3ed6b36d1a2f42c2d35e93f007649e89d4c677d8e158fe5",
+  "program_sha256": "a777373994bd84681d6c2be75251ba6a04a1521580910f23afe09bb50db632b2",
   "profile": {
     "1": 380160,
     "2": 400864,
@@ -12,8 +12,8 @@
     "5": 29376,
     "6": 17376,
     "7": 26496,
-    "34": 64,
-    "42": 352
+    "26": 32,
+    "42": 384
   },
   "live": 28416,
   "physical": 28425,
@@ -21,9 +21,9 @@
   "deficit": 10272,
   "emitted_events": 7814016,
   "hosted_residuals": 125856,
-  "BIT_c": "868314126713557740143/500000000000000000000000",
-  "BIT_c_decimal": "0.001736628253427115480286",
-  "next_grid": "1736628253427115480287/1000000000000000000000000",
+  "BIT_c": "1736646042038446578551/1000000000000000000000000",
+  "BIT_c_decimal": "0.001736646042038446578551",
+  "next_grid": "217080755254805822319/125000000000000000000000",
   "invoice": {
     "prefix_bits": 177,
     "charged_prefix": 192,

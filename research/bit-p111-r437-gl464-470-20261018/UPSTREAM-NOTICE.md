@@ -62,3 +62,10 @@ open), PR #544 and PR #535 (open), PR #531 (merged), and PR #484, #471 and #458 
 - Jacob Sussman introduced the E8 unit.
 
 R437 composition: Ali Romman (@aliromman), with substantial OpenAI Codex assistance, authored the public1043 helper470 source-boundary deletion. Its exact canonical-main package and NOTICE are retained in public1043/. The new contribution here composes that credited deletion with the independently validated helper464 GL, then reconstructs actual owners, full invoice, independent checks and portable replay.
+
+Sagar Thakrar (thakrarsagar), PR3700 Open question4, proposed the exact
+window6 two-leftover coalescing used by this follow-up. No code from that
+PR is imported by the author pipeline; root independently replayed its
+hosting and price engines. Full owner/template/invoice regeneration and
+packaging used substantial OpenAI Codex assistance. All prior credits and
+Apache-2.0 notices remain in place.

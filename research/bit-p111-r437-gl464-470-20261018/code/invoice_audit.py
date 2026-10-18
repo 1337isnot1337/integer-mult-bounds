@@ -6,6 +6,7 @@ from functools import lru_cache
 import json,gzip,struct,hashlib,time,ctypes
 import sys
 H=Path(sys.argv[1]).resolve();I=H
+HOST_EXPECTED=json.loads((Path(__file__).resolve().parents[1]/'EXPECTED.json').read_text())
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 load=lambda n:json.loads((I/n).read_bytes())
 word=lambda n:json.loads(gzip.decompress((I/n).read_bytes()))
@@ -84,7 +85,7 @@ def local():
 
 def host(streams,details):
  packed=(I/'hosted/GLOBAL-TEMPLATE.json.gz').read_bytes();blob=gzip.decompress(packed)
- assert hashlib.sha256(blob).hexdigest()=='2e868ff427654e47df34779299545c53aa05b8c96697ee126e80e7bc6a50990a'
+ assert hashlib.sha256(blob).hexdigest()==HOST_EXPECTED['template_content_sha256']
  t=json.loads(blob);del blob,packed
  g=load('hosted/GLOBAL.json');pg=load('nine/GLOBAL.json');geo=load('nine/GEOMETRY.json')
  assert t['local_programs']==streams
@@ -155,7 +156,7 @@ def host(streams,details):
    buf.extend(suffix)
   digest.update(buf);events+=len(cache[c['orientation']])
  assert len(seen)==288 and owned==125856 and events==7814016
- assert digest.hexdigest()==g['emitted_program_sha256']=='d8ae6356093ce525db39c00169ad905b57fd86ec6f5f4d9761b0f196532f0d3d'
+ assert digest.hexdigest()==g['emitted_program_sha256']==HOST_EXPECTED['program_sha256']
  return g,pg,geo,paid,{'template_content_sha256':g['template_sha256'],'program_sha256':digest.hexdigest(),
   'events':events,'owner_occurrences':owned,'helper_per_replica':len(assigned),'idle_remainders':perwindow,
   'all_remaining_idle_axes_single_contiguous_run':True,'additional_positive_rank_children':0,'paid_profile':dict(sorted(paid.items()))}
