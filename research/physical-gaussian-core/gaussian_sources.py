@@ -60,6 +60,7 @@ def authenticate():
             and sha256(reference.read_bytes()).hexdigest() == REFERENCE_DIGEST,
             "pinned Chafik branch-free source")
     with tarfile.open(reference, "r:") as archive:
+        require(archive.pax_headers.get("comment") == REFERENCE_HEAD, "exact branch-free reference commit")
         members = archive.getmembers()
         require(len({item.name for item in members}) == len(members), "unique Gaussian reference members")
         expected = {REFERENCE_PACKAGE + "/" + name for name in (

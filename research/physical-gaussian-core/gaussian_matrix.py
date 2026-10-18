@@ -96,6 +96,8 @@ def inverse(matrix):
                      "positive exact setup pivot")
                 for j in indices(augmented.columns):
                     with owned(augmented.get(k, j)) as (previous,):
+                        if previous.numerator.magnitude.zero():
+                            continue
                         with owned(previous.over(pivot)) as (value,):
                             augmented.set(k, j, value)
             for i in indices(dimension):
@@ -106,6 +108,8 @@ def inverse(matrix):
                         continue
                     for j in indices(augmented.columns):
                         with owned(augmented.get(k, j)) as (source,):
+                            if source.numerator.magnitude.zero():
+                                continue
                             with owned(augmented.get(i, j)) as (previous,):
                                 with owned(factor.times(source)) as (product,):
                                     with owned(previous.minus(product)) as (value,):
