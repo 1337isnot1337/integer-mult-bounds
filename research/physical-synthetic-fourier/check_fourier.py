@@ -322,7 +322,7 @@ def round_oracle(values, flags, ell, premature=False):
 
 def failures():
     from cardinal_counts import Count
-    from check_composed import fixture
+    from check_composed import encode, fixture
     from fourier_engine import Fourier
     from session import borrowed_count, borrowed_tape, erase_marker
     from words import BLANK
@@ -357,20 +357,9 @@ def failures():
     require(round_oracle(values, (1,), 2) == exact, "independent dense and stage Fourier agreement")
     premature = round_oracle(values, (1,), 2, premature=True)
     require(premature != exact, "nonzero whole-transform rounding witness")
-    owner, positive, _ = packet((1,), owner=owner, values=values, consume=False)
-    counts = tuple(Count.literal(v) for v in (1, 2, 2, 1))
-    try:
-        try:
-            owner.run(tape([0]*128), tape([1]), *counts)
-        except ValueError:
-            rejected.append("protected_output")
-        else:
-            raise ValueError("missing protected Fourier output rejection")
-    finally:
-        for value in counts:
-            value.close()
-        owner.output.clear()
-        erase_marker(owner.output)
+    # The forward suite executes this exact positive packet. Reuse the mutant's
+    # actual protected return below instead of executing that baseline twice.
+    correct_hash = sha256(encode(exact, 4)).hexdigest()
 
     original_twiddle = Fourier.twiddle
 
@@ -391,21 +380,38 @@ def failures():
         original_twiddle(self, plan, h, opposite)
 
     with patch.object(Fourier, "twiddle", premature_twiddle):
-        _, mutant, _ = packet((1,), values=values, expected=premature)
-    require(mutant["sha256"] != positive["sha256"], "physical premature-rounding mutant differs")
+        _, mutant, _ = packet((1,), owner=owner, values=values, expected=premature, consume=False)
+    require(mutant["sha256"] != correct_hash, "physical premature-rounding mutant differs")
     rejected.append("physical_premature_truncation")
+    counts = tuple(Count.literal(v) for v in (1, 2, 2, 1))
+    try:
+        try:
+            owner.run(tape([0]*128), tape([1]), *counts)
+        except ValueError as error:
+            require("consume prior Fourier output" in str(error), "intended protected-output rejection")
+            rejected.append("protected_output")
+        else:
+            raise ValueError("missing protected Fourier output rejection")
+    finally:
+        for value in counts:
+            value.close()
+        owner.output.clear()
+        erase_marker(owner.output)
 
     basis = [(0, 0)]*16
     basis[4] = (4, 0)
     with patch.object(Fourier, "reversal", lambda _self, _plan: None):
         try:
-            packet((1,), values=basis)
+            packet((1,), owner=owner, values=basis)
         except ValueError as error:
             require("dense polynomial oracle" in str(error), "endpoint order mutant reaches comparison")
             rejected.append("omitted_physical_reversal")
         else:
             raise ValueError("missing endpoint bit-reversal failure")
-    return {"controls": rejected, "correct_sha256": positive["sha256"],
+        finally:
+            owner.output.clear()
+            erase_marker(owner.output)
+    return {"controls": rejected, "correct_sha256": correct_hash,
             "premature_sha256": mutant["sha256"], "exact": exact, "premature": premature}
 
 

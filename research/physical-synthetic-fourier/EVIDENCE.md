@@ -31,6 +31,14 @@ independent stage model when selecting the premature-rounding witness. I
 disable inherited numerical decoding helpers during physical packet execution.
 The runtime does not call either checker oracle.
 
+The first hosted run passed the two full-transform suites but reached the
+batch suite's 360-second limit. I increased that allowance and removed one
+duplicate positive forward replay from the failure suite, keeping the total
+registered allowance at 1190 seconds. The forward suite still executes that
+positive packet; the failure suite now tests output protection on its actual
+premature-rounding return. I retain the same nine controls, both physical
+mutants and the unchanged production implementation.
+
 | Typed output | SHA256 of the complete binary packet |
 |---|---|
 | Forward | `ad2ec2a9c0c7e54d6ff24f107a1836c693ed795b507e1883a4729de14f8c06eb` |
