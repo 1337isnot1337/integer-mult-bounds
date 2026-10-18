@@ -1,7 +1,10 @@
 # R437 ordinary coupling and the fixed retimed T360 transfer
 
-**LOCAL_PROGRESS; no supported multiplication κ increase.** Fresh independent
-AI review of the committed scientific artifact is required before conclusion.
+**LOCAL_PROGRESS; no supported multiplication κ increase.** Fresh Astra medium
+review returned **CONCLUDE: YES** for scientific commit
+`0c770abd231422a24cc4aecd45509440946b0a3c`; see
+[the independent AI review](reviews/ASTRA-MEDIUM.md). This submission preserves
+that reviewed scientific scope and is offered as a focused research finding.
 
 At **c=1/576**, the complete C0 moment changes from1.0000087717216952... for
 the old source (fails) to **.9999983130605054...** for R437 (passes), including
@@ -39,6 +42,10 @@ From the repository root, Python3.12+ and standard library:
 python3 -B research/r437-ordinary-t360/verify.py
 ```
 
+`REPLAY.json` documents this self-contained archive workflow; the package is
+not registered with the optional catalogue-based `VERIFY.json` runner. Runtime
+replay needs no foreign Git objects or network.
+
 This authenticates retained source bytes and runs three bounded fresh-process
 checks, comparing their complete JSON outputs. The fresh13-command R437 author
 cold verifier passed in41.76s on CPython3.14.5; raw logs, receipt and environment
@@ -75,7 +82,10 @@ registry and prior four-lead campaign were read before experimentation.
 
 `SOURCES.json` maps retained bytes to exact commit/path sources. The prior
 old-C0/28/16153 campaign is predecessor context, not proof of this changed source.
-No shared defaults, selected frontier or external submission were changed.
+No shared defaults or selected-frontier records are changed. The human
+subsequently requested submission of this reviewed finding despite the absence
+of a new multiplication κ. The earlier no-PR decision in `reviews/VERDICT.json`
+records the original bounded round, before that publication instruction.
 
 ## Open next questions
 
