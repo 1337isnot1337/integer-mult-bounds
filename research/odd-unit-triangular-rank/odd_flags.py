@@ -175,6 +175,11 @@ def run(archive=None):
     need(parameters(5)["rho"] == F(17, 105) and parameters(7)["rho"] == F(43, 651), "new source instances")
     need(int(5/parameters(5)["rho"]) == 30, "five-dimensional bit-window limit")
     need(5*parameters(5)["rho"] == F(17, 21) > F(291, 400), "declared charge-five screen")
+    for rank_one, expected in ((74, False), (75, True), (76, True)):
+        terms = 44 + rank_one
+        ports = 15*44 + rank_one
+        need((parameters(5)["rho"]*ports <= terms) == expected,
+             "mixed-rank count boundary")
     return {"status": "PASS_ODD_FLAG_RANK", "certificates": reports,
             "scope": "Two finite flags corroborate the arbitrary-field/multiplicity proof; no supplier or kappa claim."}
 

@@ -3,6 +3,13 @@
   "task_id": "complex-new-helper-inventory",
   "priority_revision": 6,
   "base_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+  "continuation": {
+    "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "predecessor_pr": 3512,
+    "predecessor_head": "f2703dc67c5e4982a21f41724eed1edc30892873",
+    "predecessor_status": "partially reviewed after archival intake",
+    "reason": "PR3512 merged during this proof extension. The focused follow-up starts from refreshed main and retains the original scientific source pins."
+  },
   "original_card": {
     "id": "complex-new-helper-inventory",
     "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
@@ -50,7 +57,7 @@
   "evidence": "Written arbitrary-field/multiplicity proof and general-dimensional flag theorem; separate ambient and abstract symplectic implementations; both flags at d3/d5/d7; exact special-port rank addition; baseline geometry through dimension eight; retained projector positive control; fourteen semantic/source controls. Validation status is recorded in EVIDENCE.md.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in proof, implementation, verification, prose and source-analysis agents. No independent human or formal-kernel review claimed.",
-  "overlap": "Complete cached coverage of 424 open PRs and 2350 Discussion records, public fork and main source searches, and relevant live updates through 2026-10-18T04:45:00Z. No exact two-flag formula duplicate or competing claim found. Arbitrary diffs, unpublished LP drivers and private work were not inspected.",
+  "overlap": "Complete refreshed coverage of 250 open PRs and 2375 Discussion records at 2026-10-18T05:01-05:02Z, plus public fork/main source searches and live PR3512 state. The current-main local search found no exact two-flag formula duplicate. Arbitrary diffs, unpublished LP drivers and private work were not inspected.",
   "expansion_decision": "Require the stronger odd flag rows and actual paired-window rank before construction. Charges at least five imply C/v>=17/21 at h5 and C/v>=15/32 at h6. Mixtures containing lower charges, lower-rank totals, sufficiently non-additive assemblies and changed masks remain open. A complete paired physical invoice is still required.",
   "open_questions": [
     {

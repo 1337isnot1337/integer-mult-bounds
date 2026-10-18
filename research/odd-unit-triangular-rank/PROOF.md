@@ -376,6 +376,18 @@ The rank-slack and literal-idempotent conclusions also use the stronger
 rho_d. For constant masked-total rank r, aggregate rank is at least
 r ceil(rho_d v). A rank-additive assembly, or a literal identity sum of
 rank-r idempotents over characteristic zero, is impossible if r rho_d>1.
-The identity qualification from section 3 remains necessary. Lower-charge
-mixtures, lower-rank totals, sufficiently non-additive assemblies and
-changed fitting masks remain open.
+For mixed ranks in a rank-additive unit, I combine J>=rho_d v with
+sum_l rank X_l=v to obtain mean masked-total rank v/J<=1/rho_d.
+For a literal identity sum of idempotents over characteristic zero,
+I obtain the same equality by taking traces, without a commutativity
+assumption. At d=5, if J_15 terms have rank 15 and J_1 have rank one,
+
+    17(15 J_15+J_1) <= 105(J_15+J_1),
+    44 J_1 >= 75 J_15.                              (9)
+
+I obtain equality in this integer count condition only at
+(J_15,J_1)=(44m,75m). I do not construct an attaining assembly or
+derive its native copy invoice. I retain the literal identity and
+characteristic-zero hypotheses for the trace argument from section 3.
+I leave lower-charge mixtures, lower-rank totals, sufficiently
+non-additive assemblies and changed fitting masks open.

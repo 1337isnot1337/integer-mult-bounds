@@ -52,6 +52,11 @@ handles the coincident flags at d=3. The dimension-five copy-cost floor
 for charges at least five is 17/21, above the source's .7275 scouting
 screen; this comparison does not price a complete supplier.
 
+For a dimension-five literal identity sum of rank-15 and rank-1
+idempotents over characteristic zero, I also derive the necessary count
+`44 J_1>=75 J_15`. I use the trace and the bound above; I do not
+construct such a mixture or price its native copies.
+
 The checkers verify the complete finite selectors and type orbits,
 nonuniform multiplicities, repeated-port minors over Q/F2/F3/F5, the
 retained projector's exact factor identity, and fourteen failure controls.
@@ -88,8 +93,11 @@ decoders under a symmetric support majorant. Independent odd source/sink labels 
 give directed masks. [NOTICE.md](NOTICE.md) links those exact comparisons;
 the earlier bound can be stronger on its restricted mask class.
 
-I started from canonical main
-`6f100d4bb5083f8c35d96fd95a539811c62f245c`, priority revision 6. I coordinate
+I retain the original scientific pins at
+`6f100d4bb5083f8c35d96fd95a539811c62f245c`. I prepared this strengthening
+from canonical main `20ecf2891d80b5acf18d980b2164fb44ea7faa90`, priority
+revision 6, after archival intake of PR3512. The intake ledger still
+marks that predecessor partially reviewed. I coordinate
 in [Discussion2278](https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19010715).
 I preserve the selected frontier and supply no new integer exponent.
 I claim no independent human review, formal-kernel proof or complete

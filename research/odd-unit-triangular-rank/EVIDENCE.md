@@ -48,6 +48,9 @@ high 9003b127e3ea12b62271165f4038c65c8b1eab99d084b1998fb85425d9a2bbc3
 
 I checked nonuniform populations where either flag improves the balanced
 bound, exact high weights 3/7 and 9/31, and the d3 coincident-flag case.
+For 44 rank-15 terms, I checked the necessary mixed-rank count at
+74, 75 and 76 rank-1 terms. The first fails; 75 attains the arithmetic
+boundary. I claim no construction attaining that boundary.
 I reject equal weights and a mislabeled flag. An unreversed source/sink
 exchange fails the checker's upper-one mask convention; reversing its
 order restores that convention. I also distinguish the lifted binary bit
