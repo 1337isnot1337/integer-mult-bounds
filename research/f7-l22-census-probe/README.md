@@ -27,7 +27,11 @@ budget; #2973's stop rule was explicitly no L22 census."*
    and zero hits — **`(11,7)`, `(10,8)` and `(11,8)` are finite
    exclusions**; the six others hit the 2e9-node cap and abort, recording
    only **lower bounds** on their tree sizes. Per-split results, including
-   node counts and seconds, are in [RESULT.json](RESULT.json).
+   node counts and seconds, are in [RESULT.json](RESULT.json). **CI scope:**
+   the registered commands re-run the validation stages and replay each of
+   the three completed exclusions node-exactly, one command per split; the
+   six capped probes are locally measured and are reproduced only by the
+   opt-in `--probe-all-splits` command (about 1.4e10 nodes), not by CI.
 3. **No f(7) claim.** The six loose-budget splits remain open, so nothing
    here decides whether `f(7) = 22` or `24`. No supplier, tariff, kappa,
    certificate, frozen input or selected-frontier change is made or
@@ -51,17 +55,28 @@ the real evidence: identical node-exact receipts at every recorded case.
 From the repository root, with Python 3.12 and a C11 compiler:
 
 ```sh
-python3 -I -B research/f7-l22-census-probe/verify.py                  # full: validation + probes
-python3 -I -B research/f7-l22-census-probe/verify.py --skip-probe     # validation stages only
-python3 -I -B research/f7-l22-census-probe/verify.py --probe-cap 500000000   # smaller probes
+# Registered CI scope: validation stages, then one fresh node-exact replay
+# per completed exclusion (the registered commands run these separately).
+python3 -I -B research/f7-l22-census-probe/verify.py --skip-probe
+python3 -I -B research/f7-l22-census-probe/verify.py --probe-split 11,7
+python3 -I -B research/f7-l22-census-probe/verify.py --probe-split 10,8
+python3 -I -B research/f7-l22-census-probe/verify.py --probe-split 11,8
+
+# Default (no flags): validation stages plus all three exclusion replays.
+python3 -I -B research/f7-l22-census-probe/verify.py
+
+# Opt-in, not run by CI: the full nine-split comparison against the
+# committed RESULT.json receipt, including the six capped lower-bound
+# probes (about 1.4e10 nodes; minutes on a many-core host).
+python3 -I -B research/f7-l22-census-probe/verify.py --probe-all-splits
 ```
 
-`verify.py` writes `RESULT.json` in this package and prints
-`PASS_F7_L22_CENSUS_PROBE`. Probe cap default is 2,000,000,000 nodes per
-split; probes run in parallel threads. All other generated files use
-temporary directories. Aborted/capped probes are recorded with
-`complete=false` and are never exclusions; the engine returns exit 2 for
-them.
+`verify.py` writes `LAST-RUN.json` in this package and prints
+`PASS_F7_L22_CENSUS_PROBE`; the committed `RESULT.json` session receipt is
+never rewritten. Probe cap default is 2,000,000,000 nodes per split; probes
+run in parallel threads. All other generated files use temporary
+directories. Aborted/capped probes are recorded with `complete=false` and
+are never exclusions; the engine returns exit 2 for them.
 
 ## Results summary
 
@@ -87,6 +102,11 @@ For scale, the predecessor's recorded length-20 exclusions totalled about
 alone reach 1.96e9 nodes, and each of the six open splits exceeds 2e9
 before its cap. A complete census needs the six open splits finished, so
 the probe numbers are the concrete resource datum the handoff asked for.
+
+Certification scope, stated exactly: the three finite exclusions and the
+validation stages above are re-run by the registered CI commands; the six
+capped lower-bound probes are not part of CI replay and remain locally
+measured, reproducible with the opt-in command in "How to reproduce".
 
 Combined with the imported 17-point set-level exclusions of #2773/#2870
 (splits `(10,7)`, `(11,6)`), any restored universal length-22 word must now
