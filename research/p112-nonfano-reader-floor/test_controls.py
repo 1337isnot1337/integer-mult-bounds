@@ -3,7 +3,7 @@
 import json
 import os
 import runpy
-import shutil
+import stat
 import subprocess
 import sys
 import tempfile
@@ -136,6 +136,50 @@ def local_controls():
     return 7
 
 
+def copy_regular(source, destination):
+    original = source.lstat()
+    need(
+        stat.S_ISREG(original.st_mode) and original.st_size <= 1_048_576,
+        "regular source copy",
+    )
+    raw = source.read_bytes()
+    need(len(raw) == original.st_size, "stable copy length")
+    with destination.open("xb") as stream:
+        owned = os.fstat(stream.fileno())
+        need(
+            stat.S_ISREG(owned.st_mode) and owned.st_uid == os.getuid(),
+            "owned regular copy",
+        )
+        need(
+            (owned.st_dev, owned.st_ino) != (original.st_dev, original.st_ino),
+            "distinct copy inode",
+        )
+        need(stream.write(raw) == len(raw), "complete copy write")
+
+
+def copy_controls(root):
+    source, destination = root / "copy-source", root / "copy-destination"
+    source.write_bytes(b"owned boundary fixture")
+    copy_regular(source, destination)
+    need(source.read_bytes() == destination.read_bytes(), "copy bytes")
+    try:
+        copy_regular(source, destination)
+    except FileExistsError:
+        pass
+    else:
+        raise ValueError("existing destination overwritten")
+    link = root / "copy-link"
+    link.symlink_to(source)
+    try:
+        copy_regular(link, root / "forbidden-copy")
+    except ValueError as error:
+        need("regular source copy" in str(error), "symlink rejection")
+    else:
+        raise ValueError("symlink source accepted")
+    need(source.read_bytes() == b"owned boundary fixture", "copy source unchanged")
+    return 3
+
+
 def main():
     controls = local_controls()
     files = list(HERE.iterdir())
@@ -152,12 +196,15 @@ def main():
         prefix="nonfano-controls-", dir=os.environ.get("TMPDIR")
     ) as tmp:
         root = Path(tmp)
+        copies = copy_controls(root)
         destination = root / "research" / HERE.name
         destination.parent.mkdir()
-        shutil.copytree(HERE, destination, symlinks=True)
+        destination.mkdir()
+        for path in files:
+            copy_regular(path, destination / path.name)
         source = root / INPUT
         source.parent.mkdir(parents=True)
-        shutil.copyfile(ROOT / INPUT, source)
+        copy_regular(ROOT / INPUT, source)
         invoke(root, "verify.py")
         invoke(root, "independent.py")
         exits = faults(root)
@@ -166,7 +213,12 @@ def main():
     print(
         "PASS_NONFANO_CONTROLS",
         json.dumps(
-            {"local_controls": controls, "CLI_rejections": exits, "restored": True}
+            {
+                "local_controls": controls,
+                "copy_controls": copies,
+                "CLI_rejections": exits,
+                "restored": True,
+            }
         ),
     )
 

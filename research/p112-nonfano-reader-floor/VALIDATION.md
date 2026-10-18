@@ -55,7 +55,11 @@ runs a fixed number of subprocesses, each with a 90-second timeout; registered
 commands have 120-second timeouts. No function exceeds 60 formatted lines.
 Contracts and meaningful checks use ordinary exceptions, including under -O.
 Subprocess statuses, linear inconsistency and field inverses are checked.
-Private temporary copies have scoped context-manager cleanup.
+Private temporary copies have scoped context-manager cleanup. Copies create
+new regular files exclusively, verify owner and distinct device/inode before
+writing, and use no metadata or mode copy. Symlink package entries reject.
+Three copy controls check bytes, exclusive destination creation, symlink
+rejection and unchanged source bytes.
 
 Rule 3, fixed allocation. Python fractions, JSON parsing, sets, lists and the
 standard library allocate dynamically. This deviation covers only the bounded
