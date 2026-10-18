@@ -6,9 +6,9 @@ Objects, at their exact heads:
   `research/p104-pooled-cut-independent/README.md`, sections "Contract and
   conclusion" and "Why one contact per dimension is a necessary relaxation"
   (README lines 17-100).
-- PR3252 (petalas, `4784b71d2e0833537c9ae1e8be05ad2a6b334d92`),
+- PR3252 (Nick Petalas, `4784b71d2e0833537c9ae1e8be05ad2a6b334d92`),
   `research/p104-memory-relaxation-soundness/PROOF.md`.
-- PR3427 (jmbarrancoml, `344774ba08a73fc3a85fdcb93fb319927bde3ea2`),
+- PR3427 (Jose Manuel, jmbarrancoml, `344774ba08a73fc3a85fdcb93fb319927bde3ea2`),
   `research/p104-source-preconditioning/PROOF.md`, "Pooled path-compression
   lemma". Only what it consumes is reviewed.
 
@@ -16,6 +16,10 @@ This is an audit, not a construction. It changes no κ and no frontier, and it
 proves no P104 impossibility outside the stated contract.
 
 ## Verdict
+
+These verdicts come from an author-checked, AI-assisted review. Four AI review
+passes in the same loop checked the first version; no independent human or
+formal-kernel review has been done.
 
 1. **PR3259's argument is valid as a necessary support test under its stated
    contract.** Each step below is valid as written. Two steps need a sentence
@@ -46,9 +50,13 @@ proves no P104 impossibility outside the stated contract.
 ## Contract, as used
 
 PR3259 states the contract in prose. It is numbered here so that each step can
-cite it:
+cite it. PR3259 first fixes a matching, one arrival per departure, and then
+grants one virtual helper for every compatible pair at once. K1 is that pooled
+relaxation. Every matching-based program satisfies it, so each exclusion below
+holds a fortiori for every single matching. The exactness statement (the
+converse below) is made for the pooled relaxation only.
 
-- **K1 fixed cover.** Every added helper has one full flag through
+- **K1 fixed cover, pooled.** Every added helper has one full flag through
   `0 < L[a//2] < A[a] < F3 < ... < F6 < B[b] < H[b//2] < FULL` for a compatible
   pair, `A[a] <= B[b]`. Skipped dimensions are granted, but the flag still
   passes through `L, A, B, H`.
@@ -56,10 +64,10 @@ cite it:
   dimension. It is never reloaded or reused with another flag.
 - **K3 equal frames.** A scalar operation transfers dependence only between
   registers whose current frames are equal. A transport is register-local.
-- **K4 immutable X.** Sources are never written. They are read only at their
-  frozen channel frame path.
-- **K5 unread Y.** Targets are never read. They receive additive increments
-  only.
+- **K4 immutable X.** Sources keep their original channel frame path and are
+  never written. They are read only at frames of that path.
+- **K5 unread Y.** Targets keep their original channel frame path and are
+  never read. They receive additive increments only.
 - **K6 no other source-dependent state.** The correction neither reads nor
   writes original channel helpers (G, D, Q, C) or other correlated storage.
   The channel contributes its unchanged `G/2`.
@@ -109,26 +117,39 @@ is a helper. By K6 none is a channel register. By K3 scalar steps keep the frame
 and transports enlarge it. So the frames along the path form a chain, and
 `V <= W`. If `V = W` the pair shares a frame. Otherwise `1 <= dim V < dim W <= 8`.
 
-*Choice of departure a.*
+*Choice of departure a.* Let P be the first path frame of dimension at
+least 2.
 
-- If `dim V >= 2`, let a be the departure of the reading helper. Its flag
-  passes `A[a]` at dimension 2 and V at `dim V`, so `A[a] <= V`.
+- If `dim V >= 2`, then P = V. Let a be the departure of the reading helper.
+  Its flag passes `A[a]` at dimension 2 and V at `dim V`, so `A[a] <= V`.
 - If `dim V = 1`, the run at dimension 1 shares frame V (step f). Let h' be the
-  helper that carries the path out of dimension 1, and a its departure. Its
-  dimension-1 frame is V, so `L[a//2] = V`. Its flag gives `A[a] <=` its next
-  frame on the path, which is `<= W`.
+  helper that carries the path out of dimension 1, from V to P, and a its
+  departure. Its dimension-1 frame is V, so `L[a//2] = V`. Its flag passes
+  `A[a]` and P, so `A[a] <= P`.
 
-*Choice of arrival b.*
+*Choice of arrival b.* Let Q be the last path frame of dimension at most 7.
 
-- If `dim W <= 7`, let b be the arrival of the writing helper. Then
-  `W <= B[b]`.
+- If `dim W <= 7`, then Q = W. Let b be the arrival of the writing helper.
+  Then `W <= B[b]`.
 - If `dim W = 8`, let h'' be the helper that carries the path into dimension 8,
-  and b its arrival. Then `H[b//2] = W`, and its frame before the ascent lies
-  in `B[b]`. That frame also contains every earlier path frame, including
-  `A[a]`. If h' = h'', then `A[a] <= B[b]` holds because both lie on one flag.
+  from Q to W, and b its arrival. Then `H[b//2] = W`. Its flag passes Q and
+  `B[b]`, so `Q <= B[b]`.
 
-In every case `A[a] <= B[b]`, so `(a,b)` is in the pool. The spaces
-`L[a//2] < A[a]`, V, W and `B[b] < H[b//2]` form a nested partial flag:
+*Compatibility.* If h' = h'' (the path leaves dimension 1 and enters
+dimension 8 in one transport), `A[a]` and `B[b]` lie on one flag, so
+`A[a] <= B[b]`, and V, W lie on that flag too. Otherwise P comes no later than
+Q along the path. This is immediate unless `dim V = 1` and `dim W = 8`. In that
+case the step out of dimension 1 and the step into dimension 8 are different
+steps, and the first precedes the second because frames along the path never
+shrink. So P <= Q, and
+
+```
+A[a] <= P <= Q <= B[b],   V <= P,   Q <= W.
+```
+
+In every case `A[a] <= B[b]`, so `(a,b)` is in the pool, and also
+`V <= B[b]` and `A[a] <= W`. The spaces `L[a//2] <= A[a]`, V, W and
+`B[b] <= H[b//2]` therefore form a nested partial flag:
 
 - for `dim V = 1`, `V = L[a//2]`;
 - for `dim V = 2`, `V = A[a]`;
@@ -140,24 +161,36 @@ admits both V and W. ∎
 
 The proof uses the fact that the pool contains *every* compatible pair, so
 that the recombined type exists. For a type list without that closure the
-conclusion can fail. The verifier's `F_2^4` example relays across two rigid
-types at a shared plane. It lies in PR3259's test but outside the one-helper
-test.
+conclusion can fail. The verifier's fixed `F_2^4` example relays across two
+rigid types at a shared plane. It lies in PR3259's test but outside the
+one-helper test, and the exhaustive small-domain search below finds 33 more
+such pairs.
 
 *Second methods.* Two checks support the lemma beyond the written proof.
 
-- **Small domains.** The oracle runs 9,000 checked programs on pooled
-  `F_2^3`/`F_2^4` instances with exact `Fraction` coefficients. It finds
-  1,043 nonzero helper-path coefficients, 633 of them relayed across
-  different helper types. Every one lies in the one-helper test.
+- **Small domains.** On 4,500 seeded pooled `F_2^3`/`F_2^4` instances, an
+  exhaustive untimed reachability that does not assume the lemma gives
+  exactly the one-helper support every time. Each of its 4,264 helper-only
+  pairs is realized by an explicit program in the checked interpreter, with
+  exact `Fraction` coefficients. The instances include 54 (75 pairs) where
+  PR3259's test is strictly looser, the only places where the lemma's extra
+  precision can be tested. On 4,500 unpooled instances the same search finds
+  33 pairs on 26 instances outside the one-helper test, each realized by a
+  legal program, so the check has teeth. The 9,000 random pooled programs
+  (1,043 nonzero coefficients counted per program, 604 of them on pairs whose
+  X and Y chains share no frame) are a soundness sample only; on unpooled
+  instances they found none of the 33 escapes.
 - **P104.** A new implementation of PR3252's multi-hop full-memory
   recurrence, which does not assume the lemma, gives the same support on all
   10,816 pairs.
 
 *Converse (untimed).* If the condition holds, one helper of type `(a,b)` with
-that full flag reads `X_s` at V and writes `Y_t` at W. With chronology relaxed,
-the criterion is therefore exact. No sound untimed support test under K1-K7 can
-exclude more pairs. Timed tests can.
+that full flag reads `X_s` at V and writes `Y_t` at W. With the relative timing
+of different registers relaxed, the criterion is therefore exact for the pooled
+contract. No sound untimed support test under K1-K7 can exclude more pairs.
+Timed tests can. A single fixed matching has fewer helper types, so its support
+can only be smaller and at least 2,682 entries stay unsupported; exactness is
+not claimed there.
 
 *Where PR3259 loses precision.* At layer d PR3259 lets helper w relay through
 any d-flat that w shares with a neighbour. It does not require that flat to
@@ -178,17 +211,25 @@ delivers a nonzero coefficient outside both PR3259's test and the sharp test.
 | Supported source/target pairs | 10,815 | 2,310 |
 | Required entries unsupported | 1 (`(71,102)`) | 2,682 (every row and column) |
 | Values of unsupported entries | `-1/2` | 1,801 at `-1/2`, 881 at `+1/2` |
+| Pairs granted with `C = 0` | 5,720 off-diagonal and 104 diagonal | none |
 
-The sharp criterion is computed in three ways:
+The sharp support is computed three times: the one-helper criterion in two
+loop orders (reduced-echelon keys with helper-type masks, and point-set
+bitmaps looped by helper type), and an independent multi-hop implementation of
+PR3252's full-memory recurrence over the whole pool. All three agree on all
+10,816 pairs.
 
-- reduced-echelon keys with helper-type masks;
-- point-set bitmaps looped by helper type;
-- an independent multi-hop implementation of PR3252's full-memory recurrence
-  over the whole pool.
+The sharp support has a simple shape. It is exactly the 2,309 compatible slot
+pairs `(a,b)` read as port pairs (target `b//2`, source `a//2`), which are
+distinct and all required, plus the pair `(73,83)`. That extra pair comes from
+a dimension-4 frame of X83 admitted, with Y73's cap, by one pool type. Hence
+`2,682 = 4,992 - 2,309 - 1`. At P104 no X path shares a frame with a Y path,
+and dropping the containment `V <= W` changes no pair, so containment is never
+decisive here. The verifier asserts each of these facts.
 
-All three agree on all 10,816 pairs. For sources 0-3 the per-source target
-masks equal PR3427's published masks exactly. Those masks come from PR3427's
-direct criterion and from PR3252's full-memory operations.
+For sources 0-3 the per-source target masks equal PR3427's published masks
+exactly. Those masks come from PR3427's direct criterion and from PR3252's
+full-memory operations.
 
 ## PR3252 PROOF.md (shorter review)
 
@@ -206,6 +247,13 @@ PR3259's K1-K7 written with per-helper bounds `L(h,d) <= F(h,d) <= U(h,d)`.
   U(w,d)` with the dimension bounds holds whenever the actual common frame
   contains S. Carries keep `S <= F`.
 - *Pruning.* Valid, because the guards are monotone under shrinking a memory.
+
+The review applies the theorem to one merged helper per pool type. That is
+justified: actual helpers of one type have identical bounds, contacts and
+granted reads, so the outputs of any multiset of them are contained in the
+one-helper-per-type run, whose memory set is the union. A relay from such a
+helper to itself only produces a memory `T >= S`, which the monotone guards
+make redundant.
 
 The full-memory mode keeps a lower bound on the frame the signal used. Like any
 sound untimed test under this contract, it cannot be stricter than the sharp
@@ -248,8 +296,10 @@ rank(U - I) = rank(V - I) >= rank C[R,S],
 
 using `V - I = -V(U - I)` for the equality.
 
-A deterministic greedy finds a rectangle: for each seed column, add the
-column that most increases `min(|R|,|S|)`, with ties to the smallest index.
+A deterministic greedy finds a rectangle. For each seed column it repeatedly
+adds the column that maximizes `min(|R'|, |S|+1)`, then `|R'|`, with ties to
+the smallest index, where `R'` is the set of rows still unsupported. It stops
+when `min(|R|,|S|)` stops growing and keeps the rectangle of largest rank.
 It finds a 19-by-18 rectangle of unsupported pairs with
 `rank C[R,S] = 17`. Exact `Fraction` elimination gives the rank. A 17-by-17
 minor has integer `det(8C) = 2^43`, by Bareiss elimination, so
@@ -262,31 +312,58 @@ completion may force more.
 ## Load-bearing hypotheses (support level, sharp criterion)
 
 The rows are support-level necessary-test relaxations. They are unpriced and
-give no coefficient, dirty restoration or chronology. Each row relaxes one item.
+give no coefficient or dirty restoration. Each row relaxes one item. Like the
+sharp criterion, they relax the relative timing of different registers but
+keep the order of operations along one dependency path.
 
 | Relaxed item | Reaches `(71,102)` | Sharp-missing entries reopened | Minimal witness (operations counted, unpriced) |
 |---|---|---:|---|
 | none (sharp baseline) | no | 0 of 2,682 | - |
 | PR3259's dropped cross-layer nesting (a proof relaxation, not a contract change) | no | 2,681 | layered test |
-| K5, correction-only Y relay (R1) | no | 0 | none at P104; F_2^3 escape uses 4 scalar operations |
+| K5, correction-only Y relay, keeping each target's write-before-read order (R1) | no | 0 | none at P104; F_2^3 escape uses 4 scalar operations |
+| R1 without that order (R1u; a looser test, since no program reads content before it is written) | yes | 2,682 | - |
 | K5 with the channel's own Y content readable, including target feedback (R1c) | yes | 2,682 | feedback on `Y71`: read it at its dimension-5 snapshot, after the channel has deposited its X102 term, and add a multiple back (1 read and 1 write, or 1 self-add) |
-| K1, free nested flags: helpers not forced through `L/A/B/H` (R2) | yes | 2,682 | one helper, flag through `L_102 <= H_71`; 1 read, >= 1 transport, 1 write |
+| K1, free nested flags: helpers not tied to `L/A/B/H` (R2) | yes | 2,682 | one helper with a free flag from X102's dimension-1 frame to Y71's dimension-8 frame; 1 read, >= 1 transport, 1 write |
 | K6, reads of old channel-helper state (R3) | yes | 2,682 | one equal-frame add from `D11` into `Y71` at their shared dimension-5 frame |
 
-R1c and R3 use structural, no-cancellation dependence of the channel registers.
-Their witnesses are therefore support paths only. Both reopen every entry for
-the same reason: the channel already delivers the support of `G/2`, which
-contains every off-diagonal required entry. Any access to the channel's
-source-dependent state exposes that support. The access can come through its
-helpers or by reading a target after the channel has written it. Scaling
-that state is not a correction; its coefficients, dirt and cost are unknown.
+*R1 and the target's own order.* In R1, content written into `Y_u` at one of
+its frames can be read only at that frame or a later one. Every program obeys
+this, because `Y_u`'s frames ascend in time; it is the path order that makes
+path frames nested, applied at a target used as a relay. Correction content
+reaches targets at their final caps (2,310 arrivals, one for each supported
+pair) and at 55 frames of dimension 5 or 6 (31 and 24). Content at a cap can
+be read only at that cap, which feeds only itself because the 104 caps are
+distinct. The 55 lower arrivals relay nothing new. So R1 reopens nothing. R1u
+drops the order, lets cap content be read at the target's low frames, and
+reopens everything. R1's zero therefore rests on that order.
+
+*R1c and R3.* Both use the channel's actual coefficients, recorded per register
+and frame from an exact `Fraction` run of the 4,058 channel events. The same
+run checks that every Y increment equals `G/2` exactly in the sorted port
+order, with all helper dirt cancelled, and that every channel add is at equal
+frames. The channel first puts `X102` into `Y71` at event 3378, with
+coefficient `1/2`, from `D11` at dimension 5; the R1c and R3 witnesses read
+that state. Both rows reopen every entry for the same reason: the channel
+already delivers the support of `G/2`, which contains every off-diagonal
+required entry. Any access to the channel's source-dependent state exposes
+that support, through its helpers or by reading a target after the channel has
+written it. Scaling that state is not a correction; its coefficients, dirt and
+cost are unknown.
+
 Known rows are cited, not recomputed:
 
 - PR3013: component/containment pooling reaches all 4,992 entries.
 - PR3427: a one-H2 source shear removes the `(71,102)` requirement, but
-  `D[3,2]` stays unsupported. A source preconditioner needs `rank(U-I) >= 4`.
+  `D[3,2]` stays unsupported. A source preconditioner needs `rank(U-I) >= 4`
+  (17 by the section above).
 
-Reading: the obstruction rests on the fixed cover (K1) and on the exclusion of
-the channel's source-dependent state (K6, including its exposure through Y).
-Unread-Y matters in this instance only through that exposure. At P104,
-correction-only Y relay reopens nothing.
+Reading. Among the rows computed here, two hypotheses each reopen every entry:
+the fixed cover (K1) and the exclusion of the channel's source-dependent state
+(K6, including its exposure through Y). Unread Y matters at P104 only through
+that exposure, given each target's write-before-read order. The rows are not a
+complete map. Not computed at P104: frame descent (K2), cross-frame mixing
+(K3), changed source or target frame paths and source mutation (K4, K5),
+dependent dirt (K7) and extra correlated storage. The small-domain negative
+controls show that descent, cross-frame mixing, off-cover flags and correlated
+old state can each escape both tests. A reopening must change at least one of
+K1-K7, or add storage, and must cover all 2,682 entries with a full bill.

@@ -68,26 +68,26 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Independent hypothesis-by-hypothesis review of the PR3259 fixed-cover support-cut embedding argument (and PR3252's memory-relaxation proof, and what PR3427 consumes), with a sharper valid criterion (one recombined helper per path), its finite P104 consequences, three single-relaxation support rows and a small-domain coefficient oracle. Audit only.",
+  "actual_scope": "Independent hypothesis-by-hypothesis review of the PR3259 fixed-cover support-cut embedding argument (and PR3252's memory-relaxation proof, and what PR3427 consumes), with a sharper valid criterion (one recombined helper per path, exact for the pooled untimed relaxation), its finite P104 consequences, single-relaxation support rows and a small-domain exhaustive check. Audit only; author-checked and AI-assisted.",
   "scope_change_reason": "The card asks for a chronological correction program. The revision-6 decisions table (row 1) instead asks first for a review of the submitted #3259 support cut and its contract, which decides whether the fixed-cover route is closed and what any reopening must cover. No construction is attempted.",
-  "bottleneck_link": "Decides whether the fixed-cover, immutable-X, unread-Y, independent-dirt, monotone equal-frame P104 contract is closed and how large its obstruction is (2,682 unsupported required entries, not one), which bounds what a contract change or source preconditioner must reopen before any construction round.",
+  "bottleneck_link": "Decides whether the pooled fixed-cover, frozen-path, immutable-X, unread-Y, independent-dirt, monotone equal-frame P104 contract is closed and how large its obstruction is (2,682 unsupported required entries, not one), which bounds what a contract change or source preconditioner must reopen before any construction round.",
   "budget_minutes": 150,
   "stop_rule": "Stop at a proof-review verdict per step; on an engine disagreement, a proof gap or an oracle escape, stop and minimize. No matching search, no correction construction, no pricing beyond counting witness operations, at most three new relaxation rows, no Lean.",
   "outcome": "completed",
-  "evidence": "PROOF-REVIEW.md (step table a-h, lemma proof, PR3252 review, PR3427 consumption, rank consequence); verify.py (layered control reproducing PR3259 numbers; sharp criterion by two loop orders and by an independent PR3252 full-memory recurrence over all 104 columns, all equal; PR3427 four-column masks; rank(U-I)>=17 by Fraction elimination and a Bareiss minor; rows R1/R1c/R2/R3; 18,000-program exact-coefficient oracle (pooled and unpooled families, uniform and path-directed programs, checked interpreter) and six negative controls); test_verify.py (four failing mutations and the Y-relay escape).",
+  "evidence": "PROOF-REVIEW.md (step table a-h, lemma proof, PR3252 review, PR3427 consumption, rank consequence, load-bearing rows); verify.py (exact channel run: Y increment = G/2; layered control reproducing PR3259 numbers; sharp support by one criterion in two loop orders and by an independent PR3252 full-memory recurrence over all 104 columns, all equal, shape = 2,309 own port pairs + (73,83); PR3427 four-column masks; rank(U-I)>=17 by Fraction elimination and a Bareiss minor; rows R1/R1u/R1c/R2/R3; 9,000 seeded small instances with exhaustive untimed reachability, 13,242 realized checked programs and 18,000 random checked programs, exact Fractions; six negative controls); test_verify.py (seven controls).",
   "author": "Sagar Thakrar (thakrarsagar)",
   "ai_assistance": "Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for analysis, code and writing. No independent human or formal-kernel review is claimed.",
   "open_questions": [
     {
       "question": "What rank does the full unsupported pattern force on a P104 source preconditioner (U-I)?",
-      "why_it_matters": "A greedy rectangle already gives rank(U-I)>=17 versus PR3427's 4; a min-rank completion of -C on all 8,506 unsupported pairs may force much more and would further constrain joint native source preparation.",
+      "why_it_matters": "A greedy rectangle already gives rank(U-I)>=17 versus PR3427's 4; a min-rank completion of -C on all 8,506 unsupported pairs may force more and would further constrain joint native source preparation.",
       "first_step": "Bound the min-rank completion exactly (larger or overlapping rectangles, or a min-rank argument) with the pinned sharp support; no matching search.",
       "blocked_by": "Nothing beyond the sharp support certificate here; pricing a joint preparation remains separate."
     },
     {
-      "question": "What is the smallest set of off-cover helper flags reopening all 2,682 sharp-missing entries, and its full bill?",
-      "why_it_matters": "Relaxing the fixed cover (R2) reopens every entry at support level, so it is the cheapest support reopening found here.",
-      "first_step": "Cover the 2,682 (V<=W) snapshot pairs by a minimum number of free full flags and list each added operation.",
+      "question": "Which changed contract reopens all 2,682 sharp-missing entries at least cost, and what is its full bill?",
+      "why_it_matters": "Under the present cover an entry is supported only through its own compatible slot pair (apart from (73,83)); relaxing the cover (R2) reopens every entry at support level, but its cost is unknown. Pending #3618's T48 (one target lift, +2 rank mass, a whole row) changes the target path instead and is the first priced data point.",
+      "first_step": "Name the changed hypothesis among K1-K7 (or added storage), cover the 2,682 entries at support level, and list each added operation.",
       "blocked_by": "Coefficients, dirty restoration, chronology, native/hosting/precision/consumer costs are unknown."
     },
     {

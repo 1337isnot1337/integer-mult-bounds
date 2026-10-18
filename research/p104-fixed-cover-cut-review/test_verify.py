@@ -41,7 +41,17 @@ class Controls(unittest.TestCase):
                 for t, yc in enumerate(inst[2]) if set(xc) & set(yc)}}):
             self.assertTrue(fails(V["oracle"], 7, ((3, 400),), 120))
 
-    def test_dropping_nesting_breaks_pr3427_masks(self):
+    def test_oracle_rejects_a_too_tight_exhaustive_search(self):
+        # An exhaustive search that never switches helper type misses the
+        # legal two-type relay of the unpooled F_2^4 example.
+        g = V["unpooled_relay_example"].__globals__
+        with mock.patch.dict(g, {"small_exact": lambda inst: (
+                V["small_sharp"](inst), {})}):
+            self.assertTrue(fails(V["unpooled_relay_example"]))
+
+    def test_dropping_shared_type_breaks_pr3427_masks(self):
+        # Pairing a source snapshot and a target snapshot that are each
+        # admitted by some helper type, not necessarily the same one.
         g = V["sharp_by_frames"].__globals__
         r = result()
         loose = [0] * 104
@@ -58,6 +68,21 @@ class Controls(unittest.TestCase):
         got = [sum(1 << t for t in range(104) if loose[t] >> s & 1)
                for s in range(4)]
         self.assertNotEqual(tuple(got), g["PR3427_SOURCE_MASKS"])
+
+    def test_dropping_containment_is_unsound_in_principle(self):
+        # Containment V <= W is not decisive at P104 (verify.py checks this),
+        # but it is needed in general.  F_2^4, one pooled type with line <e1>
+        # and hyperplane <e1,e2,e3>: X0 passes the admitted plane <e1,e2>,
+        # Y0 the admitted plane <e1,e3>, and no path joins them.
+        key = V["key"]
+        full = key([1, 2, 4, 8])
+        ty = {0: (), 1: key([1]), 3: key([1, 2, 4]), 4: full}
+        inst = (4, [[key([2]), key([1, 2]), full]],
+                [[(), key([1, 4]), key([1, 4, 8])]], [ty])
+        v, w = key([1, 2]), key([1, 4])
+        self.assertTrue(V["small_admit"](ty, v) and V["small_admit"](ty, w))
+        self.assertNotIn((0, 0), V["small_exact"](inst)[0])
+        self.assertNotIn((0, 0), V["small_sharp"](inst))
 
     def test_wrong_rectangle_is_rejected(self):
         g = V["rank_consequence"].__globals__

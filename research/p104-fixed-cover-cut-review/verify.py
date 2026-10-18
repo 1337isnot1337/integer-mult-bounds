@@ -5,12 +5,15 @@ Standard library only.  Shares no code with PR3182, PR3252, PR3259 or PR3427.
 Frames are GF(2) subspaces of F_2^n held as canonical reduced-echelon keys.
 
   P104   rebuilds frames, covers, the 2,309-edge pool and the 4,992 required
-         entries; replays PR3259's layered relaxation with a literal frame-hosting
-         index (control) and evaluates the path-nested one-helper criterion
-         (sharp untimed support) by two loop orders and by an independent
-         full-memory recurrence in the manner of PR3252.
-  ORACLE exhaustive/bounded small programs with exact Fraction coefficients.
-  ROWS   three single-relaxation witnesses (unpriced; operations counted).
+         entries; runs the channel word exactly (Y increment = G/2); replays
+         PR3259's layered relaxation with a literal frame-hosting index
+         (control) and evaluates the path-nested one-helper criterion (sharp
+         untimed support) by two loop orders and by an independent full-memory
+         recurrence in the manner of PR3252.
+  ORACLE seeded random small instances: an exhaustive untimed reachability per
+         instance, an explicit checked program for every reachable helper pair,
+         and random checked programs, all with exact Fraction coefficients.
+  ROWS   single-relaxation support rows (unpriced; operations counted).
 """
 
 import hashlib
@@ -35,6 +38,14 @@ INPUTS = {
 def need(ok, msg):
     if not ok:
         raise SystemExit("FAIL: " + msg)
+
+
+def axpy(dst, c, src):
+    """dst += c * src on sparse Fraction vectors."""
+    for k, v in list(src.items()):
+        dst[k] = dst.get(k, 0) + c * v
+        if dst[k] == 0:
+            del dst[k]
 
 
 # ---------------------------------------------------------------- GF(2) keys
@@ -96,6 +107,52 @@ def frame_paths(word):
         need(n not in paths or paths[n][-1] == key(b), "final frame " + n)
     need(len(paths) == 208, "104 X and 104 Y paths")
     return paths
+
+
+def channel_run(word, C):
+    """Exact Fraction run of the channel word.  Checks that every add is at
+    equal current frames, that each Y increment is X -> G/2 = I - C on the
+    sorted ports with all helper dirt cancelled, and records which sources
+    have a nonzero coefficient in each register at each of its frames."""
+    frame, val, hist = {}, {}, {}
+
+    def record(n):
+        h = hist.setdefault(n, {})
+        h[frame[n]] = h.get(frame[n], 0) | sum(
+            1 << int(k[1:]) for k in val[n] if k[0] == "X")
+    for n, b in word["initial_frames"].items():
+        frame[n], val[n] = key(b), {n: Fraction(1)}
+        record(n)
+    first = None
+    for i, ev in enumerate(word["program"]):
+        op, n = ev[0], ev[1]
+        if op == "transport":
+            need(frame[n] == key(ev[2]), "channel transport from its frame")
+            frame[n] = key(ev[3])
+        elif op == "add":
+            need(frame[n] == frame[ev[2]] == key(ev[4]),
+                 "channel add at equal frames")
+            axpy(val[n], Fraction(ev[3]), val[ev[2]])
+            if first is None and n == "Y71" and "X102" in val[n]:
+                first = [i, str(val[n]["X102"]), ev[2], len(frame[n])]
+        elif op == "copy":
+            need(frame[ev[2]] == key(ev[3]), "channel copy at its frame")
+            frame[n], val[n] = key(ev[3]), dict(val[ev[2]])
+        elif op == "zero":
+            frame[n], val[n] = key(ev[2]), {}
+        else:  # erase discards the private copy; it is never read again
+            need(op == "erase", "known channel event")
+            frame[n], val[n] = key(ev[2]), {}
+            continue
+        record(n)
+    for t in range(104):
+        inc = dict(val["Y%d" % t])
+        axpy(inc, Fraction(-1), {"Y%d" % t: Fraction(1)})
+        want = {"X%d" % s: Fraction(int(t == s)) - C[t][s]
+                for s in range(104)}
+        need(inc == {k: x for k, x in want.items() if x},
+             "Y%d increment is exactly G/2 with dirt cancelled" % t)
+    return hist, first
 
 
 def channel_roles(word):
@@ -294,8 +351,9 @@ def sum_or(masks):
     return m
 
 
-def sharp_by_frames(geo, paths):
-    """Method 1 (RREF keys): pair snapshots V <= W sharing a helper type."""
+def sharp_by_frames(geo, paths, nested=True):
+    """Method 1 (RREF keys): pair snapshots V <= W sharing a helper type.
+    nested=False drops the containment V <= W (a probe, not a test)."""
     masks = endpoint_masks(geo)
     frames = {f for k in "XY" for i in range(104) for f in paths[k + str(i)]}
     adm = {f: admit_mask(geo, masks, f) for f in frames}
@@ -306,7 +364,8 @@ def sharp_by_frames(geo, paths):
         for s in range(104):
             xs = paths["X%d" % s]
             if set(xs) & set(ys) or any(
-                    adm[v] & adm[w] and le(v, w) for v in xs for w in ys):
+                    adm[v] & adm[w] and (le(v, w) or not nested)
+                    for v in xs for w in ys):
                 m |= 1 << s
         out.append(m)
     return out
@@ -431,6 +490,7 @@ def p104():
     roles = channel_roles(word)
     geo = covers(cert, paths)
     C = required(e8_ports(fixture))
+    hist, first = channel_run(word, C)
     lay, fwd, back, f5 = layered(geo, paths)
     miss_l = missing(C, lay)
     need(miss_l == [(71, 102)], "layered relaxation misses only (71,102)")
@@ -440,36 +500,28 @@ def p104():
     need(sharp == sharp_by_edges(geo, paths), "sharp criterion: two loop orders")
     need(sharp == full_memory(geo, paths), "PR3252 full-memory test = sharp")
     need(all(sharp[t] & ~lay[t] == 0 for t in range(104)), "sharp <= layered")
+    need(not any(set(paths["X%d" % s]) & set(paths["Y%d" % t])
+                 for s in range(104) for t in range(104)),
+         "no X path shares a frame with a Y path")
+    # Containment is never decisive here: dropping it changes no pair.
+    need(sharp_by_frames(geo, paths, nested=False) == sharp,
+         "containment not decisive at P104")
+    # Structure: the sharp support is the 2,309 compatible slot pairs read as
+    # port pairs (target b//2, source a//2) plus one extra pair.
+    own = {(b // 2, a // 2) for a, b in geo[4]}
+    need(len(own) == 2309 and all(C[t][s] != 0 for t, s in own),
+         "2,309 distinct required own port pairs")
+    sup = {(t, s) for t in range(104) for s in range(104) if sharp[t] >> s & 1}
+    need(sup == own | {(73, 83)} and C[73][83] != 0,
+         "sharp support = own port pairs + (73,83)")
     return {"roles": roles, "geo": geo, "paths": paths, "C": C,
             "layered": lay, "sharp": sharp, "missing_layered": miss_l,
-            "missing_sharp": missing(C, sharp), "forward": fwd}
+            "missing_sharp": missing(C, sharp), "forward": fwd,
+            "hist": hist, "first_Y71_X102": first}
 
 
 # ------------------------------------------------ sensitivity rows (support)
-def channel_states(word):
-    """Structural X-dependence of every original-channel register per frame."""
-    frame, dep, hist = {}, {}, {}
-    for n, b in word["initial_frames"].items():
-        frame[n] = key(b)
-        dep[n] = 1 << int(n[1:]) if n[0] == "X" else 0
-        hist[n] = {frame[n]: dep[n]}
-    for ev in word["program"]:
-        n = ev[1]
-        if ev[0] == "transport":
-            frame[n] = key(ev[3])
-        elif ev[0] == "add":
-            dep[n] |= dep[ev[2]]
-        elif ev[0] == "copy":
-            frame[n], dep[n] = key(ev[3]), dep[ev[2]]
-        elif ev[0] == "zero":
-            frame[n], dep[n] = key(ev[2]), 0
-        # erase: keep dependence (over-approximation; no cancellation used)
-        hist.setdefault(n, {})
-        hist[n][frame[n]] = hist[n].get(frame[n], 0) | dep[n]
-    return hist
-
-
-def rows(r, word):
+def rows(r):
     geo, paths, ms = r["geo"], r["paths"], set(r["missing_sharp"])
     masks, adm = endpoint_masks(geo), {}
 
@@ -482,19 +534,21 @@ def rows(r, word):
     def count(sup):
         return sum(1 for t, s in ms if sup[t] >> s & 1), bool(sup[71] >> 102 & 1)
 
-    hist = channel_states(word)
+    hist = r["hist"]  # actual nonzero channel coefficients per frame
     ys = [(t, j, w) for t in range(104) for j, w in enumerate(paths["Y%d" % t])]
     xin = {(t, j): sum(1 << s for s in range(104) if any(
         hop(v, w) for v in paths["X%d" % s])) for t, j, w in ys}
 
-    def relay(seed):
+    def relay(seed, ordered=True):
+        # ordered: content written into Y_u at snapshot kk is readable only
+        # at snapshots k >= kk (Y_u's frames ascend in time).
         inn = dict(seed)
         changed = True
         while changed:
             changed = False
             for u, k, wu in ys:
                 avail = 0
-                for kk in range(k + 1):
+                for kk in range(k + 1 if ordered else len(paths["Y%d" % u])):
                     avail |= inn[(u, kk)]
                 for t, j, wt in ys:
                     if t != u and avail & ~inn[(t, j)] and hop(wu, wt):
@@ -506,6 +560,17 @@ def rows(r, word):
         return sup
 
     r1 = relay(xin)
+    r1u = relay(xin, ordered=False)
+    arrivals = {}
+    for t, j, w in ys:
+        if xin[(t, j)]:
+            cap = j == len(paths["Y%d" % t]) - 1
+            arrivals[(len(w), cap)] = arrivals.get((len(w), cap), 0) + \
+                bin(xin[(t, j)]).count("1")
+    need(all(xin[(t, len(paths["Y%d" % t]) - 1)] == r["sharp"][t]
+             for t in range(104)), "every supported pair arrives at the cap")
+    need(len({paths["Y%d" % t][-1] for t in range(104)}) == 104,
+         "104 distinct target caps")
     r1c = relay({(t, j): xin[(t, j)] | hist["Y%d" % t].get(w, 0)
                  for t, j, w in ys})
     free = [sum(1 << s for s in range(104) if any(
@@ -527,6 +592,8 @@ def rows(r, word):
     w1c = [len(f) for f in paths["Y71"]
            if hist["Y71"].get(f, 0) >> 102 & 1][:1]
     return {"R1_correction_only_Y_relay": count(r1),
+            "R1u_without_target_order": count(r1u),
+            "R1_arrivals_dim_cap": sorted(arrivals.items()),
             "R1c_Y_relay_with_channel_content": count(r1c),
             "R2_free_nested_flags": count(free),
             "R3_old_channel_helper_reads": count(r3),
@@ -792,11 +859,6 @@ def run_program(rng, inst, steps, violate=None, direct=True):
         f = [c for c in xs + ys for c in c if 1 <= len(c) < n]
         extra = (f[rng.below(len(f))], {("X", rng.below(len(xs))): Fraction(1)})
 
-    def axpy(dst, c, src):
-        for k, v in src.items():
-            dst[k] = dst.get(k, 0) + c * v
-            if dst[k] == 0:
-                del dst[k]
     for _ in range(steps):
         fr = [flags[h][pos[h]] for h in range(nh)]
         xf = [xs[i][xp[i]] for i in range(len(xs))]
@@ -850,33 +912,6 @@ def run_program(rng, inst, steps, violate=None, direct=True):
     return got
 
 
-def y_relay_counterexample():
-    """Minimal F_2^3 program: reading a target relays X0 outside both tests.
-
-    e1,e2,e3 = 1,2,4.  X0: <e1> -> FULL.  Y0: 0 -> <e1> -> <e1,e2>.
-    Y1: 0 -> <e1,e2>.  Type T1 fixes <e1> < <e1,e3>; type T2 fixes
-    <e2> < <e1,e2>.  h1 (T1) reads X0 at <e1> and writes Y0 there; Y0 is
-    transported by the frozen channel; h2 (T2, dim-2 frame <e1,e2>) reads
-    Y0 and writes Y1.  Four scalar operations; coefficient c1*c2*c3*c4.
-    """
-    full = key([1, 2, 4])
-    t1 = {0: (), 1: key([1]), 2: key([1, 4]), 3: full}
-    t2 = {0: (), 1: key([2]), 2: key([1, 2]), 3: full}
-    inst = (3, [[key([1]), full]], [[(), key([1]), key([1, 2])],
-                                     [(), key([1, 2])]], [t1, t2])
-    c = [Fraction(2), Fraction(-3), Fraction(5, 7), Fraction(-1, 2)]
-    need(inst[1][0][0] == t1[1], "h1 reads X0 at its line")
-    h1 = c[0]                                   # h1 += c0 * X0  at <e1>
-    y0 = c[1] * h1                              # Y0 += c1 * h1  at <e1>
-    need(inst[2][0][2] == t2[2], "Y0 later frame equals h2 frame")
-    h2 = c[2] * y0                              # h2 += c2 * Y0  at <e1,e2>
-    y1 = c[3] * h2                              # Y1 += c3 * h2  at <e1,e2>
-    need(y1 != 0, "nonzero relayed coefficient")
-    sharp, lay = small_sharp(inst), small_layered(inst)
-    need((1, 0) not in sharp and (1, 0) not in lay, "Y relay escapes")
-    return (1, True)
-
-
 def meet(a, b):
     """Intersection of two subspaces (small domains: enumerate a's points)."""
     pts = [0]
@@ -901,10 +936,11 @@ def flag_through(rng, inst, ty, must):
     return flag
 
 
-def execute(inst, helpers, ops):
+def execute(inst, helpers, ops, yread=False):
     """Run an explicit straight-line program, checking every contract rule:
     flags of the helper's type, monotone transports, equal-frame reads,
-    mixes and writes, monotone frozen X/Y schedules.  Exact Fractions."""
+    mixes and writes, monotone frozen X/Y schedules.  Exact Fractions.
+    yread=True admits one contract violation: helpers may read a target."""
     n, xs, ys, _ = inst
     for ty, fl in helpers:
         need(all(small_admit(ty, f) for f in fl[1:n]) and all(
@@ -913,11 +949,6 @@ def execute(inst, helpers, ops):
     hv = [{("D", h): Fraction(1)} for h in range(len(helpers))]
     yv = [{} for _ in ys]
 
-    def axpy(dst, c, src):
-        for k, x in src.items():
-            dst[k] = dst.get(k, 0) + c * x
-            if dst[k] == 0:
-                del dst[k]
     for op, a, b, c in ops:
         fr = [helpers[h][1][pos[h]] for h in range(len(helpers))]
         if op == "x":
@@ -936,10 +967,123 @@ def execute(inst, helpers, ops):
         elif op == "mix":
             need(fr[a] == fr[b] and a != b, "mix at equal frame")
             axpy(hv[b], c, hv[a])
+        elif op == "yread":
+            need(yread, "targets are never read")
+            need(fr[a] == ys[b][yp[b]], "Y read at equal frame")
+            axpy(hv[a], c, yv[b])
         else:
+            need(op == "write", "known operation")
             need(fr[a] == ys[b][yp[b]], "write at equal frame")
             axpy(yv[b], c, hv[a])
     return {(t, k[1]) for t in range(len(ys)) for k in yv[t] if k[0] == "X"}
+
+
+def y_relay_counterexample():
+    """Minimal F_2^3 program: reading a target relays X0 outside both tests.
+
+    e1,e2,e3 = 1,2,4.  X0: <e1> -> FULL.  Y0: 0 -> <e1> -> <e1,e2>.
+    Y1: 0 -> <e1,e2>.  Type T1 fixes <e1> < <e1,e3>; type T2 fixes
+    <e2> < <e1,e2>.  h1 (T1) reads X0 at <e1> and writes Y0 there; Y0 is
+    transported by the frozen channel; h2 (T2, dim-2 frame <e1,e2>) reads
+    Y0 and writes Y1.  Four scalar operations, run by the checked
+    interpreter with the one rule it breaks (a Y read) enabled.
+    """
+    full = key([1, 2, 4])
+    t1 = {0: (), 1: key([1]), 2: key([1, 4]), 3: full}
+    t2 = {0: (), 1: key([2]), 2: key([1, 2]), 3: full}
+    inst = (3, [[key([1]), full]], [[(), key([1]), key([1, 2])],
+                                     [(), key([1, 2])]], [t1, t2])
+    helpers = [(t1, [(), key([1]), key([1, 4]), full]),
+               (t2, [(), key([2]), key([1, 2]), full])]
+    c = [Fraction(2), Fraction(-3), Fraction(5, 7), Fraction(-1, 2)]
+    ops = [("x", 0, 0, None), ("y", 0, 1, None), ("tr", 0, 1, Fraction(1)),
+           ("read", 0, 0, c[0]), ("write", 0, 0, c[1]),
+           ("y", 0, 2, None), ("tr", 1, 2, Fraction(1)),
+           ("yread", 1, 0, c[2]), ("y", 1, 1, None), ("write", 1, 1, c[3])]
+    need(rejected(lambda: execute(inst, helpers, ops)),
+         "Y read is rejected by the contract interpreter")
+    got = execute(inst, helpers, ops, yread=True)
+    need((1, 0) in got, "nonzero relayed coefficient")
+    sharp, lay = small_sharp(inst), small_layered(inst)
+    need((1, 0) not in sharp and (1, 0) not in lay and
+         (1, 0) not in small_exact(inst)[0], "Y relay escapes")
+    return (1, True)
+
+
+def rejected(fn):
+    """True when the checked interpreter rejects the program."""
+    try:
+        fn()
+    except SystemExit:
+        return True
+    return False
+
+
+def small_frames(n, cache={}):
+    """Every proper nonzero subspace of F_2^n as a canonical key."""
+    if n not in cache:
+        cache[n] = [key(b) for d in range(1, n) for b in subspaces(n, d)]
+    return cache[n]
+
+
+def small_exact(inst):
+    """Exhaustive untimed reachability (no lemma assumed).  A frame is reached
+    when a helper of some type can hold the source there; a helper of type ty
+    moves up between two nested frames that ty admits (a flag of ty passes
+    both); helpers at equal frames mix.  Returns the support and, for each
+    helper-only pair, one witness path (frames, type of each step)."""
+    n, xs, ys, types = inst
+    up = {}
+    for i, ty in enumerate(types):
+        fs = [f for f in small_frames(n) if small_admit(ty, f)]
+        for f in fs:
+            for g in fs:
+                if len(f) < len(g) and le(f, g):
+                    up.setdefault(f, {}).setdefault(g, i)
+            up.setdefault(f, {})
+    sup = {(t, s) for s, xc in enumerate(xs) for t, yc in enumerate(ys)
+           if set(xc) & set(yc)}
+    wit = {}
+    for s, xc in enumerate(xs):
+        par = {v: None for v in xc if v in up}
+        todo = list(par)
+        while todo:
+            f = todo.pop()
+            for g, i in up[f].items():
+                if g not in par:
+                    par[g] = (f, i)
+                    todo.append(g)
+        for t, yc in enumerate(ys):
+            w = next((w for w in yc if w in par), None)
+            if w is not None and (t, s) not in sup:
+                sup.add((t, s))
+                frames, steps = [w], []
+                while par[frames[-1]] is not None:
+                    f, i = par[frames[-1]]
+                    frames.append(f)
+                    steps.append(i)
+                wit[(t, s)] = (frames[::-1], steps[::-1])
+    return sup, wit
+
+
+def realize(rng, inst, pair, witness):
+    """Turn a reachability witness into an explicit program (one helper per
+    step, mixing at the shared frames) and run it in the checked
+    interpreter.  True when the pair gets a nonzero coefficient."""
+    n, xs, ys, types = inst
+    (t, s), (frames, steps) = pair, witness
+    helpers, ops = [], [("x", s, xs[s].index(frames[0]), None)]
+    for k, i in enumerate(steps):
+        fl = flag_through(rng, inst, types[i], frames[k:k + 2])
+        need(fl is not None, "witness step admitted by its type")
+        helpers.append((types[i], fl))
+        ops += [("tr", k, fl.index(frames[k]), rng.coef()),
+                ("read", k, s, rng.coef()) if k == 0 else
+                ("mix", k - 1, k, rng.coef()),
+                ("tr", k, fl.index(frames[k + 1]), rng.coef())]
+    ops += [("y", t, ys[t].index(frames[-1]), None),
+            ("write", len(steps) - 1, t, rng.coef())]
+    return pair in execute(inst, helpers, ops)
 
 
 def directed_program(rng, inst, hops):
@@ -991,38 +1135,61 @@ def unpooled_relay_example():
     """F_2^4, types not closed under recombination: a legal two-type relay
     lies inside PR3259's layered test but outside the single-type criterion.
 
-    T1 fixes <e1> < <e1,e2> < <e1,e2,e4>; T2 fixes <e3> < <e1,e2> <
+    T1 fixes <e1> < <e1,e2> < <e1,e2,e4>; T2 fixes <e2> < <e1,e2> <
     <e1,e2,e3>.  h1 (T1) reads X0 at <e1>, rises to <e1,e2>, adds into h2
-    (T2) there; h2 rises to W = <e1,e2,e3> and writes Y0."""
+    (T2) there; h2 rises to W = <e1,e2,e3> and writes Y0.  Run by the
+    checked interpreter (which also checks that each type is a flag)."""
     full = key([1, 2, 4, 8])
     t1 = {0: (), 1: key([1]), 2: key([1, 2]), 3: key([1, 2, 8]), 4: full}
-    t2 = {0: (), 1: key([4]), 2: key([1, 2]), 3: key([1, 2, 4]), 4: full}
+    t2 = {0: (), 1: key([2]), 2: key([1, 2]), 3: key([1, 2, 4]), 4: full}
     inst = (4, [[key([1]), full]], [[(), key([1, 2, 4])]], [t1, t2])
-    need(t1[2] == t2[2] and t2[3] == inst[2][0][1], "relay frames")
-    coef = Fraction(3) * Fraction(-2, 5) * Fraction(7) * Fraction(1, 3)
-    need(coef != 0, "nonzero relayed coefficient")
-    need((0, 0) not in small_sharp(inst) and (0, 0) in small_layered(inst),
+    helpers = [(t, [t[d] for d in range(5)]) for t in (t1, t2)]
+    ops = [("x", 0, 0, None), ("tr", 0, 1, Fraction(1)),
+           ("read", 0, 0, Fraction(3)), ("tr", 0, 2, Fraction(-2, 5)),
+           ("tr", 1, 2, Fraction(1)), ("mix", 0, 1, Fraction(7)),
+           ("tr", 1, 3, Fraction(1, 3)), ("y", 0, 1, None),
+           ("write", 1, 0, Fraction(1))]
+    need((0, 0) in execute(inst, helpers, ops),
+         "legal two-type relay delivers a nonzero coefficient")
+    need((0, 0) not in small_sharp(inst) and (0, 0) in small_layered(inst)
+         and (0, 0) in small_exact(inst)[0],
          "pooling is needed for the one-helper criterion")
     return True
 
 
-def oracle(seed=20261018, trials=((3, 3000), (4, 1500)), steps=120):
-    """Pooled instances (P104-like): every legal coefficient lies in the
-    one-helper test, which lies in PR3259's layered test.  Unpooled rigid
-    instances: every legal coefficient lies in the layered test (PR3259 needs
-    no pooling); escapes from the one-helper test are counted."""
-    rng = Rng(seed)
+ORACLE_TRIALS = ((3, 3000), (4, 1500))
+
+
+def oracle(seed=20261018, trials=ORACLE_TRIALS, steps=120):
+    """Seeded random small instances, each checked three ways: an exhaustive
+    untimed reachability (small_exact), an explicit checked program for every
+    reachable helper pair (realize), and random checked programs.  Pooled
+    instances (P104-like): the exhaustive support equals the one-helper test.
+    Unpooled rigid instances: it lies in PR3259's layered test (no pooling
+    needed there) and its escapes from the one-helper test are counted."""
+    rng, wrng = Rng(seed), Rng(seed + 1)
     c = dict.fromkeys(("programs", "nonzero_coefficients", "helper_mediated",
                        "cross_type_relayed", "directed_multi_type",
-                       "strict_gap", "unpooled_programs",
+                       "strict_gap", "strict_gap_pairs",
+                       "exact_helper_pairs_realized", "unpooled_programs",
                        "unpooled_coefficients", "unpooled_multi_type",
-                       "unpooled_single_type_escapes"), 0)
+                       "unpooled_single_type_escapes",
+                       "unpooled_exact_helper_pairs_realized",
+                       "unpooled_exact_escapes", "unpooled_escape_instances"),
+                      0)
     for n, count in trials:
         for _ in range(count):
             inst = instance(rng, n, pooled=True)
             sharp, lay = small_sharp(inst), small_layered(inst)
             need(sharp <= lay, "oracle: sharp support inside layered")
             c["strict_gap"] += sharp < lay
+            c["strict_gap_pairs"] += len(lay - sharp)
+            exact, wit = small_exact(inst)
+            need(exact == sharp, "oracle: exhaustive untimed support differs "
+                 "from the one-helper test on a pooled instance")
+            need(all(realize(wrng, inst, p, w) for p, w in wit.items()),
+                 "oracle: reachable pair not realized by a checked program")
+            c["exact_helper_pairs_realized"] += len(wit)
             # Direct X->Y adds are seeded identically by both tests; omit
             # them so every coefficient is carried by helper paths.
             got = run_program(rng, inst, steps, direct=False)
@@ -1037,10 +1204,19 @@ def oracle(seed=20261018, trials=((3, 3000), (4, 1500)), steps=120):
             c["cross_type_relayed"] += len(cross)
             c["directed_multi_type"] += len(path) if ntypes > 1 else 0
             inst = instance(rng, n, nt=6, rigid=True)
+            exact, wit = small_exact(inst)
+            need(exact <= small_layered(inst),
+                 "oracle: exhaustive support outside the layered test")
+            need(all(realize(wrng, inst, p, w) for p, w in wit.items()),
+                 "oracle: reachable pair not realized by a checked program")
+            c["unpooled_exact_helper_pairs_realized"] += len(wit)
+            escapes = exact - small_sharp(inst)
+            c["unpooled_exact_escapes"] += len(escapes)
+            c["unpooled_escape_instances"] += bool(escapes)
             got = run_program(rng, inst, steps, direct=False)
             path, ntypes = directed_program(rng, inst, 1 + rng.below(3))
-            need(got | path <= small_layered(inst),
-                 "oracle: legal coefficient outside the layered test")
+            need(got | path <= exact,
+                 "oracle: legal coefficient outside the exhaustive support")
             c["unpooled_programs"] += 2
             c["unpooled_coefficients"] += len(got) + len(path)
             c["unpooled_multi_type"] += len(path) if ntypes > 1 else 0
@@ -1078,9 +1254,28 @@ def main():
          "every row and column has a sharp-missing entry")
     need(sum(bin(m).count("1") for m in sharp) == 2310 and
          sum(bin(m).count("1") for m in r["layered"]) == 10815, "support sizes")
-    _, word, _ = load()
-    rw = rows(r, word)
+    C, lay = r["C"], r["layered"]
+    by_value = {}
+    for t, s in ms:
+        by_value[str(C[t][s])] = by_value.get(str(C[t][s]), 0) + 1
+    need(by_value == {"-1/2": 1801, "1/2": 881}, "sign split 1,801/881")
+    reopened = sum(1 for t, s in ms if lay[t] >> s & 1)
+    need(reopened == 2681, "PR3259's test grants 2,681 sharp-missing entries")
+    pairs = [(t, s) for t in range(104) for s in range(104)]
+    need(sum(not sharp[t] >> s & 1 for t, s in pairs) == 8506, "8,506 unsupported")
+    need(all(C[t][s] != 0 and t != s for t, s in pairs if sharp[t] >> s & 1),
+         "every sharp-supported pair is an off-diagonal required entry")
+    zero_off = [(t, s) for t, s in pairs if t != s and C[t][s] == 0]
+    need(len(zero_off) == 5720 and all(lay[t] >> s & 1 for t, s in zero_off)
+         and all(lay[t] >> t & 1 for t in range(104)),
+         "PR3259's test grants all 5,720 zero off-diagonal and 104 diagonal pairs")
+    need(r["first_Y71_X102"] == [3378, "1/2", "D11", 5],
+         "channel's first X102 delivery into Y71")
+    rw = rows(r)
     need(rw["R1_correction_only_Y_relay"] == (0, False), "R1")
+    need(rw["R1u_without_target_order"] == (2682, True), "R1u")
+    need(rw["R1_arrivals_dim_cap"] == [((5, False), 31), ((6, False), 24),
+                                       ((8, True), 2310)], "R1 arrivals")
     need(rw["R1c_Y_relay_with_channel_content"] == (2682, True), "R1c")
     need(rw["R2_free_nested_flags"] == (2682, True), "R2")
     need(rw["R3_old_channel_helper_reads"] == (2682, True), "R3")
@@ -1093,20 +1288,29 @@ def main():
     need(escapes == ESCAPES_EXPECTED, "negative controls %r" % (escapes,))
     print(json.dumps({"channel_roles": r["roles"], "layered_missing":
                       r["missing_layered"], "forward_cone": r["forward"],
+                      "channel_first_Y71_X102": r["first_Y71_X102"],
                       "rank_bound": rk, "minor_det_8C": det,
-                      "sharp_missing": len(ms), "rows": rw, "oracle": checked,
-                      "negative_controls": escapes}, sort_keys=True))
+                      "sharp_missing": len(ms), "sharp_missing_by_value":
+                      by_value, "layered_grants_sharp_missing": reopened,
+                      "unsupported_pairs": 8506, "sharp_support":
+                      "2309 own port pairs + [73,83]", "rows": rw,
+                      "oracle": checked, "negative_controls": escapes},
+                     sort_keys=True))
     print("PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 "
           "sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 "
-          "rows=4 oracle_programs=%d no_kappa" % (
+          "rows=5 oracle_instances=%d oracle_programs=%d no_kappa" % (
+              sum(n for _, n in ORACLE_TRIALS) * 2,
               checked["programs"] + checked["unpooled_programs"]))
 
 
 ORACLE_EXPECTED = {
     "programs": 9000, "nonzero_coefficients": 1043, "helper_mediated": 604,
     "cross_type_relayed": 13, "directed_multi_type": 620, "strict_gap": 54,
+    "strict_gap_pairs": 75, "exact_helper_pairs_realized": 4264,
     "unpooled_programs": 9000, "unpooled_coefficients": 1887,
-    "unpooled_multi_type": 1112, "unpooled_single_type_escapes": 0}
+    "unpooled_multi_type": 1112, "unpooled_single_type_escapes": 0,
+    "unpooled_exact_helper_pairs_realized": 8978,
+    "unpooled_exact_escapes": 33, "unpooled_escape_instances": 26}
 ESCAPES_EXPECTED = {"yread": (1, True), "unpooled": True, "descent": (1, True),
                     "crossframe": (6, True), "offcover": (131, True),
                     "oldstate": (159, True)}
