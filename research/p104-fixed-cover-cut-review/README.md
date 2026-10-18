@@ -12,8 +12,9 @@ column. PR3259's single missing entry, `C[71,102] = -1/2`, is a property of its
 looser relaxation.
 
 PR3427 states the lemma, but it has not been evaluated beyond PR3427's four
-source columns. Applied to all 104 columns, it raises PR3427's source-preconditioner bound
-from `rank(U-I) >= 4` to **`rank(U-I) >= 17`**, under PR3427's own contract.
+source columns. Applied to all 104 columns, it raises PR3427's
+source-preconditioner bound from `rank(U-I) >= 4` to **`rank(U-I) >= 17`**,
+under PR3427's own contract.
 
 This is an audit: a scoped proof review, a finite certificate and small-domain
 controls. It constructs nothing and is not a complete multiplication theorem.
@@ -41,7 +42,7 @@ restoration.
 
 | Relaxed hypothesis | Reaches `(71,102)` | Reopens, of 2,682 |
 |---|---|---:|
-| Cross-layer nesting, as PR3259's proof relaxation drops it | no | 2,681 |
+| Cross-layer nesting, as PR3259's proof drops it (a proof relaxation, not a contract change) | no | 2,681 |
 | Unread Y, correction-only relay (R1) | no | 0 |
 | Unread Y, with the channel's own Y content readable (R1c) | yes, by feedback on Y71 at dimension 5 | 2,682 |
 | Fixed cover: helpers not forced through `L/A/B/H` (R2) | yes, one helper through `L_102 <= H_71` | 2,682 |
@@ -50,8 +51,8 @@ restoration.
 Among the rows computed here, two hypotheses each reopen every entry. One is
 the fixed cover. The other excludes the channel's source-dependent state,
 whether held in its helpers or exposed by reading targets after the channel
-has written them. That state already carries
-the support of `G/2`, which contains every off-diagonal requirement. At P104,
+has written them. That state already carries the support of `G/2`, which
+contains every off-diagonal requirement. At P104,
 correction-only Y relay reopens nothing, although an `F_2^3` program shows it
 can matter in principle. Frame descent and cross-frame mixing also break the
 argument; the small-domain negative controls show this. They are not priced or
@@ -110,8 +111,8 @@ independently and sorted.
   helpers. Seed `20261018`, 120 operations per program, 3,000 programs over
   `F_2^3` and 1,500 over `F_2^4`. This is a bounded randomized family, not an
   exhaustive enumeration.
-- Before this review, the original channel word was checked for its roles:
-  X is never written and Y is never read, so K4 and K5 hold for the channel.
+- The verifier also checks the roles in the original channel word: X is
+  never written and Y is never read, so K4 and K5 hold for the channel.
 
 ## Scope, inherited assumptions and open obligations
 
@@ -167,7 +168,8 @@ cold replay is unchanged and was not rerun.
   repair).
 - jmbarrancoml: PR3427 `344774ba08a73fc3a85fdcb93fb319927bde3ea2` (the
   one-helper lemma and the rank-four theorem extended here).
-- Wentao Li for the chronology audit, which is not redone here.
+- Wentao Li for the chronology audit (`p104-channel-touch-restoration-audit`),
+  which is not redone here.
 - The native/compiler lineage credited in the pinned inputs: Rohan Arun/1972,
   Chafik Boukhalfa/1991, Adam Gall/1940, Josie Elliston/1071 and
   Ali Romman/1125.
