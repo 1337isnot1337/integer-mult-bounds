@@ -3,7 +3,7 @@
 ## Candidate
 
 - Branch: `cursor/flag0-tail-owner-host-60b9` (VictorLiwentao fork).
-- Content tip: scientific package commit (parent = pinned base).
+- Content tip: `01cbbe345` (scientific package commit; parent = pinned base).
 - Packaging tip: branch HEAD (`git rev-parse HEAD` on this branch).
 - Package: `research/p104-flag0-tail-owner-host/`
 - Base: CrocSwap main `20ecf2891d80b5acf18d980b2164fb44ea7faa90`
