@@ -64,7 +64,7 @@ def run():
     parking.empty()
     return {"nested_frames": 96, "roles_per_frame": 7, "finite_header_fields": 4,
             "sha256": digest.hexdigest(), "live_child_rejected": True,
-            "scope": "Physical Count/payload continuation primitive; recursive complex dispatcher unfinished."}
+            "scope": "Physical Count/payload continuation primitive; complete-controller checks run separately."}
 
 
 if __name__ == "__main__":

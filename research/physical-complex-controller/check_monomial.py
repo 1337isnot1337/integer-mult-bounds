@@ -106,7 +106,7 @@ def run():
     cohort.ready()
     return {"complete_packets": cases, "columns": [1, 2], "outer_rows": 2,
             "sha256": digest.hexdigest(), "peak_leases": engine.pool.peak,
-            "scope": "Selectable two-coordinate physical monomials with an elementary q=2 ordinary fixture; selected full-cover caller unfinished."}
+            "scope": "Selectable two-coordinate physical monomials with an elementary q=2 ordinary fixture; no selected full-cover payload execution."}
 
 
 if __name__ == "__main__":

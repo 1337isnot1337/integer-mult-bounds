@@ -174,6 +174,19 @@ with the exact target; I saturate at target+1 so that I retain strict
 overshoot information. I close the fixed expression temporaries before
 entering recursive execution.
 
+I also discharge the Compact repair inequality at each fast input. Put
+l=ceil(log2 p). Since Q0>=qF+qB>=3H/K=3dG/K, the conditions D>Q0 and
+D<=d give K>3G. Therefore
+
+    K>=3G+1=12l+19>8l+16=G+4l+10.
+
+I meet the sufficient inequality in the credited PR3055 Compact proof
+without adding an execution cutoff. I also have 3H<dK<=p^.998994<=p,
+so the reserved compact fields fit the address domain. At f=1 I bypass
+Compact; below the ordinary fitted range I use its elementary fallback.
+I still require the long-record hypothesis to absorb descriptor/repair
+setup. For shorter records I retain the unabsorbed primitive invoice.
+
 For D<=Q0 I use the direct leaf. Otherwise I process the first q0+qF and
 last qB axes, reserve the complete row range R0=2^(q0K), and pad it once
 to a multiple of L^D0(d). Since R0>=L^D0(d), I increase volume by less than

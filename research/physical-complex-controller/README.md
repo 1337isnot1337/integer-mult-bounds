@@ -34,6 +34,8 @@ I group the cold checks into source binding, physical execution and encoded
 planning. I run each group with assertions disabled; when importing the
 credited assertion-based moment engine, I compile it with assertions enabled.
 The repository runner supplies isolated bytecode-cache namespaces.
+I record the local cold replay and additional two-level execution in
+[EVIDENCE.md](EVIDENCE.md).
 
 | Check | Scope |
 |---|---|
@@ -71,6 +73,10 @@ At 23:30 UTC on October 17 I checked 200 recent PR records, including 169
 updates since 18:31, complete Discussions 2238/2253 and 100 hub comments.
 I found no competing complete complex controller in that coverage. I keep
 the frozen scientific pins and record the publication refresh in TASK.json.
+At 23:57 UTC I checked the ten newer PRs and current claim/hub activity.
+Sagar Thakrar's PR3377 contributes complementary formal recipe dispatch;
+its author leaves the serialized/Python/physical refinement open. I do not
+claim the first source-bound dispatcher.
 
 I retain the selected native/common-label identities, hosting chronology,
 ordinary B1/C0 refinement and outer analytic-transfer obligations. I have
