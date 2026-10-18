@@ -4,7 +4,7 @@
 
 - Branch: `cursor/p104-present-head-flag0-audit-60b9` (VictorLiwentao fork)
 - Content tip: `ebcc53a61625a0fea7f2b63dc6a4f124161513a9` (scientific package commit)
-- Packaging tip: the tip of `origin/cursor/p104-present-head-flag0-audit-60b9` (read with `git rev-parse`)
+- Packaging tip: `28622fe29d5d826e9ba7d95d3c59529e27f77c64` (this branch tip at publication; content tip above)
 - Package: `research/p104-present-head-flag0-audit/`
 - Base: CrocSwap main `6f100d4bb5083f8c35d96fd95a539811c62f245c`
 - Card: `p104-side-correction` (refined), priority revision 6
