@@ -70,6 +70,12 @@ strengthen the recorded v<=17h_b and v<=16h_b pair rows. For h_b<=5,
 the respective limits become 53 and 45 ports. A fitting unit still
 needs its actual bit-copy factorization and complete physical costs.
 
+I retain Philippe's existing acyclic-minor method and distinguish
+DreamingOfClouds/PR2244, which allows nonsymmetric decoders under a
+symmetric support majorant. Independent odd source/sink labels here can
+give directed masks. [NOTICE.md](NOTICE.md) links those exact comparisons;
+the earlier bound can be stronger on its restricted mask class.
+
 I started from canonical main
 `6f100d4bb5083f8c35d96fd95a539811c62f245c`, priority revision 6. I coordinate
 in [Discussion2278](https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19010715).

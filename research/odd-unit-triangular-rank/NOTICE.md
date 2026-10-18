@@ -19,6 +19,19 @@ subadditivity and trace identities. I claim the specific selectors,
 source-bound rank bounds and their stated assembly consequences here,
 not those general methods.
 
+Philippe's [laminar-decoder rank lemma](https://github.com/philippeVV/integer-mult-bounds/blob/ae0cd3ed609ad3a8956aa070ee9ec40ff79a600a/research/complex-budget-law/closures-3/laminar-decoders/README.md#L60-L65)
+already uses acyclic triangular minors. I preserve that methodological
+priority; the selectors, orbit fractions and their consequences are the
+specific contribution here.
+
+I also distinguish DreamingOfClouds/PR2244, at
+`8ef6fa81403973d3cacaf865bdabe9797a6c34a0`, whose
+[line-system saturation theorem](https://github.com/CrocSwap/integer-mult-bounds/blob/8ef6fa81403973d3cacaf865bdabe9797a6c34a0/research/line-system-saturation/README.md#L94-L104)
+permits nonsymmetric scalar decoders under a symmetric alternating support
+majorant C and dense mask B=J+C. This package also allows independent odd
+source and sink labels. The earlier bound may be stronger on its
+common-label subclass; I claim no priority for general fitting-rank methods.
+
 I preserve the source files and repository license in
 `inputs/small-unit-source.tar`. The verifier reads their bytes and hashes;
 it does not execute the predecessor's search or import its dependencies.
