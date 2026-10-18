@@ -50,8 +50,10 @@ single-change control. The answer is again **yes**:
   pair.
 - In both orientations, 644/660 keep the STAGED emitted structure: one wrapper
   pair at `[429,30]`, one `new_to_old` exit adapter at FULL, no private buffer,
-  and the STAGED climb frames and ranks. Only the clocks move, and all 17
-  direct scalar clocks per helper match the consumer word. Binding the STAGED word to a
+  and the STAGED climb frames and ranks. Apart from the clocks, one thing
+  changes: the moved release that reads each helper (`640 += 2*644`,
+  `656 -= 660`) now runs at `Q` instead of `[429,30]`. All 17 direct scalar
+  clocks and frames per helper match the consumer word. Binding the STAGED word to a
   consumer program is rejected at the scalar/climb clock check. So the binding
   sees the retiming rather than passing for any word.
 - The first climb `span(429,30) -> Q` moves from B1045 to B592 (644) and from
@@ -99,12 +101,14 @@ Fourier primitive on the first `w` axes, and `w = dim U - dim E`. Here
 5. It runs each consumer word through the same producer and compares it with
    the STAGED word of the same provider. It requires the recorded `LOCAL-CHECKS`
    receipt, an identical residual-adapter file and identical entrance/terminal
-   pairs. For 644/660 it requires the same binding and recipe key with the
-   kernel check, and the STAGED climb frames. It also requires that only the
+   pairs. For 644/660 it requires the full source-to-emission binding against
+   the consumer word, the STAGED recipe key with the kernel check, and the
+   STAGED climb frames. It also requires that only the
    donors' climb chains change, each by one merged climb that the kernel
    checks. Binding the STAGED word to the consumer program must be rejected.
 
-The words differ from the STAGED words only where #3642 and #3682 say:
+The words differ from the STAGED words only where #3642 and #3682 say. This
+is a local observation from diffing the words; `verify.py` does not compute it.
 
 - **RETIMED** swaps B591/B592 and B641/B642, and raises each moved release
   `640 += 2*644` and `656 -= 660` to `Q`. It regenerates the cleanup and the
@@ -180,9 +184,10 @@ the `bw_gauss` kernel. `check_residual.py` checks the one changed `(E,U)` pair
 with the same kernel. What was missing, as PR3687 says, is a check that does
 not use that lineage. This package supplies one: the separate kernel for the
 identity, plus its own source-to-emission binding. The same holds for the
-consumers. #3642 and #3682 each ran the five-stage native chain on their words,
-as their `PROOF.md` files say, and those native checks use the same lineage
-kernel.
+consumers. #3642's pinned `PROOF.md` says its separate native runs check
+ledger, wrapper, phase and warp contracts, and #3682's reports two five-stage
+native runs. This package's regenerated `LOCAL-CHECKS` equal the receipts those
+runs recorded.
 
 **Local-only cross-check (not part of the registered replay).** The producer's
 own `bw_adapters.py` needs numpy. Under Python 3.13.1 and numpy 2.2.2 (not
