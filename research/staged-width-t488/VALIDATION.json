@@ -1,0 +1,23 @@
+{
+  "status": "LITERAL_AND_FINITE_PASS_FULL_ADMISSION_NOT_RUN",
+  "literal": {
+    "roles": 1791936,
+    "physical": 437757,
+    "payload_sha256": "20662cc64df34cab409fdf31ed0f0222462530922a01308a46964d661d2374cf",
+    "independent_audit": "PASS"
+  },
+  "full_admission": {
+    "status": "not_run",
+    "portable_complete_command_terminal": false
+  },
+  "scope": "No complete T488 release claimed.",
+  "finite": {
+    "status": "PASS",
+    "owner_guards": 14,
+    "replay_guards": 2,
+    "entry_auth_guards": 2,
+    "ceiling_patterns": 2551,
+    "ceiling_controls": 9,
+    "profile_source": "Actual aggregate reconstruction passed to verify_price.check"
+  }
+}
