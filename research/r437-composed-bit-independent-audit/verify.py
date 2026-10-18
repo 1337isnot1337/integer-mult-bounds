@@ -28,6 +28,7 @@ from wordsem import (Geometry, Reject, bits, canonical, check_final_frames, chec
                      reverse_orientation)
 import compose  # noqa: E402
 import hosting  # noqa: E402
+import native  # noqa: E402
 import price  # noqa: E402
 import records  # noqa: E402
 from compose import apply  # noqa: E402
@@ -248,6 +249,11 @@ def run():
     for name, w in words:
         res['words'][name], side[name] = word_checks(name, w, geo)
     _, cl589, _ = side['selected589']
+    # second frame method: exact rational projectors for every climb of the R437 word; the changed
+    # paths (receiver 444, SOURCE77, GL node roles 340/241/349) also get the address-exchange identity
+    _, cl437, _ = side['R437_pr']
+    focus = sorted({(a, b) for r, a, b, _ in cl437 if r in (444, 77, 340, 241, 349)})
+    res['native'] = native.check(r437, cl437, geo, focus)
     _, cl470, _ = side['C470_rebuilt_1043']
     res['frame_paths_1043'] = dict(
         selected589_equals_baseline=[p for _, p in sorted(paths(w589, cl589).items())] == fp['baseline'],
@@ -450,6 +456,8 @@ def run():
           and res['price']['selected589_control']['every_stage_hosts_all_helpers']
           and res['price']['c1043_control']['split_exact']
           and res['hosting']['schedule_equals_main_recipe']
+          and all(res['native'][k] for k in ('projector_rank_equals_dim', 'nested_projector_identity',
+                                             'address_exchange_identity_on_focus'))
           and res['price']['control_one_child_per_replica_relabelled_rejected']
           and all(m['rejected'] for m in res['hosting_mutants'])
           and res['precision_R437']['prefix_bits'] == 177 and res['precision_R437']['coefficient_bits'] == [177, 177]

@@ -123,6 +123,15 @@ gate whose destination is a source or helper, at the full frame.
    (70,596 memberships). The finite hypotheses H1–H5 of the selected
    interleaved lemma and its U/J conclusions hold. D0 and C are equal to the
    rebuilt ones.
+   - **Second frame method: exact projectors.** For each frame, the exact
+     rational orthogonal projector P_F is built from its lines. Its rank and
+     trace equal the frame dimension for all 636 frames. All 2,384 distinct
+     climbs A → B of R437 satisfy P_A P_B = P_B P_A = P_A.
+   - **Address exchange.** Write D_U = [[I−U, U], [U, I−U]] for the
+     address-half exchange. On the 27 transitions of the changed registers
+     (receiver 444, SOURCE77 and the GL roles 340/241/349),
+     D_(P_B−P_A) D_(P_A) = D_(P_B) is checked literally. This identity follows
+     from the nesting in general: X = P_B − P_A satisfies X P_A = 0.
 2. **Composition.** Applying E464 and E470 literally to #589 and rebuilding D0
    and C gives the PR's R437 word. All fields are equal; only the `stats`
    metadata differs (`extra_carriers` 10 → 8). E464 alone gives the PR's R438
@@ -266,9 +275,9 @@ These are **not** checked:
   and route formulas, not against a physical register machine. The private
   centre reserve (physical = 28,416 + 9) and the cover classes are not
   checked.
-- **Native transport.** The rational projector identities (D_F, P_A P_B) that
-  PR #3647's R437-LOCAL proof states are not checked beyond the frame
-  nesting/dimension model.
+- **Native transport.** Only the projector and address-exchange identities
+  above are checked. The physical register machine, data precision and cover
+  classes are not.
 - **Inherited formulas.** The invoice formula, the 10^-16 fallback, the ROW
   constants and the price equation are used as stated in the selected sources,
   not re-derived.
@@ -298,11 +307,12 @@ binds. The bit side would bind only if the pending complex chain
    the dirt pattern of a captured total. First step: state the native capture
    lemma's hypotheses as used by selected #589, and check them on these two
    captures.
-2. **Do the native projector identities hold for the changed paths?** The paths
-   are receiver 444 (0 → 186 → 509) and the GL node at frame 506. First step:
-   build the exact rational projectors of frames 0, 79, 186, 506 and 509 from
-   the E8 lines, and check P_A P_B = P_A and D_(B−A) D_A = D_B on these
-   transitions.
+2. **Does the E464 pattern recur?** In E464, a carrier's clean contribution
+   is recovered from the output roles of the single node that reads it, so the
+   carrier can be deleted. Which other carriers of #589 or R437 have that
+   property? First step: a read-only census of carriers with one birth whose
+   reads are confined to one node frame. This is an expansion question: record
+   the family's five-point expansion decision before any construction round.
 3. **Which admission dependencies remain?** For PR #3647 to supply the bit side,
    the complex chain PR #3653/PR #3682 must first make the bit side binding.
    After that, maintainers must accept the inherited interfaces. First step:
