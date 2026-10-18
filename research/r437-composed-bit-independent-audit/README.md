@@ -14,18 +14,25 @@ passes**:
   with arbitrary dirty contents. The two edits compose with no interaction
   beyond the single-change controls. The SOURCE77 read at frame 186 is in
   chronological order, and the literal word gives the claimed local profile.
-- **One new admission item.** E464 (the helper464 GL edit) changes the
-  arbitrary-dirt content, though not the clean content, of the two captured
-  retained totals h477 and h478, through helper 340's column. PR #3647 does
-  not state this. Whether the inherited capture contract is neutral to that
-  dirt pattern is not checked here ([Open question 1](#open-next-questions)).
+- **One item to confirm at intake (likely neutral).** In selected #589 all
+  nine captured retained totals already carry arbitrary helper dirt at the
+  COPY, 42 to 66 helper columns each. Two of them, h477 and h478, carried the
+  deleted h464's column. E464 (the helper464 GL edit) replaces it with
+  h340's, so they keep 46 and 43 dirt columns and their clean rows. E470
+  likewise drops h470's column from h475. The edit therefore changes which
+  dirty helper feeds two already-dirty captures; it adds no new kind of
+  capture. PR #3647 does not mention the swap. The record replay checks the
+  COPY/ERASE discipline over every dirt column. Whether the inherited capture
+  contract depends on which helpers' dirt reaches a total is not checked here
+  ([Open question 1](#open-next-questions)). If the discard is linear in
+  arbitrary helper contents, as PR #3647 states, the item closes.
 - **Records and hosting.** The PR's 27,132-record stream is byte-identical to
   an independent lowering of the word. The hosted template's 125,856 helper
   placements satisfy the selected chain's idle-hosting rule, and all 288 calls
   are bound to the audited local programs.
 - **Price.** The whole paid profile and the invoice's precision fields follow
   from these. The price root gives
-  **c = 868314126713557740143/5·10^23 = 0.001736628253427115480286**, and the
+  **c = 868314126713557740143/(5·10^23) = 0.001736628253427115480286**, and the
   next 10^-24 grid point fails.
 - **Controls.** The same price engine reproduces the selected #589 value
   `0.001733427039589844234749` from main-only inputs, and #1043's
@@ -52,11 +59,13 @@ recomputes everything and requires byte equality with the committed
 ## Why it matters, and to whom
 
 **This package has no near-term κ consequence.** PR #3647's c = 0.0017366283
-is the highest open bit-supplier value we found. This package is an
+is the highest priced open bit-supplier value we found. This package is an
 independent finite check of it, for the intake of PR #3647 and of the PRs
 that build on it (#3668, #3690). It would matter for κ only after a complex
 gain of about 3.0e-6 beyond the pending chain; past that point the bit
-supplier caps κ.
+supplier caps κ. The value may not stay the highest: PR #3645's unpriced
+R429 word claims local rank mass 4,989, below R437's 5,113, so a hosted and
+priced R429 may exceed this c. Neither is admitted.
 
 The bit side does not bind today, and it would not bind if the pending complex
 chain PR #3653 (rohanarun) / PR #3682 (zxv) were admitted. That chain's complex
@@ -76,11 +85,11 @@ The modern-outer row matches the two modern-outer ledgers archived on main
 κ + `actual_bit_above_effective` equals the #589 bit root 0.0017334270
 up to 10^-46.
 
-> **Correction.** An earlier draft of this package, and this loop's #1166
-> claim, compared #589's retained cap a/(1+a) = 0.0017304275 with #3653's
-> modern-outer κ = 0.0017304189. That 8.57e-9 gap mixes two conventions. The
-> draft concluded that the bit side would bind once the chain was admitted;
-> that conclusion was wrong and is withdrawn.
+> **Correction.** This loop's #1166 claim for this audit compared #589's
+> retained cap a/(1+a) = 0.0017304275 with #3653's modern-outer
+> κ = 0.0017304189, and concluded that the bit side would bind once the chain
+> was admitted. That 8.57e-9 gap mixes two conventions; the conclusion is
+> withdrawn.
 
 **Other checks of PR #3647.**
 
@@ -198,17 +207,28 @@ node's own correctness comes from the identity check.
    - its local profile `{1:1321, 2:1344, 3:78, 4:44, 5:102, 6:11, 7:18}`, its
      24,248 ADDs and its gate counts 111/2074/712/2573, machine-checked against
      its `CERTIFICATE.json`;
-   - its D0 count of 18,030 ADDs (from #589's 18,085), which equals the value
-     stated in its PROOF.md. This one is compared by hand.
+   - its D0 count of 18,030 ADDs (from #589's 18,085), computed here. Its
+     equality with the value stated in #1043's PROOF.md is not
+     machine-checked.
 3. **No interaction.** Traces are aligned gate by gate across about 5,350
    common gates per comparison. The deleted helpers' columns are projected
    away, and survivors are renamed.
    - **E470** changes no value at all.
-   - **E464** changes no clean (x or y) column anywhere. It changes only helper
-     340's arbitrary-dirt column, at four A gates of #589: `A[2044]` (h340),
-     `A[2047]` (h241), and `A[2068]` and `A[2070]`, which write the retained
-     totals h477 and h478. The same column also changes at the four literal
-     inverses of these gates in C.
+   - **E464** changes no clean (x or y) column anywhere. With the deleted
+     helpers' columns projected away, the values differ only in column 340
+     (helper h340's arbitrary contents), at four A gates of #589: `A[2044]`
+     (h340), `A[2047]` (h241), and `A[2068]` and `A[2070]`, which write the
+     retained totals h477 and h478. The same column also changes at the four
+     literal inverses of these gates in C. At the two capture writes, h340's
+     column takes the place of the deleted h464's column, which the
+     projection drops.
+   - **Capture census.** At the scatter, the nine retained totals of #589
+     carry 42 to 66 helper-dirt columns each
+     (`{42, 44, 46, 63, 66, 46, 43, 62, 59}` for h472…h480). h475 carries
+     h470's column, and h477 and h478 carry h464's. In R437 the counts are
+     the same except h475 (now h473), which drops to 62 with h470's column
+     gone. h477 and h478 (now h475 and h476) swap h464's column for h340's
+     and keep 46 and 43. No other column changes.
    - **Composed word.** Its trace equals the E464 control's trace with h470's
      column deleted, at all 5,369 aligned gates. It equals the E470 control's
      trace with h464's column deleted, except at exactly those eight gates.
@@ -287,7 +307,8 @@ node's own correctness comes from the identity check.
    The ROW constants 9,909 and 252 and both caps are inherited.
 8. **Price.** The equation is
    `Σ r·n_r/(m·W) (m/r)^a + 32·m·N/(10^16·W) m^a = 1` with m = 64 and
-   W = 28,416, including the inherited bad-class fallback. It is solved with
+   W = 28,416 (read from the template and asserted equal to these inherited
+   values), including the inherited bad-class fallback. It is solved with
    separate rational log/exp enclosures. At a = c the moment is < 1, and at
    c + 10^-24 it is > 1, for
    c = **0.001736628253427115480286**. The same engine gives two positive
@@ -351,9 +372,9 @@ These are **not** checked:
   centre reserve (physical = 28,416 + 9) and the cover classes are not
   checked.
 - **Native transport.** Only the projector identities above are checked. The
-  physical register machine, data precision and cover classes are not. Nor is
-  the capture contract's neutrality to the changed h477/h478 dirt
-  (Open question 1).
+  physical register machine, data precision and cover classes are not. Nor
+  is it checked that the capture contract is independent of which helpers'
+  dirt reaches a captured total (Open question 1).
 - **Inherited formulas.** The invoice formula, the 10^-16 fallback, the ROW
   constants and caps, the payload cap and the price equation are used as
   stated in the selected sources, not re-derived.
@@ -375,14 +396,16 @@ pending complex chain (PR #3653/PR #3682) were admitted.
 
 [TASK.json](TASK.json) structures these.
 
-1. **Is the dirt-only change to two COPY sources contract-neutral?** E464
-   changes the arbitrary-dirt content of the retained totals h477 and h478 (two
-   rank-7 captures) by helper 340's column, while their clean rows are
-   unchanged. The question is whether the inherited capture contract (one paid
-   transform plus linear private-stream discard) is provably independent of
-   the dirt pattern of a captured total. First step: state the native capture
-   lemma's hypotheses as used by selected #589, and check them on these two
-   captures.
+1. **Does the inherited capture contract depend on which helpers' dirt
+   reaches a captured total?** Selected #589 already captures dirty totals:
+   each of its nine retained totals carries 42 to 66 helper-dirt columns at
+   the COPY. In two of them (h477 and h478, rank-7 captures), E464 swaps the
+   deleted h464's column for h340's at the same counts, with clean rows
+   unchanged. If the native capture lemma that #589 already needs (one paid
+   transform plus linear private-stream discard) is linear in arbitrary
+   helper contents, as PR #3647 states, the item closes. First step: state
+   that lemma's hypotheses as used by selected #589 and check whether any of
+   them names particular helpers.
 2. **Does the E464 pattern recur?** In E464, a carrier's clean contribution
    is recovered from the output roles of the single node that reads it, so the
    carrier can be deleted. Which other carriers of #589 or R437 have that
@@ -396,7 +419,8 @@ pending complex chain (PR #3653/PR #3682) were admitted.
    map this package's checks and Open question 1 against the inherited
    interface list.
 4. **Is PR #3647's hosting price-optimal under the audited rule?** In window 6
-   the PR places its two stage-6 leftovers (helpers 421 and 422) in separate
+   the PR places its two stage-6 leftovers (helper indices 421 and 422,
+   registers 643 and 644) in separate
    copies 209 and 210, giving per-replica remainders `{34:2, 42:11}`. Moving
    slot `[6,210,0,8,6,422]` to `[6,209,8,8,6,422]` gives `{26:1, 42:12}` at the
    same rank mass. The root then rises from 0.0017366282534 to
@@ -424,10 +448,10 @@ pending complex chain (PR #3653/PR #3682) were admitted.
 - **PR #3690** (zxv): concurrent paid-request reconstruction and ordinary
   coupling for R437, built on predecessor and author code. Its overlap with
   this package is described under "Why it matters".
-- **Related and not audited.** PR #3645 (RossRichardson, R429 at `99b901c9`)
-  and PR #3672 (jwr404, at `8f735782`) are local R438 variants, and neither
-  claims a c. The complex chain is PR #3653 (rohanarun) and PR #3682 (zxv),
-  cited only for its root.
+- **Related and not audited.** PR #3645 (RossRichardson, `99b901c9`) reduces
+  #1043's R438 to a local R429 word, and PR #3672 (jwr404, `8f735782`) checks
+  the arithmetic of that R429 profile. Neither claims a c. The complex chain
+  is PR #3653 (rohanarun) and PR #3682 (zxv), cited only for its root.
 - This loop's earlier audit, PR #3687, supplied the audit pattern only. It
   covered a different, complex supplier.
 
@@ -441,17 +465,21 @@ SHA256. The inherited predecessor credits are listed in that package's
 UPSTREAM-NOTICE.md (Git blob `90ac2537`) and its LICENSE (blob `261eeb9e`).
 Those files are not on main yet, so the credit is restated here.
 
-These inputs are pinned in the `snapshot` rows of [SOURCES.json](SOURCES.json),
-not by `head:` pins. The PR is unmerged and its files are not at the base
-commit. Each snapshot row records the source PR, commit, path, Git blob and
-SHA256, and `verify.py` checks every SHA256 before use. The generic runner
-ignores the `snapshot` key, so that binding is enforced by this package's
-verifier.
+These inputs are bound by the `snapshot` rows of [SOURCES.json](SOURCES.json),
+not by `head:` pins. A `head:` pin requires the vendored path to equal the PR
+path, and the record stream is stored gzip-wrapped. Each snapshot row records
+the source PR, commit, path, Git blob and SHA256, and `verify.py` checks every
+SHA256 before use. The generic runner ignores the `snapshot` key, so that
+binding is enforced by this package's verifier.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Base commit
 `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. The checks are finite exact
-computations in Python 3 (standard library). The package was reviewed by four
-independent AI review passes in the same loop (one round: reproducibility,
-mathematics/accounting, provenance, referee), and their fixes are applied
-here. No human or formal-kernel review is claimed. Apache-2.0.
+computations in Python 3 (standard library). The package was reviewed by
+seven independent AI review passes in the same loop, in two rounds (round 1:
+reproducibility, mathematics/accounting, provenance, referee; round 2:
+mathematics/accounting, reproducibility, referee). Their findings are
+addressed here. Two suggested texts were not adopted: a replacement sentence
+that repeated the mixed-convention comparison, and keeping a 32-child price
+mutant beside the two single-child ones. No human or formal-kernel review is
+claimed. Apache-2.0.

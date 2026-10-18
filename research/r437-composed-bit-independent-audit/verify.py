@@ -281,6 +281,23 @@ def run():
         composed_vs_589=compare(T589, T437, dcomp, rencomp, v),
         composed_vs_C464=compare(T464, T437, [469], lambda r: r - (r > 469), v),
         composed_vs_C470=compare(T470, T437, [464], lambda r: r - (r > 464), v))
+    # Helper-dirt census of the retained totals at the scatter (the COPY sources), for scale: how
+    # much arbitrary dirt each capture already carries in #589, and which columns the edits swap.
+    def capture_dirt(w):
+        val = forward(w, geo, sections=('D', 'A'), frames_on=False)[0]
+        return [(q, [b for b in bits(val[q]) if b >= 2 * v]) for q in w['ret']]
+    cd589, cd437 = capture_dirt(w589), capture_dirt(r437)
+    need([rencomp(q) for q, _ in cd589] == [q for q, _ in cd437], 'retained totals do not correspond')
+    res['capture_dirt'] = dict(
+        selected589_columns={q: len(c) for q, c in cd589},
+        R437_pr_columns={q: len(c) for q, c in cd437},
+        selected589_totals_carrying_deleted_helpers={q: [b for b in c if b in dcomp] for q, c in cd589
+                                                     if any(b in dcomp for b in c)},
+        changes_vs_589=[dict(total_589=q0, total_R437=q1, deleted_helper_columns_dropped=[b for b in c0 if b in dcomp],
+                             removed=sorted(set(rencomp(b) for b in c0 if b not in dcomp) - set(c1)),
+                             added=sorted(set(c1) - set(rencomp(b) for b in c0 if b not in dcomp)))
+                        for (q0, c0), (q1, c1) in zip(cd589, cd437)
+                        if [rencomp(b) for b in c0 if b not in dcomp] != c1])
     # SOURCE77 late read and source chronology
     h589, sc589 = source_history(T589, C589, v)
     h437, sc437 = source_history(T437, C437, v)
@@ -351,6 +368,7 @@ def run():
             broken = ['rejected: %s' % e]
         hmut.append(dict(mutant=label, rejected=bool(broken), broken=broken))
     res['hosting_mutants'] = hmut
+    need(tpl['m'] == 64 and tpl['live'] == 28416, 'template m/W differ from the inherited 64/28416')
     F = price.Q
     res['price'] = dict(R437=price.bracket(hres['whole_profile'], tpl['m'], tpl['live'], F(*C_R437)))
     wp = hres['whole_profile']

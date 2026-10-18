@@ -4,6 +4,65 @@
   "gates_equal": true,
   "local_profile_equal": true
  },
+ "capture_dirt": {
+  "R437_pr_columns": {
+   "470": 42,
+   "471": 44,
+   "472": 46,
+   "473": 62,
+   "474": 66,
+   "475": 46,
+   "476": 43,
+   "477": 62,
+   "478": 59
+  },
+  "changes_vs_589": [
+   {
+    "added": [
+     340
+    ],
+    "deleted_helper_columns_dropped": [
+     464
+    ],
+    "removed": [],
+    "total_589": 477,
+    "total_R437": 475
+   },
+   {
+    "added": [
+     340
+    ],
+    "deleted_helper_columns_dropped": [
+     464
+    ],
+    "removed": [],
+    "total_589": 478,
+    "total_R437": 476
+   }
+  ],
+  "selected589_columns": {
+   "472": 42,
+   "473": 44,
+   "474": 46,
+   "475": 63,
+   "476": 66,
+   "477": 46,
+   "478": 43,
+   "479": 62,
+   "480": 59
+  },
+  "selected589_totals_carrying_deleted_helpers": {
+   "475": [
+    470
+   ],
+   "477": [
+    464
+   ],
+   "478": [
+    464
+   ]
+  }
+ },
  "compensation_facts": {
   "e464_D0_is_589_D0_with_column_deleted": false,
   "e470_D0_is_589_D0_with_column_deleted": true,
