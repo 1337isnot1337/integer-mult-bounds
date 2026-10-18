@@ -17,3 +17,7 @@ PR3457, exact head `e47d1dd9e38241b902545dbc41d1bbe7fa0c4bcd`, supplies the comp
 PR3465 (52c8434c4b184dbbd3e080aff43b0a9714fe8bf1) supplies the immediate scientific package and complete T16 construction. This descendant changes the replica architecture and its allocation, while retaining PR3413 chronology ancestry, PR3133 current native providers, and the inherited admission/source materializer unchanged except fixed-T8 expected bindings. The native cache remains explicitly attributed to prior fresh PR3148 execution.
 
 T8 itself is prior art: `research/gauge44-slots-arcflow`, `gauge44-slots-deepen-arcflow`, `gauge44-slots-balance-arcflow`, and `gauge44-slots-t16-arcflow` retain older eight-replica constructions and comparisons (including the PR1005/PR1018 480-helper ancestry). This contribution claims the actual current 408-helper supplier composition, projected schedule and complete new allocation/admission, not the first eight-replica architecture.
+
+## Adjacent-source-window descendant
+
+PR3468 (dbeac6cf5c1190459fb5ed7a6020bdc50641577d) supplies the immediate T8 construction, source closure and complete native/outer admission. This descendant changes one declared adjacent call pair and its physical allocation; it retains the same providers, dispatcher, private stock, canonical source files and overlay. PR3413/PR3133/PR3148 and older T8 construction credits remain as recorded above.

@@ -97,8 +97,8 @@ def sources(root, package=HERE):
     return auditor, geometry, inventories[0][0], Counter(inventories[0][1])
 
 
-def projected_order(source, plan):
-    """Bind this fixed T8 construction to replicas 0..7 of the retained T16 order."""
+def projected_order(source, plan, recipe=None):
+    """Bind the exact retained T8 projection and its one declared adjacent swap."""
     need(
         all(
             isinstance(call, list)
@@ -144,10 +144,45 @@ def projected_order(source, plan):
         len(order) == 72 and set(order) == {(s, r) for s in range(9) for r in range(8)},
         "complete T8 call inventory",
     )
+    predecessor = read(HERE / "PLAN-3468.json")
+    projected = [call for call in original if call[1] < 8]
     need(
-        order == [call for call in original if call[1] < 8],
-        "retained-replica projection",
+        projected == [tuple(call) for call in predecessor["order"]],
+        "exact PR3468 predecessor order",
     )
+    declared = read(HERE / "ORDER-RECIPE.json") if recipe is None else recipe
+    need(
+        all(type(value) is int for value in declared["adjacent_positions"])  # noqa: E721
+        and all(
+            type(value) is int  # noqa: E721
+            for key in ("before_calls", "after_calls")
+            for call in declared[key]
+            for value in call
+        ),
+        "integer swap labels",
+    )
+    need(
+        declared
+        == {
+            "source_pr": 3468,
+            "source_head": "dbeac6cf5c1190459fb5ed7a6020bdc50641577d",
+            "adjacent_positions": [11, 12],
+            "before_calls": [[1, 3], [2, 2]],
+            "after_calls": [[2, 2], [1, 3]],
+        },
+        "fixed adjacent-swap recipe",
+    )
+    need(projected[11:13] == [(1, 3), (2, 2)], "source swap calls")
+    projected[11], projected[12] = projected[12], projected[11]
+    need(
+        all(
+            [stage for stage, replica in projected if replica == owner]
+            == list(range(9))
+            for owner in range(8)
+        ),
+        "swapped per-replica progression",
+    )
+    need(order == projected, "exact declared PR3468 adjacent swap")
     return order
 
 

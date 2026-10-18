@@ -30,7 +30,7 @@ class CertificateControls(unittest.TestCase):
     def test_positive_literal_and_both_provider_contract(self):
         self.assertEqual(len(self.rows), 29376)
         self.assertEqual(self.audit["rank_mass"], 520704)
-        self.assertEqual(self.audit["idle"], {1: 1964, 3: 534, 5: 172, 7: 2, 48: 3050})
+        self.assertEqual(self.audit["idle"], {1: 1961, 3: 535, 5: 172, 7: 2, 48: 3050})
 
     def test_duplicate_and_missing_flow(self):
         self.rejected(lambda c: c["flow"].append(c["flow"][0][:]), "duplicate flow")
@@ -102,6 +102,24 @@ class CertificateControls(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "actual provider width"):
             r.modern_inputs(ROOT, bad, self.plan)
 
+    def test_declared_chronology_swap_controls(self):
+        source = r.read(r.HERE / "PLAN-3413.json")
+        plan = r.read(r.HERE / "PLAN-T8.json")
+        recipe = r.read(r.HERE / "ORDER-RECIPE.json")
+        for key, value in (
+            ("adjacent_positions", [12, 13]),
+            ("adjacent_positions", [11.0, 12]),
+            ("before_calls", [[True, 3], [2, 2]]),
+            ("before_calls", [[1, 2], [2, 3]]),
+            ("source_pr", 3465),
+        ):
+            bad = copy.deepcopy(recipe)
+            bad[key] = value
+            with self.assertRaises(ValueError):
+                r.projected_order(source, plan, bad)
+        with self.assertRaises(ValueError):
+            r.projected_order(source, r.read(r.HERE / "PLAN-3468.json"))
+
     def test_fixed_replica_and_source_projection_controls(self):
         source = r.read(r.HERE / "PLAN-3413.json")
         mutations = [
@@ -123,7 +141,7 @@ class CertificateControls(unittest.TestCase):
             plan["order"][second],
             plan["order"][0],
         )
-        with self.assertRaisesRegex(ValueError, "retained-replica projection"):
+        with self.assertRaisesRegex(ValueError, "exact declared PR3468 adjacent swap"):
             r.projected_order(source, plan)
 
     def test_retained_t8_window_is_rederived(self):
