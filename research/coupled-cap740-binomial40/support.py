@@ -37,4 +37,3 @@ def bootstrap(C):
     need(len(cuts)==13 and len(controls)==4,'12 steps and four original controls')
     return dict(legacy_balanced_kappa=str(k),cutoffs=cuts,controls=controls,
                 strict_constraints={n:str(v) for n,v in outer['strict_constraints'].items()})
-
