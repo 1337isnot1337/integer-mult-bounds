@@ -56,6 +56,22 @@ EXPECTED_RANK9 = (
       235: -1, 236: -1, 237: 1, 238: -1, 239: 1, 276: 1, 292: 1},
      {7: 2, 232: 2, 236: -2, 238: -2}),
 )
+EXPECTED_RANK9_QUARTET = (
+    ({224: 1, 229: 2, 231: 1, 235: -1, 236: 1},
+     {76: -1, 87: -2, 231: 1, 238: -2}),
+    ({224: 1, 231: -1, 235: -1, 236: -1, 238: -2},
+     {231: -1, 233: 1, 238: -2, 239: 2}),
+    ({227: 1, 229: -1, 231: -2, 233: 1, 238: -1},
+     {76: 1, 231: -1, 236: 2, 239: 2}),
+    ({227: 1, 229: 1, 233: 1, 236: 2, 238: 1},
+     {87: -2, 231: 1, 233: -1, 236: 2}),
+    ({224: 1, 227: -1, 233: -1, 235: -1, 236: -2,
+      237: 1, 238: -2, 239: 1},
+     {7: 2, 231: -1, 233: 1, 236: -2, 238: -2}),
+    ({224: 1, 227: -1, 229: 2, 231: 2, 232: 1, 233: -1,
+      234: 1, 235: -1, 276: 1, 292: 1},
+     {76: -1, 231: 1, 232: 2, 236: -2, 238: -2}),
+)
 
 
 def require(ok, why):
@@ -284,6 +300,150 @@ def expected_rank9_signatures():
     }
 
 
+def expected_rank9_quartet_signatures():
+    return {
+        (
+            tuple(sorted(((r, ()), F(q)) for r, q in form.items())),
+            tuple(sorted((r, F(q)) for r, q in readout.items())),
+        )
+        for form, readout in EXPECTED_RANK9_QUARTET
+    }
+
+
+def mod_three(q):
+    """Reduce a rational with denominator prime to 3 into GF(3)."""
+    q = F(q)
+    denominator = q.denominator % 3
+    require(denominator != 0, 'GF(3) screen encountered a denominator divisible by 3')
+    return q.numerator * pow(denominator, -1, 3) % 3
+
+
+def add_mod_three(basis, row):
+    """Insert one short vector into a normalized row basis over GF(3)."""
+    value = list(row)
+    for pivot in sorted(basis):
+        if value[pivot]:
+            q = value[pivot]
+            value = [(x - q * y) % 3 for x, y in zip(value, basis[pivot])]
+    pivot = next((j for j, q in enumerate(value) if q), None)
+    if pivot is not None:
+        q = pow(value[pivot], -1, 3)
+        basis[pivot] = [q * x % 3 for x in value]
+
+
+def scan_rank9_quartets(rank7, rows, eligible):
+    """Screen every four-class support over GF(3), then recheck candidates over Q."""
+    spaces = sorted(rank7, key=lambda s: tuple(sorted(s)))
+    channels = sorted(r for space in spaces for r in rank7[space])
+    global_kernel = nuisance_kernel(channels, rows, eligible)
+    width = len(global_kernel)
+    require(width == 9, 'global rank-seven protected kernel dimension changed')
+    index = {r: i for i, r in enumerate(channels)}
+
+    # A rational rank drop forces the same drop modulo 3 because these exact
+    # kernel coordinates have denominators coprime to 3. Thus this is a
+    # complete candidate screen; every candidate is subsequently checked over Q.
+    local_rows = []
+    global_mod_three_basis = {}
+    for space in spaces:
+        basis = {}
+        for terminal in rank7[space]:
+            row = [mod_three(global_kernel[j][index[terminal]]) for j in range(width)]
+            add_mod_three(global_mod_three_basis, row)
+            add_mod_three(
+                basis,
+                row,
+            )
+        local_rows.append(tuple(basis[j] for j in sorted(basis)))
+    require(len(global_mod_three_basis) == width,
+            'global protected-kernel basis loses rank modulo 3')
+
+    outside_rank_histogram = defaultdict(int)
+    exact_rank_histogram = defaultdict(int)
+    join_rank_histogram = defaultdict(int)
+    observed_forms = set()
+    observed_witnesses = set()
+    candidate_count = 0
+    total = 0
+    for selected_indices in combinations(range(len(spaces)), 4):
+        total += 1
+        omitted = set(selected_indices)
+        outside_basis = {}
+        for i, local in enumerate(local_rows):
+            if i not in omitted:
+                for row in local:
+                    add_mod_three(outside_basis, row)
+                if len(outside_basis) == width:
+                    break
+        outside_rank_histogram[len(outside_basis)] += 1
+        if len(outside_basis) == width:
+            continue
+
+        candidate_count += 1
+        selected = [spaces[i] for i in selected_indices]
+        join_rank = dimension_union(selected)
+        join_rank_histogram[join_rank] += 1
+        require(join_rank == 9, 'four-class rank-defect candidate has non-nine join')
+        selected_channels = [r for space in selected for r in rank7[space]]
+        kernel = nuisance_kernel(selected_channels, rows, eligible)
+        forms = eligible_forms(selected_channels, kernel, rows, eligible)
+        eligible_rank = sparse_rank(forms)
+        require(eligible_rank > 0, 'screened quartet has no exact eligible signal')
+        exact_rank_histogram[eligible_rank] += 1
+        for readout, form in zip(kernel, forms):
+            if not form:
+                continue
+            require(all(not word for _, word in form),
+                    'quartet signal has a non-scalar formal-warp term')
+            signature = canonical_rank9_witness(selected_channels, readout, form)
+            observed_forms.add(signature[0])
+            observed_witnesses.add(signature)
+
+    expected_old = expected_rank9_signatures()
+    expected_new = expected_rank9_quartet_signatures()
+    expected_forms = {form for form, _ in expected_old | expected_new}
+    new_forms = {form for form, _ in expected_new}
+    require(total == 211876, f'four-class support count changed: {total}')
+    require(dict(outside_rank_histogram) == {6: 1, 7: 94, 8: 1258, 9: 210523},
+            f'four-class GF(3) screen histogram changed: {dict(outside_rank_histogram)}')
+    require(candidate_count == 1353, f'four-class candidate count changed: {candidate_count}')
+    require(dict(join_rank_histogram) == {9: 1353},
+            f'four-class candidate join histogram changed: {dict(join_rank_histogram)}')
+    require(dict(exact_rank_histogram) == {1: 1258, 2: 94, 3: 1},
+            f'four-class exact eligible-rank histogram changed: {dict(exact_rank_histogram)}')
+    require(observed_forms == expected_forms,
+            f'four-class normalized input-form set changed: {len(observed_forms)}')
+    require(expected_new <= observed_witnesses,
+            'one or more sparse quartet readout identities were not reproduced')
+    require(sparse_rank([dict(form) for form in new_forms]) == 5,
+            'six additional quartet forms do not span a five-space')
+    five_term = [dict(form) for form in new_forms if len(form) == 5]
+    require(len(five_term) == 4 and sparse_rank(five_term) == 3,
+            'four five-term forms do not have the expected three-dimensional span')
+
+    observed_registers = {r for _, readout in EXPECTED_RANK9_QUARTET for r in readout}
+    terminal_owner = {r: space for space in spaces for r in rank7[space]}
+    observed_spaces = {terminal_owner[r] for r in observed_registers}
+    require(len(observed_registers) == 9 and len(observed_spaces) == 7,
+            'sparse readout block terminal footprint changed')
+    require(dimension_union(observed_spaces) == 9,
+            'sparse readout block endpoints no longer have a rank-nine join')
+    return {
+        'four_class_supports': total,
+        'gf3_outside_rank_histogram': dict(outside_rank_histogram),
+        'screened_candidates': candidate_count,
+        'candidate_join_rank_histogram': dict(join_rank_histogram),
+        'exact_eligible_rank_histogram': dict(exact_rank_histogram),
+        'unique_scalar_forms': len(observed_forms),
+        'new_sparse_forms': len(new_forms),
+        'new_forms_span': 5,
+        'five_term_forms_span': 3,
+        'readout_registers': len(observed_registers),
+        'readout_endpoint_classes': len(observed_spaces),
+        'readout_join_rank': 9,
+    }
+
+
 def normalized_witness(channels, kernel, forms):
     witnesses = [(lam, form) for lam, form in zip(kernel, forms) if form]
     require(len(witnesses) == 1, 'candidate must have one nonzero eligible witness')
@@ -361,6 +521,8 @@ def analyze(name):
             and sum(len(form) == 8 for form in new_rank9_forms) == 5,
             f'{name} rank-nine support-size census')
 
+    quartet_result = scan_rank9_quartets(rank7, rows, eligible)
+
     # Each of the four readouts is necessary; deleting any one kills the signal.
     for removed in EXPECTED_READOUT:
         smaller = [r for r in pair[0] if r != removed]
@@ -383,6 +545,7 @@ def analyze(name):
         'rank9_eligible_rank_histogram': dict(rank9_by_dimension),
         'rank9_unique_forms': len(rank9_directions),
         'rank9_form_span': 5,
+        'rank9_quartet_census': quartet_result,
         'witness_readout': coeffs,
         'witness_form': form,
     }
@@ -402,6 +565,9 @@ def main():
     print('rank-seven triples: join-rank 8: 2571 (1 positive, same four-register witness)')
     print('rank-seven triples: join-rank 9: 15853 (52 positive classes; eligible ranks 1:50, 2:2)')
     print('rank-nine triples: 11 exact scalar forms (10 new), spanning 5 dimensions; new supports: five 6-term and five 8-term forms')
+    print('rank-nine quartets: 211876 supports; 1353 exact-positive join-rank-9 classes; eligible ranks 1:1258, 2:94, 3:1')
+    print('quartets add 6 forms (four 5-term, one 8-term, one 10-term); the six span 5 dimensions')
+    print('sparse five-dimensional readout footprint: 9 terminal registers across 7 rank-seven endpoint classes')
     print('readout: -out[7] - out[232] + out[236] + out[238]')
     print('input form: 1/2 * (-h224 + h227 - h229 - h231 - h232 + h233 - h234 + h235 + h236 - h237 + h238 - h239 - h276 - h292)')
     print('exact protected-column and formal-warp cancellation; deleting any one readout kills the signal')

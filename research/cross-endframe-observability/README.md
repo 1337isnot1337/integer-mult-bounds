@@ -31,6 +31,23 @@ The five independent six-term forms in the rank-nine block have these exact read
 
 Each equation cancels all 497 protected initial columns and every nonempty formal warp word. The five forms are independent. The ten new forms, including five additional eight-term forms, span the same five-dimensional space. Their readouts use three or four terminal registers, but the contributing rank-seven endpoints have a rank-nine join. Both provider orientations produce the same counts and coefficients.
 
+## Four-endpoint pooling exposes a sparse basis
+
+I extended the census to all `49 choose 4 = 211,876` four-class supports. A complete GF(3) screen uses the nine-dimensional global protected-readout kernel; its rational coordinates have denominators coprime to 3, so every rational rank defect appears in the screen. Each of the 1,353 surviving supports was then recomputed over `Q`. All have rank-nine joins and expose eligible forms: 1,258 have eligible rank one, 94 rank two, and one rank three. The screen and exact results agree in both pinned word orientations.
+
+The four-class census adds six normalized scalar forms beyond the triple census. Four use only five input coordinates, one uses eight and one uses ten. Together the six span the full five-dimensional space; the four five-term forms alone span dimension three. Their exact identities are:
+
+| Input form | Terminal readout |
+| --- | --- |
+| `h224 + 2h229 + h231 - h235 + h236` | `-out76 - 2out87 + out231 - 2out238` |
+| `h224 - h231 - h235 - h236 - 2h238` | `-out231 + out233 - 2out238 + 2out239` |
+| `h227 - h229 - 2h231 + h233 - h238` | `out76 - out231 + 2out236 + 2out239` |
+| `h227 + h229 + h233 + 2h236 + h238` | `-2out87 + out231 - out233 + 2out236` |
+| `h224 - h227 - h233 - h235 - 2h236 + h237 - 2h238 + h239` | `2out7 - out231 + out233 - 2out236 - 2out238` |
+| `h224 - h227 + 2h229 + 2h231 + h232 - h233 + h234 - h235 + h276 + h292` | `-out76 + out231 + 2out232 - 2out236 - 2out238` |
+
+These six readouts use only nine distinct terminal registers across seven rank-seven endpoint classes, whose joint frame has rank nine. This is a compact *observable interface* in the linear-algebra sense: it extracts a five-dimensional block without first constructing one common rank-nine register. The source forms are exact information identities, not five product outputs, and these endpoint observations still need a physical producer and a real caller. Treating the rank-nine join as free would erase the main cost.
+
 The test follows the open boundary identified by [PR #3172](https://github.com/CrocSwap/integer-mult-bounds/pull/3172): its fixed-word obstruction covers each common endpoint separately and explicitly leaves pooling incomparable endpoints outside scope. This package tests that escape on the changed PR2979 word. It does not claim that the pooling idea itself is new or that the result generalizes beyond these two words.
 
 ## Reproduce
@@ -43,17 +60,17 @@ python3 scripts/research_package.py --package research/cross-endframe-observabil
 python3.12 scripts/research_package.py --package research/cross-endframe-observability
 ```
 
-The two compressed word inputs are hash-pinned in `SOURCES.json`. `verify.py` independently reconstructs the endpoint frames and the non-target formal-polynomial maps; it does not import the predecessor producer or verifier. Its checks include the complete rank-eight/nine pair and triple census, exact canonical forms, orientation agreement, and controls that delete each register from the rank-eight witness in turn.
+The two compressed word inputs are hash-pinned in `SOURCES.json`. `verify.py` independently reconstructs the endpoint frames and the non-target formal-polynomial maps; it does not import the predecessor producer or verifier. Its checks include the complete pair, triple and four-class censuses, exact rational rechecks after the GF(3) screen, canonical forms, orientation agreement, and controls that delete each register from the rank-eight witness in turn.
 
 ## What remains before κ can change
 
-These are information identities, not a supplier. The ten additional forms give a five-dimensional opportunity for a changed helper interface. A caller must accept this block; the circuit must deliver it through a real multi-register contract; and the full synthesis, observation, storage, restoration, physical and recursive costs must be charged. In particular, every witness found for the ten new forms uses a rank-nine join, so treating their rank-seven sources as a free common endpoint would be incorrect.
+These are information identities, not a supplier. The ten triple forms and six sparse quartet forms expose the same five-dimensional opportunity through different readout bases. A caller must accept this block; the circuit must deliver it through a real multi-register contract; and the full synthesis, observation, storage, restoration, physical and recursive costs must be charged. In particular, the sparse quartet witnesses use a rank-nine join, so treating their rank-seven sources as a free common endpoint would be incorrect.
 
 The current selected κ is still 0.001672660197076918. The conditional 0.0017290339826465… claim in the predecessor package is not selected, and this result does not exceed it.
 
 ## Open next questions
 
-Can a downstream caller consume the five-dimensional readout block directly without materializing a new rank-nine register? First match the five independent six-term forms to one real caller, derive the input basis change and dirty-state restoration, then price the shared observation and full recursive profile. The blocker is that no current caller accepts these forms or supplies the complete rank-nine transfer cost.
+Can a downstream caller consume the five-dimensional sparse readout block directly without materializing a new rank-nine register? First trace the six forms to a named current call and compare the caller's needed subspace with their span; the four five-term forms alone give dimension three, and both bridge forms are needed for the full five-space. Then derive the input basis change and dirty-state restoration and price the shared observation and full recursive profile. Stop if no real caller consumes the block or if the complete transfer cost misses the required budget. The current evidence has no such caller or invoice.
 
 ## Credit
 

@@ -14,8 +14,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 120,
-      "checks": "Exact reverse-adjoint formal-warp expansion on both hash-pinned providers; exhaustive rank-seven/rank-eight singles and all rank-seven pair/triple joins of rank eight/nine; exact deduplication of 11 rank-nine forms and their five-dimensional span; rank-eight witness deletion controls."
+      "timeout_seconds": 180,
+      "checks": "Exact reverse-adjoint formal-warp expansion on both hash-pinned providers; exhaustive rank-seven/rank-eight singles and all rank-seven pair/triple joins of rank eight/nine; complete GF(3) screen of all 211,876 four-class supports with exact rational rechecks of each candidate; exact deduplication of the six new sparse quartet identities and their five-dimensional span; rank-eight witness deletion controls."
     }
   ]
 }
