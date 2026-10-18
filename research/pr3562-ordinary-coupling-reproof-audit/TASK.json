@@ -48,7 +48,7 @@
   "outcome": "completed",
   "evidence": "verify.py (stdlib, exact): two moment engines (integer-root bisection; rational interval atanh/exp series; same methods as PR3562 states, implemented independently) agree inside PR3562's 10^-30 enclosure; source binding to the selected bit supplier and Selected.lean fallback literal; P5 coefficient composition 801 = 2*2*200+1; parametric (c)-(d) arithmetic; line-158 witness; selected bit_saving shown to be the fallback-inclusive root; seven frozen negative controls rejected. PROOF.md gives the written reproof. Result: every audited arithmetic step (a)-(e) holds from P1-P5. Line 158 is stated without derivation; the bounds listed beside it on line 156 (n<=e^(1-c), w<=2e^c) do not imply it (exact witness, ratio 2^(1-c)), while n<=e/w from line 117 does, so 4283584 holds as written; deriving line 158 from the two line-156 bounds alone would give 8033584.",
   "author": "Sagar Thakrar (thakrarsagar)",
-  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for the reproof, verifier and text; reviewed by four independent AI review passes in the same loop (reproducibility, adversarial mathematics, provenance, referee), not by a human.",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for the reproof, verifier and text; reviewed by seven AI review passes over two rounds in the same loop (round 1: reproducibility, adversarial mathematics, provenance, referee; round 2: reproducibility, adversarial mathematics, referee), not by a human.",
   "open_questions": [
     {
       "question": "Should PR3562 derive line 158 from n<=e/w (line 117) at lines 156-158?",

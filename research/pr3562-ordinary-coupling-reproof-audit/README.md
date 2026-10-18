@@ -18,26 +18,38 @@ arithmetic: two reversed C0 calls, each on padded volume below 2V, times majoran
 plus the wrapper bill. That gives 801 = 2·2·200 + 1 and 4000000 = 2·2·10^6. The physical
 claims behind that line are not audited here (see Inherited assumptions).
 
-I found one **exposition gap** and no mathematical gap. Line 156 lists `n <= e^(1-c)`,
-`w <= 2e^c` and the bound `n^(1-c) w <= 2^c e^(1-a)` of line 158. Line 158 is stated
-without derivation, and the two bounds listed beside it do not imply it. An exact
-witness exceeds it by the ratio 2^(1-c). The inequality `n <= e/w`, which follows from
-the selector definition `n = floor((e-k)/w)` on line 117, does imply it. So line 158
+I found one **exposition gap** and no mathematical gap in the audited steps (a)-(e).
+Line 156 lists `n <= e^(1-c)`, `w <= 2e^c` and the bound `n^(1-c) w <= 2^c e^(1-a)` of
+line 158. Line 158 is stated without derivation, and the two bounds listed beside it do
+not imply it. An exact witness exceeds it by the ratio 2^(1-c). A second witness that
+also keeps the selector's w = ceil(e^c) exceeds it by about 1.95 (exactly certified as
+more than 17/16). The inequality `n <= e/w`, which follows from the selector definition
+`n = floor((e-k)/w)` on line 117, does imply it. So line 158
 and `4283584` hold as written. Deriving line 158 from the two line-156 bounds alone
 would give only a factor of 2 and the coefficient `8033584`, with the same O-bound.
 
-For the consumers [PR3576](https://github.com/CrocSwap/integer-mult-bounds/pull/3576)
-(Hiroki KUMAZAKI, `kumagi`) and [PR3690](https://github.com/CrocSwap/integer-mult-bounds/pull/3690)
-(`zxv`): the arithmetic layer they inherit holds, including 4283584, conditional on P5
-and PR3562's other retained premises. This narrows, and does not lift, PR3576's stated
-limit that the all-size PR3562 theorem is not independently reproved. Still unaudited
+The two consumers inherit different parts:
+
+- [PR3576](https://github.com/CrocSwap/integer-mult-bounds/pull/3576) (Hiroki KUMAZAKI,
+  `kumagi`) substitutes PR3562's exponent τ = 1-a = 332353/332929 into T74. The audited
+  layer it inherits, including (2) with the constant 4283584, holds from P1-P5. This
+  narrows, and does not lift, PR3576's stated limit that the all-size PR3562 theorem is
+  not independently reproved.
+- [PR3690](https://github.com/CrocSwap/integer-mult-bounds/pull/3690) (`zxv`) runs the
+  template at c = 1/576 on the R437 histogram. Steps (b)-(d) cover it only if it keeps
+  the same D, K, P5 composition and A = 200. Its R437 moments (step (a)) are not checked
+  here.
+
+Both remain conditional on P5 and PR3562's other retained premises. Still unaudited
 are lines 141-154 (the physical composition behind P5), lines 84-104 (history,
 preparation and reserve), lines 172-174 (binary transfer) and lines 20-25 (space
-bound, borrowed-input restoration and ownership). PR3690's R437 moments are not
-checked here.
+bound, borrowed-input restoration and ownership).
 
 **Scope.** This is an independent check of a scoped all-size arithmetic implication,
-P1-P5 ⇒ (2) and the Consequence. It assumes PR3562's retained source/refinement and
+P1-P5 ⇒ (2) and the Consequence. P1-P4 are PR3562's histogram and fallback weight
+(lines 36-41), the C0 recurrence (lines 45-50), the selector definitions (lines 108-118)
+and the retained bounds (lines 120-121); c = 1/577 is fixed by line 18 (P6). PROOF.md
+states them in full. It assumes PR3562's retained source/refinement and
 physical-cost premises and does not admit them. It is not a κ, not a frontier change
 and not a complete multiplication theorem.
 
@@ -53,7 +65,9 @@ about 5 s and stays under 40 MB RSS.
   - E1, integer-root bisection: z^q·64^p ≤ r^p·Q^q < (z+1)^q·64^p, at Q = 2^128
     (PR3562 uses 2^160);
   - E2, a rational interval series: atanh-based logarithms and a Horner exp with a
-    Lagrange tail, using outward dyadic rounding.
+    Lagrange tail, using outward dyadic rounding. The tail is a soundness term by
+    construction: it lies far below the printed resolution, so no output or control
+    tests it.
 
   μ_1 = 2874298095721977/2890625000000000 < 199/200. Both engines enclose μ_(576/577)
   as 0.999998938581682162866772413602788… (the verifier prints widths 9.358e-38 for E1
@@ -66,10 +80,10 @@ about 5 s and stays under 40 MB RSS.
   - εF/W is the literal in `research/lean-bit-moment-discharge/lean/Selected.lean`.
   - The selected certificate hash is checked through `certificates/selected-result.json`.
   - E2 shows that the selected `bit_saving` 0.001733427039589844234749 is the
-    fallback-inclusive root truncated to 24 digits. The fallback-free root lies about
-    2.0e-12 higher; that figure comes from decimal cross-checks in the review passes,
-    and verify.py certifies only that it lies above b_sel + 10^-24. E1 brackets the root
-    in (10/5769, 9/5192).
+    fallback-inclusive root truncated to 24 digits. verify.py certifies only that the
+    fallback-free root lies above b_sel + 10^-24. Independent 60-80 digit decimal
+    bisections outside verify.py put it about 2.01e-12 higher; the verifier does not
+    certify that figure. E1 brackets the root in (10/5769, 9/5192).
 - **Steps (b)-(d) parametric** in rational c ∈ (17/10000, 1/512). Lemma B covers any
   histogram whose moments satisfy A(1-μ_1) ≥ 1 and M(1-μ_t) ≥ 1. At c = 1/576 with
   M = 10^6 (PR3690's choice), the (c)-(d) arithmetic also gives 4283584. This holds
@@ -78,7 +92,12 @@ about 5 s and stays under 40 MB RSS.
 - **Line-158 witness.** At e = 2^q with c = p/q, the values n = e^(1-c) and w = 2e^c
   satisfy both line-156 bounds with equality. They exceed line 158's bound by exactly
   2^(1-c) > 17/16. They also violate n ≤ e/w and w = ceil(e^c) (line 18), so the
-  selector excludes them. The verifier checks this exponent arithmetic. The
+  selector excludes them. A sharper witness keeps the selector's w: at e = 2^20,
+  c = 1/577, take w = 2 = ceil(e^c) and n = 1023683 = floor(e^(1-c)). It satisfies
+  both line-156 bounds and line 18, yet exceeds line 158 by a ratio of about 1.95; only
+  n ≤ e/w = 524288 excludes it (a one-line exact check is given in PROOF.md; verify.py
+  does not run it). The
+  verifier checks the first witness's exponent arithmetic. The
   classification as an exposition gap rests on the written argument in PROOF.md.
 
 ## Reproduce
@@ -203,9 +222,10 @@ The structured form (question, why_it_matters, first_step, blocked_by) is in
 - Selected bit supplier and moment literal: `research/e8-bit-p111-tuned` and
   `research/lean-bit-moment-discharge` on main, credited in their own packages.
 
-The verifier and proof were reviewed by four independent AI review passes in the same
-loop: reproducibility, adversarial mathematics, provenance and referee. This is not
-human review, and none is claimed. Source pins are in [SOURCES.json](SOURCES.json).
+The verifier and proof were reviewed by seven AI review passes over two rounds in the
+same loop (round 1: reproducibility, adversarial mathematics, provenance, referee;
+round 2: reproducibility, adversarial mathematics, referee). This is not human review,
+and none is claimed. Source pins are in [SOURCES.json](SOURCES.json).
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). Apache-2.0.

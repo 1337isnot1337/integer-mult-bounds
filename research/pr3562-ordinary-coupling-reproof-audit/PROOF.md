@@ -13,7 +13,8 @@ verifier code.
 
 **Verdict.**
 
-- Every audited arithmetic step (a)-(e) holds from premises P1-P5 below.
+- Every audited arithmetic step (a)-(e) holds from premises P1-P5 below, with
+  c fixed by P6.
 - One exposition gap. Line 156 lists `n<=e^(1-c)`, `w<=2e^c` and the bound
   `n^(1-c)w <= 2^c e^(1-a)` of line 158. Line 158 is stated without
   derivation. The two bounds listed beside it do not imply it: alone they give
@@ -190,7 +191,21 @@ log2(n^(1-c)w) - log2(2^c e^(1-a)) = 1-c exactly. So the ratio is
 2^(1-c) > 2^(511/512) > 17/16, which violates line 158's conclusion. These
 values have nw = 2^(q+1) > e, so they violate (N). They also violate
 w = ceil(e^c) = 2^p (line 18). (N) excludes the witness, and (N) follows from
-line 117. So line 158 is true for the actual selector; what is missing is only
+line 117.
+
+*Sharper witness, respecting line 18.* Take e=2^20, c=1/577, w=2 and n=1023683.
+Then 1 < e^c < 2, so w = ceil(e^c) ≤ 2e^c, and n = floor(e^(1-c)) because
+n^577 ≤ 2^11520 < (n+1)^577. Raising to the power 332929 = 577², the exact integer
+comparison n^(576·577)·2^332929·16^332929 > 17^332929·2^577·2^(20·332353) shows
+n^(1-c)w > (17/16)·2^c·e^(1-a); the ratio to 2^c e^(1-a) is about 1.9502. These
+values satisfy both line-156 bounds and line 18 and violate only (N), since
+n > e/w = 524288. So among the stated constraints, (N) is what closes the gap. This
+check is not part of verify.py; it was run separately (and in one AI review pass),
+and this one line reproduces it:
+
+    python3 -c "n=1023683; print(n**577<=2**11520<(n+1)**577, n**(576*577)*2**332929*16**332929 > 17**332929*2**577*2**(20*332353), 2*n>2**20)"
+
+which prints `True True True`. So line 158 is true for the actual selector; what is missing is only
 its derivation.
 
 **Constant.** The remaining terms of P5 are bounded as follows, for e ≥ 1 and
@@ -251,12 +266,13 @@ records `complex_lower` = 1729033982646513517717/10^24 and
 | (d) elementary branch | holds; reads the elementary cost as C·V·e (implicit in PR3562) | none |
 | (e) consequence | exact | none |
 
-For the consumers ([PR3576](https://github.com/CrocSwap/integer-mult-bounds/pull/3576),
-`kumagi`; [PR3690](https://github.com/CrocSwap/integer-mult-bounds/pull/3690), `zxv`),
-the audited arithmetic implication holds, including the inherited 4283584. It is
-conditional on P5 and PR3562's other retained premises. This narrows, and does not
-lift, PR3576's stated limit that the all-size PR3562 theorem is not independently
-reproved.
+[PR3576](https://github.com/CrocSwap/integer-mult-bounds/pull/3576) (`kumagi`)
+substitutes PR3562's exponent τ = 1-a = 332353/332929 into T74. The audited layer it
+inherits, including (2) with the constant 4283584, holds from P1-P5, conditional on P5
+and PR3562's other retained premises. This narrows, and does not lift, PR3576's stated
+limit that the all-size PR3562 theorem is not independently reproved.
+[PR3690](https://github.com/CrocSwap/integer-mult-bounds/pull/3690) (`zxv`) inherits
+only the parametric template below; its step (a) on R437 is not checked here.
 
 Steps (b)-(d) are parametric. At PR3690's c=1/576 with M=10^6, the (c)-(d)
 arithmetic gives the same 4283584 and a = 575/331776. This assumes PR3690 keeps the
@@ -272,9 +288,10 @@ root. The function c(1-c) is increasing on (0,1/2). So on the selected bit progr
 the shape's exponent has supremum b(1-b) = 0.001730422270288263023337…, not attained.
 E2 places the root in (b_sel, b_sel+10^-24], where b_sel is the selected
 bit_saving. E1 independently brackets it in (10/5769, 9/5192). verify.py certifies
-that the fallback-free root lies above b_sel + 10^-24 (decimal cross-checks in the
-review passes put it about 2.0·10^-12 higher), so the selected value is the
-fallback-inclusive root.
+that the fallback-free root lies above b_sel + 10^-24, so the selected value is the
+fallback-inclusive root. Independent 60-80 digit decimal bisections outside verify.py
+put the fallback-free root about 2.01·10^-12 higher; the verifier does not certify
+that figure.
 
 **Like-for-like comparisons.** PR2979, PR3633, PR3642 and PR3653 each state their
 endpoint as κ = X - 10^-46 - 10^-70, with X a primitive complex lower bound (the
