@@ -51,7 +51,7 @@ def bind_sources():
             'tape=2*total_mass+18<c0,row=row<20161,halving=m*m>2*maxchild*maxchild)',
             'inequalities=dict(local_primitive_bound=primitive_bound<2**48,',
             'logical=logical<2**6050,router=router<g_bound,literal=literal<e_bound,',
-            'row_prefix_extra=2*payload'],
+            'row_prefix_extra=2*payload', 'retained_row_coefficient=20161'],
         SEL + 'assemble.py': [
             "assert 0<finite['physical_row_coefficient']<finite['retained_row_coefficient']==20161",
             "assert finite['physical_row_coefficient']==2*stock.bit_length()+9909+252+1024",
@@ -59,7 +59,16 @@ def bind_sources():
             "'rows':{'degree_gap':Q(10**6)-Q(51*20161,25)}",
             'precision=32*73*total_mass*total_mass<2**210000',
             'cut=max(ceil(36/gap**2),ceil(2*(4+512)/gap))',
-            'and m*m>2*max(h)**2'],
+            'and m*m>2*max(h)**2',
+            "bit['bit']['two_level_coefficient_bits']<bit['bit']['charged_two_level_coefficient_bits']==512 and bit['bit']['row_coefficient']<20161"],
+        # Lineage bridge text (outside the selected manifest): 20161 is a degree-1 overcharge.
+        'research/five-stage-gen4-banks/inputs/complex/retained/FINITE_BRIDGE.txt': [
+            'The complex child maximum below m/2 gives halving degree1, while',
+            'A=10000+9909+252=20161.', 'Increasing these finite overcharges changes'],
+        'research/contextual-provider-pooling/docs/PRIOR-TN27-README.md': ['below the retained20161 allowance'],
+        # A selected-manifest lineage assembler certifies the bridge at max(20161, rows).
+        'research/direct-delivery504-global/code/assemble.py': [
+            "row=max(20161,int(bit['bit']['row_coefficient']),inv['finite']['physical_row_coefficient'])"],
         # The outer engine consumes degree_gap only as a positivity slack (no kappa margin).
         'research/contextual-provider-pooling/engines/outer.py': [
             "row_product_gap=bridge['rows']['degree_gap'])"],
@@ -387,6 +396,15 @@ def main():
     assert prefix3_max == 2073 and row(3, S, 'fixed') < RETAINED and 256 * 9 > prefix3_max
     depth6 = row(6, S, 'fixed')                                       # kappa010-rank-cap-floor OQ3 (depth six)
     assert depth6 == 27037 and RETAINED <= depth6 < CAP['B_bridge']
+    # Conditional what-if (#3667, unadopted): 9909/252 slots slack, lean row t*S + prefix(t) under A.
+    lean = {}
+    for prefix in PREFIX:
+        ts = [t for t in T_RANGE if row(t, S, prefix) - BIT_RESERVES < RETAINED]
+        assert ts == list(range(2, max(ts) + 1))
+        lean[f'A_retained/{prefix}'] = dict(t_max=max(ts), row_at_t_max=row(max(ts), S, prefix) - BIT_RESERVES,
+                                           R_max=rmax[max(ts)])
+    assert {k: (v['t_max'], v['R_max']) for k, v in lean.items()} == {'A_retained/fixed': (7, 66), 'A_retained/per_level': (6, 65)}
+    assert row(2, S, 'fixed') - BIT_RESERVES == 6308 and max(v['R_max'] for v in lean.values()) < min(above)
     controls = run_controls(S, inv, H, mass)
     return dict(
         status='PASS_COMPLEX_HALVING_DEGREE_INVOICE_SCOPED',
@@ -405,8 +423,10 @@ def main():
         local_word={str(r): n for r, n in sorted(local.items())}, idle_mass_per_call=idle_mass(local),
         ceilings=ceilings, ceiling_by_rank={str(R): dec(v) for R, v in table.items()},
         bit_endpoint_crossing=crossing, controls=controls,
-        invoice_independent=dict(R_max_any_degree=max(rmax.values()), note='R <= 72 for every t: R = 73 never meets the guard'),
+        invoice_independent=dict(R_max_any_degree=max(rmax.values()), note=('R <= 72 for every t and every child rank, paid or idle: R = 73 never meets the guard. '
+                                   'The ceilings price only idle repacking of the fixed selected word.')),
         sharp_depth_coefficient_what_if_A=sharp, A_admits_t3_for_any_prefix3_at_most=prefix3_max,
+        lean_row_what_if_A_3667=lean,
         depth6_row_fixed_prefix=dict(row=depth6, fits_A=depth6 < RETAINED, fits_B=depth6 < CAP['B_bridge']))
 
 

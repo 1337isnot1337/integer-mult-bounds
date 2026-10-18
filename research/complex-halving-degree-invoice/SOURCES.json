@@ -87,10 +87,28 @@
       "sha256": "141bd2fd58bbfb5b8d0fc8f56f61c45586d5608a5af3487c6b883dd987f998ec"
     },
     {
+      "path": "research/contextual-provider-pooling/docs/PRIOR-TN27-README.md",
+      "usage": "input",
+      "git_blob": "71aaed09f42a5782ed00788870bb09edac4a9555",
+      "sha256": "1c5c8a75542d2ee33efd600f3695253db63b38f810fda865d8b7c669d762be29"
+    },
+    {
       "path": "research/contextual-provider-pooling/engines/outer.py",
       "usage": "input",
       "git_blob": "43007488ad2c43187c77cc6798beff8b1cd76ad2",
       "sha256": "c1ebb52163a7219504c728a5c2b098bf1e50bf20148a2879c5a74c3cadc7c03c"
+    },
+    {
+      "path": "research/direct-delivery504-global/code/assemble.py",
+      "usage": "input",
+      "git_blob": "a234aecb14de159247809af1120fedc1aab20df9",
+      "sha256": "71b4cbbbc5acdfe06ac67879cf54ea761e29e52143af1cd8410ad672a5cc190b"
+    },
+    {
+      "path": "research/five-stage-gen4-banks/inputs/complex/retained/FINITE_BRIDGE.txt",
+      "usage": "input",
+      "git_blob": "c1a88436113a1351f80c72bd08f6406ed5faa51d",
+      "sha256": "66d8f4ea8752abd89952d6674a636575a0db16e18b1c16e293f48f64242f0c46"
     }
   ]
 }

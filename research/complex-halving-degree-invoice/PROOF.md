@@ -51,20 +51,28 @@ hypotheses. It is not a supplier, not a κ and not a multiplication theorem.
   prefix(3) ≤ 20160 − 3·2642 − 10161 = 2073 (a superlinear form such as 256·t² would
   give t_max = 2).
 - **H3 (row contract).**
-  - Reading **B** (bridge-only; source-supported): the retained coefficient K may be
+  - Reading **B** (bridge-only; favoured by source): the retained coefficient K may be
     re-chosen while the bridge factor 51/25 and reserve 10^6 stay fixed. The cap is
     K ≤ ⌊(25·10^6 − 1)/51⌋ = 490196, with gap 10^6 − (51/25)·490196 = 4/25 > 0, and
     Row < K. Support: the outer engine consumes `degree_gap` only as the positivity slack
     `row_product_gap` (`research/contextual-provider-pooling/engines/outer.py:45`); the
-    lineage calls 20161 a "retained … allowance"; the degree-4 precedent accepts row
-    20445 > 20161 against a re-chosen reserve 70000; and 51/25 is t-independent (H1).
+    lineage calls 20161 a "retained … allowance"; the lineage bridge text
+    (`research/five-stage-gen4-banks/inputs/complex/retained/FINITE_BRIDGE.txt`, section
+    4; outside the selected manifest) derives A = 10000 + 9909 + 252 = 20161 at halving
+    degree 1 and says increasing these overcharges changes only constants; the
+    selected-manifest lineage assembler `research/direct-delivery504-global/code/assemble.py:29`
+    certifies the bridge at max(20161, rows); an earlier assembly in the same bridge
+    lineage charges row 20445 against its own reserve 70000; and 51/25 is t-independent
+    (H1).
   - Reading **A** (retained-binding; fallback): the retained coefficient 20161 is a
-    binding contract, so Row < 20161 (`assemble.py:159,175`).
+    binding contract, so Row < 20161 (`assemble.py:159,175,204`;
+    `invoice_allcold.py:307`; under B these stay satisfied because K ≥ 20161).
   - Reading **C**, recorded but not used for numbers: the reserve exponent itself is
     chosen per assembly. The pinned notes use 70000, 108000 and 160000;
     `notes/structured-bulk-assembly.tex` says the related suffix condition "holds
     eventually for every fixed ε<1". Under C the row invoice gives no finite cap on t,
-    and every conclusion of B holds a fortiori.
+    and every admissibility conclusion of B holds a fortiori (its t_max values, being
+    upper bounds, do not).
 - **H4 (other checks independent of t).** None of the formulas for
   `local_primitive_bound`, `logical`, `router`, `literal`, `mass`, `precision` and
   `tape` contains the halving degree. The square in `router` and `literal` is the
@@ -187,3 +195,51 @@ coefficient could only lower the row. Native admission is not covered: it would 
 change the hard-coded t = 2 guards at `assemble.py:175` and `:191` and `ceiling.py:111`.
 Reading A versus B (or C) is a contract question. The computation is exact under each
 reading; source favours B, but this package does not decide it.
+
+The guard limits every child rank, paid or idle, so the admissibility statements of
+the theorem also lift the paid-rank cap s = 51 used by the rank-shape screens (open
+#3701/#3811) to 57 (A) or 72 (B). The ceilings here price only idle repacking with the
+selected word's paid children fixed; the paid-rank lever above 51 is not priced.
+
+## Verifier checks and negative controls
+
+`verify.py` checks:
+
+1. The selected assembler `research/complex-sw4-frame8/code/{assemble,invoice_allcold}.py`
+   hashes to the entries of the selected source manifest
+   (`research/community-frontier1094-audit/SELECTED-SOURCE.json`); then 41 literal source
+   bindings in that code, `outer.py`, the notes and the lineage bridge files, plus the precedent arithmetic
+   4·2571 = 10284 and 24·2431 = 58344.
+2. The selected invoice member SHA256. It recomputes S from physical roles × group(36),
+   the row, router, literal and C0 bit lengths from the invoice's own fields, and the
+   seven invoice inequalities (primitive bound, logical, router, literal, mass,
+   precision, tape).
+3. Guard thresholds for every R = 1..72 by integer power search, with an implementation
+   cross-check by the exact coarse recurrence n ↦ R·⌊n/73⌋ (algebraically the same
+   comparison, so it guards the code, not the model).
+4. t_max for each reading and prefix, by direct scan, as an initial-segment property;
+   the (R, S) region; the prefix(3) ≤ 2073 threshold; the depth-six row.
+5. The ceilings by the package's own decimal interval bisection (correctly rounded
+   ln/exp with one-ulp widening, directed rounding). At both bracket endpoints they are
+   cross-checked against Colkitt's unmodified rational `child_cost` enclosures. At R = 51
+   the bracket must equal the unmodified `ceiling.ceiling()` and the published
+   `RESULT.json`.
+6. The conditional sharp-coefficient what-if under A (60-digit values, asserted far from
+   integer ties) and the #3667 lean-row what-if under A (t_max 7 / 6, R ≤ 66 / 65).
+
+**Negative controls.** These 11 inputs run through the main check functions and must
+fail with the stated assertion message; each did:
+
+| Control | Why it fails |
+|---|---|
+| t = 4 under A, fixed prefix | row 21753 ≥ 20161 |
+| t = 4 under A, 512·t prefix | row 22777 ≥ 20161 |
+| R = 58 at t = 3 | guard 390224 > 389017 |
+| R = 72 at t = 50 | guard fails |
+| R = 73 at t = 200 | guard can never hold for R ≥ 73 |
+| t = 182 under B, fixed prefix | row 492029 ≥ 490196 |
+| t = 153 under B, 512·t prefix | row 492723 ≥ 490196 |
+| bridge cap + 1 (490197) | degree gap not positive |
+| `row_prefix_extra` set to 0 | prefix identity (`row_prefix_extra = 2*payload`) fails |
+| stock bits + 1 | invoice stock identity fails |
+| physical roles doubled | invoice stock identity fails |

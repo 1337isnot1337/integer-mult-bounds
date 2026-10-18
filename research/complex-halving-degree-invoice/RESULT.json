@@ -83,7 +83,19 @@
   "idle_mass_per_call": 1646,
   "invoice_independent": {
     "R_max_any_degree": 72,
-    "note": "R <= 72 for every t: R = 73 never meets the guard"
+    "note": "R <= 72 for every t and every child rank, paid or idle: R = 73 never meets the guard. The ceilings price only idle repacking of the fixed selected word."
+  },
+  "lean_row_what_if_A_3667": {
+    "A_retained/fixed": {
+      "R_max": 66,
+      "row_at_t_max": 19518,
+      "t_max": 7
+    },
+    "A_retained/per_level": {
+      "R_max": 65,
+      "row_at_t_max": 18924,
+      "t_max": 6
+    }
   },
   "least_degree_by_rank": {
     "48": 2,
@@ -275,6 +287,6 @@
       "row_at_R_max_plus_1": 20429
     }
   },
-  "source_bindings_checked": 34,
+  "source_bindings_checked": 41,
   "status": "PASS_COMPLEX_HALVING_DEGREE_INVOICE_SCOPED"
 }

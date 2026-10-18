@@ -5,16 +5,19 @@ No new κ, no supplier, no frontier change.**
 
 ## Answer in three lines
 
-- **Question.** Every complex ceiling screen caps the idle child rank at R ≤ 51, from the
+- **Question.** Every complex ceiling screen caps child ranks (idle and paid) at 51, from the
   halving guard 73^t > 2R^t at halving degree t = 2. Does the selected #1094 finite
   invoice force t = 2, and what is a larger t worth?
-- **Bound that does not depend on the invoice.** R = 73 never meets the guard, so R ≤ 72
-  for every t. On the selected local word the halving-degree lever is therefore worth at
-  most **+2.76469%** in Colkitt's ideal relaxation, whatever the row contract is.
+- **Bound that does not depend on the invoice.** R = 73 never meets the guard, so every
+  child rank, paid or idle, is ≤ 72 for every t. Its idle-cap component (the selected
+  word's paid children held fixed, only idle mass repacked) is worth at most
+  **+2.76469%** in Colkitt's ideal relaxation, whatever the row contract is. The same
+  guard also caps the paid ranks; that rank-shape lever above 51 is not priced here.
 - **Under the inherited degree-t ledger (H1–H4 in [PROOF.md](PROOF.md)).** If only the
-  outer bridge binds (reading B, which source supports), t_max = 181 and R = 72 is
-  admissible (from t = 51). If the retained row 20161 binds (reading A, the fallback),
-  t_max = 3 and R ≤ 57 (+0.875558%).
+  outer bridge binds (reading B, favoured by the inherited bridge text), t_max = 181
+  (152 with a 512·t prefix) and every child rank up to 72 is admissible (from t = 51). If
+  the retained row 20161 binds (reading A, the fallback), t_max = 3 and every child rank
+  is ≤ 57 (+0.875558% from idle repacking under the integer-degree ledger).
 
 ## Statement
 
@@ -39,13 +42,26 @@ so this bin is guard-admissible here but not realized in that schedule class.
 Reading B keeps the bridge reserve 10^6 and the factor 51/25 fixed and re-chooses the
 retained coefficient up to ⌊(25·10^6 − 1)/51⌋ = 490196, where the bridge gap is 4/25 > 0.
 
-**Why B is the source-supported reading.** The outer engine consumes the bridge only as
+**Why source favours B.** The lineage bridge text that derives 20161 calls it an
+overcharge: "The complex child maximum below m/2 gives halving degree1, while
+log2 W<5208<10000 … A=10000+9909+252=20161 … Increasing these finite overcharges changes
+constants and the all-size bridge, not the selected exponent saving"
+(`research/five-stage-gen4-banks/inputs/complex/retained/FINITE_BRIDGE.txt`, section 4;
+lineage evidence, outside the selected manifest). The 10000 slot is exactly where
+t·S + prefix(t) must fit under A, and it was sized at halving degree 1. The
+selected-manifest lineage assembler `research/direct-delivery504-global/code/assemble.py:29`
+certifies the bridge at `row=max(20161, bit row, physical row)`, treating 20161 as a
+floor. Counter-evidence for A: the selected assembler also asserts the bit row
+`<20161` (`assemble.py:204`), the invoice emits `retained_row_coefficient=20161`
+(`invoice_allcold.py:307`), and the lineage invoices keep a strict `row<20161`; under B
+these stay satisfied because K ≥ 20161. The outer engine consumes the bridge only as
 the positivity slack `row_product_gap=bridge['rows']['degree_gap']`
 (`research/contextual-provider-pooling/engines/outer.py:45`), not as a κ margin. The
 lineage calls 20161 a "retained … allowance"
-(`research/contextual-provider-pooling/docs/PRIOR-TN27-README.md`). The degree-4 precedent
-accepts row 20445 > 20161 against a re-chosen reserve 70000
-(`notes/paired-cube-assembly.tex`). And 51/25 is derived independently of t
+(`research/contextual-provider-pooling/docs/PRIOR-TN27-README.md:21`). An earlier assembly
+in the same bridge lineage charges row 20445 at halving degree 4 against its own reserve
+70000 (`notes/paired-cube-assembly.tex`), so reserves and allowances are chosen per
+assembly. And 51/25 is derived independently of t
 (`notes/structured-bulk-assembly.tex`). Reading A keeps this replay's pinned constant.
 Reading A admits t = 3 for any prefix(3) ≤ 2073, so its t_max = 3 holds for every prefix
 form with that property (a superlinear form such as 256·t² would give 2).
@@ -87,8 +103,13 @@ What this decides:
   R = 71 this relaxation no longer forces the complex side to bind.
 - Under A, the integer-degree ledger gives +0.875558% (R ≤ 57), or up to +1.1501% with the
   conditional sharper depth pricing. The complex ceiling stays below b.
-- Either way the lever is small next to the local rank-shape lever priced in #3701 and
-  #3811.
+- The guard caps every child rank, not only idle ones. The rank-shape screens of open
+  #3701 and #3811 stop at paid cap s = 51 because of this same t = 2 guard; under H1–H4
+  the cap becomes 57 (A) or 72 (B). In their relaxation (all local and idle mass at rank
+  s) a same-loop AI review computation (not asserted by verify.py) gives 0.013675 at s = 51, 0.019823 at s = 57 and an
+  uninformative 0.3556 at s = 72, where physical hosting, not the guard, binds. That
+  paid-rank lever is not priced or claimed here (open question 5); the +2.76469% above is
+  only the idle-cap component.
 
 ## What is new compared with predecessors
 
@@ -97,9 +118,9 @@ What this decides:
   "the retained bridge degree 10^6 already admits t ≤ 181", and that the effect on this
   word's ceiling is "≤ +2.8%". This package confirms his ≤ +2.8% bound exactly
   (+2.76469%) under every reading, and his t ≤ 181 under reading B with a fixed prefix
-  (152 with a 512·t prefix). It adds: the source binding of every term of the t = 2
-  ledger to the selected assembler and invoice bytes; reading A (t_max = 3) and the
-  source evidence for B; the exact (R, S) region; certified ceilings at every
+  (152 with a 512·t prefix). The t = 2 ledger terms were traced concurrently (below);
+  new here are the t-dependence of the ledger bound to the selected assembler and invoice
+  bytes; reading A (t_max = 3) and the source evidence for B; the exact (R, S) region; certified ceilings at every
   R = 51..72; and the bit-endpoint crossing at R = 71.
 - **Gonzalo-Mier**, `research/kappa010-rank-cap-floor`, open question 3, asks whether
   depth six fits the row invoice. For the complex invoice: halving degree 6 gives row
@@ -109,10 +130,17 @@ What this decides:
 - **Douglas Colkitt**, `research/complex-local-word-ceiling`: the relaxation and its
   rational enclosure primitives are reused unmodified, as a cross-check. Its guard check
   (`ceiling.py:111`) is not called for R > 51.
-- **petalas**, #3701/#3729/#3754/#3805/#3811: ceilings and integer packings for caps up
-  to the guard cap 51. This package extends only the idle cap past 51.
-- **Concurrent:** open #3768 (jwr404) records the same degree-gap arithmetic
-  (23971789/25, 141461/5, 20249.8) that this package re-asserts as precedent.
+- **petalas**, open #3701/#3729/#3754/#3805/#3811: ceilings and integer packings for caps
+  up to the guard cap 51. This package prices only the idle cap past 51.
+- **Concurrent (open PRs):** #3768 (jwr404) records the same degree-gap arithmetic
+  (23971789/25, 141461/5, 20249.8) that this package re-asserts as precedent. #3667
+  (Mainzu) traces 9909, 252 and 1024 as w-free degrees of the fixed external reserve
+  (support for H4) and claims, conditionally, that the 9909/252 slots are slack (lean row
+  6308 at t = 2). If that were adopted, reading A would admit t = 7 with the fixed prefix
+  (row 19518, R ≤ 66) or t = 6 with the 512·t prefix (row 18924, R ≤ 65), still below the
+  R = 71 bit crossing; verify.py asserts these (`lean_row_what_if_A_3667`). #3670 and
+  #3766 (jwr404) record the t = 2 rows 16469 and 15555; #3766's "two selected row
+  readings" are row values, not this package's contract readings A/B.
 
 ## Reproduce
 
@@ -131,46 +159,9 @@ PASS_COMPLEX_HALVING_DEGREE_INVOICE_SCOPED {'A_retained/fixed': 3, 'A_retained/p
 ```
 
 The verifier recomputes everything and requires byte equality with
-[RESULT.json](RESULT.json). `--write` regenerates the file. It checks:
-
-1. The selected assembler `research/complex-sw4-frame8/code/{assemble,invoice_allcold}.py`
-   hashes to the entries of the selected source manifest
-   (`research/community-frontier1094-audit/SELECTED-SOURCE.json`); then 34 literal source
-   bindings in that code, `outer.py` and the notes, plus the precedent arithmetic
-   4·2571 = 10284 and 24·2431 = 58344.
-2. The selected invoice member SHA256. It recomputes S from physical roles × group(36),
-   the row, router, literal and C0 bit lengths from the invoice's own fields, and the
-   seven invoice inequalities (primitive bound, logical, router, literal, mass,
-   precision, tape).
-3. Guard thresholds for every R = 1..72 by integer power search, with an implementation
-   cross-check by the exact coarse recurrence n ↦ R·⌊n/73⌋ (algebraically the same
-   comparison, so it guards the code, not the model).
-4. t_max for each reading and prefix, by direct scan, as an initial-segment property;
-   the (R, S) region; the prefix(3) ≤ 2073 threshold; the depth-six row.
-5. The ceilings by the package's own decimal interval bisection (correctly rounded
-   ln/exp with one-ulp widening, directed rounding). At both bracket endpoints they are
-   cross-checked against Colkitt's unmodified rational `child_cost` enclosures. At R = 51
-   the bracket must equal the unmodified `ceiling.ceiling()` and the published
-   `RESULT.json`.
-6. The conditional sharp-coefficient what-if under A (60-digit values, asserted far from
-   integer ties).
-
-**Negative controls.** These 11 inputs run through the main check functions and must
-fail with the stated assertion message; each did:
-
-| Control | Why it fails |
-|---|---|
-| t = 4 under A, fixed prefix | row 21753 ≥ 20161 |
-| t = 4 under A, 512·t prefix | row 22777 ≥ 20161 |
-| R = 58 at t = 3 | guard 390224 > 389017 |
-| R = 72 at t = 50 | guard fails |
-| R = 73 at t = 200 | guard can never hold for R ≥ 73 |
-| t = 182 under B, fixed prefix | row 492029 ≥ 490196 |
-| t = 153 under B, 512·t prefix | row 492723 ≥ 490196 |
-| bridge cap + 1 (490197) | degree gap not positive |
-| `row_prefix_extra` set to 0 | prefix identity (`row_prefix_extra = 2*payload`) fails |
-| stock bits + 1 | invoice stock identity fails |
-| physical roles doubled | invoice stock identity fails |
+[RESULT.json](RESULT.json). `--write` regenerates the file. The six checks and the 11
+negative controls (each must fail with its stated assertion message; each did) are
+listed in [PROOF.md](PROOF.md#verifier-checks-and-negative-controls).
 
 Outside the verifier: `-O` exits non-zero (the assertions are the checks), an unknown
 argument is rejected, and a one-digit edit of RESULT.json fails the byte comparison.
@@ -188,7 +179,7 @@ proved here:
   B_bits = 2642 for the m = 73 divisor, so S is the per-level allowance. The
   degree-genericity of the written transfer proof is not re-proved.
 - **H2.** prefix(t) is fixed (1024) or 512·t; source does not settle which.
-- **H3.** Reading B (bridge-only, source-supported) or reading A (retained-binding).
+- **H3.** Reading B (bridge-only, favoured by source) or reading A (retained-binding).
   A third reading, C, is recorded but not used for any number: the reserve exponent is
   itself chosen per assembly (70000, 108000, 160000 in the notes; 10^6 here), and then
   the row invoice gives no finite cap.
@@ -215,12 +206,16 @@ selected frontier.
 ## Open next questions
 
 1. **Does the retained row coefficient 20161 bind, or only the bridge (reading A versus
-   B or C)?** Source favours B (above). First step: have a maintainer or the lineage
-   author confirm whether `retained_row_coefficient == 20161` is a contract of the
-   transfer proof or a bookkeeping constant. Blocker: a contract decision.
+   B or C)?** Source favours B (above): the derivation of 20161 as a degree-1 overcharge
+   is known (FINITE_BRIDGE section 4), and lineage assemblers certify the bridge at
+   max(20161, rows). What remains is whether the selected transfer proof inherits the
+   section-4 "overcharge" clause, or the invoices' strict `row<20161` is a contract.
+   Blocker: a contract decision.
 2. **Is `row_prefix_extra` fixed or proportional to t?** It changes t_max under B from
-   181 to 152, but not the R = 72 conclusion. First step: trace `2*payload` to the
-   PR582 plain-joint-prefix construction.
+   181 to 152, but not the R = 72 conclusion. Weak evidence for 512·t: the selected
+   assembler names the bit side's 512 charge `charged_two_level_coefficient_bits`
+   (`assemble.py:204`). First step: trace `2*payload` to the PR582 plain-joint-prefix
+   construction.
 3. **Can idle children of rank 71 or 72 be hosted, and what do ρ and the per-level
    divisor cost there?** This is where the bit side could start to bind. A sharper depth
    coefficient would be a row saving (it could raise reading A's cap to 58–59), not a
@@ -228,6 +223,10 @@ selected frontier.
 4. **Bit-side analogue.** Does the bit invoice (m = 64) admit the halving degrees that
    the kappa010 bit rows need (t = 15 for rank 61)? First step: bind the bit row ledger
    the same way.
+5. **Paid caps 52–72.** The same guard limits paid child ranks. What do the rank-shape
+   screens of #3701/#3811 (open) give at paid caps s = 52..72, with physical hosting
+   (#3805) and stock/depth repricing charged? First step: rerun their screens with the
+   cap lifted to 57 (A) and to 72 (B).
 
 ## Sources and credit
 
@@ -236,27 +235,33 @@ selected frontier.
 - The selected invoice is the tar member `candidate/strict/global/audit/PREFIX-AND-INVOICE.json`
   of the #1094 replay (rohanarun), SHA256 `212cf4ee3b16081bf66f300fa18b4070d25c17210c21c78c2967892c91870d12`.
 - The ledger formula and contracts are in the selected assembler
-  `research/complex-sw4-frame8/code/` (prepared by chafreaky; inherited authors credited
+  `research/complex-sw4-frame8/code/` (PR741 by chafreaky; inherited authors credited
   in its PROVENANCE.md): `invoice_allcold.py:263,271-283,297` and
   `assemble.py:159,173,175,191,210,213`. The selected record's source chain includes
   PR1087 by jeremykothe2.
 - Precedents: `notes/paired-cube-assembly.tex`, `notes/three-stage-cover-assembly.tex`,
   `notes/three-stage-cover-rows.tex`, `notes/structured-bulk-assembly.tex`, all by
-  icekylinx. DaysSky's closed PR375 is an earlier package with a halving degree above 2.
+  icekylinx. DaysSky's closed PR375 (halving degree two, raised from one) is the earliest
+  explicit statement of the degree-t ledger (row term t·log2 W, recursion depth
+  t·⌈log2 n⌉) that H1 relies on. `FINITE_BRIDGE.txt` (five-stage-gen4-banks lineage) and
+  `research/direct-delivery504-global` are cited as lineage evidence for reading B.
 - Predecessors:
   - philippeVV: the halving-guard note in Discussion #2278.
   - Gonzalo-Mier: kappa010-rank-cap-floor, open question 3.
   - Sricharan Vagvala (@theon199): selected-coarse-depth-stock.
   - VictorLiwentao: #3421, selected-stock-shape-a-zero.
-  - Douglas Colkitt: complex-local-word-ceiling, and contextual-provider-pooling
-    (`outer.py`).
+  - Douglas Colkitt: complex-local-word-ceiling.
+  - Dugongue: contextual-provider-pooling (PR563; `outer.py` and the PRIOR-TN27 README,
+    from the PR552 lineage), integrated by Douglas Colkitt.
+  - DaysSky: closed PR375 (degree-t ledger generalization).
   - navinor: #3113.
   - petalas: #3701/#3729/#3754/#3805/#3811.
-  - Concurrent: jwr404 (#3768), Matarener (#3836).
+  - Concurrent (open PRs): jwr404 (#3768, #3670, #3766), Mainzu (#3667), Matarener
+    (#3836).
 
 No predecessor file was modified.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). Claude chose the method, wrote verify.py and drafted this
-README and PROOF.md. Reviewed by four independent AI review passes in the same loop; no
-human has reviewed it. Apache-2.0.
+README and PROOF.md. Reviewed by eight independent AI review passes (two rounds) in the same
+loop; no human has reviewed it. Apache-2.0.
