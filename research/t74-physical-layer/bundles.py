@@ -49,6 +49,24 @@ def extract(name, destination):
                      "retained closed source subset")
 
 
+def authenticate_prepared(prepared):
+    """Bind the production constructor's finite inputs, including direct callers."""
+    prepared = Path(prepared)
+    path = HERE / "inputs/t74-native-controller.tar"
+    need(sha256(path.read_bytes()).hexdigest() == PINS[path.name], "frozen constructor-input authority")
+    with tarfile.open(path, "r:") as archive:
+        pins = json.loads(archive.extractfile("INPUTS.json").read())["files"]
+    names = ["hosted/GLOBAL-TEMPLATE.json.gz", "hosted/ACTUAL-SIGMAS.json.gz",
+             "bound/base/work/complex-nine-native/DATA-PHASES.json"]
+    names += ["bound/base/providers/" + pid + "/" + name for pid in ("gauge44", "extra")
+              for name in ("CANONICAL-WORD.json.gz", "LOCAL-PROGRAMS.json.gz",
+                           "CLIFFORD-RECIPES.json", "RESIDUAL-ADAPTERS.json")]
+    for name in names:
+        raw = (prepared / name).read_bytes()
+        pin = pins["prepared/" + name]
+        need(len(raw) == pin["size"] and sha256(raw).hexdigest() == pin["sha256"], "frozen T74 input: " + name)
+
+
 @contextmanager
 def opened():
     old = os.environ.get("T74_CONTROLLER_EXPORT")

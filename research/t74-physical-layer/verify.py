@@ -48,6 +48,7 @@ def run(suite):
                          identities.artifact_identities(prepared / "bound/base/providers" / pid),
                          "all seven regenerated proof-relevant native artifacts: " + pid)
                 report("compilation", importlib.import_module("check_compilation").run, prepared)
+                report("compiled-local-endpoints", importlib.import_module("check_local_modular").run, prepared)
             elif suite == "binding":
                 environment["WITNESS_SPEC"] = str(prepared / "input-package/new/CONTROLLER-SPEC.json")
                 command("global-source-audit", source / "code/audit_allcold.py",

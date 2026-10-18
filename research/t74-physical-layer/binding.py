@@ -13,6 +13,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from compile_word import Compiler, canonical, need, read_native
+from bundles import authenticate_prepared
 from predecessor import activate
 activate()
 from cover import OrthogonalCover, act, is_orthogonal, multiply
@@ -36,6 +37,7 @@ class T74Binding(SelectedBinding):
 
     def __init__(self, prepared):
         prepared = Path(prepared)
+        authenticate_prepared(prepared)
         self.providers = {pid: read_native(prepared / "bound/base/providers" / pid)
                           for pid in ("gauge44", "extra")}
         template = read(prepared / "hosted/GLOBAL-TEMPLATE.json.gz")

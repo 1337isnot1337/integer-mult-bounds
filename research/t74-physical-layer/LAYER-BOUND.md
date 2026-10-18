@@ -1,16 +1,16 @@
 # Conditional target for the T74 physical layer
 
-I record the cost target before completing the physical interpreter. I have
-not established the full implementation hypotheses below. This calculation
-does not supply the ordinary H2 statement or a multiplication exponent.
+I record the cost implication used by the physical refinement in PROOF.md.
+This calculation alone does not certify that implementation, supply the
+ordinary H2 statement or establish a multiplication exponent.
 
-I retain the complete PR2979 profile, with m=73, W=66304 and666calls:
+I retain the complete PR2979 profile, with m=73, W=66304 and 666 calls:
 
     {1:1645680,2:470196,3:159468,4:71928,5:13716,8:5328,48:28190}.
 
-The rank mass is4816512 and the total child count2394506. I divide by W
+I count rank mass 4,816,512 and 2,394,506 children. I divide by W
 once; the profile already includes the complete call schedule and idle work.
-At sigma=9983/10000, three retained rational interval methods give
+At sigma=9983/10000, the registered exact interval engine gives
 
     mu_sigma in [999917587555181329277151726069,
                  999917587555181329277151726070] / 10^30,
@@ -29,28 +29,28 @@ elementary linear-in-e cost, giving exponent
 
     sigma+(1-sigma)/1000 = 0.9983017.
 
-The root reservation term has exponent0.998 with a logarithm. I use the
+I obtain exponent 0.998 with a logarithm for root reservations. I use the
 global row divisor L=66304 Gamma, where Gamma=|O(73,2)|, and pad once at
 the root by less than two. I do not introduce that factor at each child.
-For d=floor(p^0.997), log p=O(log(2d)). Subject to the remaining physical
-work and height bounds, I obtain
+For d=floor(p^0.997), log p=O(log(2d)). Under the physical work and height
+bounds stated in PROOF.md, I obtain
 
     O(V d^0.99830289 (log(2d))^0.99830289).
 
 Thus any fixed exponent above tau suffices. I choose alpha=0.998305,
-leaving exact margins211/10^8,33/10^7 and61/200000 over the internal,
-leaf and reservation powers. This gives the proposed layer saving0.001695,
-an increase17/600000 over the previous1/600 layer saving. I do not drop the
+leaving exact margins 211/10^8, 33/10^7 and 61/200000 over the internal,
+leaf and reservation powers. I obtain the proposed layer saving 0.001695,
+an increase of 17/600000 over the previous 1/600 layer saving. I do not drop the
 logarithm at the exact exponent tau.
 
-Finite scalar/parking constants need no2^2048 ceiling. I must derive their
-values or effective upper bounds from the actual finite implementation.
+Finite scalar/parking constants need no 2^2048 ceiling. I derive their
+effective upper bounds from the actual finite implementation in PROOF.md.
 For numerical height I can replace the selected-source constants by
 s=4816512 Gamma and a finite implementation allowance E_T. With B=s+E_T,
 choose a fixed effective C0>max(32*73*B^2,2B+18) and Delta=C0 d.
 Then h=p+2Delta+3<=(1+2C0)p+3 for p>=2. This pays a fixed multiplicative
-precision factor; I must still prove the underlying height induction and
-exact halves for the new word. Any extra positive-rank child changes the
+precision factor; PROOF.md states the height induction and exact-half
+argument for the new word. Any extra positive-rank child changes the
 moment and requires repricing, even if its occurrence count is fixed.
 
 I credit PR2979's authors for the complete word/profile, Nick Petalas for

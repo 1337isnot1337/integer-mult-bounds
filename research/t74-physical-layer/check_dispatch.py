@@ -1,13 +1,33 @@
 # SPDX-License-Identifier: Apache-2.0
 """Exercise actual complete local groups for both providers and orientations."""
 from hashlib import sha256
+import json
+from pathlib import Path
 
 from binding import T74Binding
+from bundles import authenticate_prepared
 from compile_word import canonical, need
 from cover import multiply
 
 
 def run(prepared):
+    prepared = Path(prepared)
+    # Same shape and rank; a changed exact global phase must fail before use.
+    path = prepared / "bound/base/providers/gauge44/CLIFFORD-RECIPES.json"
+    original = path.read_bytes()
+    damaged = json.loads(original)
+    warp = damaged["warps"][0]["left"]
+    warp["phase"] = (warp["phase"] + 1) % 4
+    try:
+        path.write_bytes(canonical(damaged))
+        try:
+            authenticate_prepared(prepared)
+        except ValueError as error:
+            need(str(error).startswith("frozen T74 input:"), "specific source-drift rejection")
+        else:
+            raise ValueError("accepted changed native warp phase")
+    finally:
+        path.write_bytes(original)
     binding = T74Binding(prepared)
     identity = tuple(1 << i for i in range(73))
     label = binding.cover.rank(identity)
@@ -49,4 +69,5 @@ def run(prepared):
     need(len(final.code) == 1 and final.recipes[final.code[0][3]]["offset"] == mask,
          "complete changed controller final correction")
     return dict(status="PASS_T74_COMPLETE_DISPATCH_VARIANTS", groups=receipts,
-                final_output_mask=mask, scope="Complete local group selectors and instructions at one cover, plus a nontrivial final correction; no full O73 numerical payload.")
+                final_output_mask=mask, changed_warp_phase_rejected=True,
+                scope="Complete local group selectors and instructions at one cover, source-drift rejection and a nontrivial final correction; no full O73 numerical payload.")
