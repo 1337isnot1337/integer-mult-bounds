@@ -58,13 +58,13 @@
       "question": "Does a ten-call balanced (2,2) word exist at the (2,8) split?",
       "why_it_matters": "PR3589 leaves the balanced four-target length ten undecided; the split list and the forced injective rank-two minority block are the smallest remaining target.",
       "first_step": "Search over two independent i-calls and eight j-calls with rank(X_i) = rank(Y_i) = 2, exploiting the forced injectivity.",
-      "blocked_by": "A complete eight-call multiset enumeration at four roles is far beyond this session's budget."
+      "blocked_by": "A complete eight-call multiset enumeration at four roles is far beyond the bounded budget used here."
     },
     {
       "question": "Can the two tight orientations be satisfied simultaneously by a word?",
       "why_it_matters": "At (2,8) the i-label is rank-tight while the j-label is not; a simultaneous tightness statement would exclude the split outright.",
       "first_step": "Combine the boundary rank identity with PR3589's cubic correction rank X C Y for the same word.",
-      "blocked_by": "No simultaneous criterion was derived in this session."
+      "blocked_by": "No simultaneous criterion was derived here."
     },
     {
       "question": "What is the sharp uniform constant for t >= 3?",
