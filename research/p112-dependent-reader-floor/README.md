@@ -48,8 +48,8 @@ rewriting it; `verify.py --write` explicitly regenerates [RESULT.json](RESULT.js
 
 The primary check covers 96 exact rational P112 operators and their binary
 replacements, totaling 2,408,448 operator-entry checks. Cases use two or three
-directions, two, three, five or seven queries, proportional repetitions, zero queries,
-readers cancelling globally, coincident groups and different group sizes.
+directions, two, three, five or seven queries, proportional repetitions, zero
+queries, readers cancelling globally, coincident groups and different group sizes.
 The separate implementation checks 133 projective direction sets and 23,637
 coefficient tuples over F2,F3,F5,F7, reconstructs all 50,176 entries of expanded
 I224 and independently recovers the literal tariff 224. Five control groups

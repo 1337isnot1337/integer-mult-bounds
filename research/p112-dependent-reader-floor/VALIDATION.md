@@ -82,7 +82,12 @@ with its own bounded-reader implementation.
 ValueError contracts remain active under optimization and cover source pins,
 partition shape, orthogonality, list capacity, distinct directions, source
 support inclusion, actual reader inclusion, exact operators and tariff bounds.
-Temporary directories use context managers, subprocess outcomes are checked
+Control copies use copyfile, which creates private writable files without
+copying read-only source modes or changing any source permissions. The first
+read-only export found the old copytree default preserved read-only modes;
+this fixture issue was fixed in an ordinary follow-up commit. Mathematical
+proofs, source inputs and receipts were unchanged. Temporary directories use
+context managers, subprocess outcomes are checked
 or deliberately inspected as negative controls, and failures propagate with
 nonzero status. The only writes are explicit receipt regeneration and scoped
 temporary controls. Runtime replay never writes Git metadata or published
@@ -100,7 +105,8 @@ search is claimed.
 
 Rule 8 and rule 9 deviation, unittest uses runtime discovery and the controls
 import the one named local verify module after adding only their own directory
-to sys.path. Scope is five fixed control methods and one local import; no
+to sys.path. The copytree callback is the single explicit standard-library
+copyfile target. Scope is five fixed control methods and one local import; no
 external plugin or code string is evaluated. The registered runner supplies a
 private bytecode namespace; direct commands use isolated mode and -B. The
 committed export check excludes bytecode files. A plugin-driven or dynamically

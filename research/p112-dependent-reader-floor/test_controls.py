@@ -70,6 +70,7 @@ class Controls(unittest.TestCase):
             shutil.copytree(
                 HERE,
                 package,
+                copy_function=shutil.copyfile,
                 ignore=shutil.ignore_patterns("__pycache__", ".ruff_cache"),
             )
             input_path = root / subject.INPUT
