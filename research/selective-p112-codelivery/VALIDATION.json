@@ -1,0 +1,19 @@
+{
+  "status": "pre-review",
+  "executed": [
+    "Python3.14.5 direct exact verifier and optimized warnings-as-errors verifier"
+  ],
+  "planned": [
+    "Python3.12 registered replay",
+    "Git-free optimized exported replay"
+  ],
+  "unrun": [
+    "Native kernel/full source acquisition",
+    "Rounded precision and hosting",
+    "Complex and bit changed coverage laws",
+    "Full outer/selected cold replay",
+    "Lean",
+    "Docker"
+  ],
+  "compute": "All work is bounded standard-library scalar/matrix arithmetic, no heavy native/global replay or artifact regeneration."
+}
