@@ -46,13 +46,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Test whether pooling observations from incomparable rank-seven terminal subspaces of PR2979's changed word creates a new eligible linear input direction, and census all rank-eight joins among the observed rank-seven endpoint classes.",
+  "actual_scope": "Test whether pooling observations from incomparable rank-seven terminal subspaces of PR2979's changed word exposes eligible linear input forms; census all pair and triple joins of rank eight or nine, and deduplicate the resulting exact readouts.",
   "scope_change_reason": "The card's helper-inventory gate needs a new physical consumer and complete invoice. Before designing one, this scoped detour tests a premise left outside the recent endpoint-by-endpoint obstruction: whether several incomparable endpoints jointly expose an input form that no endpoint exposes alone. It establishes a local information identity and a bounded negative census, not a new helper inventory or supplier.",
-  "bottleneck_link": "A jointly observable eligible form could be a new helper interface, but it changes kappa only if a named caller consumes it and the added rank-eight storage, synthesis, restoration and recursive bill are favorable. The result currently supplies no such consumer or price.",
+  "bottleneck_link": "A five-dimensional block of jointly observable eligible forms could define a new helper interface. It changes kappa only if a named caller consumes the forms through an affordable transfer/readout contract and the full synthesis, storage, restoration and recursive bill is favorable. The result supplies no such consumer or price.",
   "budget_minutes": 60,
-  "stop_rule": "Stop the local census when all rank-seven singleton endpoints and every pair/triple with a rank-eight join have been checked on both pinned orientations. Continue to construction only after naming a caller and pricing the complete transfer and restoration contract.",
+  "stop_rule": "Stop the local census after all rank-seven singleton endpoints, rank-eight singleton endpoints, and rank-seven pair/triple joins of rank eight or nine have been checked on both pinned orientations. Continue to construction only after naming a caller and pricing the complete transfer and restoration contract.",
   "outcome": "partial",
-  "evidence": "verify.py independently parses both pinned PR2979 words, expands exact rational formal-warp adjoints, and checks 49 rank-seven endpoint classes, 126 rank-eight endpoint classes, all 413 rank-eight pair joins and all 2,571 rank-eight triple joins. Exactly one pair and one triple class expose an eligible form; both give the same four-register identity. All 497 protected input columns and nonempty warp words cancel, and removing any one of the four readouts destroys the eligible signal. No consumer, complete invoice, or kappa improvement is established.",
+  "evidence": "verify.py independently parses both pinned PR2979 words and expands exact rational formal-warp adjoints. It checks all 49 rank-seven and 126 rank-eight endpoint classes; 413/763 rank-seven pairs and 2,571/15,853 triples with join rank eight/nine. Rank-eight joins yield one four-register form. Rank-nine pairs yield none; 52 rank-nine triples expose 11 distinct scalar forms (ten additional), whose new ten span dimension five. Both word orientations agree exactly. All 497 protected input columns and nonempty warp words cancel in each witness. No consumer, complete invoice, or kappa improvement is established.",
   "author": "OpenAI Codex",
   "ai_assistance": "Substantial OpenAI Codex assistance for the research direction, exact checker, computation and documentation. No independent human review is claimed.",
   "open_questions": [
@@ -63,10 +63,10 @@
       "blocked_by": "No concrete caller or interface contract currently accepts this 14-coordinate linear form."
     },
     {
-      "question": "Do sparse pools whose join has rank nine expose additional useful forms at tolerable cost?",
-      "why_it_matters": "The rank-eight-join census finds only one direction, while global pooling has much larger nullity; the next possible observability gain may require a full-rank join.",
-      "first_step": "Run a sparse exact-kernel search over rank-seven/rank-eight endpoint classes, minimizing distinct registers and endpoint classes while tracking the join rank and eligible rank.",
-      "blocked_by": "No cost model currently prices a rank-nine pooled readout, and sparse-kernel minimality is not established."
+      "question": "Can the five-dimensional rank-nine readout block be consumed by a real downstream call without materializing a full-rank register?",
+      "why_it_matters": "The ten new forms give five independent directions, but each current witness pools incomparable rank-seven endpoints whose join is rank nine; a direct consumer may avoid paying for a new rank-nine register.",
+      "first_step": "Match the five independent six-term forms to one concrete caller interface, derive the input basis change and dirty-state restoration, then price the shared 9-register observation and full recursive profile.",
+      "blocked_by": "No caller currently accepts these forms, and no complete rank-nine readout/storage cost is established."
     }
   ]
 }

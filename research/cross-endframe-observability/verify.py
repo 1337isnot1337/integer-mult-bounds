@@ -31,6 +31,31 @@ EXPECTED_FORM = {
     (276, ()): F(-1, 2), (292, ()): F(-1, 2),
 }
 EXPECTED_READOUT = {7: F(-1), 232: F(-1), 236: F(1), 238: F(1)}
+EXPECTED_RANK9 = (
+    ({224: 1, 229: 1, 235: -1, 237: 1, 238: -1, 239: 1},
+     {7: 2, 87: -2, 238: -2}),
+    ({227: 1, 231: -1, 233: 1, 236: 1, 237: -1, 239: -1},
+     {7: -2, 236: 2, 239: 2}),
+    ({229: 1, 231: 1, 236: 1, 237: -1, 238: 1, 239: -1},
+     {7: -2, 76: -1, 231: 1}),
+    ({232: 1, 234: 1, 237: -1, 239: -1, 276: 1, 292: 1},
+     {7: -2, 87: 2, 232: 2, 239: 2}),
+    ({232: 1, 234: 1, 237: 1, 239: 1, 276: 1, 292: 1},
+     {7: 2, 76: 1, 232: 2, 233: -1}),
+    ({224: 1, 227: -1, 229: 1, 231: 1, 233: -1, 235: -1, 236: -1, 238: -1},
+     {76: -1, 233: 1, 236: -2, 238: -2}),
+    ({224: 1, 227: 1, 229: 1, 231: -1, 233: 1, 235: -1, 236: 1, 238: -1},
+     {87: -2, 236: 2, 238: -2, 239: 2}),
+    ({224: 1, 229: 1, 232: 1, 234: 1, 235: -1, 238: -1, 276: 1, 292: 1},
+     {232: 2, 238: -2, 239: 2}),
+    ({227: 1, 231: -1, 232: -1, 233: 1, 234: -1, 236: 1, 276: -1, 292: -1},
+     {87: -2, 232: -2, 236: 2}),
+    ({229: 1, 231: 1, 232: 1, 234: 1, 236: 1, 238: 1, 276: 1, 292: 1},
+     {231: 1, 232: 2, 233: -1}),
+    ({224: 1, 227: -1, 229: 1, 231: 1, 232: 1, 233: -1, 234: 1,
+      235: -1, 236: -1, 237: 1, 238: -1, 239: 1, 276: 1, 292: 1},
+     {7: 2, 232: 2, 236: -2, 238: -2}),
+)
 
 
 def require(ok, why):
@@ -223,12 +248,12 @@ def sparse_rank(vectors):
     return rank
 
 
-def scan_join_rank(groups, rows, eligible, arity):
+def scan_join_rank(groups, rows, eligible, arity, join_rank):
     spaces = sorted(groups, key=lambda s: tuple(sorted(s)))
     join_count = 0
     positive = []
     for selected in combinations(spaces, arity):
-        if dimension_union(selected) != 8:
+        if dimension_union(selected) != join_rank:
             continue
         join_count += 1
         channels = [r for space in selected for r in groups[space]]
@@ -238,6 +263,25 @@ def scan_join_rank(groups, rows, eligible, arity):
         if rank:
             positive.append((channels, kernel, forms, rank))
     return join_count, positive
+
+
+def canonical_rank9_witness(channels, readout, form):
+    pivot = min(form)
+    scale = F(1) / form[pivot]
+    normalized_form = tuple(sorted((key, q * scale) for key, q in form.items()))
+    normalized_readout = tuple(sorted((r, q * scale)
+                                      for r, q in zip(channels, readout) if q))
+    return normalized_form, normalized_readout
+
+
+def expected_rank9_signatures():
+    return {
+        (
+            tuple(sorted(((r, ()), F(q)) for r, q in form.items())),
+            tuple(sorted((r, F(q)) for r, q in readout.items())),
+        )
+        for form, readout in EXPECTED_RANK9
+    }
 
 
 def normalized_witness(channels, kernel, forms):
@@ -266,22 +310,56 @@ def analyze(name):
     require(single7 == 0, f'{name} individual rank-seven endpoint exposed eligible input')
     require(single8 == 0, f'{name} individual rank-eight endpoint exposed eligible input')
 
-    pair_count, pair_positive = scan_join_rank(rank7, rows, eligible, 2)
-    triple_count, triple_positive = scan_join_rank(rank7, rows, eligible, 3)
-    require(pair_count == 413, f'{name} rank-eight pair-join count')
-    require(triple_count == 2571, f'{name} rank-eight triple-join count')
-    require(len(pair_positive) == 1 and len(triple_positive) == 1,
-            f'{name} unexpected pair/triple eligible observation')
+    pair8_count, pair8_positive = scan_join_rank(rank7, rows, eligible, 2, 8)
+    pair9_count, pair9_positive = scan_join_rank(rank7, rows, eligible, 2, 9)
+    triple8_count, triple8_positive = scan_join_rank(rank7, rows, eligible, 3, 8)
+    triple9_count, triple9_positive = scan_join_rank(rank7, rows, eligible, 3, 9)
+    require((pair8_count, pair9_count) == (413, 763), f'{name} rank-eight/nine pair-join counts')
+    require((triple8_count, triple9_count) == (2571, 15853),
+            f'{name} rank-eight/nine triple-join counts')
+    require(not pair9_positive, f'{name} rank-nine pair exposed an eligible input')
+    require(len(pair8_positive) == 1 and len(triple8_positive) == 1,
+            f'{name} unexpected rank-eight pair/triple eligible observation')
 
-    pair = pair_positive[0]
+    pair = pair8_positive[0]
     coeffs, form = normalized_witness(pair[0], pair[1], pair[2])
     require(coeffs == EXPECTED_READOUT, f'{name} pair readout identity changed: {coeffs}')
     require(form == EXPECTED_FORM, f'{name} pair input form changed: {form}')
     triple_coeffs, triple_form = normalized_witness(
-        triple_positive[0][0], triple_positive[0][1], triple_positive[0][2]
+        triple8_positive[0][0], triple8_positive[0][1], triple8_positive[0][2]
     )
     require(triple_coeffs == EXPECTED_READOUT and triple_form == EXPECTED_FORM,
             f'{name} triple did not reproduce the same four-register witness')
+
+    rank9_by_dimension = defaultdict(int)
+    rank9_directions = defaultdict(set)
+    for channels, kernel, forms, eligible_rank in triple9_positive:
+        rank9_by_dimension[eligible_rank] += 1
+        for readout, eligible_form in zip(kernel, forms):
+            if eligible_form:
+                signature = canonical_rank9_witness(channels, readout, eligible_form)
+                rank9_directions[signature[0]].add(signature[1])
+    expected_rank9 = expected_rank9_signatures()
+    observed_rank9 = {
+        (form, next(iter(readouts)))
+        for form, readouts in rank9_directions.items()
+        if len(readouts) == 1
+    }
+    require(dict(rank9_by_dimension) == {1: 50, 2: 2},
+            f'{name} rank-nine triple eligible-rank histogram: {dict(rank9_by_dimension)}')
+    require(len(rank9_directions) == 11 and all(len(v) == 1 for v in rank9_directions.values()),
+            f'{name} rank-nine witness de-duplication')
+    require(observed_rank9 == expected_rank9,
+            f'{name} rank-nine exact witnesses changed: {len(observed_rank9)} forms')
+    rank9_forms = [dict(form) for form in rank9_directions]
+    require(sparse_rank(rank9_forms) == 5,
+            f'{name} rank-nine eligible forms do not span the expected five-space')
+    new_rank9_forms = [dict(form) for form in rank9_directions if len(form) in (6, 8)]
+    require(len(new_rank9_forms) == 10 and sparse_rank(new_rank9_forms) == 5,
+            f'{name} ten additional rank-nine forms are not a five-space')
+    require(sum(len(form) == 6 for form in new_rank9_forms) == 5
+            and sum(len(form) == 8 for form in new_rank9_forms) == 5,
+            f'{name} rank-nine support-size census')
 
     # Each of the four readouts is necessary; deleting any one kills the signal.
     for removed in EXPECTED_READOUT:
@@ -294,10 +372,17 @@ def analyze(name):
         'sha256': hashlib.sha256(raw).hexdigest(),
         'individual_rank7_classes': len(rank7),
         'individual_rank8_classes': len(rank8),
-        'rank7_pairs_with_rank8_join': pair_count,
-        'positive_pair_classes': len(pair_positive),
-        'rank7_triples_with_rank8_join': triple_count,
-        'positive_triple_classes': len(triple_positive),
+        'rank7_pairs_with_rank8_join': pair8_count,
+        'positive_pair_classes': len(pair8_positive),
+        'rank7_pairs_with_rank9_join': pair9_count,
+        'positive_rank9_pair_classes': len(pair9_positive),
+        'rank7_triples_with_rank8_join': triple8_count,
+        'positive_rank8_triple_classes': len(triple8_positive),
+        'rank7_triples_with_rank9_join': triple9_count,
+        'positive_rank9_triple_classes': len(triple9_positive),
+        'rank9_eligible_rank_histogram': dict(rank9_by_dimension),
+        'rank9_unique_forms': len(rank9_directions),
+        'rank9_form_span': 5,
         'witness_readout': coeffs,
         'witness_form': form,
     }
@@ -313,12 +398,14 @@ def main():
     print('pinned PR2979 orientation hashes:', results['base']['sha256'], results['extra']['sha256'])
     print('rank-seven endpoint classes: 49; rank-eight endpoint classes: 126')
     print('individual rank-7/rank-8 classes with eligible signal: 0 / 0')
-    print('rank-8 joins among rank-7 pairs: 413; positive classes: 1')
-    print('rank-8 joins among rank-7 triples: 2571; positive classes: 1 (same witness)')
+    print('rank-seven pairs: join-rank 8: 413 (1 positive); join-rank 9: 763 (0 positive)')
+    print('rank-seven triples: join-rank 8: 2571 (1 positive, same four-register witness)')
+    print('rank-seven triples: join-rank 9: 15853 (52 positive classes; eligible ranks 1:50, 2:2)')
+    print('rank-nine triples: 11 exact scalar forms (10 new), spanning 5 dimensions; new supports: five 6-term and five 8-term forms')
     print('readout: -out[7] - out[232] + out[236] + out[238]')
     print('input form: 1/2 * (-h224 + h227 - h229 - h231 - h232 + h233 - h234 + h235 + h236 - h237 + h238 - h239 - h276 - h292)')
     print('exact protected-column and formal-warp cancellation; deleting any one readout kills the signal')
-    print('scope: information identity only; no consumer, complete invoice or kappa improvement')
+    print('scope: information identities only; no consumer, complete invoice or kappa improvement')
 
 
 if __name__ == '__main__':

@@ -15,7 +15,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Exact reverse-adjoint formal-warp expansion on both hash-pinned providers; exhaustive rank-seven singles and rank-eight pair/triple joins; rank-eight endpoint singletons; unique eligible readout identity; required-readout deletion controls."
+      "checks": "Exact reverse-adjoint formal-warp expansion on both hash-pinned providers; exhaustive rank-seven/rank-eight singles and all rank-seven pair/triple joins of rank eight/nine; exact deduplication of 11 rank-nine forms and their five-dimensional span; rank-eight witness deletion controls."
     }
   ]
 }
