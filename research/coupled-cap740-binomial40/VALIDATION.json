@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-18T04:51:36.619693+00:00",
+  "timestamp": "2026-10-18T04:53:50.102882+00:00",
   "status": "CANDIDATE_AND_FRESH_SUPPLIER_PASS_REQUIRED_CHECK_RESULTS_DISCLOSED",
   "completed": [
     {
@@ -287,7 +287,9 @@
     "validation-logs/RELEASE-RECEIPT.json": "9809a55281b42dd99c5cc4f8396e11358607fa1edfac2f86da26078e1c5ca1ae",
     "validation-logs/baseline-grid35.log": "4fbae9bed0a300afe6f794cdcd0bf6d7d94c76633ffeb9994b88b9d53aa7d9e6",
     "validation-logs/candidate-clean-export.log": "16b1347c9cbafd2f5a9c9b78c726899b9404db07dbce0d6262b1e8e49e981331",
+    "validation-logs/candidate-final-export.log": "c6e4445d0b8a0f4791dae9e7d63c45b51adad6756617ff0059de9d4763ce6449",
     "validation-logs/candidate-final-registered.log": "2cf3fe909e95a9e28b46ad99b24a58b3524b433010fe1a25825dad8f2121a9f7",
+    "validation-logs/candidate-merged-final.log": "2cf3fe909e95a9e28b46ad99b24a58b3524b433010fe1a25825dad8f2121a9f7",
     "validation-logs/complete-admission.log": "370d0587483f9ad137bb02ad06de6c2dc9eb25ab9802ab6e6985d00379278207",
     "validation-logs/complete-finite-release.log": "272b46a7505a7f389388ec4e44ac3f407488935644e9842d0518b2fbdbfbd531",
     "validation-logs/complete-outer-release.log": "670f60ee3ecc7e2d7fc4b23b468d4cdb8cfab9edaf252cd2410c1cabcb0318dc",
@@ -296,11 +298,14 @@
     "validation-logs/derive-closed-adapters.log": "5d84874bf71eb2cb5165fbb1ba0f12ee28f231d2dfe0a2cb04df512f09750f0c",
     "validation-logs/export-pr2833.log": "38171e3306eb37fa70add18e75ba4593a4309187482885789cc6188635f682ed",
     "validation-logs/export-pr2894.log": "6bd8df30779863897e48441608240db6a7e3fcbd0754511e44f854f3a5c462a6",
+    "validation-logs/final-clean-test_controls.py.log": "9450d5d5e4dc8019446d981fc5ec812baae4d27ee4cc5d048b8f0ea094f16782",
+    "validation-logs/final-clean-verify.py.log": "8b066284df70c75592a0b5ffd235192f34b6507919410ca6bbad38daa3faaa4c",
     "validation-logs/four-kernel-stage.log": "f2bbb6462b3f5bb8a6415bb33c0c35355353b13343ddb90961660f7473caa5a2",
     "validation-logs/fresh-current-native.log": "57a95a5df95aa0574b48d59d71a6e5e84d017172e51b8627d8713c52a7134206",
     "validation-logs/fresh-retained-bootstrap.log": "4a1625fdd9a947187583e67492c492f309e28669082f2e6f2aa97b5da345ea29",
     "validation-logs/make-frontier1094-verify.log": "70e18e535cf3ffe1db08dfc69770a8b929cfc5b46cc0f727bf8f40a23d885141",
     "validation-logs/make-verify-diagnosis.json": "242e3508d47f7c2fc9d7b5625b7a08e86ceca4c802222f66d5fc41427b07f90a",
+    "validation-logs/make-verify-latest-main.log": "7a8d67488a890638868f2eabcc9547b6e70696e3c540bced3f275f7255a2ef8b",
     "validation-logs/make-verify.log": "8d64f7877edb8aad04b4062dcf465ce679c7036bcc9eaa53a15d0bd7c4ef2bec",
     "validation-logs/paired-extension-stage.log": "61cc77beeae833d7473b5c5338b176b150f95f6652a888c0307f080674cfde35",
     "validation-logs/parent-paired-stage.log": "d80d8494c48816e3acf662db00cc0077a888b82392d736826f73beb1c4248299",
@@ -315,6 +320,58 @@
     "new_main": "714606601d4aae7fbe8cf0c9727b59ba754bc02e",
     "candidate_declared_inputs_changed": [],
     "selected_and_guidance_files_changed": [],
-    "note": "New main archives PR3361; selected frontier unchanged. Historical runner diff only admits a new isolated-test cache helper digest."
+    "note": "New main archives PR3361; selected frontier unchanged. Historical runner diff only admits a new isolated-test cache helper digest.",
+    "final_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90"
+  },
+  "final_committed_export_replay": {
+    "commit": "493ab7216c1d4b1cfbadd7bd50a6d3b22d27c6d1",
+    "commands": [
+      {
+        "command": [
+          "python3.12",
+          "-B",
+          "/home/jake/ai/auto_multiplication/candidate-final-clean/research/coupled-cap740-binomial40/verify.py"
+        ],
+        "exit_code": 0,
+        "seconds": 1.6292412281036377
+      },
+      {
+        "command": [
+          "python3.12",
+          "-B",
+          "/home/jake/ai/auto_multiplication/candidate-final-clean/research/coupled-cap740-binomial40/test_controls.py"
+        ],
+        "exit_code": 0,
+        "seconds": 8.627039670944214
+      }
+    ],
+    "export_bytes_unchanged": true,
+    "files": 116
+  },
+  "latest_main_required_check": {
+    "command": [
+      "nice",
+      "-n",
+      "15",
+      "ionice",
+      "-c",
+      "3",
+      "make",
+      "verify"
+    ],
+    "base": "714606601d4aae7fbe8cf0c9727b59ba754bc02e",
+    "exit_code": 2,
+    "seconds": 7.55263090133667,
+    "reason": "Same pre-existing scripts/partial_swap/shared.py:171 singleton-target unpacking error as on original main; no candidate code involved."
+  },
+  "submission_frontier_snapshot": {
+    "timestamp": "2026-10-18T04:54:07.092175+00:00",
+    "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "open_prs": 247,
+    "snapshot_sha256": "24f024695ed84495207c5c7d2ec8c4f3cc0fa244f5ee849e4229c68ffdc85530",
+    "comparator_head": "f9de2024916a347d939ed256a7a2e9e68d633684",
+    "comparator_state": "MERGED_ARCHIVE_PARTIALLY_REVIEWED",
+    "selected_changed": false,
+    "candidate_inputs_changed_since_tested_main": []
   }
 }

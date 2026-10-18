@@ -73,7 +73,7 @@ leaves all package bytes unchanged.
   of the credited existing counterexample, not a new operator theorem.
 
 PR3148 and PR3361 are archived on main as of
-`714606601d4aae7fbe8cf0c9727b59ba754bc02e`. Archive acceptance is not
+`20ecf2891d80b5acf18d980b2164fb44ea7faa90`. Archive acceptance is not
 mathematical validation. Both are conditional
 contributor constructions, distinct from the maintainer-reviewed selected record. The same 663,549 physical
 families, 91 private buffers, 2,717,280 owner rows and 1,479/2,048 prefix
