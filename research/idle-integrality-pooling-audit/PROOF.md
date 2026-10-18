@@ -131,6 +131,14 @@ selected idle histogram `{1:2276,3:377,7:7,48:4866}`. There are 17217 used
 bins with allocations from more than one call; the distinct-call inventory
 is recorded in `RESULT.json`.
 
+The same recount confirms bin capacities `{8:10752,16:7168,32:7168,48:7168}`,
+total capacity 774144 and allocated width 537120. Every residual in this
+unchanged bin recipe is at most 48, so `H_pooled`'s rank-51 children cannot be
+realized there. These inventories and the shared-bin accounting rule are
+already documented in Hanson's `selected-t16-pattern-dual`, which independently
+checks Ali Romman's PR1129 fixed-inventory bound and cites Josie Elliston's
+rank-48 relaxation. The present check supplies no new optimum in that domain.
+
 This is evidence about the source interface, **not a proof that the selected
 histogram lacks every artificial mass-1646 partition**. Nor does it make
 `H_pooled` physically legal. The recount checks call/owner identities,

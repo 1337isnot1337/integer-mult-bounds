@@ -59,14 +59,8 @@
     {
       "question": "Does a source-bound physical owner restriction imply the per-call integer bound, or should PR3729 be scoped to isolated call partitions?",
       "why_it_matters": "Without this implication, the stronger ceiling cannot screen every aggregate integer packing permitted by the stated relaxation.",
-      "first_step": "State the exact partition domain, then prove a decomposition of every legal owner ledger into mass-1646 call partitions or derive a direct physical lower bound; otherwise use the fixed-144 pooled ceiling and state its scope.",
+      "first_step": "State the partition domain. Scope the DP to isolated mass-1646 calls, or justify a physical bound with an explicit source restriction. For unchanged selected capacities and helper inventory, consult PR1129 and selected-t16-pattern-dual rather than reopening the already bounded model.",
       "blocked_by": "No such decomposition or physical lower-bound proof was supplied or proved in this audit."
-    },
-    {
-      "question": "Which aggregate-optimal histograms satisfy actual selected owner-family, chronology and hosting constraints?",
-      "why_it_matters": "A relaxed moment below one is not a supplier and does not establish obtainable headroom.",
-      "first_step": "Reuse PR1685\u2019s credited optimum and extract the authenticated owner capacities and eligible-call sets before formulating one legal grouping instance.",
-      "blocked_by": "No rank-51 physical owner assignment or complete construction invoice is supplied; this is the predecessor\u2019s open obligation, not a new search mandate."
     }
   ],
   "milestone": "audit",
@@ -88,7 +82,7 @@
       "decision": "Main and audited head unchanged. A concurrent same-boundary claim and exact-price-engine finding appeared during this session; narrow novelty to separate binomial arithmetic, fixed-N repricing and selected shared-bin source coverage, and join its canonical investigation."
     }
   ],
-  "family_expansion_decision": "Finish the bounded domain audit and hand off the missing physical-decomposition lemma; do not start a packing search or admit a supplier.",
+  "family_expansion_decision": "Finish the complementary source/arithmetic check as a Discussion handoff after concurrent PR3747 covers the same correction. No second PR or construction round.",
   "predecessors": [
     {
       "pr": 3729,
@@ -133,6 +127,13 @@
     },
     "concurrent_finding": "https://github.com/CrocSwap/integer-mult-bounds/pull/3729#issuecomment-6254060645",
     "canonical_investigation": "https://github.com/CrocSwap/integer-mult-bounds/discussions/2278#discussioncomment-19022491",
-    "additional_coverage": "The concurrently reported aggregation counterexample is not claimed as uniquely new. This package adds import-free positive-binomial pricing, the corrected fixed-144 root bracket and an independent literal owner-capacity recount with a four-call shared remainder witness."
-  }
+    "additional_coverage": "Intentionally separate-code corroboration of PR3747 with the same positive-binomial method, plus a literal selected shared-bin census/witness, 72 square and ten cube calibrations, and explicit comparison with the existing fixed-bin/fixed-inventory bound. No distinct-counterexample or root-method novelty claim.",
+    "concurrent_pr": {
+      "number": 3747,
+      "head": "98847f9aba65ba835a15725c9f173c04a98788b3",
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3747"
+    },
+    "publication_decision": "Publish the complementary independent replay and literal shared-bin result in the existing investigation, with a public fork commit. Do not open a duplicate aggregation-correction PR."
+  },
+  "evidence_status": "author-executed separately implemented corroboration, public fork artifact; no independent human/formal acceptance"
 }

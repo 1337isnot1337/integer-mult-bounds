@@ -37,12 +37,20 @@
     "upper": "1690054109089/1000000000000000"
   },
   "literal_selected_owner_ledger": {
+    "allocated_width": 537120,
+    "declared_bins_by_capacity": {
+      "8": 10752,
+      "16": 7168,
+      "32": 7168,
+      "48": 7168
+    },
     "idle": {
       "1": 2276,
       "3": 377,
       "7": 7,
       "48": 4866
     },
+    "maximum_possible_residual_in_this_bin_recipe": 48,
     "roles": 69120,
     "shared_remainder_witness": {
       "allocations": [
@@ -107,6 +115,7 @@
       "capacity": 32,
       "remainder": 1
     },
+    "total_capacity": 774144,
     "used_bins_by_distinct_host_calls": {
       "1": 10173,
       "2": 7195,

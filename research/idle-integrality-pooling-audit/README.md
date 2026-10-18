@@ -34,6 +34,14 @@ recovers the selected idle histogram and finds 17217 used bins shared by
 multiple calls. It establishes the capacity accounting interface, not native
 semantics or a physical realization of the pooled optimum.
 
+The fixed literal bin capacities are at most **48**. Therefore the rank-51
+pooled histogram cannot be realized within that unchanged bin recipe.
+The existing [selected T16 pattern audit](../selected-t16-pattern-dual/README.md)
+already binds a stronger fixed-inventory relaxation to these inputs and credits
+Ali Romman's PR1129 optimum. This package does not refute that physical-bound
+lineage or reopen its completed optimization. The objection is to deriving the
+per-call restriction from aggregate integrality alone.
+
 Two short normalization checks clarify the scope further. In a coverage-only
 relaxation permitting replica counts to vary, 153 calls give integer histogram
 `{51:4938}`, exactly equal to the original fractional relaxation after
@@ -95,6 +103,12 @@ and [preliminary counterexample](https://github.com/CrocSwap/integer-mult-bounds
 using the predecessor price engine. We join that investigation and claim no
 priority over its counterexample. The separate binomial engine, corrected
 fixed-N bracket and literal shared-bin coverage are this package’s added check.
+That investigation subsequently published [PR3747](https://github.com/CrocSwap/integer-mult-bounds/pull/3747)
+at `98847f9aba65ba835a15725c9f173c04a98788b3`, also with a newly written
+binomial engine. This artifact is intentionally a separate implementation and
+source recount, not a claim to a different enclosure method from that concurrent
+package. We publish the complementary verification in its existing thread
+instead of opening another aggregation-correction PR.
 
 ## Open next questions
 
@@ -104,13 +118,7 @@ fixed-N bracket and literal shared-bin coverage are this package’s added check
   a direct physical lower bound. Unknown owner/hosting restrictions cannot be
   replaced by the per-call mass average. This controls which packing proposals
   can legitimately be screened out.
-* **Which aggregate-optimal histograms survive the physical owner interface?**
-  This is PR1685's existing question, retained with credit. Start from the
-  authenticated bin capacities and eligible-call sets and formulate the legal
-  grouping constraints. The current audit supplies no owner assignment for
-  rank-51 children, no cost claim and no mandate for another packing search.
-
-The structured questions and blockers are in TASK.json. The expansion decision
+The structured question and blocker are in TASK.json. The expansion decision
 is **finish this bounded audit and hand off**; no dependent construction round
 is authorized by this package.
 
@@ -123,6 +131,9 @@ Ali Romman for catalogue-mixture boundaries; and Rohan Arun, Jeremy Kothe,
 Hao Yan and the selected #1094/#1087, #589/#555 predecessor chain for the
 construction and owner interface. Exact source notices are retained; see
 [NOTICE.md](NOTICE.md).
+Ali Romman / PR1129, Josie Elliston / PR1783 and Hanson Sun's
+`selected-t16-pattern-dual` supply the already known fixed-bin/fixed-inventory
+scope distinctions; those bounds are cited, not newly replayed.
 
 New audit by Arham-Tahir64 with substantial OpenAI Codex assistance in research,
 implementation, checking and writing. Apache-2.0. This is author-executed

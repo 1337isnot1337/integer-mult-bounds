@@ -217,6 +217,14 @@ def owner_ledger(roles, plan):
     require(set(by_call) == set(range(144)) and
             all(helpers == set(range(480)) for helpers in by_call.values()),
             'complete per-call helper inventory')
+    capacities = Counter(rank for rank, _ in plan['windows'].values())
+    capacities = {rank: count * 112 for rank, count in capacities.items()}
+    require(capacities == {8: 10752, 16: 7168, 32: 7168, 48: 7168},
+            'declared bin capacity inventory')
+    total_capacity = sum(rank * count for rank, count in capacities.items())
+    total_width = sum(row['width'] for row in roles)
+    require((total_capacity, total_width) == (774144, 537120),
+            'declared capacity/width mass')
     idle = Counter()
     witness_key = (0, 6, 85)
     for label, (rank, _) in plan['windows'].items():
@@ -240,6 +248,9 @@ def owner_ledger(roles, plan):
             == [(9, 0, 9), (11, 9, 4), (13, 13, 9), (15, 22, 9)],
             'shared remainder witness mismatch')
     return {'roles': len(roles), 'used_bins_by_distinct_host_calls': dict(sorted(shared.items())),
+            'declared_bins_by_capacity': dict(sorted(capacities.items())),
+            'total_capacity': total_capacity, 'allocated_width': total_width,
+            'maximum_possible_residual_in_this_bin_recipe': max(capacities),
             'idle': dict(sorted(idle.items())),
             'shared_remainder_witness': {'bin': list(witness_key), 'capacity': 32,
                                          'remainder': 1, 'allocations': witness}}
