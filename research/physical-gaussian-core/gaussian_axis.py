@@ -17,6 +17,7 @@ class Axis:
     def __init__(self, source_length, target_length, u, bandwidth, precision, pool):
         self.pool = pool
         self.fields = {}
+        self.reflected_weights = 0
         self.weights = self.kernel = self.matrix = self.exponentials = None
         try:
             for name, value in (("s", source_length), ("t", target_length), ("u", u),
@@ -109,31 +110,46 @@ class Axis:
                                 with owned(Signed(Count(tj)), Signed(Count(sq))) as (left, right):
                                     beta = Rational(difference(left, right), Count(self.s))
                             with owned(beta):
-                                with owned(beta.times(beta)) as (square,):
-                                    with owned(quarter.minus(square)) as (distance,):
-                                        with owned(self.u_rational.times(distance)) as (scaled,):
-                                            with owned(scaled.over(self.theta)) as (exponent,):
-                                                weight = self.grid(self.exponentials.coefficient(exponent))
-                                    try:
-                                        with owned(self.u_rational.times(square)) as (exponent,):
-                                            with owned(Count(self.u)) as (normalization,):
-                                                normalization.multiply_small(2)
-                                                diagonal = self.grid(self.exponentials.coefficient(
-                                                    exponent, True, normalization))
-                                        try:
-                                            with owned(Rational(Signed(subtract(q_index, j)), Count.literal(1))) as (phase,):
-                                                with owned(Rational(Signed(Count(q_index)), Count.literal(1))) as (nearest,):
-                                                    need(not weight.numerator.magnitude.zero(),
-                                                         "positive global rounded Gaussian weight")
-                                                    for column, value in enumerate((weight, beta, phase, diagonal, nearest)):
-                                                        with owned(Count.literal(column)) as (field,):
-                                                            self.weights.set(j, field, value)
-                                        finally:
-                                            diagonal.close()
-                                    finally:
-                                        weight.close()
+                                weight, diagonal = self.weight_pair(j, beta, quarter)
+                                with owned(weight, diagonal):
+                                    with owned(Rational(Signed(subtract(q_index, j)), Count.literal(1))) as (phase,):
+                                        with owned(Rational(Signed(Count(q_index)), Count.literal(1))) as (nearest,):
+                                            need(not weight.numerator.magnitude.zero(),
+                                                 "positive global rounded Gaussian weight")
+                                            for column, value in enumerate((weight, beta, phase, diagonal, nearest)):
+                                                with owned(Count.literal(column)) as (field,):
+                                                    self.weights.set(j, field, value)
                         finally:
                             q_index.close()
+
+    def weight_pair(self, index, beta, quarter):
+        with owned(subtract(self.s, index)) as (reflected,):
+            if compare(reflected, index) < 0:
+                with owned(self.field(reflected, 1)) as (earlier_beta,):
+                    with owned(beta.times(beta), earlier_beta.times(earlier_beta)) as (first, second):
+                        need(first.compare(second) == 0, "equal reflected Gaussian squared offset")
+                weight = self.field(reflected, 0)
+                try:
+                    diagonal = self.field(reflected, 3)
+                except BaseException:
+                    weight.close()
+                    raise
+                self.reflected_weights += 1
+                return weight, diagonal
+        with owned(beta.times(beta)) as (square,):
+            with owned(quarter.minus(square)) as (distance,):
+                with owned(self.u_rational.times(distance)) as (scaled,):
+                    with owned(scaled.over(self.theta)) as (exponent,):
+                        weight = self.grid(self.exponentials.coefficient(exponent))
+            try:
+                with owned(self.u_rational.times(square)) as (exponent,):
+                    with owned(Count(self.u)) as (normalization,):
+                        normalization.multiply_small(2)
+                        diagonal = self.grid(self.exponentials.coefficient(exponent, True, normalization))
+                return weight, diagonal
+            except BaseException:
+                weight.close()
+                raise
 
     def kernel_entry(self, distance, column):
         if distance.zero():

@@ -84,15 +84,18 @@ arbitrary advice pages' mathematical correctness.
   record reversal preserving internal bit order.
 - `convolution`: four actual signed Kronecker packets, cancellation, zeros,
   integer-grid data, strict coefficient separation and one final rounding.
-- `exponentials`: six encoded decay/scaled-growth enclosures against a
+- `exponentials`: seven encoded decay/scaled-growth enclosures against a
   separate exact-rational oracle. At P12,F2 the routine uses
-  R148,J45,N58,k7 and stays inside the four-ulp allowance.
+  R148,J45,N58,k7 and stays inside the four-ulp allowance. I include zero,
+  a one-unit positive Taylor term and continuing terms, and compare each
+  shortened enclosure with a full-length directed reference.
 - `interior`: complete q-factor preparation and two-convolution application
   at lengths3,3,1, with exact agreement to the pinned PR489 staged
   evaluator and separate dense exact inverse checks.
 - `axis`: a full s8,t9,P16 global H, including beta4=-1/2,12 exact
   within-cell entries and four directed cross-cell entries. I verify
-  coefficient intervals, the seam, strict row dominance and restoration.
+  coefficient intervals, reflected-weight reuse, the seam, strict row
+  dominance and restoration.
 - `boundary`: exact LU preparation and complete sequential rounded solves
   at lengths3 and1, including early/late zero padding and reuse.
 - `consumer`: whole-consumer conformance with independent supplied-factor
@@ -127,6 +130,18 @@ the ownership command's 120-second allowance. I increased that allowance
 to 240 seconds and reduced the joined-window allowance to 540 seconds.
 I retain eight commands and a 1200-second sum of timeouts. I do not count
 the timed-out replay as a pass; the public receipt records the final replay.
+
+The first hosted run exceeded the numerical group's180-second allowance
+during global-axis preparation. I then shortened each positive Taylor
+sum when its encoded upper term reaches one work-grid unit. The remaining
+tail is at most h/7; I retain the one-unit outward padding and explicitly
+close the iterator. I also reuse weight/normalization pairs at reflected
+indices after checking their equal squared offsets. PROOF.md covers
+both arguments. I retain the same complete-window and ownership fixtures
+and add the seventh coefficient case above. I rebalance the registered
+allowances to210 seconds for numerical and300 for ownership, retaining
+the540-second window allowance and1200-second total. The public receipt
+records the final head's export and hosted verification.
 
 I have not executed a production-size P=32768p packet, a complete Gaussian
 expansion/compression tensor, or the CRT/integer theorem. I retain the

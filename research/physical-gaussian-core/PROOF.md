@@ -95,6 +95,13 @@ the ceiling of the larger of
 This also bounds the kernel and normalized-diagonal arguments. Under
 the production domain, F<=256p and B_f=O(p).
 
+I reuse weight and normalization coefficients at reflected source indices.
+For integer t, the nearest-grid offsets obey beta_(s-j)^2=beta_j^2;
+at a half-integer tie both offsets equal-1/2. Once s-j<j, I copy the
+earlier two coefficients after checking equality of the encoded squares.
+I still compute each row's phase and nearest index separately. This uses
+the same deterministic coefficient rule and preserves the global H.
+
 Set X=4F, k=ceil(log2(8(X+1))), H0=P+X+k+16, c=ceil(log2 H0), and
 
     R=P+4X+4k+2c+64,
@@ -126,8 +133,14 @@ most one. With Delta_y the argument width, the term widths obey
 
     d_j <= d_(j-1)/8 +Delta_y+4h <=2Delta_y+5h.
 
-The omitted tail is below `(8/7)*2^(-3N)<h`. I add one upper grid
-unit. Summing the widths gives E_0<=R²h. The accumulated upper
+I stop earlier if the current upper term is at most one raw R-grid
+unit, after adding that term to both sums. The current exact term is
+then at most h for every enclosed y. Subsequent term ratios are at
+most1/8, so the remaining positive tail is at most h/7<h. I explicitly
+close the encoded loop iterator on early exit to release its scratch.
+If I complete all N terms, the omitted tail is below `(8/7)*2^(-3N)<h`.
+In either case I add one upper grid unit. With at most N updates,
+summing the widths gives E_0<=R²h. The accumulated upper
 rounding error is below `(16/7)Nh+h<=3Nh`, so
 `log(u_0)<=y_upper+3Nh`.
 

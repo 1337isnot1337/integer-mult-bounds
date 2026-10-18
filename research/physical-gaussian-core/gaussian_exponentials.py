@@ -1,4 +1,5 @@
 """Directed real Gaussian coefficients from encoded Machin/Taylor intervals."""
+from contextlib import closing
 from gaussian_sources import active
 active()
 from cardinal_counts import Count, positive
@@ -39,6 +40,8 @@ class Exponentials:
         self.precision, self.argument_bound = precision, argument_bound
         self.fields = {}
         self.calls = 0
+        self.taylor_steps = 0
+        self.early_stops = 0
         try:
             self.keep("X", Count(argument_bound))
             self.X.multiply_small(4)
@@ -128,24 +131,30 @@ class Exponentials:
             term_lower, term_upper = Count(self.unit), Count(self.unit)
             total_lower, total_upper = Count(self.unit), Count(self.unit)
             degree = Count.literal(1)
-            for _ in indices(self.terms):
-                with owned(Count.product(term_lower, y_lower)) as (product,):
-                    with owned(right_shift(product, self.R)) as (scaled,):
-                        following_lower = quotient(scaled, degree)
-                try:
-                    with owned(Count.product(term_upper, y_upper)) as (product,):
-                        with owned(ceil_shift(product, self.R)) as (scaled,):
-                            following_upper = quotient(scaled, degree, True)
-                except BaseException:
-                    following_lower.close()
-                    raise
-                term_lower.close()
-                term_upper.close()
-                term_lower, term_upper = following_lower, following_upper
-                total_lower.add(term_lower)
-                total_upper.add(term_upper)
-                degree.increment()
-            # y<=1/8 and 3*terms>R make the omitted positive tail <one R-grid unit.
+            with owned(Count.literal(1)) as (one,):
+                with closing(indices(self.terms)) as steps:
+                    for _ in steps:
+                        with owned(Count.product(term_lower, y_lower)) as (product,):
+                            with owned(right_shift(product, self.R)) as (scaled,):
+                                following_lower = quotient(scaled, degree)
+                        try:
+                            with owned(Count.product(term_upper, y_upper)) as (product,):
+                                with owned(ceil_shift(product, self.R)) as (scaled,):
+                                    following_upper = quotient(scaled, degree, True)
+                        except BaseException:
+                            following_lower.close()
+                            raise
+                        term_lower.close()
+                        term_upper.close()
+                        term_lower, term_upper = following_lower, following_upper
+                        total_lower.add(term_lower)
+                        total_upper.add(term_upper)
+                        self.taylor_steps += 1
+                        if compare(term_upper, one) <= 0:
+                            self.early_stops += 1
+                            break
+                        degree.increment()
+            # At early exit the tail is <=h/7; after all terms, 3*terms>R gives <h.
             total_upper.increment()
             for _ in indices(self.k):
                 with owned(Count.product(total_lower, total_lower)) as (square,):

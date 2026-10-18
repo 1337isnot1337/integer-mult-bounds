@@ -81,6 +81,9 @@ def run():
                 tape = borrowed_tape(axis.matrix.current)
                 digest = sha256(bytes(tape.cells)).hexdigest()
                 calls = axis.exponentials.calls
+                reflected = axis.reflected_weights
+                require(reflected == (s-1)//2 and calls == 2*(s-reflected)+w+cross_cell,
+                        "reflected global coefficients reuse the same encoded argument")
                 require(saved == tuple((bytes(v.tape.cells), v.tape.head) for v in parameters),
                         "global producer preserves borrowed axis parameters")
             finally:
@@ -93,5 +96,6 @@ def run():
     return {"s": s, "t": t, "u": u, "w": w, "precision": bits,
             "interval_checks": intervals, "same_cell_entries": same_cell,
             "cross_cell_entries": cross_cell, "row_gap": str(gap),
-            "matrix_storage_sha256": digest, "exponential_calls": calls, "pool_peak": pool.peak,
+            "matrix_storage_sha256": digest, "exponential_calls": calls,
+            "reflected_weight_pairs": reflected, "pool_peak": pool.peak,
             "scope": "complete encoded global H producer at finite precision; the production asymptotic parameters remain separate"}
