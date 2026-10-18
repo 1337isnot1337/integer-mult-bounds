@@ -1,6 +1,6 @@
 # Lead 1: delayed donor release on the staged words
 
-LOCAL-ONLY complete conditional finite release; renewed independent terminal approval pending. No selected-frontier change.
+LOCAL-ONLY complete conditional finite release; independent terminal approval recorded at a3bdc591920a4b9003d8442d1fcca24218153661. No selected-frontier change.
 
 The changed producer neighborhood is helper644/donor640 and its symmetric
 helper660/donor656. Unlike another endpoint extraction on PR3133, the input
@@ -90,7 +90,7 @@ Independent AI review will be retained separately; no human or kernel review.
 
 ## Open next questions
 
-The complete original admission retains its strict finite margins after the literal source/profile rebinding. Obtain the renewed independent terminal review before concluding this investigation.
+The complete original admission retains its strict finite margins after the literal source/profile rebinding. Fresh Astra medium terminal review explicitly approves this scope at a3bdc591920a4b9003d8442d1fcca24218153661.
 Later compensated releases after pivot updates and jointly changed interior
 consumers remain outside the two commuting shifts proved here. No general
 mechanism exhaustion or claim of optimality is intended.

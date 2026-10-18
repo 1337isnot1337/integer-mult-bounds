@@ -7,7 +7,7 @@ The complete conditional release supports `κ=.001730418899766071163804−10^-46
 Validation:
 - Both changed providers: fresh five-stage native replay,632 arbitrary columns in both orientations, phases/warp recipes and actual sign/omit controls.
 - Complete original release with the predecessor edit chain retained and a new independently checked retiming stage; terminal receipt and all strict finite margins pass.
-- Exact dual calibration, retained integral T360 fill, independent frame/invoice check, explicit owner-transfer reuse and source-closed replay export; fresh Astra terminal approval pending.
-- Bounded registered replay, committed-byte check and Git-free export replay to be recorded at the final commit.
+- Exact dual calibration, retained integral T360 fill, independent frame/invoice check, explicit owner-transfer reuse and source-closed replay export; fresh Astra medium terminal review explicitly approves the scoped conditional result at `a3bdc591920a4b9003d8442d1fcca24218153661`.
+- Bounded registered replay, committed-byte check and Git-free committed export replay pass. Source-history preflight refused the shallow repository; the complete exported source closure is independently checked without foreign Git objects.
 
 The execution explicitly reuses authenticated unchanged native/parent evidence and unchanged preparatory discovery, then reruns the complete original release after the declared-stage repair. The portable default fresh-current-native wrapper is supplied; its full tail and a no-reuse retained-parent cold run have not been executed. All-size/compiler, uniform source/hosting, recursive precision/tape/recovery, bootstrap, analytic and BIT hypotheses remain inherited. Source notices and predecessor credit are retained. Substantial OpenAI Codex assistance and independent AI review; no human or formal-kernel approval claimed.

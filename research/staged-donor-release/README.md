@@ -1,6 +1,6 @@
 # Delayed staged donor releases
 
-**Complete conditional finite release; LOCAL-ONLY, terminal AI review pending.**
+**Complete conditional finite release; LOCAL-ONLY, independent AI review approved.**
 Two literal donor releases move to the pivots’ first producer frames. Their
 arbitrary-dirty operators are unchanged while each donor pays H3 in place of
 H1+H2. The unchanged T360 allocation then supports

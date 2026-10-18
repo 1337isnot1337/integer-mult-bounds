@@ -1,5 +1,5 @@
 {
-  "status": "PASS_COMPLETE_CONDITIONAL_RELEASE_AWAITING_TERMINAL_AI_REVIEW",
+  "status": "PASS_COMPLETE_CONDITIONAL_RELEASE_AND_INDEPENDENT_AI_APPROVAL",
   "kappa": "17304188997660711638039999999999999999999998999999999999999999999999/10000000000000000000000000000000000000000000000000000000000000000000000",
   "kappa_decimal": "0.0017304188997660711638039999999999999999999998999999999999999999999999",
   "physical": 323069,
@@ -12,5 +12,11 @@
   "full_default_cli_tail_run": false,
   "no_reuse_retained_parent_run": false,
   "source_history_full_clone_run": false,
-  "source_reconstruction_repair_and_preparation_reuse": "evidence/complete/REUSE-COVERAGE.json"
+  "source_reconstruction_repair_and_preparation_reuse": "evidence/complete/REUSE-COVERAGE.json",
+  "review_artifact": "a3bdc591920a4b9003d8442d1fcca24218153661",
+  "review": "reviews/lead1/REVIEW-TERMINAL.md",
+  "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE",
+  "committed_bytes": "PASS at6ab8 scientific freeze; repeated after final documentation",
+  "git_free_bounded_replay": "PASS exported6ab8 scientific artifact",
+  "source_history_preflight": "REFUSED_SHALLOW_REPOSITORY; full-history clone check remains unrun. Portable source export independently reconstructs all required v1/v2 source bytes."
 }
