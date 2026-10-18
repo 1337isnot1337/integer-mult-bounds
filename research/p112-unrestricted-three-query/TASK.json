@@ -53,7 +53,7 @@
   "outcome": "negative-result",
   "evidence": "PROOF.md supplies universal coverage. RESULT.json and the two implementations check thirteen equality classes, forty rational operators, 12,456 finite-field triangles and I224.",
   "author": "Nick Petalas",
-  "ai_assistance": "Substantial OpenAI Codex assistance; one execution, no independent human or formal proof-kernel review.",
+  "ai_assistance": "Automated drafting and checking; no independent human or formal proof-kernel review.",
   "open_questions": [
     {
       "question": "Can dependent longer lists or four independent queries lower the actual reader tariff for the same K?",
