@@ -259,7 +259,8 @@ def source_pin(row, base):
         return base + ":" + name
     if pin == "base_commit:" + name:
         return base + ":" + name
-    match = re.fullmatch(r"head:([0-9a-f]{40}):(.+)", pin) if isinstance(pin, str) else None
+    # Git filenames can contain LF; it is part of the exact path, not a delimiter.
+    match = re.fullmatch(r"head:([0-9a-f]{40}):(.+)", pin, re.DOTALL) if isinstance(pin, str) else None
     if match is not None and match.group(2) == name:
         return match.group(1) + ":" + name
     raise ValueError("SOURCES.json pin for " + name + " is not a supported pin form: " + brief(pin)
