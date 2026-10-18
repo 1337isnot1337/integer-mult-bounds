@@ -20,6 +20,10 @@ Three engines certify M(C)<1<M(C+10^-40). Two are the unchanged retained
 engines. The separately implemented `binomial.py` imports neither of them
 and evaluates no logarithm or exponential.
 
+Positive-binomial enclosures already appear in earlier repository audits; see
+the README credits. Independence here refers to this implementation versus
+the retained endpoint engines, not a novel numerical method.
+
 ## Independent positive-binomial enclosure
 
 Reduce x=73/r as x=2^k*y, 1<=y<=2. For z=1-1/y, 0<=z<=1/2 and 0<=b<1,
@@ -94,6 +98,10 @@ The session's separate fresh cold reproduction is documented in VALIDATION.json
 when available; it is not silently inferred from a stored receipt. All-size
 compiler, common-label/mutable-source realization, whole-call hosting,
 precision/tape, exact recovery, analytic transfer and BIT H1-H5 remain conditional.
+In particular, finite replay does not establish uniform compiler coefficient
+and stock bounds, the retained bootstrap time constant, physical rational
+SCALAR/COPY/CLEAR contracts, or zero-allocation contracts. PR3342 records the
+uniform-coefficient gap without claiming a counterexample to the modern release.
 Finite success is not a formal proof of the full multiplication theorem, and
 the saving is not measured runtime. No maintainer acceptance is claimed.
 

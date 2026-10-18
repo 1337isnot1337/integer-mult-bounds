@@ -41,6 +41,8 @@ nice -n 15 ionice -c 3 env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
 
 `VALIDATION.json` records this session's actual completed and outstanding
 checks separately; neither stored receipts nor CI status stand in for them.
+`COLD-REPLAY.md` records the original controller timeout and the unchanged
+full release continuation, without conflating their exit statuses.
 
 ## What is checked
 
@@ -70,12 +72,16 @@ leaves all package bytes unchanged.
   together change ten operator entries at character 2^72. This is a binding
   of the credited existing counterexample, not a new operator theorem.
 
-PR3148 and PR3361 remain conditional contributor constructions, distinct
-from the maintainer-reviewed selected record. The same 663,549 physical
+PR3148 and PR3361 are archived on main as of
+`714606601d4aae7fbe8cf0c9727b59ba754bc02e`. Archive acceptance is not
+mathematical validation. Both are conditional
+contributor constructions, distinct from the maintainer-reviewed selected record. The same 663,549 physical
 families, 91 private buffers, 2,717,280 owner rows and 1,479/2,048 prefix
 charge are retained. All-size/compiler, physical common-label/mutable-source
 realization, whole-call hosting, precision/tape, exact recovery, analytic
-transfer and BIT H1-H5 remain assumptions. No complete formal multiplication
+transfer and BIT H1-H5 remain assumptions. Uniform compiler coefficients/stock,
+physical rational SCALAR/COPY/CLEAR and zero-allocation contracts are not
+established by this finite replay. No complete formal multiplication
 theorem, human review or maintainer acceptance is claimed.
 
 The session's bounded circuit searches found no profile improvement; see
@@ -95,6 +101,15 @@ not global impossibility claims or additional supplier admission.
    valuable. Additional decimal digits alone do not provide that coverage.
 
 ## Credit
+
+Positive-binomial enclosures are established repository practice, including
+0x-chad's [PR678](https://github.com/CrocSwap/integer-mult-bounds/pull/678),
+davidNbreslauer's [PR960](https://github.com/CrocSwap/integer-mult-bounds/pull/960),
+steph4n-gh's [PR1052](https://github.com/CrocSwap/integer-mult-bounds/pull/1052),
+ToikY's [PR2943](https://github.com/CrocSwap/integer-mult-bounds/pull/2943), and
+RossRichardson's [PR2974](https://github.com/CrocSwap/integer-mult-bounds/pull/2974).
+This implementation imports none of those engines and claims no priority for
+the technique. Its scope is the explicit T740 endpoint and outer release.
 
 SovereignSteak, with substantial OpenAI Codex assistance, supplies the new
 binomial implementation and scoped refinement. Retained credit: dataisfire

@@ -1158,5 +1158,46 @@
       ]
     }
   ],
-  "failed_initial_endpoint": "An initial experimental outer input guessed r0=10^-130 and FLOOR=10^91; unchanged checker rejected b. Correct existing formulas are endpoint_digits+80 and endpoint_digits+46; fixed inputs, not predicates. Failure logs preserved in workspace."
+  "failed_initial_endpoint": "An initial experimental outer input guessed r0=10^-130 and FLOOR=10^91; unchanged checker rejected b. Correct existing formulas are endpoint_digits+80 and endpoint_digits+46; fixed inputs, not predicates. Failure logs preserved in workspace.",
+  "search_triage": [
+    {
+      "priority": 1,
+      "hypothesis": "Delete or fuse commuting inverse ADD pairs; then allow differing recorded frames",
+      "plausible_gain": "A positive paid-child reduction would be structural; gate count alone gives no kappa gain",
+      "verification_cost": "Low: bounded inverse-pair pattern scan and exact profile audit",
+      "outcome": "Three inverse pairs per provider, zero paid-profile change"
+    },
+    {
+      "priority": 2,
+      "hypothesis": "Replace short elementary-transvection braids through commuting intervals",
+      "plausible_gain": "Potential paid-child reduction if both replacement operations fit cheaper legal frames",
+      "verification_cost": "Low to medium: bounded 100-event windows, exact rational coefficient patterns and conservative frame joins",
+      "outcome": "Six exact triples per provider, no improved paid profile"
+    },
+    {
+      "priority": 3,
+      "hypothesis": "Recheck restore deletions after the PR3133 word changes",
+      "plausible_gain": "Potential savings only if a nonzero-priced restore gate can be removed while retaining arbitrary-dirty interfaces",
+      "verification_cost": "Medium: all 212 deletions per provider, exact rational matrices",
+      "outcome": "Ten exact deletions per provider, every guide-cost delta zero"
+    },
+    {
+      "priority": 4,
+      "hypothesis": "Reduce explicit endpoint and outer rounding slack",
+      "plausible_gain": "Microscopic only; bounded by the already published 40-digit root bracket",
+      "verification_cost": "Low: new certified enclosure and unchanged exact outer checkers",
+      "outcome": "Positive explicit rational gain about 3.609e-36; no circuit change"
+    }
+  ],
+  "excluded_before_search": [
+    "Fixed-word owner reshuffling cannot beat the attained exact 2551-pattern packing cap.",
+    "Existing idle-axis donations have published operator obstructions; current PR3251 six-move owner 0 / port 0 composition was rebound and still fails."
+  ],
+  "local_replay_archive": {
+    "archive": "negative-search-replay.tar.gz",
+    "sha256": "c93fdb22b6f4714f3bf5c33d195de95bd08dfe4a7227c0a11e14af671c91a95f",
+    "files": 206,
+    "source_commit": "6f100d4bb5083f8c35d96fd95a539811c62f245c",
+    "scope": "Exact original negative-search scripts, source packages, expected results and licenses; no claim of a new replay."
+  }
 }
