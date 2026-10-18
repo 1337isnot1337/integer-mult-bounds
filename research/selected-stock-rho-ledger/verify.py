@@ -4,7 +4,7 @@
 Standard library only. Reads the pinned live inputs named in SOURCES.json
 (and three members of the pinned PR1087 tarball, in memory); nothing from the
 repository is imported or executed. Every proof-relevant constant is parsed
-from source text, then checked by exact integer/rational arithmetic. Ten
+from source text, then checked by exact integer/rational arithmetic. Sixteen
 mutation controls must each be rejected.
 
 Mainzu, with substantial Claude Code assistance. Apache-2.0.
@@ -185,9 +185,79 @@ def analyse(t, p):
     sigma_a, sigma_b = base, base + rho_b
     g_a, g_b = ceil_log2(8 * sigma_a), ceil_log2(8 * sigma_b)
     ok(g_a <= h1 and g_b <= h1, "sufficient guard ceil(log2(8 sigma)) <= H_1")
+
+    # 10. Mode of the BIT callee inside selected complex nodes (open question 1).
+    # The "reserved simultaneously" factor is a fixed-wire external one ...
+    ok("W_b,W_c<2^{43}" in sb and "Nested bit adapters require \\[ Q=W_c^{D_c(e)}W_b^{D_b(e)}. \\]" in sb
+       and "The sufficient stock is $p^{108000}$" in sb, "simultaneous factor is fixed-wire external")
+    # ... while the selected adapters' callee gets no external row stock (PR2250) ...
+    ca = flat(t["research/selected-complex-compact-adapters/PROOF.md"])
+    ok("bind its tensor interpretation to the selected R480/T16 complex supplier" in ca, "PR2250 is selected-bound")
+    ok("It may borrow internally; we grant it no external row stock or ancestor access." in ca,
+       "PR2250: adapter callee has no external row stock")
+    # ... and that callee, PR2234's selected BIT, borrows its own 4097w-per-level stock.
+    rc = flat(t["research/selected-bit-recursive-closure/PROOF.md"])
+    tau = re.search(r"tau=1-(\d+)/(\d+)\. Its review status remains separate", ca)
+    a_ = re.search(r"a = (\d+)/(\d+) = ", rc)
+    ok(tau is not None and a_ is not None and tau.groups() == a_.groups(), "PR2250's callee is PR2234's interchange")
+    ok("The machine restores spectators and clears its work." in rc
+       and "Choose the sufficient stock S=K(w)^D(e) from the original width e" in rc, "PR2234 completed contract")
+    kb = re.search(r"log_q K < 4096w\+1 <=(\d+)w\. Borrow k=ceil\(log_q S\)=O\(w log e\) leading digits "
+                   r"from the earlier chunk\. Eventually k<e/2\.", rc)
+    ok(kb is not None and hd * int(kb.group(1)) == sigma_bit, "self-borrowed BIT stock is the 8194 coefficient")
+    # The selected complex layer (PR2287): its only row stock is its own level divisor
+    # L^D0(d); peeled axes and stopped leaves use the elementary C kernel; and its ordinary
+    # callee is the completed interchange above. So S_leaf = 1, which is reading (a). The
+    # root also reserves three H-bit compact fields, but they are not row stock.
+    cl = flat(t["research/selected-complex-layer-closure/PROOF.md"])
+    wm = re.search(r"The selected archive binds m=73, W=(\d+) live families", cl)
+    ok(wm is not None and "Let Gamma=|O(73,2)| and L=W Gamma." in cl
+       and "Gamma = 2^1296 product_(i=1)^36 (2^(2i)-1)," in cl, "PR2287 level divisor L = W*Gamma")
+    l_bits = ceil_log2(F(int(wm.group(1)) * order))
+    ok(l_bits == b_bits, "ceil(log2 L) = B")
+    ok("q0=ceil(log2 L) D0(d)," in cl
+       and "q0 whole chunks supply a preceding row range of size 2^(q0K)>=L^D0(d)." in cl
+       and "For a child e', L^D0(e') divides U. A completed child restores its own row labels, so all "
+           "subsequent siblings reuse the same stock." in cl, "complex row stock is L^D0(d)")
+    ok("The next qF chunks supply two H-bit front compact fields; the last qB chunks supply one H-bit "
+       "back field." in cl and "No compact-field bit enters this selector." in cl,
+       "compact fields are reserved but are not row stock")
+    ok("First process the delta leftmost selected axes individually and retain their chunks as completed "
+       "spectators." in cl and "The leaves require only the elementary C kernel." in cl, "peeled axes, leaves elementary")
+    ok("The bound uses an ordinary binary chunk interchange with cost O(V b^tau), complete spectators and "
+       "restored work. PR2234 proposes that contract" in cl, "PR2287's ordinary callee is PR2234's contract")
+
+    # 11. Every recorded stage, each with its branch's own s and its own headroom.
+    branches = json.loads(t["research/selected-bootstrap-stock-audit/RESULT.json"])["branches"]
+    rows = [(F(branches[k]["common_saving"]), int(st["cutoff_log2"]), F(st["gap"]), int(st["stock_headroom_log2"]),
+             {g: F(v) for g, v in st["gaps"].items()})
+            for k in ("bootstrap", "conservative_bootstrap") for st in branches[k]["stages"]]
+    ok(len(rows) == 14 and all(0 < r[0] < 1 for r in rows), "fourteen stage records")
+    ok(all(g == min(gs.values()) and gs["stock"] == 1 - s_ for s_, _, g, _, gs in rows), "gap = least gap; stock gap = 1-s")
+    ok(all(cl_ >= 2 and cl_ * g * g >= 36 and 0 < g <= 1 - s_ for s_, cl_, g, _, _ in rows), "PR1965 premises, every stage")
+    ok(all(h == (cl_ * g) // 2 - 4 for _, cl_, g, h, _ in rows), "headroom = floor(L*gap/2)-4, every stage")
+    stage_g = [(ceil_log2(8 * F(43, 26) * (1 - s_) * b_bits), ceil_log2(8 * (F(43, 26) * (1 - s_) * b_bits + rho_b)), h)
+               for s_, _, _, h, _ in rows]
+    ok(all(ga <= h and gb <= h for ga, gb, h in stage_g), "both values pass every stage guard")
+    h_min = min(h for _, _, h in stage_g)
+
+    # 12. What the 9909 and 252 slots pay for (open question 3). In the selected layer they pay
+    # for nothing: without them the complex row is 2B+1024. The BIT the adapters call is PR2234's
+    # q-adic one: its level divisor has at least 4096*80-2 bits, since |GL_64(F_q)| >= q^4096/2
+    # with q > 2^80. In the certificate's row convention (halving depth x bits per level) that
+    # exceeds the cap even at w = 1, so the row ledger cannot be holding that BIT's stock; it is
+    # borrowed inside the call instead.
+    cap = int(re.search(r"finite\['retained_row_coefficient'\]==(\d+)", asm).group(1))
+    lean = 2 * b_bits + c_prefix
+    ok(lean < ledger < cap, "the 9909 and 252 slots are slack in the selected layer")
+    qm = re.search(r"We fix one odd prime q>2\^(\d+) throughout;", rc)
+    km = re.search(r"log_q K < (\d+)w\+1 <=", rc)
+    ok(qm is not None and km is not None and int(km.group(1)) == 64 * 64, "PR2234 prime size and level exponent")
+    qadic = hd * (int(km.group(1)) * int(qm.group(1)) - 2)
+    ok(qadic > cap, "one q-adic BIT level exceeds the external row cap")
     return dict(checks=n[0], b=b_bits, ledger=ledger, c=(c_bit, c_leaf, c_prefix), fam=(hb, wb, hl, wl),
                 bit_row=rec["row_coefficient"], sigma_bit=sigma_bit, implicit=implicit,
-                sigma_a=sigma_a, sigma_b=sigma_b, g=(g_a, g_b), h1=h1)
+                sigma_a=sigma_a, sigma_b=sigma_b, g=(g_a, g_b), h1=h1, l_bits=l_bits, stages=len(rows), h_min=h_min, lean=lean, qadic=qadic, cap=cap)
 
 
 def controls(pins, raw, texts):
@@ -222,6 +292,19 @@ def controls(pins, raw, texts):
         "missing_s_leaf_premise": text_edit("research/selected-coarse-depth-stock/PROOF.md",
                                             "one may take S_leaf=1", "one may take S_leaf=2"),
         "guard_below_sigma": param(h1_override=15),
+        "adapter_callee_external_stock": text_edit("research/selected-complex-compact-adapters/PROOF.md",
+                                                   "it no external row stock", "it an external row stock"),
+        "bit_stock_coefficient_4098": text_edit("research/selected-bit-recursive-closure/PROOF.md",
+                                                "<=4097w.", "<=4098w."),
+        "leaves_given_bit_reserve": text_edit("research/selected-complex-layer-closure/PROOF.md",
+                                              "The leaves require only the", "The leaves require a BIT reserve and the"),
+        "divisor_families_doubled": text_edit("research/selected-complex-layer-closure/PROOF.md",
+                                              "W=14336 live families", "W=28672 live families"),
+        "bit_prime_two_bits": text_edit("research/selected-bit-recursive-closure/PROOF.md",
+                                        "q>2^80 throughout", "q>2^2 throughout"),
+        "late_stage_headroom_tampered": text_edit("research/selected-bootstrap-stock-audit/RESULT.json",
+                                                  '"stock_headroom_log2": 296674207198239164557594',
+                                                  '"stock_headroom_log2": 296674207198239164557595'),
     }
     for name, run in cases.items():
         try:
@@ -241,8 +324,10 @@ def main():
           f"{r['c'][0]}={r['fam'][0]}*{r['fam'][1]} {r['c'][1]}={r['fam'][2]}*{r['fam'][3]} "
           f"{r['c'][2]}=2*{r['c'][2] // 2} bit_row={r['bit_row']}={r['sigma_bit']}+{r['c'][0]}+{r['c'][1]} "
           f"implicit_rho_3113={r['implicit']} rho_a=0 sigma_a<={float(r['sigma_a']):.2f} "
-          f"rho_b={r['sigma_bit']} sigma_b<={float(r['sigma_b']):.2f} "
-          f"guard={r['g'][0]},{r['g'][1]}<={r['h1']} controls={k} checks={r['checks']}")
+          f"rho_b={r['sigma_bit']} sigma_b<={float(r['sigma_b']):.2f} L_bits={r['l_bits']} S_leaf=1 "
+          f"guard={r['g'][0]},{r['g'][1]}<={r['h1']} stages={r['stages']} H_min={r['h_min']} "
+          f"lean_row={r['lean']} qadic_bit_row>={r['qadic']}>{r['cap']} "
+          f"controls={k} checks={r['checks']}")
 
 
 if __name__ == "__main__":

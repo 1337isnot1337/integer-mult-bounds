@@ -15,6 +15,12 @@
       "sha256": "47b42433f5a85809a3aadd29c2c339da2c6ed728e4f7762df6b88bccb7874cf0"
     },
     {
+      "path": "docs/research/pr-ledger.json",
+      "usage": "provenance",
+      "git_blob": "c682b4c39dd71dba9ffa9983f1e0549cfd2c0e56",
+      "sha256": "94fab8260d087cfcb4bd9ca5eb55178587cdeb52f597ac401463f8c4378d575d"
+    },
+    {
       "path": "notes/paired-cube-assembly.tex",
       "usage": "input",
       "git_blob": "d44227eb55ab68b9d04ea661bbe486fea66182d4",
@@ -57,10 +63,28 @@
       "sha256": "4bf6768224a3fac81ccda26df24f3763f9a4fbc35ad62bef2888595cdae519fe"
     },
     {
+      "path": "research/physical-complex-controller/PROOF.md",
+      "usage": "provenance",
+      "git_blob": "c505caecc7ced19a4efc35c423efedda9427bea5",
+      "sha256": "471185621c0ecce295ffd327b1244aed234efe5ff05a804aaaa11316f1a8319e"
+    },
+    {
+      "path": "research/physical-ordinary-interchange/README.md",
+      "usage": "provenance",
+      "git_blob": "66e3e174a890fd731a7562fec5358400534ea75b",
+      "sha256": "dec1ca108a1dbd2d81df6f18d4e75040ce7538c804ed697478ae360af8f6b86a"
+    },
+    {
       "path": "research/selected-bit-parent-reserve/README.md",
       "usage": "input",
       "git_blob": "86dacf2f68b8e2127c8f6fe87fb98fd71ef1f422",
       "sha256": "16b84730b7a604e805034008e11bae4f90fe6c91db6098d5bd5d011dded5f4ee"
+    },
+    {
+      "path": "research/selected-bit-recursive-closure/PROOF.md",
+      "usage": "input",
+      "git_blob": "6c410cab5713979214a45835091fbeb9ee9b8531",
+      "sha256": "74cc8de20f21acb5123fe2d20996fe0925ea6e51b3dec633bd5221fb719b3344"
     },
     {
       "path": "research/selected-bootstrap-stock-audit/RESULT.json",
@@ -73,6 +97,18 @@
       "usage": "input",
       "git_blob": "e0854d3afd012f7413147bd927812467843aca77",
       "sha256": "fe1a29b3757a3fda7124027e7e14228a6f3aa49521e23822909036172807f800"
+    },
+    {
+      "path": "research/selected-complex-compact-adapters/PROOF.md",
+      "usage": "input",
+      "git_blob": "685efc529493e4b841c1ce8799d28968b4991d7e",
+      "sha256": "804446e22304540eb02a5f4da3f71464a217be830a33b11420ea31eea878782c"
+    },
+    {
+      "path": "research/selected-complex-layer-closure/PROOF.md",
+      "usage": "input",
+      "git_blob": "d7ec0d101405a5f099f55f6a73e9791731737fd0",
+      "sha256": "43feda0342c07a9429699c3a44e8936a3f3fb57ce9b32f38ff3dc06ac887b265"
     },
     {
       "path": "research/selected-stock-envelope-m73/README.md",
