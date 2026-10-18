@@ -9,7 +9,7 @@
   "charged_prefix_bits": 2048,
   "execution_driver_commit": "29b904054c67a40b140806698398a4af547f1d03",
   "execution_driver_sha256": "65ccd047fec3c9e9c533c20136a4598f0148111e2235a5756a500875e97ce334",
-  "full_default_cli_tail_run": false,
+  "full_default_cli_tail_run": true,
   "no_reuse_retained_parent_run": false,
   "source_history_full_clone_run": false,
   "source_reconstruction_repair_and_preparation_reuse": "evidence/complete/REUSE-COVERAGE.json",
@@ -18,5 +18,9 @@
   "registered_replay": "PASS_REGISTERED_RESEARCH_PACKAGE",
   "committed_bytes": "PASS at6ab8 scientific freeze; repeated after final documentation",
   "git_free_bounded_replay": "PASS exported6ab8 scientific artifact",
-  "source_history_preflight": "REFUSED_SHALLOW_REPOSITORY; full-history clone check remains unrun. Portable source export independently reconstructs all required v1/v2 source bytes."
+  "source_history_preflight": "REFUSED_SHALLOW_REPOSITORY; full-history clone check remains unrun. Portable source export independently reconstructs all required v1/v2 source bytes.",
+  "full_default_cli_evidence": "evidence/full-wrapper/PINS.json",
+  "full_default_cli_result": "evidence/full-wrapper/RESULT.json",
+  "full_default_cli_source_commit": "74afc9ff5cb437d3112c6279216d10250775cd98",
+  "full_default_cli_scope": "Fresh changed-provider native chains, fresh preparation, and complete seven-stage admission; authenticated unchanged parent/native ancestry reused. Later execution evidence, not a new independent scientific review."
 }

@@ -1,15 +1,51 @@
-# Match the retimed conditional κ endpoint with smaller T360 stock
+# Consume retimed staged releases with smaller T360 stock
 
-Concurrent [PR3642](https://github.com/CrocSwap/integer-mult-bounds/pull/3642) reports the same retiming mechanism, and [PR3653](https://github.com/CrocSwap/integer-mult-bounds/pull/3653) reports the same endpoint using T488. This independently constructed T360 composition matches that endpoint with 323069 rather than 437757 physical families and 3240 rather than 4392 calls. No priority or additional frontier gain over PR3653 is claimed.
+## Change and mathematical scope
 
-PR3605 releases helper644 into donor640 before the donor's first producer frame, splitting its paid climb into ranks1 and2. This change moves that release, and the symmetric660→656 release, to just before the pivots' first producer updates. Exact commutation preserves the full arbitrary-dirty operator while each donor pays one rank3 climb instead. Both providers' local profile becomes `{1:2437,2:724,3:226,4:102,5:20,8:8}`; helper widths, T360 owners and private stock stay fixed.
+Compose the two commuting staged-release retimings with the literal T360 allocation. The complete conditional finite release supports **κ = 0.001730418899766071163804 − 10^-46 − 10^-70**, matching the endpoint reported by [PR3653](https://github.com/CrocSwap/integer-mult-bounds/pull/3653) with **323,069 instead of 437,757 physical families**, 3,240 instead of 4,392 calls, and 1,321,920 instead of 1,791,936 helper roles. The normalized profiles are identical; smaller stock changes finite constants. No priority or further frontier gain over PR3653 is claimed.
 
-The complete conditional release supports `κ=.001730418899766071163804−10^-46−10^-70`, a strict gain over the pinned predecessor of `.000000322536237447629574` over PR3638/PR3633 on their release grid. The full histogram is `{1:7980120,2:2345760,3:755730,4:330480,5:69930,8:25920,48:137790}`. This changes the fixed local-bill premise of the earlier packing ceiling. It does not change the selected record or claim a complete multiplication theorem.
+In PR3605's words, move `640 += 2*644` and `656 -= 660` to immediately before the pivots' first producer updates. Exact commutation preserves the full arbitrary-dirty operator, while each donor pays H3 instead of H1+H2. Both providers have local profile `{1:2437,2:724,3:226,4:102,5:20,8:8}`. The complete paid profile is `{1:7980120,2:2345760,3:755730,4:330480,5:69930,8:25920,48:137790}` across 322,560 live families, with 509 additional private families. The invoice includes both providers, all literal roles, 91 zero buffers, and the charged 2,048-bit prefix reserve.
 
-Validation:
-- Both changed providers: fresh five-stage native replay,632 arbitrary columns in both orientations, phases/warp recipes and actual sign/omit controls.
-- Complete original release with the predecessor edit chain retained and a new independently checked retiming stage; terminal receipt and all strict finite margins pass.
-- Exact dual calibration, retained integral T360 fill, independent frame/invoice check, explicit owner-transfer reuse and source-closed replay export; fresh Astra medium terminal review explicitly approves the scoped conditional result at `a3bdc591920a4b9003d8442d1fcca24218153661`.
-- Bounded registered replay, committed-byte check and Git-free committed export replay pass. Source-history preflight refused the shallow repository; the complete exported source closure is independently checked without foreign Git objects.
+All-size/compiler, uniform source/hosting, recursive precision/tape/recovery, bootstrap, analytic and BIT hypotheses remain inherited. This is a conditional finite construction, not an unconditional multiplication theorem or a selected-frontier update.
 
-The execution explicitly reuses authenticated unchanged native/parent evidence and unchanged preparatory discovery, then reruns the complete original release after the declared-stage repair. The portable default fresh-current-native wrapper is supplied; its full tail and a no-reuse retained-parent cold run have not been executed. All-size/compiler, uniform source/hosting, recursive precision/tape/recovery, bootstrap, analytic and BIT hypotheses remain inherited. Source notices and predecessor credit are retained. Substantial OpenAI Codex assistance and independent AI review; no human or formal-kernel approval claimed.
+## Task and overlap
+
+Explicitly assigned staged-release consumer work; task `independent-moment`, **changed scope**: change and fully price an actual word, rather than only audit an unchanged moment. See `research/staged-donor-release/TASK.json` for the original card and scope rationale.
+
+Base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. Exact predecessor inputs are retained with source hashes and notices:
+
+- PR3605 staged words: `3efbb5de06a49ffeea6684482f2d3fe48cdca3fb`.
+- PR3638 T360 allocation: `d62e1acd7518a231440383f0d0dddf54d6edf8c1`.
+- PR3633 packing comparison: `72c268f113368ea0387d188225e3f81ba6d6ef73`.
+
+Concurrent [PR3642](https://github.com/CrocSwap/integer-mult-bounds/pull/3642) reports the same retiming mechanism; PR3653 composes it with T488. This independently constructed package contributes the smaller T360 consumer and its source-bound validation. The strict gain of `0.000000322536237447629574` is relative only to the pinned PR3638/PR3633 predecessor on the common release grid. The final full overlap search covered 374 open PR bodies and 2,464 Discussion records; the related PR heads were rechecked during preparation. Coverage is not a novelty proof. See `CONCURRENT-WORK.md` for exact heads and comparisons.
+
+## Validation
+
+- Both changed providers passed fresh five-stage native replay: 632 arbitrary columns in both orientations, phase/warp recipes, and actual omission/sign controls.
+- The complete original release passed all strict finite margins, with the predecessor edit chain retained and a separately checked retiming stage. The original run explicitly reused authenticated unchanged native/parent evidence and preparatory discovery after a declared-stage binding repair.
+- Exact dual calibration, integral T360 fill, independent frame/invoice checks, and owner-transfer/source-closure checks passed. Fresh Astra medium review approved the scoped scientific result at `a3bdc591920a4b9003d8442d1fcca24218153661`; a follow-up review approved the concurrent-work framing. These are independent AI reviews, not human or formal-kernel approval.
+- Bounded registered replay, committed-byte comparison and Git-free committed export replay pass for the prepared package. The new full-wrapper evidence is separate from the frozen original scientific evidence.
+
+Reproduce the bounded package with Python 3.12 (standard library only):
+
+```sh
+python3.12 -B scripts/research_package.py --package research/staged-donor-release --check-only
+python3.12 -B scripts/research_package.py --package research/staged-donor-release
+```
+
+Full replay: Python 3.12.8, NumPy 1.26.4, SciPy 1.15.3, SymPy 1.14.0, mpmath 1.3.0; assertions enabled, one heavy replay at a time:
+
+```sh
+python3.12 -B research/staged-donor-release/full_replay.py --work /tmp/fresh-staged-release
+```
+
+The default full wrapper **passed end to end**, including both fresh changed native providers, fresh preparation and all seven complete-admission stages. The wrapper and scientific inputs match commit `74afc9ff5cb437d3112c6279216d10250775cd98` and are unchanged in this preparation update. Raw receipts, logs, environment versions and hashes are retained in `research/staged-donor-release/evidence/full-wrapper/`; the bounded verifier authenticates them and rejects four targeted receipt inconsistencies. This later run retains explicitly authenticated unchanged parent/native ancestry; it is execution evidence subsequent to the cited independent AI review. A no-reuse retained-parent cold run and hosted CI have not been run. Source-history preflight refused the shallow checkout; the self-contained archive instead reconstructs all required source bytes without foreign Git objects. No Lean or Docker was run.
+
+## Credit
+
+Credit Ross Richardson/PR3605, roger-sato's concurrent PR3642, Rohan Arun's PR3653, Pierre-Loic Doulcet's PR3633, PR3638's T360 allocation, dcharb78/PR3133, Marius-Paul Dumitrean/PR2979, Jeremy Kothe, and the retained native, owner, block-norm and outer authors. Exact source notices remain in the package. Apache-2.0; substantial OpenAI Codex assistance and independent AI review.
+
+## Open next questions
+
+See the package README and structured `TASK.json` questions. A useful next construction would identify one compensated later release or changed joint consumer, prove its arbitrary-dirty identity, and price its complete invoice before synthesis. The inherited uniform/all-size premises remain separate open obligations.

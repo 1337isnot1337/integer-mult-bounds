@@ -70,12 +70,20 @@ Original stages and exact source inventories are in evidence/native-*.
 No Lean, Docker or complete no-reuse cold CLI was run. The first full attempt correctly rejected a missing declared retiming stage in the source reconstruction. V2 preserves the PR3605 intermediate and all original reconstruction controls, appends the new stage plus an independent reconstruction, and reruns the complete release. Preparatory discovery/outer arithmetic is explicitly reused under exact changed-source coverage; both actual native words and every scientific native/global engine are unchanged. The portable archive retains the exact V1 differing source bytes and manifest as well as V2, so this reuse has a self-contained source closure. The APFS copy adapter
 only clones regular file bytes; all scientific validators remain unchanged.
 
+The later default `full_replay.py` invocation also passed end to end, with both
+changed native providers fresh and all seven admission stages regenerated. Its
+receipts and precise reuse scope are retained separately under
+[evidence/full-wrapper](evidence/full-wrapper/README.md). This later execution
+does not alter the original scientific source, receipts or independent review.
+
 ## Comparator, scope and credit
 
 Canonical main20ecf2891d80b5acf18d980b2164fb44ea7faa90, priority revision6;
 selected conditional kappa0.001672660197076918. Live PR3638 atd62e1acd7 and
 PR3633 at72c268f11 tie at0.001730096363528623534230 minus release backoffs.
-Current comparisons and source-byte export are required before submission.
+These are pinned historical comparisons. Concurrent PR3642 reports the same
+retimings and PR3653 reports the same normalized endpoint at T488; this T360
+consumer has smaller finite stock. See [CONCURRENT-WORK.md](CONCURRENT-WORK.md).
 The initial overlap scan fully paginated348 open PRs and2454 discussions;
 that is coverage of bodies/comments, not all source diffs or a novelty proof.
 Source archive ledger intake remains partially reviewed, not scientific approval.
@@ -86,7 +94,7 @@ PR3633/3630 exact fractional packing; PR3638 T360 allocation and source-bound
 reuse; Tekalign/Yiyang Lu and retained native, owner, block-norm and outer
 authors. SOURCE-PINS preserves original bytes and source-specific notices.
 New research and code prepared with substantial OpenAI Codex assistance.
-Independent AI review will be retained separately; no human or kernel review.
+Independent AI review is retained under reviews/lead1; no human or kernel review.
 
 ## Open next questions
 

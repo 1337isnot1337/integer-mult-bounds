@@ -40,5 +40,7 @@ def main():
  if (P/'evidence/complete/RESULT.json').exists():
   from evidence_check import check
   check()
+ from wrapper_evidence import check as check_wrapper
+ check_wrapper()
  print('PASS_BOUNDED_DELAYED_RELEASE_LOCAL_PRICE_AND_AUTHENTICATED_EVIDENCE')
 if __name__=='__main__':main()

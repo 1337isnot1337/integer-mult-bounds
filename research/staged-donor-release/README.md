@@ -25,8 +25,9 @@ python3.12 -B scripts/research_package.py --package research/staged-donor-releas
 ```
 
 This reconstructs the words and exact prices, replays the independent structural
-check and actual endpoint mutants, and authenticates stored complete execution
-evidence. It is not a fresh full native/global/outer replay.
+check and actual endpoint mutants, and authenticates both the original and
+later default-wrapper execution evidence, including four controls that reject
+inconsistent wrapper receipts. It is not a fresh full native/global/outer replay.
 
 The self-contained source archive authenticates 734 files, reconstructs both
 source manifests, and includes the actual words, engines, T360 fill/order and
@@ -38,12 +39,15 @@ python3.12 -B research/staged-donor-release/full_replay.py --work /tmp/fresh-sta
 ```
 
 Runtime: Python3.12.8, numpy1.26.4, scipy1.15.3, sympy1.14.0, mpmath1.3.0;
-assertions enabled and one heavy replay at a time. The full CLI’s end-to-end
-tail and a no-reuse retained-parent cold run remain unexecuted. Actual completed
-execution used two fresh changed-native chains, authenticated retained native/
-parent reuse, exact reuse of unchanged preparation after a declared-stage
-binding repair, and a fresh complete original release. Failures and reuse
-coverage are retained separately. No Lean or Docker was run.
+assertions enabled and one heavy replay at a time.
+
+The default full CLI has now passed end to end: both fresh changed-provider
+native chains and all seven admission stages, with fresh preparation and the
+complete original release. See [the full-wrapper receipts](evidence/full-wrapper/README.md).
+Unchanged retained native/parent ancestry remains explicitly authenticated reuse;
+a no-reuse retained-parent cold run remains unexecuted. The earlier run and its
+declared-stage repair/preparation reuse are preserved separately under
+`evidence/complete`. No Lean or Docker was run.
 
 ## Open next questions
 
