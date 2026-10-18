@@ -43,8 +43,7 @@
    "bit-0",
    "01021323",
    "census pruning"
-  ],
-  "track": "adversarial-audit"
+  ]
  },
  "scope_status": "refined",
  "actual_scope": "Independently audit one link of the length-22 argument in PR #3058's f(7)=24 theorem: the claim that a 22-step restored seven-source word cannot have exactly 20 distinct prefixes. Re-derive the confinement obstruction as an explicit edge-count inequality on the five classified 20-point minimum covers, run the arithmetic completely for the two representatives where it decides the case, record bounded sampled evidence for the other three, and re-derive the two simple-cycle multiplicity patterns from the imported f(5)=12 and f(6)=16 values. No length-22 word census, no re-proof of f(7)=24, no frontier change.",
