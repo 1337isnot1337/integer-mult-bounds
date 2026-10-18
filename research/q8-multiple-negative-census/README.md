@@ -135,6 +135,9 @@ The [canonical investigation](https://github.com/CrocSwap/integer-mult-bounds/di
 records the live scope. Initial complete overlap at 02:57-58 UTC on
 2026-10-18 covered 381 open and 2,761 closed PR bodies plus 2,306 Discussion
 records. This coverage excludes arbitrary diffs and unpublished work.
+Submission refresh at 03:05-06 UTC retained the same canonical main and guidance;
+complete pagination covered 381 open and 2,761 closed PR bodies plus 2,311
+Discussion records, with no warnings or new matching Q8 contribution.
 
 ## Open next questions
 
