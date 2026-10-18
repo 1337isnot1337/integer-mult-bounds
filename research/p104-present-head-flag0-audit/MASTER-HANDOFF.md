@@ -95,7 +95,7 @@ skeptical review.
 Author Wentao Li `<wentaol4@illinois.edu>`. Neutral disclosure: substantial AI
 assistance. Tip commit message must not contain `Co-authored-by: Victor Li`.
 
-## Verified PASS lines (this tip's parent content; final tip records them)
+## Verified PASS lines (packaging tip `7b2111c77fb3ff1ae976dd693b91866160a2d3f3`)
 
 Replay on tip  (content commit before this handoff rewrite):
 
