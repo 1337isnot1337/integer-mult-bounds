@@ -8,7 +8,7 @@
 - Card: `p104-side-correction` (refined), priority revision 6
 - κ: unchanged `0.001672660197076918`
 - Content tip: `42e62a310eb3a4cf80488506ff6baff1d53addd6` (scientific package; dual scanners + certificate)
-- Branch tip: read `git rev-parse origin/cursor/present-head-full-row-census-ad52` after push (handoff packaging commit on top of content tip)
+- Branch tip at handoff write: `6144f5736a8d6a79a934f4429fc7cf086f58b9ca` (re-read `git rev-parse origin/cursor/present-head-full-row-census-ad52`)
 
 ## Claim
 
