@@ -53,7 +53,7 @@
   "outcome": "completed",
   "evidence": "RESULT.json: t_max = 181 (B, fixed prefix), 152 (B, 512t prefix), 3 (A, both prefixes; any prefix(3) <= 2073); R_max 72 (B) / 57 (A); conditional sharp-coefficient what-if under A: R <= 59 fixed / 58 scaled prefix (+1.1501% / +1.0138%); ceilings a < 0.001690054109089 (R=51, reproduced), 0.001704851516268 (R=57), 0.001736778936705 (R=72); bit-endpoint kappa cap 0.001730427469823603; least R with ceiling above bit endpoint = 71 (t_min 25); depth-six row 27037 (fits B, fails A); conditional #3667 lean-row what-if under A: t_max 7 / 6, R <= 66 / 65 (below the R = 71 crossing); 41 source bindings with the selected assembler hashed against SELECTED-SOURCE.json; 11 negative controls with expected failure reasons; ceilings checked by two methods, guard thresholds by power search plus an implementation cross-check.",
   "author": "Sagar Thakrar (thakrarsagar)",
-  "ai_assistance": "Substantial: Claude (Anthropic, Claude Opus 5.5) bound the sources, chose the method, wrote verify.py and drafted README.md and PROOF.md. Reviewed by eight independent AI review passes (two rounds) in the same loop; no human has reviewed it.",
+  "ai_assistance": "Substantial: Claude (Anthropic, Claude Opus 5.5) bound the sources, chose the method, wrote verify.py and drafted README.md and PROOF.md. Reviewed by seven independent AI review passes (two rounds) in the same loop; no human has reviewed it.",
   "open_questions": [
     {
       "question": "Does the retained row coefficient 20161 bind, or only the bridge (reading A versus B/C)?",

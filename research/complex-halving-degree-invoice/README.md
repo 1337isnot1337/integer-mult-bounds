@@ -263,5 +263,5 @@ No predecessor file was modified.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude
 (Anthropic, Claude Opus 5.5). Claude chose the method, wrote verify.py and drafted this
-README and PROOF.md. Reviewed by eight independent AI review passes (two rounds) in the same
+README and PROOF.md. Reviewed by seven independent AI review passes (two rounds) in the same
 loop; no human has reviewed it. Apache-2.0.
