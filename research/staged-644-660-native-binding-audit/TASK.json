@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "task_id": "independent-moment",
+  "priority_revision": 6,
+  "base_commit": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "original_card": {
+    "id": "independent-moment",
+    "question": "Does one changed supplier or assembly claim lack a source-bound independent check of a specific new implication?",
+    "starting_points": [
+      "certificates/selected-result.json",
+      "research/rank7-joint-endframes/README.md",
+      "docs/research/research-family-status.md"
+    ],
+    "methods": [
+      "Independently reconstruct a coordinated frame/circuit change and its single-change control, then derive the complete rank and physical ledger.",
+      "Implement certified moment inequalities through a different exact enclosure method."
+    ],
+    "acceptance_gate": "Demonstrate independence, source binding, positive cases and semantic failure controls. Name the existing checks and the missing coverage. More digits or another equivalent evaluation of an unchanged root is not by itself new verification coverage.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "scripts/research_baseline.py"
+      ],
+      "expected": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
+      "inspect": "Read #2979 joint rank-7 end-frame proposal and the revision-6 evidence status. Its claimed kappa is not selected. Compare coordinated changes with the losing single-change controls and locate the complete physical ledger; an aggregate moment alone does not validate the mechanism.",
+      "scope": "Positive control / source-bound orientation only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Prioritize a bounded independent audit of #2979: reconstruct one joint group and its single-lowering control, check the declared frames/chronology, then trace changed children, idle widths and cleanup buffers into the complete invoice and both supplier caps. Choose one still-missing implication after checking existing audits. Stop with exact unresolved dependencies if full admission exceeds the session; do not launch a new lowering census on an unvalidated premise or substitute extra root digits for mechanism checking.",
+    "bottleneck_link": "Independent pricing prevents unsupported frontier claims and can reveal genuine accounting slack.",
+    "allowed_variations": [
+      "Reconstruct either a source ledger or a numeric enclosure with a different method."
+    ],
+    "scope_change_triggers": [
+      "Importing the primary function and calling its output independent verification.",
+      "Promoting #2979 from merged source archive to validated supplier solely from author PASS receipts or aggregate pricing."
+    ],
+    "overlap_terms": [
+      "independent moment",
+      "rank histogram",
+      "exact enclosure",
+      "2979",
+      "rank7 joint endframes",
+      "paired extraction",
+      "joint lowering"
+    ]
+  },
+  "scope_status": "refined",
+  "actual_scope": "PR3605 (head 3efbb5de) staged helpers 644 and 660 only: bind their emitted native entering wrappers, climbs, FULL exit adapters and direct scalar clocks to the source words in both orientations and both providers, and check the shared span(429,30)->FULL width-7 residual and every climb recipe on all 512 Gaussian columns with Sagar Thakrar's separately written kernel (no bw_* code in the identity check). The parent PR3133 words through the same producer are the single-change control.",
+  "scope_change_reason": "The card's first experiment targets #2979, whose four rank-7 groups already have native residual audits (group A, #3411 group B, the group-C package, group D). The live #2979-descendant line (PR3605 and the consumers that reuse its STAGED words: #3624, #3626, #3630, #3633, #3638) changes exactly one native residual, the span(429,30) entrance of ordinary FULL helpers 644/660. PR3687 checked those words as free-operator identities and left the native phases of this entrance as its open question 1, asking for a check without the bw_* lineage code. This package answers that one question.",
+  "bottleneck_link": "The whole 8->7 width saving of PR3605 rests on the native wrapper identity for span(429,30), and every listed consumer inherits it. A width saving that the native residual does not realize would cancel the consumers' conditional gains.",
+  "budget_minutes": 60,
+  "stop_rule": "Finish the finite native binding and separate-kernel identity for helpers 644/660 and the parent single-change control. No owner journal, release, consumer, retimed word, root or kappa work; stop at a source mismatch or a failed identity.",
+  "outcome": "completed",
+  "evidence": "RESULT.json via verify.py: for both providers and both orientations, helpers 644/660 have one pre/post residual wrapper pair at frame span(429,30) with no terminal field, one new_to_old exit adapter at FULL, no private buffer, and climbs [2,1,2,1,1] / [2,2,1,1,1] summing to 7; all 17 direct scalar clocks per helper match the source word. The shared recipe (key 137) satisfies R F_7 L = T_E^-1 T_FULL phase-exactly on all 512 columns, with both wrapped and inverse-transpose forms, under the separate kernel; ten distinct climb recipes also pass. The parent PR3133 words give width 8 with first climbs 3 instead of 2, and only 644/660 change entrance/terminal pairs (57 -> 58 residual classes). Seven residual controls per provider are rejected: three at the all-column operator check (global phase, parent right-wrapper alias, wrong plane [429,18]) and four at the width check. test_verify.py: 6 tests; emitted-stream, recipe, word and pin corruptions are rejected. Local-only (not registered): the producer's own bw_adapters.py under Python 3.13.1 and numpy 2.2.2 writes a RESIDUAL-ADAPTERS.json whose LF-normalized bytes equal this package's reconstruction for both providers.",
+  "author": "Mainzu",
+  "ai_assistance": "Substantial assistance from Claude Code (Anthropic, Claude Opus 5.5) for source search, the verifier and drafting; no independent human review is claimed.",
+  "open_questions": [
+    {
+      "question": "Do the retimed (#3642/#3653) and delayed (#3682) words keep the same span(429,30) entrance residual for 644/660, so that this check covers those consumers too?",
+      "why_it_matters": "Those consumers use different words than PR3605's STAGED words, so this package covers their native entrance only if the entrance/terminal pair and recipe are unchanged.",
+      "first_step": "Vendor the RETIMED644-660 and DELAYED words with provenance head pins and run native.provider() on each, with the STAGED words as the single-change control.",
+      "blocked_by": "Those words are on unmerged PR heads not fetched here; their retimed scalar chronology needs its own source-to-emission comparison."
+    },
+    {
+      "question": "Do all 58 residual classes and all 240 warps of the staged words pass the separate kernel, not only the changed class?",
+      "why_it_matters": "This package checks the one residual class that PR3605 changes; the other 57 are inherited from the PR3133 parent and rely on the bw_gauss lineage check or earlier group audits.",
+      "first_step": "Loop check_recipe over every key of the reconstructed adapter file and check each warp K record as a monomial identity with the same kernel; record the runtime.",
+      "blocked_by": "Not attempted in this session; it extends coverage rather than answering PR3687's open question."
+    },
+    {
+      "question": "Does the complete emitted 644/660 lane, including scalar macros and the warps of their partners, realize the free-operator identity phase-exactly under an independent simulator?",
+      "why_it_matters": "Correct wrapper and climb recipes do not by themselves prove that the emitted scalar macros between them are phase-exact; PR3605 checks that with the inherited bw_phases stage.",
+      "first_step": "Simulate the emitted forward stream on basis inputs supported on the 644/660 lanes with the separate kernel's Gaussian state and compare with the free-operator endpoint from PR3687.",
+      "blocked_by": "Needs an independent emitted-event interpreter for scalar macros and warps, which neither this package nor the group audits provide."
+    }
+  ],
+  "existing_checks": [
+    {
+      "pr": 3605,
+      "head": "3efbb5de06a49ffeea6684482f2d3fe48cdca3fb",
+      "scope": "Author's full native chain on the staged words (transport, adapters, emit, bw_audit_local, bw_phases, bw_check_recipes) and check_residual.py for the abstract span(429,30)->FULL pair, all with the bw_gauss lineage kernel."
+    },
+    {
+      "pr": 3687,
+      "head": "f798838eb8ede4178e94f240e7b7e54b3f80c82d",
+      "scope": "Independent free-operator identity, frames, cleanup and invoice of the staged words; native phases of the span(429,30) entrance left as open question 1."
+    },
+    {
+      "pr": 3681,
+      "head": "9f7813943b488d386407b1f4fdc1a3b2a8d39f84",
+      "scope": "Fresh-bootstrap replay of PR3605's full wrapper; runs the inherited native chain, not an independent kernel."
+    },
+    {
+      "package": "research/rank7-group-d-native-widths-audit",
+      "scope": "Method and code adapted here (as are group A, #3411 group B and group C); its helpers and words are disjoint from 644/660 on the staged words."
+    }
+  ],
+  "dependency_heads": {
+    "3605": "3efbb5de06a49ffeea6684482f2d3fe48cdca3fb",
+    "3687": "f798838eb8ede4178e94f240e7b7e54b3f80c82d"
+  },
+  "selection": {
+    "track": "independent-verification",
+    "task_id": "independent-moment",
+    "picker_seed": "545f4d3833045bd0390a6883a5a80aba",
+    "method": "The picker drew independent-verification. The #1166 PR3605 replay handoff was already done by #3681, and #2979's groups are all bound, so the task is PR3687's open question 1.",
+    "canonical_thread": "https://github.com/CrocSwap/integer-mult-bounds/discussions/3606"
+  },
+  "unchecked_obligations": [
+    "Native phases of all other residual classes, warps and scalar macros under an independent kernel",
+    "Retimed and delayed consumer words",
+    "Owner journals, physical stock, prefix/precision/tape and the T740 or consumer releases",
+    "Inherited all-size compiler, analytic transfer and BIT hypotheses"
+  ],
+  "result_kind": "finite native/interface audit; no defect found in stated scope",
+  "refresh_checkpoint": {
+    "at_utc": "2026-10-18T17:25:00Z",
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "priority_revision": 6,
+    "selected_kappa": "0.001672660197076918",
+    "changes": "None since the previous checkpoint; open PRs through #3701 checked for overlap."
+  }
+}
