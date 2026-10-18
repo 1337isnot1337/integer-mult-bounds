@@ -25,8 +25,9 @@ python3.12 -B scripts/research_package.py --package research/coupled-cap740-bino
 The verifier authenticates all live sources, compares the full regenerated
 result against the frozen certificate, and writes no package files. Optional
 `--output PATH` writes a fresh result and refuses an existing file.
-`SOURCES.json` binds PR3361's claim to its exact Git head; it does not require
-that pending package to be installed or merged. The registered replay reuses
+`SOURCES.json` records PR3361's original head, path, Git blob and SHA-256.
+The identical vendored claim is pinned to this branch's first commit, so replay
+does not require that pending package or its Git objects to be installed. The registered replay reuses
 source-bound finite/native evidence. It is not the complete cold replay.
 
 For the unchanged supplier's full fresh reproduction, use its documented

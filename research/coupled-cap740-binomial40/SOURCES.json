@@ -448,10 +448,17 @@
     {
       "path": "research/coupled-cap740-binomial40/vendor/PR3361-CLAIM.json",
       "usage": "input",
-      "pin": "head:f9de2024916a347d939ed256a7a2e9e68d633684:research/coupled-cap740-grid35/CLAIM.json",
+      "pin": "head:0a0c607a85ad8a002c7d09ed7fb4bed2586ee78e:research/coupled-cap740-binomial40/vendor/PR3361-CLAIM.json",
       "git_blob": "87cacd0dd167954f70f6a2404604b12d126a447b",
       "sha256": "43aadbe1181516c97ea7f12c65e65ee757df08ead084a9cbbd48a46ed6c59089"
     }
   ],
-  "schema_version": 1
+  "schema_version": 1,
+  "upstream_claim_origin": {
+    "path": "research/coupled-cap740-grid35/CLAIM.json",
+    "usage": "provenance",
+    "pin": "head:f9de2024916a347d939ed256a7a2e9e68d633684:research/coupled-cap740-grid35/CLAIM.json",
+    "git_blob": "87cacd0dd167954f70f6a2404604b12d126a447b",
+    "sha256": "43aadbe1181516c97ea7f12c65e65ee757df08ead084a9cbbd48a46ed6c59089"
+  }
 }

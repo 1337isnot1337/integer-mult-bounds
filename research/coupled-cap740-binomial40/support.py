@@ -16,9 +16,10 @@ def load(path,name):
 def authenticate(root,package):
     global ROOT,SUPPLIER,BASE
     ROOT=root;SUPPLIER=ROOT/'research/gmx-t74-borrow43-handoff';BASE=ROOT/'research/coupled-carrier-cap740'
-    need(sha(package/'SOURCES.json')=='1dab9a5b84653a9140a576212ad7d41231fd9612ea0e7c8b25a375efb402b215','complete source manifest and usage classes')
+    need(sha(package/'SOURCES.json')=='30fc7635c08820a54f4b34485cbbfc154cacd97c6a484b52f182c77a9bc45189','complete source manifest and usage classes')
     for item in read(package/'SOURCES.json')['files']:
         if item['usage']=='input':need(sha(ROOT/item['path'])==item['sha256'],'source drift: '+item['path'])
+    need(sha(package/'vendor/PR3361-CLAIM.json')=='43aadbe1181516c97ea7f12c65e65ee757df08ead084a9cbbd48a46ed6c59089','exact local baseline claim')
     manifest=read(BASE/'MANIFEST.json')
     need({p.relative_to(BASE).as_posix():sha(p) for p in BASE.rglob('*') if p.is_file() and p!=BASE/'MANIFEST.json'}==manifest,'complete supplier inventory')
 def bootstrap(C):
