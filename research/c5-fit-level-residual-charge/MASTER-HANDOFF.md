@@ -11,7 +11,8 @@ Dual scanners agree. Selected κ unchanged at `0.001672660197076918`.
 Pinned CrocSwap main tip (branch base): `20ecf2891d80b5acf18d980b2164fb44ea7faa90`.
 Scientific geometry base (SOURCES): `463113d675af7410ac91d53a4fed51ec6494eb9a`.
 Branch: `cursor/c5-fit-level-residual-charge-fe94`.
-Package tip: `c8a6fa90dde7a2d0ac5dedd601d7122802fa4815` (content; handoff commit may follow).
+Scientific package tip: `c8a6fa90dde7a2d0ac5dedd601d7122802fa4815` (Wentao-only; no `Co-authored-by: Victor Li`).
+Branch tip: this commit (`git rev-parse HEAD` on `cursor/c5-fit-level-residual-charge-fe94`).
 Package: `research/c5-fit-level-residual-charge/`.
 
 ## Switch
