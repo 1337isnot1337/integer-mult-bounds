@@ -18,8 +18,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 300,
-      "checks": "PR3259 layered control; sharp criterion by two loop orders and PR3252 full-memory recurrence (all equal); PR3427 masks; rank(U-I)>=17; rows R1/R1c/R2/R3; 4,500-program oracle; five negative controls"
+      "timeout_seconds": 600,
+      "checks": "PR3259 layered control; sharp criterion by two loop orders and PR3252 full-memory recurrence (all equal); PR3427 masks; rank(U-I)>=17; rows R1/R1c/R2/R3; 18,000-program oracle; six negative controls"
     },
     {
       "argv": [
@@ -30,7 +30,7 @@
         "-B",
         "{package}/test_verify.py"
       ],
-      "timeout_seconds": 300,
+      "timeout_seconds": 600,
       "checks": "Four deliberate defects must fail; Y-relay escape"
     }
   ]

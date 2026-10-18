@@ -640,7 +640,10 @@ def grow(rng, n, low, high, d):
     return cur
 
 
-def instance(rng, n, nx=3, ny=3, nt=3, rigid=False):
+def instance(rng, n, nx=3, ny=3, nt=3, rigid=False, pooled=False):
+    """Random small domain.  pooled=True mirrors P104: departure chains fix
+    dims 1..p, arrival chains fix dims q..n-1, and the type list is every
+    compatible (departure, arrival) pair, so it is closed under recombination."""
     full = key([1 << i for i in range(n)])
     zero = ()
 
@@ -652,6 +655,8 @@ def instance(rng, n, nx=3, ny=3, nt=3, rigid=False):
         return out
     xs = [chain(1, n) for _ in range(nx)]
     ys = [chain(0, n - 1) for _ in range(ny)]
+    if pooled:
+        return n, xs, ys, pool_types(rng, n, xs, ys)
     types = []
     pairs = [(a, b) for c in xs for a in c for e in ys for b in e
              if 1 <= len(a) < len(b) and le(a, b)]
@@ -671,6 +676,40 @@ def instance(rng, n, nx=3, ny=3, nt=3, rigid=False):
                 fixed[d] = flag[d]
         types.append(fixed)
     return n, xs, ys, types
+
+
+def pool_types(rng, n, xs, ys):
+    full = key([1 << i for i in range(n)])
+    p = 1 + rng.below(n - 2)
+    q = p + 1 + rng.below(n - 1 - p)
+    deps, arrs = [], []
+    for _ in range(3):
+        line = xs[rng.below(len(xs))][0] if rng.below(3) else \
+            grow(rng, n, (), full, 1)
+        dep = [line]
+        while len(dep) < p:
+            dep.append(grow(rng, n, dep[-1], full, len(dep) + 1))
+        deps.append(dep)
+    for k in range(3):
+        if k == 0 or rng.below(2):  # grow upward from a departure: compatible
+            arr = [grow(rng, n, deps[rng.below(3)][-1], full, q)]
+            while len(arr[-1]) < n - 1:
+                arr.append(grow(rng, n, arr[-1], full, len(arr[-1]) + 1))
+        else:  # descend from a target cap or a random hyperplane
+            arr = [ys[rng.below(len(ys))][-1] if rng.below(3) else
+                   grow(rng, n, (), full, n - 1)]
+            while len(arr[0]) > q:
+                arr.insert(0, grow(rng, n, (), arr[0], len(arr[0]) - 1))
+        arrs.append(arr)
+    types = []
+    for dep in deps:
+        for arr in arrs:
+            if le(dep[-1], arr[0]):
+                fixed = {0: (), n: full}
+                fixed.update({len(f): f for f in dep + arr})
+                types.append(fixed)
+    need(types, "pool has a compatible pair")
+    return types
 
 
 def type_interval(fixed, d):
@@ -746,6 +785,8 @@ def run_program(rng, inst, steps, violate=None, direct=True):
     pos, xp, yp = [0] * nh, [0] * len(xs), [0] * len(ys)
     hv = [{("D", h): Fraction(1)} for h in range(nh)]
     yv = [{} for _ in ys]
+    relay = [set() for _ in range(nh)]  # sources received across two types
+    via = [set() for _ in ys]
     extra = None
     if violate == "oldstate":
         f = [c for c in xs + ys for c in c if 1 <= len(c) < n]
@@ -770,7 +811,7 @@ def run_program(rng, inst, steps, violate=None, direct=True):
                 acts.append(("tr", h, list(ups)))
             acts += [("read", h, i) for i in range(len(xs)) if fr[h] == xf[i]]
             acts += [("write", h, j) for j in range(len(ys)) if fr[h] == yf[j]]
-            acts += [("mix", h, g) for g in range(nh) if g != h and (
+            acts += 3 * [("mix", h, g) for g in range(nh) if g != h and (
                 fr[h] == fr[g] or violate == "crossframe")]
             if violate == "yread":
                 acts += [("yread", h, j) for j in range(len(ys))
@@ -792,15 +833,21 @@ def run_program(rng, inst, steps, violate=None, direct=True):
             axpy(hv[act[1]], c, {("X", act[2]): Fraction(1)})
         elif act[0] == "write":
             axpy(yv[act[2]], c, hv[act[1]])
+            via[act[2]] |= relay[act[1]]
         elif act[0] == "mix":
             axpy(hv[act[2]], c, hv[act[1]])
+            relay[act[2]] |= relay[act[1]]
+            if tys[act[1]] != tys[act[2]]:
+                relay[act[2]] |= {k[1] for k in hv[act[1]] if k[0] == "X"}
         elif act[0] == "yread":
             axpy(hv[act[1]], c, yv[act[2]])
         elif act[0] == "old":
             axpy(hv[act[1]], c, extra[1])
         else:
             axpy(yv[act[2]], c, {("X", act[1]): Fraction(1)})
-    return {(t, k[1]) for t in range(len(ys)) for k in yv[t] if k[0] == "X"}
+    got = {(t, k[1]) for t in range(len(ys)) for k in yv[t] if k[0] == "X"}
+    run_program.cross_type = {(t, s) for t, s in got if s in via[t]}
+    return got
 
 
 def y_relay_counterexample():
@@ -830,36 +877,188 @@ def y_relay_counterexample():
     return (1, True)
 
 
+def meet(a, b):
+    """Intersection of two subspaces (small domains: enumerate a's points)."""
+    pts = [0]
+    for x in a:
+        pts += [p ^ x for p in pts]
+    return key([p for p in pts if p and le((p,), b)])
+
+
+def flag_through(rng, inst, ty, must):
+    """Random full flag of type ty passing through every frame in must
+    (a nested list), or None when the type cannot host them."""
+    n = inst[0]
+    flag = [()]
+    for d in range(1, n + 1):
+        lo, hi = type_interval(ty, d)
+        base = key(flag[-1] + lo)
+        above = [f for f in must if len(f) >= d]
+        cap = meet(hi, above[0]) if above else hi
+        if len(base) > d or len(cap) < d or not le(base, cap):
+            return None
+        flag.append(grow(rng, n, base, cap, d))
+    return flag
+
+
+def execute(inst, helpers, ops):
+    """Run an explicit straight-line program, checking every contract rule:
+    flags of the helper's type, monotone transports, equal-frame reads,
+    mixes and writes, monotone frozen X/Y schedules.  Exact Fractions."""
+    n, xs, ys, _ = inst
+    for ty, fl in helpers:
+        need(all(small_admit(ty, f) for f in fl[1:n]) and all(
+            le(a, b) for a, b in zip(fl, fl[1:])), "helper flag of its type")
+    pos, xp, yp = [0] * len(helpers), [0] * len(xs), [0] * len(ys)
+    hv = [{("D", h): Fraction(1)} for h in range(len(helpers))]
+    yv = [{} for _ in ys]
+
+    def axpy(dst, c, src):
+        for k, x in src.items():
+            dst[k] = dst.get(k, 0) + c * x
+            if dst[k] == 0:
+                del dst[k]
+    for op, a, b, c in ops:
+        fr = [helpers[h][1][pos[h]] for h in range(len(helpers))]
+        if op == "x":
+            need(b >= xp[a], "X schedule monotone")
+            xp[a] = b
+        elif op == "y":
+            need(b >= yp[a], "Y schedule monotone")
+            yp[a] = b
+        elif op == "tr":
+            need(b >= pos[a], "transport ascends")
+            pos[a] = b
+            hv[a] = {k: c * x for k, x in hv[a].items()}
+        elif op == "read":
+            need(fr[a] == xs[b][xp[b]], "read at equal frame")
+            axpy(hv[a], c, {("X", b): Fraction(1)})
+        elif op == "mix":
+            need(fr[a] == fr[b] and a != b, "mix at equal frame")
+            axpy(hv[b], c, hv[a])
+        else:
+            need(fr[a] == ys[b][yp[b]], "write at equal frame")
+            axpy(yv[b], c, hv[a])
+    return {(t, k[1]) for t in range(len(ys)) for k in yv[t] if k[0] == "X"}
+
+
+def directed_program(rng, inst, hops):
+    """Legal program along a random path: read X_s at V, relay through
+    `hops` further helpers of random types at shared frames, write Y_t.
+    Returns (pairs, number of distinct helper types used)."""
+    n, xs, ys, types = inst
+    s = rng.below(len(xs))
+    xi = rng.below(len(xs[s]) - 1)  # never the full space
+    v = xs[s][xi]
+    targets = [(t, j) for t in range(len(ys)) for j in range(len(ys[t]))
+               if len(ys[t][j]) >= len(v) and le(v, ys[t][j])]
+    if not targets:
+        return set(), 0
+    t, j = targets[rng.below(len(targets))]
+    w = ys[t][j]
+    helpers, ops, cur = [], [("x", s, xi, None)], v
+    for hop in range(hops + 1):
+        last = hop == hops
+        must = sorted({cur, w} if last else {cur}, key=len)
+        fl = None
+        for _ in range(8):
+            ty = types[rng.below(len(types))]
+            fl = flag_through(rng, inst, ty, must)
+            if fl:
+                break
+        if not fl:
+            return set(), 0
+        h = len(helpers)
+        helpers.append((ty, fl))
+        ops.append(("tr", h, fl.index(cur), rng.coef()))
+        if hop == 0:
+            ops.append(("read", h, s, rng.coef()))
+        else:
+            ops.append(("mix", h - 1, h, rng.coef()))
+        if last:
+            ops += [("y", t, j, None), ("tr", h, fl.index(w), rng.coef()),
+                    ("write", h, t, rng.coef())]
+        else:
+            ups = [p for p in range(fl.index(cur), n)
+                   if 1 <= len(fl[p]) and le(fl[p], w)]
+            p = ups[rng.below(len(ups))]
+            ops.append(("tr", h, p, rng.coef()))
+            cur = fl[p]
+    return execute(inst, helpers, ops), len({id(ty) for ty, _ in helpers})
+
+
+def unpooled_relay_example():
+    """F_2^4, types not closed under recombination: a legal two-type relay
+    lies inside PR3259's layered test but outside the single-type criterion.
+
+    T1 fixes <e1> < <e1,e2> < <e1,e2,e4>; T2 fixes <e3> < <e1,e2> <
+    <e1,e2,e3>.  h1 (T1) reads X0 at <e1>, rises to <e1,e2>, adds into h2
+    (T2) there; h2 rises to W = <e1,e2,e3> and writes Y0."""
+    full = key([1, 2, 4, 8])
+    t1 = {0: (), 1: key([1]), 2: key([1, 2]), 3: key([1, 2, 8]), 4: full}
+    t2 = {0: (), 1: key([4]), 2: key([1, 2]), 3: key([1, 2, 4]), 4: full}
+    inst = (4, [[key([1]), full]], [[(), key([1, 2, 4])]], [t1, t2])
+    need(t1[2] == t2[2] and t2[3] == inst[2][0][1], "relay frames")
+    coef = Fraction(3) * Fraction(-2, 5) * Fraction(7) * Fraction(1, 3)
+    need(coef != 0, "nonzero relayed coefficient")
+    need((0, 0) not in small_sharp(inst) and (0, 0) in small_layered(inst),
+         "pooling is needed for the one-helper criterion")
+    return True
+
+
 def oracle(seed=20261018, trials=((3, 3000), (4, 1500)), steps=120):
+    """Pooled instances (P104-like): every legal coefficient lies in the
+    one-helper test, which lies in PR3259's layered test.  Unpooled rigid
+    instances: every legal coefficient lies in the layered test (PR3259 needs
+    no pooling); escapes from the one-helper test are counted."""
     rng = Rng(seed)
-    checked = {"programs": 0, "nonzero_coefficients": 0, "strict_gap": 0,
-               "helper_mediated": 0}
+    c = dict.fromkeys(("programs", "nonzero_coefficients", "helper_mediated",
+                       "cross_type_relayed", "directed_multi_type",
+                       "strict_gap", "unpooled_programs",
+                       "unpooled_coefficients", "unpooled_multi_type",
+                       "unpooled_single_type_escapes"), 0)
     for n, count in trials:
         for _ in range(count):
-            inst = instance(rng, n)
+            inst = instance(rng, n, pooled=True)
             sharp, lay = small_sharp(inst), small_layered(inst)
             need(sharp <= lay, "oracle: sharp support inside layered")
-            checked["strict_gap"] += sharp < lay
+            c["strict_gap"] += sharp < lay
             # Direct X->Y adds are seeded identically by both tests; omit
             # them so every coefficient is carried by helper paths.
             got = run_program(rng, inst, steps, direct=False)
-            need(got <= sharp, "oracle: legal coefficient outside sharp test")
-            checked["programs"] += 1
-            checked["nonzero_coefficients"] += len(got)
-            checked["helper_mediated"] += sum(
-                not set(inst[1][s]) & set(inst[2][t]) for t, s in got)
-    escapes = {"yread": y_relay_counterexample()}
+            cross = run_program.cross_type
+            path, ntypes = directed_program(rng, inst, 1 + rng.below(3))
+            need(got | path <= sharp, "oracle: legal coefficient outside "
+                 "the one-helper test")
+            c["programs"] += 2
+            c["nonzero_coefficients"] += len(got) + len(path)
+            c["helper_mediated"] += sum(not set(inst[1][s]) & set(
+                inst[2][t]) for t, s in got | path)
+            c["cross_type_relayed"] += len(cross)
+            c["directed_multi_type"] += len(path) if ntypes > 1 else 0
+            inst = instance(rng, n, nt=6, rigid=True)
+            got = run_program(rng, inst, steps, direct=False)
+            path, ntypes = directed_program(rng, inst, 1 + rng.below(3))
+            need(got | path <= small_layered(inst),
+                 "oracle: legal coefficient outside the layered test")
+            c["unpooled_programs"] += 2
+            c["unpooled_coefficients"] += len(got) + len(path)
+            c["unpooled_multi_type"] += len(path) if ntypes > 1 else 0
+            c["unpooled_single_type_escapes"] += len(
+                (got | path) - small_sharp(inst))
+    escapes = {"yread": y_relay_counterexample(),
+               "unpooled": unpooled_relay_example()}
     for bad in ("descent", "crossframe", "offcover", "oldstate"):
         found = None
         for attempt in range(1, 4001):
-            inst = instance(rng, 3 + attempt % 2, rigid=True)
+            inst = instance(rng, 3 + attempt % 2, pooled=True)
             got = run_program(rng, inst, steps, bad)
             if not got <= small_sharp(inst):
                 found = (attempt, not got <= small_layered(inst))
                 break
         need(found is not None, "negative control has no teeth: " + bad)
         escapes[bad] = found
-    return checked, escapes
+    return c, escapes
 
 
 PR3427_SOURCE_MASKS = (  # published per-source target masks, sources 0..3
@@ -899,14 +1098,18 @@ def main():
                       "negative_controls": escapes}, sort_keys=True))
     print("PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 "
           "sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 "
-          "rows=4 oracle_programs=%d no_kappa" % checked["programs"])
+          "rows=4 oracle_programs=%d no_kappa" % (
+              checked["programs"] + checked["unpooled_programs"]))
 
 
-ORACLE_EXPECTED = {"programs": 4500, "nonzero_coefficients": 269,
-                   "strict_gap": 3556, "helper_mediated": 107}
-ESCAPES_EXPECTED = {"yread": (1, True), "descent": (1, True),
-                    "crossframe": (7, True), "offcover": (184, True),
-                    "oldstate": (144, True)}
+ORACLE_EXPECTED = {
+    "programs": 9000, "nonzero_coefficients": 1043, "helper_mediated": 604,
+    "cross_type_relayed": 13, "directed_multi_type": 620, "strict_gap": 54,
+    "unpooled_programs": 9000, "unpooled_coefficients": 1887,
+    "unpooled_multi_type": 1112, "unpooled_single_type_escapes": 0}
+ESCAPES_EXPECTED = {"yread": (1, True), "unpooled": True, "descent": (1, True),
+                    "crossframe": (6, True), "offcover": (131, True),
+                    "oldstate": (159, True)}
 
 if __name__ == "__main__":
     main()

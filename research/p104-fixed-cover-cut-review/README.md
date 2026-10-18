@@ -34,7 +34,7 @@ selected frontier are unchanged.
 | Sharp criterion: two loop orders, plus PR3252's full-memory recurrence as a third method | 2,682 required entries unsupported: 1,801 at `-1/2` and 881 at `+1/2`. 2,310 supported pairs, against 10,815 for PR3259's test. All three methods agree on every pair. |
 | Cross-check with PR3427 | The four published per-source masks (sources 0-3) are reproduced exactly. |
 | Consequence for PR3427 | A 19-by-18 rectangle of unsupported pairs has `rank C[R,S] = 17`, giving `rank(U-I) >= 17`. A 17-by-17 minor has `det(8C) = 2^43`. |
-| Oracle, coefficient level | 4,500 seeded legal programs over `F_2^3` and `F_2^4`, with exact `Fraction` coefficients. 269 nonzero helper-path coefficients, 107 of them for pairs with no common snapshot. None lies outside the sharp test. |
+| Oracle, coefficient level | 18,000 seeded legal programs over `F_2^3` and `F_2^4`, with exact `Fraction` coefficients. On pooled (P104-like) instances there are 9,000 programs and 1,043 nonzero helper-path coefficients, 633 of them relayed across helper types; none lies outside the one-helper test. On unpooled instances there are 9,000 programs and 1,887 coefficients; none lies outside PR3259's test. |
 
 ### Which hypotheses carry the obstruction
 
@@ -75,7 +75,7 @@ python3 -I -O -Werror -B research/p104-fixed-cover-cut-review/test_verify.py
 The verifier prints one JSON receipt. Its last line is
 
 ```
-PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 rows=4 oracle_programs=4500 no_kappa
+PASS_P104_FIXED_COVER_CUT_REVIEW layered_missing=1 sharp_missing=2682 of 4992 pr3427_masks=4 rank_U_minus_I>=17 rows=4 oracle_programs=18000 no_kappa
 ```
 
 The registered replay is
@@ -92,6 +92,8 @@ Every check raises `SystemExit("FAIL: ...")`, so checks stay active under `-O`.
   outside both tests. They are Y read (a fixed four-operation `F_2^3` program),
   frame descent, cross-frame mixing, an off-cover flag and correlated old
   state.
+- A sixth control, a fixed unpooled two-type relay over `F_2^4`, must lie
+  outside the one-helper test and inside PR3259's test.
 
 ## Method and independence
 
@@ -113,11 +115,22 @@ independently and sorted.
   smallest index. Exact `Fraction` elimination gives the rank, and an
   independent integer Bareiss determinant confirms it. The greedy is not
   optimal, so 17 is a lower bound.
-- Oracle programs choose uniformly among the operations legal at each moment.
-  Direct X-to-Y adds are omitted so that every coefficient travels through
-  helpers. Seed `20261018`, 120 operations per program, 3,000 programs over
-  `F_2^3` and 1,500 over `F_2^4`. This is a bounded randomized family, not an
+- The oracle uses seed `20261018`, with 3,000 instances over `F_2^3` and 1,500
+  over `F_2^4` in each family. It is a bounded randomized family, not an
   exhaustive enumeration.
+  - *Pooled* instances mirror P104. Departure chains fix the low dimensions,
+    arrival chains fix the high ones, and the types are every compatible pair.
+  - *Unpooled* instances use six random full flags as types.
+  - Each instance runs two programs. One chooses uniformly among the
+    operations legal at each moment, for 120 operations. The other follows a
+    random path through one to three relays. A checked interpreter executes
+    both: flags of the right type, ascending transports, and equal-frame
+    reads, adds and writes.
+  - Direct X-to-Y adds are omitted, so every coefficient travels through
+    helpers.
+  - Random unpooled programs found no escape from the one-helper test. A
+    fixed `F_2^4` two-type relay shows such an escape exists, so the lemma
+    needs pooling. PR3259's test does not.
 - The verifier also checks the roles in the original channel word: X is
   never written and Y is never read, so K4 and K5 hold for the channel.
 

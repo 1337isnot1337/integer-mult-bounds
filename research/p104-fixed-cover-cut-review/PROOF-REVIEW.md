@@ -78,7 +78,7 @@ K6 is a premise about the correction, not about the channel.
 | e | Dirt has no source coefficient; cancellation cannot create one. | K7, linearity | Valid. A coefficient of `X_s` in `Y_t` is a sum over dependency paths of products of operation scalars. With no path it is zero. Restoration operations are linear operations and are included. |
 | f | Same-dimension runs share one frame, so first and last helpers are adjacent and one step suffices. | K2, K3 | Valid, including a read or write in mid-run (the path starts or ends there) and runs that revisit a helper. Only the endpoints' common frame is used. Equal-frame groups in an actual program are cliques. |
 | g | Read-first seeding; accumulation after the edge; dims 0 and 9 excluded; early writes. | K4, K5 | Valid. Seeding the layer's reads before the single step covers a read followed by relays at that dimension. Accumulating after the step covers relays followed by a write. X frames have dimension at least 1 and Y frames at most 8, so dims 0 and 9 cannot join a read to a write. The recurrence accumulates at every layer, so Y71's dimension-5 writes are checked. |
-| h | Pooling: "every matching embeds by its selected edges". | K1 | Valid, and slightly stronger than stated. Any multiset of helpers with pool types embeds: helpers of one type merge into one virtual helper, whose state is a union. |
+| h | Pooling: "every matching embeds by its selected edges". | K1 | Valid, and slightly stronger than stated. Any multiset of helpers with pool types embeds: helpers of one type merge into one virtual helper, whose state is a union. PR3259's layered test does not need the pool to be closed under recombination. The sharper lemma below does; see `unpooled_relay_example`. |
 
 Stop-rule outcome: no step fails. The control engine reproduces every PR3259
 number: missing set `{(71,102)}`, forward counts
@@ -135,6 +135,12 @@ In every case `A[a] <= B[b]`, so `(a,b)` is in the pool. The spaces
 
 That partial flag extends to a full flag. One helper of type `(a,b)` therefore
 admits both V and W. ∎
+
+The proof uses the fact that the pool contains *every* compatible pair, so
+that the recombined type exists. For a type list without that closure the
+conclusion can fail. The verifier's `F_2^4` example relays across two rigid
+types at a shared plane. It lies in PR3259's test but outside the one-helper
+test.
 
 *Converse (untimed).* If the condition holds, one helper of type `(a,b)` with
 that full flag reads `X_s` at V and writes `Y_t` at W. With chronology relaxed,

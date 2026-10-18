@@ -74,7 +74,7 @@
   "budget_minutes": 150,
   "stop_rule": "Stop at a proof-review verdict per step; on an engine disagreement, a proof gap or an oracle escape, stop and minimize. No matching search, no correction construction, no pricing beyond counting witness operations, at most three new relaxation rows, no Lean.",
   "outcome": "completed",
-  "evidence": "PROOF-REVIEW.md (step table a-h, lemma proof, PR3252 review, PR3427 consumption, rank consequence); verify.py (layered control reproducing PR3259 numbers; sharp criterion by two loop orders and by an independent PR3252 full-memory recurrence over all 104 columns, all equal; PR3427 four-column masks; rank(U-I)>=17 by Fraction elimination and a Bareiss minor; rows R1/R1c/R2/R3; 4,500-program oracle and five negative controls); test_verify.py (four failing mutations and the Y-relay escape).",
+  "evidence": "PROOF-REVIEW.md (step table a-h, lemma proof, PR3252 review, PR3427 consumption, rank consequence); verify.py (layered control reproducing PR3259 numbers; sharp criterion by two loop orders and by an independent PR3252 full-memory recurrence over all 104 columns, all equal; PR3427 four-column masks; rank(U-I)>=17 by Fraction elimination and a Bareiss minor; rows R1/R1c/R2/R3; 18,000-program exact-coefficient oracle (pooled and unpooled families, uniform and path-directed programs, checked interpreter) and six negative controls); test_verify.py (four failing mutations and the Y-relay escape).",
   "author": "Sagar Thakrar (thakrarsagar)",
   "ai_assistance": "Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) for analysis, code and writing. No independent human or formal-kernel review is claimed.",
   "open_questions": [
