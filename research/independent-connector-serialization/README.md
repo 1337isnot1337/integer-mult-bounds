@@ -87,7 +87,7 @@ weighted and odd-mask predecessors; Adam Gall / PR2063 for the full one-root
 price frontier and witnesses. Gareth Davidson / PR1498, Hanson Sun / PR1615,
 and Adam Gall / PR2065 study transfer-coupled incidence-minimal words and are
 complementary predecessors. Their results are preserved. New work is Apache-2.0.
-Assistance and author-check limits are disclosed in [TASK.json](TASK.json).
+Scope and review obligations are recorded in [TASK.json](TASK.json).
 The two implementations are author checks, not independent human review.
 
 [Canonical investigation](https://github.com/CrocSwap/integer-mult-bounds/discussions/2049#discussioncomment-19009168).

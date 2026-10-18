@@ -50,7 +50,7 @@
   "outcome": "completed",
   "evidence": "PROOF.md; RESULT.json; registered primary, independent and behavioral checks; no formal-kernel or human review.",
   "author": "Nick Petalas",
-  "ai_assistance": "Substantial assistance with proof, implementation, experiments and writing. The two code paths are author checks, not independent human review.",
+  "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
   "open_questions": [
     {
       "question": "Which actual supplier caller has a paid coupling or nonuniform port contract that prevents serialization and lowers its complete bill?",
