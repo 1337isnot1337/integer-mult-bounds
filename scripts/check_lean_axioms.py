@@ -46,9 +46,12 @@ def source_queries(text):
 
 
 def check_output(output, expected):
-    rows = re.findall(r"^'([^']+)' (?:depends on axioms: \[([^\]]*)\]|does not depend on any axioms)[ \t]*$",
+    # Apostrophes belong to Lean names. The report delimiter ends the name,
+    # without allowing a malformed name to consume another output line.
+    report_name = r"^'([^\r\n]+)' "
+    rows = re.findall(report_name + r"(?:depends on axioms: \[([^\]]*)\]|does not depend on any axioms)[ \t]*$",
                       output, re.M)
-    headers = re.findall(r"^'[^']+' (?:depends on axioms:|does not depend on any axioms)", output, re.M)
+    headers = re.findall(report_name + r"(?:depends on axioms:|does not depend on any axioms)", output, re.M)
     bad = []
     for name, raw in rows:
         axioms = [] if not raw else [part.strip() for part in raw.split(',')]
