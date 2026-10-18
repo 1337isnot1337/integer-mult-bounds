@@ -12,8 +12,8 @@ import tempfile
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
-KAPPA = Fraction('0.001728996308346386172130') - Fraction(1, 10**46) - Fraction(1, 10**70)
-BASELINE = Fraction('0.001728992447095271166656') - Fraction(1, 10**46) - Fraction(1, 10**70)
+KAPPA = Fraction('0.001729097946885651030613') - Fraction(1, 10**46) - Fraction(1, 10**70)
+BASELINE = Fraction('0.001728996308346386172130') - Fraction(1, 10**46) - Fraction(1, 10**70)
 
 
 def need(value, message):
@@ -61,7 +61,7 @@ def verify(work, main_files):
     need(profile == expected['profile'], 'literal paid profile')
     need(all(stage['exit_code'] == 0 for stage in result['stages']), 'all stages completed')
     receipt = {'status': 'PASS_T8_RANK7_PROVIDER_COMPOSITION', 'kappa': str(KAPPA),
-               'kappa_decimal': result['kappa_decimal'], 'baseline_pr': 3468,
+               'kappa_decimal': result['kappa_decimal'], 'baseline_pr': 3485,
                'baseline_kappa': str(BASELINE), 'gain': str(KAPPA - BASELINE),
                'replicas': 8, 'calls': 72, 'helpers_per_call': 408,
                'roles': 29376, 'profile': profile,

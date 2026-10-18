@@ -21,3 +21,7 @@ T8 itself is prior art: `research/gauge44-slots-arcflow`, `gauge44-slots-deepen-
 ## Adjacent-source-window descendant
 
 PR3468 (dbeac6cf5c1190459fb5ed7a6020bdc50641577d) supplies the immediate T8 construction, source closure and complete native/outer admission. This descendant changes one declared adjacent call pair and its physical allocation; it retains the same providers, dispatcher, private stock, canonical source files and overlay. PR3413/PR3133/PR3148 and older T8 construction credits remain as recorded above.
+
+## Two-swap successor
+
+PR3485 (1ee2ac4be28f284d75eac0869f2049025f94b94b) supplies the immediate validated T8 chronology, current native providers, source closure and complete admission runner. This successor retains its earlier swap and changes only the two declared adjacent calls and corresponding allocation. All PR3413/PR3133/PR3148/PR3468 and older T8 ancestry credits above remain applicable.

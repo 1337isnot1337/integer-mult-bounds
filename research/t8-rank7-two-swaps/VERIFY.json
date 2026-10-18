@@ -564,7 +564,7 @@
         "{package}/test_reconstruct.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Twelve behavioral groups reject malformedcounts, duplicate/missingflows, windowfaults, actualownerfaults, sourcecorruption and providerwidth mismatch."
+      "checks": "Thirteen behavioral groups reject malformedcounts, duplicate/missingflows, windowfaults, actualownerfaults, sourcecorruption and providerwidth mismatch."
     },
     {
       "argv": [
@@ -576,7 +576,7 @@
         "{package}/test_reconstruct.py"
       ],
       "timeout_seconds": 60,
-      "checks": "Repeat twelve behavioralgroups underoptimizedPython; explicit scientific source/flow/owner checks remainactive."
+      "checks": "Repeat thirteen behavioralgroups underoptimizedPython; explicit scientific source/flow/owner checks remainactive."
     },
     {
       "argv": [

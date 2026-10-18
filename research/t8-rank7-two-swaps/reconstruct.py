@@ -97,8 +97,8 @@ def sources(root, package=HERE):
     return auditor, geometry, inventories[0][0], Counter(inventories[0][1])
 
 
-def projected_order(source, plan, recipe=None):
-    """Bind the exact retained T8 projection and its one declared adjacent swap."""
+def projected_order(source, plan, recipe=None, successor_recipe=None):
+    """Bind the retained T8 ancestry and both declared successor swaps."""
     need(
         all(
             isinstance(call, list)
@@ -182,7 +182,51 @@ def projected_order(source, plan, recipe=None):
         ),
         "swapped per-replica progression",
     )
-    need(order == projected, "exact declared PR3468 adjacent swap")
+    need(
+        projected == [tuple(call) for call in read(HERE / "PLAN-3485.json")["order"]],
+        "exact retained PR3485 predecessor order",
+    )
+    successor = (
+        read(HERE / "ORDER-RECIPE-3485.json")
+        if successor_recipe is None
+        else successor_recipe
+    )
+    need(
+        all(type(x) is int for pair in successor["adjacent_swaps"] for x in pair),  # noqa: E721
+        "integer successor swap positions",
+    )
+    need(
+        all(
+            type(x) is int  # noqa: E721
+            for key in ("before_calls", "after_calls")
+            for call in successor[key]
+            for x in call
+        ),  # noqa: E721
+        "integer successor call labels",
+    )
+    need(
+        successor
+        == {
+            "source_pr": 3485,
+            "source_head": "1ee2ac4be28f284d75eac0869f2049025f94b94b",
+            "adjacent_swaps": [[8, 9], [7, 8]],
+            "before_calls": [[1, 2], [2, 1], [3, 0]],
+            "after_calls": [[3, 0], [1, 2], [2, 1]],
+        },
+        "fixed PR3485 two-swap recipe",
+    )
+    need(projected[7:10] == [(1, 2), (2, 1), (3, 0)], "successor source calls")
+    projected[8], projected[9] = projected[9], projected[8]
+    projected[7], projected[8] = projected[8], projected[7]
+    need(
+        all(
+            [stage for stage, replica in projected if replica == owner]
+            == list(range(9))
+            for owner in range(8)
+        ),
+        "successor per-replica progression",
+    )
+    need(order == projected, "exact declared PR3485 two-swap order")
     return order
 
 
