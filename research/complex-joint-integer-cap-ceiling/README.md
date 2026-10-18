@@ -80,7 +80,9 @@ and is now reached on an attainable object: cap 43 fails (`0.00993809 < 1/99`) a
   profile `{s: 5586/s}` at caps 8, 16 and 51 (within one grid step), which is the cross-check that
   the two packages use one model. At caps 8 and 16 those rows are the parent's lever table entries
   "local mass delivered as rank-8 / rank-16 children".
-- The live rank-cap column is reproduced at its grid at caps 44 and 51 (above).
+- The live rank-cap column is reproduced at its grid at caps 44 and 51, and the paid-mass
+  elimination endpoint of the fourth cited package equals this class relaxation at the guard cap
+  (`0.013675160009708`, agreement below `1e-9`).
 - The paid dynamic-program optimum equals the largest-first greedy cost *and* histogram at all 51
   caps, extending the live table's recorded 11-cap check to the full guard range with no ambiguity.
 - Every bracket is witnessed on both sides: an explicit joint integer packing with certified moment
@@ -105,6 +107,35 @@ and is now reached on an attainable object: cap 43 fails (`0.00993809 < 1/99`) a
   its rank-shape conclusion.
 - **`research/complex-local-word-ceiling`** supplies the model, the coverage identity (PR1012), the
   halving guard and the lever table, unmodified and pinned in [SOURCES.json](SOURCES.json).
+
+## Related open work
+
+Three open peer packages price the same selected complex local word inside the same parent ceiling
+model. None is modified here, and each is cited for comparison only.
+
+- **`research/complex-idle-integrality-ceiling` (#3729)** holds the incumbent paid profile fixed and
+  makes the idle counts integral per call: its optimum is `{51: 32, 14: 1}` per call and its ceiling
+  is `a < 0.001688603446527`. **Agreement:** this package uses exactly that idle packing at every
+  cap (`32·51 + 14 = 1646`) and the same per-call premise. **What differs:** #3729 re-optimises the
+  idle remainder of the incumbent word, while the cap-`s` rows here reshape the *paid* mass into
+  rank-`s` children, so the cap-8 row `0.00273511` is the integer-idle version of the parent's
+  rank-8 lever row, not #3729's incumbent ceiling.
+- **`research/idle-rank-cap-sensitivity` (#3805)** prices the idle *rank cap* and separates two
+  pooling premises: an aggregate optimum that pools the idle mass across the replica
+  (`4647×51 + 27` at cap 51, certified gain `+0.870319 %`) and a per-call-forced optimum that does
+  not (`32×51 + 14` per call, `+0.784307 %`). **This package uses the per-call premise throughout:**
+  every row packs one call's own `1646` units, which is integral, so its rows belong with #3805's
+  per-call row and with #3729, and are **not** comparable with #3805's aggregate rows. The two
+  packages also sweep different axes: #3805 varies the idle cap `46..51` at a fixed paid word; the
+  cap here is the largest *paid* child rank, with the idle cap held at the guard `R = 51`.
+- **`research/complex-paid-mass-budget` (#3799)** prices a free removal of paid mass at fixed rank
+  shape. Its full-elimination endpoint `0.013675160009708` (all `5586` paid units removed and
+  re-packed as ideal rank-51 children) is **the same object as this package's cap-51 class
+  relaxation**, and the agreement is registered as a control below; its `φ = 0` row is the parent's
+  inherited ceiling `0.001690054109089`. **What differs:** #3799's `1/99` threshold `φ ≥ 92.7698485 %`
+  is a *mass-removal* budget, whereas cap 44 here clears `1/99` with **no mass removed at all**, by
+  delivering the same paid mass in rank-`≤44` children. Same model, same target, different lever;
+  neither statement bounds the other, and both are relaxation-level screens.
 
 ## Scope and limits
 

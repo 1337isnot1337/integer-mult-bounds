@@ -231,6 +231,15 @@ def main():
                   'the published rank-cap column does not reproduce')
         reproduced[str(cap)] = [dec(mine_fine), published[str(cap)]]
 
+    # Live paid-mass-elimination package (#3799): its full-elimination endpoint is this class
+    # relaxation at the guard cap. One object, two packages, re-derived here independently.
+    elimination_endpoint = '0.013675160009708'
+    mine_endpoint = ideal(IDLE_CAP, grid=GRID_FINE)[1]
+    C.require(abs(mine_endpoint - Q(elimination_endpoint)) < Q(1, 10 ** 9),
+              'the published full-elimination endpoint does not equal this class relaxation')
+    reproduced['paid_mass_elimination_endpoint_vs_class_relaxation'] = [dec(mine_endpoint),
+                                                                       elimination_endpoint]
+
     # Sampling control: no drawn joint integer packing of a class reaches the rejected saving.
     sampled = []
     for cap in (8, 16, 44, 51):
