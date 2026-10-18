@@ -75,7 +75,7 @@
   "unrun_obligations": [
     "The selected full cold replay, Lean and Docker.",
     "Independent human review and formal proof-kernel review.",
-    "Ruff format: ruff 0.14.5 format --isolated --diff would reformat verify.py and test_controls.py under Ruff's default 88-column style. It is recorded and not applied because this repository configures no Ruff and its own shared scripts fail the same check. Ruff lint (ruff check --isolated) passes with no findings."
+    "Ruff format: ruff 0.14.5 format --isolated --check would reformat verify.py and test_controls.py under Ruff's default 88-column style. It is recorded and not applied because this repository configures no Ruff and its own shared scripts fail the same check. Ruff lint (ruff check --isolated) passes with no findings."
   ],
   "corrections": [
     "An earlier revision of this package recorded 'CPython 3.12 is not installed on this machine' and therefore left the registered replay, the source-history preflight, Ruff and the CHECKS.json receipt unrun. That premise was wrong: CPython 3.12.15 is installed at /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 in the main checkout's virtualenv and is simply not on PATH. All four obligations were run and their real output is recorded in README.md and CHECKS.json."

@@ -134,10 +134,11 @@ PASS_TWO_HUB_TARIFF_MINIMUM_CONTROLS {"mutation_groups": 10, "positive_runs": 3,
 PASS_REGISTERED_RESEARCH_PACKAGE research/p112-two-hub-tariff-minimum outcome=completed
 ```
 
-Exit status `0`. Measured wall time for the whole replay, covering all three
-declared commands and the twenty rejecting control runs: real `1.10` s, user
-`0.77` s, sys `0.19` s. The three `CHECK` lines are the tails of the coverage
+Exit status `0`. The three `CHECK` lines are the tails of the coverage
 descriptions declared in [VERIFY.json](VERIFY.json), shortened here for width.
+The exact commit id, wall times and unabridged output of this run are recorded
+in [CHECKS.json](CHECKS.json); they are deliberately not duplicated here, so
+that this file's bytes do not depend on the run that measures them.
 
 The publication preflight also passes, including declared source history:
 
@@ -145,27 +146,28 @@ The publication preflight also passes, including declared source history:
 $ /Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -B \
     scripts/check_research_commit.py \
     --package research/p112-two-hub-tariff-minimum --check-source-history
-PASS_RESEARCH_COMMIT_BYTES {"commit": "545a8fd9…", "files": 13, "package": "research/p112-two-hub-tariff-minimum", "source_history_commits": ["20ecf289…"]}
+PASS_RESEARCH_COMMIT_BYTES {"commit": "<publication commit>", "files": 13, "package": "research/p112-two-hub-tariff-minimum", "source_history_commits": ["20ecf2891d80b5acf18d980b2164fb44ea7faa90"]}
 ```
 
-Exit status `0`. The commit prefix and the full unabridged line are in
-[CHECKS.json](CHECKS.json). `files` counts the package files and declared
-inputs present at the checked commit.
+Exit status `0`. `files` counts the package files and declared inputs present
+at the checked commit; the exact commit id is in [CHECKS.json](CHECKS.json).
 
 Ruff is not installed in that virtualenv
 (`/Users/nick/git/integer-mult-bounds/.venv/bin/python3.12 -m ruff` reports
 `No module named ruff`). It was run through `uvx` instead, pinned for the run:
 
 ```text
-$ uvx ruff@0.14.5 check --isolated research/p112-two-hub-tariff-minimum
+$ uvx ruff@0.14.5 check --no-cache --isolated research/p112-two-hub-tariff-minimum
 All checks passed!
 
-$ uvx ruff@0.14.5 format --isolated --diff research/p112-two-hub-tariff-minimum
+$ uvx ruff@0.14.5 format --no-cache --isolated --check research/p112-two-hub-tariff-minimum
+Would reformat: research/p112-two-hub-tariff-minimum/test_controls.py
+Would reformat: research/p112-two-hub-tariff-minimum/verify.py
 2 files would be reformatted, 1 file already formatted
 ```
 
 The format differences are **recorded and not applied**. This repository
-configures no Ruff and runs no Ruff job; `ruff format --check` on the shared
+configures no Ruff and runs no Ruff job; the same `--check` on the shared
 scripts `scripts/research_package.py`, `scripts/check_research_commit.py` and
 `scripts/new_research_package.py` reports that all three would be reformatted
 as well. Applying Ruff's default 88-column style here would make this package
