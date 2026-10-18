@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "generic": {
+    "programs": 53,
+    "cases": 365,
+    "sha256": "834c10eff1ddf3a947d7bb0db79400a2b400fa3e8f7146dcee3b2d24ffc6f590",
+    "wide_counter_cases": [
+      {
+        "primitives": 3398,
+        "program_cells": 23,
+        "cells": 107,
+        "wire_cells": 35,
+        "counter_cells": 9
+      },
+      {
+        "primitives": 6975,
+        "program_cells": 25,
+        "cells": 174,
+        "wire_cells": 67,
+        "counter_cells": 10
+      },
+      {
+        "primitives": 14616,
+        "program_cells": 27,
+        "cells": 305,
+        "wire_cells": 131,
+        "counter_cells": 11
+      },
+      {
+        "primitives": 30897,
+        "program_cells": 29,
+        "cells": 564,
+        "wire_cells": 259,
+        "counter_cells": 12
+      },
+      {
+        "primitives": 65482,
+        "program_cells": 31,
+        "cells": 1079,
+        "wire_cells": 515,
+        "counter_cells": 13
+      }
+    ]
+  },
+  "twiddle": {
+    "programs": 52,
+    "headers": 1412,
+    "sha256": "2ac326a2a1d13948fc892e92c04fca51b38d2a0d96e2c6451b271e067fab8b3c",
+    "maximum": {
+      "primitives": 12014887,
+      "program_cells": 7608,
+      "cells": 8300,
+      "wire_cells": 530,
+      "counter_cells": 13,
+      "ell": 48,
+      "inputs": 95,
+      "gates": 431,
+      "outputs": 49
+    }
+  },
+  "rejections": 14,
+  "comparison": {
+    "shape": {
+      "ell": 48,
+      "width": 11,
+      "long_axes": [
+        true,
+        false
+      ],
+      "round": 47,
+      "opposite": false
+    },
+    "unary_program_cells": 211847,
+    "unary_all_tape_cells": 212526,
+    "compact": {
+      "primitives": 12014887,
+      "program_cells": 7608,
+      "cells": 8300,
+      "wire_cells": 530,
+      "counter_cells": 13
+    },
+    "method": "Apply the retained PR3534 length/storage formulas to exactly the same canonical topology; compact counts are also executed in RESULT.json."
+  }
+}
