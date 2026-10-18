@@ -188,3 +188,11 @@ failures and missing data remain explicit; they do not reject a new mechanism.
 Pricing is bounded to widths 2–128 and finite rational metadata. Larger models
 need a separately scoped calculation. A ceiling is an optimistic upper bound,
 not an attainable packing or an admitted κ.
+
+Each local count uses at most 60 characters, with a decimal exponent between
+-60 and 60 when scientific notation is used. The exponent is checked before
+expanding the rational. Its reduced numerator and denominator must each have
+magnitude at most `10^60`, and its value must lie between 0 and `10^9`.
+Ordinary integer, fraction, decimal and bounded scientific spellings remain
+supported. An over-budget profile is reported as `unknown_or_outside_model`;
+other profiles in the same queue remain eligible for calculation.
