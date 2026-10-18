@@ -67,6 +67,11 @@ c68e1a539c4df689a048e97fa0285640fd7e8911 motivate the boundary question. They
 are comparison context, with no imported runtime or proof dependency. Their
 dimension/format and integral-algebra results remain distinct. The earlier
 PR673 transform and PR1462 truncation/frame audit are not repeated here.
+PR3087 at e7e49fb8176772c71ad7006920a407109a89e440 already implements encoded
+Gaussian i-phases and affine record-address monomials on LSB-first fields.
+This package instead rotates polynomial coefficient positions by y^E inside
+each record, with MSB words and supplied headers. It claims no first signed
+negation primitive or improvement to PR3087's encoded controller.
 
 ## Open next questions
 
