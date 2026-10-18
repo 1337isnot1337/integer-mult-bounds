@@ -63,8 +63,16 @@ def relative_file(root, name):
     return result
 
 
+def git_source_env():
+    # Replacement refs can pair an original object ID with different bytes.
+    # Pins and HEAD inventories must describe the stored objects even when the
+    # caller has configured a replacement namespace or an inherited override.
+    return {**os.environ, "GIT_NO_REPLACE_OBJECTS": "1"}
+
+
 def git(root, *args):
-    return subprocess.run(["git", *args], cwd=root, capture_output=True, check=True).stdout
+    return subprocess.run(["git", *args], cwd=root, env=git_source_env(),
+                          capture_output=True, check=True).stdout
 
 
 def tracked_input_paths(root):
@@ -74,7 +82,7 @@ def tracked_input_paths(root):
     preserves Git filenames containing whitespace, including CR and LF.
     """
     raw = subprocess.run(
-        ["git", "ls-tree", "-r", "--name-only", "-z", "HEAD"], cwd=root,
+        ["git", "ls-tree", "-r", "--name-only", "-z", "HEAD"], cwd=root, env=git_source_env(),
         capture_output=True, check=True, timeout=30).stdout
     return frozenset(name.decode("utf-8") for name in raw.split(b"\0") if name)
 
@@ -92,7 +100,7 @@ def git_source_rows(root, base, names):
     Newline paths and non-blob objects retain the legacy Git-show semantics.
     The caller must close this generator if source validation fails mid-stream.
     """
-    with subprocess.Popen(["git", "cat-file", "--batch"], cwd=root,
+    with subprocess.Popen(["git", "cat-file", "--batch"], cwd=root, env=git_source_env(),
                           stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE) as process:
         try:
@@ -135,7 +143,7 @@ def _git_blob_batch(root, specs, nul):
     argv = ["git", "cat-file", "--batch"] + (["-z"] if nul else [])
     # Usage diagnostics from the unsupported-option probe are expected. Avoid
     # a second pipe that could block while we consume the framed stdout reply.
-    with subprocess.Popen(argv, cwd=root, stdin=subprocess.PIPE,
+    with subprocess.Popen(argv, cwd=root, env=git_source_env(), stdin=subprocess.PIPE,
                           stdout=subprocess.PIPE, stderr=subprocess.DEVNULL) as process:
         try:
             for index, spec in enumerate(specs):
