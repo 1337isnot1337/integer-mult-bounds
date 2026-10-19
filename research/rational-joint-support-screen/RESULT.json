@@ -1,0 +1,116 @@
+{
+  "baseline_copy_cost": 8,
+  "best_example": {
+    "plane_indices": [
+      0,
+      1
+    ],
+    "ports": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "support_pattern": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ]
+  },
+  "binary_actual_support_patterns": 391,
+  "binary_cancellation_only_patterns": 0,
+  "binary_invertible_matrices": 22560,
+  "coefficient_domain": "generic rational nonzero coefficients on each {0,1} support",
+  "controls_passed": 6,
+  "generic_binary_intersection_patterns": 391,
+  "generic_only_patterns": 48,
+  "generic_or_binary_pattern_union": 439,
+  "generic_source_reader_support_patterns": 439,
+  "generic_union_binary_screen": {
+    "baseline_copy_cost": 8,
+    "best_example": {
+      "plane_indices": [
+        0,
+        1
+      ],
+      "ports": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "support_pattern": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    "minimum_copy_cost": 8,
+    "minimum_copy_cost_histogram": {
+      "8": 1540
+    },
+    "pair_minima_sha256": "0d2966c0935adc474c86c09dd0db2483e4d58ecf217f8e6f0e59d582c0a2860d",
+    "pair_pattern_cases": 676060,
+    "plane_pairs": 1540,
+    "strict_improvements": 0,
+    "support_patterns_per_pair": 439
+  },
+  "matched_planes": 56,
+  "minimum_copy_cost": 8,
+  "minimum_copy_cost_histogram": {
+    "8": 1540
+  },
+  "pair_minima_sha256": "0d2966c0935adc474c86c09dd0db2483e4d58ecf217f8e6f0e59d582c0a2860d",
+  "pair_pattern_cases": 676060,
+  "plane_matching_certificate_sha256": "4fd648f7b5178bff5441bf364d58234b7bc1a43b924bc6da03013c948f1473b1",
+  "plane_pairs": 1540,
+  "port_count": 112,
+  "schema": "generic-rational-joint-support-screen-v1",
+  "scope_limits": [
+    "special rational assignments with cofactor cancellation",
+    "overcomplete factorizations with more than four scalar messages",
+    "joint mixing across three or more matched planes",
+    "coefficient arithmetic and scaling overhead in a native implementation",
+    "multi-array native primitives and physical routing/restoration"
+  ],
+  "selected_kappa_changed": false,
+  "selected_payload_sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+  "source_archive_sha256": "f1da80610bf33c58527f18ad63b4350d0b864e1d4486141ee17ac9bed4d529d6",
+  "strict_improvements": 0,
+  "structurally_invertible_support_matrices": 37823,
+  "support_patterns_per_pair": 439
+}
