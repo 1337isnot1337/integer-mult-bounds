@@ -2,7 +2,7 @@
   "schema_version": 1,
   "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
   
-  scope_status": "changed",
+  "scope_status": "changed",
   "actual_scope": "Resolve Open Question #1 of PR #2397 by proving that profile (6,2,2,2,2,2,2) cannot cover all 63 masks (sharp maximum 61/63 across 105 canonical words) and classifying all 54 canonical full-63 words of profile (4,4,2,2,2,2,2).",
   "scope_change_reason": "Closes Open Question #1 in research/seven-source-18event-connector (PR #2397) with an exact projection proof and complete canonical censuses for both 144-call 18-event profiles.",
   "bottleneck_link": "research/seven-source-18event-connector/README.md",
