@@ -77,7 +77,7 @@ the original archive. Separate full literal interpreters share the source
 parser and assisted author, but not the primary local/bridge update routines.
 No spawned agents, independent human or formal proof-kernel review is claimed.
 
-## Open next question and decision
+## Open next questions
 
 NARROW / COMPLETE for uniform scalar-oracle sharing. A productive native route
 must identify a relation specific to the actual fixed operators, not assumed
