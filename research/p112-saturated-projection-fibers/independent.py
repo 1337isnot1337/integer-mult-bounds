@@ -6,7 +6,7 @@ No import from verify.py or any predecessor verifier.
 from collections import Counter
 from fractions import Fraction
 from hashlib import sha256
-from itertools import combinations, permutations, product
+from itertools import combinations, combinations_with_replacement, permutations, product
 import json
 from math import gcd
 from pathlib import Path
@@ -108,5 +108,15 @@ def main():
     check(sum(cap[x]for x in w)==176 and sum(x-2 for x in w)==35<36,'caller charges')
     floors=[2*(112-s)-u for s,u in [(0,46),(1,35),(2,34),(3,33)]]
     check(floors==[178,187,186,185]and min(floors)>176,'incidence contradiction')
+    # Separate exhaustive multiset check of the tiny convex-capacity corollary.
+    rows=[]
+    for n in range(12):
+        eligible=[w for w in combinations_with_replacement(range(2,7),n)if sum(x-2 for x in w)<=35]
+        maximum=max(sum(cap[x]for x in w)for w in eligible)
+        best=[w for w in eligible if sum(cap[x]for x in w)==maximum]
+        check(len(best)==1,'unique sorted extremizer')
+        rows.append({'pieces':n,'maximum_capacity':maximum,'maximizer':list(best[0])})
+    check(rows==expected['capacity_corollary']['maxima_by_length'],'capacity DP versus exhaustive multisets')
+    check(rows[-1]['maximum_capacity']==176 and rows[-1]['maximizer']==[2,2,5]+[6]*8,'extremal literal caller')
     print('PASS_INDEPENDENT_SATURATED_FIBERS Gram105 quotient_planes3780 floor178 margin2')
 if __name__=='__main__':main()

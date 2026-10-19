@@ -161,6 +161,42 @@ bound all but at most one fiber by four full roots INCLUDING the s kernel
 roots. For s=3, the rank-three cap six suffices. Fewer than eleven distinct
 nonzero fibers only improves the bounds. The minimum is 178, as claimed.
 
+## Corollary: the rank-at-most-six strict-deficit branch
+
+Suppose there are at most eleven pieces, their binary support ranks have
+bounds w_i in {2,3,4,5,6}, and sum_i(w_i-2)<36. Then their span cannot contain
+six dimensions of C, conditional on the inherited support capacities
+
+    g(2),g(3),g(4),g(5),g(6) = 2,4,8,12,20.
+
+The first three capacities follow because distinct labels have leading bit
+one, and a binary w-space has at most 2^(w-1) vectors in that affine slice.
+The last two are the pinned analytic capacities credited below.
+
+Pad the actual piece list to eleven with zero vectors. This preserves its
+span and total support, so the 178 theorem applies without requiring
+independence. Assigning each padded zero the loose upper capacity g(2)=2
+only increases the proposed total upper bound and costs zero excess.
+
+Put c=w-2 and h(c)=g(c+2)-2. For c=0,1,2,3,4, the values of h are
+0,2,6,10,18, with successive increments 2,4,4,8. They are nondecreasing.
+Whenever two entries satisfy 0<c<=d<4, replacing (c,d) by (c-1,d+1)
+preserves the excess budget and does not decrease total h. Repeating these
+transfers concentrates the budget into entries equal to four and at most
+one remaining positive entry. Since h is strictly increasing, the maximum
+under an eleven-slot budget at most35 uses exactly35. It is attained at
+
+    c = (0,0,3,4,4,4,4,4,4,4,4),
+    sum g(w) = 22 + 10 + 8*18 = 176 < 178.
+
+An exact budget dynamic program and a separate exhaustive multiset check
+confirm every length from zero to eleven and the unique sorted eleven-slot
+maximizer w=(2,2,5,6,6,6,6,6,6,6,6). Thus the literal caller chosen above is
+extremal for this entire explicitly bounded branch. This corollary needs
+no claim about historical-filter completeness or other shortening results.
+It permits neither weight-seven pieces nor more than eleven pieces, and
+does not close full C5 or establish a new multiplication algorithm.
+
 ## Scope, dependencies and credit
 
 The E8 geometry and evaluation-code line are inherited from DavidArias's

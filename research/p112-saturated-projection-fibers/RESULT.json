@@ -54,6 +54,166 @@
       6
     ]
   },
+  "capacity_corollary": {
+    "allowed_weights": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "capacity_increments": [
+      2,
+      4,
+      4,
+      8
+    ],
+    "incidence_floor": 178,
+    "maxima_by_length": [
+      {
+        "maximizer": [],
+        "maximum_capacity": 0,
+        "pieces": 0
+      },
+      {
+        "maximizer": [
+          6
+        ],
+        "maximum_capacity": 20,
+        "pieces": 1
+      },
+      {
+        "maximizer": [
+          6,
+          6
+        ],
+        "maximum_capacity": 40,
+        "pieces": 2
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 60,
+        "pieces": 3
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 80,
+        "pieces": 4
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 100,
+        "pieces": 5
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 120,
+        "pieces": 6
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 140,
+        "pieces": 7
+      },
+      {
+        "maximizer": [
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 160,
+        "pieces": 8
+      },
+      {
+        "maximizer": [
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 172,
+        "pieces": 9
+      },
+      {
+        "maximizer": [
+          2,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 174,
+        "pieces": 10
+      },
+      {
+        "maximizer": [
+          2,
+          2,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_capacity": 176,
+        "pieces": 11
+      }
+    ],
+    "maximum_capacity": 176,
+    "piece_limit": 11,
+    "required_code_dimension": 6,
+    "strict_excess_limit": 36,
+    "uniform_margin": 2
+  },
   "no_new_kappa": true,
   "orthogonal_kernel": {
     "fiber_size_histogram": {

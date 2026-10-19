@@ -4,7 +4,11 @@ Eleven pieces whose span contains six dimensions of the P112 evaluation code
 have total support incidence at least **178**, improving PR3991's uniform
 floor164 by14. The literal historical `(6,5)` caller `2²,5,6⁸` has total
 capacity176, quotient dimension5 and code-intersection dimension6, and is
-therefore excluded with margin2.
+therefore excluded with margin2. A discrete-convex capacity corollary excludes
+the entire explicitly bounded branch with at most eleven pieces, weights
+2 through6, strict excess below36, and code-intersection dimension at least6.
+The unique eleven-slot capacity maximizer is the named literal caller;
+weight-seven pieces remain outside this corollary.
 
 The change is simultaneous incidence geometry: two saturated six-root
 three-planes sharing a two-plane must share at least two root lines. We

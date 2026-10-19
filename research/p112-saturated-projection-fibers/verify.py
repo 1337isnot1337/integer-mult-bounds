@@ -148,6 +148,32 @@ def caller():
             'preferred_five_piece_capacity':56,'six_piece_capacity':76,'inherited_second_weight':78,
             'total_support_capacity':176,'new_support_floor':178,'contradiction_margin':2}
 
+def capacity_corollary():
+    """Exact budget DP, retaining all distinct sorted maximizing profiles."""
+    caps={2:2,3:4,4:8,5:12,6:20}
+    increments=[caps[w+1]-caps[w] for w in range(2,6)]
+    require(increments==sorted(increments)==[2,4,4,8],'discrete convex capacities')
+    states={0:(0,{()})};rows=[]
+    for n in range(12):
+        maximum=max(v[0]for v in states.values())
+        profiles=sorted({w for value,ws in states.values()if value==maximum for w in ws})
+        require(len(profiles)==1,'unique sorted capacity maximizer')
+        rows.append({'pieces':n,'maximum_capacity':maximum,'maximizer':list(profiles[0])})
+        new={}
+        for budget,(value,ws)in states.items():
+            for w in caps:
+                b=budget+w-2
+                if b>35:continue
+                score=value+caps[w];words={tuple(sorted(word+(w,)))for word in ws}
+                old=new.get(b,(-1,set()))
+                if score>old[0]:new[b]=(score,words)
+                elif score==old[0]:new[b]=(score,old[1]|words)
+        states=new
+    require(rows[-1]['maximum_capacity']==176 and rows[-1]['maximizer']==[2,2,5]+[6]*8,'extremal caller')
+    return {'piece_limit':11,'allowed_weights':[2,3,4,5,6],'strict_excess_limit':36,
+            'required_code_dimension':6,'capacity_increments':increments,'maxima_by_length':rows,
+            'maximum_capacity':176,'incidence_floor':178,'uniform_margin':2}
+
 def compute():
     authenticate();roots=load_roots()
     rank2=flats(roots,2);rank3=flats(roots,3)
@@ -166,7 +192,7 @@ def compute():
               {'full_kernel_roots':3,'max_live_zero_roots':3,'max_singletons':33,'support_floor':185}]
     return {'schema_version':1,'rational_flats':[rank2,rank3],
             'saturated_pair':saturated_pair_certificate(),'orthogonal_kernel':orthogonal_fibers(roots),
-            'branches':branches,'uniform_support_floor':min(x['support_floor']for x in branches),'caller':caller(),'no_new_kappa':True}
+            'capacity_corollary':capacity_corollary(),'branches':branches,'uniform_support_floor':min(x['support_floor']for x in branches),'caller':caller(),'no_new_kappa':True}
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--write-expected',action='store_true');args=ap.parse_args()

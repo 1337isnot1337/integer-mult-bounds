@@ -20,7 +20,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 180,
-      "checks": "Source-bound exact full-shell rank2/3 closures,105 saturated Gram cases,3780 projections, historical caller178>176"
+      "checks": "Source-bound exact full-shell rank2/3 closures,105 saturated Gram cases,3780 projections, historical caller178>176; tiny convex-capacity DP"
     },
     {
       "argv": [
@@ -32,7 +32,7 @@
         "{package}/independent.py"
       ],
       "timeout_seconds": 180,
-      "checks": "Fresh shell, permutation determinants, rational Fraction closures and independent pivot quotients; matching certificate digests"
+      "checks": "Fresh shell, permutation determinants, rational Fraction closures and independent pivot quotients; matching certificate digests; exhaustive capacity multiset cross-check"
     },
     {
       "argv": [

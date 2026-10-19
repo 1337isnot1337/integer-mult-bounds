@@ -37,6 +37,11 @@ def main():
     check(len(v.basis(pieces))==6 and total>=178,'actual-code positive fixture with zero columns')
     check(all(sum(x*x for x in r)%2==0 for r in roots),'positive characteristic excluded')
     check(164<=176<178,'old floor does not exclude new caller')
+    cap=v.capacity_corollary()
+    check(cap['maximum_capacity']==176 and cap['uniform_margin']==2,'rank-at-most-six branch')
+    check(cap['maxima_by_length'][11]['maximizer']==[2,2,5]+[6]*8,'unique extremizer')
+    # The excluded weight-seven extension has capacity188, so176 cannot cover it.
+    check(2+2+8+7*20+36==188>178 and 2+7*4+5==35,'weight-seven scope boundary')
     with tempfile.TemporaryDirectory(prefix='p112-saturated-control-')as temp:
         dest=Path(temp);shutil.copyfile(HERE/'independent.py',dest/'independent.py')
         mutant=dict(receipt);mutant['uniform_support_floor']=179

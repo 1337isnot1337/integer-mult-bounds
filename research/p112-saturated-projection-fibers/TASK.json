@@ -52,13 +52,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Shared-kernel saturated E8 root fibers imply support floor178 for eleven pieces containing six P112 code dimensions; excludes one literal (6,5) caller2\u00b2,5,6\u2078 of capacity176.",
+  "actual_scope": "Shared-kernel saturated E8 root fibers imply support floor178 for eleven pieces containing six P112 code dimensions; excludes one literal (6,5) caller2\u00b2,5,6\u2078 of capacity176. Discrete-convex capacity corollary covers at most11 pieces, weights2..6, strict excess<36 and code dimension>=6; no weight7 closure.",
   "scope_change_reason": "Explicit multi-agent follow-up: combine E8/coding theory with incidence geometry of rational three-planes sharing a two-plane, beyond independently bounded fibers in PR3991.",
   "bottleneck_link": "Side result for the decoder rank-shape route: a different exact quotient5/intersection6 caller has capacity176 beyond predecessor floor164; simultaneous saturated-fiber compatibility raises the floor to178.",
   "budget_minutes": 60,
   "stop_rule": "Stop after floor178 and the one capacity176 caller; no larger historical inventory or extra kernel-plane census after this implication.",
   "outcome": "completed",
-  "evidence": "105 relevant rank4 Gram certificates;6930 saturated-flat pairs;3780 full orthogonal-plane quotient partitions; independent permutation determinants and pivot quotients; exact caller margin2.",
+  "evidence": "105 relevant rank4 Gram certificates;6930 saturated-flat pairs;3780 full orthogonal-plane quotient partitions; independent permutation determinants and pivot quotients; exact caller margin2. Independent exact budget DP and exhaustive multisets show capacity176 is maximal with unique sorted extremizer.",
   "author": "Chris R / Clear1nsight with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance. Parent coordination and independent review agent checked the four kernel-root cases, scalar extension and grouped repeated columns. Same assisted contributor; no human/formal approval.",
   "open_questions": [
@@ -81,6 +81,12 @@
     "open_PR_bodies": 702,
     "snapshot_UTC": "2026-10-19 08:35 UTC",
     "coverage": "Current main, parent open-PR bodies and nearby active/C5 handoffs; closed/private discussion coverage partial",
-    "scope": "No exact profile match or competing saturated shared-kernel result found; not a novelty guarantee"
+    "scope": "No exact profile match or competing saturated shared-kernel result found; not a novelty guarantee",
+    "corollary_checkpoint": {
+      "UTC": "2026-10-19 09:06 UTC",
+      "main_unchanged": true,
+      "latest_open_PR_through": 4016,
+      "scope": "Focused additive capacity corollary; no geometry expansion"
+    }
   }
 }
