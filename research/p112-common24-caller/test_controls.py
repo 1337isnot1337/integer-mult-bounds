@@ -105,6 +105,9 @@ def run():
             root = Path(temporary)
             package = root/'research'/HERE.name
             shutil.copytree(HERE,package,ignore=shutil.ignore_patterns('__pycache__'))
+            for owned in package.rglob('*'):
+                if owned.is_file():
+                    owned.chmod(owned.stat().st_mode | 0o200)
             for row in v.load((HERE/'SOURCES.json').read_bytes())['files']:
                 if row['usage']=='input':
                     target = root/row['path'];target.parent.mkdir(parents=True,exist_ok=True)

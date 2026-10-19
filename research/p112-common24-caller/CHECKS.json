@@ -22,7 +22,8 @@
   "timing_limit": "Single-run timings, not benchmarks.",
   "development_corrections": [
     "Before final validation: fixed a proof-note line-join typo; changed literal witness verification to check all live residual sites before asserting completion containment.",
-    "Added all462 six-piece capacity-sum checks per caller; regenerated the receipt. No numerical bound changed."
+    "Added all462 six-piece capacity-sum checks per caller; regenerated the receipt. No numerical bound changed.",
+    "Committed read-only export exposed copytree preserving read-only modes in private corruption copies. Controls now restore owner-write permission only on their owned copied package files before mutating them. Primary, independent checker, proof, source pins and numerical receipt are unchanged."
   ],
   "verification_status": "PASS final complete registered replay: primary, separate finite-core checker and all behavioral/actual optimized CLI controls. PASS syntax, JSON, whitespace and metadata/source pins. Committed-byte/history, official committed export and hosted CI are post-commit obligations and will be reported with the exact publication head.",
   "limits": [
