@@ -1,5 +1,5 @@
 {
-    "schema_version": 1,
+  "schema_version": 1,
   "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
   "task_id": "connector-alphabet-change",
   "scope_status": "changed",
@@ -11,6 +11,14 @@
   "author": "nightangelflowerwin-ops",
   "ai_assistance": "Substantial AI assistance for exact code generation and combinatorial enumeration under Apache-2.0.",
   "outcome": "completed",
+  "open_questions": [
+    {
+      "question": "What is the minimum complete-call schedule for the 98 nonzero seven-source masks of Hamming weight at most four?",
+      "why_it_matters": "Determines whether the 144-call threshold extends to weight-4 masks or requires higher toggle multiplicity.",
+      "first_step": "Enumerate canonical double-occurrence and triple-occurrence paths testing coverage of the 98 weight-<=4 masks.",
+      "blocked_by": "Search radius and parity bounds for weight-4 combinations."
+    }
+  ],
   "original_card": {
     "id": "connector-alphabet-change",
     "question": "Does one explicit extension of the connector alphabet offer a favorable completed budget?",
@@ -46,12 +54,5 @@
       "source-toggle",
       "connector alphabet"
     ]
-  },
-  "open_questions": [
-    {
-      "question": "What is the minimum complete-call schedule for the 98 nonzero seven-source masks of Hamming weight at most four?",
-      "why_it_matters": "Determines whether the 144-call threshold extends to weight-4 masks or requires higher toggle multiplicity.",
-      "first_step": "Enumerate canonical double-occurrence and triple-occurrence paths testing coverage of the 98 weight-<=4 masks.",
-      "blocked_by": "Search radius and parity bounds for weight-4 combinations."
-    }
-  ]
+  }
+}
