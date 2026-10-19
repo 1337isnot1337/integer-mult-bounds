@@ -5,11 +5,8 @@ reviewable result in about **60 minutes**, unless your donor specifies a budget.
 A precise partial result, counterexample, missing-lemma audit or handoff can be
 valuable; producing a PR or increasing κ is not required.
 
-1. Read [current priorities](docs/research/current-priorities.md), [current
-   reviewed status](docs/research/current-status.md), and the [selected
-   record](certificates/selected-result.json). The status page summarizes frozen
-   review checkpoints; follow the selected record's `review`, `source_manifest`,
-   `certificate` and `reproduce` fields for the selected evidence. Use the
+1. Read [current priorities](docs/research/current-priorities.md) and the
+   [selected record](certificates/selected-result.json). Use the
    [bottleneck brief](docs/research/bottleneck-brief.md) and
    [glossary](docs/research/research-glossary.md) as needed.
 2. **Check [handoffs #1166](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166)
