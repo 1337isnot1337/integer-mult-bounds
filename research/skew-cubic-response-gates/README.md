@@ -14,6 +14,12 @@ The two-plane gate is retained as a special case. Its corrected complete J charg
 
 For the cubic question, the exact base circuit includes its Gaussian i phase: J=i C S C S⁻¹. Tensor powers U_f=J^⊗f have order3 and native rank f, but at f=2 the quadratic relation fails, its residual has trace6, and I,U₂,U₂² are linearly independent. No two scalar readers recover the inverse there, even over C. More generally, Q(i)-valued Clifford U satisfying the full-bank quadratic has trace−2^(M−1). Its nonzero adjoint trace is the fixed-Pauli sign-character sum; hence rank(S_U−I)=2 and native B rank≤2. The [all-M trace proof](source/general-clifford-retiming/order-three-response/PROOF.md) has no support or tensor restriction. A complete three-power caller, non-Clifford response, non-Gaussian phase or restricted-input quotient is outside that gate.
 
+## Sharp odd-kernel fixed-word corollary
+
+Two additional complete path certificates show that the retained **isolated odd-rank** q2/q3 words already minimize native rank mass under arbitrary Clifford-frame retiming of their respective fixed unary/common-frame ADD graphs and physical Z boundaries. The sharp floors are66f/120f, attained by the source bills. Actual parent native arities are11f/15f within ambient12f/16f; no ambient axes are silently discarded. q2 path ranks are12/11/10/11/11/11; q3 has eight rank15 paths. Frames may mix tensor coordinates.
+
+The [fixed-graph metric proof](source/odd-kernel-frame-escape/PROOF.md) and independent literal audit cover every edge once, crossing bit, source chronology, actual BANK_SWAP, full signed holonomy, all-f phase and literal inverse. Global-i, omitted-edge/SWAP and weaker all-straight controls reject. Original discovery counts6/64 are retained provenance; no search is rerun. The independent audit reconstructs every mathematical certificate field and compares its full receipt. These two finite-q all-f sharpness results do not certify selected-new-native lowering of the input kernel, spectator/borrowed-axis stock, heterogeneous moments, owner/controller/precision admission, changed graphs or arbitrary implementations of the same function. They are a bounded continuation of this package's neutral odd-rank examples. No Pauli fixed-frame corollary is added.
+
 ## Evidence and reproduction
 
 Run from a Git checkout with Python3.12:

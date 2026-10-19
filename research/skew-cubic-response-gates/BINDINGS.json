@@ -32,6 +32,14 @@
       "transport_bytes": 203144,
       "transport_sha256": "e64d32bffe3e897d34a15b51f41d786cb4785232921a876cbc5140df43c518c6"
     },
+    "source/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json": {
+      "logical_bytes": 1139226,
+      "logical_sha256": "90ac47ad9ab24aa3377425da3c4539f234f30b5347e9846911b772321afa68ca",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json",
+      "storage_path": "source/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json.gz",
+      "transport_bytes": 20658,
+      "transport_sha256": "cc38c23aff29fea2b93bc5ea045be09aef64643a2be89e3f5190781d9c2a09cd"
+    },
     "source/trajectory-pairing-search/arbitrary-skew-review/TRANSPORT-REVIEW.json": {
       "logical_bytes": 309311,
       "logical_sha256": "49a39ce8164b07f79a80ca056e2f10a0ad78e5204b1cf7f84bcf744a48081130",
@@ -53,6 +61,7 @@
     "audit_arbitrary_skew": "source/arbitrary-skew-rank-review/audit_arbitrary_skew.py",
     "audit_fusions": "source/fusion-audit/audit_fusions.py",
     "audit_gates": "source/completed-gates-review/audit_gates.py",
+    "audit_odd": "source/odd-kernel-independent-review/audit_odd.py",
     "audit_two_sites": "source/two-site-independent-audit/audit_two_sites.py",
     "clifford_exact": "source/vendor/clifford_exact.py",
     "conjugated_reflection": "source/native-frames/conjugated_reflection.py",
@@ -136,6 +145,30 @@
       "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/general-clifford-retiming/pauli-response/pauli_screen.py",
       "path": "original/dependencies/fd7f733be0a6f6f8fa07f1ef21e37acec73cb81734c9ed76b2959847953ee0ed-pauli_screen.py",
       "sha256": "fd7f733be0a6f6f8fa07f1ef21e37acec73cb81734c9ed76b2959847953ee0ed"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/TRAJECTORY-PROOF.md",
+      "path": "original/odd-dependencies/172623b7e7aeb9f5bd4074722ce6a4827a55f031ec161ec78ad7d563b0b3a9f6-TRAJECTORY-PROOF.md",
+      "sha256": "172623b7e7aeb9f5bd4074722ce6a4827a55f031ec161ec78ad7d563b0b3a9f6"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/trajectory-pairing-search/pairing_search.py",
+      "path": "original/odd-dependencies/4c1dc5986808c62a2caace8059f5c8a2a6a706b4ad46ed042542b5f63e27c023-pairing_search.py",
+      "sha256": "4c1dc5986808c62a2caace8059f5c8a2a6a706b4ad46ed042542b5f63e27c023"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/trajectory_certificate.py",
+      "path": "original/odd-dependencies/677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc-trajectory_certificate.py",
+      "sha256": "677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/trajectory-pairing-search/admit_pairings.py",
+      "path": "original/odd-dependencies/f0ce5196bf3c75ed1ed22a8424e971293f56cf6939be34ccd3f082430440f91c-admit_pairings.py",
+      "sha256": "f0ce5196bf3c75ed1ed22a8424e971293f56cf6939be34ccd3f082430440f91c"
     },
     {
       "kind": "unchanged frozen input",
@@ -450,6 +483,96 @@
       "sha256": "c6373762bd15763625cc9237bb280a5e26ab8e53d6bfb034474f068b1525e6fa"
     },
     {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/HANDOFF.md",
+      "path": "source/odd-kernel-frame-escape/HANDOFF.md",
+      "sha256": "34c906df9ae952d94bdb011bc2544a8117a654b0252ec6abccea9ffe754379e9"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/MANIFEST.json",
+      "path": "source/odd-kernel-frame-escape/MANIFEST.json",
+      "sha256": "0104ff73b8108a520e17269fb4219d930083e09024bfec0569fc8da6e54db705"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json",
+      "path": "source/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json.gz",
+      "sha256": "cc38c23aff29fea2b93bc5ea045be09aef64643a2be89e3f5190781d9c2a09cd"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/PROOF.md",
+      "path": "source/odd-kernel-frame-escape/PROOF.md",
+      "sha256": "aaf8d4373f9d1e46b4c9d6c7824bc90818ee0f9f3212dd1f9ced5b0642185f70"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/VALIDATION.md",
+      "path": "source/odd-kernel-frame-escape/VALIDATION.md",
+      "sha256": "57fdde2f0887996676240689acc12608edbd6642147303ddf9b6160a8c950fbe"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/odd_certificate.py",
+      "path": "source/odd-kernel-frame-escape/odd_certificate.py",
+      "sha256": "8c4c21dc8a09d6efc8c7f814b77432feb618c88c87d40186299617803fcfa5f8"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/AUDIT.json",
+      "path": "source/odd-kernel-independent-review/AUDIT.json",
+      "sha256": "4a14e157ac6ed4771321f803df5c36c2771466adc5be577cac263341b9382ac5"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/HANDOFF.md",
+      "path": "source/odd-kernel-independent-review/HANDOFF.md",
+      "sha256": "ea494c640896c25bd730788991e8899fb8b61886d5841fddfb2799e70aa45ab0"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/MANIFEST.json",
+      "path": "source/odd-kernel-independent-review/MANIFEST.json",
+      "sha256": "10f1684a03411e87ba4dc677dcd6ebc8b62827788cf44ba9551e37ca1ae38455"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/REVIEW.md",
+      "path": "source/odd-kernel-independent-review/REVIEW.md",
+      "sha256": "f362ab1bfbece98bfaa64769a4c9e60553a3aa7400fcb9987dcd8d8fe09c43a9"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/SOURCE-PINS.json",
+      "path": "source/odd-kernel-independent-review/SOURCE-PINS.json",
+      "sha256": "21d9ef0a5bcfe235f3d7f80527f9a35ba06e59bdc72a0b33bbbd5791cd6339ca"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/VALIDATION.json",
+      "path": "source/odd-kernel-independent-review/VALIDATION.json",
+      "sha256": "9ce1eb8963a861dd455e1f9f82d8fecfcf219b1362b1f1bdbd36472725a3c434"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/audit_odd.py",
+      "path": "source/odd-kernel-independent-review/audit_odd.py",
+      "sha256": "05fd73e55fa749ee63fef4a61736e68cdaf5d7a341e72a49d65cb2b4124f97ee"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-independent-review/validate_review.py",
+      "path": "source/odd-kernel-independent-review/validate_review.py",
+      "sha256": "24f0b25d533b468308ac9497fab17718305be07c81dcbcfb995ebd0ed974eff7"
+    },
+    {
+      "kind": "unchanged frozen odd-certificate input",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/TRAJECTORY-PROOF.md",
+      "path": "source/pauli-caller-retiming/TRAJECTORY-PROOF.md",
+      "sha256": "172623b7e7aeb9f5bd4074722ce6a4827a55f031ec161ec78ad7d563b0b3a9f6"
+    },
+    {
       "kind": "explicit separately located portable adapter",
       "origin": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/trajectory-pairing-search/arbitrary-skew-review/review_transport.py",
       "path": "source/portable/review_transport.py",
@@ -685,6 +808,204 @@
       },
       "manifest": "source/completed-gates-review/MANIFEST.json",
       "sha256": "ef3697eece91ee6d52ae3f5e88b95028091829d6961118052dff1e25df212ba3"
+    },
+    {
+      "complete": true,
+      "file_map": {
+        "HANDOFF.md": "source/odd-kernel-frame-escape/HANDOFF.md",
+        "ODD-FRAME-CERTIFICATES.json": "source/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json",
+        "PROOF.md": "source/odd-kernel-frame-escape/PROOF.md",
+        "VALIDATION.md": "source/odd-kernel-frame-escape/VALIDATION.md",
+        "odd_certificate.py": "source/odd-kernel-frame-escape/odd_certificate.py"
+      },
+      "manifest": "source/odd-kernel-frame-escape/MANIFEST.json",
+      "sha256": "0104ff73b8108a520e17269fb4219d930083e09024bfec0569fc8da6e54db705"
+    },
+    {
+      "complete": true,
+      "file_map": {
+        "AUDIT.json": "source/odd-kernel-independent-review/AUDIT.json",
+        "HANDOFF.md": "source/odd-kernel-independent-review/HANDOFF.md",
+        "REVIEW.md": "source/odd-kernel-independent-review/REVIEW.md",
+        "SOURCE-PINS.json": "source/odd-kernel-independent-review/SOURCE-PINS.json",
+        "VALIDATION.json": "source/odd-kernel-independent-review/VALIDATION.json",
+        "audit_odd.py": "source/odd-kernel-independent-review/audit_odd.py",
+        "validate_review.py": "source/odd-kernel-independent-review/validate_review.py"
+      },
+      "manifest": "source/odd-kernel-independent-review/MANIFEST.json",
+      "sha256": "10f1684a03411e87ba4dc677dcd6ebc8b62827788cf44ba9551e37ca1ae38455"
+    }
+  ],
+  "odd_raw_sources": [
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/general-clifford-retiming/kernel-search/EXACT-FIXTURES.json",
+      "relative": "source/general-clifford-retiming/kernel-search/EXACT-FIXTURES-OPTIMIZED.json",
+      "sha256": "2a26ade57e30afd5cab9cfb328248ab4f24d3a5589caf585a3f858b86c4b40b0"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/general-clifford-retiming/kernel-search/kernel_exact.py",
+      "relative": "original/dependencies/1363650633c055efd7532e77142a31583318cd55ec0f0a34f5f268d42c4edbb9-kernel_exact.py",
+      "sha256": "1363650633c055efd7532e77142a31583318cd55ec0f0a34f5f268d42c4edbb9"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/trajectory-pairing-search/pairing_search.py",
+      "relative": "original/odd-dependencies/4c1dc5986808c62a2caace8059f5c8a2a6a706b4ad46ed042542b5f63e27c023-pairing_search.py",
+      "sha256": "4c1dc5986808c62a2caace8059f5c8a2a6a706b4ad46ed042542b5f63e27c023"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/trajectory-pairing-search/admit_pairings.py",
+      "relative": "original/odd-dependencies/f0ce5196bf3c75ed1ed22a8424e971293f56cf6939be34ccd3f082430440f91c-admit_pairings.py",
+      "sha256": "f0ce5196bf3c75ed1ed22a8424e971293f56cf6939be34ccd3f082430440f91c"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/trajectory_certificate.py",
+      "relative": "original/odd-dependencies/677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc-trajectory_certificate.py",
+      "sha256": "677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/stabilizer-escape/full_stabilizer_bound.py",
+      "relative": "source/vendor/full_stabilizer_bound.py",
+      "sha256": "f073a00ad4831616e873eb110fd33ad7226010a7c2f6cfa6a6b63167bf58ef75"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/free_ops.py",
+      "relative": "source/caller/free_ops.py",
+      "sha256": "5806fe91b9fda162d5986b12e085b14eb3df9a4703f749f61c1f10363138ca77"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/nested_family.py",
+      "relative": "source/caller/nested_family.py",
+      "sha256": "88f425d12baf8a4f849cccd24605f21680eb8ce8d199054db4b4e7734eca72b6"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/nested_prefix.py",
+      "relative": "source/caller/nested_prefix.py",
+      "sha256": "9ec10cb0243c0c829475ad7290f4953cdff27cb0f90f70b687c4bbee98af676b"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/caller/pivot_plane_probe.py",
+      "relative": "source/caller/pivot_plane_probe.py",
+      "sha256": "fcd0a4a0a301c4fddfb8b132894e8b5b751b08cacdb0e5ed41e80b0d4903d499"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/conjugated_reflection.py",
+      "relative": "source/native-frames/conjugated_reflection.py",
+      "sha256": "6b68a4a60b160fe28227c31909ed86bd7f80b1f3e07591032cd001dbeb242f6f"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/even_parity_source.py",
+      "relative": "source/native-frames/even_parity_source.py",
+      "sha256": "961f136e4bc1b5da930bdd4ba9bbb594892b9e27f7ab44749d747d4fe16b4cb3"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/lifted_algebra.py",
+      "relative": "source/native-frames/lifted_algebra.py",
+      "sha256": "3b9a58a2048a762ab520ac7fdbb28cbfeb7b30345aaeb777d8dabdd9fb1034d9"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/native_model.py",
+      "relative": "original/dependencies/6397a86bd3d1461be182fcfa8602b0c70c489964a8c14f12436ba2506e11d9e3-native_model.py",
+      "sha256": "6397a86bd3d1461be182fcfa8602b0c70c489964a8c14f12436ba2506e11d9e3"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/native-frames/orthogonal_source_normalizer.py",
+      "relative": "source/native-frames/orthogonal_source_normalizer.py",
+      "sha256": "c6373762bd15763625cc9237bb280a5e26ab8e53d6bfb034474f068b1525e6fa"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/root-chronology/quadratic_charts.py",
+      "relative": "source/root-chronology/quadratic_charts.py",
+      "sha256": "de2a36f6a6b567360c90477b58da44e2f1b618fd006d058ab1ea04e983952c3f"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/caller-joint/joint_algebra.py",
+      "relative": "original/dependencies/5782033e347c9b10ad47c01ed12a0a52ea07e901fa9e8f7aa9d3a2a928327232-joint_algebra.py",
+      "sha256": "5782033e347c9b10ad47c01ed12a0a52ea07e901fa9e8f7aa9d3a2a928327232"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/completed-gates-review/AUDIT.json",
+      "relative": "source/completed-gates-review/AUDIT.json",
+      "sha256": "a2f98dc08085c0fb66e50ce4fb96fba271d4089a8308fca182b0c1668046ad3a"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/completed-gates-review/MANIFEST.json",
+      "relative": "source/completed-gates-review/MANIFEST.json",
+      "sha256": "ef3697eece91ee6d52ae3f5e88b95028091829d6961118052dff1e25df212ba3"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/completed-gates-review/audit_gates.py",
+      "relative": "source/completed-gates-review/audit_gates.py",
+      "sha256": "051ba51e02e9f143b8a8bea0b91d69e7e1e32edf0f98d2d40db290f02043d460"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/fusion-audit/audit_fusions.py",
+      "relative": "source/fusion-audit/audit_fusions.py",
+      "sha256": "26c35f6d61ad6568da1c650a343b82caea174330ff8054c4cdab1fe183ad2173"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/general-clifford-retiming/kernel-search/EXACT-FIXTURES.json",
+      "relative": "source/general-clifford-retiming/kernel-search/EXACT-FIXTURES-OPTIMIZED.json",
+      "sha256": "2a26ade57e30afd5cab9cfb328248ab4f24d3a5589caf585a3f858b86c4b40b0"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/general-clifford-retiming/kernel-search/MANIFEST.json",
+      "relative": "source/general-clifford-retiming/kernel-search/MANIFEST.json",
+      "sha256": "41aacab85978bfda1d52083c0f4718885d18328f772d404c4748f45e6aa54351"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/joint-native/joint_coefficient_gate.py",
+      "relative": "original/dependencies/43bc5229a10e7ed6af3d5bff057c61cfd6d37a222cc0a2eb2e88cbe0ac410d07-joint_coefficient_gate.py",
+      "sha256": "43bc5229a10e7ed6af3d5bff057c61cfd6d37a222cc0a2eb2e88cbe0ac410d07"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/joint-native/literal_inverse_binding.py",
+      "relative": "source/joint-native/literal_inverse_binding.py",
+      "sha256": "74bdbc9c35db4153e00ed15c8d9df27b63e1c50cd76fcd33f987f3f97d412d96"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/HANDOFF.md",
+      "relative": "source/odd-kernel-frame-escape/HANDOFF.md",
+      "sha256": "34c906df9ae952d94bdb011bc2544a8117a654b0252ec6abccea9ffe754379e9"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/MANIFEST.json",
+      "relative": "source/odd-kernel-frame-escape/MANIFEST.json",
+      "sha256": "0104ff73b8108a520e17269fb4219d930083e09024bfec0569fc8da6e54db705"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json",
+      "relative": "source/odd-kernel-frame-escape/ODD-FRAME-CERTIFICATES.json",
+      "sha256": "90ac47ad9ab24aa3377425da3c4539f234f30b5347e9846911b772321afa68ca"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/PROOF.md",
+      "relative": "source/odd-kernel-frame-escape/PROOF.md",
+      "sha256": "aaf8d4373f9d1e46b4c9d6c7824bc90818ee0f9f3212dd1f9ced5b0642185f70"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/VALIDATION.md",
+      "relative": "source/odd-kernel-frame-escape/VALIDATION.md",
+      "sha256": "57fdde2f0887996676240689acc12608edbd6642147303ddf9b6160a8c950fbe"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/odd-kernel-frame-escape/odd_certificate.py",
+      "relative": "source/odd-kernel-frame-escape/odd_certificate.py",
+      "sha256": "8c4c21dc8a09d6efc8c7f814b77432feb618c88c87d40186299617803fcfa5f8"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/TRAJECTORY-PROOF.md",
+      "relative": "original/odd-dependencies/172623b7e7aeb9f5bd4074722ce6a4827a55f031ec161ec78ad7d563b0b3a9f6-TRAJECTORY-PROOF.md",
+      "sha256": "172623b7e7aeb9f5bd4074722ce6a4827a55f031ec161ec78ad7d563b0b3a9f6"
+    },
+    {
+      "original": "/Users/ross/git/math/.research-automation/runs/kappa-joint-cleanup-20261019T1133Z/pauli-caller-retiming/trajectory_certificate.py",
+      "relative": "original/odd-dependencies/677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc-trajectory_certificate.py",
+      "sha256": "677a342334e49befbfe069441325f3ac6008705c6697cff5c348905a67d92cbc"
+    },
+    {
+      "original": "/Users/ross/git/math/integer-mult-bounds/research/kernel92-frame-composition/vendor/pr531/vendor/clifford/clifford_exact.py",
+      "relative": "source/vendor/clifford_exact.py",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
     }
   ],
   "original_read_aliases": {
@@ -774,5 +1095,5 @@
     }
   ],
   "schema_version": 1,
-  "scope": "Fixed separately charged two-site skew tariff and Gaussian Clifford whole-bank cubic quadratic gate. Original writing root producer is provenance only; the complete independent36-case audit supplies fresh checks."
+  "scope": "Fixed separately charged two-site skew tariff and Gaussian Clifford whole-bank cubic quadratic gate. Original writing root producer is provenance only; the complete independent36-case audit supplies fresh checks. Two additional exact odd-kernel fixed-word general-Clifford frame certificates are sharp at66/120, with actual native parents11/15 and ambient12/16; not universal-J or selected native admission."
 }

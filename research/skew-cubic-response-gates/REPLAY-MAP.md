@@ -1,6 +1,6 @@
 # Source-to-compiled checks
 
-All source JSON is parsed as data. BINDINGS.json records every physical SHA, logical SHA/length, exact original read alias, selected full freeze and executable module. The raw scientific source freeze is immutable; portable path guards/import surfaces are explicit adapters. Every selected manifest row is checked against retained original bytes before mathematical execution. An original manifest from a broader review can be retained with an explicit subset map; omitted trajectory obligations are covered in the separate PR4080 and are not claimed freshly here.
+All source JSON is parsed as data. BINDINGS.json records every physical SHA, logical SHA/length, exact original read alias, selected full freeze and executable module. The raw scientific source freeze is immutable; portable path guards/import surfaces are explicit adapters. Every selected manifest row is checked against retained original bytes before mathematical execution. An original manifest from a broader review can be retained with an explicit subset map; omitted earlier trajectory obligations are covered in separate PR4080. The new two-case odd-kernel audit is registered separately below.
 
 | Result | Fresh registered execution | Exact coverage and comparison |
 |---|---|---|
@@ -21,3 +21,5 @@ Negative controls authenticate a real source mutation, transport mutation, wrong
 Only the readable TWO-PLANE-SPECIAL-CASE.md changes the ambiguous `B_(2q)...B_4` ellipsis to the explicitly even descending product. The original frozen PROOF.md is retained byte-for-byte; the verifier checks this exact textual substitution. No operator, formula coefficient or finite JSON assertion changes.
 
 Full source proofs and independently frozen review reports distinguish finite exact checks, universal conditional written algebra, physical child admission and formal-kernel acceptance. Equal-volume/full-bank and proper-child premises are mandatory for the unweighted moment consequence. λ extends the algebra only with separately charged unary native implementations; no coupled helper/ADD bridge is imported.
+
+The bounded odd-kernel corollary executes audit_odd.run only, never odd_certificate.discover/produce. It independently reconstructs all graph edges, paths, crossing masks, literal phases, signed operators, source-event hashes, inverse metadata, exact primitive Gaussian inverses and actual parent-vs-ambient stock. Full independent receipt equality and exact66/120 floors are checked. Every original raw proposer/dependency and complete frozen author/review file is authenticated. The general metric proof permits arbitrary mf-coordinate Clifford gauges at the fixed graph/boundaries; no different kernel/word/helper theorem or selected lowering follows.

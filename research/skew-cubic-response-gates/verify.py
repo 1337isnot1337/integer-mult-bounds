@@ -232,3 +232,12 @@ except AssertionError:pass
 else:raise ValueError('legacy assertions disabled under optimized parent')
 need(cubic['fixtures'][1]['quadratic_relation']is False and cubic['fixtures'][1]['span_rank_I_J_J2']==3,'f2 missing-reader control')
 print('PASS_EXACT_RESPONSE_GATES_NO_NEW_KAPPA',json.dumps(dict(wider_bindings=36,extremes=14,suffix_fixtures=14,suffix_cuts=56,two_plane_actual=8,literal_inverse_pairs=140,cubic_f=[1,2,3,4],formal_kernel=False,no_new_kappa=True)),flush=True)
+
+# Bounded successful-contribution continuation: two new fixed-word certificates
+# for the already retained actual odd-rank neutral fixtures. No discovery runs.
+for x in META['odd_raw_sources']:
+    need(hashlib.sha256(checked(x['relative'])).hexdigest()==x['sha256'],'raw odd-certificate source pin')
+odd=replay('audit_odd','run','odd-kernel-independent-review/AUDIT.json')
+need([(x['q'],x['ambient'],x['parent'],x['floor'],x['source_mass'],x['stock'])for x in odd['fixtures']]==[(2,12,11,66,66,66),(3,16,15,120,120,120)],'actual odd native parent versus ambient and sharp fixed-word stock floors')
+need(odd['fixtures'][0]['path_ranks']==[12,11,10,11,11,11]and odd['fixtures'][1]['path_ranks']==[15]*8,'complete exact odd holonomy ranks')
+print('PASS_ODD_FIXED_WORD_FRAME_COROLLARY_NO_NEW_KAPPA',flush=True)
