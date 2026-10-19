@@ -61,5 +61,30 @@
     "test_package.py": "aea25cadecf4bc7b33c77f70e827d8205c71f5232b98d8b5e0ad1a8ec5f947be",
     "PROOF.md": "729a490a9997cdcbd0bae87573dff487c0bb0bd84e00fa70a4d3d3e818873fee",
     "RESULT.json": "330fb7b230cea5c588507f795344748f578e562d4f20f12fdeb5bb6255d6d18b"
-  }
+  },
+  "record_scope": "Original 07:52 baseline receipt is preserved above. Its scientific_hashes describe baseline bytes only; see correction_validations for current verifier/proof bytes.",
+  "correction_validations": [
+    {
+      "checked_utc": "2026-10-19T08:11:12.946196+00:00",
+      "code_head": "4aa94543e95d1c70a15d3d1143bf34074ffdfd3a",
+      "status": "PASS_LOCAL_AFFECTED_COMMANDS_AND_EXACT_CODE_HEAD_BYTES",
+      "changes": "Clear the actual nonzero model private buffer in place and check source/target preservation; label physical cleanup a charged backend premise. Require fixed reusable tape inventories and whole-run lifetime backing in reserve formula.",
+      "credit": "Same-session native_transport cross-review found the previous zero-buffer check was tautological; coordinating review requested explicit lifetime reserve qualification.",
+      "passed_commands": [
+        "python3 -I -B research/r437-parabolic-copy/verify.py",
+        "python3 -I -O -B research/r437-parabolic-copy/verify.py",
+        "python3 -I -B research/r437-parabolic-copy/test_package.py"
+      ],
+      "exact_head_checks": [
+        "All 16 package files byte-equal to published code head before this receipt-only amendment",
+        "git diff --check against 112e8265 passed"
+      ],
+      "scientific_hashes": {
+        "verify.py": "13cfc3c6004ca2d2d47dbf67c82dd0a28fa512db8f15441434458a54299d85a9",
+        "README.md": "bf5f5587d6d696741d21bd86615b5665f3e738c14e41fd72cb8d16271eb4dcd2",
+        "PROOF.md": "27d54dcc80d2d9b6be05eab2202806c25833b680af89613fab94af911701c47a"
+      },
+      "qualification": "The separate checker and mathematical construction are unchanged. Hosted replay status must be checked at the final publication head; no pending or earlier run is asserted to cover that head."
+    }
+  ]
 }
