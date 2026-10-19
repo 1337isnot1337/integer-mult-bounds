@@ -65,7 +65,7 @@ the complete lineage in [the retained notice](source4076/NOTICE.md).
 
 Prepared for Ross Richardson with substantial OpenAI GPT-6.1 Sol assistance
 and two separate mathematical AI checks. These are not independent human or
-formal-kernel acceptance. Apache-2.0.
+formal-kernel acceptance. Apache-2.0; the standalone export includes LICENSE.
 
 ## Open next questions
 
