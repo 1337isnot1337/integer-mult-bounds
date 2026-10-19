@@ -58,7 +58,7 @@ No actual source-dependent local run, native replay, or independent human/formal
 proof-kernel acceptance is claimed. Separate counting methods share the source
 and assisted author. No agent-spawning tool was available in this session.
 
-## Open next question and family gate
+## Open next questions
 
 Which changed source, endpoint or multi-coordinate native primitive legitimately
 removes one more ordinary coordinate advance per physical family? State the
