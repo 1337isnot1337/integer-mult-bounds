@@ -50,9 +50,9 @@
   "budget_minutes": 90,
   "stop_rule": "Submission rule committed before searching: a verified 7-word is submitted; an exact 8 is submitted only with a written structural lemma beyond the C3 determinant screen, otherwise nothing is posted. Stop with no PR if the primary join exceeds ~15 min wall or 1.5 GB RSS, or if the two joins disagree unresolved by the experiment deadline.",
   "outcome": "negative-result",
-  "evidence": "Written proof: C3 determinant (n_a = n_b mod 3) plus a radical-rank lemma (n_a >= 3 and n_b >= 3) exclude length 7 and lengths <= 5. Two independently written exhaustive C joins (different state representation, multiplication side, enumerated end and hash) each expand all 6,655,830 minimal-length-3 classes against all 6,697,991 distinct products of length <= 3 (1,597,399,200 lookups each) and find no word of length <= 7, which also excludes length 6. The direct 8-word replays exactly on all 48 basis inputs. Controls: omissions, label mutation, three-output 6-words, planted 7-words, numeric checks of every lemma step. Verifier: research/a4-seven-call-radical-rank/verify.py, PASS_A4_FOUR_ROLE_EXACT_MINIMUM_EIGHT.",
+  "evidence": "Written proof: C3 determinant (n_a = n_b mod 3) plus a radical-rank lemma (n_a >= 3 and n_b >= 3) exclude length 7 and lengths <= 5. Two exhaustive C joins, separately implemented in the same AI-assisted session (different state representation, multiplication side, enumerated end and hash) each expand all 6,655,830 minimal-length-3 classes against all 6,697,991 distinct products of length <= 3 (1,597,399,200 lookups each) and find no word of length <= 7, which also excludes length 6. The direct 8-word replays exactly on all 48 basis inputs. Controls: omissions, label mutation, three-output 6-words, planted 7-words, numeric checks of every lemma step. Verifier: research/a4-seven-call-radical-rank/verify.py, PASS_A4_FOUR_ROLE_EXACT_MINIMUM_EIGHT.",
   "author": "Sagar Thakrar (thakrarsagar)",
-  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in derivation, both C joins, the Python verifier and writing; no independent human review is claimed.",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in derivation, both C joins, the Python verifier and writing; reviewed by four independent AI review passes in the same loop; no independent human review is claimed.",
   "open_questions": [
     {
       "question": "Can the length-6 case (n_a,n_b)=(3,3) be excluded by a written argument rather than exhaustive search?",
@@ -61,9 +61,9 @@
       "blocked_by": "Nothing beyond the bookkeeping."
     },
     {
-      "question": "Does the radical-rank label-count bound extend to G = P x| H with P a normal 2-group and H of odd order (more roles over A4, SL2(F3))?",
+      "question": "Does the radical-rank label-count bound extend to G = P x| H with P a normal 2-group and H of odd order (for example SL2(F3) = Q8 x| C3)?",
       "why_it_matters": "It would replace finite censuses by uniform per-label floors for nonabelian register models.",
-      "first_step": "State the lemma with S = F2[H] and an H-equivariant functional mu on the Frattini quotient of P, then test it against an existing finite census.",
+      "first_step": "State the lemma with S = F2[H] and an H-equivariant functional mu on the Frattini quotient of P, then test it against the existing SL2(F3) census of PR #2010 (research/sl2f3-conjugate-triple-seed592f).",
       "blocked_by": "Nothing for the formal statement; native conversion remains unpriced."
     }
   ]

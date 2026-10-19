@@ -361,7 +361,7 @@ def run_join(exe: Path, *args: str) -> dict:
     best = re.search(r"best_word (none|len=(\d+):([\d ]+))", text)
     planted = re.search(r"planted word:([\d ]+)", text)
     return {
-        "s3": [int(v) for v in s3.groups()],
+        "p_le3": [int(v) for v in s3.groups()],
         "processed_len3": int(stats.group(1)), "children": int(stats.group(2)),
         "short_hits": int(stats.group(3)), "long_hits": int(stats.group(4)),
         "best": None if best.group(1) == "none" else [int(v) for v in best.group(3).split()],
@@ -384,7 +384,7 @@ def main() -> None:
     report["direct_word"] = {"paid_calls": 8, "regular_inputs_checked": 48,
                              "single_omissions_rejected": omissions, "mutated_label_rejected": True}
     det_check()
-    report["c3_determinant"] = "n_a = n_b mod 3 for every word equal to the target (200 random-word checks)"
+    report["c3_determinant"] = "det formula t^(n_a-n_b) checked on 200 random words; target det = 1, so n_a = n_b mod 3 for any target word"
     report["radical_rank_lemma"] = lemma_checks()
     threads = "2"
     with tempfile.TemporaryDirectory() as tmp:
@@ -395,8 +395,8 @@ def main() -> None:
         joins = {}
         for name, exe in (("join_a", exe_a), ("join_b", exe_b)):
             res = run_join(exe, "target", threads, "1")
-            assert res["s3"] == expected_s3, res
-            assert res["s3"][4] == pred["exact_join"]["right_distinct_exact_states"]
+            assert res["p_le3"] == expected_s3, res
+            assert res["p_le3"][4] == pred["exact_join"]["right_distinct_exact_states"]
             assert res["processed_len3"] == 6655830 and res["children"] == 6655830 * 240
             assert res["short_hits"] == 0 and res["long_hits"] == 0 and res["best"] is None
             three = run_join(exe, "three", threads, "64")

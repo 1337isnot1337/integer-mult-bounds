@@ -5,22 +5,31 @@
 every word realizing `T = diag([a],[b],[c],[d])` uses at least three `a`-calls
 and at least three `b`-calls, and the numbers of `a`- and `b`-calls agree
 modulo 3. A written proof therefore excludes length 7 and every length up to 5.
-Length 6 would need exactly three calls of each label. Two independently
-written exhaustive joins exclude every word of length up to 7, including that
-case. Together with the direct eight-call word, this gives an **exact minimum
+Length 6 would need exactly three calls of each label. Two exhaustive joins,
+implemented separately in the same session, exclude every word of length up
+to 7, including that case. Together with the direct eight-call word, this gives an **exact minimum
 of 8**. The model has no cross-role paid-call saving for this target.
 
 | Length | Status | Evidence |
 |---|---|---|
 | 1-5 | impossible | written proof (Lemmas 1-2); also both joins |
 | 6 | impossible | exhaustive joins A and B (reproduces #2116); not covered by the written lemmas |
-| 7 | impossible | written proof (Lemmas 1-2); independently both exhaustive joins |
+| 7 | impossible | written proof (Lemmas 1-2); also both exhaustive joins |
 | 8 | realized | direct word (`a`, `b`, `abba`, `ab` on roles 1-4), replayed exactly on all 48 basis inputs |
 
 The evidence has three different kinds. For length 7 and lengths up to 5 it is
 a proof of impossibility. For length 6 it is a finite exhaustive certificate.
 For length 8 it is an explicit construction. None of these is a multiplication
 theorem, a supplier result or a `kappa` change.
+
+**New here: a per-label radical-rank floor over `F2[A4]`.** Steps 1-5 below use
+nothing specific to `T` beyond its lift modulo the radical `J` and the
+resulting defect. So, in this alphabet with any number `r` of roles, every word equal to a target
+`T in GL_r(F2[A4])` has `n_b >= rank_F4 Phi(L^-1 T - I)`, where `L` is the unique
+lift of `T mod J` into `GL_r(F2[<a>])`; symmetrically for `n_a` with base `b`.
+The verifier checks this floor (at `r = 4`) on random words and on two targets:
+rank 3 for `T`, rank 2 for the three-output control. Whether it extends beyond
+`A4 = V x| C3` is open question 2.
 
 ## Model
 
@@ -40,6 +49,13 @@ Factor `120*gi + n` uses label `a` (`gi=0`) or `b` (`gi=1`). It also uses the
 when the 4x4 product over `F2[A4]` equals `T` in every formal coefficient. The
 model has four roles, allows arbitrary dirty inputs and has no workspace. Each
 call costs one, and no helper, copy or restoration operation is charged.
+
+Free scalar mixing does not change the answer. Suppose free matrices
+`G_i in GL4(F2)`, including role permutations, may be interleaved with the
+paid calls. Conjugate each one to the left: `G^-1 D_N(g) G = D_{G^-1 N G}(g)`
+is again a paid factor, so `W = H * W'` with `W'` a pure paid word of the same
+length and `H in GL4(F2)`. Entrywise augmentation gives `aug(D_N(g)) = I` and
+`aug(T) = I`, so `H = I`. The search over pure paid words is therefore complete.
 
 ## Proof
 
@@ -104,20 +120,28 @@ At length 7, Lemma 1 allows only `(2,5)` and `(5,2)`, and Lemma 2 rules out
 both. The exhaustive joins below exclude length 6, and the direct word has
 length 8. The exact minimum is 8.
 
-Lemma 2 explains why the direct word is optimal. Each target role in `V`
-contributes an independent rank to the radical layer. Every call of the other
-label can pay at most one unit of that rank, after any conjugation by the
-semisimple part. The C3 determinant then rules out the one unbalanced split
-that would save a call.
+Lemmas 1-2 explain why no one-call saving (length 7) exists; length 6 is
+excluded only by exhaustive search. Each role whose label is not a power of the
+base generator contributes one independent rank unit through its
+`V`-component: roles 2, 3 and 4 in base `a`, roles 1, 3 and 4 in base `b`.
+Every call of the other label can pay at most one unit of that rank, after any
+conjugation by the semisimple part. The C3 determinant then rules out the
+unbalanced splits `(2,5)` and `(5,2)`.
 
-## Independent exhaustive joins
+The written exclusion of length 7 and of lengths up to 5 also holds with any
+number of additional dirty roles whose target is `1`: the defect becomes
+`diag(1,d,c,d,1,...,1)`, still of rank 3, and the target determinant is still
+1. Length 6 is certified only for four roles.
 
-Both programs build `S3`, the distinct products of length at most 3. They
+## Separately implemented exhaustive joins
+
+Both programs build `P<=3`, the distinct products of length at most 3 (the C
+output and #2116 call this set `S3`; it is unrelated to the ring `S` above). They
 deduplicate by the full 4x4 state of 12-bit coefficients and keep each state's
-minimal length. Any word of length at most 6 is `X Y` with `X` and `Y` in `S3`.
+minimal length. Any word of length at most 6 is `X Y` with `X` and `Y` in `P<=3`.
 A word of length 7 is `X f Y`, where `X` can be taken to have minimal length
 exactly 3; otherwise a shorter word would exist. So each join tests
-`X^-1 T in S3` for every `X`, and tests `f^-1 X^-1 T in S3` for every
+`X^-1 T in P<=3` for every `X`, and tests `f^-1 X^-1 T in P<=3` for every
 minimal-length-3 class `X` and every factor `f`. That covers all lengths
 through 7.
 
@@ -125,16 +149,16 @@ through 7.
 |---|---|---|
 | state representation | 4x4 matrix of 12-bit masks over `A4` | 12 coefficient matrices `M_g` in `M4(F2)`, 16 bits each |
 | group construction | all even permutations | closure of `<a,b>` on packed codes |
-| `S3` built by | right multiplication | left multiplication |
+| `P<=3` built by | right multiplication | left multiplication |
 | enumerated end | left: `X^-1 T`, then `D_f^-1 (X^-1 T)` | right: `T Y^-1`, then `(T Y^-1) D_f^-1` |
 | hash | `GF(2)`-linear (child hashes by XOR) | nonlinear multiply-xorshift |
-| distinct `S3` states by minimal length | 1, 240, 41,920, 6,655,830 (total 6,697,991) | identical |
+| distinct `P<=3` states by minimal length | 1, 240, 41,920, 6,655,830 (total 6,697,991) | identical |
 | minimal-length-3 classes expanded | 6,655,830 | 6,655,830 |
 | children looked up | 1,597,399,200 | 1,597,399,200 |
 | words of length at most 7 found | none | none |
 | local wall time / peak RSS (2 threads, `-march=native` development build) | 27 s / 369 MB | 39 s / 316 MB |
 
-The `S3` total, 6,697,991, matches #2116's `right_distinct_exact_states`. The
+The `P<=3` total, 6,697,991, matches #2116's `right_distinct_exact_states`. The
 verifier reads that value from the pinned predecessor `RESULT.json`. Every
 reported hit is confirmed in C, by comparing full states and multiplying out
 the word. Python then replays it independently. The Python code does not reuse
@@ -171,9 +195,11 @@ python3 scripts/research_package.py --package research/a4-seven-call-radical-ran
 ```
 
 The expected final line is `PASS_A4_FOUR_ROLE_EXACT_MINIMUM_EIGHT`, preceded by
-a JSON report with the counts above. The local run took 79 s wall time with
-369 MB peak RSS. It used Python 3.14.4 and gcc 15.2.0 on 4 shared CPUs. The
-generic runner requests Python 3.12, which was not used locally.
+a JSON report with the counts above. Local runs took about 80-90 s wall time
+with 369 MB peak RSS, using Python 3.14.4 and gcc 15.2.0 on 4 shared CPUs. The
+generic runner `scripts/research_package.py --package
+research/a4-seven-call-radical-rank` also passed under a private Python 3.12.15
+(`PASS_REGISTERED_RESEARCH_PACKAGE`, 84 s, 369 MB).
 
 ## Scope, inherited assumptions and unresolved obligations
 
@@ -186,10 +212,13 @@ generic runner requests Python 3.12, which was not used locally.
   restored workspace, a physical caller, chronology, hosting, precision,
   recursive transfer and supplier admission. These costs are unknown, not
   zero.
-- Decision consequence: the A4 four-role endpoint gives no formal saving. The
-  nonabelian-register route through this target therefore does not merit a
-  priced native-conversion step. A 7-word would have saved 1 of 8 calls in the
-  formal model only.
+- Decision consequence: the A4 four-role endpoint gives no formal saving, so
+  this target gives no reason to price a native conversion of `F2[A4]` calls.
+  The package closes #2116's named open question and extends the existing
+  direct-optimal pattern of the formal finite-group family (for example `Q8`
+  in #2047 and #2248, `SL2(F3)` in #2010) to one more target. It changes no
+  current lead, supplier or selected result. A 7-word would have saved 1 of 8
+  calls in the formal model only.
 
 ## Open next questions
 
@@ -203,11 +232,13 @@ The same questions are structured in [TASK.json](TASK.json).
    the two bases, or at the `J^2` layer. Blocked by: nothing beyond the
    bookkeeping.
 2. **Does the radical-rank bound extend to `G = P x| H`, with `P` a normal
-   2-group and `H` of odd order?** Examples include more roles over `A4`, or
-   `SL2(F3)`. The goal is uniform label-count floors in place of censuses.
+   2-group and `H` of odd order?** An example is
+   `SL2(F3) = Q8 x| C3`. The goal is uniform label-count floors in place of censuses.
    First step: state the lemma with `S = F2[H]` and an equivariant functional
-   `mu` on the Frattini quotient of `P`, then test it against an existing finite census. Blocked
-   by: nothing for the formal statement. Native conversion stays unpriced.
+   `mu` on the Frattini quotient of `P`, then test it against the existing
+   `SL2(F3)` census of [PR #2010](https://github.com/CrocSwap/integer-mult-bounds/pull/2010)
+   (`research/sl2f3-conjugate-triple-seed592f`). Blocked by: nothing for the
+   formal statement. Native conversion stays unpriced.
 
 ## Predecessors and attribution
 
@@ -218,20 +249,34 @@ The same questions are structured in [TASK.json](TASK.json).
   Discussion [#2095](https://github.com/CrocSwap/integer-mult-bounds/discussions/2095)).
   This package answers that package's named open question. It re-proves the
   length-6 exclusion with new code and does not modify the predecessor.
-- The untwisted `J/J^2` coefficient-matrix argument for the 2-group `Q8`, in
-  `research/q8-central-minus-one-any-registers-seed0332f4` and
-  `research/q8-r3-two-central-one-generator-seed809fc39d`, is the closest
-  prior technique. The new ingredients are three. First, splitting off the
-  semisimple part `F2[<a>]` in a group algebra that is not local. Second, the
-  twisted functional `Phi` that absorbs conjugation by that part. Third, using
-  both bases together with the C3 determinant.
+- Prior untwisted `J/J^2` arguments, all by GitHub `1337isnot1337` (commit
+  author Cinna Davis) and merged: the coefficient-matrix argument for the
+  2-group `Q8` in [PR #2047](https://github.com/CrocSwap/integer-mult-bounds/pull/2047)
+  (`research/q8-central-minus-one-any-registers-seed0332f4`, head `46bce88f`)
+  and [PR #2248](https://github.com/CrocSwap/integer-mult-bounds/pull/2248)
+  (`research/q8-r3-two-central-one-generator-seed809fc39d`, head `835bd7b1`);
+  and the abelian four-role rational-frame floor of
+  [PR #2085](https://github.com/CrocSwap/integer-mult-bounds/pull/2085)
+  (`research/bit-four-register-rational-frame-floor-seed3573e12e`, head
+  `5302b9ba`), whose `J/J^2` per-label count with rank-one calls is the closest
+  analogue of the step-5 rank count. To our knowledge (a search of
+  `research/*/README.md` and open PRs at base `20ecf289`), three ingredients
+  here are new: splitting off the semisimple part `F2[<a>]` in a group algebra
+  that is not local; the twisted functional `Phi` that absorbs conjugation by
+  that part; and using both bases together with the C3 determinant. The open
+  [PR #3893](https://github.com/CrocSwap/integer-mult-bounds/pull/3893)
+  (`1337isnot1337`, S3 three-register rank lower bound) is a concurrent,
+  different rank floor.
 - Exact pins are in [SOURCES.json](SOURCES.json). The base is
   `20ecf2891d80b5acf18d980b2164fb44ea7faa90` and priority revision 6 is in
   force. The live input is #2116's `RESULT.json`.
 
-Provenance: the lemma, both joins and the verifier were written in one AI-assisted
-session. The written proof's steps are each checked numerically by the verifier,
-as described above. No independent human review is claimed.
+Provenance: the lemma, both joins and the verifier were written in one
+AI-assisted session; the two joins are separately implemented, not
+independently authored. The written proof's steps are each checked numerically
+by the verifier, as described above. The package was reviewed by four
+independent AI review passes in the same loop. No independent human review is
+claimed.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Apache-2.0.
