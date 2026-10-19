@@ -44,7 +44,10 @@ relocation/comparison adapters are included. The registered launcher authenticat
 all frozen inputs before and after each stage and compares every receipt field
 with its JSON type. No scientific input is regenerated in place.
 
-The final proofs and reviews distinguish the exact finite fixtures, written
+See [PROOF-NATIVE.md](PROOF-NATIVE.md), [PROOF-ACCOUNTING.md](PROOF-ACCOUNTING.md),
+[REVIEW-NATIVE.md](REVIEW-NATIVE.md), [REVIEW-ACCOUNTING.md](REVIEW-ACCOUNTING.md),
+[REVIEW-PORTABILITY.md](REVIEW-PORTABILITY.md) and [VALIDATION.md](VALIDATION.md).
+The proofs and reviews distinguish the exact finite fixtures, written
 all-parameter statements and their premises. This is AI-assisted mathematical
 review, not independent human or formal-kernel certification. Historical source
 and receipt prose remain unchanged; the current proofs define the accepted scope.
