@@ -134,4 +134,3 @@ def decimal_interval(pair, digits=12):
     return {'lower': str(Q(l, scale)), 'upper': str(Q(u, scale)),
             'decimal_lower': f'{l // scale}.{l % scale:0{digits}d}',
             'decimal_upper': f'{u // scale}.{u % scale:0{digits}d}'}
-
