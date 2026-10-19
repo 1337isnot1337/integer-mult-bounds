@@ -112,6 +112,18 @@ def check_family_decision(item, decision):
                     f'#{decision["number"]}: ledger differs from family decision: {field}')
 
 
+def check_starting_head(item, expected_head, in_starting_snapshot):
+    """Distinguish a PR's frozen first head from later family metadata."""
+    if item['starting_head'] == expected_head:
+        return
+    # Records added after the frozen snapshot may carry a later captured head.
+    # Accept that only when the ledger still preserves its original head and
+    # the captured family head is the ledger's current head.
+    require(not in_starting_snapshot and item['current_head'] == expected_head and
+            item['starting_head'] in item.get('previously_reviewed_heads', []),
+            f'#{item["number"]}: starting head changed')
+
+
 def check_batch1099_file(item):
     """Authenticate the original Makefile prefix after the opt-in PR154 target."""
     current = (ROOT / item['integrated_path']).read_bytes()
@@ -268,6 +280,7 @@ def main():
     ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
     snapshot = json.loads((AUDIT / 'starting-snapshot.json').read_text())
     expected = {p['number']: p for p in snapshot['pull_requests']}
+    starting_numbers = set(expected)
     family_decisions = {}
     for family_path in decision_paths():
         if not family_path.exists():
@@ -287,7 +300,7 @@ def main():
     for number, decision in family_decisions.items():
         check_family_decision(actual[number], decision)
     for number, pr in actual.items():
-        require(pr['starting_head'] == expected[number]['headRefOid'], f'#{number}: starting head changed')
+        check_starting_head(pr, expected[number]['headRefOid'], number in starting_numbers)
         require(pr['contributor'] == expected[number]['author'], f'#{number}: attribution changed')
         require(pr['disposition'] in {'unreviewed', 'partially_reviewed', 'changed_since_review',
                                      'incorporated', 'superseded'}, f'#{number}: unknown disposition')

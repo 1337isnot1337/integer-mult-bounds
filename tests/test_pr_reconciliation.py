@@ -14,6 +14,33 @@ checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
 
 
+class StartingHeadIntegrity(unittest.TestCase):
+    def setUp(self):
+        self.item = {
+            'number': 3107,
+            'starting_head': 'initial',
+            'current_head': 'revised',
+            'previously_reviewed_heads': ['initial'],
+        }
+
+    def test_frozen_snapshot_requires_the_exact_initial_head(self):
+        with self.assertRaisesRegex(ValueError, '#3107: starting head changed'):
+            checker.check_starting_head(self.item, 'revised', True)
+
+    def test_later_family_metadata_can_bind_a_revised_current_head(self):
+        checker.check_starting_head(self.item, 'revised', False)
+
+    def test_later_head_requires_the_initial_head_in_review_history(self):
+        item = deepcopy(self.item)
+        item['previously_reviewed_heads'] = []
+        with self.assertRaisesRegex(ValueError, '#3107: starting head changed'):
+            checker.check_starting_head(item, 'revised', False)
+
+    def test_later_metadata_must_match_the_ledger_current_head(self):
+        with self.assertRaisesRegex(ValueError, '#3107: starting head changed'):
+            checker.check_starting_head(self.item, 'other-current', False)
+
+
 class FamilyDecision(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
