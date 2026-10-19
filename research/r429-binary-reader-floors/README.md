@@ -13,7 +13,7 @@ The nine-term bound 63 supports the first proof. It is not a new numerical resul
 
 ## Proof and coverage
 
-The written cold-factor proof uses an all-coset uniqueness lemma for readers of rational support rank at most six, then covers every factor-rank case. The separate materialized-reader proof uses generalized support-union inequalities, exhausts every rank partition of cost at most 52, and rejects its sole equality profile. See [PROOF-COLD.md](PROOF-COLD.md), [PROOF-READOUT.md](PROOF-READOUT.md), and the separate AI [cold-factor](REVIEW-COLD.md) and [readout](REVIEW-READOUT.md) reviews. Their independent implementations and complete receipts are included in the registered replay.
+The written cold-factor proof uses an all-coset uniqueness lemma for readers of rational support rank at most six, then covers every factor-rank case. The separate materialized-reader proof uses generalized support-union inequalities, exhausts every rank partition of cost at most 52, and rejects its sole equality profile. See [PROOF-COLD.md](PROOF-COLD.md), [PROOF-READOUT.md](PROOF-READOUT.md), and the separate AI [cold-factor](REVIEW-COLD.md) and [readout](REVIEW-READOUT.md) reviews. See also [source integrity](REVIEW-PORTABILITY.md) and [validation](VALIDATION.md). Their independent implementations and complete receipts are included in the registered replay.
 
 The primary replay covers:
 
