@@ -21,6 +21,9 @@ class Controls(unittest.TestCase):
     def export(self,tmp):
         target=Path(tmp)/'research'/HERE.name
         shutil.copytree(HERE,target,ignore=shutil.ignore_patterns('__pycache__'))
+        # Mutations belong only to private copies, even when source export is read-only.
+        for copied in target.rglob('*'):
+            if copied.is_file(): copied.chmod(0o644)
         for row in json.loads((HERE/'SOURCES.json').read_text())['files']:
             if row['usage']=='input':
                 q=Path(tmp)/row['path'];q.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/row['path'],q)
