@@ -9,7 +9,8 @@ The exact moment enclosures (Navinor's selected-suppliers-de-diagnostic) and the
 (Wronskode's frontier1042-invoice-audit-seed81) are loaded unchanged as pinned Git blobs at BASE, as in
 centre-sharing-overhead-budget. The bit bill is f(a) = (1/(mW)) sum_r n_r r (m/r)^a + c_s m^a with the surcharge
 c_s = 32 m N / (1e16 W) recomputed from each histogram's child count N. It is linear in the counts n_r, so every
-budget below is a sharp integer: the stated count passes the exact test f(c*) < 1 and one less fails.
+budget below is a sharp integer in its stated model: the stated count passes the exact test f(c*) < 1 and
+one less fails (README lists the bounded exceptions).
 Standard library and git only.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5).
@@ -166,11 +167,14 @@ def main():
     target = k_sel * Q(11, 10)
     assert kappa(B_CERTIFIED_K2, C_STAR) >= target > kappa(B_CERTIFIED_K2, C_STAR - GRID), "c* is the +10% endpoint"
     assert kappa(C_STAR + GRID, C_STAR) >= target, "complex accepted at c* + 1e-24 suffices with bit at c*"
+    assert kappa(C_STAR, C_STAR) >= target > kappa(C_STAR - GRID, C_STAR), "complex endpoint c* is necessary"
+    assert target > kappa(C_STAR - GRID, B_CERTIFIED_K2), "complex below c* fails even with bit at 3/1000"
     assert verdict(H, C_STAR) == "fail", "the record fails at c*"
     out["controls"] = ["F equals the pinned D/E-diagnostic bill on the record",
                        "selected bit endpoint accepted, next grid rejected", "selected kappa recomputed",
                        "c* is the least grid point with kappa >= 1.1 x selected (complex at 3/1000)",
                        "complex endpoint c* + 1e-24 with bit endpoint c* already gives kappa >= 1.1 x selected",
+                       "complex endpoint c* - 1e-24 fails the target with bit at c* and even with bit at 3/1000",
                        "the record fails at c*"]
 
     # ---- Baseline requirement (predecessor's sharp removal, re-derived) ------------------------------------
@@ -239,9 +243,11 @@ def main():
         record("two-call sharing + %d rank-%d overhead" % (y, r), add(shared, {r: y}), "pass")
         record("two-call sharing + %d rank-%d overhead" % (y + 1, r), add(shared, {r: y + 1}), "fail")
         budget[str(r)] = dict(total=y, per_call=round(y / calls, 3), mass_per_call=round(y * r / calls, 3))
+    b1_net = units_saved(b1)
+    assert b1_net[1] < 0, "rank-8 carriage must lose"
     out["lever_b_copy_charge"] = dict(
         copies=copies, cst_per_call=63,
-        rank8_carriage=dict(cst_per_call=72, deficit=info["deficit"] - copies, net_rank1_units=units_saved(b1)),
+        rank8_carriage=dict(cst_per_call=72, deficit=info["deficit"] - copies, net_rank1_units=b1_net),
         fewer_copies=dict(sharp_total_copies=x_star, per_call_uniform=1, deficit_one_fewer_per_call=info["deficit"] + 7 * calls,
                           net_rank1_units_one_fewer_per_call=units_saved(one_per_call)),
         two_call_bit_centre_sharing=dict(cst_per_call=31.5, copies_removed=copies // 2,
@@ -256,8 +262,8 @@ def main():
                                  note="necessary for any u-lever; sufficient only if every saved unit is a rank-1 child")
 
     # ---- (d) helper deletions with optimal width-8 re-hosting (stage-relaxed slot model) ---------------------
-    def deletion(model, d, upper):
-        h = add(H, DELETION_MODELS[model], calls * d)
+    def rehosted(h, d, upper):
+        """Host the 45 + 9d spare width-8 slots per replica: explicit (upper) or concavity lower bound."""
         s = spare + 9 * d                                              # spare slots per replica
         if not upper:                                                  # fractional concavity bound (lower bill)
             return add(h, {42: Q(T * 9 * d, 5), 2: -Q(T * 9 * d, 5)})
@@ -265,6 +271,9 @@ def main():
         assert n + (s0 > 0) <= windows[42]
         h = add(h, {42: T * (n - 9), 2: -T * (n - 9)})
         return add(h, {2 + 8 * s0: T, 2: -T}) if s0 else h
+
+    def deletion(model, d, upper):
+        return rehosted(add(H, DELETION_MODELS[model], calls * d), d, upper)
     assert deletion("RANK1", 0, True) == deletion("RANK1", 0, False) == H
     dels = {}
     for model, dm in DELETION_MODELS.items():
@@ -277,7 +286,10 @@ def main():
             record("%s: %d deletions per call (model exhausted), concavity bound" % (model, d_max),
                    deletion(model, d_max, False), "fail")
             dels[model] = dict(per_call=None, exhausted_at=d_max, of_helpers=430,
-                               net_rank1_units_at_exhaustion=units_saved(deletion(model, d_max, True)))
+                               net_rank1_units_at_exhaustion_explicit_hosting=units_saved(deletion(model, d_max, True)),
+                               net_rank1_units_at_exhaustion_upper_bound=units_saved(deletion(model, d_max, False)),
+                               note="the model's 19 rank-7 climbs include the 9 rank-7 copies; with copies kept it "
+                                    "is exhausted at d = 10")
             continue
         assert verdict(deletion(model, d - 1, False), C_STAR) == "fail", "deletion boundary not sharp: " + model
         record("%s: %d deletions per call, explicit hosting" % (model, d), deletion(model, d, True), "pass")
@@ -286,6 +298,42 @@ def main():
                            net_rank1_units=units_saved(deletion(model, d, True)))
     out["lever_d_helper_deletion"] = dict(models={k: {str(r): n for r, n in v.items()} for k, v in DELETION_MODELS.items()},
                                           sharp=dels, known_removable_helpers_of_the_fixed_word=1)
+
+    # ---- (f) width-7 helper conversion (#1023's constructive placement and bracket) --------------------------
+    def width7(k, upper, pes=False):
+        """k helpers per call converted to width 7: one unit removed from one local child per converted helper
+        (rank-1 child removed, or largest child trimmed: #1023's bracket); the 9k width-7 residuals per replica fill
+        9k empty 7-slots exactly; the freed width-8 slack is hosted as in (d)."""
+        assert 9 * k <= windows[7], "this placement uses empty 7-slots only"
+        delta, left = Counter({1: -k}), k
+        if pes:
+            delta = Counter()
+            for r in sorted(local, reverse=True):
+                take = min(left, local[r])
+                delta[r] -= take
+                delta[r - 1] += take if r > 1 else 0
+                left -= take
+                if not left:
+                    break
+            assert left == 0
+        delta[7] -= k
+        return rehosted(add(H, delta, calls), k, upper)
+    assert width7(0, True) == width7(0, False) == width7(0, True, True) == H
+    kmax = windows[7] // 9
+    k7 = 0
+    while k7 <= kmax and verdict(width7(k7, True), C_STAR) != "pass":
+        assert verdict(width7(k7, False), C_STAR) == "fail"
+        k7 += 1
+    assert k7 <= kmax and verdict(width7(k7 - 1, False), C_STAR) == "fail"
+    record("width-7: %d helpers per call, rank-1 removed, explicit hosting" % k7, width7(k7, True), "pass")
+    record("width-7: %d helpers per call, rank-1 removed, concavity bound" % (k7 - 1), width7(k7 - 1, False), "fail")
+    record("width-7: %d helpers per call, largest trimmed, concavity bound" % kmax, width7(kmax, False, True), "fail")
+    out["lever_f_width7"] = dict(
+        placement="#1023: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
+        max_per_call_in_this_placement=kmax,
+        rank1_removed=dict(sharp_per_call=k7, total=calls * k7, net_rank1_units=units_saved(width7(k7, True))),
+        largest_trimmed=dict(per_call=None, fails_at=kmax, net_rank1_units_at_max=units_saved(width7(kmax, True, True))),
+        admitted=False)
 
     # ---- (e) local rank shape: replace the shipped word by the ideal in-window shapes in k calls -------------
     ideal = {7: 2 * V + 9, 8: R}
@@ -317,18 +365,34 @@ def main():
             lo, hi = (mid, hi) if cverdict(add(shared_c, {r: mid}), C_STAR) == "pass" else (lo, mid)
         for y, v in ((lo, "pass"), (lo + 1, "fail")):
             h = add(shared_c, {r: y})
-            assert cverdict(h, C_STAR) == v and cverdict(h, C_STAR + GRID) == v
+            assert all(cverdict(h, cs) == v for cs in (C_STAR - GRID, C_STAR, C_STAR + GRID))
             complex_boundary.append(dict(label="complex two-call sharing + %d rank-%d overhead" % (y, r),
                                          hist={str(q): n for q, n in sorted(h.items())}, verdict=v))
         complex_budget[str(r)] = dict(total=lo, per_call=round(lo / NC, 3), mass_per_call=round(lo * r / NC, 3))
+    cneed = 0
+    lo, hi = 0, 2000
+    assert cverdict(add(HC, {1: -hi}), C_STAR) == "pass"
+    while hi - lo > 1:
+        mid = (lo + hi) // 2
+        lo, hi = (mid, hi) if cverdict(add(HC, {1: -mid}), C_STAR) == "fail" else (lo, mid)
+    cneed = hi
+    for cs in (C_STAR - GRID, C_STAR, C_STAR + GRID):
+        assert cverdict(add(HC, {1: -cneed}), cs) == "pass" and cverdict(add(HC, {1: -(cneed - 1)}), cs) == "fail"
+    out["context_complex_at_c_star_need"] = dict(net_rank1_children=cneed, calls=NC, per_call=round(cneed / NC, 3),
+                                                 note="PR1791 OQ1's >= 1.33 units per call holds only at the selected "
+                                                      "bit endpoint; at c* the complex side needs this net saving")
     out["context_complex_at_c_star"] = dict(model="centre-sharing-overhead-budget k=2: 1152 -> 576 rank-8 centre children",
                                             overhead_budget=complex_budget, boundary_checks=complex_boundary)
 
-    # ---- Adjacent grid point: every boundary verdict is unchanged at c* + 1e-24 ----------------------------
+    # ---- Adjacent grid points: every boundary verdict is unchanged at c* - 1e-24 and c* + 1e-24 ------------
     for b in boundary:
         h = {int(r): Q(n) for r, n in b["hist"].items()}
-        assert verdict(h, C_STAR + GRID) == b["verdict"], "next-grid verdict: " + b["label"]
+        for cs in (C_STAR - GRID, C_STAR + GRID):
+            assert verdict(h, cs) == b["verdict"], "adjacent-grid verdict: %s at %s" % (b["label"], cs)
     out["boundary_checks"] = boundary
+    admitted_max = max(out["lever_a_idle_cap"]["net_rank1_units_hd3"], out["lever_a_idle_cap"]["net_rank1_units_hd4"],
+                       out["lever_a_idle_cap"]["rehost_net_rank1_units"], b1_net[1])
+    assert admitted_max == 0
     out["status"] = "PASS_BIT_ENDPOINT_LEVER_BUDGETS"
 
     text = json.dumps(out, indent=1, sort_keys=True) + "\n"
@@ -338,8 +402,10 @@ def main():
         print("WROTE", path.relative_to(ROOT).as_posix())
     else:
         assert path.read_text(encoding="utf-8") == text, "RESULT.json differs from the regenerated result"
-    print("%s need_rank1=%d admitted_levers_max_net=0 copies_sharp=%d deletions_per_call=%s ideal_shape_calls=%d no_new_kappa"
-          % (out["status"], need1, x_star, "/".join("%s:%s" % (k, v["per_call"]) for k, v in dels.items()), k_star))
+    print("%s need_rank1=%d admitted_levers_max_net=%d copies_sharp=%d deletions_per_call=%s width7_per_call=%d "
+          "ideal_shape_calls=%d complex_need_rank1=%d no_new_kappa"
+          % (out["status"], need1, admitted_max, x_star, "/".join("%s:%s" % (k, v["per_call"]) for k, v in dels.items()),
+             k7, k_star, cneed))
 
 
 if __name__ == "__main__":

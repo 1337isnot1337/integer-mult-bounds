@@ -20,7 +20,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Endpoint, kappa and +10% controls; re-derived 649/16 requirement; window derivation and idle-remainder identity; slack halving cap; certified re-hosting order; sharp copy, sharing-budget, deletion and reshaping boundaries; complex k=2 budget at c*; every boundary sign also at c*+1e-24; RESULT.json byte comparison."
+      "checks": "Endpoint, kappa and +10% controls, including necessity of the complex endpoint c*; re-derived 649/16 requirement and complex 511 need; window derivation and idle-remainder identity; slack halving cap; certified re-hosting order; sharp copy, sharing-budget, deletion, width-7 and reshaping boundaries; complex k=2 budget at c*; every boundary sign also at c*-1e-24 and c*+1e-24; RESULT.json byte comparison."
     },
     {
       "argv": [
@@ -30,7 +30,7 @@
         "{package}/independent.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Rebuilds every boundary histogram independently, requires equality with RESULT.json, and recomputes all 40 signs at c* and c*+1e-24 with levers.py interval arithmetic."
+      "checks": "Rebuilds every boundary histogram independently, requires equality with RESULT.json, and recomputes all 75 signs at c*-1e-24, c* and c*+1e-24 with levers.py interval arithmetic."
     },
     {
       "argv": [
@@ -46,7 +46,7 @@
         "test_package.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Tampered counts, verdicts and histograms are rejected by the independent method."
+      "checks": "Tampered counts, verdicts and histograms, including a consistent shift, are rejected by the independent method."
     }
   ]
 }

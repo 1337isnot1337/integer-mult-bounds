@@ -3,9 +3,11 @@
 """Independent second method for bit-endpoint-lever-budgets.
 
 Rebuilds every boundary histogram from the pinned PR589 and #1094 records with its own code, checks that it equals
-the histogram in RESULT.json, and recomputes each pass/fail sign at c* and at c* + 1e-24 with the separate interval
-arithmetic of bit-revision3-levers-seed03/levers.py (ln by atanh prime chains, exp by Taylor with a remainder bound,
-outward dyadic rounding). It shares no arithmetic with verify.py, which uses the D/E-diagnostic engine.
+the histogram in RESULT.json, and recomputes each pass/fail sign at c* - 1e-24, c* and c* + 1e-24 with the separate
+interval arithmetic of bit-revision3-levers-seed03/levers.py (ln by atanh prime chains, exp by Taylor with a remainder
+bound, outward dyadic rounding). It shares no arithmetic with verify.py, which uses the D/E-diagnostic engine. The
+lever definitions, the hosting model and the boundary integers (read from RESULT.json) are shared with verify.py; only
+the histogram code and the arithmetic are independent.
 Standard library and git only.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from Claude (Anthropic, Claude Opus 5.5).
@@ -76,8 +78,8 @@ def main(res=None):
     k = res["lever_e_local_shape"]["sharp_calls"]
     shared = shift(H0, r7=-1296)
 
-    def deletion(delta, d, upper):
-        h = dict(H0)
+    def deletion(delta, d, upper, base=None):
+        h = dict(base or H0)
         for r, n in delta.items():
             h = shift(h, **{"r%d" % r: calls * d * n})
         s = 45 + 9 * d
@@ -87,6 +89,21 @@ def main(res=None):
         h = shift(h, r42=T * (n - 9), r2=-T * (n - 9))
         return shift(h, **{"r%d" % (2 + 8 * s0): T, "r2": -T}) if s0 else h
 
+    def trimmed(k):
+        """#1023's pessimistic bracket: trim one unit from the k largest local children of every call."""
+        h, left = dict(H0), k
+        for r in sorted(word, reverse=True):
+            t = min(left, word[r])
+            h = shift(h, **{"r%d" % r: -calls * t})
+            if r > 1:
+                h = shift(h, **{"r%d" % (r - 1): calls * t})
+            left -= t
+            if not left:
+                return h
+
+    w7 = res["lever_f_width7"]
+    k7, kmax = w7["rank1_removed"]["sharp_per_call"], w7["max_per_call_in_this_placement"]
+    assert kmax == 666 // 9 == w7["largest_trimmed"]["fails_at"]
     ideal_delta = {1: -1323, 2: -1342, 3: -79, 4: -44, 5: -102, 6: -11, 7: 212, 8: 439}
 
     def reshaped(kk):
@@ -103,13 +120,15 @@ def main(res=None):
         mine += [(shift(shared, **{"r" + r: y}), "pass"), (shift(shared, **{"r" + r: y + 1}), "fail")]
     mine += [(deletion({1: -8}, d40, True), "pass"), (deletion({1: -8}, d40 - 1, False), "fail"),
              (deletion({1: -2, 2: 2, 3: -1, 7: -1}, dT, False), "fail"),
+             (deletion({1: -1, 7: -1}, k7, True), "pass"), (deletion({1: -1, 7: -1}, k7 - 1, False), "fail"),
+             (deletion({7: -1}, kmax, False, base=trimmed(kmax)), "fail"),
              (reshaped(k), "pass"), (reshaped(k - 1), "fail")]
     recorded = res["boundary_checks"]
     assert len(recorded) == len(mine), "boundary row count"
     for (h, v), row in zip(mine, recorded):
         assert {str(r): str(n) for r, n in sorted(h.items())} == row["hist"], "histogram rebuilt differently: " + row["label"]
         assert row["verdict"] == v
-        for a in (c, c + GRID):
+        for a in (c - GRID, c, c + GRID):
             assert bit_sign(h, a) == v, "independent sign differs: %s at %s" % (row["label"], a)
 
     # The TEMPLATE deletion model really is exhausted: its rank-7 consumption equals the word's 19 rank-7 climbs.
@@ -136,11 +155,17 @@ def main(res=None):
         h[8] = Q(576)
         h[r] = h.get(r, Q(0)) + y
         assert {str(q): int(n) for q, n in sorted(h.items())} == row["hist"], "complex histogram: " + row["label"]
-        for a in (c, c + GRID):
+        for a in (c - GRID, c, c + GRID):
             assert lv.verdict(h, 73, Q(14336), a) == row["verdict"], "complex sign: " + row["label"]
+    need = res["context_complex_at_c_star_need"]["net_rank1_children"]
+    for x, v in ((need, "pass"), (need - 1, "fail")):
+        h = dict(HC)
+        h[1] -= x
+        for a in (c - GRID, c, c + GRID):
+            assert lv.verdict(h, 73, Q(14336), a) == v, "complex need sign: %d at %s" % (x, a)
 
-    print("PASS_BIT_ENDPOINT_LEVER_BUDGETS_INDEPENDENT signs=%d at c* and c*+1e-24 (levers.py interval arithmetic)"
-          % (2 * (len(recorded) + len(res["context_complex_at_c_star"]["boundary_checks"]))))
+    print("PASS_BIT_ENDPOINT_LEVER_BUDGETS_INDEPENDENT signs=%d at c*-1e-24, c* and c*+1e-24 (levers.py interval arithmetic)"
+          % (3 * (len(recorded) + len(res["context_complex_at_c_star"]["boundary_checks"]) + 2)))
 
 
 if __name__ == "__main__":

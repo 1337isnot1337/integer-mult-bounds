@@ -199,6 +199,48 @@
   },
   {
    "hist": {
+    "1": "360576",
+    "2": "396320",
+    "3": "22752",
+    "34": "32",
+    "4": "26880",
+    "42": "4352",
+    "5": "29376",
+    "6": "17376",
+    "7": "6336"
+   },
+   "label": "width-7: 71 helpers per call, rank-1 removed, explicit hosting",
+   "verdict": "pass"
+  },
+  {
+   "hist": {
+    "1": "360864",
+    "2": "396384",
+    "3": "22752",
+    "4": "26880",
+    "42": "4320",
+    "5": "29376",
+    "6": "17376",
+    "7": "6624"
+   },
+   "label": "width-7: 70 helpers per call, rank-1 removed, concavity bound",
+   "verdict": "fail"
+  },
+  {
+   "hist": {
+    "1": "381024",
+    "2": "1980768/5",
+    "3": "22752",
+    "4": "39552",
+    "42": "22752/5",
+    "5": "19872",
+    "6": "19680"
+   },
+   "label": "width-7: 74 helpers per call, largest trimmed, concavity bound",
+   "verdict": "fail"
+  },
+  {
+   "hist": {
     "1": "312228",
     "2": "330632",
     "3": "18644",
@@ -301,12 +343,19 @@
    }
   }
  },
+ "context_complex_at_c_star_need": {
+  "calls": 144,
+  "net_rank1_children": 511,
+  "note": "PR1791 OQ1's >= 1.33 units per call holds only at the selected bit endpoint; at c* the complex side needs this net saving",
+  "per_call": 3.549
+ },
  "controls": [
   "F equals the pinned D/E-diagnostic bill on the record",
   "selected bit endpoint accepted, next grid rejected",
   "selected kappa recomputed",
   "c* is the least grid point with kappa >= 1.1 x selected (complex at 3/1000)",
   "complex endpoint c* + 1e-24 with bit endpoint c* already gives kappa >= 1.1 x selected",
+  "complex endpoint c* - 1e-24 fails the target with bit at c* and even with bit at 3/1000",
   "the record fails at c*"
  ],
  "endpoint": {
@@ -430,10 +479,15 @@
    },
    "TEMPLATE": {
     "exhausted_at": 19,
-    "net_rank1_units_at_exhaustion": [
+    "net_rank1_units_at_exhaustion_explicit_hosting": [
      169.8356703347478,
      169.8356703347478
     ],
+    "net_rank1_units_at_exhaustion_upper_bound": [
+     170.39130761908615,
+     170.39130761908615
+    ],
+    "note": "the model's 19 rank-7 climbs include the 9 rank-7 copies; with copies kept it is exhausted at d = 10",
     "of_helpers": 430,
     "per_call": null
    }
@@ -450,6 +504,27 @@
   ],
   "of_calls": 288,
   "sharp_calls": 52
+ },
+ "lever_f_width7": {
+  "admitted": false,
+  "largest_trimmed": {
+   "fails_at": 74,
+   "net_rank1_units_at_max": [
+    580.5954304386772,
+    580.5954304386772
+   ],
+   "per_call": null
+  },
+  "max_per_call_in_this_placement": 74,
+  "placement": "#1023: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
+  "rank1_removed": {
+   "net_rank1_units": [
+    656.0393819674475,
+    656.0393819674475
+   ],
+   "sharp_per_call": 71,
+   "total": 20448
+  }
  },
  "record": {
   "T": 32,

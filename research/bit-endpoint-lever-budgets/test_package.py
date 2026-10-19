@@ -32,6 +32,13 @@ class Package(unittest.TestCase):
             "bit sharing budget +1": lambda r: r["lever_b_copy_charge"]["two_call_bit_centre_sharing"]["overhead_budget"]["1"].update(total=8392),
             "flipped recorded verdict": lambda r: r["boundary_checks"][2].update(verdict="pass"),
             "edited histogram": lambda r: r["boundary_checks"][0]["hist"].update({"42": "289"}),
+            "consistent shift: requirement 648 with rows rebuilt": lambda r: (
+                r["requirement"].update(rank1_children=648),
+                r["boundary_checks"][0].update(hist=r["boundary_checks"][1]["hist"]),
+                r["boundary_checks"][1].update(hist=dict(r["boundary_checks"][1]["hist"],
+                                                         **{"1": str(int(r["boundary_checks"][1]["hist"]["1"]) + 1)}))),
+            "width-7 one helper fewer": lambda r: r["lever_f_width7"]["rank1_removed"].update(sharp_per_call=70),
+            "complex need 510": lambda r: r["context_complex_at_c_star_need"].update(net_rank1_children=510),
             "complex budget +1": lambda r: r["context_complex_at_c_star"]["boundary_checks"][0].update(verdict="fail"),
         }
         for name, edit in edits.items():
