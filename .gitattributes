@@ -188,3 +188,10 @@ research/rank-shape-coframe-bill-seed850bc3/sources/pr3066-RESULT.json -text
 # Preserve the submitted continuation and its two frozen outer dependencies.
 research/kappa-next-regime/** -text -whitespace
 research/kappa-adaptive-continuation/evidence/full-release/admission/package/outer/*.py -text -whitespace
+
+# Exact source/evidence closure of the submitted operator-repair continuation.
+research/kappa-operator-repair/** -text -whitespace
+research/kappa-adaptive-continuation/** -text -whitespace
+research/kappa-1745-continuation/** -text -whitespace
+research/kappa-global-continuation/** -text -whitespace
+research/kappa-boundary-continuation/** -text -whitespace
