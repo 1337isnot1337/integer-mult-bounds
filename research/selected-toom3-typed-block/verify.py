@@ -35,7 +35,7 @@ def sources():
         def obj(name):
             raw = tar.extractfile(PREFIX + name).read()
             return json.loads(gzip.decompress(raw) if name.endswith('.gz') else raw)
-        return obj('LOCAL-PROGRAMS.json.gz'), obj('CANONICAL-WORD.json.gz'), obj('CLIFFORD-RECIPES.json')
+        return obj('LOCAL-PROGRAMS.json.gz'), obj('CANONICAL-WORD.json.gz'), obj('CLIFFORD-RECIPES.json'), obj('RESIDUAL-ADAPTERS.json'), obj('INDEPENDENT-LOCAL-REPLAY.json')
 
 def touches(e):
     if e[0] in ('climb', 'adapter', 'residual_adapter'):
@@ -74,6 +74,38 @@ def first_group(events):
             rows = [c for _, c in chosen]
             return a, g, skeleton, rows
     raise ValueError('no group')
+
+def entry_contract(events, a, word, residuals, receipt):
+    need(receipt['local']['forward']['all_exact_columns'] == 704, 'selected receipt binds every incoming column')
+    need(receipt['helpers'] == 480 and 'every arbitrary data/helper column' in receipt['scope'], 'literal arbitrary-dirty helper contract')
+    counts=collections.Counter()
+    for e in events[:a-1]:
+        tag=e[0]
+        if tag == 'phase':
+            continue
+        if tag == 'scalar':
+            o=e[1];need(o[1][0] == 'L', 'entry acts on productive columns')
+            if o[0] == 'add':
+                need(o[2][0] == 'L' and o[1] != o[2], 'entry invertible shear')
+                Q(o[3],o[4]);counts['shears']+=1
+            elif o[0] == 'scale':
+                need(Q(o[2],o[3]) != 0, 'entry nonzero scale');counts['scales']+=1
+            else:
+                raise ValueError('entry not invertible scalar operation')
+        elif tag == 'adapter':
+            need(e[1] == 'old_to_new' and e[3] == word['start'][e[2]], 'typed entry frame adapter')
+            counts['frame_adapters']+=1
+        elif tag == 'residual_adapter':
+            need(e[1] == 'pre' and e[3] == word['start'][e[2]], 'typed residual pre-wrapper')
+            key=str(e[3]) if len(e) == 4 else str(e[3])+':'+str(e[4])
+            rec=residuals['recipes'][key]['right']
+            gf_inverse(rec['matrix_rows'])
+            need(len(rec['matrix_rows']) == 9, 'nine-bit monomial wrapper')
+            counts['residual_pre_wrappers']+=1
+        else:
+            raise ValueError('unexpected entry operation')
+    need(dict(counts) == {'shears':7344,'scales':56,'frame_adapters':464,'residual_pre_wrappers':240}, 'complete invertible entry prefix')
+    return dict(counts)
 
 def scalar_prefix(events, a, gap, skeleton, group):
     # Scalar-coordinate ledger: frame transitions preserve the abstract column.
@@ -213,9 +245,11 @@ def controls(word,recipes):
     return mutants + ['quadratic_scaling','omitted_dirty_register']
 
 def main():
-    p,w,r=sources()
+    p,w,r,residuals,receipt=sources()
     need((w['v'],w['R'],w['h']) == (112,480,9), 'selected boundary dimensions')
     a,g,s,group=first_group(p['forward'])
+    entry=entry_contract(p['forward'],a,w,residuals,receipt)
+    need(all(e[0] == 'scalar' for e in s[:g]), 'first candidate has only invertible scalar prefix')
     events=[row[4] for row in group]
     need([e[2] for e in events] == REGISTERS, 'literal first #3974 group')
     need(all(lo <= g <= hi for _,_,lo,hi,_ in group), 'common legal gap')
@@ -224,7 +258,7 @@ def main():
     need(all(not (e[0] == 'residual_adapter' and e[2] in REGISTERS) for e in p['forward'][:a]), 'selected helpers have no hidden entry wrappers')
     forms=scalar_prefix(p['forward'],a,g,s,group)
     operators=exact_operator(w,r)
-    result={'scope':'one actual forward phase-A group; same-width Toom-only interface', 'registers':REGISTERS,'original_event_indices_zero_based':[x[0] for x in group], 'skeleton_gap':g,'windows':[[x[2],x[3]] for x in group], 'input_form_coordinates':'post-entry-adapter unframed Z_j; not raw initial payloads', 'input_forms':forms,'operators':operators,'actual_input_and_output_rank':4608,'five_product_linear_decoder_output_rank_upper':2560,'minimum_extra_output_dimension_five_product_decoder':2048,'fixed_factor_toom_input_rank_upper':1536,'two_affine_factors_input_rank_upper':3072,'minimum_extra_input_dimension_two_affine_factors':1536,'controls':controls(w,r),'implemented_replacements':0,'kappa_change':0}
+    result={'scope':'one actual forward phase-A group; same-width Toom-only interface', 'entry_contract':'every arbitrary data/helper column; exact selected receipt','invertible_entry_prefix':entry,'registers':REGISTERS,'original_event_indices_zero_based':[x[0] for x in group], 'skeleton_gap':g,'windows':[[x[2],x[3]] for x in group], 'input_form_coordinates':'post-entry-adapter unframed Z_j; not raw initial payloads', 'input_forms':forms,'operators':operators,'actual_input_and_output_rank':4608,'five_product_linear_decoder_output_rank_upper':2560,'minimum_extra_output_dimension_five_product_decoder':2048,'fixed_factor_toom_input_rank_upper':1536,'two_affine_factors_input_rank_upper':3072,'minimum_extra_input_dimension_two_affine_factors':1536,'controls':controls(w,r),'implemented_replacements':0,'kappa_change':0}
     result=json.loads(json.dumps(result))
     expected=json.loads((HERE/'RESULT.json').read_text()) if (HERE/'RESULT.json').exists() else None
     if '--write' in sys.argv: (HERE/'RESULT.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')

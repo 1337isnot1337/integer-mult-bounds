@@ -6,6 +6,7 @@
     "quadratic_scaling",
     "omitted_dirty_register"
   ],
+  "entry_contract": "every arbitrary data/helper column; exact selected receipt",
   "five_product_linear_decoder_output_rank_upper": 2560,
   "fixed_factor_toom_input_rank_upper": 1536,
   "implemented_replacements": 0,
@@ -40,6 +41,12 @@
       "512": "1"
     }
   ],
+  "invertible_entry_prefix": {
+    "frame_adapters": 464,
+    "residual_pre_wrappers": 240,
+    "scales": 56,
+    "shears": 7344
+  },
   "kappa_change": 0,
   "minimum_extra_input_dimension_two_affine_factors": 1536,
   "minimum_extra_output_dimension_five_product_decoder": 2048,

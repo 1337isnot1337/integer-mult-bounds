@@ -29,8 +29,18 @@ adapters, so physical register `j` is `T_start(j) Z_j`. These are **not** raw
 initial values: for example register 512 has a residual pre-wrapper. Entry
 adapters are invertible; frame coordinates do not impose a zero or clean-data
 promise on a productive helper. The selected nine helpers start at frame zero,
-have ordinary identity entry adapters, and end at full frame. The scalar
-prefix consists of nonzero scales and shears, hence is invertible. A direct
+have ordinary identity entry adapters, and end at full frame. The pinned `INDEPENDENT-LOCAL-REPLAY.json` explicitly declares replay on
+"every arbitrary data/helper column", with all 704 input columns and 480
+helpers; this is the selected local replacement contract. The verifier binds
+that receipt and independently checks the entire entry prefix consists of
+7,344 shears, 56 nonzero scales, 464 typed frame adapters and 240 invertible
+monomial residual pre-wrappers. There are no entry clears or copies. The first
+1,190 phase-A events before this group are also invertible scalar operations.
+Thus the full pre-cut map is invertible on all productive columns, and the
+nine payload projection is surjective. This establishes independence from
+the actual prefix and its arbitrary-dirty contract, not from an assumed
+clean-helper initialization. A globally restricted clean-input caller would
+be a different contract; it is not excluded by the dimension argument. A direct
 rational replay gives the actual incoming forms at the chosen gap:
 
 `Z_546,Z_560,Z_547,Z_568,Z_548,Z_558,Z_549,Z_570,Z_464+Z_512`.
