@@ -89,3 +89,8 @@ OpenAI manuscript, RaD/hipotures reports and Douglas Colkitt's retained work. Th
 licenses and notices are unchanged. This contribution adds the actual encoded
 layout composition and full conditional cost/backing argument; it does not
 claim the predecessor's algebra or routing theorem as new work.
+
+Jose Manuel's concurrent [interface clarification](https://github.com/CrocSwap/integer-mult-bounds/discussions/3664#discussioncomment-19036660)
+confirms the direction convention, actual scalar-axis notation and the two final
+S factors for the eventual numerical sandwich. Its prospective recovery work is
+separate; this package pins the published tensor head above.
