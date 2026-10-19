@@ -13,3 +13,4 @@ Run: `python3 -I -O -B research/seven-source-18event-profile-census/verify.py`
 
 ## Scope, source pins and credit
 Credits commdata2338 (PR #2397), Cinna Davis / 1337isnot1337 (PR #2229, PR #2236), and Ross Richardson (PR #943). Prepared for nightangelflowerwin-ops with AI assistance under Apache-2.0. No new kappa is claimed.
+ 
