@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "TODO: identity, positive fixture and failure controls"
+    }
+  ]
+}
