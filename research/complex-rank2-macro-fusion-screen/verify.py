@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import collections
+from fractions import Fraction as Q
 import gzip
 import hashlib
 import io
@@ -28,6 +29,7 @@ WORD_SHA256 = "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219"
 SELECTED = ROOT / "certificates/selected-result.json"
 SELECTED_SHA256 = "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
 SELECTED_KAPPA = "0.001672660197076918"
+RESULT = Path(__file__).with_name("RESULT.json")
 EXPECTED_TOUCH_HISTOGRAM = {1: 10, 2: 5, 5: 20}
 EXPECTED_PHASE_PAIRS = {
     ("A", "A"): 20,
@@ -84,6 +86,198 @@ def frame_contains(frames: list[list[int]], old: int, new: int) -> bool:
         if reduced:
             return False
     return True
+
+
+def gaussian_add(left: tuple[Q, Q], right: tuple[Q, Q]) -> tuple[Q, Q]:
+    return left[0] + right[0], left[1] + right[1]
+
+
+def gaussian_mul(left: tuple[Q, Q], right: tuple[Q, Q]) -> tuple[Q, Q]:
+    return (left[0] * right[0] - left[1] * right[1],
+            left[0] * right[1] + left[1] * right[0])
+
+
+def gaussian_phase(value: tuple[Q, Q], exponent: int) -> tuple[Q, Q]:
+    real, imag = value
+    return ((real, imag), (-imag, real), (-real, -imag), (imag, -real))[exponent % 4]
+
+
+def monomial_value(recipe: dict, value: int) -> tuple[int, int]:
+    """Apply one pinned affine-Clifford monomial, retaining its exact phase."""
+    rows = recipe["matrix_rows"]
+    target = recipe["offset"] ^ sum(
+        ((row & value).bit_count() & 1) << index
+        for index, row in enumerate(rows)
+    )
+    exponent = recipe["phase"] + sum(
+        recipe["linear_Z4"][index]
+        for index in range(len(rows)) if value >> index & 1
+    )
+    exponent += 2 * sum(
+        1 for i in range(len(rows)) for j in range(i + 1, len(rows))
+        if value >> i & 1 and value >> j & 1
+        and recipe["quadratic_rows"][i] >> j & 1
+    )
+    return target, exponent % 4
+
+
+def child_operator(recipe: dict) -> list[dict[int, tuple[Q, Q]]]:
+    """Build all exact columns of left * C^rank * right over Q(i)."""
+    rank = recipe["rank"]
+    left, right = recipe["left"], recipe["right"]
+    dimension = len(right["matrix_rows"])
+    require(len(left["matrix_rows"]) == dimension, "child monomial dimensions")
+    columns = []
+    for source in range(1 << dimension):
+        middle, right_phase = monomial_value(right, source)
+        column: dict[int, tuple[Q, Q]] = {}
+        for flip in range(1 << rank):
+            coefficient = (Q(1), Q(0))
+            for axis in range(rank):
+                gate_coefficient = (Q(1, 2), Q(1, 2) if not (flip >> axis & 1)
+                                    else Q(-1, 2))
+                coefficient = gaussian_mul(coefficient, gate_coefficient)
+            target, left_phase = monomial_value(left, middle ^ flip)
+            value = gaussian_phase(coefficient, right_phase + left_phase)
+            column[target] = gaussian_add(column.get(target, (Q(0), Q(0))), value)
+        columns.append({target: value for target, value in column.items()
+                        if value != (Q(0), Q(0))})
+    return columns
+
+
+def compose_operators(after: list[dict], before: list[dict]) -> list[dict]:
+    """Return after * before as exact sparse columns."""
+    require(len(after) == len(before), "operator dimensions")
+    result = []
+    for column in before:
+        output: dict[int, tuple[Q, Q]] = {}
+        for middle, left_value in column.items():
+            for target, right_value in after[middle].items():
+                output[target] = gaussian_add(
+                    output.get(target, (Q(0), Q(0))),
+                    gaussian_mul(right_value, left_value),
+                )
+        result.append({target: value for target, value in output.items()
+                       if value != (Q(0), Q(0))})
+    return result
+
+
+def operator_digest(columns: list[dict[int, tuple[Q, Q]]]) -> str:
+    canonical = [
+        [[target, str(value[0]), str(value[1])]
+         for target, value in sorted(column.items())]
+        for column in columns
+    ]
+    return digest(json.dumps(canonical, separators=(",", ":")).encode())
+
+
+def verify_exact_macro_candidate(programs: dict[str, list], recipes: list[dict]) -> dict:
+    """Test the rank-1 pair composition and retain the intervening ADD obligation."""
+    expected_climbs = (
+        ["climb", "B", 195, 0, 2, 1],
+        ["climb", "B", 195, 2, 252, 1],
+    )
+    expected_adds = {
+        "forward": ["scalar", ["add", ["L", 195], ["L", 521], 1, 2], 2],
+        "backward": ["scalar", ["add", ["L", 521], ["L", 195], -1, 2], 2],
+    }
+    interval_counts = {}
+    for orientation, events in programs.items():
+        first_index, second_index = 12806, 13402
+        require(events[first_index] == expected_climbs[0],
+                orientation + " exact first candidate event")
+        require(events[second_index] == expected_climbs[1],
+                orientation + " exact second candidate event")
+        require(events[first_index + 1] == expected_adds[orientation],
+                orientation + " exact intervening ADD")
+        window = events[first_index:second_index + 1]
+        tags = collections.Counter(event[0] for event in window)
+        require(tags == {"climb": 139, "scalar": 458},
+                orientation + " complete candidate window")
+        for register, expected_indices in ((195, [first_index, first_index + 1,
+                                                  second_index]),
+                                          (521, [first_index + 1])):
+            touches = [first_index + offset for offset, event in enumerate(window)
+                       if local_register_touched(event, register)]
+            require(touches == expected_indices,
+                    orientation + f" exact L{register} window touches")
+        interval_counts[orientation] = {
+            "events": len(window),
+            "climbs": tags["climb"],
+            "scalar_events": tags["scalar"],
+            "first_child": first_index,
+            "intervening_add": first_index + 1,
+            "second_child": second_index,
+        }
+
+    by_key = {(entry["old"], entry["new"], entry["rank"]): entry
+              for entry in recipes}
+    first = child_operator(by_key[(0, 2, 1)])
+    second = child_operator(by_key[(2, 252, 1)])
+    direct = child_operator(by_key[(0, 252, 2)])
+    composed = compose_operators(second, first)
+    require(len(composed) == len(direct) == 512,
+            "complete 512-vector basis covered")
+    mismatches = [index for index, (left, right) in enumerate(zip(composed, direct))
+                  if left != right]
+    require(not mismatches,
+            "successive rank-one operators equal the direct rank-two recipe")
+
+    # The equality contracts only the product of the two child maps. The ADD
+    # consumes an intermediate value: forward it injects B*y into L195; backward
+    # it emits A*x into L521. A single-output direct recipe omits that block.
+    require(all(second[column] for column in range(512)),
+            "forward add-source contribution is nonzero on every basis vector")
+    require(all(first[column] for column in range(512)),
+            "backward intermediate tap is nonzero on every basis vector")
+    return {
+        "status": "PASS_RANK1_PAIR_EQUALS_RANK2_BUT_ADD_TAP_BLOCKS_DIRECT_REPLACEMENT",
+        "source_archive_sha256": ARCHIVE_SHA256,
+        "selected_kappa": SELECTED_KAPPA,
+        "candidate": {
+            "path": [0, 2, 252],
+            "child_rank": 1,
+            "event_indices": {"first": 12806, "add": 12807, "second": 13402},
+            "windows_per_orientation": interval_counts,
+        },
+        "operator_dimension": 512,
+        "basis_columns_checked": len(composed),
+        "composition_equals_direct_rank2": True,
+        "first_recipe": [0, 2, 1],
+        "second_recipe": [2, 252, 1],
+        "direct_recipe": [0, 252, 2],
+        "operator_sha256": {
+            "first_rank1": operator_digest(first),
+            "second_rank1": operator_digest(second),
+            "direct_rank2": operator_digest(direct),
+            "composed_rank1_pair": operator_digest(composed),
+        },
+        "max_nonzeros_per_column": {
+            "first_rank1": max(map(len, first)),
+            "second_rank1": max(map(len, second)),
+            "direct_rank2": max(map(len, direct)),
+        },
+        "unabsorbed_intermediate": {
+            "forward": {
+                "required_block": "(1/2)*second_rank1*L521",
+                "nonzero_basis_inputs": 512,
+                "max_nonzeros_per_basis_column": max(map(len, second)),
+                "absent_from_direct_rank2_input": True,
+            },
+            "backward": {
+                "required_tap": "(-1/2)*first_rank1*L195 into L521",
+                "nonzero_basis_inputs": 512,
+                "max_nonzeros_per_basis_column": max(map(len, first)),
+                "emitted_by_direct_rank2_recipe": False,
+            },
+        },
+        "ideal_charge_screen": {
+            "original_rank_profile": [1, 1],
+            "split_rank2_plus_rank1_tap_profile": [2, 1],
+            "comparison_for_0_lt_a_lt_1": "2^(1-a)+1 > 2",
+            "multioutput_rank2_tap": "changed provider interface; not in pinned recipes or priced",
+        },
+    }
 
 
 def replay_frames(events: list, word: dict) -> None:
@@ -258,6 +452,11 @@ def main() -> None:
     require(not any(partner_matches["forward"] + partner_matches["backward"]),
             "no add source has a reusable same-key rank-one transition")
 
+    macro = verify_exact_macro_candidate(programs, recipes)
+    require(RESULT.is_file(), "exact macro result record exists")
+    require(json.loads(RESULT.read_text()) == macro,
+            "exact macro result matches full-basis replay")
+
     # Positive control: this exact endpoint pair has a direct rank-two recipe.
     witness = (0, 27, 2)
     require(witness in recipe_keys, "rank-two endpoint positive control")
@@ -285,6 +484,8 @@ def main() -> None:
         "reusable_same_key_partners=0 "
         "blocked_by_scalar=35 directly_fusible=0 "
         "touch_histogram=1:10,2:5,5:20 controls=3 "
+        f"pair_composition_equals_rank2={macro['basis_columns_checked']}/512 "
+        "intermediate_add_outputs=unabsorbed "
         f"selected_kappa={selected_kappa} no_new_kappa"
     )
 
