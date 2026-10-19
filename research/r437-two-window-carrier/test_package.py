@@ -65,6 +65,10 @@ def main():
         need(sorted(diff)==[-1,0,0,1] and a[giver]>a[taker]+1,'strict concavity transfer')
     with tempfile.TemporaryDirectory() as t:
         q=Path(t)/'package';shutil.copytree(P,q,ignore=shutil.ignore_patterns('__pycache__'))
+        # Mutate only the private clone, even when the source export is read-only.
+        q.chmod(0o700)
+        for entry in q.rglob('*'):
+            entry.chmod(0o700 if entry.is_dir() else 0o600)
         cmd=[sys.executable,'-I','-B','-OO',str(q/'verify.py')]
         def run(ok):
             r=subprocess.run(cmd,cwd=t,capture_output=True,text=True,timeout=60)
