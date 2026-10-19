@@ -1,0 +1,72 @@
+{
+  "frozen/changed/bit-native-caller/cold_cosets.py": [
+    {
+      "new": "RAW = PORTABLE.root / 'frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz'",
+      "old": "RAW=BASE/'integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz'"
+    },
+    {
+      "new": "FULL = PORTABLE.root / 'frozen/upstream/research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz'",
+      "old": "FULL=BASE/'integer-mult-bounds/research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz'"
+    },
+    {
+      "new": "COMP = PORTABLE.root / 'frozen/major/bit-endpoint/BIT-FULL-COMPENSATION.json'",
+      "old": "COMP=BASE/'.research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BIT-FULL-COMPENSATION.json'"
+    },
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_bytes())==out"
+    }
+  ],
+  "frozen/changed/bit-native-caller/eleven_factor_floor56.py": [
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_bytes())==out"
+    }
+  ],
+  "frozen/changed/bit-native-caller/readout_floor.py": [
+    {
+      "new": "RAW = PORTABLE.root / 'frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz'",
+      "old": "RAW = BASE / 'integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz'"
+    },
+    {
+      "new": "COMP = PORTABLE.root / 'frozen/major/bit-endpoint/BIT-FULL-COMPENSATION.json'",
+      "old": "COMP = BASE / '.research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BIT-FULL-COMPENSATION.json'"
+    },
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_bytes()) == out"
+    }
+  ],
+  "frozen/changed/bit-native-caller/ten_factor_floor56.py": [
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_bytes())==out"
+    }
+  ],
+  "frozen/changed/bit-native-caller/unit_cold_extension.py": [
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_bytes())==out"
+    }
+  ],
+  "frozen/changed/budgets/overcomplete_pressure.py": [
+    {
+      "new": "RAW = PORTABLE.root / 'frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz'",
+      "old": "RAW=BASE/'integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz'"
+    },
+    {
+      "new": "COMP = PORTABLE.root / 'frozen/major/bit-endpoint/BIT-FULL-COMPENSATION.json'",
+      "old": "COMP=HERE.parents[1]/'kappa-major-20261018T1330Z/bit-endpoint/BIT-FULL-COMPENSATION.json'"
+    },
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_text())==out"
+    }
+  ],
+  "frozen/changed/cold-reader/nine_term_floor.py": [
+    {
+      "new": "PORTABLE.equal(path, out)",
+      "old": "json.loads(path.read_text())==out"
+    }
+  ]
+}

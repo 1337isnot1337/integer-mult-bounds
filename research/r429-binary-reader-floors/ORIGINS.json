@@ -1,0 +1,161 @@
+{
+  "note": "Original local source and receipt bytes are retained. Original absolute paths are provenance, not runtime dependencies.",
+  "files": [
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/cold-reader/README.md",
+      "bytes": 2471,
+      "sha256": "6b4646832ac2757e046484474a290bd0ba817fe0ecef5b4d901fd5065a74b808",
+      "retained": "frozen/changed/cold-reader/README.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/cold-reader/nine_term_floor.py",
+      "bytes": 6985,
+      "sha256": "a6b9dab17d0344f504143bd8bcc2f4737984c7c5c06ed2dadd2e8c01f8722633",
+      "retained": "frozen/changed/cold-reader/nine_term_floor.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/cold-reader/NINE-TERM-FLOOR.json",
+      "bytes": 16732,
+      "sha256": "e1c4a1c81cf636fb6bd24832ba95a105a1635ea9720d1150009f762cdc620aea",
+      "retained": "frozen/changed/cold-reader/NINE-TERM-FLOOR.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/readout_floor.py",
+      "bytes": 9097,
+      "sha256": "c23821c0a30dbce41ac07fa7b53c2374978edfb33742e3d76bbe4482ce6c5137",
+      "retained": "frozen/changed/bit-native-caller/readout_floor.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/READOUT-FLOOR.md",
+      "bytes": 5228,
+      "sha256": "ae36fb469994cdd5fbb3181422d3cdc3ec84e0add8f6f3c20bf181d501758318",
+      "retained": "frozen/changed/bit-native-caller/READOUT-FLOOR.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/READOUT-FLOOR.json",
+      "bytes": 14486,
+      "sha256": "9fa6eb423371c3a83362da6e5a9a18ce6a6b00e05ce1106f3dde3d02881adc08",
+      "retained": "frozen/changed/bit-native-caller/READOUT-FLOOR.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/cold_cosets.py",
+      "bytes": 7569,
+      "sha256": "b266d71551ea82a767029727bf2ce6b594d0f5b4d49719a146abbe6348a7d050",
+      "retained": "frozen/changed/bit-native-caller/cold_cosets.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/COLD-COSETS.md",
+      "bytes": 5437,
+      "sha256": "1be3e20d3a11c5aeaa26d488ed9f99a3cd8238cbcfc5aee0cc28669342fe00c6",
+      "retained": "frozen/changed/bit-native-caller/COLD-COSETS.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/COLD-COSETS.json",
+      "bytes": 24747,
+      "sha256": "8788a069ac8278f3c5b9ce1393b991a91b45c635c20d02e5347f0a7ca01e09cc",
+      "retained": "frozen/changed/bit-native-caller/COLD-COSETS.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/cold_factor_search.py",
+      "bytes": 6926,
+      "sha256": "3752d7c1676a19f4d1819cdb3d3b9080dce5ba7e29f0c3d44e54a82d6a23667b",
+      "retained": "frozen/changed/bit-native-caller/cold_factor_search.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/ten_factor_floor56.py",
+      "bytes": 6728,
+      "sha256": "6a09084645cc49b45c439c7e6d14b7c878609575549c5b5e2638ea418adfca0c",
+      "retained": "frozen/changed/bit-native-caller/ten_factor_floor56.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/TEN-FACTOR-FLOOR56.md",
+      "bytes": 2912,
+      "sha256": "a24b903fdc46b3b64dd06174d2194c9a276f10565c8f15e2bba2d5c4b88415ec",
+      "retained": "frozen/changed/bit-native-caller/TEN-FACTOR-FLOOR56.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/TEN-FACTOR-FLOOR56.json",
+      "bytes": 29941,
+      "sha256": "565005604f2abe1809a3e32ed3fd29b179645f8d62e1562d27f7faeea3fbd5b7",
+      "retained": "frozen/changed/bit-native-caller/TEN-FACTOR-FLOOR56.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/unit_cold_extension.py",
+      "bytes": 7771,
+      "sha256": "da6f8021ceac3e592b96aca33ec80fd9ba9e09ad5d529194ca254dd156182e17",
+      "retained": "frozen/changed/bit-native-caller/unit_cold_extension.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/UNIT-COLD-EXTENSION.md",
+      "bytes": 2692,
+      "sha256": "b7b7fda0299ed8bdeb6e652511d720b5d3735493670f3e641c3e96eee53a445c",
+      "retained": "frozen/changed/bit-native-caller/UNIT-COLD-EXTENSION.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/UNIT-COLD-EXTENSION.json",
+      "bytes": 409184,
+      "sha256": "8968b885cd952987dc264cb506dd89236c736b4bc5029095e844dce842380be5",
+      "retained": "frozen/changed/bit-native-caller/UNIT-COLD-EXTENSION.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/eleven_factor_floor56.py",
+      "bytes": 7128,
+      "sha256": "fcb06c9e7e5ed8c5f50945efec5c3992954705c752973a8487e2fcd6b1dc5afc",
+      "retained": "frozen/changed/bit-native-caller/eleven_factor_floor56.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/ELEVEN-FACTOR-FLOOR56.md",
+      "bytes": 4431,
+      "sha256": "5432b4d22a7c42b916c5e2352206f2e4ba672abfb05578e0ed921db09e6327af",
+      "retained": "frozen/changed/bit-native-caller/ELEVEN-FACTOR-FLOOR56.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/bit-native-caller/ELEVEN-FACTOR-FLOOR56.json",
+      "bytes": 40184,
+      "sha256": "abb0fcdd4f851ec48929ab0c7cd0e04d8fd1e0600be3a101ac2ee66fa52b45c4",
+      "retained": "frozen/changed/bit-native-caller/ELEVEN-FACTOR-FLOOR56.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/budgets/overcomplete_pressure.py",
+      "bytes": 6994,
+      "sha256": "4d9617cc3446861395d4d27ad4da7fe20e7d0dae0630520f0271d33f4a4df0a5",
+      "retained": "frozen/changed/budgets/overcomplete_pressure.py"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/budgets/OVERCOMPLETE-PRESSURE.md",
+      "bytes": 3891,
+      "sha256": "baa73fcb2f90f8d880ae30a57c9d7dd1da46b9cfd5b251ea59f53028a57fa284",
+      "retained": "frozen/changed/budgets/OVERCOMPLETE-PRESSURE.md"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/budgets/OVERCOMPLETE-PRESSURE.json",
+      "bytes": 6664,
+      "sha256": "826471cff877780b829d6a49859ea0f6347725b63457a776ba00e3a1ffd4ebac",
+      "retained": "frozen/changed/budgets/OVERCOMPLETE-PRESSURE.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BIT-FULL-COMPENSATION.json",
+      "bytes": 49165,
+      "sha256": "1ee06005d3b82ff592640d9aa4be2021b6de0a0b27fba5723aa06c36a6adbd20",
+      "retained": "frozen/major/bit-endpoint/BIT-FULL-COMPENSATION.json"
+    },
+    {
+      "path": "/Users/ross/git/math/.research-automation/runs/kappa-major-20261018T1330Z/bit-endpoint/BIT-FULL-COMPENSATION-WORD.json.gz",
+      "bytes": 57926,
+      "sha256": "0f461dbc7e82a02faedb4a5129103963507c9f063a0a3679ba5d20ad94df160e",
+      "retained": "frozen/major/bit-endpoint/BIT-FULL-COMPENSATION-WORD.json.gz"
+    },
+    {
+      "path": "/Users/ross/git/math/integer-mult-bounds/research/bit-r438-transport-rehost/words/r438-t154.json.gz",
+      "bytes": 42305,
+      "sha256": "a353999bceac4ac957f540adfd3e5f8768297138b27132eeb83332e2ea4b1022",
+      "retained": "frozen/upstream/research/bit-r438-transport-rehost/words/r438-t154.json.gz"
+    },
+    {
+      "path": "/Users/ross/git/math/integer-mult-bounds/research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz",
+      "bytes": 33865,
+      "sha256": "1fb726ea3818fe0837cceb0dd22a71a0814f064e5e781628104610d6468e0e55",
+      "retained": "frozen/upstream/research/e8-bit-carrier-skeleton/data/bit/bitE8-r865.json.gz"
+    }
+  ]
+}
