@@ -86,6 +86,23 @@ writes and normalize it; I do not pass a runtime value to `Count.literal`.
 For a larger divisor I retain the original encoded remainder recurrence
 and a separate divisor copy, including when the caller aliases the operands.
 
+Before that recurrence, I copy up to `m-1` leading numerator bits into a
+prefix scratch, using the copied divisor's remaining digit positions as
+the extent. Here `m` is the canonical divisor's bit length. I emit one zero
+quotient bit for each copied bit, since the prefix is less than
+`2^(m-1)<=d`. I reverse the prefix once into the encoded remainder, then
+reuse the scratch for the final quotient. I keep a short numerator at its
+left marker until the recurrence finishes; otherwise I would process it
+again. I repair the scratch and divisor heads before clearing or rewinding.
+If the divisor's highest symbol is not one, I retain the original recurrence
+without prefill. I never decode either operand or its length.
+
+This prefill costs `O(n+m)` and leaves at most `max(0,n-m+1)` recurrence
+steps. For canonical encoded lengths `n,m>=1`, I therefore spend
+`O(n+m+max(0,n-m+1)*m)`, within the original general allowance. I reuse the
+same five owned tapes. If `n<m`, I return quotient zero and the complete
+numerator as remainder without running the encoded remainder recurrence.
+
 For numerator and denominator bit lengths `n,m`, I charge `O(n+1)` time
 in the bounded-divisor branch and `O(n*m+n)` in the general branch. I include
 the probe, copies, reverse scan, normalization and cleanup. I use a fixed
@@ -263,6 +280,14 @@ I also checked that a 130-bit encoded width cannot enter bounded control.
 I run the complete recursive-word/FFT group under the same scope; its
 2049-bit case requires 4098 output bits and reaches the original fallback.
 
+Before installing those replacements, I load the Tile, Core, Chirp and
+small-twiddle modules. The cold word checker previously imported them inside
+the scope and retained some temporary `power_two` references. I now capture
+the eleven direct aliases and two copied function namespaces after preloading,
+and check that I preserve their entry values on success and exception.
+The word check also requires the original thirteen references before entry
+and after the complete group. I include a separate interrupted-scope control.
+
 ## Local evidence and limits
 
 I checked all 65536 eight-bit operand pairs through the 32-phase control,
@@ -285,6 +310,12 @@ rejection, borrowed head restoration, the four actual setup bindings and
 their restoration after an interrupted adaptation.
 I also reject failures while allocating the quotient scratch and general
 remainder, checking that I return the earlier allocations and borrowed heads.
+The prefix refinement adds thirty cases across33/65/129/513/4097-bit
+divisors, including shorter numerators, the exact prefix boundary, equal
+operands and short positive quotients. I checked2112 pairs in total, with
+numerators through4101 bits. I also interrupt the prefix reversal after
+partial output for both an exhausted and an unexhausted numerator, then
+check the complete borrowed-head and owned-tape restoration.
 
 The full64-coordinate p48 chirp passed its separate dense Fourier enclosure
 and reproduced hash

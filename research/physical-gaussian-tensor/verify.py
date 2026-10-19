@@ -21,9 +21,23 @@ def check(suite):
     require(Path(module.__file__).resolve() == Path(__file__).resolve().parent / (name + ".py"),
             "package-local tensor checker")
     if suite == "word":
-        from tensor_records import bounded_record_io
+        from tensor_records import bounded_record_io, original_power_two, preload_record_cohort, record_aliases
+        preload_record_cohort()
+        aliases = record_aliases()
+        require(all(original is original_power_two for _, original in aliases),
+                "cold word imports retain original power aliases")
         with bounded_record_io():
-            return module.run()
+            evidence = module.run()
+        require(all(namespace["power_two"] is original for namespace, original in aliases),
+                "cold word restores direct and private numerical aliases")
+        try:
+            with bounded_record_io():
+                raise RuntimeError("planned cold-word scope interruption")
+        except RuntimeError as error:
+            require(str(error) == "planned cold-word scope interruption", "specific cold-word interruption")
+        require(all(namespace["power_two"] is original for namespace, original in aliases),
+                "cold word restores aliases after interruption")
+        return evidence
     if suite in ("consumer", "consumer_opposite"):
         from tensor_fixture import prepared_catalogue
         return module.run(opposite=suite == "consumer_opposite", prepared=prepared_catalogue())

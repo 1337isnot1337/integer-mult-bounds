@@ -92,8 +92,8 @@ added alias, malformed-bit and partial-output failure controls. I allocate
 I subsequently combined each scalar width check with its magnitude-length
 scan, retaining the original guards and sequential cleanup registration.
 The grouped check passed in 21.994 seconds and the complete opposite
-transform retained its output hash in 161.301 seconds. I now allocate
-10,10,50,430,350,350 seconds, preserving the 1200-second total and fixtures.
+transform retained its output hash in 161.301 seconds. For that candidate I
+allocated10,10,50,430,350,350 seconds, preserving the1200-second total and fixtures.
 
 The source/budget check passed after I corrected the generated archive's
 container metadata. It authenticates the full source exports,15 live input
@@ -122,6 +122,37 @@ transform reached its 340-second limit without reporting a numerical
 mismatch, and GitHub skipped its final unchanged-input step. I retained
 that failed run and the successful 57-file local export, then consolidated
 the scalar scans and redistributed the same total replay budget.
+
+At head2568fb83 I passed the six-command local export again, with stage times
+1.550, 2.820, 21.798, 206.818, 161.073 and 162.859 seconds and unchanged
+scientific records. The third hosted runner passed sources and mechanics,
+then reached the arithmetic group's50-second limit. GitHub skipped the
+remaining checks and unchanged-input step. I retain that failure and its
+valid local export separately.
+
+I then found a cold-word import-scope leak: eleven modules and two copied
+function namespaces could retain the temporarily patched `power_two` helper.
+After preloading that cohort and checking restoration, I passed the complete
+arithmetic group in23.168 seconds with the same numerical hashes. A complete
+catalogue cProfile diagnostic reached600 seconds without a usable profile;
+I do not count it as a completed replay. I used the earlier bounded line
+profile and source analysis to choose bounded metadata loops instead.
+
+I also tested a63-binding bounded-metadata experiment. I reproduced the
+coefficient packet in211.703 seconds and the full forward output in159.182
+seconds, compared with206.818 and161.073 seconds in the preceding export.
+I removed that experiment because those timings did not justify its wider
+scope. I retained the cold-import restoration fix.
+
+I next initialized the remainder from the leading numerator prefix before general encoded
+division. I passed2112 exact pairs through4101-bit numerators and4097-bit
+divisors in4.657 seconds, retaining the five-tape peak. I injected failures
+after partial prefix reversal with both short and long numerators and
+checked head and allocation restoration. The expanded division result hash
+is `1b076802ab512ccf956a427c6af4263956bc7be64eba73f0d6f80a306880ada1`.
+I regenerated the complete coefficient packet in107.790 seconds with its
+original hash. I now allocate20,20,70,290,400,400 seconds to the six registered
+commands, preserving the1200-second total, precision and full fixtures.
 
 The original p48/P80 coefficient producer reached600 seconds. A bounded
 diagnostic located its global exponential setup in encoded multiplication.

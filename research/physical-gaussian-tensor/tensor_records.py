@@ -1,5 +1,7 @@
 """Exact signed-record codecs with bounded width control and a retained fallback."""
 from contextlib import ExitStack, contextmanager
+from importlib import import_module
+import sys
 from unittest.mock import patch
 from tensor_sources import active
 active()
@@ -120,14 +122,36 @@ CODEC_BINDINGS = ((ring_words, "read_fixed", original_read_fixed, read_fixed),
                   (ring_words, "bit_at", original_bit_at, bit_at))
 
 
+def preload_record_cohort():
+    for name in ("expansion_tile", "gaussian_core", "chirp_engine", "tensor_twiddles"):
+        import_module(name)
+
+
+def record_aliases():
+    names = ("expansion_records", "expansion_tile_geometry", "gaussian_axis",
+             "gaussian_exponentials", "gaussian_interior", "gaussian_page",
+             "chirp_kernel", "chirp_odometer", "chirp_plan", "phase_basis", "tensor_twiddles")
+    need(all(name in sys.modules for name in names), "preloaded numerical-record alias cohort")
+    namespaces = [vars(sys.modules[name]) for name in names]
+    module = sys.modules["tensor_twiddles"]
+    namespaces.extend((module.SmallTwiddles.run.__globals__, module.SmallPhaseBasis.run.__globals__))
+    return tuple((namespace, namespace["power_two"]) for namespace in namespaces)
+
+
 @contextmanager
 def bounded_record_io():
     """Adapt signed records, Gaussian packed slots and complete word returns."""
+    preload_record_cohort()
+    aliases = record_aliases()
     need(all(getattr(module, name) is original for module, name, original, _ in CODEC_BINDINGS),
          "one retained numerical-record codec cohort")
-    with ExitStack() as stack:
-        for module, name, _, replacement in CODEC_BINDINGS:
-            stack.enter_context(patch.object(module, name, replacement))
-        yield
-    need(all(getattr(module, name) is original for module, name, original, _ in CODEC_BINDINGS),
-         "restore retained numerical-record codecs")
+    try:
+        with ExitStack() as stack:
+            for module, name, _, replacement in CODEC_BINDINGS:
+                stack.enter_context(patch.object(module, name, replacement))
+            yield
+    finally:
+        need(all(getattr(module, name) is original for module, name, original, _ in CODEC_BINDINGS),
+             "restore retained numerical-record codecs")
+        need(all(namespace["power_two"] is original for namespace, original in aliases),
+             "preserve preloaded numerical-record aliases")

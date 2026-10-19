@@ -42,6 +42,31 @@ def stream_divide(numerator, denominator):
             need(0 < control < 1 << CONTROL_BITS, "positive fixed-width divisor control")
             residue = 0
         numerator.msb()
+        if control is None:
+            divisor.msb()
+            if divisor.read() == 1:
+                divisor.step(-1)
+                borrowed_tape(remainder.tape).clear()
+                while divisor.read() != LEFT and numerator.read() != LEFT:
+                    need(divisor.read() in (0, 1), "binary setup divisor")
+                    bit = numerator.read()
+                    need(bit in (0, 1), "binary setup division numerator")
+                    quotient.tape.append(bit)
+                    reverse.tape.append(0)
+                    numerator.step(-1)
+                    divisor.step(-1)
+                quotient.tape.append(RIGHT)
+                quotient.msb()
+                while quotient.read() != LEFT:
+                    remainder.tape.append(quotient.read())
+                    quotient.step(-1)
+                quotient.step(1)
+                borrowed_tape(quotient.tape).clear()
+                remainder.tape.append(RIGHT)
+                remainder.normalize()
+            if divisor.read() == LEFT:
+                divisor.step(1)
+            divisor.rewind()
         while numerator.read() != LEFT:
             bit = numerator.read()
             need(bit in (0, 1), "binary setup division numerator")

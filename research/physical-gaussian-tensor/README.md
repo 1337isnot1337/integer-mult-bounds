@@ -68,7 +68,7 @@ For the six registered checks, use:
 python3.12 -B scripts/research_package.py --package research/physical-gaussian-tensor
 ```
 
-I bound each command by at most 430 seconds and their declared total by 1200
+I bound each command by at most 400 seconds and their declared total by 1200
 seconds. I record measured stages in [EVIDENCE.md](EVIDENCE.md) and exact
 publication receipts in the linked investigation; runtime depends on the host.
 

@@ -12,6 +12,7 @@ def run():
     from cardinal_counts import Count
     from check_support import no_decode
     from expansion_check_block import packet_bytes
+    from records import Tape
     from ring_check_words import decode
     from router_metadata import owned
     from scratch_pool import ScratchPool
@@ -30,6 +31,11 @@ def run():
                       (divisor+1, divisor), (divisor*divisor+divisor-1, divisor)))
     cases.extend((((1 << 4097)-1, (1 << 32)-1), ((1 << 4096)+17, 1 << 31),
                   ((1 << 1025)+7, (1 << 513)+3)))
+    for width in (33, 65, 129, 513, 4097):
+        divisor = (1 << (width-1))+3
+        cases.extend(((1, divisor), ((1 << (width-2))-1, divisor),
+                      ((1 << (width-1))-1, divisor), (divisor-1, divisor),
+                      (divisor, divisor), (17*divisor+2, divisor)))
     original = encoded.divide
     modules = (encoded, gaussian_rationals, gaussian_window, twiddle_setup)
     def check(a, b):
@@ -99,11 +105,52 @@ def run():
                     erase_marker(tape)
             require(saved == [(bytes(v.tape.cells), v.tape.head) for v in (first, second)],
                     "interrupted division restores borrowed operands and origin heads")
+    for width in (33, 130):
+        with owned(Count.literal((1 << width)-1), Count.literal((1 << 65)+3)) as (first, second):
+            saved = [(bytes(v.tape.cells), v.tape.head) for v in (first, second)]
+            original_msb, original_append = Count.msb, Tape.append
+            scans = appends = 0
+            armed = False
+            def prefix_msb(value):
+                nonlocal scans, armed
+                result = original_msb(value)
+                scans += 1
+                if scans == 3:
+                    armed = True
+                return result
+            def prefix_append(tape, value):
+                nonlocal appends
+                if armed:
+                    appends += 1
+                    if appends == 3:
+                        raise RuntimeError("planned remainder prefix interruption")
+                return original_append(tape, value)
+            for tape in pool.tapes:
+                initialize_marker(tape)
+            try:
+                with sealed_constructors(), scope.installed():
+                    try:
+                        with no_decode(), patch.object(Count, "msb", prefix_msb), patch.object(Tape, "append", prefix_append):
+                            stream_divide(first, second)
+                    except RuntimeError as error:
+                        require(str(error) == "planned remainder prefix interruption", "specific partial-prefix failure")
+                    else:
+                        raise ValueError("missing partial-prefix failure")
+                    require(scans == appends == 3 and not pool.live,
+                            "prefix interruption returns all owned tapes")
+                    pool.empty()
+            finally:
+                for tape in pool.tapes:
+                    erase_marker(tape)
+            require(saved == [(bytes(v.tape.cells), v.tape.head) for v in (first, second)],
+                    "prefix interruption restores both exhausted and unexhausted numerator heads")
     check(12345, 67)
     require(not pool.live and all(t.head == 1 and all(v == BLANK for v in t.cells) for t in pool.tapes),
             "setup division restores its fixed tape inventory")
-    return {"cases": len(cases)+1, "maximum_numerator_bits": 4097, "pool_peak": pool.peak,
+    return {"cases": len(cases)+1, "maximum_numerator_bits": max(a.bit_length() for a, _ in cases),
+            "maximum_divisor_bits": max(b.bit_length() for _, b in cases), "pool_peak": pool.peak,
             "sha256": digest.hexdigest(), "controls": ["zero_divisor", "alias", "interrupted_alias_scope",
                                                        "interrupted_reverse_allocation", "interrupted_remainder_allocation",
+                                                       "interrupted_short_prefix", "interrupted_long_prefix",
                                                        "positive_reuse"],
             "scope": "exact streamed division; only proven thirty-two-bit divisors enter finite control"}
