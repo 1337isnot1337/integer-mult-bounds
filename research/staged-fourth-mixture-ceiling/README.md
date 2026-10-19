@@ -40,7 +40,7 @@ ledger on all four words and extracts the current 360-replica bins.
 `independent/check.py` uses a separately implemented fixed-point rational enclosure
 engine and pattern enumeration; `independent/review_broad.py` separately checks the whole exponent interval and affine fills. The normal and optimized commands retain
 explicit rejecting controls. `RESULT.json` and `PROOF.md` give the exact
-certificate and derivation. No optimizer is needed for replay.
+certificate and derivation. No optimizer is needed for replay. All four standalone commands in `VERIFY.json` also run from the official committed export, with `{package}` replaced by the exported package path; add `-O` for optimized replay. The metadata commands above require Git.
 
 Fourteen predecessor files are retained byte-for-byte. `SOURCE-EXPORT.json`
 records their original head, path, Git blob and SHA256; `SOURCES.json` binds

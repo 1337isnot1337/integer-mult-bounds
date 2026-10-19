@@ -163,7 +163,7 @@ profile and prove the unique optimum x=1080 throughout this broad k interval.
 The broad review rejects a nonzero-mass factorization, an increased capacity-8
 dual that preserves zero rank mass, a missing capacity-48 bin, an extra affine
 pattern, and a negative endpoint multiplicity. The result is in
-`BROAD-REVIEW.json`. It remains a relaxation with real pattern multiplicities.
+the report emitted by `independent/review_broad.py`. It remains a relaxation with real pattern multiplicities.
 
 ## Root certificate and comparison
 
@@ -237,11 +237,7 @@ Controls reject a wrong bin-dual sign, a raised capacity-48 dual and an omitted
 capacity-48 bin. Arithmetic controls check all k=0 integer powers and the
 nontrivial exact identity `(2^100)^(99/100)=2^99` through the full enclosure path.
 
-`RESULT.json` contains both endpoint checks, the entire-root-bracket dual check,
-the integer pooled primal, the independently rechecked literal root and all
-controls in one certificate. The broad review replays with
-
-```
-python3 -I -B independent-bound/review_broad.py --source source4088 \
-  --output independent-bound/BROAD-REVIEW.json
-```
+Either independent command accepts `--output PATH` to save its report. The
+committed top-level `RESULT.json` is the primary checker's certificate; the
+independent commands freshly derive their own endpoint, primal, dual and control
+evidence and do not trust that primary certificate.
