@@ -147,12 +147,19 @@ class FamilyDecision(unittest.TestCase):
                     checker.check_family_decision(item, self.decision)
 
     def test_missing_closure_is_distinct_from_recorded_null(self):
-        decision = self.latest[620]
-        item = deepcopy(self.items[620])
+        # This frozen decision recorded null; PR620's latest review has a merge receipt.
+        decision = next(row for row in self.families['k492'] if row['number'] == 620)
         self.assertIsNone(decision['closure'])
-        item.pop('closure')
-        with self.assertRaisesRegex(ValueError, '#620:.*closure'):
-            checker.check_family_decision(item, decision)
+        checker.check_family_decision(deepcopy(decision), decision)
+        for operation in ('missing', 'fabricated'):
+            item = deepcopy(decision)
+            if operation == 'missing':
+                item.pop('closure')
+            else:
+                item['closure'] = {'receipt': 'unapproved.json'}
+            with self.subTest(operation=operation), self.assertRaisesRegex(
+                    ValueError, '#620:.*closure'):
+                checker.check_family_decision(item, decision)
 
     def test_boolean_completion_flags_cannot_be_replaced_by_integers(self):
         for number in (626, 620):
