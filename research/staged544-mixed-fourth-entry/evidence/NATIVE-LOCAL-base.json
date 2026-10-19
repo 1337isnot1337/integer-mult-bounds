@@ -1,14 +1,14 @@
 {
   "forward": {
-    "sha256": "d37bd2f84ca337b656ae520c647d24282984661d1b3f5c30322cc1e05657d544",
-    "events": 22807,
-    "scalar_macros": 17450,
+    "sha256": "6a084558a9c99578d8fa3e0276af52032f207737d25362b039ac9ca1a1364532",
+    "events": 22808,
+    "scalar_macros": 17452,
     "warp_events": 240,
-    "real_component_primitive_bound": 158086,
+    "real_component_primitive_bound": 158098,
     "paid_profile": {
-      "1": 2490,
-      "2": 714,
-      "3": 226,
+      "1": 2489,
+      "2": 713,
+      "3": 227,
       "4": 99,
       "5": 20,
       "8": 8
@@ -19,15 +19,15 @@
     "zero_buffers_returned_to_zero": 91
   },
   "backward": {
-    "sha256": "77b6838d16ce061847fca812be51a5dfe47f54fa1fe533c003496680bf407abf",
-    "events": 22807,
-    "scalar_macros": 17450,
+    "sha256": "78854c3afdfebcdae885b7afcd4db314e95d71faba9ca89e800861e926d84719",
+    "events": 22808,
+    "scalar_macros": 17452,
     "warp_events": 240,
-    "real_component_primitive_bound": 158134,
+    "real_component_primitive_bound": 158146,
     "paid_profile": {
-      "1": 2490,
-      "2": 714,
-      "3": 226,
+      "1": 2489,
+      "2": 713,
+      "3": 227,
       "4": 99,
       "5": 20,
       "8": 8

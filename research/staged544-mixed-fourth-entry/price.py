@@ -13,12 +13,15 @@ def main():
     lower,upper=Q(r['root_lower']),Q(r['root_upper'])
     ml,mh=E.certify_bracket(profile,lower,upper)
     need([list(map(str,x)) for x in [ml,mh]]==[r['lower_moment_interval'],r['upper_moment_interval']],'recorded rational signs')
-    predecessor={int(k):n for k,n in read(P/'owner/PR4076-PROFILE.json').items()}
-    E.certify_bracket(predecessor,E.LOWER,E.UPPER)
-    need(Q(r['predecessor_lower'])==E.LOWER and Q(r['predecessor_upper'])==E.UPPER,'predecessor bracket')
+    predecessor={int(k):n for k,n in read(P/'owner/PR4085-PROFILE.json').items()}
+    pl,pu=Q(r['predecessor_lower']),Q(r['predecessor_upper'])
+    E.certify_bracket(predecessor,pl,pu)
+    claim=read(P/'inputs/PR4085-CLAIM.json')['complex_supplier']
+    need(claim['profile']=={str(k):v for k,v in predecessor.items()} and Q(claim['lower'])==pl and Q(claim['upper'])==pu,'pinned PR4085 price')
+    need(pl==Q('.001730970419199163702738') and pu==Q('.001730970419199163702739'),'PR4085 predecessor bracket')
     endpoint=lower-Q(1,10**46)-Q(1,10**70)
-    need(Q(r['conditional_kappa'])==endpoint and endpoint>E.UPPER,'strict conditional improvement')
-    need(Q(r['gain_lower_bound'])==endpoint-E.UPPER,'gain lower bound')
+    need(Q(r['conditional_kappa'])==endpoint and endpoint>pu,'strict conditional improvement')
+    need(Q(r['gain_lower_bound'])==endpoint-pu,'gain lower bound')
     need(E.moment(E.signed(profile),endpoint)[1]<0,'padded endpoint')
     need(sum(k*v for k,v in profile.items())==65088*360,'profile mass')
     out=[]

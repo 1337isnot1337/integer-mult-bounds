@@ -15,8 +15,8 @@ from audit_verify import semantics
 import staged_entries_applier as S
 import inherited_frames as I
 
-THREE={1:2488,2:714,3:223,4:102,5:20,8:8}
-FOUR={1:2490,2:714,3:226,4:99,5:20,8:8}
+THREE={1:2487,2:713,3:224,4:102,5:20,8:8}
+FOUR={1:2489,2:713,3:227,4:99,5:20,8:8}
 
 def read(p):
     raw=p.read_bytes();return json.loads(gzip.decompress(raw) if p.suffix=='.gz' else raw)
@@ -65,7 +65,7 @@ def prefix_certificate(old):
             else:v.pop(g[1],None)
         elif g[0]=='scale' and g[1] in v:v[g[1]]*=Q(g[2],g[3])
     need(v=={601:Q(1),602:Q(-1),123:Q(1,2)},'exact prefix release vector')
-    for g in gates[10515:11160]:
+    for g in gates[10515:11161]:
         if g[0]=='add':need(g[2]!=602 and g[1]!=601,'release commutation')
         elif g[0]=='scale':need(g[1] not in (601,602) or g[2]==g[3],'release scale')
         elif g[0]=='warp':need(g[1] not in (601,602),'release warp')
@@ -96,6 +96,16 @@ def main():
         old=read(P/f'inputs/THREE-{tag}.json.gz');new=read(P/f'inputs/FOUR-{tag}.json.gz');rec=read(P/f'recipe/RECORD-{tag}.json')
         need(S.apply(old,rec)==new,'literal reconstruction');contract(old,new);prefix_certificate(old)
         old_check=inspect(old,THREE);new_check=inspect(new,FOUR)
+        old_receipt=read(P/f'evidence/THREE-NATIVE-{tag}.json')
+        need(old_receipt['status']=='PASS_COMPLETE_T74_NATIVE_REPLAY','inherited three-entry native status')
+        need(old_receipt['word_sha256']==sha(P/f'inputs/THREE-{tag}.json.gz'),'inherited native input binding')
+        need([s['step'] for s in old_receipt['steps']]==['native','ledgers','local-replay','wrappers','phases'] and all(s['exit_code']==0 for s in old_receipt['steps']),'inherited five native stages')
+        need(read(P/f'evidence/THREE-LOCAL-{tag}.json')['forward']['paid_profile']==old['report']['local_profile'],'inherited native bill')
+        for phase_name,canonical_name in [('THREE-PHASES','THREE-CANONICAL'),('NATIVE-PHASES','NATIVE-CANONICAL')]:
+            phases=read(P/f'evidence/{phase_name}-{tag}.json')
+            canonical_path=P/f'evidence/{canonical_name}-{tag}.json.gz'
+            need(phases['status']=='PASS_NEW_WORD_EXACT_LOCAL_PHASE_RECIPES','native exact phase recipes')
+            need(phases['canonical_word_sha256']==sha(canonical_path),'native phase word binding')
         receipt=read(P/f'evidence/NATIVE-{tag}.json')
         need(receipt['status']=='PASS_COMPLETE_T74_NATIVE_REPLAY','native status')
         need(receipt['word_sha256']==sha(P/f'inputs/FOUR-{tag}.json.gz'),'native word pin')

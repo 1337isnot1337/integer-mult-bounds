@@ -1,7 +1,7 @@
 {
   "status": "PASS_COMPLETE_T74_NATIVE_REPLAY",
   "engine": "sparse",
-  "word_sha256": "5b2b10be033fe6031171367465fc69671fceb51d9381a39e656e886a26cd2b3b",
+  "word_sha256": "aecaddba48fdff6353a6511c3623346b05aa607e30103fb016604a2b1025ce95",
   "source_sha256": {
     "accelerators/SPARSE-NOTICE.md": "3da80a5155c625bff907a42a82c65bfcf92854d2c960bcea4537c19c99efd4f2",
     "accelerators/SPARSE-PROOF.md": "d73e4522602404caba8e7f247005a45c8a8cd26ffd2a70d65f4f9556a391d053",
@@ -26,30 +26,30 @@
     {
       "step": "native",
       "exit_code": 0,
-      "seconds": 2.741377905000263
+      "seconds": 2.2944146629997704
     },
     {
       "step": "ledgers",
       "exit_code": 0,
-      "seconds": 2.9886172429996805
+      "seconds": 2.5275541569999405
     },
     {
       "step": "local-replay",
       "exit_code": 0,
-      "seconds": 77.47714140299922
+      "seconds": 81.18014164299984
     },
     {
       "step": "wrappers",
       "exit_code": 0,
-      "seconds": 4.5150454919994445
+      "seconds": 3.713830577000408
     },
     {
       "step": "phases",
       "exit_code": 0,
-      "seconds": 92.85737213500033
+      "seconds": 101.5449247029992
     }
   ],
-  "seconds": 180.5999622620002,
+  "seconds": 191.27399151499958,
   "python": "3.12.14",
   "scope": "Full five-stage native replay including independent all-column warp recipes and original rejection controls; supplier/outer admission separate."
 }

@@ -12,16 +12,16 @@
     "source_pr": 4076
   },
   "inputs/THREE-base.json.gz": {
-    "sha256": "8159c67d29ab58efe546ebc4ce20872421996cc71b5f17737ff8b36cbc76d148",
-    "source_commit": "9744f9df268590295a9872b1952c695a678192b9",
-    "source_path": "research/staged544-triple-entry-fill/inputs/NEW-base.json.gz",
-    "source_pr": 4076
+    "sha256": "df31495cff95a1e512da398f52841c6b5ade29067869b3d68b89d756a5641112",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43base.json.gz",
+    "source_pr": 4085
   },
   "inputs/THREE-extra.json.gz": {
-    "sha256": "0147e6b30ef328e227e89113323eb0d02d116e125b0e7c99a00ea4f2652dcc80",
-    "source_commit": "9744f9df268590295a9872b1952c695a678192b9",
-    "source_path": "research/staged544-triple-entry-fill/inputs/NEW-extra.json.gz",
-    "source_pr": 4076
+    "sha256": "9a28f7ef91938c0866e408eb06e03eb5f8e727a00b44eb936ddd5ed48704bd4c",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/candidate/BORROW-WORD-43extra.json.gz",
+    "source_pr": 4085
   },
   "native/LICENSE": {
     "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
@@ -191,12 +191,6 @@
     "source_path": "research/staged544-triple-entry-fill/owner/inputs/PLAN.json.gz",
     "source_pr": 4076
   },
-  "owner/PR4076-PROFILE.json": {
-    "sha256": "7cbe5593d34988846d1f9ea73b6071f4fb6fd3af71031641b487ec024f011d9a",
-    "source_commit": "9744f9df268590295a9872b1952c695a678192b9",
-    "source_path": "research/staged544-triple-entry-fill/owner/PROFILE.json",
-    "source_pr": 4076
-  },
   "owner/TEMPLATE.json.gz": {
     "sha256": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e",
     "source_commit": "9744f9df268590295a9872b1952c695a678192b9",
@@ -250,5 +244,89 @@
     "source_commit": "9744f9df268590295a9872b1952c695a678192b9",
     "source_path": "research/staged544-triple-entry-fill/vendor/staged_pair.py",
     "source_pr": 4076
+  },
+  "inputs/PR4085-CLAIM.json": {
+    "sha256": "a65bcb4624a96204b1d30ec8c82080fbcdda2c1a30349643b60db579f339c75c",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/CLAIM.json",
+    "source_pr": 4085
+  },
+  "vendor/full_operator.py": {
+    "sha256": "06f9f5128e19b6ea07756a9a11fcc9a9757a440a8048b5210422d12f183dfac3",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/operator-correction/full_operator.py",
+    "source_pr": 4085
+  },
+  "vendor/t360_admission.py": {
+    "sha256": "d3c3786a54fd4b2e5df98a1b39319628e855f65ffacabe7ab4d0deba8fe13329",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/operator-correction/t360_admission.py",
+    "source_pr": 4085
+  },
+  "inputs/DATA-PHASES.json": {
+    "sha256": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-1745-continuation/operator-audit/checkout/research/adaptive-kernel-demotion/inputs/DATA-PHASES.json",
+    "source_pr": 4085
+  },
+  "inputs/OPERATOR-TEMPLATE.json.gz": {
+    "sha256": "21297b20f1f2dc76eb9dd8124416068c3cb096bab9df17fa4da19bc68dfe082e",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-1745-continuation/operator-audit/checkout/research/rank7-joint-endframes/allocation/vendor/TEMPLATE.json.gz",
+    "source_pr": 4085
+  },
+  "evidence/THREE-NATIVE-base.json": {
+    "sha256": "dc7d4049460e2c754b6319d721efcad9a8bad7249aea130c19eabc8f9193975e",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-base/RESULT.json",
+    "source_pr": 4085
+  },
+  "evidence/THREE-CANONICAL-base.json.gz": {
+    "sha256": "f07fae1011160b53e2df1f3135465db1277a093319de2a1da52d648f00a39542",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-base/native/local/CANONICAL-WORD.json.gz",
+    "source_pr": 4085
+  },
+  "evidence/THREE-LOCAL-base.json": {
+    "sha256": "706489e44f096f0449c72b411686388eb2ffc10c4391026373ce6fdd7b5fa040",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-base/native/local/LOCAL-CHECKS.json",
+    "source_pr": 4085
+  },
+  "evidence/THREE-PHASES-base.json": {
+    "sha256": "9d5316a1465a3eb2c62fac76c291394c0401c34a96fd8b94863d662b16a64552",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-base/native/local/CLIFFORD-REVIEW.json",
+    "source_pr": 4085
+  },
+  "evidence/THREE-NATIVE-extra.json": {
+    "sha256": "e18a62a1019dac507c278fda6342dbb38afabace8f48a8d3c45a8f1e9b2d7bce",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-extra/RESULT.json",
+    "source_pr": 4085
+  },
+  "evidence/THREE-CANONICAL-extra.json.gz": {
+    "sha256": "882271d70602354cbada8d77f479703ccc6c47e689e8ccd91f9e4c87de0f4379",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/CANONICAL-WORD.json.gz",
+    "source_pr": 4085
+  },
+  "evidence/THREE-LOCAL-extra.json": {
+    "sha256": "706489e44f096f0449c72b411686388eb2ffc10c4391026373ce6fdd7b5fa040",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/LOCAL-CHECKS.json",
+    "source_pr": 4085
+  },
+  "evidence/THREE-PHASES-extra.json": {
+    "sha256": "81c01d4b007bb720311dbdbbc63df673fdaf7baba707b360bbecc4b9cb6ee7b0",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/late-staged-composition/native-extra/native/local/CLIFFORD-REVIEW.json",
+    "source_pr": 4085
+  },
+  "vendor/PR4085-OPERATOR-PROOF.md": {
+    "sha256": "864b2857f200a37b37f939b78887484f5230be0b68ab7755705713e2e2d45d3e",
+    "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
+    "source_path": "research/kappa-operator-repair/operator-correction/PROOF.md",
+    "source_pr": 4085
   }
 }

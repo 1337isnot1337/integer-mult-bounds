@@ -5,7 +5,13 @@ No independent human or formal-kernel review is claimed.
 
 - Rohan Arun, PR4076: three staged entries, exact source words, T360 literal
   fill, replay integration and predecessor exports. The present result starts
-  from his exact head 9744f9df268590295a9872b1952c695a678192b9.
+  from his exact head 9744f9df268590295a9872b1952c695a678192b9, then
+  composes the later receiver-sharing improvement below.
+- Dugongue / David Ganz, PR4085: receiver sharing composed with the staged
+  supplier, inherited native receipts, exact all-character Z4 operator proof
+  and event-level owner admission. The shared-covector rewrite follows Nick
+  Petalas' adaptive-continuation construction. All exports are pinned at
+  c5854c77620723aae6914c32122870519a6f820d.
 - Dugongue, PR3945: terminal-width-five words, native wrapper, binary-basis
   ledger, rational root enclosures and owner audit. The unmodified functions
   and source-specific notices remain in their files.
