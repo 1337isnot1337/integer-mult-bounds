@@ -53,7 +53,7 @@
   "outcome": "completed",
   "evidence": "PROOF.md: principal-rank count (Lemma 1, rank over the base field, no 2-adic step) plus LP duality over the 107 flats (Lemma 2). CERTIFICATE.json: 88 group sets, integer weights over 10^6, all 11449 ordered flat-pair constraints checked exactly (min slack 6/10^6), value 553996479/1000000 > 553, so C >= 554 by integrality; the direct decoder attains 554. verify.py (stdlib, ~2 s) also enumerates flats and pairing ranks by two methods each, checks 2000 random non-closed supports, an exact rational decoder instance (cost 691) and six negative controls (including a mutated cover with a free group pair, rejected by the premise check). PASS_PR2297_PRINCIPAL_RANK_FLOOR.",
   "author": "Sagar Thakrar (thakrarsagar)",
-  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in the proof idea, LP search, verifier, certificate and writing, within one automated research loop session. Reviewed by four independent AI review passes in the same loop (reproducibility, mathematics, provenance, referee); no human review.",
+  "ai_assistance": "Substantial AI assistance from Claude (Anthropic, Claude Opus 5.5) in the proof idea, LP search, verifier, certificate and writing, within one automated research loop session. Reviewed in two rounds of independent AI review passes in the same loop (reproducibility, mathematics, provenance, referee); two of those passes recomputed the certificate with separate scripts; no human review.",
   "open_questions": [
     {
       "question": "Does the clique-restricted principal-rank LP (group sets with no orthogonal pair) reach 297, or 299, on the PR2041 triad cover?",
@@ -64,7 +64,7 @@
     {
       "question": "Is there a principal-rank analogue for masks with free pairs (cliques of the nonorthogonality graph only) that is not also valid for line ports?",
       "why_it_matters": "philippeVV's follow-up 4 shows line-valid bounds cap at 128 on plane covers, so a useful bound must be plane-specific.",
-      "first_step": "Compute the clique-restricted LP on philippeVV's a23 plane assignment and compare with 128.",
+      "first_step": "Check the concurrent lost-free plane-mask line first (open PRs #3625 by Matarener, #3674 by ToikY, #3676 and #3756 by James Reed). Then compute the clique-restricted LP on philippeVV's a23 plane assignment and compare with 128.",
       "blocked_by": "needs the a23 plane assignment from philippeVV/integer-mult-bounds@5c81aa40 pinned in this repository"
     },
     {

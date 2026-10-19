@@ -4,7 +4,9 @@
 
 On the exact PR2297 five-frame cover, take any finite factorization
 `c I_112 = A diag(c_t) B^T` over `Q`, or over any field. Under the full-port
-tariff `rho_t = rank_F2(pairing on L_t x R_t)`, its cost is
+tariff `rho_t = rank_F2(pairing on L_t x R_t)`, where `L_t` (`R_t`) is the sum
+of the group spaces of the ports on which column `t` of `A` (`B`) is nonzero,
+its cost is
 
     C = sum_t rho_t >= 554.
 
@@ -13,7 +15,8 @@ zero-saving bound `C <= 492` is therefore unreachable. The unpaid budget is
 `4432/9`, so every scalar decoder has deficit (budget minus cost) at most
 `-554/9`, i.e. a loss of at least `554/9`. Here the **u=5 coverage lever row** is
 the k=5 port-group route of the `coverage-law-change` card (five unpaid
-coordinates per port group, PR #2532 and PR #2879). **On this cover that row
+coordinates per port, each port carrying its five-dimensional group space;
+PR #2532 and PR #2879). **On this cover that row
 has no positive saving under the scalar-decoder contract.** That holds for every
 number of terms, every support pattern (matched or unmatched spans), every sign
 and every denominator. Non-scalar endpoint contracts are not covered (see Scope).
@@ -55,11 +58,12 @@ integer, so `C >= 554`.
   cover are not new. They were used on C5 masks in PR #3232 and PR #3256
   (thakrarsagar, `research/c5-gram-rank-cover`, `research/c5-asymmetric-cost-floor`),
   PR #3271 (Nick Petalas, `research/c5-residual-weighted-cover`) and PR #3281
-  (Krzysztof Wojt, `research/c5-four-residual-floors`, exact rational separation
+  (Krzysztof Wójt, `research/c5-four-residual-floors`, exact rational separation
   certificates). New here are the application to the PR2297 cover, the
   flat-indexed LP-dual certificate and the verifier.
 - **Why Lemma 1 is available here.** The mask has no free pair, so every
-  principal block is `c I`. On masks with free pairs, Lemma 1 holds only for
+  principal block is `c I` (as PR #2879 §1 already notes for pairwise
+  nonorthogonal sets; Lemma 1 replaces its injection by a term count). On masks with free pairs, Lemma 1 holds only for
   group sets that contain no free pair. Examples are the PR2041 triad cover and
   the plane and line masks of Discussion #1587. E8-type savings are known only
   on the line masks; no decoder below the naive cost is known on the plane masks
@@ -195,6 +199,8 @@ The structured versions are in [TASK.json](TASK.json).
      cap at 128 on plane covers, so any useful version must be plane-specific.
    - *First step:* compute the clique-restricted LP on philippeVV's a23 plane
      assignment and compare it with 128.
+   - *Related, check first:* the concurrent lost-free plane-mask line, open
+     PRs #3625 (Matarener), #3674 (ToikY), #3676 and #3756 (James Reed).
 3. **Changed contracts.** The u=5 row on PR2297 is now closed for scalar
    decoders. A k-port coverage saving on this row needs something other than a
    different scalar decoder: a mask with free pairs, another tariff, another
@@ -224,7 +230,7 @@ The structured versions are in [TASK.json](TASK.json).
   `002a9983079a3244c10221b4e16d0cff7e70da40`.
 - **Method precedent.** PR #3232 (head `9d75ed2b5bc9`) and PR #3256 (head
   `1ea98246dabb`) by thakrarsagar; PR #3271 by Nick Petalas (petalas, head
-  `1bbe044ba2c7`); PR #3281 by Krzysztof Wojt (krzysztofwojt, head
+  `1bbe044ba2c7`); PR #3281 by Krzysztof Wójt (krzysztofwojt, head
   `a3a7306c15c7`). Principal-block rank counts, weighted rank covers and exact
   rational separation certificates on C5 masks.
 - **ywz65.** PR #2528, the mixed-cover weighted unpaid dimension `554/112 = 277/56`.
@@ -236,9 +242,10 @@ the verifier are new; the principal-block rank count and the weighted rank
 cover follow the C5 packages above. The cross-checks are an independent flat
 enumeration, a second rank method, random non-closed supports and an exact
 rational instance. They were run by the same AI-assisted session. The package
-was reviewed by four independent AI review passes in the same loop
-(reproducibility, mathematics, provenance, referee), which recomputed the
-certificate with separate scripts. There has been no human review.
+was reviewed in two rounds of independent AI review passes in the same loop
+(reproducibility, mathematics, provenance, referee); two of those passes
+recomputed the certificate with separate scripts. There has been no human
+review.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Apache-2.0.

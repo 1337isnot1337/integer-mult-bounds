@@ -37,8 +37,13 @@ The verifier checks that every two distinct group spaces have a nonzero
 pairing, and distinct ports of one group share a nondegenerate space. So the
 scalar contract forces `K = c I_112`.
 
-The principal-block rank count below follows the C5 packages of PR #3232 and
-PR #3256 (thakrarsagar), PR #3271 (Nick Petalas) and PR #3281 (Krzysztof Wojt).
+On this cover, the closest precedent is PR #2879 §1 (Arham Tahir,
+`research/support-balanced-port-floor`): its matching lemma notes that a
+pairwise nonorthogonal group set `J` forces `K[J,J] = c I` and uses that
+nonsingular block over `Q`. Lemma 1 replaces its injection by a count of the
+terms that hit `S` on both sides. The weighted principal-block rank count
+follows the C5 packages of PR #3232 and PR #3256 (thakrarsagar), PR #3271
+(Nick Petalas) and PR #3281 (Krzysztof Wójt).
 
 For a set `S` of groups, write `ports(S)` and `f(S) = |ports(S)| = sum_{g in S} d_g`.
 Say term `t` **hits** `S` when both `A[ports(S), t]` and `B[ports(S), t]` are
