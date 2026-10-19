@@ -168,9 +168,11 @@ fixture.
 
 ## Exact products with their effective operand width
 
-In `tensor_arithmetic.py` I first enforce the declared positive word width
-and both operand-fit guards. I then scan the two canonical magnitude tapes
-and count their actual bit lengths. At effective widths at most256 I use the
+In `tensor_arithmetic.py` I scan each canonical magnitude once, count its
+bits and enforce the declared positive word width. I retain the original
+digit and width-limit checks and register the first owned length before
+measuring the second operand. I complete both fit checks before a zero
+shortcut or child execution. At effective widths at most256 I use the
 fixed physical digit leaf within the scalar owner, preserving the word owner's
 protected-return guard. Above256 I call the same physical word owner at
 the larger operand length and consume its complete double-width return.

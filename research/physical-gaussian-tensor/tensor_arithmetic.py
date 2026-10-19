@@ -6,7 +6,7 @@ from cardinal_counts import Count, positive
 from compact_counts import read_fixed
 from encoded import compare
 from fft_arithmetic import Arithmetic
-from ring_words import Signed, fits
+from ring_words import Signed
 from router_metadata import owned
 from session import borrowed_count, borrowed_tape, erase_marker
 from words import BLANK, RIGHT, need
@@ -70,14 +70,16 @@ def small_product(left, right):
             result.close()
 
 
-def magnitude_width(value):
+def measured_width(value, nominal):
+    positive(nominal)
     result = Count.literal(0)
     value.rewind()
     try:
         while value.read() != RIGHT:
-            need(value.read() in (0, 1), "complete scalar magnitude width")
+            need(value.read() in (0, 1), "canonical data-word digit")
             result.increment()
             value.step(1)
+        need(compare(result, nominal) <= 0, "data magnitude fits declared word width")
         positive(result)
         return result
     except BaseException:
@@ -94,11 +96,9 @@ class NarrowArithmetic(Arithmetic):
 
     def multiply(self, left, right, width):
         positive(width)
-        fits(left.magnitude, width)
-        fits(right.magnitude, width)
         with ExitStack() as owners:
-            a, = owners.enter_context(owned(magnitude_width(left.magnitude)))
-            b, = owners.enter_context(owned(magnitude_width(right.magnitude)))
+            a, = owners.enter_context(owned(measured_width(left.magnitude, width)))
+            b, = owners.enter_context(owned(measured_width(right.magnitude, width)))
             cutoff, = owners.enter_context(owned(Count.literal(SCALAR_BITS)))
             size = a if compare(a, b) >= 0 else b
             if compare(size, cutoff) <= 0:
