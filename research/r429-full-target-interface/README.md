@@ -16,7 +16,7 @@ The target lifts use 111 rank-one queries, all paid. They make local mass equal 
 python3.12 -B scripts/research_package.py --package research/r429-full-target-interface
 ```
 
-The portable replay uses only Python's standard library. It authenticates all frozen bytes before compiling them, keeps checks active under optimized callers, bypasses matching nested bytecode caches and compares every receipt field. Regeneration compares the complete decompressed word bytes; frozen gzip hashes retain provenance, while regenerated compression headers and zlib choices may differ. No mathematical receipt field is dropped. Original workstation paths are normalized only for relocation, with colliding keys rejected.
+See [VALIDATION.md](VALIDATION.md) for the exact local replay evidence. The portable replay uses only Python's standard library. It authenticates all frozen bytes before compiling them, keeps checks active under optimized callers, bypasses matching nested bytecode caches and compares every receipt field. Regeneration compares the complete decompressed word bytes; frozen gzip hashes retain provenance, while regenerated compression headers and zlib choices may differ. No mathematical receipt field is dropped. Original workstation paths are normalized only for relocation, with colliding keys rejected.
 
 ## Corrected historical statement
 
