@@ -216,16 +216,21 @@ class SpectrumRefresh(unittest.TestCase):
             checker.check_frontier890_file(item)
 
 
-class HyperplaneSourceSuccessor(unittest.TestCase):
+class ReviewedFamilySourceSuccessor(unittest.TestCase):
     def test_reviewed_utf8_successor_passes_without_rewriting_source_pin(self):
-        checker.check_hyperplane_source(
+        checker.check_reviewed_family_source(
             'scripts/verify_hpe_lean_binding.py',
             '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03')
 
+    def test_reviewed_integer_row_successor_passes_without_rewriting_source_pin(self):
+        checker.check_reviewed_family_source(
+            'research/complex-k492-owner-repair/code/hpe_audit_and_transport.py',
+            'c9a05ff291016b870b4fc925b317abd9c3a604c73ffc8920dfdbbeb475e20aa3')
+
     def test_unreviewed_source_successor_is_rejected(self):
         with patch.object(Path, 'read_bytes', return_value=b'unreviewed source'), \
-                self.assertRaisesRegex(ValueError, 'Changed hyperplane reviewed source'):
-            checker.check_hyperplane_source(
+                self.assertRaisesRegex(ValueError, 'Changed reviewed family source'):
+            checker.check_reviewed_family_source(
                 'scripts/verify_hpe_lean_binding.py',
                 '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03')
 
