@@ -53,7 +53,10 @@ New here:
   three roles, by transfer from the four-role result and by direct r = 3
   searches. So `(4231,2143,2143)` already shows an integer gap between the
   cut LP and the circuit optimum on three roles. No claim is made that this
-  is the first such gap in the model.
+  is the first such gap in the model. Ross Richardson's two-cut theorem
+  gives exact sum tariffs, with arbitrary dirty roles, for every tuple drawn
+  from 20 of the 24 targets; it excludes 2143, 2413, 3142 and 3412. Both
+  gapped sub-tuples, and the full tuple, contain excluded targets.
 
 PR2998 (Arham Tahir) and PR3408 (Nick Petalas) showed that coordinate cuts,
 and natural/edge subspace cuts, stop at 20; neither searched for words. This
@@ -96,7 +99,7 @@ The default replay takes about two minutes. It runs five checks:
 of the r = 4 and r = 5 trees); its PASS line says "(recorded searches)".
 Only `verify.py --full` does. It needs g++ with OpenMP, recompiles
 `search.cpp` and `indep.cpp`, replays the complete r = 4 and r = 5 searches
-and the independent r = 4 engine, and replays the sub-tuple cut LPs
+in both engines, and replays the sub-tuple cut LPs
 (`cutlp.cpp` and `lp.py`, about 10 MB and seconds). Everything is compared
 with RESULT.json. `verify.py --self-test` checks that perturbed recorded
 values are rejected.
@@ -117,7 +120,9 @@ words; `verify.py` rechecks survivors exactly where it counts words.
     representatives of the 56 depth-1 survivors. This took about 3 minutes.
 * **Second engine (`indep.cpp`).** It multiplies explicit F2 matrices in the
   natural and ordered-pair representations and uses no group-algebra masks.
-  It reproduces the full r = 4 tree; see RESULT.json.
+  It reproduces both trees node-for-node: all 360 first letters at r = 4,
+  and the same 7 representatives at r = 5 (same gate indexing). So each
+  exclusion rests on two engines in this package; see RESULT.json.
 * **Positive control at r = 4.** Replacing 4231 by 4312 gives a tuple whose
   direct words cost 20 with counts (4,4,4), and the same engine finds a
   cost-20 word (RESULT.json `controls`). The word it prints depends on thread
@@ -130,8 +135,9 @@ words; `verify.py` rechecks survivors exactly where it counts words.
   shows that it is sound. The r = 4 run uses no symmetry.
 * **Review.** AI review passes in the same loop, not human review, re-ran
   parts of this. One rebuilt `search.cpp` and reproduced the r = 4 RESULT
-  line. Another wrote its own engine from the model, after reading these
-  sources, so it is not a blind rewrite. That engine reproduced the r = 4 tree
+  line. One ran the in-package `indep.cpp` on the r = 5 representatives
+  and got the same node counts. Another wrote its own engine from the model,
+  after reading these sources, so it is not a blind rewrite. That engine reproduced the r = 4 tree
   and the r = 5 representative tree node-for-node, recomputed the 7 orbits of
   the 56 r = 5 depth-1 survivors (sizes 2, 6, 6, 6, 12, 12, 12), and ran
   left-end peeling at r = 4: a different tree of 1,727,645 nodes that also
@@ -139,7 +145,8 @@ words; `verify.py` rechecks survivors exactly where it counts words.
 
 Local environment: CPython 3.14.4 and g++ 15.2.0 (Ubuntu, x86_64). The
 default, `--self-test` and `--full` replays and `scripts/research_package.py
---check-only` pass. `--full` took 13 to 14 minutes on a shared 4-CPU machine.
+--check-only` pass. `--full`, including the r = 5
+second-engine run, took 16.5 minutes on a shared 4-CPU machine.
 The 3.12-pinned registered hook was not run, because no 3.12 interpreter was
 available. Its two commands are the default and `--self-test` replays above.
 
@@ -157,8 +164,8 @@ Unresolved obligations:
 
 1. **Does a second spectator (r >= 6) allow cost 20?** Coordinate cuts allow
    20 for every r, so only extra workspace can still realize it. A yes would
-   be the first restored-spectator saving in this weighted model. First step:
-   widen `search.cpp`'s block rows to 64 bits (the inv block has 6r = 36
+   be the first known restored-spectator saving in this weighted model.
+   First step: widen `search.cpp`'s block rows to 64 bits (the inv block has 6r = 36
    columns at r = 6, so the engine refuses r > 5), then run it at r = 6
    (6048 gates per step) with the first-peeled-letter symmetry, which at
    r = 6 could be enlarged by `GL_2(F2)` on the two spectator roles. For scale
@@ -193,11 +200,17 @@ Credit:
   the bound `cost >= sum_i L(t_i)` with `L = inv + c1 + c3`, and the two-role
   weighted census (all 47 open pairs additive on two roles); PR3408, head
   `8ed0087a75`, the subspace-cut boundary and the same equality route.
-* Ross Richardson: PR1966 and PR1989, the normal form (PR1989 proof), the
-  `s4-permutation-cut-cone` archive and the two-cut tariff in Discussion
-  #2570.
+* Ross Richardson (RossRichardson): PR1966 and PR1989, the normal form
+  (PR1989 proof); the `s4-permutation-cut-cone` archive (Discussion #2570,
+  retained under PR2998's `predecessor/`), whose two-cut theorem gives exact
+  sum tariffs for tuples from 20 of the 24 targets, and whose enumeration of
+  the complementary cuts of the regular S4-set covers the same cut family
+  as the `2^24`-cut LP here.
 * Adam Gall: PR1941, the cut-rank lemma.
-* David Arias (DavidAriasC): PR2738.
+* David Arias (DavidAriasC): PR2738, head `833b8e05bb`,
+  `research/coxeter-root-tariff`: exact Coxeter tariffs with arbitrary dirty
+  workspace for class-dependent prices, and the unequal-conjugate-price
+  question that the (2,1,2) line continues.
 
 Related work, no code imported: PR2577 (starship-s), the one-premium
 adjacent-swap tariff that PR2998 cites as complementary; and the earlier
@@ -207,11 +220,7 @@ PR1734, PR1749 and PR1801 (opened by 1337isnot1337; packages
 `s4-noncommuting-threecycle-r4-seeda27b` and
 `s4-mixed-v4-double-transposition-seed0cdbb4`).
 
-New here: the window lemma as a pruning device, the exhaustive target-end
-r = 4 and r = 5 exclusions (hence the exact four- and five-role optimum 21),
-and the three-target sub-tuple LP values with their direct searches.
-
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). All engines and checks were written in
-the same AI-assisted session. They are two implementations by one author,
-not independent human review. Apache-2.0.
+the same AI-assisted session. They are several implementations by one
+author, not independent human review. Apache-2.0.

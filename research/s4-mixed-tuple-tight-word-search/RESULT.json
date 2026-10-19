@@ -139,10 +139,40 @@
       "full_depth_survivors": 0,
       "note": "explicit F2 matrices in the natural and ordered-pair representations, all 360 first letters, no symmetry; identical node counts to search.cpp"
     },
+    "r5_independent_engine": {
+      "engine": "indep.cpp",
+      "argv": [
+        "5",
+        "4",
+        "4",
+        "4",
+        "2143",
+        "3142",
+        "4231",
+        "2143",
+        "1234",
+        "0,3,48,51,96,99,111"
+      ],
+      "first_letters": "the 7 orbit representatives of r5_primary (same gate indexing as search.cpp)",
+      "nodes_per_depth": [
+        7,
+        238,
+        3571,
+        25940,
+        72256,
+        85622,
+        52422,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "full_depth_survivors": 0,
+      "note": "explicit F2 matrices in the natural and ordered-pair representations; identical node counts to search.cpp r5_primary"
+    },
     "r3_subtuple": {
       "engines": [
-        "search.cpp",
-        "indep.cpp",
         "independent.py"
       ],
       "targets": [
@@ -284,6 +314,7 @@
   "full_replay_expectations": {
     "r4_primary": "RESULT R=4 n=(4,4,4) split=0+12 hits=0 verified_words=0 Anodes= Cnodes=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, Ainserted=1",
     "r5_primary": "RESULT R=5 n=(4,4,4) split=0+12 hits=0 verified_words=0 Anodes= Cnodes=7,238,3571,25940,72256,85622,52422,0,0,0,0,0, Ainserted=1",
-    "r4_indep": "gates=360 first_letters=360 nodes_per_depth=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, full_depth_survivors=0"
+    "r4_indep": "gates=360 first_letters=360 nodes_per_depth=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, full_depth_survivors=0",
+    "r5_indep": "gates=1488 first_letters=7 nodes_per_depth=7,238,3571,25940,72256,85622,52422,0,0,0,0,0, full_depth_survivors=0"
   }
 }

@@ -7,8 +7,8 @@ explicit-matrix pruned search (both whole r=3 sub-tuple trees, first three r=4 d
 1), the unpruned group-algebra brute-force count, the exact recheck of the pruned r=2 control
 words, positive and negative controls, and compares everything with RESULT.json. The default
 replay does NOT re-derive the r=4/r=5 exclusion (depths 4-8): only --full does. --full also
-compiles the two C++ engines (g++ with OpenMP), replays the complete r=4 and r=5 searches
-(about 14 minutes on 3 threads) and replays the sub-tuple cut LPs (cutlp.cpp + lp.py).
+compiles the two C++ engines (g++ with OpenMP), replays the complete r=4 and r=5 searches in both
+engines (15 to 20 minutes on 3 threads) and replays the sub-tuple cut LPs (cutlp.cpp + lp.py).
 --self-test checks that perturbed RESULT.json values are rejected.
 Sagar Thakrar (thakrarsagar), with substantial AI assistance from Claude. Apache-2.0.
 """
@@ -115,6 +115,9 @@ def run_full(res):
         out['r5_primary'] = [l for l in r.stdout.splitlines() if l.startswith('RESULT')][0]
         r = subprocess.run([os.path.join(td, 'indep'), '4', '4', '4', '4'] + TUPLE + ['all'], capture_output=True, text=True, env=env, check=True)
         out['r4_indep'] = r.stdout.splitlines()[-1]
+        reps = ','.join(map(str, res['runs']['r5_primary']['orbit_representatives_searched']))
+        r = subprocess.run([os.path.join(td, 'indep'), '5', '4', '4', '4'] + TUPLE + ['1234', reps], capture_output=True, text=True, env=env, check=True)
+        out['r5_indep'] = r.stdout.splitlines()[-1]
         subprocess.run(['g++', '-O2', '-o', os.path.join(td, 'cutlp'), os.path.join(HERE, 'cutlp.cpp')], check=True)
         cuts = os.path.join(td, 'cuts.txt')
         with open(cuts, 'w') as fh: subprocess.run([os.path.join(td, 'cutlp')], stdout=fh, check=True)

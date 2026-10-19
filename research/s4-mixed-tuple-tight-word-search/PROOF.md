@@ -168,22 +168,30 @@ finds no word for either sub-tuple at its only cost-tight counts:
 nodes, and `(2143,3142,4231)` at (3,4,3) dies at depth 6 after 12, 84, 218,
 248 and 200 nodes. The two two-target sub-tuples have no integer gap,
 because their LP values 23/2 and 25/2 round up to the direct costs 12 and 13.
+For context, Ross Richardson's two-cut theorem (archive
+`s4-permutation-cut-cone`, retained under PR2998's `predecessor/`) makes the
+sum tariff exact, with arbitrary dirty roles, for every tuple from 20 of the
+24 targets. It excludes 2143, 2413, 3142 and
+3412, and every gapped tuple here contains an excluded target.
 
 ## 7. Scope and what is not proved
 
 * Six or more roles are not searched. Two or more dirty spectators might
   still realize cost 20. This is **not** a theorem that the optimum is 21
   with arbitrary workspace.
-* The exclusion rests on a finite computation, cross-checked by a second
-  engine (section 8). No formal-kernel proof is given.
+* Each exclusion (r = 4 and r = 5) rests on a finite computation run by two
+  separately written in-package engines that agree node-for-node
+  (section 8). No formal-kernel proof is given.
 * The model is formal only: no native realization, routing, ownership or
   precision invoice, no bit supplier and no kappa.
 
 ## 8. Cross-checks
 
-* A second engine (`indep.cpp`) reproduces the full r = 4 tree. It
-  multiplies explicit F2 matrices in the natural and ordered-pair
-  representations and uses no group-algebra bit masks.
+* A second engine (`indep.cpp`) reproduces both trees node-for-node: the
+  full r = 4 tree over all 360 first letters, and the r = 5 tree over the
+  same 7 orbit representatives (same gate indexing). It multiplies explicit
+  F2 matrices in the natural and ordered-pair representations and uses no
+  group-algebra bit masks.
 * A Python implementation (`independent.py`) of the same pruned search
   reproduces three sets of node counts: the r = 3 tree, the first three
   r = 4 depths (56, 1904, 28562) and the 56 depth-1 survivors at r = 5.
@@ -202,7 +210,8 @@ because their LP values 23/2 and 25/2 round up to the direct costs 12 and 13.
 * Negative control: scalar 4231 at counts (1,3,1) passes the cut count test
   but returns no word, as PR2998's precedence argument requires.
 
-All of these were prepared in the same AI-assisted session. They are two
+All of these were prepared in the same AI-assisted session. They are several
 implementations by one author, not independent human review. AI review passes
 in the same loop (also not human review) reproduced the r = 4 and r = 5 trees
-node-for-node with a separately written engine; see the README.
+node-for-node with a further engine that is not part of this package; see the
+README.
