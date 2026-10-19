@@ -1,7 +1,9 @@
-# Actual shared-source noncommuting packet
+# Actual shared-source packet with noncommuting address labels
 
-The pinned phase-A word contains a genuine common-source pair of noncommuting
-rank-two queries, on helpers413/444. Their independent dirty payloads remain
+The pinned phase-A word contains a common-source pair of rank-two queries
+on helpers413/444 with noncommuting address labels. The queries themselves
+act on distinct helper registers and commute as whole-register operations.
+Their independent dirty payloads remain
 separately demanded by the frozen public suffix. A concrete shared-source
 fanout rewrite saves **four scalar ADDs**, with no change to recursive queries.
 This is a verified constructive control, not a paid-query improvement or a
@@ -29,7 +31,7 @@ Unchanged inputs come from `inputs/PREDECESSOR-PINS.json`: source commit
 The checker imports no predecessor implementation and authenticates both
 input containers and the canonical WORD. Construction credit remains with
 the pinned predecessor lineage; substantial OpenAI Codex assistance,
-Apache-2.0. Historical skill results are cautions, not current evidence.
+Apache-2.0. Historical results retain their own premises.
 
 The660 persistent inputs are independent: sources0..110, public targets
 111..221, helpers222..659; slot660 is a private copy. Scalar identities are
@@ -188,8 +190,9 @@ The complete original and scalar-control profiles are both
 ```
 
 including9 rank7 COPY charges. This audit supplies no paid-query saving,
-recursive moment improvement or newkappa. Root owns the source-tour and
-shared-query compensation comparison. Any winning candidate must retain
+recursive moment improvement or newkappa. The [compensation proof](../algebra/SHARED-SOURCE-PROOF.md)
+and [complete invoice](../INVOICE.json) cover the source-tour repair.
+Any winning candidate must retain
 both independent payloads, restore source17 before its next use and satisfy
 both public demand columns, charging every correction, transport, retirement
 and inverse. A redesigned suffix must establish the full public and restored

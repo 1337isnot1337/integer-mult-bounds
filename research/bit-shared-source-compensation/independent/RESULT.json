@@ -57,6 +57,11 @@
     "no universal noncommuting cost obstruction or optimal repair claim"
   ],
   "literal_orientations": "forward/inverse and inverse/forward",
+  "literal_words_checked": [
+    "baseline",
+    "repair",
+    "scalar_rewrite"
+  ],
   "native_dirt_defects": {
     "p": {
       "field": 3,
@@ -145,6 +150,19 @@
   },
   "nested_move_copy_pairs_checked": 2394,
   "no_new_kappa": true,
+  "nonidentity_initial_prefix_control": {
+    "max_absolute_integer_coefficient": 23,
+    "max_prefix_row_l1": 28,
+    "max_prefix_row_l1_at": {
+      "record": -1,
+      "row": 7
+    },
+    "positive_majorant_peak": 28,
+    "positive_majorant_peak_at": {
+      "record": -1,
+      "row": 7
+    }
+  },
   "optimized": false,
   "projector_commutator_0_1": "1/8",
   "public_response_111": [
@@ -155,7 +173,7 @@
     0,
     1
   ],
-  "python": "3.14.6",
+  "python": "3.12.12",
   "query_histogram_delta": {
     "2": 4
   },

@@ -1,7 +1,8 @@
 # Four scalar ADDs saved in an actual shared-source BIT packet
 
-An exact common-source factorization saves four ADDs in a pinned noncommuting
-BIT packet, while leaving every recursive query unchanged. A separate audit
+An exact common-source factorization saves four ADDs in a pinned BIT packet
+whose address projectors do not commute, while preserving every recursive
+query and its charge. A separate audit
 identifies why source-only query sharing fails on this packet's independent
 dirty helper inputs. Its complete transport repair adds four rank-two queries.
 No recursive moment improvement or new kappa follows.
@@ -28,6 +29,8 @@ and 413 at common frame 509. Their subsequent queries are:
 
 Writing P and Q for the corresponding symmetric delta projectors gives
 `(PQ-QP)[0,1]=1/8`, so they do not commute in any odd address characteristic.
+The original queries act on distinct helper registers and commute as
+whole-register operations; noncommutation refers to their address labels.
 Their common source contribution does not make the helpers' full inputs equal.
 The actual entering rows contain independent h413 and h444 pivots. The
 unchanged suffix distinguishes their contributions at public targets 111 and 114
@@ -48,8 +51,10 @@ The repair costs four additional rank-two queries, with no new field or COPY.
 
 ## Exact scalar sharing control and complete invoices
 
-The same frame 509 prelude has an actual common-source factorization. With all
-seven source operands at their legal cuts, its two rows are
+The same frame 509 prelude has an actual common-source factorization. Evaluate
+its entering rows at cut23325, after retiming the existing arrival query for
+v=371 and before any prelude ADD. With all seven source operands at this cut,
+its two output rows are
 `a'=a+b+u+C` and `b'=b+v+C`. First compute `b+=C+v` using six ADDs, then
 `a+=b; a+=u; a-=v`. This uses nine ADDs instead of thirteen. C is never assumed
 clean or materialized for free. One existing arrival query for v moves earlier
@@ -76,9 +81,10 @@ The scalar control's recursive moment delta is exactly zero under an unchanged
 owner/controller contract. It cannot discharge the requested positive query
 saving or the primitive b target. Native tape costs, all-size precision and
 physical owner/compiler admission have not been established for either edit.
-The independent full-word signed row-l1 prefix maxima remain 1302 forward and
-1446 inverse; cancellation-blind positive-majorant peaks remain 8402567 and
-630744. These comparisons do not substitute for an all-size precision theorem.
+For the original word and scalar rewrite, the independent full-word signed
+row-l1 prefix maxima are both 1302 forward and 1446 inverse;
+cancellation-blind positive-majorant peaks are both 8402567 and 630744.
+These comparisons do not substitute for an all-size precision theorem.
 
 ## Evidence and limits
 
@@ -118,10 +124,12 @@ formal-kernel or native execution certificate here.
 ## Open next questions
 
 Structured next steps and blockers are in [TASK.json](TASK.json).
-A further query-sharing attempt must change the tested premise: carry
-independent helper residuals jointly through paid queries and cancel all cross
-terms, or change the downstream demand so both residuals need not be separately
-available. A scalar common-source factorization alone does neither. Any such
+A further query-sharing attempt must escape the tested source-only restriction.
+Possible approaches include carrying independent helper residuals jointly
+through paid queries and cancelling all cross terms, or changing the downstream
+demand so both residuals need not be separately available. These are candidate
+directions, not an exhaustive classification. A scalar common-source
+factorization alone does neither. Any such
 attempt needs its own legal delivery cuts, paid source access, restored helpers,
 complete cost comparison and demand/owner closure before recursive expansion.
 

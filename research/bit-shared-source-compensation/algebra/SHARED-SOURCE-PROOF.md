@@ -163,8 +163,9 @@ we claim the invoice of the displayed schedule, not universal optimality.
 
 There is a useful positive composition in the actual fanout prelude, distinct
 from reducing paid queries. Let `a=h444`, `b=h413`, `u=V468`, `v=V371`,
-and `C=V17+V271+V293+V352+V470`, all evaluated at the audited common-frame
-cut. C contains arbitrary dirt and need not be prepared in a helper. The old
+and `C=V17+V271+V293+V352+V470`. Evaluate these entering values at cut23325,
+after retiming v371's existing arrival to frame509 and before any prelude ADD.
+C contains arbitrary dirt and need not be prepared in a helper. The old
 13 ADDs have full integer endpoint
 
 ```
@@ -191,11 +192,12 @@ forward-plus-inverse experiment. That is not a second saving in the frozen
 forward supplier. The recursive query histogram and its moment are unchanged.
 
 The exact checker verifies this nine-ADD construction over the full integer
-group algebra, its composition with the retained noncommuting queries, and
+group algebra, its composition with the retained queries and their
+noncommuting address labels, and
 its complete literal inverse. A sign mutant changing the last `a-=v` to
 `a+=v` passes the Boolean endpoint but fails over the integers by `2v`.
-This makes the integer-lift distinction observable. The source worker owns
-the literal retiming recipe and its current-frame proof; algebraic endpoint
+This makes the integer-lift distinction observable. The [source audit](../source-audit/README.md)
+supplies the literal retiming recipe and its current-frame proof; algebraic endpoint
 equality alone does not establish that the arrival can be moved.
 
 ## Verification, source credit, and open obligations
@@ -222,7 +224,7 @@ address witness may be attached by the source audit. Positive identities
 already descend to every actual action, regardless of representation kernel.
 
 Credit: reversible source-tour cancellation and dirty echo are standard linear
-circuit identities, not claimed novel here. The skill's source lessons credit
+circuit identities, not claimed novel here. Related prior work includes
 Yiyang Lu's PR2857 (head `0b2e2537b368a0cade07ce3f71452ea018ebe394`) for
 current-coordinate compensation; Marius-Paul Dumitrean's PR2733 (head
 `a63c55ff56aaa8645d64d1162d1f017b59ded42a`) and David Arias's PR2766 (head

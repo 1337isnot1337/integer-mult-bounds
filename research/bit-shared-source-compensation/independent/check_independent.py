@@ -130,12 +130,12 @@ def replay(records, start, finish, initial=None, cuts=()):
     hist = Counter()
     adds = copies = erases = 0
     snapshots = {}
-    maximum = 1
-    max_l1 = max(sum(map(abs, row)) for row in values)
-    max_l1_at = {'record': -1, 'row': 0}
     majorant = [sum(map(abs, row)) for row in values]
-    max_majorant = max(majorant)
-    max_majorant_at = {'record': -1, 'row': 0}
+    maximum = max(max(map(abs, row)) for row in values)
+    max_l1 = max(majorant)
+    max_l1_at = {'record': -1, 'row': majorant.index(max_l1)}
+    max_majorant = max_l1
+    max_majorant_at = max_l1_at.copy()
     for index, (op, d, s, c, f, _) in enumerate(records):
         if op == 0:
             need(frames[d] == s, 'MOVE entrance')
@@ -368,6 +368,19 @@ def main():
     tariff_hi = Q('8.055644400453750470661592')
     need((tariff_lo/8)**500 < 32 < (tariff_hi/8)**500, 'independent exact tariff enclosure')
     identity = [[int(i == j) for j in range(N)] for i in range(N)]+[ZERO.copy()]
+    # A supplied initial map can contain the largest coefficient before any gate.
+    initial_metric_input = [row.copy() for row in identity]
+    initial_metric_input[7][7], initial_metric_input[7][8] = 23, -5
+    _, initial_invoice, _ = replay([], word['start'], word['start'], initial_metric_input)
+    initial_metric_expected = {
+        'max_absolute_integer_coefficient': 23,
+        'max_prefix_row_l1': 28,
+        'max_prefix_row_l1_at': {'record': -1, 'row': 7},
+        'positive_majorant_peak': 28,
+        'positive_majorant_peak_at': {'record': -1, 'row': 7},
+    }
+    initial_metric_observed = {k: initial_invoice[k] for k in initial_metric_expected}
+    need(initial_metric_observed == initial_metric_expected, 'nonidentity initial prefix metrics')
     undo = literal_inverse(repaired)
     roundtrip = replay(undo, word['final'], word['start'], result)[0]
     need(roundtrip == identity, 'forward then literal inverse')
@@ -405,7 +418,12 @@ def main():
     scalar_back, scalar_inverse_invoice, _ = replay(scalar_undo, word['final'], word['start'])
     need(replay(scalar_records, word['start'], word['final'], scalar_back)[0] == identity,
          'scalar literal inverse then forward')
-    _, baseline_inverse_invoice, _ = replay(literal_inverse(records), word['final'], word['start'])
+    baseline_undo = literal_inverse(records)
+    need(replay(baseline_undo, word['final'], word['start'], baseline)[0] == identity,
+         'baseline forward then literal inverse')
+    baseline_back, baseline_inverse_invoice, _ = replay(baseline_undo, word['final'], word['start'])
+    need(replay(records, word['start'], word['final'], baseline_back)[0] == identity,
+         'baseline literal inverse then forward')
     no_compensation = scalar_records[:23334]+scalar_records[23335:]
     incomplete_scalar = replay(no_compensation, word['start'], word['final'])[0]
     rejection('missing scalar compensation',
@@ -507,6 +525,8 @@ def main():
         'frame_projectors_checked': len(cache), 'nested_move_copy_pairs_checked': len(pairs),
         'independent_integer_columns': N, 'all_word_records': len(records),
         'literal_orientations': 'forward/inverse and inverse/forward',
+        'literal_words_checked': ['baseline', 'repair', 'scalar_rewrite'],
+        'nonidentity_initial_prefix_control': initial_metric_observed,
         'rows_at_cut23339': cut, 'first_consumers': consumers,
         'source17_first_change_after_cut': first_source_change,
         'projector_commutator_0_1': str(comm[0][1]),

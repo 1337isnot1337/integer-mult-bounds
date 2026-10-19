@@ -75,7 +75,8 @@ Both helper delivery maps agree exactly with the baseline.
 
 Full-word comparison covers every integer output coefficient, every final
 frame, all nine private equality guards, and both orders of literal inverse
-composition. Unchanged spectators and public Boolean outputs are all included.
+composition for the baseline, repair and scalar rewrite. Unchanged spectators
+and public Boolean outputs are all included.
 
 ## Actual-address failure and formal identities
 
@@ -106,7 +107,8 @@ is used to infer a formal group-algebra identity.
 
 ## Scalar control and complete bill
 
-With `C=x17+x271+x293+x352+x470`, the original prelude produces
+At cut23325, after retiming the arrival of V371 and before any prelude ADD,
+let `C=V17+V271+V293+V352+V470` use the current operand rows. The original prelude produces
 `a'=a+b+u+C`, `b'=b+v+C`. The replacement computes b first and then
 `a+=b; a+=u; a-=v`. This is an exact identity over the integers, including
 arbitrary original a and b. The existing arrival query for v=371 moves before
@@ -149,6 +151,13 @@ updates `w_d <- w_d+abs(c)*w_s`, with COPY and ERASE guards retained.
 These are complete finite prefix measurements, not a replacement for all-size
 precision, routing, head movement, stock or owner admission. Intermediate
 profiles need not coincide merely because their maxima do.
+
+A regression also checks a nonidentity supplied initial map: row7 has
+coefficients 23 and -5, so before any gate its coefficient maximum is 23 and
+its row-l1 and positive-majorant maxima are 28 at row7. Replay initializes
+all maxima and their locations from that actual entering map. The published
+prefix comparisons above start from identity maps and are unchanged by this
+correction.
 
 ## Defect controls and limits
 

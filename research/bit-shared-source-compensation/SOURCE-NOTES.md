@@ -10,7 +10,9 @@ The immutable WORD and GEOMETRY inputs are copied from local commit
 `8eefab699338b93400ca72ab22c6cf64352f7e05` and predecessor
 `b628ba738802587a38e61affaa01fd188d0644f9`. These are the same frozen
 five-terminal R438 bytes from `d228d3db7022c9b84d53dcaf27e33db93e246319`.
-The raw and decompressed hashes are retained in `inputs/PREDECESSOR-PINS.json`.
+The compressed hashes and decompressed WORD hash are retained in
+`inputs/PREDECESSOR-PINS.json`; both decompressed hashes also appear in
+[PUBLIC-PREDECESSOR.json](PUBLIC-PREDECESSOR.json).
 
 The construction lineage credits Ali Romman's R438/PR1043 source substitution,
 Sagar Thakrar's transported word and window analysis, PR540 frame conventions,
@@ -55,7 +57,8 @@ contract; it does not refute the additive-output construction of PR1522.
 Chris R / Clear1nsight's [PR4005](https://github.com/CrocSwap/integer-mult-bounds/pull/4005),
 head `2b412fb33c983edc495576be692b0601c1d62241`, proves a different node509
 source-quotient obstruction for an R437 carrier-deletion attempt. It is related
-boundary reasoning, not a proof of this R438 noncommuting packet or its scalar
+boundary reasoning, not a proof of this R438 packet with noncommuting address
+labels or its scalar
 rewrite. This contribution adds the exact original-site and suffix-demand
 audit, four-ADD factorization, complete repair invoice and independent integer
 and actual-address checks for the stated packet.
