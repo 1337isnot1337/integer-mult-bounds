@@ -29,6 +29,15 @@ the PR436/PR386 work of Zhihao Chen and eumemic, and chafreaky's integration
 and routes, with the AI disclosures retained in that file. PR589's hosting
 proof supplies the actual pending-axis interpretation of each idle child.
 
+Sagar Thakrar's [PR3948](https://github.com/CrocSwap/integer-mult-bounds/pull/3948)
+at `5505853988cfc05bc8ad9bfcf07879727932b0d5` already records the generic
+K-parametrized idle-window formula, its nine-stage rank-42 specialization,
+and the bridge-delimited no-fusion observation. We reproduce that source
+calculation here to make the premises explicit. The added result is its
+application to the five-terminal histogram for every odd arity and depth,
+with the dedicated-stock minimization below; the window formula itself is
+not claimed as new.
+
 The source's `recipe(K)` has L=2K+1 local sweeps. Its idle insertion block
 gives, directly and for every K:
 

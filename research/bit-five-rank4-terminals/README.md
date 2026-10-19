@@ -1,4 +1,4 @@
-# Five rank-four BIT terminals and their complete cost boundary
+# Five rank-four BIT terminals and a fixed-controller cost bound
 
 This package retains an explicit local BIT word with 433 width-eight and five
 width-four dirty helpers. Its exact stream operator restores every source and
@@ -81,7 +81,17 @@ and hosting lineage, cheesegrader's PR540 frame/owner framework, PR589 hosting,
 and the frozen five-terminal construction authors. PR1256 already studies
 helper470 early retirement and returned idle accounting. PR1194/1311 and
 E8 prefix restoration are relevant semantic-prefix/heterogeneous precedents;
-their hypotheses are retained. No exhaustive novelty claim is made.
+their hypotheses are retained.
+
+Sagar Thakrar's [PR3948](https://github.com/CrocSwap/integer-mult-bounds/pull/3948),
+at `5505853988cfc05bc8ad9bfcf07879727932b0d5`, already gives the generic
+idle-window formula, the nine-stage ranks {7,14,28,42}, and the observation
+that deeper recursion does not merge bridge-delimited public intervals.
+Those facts are credited prior work. This package adds the explicit five-terminal
+word and charts, its exact twenty-for-twenty query/progress cancellation, and
+the candidate-specific obstruction for all odd arities and recursion depths,
+including arbitrary additional full-progress helper stock. No exhaustive
+novelty claim is made.
 
 Apache-2.0; substantial OpenAI Codex assistance, including independent AI
 mathematical review. No new kappa.
