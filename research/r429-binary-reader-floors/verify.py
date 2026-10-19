@@ -68,7 +68,12 @@ class Portable:
                     return str(target / value[len(prefix):])
             return value
         if isinstance(value, dict):
-            return {self.normalize(k): self.normalize(v) for k, v in value.items()}
+            result = {}
+            for key, item in value.items():
+                normalized_key = self.normalize(key)
+                need(normalized_key not in result, 'normalized key collision')
+                result[normalized_key] = self.normalize(item)
+            return result
         if isinstance(value, list):
             return [self.normalize(v) for v in value]
         return value
@@ -124,6 +129,12 @@ STAGES = {
     'pressure': ('budgets/overcomplete_pressure.py', 'budgets/OVERCOMPLETE-PRESSURE.json'),
 }
 
+INDEPENDENT = {
+    'eleven': ('frozen/reviews/cold/independent_cold_check.py', 'frozen/reviews/cold/RESULT.json'),
+    'pressure': ('frozen/reviews/pressure/independent_readout_pressure.py',
+                 'frozen/reviews/pressure/INDEPENDENT-RESULT.json'),
+}
+
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -133,9 +144,13 @@ def main():
     portable.check_all()
     portable.install()
     source, receipt = ('frozen/changed/' + p for p in STAGES[args.stage])
-    sys.argv = [str(portable.root / source)]
-    portable.load(source).main()
-    need(portable.compared == {receipt}, 'incomplete receipt coverage')
+    stages = [(source, receipt)]
+    if args.stage in INDEPENDENT:
+        stages.append(INDEPENDENT[args.stage])
+    for source, _ in stages:
+        sys.argv = [str(portable.root / source)]
+        portable.load(source).main()
+    need(portable.compared == {receipt for _, receipt in stages}, 'incomplete receipt coverage')
     portable.check_all()
     print(canonical({'status': 'PASS_R429_READER_FLOORS', 'stage': args.stage,
                      'receipts': sorted(portable.compared), 'sources': sorted(portable.executed),

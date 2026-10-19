@@ -15,7 +15,7 @@
         "--stage",
         "readout"
       ],
-      "timeout_seconds": 90,
+      "timeout_seconds": 60,
       "checks": "Reconstruct R/K from frozen D/A word; all511 rational support ranks, tensor36, complete cost<=48 partition screen and semantic controls. Original source assertions are compiled with optimize=0."
     },
     {
@@ -54,7 +54,7 @@
         "--stage",
         "ten"
       ],
-      "timeout_seconds": 90,
+      "timeout_seconds": 60,
       "checks": "Exact symmetry, all111 units by502 generic target choices, dual basis, no-live-normal premise and equality55 exclusion. Original source assertions are compiled with optimize=0."
     },
     {
@@ -80,8 +80,8 @@
         "--stage",
         "eleven"
       ],
-      "timeout_seconds": 30,
-      "checks": "All61320 near-cap cases, small rank capacities and proof-support data for every Sylvester rank case. Original source assertions are compiled with optimize=0."
+      "timeout_seconds": 300,
+      "checks": "All61320 near-cap cases, small rank capacities and proof-support data for every Sylvester rank case. Original source assertions are compiled with optimize=0. Independent exact parabolic/capacity, prior-fixture, pair-rank, unit and638-basis reconstruction also replays."
     },
     {
       "argv": [
@@ -93,8 +93,8 @@
         "--stage",
         "pressure"
       ],
-      "timeout_seconds": 90,
-      "checks": "All340260 cost<=52 rank partitions, unique equality contradiction, exact rational logarithmic lower bound and two premise controls. Original source assertions are compiled with optimize=0."
+      "timeout_seconds": 180,
+      "checks": "All340260 cost<=52 rank partitions, unique equality contradiction, exact rational logarithmic lower bound and two premise controls. Original source assertions are compiled with optimize=0. Independent per-column source propagation, generating-function partition count,240-root/256-parabolic census and exact pressure also replay."
     },
     {
       "argv": [
@@ -104,7 +104,7 @@
         "{package}/controls.py"
       ],
       "timeout_seconds": 30,
-      "checks": "Reject frozen source/receipt changes, omitted coverage, JSON scalar type substitution and matching poisoned bytecode; retain source execution under isolated cache prefixes."
+      "checks": "Reject frozen source/receipt changes, omitted coverage, JSON scalar type substitution and matching poisoned bytecode; retain source execution under isolated cache prefixes. Reject colliding normalized provenance keys; verifier bootstrap reads source directly."
     }
   ]
 }

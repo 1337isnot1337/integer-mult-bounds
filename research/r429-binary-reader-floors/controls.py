@@ -14,7 +14,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parent
 spec = importlib.util.spec_from_file_location('r429_verify', ROOT / 'verify.py')
 verify = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(verify)
+exec(compile((ROOT / 'verify.py').read_bytes(), str(ROOT / 'verify.py'),
+             'exec', dont_inherit=True, optimize=0), verify.__dict__)
 
 
 def reject(action, marker):
@@ -53,6 +54,14 @@ def main():
         changed = copy.deepcopy(actual)
         changed['no_new_kappa'] = 1
         reject(lambda: p.equal(receipt, changed), 'receipt mismatch')
+        changed = copy.deepcopy(actual)
+        old_key = next(iter(changed['sources']))
+        mapped_key = p.normalize(old_key)
+        verify.need(old_key != mapped_key, 'path alias fixture')
+        original_hash = changed['sources'][old_key]
+        changed['sources'][old_key] = 'MUTATED_PROVENANCE_HASH'
+        changed['sources'][mapped_key] = original_hash
+        reject(lambda: p.equal(receipt, changed), 'normalized key collision')
 
         # Construct a timestamp/size-valid poisoned cache and first demonstrate
         # that Python's ordinary source loader would accept its wrong code.
@@ -79,7 +88,7 @@ def main():
                     'nested source was not compiled')
         p.check_all()
         cache.unlink()
-    print('PASS_R429_READER_CONTROLS source receipt coverage scalar_types poisoned_cache nested_imports')
+    print('PASS_R429_READER_CONTROLS source receipt coverage scalar_types path_collisions poisoned_cache nested_imports')
 
 
 if __name__ == '__main__':
