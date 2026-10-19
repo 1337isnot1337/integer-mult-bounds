@@ -197,3 +197,13 @@ for f in admitted['fixtures']:
     prefix=Counter(e['rank_per_f']for e in f['events'][:cut]if e['kind']=='NATIVE')
     need(prefix=={2:{2:33},3:{2:60}}[q],'actual fixed prefix histogram for conditional moment')
 print('PASS_CONDITIONAL_FULLSCAN_MOMENT_PREFIX_BINDING',flush=True)
+
+# Exact next-interface appendix, strictly planning-only and rank-neutral.
+for x in META['cut58_raw_sources']:
+    need(hashlib.sha256(checked(x['relative'])).hexdigest()==x['sha256'],'raw cut58 planning source pin')
+planning=replay('cut58','produce','early-cut58-planning/CUT58.json')
+review=replay('audit_cut58','run','early-cut58-independent-review/AUDIT.json')
+need(planning['target_is_not_achieved']is True and planning['hypothetical_target_suffix_mass']==16,'open hypothetical target never claimed achieved')
+need((planning['prefix_native_mass'],planning['suffix_native_mass'],planning['complete_mass'],planning['stock'])==(54,22,76,72),'unchanged planning native bill')
+need(review['all_current_input_columns']==6 and review['literal_inverse_orders']==2 and review['neutral_factorization_mass']==22,'complete independent planning-only scope')
+print('PASS_CUT58_NEXT_INTERFACE_NEUTRAL_ONLY_TARGET16_OPEN',flush=True)

@@ -12,7 +12,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 600,
-      "checks": "Exact arbitrary-input local matrices, both serialized inverse orders, all suffix source/native pointer/embedding/Gaussian phase bindings, single-entry support witness, full prefix/local bills, source and omitted-input/reverse-query controls; independent current-pin audit. Complete independent exact cases and conditional rank grid; fresh fixed-prefix histograms for written fullscan/moment corollary."
+      "checks": "Exact arbitrary-input local matrices, both serialized inverse orders, all suffix source/native pointer/embedding/Gaussian phase bindings, single-entry support witness, full prefix/local bills, source and omitted-input/reverse-query controls; independent current-pin audit. Complete independent exact cases and conditional rank grid; fresh fixed-prefix histograms for written fullscan/moment corollary. Full unchanged cut58 source producer and independent all36-entry/inverse/native/phase rank-neutral planning audit; target16 explicitly OPEN."
     },
     {
       "argv": [
@@ -22,7 +22,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 600,
-      "checks": "Exact arbitrary-input local matrices, both serialized inverse orders, all suffix source/native pointer/embedding/Gaussian phase bindings, single-entry support witness, full prefix/local bills, source and omitted-input/reverse-query controls; independent current-pin audit. Complete independent exact cases and conditional rank grid; fresh fixed-prefix histograms for written fullscan/moment corollary."
+      "checks": "Exact arbitrary-input local matrices, both serialized inverse orders, all suffix source/native pointer/embedding/Gaussian phase bindings, single-entry support witness, full prefix/local bills, source and omitted-input/reverse-query controls; independent current-pin audit. Complete independent exact cases and conditional rank grid; fresh fixed-prefix histograms for written fullscan/moment corollary. Full unchanged cut58 source producer and independent all36-entry/inverse/native/phase rank-neutral planning audit; target16 explicitly OPEN."
     }
   ]
 }
