@@ -49,7 +49,9 @@ K is orthogonal and bijective, so all these lines remain distinct and nondegener
 
 ## 3. The completion defect is necessary throughout the orthogonal class
 
-For any orthogonal binary G in dimension nine, the difference `q(Gx)-q(x)` is even and has zero polar form. Dividing by two defines a linear character, so there is a unique t with
+Use one orthogonal binary G in dimension nine identically on both tensor
+factors; independent row/column gauges and arbitrary 81-dimensional gauges are
+outside this quantified statement. For such G, the difference `q(Gx)-q(x)` is even and has zero polar form. Dividing by two defines a linear character, so there is a unique t with
 
 ```
 q(Gx) = q(x)+2(t dot x) mod4.                 (2)

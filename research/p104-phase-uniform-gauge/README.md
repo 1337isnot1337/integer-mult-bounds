@@ -17,8 +17,8 @@ PR3954, without claiming to complete its physical caller.
 ## What is proved
 
 [PROOF.md](PROOF.md) gives the arbitrary-dimension/operator arguments and the
-source-bound finite premises. Every orthogonal nine-dimensional gauge making
-these product phases constant has the **same nonzero input quadratic defect**
+source-bound finite premises. Every orthogonal nine-dimensional gauge applied identically to both tensor
+factors and making these product phases constant has the **same nonzero input quadratic defect**
 `z=420`. The alternative character `91` would violate preservation of the
 all-ones characteristic vector. This class cannot preserve the standard full
 native transform F; the result is not an enumeration of the orthogonal group.
