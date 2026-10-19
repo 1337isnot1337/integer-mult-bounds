@@ -173,6 +173,16 @@ function. For good addresses the completed F changes only target bits, so
 every f_i has the same value at load and unload. The ideal result is
 target_i XOR=f_i(y), with all borrowed and non-target coordinates restored.
 
+Every t update and u load/unload is an ordered rotation after shuttling
+that entire H-bit field with the back H-bit field. Its source y then
+precedes its target. Undo the shuttle immediately afterward. The dirty
+back field is restored at the endpoint for every address, including bad
+ones. There are four t updates and two u updates across the complete
+macro, hence twelve paid H-bit exchanges. The y additions are already
+ordered because u and t precede y. This realizes all displayed additions
+with the ordinary primitive and complete-fiber scans; their notation
+does not assume an unpaid earlier-target controlled rotation.
+
 Here is the cancellation for each active digit, including dirty controls.
 Write b for its original target bit. The first addition leaves b unchanged.
 The t update gives t+b; with t<=B-2 this causes no base-B carry. The two
