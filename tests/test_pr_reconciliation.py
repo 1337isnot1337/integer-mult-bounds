@@ -14,6 +14,78 @@ checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
 
 
+class FamilyClosureProjection(unittest.TestCase):
+    def decision(self, number=7):
+        return dict(number=number, reviewed_head='a' * 40, current_head='a' * 40,
+                    disposition='partially_reviewed', github_state='OPEN',
+                    integration_location=[], unresolved_question='Review remains open.')
+
+    def test_closure_inheritance_and_explicit_overrides(self):
+        first = {'receipt': 'first.json', 'verified': True}
+        second = {'receipt': 'second.json', 'verified': True}
+        cases = [
+            ('baseline receipt survives omission', {'7': {'closure': first}},
+             [[{'number': 7}]], first),
+            ('baseline null survives omission', {'7': {'closure': None}},
+             [[{'number': 7}]], None),
+            ('new family record defaults to null', {}, [[{'number': 8}]], None),
+            ('family receipt survives omission', {},
+             [[{'number': 7, 'closure': first}], [{'number': 7}]], first),
+            ('explicit null clears prior receipt', {'7': {'closure': first}},
+             [[{'number': 7, 'closure': None}], [{'number': 7}]], None),
+            ('explicit receipt replaces prior receipt', {'7': {'closure': first}},
+             [[{'number': 7, 'closure': second}]], second),
+        ]
+        for label, baseline, rounds, expected in cases:
+            with self.subTest(case=label):
+                result = checker.project_family_closures([7], baseline, rounds)
+                self.assertEqual(result[rounds[-1][-1]['number']], expected)
+
+    def test_projection_does_not_mutate_sources_or_raw_latest_records(self):
+        baseline = {'7': {'closure': {'receipt': 'baseline.json', 'checks': [True]}}}
+        rounds = [[self.decision()], [self.decision()]]
+        before = deepcopy((baseline, rounds))
+        latest = {row['number']: row for rows in rounds for row in rows}
+        result = checker.project_family_closures([7], baseline, rounds)
+        self.assertEqual((baseline, rounds), before)
+        self.assertIs(latest[7], rounds[-1][0])
+        self.assertNotIn('closure', latest[7])
+        result[7]['checks'].append(False)
+        self.assertEqual((baseline, rounds), before)
+        self.assertEqual(latest[7], before[1][-1][0])
+
+    def test_missing_or_fabricated_ledger_closure_rejects_expected_null(self):
+        raw = self.decision()
+        closure = checker.project_family_closures([7], {}, [[raw]])[7]
+        expected = {**raw, 'closure': closure}
+        checker.check_family_decision(dict(expected), expected)
+        for operation in ('missing', 'fabricated'):
+            item = dict(expected)
+            if operation == 'missing':
+                item.pop('closure')
+            else:
+                item['closure'] = {'receipt': 'unapproved.json'}
+            with self.subTest(operation=operation), self.assertRaisesRegex(ValueError, '#7:.*closure'):
+                checker.check_family_decision(item, expected)
+
+    def test_inherited_receipt_rejects_null_forgery_and_boolean_integer_mutation(self):
+        receipt = {'receipt': 'approved.json', 'checks': {'published': True}}
+        raw = self.decision()
+        closure = checker.project_family_closures([7], {'7': {'closure': receipt}}, [[raw]])[7]
+        expected = {**raw, 'closure': closure}
+        checker.check_family_decision(deepcopy(expected), expected)
+        for mutation in (None, {'receipt': 'other.json', 'checks': {'published': True}},
+                         {'receipt': 'approved.json', 'checks': {'published': 1}}):
+            item = deepcopy(expected)
+            item['closure'] = mutation
+            with self.subTest(mutation=mutation), self.assertRaisesRegex(ValueError, '#7:.*closure'):
+                checker.check_family_decision(item, expected)
+
+    def test_baseline_decision_outside_starting_snapshot_rejects(self):
+        with self.assertRaisesRegex(ValueError, 'outside the starting snapshot'):
+            checker.project_family_closures([7], {'8': {'closure': None}}, [])
+
+
 class FamilyDecision(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -26,6 +98,10 @@ class FamilyDecision(unittest.TestCase):
             if path.exists():
                 cls.families[path.parent.name.removeprefix('community-').removesuffix('-audit')] = json.loads(path.read_text())['pull_requests']
         cls.latest = {row['number']: row for decisions in cls.families.values() for row in decisions}
+        snapshot = json.loads((checker.AUDIT / 'starting-snapshot.json').read_text())
+        baseline = json.loads((checker.AUDIT / 'decisions.json').read_text())['decisions']
+        cls.closures = checker.project_family_closures(
+            (row['number'] for row in snapshot['pull_requests']), baseline, cls.families.values())
 
     def setUp(self):
         self.decision = deepcopy(self.latest[626])
@@ -38,7 +114,8 @@ class FamilyDecision(unittest.TestCase):
                 final[decision['number']] = (family, decision)
         for number, (family, decision) in final.items():
             with self.subTest(family=family, number=number):
-                checker.check_family_decision(self.items[number], decision)
+                checker.check_family_decision(
+                    self.items[number], {**decision, 'closure': self.closures[number]})
 
     def test_equal_forged_heads_do_not_establish_review_provenance(self):
         self.item['reviewed_head'] = self.item['current_head'] = '0' * 40

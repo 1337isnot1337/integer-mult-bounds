@@ -4,6 +4,7 @@
 Offline integrity check, not a mathematical verifier or a live GitHub-state check.
 """
 from pathlib import Path
+from copy import deepcopy
 import hashlib
 import tempfile
 import json
@@ -107,6 +108,28 @@ def check_family_decision(item, decision):
             require(field in item and json.dumps(item[field], sort_keys=True) ==
                     json.dumps(decision[field], sort_keys=True),
                     f'#{decision["number"]}: ledger differs from family decision: {field}')
+
+
+def project_family_closures(starting_numbers, initial_decisions, family_rounds):
+    """Mirror the generator's explicit closure updates without using the ledger.
+
+    Omission carries forward the prior authoritative value; explicit null clears
+    it. Keep raw family records separate for later provenance comparisons.
+    """
+    closures = dict.fromkeys(starting_numbers)
+    for number, decision in initial_decisions.items():
+        number = int(number)
+        require(number in closures, 'Closure decision outside the starting snapshot')
+        if 'closure' in decision:
+            closures[number] = deepcopy(decision['closure'])
+    for decisions in family_rounds:
+        for decision in decisions:
+            number = decision['number']
+            if 'closure' in decision:
+                closures[number] = deepcopy(decision['closure'])
+            elif number not in closures:
+                closures[number] = None
+    return closures
 
 
 def check_batch1099_file(item):
@@ -266,10 +289,12 @@ def main():
     snapshot = json.loads((AUDIT / 'starting-snapshot.json').read_text())
     expected = {p['number']: p for p in snapshot['pull_requests']}
     family_decisions = {}
+    family_rounds = []
     for family_path in decision_paths():
         if not family_path.exists():
             continue
         family = json.loads(family_path.read_text())
+        family_rounds.append(family['pull_requests'])
         numbers = [p['number'] for p in family['pull_requests']]
         require(len(numbers) == len(set(numbers)), 'Duplicate family PR')
         for row in family['pull_requests']:
@@ -281,8 +306,12 @@ def main():
     actual = {p['number']: p for p in ledger['pull_requests']}
     require(len(actual) == len(ledger['pull_requests']) == len(expected), 'Duplicate or missing PR')
     require(actual.keys() == expected.keys(), 'Starting PR set changed')
+    closures = project_family_closures(
+        (pr['number'] for pr in snapshot['pull_requests']),
+        json.loads((AUDIT / 'decisions.json').read_text())['decisions'],
+        family_rounds)
     for number, decision in family_decisions.items():
-        check_family_decision(actual[number], decision)
+        check_family_decision(actual[number], {**decision, 'closure': closures[number]})
     for number, pr in actual.items():
         require(pr['starting_head'] == expected[number]['headRefOid'], f'#{number}: starting head changed')
         require(pr['contributor'] == expected[number]['author'], f'#{number}: attribution changed')
