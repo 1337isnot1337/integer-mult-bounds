@@ -10,8 +10,7 @@ from ring_words import Signed
 from router_metadata import owned
 from session import borrowed_count, borrowed_tape, erase_marker
 from words import BLANK, RIGHT, need
-from tensor_word import (CONTROL_MAX, DIGIT_BITS, DIGIT_MASK, accumulator_digit,
-                         digit_product, read_digit, write_digit)
+from tensor_word import DIGIT_BITS, accumulate_digit, digit_product, read_digit, write_digit
 
 SCALAR_BITS = 256
 
@@ -47,11 +46,7 @@ def small_product(left, right):
             for _ in range(digits):
                 need(second.read() != RIGHT, "complete fixed scalar product row")
                 b = read_digit(second)
-                previous, extend = accumulator_digit(result.tape)
-                total = previous+digit_product(a, b)+carry
-                need(0 <= total <= CONTROL_MAX, "sixty-four-bit scalar multiply-add control")
-                write_digit(result.tape, total & DIGIT_MASK, extend)
-                carry = total >> DIGIT_BITS
+                carry, _ = accumulate_digit(result.tape, digit_product(a, b)+carry)
             need(second.read() == result.read() == RIGHT, "fixed scalar next high digit")
             write_digit(result.tape, carry, True)
             for _ in range(DIGIT_BITS*digits):

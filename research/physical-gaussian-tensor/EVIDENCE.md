@@ -154,6 +154,30 @@ I regenerated the complete coefficient packet in107.790 seconds with its
 original hash. I now allocate20,20,70,290,400,400 seconds to the six registered
 commands, preserving the1200-second total, precision and full fixtures.
 
+At head240597ed I passed all six official export commands in2.015,3.177,
+22.944,104.733,168.836 and169.146 seconds, with57 files unchanged. The
+fourth hosted run passed the first four groups, including the fresh catalogue,
+with records identical to that export. It then reached the forward400-second
+limit; GitHub skipped the opposite and unchanged-input checks. I retain that
+failure separately from the complete local export.
+
+I profiled one actual expansion line group for97.374 seconds and retained
+the diagnostic separately from full replays. I then fused each digit
+accumulator update into one scan. The complete arithmetic records remained
+equal in22.625 seconds, and the full forward record remained equal in165.603
+seconds. Direct bounded signed conversion and saturating leaf admission
+reduced the expanded arithmetic group to21.777 seconds. I checked64 signed
+cases against literal wire encodings,29 actual signed bindings, wider and
+alias fallbacks, partial conversion/output failures and malformed admission
+order. I corrected a zero-distance movement in the new failure fixture.
+After adding shared signed-parameter and zero-width controls, the complete
+record check passed in2.389 seconds; the full forward transform passed in
+135.530 seconds with its entire prior scientific record unchanged.
+The signed-fixture hash is
+`48f8f0c0e88095c9305bf6a540a42e7188c8ddacf80e91f586d9ea8b81c1c3a2`.
+I allocate20/20/70/310/390/390 seconds to this candidate, preserving the
+1200-second total and the complete numerical fixtures.
+
 The original p48/P80 coefficient producer reached600 seconds. A bounded
 diagnostic located its global exponential setup in encoded multiplication.
 After the exact setup-arithmetic refinement, the catalogue checker completed,

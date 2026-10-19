@@ -57,7 +57,8 @@ overlaps, core assembly, production policy metadata and arithmetic boundaries.
 [ARITHMETIC.md](ARITHMETIC.md) describes the exact fixed-digit leaves,
 streamed setup division, encoded small-order radicals and guarded
 scalar-width adaptation. I also use bounded loops for signed records up to
-4096 bits, preserving the wider-record fallback. I retain
+4096 bits, with direct two's-complement conversion and retained wider-record
+and physical-alias fallbacks. I retain
 the general-order producer and asymptotic word bounds. The p48 metadata
 specialization proves three exact fixed inequalities and changes no numerical
 coefficient or child result.
@@ -68,7 +69,7 @@ For the six registered checks, use:
 python3.12 -B scripts/research_package.py --package research/physical-gaussian-tensor
 ```
 
-I bound each command by at most 400 seconds and their declared total by 1200
+I bound each command by at most 390 seconds and their declared total by 1200
 seconds. I record measured stages in [EVIDENCE.md](EVIDENCE.md) and exact
 publication receipts in the linked investigation; runtime depends on the host.
 
@@ -80,7 +81,7 @@ publication receipts in the linked investigation; runtime depends on the host.
 | `tensor_moves.py`, `tensor_windows.py` | One short field at a time, periodic halos and original source-core assembly |
 | `tensor_plan.py`, `tensor_catalogue.py` | Encoded common policy, original-axis geometry and actual coefficient production |
 | `tensor_lines.py`, `tensor_engine.py` | Complete numerical line groups and the full source-box schedule |
-| `tensor_word.py`, `tensor_counts.py`, `tensor_division.py`, `tensor_twiddles.py`, `tensor_arithmetic.py`, `tensor_records.py` | Explicit exact arithmetic and record adaptations with fixed tape bounds |
+| `tensor_word.py`, `tensor_counts.py`, `tensor_division.py`, `tensor_twiddles.py`, `tensor_arithmetic.py`, `tensor_records.py`, `tensor_signed.py` | Explicit exact arithmetic and record adaptations with fixed tape bounds |
 | `tensor_sources.py`, `tensor_fixture.py`, `tensor_model.py` | Authenticated sources, declared finite fixture and separate checker reference |
 
 ## Open next questions

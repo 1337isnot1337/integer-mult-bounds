@@ -44,20 +44,6 @@ def read_digit(source):
     return value
 
 
-def accumulator_digit(source):
-    if source.read() == RIGHT:
-        return 0, True
-    value = 0
-    for position in range(DIGIT_BITS):
-        bit = source.read()
-        need(bit in (0, 1), "complete accumulated digit")
-        value |= bit << position
-        source.step(1)
-    for _ in range(DIGIT_BITS):
-        source.step(-1)
-    return value, False
-
-
 def write_digit(target, value, extend):
     need(type(value) is int and 0 <= value <= DIGIT_MASK, "thirty-two-bit output control")
     for position in range(DIGIT_BITS):
@@ -66,6 +52,63 @@ def write_digit(target, value, extend):
     if extend:
         need(target.read() == BLANK, "vacant accumulated-digit extension")
         target.write(RIGHT)
+
+
+def accumulate_digit(target, addend):
+    """Add a bounded product and carry while scanning the old digit once."""
+    need(type(addend) is int and 0 <= addend <= CONTROL_MAX-DIGIT_MASK,
+         "bounded product and incoming digit carry")
+    extend = target.read() == RIGHT
+    remaining, previous = addend, 0
+    for position in range(DIGIT_BITS):
+        bit = 0 if extend else target.read()
+        need(bit in (0, 1), "complete accumulated digit")
+        previous |= bit << position
+        value = (remaining & 1)+bit
+        target.write(value & 1)
+        remaining = (remaining >> 1)+(value >> 1)
+        target.step(1)
+    if extend:
+        need(target.read() == BLANK, "vacant accumulated-digit extension")
+        target.write(RIGHT)
+    total = previous+addend
+    need(0 <= remaining <= DIGIT_MASK and total <= CONTROL_MAX,
+         "sixty-four-bit accumulated digit and outgoing carry")
+    return remaining, total
+
+
+def leaf_width(width):
+    size = 0
+    width.rewind()
+    try:
+        for position in range(11):
+            bit = width.read()
+            if bit == RIGHT:
+                return size if 1 <= size <= LEAF_BITS else None
+            if bit not in (0, 1):
+                return None
+            size |= bit << position
+            width.step(1)
+        return size if width.read() == RIGHT and 1 <= size <= LEAF_BITS else None
+    finally:
+        width.rewind()
+
+
+def leaf_fits(value, size):
+    need(type(size) is int and 1 <= size <= LEAF_BITS, "bounded word-leaf admission width")
+    length, overflow = 0, False
+    value.rewind()
+    try:
+        while value.read() != RIGHT:
+            need(value.read() in (0, 1), "canonical data-word digit")
+            if length < size:
+                length += 1
+            else:
+                overflow = True
+            value.step(1)
+        need(not overflow, "data magnitude fits declared word width")
+    finally:
+        value.rewind()
 
 
 class DigitWordProduct(WordProduct):
@@ -104,11 +147,7 @@ class DigitWordProduct(WordProduct):
                 for _ in range(digits):
                     need(second.read() != RIGHT, "complete fixed word-leaf row")
                     b = read_digit(second)
-                    old, extend = accumulator_digit(result.tape)
-                    total = old+digit_product(a, b)+carry
-                    need(0 <= total <= CONTROL_MAX, "bounded digit multiply-add control")
-                    write_digit(result.tape, total & DIGIT_MASK, extend)
-                    carry = total >> DIGIT_BITS
+                    carry, total = accumulate_digit(result.tape, digit_product(a, b)+carry)
                     self.digit_counts["updates"] += 1
                     self.digit_counts["max_control"] = max(self.digit_counts["max_control"], total)
                 need(second.read() == result.read() == RIGHT, "new high digit after each product row")
@@ -136,8 +175,13 @@ class DigitWordProduct(WordProduct):
             return super().enter()
         self.calls["nodes"] += 1
         positive(n)
-        fits(a, n)
-        fits(b, n)
+        size = leaf_width(n)
+        if size is None:
+            fits(a, n)
+            fits(b, n)
+        else:
+            leaf_fits(a, size)
+            leaf_fits(b, size)
         self.finish(self.leaf(a, b))
         self.clear_active()
         self.calls["leaves"] += 1

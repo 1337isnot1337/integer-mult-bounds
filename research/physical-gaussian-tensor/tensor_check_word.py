@@ -37,6 +37,32 @@ def run():
             pass
         else:
             raise ValueError("missing fixed digit-width control")
+    for size in (0, 1, 31, 32, 1024, 1025, 2048, 1 << 129):
+        with owned(Count.literal(size)) as (width,):
+            with no_decode():
+                observed = tensor_word.leaf_width(width)
+            require(observed == (size if 1 <= size <= 1024 else None) and width.tape.head == 1,
+                    "bounded leaf-width probe preserves its origin and fallback boundary")
+    for size, bits, malformed in ((1, 1, False), (32, 32, False), (1024, 1024, False),
+                                  (1, 4097, False), (1024, 4097, False), (1, 3, True)):
+        with owned(Count.literal((1 << bits)-1)) as (value,):
+            if malformed:
+                value.step(1)
+                value.step(1)
+                value.tape.write(BLANK)
+                value.rewind()
+            saved = bytes(value.tape.cells)
+            try:
+                with no_decode():
+                    tensor_word.leaf_fits(value, size)
+            except ValueError as error:
+                require(str(error) == ("canonical data-word digit" if malformed else
+                                      "data magnitude fits declared word width") and (malformed or bits > size),
+                        "full leaf digit validation precedes oversized-width rejection")
+            else:
+                require(not malformed and bits <= size, "bounded leaf admission")
+            require(bytes(value.tape.cells) == saved and value.tape.head == 1,
+                    "bounded leaf admission preserves borrowed data and origin")
     machine = DigitWordProduct()
     hashes, case_count, recursive = sha256(), 0, 0
     def clear(tape):
@@ -71,7 +97,7 @@ def run():
             "actual inherited recursive continuation and worst sixty-four-bit carry")
     require(hashes.hexdigest() == "7e5e413f9988cb1fc178b6fa181b8d7a7ec4f776588f8fc1e55861b27fc616ce",
             "unchanged complete word fixtures after the fixed-digit refinement")
-    controls = []
+    controls = ["bounded_leaf_width", "saturating_leaf_fits", "late_leaf_digit_after_overflow"]
     def reject(call, fragment):
         try:
             with no_decode():

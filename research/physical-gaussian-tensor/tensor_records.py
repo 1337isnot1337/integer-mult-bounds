@@ -141,17 +141,26 @@ def record_aliases():
 @contextmanager
 def bounded_record_io():
     """Adapt signed records, Gaussian packed slots and complete word returns."""
+    from tensor_signed import signed_bindings
+    signed = signed_bindings()
     preload_record_cohort()
     aliases = record_aliases()
     need(all(getattr(module, name) is original for module, name, original, _ in CODEC_BINDINGS),
          "one retained numerical-record codec cohort")
+    need(all(namespace[key] is original for namespace, key, original, _ in signed),
+         "one retained signed-record cohort")
     try:
         with ExitStack() as stack:
             for module, name, _, replacement in CODEC_BINDINGS:
                 stack.enter_context(patch.object(module, name, replacement))
+            for namespace, key, original, replacement in signed:
+                stack.callback(namespace.__setitem__, key, original)
+                namespace[key] = replacement
             yield
     finally:
         need(all(getattr(module, name) is original for module, name, original, _ in CODEC_BINDINGS),
              "restore retained numerical-record codecs")
         need(all(namespace["power_two"] is original for namespace, original in aliases),
              "preserve preloaded numerical-record aliases")
+        need(all(namespace[key] is original for namespace, key, original, _ in signed),
+             "restore retained signed-record cohort")

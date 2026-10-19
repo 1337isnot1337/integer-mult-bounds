@@ -7,8 +7,7 @@ from cardinal_counts import Count
 from compact_counts import Counter
 from router_metadata import owned
 from session import borrowed_tape
-from tensor_word import (CONTROL_MAX, DIGIT_BITS, DIGIT_MASK, accumulator_digit,
-                         digit_product, read_digit, write_digit)
+from tensor_word import DIGIT_BITS, accumulate_digit, digit_product, read_digit, write_digit
 from words import RIGHT, need
 
 
@@ -39,11 +38,7 @@ def digit_count_product(cls, left, right):
             second.rewind()
             while second.read() != RIGHT:
                 b = read_digit(second)
-                previous, extend = accumulator_digit(result.tape)
-                total = previous+digit_product(a, b)+carry
-                need(0 <= total <= CONTROL_MAX, "sixty-four-bit setup multiply-add control")
-                write_digit(result.tape, total & DIGIT_MASK, extend)
-                carry = total >> DIGIT_BITS
+                carry, _ = accumulate_digit(result.tape, digit_product(a, b)+carry)
             need(result.read() == RIGHT, "setup product next high digit")
             write_digit(result.tape, carry, True)
             if finite_digits is not None:

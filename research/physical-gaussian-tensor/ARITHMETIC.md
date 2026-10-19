@@ -25,6 +25,20 @@ operands, accumulated digits and loop extents on physical tapes; I never
 decode an unbounded operand into a host integer. I zero-extend the final
 partial operand digit and normalize the result after the final row.
 
+I add each product and incoming carry into its accumulator digit during one
+forward scan. Put `t_0=a*b+c` and let `z` be the old digit. After `i` bits,
+I maintain `t_0+(z mod 2^i)=r_i+2^i*t_i`, where `r_i` contains the emitted
+bits. For old bit `z_i`, I compute `s=(t_i & 1)+z_i`, write `s & 1`, and
+set `t_(i+1)=(t_i >> 1)+(s >> 1)`. Induction proves that after32 steps I
+have emitted `(t_0+z) mod W` and retained `floor((t_0+z)/W)`.
+I bound `t_0<=W²-W`, `s<=2`, the final carry by `W-1` and the complete
+sum by `W²-1`. I accumulate the old digit before overwriting its bits,
+so I preserve the original maximum-control telemetry. For an extension I
+use zero old bits and retain the blank-cell check before writing the next
+right marker. I use this operation only on owned scratch: a late malformed
+digit can fail after partial output, and the enclosing helper closes that
+unfinished result and restores borrowed operands.
+
 After processing the first `i` digits of the first operand, I retain its exact
 partial product with the complete second operand. For the next row I shift
 the starting position by one digit. The existing highest occupied digit lies
@@ -38,6 +52,15 @@ In `DigitWordProduct` I fix the leaf cutoff at 1024 bits. Above that cutoff I ca
 the retained recursive entry, continuation and output serializer. I check
 both operand widths before taking the zero shortcut. The fixed leaf change
 preserves that recursion's asymptotic bound.
+
+After proving a positive declared width at most1024, I probe its eleven-bit
+encoding and scan each operand with a counter that saturates at that width
+plus an overflow flag. I keep scanning after overflow, preserving the original
+priority of a late nonbinary digit over the final width error. I restore
+the borrowed origin on either outcome. Unsupported encodings retain the
+original `fits` path. I check both operands before the zero-capable leaf.
+I cover the1024/1025 probe boundary, a130-bit encoded width,4097-bit
+oversized operands and a malformed digit after overflow.
 
 Inside that leaf I probe at most 32 second-operand digits, execute at most
 32 rows and move back at most 1024 cells per row. I check the right markers
@@ -247,7 +270,7 @@ probe preserves the original larger-width time and space bounds.
 
 For the duration of `Tensor.run`, I replace five explicit bindings: both
 codecs in `ring_words` and `gaussian_convolution`, and `write_fixed` in
-`word_product`. The retained signed wrappers, packed Gaussian slots and
+`word_product`. The retained signed fallbacks, packed Gaussian slots and
 complete double-width word returns reach those bindings through their
 function globals. I preserve their positive-width, signed headroom,
 coefficient separation and output extent checks, other imported codec
@@ -287,6 +310,48 @@ the eleven direct aliases and two copied function namespaces after preloading,
 and check that I preserve their entry values on success and exception.
 The word check also requires the original thirteen references before entry
 and after the complete group. I include a separate interrupted-scope control.
+
+## Direct bounded signed records
+
+In `tensor_signed.py` I retain the existing `Signed` class, positive-width
+admission and4096 cutoff. For a bounded read I collect the complete record
+and retain its last bit as the sign. For a negative record I replace each
+owned bit with complement plus carry, starting at carry1. The temporary
+sum is at most2 and carry at most1. The complete result is `2^n-raw`, with
+final carry0 because the sign bit proves `raw>=2^(n-1)>0`. I normalize and
+transfer that same owning Count into `Signed`. I close partial results on
+failure and keep the source's consumed cursor.
+
+Before writing, I reproduce the original comparison with `2^(n-1)` in at
+most `n` magnitude steps. Early right marker means less; another encoded
+digit after `n` steps means greater. At exact width, high bit0 means less,
+high bit1 with all lower bits zero means equal, and any lower one means
+greater. I retain the `binary comparison digits` error and avoid validating
+an oversized tail that the original comparison did not inspect. I admit
+positive magnitude strictly below the limit and negative magnitude at most
+the limit, completing this guard before writing any output.
+
+I emit positive bits directly. For a negative magnitude I stream the same
+complement-plus-one recurrence, supplying zero bits after its right marker.
+I write exactly `n` bits and restore the borrowed magnitude. Both branches
+cost `O(n+1)` with fixed controls and tape inventory. I delegate larger
+widths to the original functions. I also delegate a source/width physical
+alias, preserving the original reader's rewind behavior, and destination
+aliases with the magnitude or width. Shared magnitude/width parameters
+remain supported by completing the width probe before scanning data.
+
+I preload the complete Tensor module graph before the record scope. I
+replace thirteen reader bindings, fourteen module writer bindings and the
+two writer entries in the copied small-twiddle namespaces. I preserve the
+saved fallback functions and restore all29 bindings on success or exception.
+The existing seven unsigned/binary bindings share that scope.
+
+I check64 signed boundary cases through4097 bits, compare the complete wire
+bits with separately computed two's-complement encodings, and decode each
+accepted return. I check wider-function dispatch, physical alias handling,
+zero-width admission, partial in-place conversion, partial negative output
+and malformed-input error order. These checks supplement the unsigned
+record, power and bit-selection controls.
 
 ## Local evidence and limits
 
