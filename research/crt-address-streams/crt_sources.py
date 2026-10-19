@@ -1,5 +1,6 @@
 """Authenticate and open the actual PR3935 physical tensor/router cohort."""
 from contextlib import contextmanager
+from concurrent.futures import ThreadPoolExecutor
 import base64
 from hashlib import sha1, sha256
 import importlib.util
@@ -57,12 +58,12 @@ def fetch_tree(root, manifest):
     for row in manifest['files']:
         path = Path(root)/row['path']
         path.parent.mkdir(parents=True, exist_ok=True)
+        print('FETCH_PINNED_TENSOR '+row['path'],flush=True)
         headers={'User-Agent':'integer-mult-crt-source-replay'}
         if row['size'] > 1048576:
             # Bounded public byte ranges avoid partially delivered large raw
             # or base64 responses. Every range and the complete blob are checked.
-            pieces=[]
-            for start in range(0,row['size'],1048576):
+            def part_at(start):
                 end=min(row['size'],start+1048576)-1
                 url=('https://raw.githubusercontent.com/'+manifest['repository']+'/'+manifest['head']+'/'+row['path']
                      +'?crt-bytes='+str(start)+'-'+str(end))
@@ -72,14 +73,16 @@ def fetch_tree(root, manifest):
                         with urllib.request.urlopen(request,timeout=20) as response:
                             if response.status!=206 or response.headers.get('Content-Range')!='bytes '+str(start)+'-'+str(end)+'/'+str(row['size']):
                                 raise ValueError('exact frozen tensor byte range')
-                            part=response.read(end-start+2)
+                            part=response.read(end-start+1)
                         if len(part)!=end-start+1:
                             raise ValueError('complete frozen tensor byte range')
-                        pieces.append(part)
-                        break
+                        return part
                     except (urllib.error.URLError,TimeoutError,http.client.IncompleteRead):
                         if attempt:raise
-            body=b''.join(pieces)
+            # Four bounded, independent ranges preserve order and exact pins.
+            # Await every worker before publishing any source file.
+            with ThreadPoolExecutor(max_workers=4) as executor:
+                body=b''.join(executor.map(part_at,range(0,row['size'],1048576)))
         else:
             blob_url='https://api.github.com/repos/'+manifest['repository']+'/git/blobs/'+row['git_blob']
             with urllib.request.urlopen(urllib.request.Request(blob_url,headers=headers),timeout=30) as response:
