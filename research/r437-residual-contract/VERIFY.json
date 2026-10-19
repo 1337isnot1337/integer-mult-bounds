@@ -5,6 +5,7 @@
   "requirements": [],
   "inputs": [
     "certificates/selected-result.json",
+    "docs/research/agent-task-catalog.json",
     "research/community-hyperplane599-audit/pr589/bit589/v9/hosted/GLOBAL-TEMPLATE.json.gz",
     "research/community-hyperplane599-audit/pr589/bit589/v9/nine/GEOMETRY.json",
     "research/e8-bit-p111-tuned/tune/EXPECTED.json",
@@ -12,6 +13,7 @@
     "research/pr589-five-helper-hosting/PROOF.md",
     "research/pr589-five-helper-hosting/verify.py",
     "research/recursive-parking-boundary/README.md",
+    "research/residual-call-refinement/PROOF.md",
     "research/selected-bit-local-ring-sweeps/PROOF.md",
     "research/selected-bit-physical-caller/PROOF.md",
     "research/selected-bit-physical-caller/README.md",
@@ -135,10 +137,9 @@
     "research/selected-bit-physical-caller/scratch_pool.py",
     "research/selected-bit-physical-caller/verify.py",
     "research/selected-bit-recursive-closure/PROOF.md",
-    "upstream/build/sections/02-streams.tex",
-    "research/residual-call-refinement/PROOF.md",
+    "research/selected-callback-word-liveness/README.md",
     "research/selected-node-stock-refinement/PROOF.md",
-    "research/selected-callback-word-liveness/README.md"
+    "upstream/build/sections/02-streams.tex"
   ],
   "commands": [
     {
