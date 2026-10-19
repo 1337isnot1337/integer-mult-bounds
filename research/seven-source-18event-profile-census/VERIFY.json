@@ -1,1 +1,20 @@
-{"inputs":["research/universal-connector-boundary/CERTIFICATE.json","research/universal-connector-boundary/README.md"],"package":"research/seven-source-18event-profile-census","python":"3.12.3","result":"RESULT.json","runner":"verify.py","schema_version":1,"sources":"SOURCES.json","status":"PASS_SEVEN_SOURCE_18EVENT_PROFILE_CENSUS","task":"TASK.json"}
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "checks": "Replays 10,395-word 6-source projection bound (max 39/41), all 105 canonical (6,2^6) words at 61/63, all 54 canonical (4,4,2^5) words at 63/63, and dirty-state replay.",
+      "timeout_seconds": 60
+    }
+  ]
+}
