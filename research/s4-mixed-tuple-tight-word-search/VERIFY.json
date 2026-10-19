@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/s4-subspace-cut-boundary/README.md",
+    "research/s4-two-premium-cut-envelope/PROOF.md",
+    "research/s4-two-premium-cut-envelope/README.md",
+    "research/s4-two-premium-registers/README.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Count lemma from exact cut values; separately written explicit-matrix pruned search: whole r=3 sub-tuple tree, first three r=4 depths and r=5 depth 1 against the recorded primary runs; unpruned frozenset group-algebra brute-force word count (146) equal to the pruned primary count; scalar positive (4312) and negative (4231 at counts (1,3,1)) controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/verify.py",
+        "--self-test"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Perturbed RESULT.json node counts, expectations and control counts are rejected by the comparator."
+    }
+  ]
+}
