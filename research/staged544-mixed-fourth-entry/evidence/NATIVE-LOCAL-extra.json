@@ -1,0 +1,40 @@
+{
+  "forward": {
+    "sha256": "d37bd2f84ca337b656ae520c647d24282984661d1b3f5c30322cc1e05657d544",
+    "events": 22807,
+    "scalar_macros": 17450,
+    "warp_events": 240,
+    "real_component_primitive_bound": 158086,
+    "paid_profile": {
+      "1": 2490,
+      "2": 714,
+      "3": 226,
+      "4": 99,
+      "5": 20,
+      "8": 8
+    },
+    "all_columns": 632,
+    "private_centers_cleared": true,
+    "private_coefficient_stream_cleared_after_each_macro": true,
+    "zero_buffers_returned_to_zero": 91
+  },
+  "backward": {
+    "sha256": "77b6838d16ce061847fca812be51a5dfe47f54fa1fe533c003496680bf407abf",
+    "events": 22807,
+    "scalar_macros": 17450,
+    "warp_events": 240,
+    "real_component_primitive_bound": 158134,
+    "paid_profile": {
+      "1": 2490,
+      "2": 714,
+      "3": 226,
+      "4": 99,
+      "5": 20,
+      "8": 8
+    },
+    "all_columns": 632,
+    "private_centers_cleared": true,
+    "private_coefficient_stream_cleared_after_each_macro": true,
+    "zero_buffers_returned_to_zero": 91
+  }
+}
