@@ -451,7 +451,7 @@
  "lever_c_unpaid": {
   "families": 28416,
   "fraction": 0.02284,
-  "note": "necessary for any u-lever; sufficient only if every saved unit is a rank-1 child",
+  "note": "necessary when each unpaid coordinate is a pure one-unit removal (no reshaping or merges); sufficient if every removed unit is a rank-1 child",
   "sharp_families_needed_if_each_removes_a_rank1_child": 649
  },
  "lever_d_helper_deletion": {
@@ -516,7 +516,7 @@
    "per_call": null
   },
   "max_per_call_in_this_placement": 74,
-  "placement": "#1023: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
+  "placement": "#1023 window-free relaxation: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
   "rank1_removed": {
    "net_rank1_units": [
     656.0393819674475,
@@ -524,7 +524,8 @@
    ],
    "sharp_per_call": 71,
    "total": 20448
-  }
+  },
+  "window_respecting": "PR1736 (bit589-width7-windows-seed72): under replica-local windows at most 3k of the 9k residuals fit; no partial conversion k <= 74 reaches c* (certified max 0.001809907119 at k = 74); cited, not re-derived here"
  },
  "record": {
   "T": 32,

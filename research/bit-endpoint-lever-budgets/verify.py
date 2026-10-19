@@ -259,7 +259,7 @@ def main():
         assert a_[1] - b_[0] < unit(1, C_STAR)[0], "trimming one unit saves less than removing a rank-1 child"
     out["lever_c_unpaid"] = dict(families=W, sharp_families_needed_if_each_removes_a_rank1_child=need1,
                                  fraction=round(need1 / W, 5),
-                                 note="necessary for any u-lever; sufficient only if every saved unit is a rank-1 child")
+                                 note="necessary when each unpaid coordinate is a pure one-unit removal (no reshaping or merges); sufficient if every removed unit is a rank-1 child")
 
     # ---- (d) helper deletions with optimal width-8 re-hosting (stage-relaxed slot model) ---------------------
     def rehosted(h, d, upper):
@@ -299,7 +299,7 @@ def main():
     out["lever_d_helper_deletion"] = dict(models={k: {str(r): n for r, n in v.items()} for k, v in DELETION_MODELS.items()},
                                           sharp=dels, known_removable_helpers_of_the_fixed_word=1)
 
-    # ---- (f) width-7 helper conversion (#1023's constructive placement and bracket) --------------------------
+    # ---- (f) width-7 helper conversion (#1023's WINDOW-FREE placement and bracket; PR1736: unreachable under windows) --------------------------
     def width7(k, upper, pes=False):
         """k helpers per call converted to width 7: one unit removed from one local child per converted helper
         (rank-1 child removed, or largest child trimmed: #1023's bracket); the 9k width-7 residuals per replica fill
@@ -329,7 +329,8 @@ def main():
     record("width-7: %d helpers per call, rank-1 removed, concavity bound" % (k7 - 1), width7(k7 - 1, False), "fail")
     record("width-7: %d helpers per call, largest trimmed, concavity bound" % kmax, width7(kmax, False, True), "fail")
     out["lever_f_width7"] = dict(
-        placement="#1023: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
+        placement="#1023 window-free relaxation: width-7 residuals in empty 7-slots, width-8 slack in emptied rank-42 windows",
+        window_respecting="PR1736 (bit589-width7-windows-seed72): under replica-local windows at most 3k of the 9k residuals fit; no partial conversion k <= 74 reaches c* (certified max 0.001809907119 at k = 74); cited, not re-derived here",
         max_per_call_in_this_placement=kmax,
         rank1_removed=dict(sharp_per_call=k7, total=calls * k7, net_rank1_units=units_saved(width7(k7, True))),
         largest_trimmed=dict(per_call=None, fails_at=kmax, net_rank1_units_at_max=units_saved(width7(kmax, True, True))),
@@ -355,6 +356,7 @@ def main():
         lo, hi = de.Bill(h, MC, WC).residual(a)
         return "pass" if hi < 0 else "fail" if lo > 0 else "undecided"
     assert cverdict(HC, Q(asm["complex_lower"])) == "pass" and cverdict(HC, C_STAR) == "fail"
+    assert cverdict(HC, Q(asm["complex_lower"]) + GRID) == "fail"   # selected complex endpoint is sharp
     assert cverdict(shared_c, B_CERTIFIED_K2) == "pass" and cverdict(shared_c, C_STAR) == "pass"
     complex_budget, complex_boundary = {}, []
     for r in (1, 8):
@@ -402,7 +404,7 @@ def main():
         print("WROTE", path.relative_to(ROOT).as_posix())
     else:
         assert path.read_text(encoding="utf-8") == text, "RESULT.json differs from the regenerated result"
-    print("%s need_rank1=%d admitted_levers_max_net=%d copies_sharp=%d deletions_per_call=%s width7_per_call=%d "
+    print("%s need_rank1=%d admitted_levers_max_net=%d copies_sharp=%d deletions_per_call=%s width7_windowfree_per_call=%d "
           "ideal_shape_calls=%d complex_need_rank1=%d no_new_kappa"
           % (out["status"], need1, admitted_max, x_star, "/".join("%s:%s" % (k, v["per_call"]) for k, v in dels.items()),
              k7, k_star, cneed))

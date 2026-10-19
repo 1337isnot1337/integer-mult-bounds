@@ -41,30 +41,35 @@ requirement map of that route on the actual histograms.
 | (c) Second unpaid coordinate on F families, pure removal (one unit per family, no reshaping) | no (coverage-law change) | ≤ F | **F ≥ 649** of 28,416 (2.28%), necessary in this model |
 | (d) Pure helper deletion, most favorable (8 rank-1 climbs each), optimal width-8 re-hosting | no (see PR1250 below) | +658.5 at d = 40 | **d = 40 per call** (39 fails for every hosting) |
 | (d) Helper deletion, PR1043's measured delta | no | +169.8 (explicit hosting), ≤ +170.4 (concavity bound) | none: the model runs out of rank-7 climbs at d = 19 (d = 10 if the 9 copies are kept) |
-| (f) Width-7 helper conversion, #1023's placement, rank-1 child removed per helper | no (bit-width-seven-boundary: needs a changed prefix) | +656.0 at k = 71 | **k = 71 per call** (70 fails at the concavity bound) |
-| (f) Width-7 conversion, largest local child trimmed per helper | no | +580.6 at k = 74 | none in this placement: fails at k = 74, when all 666 empty 7-slots per replica are used |
+| (f) Width-7 helper conversion, #1023's **window-free** placement, rank-1 child removed per helper | no (#1128: needs a changed prefix) | +656.0 at k = 71 (window-free) | window-free only: k = 71 per call (70 fails at the concavity bound). **Under replica-local windows no k ≤ 74 clears** (PR1736) |
+| (f) Width-7 conversion, largest local child trimmed per helper (window-free) | no | +580.6 at k = 74 (explicit hosting), ≤ +581.2 (concavity bound) | none: fails at k = 74, when all 666 empty 7-slots per replica are used |
 | (e) Ideal in-window local shapes (single rank-7 data climbs, single rank-8 helper climbs) | no (no such word) | +3,647.6 in all 288 calls | **52 of 288 calls** (51 fails) |
 
-(e) uses PR1334's most favorable in-window premise. PR1334's cruder "rank-8 children (window h = 8)" row and its
+(e) uses PR1334's ideal in-window shapes (rank-7 data climbs, rank-8 helper climbs). PR1334's cruder "rank-8 children (window h = 8)" row, which ignores the 7-level data climb, and its
 "rank-16 children (beyond the window)" row are not priced here. A same-loop float estimate, not certified, puts them
 at about 50 and 34 calls; the rank-16 row needs longer windows, hence a different recipe.
 
 **Conclusion.** No admitted bit lever nets anything at c\*. The admitted levers are the halving-depth cap raise,
 width-8 re-hosting and rank-8 copy carriage. Their nets are 0, 0 and −2,578, so any combination of them also fails.
 Every lever that clears 649 changes the word, the decoder or the coverage law. The stated sizes are: one fewer
-rank-7 copy per call, 40 pure helper deletions per call (9.3% of the 430 helpers), 71 width-7 helpers per call in
-the optimistic bracket of #1023's placement, the ideal local shapes in 52 calls, ≥ 649 doubly-unpaid families, or
-bit-side two-call sharing within ≈ 29.1 units of overhead per call.
+rank-7 copy per call (93 of the 2,592 copies record-wide), 40 pure helper deletions per call (9.3% of the 430
+helpers; a stage-relaxed pass), the ideal local shapes in 52 calls, ≥ 649 doubly-unpaid families, or
+bit-side two-call sharing within ≈ 29.1 units of overhead per call. Partial width-7 conversion (f) clears only in
+#1023's window-free relaxation (k = 71); our merged PR1736 shows that under replica-local windows on the frozen
+recipe no partial conversion k ≤ 74 reaches c\* (certified maximum 0.0018099 at k = 74), so width-7 clears only by
+the full all-439 conversion (#1023, window-feasible per PR1736), which needs a changed prefix (#1128).
 
 **Consequence for `centre-path-sharing`.** At c\* the route needs a complex saving of ≥ 511 net rank-1 units
-(≈ 3.55 per call), not PR1791's 1.33, plus one of the bit-side mechanisms above. Bit-side two-call sharing (row b3)
-is the only clearing row that reuses a mechanism already constructed on the complex side (PR1708/PR1748). It has
-about 14× the needed saving, with an overhead budget of ≈ 29.1–29.3 paid-mass units per call. Rows b2, c, d, e and
-f also clear 649, each with a new decoder, coverage law or word of the stated size. With the complex side at
+(≈ 3.55 per call), not PR1791's 1.33, plus one of the bit-side mechanisms above. Rows b3 and f both have
+constructed complex-side analogues: the PR1708/PR1748 two-call centre phase (scalar-macro level, not admitted) and
+the PR601/PR593/PR569 width-7 helpers (per #1023). Each is blocked on the bit side, by the analogue of PR1748's
+ownership/sink blocker and by #1128's changed prefix respectively. Bit-side sharing (b3) has about 14× the needed
+saving, with an overhead budget of ≈ 29.1–29.3 paid-mass units per call. Rows b2, c, d and e (and f
+only in the window-free relaxation) also clear 649, each with a new decoder, coverage law or word of the stated size. With the complex side at
 c\* + 10⁻²⁴ and the bit side at c\*, κ is still ≥ 1.1× selected (asserted). The complex overhead figure is an
 additive rank-1 / rank-8 budget in PR1791's treatment. Mixed ranks allow more added mass: PR1888's mixed-rank
 maxima reach 30.87 units per call at the selected bit endpoint, with rank-51 children. PR3075 charges the named
-k = 2 costs at about 12 units per call, inside this budget, and reports that eligibility and demand coupling, not
+k = 2 costs (per call: 4 ADD, 4 scratch CLEAR and 4 precision rank-1 children) inside this budget, and reports that eligibility and demand coupling, not
 the named costs, are the blocker. Without a bit-side mechanism of one of the stated sizes, the card's stop rule
 holds for the catalogued lever set.
 
@@ -80,7 +85,9 @@ per replica (439 = 430 helpers + 9 retained totals).
 **(a) The cap is slack.** HD = 2 caps children at 45, since 2r² < 64² ⇔ r ≤ 45. HD = 3 and 4 raise the cap to 50
 and 53. But every idle child is a window remainder, at most the largest window 7(2K − 2) = 42, and every local
 child has rank ≤ 7. No idle child can span two consecutive windows of the same pair: the windows are delimited by
-the recipe's bridges, each of which aligns the levels of two pairs and writes the source pair's coordinates. The
+the recipe's bridges, each of which needs both pairs at a common level, reading the source pair's side-0
+coordinates and writing its side-1 coordinates there, so every coordinate of the source pair must be materialized
+at that level. The
 record already keeps pair 1's 14 and 7 windows (21 < 45) and pair 2's 28 and 7 windows (35 < 45) as separate
 children at HD 2, so the split is structural, not a cap effect; pair 3's 42 + 7 = 49 likewise cannot merge under
 the HD-3 cap of 50. So the record's max child is 42 < 45, and raising the halving depth admits no histogram the
@@ -88,7 +95,7 @@ fixed windows can produce. Its net saving is exactly 0. Longer windows need a di
 [bit589-recipe-floor](../bit589-recipe-floor/README.md) (PR1487)'s whole class of nine-stage recipes, that package
 reports the longest advance as 2(K − 1) = 6 levels, i.e. a window of 42, so the cap is slack there too. In
 particular, PR1334's cap-50/53 columns and its halving-depth-4 escape (145 ≥ 138) cannot be reached by any
-nine-stage recipe.
+recipe in that class.
 
 **(a′) Width-8 re-hosting cannot help.** A rank-r window holds at most ⌊r/8⌋ width-8 helpers. 8 divides no window
 rank, so every window keeps exactly one nonzero remainder child, and the child count (hence the surcharge) is fixed.
@@ -106,12 +113,15 @@ help either. This re-certifies, at c\*, what our merged
 
 **(b1) Copy carriage.** cst is the sum of the copy ranks (63), entering the deficit D = T(2Kv − L·cst). With whole
 copies, rank-8 carriage of the nine copies raises cst to 72 and the paid mass by 2,592. That increases the bill.
-PR1334's "rank-8 carriage" row kept cst = 63 with 63/8 fractional copies, which is the fewer-copies lever (b2).
+PR1334's receipt instead keeps cst = 63 as 63/8 rank-8 copies per call. That mass-preserving reshaping nets only
+about +4.45 rank-1 units here (same-loop review check, not shipped) and fails.
 
 **(c) One unit of rank mass is worth at most one rank-1 child.** Trimming a rank-r child to r − 1 saves
 φ(r) − φ(r − 1) < φ(1), certified for r = 2..42 at c\*. Removing a rank-1 child also removes its surcharge. So F
 doubly-unpaid families save at most F rank-1 children, and F ≥ 649 is necessary, when each unpaid coordinate is a
-pure removal of one unit of mass. Reshaping or merges that accompany the unpaid coordinate are outside this model.
+pure removal of one unit of mass. Reshaping or merges that accompany the unpaid coordinate are outside this model. JosieElliston's PR1808
+(`plane-port-copy-budgets`) priced this lever earlier at the +10% target as an all-families ideal-packing
+relaxation; (c) instead gives a necessary pure-removal count on the actual histogram, and the two do not conflict.
 
 **(d) Deletion bounds.** For d deletions per call, the 45 + 9d unused slots per replica are priced two ways:
 - from below, by the concavity bound (all at the rank-42 per-slot cost, fractional);
@@ -126,13 +136,20 @@ include its 9 rank-7 copies, so with the copies kept that model is exhausted at 
 nets at most +170.4 (concavity bound; +169.8 with the explicit hosting).
 
 **(f) Width-7 conversion.** [bit589-width-packing](../bit589-width-packing/README.md) (#1023) prices helpers of
-width 7 in a constructive placement: the 9k width-7 residuals per replica fill 9k of the 666 empty 7-slots exactly,
+width 7 in a **window-free** placement: the 9k width-7 residuals per replica fill 9k of the 666 empty 7-slots exactly,
 and the freed width-8 slack goes to emptied rank-42 windows. Its bracket removes one unit per converted helper either
 as a rank-1 child (optimistic) or by trimming the largest local child (pessimistic). Here the slack is hosted as in
 (d). In the optimistic bracket k = 71 per call passes with the explicit hosting and k = 70 fails at the concavity
 bound. The pessimistic bracket fails at k = 74, when every empty 7-slot is used; beyond that, this placement does not
-apply (#1023's all-439 slot-exact optimum is a different placement). The lever is not admitted:
-[bit-width-seven-boundary](../bit-width-seven-boundary/README.md) (Ali Romman) shows that the selected PR589 word
+apply (#1023's all-439 slot-exact optimum is a different placement). Within the slot model, mightyOil's #1281 (step-1
+subadditivity lemma) shows an optimum puts each width-7 role alone in a 7-slot, so the k = 70 fail holds for every
+slot-model placement and +656.0 is the slot-model optimum. But the slot model ignores stage windows: our merged
+[bit589-width7-windows-seed72](../bit589-width7-windows-seed72/README.md) (PR1736, head `b4fd72163234`) proves
+that each capacity-7 idle child admits exactly one stage, so at most 3k of the 9k residuals per replica fit, and its
+certified window-respecting optimum stays below c\* for every k ≤ 74 (maximum 0.0018099 at k = 74). So under
+replica-local windows on the frozen recipe no partial width-7 conversion clears; cross-replica owner maps and other
+recipes are open. The lever is not admitted either:
+[bit-width-seven-boundary](../bit-width-seven-boundary/README.md) (#1128, Ali Romman, head `df29b159239b`) shows that the selected PR589 word
 cannot obtain width-7 helpers by replacing its cleanup alone; a changed prefix is needed.
 
 Linearity makes every budget sharp. f(a) = (1/(mW)) Σ n_r r (m/r)^a + c_s m^a with c_s = 32mN/(10¹⁶W) is affine in
@@ -160,7 +177,7 @@ python3 -I -B research/bit-endpoint-lever-budgets/verify.py && python3 -I -B res
 Expected output:
 
 ```text
-PASS_BIT_ENDPOINT_LEVER_BUDGETS need_rank1=649 admitted_levers_max_net=0 copies_sharp=93 deletions_per_call=RANK1:40/TEMPLATE:None width7_per_call=71 ideal_shape_calls=52 complex_need_rank1=511 no_new_kappa
+PASS_BIT_ENDPOINT_LEVER_BUDGETS need_rank1=649 admitted_levers_max_net=0 copies_sharp=93 deletions_per_call=RANK1:40/TEMPLATE:None width7_windowfree_per_call=71 ideal_shape_calls=52 complex_need_rank1=511 no_new_kappa
 PASS_BIT_ENDPOINT_LEVER_BUDGETS_INDEPENDENT signs=75 at c*-1e-24, c* and c*+1e-24 (levers.py interval arithmetic)
 ```
 
@@ -201,11 +218,11 @@ python3 -I -B -m unittest discover -s research/bit-endpoint-lever-budgets -p tes
 - **Scope of each row:**
   - (a) and (a′) hold for the PR589 nine-stage windows and width-8 helpers. (a′) also holds with stage windows
     relaxed. No banks are used.
-  - (b2), (b3), (c), (d) and (e) are pricing passes for hypothetical words or decoders.
+  - (b2), (b3), (c), (d), (e) and (f) are pricing passes for hypothetical words or decoders.
     - (d)'s d = 40 pass is in the stage-relaxed slot model; its d ≤ 39 fail holds for every hosting.
     - (e) is the in-window ideal relaxation of PR1334, applied call by call.
-    - (f) is #1023's constructive 7-slot placement; its k = 70 fail is for every width-8 slack hosting in that
-      placement, not for every width-7 placement.
+    - (f) is #1023's window-free slot model; with #1281's lemma its k = 70 fail holds for every slot-model
+      placement, but under replica-local windows no k ≤ 74 clears at all (PR1736).
 - **Unpaid obligations of every passing row:** the word or decoder itself, then:
   - the dirty-input endpoint and restoration;
   - hosting under the real stage windows;
@@ -223,7 +240,8 @@ python3 -I -B -m unittest discover -s research/bit-endpoint-lever-budgets -p tes
 ## Open next questions
 
 1. **Can the bit centre path be shared by two calls within ≈ 29 units of overhead per call?**
-   - *Why it matters:* it is the only clearing row that reuses a mechanism already constructed on the complex side.
+   - *Why it matters:* it has the largest margin of the clearing rows (about 14× the need) and a constructed
+     complex-side analogue (PR1708/PR1748, scalar-macro level, not admitted).
      The complex half must then deliver ≥ 511 net rank-1 units at c\*, i.e. keep its additive rank-1/rank-8 overhead
      within ≈ 28.3 units per call.
    - *First step:* write the bit analogue of PR1748's two-call reverse phase for the nine rank-7 copies of one
@@ -237,10 +255,11 @@ python3 -I -B -m unittest discover -s research/bit-endpoint-lever-budgets -p tes
      copied, and price the extra climbs.
    - *Blocked by:* a replacement contract for the decoder's copied totals (the `centre-path-sharing` card's
      scope-change trigger); r439-copy-path-sharing-barrier section T shows the totals' source sets are disjoint.
-3. **Which bit word reaches the 52-call reshaping, the 40-deletion size or 71 width-7 helpers per call?**
+3. **Which bit word reaches the 52-call reshaping, the 40-deletion size or a window-feasible width-7 conversion?**
    - *Why it matters:* these are the non-sharing alternatives.
    - *First step:* measure the best per-call delta of PR1043-style deletions combined with climb merges, or test the
-     six after-scatter width-7 survivors of bit-width-seven-boundary in a changed prefix.
+     six width-7 survivors of #1128 with a B/C rewrite (prefix through scatter fixed); the other 433 need a changed
+     prefix, and partial conversion must also beat PR1736's window bound.
    - *Blocked by:* PR1250 found no further single deletion beyond PR1043 within arbitrary source XOR masks on the
      fixed R439 word (sole survivor helper 470); it does not exclude simultaneous deletions. Width-7 helpers need a
      changed prefix.
@@ -253,16 +272,19 @@ python3 -I -B -m unittest discover -s research/bit-endpoint-lever-budgets -p tes
 - **Bootstrap/outer formulas:** Wronskode, `frontier1042-invoice-audit-seed81` (PR #1112).
 - **Independent arithmetic:** our merged `bit-revision3-levers-seed03` (PR1334, head `5ad74a4a04d1`).
 - **Re-hosting optimality at the selected endpoint, the slot model and the width-7 placement/bracket:** our merged
-  `bit589-width-packing` (#1023, head `babca68167d8`); earlier width-7 pricing by mightyOil (#1281).
-- **Width-7 admission boundary:** Ali Romman, `bit-width-seven-boundary`.
+  `bit589-width-packing` (#1023, head `babca68167d8`); exact partial width-7 slot optima by mightyOil (#1281). Window-respecting width-7 bound: our merged
+  `bit589-width7-windows-seed72` (PR1736, head `b4fd72163234`).
+- **Width-7 admission boundary:** Ali Romman, `bit-width-seven-boundary` (#1128, head `df29b159239b`).
+- **Bit second-unpaid-coordinate pricing at +10% (all-families relaxation, predecessor of row c):** JosieElliston,
+  `plane-port-copy-budgets` (PR1808, head `b3d9b9813e0f`).
 - **Deletion models:** our merged `bit-deletion-ladder` (PR2465, head `9494fc4e2ecd`), from Ali Romman's PR1043 delta
-  (head `e309e17f83f5`); single-deletion scope from PR1250 (head `67667b11049e`).
+  (head `e309e17f83f5`); single-deletion scope from PR1250 (bbMisk, head `67667b11049e`).
 - **Recipe class:** ianlibanio, `bit589-recipe-floor` (PR1487, head `cfd97ca1e9d3`).
 - **Halving-depth admission:** the merged r740 elementary-cover row bound,
   `research/e8-bit-carrier-skeleton/code/hub/r740-hosted-eleven/code/row_bound.py` (as cited by PR1334).
 - **Complex overhead context:** RossRichardson, `centre-sharing-mixed-overhead` (PR1888, head `9c0fd1d20d33`);
   navinor / Aaron Wang, `centre-shared-kcall-charged-seed615415` (PR3075, head `378b8e47fc01`); the two-call
-  mechanism PR1708/PR1748 (PR1748 head `ea14f191752c`); `r439-copy-path-sharing-barrier`.
+  mechanism PR1708 (1337isnot1337) / PR1748 (ToikY; PR1748 head `ea14f191752c`); `r439-copy-path-sharing-barrier`.
 - **Bit supplier:** DreamingOfClouds (PR589, head `a5afc8c6169e`) and eumemic (PR555, head `65a6bc19f820`), with the
   PR510/PR463/PR442 template and hosting lineage.
 - **Selected construction:** Rohan Arun (#1094).
