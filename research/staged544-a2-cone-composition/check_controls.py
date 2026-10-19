@@ -26,9 +26,9 @@ def main():
   with tempfile.TemporaryDirectory(prefix='combined-a2-control-') as tmp:
    dest=Path(tmp)/'package';shutil.copytree(ROOT,dest,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
    if kind=='owner-debit':
-    p=dest/'RESULT.json';x=json.loads(p.read_bytes());x['providers']['base']['cone_witnesses'][0]['owner_debit']={'1':0};p.write_text(json.dumps(x))
+    p=dest/'RESULT.json';p.chmod(0o600);x=json.loads(p.read_bytes());x['providers']['base']['cone_witnesses'][0]['owner_debit']={'1':0};p.write_text(json.dumps(x))
    else:
-    p=dest/'inputs/WORD-base.json.gz';p.write_bytes(p.read_bytes()+b'\0')
+    p=dest/'inputs/WORD-base.json.gz';p.chmod(0o600);p.write_bytes(p.read_bytes()+b'\0')
    env=os.environ.copy();env['PYTHONPYCACHEPREFIX']=str(Path(tmp)/'fresh-cache')
    r=subprocess.run([sys.executable,'-O','-B',str(dest/'verify.py'),'--quick'],capture_output=True,text=True,env=env,timeout=120)
    V.need(r.returncode!=0 and ('result mismatch' if kind=='owner-debit' else 'frozen source hash') in r.stderr,'actual CLI rejection '+kind)
