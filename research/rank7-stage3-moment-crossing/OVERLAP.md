@@ -7,4 +7,10 @@ Checked immediately before fixing this question on 2026-10-19 (UTC).
 - Live open-PR metadata returned 586 records. PR #2979 is merged at source head `be191346391661f4d35fc0d1508d0a6029572576`. Open PR #3585 records only its archive disposition and says mechanism review/required execution remain false. Open PR #3804 directly encloses two batched moments from PR #10; its source and child lists differ. Open PR #3857 kernel-checks a staged-544 supplier from PRs #3802/#3815; it is another source and inequality. Neither overlaps the T74 transition tested here.
 - The source's existing checks remain relevant: `tools/audit_allocation_moment.py` and `tools/root.py` check complete profile roots with log/exp intervals; `check_cap.py` checks fixed-capacity stage caps. The new query is the direct common-saving straddle for the stage-3 local-profile change on the frozen final fill. It does not claim an independent rewrite or owner replay.
 
+## Final refresh
+
+At 02:30Z, canonical `origin/main` was fetched and pinned at `20ecf2891d80b5acf18d980b2164fb44ea7faa90`, equal to the launch base. Priority revision 6 and the selected-record SHA256 remain unchanged.
+
+The final read of the latest 100 #1166 comments and open-PR metadata (587 records) found no new handoff for the PR2979 stage-3 moment. PR2979 remains merged at `be191346391661f4d35fc0d1508d0a6029572576`; PR3585 remains open with archive-only disposition. Open PRs #3804 (different batched child lists) and #3857 (different staged-544 supplier) remain disjoint. Open #3822/#3830/#3837 record rank-7 hyperplane/frame/pattern objects; they do not cover this fixed-fill moment inequality.
+
 This is a local overlap record. No Discussion post, PR comment, or external write was made.
