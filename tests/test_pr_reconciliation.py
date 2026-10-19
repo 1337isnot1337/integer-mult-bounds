@@ -262,10 +262,14 @@ class AssertionSafetyRefresh(unittest.TestCase):
         coverage = json.loads((ROOT / 'research/community-batch932-audit/CONTENT-COVERAGE.json').read_bytes())
         self.items = [deepcopy(item) for row in coverage['pull_requests'].values()
                       for item in row['files'] if item.get('integrated_path') in {
-                          'scripts/run_isolated_tests.py', 'tests/test_isolated_test_runner.py'}]
+                          'scripts/run_isolated_tests.py', 'tests/test_isolated_test_runner.py',
+                          'research/data-corner-performance/README.md',
+                          'research/data-corner-performance/SOURCE.json',
+                          'research/data-corner-performance/replay.py',
+                          'research/data-corner-performance/test_replay.py'}]
 
     def test_exact_accepted_successors_pass(self):
-        self.assertEqual(len(self.items), 2)
+        self.assertEqual(len(self.items), 6)
         for item in self.items:
             checker.check_batch932_file(item)
 

@@ -77,7 +77,8 @@ def check_batch932_file(item):
     not permission to change any other bytes or the frozen batch932 receipt.
     Also authenticate the exact PR53 replay adapter and its test from c58c1778;
     this extension retains the earlier assertion guard and every module.
-    Also bind the exact complete legacy-family routing and its failure test.
+    Also bind the exact complete legacy-family routing and its failure test,
+    plus the reviewed production data-corner evidence refresh.
     """
     name = item['integrated_path']
     digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
@@ -96,6 +97,18 @@ def check_batch932_file(item):
             ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
              '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522',
              '5c2a715a66c0c87fd672ce46889cb878dd7017a8bfa0c44395b340306b1b5382', '3638fb4a6233475d1984568a5027b57af30f0dbcce9a22d3c459cef4f7716aa7', '8188e0ff7755bf72dfcd8728413cbda9793d3d7913507f7a9831f91e19ab93b8')),
+        'research/data-corner-performance/README.md': (
+            'eaa548973e42e1ca6695fb3d6a8ae3c738ff29a5c4ccd053c9bf44f6eacb545c',
+            ('6e8b28070731ab42fca90519f16eb17f9a19b86362b2b8533fa2ddcb2bdd6e0c',)),
+        'research/data-corner-performance/SOURCE.json': (
+            'ceda6f692682d98f7a4bc258717764ea2b549304b5808ba380f7ee48783dcb53',
+            ('513628ac6fc4941c7bf2f9b890099ed163d9f2521f4461d3f42f07773d04eef1',)),
+        'research/data-corner-performance/replay.py': (
+            'ce7cceeabb816d4a70aaa6352d5ba0432ac7dea4f66f903e3af4fa91aa44c822',
+            ('eb96c629a8732216fc1bf6243ada832d0041b467ede3af7a70e07783900694ba',)),
+        'research/data-corner-performance/test_replay.py': (
+            '5f134d0cf4e3c4b79e0aa274117523582badbe8e6431554832f0277bb644724e',
+            ('0c7ab29c0f5628ec1943501f79f6144d2d474efd837c44dbb9ee5dd97b569ad1',)),
     }
     require(name in successors and successors[name][0] == item['integrated_sha256']
             and digest in successors[name][1],
