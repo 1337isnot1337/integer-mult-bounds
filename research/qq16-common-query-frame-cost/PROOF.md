@@ -27,12 +27,16 @@ branches, Fourier projection, hidden sum of owner routes, changed producer or
 changed output frame is included. Splitting a branch does not improve the
 lower bound: at least one copy of each required nonzero route still needs its
 own normalized payload in this class. This is a specified implementation family,
-not all possible circuits for M21.
+not all possible circuits for M21. The 104 h_p are fixed; a genuinely different
+owner-route decomposition is outside this result.
 
 Grant every rank-k phase normalizer, with either sign and arbitrary normal
 subspace, at optimistic native-moment price k^s, s=1−a. Its binary polar update
 has rank at most k. Extra monomial moves may conjugate that update but preserve
-its rank. This relaxes actual native availability. All other actual obligations
+its rank. This is a prescribed formal recursive-moment charge, **not a lower
+bound on wall-clock or bit/tape work**. Alternative implementations require
+their own complete invoice. Granting all such factors relaxes native availability.
+All other actual obligations
 (input acquisition/change/retention, scalar operations, helpers, cleanup, full
 owner movement, precision, control and outer consumption) remain nonnegative
 costs; only for this **lower-bound screen** are they granted free. No physical

@@ -19,7 +19,10 @@ over lifted frames, is needed. The stronger λ=1 bound for `0≤a≤1/2` is >144
 phase-moment units for a nonzero change, versus baseline104.
 
 This is a **scoped negative result** about separately normalized one-owner-route
-branches with a fixed F16 output frame and a specified phase-normalizer tariff.
+branches with a fixed F16 output frame and a specified formal phase-normalizer
+tariff. The104 source owner routes are fixed; a different owner decomposition
+is outside the result. The tariff is an accounting model, not a wall-clock or
+bit/tape lower bound.
 It does not exclude shared/joint normalizations, changed output frames/producers,
 paid address-valued scans or other native alphabets. It is not a native-call
 lower bound for every circuit, a physical supplier admission, or a new κ.
