@@ -1,1 +1,12 @@
-{"inputs":[{"git_blob":"079e3e1441dc07c2f0536e9527acf290e51ea9c0","path":"research/universal-connector-boundary/CERTIFICATE.json","sha256":"e733746ba3e5151c829b4e8728bfff5ae3ed24d8d203eb77c735d20758e8266a","usage":"input"},{"git_blob":"d277f7c5830b1f2bc42e1ff41ab86e7d7564929f","path":"research/universal-connector-boundary/README.md","sha256":"23415f7829ab8d80a783142f10f7d31abbce84579362769984680af3df954476","usage":"input"}],"package":"research/seven-source-18event-profile-census","provenance":[{"git_blob":"e8870e591705d59b730eb14721a778639eca050","path":"docs/research/agent-task-catalog.json","sha256":"d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7","usage":"provenance"}],"schema_version":1}
+{
+  "schema_version": 1,
+  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
+  "files": [
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "e8870e591705d59b730eb14721a778639eca050",
+      "sha256": "d46eb6d5b3e279428753d770653663fbdf1063e55c255ea073d768f344927ef7"
+    }
+  ]
+}
