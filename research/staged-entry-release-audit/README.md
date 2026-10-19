@@ -39,7 +39,12 @@ The exact certificate can be regenerated explicitly with `verify.py --write`.
 Exact canonical base: `bb4bccbf42844d2801487450727c2f63e10d1d0f`; priority6;
 OS-random assignment seed69, adversarial audit track. Four source words are
 retained byte-for-byte and checked by SHA256/Git-blob pins before execution.
-`SOURCES.json` binds their actual PR4076 paths and commit. The certificate does
+`PINS.json` records their actual PR4076 paths/commit and byte/Git-blob identity.
+`SOURCES.json` authenticates the committed local freeze at d39e1a8d, which is
+in this publication history. The pending predecessor head is not an ancestor
+of this branch; source-history preflight does not certify its ancestry. Original
+source/blob equality was checked against the fetched exact PR head; replay uses
+the retained authenticated bytes and does not fetch GitHub. The certificate does
 not import or trust that PR's report histograms or checker outputs.
 
 Overlap: refreshed latest100 open bodies, another100 updated bodies, previous
