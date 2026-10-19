@@ -51,7 +51,7 @@ def test_certificate_corruption_rejected():
     original = cert.read_bytes()
     try:
         with tempfile.TemporaryDirectory() as tmp:
-            del tmp  # silence unused
+            del tmp  # ensure tempdir available for isolation patterns
             corrupt = json.loads(original)
             corrupt["counts"]["normalized_agreements"] = 0
             cert.write_text(json.dumps(corrupt, indent=2, sort_keys=True) + "\n")

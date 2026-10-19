@@ -24,8 +24,9 @@ Paid inventory:
 | restoration | **170638** |
 | frame_copy (pad_in + pad_out + callee) | **511758** |
 
-Controls (shared `(2,2)`, identity, zero, swapped dual) stay imperfect.
-Selected κ stays `0.001672660197076918`.
+Algebraic remap controls (shared `(2,2)`, identity, zero, swapped dual) and
+one live Boolean shared-`(2,2)` control stay imperfect. Selected κ stays
+`0.001672660197076918`.
 
 ## Reproduce
 

@@ -27,7 +27,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 600,
+      "timeout_seconds": 180,
       "checks": "Source pins; Boolean raw 729/6561 vs normalized 6561/6561; dual-scale (7,4); single-factor obstruction; complete line items; prior algebra cross-check; controls; certificate admission."
     },
     {
@@ -39,7 +39,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 600,
+      "timeout_seconds": 180,
       "checks": "need() admission remains enforced under -O; identical PASS marker."
     },
     {
@@ -59,7 +59,7 @@
         "-B",
         "{package}/test_package.py"
       ],
-      "timeout_seconds": 1200,
+      "timeout_seconds": 600,
       "checks": "Duplicate JSON keys; temp certificate corruption rejected; package files unchanged after read-only verify; -O -Werror; need() under -OO."
     }
   ]

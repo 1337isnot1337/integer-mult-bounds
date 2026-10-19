@@ -42,9 +42,10 @@ weights `(4,1)` twice. Origin labels occupy codes `1..6561` across thirteen
 planes; padding uses the pinned `padding.complete` contract.
 
 Raw `F_a` (no Norm) recovers **729/6561**. Metered dual-scale `Norm∘F_a`
-recovers **6561/6561**. Controls fail strictly below 6561: shared scale
-`(2,2)` (the predecessor factor), identity `(1,1)`, zero `(0,0)`, and
-swapped dual `(4,7)`.
+recovers **6561/6561**. Algebraic remap controls fail strictly below 6561 for
+shared scale `(2,2)` (the predecessor factor), identity `(1,1)`, zero `(0,0)`,
+and swapped dual `(4,7)`; one live Boolean shared-`(2,2)` control likewise
+stays imperfect.
 
 ## Complete paid inventory
 

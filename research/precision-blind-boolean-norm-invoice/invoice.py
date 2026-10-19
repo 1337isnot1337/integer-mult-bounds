@@ -460,22 +460,33 @@ def build_certificate():
     pad = padding_frame_copy_invoice()
     need(pad["pad_in"] == PAD_FRAME_COPY_IN, "pad_in")
     need(pad["pad_out"] == PAD_FRAME_COPY_OUT, "pad_out")
-    # Negative controls: single shared factor (the #4053 shape) and zero scales.
+
+    def algebraic_norm_hits(scale_h1, scale_d0):
+        hits = 0
+        for i in range(ADDRESS_VOLUME):
+            if destination_norm_fa(i, scale_h1=scale_h1, scale_d0=scale_d0) == destination_target(
+                i
+            ):
+                hits += 1
+        return hits
+
+    need(
+        algebraic_norm_hits(SCALE_H1, SCALE_D0) == ADDRESS_VOLUME,
+        "dual-scale algebraic identity full",
+    )
+    shared2_hits = algebraic_norm_hits(2, 2)
+    identity_hits = algebraic_norm_hits(1, 1)
+    zero_hits = algebraic_norm_hits(0, 0)
+    swapped_hits = algebraic_norm_hits(SCALE_D0, SCALE_H1)
+    need(shared2_hits < ADDRESS_VOLUME, "shared-scale-2 algebraic control")
+    need(identity_hits < ADDRESS_VOLUME, "identity-scale algebraic control")
+    need(zero_hits < ADDRESS_VOLUME, "zero-scale algebraic control")
+    need(swapped_hits < ADDRESS_VOLUME, "swapped dual-scale algebraic control")
+    # One live Boolean wrong-scale control (shared factor from the a=(2,1) invoice).
     shared2, _, _, _ = run_boolean_fixture(
         normalize=True, scale_h1=2, scale_d0=2
     )
-    need(shared2 < NORMALIZED_AGREEMENTS, "shared-scale-2 control fails")
-    shared1, _, _, _ = run_boolean_fixture(
-        normalize=True, scale_h1=1, scale_d0=1
-    )
-    need(shared1 < NORMALIZED_AGREEMENTS, "identity-scale control fails")
-    zero, _, _, _ = run_boolean_fixture(normalize=True, scale_h1=0, scale_d0=0)
-    need(zero < NORMALIZED_AGREEMENTS, "zero-scale control fails")
-    # Swapped dual scales also fail (order matters).
-    swapped, _, _, _ = run_boolean_fixture(
-        normalize=True, scale_h1=SCALE_D0, scale_d0=SCALE_H1
-    )
-    need(swapped < NORMALIZED_AGREEMENTS, "swapped dual-scale control fails")
+    need(shared2 < NORMALIZED_AGREEMENTS, "shared-scale-2 Boolean control fails")
     invoice = closed_form_invoice()
     return {
         "schema_version": 1,
@@ -525,9 +536,10 @@ def build_certificate():
             "frame_rewind": meters["frame_rewind"],
             "weight_mult": meters["weight_mult"],
             "shared_scale_2_agreements": shared2,
-            "identity_scale_agreements": shared1,
-            "zero_scale_agreements": zero,
-            "swapped_dual_scale_agreements": swapped,
+            "shared_scale_2_algebraic_hits": shared2_hits,
+            "identity_scale_algebraic_hits": identity_hits,
+            "zero_scale_algebraic_hits": zero_hits,
+            "swapped_dual_scale_algebraic_hits": swapped_hits,
         },
         "invoice": invoice,
         "kappa_decimal": KAPPA_DECIMAL,
