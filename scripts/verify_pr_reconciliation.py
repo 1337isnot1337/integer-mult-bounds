@@ -448,8 +448,7 @@ def main():
                         require(not decision['review_completion']['changed_file_coverage'] and f['remaining'],
                                 'Uncovered file in completed PR')
                     else:
-                        require(hashlib.sha256((ROOT / f['integrated_path']).read_bytes()).hexdigest() == f['sha256'],
-                                'Changed hyperplane integrated file: ' + f['integrated_path'])
+                        check_reviewed_family_source(f['integrated_path'], f['sha256'])
                 if decision.get('closure'):
                     closure = decision['closure']
                     require(closure['reviewed_head'] == decision['current_head'] and closure['explanation_url'],
