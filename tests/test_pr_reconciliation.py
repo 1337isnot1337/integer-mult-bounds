@@ -97,9 +97,10 @@ class FamilyDecision(unittest.TestCase):
                     checker.check_family_decision(item, self.decision)
 
     def test_missing_closure_is_distinct_from_recorded_null(self):
-        decision = self.latest[620]
-        item = deepcopy(self.items[620])
+        decision = next(row for row in self.families['k492'] if row['number'] == 620)
         self.assertIsNone(decision['closure'])
+        item = deepcopy(decision)
+        checker.check_family_decision(item, decision)
         item.pop('closure')
         with self.assertRaisesRegex(ValueError, '#620:.*closure'):
             checker.check_family_decision(item, decision)
