@@ -67,7 +67,10 @@ The primary covers45 contexts on all nine literal R437 captures at q=3,5,7,11,
 192 complete GL2/diagonal-weight cases, and one ambient64 projector with
 nonzero graph coefficients and a singular leading chart. An exhaustive
 81-address pullback with three distinct physical prefix ordinals and two
-spectators checks all486 payload bits,63 dirty readers and owned disposal.
+spectators checks all486 payload bits,63 dirty readers and in-place cleanup of
+the model private buffer after its last reader, with source and completed-target
+preservation checks. This cleanup is a model operation; physical disposal, head
+restoration and its scan cost remain charged backend premises.
 Small q is algebraic evidence; it does not satisfy the imported large-q cost
 premises. The finite ambient64 case supplies a valid principal subset to avoid
 an enormous lexicographic search; the uniform proof supplies existence and the

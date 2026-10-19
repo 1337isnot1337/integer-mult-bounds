@@ -125,12 +125,19 @@ def finite_payload():
     require(current == tuple(expected), 'actual event pullback on every payload cell')
     dirty_targets = [[(i+target)%2 for i in range(len(source))] for target in range(63)]
     original_targets = [row[:] for row in dirty_targets]
-    private = current
+    private = list(current)
     for row in dirty_targets:
         row[:] = [a^b for a,b in zip(row,private)]
     require(all(row == [a^b for a,b in zip(old,private)] for row,old in zip(dirty_targets,original_targets)), 'all 63 dirty readers')
-    disposed = [0]*len(private)
-    require(not any(disposed) and source == tuple(random.Random(17000+i).randrange(2) for i in range(len(source))), 'source preservation and owned disposal')
+    # Model-only cleanup of the actual private buffer after its last reader.
+    # Physical erasure, head restoration and scan cost remain backend premises.
+    completed_targets = [row[:] for row in dirty_targets]
+    require(any(private), 'nonzero private-buffer disposal control')
+    for i in range(len(private)):
+        private[i] = 0
+    require(not any(private), 'model private buffer erased in place')
+    require(dirty_targets == completed_targets, 'cleanup preserves completed dirty targets')
+    require(source == tuple(random.Random(17000+i).randrange(2) for i in range(len(source))), 'cleanup preserves borrowed source')
     return {'addresses':len(addresses),'physical_prefixes':3,'spectators':2,'payload_bits':len(source),'dirty_readers':63,'primitive_events':len(vector_events)}
 
 

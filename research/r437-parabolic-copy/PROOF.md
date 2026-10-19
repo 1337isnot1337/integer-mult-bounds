@@ -227,12 +227,18 @@ route/scatter, directory producer and protected return charges if those have
 not already been charged by the caller. No reader recomputes the residual;
 no reader's arbitrary incoming target is assumed zero.
 
-A conservative visited-cell reserve is
+Conditional on fixed reusable tape inventories, a conservative visited-cell
+reserve is
 
     2v + S_R(v,7f,w) + S_B(v,f) + S_ADD(v) + M_coeff + F_q,
 
-where each backend reserve includes owned output, numerical work, parking and
-blank-but-visited cells. Sequential cleanup does not justify taking a maximum
+where each backend reserve is a whole-run lifetime maximum on its fixed
+reusable inventory, including owned output, numerical work, parking and
+blank-but-visited cells. The two volume buffers must likewise use fixed reusable
+inventories; M_coeff and F_q include whole-run coefficient and finite-control
+backing. Per-call live occupancy does not establish these bounds. If a backend
+allocates disjoint tapes across occurrences, their lifetime backing must be
+summed instead. Sequential cleanup does not justify taking a maximum
 across disjoint tape inventories. There is no stored length-f array of matrices;
 coefficients can be recomputed from header and column, with recomputation time
 included in gamma. Successful cleanup is covered by the named contracts;
