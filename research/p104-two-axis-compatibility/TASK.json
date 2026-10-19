@@ -68,7 +68,7 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Retained physical endpoint/correction conjugation; explicit 104x104 P104 tensor-line scaffold and phase controls; unchanged-profile conditional rejection. Not the h=28 producer embedding, native admission or a global owner schedule.",
+  "actual_scope": "Retained ordered and literal-slot physical endpoint/correction conjugation, including Pi occupancy; explicit 104x104 P104 tensor-line scaffold and phase controls; unchanged-profile conditional rejection. Not the h=28 producer embedding, native admission or a global owner schedule.",
   "scope_change_reason": "Explicit donor assignment follows PR3940: replace the logical caller-cut question by one physical two-axis residual-compatibility theorem and complete conditional cost gate.",
   "bottleneck_link": "Decides whether carrying the encoded residuals through an actual physical two-axis endpoint can avoid repaying source-return work; the exact conjugated operations and favorable cost gate are supplied.",
   "budget_minutes": 60,
@@ -105,6 +105,12 @@
       "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
       "priority_revision": 6,
       "decision": "NARROW; prepublication refresh unchanged; latest-100 PR delta and active Discussion guidance checked"
+    },
+    {
+      "utc": "2026-10-19T06:42:59Z",
+      "main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+      "priority_revision": 6,
+      "decision": "Final boundary review made the literal Pi occupancy explicit and independently verified its conjugated correction and direct counterexample; scientific numerical gate unchanged."
     }
   ],
   "overlap": {

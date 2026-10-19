@@ -24,6 +24,11 @@ Established results, with full proofs in [PROOF.md](PROOF.md):
   supplied. Reusing the old correction gives the explicit defect
   [[-H,0],[T^-1(D-I),H]]. The required first-bank increment has linear rank
   96 per address. This is NOT a 96-unit native-cost lower bound.
+- Literal occupancy is retained explicitly: Pi swaps the two data slots at
+  N, so the physical encoding is A_T=Pi L_T and its correction is
+  Pi P_encoded Pi. Applying the old correction directly in those literal
+  slots has first-bank defect -H T^-1. Pi, chart alignment and fixed-slot
+  return are not granted as free physical moves or owner relabelings.
 - The 104 physical root labels give 10,816 distinct nondegenerate lines
   p_i tensor p_j in dimension 81. All 512 phase patterns of a fixed fiber
   are checked: only the two homogeneous patterns commute with D; 510 fail.

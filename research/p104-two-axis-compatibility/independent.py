@@ -81,6 +81,16 @@ def algebra():
     comm=[[scale(H,-1),zero],[times(t,plus(D,scale(one,-1))),H]]
     diff=[[plus(mm(p,e)[i][j],scale(mm(e,p)[i][j],-1)) for j in range(2)] for i in range(2)]
     require(diff==comm,'blind correction defect')
+    J0=plus(one,scale(H,-1))
+    Pi=[[J0,H],[H,J0]]
+    require(mm(Pi,Pi)==[[one,zero],[zero,one]],'literal slot permutation')
+    actual=mm(Pi,e)
+    actual_inverse=mm(ei,Pi)
+    require(mm(mm(actual,p),actual_inverse)==mm(mm(Pi,want),Pi),'literal encoded correction')
+    actual_defect=[[scale(times(H,t),-1),zero],
+                   [plus(times(times(t,J0),plus(D,scale(one,-1))),scale(H,-1)),times(t,H)]]
+    defect=[[plus(mm(p,actual)[i][j],scale(mm(actual,p)[i][j],-1)) for j in range(2)] for i in range(2)]
+    require(defect==actual_defect,'literal slot blind-correction defect')
     # Nonzero Hd cannot be suppressed merely because it is a residual output.
     require(hd!=zero,'residual update control')
     return want

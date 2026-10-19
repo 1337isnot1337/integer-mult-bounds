@@ -43,5 +43,6 @@
     "Independent human review and formal-kernel acceptance"
   ],
   "lint": "No lint pass claimed",
-  "attribution": "Clear1nsight, substantial OpenAI Codex assistance; separate algorithms share one assisted context."
+  "attribution": "Clear1nsight, substantial OpenAI Codex assistance; separate algorithms share one assisted context.",
+  "boundary_review": "Final review explicitly adds literal mixed-slot occupancy A_T=Pi L_T, Pi P_encoded Pi and the direct literal-slot defect. The separate noncommutative checker verifies those identities. Numerical results, source inputs and cost gate are unchanged."
 }

@@ -34,6 +34,14 @@ Extend every compatibility map by identity on the 72 arbitrary dirty roles.
 This extension preserves all their information; it does not supply the
 unexecuted physical native return of a completed global caller.
 
+The ordered (r,w) notation is not the literal register occupancy. PR3882
+places r_J in X_J and r_N in Y_N, and w_J in Y_J and w_N in X_N. Put
+J0=I-H and Pi=[[J0,H],[H,J0]]. Pi swaps the two slots exactly at the 96 N
+ports; Pi^-1=Pi. The literal slot encoding is Pi E0, not E0. Pi is an
+explicit bookkeeping permutation in the equations below, NOT a free physical
+move or a proved compatible owner reassignment. Its realization, chart
+alignment and fixed return locations belong in the complete boundary bill.
+
 ## 2. Logical inverse shear and the physical caller
 
 The original inverse shear R=[I -I;0 I] on (u,w) has encoded form
@@ -70,13 +78,14 @@ This is the actual retained endpoint equation, not merely the scalar
 (-y,x+y) equation. The paid correction is
 P=[I 0;T^-1 I], so P(A,B)=(A,F T^-2 x).
 
-At the terminal charts the residual encoding is not E0. Conjugating by
+In ordered (r,w) coordinates at the terminal charts the encoding is not E0. Conjugating by
 G=diag(F,E) gives the physical encoding
 ```
 L_T = G E0 G^-1 = [D H T;0 I].
 ```
 F is common and commutes with the rank-one C_U operators; H is diagonal
 and commutes with T. D need not commute with T.
+In the literal register order the physical encoding is A_T=Pi L_T.
 
 To preserve this explicitly fixed physical encoding on both sides of the
 paid correction, the exact operator is
@@ -92,6 +101,11 @@ Its r-to-r increment H D^-1 has rational rank 96, or 96 times the address-space
 dimension on arrays. That is an information/linear-map rank, NOT a lower bound
 of 96 native tariff units.
 
+The correction in literal slots is therefore
+P_literal_encoded=Pi P_encoded Pi, rather than P_encoded alone. Keeping the
+permutation symbolic exposes the required ownership/return obligation without
+silently donating moves between the actual X/Y banks.
+
 Applying the old correction unchanged to encoded fields is wrong:
 ```
 P L_T - L_T P = [-H             0]
@@ -102,8 +116,20 @@ This counterexample survives even homogeneous T. A corrected physical caller
 must implement the conjugated correction, choose a different explicitly
 intertwined output encoding, or decode. None is priced as zero.
 
+There is also a direct literal-slot counterexample, without granting a gather:
+with K=T^-1,
+```
+P A_T - A_T P = [-H K                   0]
+                  [K J0(D-I)-H          K H].
+```
+The first-bank defect on an N-port A input is -K A, again nonzero and of
+rank 96 times the address dimension. The separate noncommutative checker
+verifies Pi^2=I, both literal-slot identities and the ordered-coordinate
+identities. No rank here is identified with a native conversion tariff.
+
 After the correction, the retained phase/sign/exchange wrappers finish the
-unencoded caller. In the fixed L_T contract they must be preceded by L_T^-1,
+unencoded caller. In the fixed literal A_T contract they must be preceded by
+A_T^-1=L_T^-1 Pi (or by L_T^-1 after a separately realized ordered gather),
 or replaced jointly by a proved and priced encoded endpoint. This study does
 not assert that every possible co-designed final encoding must decode there.
 
@@ -227,7 +253,8 @@ M_complete(a) >= [sum_local_children (r/81)^(1-a)
                   + sum_remaining_children (r/81)^(1-a)] / W
                  + A_intertwiners(a)+A_scalar(a)+A_physical(a) < 1.
 ```
-The A terms include acquisition/encoding/decoding, both changed-bank updates,
+The A terms include acquisition/encoding/decoding, the explicit Pi occupancy
+map and fixed-slot return, both changed-bank updates,
 endpoint work not already counted in the chosen native route, new wrappers,
 routing/holding/control/tape, finite
 width/precision/recovery and recursive admission as applicable. They are
