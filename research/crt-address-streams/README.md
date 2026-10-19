@@ -35,7 +35,9 @@ predecessor sources** into temporary storage. Every size, SHA256 and Git blob
 is checked; no GitHub credentials are needed. Network availability is required
 for that command. The exact files and source commit are in
 [NETWORK-SOURCES.json](NETWORK-SOURCES.json). This avoids duplicating large
-frozen predecessor archives in the PR. The predecessor loader independently
+frozen predecessor archives in the PR. Only declared source files enter a private import tree, with a fresh bytecode
+namespace; unpinned siblings and cached bytecode in an offline tree are ignored.
+The predecessor loader independently
 checks the complete embedded exports, receipts and source-specific notices.
 
 For an already downloaded, authenticated tree with paths matching that manifest:
@@ -82,7 +84,8 @@ Prepared by Tekalign (tekuuu), with substantial OpenAI Codex assistance in desig
 code, proof and verification. New work is Apache-2.0. CRT algebra follows
 Agarwal and Cooley and the retained source08 construction; the full router and
 physical tensor interface are Jose Manuel (`jmbarrancoml`)'s PR3935, building on
-PR3619 and the predecessors pinned within its complete exports. Those sources,
+PR3619 and the predecessors pinned within its complete exports, including the original
+OpenAI manuscript, RaD/hipotures reports and Douglas Colkitt's retained work. Those sources,
 licenses and notices are unchanged. This contribution adds the actual encoded
 layout composition and full conditional cost/backing argument; it does not
 claim the predecessor's algebra or routing theorem as new work.
