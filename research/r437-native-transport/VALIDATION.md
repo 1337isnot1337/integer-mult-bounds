@@ -1,14 +1,14 @@
 # Validation
 
 Canonical main was refreshed at entry and before submission, unchanged at
-20ecf2891d80b5acf18d980b2164fb44ea7faa90, priority revision6.
+20ecf2891d80b5acf18d980b2164fb44ea7faa90, priority revision 6.
 
 The complete registered package replay passed under normal and optimized
-CPython3.12. Each command authenticated134 canonical inputs, four retained
+CPython 3.12. Each command authenticated134 canonical inputs, four retained
 R437 source files and the byte-exact PR3967 adapter, then regenerated the
 full exact chart, owner-pair and transport-count receipt. Both invocations
 ran all five semantic/predicate controls and the three actual native
-chart98 carry diagnostics. No assertion-dependent acceptance checks are
+chart 98 carry diagnostics. No assertion-dependent acceptance checks are
 used by the new checker.
 
 The result is a source-specific dyadic algebra certificate and conditional

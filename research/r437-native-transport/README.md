@@ -23,15 +23,15 @@ by chronological scatter into the latest family state.
 Evidence in [RESULT.json](RESULT.json):
 
 - 1,235 actual chart labels: 236 determinant +1, 999 determinant -1 over Z[1/2].
-- 5,619 same-family role pairs across nine canonical calls; explicit32-fold
-  symmetry gives179,808 pairs across288 calls. Every pair has a dyadic-unit
+- 5,619 same-family role pairs across nine canonical calls; explicit 32-fold
+  symmetry gives 179,808 pairs across 288 calls. Every pair has a dyadic-unit
   entry witness, so its distinction survives every odd characteristic.
 - The exact current ordered request digest is
   `cbfea55f5cd0b74a2a0d4292ad0139d2b5bb73127951127698030bc90c73c532`.
 - The full transport counts are253,728 N completed gathers,253,728 N completed
-  scatters and379,584 N completed routes, where N=|GL64(F_q)|. The transport bill
+  scatters and 379,584 N completed routes, where N=|GL64(F_q)|. The transport bill
   is253728 N(G+S)+379584 N R, with setup, transfer and disposal inside each tariff.
-- Actual rank26 native chart98 produces nonzero high carries from a raw identity
+- Actual rank26 native chart 98 produces nonzero high carries from a raw identity
   header at(q,w)=(3,2),(5,3),(7,4); low-only retagging loses those carries.
 - Controls reject duplicate charts, an odd-prime determinant, an odd denominator
   and a chart difference vanishing modulo3. A separate small semantic control
@@ -44,7 +44,7 @@ predicates remain enabled under optimized Python.
 
 ## Reproduce
 
-From the repository root, standard-library Python3.12:
+From the repository root, standard-library Python 3.12:
 
 ```sh
 python3 scripts/research_package.py --package research/r437-native-transport --check-only
@@ -63,7 +63,7 @@ caller inputs are declared in `VERIFY.json` and SHA-256/Git-blob bound in
 
 ## Scope and overlap
 
-Explicit donor continuation of PR3967 at canonical main20ecf289, priority6.
+Explicit donor continuation of PR3967 at canonical main 20ecf289, priority 6.
 The predecessor already binds actual rank26/COPY515 controlled physical returns,
 full literal event chronology and seven changed catalogue records. This package
 adds the current-source all-odd-q chart certificate and owner-key injection,
@@ -72,12 +72,12 @@ lemma; this package does not depend on that sibling's result.
 
 The retained PR2753 proof states owner/common route and separation arguments for
 its older source. Nick Petalas/PR2989 already independently certifies463 distinct
-chart pairs covering181,056 old-source owner pairs, and proves conditional
+chart pairs covering 181,056 old-source owner pairs, and proves conditional
 compiler ordering. It explicitly leaves chart invertibility as a premise.
-The present determinant certificate checks all1,235 current charts and removes
+The present determinant certificate checks all 1,235 current charts and removes
 that chart premise for every odd modulus. Separate projector/normal-form
-source-prime restrictions are retained. The pair inventory is newly bound to659
-current roles and179,808 occurrences; the general separation theorem, omitted
+source-prime restrictions are retained. The pair inventory is newly bound to 659
+current roles and 179,808 occurrences; the general separation theorem, omitted
 guard observation and conditional ordering principle retain their predecessors'
 credit. This package independently certifies the exact current R437
 matrices and all within-call pairs, explains the predicate omitted by the emitter,
