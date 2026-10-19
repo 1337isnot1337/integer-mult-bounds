@@ -32,6 +32,7 @@ def check_batch1047_file(item):
     digest = hashlib.sha256(current).hexdigest()
     if digest == item['integrated_sha256']:
         return
+    # Exact live successors are also recorded in replay_historical_check.py.
     reviewed = {
         'research/p112-free-sink-audit97/README.md': (
             'c792fc8f5de0c784049904c6febf3eed9b20e2462b30dc643c72730470d72b79',
@@ -210,6 +211,7 @@ def check_batch1099_file(item):
     digest = hashlib.sha256(current).hexdigest()
     if digest == item['integrated_sha256']:
         return
+    # Exact live successors are also recorded in replay_historical_check.py.
     reviewed = {
         'research/r439-omission-atlas-seed81/README.md': (
             '6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f',
