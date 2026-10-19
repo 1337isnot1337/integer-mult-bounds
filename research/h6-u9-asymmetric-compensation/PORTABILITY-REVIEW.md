@@ -52,3 +52,26 @@ No remaining loader defect was found in the inspected revision. These tests esta
 The root added controls.py and registered it in normal and optimized modes. Source review confirms its rejection helper raises unexpected acceptance outside the caught ValueError path; it tests modified source, mathematical receipt and recipe bytes, missing coverage, and acceptance of the explicitly ignored duration observation. Its temporary fixture poisons matching caches for the real physical compiler and its nested Clifford vendor, then exercises the retained Op.then dimension assertion and exact nested execution set. These are meaningful controls of the actual wrapper boundary. The root reports optimized controls and metadata validation passing; this reviewer did not repeat those runs.
 
 VERIFY.json registers all six scientific stages under -I -O -B with the frozen code forced to optimize=0, plus controls under -I -B and -I -O -B. The README accurately distinguishes generator/replay controls, arbitrary complex operator scope, logical FULL restoration, standalone exact precision, and excluded finite-tape/approximate-child/joint-supplier claims. Source acquisition and export instructions match the inspected closure. The registered full stage executions and hosted checks remain independently reported root evidence.
+# C04 launcher compatibility follow-up
+
+Status: PASS for the bounded delta reviewed after CI run39235715551. This is a source/evidence review of the cache-directory fix and timeout allocation, not a new mathematical replay or a claim that the amended head has completed hosted CI.
+
+The only controls.py change is `cache.parent.mkdir(exist_ok=True)` to `cache.parent.mkdir(parents=True, exist_ok=True)`. The repository's actual `run_python_replay` inserts `-X pycache_prefix=<fresh temporary root>`, so `cache_from_source` returns a nested path whose parent ancestors do not yet exist. The captured CI failure is exactly this missing-directory error. Creating the missing ancestors preserves the matching-cache poison construction, nested authenticated compiler loading and retained assertion test; it removes no control and changes no mathematical code.
+
+VERIFY.json changes only time limits: factor120 to60 seconds, native480 to600, and adapters180 to120. Other stages and both controls retain their commands, coverage labels and timeouts. The sum is unchanged at1140 seconds. The allocation responds to observed hosted execution: native437.571527273 seconds, frozen replay75.16050586999995 seconds, adapters approximately55 seconds; it does not claim a guaranteed runtime bound.
+
+## Inspected hashes
+
+- controls.py: acc3b6cab64231a9b5d5cf07370d32784cdba2b38014bc57a1d99375fe642c88
+- VERIFY.json: 3a9a675da69ad73298f5ff1b7af8fde73a9e99d9fac0ccf0389f76d4b52e2961
+- verify.py, unchanged: a07bbbc84d4310bbd7bc4d8b40b27a309fbdfabd4ea76516376601818318f732
+- ADAPTATIONS.json, unchanged: 147a2cad963185f51eb8e0881470931b18f181cfe8df815480d9b59dc8ae8ab0
+- FROZEN-SHA256.json, unchanged: a6393759e393cbf55500e04188601c0a799e2390b2cd3f844542ec3851744c22
+
+## Evidence inspected
+
+The captured `publication/C04-CI-FAILED.log` (SHA256 b8a766bd1e8a94d46405542482f9ac38d4837aed96d24216dbe92dfef2cbe6c4) contains PASS_PORTABLE_C04 for factor, native, replay, adapters, precision and composition, followed by FileNotFoundError in controls.py at the former mkdir call. The CI snapshot identifies the pre-fix head as de2ba3f4558d66cf0909712e7832a1d5b9aa037e. Those six successful mathematical stages remain evidence for their unchanged scientific bytes; the overall old CI run failed at control setup.
+
+`C04-LAUNCHER-FIX.log` (SHA256 1ccd55df88518e934370093ffe4123013a93c2caab8297e7581b429888d6682a) contains both normal and optimized PASS_PORTABLE_SOURCE_RECEIPT_CACHE_AND_ASSERTION_CONTROLS markers and PASS_ACTUAL_REGISTERED_LAUNCHER_CONTROLS_NORMAL_AND_OPTIMIZED. This is the root's retained actual-launcher rerun evidence, independently inspected here; no heavy jobs were repeated by this reviewer.
+
+No factors, recipes, source bindings, receipt comparisons, assertions, precision equations, invoice claims or coverage domains changed. The exact finite proof and its existing exclusions remain as reviewed. The root retains responsibility for amended-head publication and the subsequent automatic hosted CI result.

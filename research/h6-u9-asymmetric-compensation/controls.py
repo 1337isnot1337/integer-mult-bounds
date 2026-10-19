@@ -55,7 +55,7 @@ def main():
             shutil.copyfile(ROOT / name, target)
             hashes[name] = hashlib.sha256(target.read_bytes()).hexdigest()
             cache = Path(importlib.util.cache_from_source(str(target)))
-            cache.parent.mkdir(exist_ok=True)
+            cache.parent.mkdir(parents=True, exist_ok=True)
             header = importlib.util.MAGIC_NUMBER + struct.pack('<III', 0, int(target.stat().st_mtime), target.stat().st_size)
             poison = compile("raise RuntimeError('unauthenticated cached code executed')", str(target), 'exec')
             cache.write_bytes(header + marshal.dumps(poison))

@@ -11,7 +11,7 @@
         "factor"
       ],
       "checks": "All 665856 polynomial coefficients, 30960 port rows, two 208-column orientations, 18 controls and complete rank differential. Frozen source assertions are retained with optimize=0.",
-      "timeout_seconds": 120
+      "timeout_seconds": 60
     },
     {
       "argv": [
@@ -24,7 +24,7 @@
         "native"
       ],
       "checks": "Regenerate all 548 new recipes with 34 signed Paulis and 131072 exact Gaussian coordinates each; inverse/chain checks and seven defect classes. Frozen source assertions are retained with optimize=0.",
-      "timeout_seconds": 480
+      "timeout_seconds": 600
     },
     {
       "argv": [
@@ -50,7 +50,7 @@
         "adapters"
       ],
       "checks": "Regenerate 272 baseline recipes, compare exact serialized bytes, and reproduce forward/dual adapter and scalar invoices. Frozen source assertions are retained with optimize=0.",
-      "timeout_seconds": 180
+      "timeout_seconds": 120
     },
     {
       "argv": [
