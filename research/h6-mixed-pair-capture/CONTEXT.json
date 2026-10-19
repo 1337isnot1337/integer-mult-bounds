@@ -39,5 +39,19 @@
       "source": "PR4027 exact asymmetric U9 K factor, full bucket splice and outstanding physical obligations"
     }
   ],
-  "license": "Apache-2.0; no predecessor source is copied or modified in this package."
+  "license": "Apache-2.0; no predecessor source is copied or modified in this package.",
+  "publication_overlap": {
+    "utc": "2026-10-19T11:20:43Z",
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "open_pr_bodies_including_drafts": 744,
+    "open_issues": 1,
+    "recent_updated_discussions": 30,
+    "parent_pr_comments": "All current comments at refresh; no competing same-scope claim or objection found.",
+    "related_distinct_prs": [
+      3649,
+      3655,
+      4027
+    ],
+    "limitation": "Bounded discovery coverage; not a proof of novelty across every closed PR or old discussion."
+  }
 }

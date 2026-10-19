@@ -23,7 +23,7 @@ The [proof](PROOF.md) specifies the complete factor, the rank-two exception,
 same-representative frame legality, arbitrary-dirt forward/dual chronology,
 counts and inherited limits. [CERTIFICATE.json](CERTIFICATE.json) records all
 16 attainable mixed pairing classes, full reduced-geometry tables by digest,
-complete invoices and an all-input-column seed83 fixture. The entire
+complete invoices and an all-input-column seed 83 fixture. The entire
 30,960-square matrix and multi-billion-event network are not materialized.
 
 ## Independent evidence
@@ -64,7 +64,7 @@ Receipt generation requires removing the old receipt explicitly and running
 Exact canonical base: `20ecf2891d80b5acf18d980b2164fb44ea7faa90`.
 [SOURCES.json](SOURCES.json) pins every live input by Git blob and SHA256;
 the verifier seals the inventory itself. The selected record and task
-catalogue are historical provenance. [TASK.json](TASK.json) records OS seed83,
+catalogue are historical provenance. [TASK.json](TASK.json) records OS seed 83,
 domain, stopping rule and the refined independent-verification card.
 
 ## Conditional asymmetric K comparison

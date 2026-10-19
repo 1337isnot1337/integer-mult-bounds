@@ -3,14 +3,14 @@
 ## 1. Inputs and precise claim
 
 Use the doubled-coordinate H6 ports of the frozen PR606 lineage: two pure
-E8 projective norm16 shells of 1080 ports and mixed ports
-`s+=(u,v), s-=(u,-v)` for 120 projective norm8 root lines in each block.
+E8 projective squared-norm 16 shells of 1080 ports and mixed ports
+`s+=(u,v), s-=(u,-v)` for 120 projective squared-norm 8 root lines in each block.
 There are 30,960 ports. Define `tau=t·s/4`,
 `f(z)=(z^3-4z)/48`, `K_ts=f(tau)`, and `C=I-K`.
 
 The inherited binary-label isometry satisfies
 `p(t)·p(s)=1+tau (mod2)`. Every source has line `P_s=span(p(s))`,
-every target has cap `Q_t=p(t)^perp`, in dimension17. Compatible means
+every target has cap `Q_t=p(t)^perp`, in dimension 17. Compatible means
 `p(t)·p(s)=0`, hence **odd tau**. Compatible C entries are nonzero;
 the result removes proportional columns, not zero columns.
 
@@ -30,12 +30,12 @@ Equivalently every root pairing signature is unchanged. The source's
 an injective affine isometry. Thus `p(s+)=p(s-)`, with identical packed
 labels, not merely isomorphic abstract lines.
 
-The source pure fibers have 135 labels of multiplicity8 per block; the
-mixed fibers have 14,400 labels of multiplicity2. Root, pure and zero cosets
+The source pure fibers have 135 labels of multiplicity 8 per block; the
+mixed fibers have 14,400 labels of multiplicity 2. Root, pure and zero cosets
 are disjoint and exhaust the 256 E8/2E8 classes. The primary enumeration
 uses all 120 pairing signatures. Independently, for doubled E8 vectors q,r,
-`(q-r)/2` belongs to doubled E8 iff the coordinate differences are all0
-or all2 modulo4 and their sum is0 modulo8. Hence a direct coset key is
+`(q-r)/2` belongs to doubled E8 iff the coordinate differences are all 0
+or all 2 modulo 4 and their sum is 0 modulo 8. Hence a direct coset key is
 `(min(q mod4, (q+2*ones) mod4), sum(q) mod8)`.
 The independent implementation confirms the exact same pure partition.
 
@@ -62,18 +62,18 @@ The sixteen attainable ordered classes are recorded exactly in the receipt.
 
 * If B=0 and A odd, the columns are equal; take sigma=+1.
 * If A=0 and B odd, f is odd, so the columns are opposite; take sigma=-1.
-* If one pairing is2 and the other odd, the block has rank2 with determinant
-  of absolute value3/32. Keep both original helpers.
+* If one pairing is 2 and the other odd, the block has rank 2 with determinant
+  of absolute value 3/32. Keep both original helpers.
 * All remaining blocks are zero, including the diagonal block after I-K
   cancellation. No compatible nonzero entry is discarded.
 
-The rank1 entries all have magnitude1/16. For a pure target `(w,0)`,
+The rank 1 entries all have magnitude 1/16. For a pure target `(w,0)`,
 the two columns are equal; for `(0,w)` they are opposite. In a compatible
 pure target bucket, Cauchy gives `|u·w/4|<=sqrt(8)`, and odd integrality
-then gives magnitude1 pairing, hence every C entry has magnitude1/16.
+then gives magnitude 1 pairing, hence every C entry has magnitude 1/16.
 The whole eight-port target bucket has the same pairing parity.
 
-For a nonzero rank1 block write its columns as `[v,sigma*v]`. Replace
+For a nonzero rank 1 block write its columns as `[v,sigma*v]`. Replace
 `G=I_2, D=[v,sigma*v]` by `G=[1,sigma], D=v`. Exactly
 `D G=[v,sigma*v]`. This changes no other block; full-rank mixed blocks
 keep the original identity capture, and every pure-source helper is kept.
@@ -99,7 +99,7 @@ gives `P_h subset Q_h`. Perform these complete phases:
 4. Helpers climb line→cap and add `D(e+Gx)` to target buckets.
 5. Helpers climb cap→FULL and subtract `Gx` at FULL.
 
-The helper ranks are1,15,1, and both operands in every addition use
+The helper ranks are 1,15,1, and both operands in every addition use
 the identical actual frame. Data paths and K children are unchanged.
 The forward output is
 
@@ -118,42 +118,42 @@ Thus `x -> x-(K+DG)^T y=x-y`, y is unchanged, and helpers return to e.
 The complete K interface, including arbitrary sources, targets, dirt and
 private erasure, is essential in both orientations.
 
-`word.py` checks all source/target/helper basis columns in one seed83 fixture
+`word.py` checks all source/target/helper basis columns in one seed 83 fixture
 using exact sparse rationals and source-line/cap chronology. K is an
 explicit exact macro contract there, not an implemented native K tape.
 The full phasewise proof above is separate from that finite replay.
 
 ## 5. Exhaustive reduced census and complete scalar invoice
 
-For every root line, among 120 root lines exactly63 are orthogonal,
-56 have odd pairing, and one is the same line. Every root has72 compatible
-pure target-label buckets. Each pure source has64 compatible root lines,
-64 pure-label buckets,448 pure-port pairings of magnitude1 and64 of
-magnitude3. The two enumerations check the complete tables, including every
+For every root line, among 120 root lines exactly 63 are orthogonal,
+56 have odd pairing, and one is the same line. Every root has 72 compatible
+pure target-label buckets. Each pure source has 64 compatible root lines,
+64 pure-label buckets, 448 pure-port pairings of magnitude 1 and 64 of
+magnitude 3. The two enumerations check the complete tables, including every
 one of the 1,166,400 pure/pure entries. Products of these checked degrees,
-with section3's complete class split, give full-network counts.
+with section 3's complete class split, give full-network counts.
 
 For each mixed source label:
 
 | Target caps | Number | Old helpers/cap | New helpers/cap |
 | --- | ---: | ---: | ---: |
-| Mixed rank1 | 2*63*56=7056 | 2 | 1 |
-| Mixed rank2 | 2*56=112 | 2 | 2 |
-| Pure rank1 | 2*72=144 | 2 | 1 |
+| Mixed rank 1 | 2*63*56=7056 | 2 | 1 |
+| Mixed rank 2 | 2*56=112 | 2 | 2 |
+| Pure rank 1 | 2*72=144 | 2 | 1 |
 
-Old helpers per mixed label are14,624; new are7,424. Thus removed helpers
+Old helpers per mixed label are 14,624; new are 7,424. Thus removed helpers
 are `M=14400*7200=103680000`. Pure-source helpers remain
 `270*8*(120*64+64)=16727040`. Total helper counts are
 `227312640 -> 123632640`.
 
-Each removed mixed-target helper removes2 D entries, and each removed pure
-target helper removes8. Therefore removed D entries are
-`14400*(7056*2+144*8)=219801600`, all of magnitude1/16.
-`D_nnz:480337920 -> 260536320`; the 3,363,840 entries of magnitude5/16
-are retained. Crucially **G_nnz stays227312640**: two reads feed one helper.
+Each removed mixed-target helper removes 2 D entries, and each removed pure
+target helper removes 8. Therefore removed D entries are
+`14400*(7056*2+144*8)=219801600`, all of magnitude 1/16.
+`D_nnz:480337920 -> 260536320`; the 3,363,840 entries of magnitude 5/16
+are retained. Crucially **G_nnz stays 227312640**: two reads feed one helper.
 There is no halving of the G term or a free source-access operation.
 
-The pinned signed Horner tariff is4 for ±1,8 for ±1/16,11 for ±5/16.
+The pinned signed Horner tariff is 4 for ±1, 8 for ±1/16, 11 for ±5/16.
 Each D entry occurs in prefix and scatter; each G entry in capture and
 cleanup. Hence the complete component primitive allowance is
 
@@ -183,7 +183,7 @@ from the base pricing source: for L stages, `m=16L+1`, `q=floor(m/17)`
 and `pad=m mod17`. Removing M helpers removes formal stock `ML/q`, and
 mass/rank terms `(2ML,1)`, `(15ML,15)` and `(ML*pad/q,pad)` if pad>0.
 Their mass sums to `mML/q`, so the formal coverage deficit is unchanged.
-Stages3,5,7 and all pad work are checked against the independently extracted
+Stages 3,5,7 and all pad work are checked against the independently extracted
 source function; repeated ranks are combined for comparison. This is a
 conditional accounting identity, not a physical stock/reserve certificate.
 
@@ -196,8 +196,8 @@ that single old cut bound; this says nothing by itself about full-network
 approximate-child precision, dual accumulation, or physical normalization.
 Those must be propagated through every inherited child and adapter.
 
-The exhaustive domain is the fixed H6 geometry, all16 mixed pairing classes
-and its complete counts; seed83 only selects a bounded all-column fixture.
+The exhaustive domain is the fixed H6 geometry, all 16 mixed pairing classes
+and its complete counts; seed 83 only selects a bounded all-column fixture.
 There is no probabilistic search, parameter sweep or optimality claim.
 Pure-source compression, native recipe regeneration, a complete materialized
 tape, copied-total erasure, physical restoration/placement, actual reserve,
