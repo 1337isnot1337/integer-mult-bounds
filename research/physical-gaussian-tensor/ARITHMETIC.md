@@ -105,6 +105,26 @@ setup allowance. The new producer need not reproduce a Taylor enclosure's
 bytes, though the checked complete p48 chirp did reproduce them on this
 fixture.
 
+## Exact products with their effective operand width
+
+In `tensor_arithmetic.py` I first enforce the declared positive word width
+and both operand-fit guards. I then scan the two canonical magnitude tapes
+and count their actual bit lengths. I call the same physical word owner at
+the larger of those two lengths and consume its complete double-width return.
+I preserve the exact signed integer product, including zero and aliased
+operands. I introduce no numerical rounding.
+
+This interface lets the Gaussian consumers avoid repeated serialization of
+unused high zero digits in their conservative work-width guards. I retain
+the guards: a wide operand with a zero partner still fails before the word
+call. For effective width `m<=n`, I pay `O(n)` for the entrance scans and
+`O(m log²(m+2))` for the retained word call. This fits the original
+`O(n log²(n+2))` allowance and fixed-tape space bound. I change neither
+coefficient-page widths nor the producer's arithmetic.
+
+I checked25 complete signed physical products and four rejection cases,
+including both wide-operand/zero-partner orders and positive reuse afterward.
+
 ## Local evidence and limits
 
 I checked all65536 byte-control pairs,52 physical word products through2049

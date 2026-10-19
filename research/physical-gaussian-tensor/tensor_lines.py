@@ -20,6 +20,7 @@ from session import (OuterScope, borrowed_count, borrowed_tape, erase_marker,
 from tensor_catalogue import Catalogue, STREAMS, read_frame, skip_frame
 from tensor_windows import zeros
 from tensor_word import adapt_fft_word
+from tensor_arithmetic import adapt_arithmetic
 from words import BLANK, need
 
 
@@ -113,6 +114,9 @@ class LineApply:
         self.expansion, self.compression = Tile(), Core()
         adapt_fft_word(self.expansion.word)
         adapt_fft_word(self.compression.word)
+        for owner in (self.expansion, self.expansion.block, self.compression,
+                      self.compression.interior, self.compression.boundary):
+            adapt_arithmetic(owner)
         self.pool = ScratchPool(512)
         self.scope = OuterScope(self.pool)
         self.output = Tape()

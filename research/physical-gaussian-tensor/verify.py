@@ -13,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", required=True)
     args = parser.parse_args()
-    require(args.suite in ("moves", "router", "gather", "windows", "plan", "word", "catalogue", "twiddles", "counts", "full", "full_opposite", "consumer", "consumer_opposite"), "declared tensor check")
+    require(args.suite in ("moves", "router", "gather", "windows", "plan", "word", "catalogue", "twiddles", "counts", "arithmetic", "full", "full_opposite", "consumer", "consumer_opposite"), "declared tensor check")
     with opened():
         name = "tensor_check_" + ("full" if args.suite in ("full_opposite", "consumer", "consumer_opposite") else args.suite)
         module = importlib.import_module(name)
