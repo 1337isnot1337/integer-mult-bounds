@@ -70,7 +70,9 @@ Coverage includes all six source child-geometry branches at w=1/w3, remainder
 and gap placements, width 70 (above the recursive cutoff), q=5 and rank 42.
 These are valid geometry instances, not complete production packets or a
 proof of every chosen source's top-level reachability. The independent
-checker imports no runtime/primary code. Controls include real source
+checker imports no runtime/primary code. It rederives geometry and counter
+accounting, taking rho as the measured validator invoice rather than
+reimplementing the source's full Ring arithmetic. Controls include real source
 geometry guards, 26 Counter tariff calibrations, omitted output work,
 alias/reentrancy, invalid radix detection, source/inventory corruption,
 typed receipts and overwrite refusal. Word.inspect is disabled during the

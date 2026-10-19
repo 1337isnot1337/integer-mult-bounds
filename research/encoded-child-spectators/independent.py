@@ -34,6 +34,9 @@ def check(receipt):
     shapes=set();ranges=[]
     for row in receipt['pairs']:
         old,new=row['original'],row['shared'];c=old['case'];shapes.add(c['name'])
+        need(type(row['total_action_saving']) is int,'typed complete action gain')
+        need(all(type(r[k]) is int and r[k]>0 for r in (old,new) for k in ('index_width','residue_width')),'typed source widths')
+        need(old['index_width']==new['index_width'] and old['residue_width']==new['residue_width'] and old['case']==new['case'],'same compared input contexts')
         q,w,n=c['q'],c['w'],c['n'];A=q**w;f=n//64;delta=n%64
         phi=lambda x:x if x<64*f else x+2*delta
         a,b=phi(c['first']),phi(c['second']);width=c['width']
@@ -44,6 +47,7 @@ def check(receipt):
         region=0 if a>=n else 2 if b+width<=n else 1;want[region]*=G
         need(e==old['exponents']==new['exponents'],'independent complete spectator exponents')
         for result in (old,new):
+            need(type(result['total_actions']) is int and all(len(v)==3 and all(type(x) is int and x>=0 for x in v) for v in result['actions'].values()),'typed complete source action lanes')
             values=[]
             for encoded in result['output_hex']:
                 raw=list(bytes.fromhex(encoded));need(raw[0]==2,'retained LEFT marker')

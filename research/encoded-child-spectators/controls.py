@@ -9,6 +9,7 @@ from runtime import need,load,adapt
 from powers import Powers
 from tariff import probe,rundown,index_copy
 from verify import read,canonical
+from independent import check as independent_check
 
 
 def main():
@@ -86,16 +87,17 @@ def main():
     rejects('legacy-non-prime-power-validator',lambda:env.cardinality.multiply_atom_power(v,e,bad_ring,3),'cardinality prime-power context')
     passed.append('failed-validator-private-record-return-only')
     receipt=read(HERE/'CERTIFICATE.json')
-    for name,path,value in (
-        ('free-counter-invoice',('pairs',0,'saving','record'),[0,0,0]),
-        ('missing-gap-value',('pairs',0,'shared','output_values'),['1','1','1']),
-        ('boolean-counter-width',('pairs',0,'shared','index_width'),True),
-        ('floating-action-count',('pairs',0,'total_action_saving'),float(receipt['pairs'][0]['total_action_saving'])),
+    for name,path,value,message in (
+        ('free-counter-invoice',('pairs',0,'saving','record'),[0,0,0],'independent complete exact action delta'),
+        ('missing-gap-value',('pairs',0,'shared','output_values'),['1','1','1'],'independent full marginal bytes/values'),
+        ('boolean-counter-width',('pairs',0,'shared','index_width'),True,'typed source widths'),
+        ('floating-action-count',('pairs',0,'total_action_saving'),float(receipt['pairs'][0]['total_action_saving']),'typed complete action gain'),
     ):
         bad=json.loads(json.dumps(receipt));cursor=bad
         for key in path[:-1]:cursor=cursor[key]
         cursor[path[-1]]=value
-        rejects(name,lambda:need(canonical(receipt)==canonical(bad),'complete typed spectator receipt'),'complete typed spectator receipt')
+        need(canonical(receipt)!=canonical(bad),'typed full-receipt projection differs')
+        rejects(name,lambda:independent_check(bad),message)
     with tempfile.TemporaryDirectory(prefix='child-power-controls-') as td:
         root=Path(td);package=root/'research/encoded-child-spectators';package.mkdir(parents=True)
         manifest=(HERE/'SOURCES.json').read_bytes();(package/'SOURCES.json').write_bytes(manifest)

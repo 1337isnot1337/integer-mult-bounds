@@ -33,5 +33,11 @@
     "open_pr_bodies": 772,
     "scope": "Complete open body pagination including drafts; current1166 and12 recently updated discussion threads; exact4025/4062/4011/4059/4067 sources/comments. Broader closed/private/code coverage is partial."
   },
-  "scope": "Only the new isolated package. Eight canonical runtime inputs are authenticated before execution; pending PRs supply handoff/provenance, not executable dependencies."
+  "scope": "Only the new isolated package. Eight canonical runtime inputs are authenticated before execution; pending PRs supply handoff/provenance, not executable dependencies.",
+  "publication_refresh": {
+    "canonical_main": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+    "recent_updated_pr_bodies": 100,
+    "parent_head": "d7df855fc64525b43bfda7e7a24b17356d6c1d0e",
+    "parent_comments": "The current comments contain our narrow claim; no competing claim or objection observed."
+  }
 }
