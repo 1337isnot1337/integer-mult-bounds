@@ -15,8 +15,8 @@ The selected repository frontier is not updated by this submission.
 The earlier high complex supplier failed the full operator identity. Its
 counterexample and our [previous review](../kappa-next-regime-review/README.md)
 remain valid for that old construction. This replacement discards the faulty
-phase-axis transfers. It combines PR3945's terminal refit, an exact dirty
-receiver-sharing identity, and PR4076's staged entries/owner allocation.
+phase-axis transfers. It combines [PR3945](https://github.com/CrocSwap/integer-mult-bounds/pull/3945)'s terminal refit, an exact dirty
+receiver-sharing identity, and [PR4076](https://github.com/CrocSwap/integer-mult-bounds/pull/4076)'s staged entries/owner allocation.
 
 The supplied operator proof normalizes the complete signed eight-stream
 controller, including final translation and global phase. It checks 10,416
@@ -56,10 +56,16 @@ headline arithmetic. The complex endpoint lies below both the retained stronger
 BIT endpoint `0.001738137188329345368427` and the sufficient BIT endpoint used
 by the outer release, `0.001733427039589844234749`.
 
+**Direct improvement over [PR4076](https://github.com/CrocSwap/integer-mult-bounds/pull/4076):**
+its lower endpoint is `0.001730809033576552081734`, so the new conditional κ is
+larger by exactly `1.61385622611621004e-7` (+0.0093243% of the displayed endpoint).
+Both claims subtract the same outer losses. The reviewed [PR4076](https://github.com/CrocSwap/integer-mult-bounds/pull/4076) head is
+`9744f9df268590295a9872b1952c695a678192b9`.
+
 The gain `2.30638900806381119e-7` compares conditional headlines with the same
 outer losses, or equivalently their complex supplier endpoints. It is relative
 to the supplied prior operator-valid endpoint `0.001730739780298357321619`,
-not to the repository's selected frontier. The new claim remains below #3959's
+not to the repository's selected frontier. The new claim remains below [#3959](https://github.com/CrocSwap/integer-mult-bounds/pull/3959)'s
 old displayed `0.001736738651088946052684` and the research target `0.001745`.
 No best-public-bound or unconditional multiplication claim is made.
 
@@ -127,7 +133,7 @@ archive was not supplied and its preservation claims were not checked here.
 Canonical main was refreshed to `bb4bccbf42844d2801487450727c2f63e10d1d0f`.
 Its entry, contribution, research-priority, family-status and selected-result
 guidance did not differ from the previous review base. The latest 20 open PRs
-were checked for overlap, and PR4076's live head matches the supplied pin
+were checked for overlap, and [PR4076](https://github.com/CrocSwap/integer-mult-bounds/pull/4076)'s live head matches the supplied pin
 `9744f9df268590295a9872b1952c695a678192b9`. Its public body still labels its own
 final release pending; this submission's retained composed release is separate
 evidence, not a claim that upstream completed that run. Coverage is partial.
@@ -135,10 +141,10 @@ evidence, not a claim that upstream completed that run. Coverage is partial.
 ## Attribution and open next questions
 
 Retain the supplied complete notices. Principal dependencies include
-Rohan Arun/PR4076, David Ganz (Dugongue)/PR3945, Tekalign's native runner, Ross Richardson, dataisfire,
+Rohan Arun/[PR4076](https://github.com/CrocSwap/integer-mult-bounds/pull/4076), David Ganz (Dugongue)/[PR3945](https://github.com/CrocSwap/integer-mult-bounds/pull/3945), Tekalign's native runner, Ross Richardson, dataisfire,
 ChaloupeMusic/Erwan Secousses, Marius-Paul Dumitrean, Sagar Thakrar, roger-sato,
-the T360/PR3815 lineage, and the prior BIT and outer-composition authors.
-The historical obstruction credits Nick Petalas, Matarener and Erwan's PR4046.
+the T360/[PR3815](https://github.com/CrocSwap/integer-mult-bounds/pull/3815) lineage, and the prior BIT and outer-composition authors.
+The historical obstruction credits Nick Petalas, Matarener and Erwan's [PR4046](https://github.com/CrocSwap/integer-mult-bounds/pull/4046).
 This packaging and review were prepared under the user's direction with
 substantial OpenAI Codex assistance. Apache-2.0, subject to retained notices.
 
