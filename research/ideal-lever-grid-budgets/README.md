@@ -139,22 +139,48 @@ python3 scripts/research_package.py --package research/ideal-lever-grid-budgets
   discussion exists upstream. First useful evidence: a priced contract, not a better
   ceiling.
 
-## Related work
+## Related open work
 
-* Parent model, levers table and coverage identity:
-  [`research/complex-local-word-ceiling`](../complex-local-word-ceiling/README.md)
-  (Douglas Colkitt); its Open-next-question 1 motivated screening many profiles.
-* [#3811](https://github.com/CrocSwap/integer-mult-bounds/pull/3811) — joint
-  integer rank-cap ceiling (single-lever, baseline centre/unpaid); source of the
-  integrality-loss figure quoted above.
-* [#3805](https://github.com/CrocSwap/integer-mult-bounds/pull/3805) — idle
-  rank-cap sensitivity of the selected packing endpoint.
-* [#3729](https://github.com/CrocSwap/integer-mult-bounds/pull/3729) — integer
-  idle-histogram ceiling for the incumbent profile.
+Peer packages pricing budgets/ceilings for the same selected complex local word
+(none modified here; numeric cross-checks below were run against `RESULT.json`).
+
+* [#3729](https://github.com/CrocSwap/integer-mult-bounds/pull/3729) — same model
+  as my baseline cell but with integer idle counts (32x51 + 1x14). Overlap: the
+  shared fractional anchor `0.001690054109089` lies inside my `sel|word|u1` bracket
+  `[0.001690054109, 0.001690054110]`, and its attained integer ceiling
+  `0.001688603446527` sits strictly below it, as integer tightening implies. Its
+  0.0858 % integrality-loss column recomputes to 0.0858 % against my cap: agreement.
+* [#3799](https://github.com/CrocSwap/integer-mult-bounds/pull/3799) — same
+  inherited relaxation at φ = 0 (anchor identical to the baseline quote above,
+  checked inside my bracket), then prices *free removal* of paid mass re-packed as
+  ideal idle — an axis this grid does not touch (I reshape ranks, remove nothing),
+  so no cell overlaps beyond the baseline. Its full-elimination figure
+  `0.013675160009708` reproduces the stated 8.0916x against my grid-level cap.
+* [#3805](https://github.com/CrocSwap/integer-mult-bounds/pull/3805) — same word,
+  coverage law and centre, but sweeps the idle rank cap with optimal integer idle
+  packing (aggregate 144-call normalization, same w = 896/9). My grid fixes idle at
+  rank 51, so no cap endpoints coincide; the quoted fractional ceiling
+  κ < 0.001687202646 agrees with my baseline κ cap to the quoted 12 decimals, and
+  their per-call integer bracket lower end `0.0016886034465262156` lies below my
+  baseline bracket exactly as integer tightening implies.
+* [#3811](https://github.com/CrocSwap/integer-mult-bounds/pull/3811) — the
+  integer twin of my shape lever at baseline centre/unpaid: attained joint integer
+  packings for paid-mass caps 1..51. Shared quantity: its fractional class-relaxation
+  control at cap 16 is the parent rank-16 lever row, which my `sel|16|u1` cell
+  reproduces live (`[0.003909456001, 0.003909456002]`); its cap-8 integer-idle row
+  `0.00273511` sits 0.160 % below my fractional `sel|8|u1` cap, the consistent
+  direction. Its cap-44 κ `0.01020939` and my minimal reaching cell `sel|8|u2`
+  κ `0.010248146` are close in magnitude but differ in premises (integer caps at
+  baseline centre/u1 vs fractional rank-8 delivery with u = 2) — no shared quantity,
+  no comparison claimed.
 * [#1791](https://github.com/CrocSwap/integer-mult-bounds/pull/1791) — planning
   overhead budgets for centre-path sharing on the actual selected profiles; the
   centre rows here are ideal relaxations of the same lever paired with shape and
-  coverage changes, not a realization price.
+  coverage changes, not a realization price. No numeric overlap.
+
+No contradiction found with any of the above; the three shared (or transitively
+shared) quantities — the baseline relaxation ceiling, the parent rank-16 lever row,
+and #3729's integrality-loss column — all agree numerically.
 
 ## Credit
 
