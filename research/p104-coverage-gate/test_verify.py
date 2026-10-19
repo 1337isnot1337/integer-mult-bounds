@@ -25,6 +25,7 @@ class Controls(unittest.TestCase):
                     target=root/row['path'];target.parent.mkdir(parents=True,exist_ok=True)
                     shutil.copyfile(verify.ROOT/row['path'],target)
             result=package/'RESULT.json'
+            result.chmod(0o600)  # Only the disposable fixture copy is mutated.
             data=json.loads(result.read_text())
             if kind=='boolean':
                 data['schema_version']=True
