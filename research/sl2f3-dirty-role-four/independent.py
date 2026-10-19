@@ -121,14 +121,43 @@ def target_matrix(diag):
     return tuple(out)
 
 
-def pack_state(matrix) -> tuple[int, ...]:
-    """Pack frozenset supports into the primary 24-bit mask encoding."""
+# Canonical primary indexing: lexicographic sort of 2x2 matrices (matches model.py).
+_PRIMARY_ELEMENTS = sorted(
+    (a, b, c, d)
+    for a in range(3)
+    for b in range(3)
+    for c in range(3)
+    for d in range(3)
+    if (a * d - b * c) % 3 == 1
+)
+_PRIMARY_INDEX = {g: i for i, g in enumerate(_PRIMARY_ELEMENTS)}
+need(len(_PRIMARY_ELEMENTS) == 24, "primary index size")
+# Local index -> primary index via the concrete matrix.
+_TO_PRIMARY = tuple(_PRIMARY_INDEX[ELEMENTS[i]] for i in range(24))
+
+
+def pack_state_local(matrix) -> tuple[int, ...]:
+    """Pack frozenset supports using this engine's local group indices."""
     out = []
     for entry in matrix:
         mask = 0
         for g in entry:
             mask |= 1 << g
         out.append(mask)
+    return tuple(out)
+
+
+def to_primary_packed(local_packed: tuple[int, ...]) -> tuple[int, ...]:
+    """Reindex a locally packed state into the primary lexicographic encoding."""
+    out = []
+    for mask in local_packed:
+        remapped = 0
+        while mask:
+            bit = mask & -mask
+            a = bit.bit_length() - 1
+            remapped |= 1 << _TO_PRIMARY[a]
+            mask ^= bit
+        out.append(remapped)
     return tuple(out)
 
 
@@ -173,15 +202,19 @@ def main() -> None:
             st = matrix_mul(st, gates[idx])
         need(st != target, f"independent omission {drop} unexpectedly hits")
 
-    # Two-call pair census digest (independent encoding).
-    pair_states = set()
+    # Two-call pair census; digest remapped to primary indices for cross-check.
+    pair_states_local = set()
+    pair_states_primary = set()
     for a, gate in enumerate(gates):
         for b in range(len(calls)):
-            pair_states.add(pack_state(matrix_mul(gate, gates[b])))
-    need(len(pair_states) == cert["two_call_distinct_states"], "pair state count")
+            local = pack_state_local(matrix_mul(gate, gates[b]))
+            pair_states_local.add(local)
+            pair_states_primary.add(to_primary_packed(local))
+    need(len(pair_states_local) == cert["two_call_distinct_states"], "pair state count")
+    need(len(pair_states_primary) == cert["two_call_distinct_states"], "primary remapped count")
 
     digest = hashlib.sha256()
-    for packed in sorted(pair_states):
+    for packed in sorted(pair_states_primary):
         for support in packed:
             digest.update(support.to_bytes(3, "little"))
     need(
@@ -189,12 +222,12 @@ def main() -> None:
         "independent pair-state digest mismatch",
     )
 
-    # Depth-4 MITM with frozenset→packed interface, no primary import.
-    one_words = {pack_state(gates[i]): (i,) for i in range(len(calls))}
+    # Depth-4 MITM with frozenset→local-packed interface, no primary import.
+    one_words = {pack_state_local(gates[i]): (i,) for i in range(len(calls))}
     pair_words = {}
     for a, gate in enumerate(gates):
         for b in range(len(calls)):
-            pair_words.setdefault(pack_state(matrix_mul(gate, gates[b])), (a, b))
+            pair_words.setdefault(pack_state_local(matrix_mul(gate, gates[b])), (a, b))
 
     def left_translate_mask(mask: int, g: int) -> int:
         out = 0
@@ -215,9 +248,9 @@ def main() -> None:
     call_inverse = tuple(call_index[(INV[g], x, y)] for g, x, y in calls)
 
     def pair_from_indices(a, b):
-        return pack_state(matrix_mul(gates[a], gates[b]))
+        return pack_state_local(matrix_mul(gates[a], gates[b]))
 
-    target_packed = pack_state(target)
+    target_packed = pack_state_local(target)
     found = None
     if target_packed in one_words:
         found = one_words[target_packed]
@@ -243,7 +276,7 @@ def main() -> None:
     print(
         "PASS_INDEPENDENT_SL2F3_DIRTY_ROLE_FOUR "
         f"group=24 roles={ROLES} calls=480 target_minimum=5 "
-        f"distinct_pair_states={len(pair_states)} dirty_lowers=false no_new_kappa"
+        f"distinct_pair_states={len(pair_states_local)} dirty_lowers=false no_new_kappa"
     )
 
 
