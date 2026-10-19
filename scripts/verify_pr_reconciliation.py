@@ -654,7 +654,11 @@ def main():
                     'Batch1099 coverage head differs')
             require(len(row['files']) == row['changed_files'] == len({f['source_path'] for f in row['files']}),
                     'Batch1099 changed-file inventory incomplete')
-            check_review_completion(actual[number], decision)
+            # Later family rounds may update the live ledger projection; keep
+            # this archived batch bound to its own immutable review decision.
+            check_review_completion(
+                actual[number] if family_decisions[number] == decision else decision,
+                decision)
             for item in row['files']:
                 require(item['action'] in {'retained', 'adapted', 'excluded', 'pending'}, 'Unknown file action')
                 if item['action'] == 'pending':
