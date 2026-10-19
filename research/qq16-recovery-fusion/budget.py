@@ -71,4 +71,3 @@ def show(x,digits=18):
     u=-((-hi.numerator*s)//hi.denominator)
     return {'lower':f'{l//s}.{l%s:0{digits}d}','upper':f'{u//s}.{u%s:0{digits}d}',
             'decision':'strict_pass' if hi<1 else 'strict_fail' if lo>1 else 'undecided'}
-

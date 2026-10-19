@@ -20,7 +20,7 @@
     "verify.py": "1f30dcd071e4d86b298233b6ade27f2571726106b1eeff1a0ceecc749ddbcec6",
     "replay.py": "2d7c5c92986fe8574d6ac25c2fcaf5039ac522de3c0922c323a549e8ee247510",
     "native.py": "0a53f6df1d5ee88b206547b88a2805d9f7d5db582117baa48c08658d5cd7a4ba",
-    "budget.py": "32ad4a2830c468618090eb881b5d7b6aa65f40674ee22f7804f8fb5899bcabf7",
+    "budget.py": "9644113b9a1798160e656bfdf597687c15c74579a61af2edf12121681764951c",
     "WORD.json": "a854f516f1d80635fb3414734f9e1c6d1251a5d79ef12e137c143fc6b0b51722",
     "RESULT.json": "c8667f150380b277dff75bce442880e28cb0b8012fd878e4ab450d6268ba8b97",
     "PROOF.md": "73d5598a49cf8132cca3250621806fbb82296a9ab077e38cdc6a5706c5c12d53"
@@ -32,5 +32,21 @@
     "rounded precision and dirty-range analysis",
     "Lean or full cold frontier replay"
   ],
-  "publication_preflight": "Recorded after GitHub commit in the PR body, avoiding self-referential commit receipt."
+  "publication_preflight": "Recorded after GitHub commit in the PR body, avoiding self-referential commit receipt.",
+  "registered_package_replay": {
+    "command": "python3 -B scripts/research_package.py --package research/qq16-recovery-fusion",
+    "result": "PASS_REGISTERED_RESEARCH_PACKAGE outcome=completed",
+    "completed_at_utc": "2026-10-19T08:00:20Z",
+    "groups": [
+      "primary complete verifier PASS",
+      "normal/optimized/Git-free group PASS,276.881seconds",
+      "word/receipt/source/overwrite group PASS,263.630seconds"
+    ]
+  },
+  "cosmetic_cleanup_after_replay": {
+    "path": "budget.py",
+    "change": "Removed one extra blank line at EOF; parsed Python AST equality checked. No executable statement changed.",
+    "checked_before_sha256": "32ad4a2830c468618090eb881b5d7b6aa65f40674ee22f7804f8fb5899bcabf7",
+    "final_sha256": "9644113b9a1798160e656bfdf597687c15c74579a61af2edf12121681764951c"
+  }
 }
