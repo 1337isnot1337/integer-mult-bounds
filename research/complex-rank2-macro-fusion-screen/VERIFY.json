@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "certificates/selected-result.json",
+    "research/community-frontier1094-audit/selected-replay.tar.gz"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Pinned selected record, replay archive and exact member bytes; both orientations' successive rank-one climb links; exact rank-two endpoint-recipe matching; same-register event-touch histogram and candidate phase pairs; wrong-rank and removed-recipe controls; no direct schedule-preserving macro and no new-kappa claim."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete source-pinned schedule screen and controls under optimized Python."
+    }
+  ]
+}
