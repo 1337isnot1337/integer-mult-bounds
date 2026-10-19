@@ -94,11 +94,14 @@ Write V=CTR and r_min=min t_i. With n=Θ(p), R=Θ(p), the complete conditional
 invoice per conversion is
 
     O(V p^β log^(1+τ)p + D V + CT(n+R)
-      + C D T poly(n)/r_min + poly(p)) + fixed native compilation F_q,
+      + C D T poly(n)/r_min + poly(p)) + fixed native compilation F_q + source setup F_src,
 
 where τ=332353/332929 and β=41544341/41616125. The polynomial degrees are fixed,
 independent of D,C and the input values. F_q is charged once to a fixed compiled
-native instance; it is not silently reconstructed at each conversion.
+native instance; it is not silently reconstructed at each conversion. F_src
+pays authentication, copying and extraction of the fixed pinned local source
+artifacts once per cold cohort, with their fixed storage retained separately.
+Network transport is a replay prerequisite, not a numerical tape operation.
 
 The first term is the full-support PR3935 router theorem at the exact source
 pin above (PROOF.md, “four canonical gathers”). It includes factorization into
@@ -156,7 +159,7 @@ The child has its own fixed inventories, retained from its authenticated source.
 sequence of calls, each fixed wrapper role therefore retains its largest past
 extent. Wrapper *backing* is O(max_history(V+n²)), not merely current live space.
 Add the inherited child high-water backing (including polynomial planning) and
-fixed native storage F_q separately. This is not a quantified production memory
+fixed native storage and fixed source/extraction storage separately. This is not a quantified production memory
 coefficient or a claim that all retained native backing is O(current V).
 
 ## Verification scope and unresolved work
