@@ -2,44 +2,103 @@
 
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance.
 I retain the word, FFT, phase and Gaussian sources through the authenticated
-archives in `inputs/`. I describe the new arithmetic below. I have not yet
-completed the whole tensor replay or its conditional proof.
+archives in `inputs/`. I describe the arithmetic refinements below;
+PROOF.md gives the conditional tensor join and EVIDENCE.md separates the
+completed checks from later publication runs.
 
-## Byte products
+## Fixed-digit products
 
-In `tensor_word.py` I use eight fixed shift/add phases to multiply two byte
-controls. The product is at most65025. During a schoolbook digit update,
+In `tensor_word.py` I use 32 fixed shift/add phases to multiply two 32-bit
+controls. After checking both control ranges, I return zero when either
+digit is zero. Set `W=2^32`. During a schoolbook digit update,
 
 ```
-old_byte + first_byte * second_byte + carry <= 255 + 65025 + 255 = 65535.
+old_digit + first_digit * second_digit + carry
+    <= (W-1) + (W-1)^2 + (W-1) = W^2-1 = 2^64-1.
 ```
 
-I write the low byte and retain a carry at most255. I keep arbitrary-width
-operands and accumulated digits on physical tapes. I zero-extend the final
-partial operand byte and normalize the result after the final row.
+I write the low 32 bits and retain a carry at most `W-1`. In the 32 product
+phases, the partial sum never exceeds the final digit product and the shifted
+multiplicand never exceeds `W(W-1)`. I therefore keep data controls within 64
+bits. These widths are compile-time constants. I keep arbitrary-width
+operands, accumulated digits and loop extents on physical tapes; I never
+decode an unbounded operand into a host integer. I zero-extend the final
+partial operand digit and normalize the result after the final row.
 
-After processing the first `i` bytes of the first operand, I retain its exact
+After processing the first `i` digits of the first operand, I retain its exact
 partial product with the complete second operand. For the next row I shift
-the starting position by one byte. The existing highest occupied byte lies
+the starting position by one digit. The existing highest occupied digit lies
 within this row's second-operand span. After those updates I therefore reach
-the right marker and append one carry byte. I walk back exactly eight times
-the encoded second-operand byte count, reaching the next row's start.
+the right marker and append one carry digit. I walk back 32 times
+the encoded second-operand digit count, reaching the next row's start. I
+retain complete accumulator digits, including a zero high carry, until the
+final normalization; that preserves the right-marker invariant across rows.
 
-I use the retained amortized ripple countdown for that walk. For operand
-bit lengths `a,b`, I spend `O((a+1)(b+1))` time and `O(a+b+1)` space, including
-input copies, normalization and cleanup. I need a fixed number of tapes.
-
-`ByteWordProduct` fixes the leaf cutoff at1024 bits. Above that cutoff I call
+In `DigitWordProduct` I fix the leaf cutoff at 1024 bits. Above that cutoff I call
 the retained recursive entry, continuation and output serializer. I check
 both operand widths before taking the zero shortcut. The fixed leaf change
 preserves that recursion's asymptotic bound.
 
+Inside that leaf I probe at most 32 second-operand digits, execute at most
+32 rows and move back at most 1024 cells per row. I check the right markers
+at each complete extent. I keep these loop states in bounded finite control;
+I keep operand and result data on tapes. The inherited caller copies its
+operands into distinct read roles before entering the leaf. I retain its
+complete double-width output serializer and continuation.
+
 In `tensor_counts.py` I use the same digit calculation for arbitrary-width
 setup products. I copy both operands, so an aliased square still has two
-independent read cursors. I specialize `Count.product` only for the duration
+independent read cursors. For this unbounded setup helper I retain encoded
+digit counts. Alongside the complete second-operand scan I maintain a
+saturating state in `0..32`, then an overflow state. For a complete operand
+of at most 32 digits I retreat by at most 1024 unit steps per row. After
+overflow I retain the encoded amortized ripple countdown. Both branches
+retreat by the same digit extent; the first operand can have arbitrary
+length. For operand bit lengths
+`a,b`, I spend `O((a+1)(b+1))` time and `O(a+b+1)` space, including input
+copies, normalization and cleanup. I need a fixed number of tapes.
+I specialize `Count.product` only for the duration
 of `TensorPreparation.run` and restore the exact original class method on
 exit, including exceptions. I retain the coefficient formulas and exact
 rational operations. I do not decode a complete operand into a host integer.
+
+## Streamed exact division during coefficient setup
+
+In `tensor_division.py` I keep the quotient on a tape as I scan the numerator
+from its most significant bit. After processing a prefix, I maintain
+`N_k=q_k*d+r_k` with `0<=r_k<d`. For the next bit `x`, I compute
+
+```
+t = 2*r_k+x
+outgoing = int(t >= d)
+r_(k+1) = t-outgoing*d.
+```
+
+Since `t<2*d`, I need at most one subtraction. I append `outgoing` to an
+MSB-first scratch stream, representing `q_(k+1)=2*q_k+outgoing`. I reverse
+that stream once into the canonical quotient and normalize it. I avoid
+rescanning the growing quotient at each numerator bit.
+
+I inspect at most 32 denominator bits and then require the right marker
+before admitting a divisor into fixed control. For `1<=d<=2^32-1`, I keep
+`r_k<=d-1`, so `t<=2^33-3`. I serialize the final remainder through 32 bit
+writes and normalize it; I do not pass a runtime value to `Count.literal`.
+For a larger divisor I retain the original encoded remainder recurrence
+and a separate divisor copy, including when the caller aliases the operands.
+
+For numerator and denominator bit lengths `n,m`, I charge `O(n+1)` time
+in the bounded-divisor branch and `O(n*m+n)` in the general branch. I include
+the probe, copies, reverse scan, normalization and cleanup. I use a fixed
+number of tapes and `O(n+m)` cells. I restore both borrowed heads and return
+two distinct owned Counts. I step back from a left marker before invoking
+the retained rewind or cleanup operation.
+
+Within `exact_setup_arithmetic`, I replace the direct division bindings in
+`encoded`, `gaussian_rationals`, `gaussian_window` and `twiddle_setup`. I load
+those modules before entering the scope, reject an existing adaptation and
+restore their original bindings on normal and exceptional exit. I apply
+this scope only during coefficient preparation. I preserve the exact
+quotient and remainder, coefficient formulas and directed-rounding rules.
 
 ## Binary digit-pair square roots
 
@@ -112,41 +171,108 @@ fixture.
 In `tensor_arithmetic.py` I first enforce the declared positive word width
 and both operand-fit guards. I then scan the two canonical magnitude tapes
 and count their actual bit lengths. At effective widths at most256 I use the
-fixed physical byte leaf within the scalar owner, preserving the word owner's
+fixed physical digit leaf within the scalar owner, preserving the word owner's
 protected-return guard. Above256 I call the same physical word owner at
 the larger operand length and consume its complete double-width return.
 I preserve the exact signed integer product, including zero and aliased
 operands. I introduce no numerical rounding.
 
+Within the scalar leaf I borrow distinct physical operand tapes. I identify
+aliases after unwrapping their leases and copy the second operand only for
+that case. I execute at most eight digit rows, each with at most eight
+updates and a retreat of at most 256 cells. I use fixed controls for these
+extents, check their right markers, and keep the result on its owned tape.
+I restore borrowed heads and close the optional copy on success or failure.
+The same row invariant and 64-bit multiply-add bound prove exactness. I keep
+the declared-width and protected-return checks before zero shortcuts.
+
 This interface lets the Gaussian consumers avoid repeated serialization of
 unused high zero digits in their conservative work-width guards. I retain
 the guards: a wide operand with a zero partner still fails before the word
 call. For effective width `m<=n`, I pay `O(n)` for the entrance scans and
-`O(m log²(m+2))` above the fixed leaf cutoff. Below that cutoff the byte
+`O(m log²(m+2))` above the fixed leaf cutoff. Below that cutoff the digit
 calculation has a uniform constant bound. This fits the original
 `O(n log²(n+2))` allowance and fixed-tape space bound. I change neither
 coefficient-page widths nor the producer's arithmetic.
 
-The checker covers25 complete signed physical products and five rejection
-cases, including both wide-operand/zero-partner orders, a protected child
-return and positive reuse afterward.
+I check 37 complete signed physical products and eight rejection cases,
+including both wide-operand/zero-partner orders, the 256/257-bit branch
+boundary, shared-tape views, a protected child return and positive reuse.
+I inject a forbidden allocation after partial output in both the distinct
+and aliased scalar paths and check restoration before reuse.
+I register each measured width for cleanup before constructing the next
+temporary. I also check failure during cutoff allocation after both widths
+exist.
+
+## Exact numerical-record serialization
+
+In `tensor_records.py` I inspect at most 13 bits of the encoded record width,
+then require the right marker and a value at most 4096 before using a bounded
+loop. I restore the width's origin before reading or writing payload. For
+wider widths I call the saved original codec. I keep payload bits on tapes.
+
+For an admitted width `n`, I execute the retained per-bit operation exactly
+`n` times. On read I require a binary symbol, append it to an owned Count,
+advance the source, append the right marker and normalize. On write I emit
+the next value bit or a zero after its right marker, then enforce the
+original fit condition and restore the value's origin. I retain width zero:
+reading returns zero; writing accepts zero and rejects a nonzero value.
+
+Induction on the loop index gives the same first `i` output bits and cursor
+positions after `i` iterations. At `i=n` I obtain the original complete
+record and final cursor. I do not rewind the width after the payload loop:
+if the caller aliases width and source, that would undo the consumed source
+position. I close an unfinished read result on failure and retain its owning
+lease on success. The bounded branch costs `O(n+1)` time; the constant width
+probe preserves the original larger-width time and space bounds.
+
+For the duration of `Tensor.run`, I replace five explicit bindings: both
+codecs in `ring_words` and `gaussian_convolution`, and `write_fixed` in
+`word_product`. The retained signed wrappers, packed Gaussian slots and
+complete double-width word returns reach those bindings through their
+function globals. I preserve their positive-width, signed headroom,
+coefficient separation and output extent checks, other imported codec
+aliases, and the original fallbacks. I reject a nested adaptation and
+restore the five bindings on success or exception.
+
+I checked 36 unsigned records at widths from zero through 4097, with complete
+zero padding and a trailing sentinel. I checked 20 signed boundary cases,
+three calls to each larger-width fallback, truncated and late-invalid reads,
+oversized writes, aliased width/source views and interrupted scope restoration.
+I also checked that a 130-bit encoded width cannot enter bounded control.
+I run the complete recursive-word/FFT group under the same scope; its
+2049-bit case requires 4098 output bits and reaches the original fallback.
 
 ## Local evidence and limits
 
-I checked all65536 byte-control pairs,52 physical word products through2049
-bits, recursive parents and an actual FFT-word call. I also checked311 setup
+I checked all 65536 eight-bit operand pairs through the 32-phase control,
+100 full-width boundary pairs and four control-width rejections. I also
+checked 52 physical word products through 2049 bits, recursive parents and an
+actual FFT-word call. The complete word-fixture bytes retained their prior
+hash after the fixed-digit refinement. I also checked 324 setup
 products, including aliasing and class-method restoration after an exception.
-For digit-pair roots I checked540 cases through1024-bit square boundaries
-against host integer square roots. I checked32 complete signed phase tables
-and four positive phase bases at precisions16,48,54,113 against separate
+These include 2049-bit first operands with second operands of 1023, 1024
+and 1025 bits, crossing the bounded retreat threshold.
+For digit-pair roots I checked 540 cases through 1024-bit square boundaries
+against host integer square roots. I checked 32 complete signed phase tables
+and four positive phase bases at precisions 16,48,54,113 against separate
 rational radical enclosures.
+
+For streamed division I checked 2082 quotient/remainder pairs against host
+`divmod`, with numerators through 4097 bits, divisors across the 32-bit branch
+boundary, zero numerators and aliased operands. I checked zero-divisor
+rejection, borrowed head restoration, the four actual setup bindings and
+their restoration after an interrupted adaptation.
+I also reject failures while allocating the quotient scratch and general
+remainder, checking that I return the earlier allocations and borrowed heads.
 
 The full64-coordinate p48 chirp passed its separate dense Fourier enclosure
 and reproduced hash
 `0d77ae678a513059c5e6153b4ba85fc273dabcbfbf58155ca69e514c609f5297`.
-On this host I measured52.461 seconds with both adaptations,475.041 seconds
-with only the byte leaf, and519.754 seconds with the earlier fixed1024-bit
-leaf. I used the disclosed exact p48 metadata specialization and retained
+Before the32-bit refinement, I measured52.461 seconds on this host with the
+small-order producer and eight-bit leaf,475.041 seconds with only that leaf,
+and519.754 seconds with the earlier fixed1024-bit leaf. I used the disclosed
+exact p48 metadata specialization and retained
 finite q2 children. These timings do not establish production-scale behavior
 or a new multiplication exponent. I have not obtained independent human
 review or formal verification.

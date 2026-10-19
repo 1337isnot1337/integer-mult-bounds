@@ -54,8 +54,10 @@ payload tapes under sealed constructors and a no-decoding harness.
 
 I also check dense-support permutations, unequal mixed-radix fields, seams,
 overlaps, core assembly, production policy metadata and arithmetic boundaries.
-[ARITHMETIC.md](ARITHMETIC.md) describes the exact byte-control leaves,
-encoded small-order radicals and guarded scalar-width adaptation. I retain
+[ARITHMETIC.md](ARITHMETIC.md) describes the exact fixed-digit leaves,
+streamed setup division, encoded small-order radicals and guarded
+scalar-width adaptation. I also use bounded loops for signed records up to
+4096 bits, preserving the wider-record fallback. I retain
 the general-order producer and asymptotic word bounds. The p48 metadata
 specialization proves three exact fixed inequalities and changes no numerical
 coefficient or child result.
@@ -78,7 +80,7 @@ local development; runtime depends on the host.
 | `tensor_moves.py`, `tensor_windows.py` | One short field at a time, periodic halos and original source-core assembly |
 | `tensor_plan.py`, `tensor_catalogue.py` | Encoded common policy, original-axis geometry and actual coefficient production |
 | `tensor_lines.py`, `tensor_engine.py` | Complete numerical line groups and the full source-box schedule |
-| `tensor_word.py`, `tensor_counts.py`, `tensor_twiddles.py`, `tensor_arithmetic.py` | Explicit exact arithmetic adaptations with fixed tape bounds |
+| `tensor_word.py`, `tensor_counts.py`, `tensor_division.py`, `tensor_twiddles.py`, `tensor_arithmetic.py`, `tensor_records.py` | Explicit exact arithmetic and record adaptations with fixed tape bounds |
 | `tensor_sources.py`, `tensor_fixture.py`, `tensor_model.py` | Authenticated sources, declared finite fixture and separate checker reference |
 
 ## Open next questions

@@ -17,7 +17,7 @@ from scratch_pool import ScratchPool
 from session import (OuterScope, borrowed_count, borrowed_tape, erase_marker,
                      initialize_marker, sealed_constructors)
 from tensor_plan import AxisRow, TensorHeader, TensorPlan
-from tensor_counts import exact_byte_counts
+from tensor_counts import exact_setup_arithmetic
 from words import BLANK, RIGHT, need
 
 
@@ -246,7 +246,7 @@ class TensorPreparation:
 
     def run(self, sources, flags, axes, ell, p, alpha, inner_bits, P, sigma, radius,
             expansion_capacity, halo, w, production=False):
-        with exact_byte_counts():
+        with exact_setup_arithmetic():
             return self.execute(sources, flags, axes, ell, p, alpha, inner_bits, P, sigma,
                                 radius, expansion_capacity, halo, w, production)
 

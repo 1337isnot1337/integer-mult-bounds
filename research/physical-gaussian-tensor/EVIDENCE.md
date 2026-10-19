@@ -47,11 +47,43 @@ canonical gathers with mixed axis widths, periodic seams, gaps, equal right
 endpoints and source-core assembly. The combined mechanics check passed in
 2.862 seconds. Production-policy checks cover encoded metadata only.
 
-The combined arithmetic check passed in24.723 seconds. It includes all65536
-byte pairs,52 physical word products through2049 bits, five recursive-parent
-cases and an actual FFT-word path;311 setup products;540 square-root cases;
-32 complete signed small-order phase tables and four phase bases; and25
-guarded scalar products with five rejection/ownership controls.
+The eight-bit-digit arithmetic check passed locally in24.723 seconds. Its
+first hosted replay reached the40-second limit after sources and mechanics
+passed. I kept the precision, numerical fixtures and coverage, then enlarged
+the fixed schoolbook digit to32 bits. The refined arithmetic check passed
+locally in 19.091 seconds. I then added streamed setup division and bounded
+leaf counters. The expanded group passed in 21.789 seconds: 65536 eight-bit
+pairs, 100 full-width control pairs, four control-width rejections, 52
+physical word products through 2049 bits, five recursive-parent cases and
+an actual FFT-word path; 311 setup products; 540 square-root cases; 32 signed
+phase tables and four phase bases; 37 guarded scalar products with seven
+rejection/ownership controls; and 2082 exact quotient/remainder pairs.
+After adding the bounded setup retreat and scalar cutoff-failure control,
+I passed the expanded group in 22.604 seconds, with 324 setup products and
+eight scalar rejections. I retained the complete word and FFT output hashes.
+
+I checked division with numerators through 4097 bits, the 32-bit divisor
+boundary, zero-divisor rejection, aliased operands and restoration of the
+four actual setup bindings. I also injected failures during scratch and
+remainder allocation and checked earlier allocation cleanup before reuse.
+With streamed division I regenerated the full coefficient packet in 221.463
+seconds and retained its original hash. Before the bounded-counter change,
+the 32-bit-digit forward consumer reproduced its original hash in 245.079
+seconds. With bounded word and scalar counters I reproduced those same
+4900 bits in 230.151 seconds. Later export and hosted receipts identify the
+complete tested head.
+
+After the bounded setup retreat I regenerated the coefficient packet in
+206.931 seconds with its original hash. I then checked 36 unsigned records,
+20 signed boundary cases, wider-record fallbacks and malformed-record,
+alias/cursor and scope-restoration controls in 1.730 seconds. The complete
+consumer and publication receipts identify any later signed-record adaptation.
+With all five numerical-record bindings active, I passed the expanded
+arithmetic group in 22.737 seconds and reproduced the complete forward
+output in 209.186 seconds. The separate bounded profile of one actual
+expansion line group measured repeated power-of-two construction and sign-bit
+extraction among the remaining costs; I do not count that diagnostic as a
+complete tensor replay.
 
 The source/budget check passed after I corrected the generated archive's
 container metadata. It authenticates the full source exports,15 live input
@@ -66,6 +98,12 @@ other requests. The numerical coefficients and child operations execute
 their physical implementations; production retains the general setup.
 
 ## Failed attempts and limits
+
+In the first hosted run at head688e9c I passed the source and mechanics
+groups, then reached the arithmetic timeout. I received no numerical mismatch
+before that timeout. I retained the failed run and the valid local export
+receipt, then required fresh source-bound checks after the exact arithmetic
+changes. I kept the 600/1200-second limits.
 
 The original p48/P80 coefficient producer reached600 seconds. A bounded
 diagnostic located its global exponential setup in encoded multiplication.

@@ -1,6 +1,7 @@
 """Complete source-box Gaussian expansion, chirp and compression caller."""
 from tensor_sources import active
 active()
+from tensor_records import bounded_record_io
 from cardinal_counts import Count, positive
 from chirp_engine import Chirp
 from compact_counts import append_bits
@@ -216,7 +217,7 @@ class Tensor:
         book = None
         succeeded = False
         try:
-            with sealed_constructors(), self.scope.installed():
+            with bounded_record_io(), sealed_constructors(), self.scope.installed():
                 try:
                     book = Catalogue(catalogue, self.pool.acquire)
                     plan = book.plan
