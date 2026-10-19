@@ -328,5 +328,11 @@
     "source_commit": "c5854c77620723aae6914c32122870519a6f820d",
     "source_path": "research/kappa-operator-repair/operator-correction/PROOF.md",
     "source_pr": 4085
+  },
+  "inputs/PR4088-FIRST-RESULT.json": {
+    "source_commit": "76088d49e3ed4142a958659aa996b0ca4da5e88e",
+    "source_path": "research/staged544-mixed-fourth-entry/RESULT.json",
+    "source_pr": 4088,
+    "sha256": "817c39b155892ab3ea89b6e2bf04480c45e1ebb9a8f87e2bb9a48c715a7eee9e"
   }
 }

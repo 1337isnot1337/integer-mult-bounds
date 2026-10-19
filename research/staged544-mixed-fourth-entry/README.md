@@ -3,24 +3,30 @@
 **Local, author-checked finite construction; not maintainer-reviewed.** The complete
 moment root is in
 
-**[0.001730978305075885693430, 0.001730978305075885693431].**
+**[0.001730979115670792472760, 0.001730979115670792472761].**
 
 Under the retained outer-transfer hypotheses and padding convention, take
 
-`κ = 0.001730978305075885693430 − 10^-46 − 10^-70`.
+`κ = 0.001730979115670792472760 − 10^-46 − 10^-70`.
 
 This exceeds [PR4085](https://github.com/CrocSwap/integer-mult-bounds/pull/4085)'s
-certified upper endpoint by more than **7.885876721990690 × 10^-9**, approximately
-**0.000455576%**. No selected-frontier update or unconditional multiplication
+certified upper endpoint by more than **8.696471628770020 × 10^-9**, approximately
+**0.000502404%**. No selected-frontier update or unconditional multiplication
 exponent is asserted. The full inherited ordinary/outer release engine has not
 been rerun with the four-provider dispatch; that integration remains open.
+
+The first revision used 1,080 fourth-entry calls. The new selector uses 1,090
+and removes its rank-16 and rank-32 residual terms. Its endpoint exceeds that
+revision's upper bound by more than `8.10594906779328 × 10^-10`. The four words
+and their native source closure are unchanged; `inputs/PR4088-FIRST-RESULT.json`
+pins the earlier complete budget and bracket.
 
 ## Construction
 
 PR4076 stages helpers 600, 608 and 609 in every call. Its rejection of a uniform
 fourth entry does not exclude using that entry in only some calls. Here helper
-601 is staged in exactly **1,080 of 3,240 calls**, those at chronological times
-`t ≡ 0 (mod 3)` in the retained T360 order. The other 2,160 calls use the exact
+601 is staged in exactly **1,090 of 3,240 calls**, those at chronological times
+`(109t mod 324) < 109` in the retained T360 order. The other 2,150 calls use the exact
 PR4085 receiver-sharing words. Both original orientations have an explicit fourth-entry variant.
 
 The receiver-sharing rewrite is inherited from PR4085 at
@@ -36,17 +42,17 @@ reconstruct the new words from the pinned predecessors without a solver.
 |---|---|---|
 | Local profile | `{1:2487,2:713,3:224,4:102,5:20,8:8}` | `{1:2489,2:713,3:227,4:99,5:20,8:8}` |
 | Widths 5 / 6 / 7 / 8 / 9 | 28 / 18 / 56 / 93 / 213 | 28 / 18 / 57 / 92 / 213 |
-| Calls used | 2,160 | 1,080 |
+| Calls used | 2,150 | 1,090 |
 
 The new literal fill covers all **1,321,920 roles in 725,760 bins**. It checks
 every time window, helper identity, family, compact offset and capacity.
 The exact operator replay additionally checks productive-data nonaliasing, every
 original phase-axis cell, strict scalar-observation windows, and 10,416 Z4
 phase identities over all 112 ports and all positive tensor multiplicities.
-Its idle profile is `{3:22785,5:1625,16:1,32:2,48:138490}`. The complete paid
+Its idle profile is `{3:22783,5:1625,48:138492}`. The complete paid
 profile is
 
-`{1:8060040,2:2310120,3:751785,4:327240,5:66425,8:25920,16:1,32:2,48:138490}`.
+`{1:8060060,2:2310120,3:751813,4:327210,5:66425,8:25920,48:138492}`.
 
 The improvement survives the actual integer fill. Neither a fractional packing
 nor a solver's objective is used as the certificate.
@@ -96,12 +102,12 @@ proof. No human or formal-kernel review is claimed.
 1. Rebind the ordinary/outer admission engine to all four providers and the new
    dispatch. The first step is a provider-registry extension on the pinned source
    closure, preserving every admission predicate and mutation control.
-2. Optimize which calls receive the fourth entry. A periodic one-third schedule
+2. Optimize which calls receive the fourth entry. A periodic 109-of-324 schedule
    is sufficient but is not proved optimal; a complete candidate must again
    produce a literal fill and pass every owner constraint.
-3. Improve integer packing without changing the words. The ideal mixed screen
-   is slightly stronger than this fill; the rank-16 and rank-32 residual bins
-   identify a concrete place to investigate, with no assumed free repacking.
+3. Construct an integer fill for the stronger fractional screens near 970 fourth
+   calls. Small integer repairs lose part of that screen advantage; every helper
+   width must be assigned, and the full literal matching must then be checked.
 
 ## Attribution
 

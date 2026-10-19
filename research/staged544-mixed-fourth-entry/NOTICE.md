@@ -34,6 +34,6 @@ No independent human or formal-kernel review is claimed.
 vendor/PR4076-NOTICE.md preserves the predecessor notice, and native/ preserves
 its complete source-specific native and accelerator notices and licenses.
 EXPORTED-SOURCES.json records byte-identical exports and source commits.
-The one-third selector, four-entry source binding, new literal integer fill,
+The mixed selector, four-entry source binding, new literal integer fill,
 complete mixed-profile certificate and their integration are the contribution
 of this package. Unsuccessful bounded searches are not claimed as barriers.

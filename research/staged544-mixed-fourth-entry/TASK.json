@@ -47,7 +47,7 @@
   },
   "scope_status": "changed",
   "actual_scope": "Construct and certify a four-provider mixed T360 word/owner schedule with a strictly larger complete moment endpoint than PR4085.",
-  "scope_change_reason": "Explicit user task to improve kappa after reading recent and hypothetical PRs; mix a fourth staged entry in one third of calls, then compose the new PR4085 receiver-sharing improvement.",
+  "scope_change_reason": "Continuation of the explicit kappa task: replace the first one-third selector by a 109-of-324 selector and construct its complete integer fill, preserving all four native words and interfaces.",
   "bottleneck_link": "Uniform fourth staging exceeds the favorable packing range; staging helper601 on exactly one third of calls preserves a net gain after a complete literal integer owner fill.",
   "budget_minutes": 120,
   "stop_rule": "Require exact word/native correctness, a literal chronological distinct-family owner fill, and a rational complete moment above PR4085; reject a favorable fractional or local screen alone.",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Can a different selection of fourth-entry calls improve the literal endpoint further?",
-      "why_it_matters": "The periodic one-third schedule is sufficient, not proved optimal.",
+      "why_it_matters": "The current periodic 109-of-324 selector is sufficient, not proved optimal; stronger fractional screens still require an admissible integer fill.",
       "first_step": "Vary the selector in the class/Hall model, then construct and audit the exact fill.",
       "blocked_by": "Every proposed gain must survive integral distinct-family chronology."
     }

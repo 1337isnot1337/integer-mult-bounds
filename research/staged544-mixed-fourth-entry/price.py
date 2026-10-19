@@ -23,6 +23,11 @@ def main():
     need(Q(r['conditional_kappa'])==endpoint and endpoint>pu,'strict conditional improvement')
     need(Q(r['gain_lower_bound'])==endpoint-pu,'gain lower bound')
     need(E.moment(E.signed(profile),endpoint)[1]<0,'padded endpoint')
+    prior=read(P/'inputs/PR4088-FIRST-RESULT.json')
+    prior_profile={int(k):v for k,v in prior['profile'].items()}
+    E.certify_bracket(prior_profile,Q(prior['root_lower']),Q(prior['root_upper']))
+    need(Q(r['previous_revision_upper'])==Q(prior['root_upper']),'previous revision bracket')
+    need(endpoint>Q(prior['root_upper']) and Q(r['gain_over_previous_revision'])==endpoint-Q(prior['root_upper']),'strict selector improvement')
     need(sum(k*v for k,v in profile.items())==65088*360,'profile mass')
     out=[]
     if '--controls' in sys.argv:
@@ -30,5 +35,5 @@ def main():
         out.append(reject('unpaid_extra_rank1',lambda:E.certify_bracket(bad,lower,upper)))
         out.append(reject('old_fill_at_new_root',lambda:E.certify_bracket(predecessor,lower,upper)))
         out.append(reject('unsupported_endpoint',lambda:E.certify_bracket(profile,lower+Q(1,10**12),upper+Q(1,10**12))))
-    print(json.dumps({'status':'PASS_MIXED_EXACT_ROOT','root_bracket':[r['root_lower_decimal'],r['root_upper_decimal']],'conditional_kappa':str(endpoint),'gain_lower_bound':r['gain_lower_bound'],'controls':out},sort_keys=True))
+    print(json.dumps({'status':'PASS_MIXED_EXACT_ROOT','root_bracket':[r['root_lower_decimal'],r['root_upper_decimal']],'conditional_kappa':str(endpoint),'gain_lower_bound':r['gain_lower_bound'],'gain_over_previous_revision':r['gain_over_previous_revision'],'controls':out},sort_keys=True))
 if __name__=='__main__':main()

@@ -31,7 +31,7 @@ def context():
     for (o,c),(_,lo,hi) in windows.items():shared[o,family[c]].append((lo,hi))
     need(all(all(max(a,c)>=min(b,d) for i,(a,b) in enumerate(xs) for c,d in xs[i+1:]) for xs in shared.values()),'same-family windows disjoint')
     old=read(P/'owner/DISPATCH.json');new=read(P/'owner/MIXED-DISPATCH.json')
-    expected=[[s,r,pid+('-four' if clock[s,r]%3==0 else '')] for s,r,pid in old]
+    expected=[[s,r,pid+('-four' if clock[s,r]*109%324<109 else '')] for s,r,pid in old]
     need(new==expected,'exact mixed dispatch')
     provider={(s,r):pid for s,r,pid in new}
     need(len(provider)==3240 and set(provider)==set(clock),'dispatch coverage')
