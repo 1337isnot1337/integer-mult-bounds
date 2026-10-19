@@ -92,6 +92,14 @@ is also not silently counted as a coordinatewise operation. Such primitives
 change the hypothesis and must appear in(1). Fixed metadata may depend on q,w,
 header and column; it must not convey source payload information.
 
+Linearity of the body-address alphabet is essential. An affine translation
+z -> z+(y-x) reaches the separating y from x, so admitting arbitrary address
+translations destroys this particular orbit obstruction even with no child.
+An addition from a fixed nonzero header/address digit into a body digit may
+also act affinely on the fiber and is outside U here. No claim excludes every
+legal physical scan or proves that such an enlarged alphabet is expensive;
+a complete translated/affine mechanism would need its own full cost gate.
+
 ## 3. The dependency-orbit theorem
 
 Define lead(z) as the first nonzero coordinate of z. If L is lower

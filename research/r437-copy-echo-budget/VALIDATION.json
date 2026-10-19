@@ -45,9 +45,10 @@
   ],
   "scope": "All-parameter scoped proof with finite source/orbit controls and exact fixed-profile budget; no physical compiler or supplier admission.",
   "scientific_hashes": {
-    "PROOF.md": "5e02eaba3ca8f4318bee07db1a111db968e6b889f7d7ae07e5cb3239d12eccc8",
+    "PROOF.md": "31b54cb4ea6b43670d97ab36e378c22a7a6e767692dceb92b4febdeda9929302",
     "verify.py": "6010dd62d298c44599b1df8e2f42ead6a32ea52786807696fd3e667263e0deb6",
     "RESULT.json": "df5477b70c08d87f16dce75cef53f1dd31e5e7cd728ac98936bcbc6abc0373c2",
     "test_package.py": "359ad3dce3de72b8c961d57f199ad378c0d2347d784fbe38cd33809ecda1c111"
-  }
+  },
+  "documentation_scope_update": "Before publication, explicitly excluded affine translations and fixed-header-to-body additions; no verifier/result or claimed linear-U theorem changed."
 }
