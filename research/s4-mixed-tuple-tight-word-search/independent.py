@@ -72,6 +72,8 @@ def search(targets, counts, maxdepth=None):
         a, b = block_rank(Trep[m], r, m, f, True), block_rank(Trep[m], r, m, f, False)
         assert a == b; phiT[c] = a
         assert sum(x*y for x, y in zip(ch[c], counts)) >= a, ('cut infeasible', c)
+    # full: full-depth window survivors; the endpoint P_0 = I is NOT checked here, so this is an
+    # upper bound on words (verify.py.exact_words rechecks it in exact F2[S4] arithmetic).
     nodes = [0]*(sum(counts)+1); full = []
     def ok(M, m):
         for c, (mod, f) in CUTH.items():

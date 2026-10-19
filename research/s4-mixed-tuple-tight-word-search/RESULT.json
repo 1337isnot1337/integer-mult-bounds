@@ -5,9 +5,9 @@
   "model": "Formal F2[S4] register model of PR2583/PR2998: paid gates I+([s]+1)uv^T (u,v nonzero in F2^r, v.u=1), labels s1=2134,s2=1324,s3=1243 priced (2,1,2), free GL_r(F2), all roles dirty, spectators restored, literal endpoint diag([2143],[3142],[4231],[2143],1,...).",
   "outcome": "scoped finite exclusion",
   "claims": {
-    "four_roles": "No circuit of paid cost <= 20 on exactly 4 roles; four-role optimum = 21 (direct word).",
+    "four_roles": "No circuit of paid cost <= 20 on exactly 4 roles; four-role optimum = 21 (an explicit cost-21 direct word, checked exactly by verify.py).",
     "five_roles": "No circuit of paid cost <= 20 on 5 roles (one restored dirty spectator); five-role optimum = 21 (direct word, spectator untouched).",
-    "three_target_subtuples": "Coordinate-cut LP gaps: (4231,2143,2143) LP 15 vs direct 16; (2143,3142,4231) LP 16 vs direct 17. By the four-role exclusion, both cost their direct values on three roles (and with one spectator by the five-role exclusion).",
+    "three_target_subtuples": "Coordinate-cut LP gaps: (4231,2143,2143) LP 15 vs direct 16; (2143,3142,4231) LP 16 vs direct 17. Both cost their direct values on three roles: by transfer from the four-role exclusion and by direct r=3 searches (0 words each); with one spectator by transfer from the five-role exclusion.",
     "not_claimed": "Nothing for r >= 6 (two or more spectators); not a 21 theorem with arbitrary workspace; no native realization, supplier or kappa."
   },
   "count_lemma": {
@@ -172,16 +172,18 @@
   },
   "controls": {
     "r2_pruned_primary_words": 146,
-    "r2_instance": "diag([4231],[2143]), r=2, counts (3,2,2): brute.py (unpruned, exact frozenset group algebra) and search.cpp (pruned) both count 146 words",
-    "r4_positive": "search.cpp with STOP_FIRST=1 on (2143,3142,4312,2143), r=4, counts (4,4,4) finds: s3:u8:v8 s1:u8:v8 s2:u4:v4 s3:u4:v4 s2:u4:v4 s1:u4:v4 s2:u4:v4 s2:u2:v2 s3:u2:v2 s1:u2:v2 s3:u1:v1 s1:u1:v1",
-    "scalar_negative": "4231 at counts (1,3,1): passes the count test, zero words (pruned and brute force), as PR2998 section 3 requires"
+    "r2_instance": "diag([4231],[2143]), r=2, counts (3,2,2): brute.py (unpruned, exact frozenset group algebra) and search.cpp (pruned) both count 146 words. independent.py (pruned) leaves 150 full-depth window survivors, of which exactly 146 equal T in exact F2[S4] arithmetic; 104 of these 146 words contain a mixing gate (u=3 or v=3).",
+    "r4_positive": "search.cpp with STOP_FIRST=1 on (2143,3142,4312,2143), r=4, counts (4,4,4) finds, for example (the word printed depends on thread order): s3:u8:v8 s1:u8:v8 s2:u4:v4 s3:u4:v4 s2:u4:v4 s1:u4:v4 s2:u4:v4 s2:u2:v2 s3:u2:v2 s1:u2:v2 s3:u1:v1 s1:u1:v1. This word is block-diagonal (u=v=e_i in every gate), i.e. a direct word: it shows only that the windows keep direct words at r=4. The control exercising mixing gates is r2_instance.",
+    "scalar_negative": "4231 at counts (1,3,1): passes the count test, zero words (pruned and brute force), as PR2998 section 3 requires",
+    "r2_independent_window_survivors": 150,
+    "r2_mixing_words": 104
   },
   "lp_subtuples": {
-    "method": "cutlp.cpp enumerates all 2^24 coordinate cuts of the regular S4-set (10713 distinct profiles); lp.py exact rational simplex (primal value and dual y)",
+    "method": "cutlp.cpp enumerates all 2^24 coordinate cuts of the regular S4-set (10713 distinct profiles); lp.py runs an exact rational simplex on the cut-weight LP max sum a_H Phi_H(T) s.t. sum a_H c(H) <= (2,1,2). optimal_label_counts_n is its dual solution y: fractional label counts feasible for every one of the 2^24 cuts (y.c(H) >= Phi_H(T)), so price.y certifies the LP value from above. The matching integer lower bound for words comes from inv+c1+c3 (PR2583's L bound).",
     "full": {
       "lp": "20",
       "direct": 21,
-      "dual_y": [
+      "optimal_label_counts_n": [
         4,
         4,
         4
@@ -190,7 +192,7 @@
     "(4231,2143,2143)": {
       "lp": "15",
       "direct": 16,
-      "dual_y": [
+      "optimal_label_counts_n": [
         3,
         3,
         3
@@ -199,7 +201,7 @@
     "(2143,3142,4231)": {
       "lp": "16",
       "direct": 17,
-      "dual_y": [
+      "optimal_label_counts_n": [
         3,
         4,
         3
@@ -254,7 +256,30 @@
     "neg_4231_131_pruned": 0,
     "neg_4231_131_brute": 0,
     "pos_4312_131_pruned": 1,
-    "pos_4312_131_brute": 1
+    "pos_4312_131_brute": 1,
+    "r3b_subtuple_nodes": [
+      12,
+      84,
+      218,
+      248,
+      200,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "r3b_subtuple_survivors": 0,
+    "direct_costs": {
+      "2143": 4,
+      "3142": 5,
+      "4231": 8
+    },
+    "direct_total": 21,
+    "direct_word_equals_T": true,
+    "r2_independent_survivors": 150,
+    "r2_independent_exact_words": 146,
+    "r2_mixing_words": 104
   },
   "full_replay_expectations": {
     "r4_primary": "RESULT R=4 n=(4,4,4) split=0+12 hits=0 verified_words=0 Anodes= Cnodes=56,1904,28562,207168,571536,648720,381816,0,0,0,0,0, Ainserted=1",

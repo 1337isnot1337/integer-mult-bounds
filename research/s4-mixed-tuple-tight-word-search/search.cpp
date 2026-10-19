@@ -58,7 +58,9 @@ void dfsC(Mat M,int d,int m[3],vector<int>&wc,int tid){ // M = prefix P with cou
     else if(windows_ok(N2,m)){ nodesCt[tid][d+1]++; dfsC(N2,d+1,m,wc,tid);} m[k]++; } }
 int main(int argc,char**argv){
   // usage: mitm R KA KC n1 n2 n3 t1 t2 ... tR logslots
-  R=atoi(argv[1]); if(R<1||R>6){fprintf(stderr,"R out of range\n");return 2;} KA=atoi(argv[2]); KC=atoi(argv[3]); for(int k=0;k<3;k++) n[k]=atoi(argv[4+k]);
+  // shortcut: blockrank packs block rows into 32-bit words and the inv block has 6R columns, so R<=5;
+  // widen rows/rankrows to u64 (and the guard to R<=6) before any r=6 run.
+  R=atoi(argv[1]); if(R<1||R>5){fprintf(stderr,"R out of range (1..5)\n");return 2;} KA=atoi(argv[2]); KC=atoi(argv[3]); for(int k=0;k<3;k++) n[k]=atoi(argv[4+k]);
   vector<string> tg; for(int i=0;i<R;i++) tg.push_back(argv[7+i]); int logs=atoi(argv[7+R]);
   if(n[0]+n[1]+n[2]!=KA+KC){ fprintf(stderr,"bad split\n"); return 2; }
   P4 p={0,1,2,3}; do el.push_back(p); while(next_permutation(p.begin(),p.end())); for(int i=0;i<24;i++) idx[el[i]]=i;

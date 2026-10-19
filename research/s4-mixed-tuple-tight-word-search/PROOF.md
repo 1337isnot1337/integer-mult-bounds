@@ -22,9 +22,10 @@ equal the full group-algebra matrix
     T = diag([2143],[3142],[4231],[2143],1,...,1)        (r >= 4),
 
 so spectator roles are restored exactly. The direct word costs
-`4+5+8+4 = 21`. PR2998 proves that coordinate cuts give exactly 20.
+`4+5+8+4 = 21` (verify.py multiplies an explicit one in exact arithmetic).
+PR2998 proves that coordinate cuts give exactly 20.
 
-## 1. Normal form
+## 1. Normal form (inherited: Ross Richardson's PR1989 argument, reused in PR2583)
 
 For `G` in `GL_r(F2)`, `G D_N(s) = D_{G N G^-1}(s) G`, and `G N G^-1` is again a
 binary rank-one idempotent. All free maps can therefore be pushed to the
@@ -83,12 +84,18 @@ The search uses three cuts, each with both blocks:
 
 ## 4. A cost-20 word has counts exactly (4,4,4)
 
+This section is inherited and only made explicit. The bound
+`cost >= sum_i L(t_i)` with `L = inv + c1 + c3` is PR2583's, and PR2998's open
+question already observes that a cost-20 word has twelve paid letters and
+eight exterior letters. The argument is restated for completeness.
+
 Every word for T satisfies `n1+n2+n3 >= 12` (inv), `n1 >= 4` (c1) and
 `n3 >= 4` (c3). Spectators contribute zero, so this holds for every r >= 4.
 If `2n1+n2+2n3 = 20`, then `n1+n2+n3 = 20-(n1+n3) >= 12`, which forces
 `n1+n3 <= 8` and hence `n = (4,4,4)`: twelve paid letters. All three cuts
 are then tight, so the corollary fixes every prefix potential exactly. Costs
-below 20 are excluded by PR2998's bound, and costs are integers. **So
+below 20 are excluded by the same bound (PR2583; PR2998's coordinate-cut
+value), and costs are integers. **So
 "cost <= 20" and "cost = 20 with counts (4,4,4)" are the same search.**
 
 ## 5. Exhaustive search from the target end
@@ -107,8 +114,8 @@ for r = 4 and 1488 for r = 5.
 every coefficient. Every target, including 1, is `w0`-invariant, and this map
 swaps s1 and s3, which preserves the counts `(4,4,4)`. Both maps are ring
 automorphisms of `M_r(F2[S4])`. They send gates to gates and words for T to
-words for T, so a word exists only if one exists whose last letter is an
-orbit representative. The 56 surviving first peeled letters fall into 7
+words for T, so a word exists only if one exists whose last letter `L_12`
+(the first peeled letter) is an orbit representative. The 56 surviving first peeled letters fall into 7
 orbits under this group of order 12.
 
 Recorded node counts (nodes that pass all windows at each peeled depth):
@@ -137,8 +144,16 @@ nodes in total, and the r = 5 representative tree has 240,056.
 **Corollary (three-target sub-tuples).** Exact rational LPs over all `2^24`
 coordinate cuts of the regular S4-set give two gaps:
 
-* `(4231,2143,2143)`: LP 15 against a direct cost of 16 (dual `y=(3,3,3)`);
-* `(2143,3142,4231)`: LP 16 against a direct cost of 17 (dual `y=(3,4,3)`).
+* `(4231,2143,2143)`: LP 15 against a direct cost of 16;
+* `(2143,3142,4231)`: LP 16 against a direct cost of 17.
+
+The LP is `max sum_H a_H Phi_H(T')` subject to `sum_H a_H c(H) <= (2,1,2)`.
+Its optimal dual solution is a vector of fractional label counts n,
+`n = (3,3,3)` and `(3,4,3)` respectively (`(4,4,4)` for the full tuple). It is
+feasible for every one of the `2^24` cuts (`n.c(H) >= Phi_H(T')`), so
+`(2,1,2).n` bounds the LP from above, and the simplex supplies cut weights
+attaining it. The integer lower bounds for words, 15 and 16, come from
+`inv + c1 + c3`, which is tight only at those counts.
 
 The regular set carries every permutation module's cuts, as in PR2998. Both
 three-target sub-tuples have exact optimum equal to their direct cost on
@@ -147,9 +162,11 @@ direct word on a fourth role, would give a four-role word of cost 20 after a
 free role permutation, contradicting part 1. The same argument with one more role transfers part 2
 to the three-target sub-tuples with one spectator.
 
-A direct check agrees. A separate engine run on
-`(4231,2143,2143)` at r = 3 and counts (3,3,3) dies at depth 5 after
-12, 84, 216 and 216 nodes. The two two-target sub-tuples have no integer gap,
+Direct checks agree. The separate engine `independent.py`, run at r = 3,
+finds no word for either sub-tuple at its only cost-tight counts:
+`(4231,2143,2143)` at (3,3,3) dies at depth 5 after 12, 84, 216 and 216
+nodes, and `(2143,3142,4231)` at (3,4,3) dies at depth 6 after 12, 84, 218,
+248 and 200 nodes. The two two-target sub-tuples have no integer gap,
 because their LP values 23/2 and 25/2 round up to the direct costs 12 and 13.
 
 ## 7. Scope and what is not proved
@@ -173,13 +190,19 @@ because their LP values 23/2 and 25/2 round up to the direct costs 12 and 13.
 * A brute-force meet-in-the-middle counter (`brute.py`) uses exact
   frozenset group-algebra arithmetic and no cuts. On
   `diag([4231],[2143])`, r = 2, counts (3,2,2), it counts 146 words, and
-  the pruned primary engine also finds 146. On this instance, pruning loses
-  no solution.
+  the pruned primary engine also finds 146. `independent.py` leaves 150
+  full-depth window survivors (it does not check the endpoint), of which
+  exactly 146 equal T in exact arithmetic; 104 of these 146 words contain a
+  mixing gate. On this instance, pruning loses no solution, including
+  mixing ones.
 * Positive control at r = 4: replacing 4231 by 4312 gives a tuple whose
   direct words cost 20 with counts (4,4,4). The same engine and cuts find a
-  word.
+  word. The word found is block-diagonal (a direct word), so this control
+  shows only that the windows keep direct words at full scale.
 * Negative control: scalar 4231 at counts (1,3,1) passes the cut count test
   but returns no word, as PR2998's precedence argument requires.
 
 All of these were prepared in the same AI-assisted session. They are two
-implementations by one author, not independent human review.
+implementations by one author, not independent human review. AI review passes
+in the same loop (also not human review) reproduced the r = 4 and r = 5 trees
+node-for-node with a separately written engine; see the README.
