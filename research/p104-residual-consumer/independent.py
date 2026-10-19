@@ -66,6 +66,21 @@ def dense_digest(s):
     return hashlib.sha256(b).hexdigest()
 
 
+def frame_key(vectors):
+    """Reduced binary pivot rows, independent of the primary span enumerator."""
+    pivots={}
+    for value in vectors:
+        check(type(value) is int and 0<value<512,'independent binary vector')
+        for bit in sorted(pivots,reverse=True):
+            if value & (1<<bit): value ^= pivots[bit]
+        check(value!=0,'independent frame basis')
+        new=value.bit_length()-1
+        for bit in list(pivots):
+            if pivots[bit] & (1<<new):pivots[bit] ^= value
+        pivots[new]=value
+    return tuple(pivots[k] for k in sorted(pivots,reverse=True))
+
+
 def main():
     args=argparse.ArgumentParser()
     args.add_argument('--algebra-only',action='store_true')
@@ -97,28 +112,28 @@ def main():
             c=Fraction(e[3]);check(c.denominator==1,'suffix integer')
             actual[int(e[1][1:])][int(e[2][1:])]+=c.numerator
         check(actual==cleanup,'independent literal cleanup factor')
-        frames={k:tuple(v) for k,v in word['initial_frames'].items()}
+        frames={k:frame_key(v) for k,v in word['initial_frames'].items()}
         paid=[]
         for e in word['program'][:3642]:
             op,r=e[:2]
             if op=='transport':
-                check(frames[r]==tuple(e[2]),'independent source frame')
+                check(frames[r]==frame_key(e[2]),'independent source frame')
                 paid.append(abs(len(e[2])-len(e[3])))
                 check(paid[-1]==e[4],'independent tariff')
-                frames[r]=tuple(e[3])
+                frames[r]=frame_key(e[3])
             elif op=='add':
-                check(frames[r]==frames[e[2]]==tuple(e[4]),'independent ADD chart')
+                check(frames[r]==frames[e[2]]==frame_key(e[4]),'independent ADD chart')
                 c=Fraction(e[3]);add(s,r,e[2],c.numerator,c.denominator)
             elif op=='zero':
                 check(r=='C' and r not in s,'independent private lifetime')
-                s[r]=[0]*280;frames[r]=tuple(e[2])
+                s[r]=[0]*280;frames[r]=frame_key(e[2])
             elif op=='copy':
-                check(r=='C' and not any(s[r]) and frames[r]==frames[e[2]]==tuple(e[3]),'independent private copy')
+                check(r=='C' and not any(s[r]) and frames[r]==frames[e[2]]==frame_key(e[3]),'independent private copy')
                 s[r]=s[e[2]][:]
             else:
-                check(op=='erase' and r=='C' and frames[r]==tuple(e[2]),'independent owned erase')
+                check(op=='erase' and r=='C' and frames[r]==frame_key(e[2]),'independent owned erase')
                 del s[r];del frames[r]
-        check(frames=={k:tuple(v) for k,v in word['final_frames'].items()},'independent cut frames')
+        check(frames=={k:frame_key(v) for k,v in word['final_frames'].items()},'independent cut frames')
         check(len(paid)==1410 and sum(paid)==2368,'independent whole-prefix tariff')
         check(set(s)==set(ORDER),'independent bank inventory')
         for k in range(8):

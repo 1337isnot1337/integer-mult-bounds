@@ -228,16 +228,18 @@ def source_audit(A,B,J,N,ops,expected):
     need([[r[j] for j in J] for r in d]==T, 'actual cleanup pivot block')
     s = {n:{i:F(1)} for i,n in enumerate(NAMES)}
     f = {n:tuple(w['initial_frames'][n]) for n in NAMES}
+    # The archived native checker keys canonical charts by binary subspace,
+    # not by a particular basis spelling. No free physical basis map is added.
     profile = Counter()
     kinds = Counter()
     for e in program[:CUT]:
         k,r = e[:2]; kinds[k]+=1
         if k=='add':
-            need(f[r]==f[e[2]]==tuple(e[4]), 'prefix ADD frame')
+            need(span(f[r])==span(f[e[2]])==span(e[4]), 'prefix ADD frame')
             s[r] = row_add(s[r],s[e[2]],F(e[3]))
         elif k=='transport':
             before,after = tuple(e[2]),tuple(e[3])
-            need(f[r]==before, 'prefix transport entrance')
+            need(span(f[r])==span(before), 'prefix transport entrance')
             a,b = span(before),span(after)
             need(a<=b or b<=a, 'prefix transport nesting')
             need(e[4]==abs(len(before)-len(after))>0, 'prefix transport tariff')
@@ -246,18 +248,18 @@ def source_audit(A,B,J,N,ops,expected):
             need(r=='C' and r not in s, 'private allocation')
             s[r]={}; f[r]=tuple(e[2])
         elif k=='copy':
-            need(r=='C' and not s[r] and f[r]==f[e[2]]==tuple(e[3]), 'private copy')
+            need(r=='C' and not s[r] and span(f[r])==span(f[e[2]])==span(e[3]), 'private copy')
             s[r]=s[e[2]].copy()
         else:
-            need(k=='erase' and r=='C' and f[r]==tuple(e[2]), 'owned live-copy erase contract')
+            need(k=='erase' and r=='C' and span(f[r])==span(e[2]), 'owned live-copy erase contract')
             del s[r]; del f[r]
     need(set(s)==set(NAMES), 'cut live registers')
     want,cutframes=cut_state(A,d)
     need(s==want, 'actual cut coefficients')
-    need(f=={n:tuple(w['final_frames'][n]) for n in NAMES}, 'cut exit frames')
+    need(all(span(f[n])==span(w['final_frames'][n]) for n in NAMES), 'cut exit frames')
     hs=[span(f[f'Y{i}']) for i in range(104)]
     need(all(len(h)==256 for h in hs) and len(set(hs))==104, 'distinct target hyperplanes')
-    need(all(f[n]==FULL for n in NAMES if not n.startswith('Y')), 'FULL consumers and sources')
+    need(all(span(f[n])==span(FULL) for n in NAMES if not n.startswith('Y')), 'FULL consumers and sources')
     result,ff=run(s,cutframes,ops)
     need(result==expected and ff==desired_frames(J), 'actual source-bound splice endpoint')
     hist=[profile[r] for r in range(1,9)]
