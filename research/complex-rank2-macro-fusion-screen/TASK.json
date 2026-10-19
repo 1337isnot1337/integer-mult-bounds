@@ -58,15 +58,15 @@
   "budget_minutes": 60,
   "stop_rule": "Stop the direct-replacement screen when every selected-source rank-one successor pair has been checked against exact rank-two endpoint recipes in both orientations. Do not claim macro equivalence from matching endpoint frames. Continue only by reconstructing one candidate's complete operator and scalar window, then charging its full joint realization.",
   "outcome": "negative-result",
-  "evidence": "Both orientations contain 1,441 successive rank-one climb links per register history and 35 pairs with an available rank-two recipe on the combined endpoint frames. Every one of the 35 candidates is interrupted by same-register scalar operations (histogram: 10 with one touch, 5 with two, and 20 with five); there are zero direct substitutions preserving the existing schedule. This is a scoped negative screen, not a proof against redesigned macrocircuits; no exact composition equality, new supplier, or kappa improvement is claimed.",
+  "evidence": "Both orientations contain 2,412 rank-one climbs, 1,441 successive rank-one climb links per register history, and 35 pairs with an available rank-two recipe on the combined endpoint frames. Every candidate is interrupted by same-register scalar operations (histogram: 10 with one touch, 5 with two, and 20 with five); there are zero direct substitutions preserving the existing schedule. Across 100 candidate/add-operand instances, no source register receives the exact same rank-one frame transition anywhere in the trace, so the simplest linearity-based reuse route is absent. This is a scoped negative screen, not a proof against redesigned macrocircuits; no exact composition equality, new supplier, or kappa improvement is claimed.",
   "author": "Gonzalo Mier",
   "ai_assistance": "Substantial OpenAI Codex assistance in deriving and running the source-bound schedule screen, implementing the exact verifier and controls, and documenting scope and limits.",
   "open_questions": [
     {
-      "question": "Can a joint rank-two macro absorb one of the minimally interrupted candidate pairs while preserving the exact selected operator and lowering the complete recursive profile cost?",
-      "why_it_matters": "The direct substitution screen fails because every matching pair has intervening scalar work. A successful joint macro would test the broader two-level fusion hypothesis rather than merely matching frame endpoints.",
+      "question": "Can a changed-basis or multi-operation rank-two macro absorb one of the minimally interrupted candidate pairs while preserving the exact selected operator and lowering the complete recursive profile cost?",
+      "why_it_matters": "Direct substitution fails for all candidates, and no candidate's add operand already receives the same rank-one transition. A successful joint macro must therefore synthesize the scalar window and find a new equivalent call structure rather than merely reuse an existing climb.",
       "first_step": "Start with the forward phase-B candidate on register 195: event indices 12806 and 13402 climb 0→2→252, with the sole same-register touch `add L195, L521`. Reconstruct the complete intervening region and both child maps, compare its joint operator with the pinned direct rank-two recipe on a complete exact basis, then price all changed registers and restoration.",
-      "blocked_by": "The selected rank-two endpoint recipe is not an equality certificate for the composition of the two rank-one maps and the scalar window; the surrounding-register and restoration costs are also not yet assigned."
+      "blocked_by": "The selected rank-two endpoint recipe is not an equality certificate for the composition of the two rank-one maps and scalar window. The same-key partner census is negative; equivalent calls in another basis and the surrounding-register/restoration invoice remain unexplored."
     }
   ]
 }

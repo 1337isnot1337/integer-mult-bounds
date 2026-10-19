@@ -15,7 +15,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Pinned selected record, replay archive and exact member bytes; both orientations' successive rank-one climb links; exact rank-two endpoint-recipe matching; same-register event-touch histogram and candidate phase pairs; wrong-rank and removed-recipe controls; no direct schedule-preserving macro and no new-kappa claim."
+      "checks": "Pinned selected record, replay archive, canonical word and exact member bytes; both orientations' climb and scalar-frame replay; successive rank-one links; exact rank-two endpoint-recipe matching; same-register event-touch histogram and candidate phase pairs; no add operand has a reusable same-key rank-one transition; wrong-rank and removed-recipe controls; no direct schedule-preserving macro or new-kappa claim."
     },
     {
       "argv": [
@@ -25,7 +25,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Repeat the complete source-pinned schedule screen and controls under optimized Python."
+      "checks": "Repeat the complete source-pinned frame replay, call-reuse screen and controls under optimized Python."
     }
   ]
 }

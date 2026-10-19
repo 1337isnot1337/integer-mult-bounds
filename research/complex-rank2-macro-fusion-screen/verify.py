@@ -21,6 +21,10 @@ RECIPE_MEMBER = (
     "candidate/strict/global/base/providers/gauge44/CLIFFORD-RECIPES.json"
 )
 RECIPE_SHA256 = "d0768f2164d5f64a2fdbec422f1cfde4e400818792f1904ca541958377243731"
+WORD_MEMBER = (
+    "candidate/strict/global/base/providers/gauge44/CANONICAL-WORD.json.gz"
+)
+WORD_SHA256 = "16bc0ebb04b4be6c0ade74badc6a0c0cdba4215eda86e4ff9f13abf8ecebd219"
 SELECTED = ROOT / "certificates/selected-result.json"
 SELECTED_SHA256 = "bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129"
 SELECTED_KAPPA = "0.001672660197076918"
@@ -41,19 +45,23 @@ def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def load_sources() -> tuple[dict[str, list], list[dict], str]:
+def load_sources() -> tuple[dict[str, list], list[dict], dict, str]:
     archive_bytes = ARCHIVE.read_bytes()
     require(digest(archive_bytes) == ARCHIVE_SHA256, "selected archive pin")
     with tarfile.open(fileobj=io.BytesIO(archive_bytes), mode="r:gz") as archive:
         names = {member.name for member in archive.getmembers()}
         require(PROGRAM_MEMBER in names, "selected local program present")
         require(RECIPE_MEMBER in names, "selected child recipes present")
+        require(WORD_MEMBER in names, "selected canonical word present")
         program_bytes = archive.extractfile(PROGRAM_MEMBER).read()
         recipe_bytes = archive.extractfile(RECIPE_MEMBER).read()
+        word_bytes = archive.extractfile(WORD_MEMBER).read()
     require(digest(program_bytes) == PROGRAM_SHA256, "local program member pin")
     require(digest(recipe_bytes) == RECIPE_SHA256, "child recipe member pin")
+    require(digest(word_bytes) == WORD_SHA256, "canonical word member pin")
     programs = json.loads(gzip.decompress(program_bytes))
     recipes = json.loads(recipe_bytes)["children"]
+    word = json.loads(gzip.decompress(word_bytes))
     require(set(programs) == {"forward", "backward"}, "both orientations present")
     require(len(recipes) == 2896, "selected recipe inventory")
 
@@ -64,7 +72,47 @@ def load_sources() -> tuple[dict[str, list], list[dict], str]:
     require(digest(selected_bytes) == SELECTED_SHA256, "selected record pin")
     selected = json.loads(selected_bytes)
     require(selected["decimal"] == SELECTED_KAPPA, "selected kappa record")
-    return programs, recipes, selected["decimal"]
+    return programs, recipes, word, selected["decimal"]
+
+
+def frame_contains(frames: list[list[int]], old: int, new: int) -> bool:
+    for vector in frames[old]:
+        reduced = vector
+        for target in frames[new]:
+            if target and (reduced >> (target.bit_length() - 1)) & 1:
+                reduced ^= target
+        if reduced:
+            return False
+    return True
+
+
+def replay_frames(events: list, word: dict) -> None:
+    """Check climb order and the frame required by every scalar operation."""
+    frames = word["frames"]
+    current = list(word["start"])
+    phase = None
+    for event in events:
+        tag = event[0]
+        if tag == "phase":
+            phase = event[1]
+        elif tag == "climb":
+            _, part, register, old, new, rank = event
+            require(part == phase, "climb remains inside its phase")
+            require(current[register] == old, "rank-one climb old frame")
+            require(frame_contains(frames, old, new), "nested child frame")
+            require(rank == len(frames[new]) - len(frames[old]),
+                    "child rank equals frame increment")
+            current[register] = new
+        elif tag == "scalar":
+            operation, frame = event[1], event[2]
+            registers = [operation[1]]
+            if operation[0] in ("copy", "add"):
+                registers.append(operation[2])
+            for register in registers:
+                if register[0] == "L":
+                    require(current[register[1]] == frame,
+                            "scalar event retains its local frame")
+    require(current == word["final"], "terminal frame inventory")
 
 
 def local_register_touched(event: list, register: int) -> bool:
@@ -84,8 +132,13 @@ def local_register_touched(event: list, register: int) -> bool:
 
 
 def screen_orientation(
-    events: list, recipe_keys: set[tuple[int, int, int]], target_rank: int = 2
+    events: list,
+    recipe_keys: set[tuple[int, int, int]],
+    target_rank: int = 2,
+    word: dict | None = None,
 ) -> dict:
+    if word is not None:
+        replay_frames(events, word)
     last_by_register: dict[int, tuple[int, str, int, int, int, int]] = {}
     rank_one_successors = 0
     candidates = []
@@ -131,18 +184,24 @@ def screen_orientation(
         "phase_pairs": dict(sorted(phase_pairs.items())),
         "directly_fusible": sum(not candidate["intervening_touches"]
                                  for candidate in candidates),
+        "intervening_adds": [
+            (candidate, event)
+            for candidate in candidates
+            for event in candidate["intervening_touches"]
+            if event[0] == "scalar" and event[1][0] == "add"
+        ],
     }
 
 
 def main() -> None:
-    programs, recipes, selected_kappa = load_sources()
+    programs, recipes, word, selected_kappa = load_sources()
     recipe_keys = {
         (entry["old"], entry["new"], entry["rank"])
         for entry in recipes
     }
 
     receipts = {
-        orientation: screen_orientation(events, recipe_keys)
+        orientation: screen_orientation(events, recipe_keys, word=word)
         for orientation, events in programs.items()
     }
     for orientation, receipt in receipts.items():
@@ -172,6 +231,33 @@ def main() -> None:
             == receipts["backward"]["touch_histogram"],
             "orientation screens agree")
 
+    # Linearity suggests moving the post-add climb to the add's source. Check
+    # whether that register already receives the exact same child transition.
+    partner_matches = {"forward": [], "backward": []}
+    for orientation, events in programs.items():
+        climb_keys_by_register = collections.defaultdict(set)
+        for event in events:
+            if event[0] == "climb" and event[5] == 1:
+                climb_keys_by_register[event[2]].add((event[3], event[4]))
+        for candidate, event in receipts[orientation]["intervening_adds"]:
+            operation = event[1]
+            target, source = operation[1], operation[2]
+            require(candidate["middle"] == event[2],
+                    orientation + " addition uses the middle frame")
+            require(target[0] == source[0] == "L",
+                    orientation + " addition uses local data registers")
+            partner = source[1] if target[1] == candidate["register"] else target[1]
+            transition = (event[2], candidate["new"])
+            partner_matches[orientation].append(
+                transition in climb_keys_by_register[partner]
+            )
+    require(len(partner_matches["forward"]) == 100,
+            "forward candidate/add instances")
+    require(len(partner_matches["backward"]) == 100,
+            "backward candidate/add instances")
+    require(not any(partner_matches["forward"] + partner_matches["backward"]),
+            "no add source has a reusable same-key rank-one transition")
+
     # Positive control: this exact endpoint pair has a direct rank-two recipe.
     witness = (0, 27, 2)
     require(witness in recipe_keys, "rank-two endpoint positive control")
@@ -183,17 +269,20 @@ def main() -> None:
 
     # Negative controls: wrong target rank rejects all candidates; deleting the
     # one positive-control recipe rejects exactly its two occurrences.
-    wrong_rank = screen_orientation(programs["forward"], recipe_keys, target_rank=3)
+    wrong_rank = screen_orientation(
+        programs["forward"], recipe_keys, target_rank=3, word=word
+    )
     require(not wrong_rank["candidates"], "wrong-rank control rejects candidates")
     mutated_keys = recipe_keys - {witness}
-    mutated = screen_orientation(programs["forward"], mutated_keys)
+    mutated = screen_orientation(programs["forward"], mutated_keys, word=word)
     require(len(mutated["candidates"]) == 33,
             "removed-recipe control rejects exactly two candidates")
 
     print(
         "PASS_COMPLEX_RANK2_MACRO_FUSION_SCREEN "
         "orientations=2 rank1_climbs=2412 rank1_successors=1441 "
-        "direct_rank2_candidates=35 "
+        "direct_rank2_candidates=35 intervening_adds=100 "
+        "reusable_same_key_partners=0 "
         "blocked_by_scalar=35 directly_fusible=0 "
         "touch_histogram=1:10,2:5,5:20 controls=3 "
         f"selected_kappa={selected_kappa} no_new_kappa"
