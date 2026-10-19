@@ -84,6 +84,12 @@ output in 209.186 seconds. The separate bounded profile of one actual
 expansion line group measured repeated power-of-two construction and sign-bit
 extraction among the remaining costs; I do not count that diagnostic as a
 complete tensor replay.
+After adding bounded physical powers and bit selection, I passed the grouped
+arithmetic check in 22.114 seconds and reproduced the same complete forward
+output in 162.999 seconds. I retained both larger-parameter fallbacks and
+added alias, malformed-bit and partial-output failure controls. I allocate
+10,10,60,440,340,340 seconds to the six registered commands, preserving the
+1200-second total and the existing numerical fixtures.
 
 The source/budget check passed after I corrected the generated archive's
 container metadata. It authenticates the full source exports,15 live input

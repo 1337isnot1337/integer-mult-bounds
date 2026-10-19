@@ -68,9 +68,9 @@ For the six registered checks, use:
 python3.12 -B scripts/research_package.py --package research/physical-gaussian-tensor
 ```
 
-I bound each command by at most390 seconds and their declared total by1200
-seconds. The producer and consumers together took about16 minutes during
-local development; runtime depends on the host.
+I bound each command by at most 440 seconds and their declared total by 1200
+seconds. I record measured stages in [EVIDENCE.md](EVIDENCE.md) and exact
+publication receipts in the linked investigation; runtime depends on the host.
 
 ## Implementation map
 

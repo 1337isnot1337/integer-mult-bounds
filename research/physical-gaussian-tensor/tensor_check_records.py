@@ -8,6 +8,7 @@ def run():
     from cardinal_counts import Count
     from check_support import no_decode
     from expansion_check_block import packet_bytes
+    from records import Tape
     import ring_words
     from ring_check_words import decode, tape, word_bits
     from ring_words import Signed, read_signed, write_signed
@@ -40,10 +41,10 @@ def run():
         finally:
             for item in pool.tapes:
                 erase_marker(item)
-    cases = 0
+    cases = binary_cases = 0
     with codecs.bounded_record_io():
         require(all(getattr(module, name) is replacement for module, name, _, replacement in codecs.CODEC_BINDINGS),
-                "all five actual numerical-record aliases")
+                "all seven actual numerical-record bindings")
         require(read_signed.__globals__["read_fixed"] is codecs.read_fixed
                 and write_signed.__globals__["write_fixed"] is codecs.write_fixed,
                 "actual retained signed wrappers reach the scoped codecs")
@@ -144,19 +145,96 @@ def run():
             with no_decode():
                 require(codecs.bounded_width(width) is None and width.tape.head == 1,
                         "large encoded widths never enter finite control")
+        for position in (0, 1, 31, 32, 33, 50, 546, 1096, 4096, 4097):
+            with owned(Count.literal(position)) as (index,):
+                def check_power():
+                    with no_decode():
+                        result = ring_words.power_two(index)
+                    with owned(result):
+                        require(decode(result) == 1 << position and result.tape.head == 1,
+                                "exact physical power of two including zero exponent and fallback")
+                installed(check_power)
+                for value in (0, 1, (1 << position)-1, 1 << position, (1 << (position+1))-1):
+                    with owned(Count.literal(value)) as (number,):
+                        saved = bytes(number.tape.cells)
+                        def check_bit():
+                            with no_decode():
+                                bit = ring_words.bit_at(borrowed_count(number), index)
+                            require(bit == (value >> position) & 1, "exact selected bit including early right marker")
+                        installed(check_bit)
+                        require(bytes(number.tape.cells) == saved and number.tape.head == index.tape.head == 1,
+                                "bit selection preserves borrowed data and origins")
+                        binary_cases += 1
+        with owned(Count.literal(3)) as (number,):
+            def shared_index():
+                with no_decode():
+                    bit = ring_words.bit_at(number, borrowed_count(number))
+                require(bit == 0 and number.tape.head == 1, "physical value/index alias returns its origin")
+            installed(shared_index)
+        with owned(Count.literal(4097)) as (index,):
+            def binary_fallbacks():
+                with patch.object(codecs, "original_power_two", wraps=codecs.original_power_two) as power_call:
+                    with patch.object(codecs, "original_bit_at", wraps=codecs.original_bit_at) as bit_call:
+                        with no_decode():
+                            result = ring_words.power_two(index)
+                        with owned(result):
+                            with no_decode():
+                                bit = ring_words.bit_at(result, index)
+                            require(bit == 1 and decode(result) == 1 << 4097,
+                                    "complete larger-parameter power and bit results")
+                        require(power_call.call_count == bit_call.call_count == 1,
+                                "both4097-parameter binary helpers reach their retained fallbacks")
+            installed(binary_fallbacks)
+        for position, fragment in ((0, "bit-window digit"), (1, "bit-window source digit")):
+            with owned(Count.literal(3), Count.literal(position)) as (number, index):
+                number.tape.write(BLANK)
+                saved = bytes(number.tape.cells)
+                def malformed_bit():
+                    try:
+                        with no_decode():
+                            ring_words.bit_at(number, index)
+                    except ValueError as error:
+                        require(str(error) == fragment, "specific selected/skipped bit rejection")
+                    else:
+                        raise ValueError("missing malformed-bit rejection")
+                installed(malformed_bit)
+                require(bytes(number.tape.cells) == saved and number.tape.head == index.tape.head == 1,
+                        "malformed bit selection restores borrowed origins")
+        with owned(Count.literal(32)) as (index,):
+            original_append, appends = Tape.append, 0
+            def interrupted_append(target, value):
+                nonlocal appends
+                appends += 1
+                if appends == 5:
+                    raise ValueError("planned power construction interruption")
+                return original_append(target, value)
+            def interrupted_power():
+                try:
+                    with no_decode(), patch.object(Tape, "append", interrupted_append):
+                        result = ring_words.power_two(index)
+                except ValueError as error:
+                    require(str(error) == "planned power construction interruption", "specific partial-power rejection")
+                else:
+                    result.close()
+                    raise ValueError("missing partial-power rejection")
+                require(appends == 5 and not pool.live and index.tape.head == 1,
+                        "interrupted power construction releases its partial result")
+            installed(interrupted_power)
     require(all(getattr(module, name) is original for module, name, original, _ in codecs.CODEC_BINDINGS),
-            "restore all five actual record aliases after successful scope")
+            "restore all seven actual record bindings after successful scope")
     try:
         with codecs.bounded_record_io():
             raise RuntimeError("planned record scope interruption")
     except RuntimeError:
         pass
     require(all(getattr(module, name) is original for module, name, original, _ in codecs.CODEC_BINDINGS),
-            "restore all five actual record aliases after scope interruption")
+            "restore all seven actual record bindings after scope interruption")
     require(not pool.live and all(item.head == 1 and all(v == BLANK for v in item.cells) for item in pool.tapes),
             "fixed record inventory and head restoration")
-    return {"unsigned_cases": cases, "signed_cases": 20, "widths": list(widths), "fallbacks": fallbacks,
+    return {"unsigned_cases": cases, "signed_cases": 20, "binary_cases": binary_cases,
+            "powers": 10, "widths": list(widths), "fallbacks": fallbacks,
             "sha256": digest.hexdigest(), "pool_peak": pool.peak,
             "controls": ["truncated_record", "late_nonbinary", "oversized_record", "signed_headroom",
-                         "aliased_width_source", "large_encoded_width", "interrupted_scope"],
-            "scope": "five exact numerical-record aliases through4096 bits with original larger-width fallback"}
+                         "aliased_width_source", "large_encoded_width", "interrupted_scope",
+                         "aliased_value_index", "malformed_bits", "interrupted_power"],
+            "scope": "exact numerical records and binary support through4096 with original larger-parameter fallbacks"}

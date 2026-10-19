@@ -13,6 +13,8 @@ from words import RIGHT, need
 
 WIDTH_LIMIT = 4096
 WIDTH_BITS = 13
+original_power_two = ring_words.power_two
+original_bit_at = ring_words.bit_at
 
 
 def bounded_width(width):
@@ -70,11 +72,52 @@ def write_fixed(value, target, width):
         value.rewind()
 
 
+def power_two(amount):
+    size = bounded_width(amount)
+    if size is None:
+        return original_power_two(amount)
+    result = Count.literal(0)
+    try:
+        borrowed_tape(result.tape).clear()
+        for _ in range(size):
+            result.tape.append(0)
+        result.tape.append(1)
+        result.tape.append(RIGHT)
+        result.rewind()
+        return result
+    except BaseException:
+        result.close()
+        raise
+
+
+def bit_at(value, position):
+    index = bounded_width(position)
+    if index is None:
+        return original_bit_at(value, position)
+    value.rewind()
+    try:
+        for _ in range(index):
+            bit = value.read()
+            if bit == RIGHT:
+                return 0
+            need(bit in (0, 1), "bit-window source digit")
+            value.step(1)
+        bit = value.read()
+        if bit == RIGHT:
+            return 0
+        need(bit in (0, 1), "bit-window digit")
+        return bit
+    finally:
+        value.rewind()
+
+
 CODEC_BINDINGS = ((ring_words, "read_fixed", original_read_fixed, read_fixed),
                   (ring_words, "write_fixed", original_write_fixed, write_fixed),
                   (gaussian_convolution, "read_fixed", original_read_fixed, read_fixed),
                   (gaussian_convolution, "write_fixed", original_write_fixed, write_fixed),
-                  (word_product, "write_fixed", original_write_fixed, write_fixed))
+                  (word_product, "write_fixed", original_write_fixed, write_fixed),
+                  (ring_words, "power_two", original_power_two, power_two),
+                  (ring_words, "bit_at", original_bit_at, bit_at))
 
 
 @contextmanager

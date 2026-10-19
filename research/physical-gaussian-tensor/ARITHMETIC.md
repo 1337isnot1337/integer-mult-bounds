@@ -233,7 +233,25 @@ complete double-width word returns reach those bindings through their
 function globals. I preserve their positive-width, signed headroom,
 coefficient separation and output extent checks, other imported codec
 aliases, and the original fallbacks. I reject a nested adaptation and
-restore the five bindings on success or exception.
+restore those bindings on success or exception.
+
+I also replace the `ring_words.power_two` and `ring_words.bit_at` support
+bindings within that scope. For exponents at most 4096 I construct `2^n`
+by writing `n` zero bits, a one and the right marker on an owned tape. The
+final one proves canonicality, including the zero-exponent result one.
+For positions at most 4096 I select a bit through unit tape movements and
+return zero upon reaching the right marker. I preserve both skipped-bit
+and selected-bit checks, and rewind the borrowed operand on success or
+failure. I finish the position probe before scanning the value, so physical
+value/index aliases retain the same result and origin. The original bit
+window also holds at its right marker and fills later positions with zero.
+
+I use `O(n+1)` time and space to construct the bounded power, and
+`O(min(n,length)+1)` time with no auxiliary Count to select the bit. I keep
+the power and operand data on physical tapes and preserve the original
+larger-parameter fallbacks. I check 10 powers, 50 bit selections, malformed
+selected/skipped bits, alias views and cleanup after partial power output.
+I restore the complete seven-binding scope after success or exception.
 
 I checked 36 unsigned records at widths from zero through 4097, with complete
 zero padding and a trailing sentinel. I checked 20 signed boundary cases,
