@@ -121,21 +121,21 @@
       "usage": "input",
       "git_blob": "d2b8831feb9dd56b5a92aee70401b97f779b1764",
       "sha256": "ec9c11b924e4ab9de4f66cb42cc914fb7eb8c80c0f16f7a34d1dcf51f73ad52e",
-      "pin": "head:8915253858e98f0a377f34947f5d7d69920a8ab8:research/pr3934-pr3955-operator-replay/vendor/PR3251-MOVES.json.gz"
+      "pin": "head:465cfe985c84f8ecfa47c6d91444df07b4e4baec:research/pr3934-pr3955-operator-replay/vendor/PR3251-MOVES.json.gz"
     },
     {
       "path": "research/pr3934-pr3955-operator-replay/vendor/PR3934-MOVES.json.gz",
       "usage": "input",
       "git_blob": "a42281c813a4408ba471edc193d71ee7c32690b2",
       "sha256": "173c83d34d4922584da0a8acdb429c29e0ad3e4a7960fb4de05bfec4848c9249",
-      "pin": "head:8915253858e98f0a377f34947f5d7d69920a8ab8:research/pr3934-pr3955-operator-replay/vendor/PR3934-MOVES.json.gz"
+      "pin": "head:465cfe985c84f8ecfa47c6d91444df07b4e4baec:research/pr3934-pr3955-operator-replay/vendor/PR3934-MOVES.json.gz"
     },
     {
       "path": "research/pr3934-pr3955-operator-replay/vendor/PR3955-MOVES.json.gz",
       "usage": "input",
       "git_blob": "6cef92eb88ea0cfe827031592a78bc891bd9ea59",
       "sha256": "01e8417b90783f707cd18871be7c615eb9162f356460f07963b5198522aa692b",
-      "pin": "head:8915253858e98f0a377f34947f5d7d69920a8ab8:research/pr3934-pr3955-operator-replay/vendor/PR3955-MOVES.json.gz"
+      "pin": "head:465cfe985c84f8ecfa47c6d91444df07b4e4baec:research/pr3934-pr3955-operator-replay/vendor/PR3955-MOVES.json.gz"
     }
   ]
 }
