@@ -1,0 +1,33 @@
+{
+  "files": {
+    "INVOICE.json": "e675798c02050995086021f07a204541632f4d6c8b59798f6c5519f58838224b",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "OVERLAP.json": "7b003ff43930a64f6d136e8a08f4d02e75e9333c1570fc2af093e23f5f0dac8c",
+    "PUBLIC-PREDECESSOR.json": "e7ef2b3b6ab19606bc634c3cc3d032b1f9e35af2c0ab60d0cd78e16bcedb99b6",
+    "README.md": "0ac766b2cccc7dbd34624b6fdba2061936d09427df5e53bbeb7b6049fcecfd58",
+    "REPAIR.json": "350f267bd0166e777899b4fe00d8399098e06798cc5896f957e2a272046c3d05",
+    "SOURCE-NOTES.md": "c7d2992a6fa36565d4cffcba620a4be715a087314b309b969b6c01791b027a0f",
+    "SOURCES.json": "c177c360e1c94b8ac978864ce17c2a323e9e5c22cc016355463280e9e5fc03e3",
+    "TASK.json": "7e184bd7892d1b2ae3971abce6d3992e5f2e16b8260bdde8525f8aa7678d0a46",
+    "VERIFY.json": "a97a2c18b1f0a10d1eb10091b8e93c5f42679698a51753e1fff3a368282445a3",
+    "algebra/RESULT.json": "b5f690d8d7b6bbf4f1b5c8398e6dfb5e9d2f9d69db50b08efcc76f02a38ee3a6",
+    "algebra/SHARED-SOURCE-PROOF.md": "aa7b806ad3fd54822b6a9557276383c8dbd0524f316f8dacdc5fa224f089b2e2",
+    "algebra/check_shared_source.py": "44f6f6b151160daca9147293e8cb4dca19eee995a4c13566dd0708cabd38d6a5",
+    "check_invoice.py": "ee1be19f70021f0cfcab20d35652295ef6f7e3cefdaa0dc726677cfadbcaed11",
+    "independent/RESULT-OPTIMIZED.json": "66e38aa72185fe741f9e7c403d5aa85c34508206badbcf0c59db3629891d3cab",
+    "independent/RESULT.json": "f667c08c121f29fc473f6def4bd95bbcf309d2f1e73edf407d822fee2f822c50",
+    "independent/REVIEW.md": "afda08c743e4496b381b84e5a95fb6a247d3ee02a47a6deaba121215d31ece41",
+    "independent/VALIDATION.json": "5c88dff83af64ac9a1506678bc0febf2a324126fffd75fcd008f2531758908ae",
+    "independent/check_independent.py": "e88db566ca63fd6320945d15a442e6fa9fb7dc3b9159e044a2c1bedb8a50361f",
+    "inputs/GEOMETRY.json.gz": "a353999bceac4ac957f540adfd3e5f8768297138b27132eeb83332e2ea4b1022",
+    "inputs/PREDECESSOR-PINS.json": "4d03736c497eae94c4e98d33ac10ecacba9e914f9d604787237ff71075dc4e94",
+    "inputs/WORD.json.gz": "c46ccd7d3eedabc6a7efbb1a91ec13f2928bad8ee0bac57c6e593a092d13d96c",
+    "source-audit/README.md": "16ff55d282f82c1522c5f4a41ec51ff141717cc4bc2984ee853851f8880ca94e",
+    "source-audit/SOURCE-AUDIT.json": "99d4683d9f618096a149618d875f7041656fb3c8ce479b7fa809f05c7ace6300",
+    "source-audit/check_source_packet.py": "079618a17733d1b999a42a499bbc013d68bf33b53f19e5947bcde541ac0bbd16",
+    "verify.py": "90593e8c0d6f264ed57cb02641938ec9eae81b96e729d5b08bee3b7065b2af75"
+  },
+  "schema_version": 1,
+  "scientific_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "scope": "Exact package file hashes; integrity, not external authenticity or mathematical proof."
+}

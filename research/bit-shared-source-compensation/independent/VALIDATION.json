@@ -1,0 +1,28 @@
+{
+  "canonical_semantic_sha256": "2d71fc6d271b0d1c4b833a2f64202104f27410c00eb75727bf0f09c1db669198",
+  "commands": [
+    [
+      "python3",
+      "-I",
+      "-B",
+      "independent/check_independent.py"
+    ],
+    [
+      "python3",
+      "-I",
+      "-O",
+      "-B",
+      "independent/check_independent.py"
+    ]
+  ],
+  "no_new_kappa": true,
+  "python": "3.14.6",
+  "scope": "Independent exact source/frame/dirty-map/cost/defect audit only; root package replay and native execution are separate.",
+  "source_and_receipt_sha256": {
+    "RESULT-OPTIMIZED.json": "66e38aa72185fe741f9e7c403d5aa85c34508206badbcf0c59db3629891d3cab",
+    "RESULT.json": "f667c08c121f29fc473f6def4bd95bbcf309d2f1e73edf407d822fee2f822c50",
+    "REVIEW.md": "afda08c743e4496b381b84e5a95fb6a247d3ee02a47a6deaba121215d31ece41",
+    "check_independent.py": "e88db566ca63fd6320945d15a442e6fa9fb7dc3b9159e044a2c1bedb8a50361f"
+  },
+  "status": "PASS_INDEPENDENT_NORMAL_AND_OPTIMIZED"
+}
