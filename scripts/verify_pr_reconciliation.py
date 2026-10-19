@@ -11,14 +11,77 @@ import json
 import zipfile
 import subprocess
 import sys
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
+
+# Original bytes of docs/research/pr-intake-decisions.json at these commits.
+# Intake metadata is mutable; these ordered checkpoints retain first appearances
+# before later exact-head reviews replaced it. Never infer history from a ledger.
+# Source commit, Git blob, SHA256; the complete source files are preserved below.
+INTAKE_HISTORY = (
+    ('82d67beb311be1b630eb95197492e6462eddccd8',
+     '7be7303ed7f9c83e01a3cceb99698ed672da4e41',
+     '09d29d6cddea9ba382ee663262605c4ba4a4adc5cc9d572cd54bb37a1505cd65'),
+    ('09fbc0f002fc5b04814272c89edbd557b2a8285d',
+     '6c5a777a8221dc6e7866dcde0fff6b0aae58be33',
+     'b149b6057fb72f9617bd48a5bb5b5d5dd548a955b89416d38449e1ecac3464a4'),
+    ('24db9bfffd4a7c812545ea6ae58853cb9ef094b2',
+     '021141eaa94d1768d997f0f246fa73b4a528db84',
+     '3271e96c44d42fcae0f485abda725ff36c2f31b99ac740672787c108107410d4'),
+)
 
 
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def project_intake_starting_metadata(history, current_rows):
+    """Keep each first authenticated appearance, with no ledger-value fallback.
+
+    History changes only initial metadata, never current review/closure evidence.
+    Require historical membership to remain visible in the current intake source.
+    Substantial OpenAI assistance; Apache-2.0.
+    """
+    current_numbers = [row['number'] for row in current_rows]
+    require(all(type(number) is int and number > 0 for number in current_numbers)
+            and len(current_numbers) == len(set(current_numbers)), 'Invalid current intake PR set')
+    current_numbers = set(current_numbers)
+    first = {}
+    for rows in history:
+        numbers = [row['number'] for row in rows]
+        require(all(type(number) is int and number > 0 for number in numbers)
+                and len(numbers) == len(set(numbers)), 'Duplicate or invalid historical intake PR')
+        require(set(numbers) <= current_numbers, 'Historical intake PR missing from current source')
+        for row in rows:
+            metadata = row['metadata']
+            require(type(metadata.get('number')) is int and metadata['number'] == row['number'],
+                    'Historical intake metadata number mismatch')
+            require(isinstance(metadata.get('headRefOid'), str)
+                    and re.fullmatch('[0-9a-f]{40}', metadata['headRefOid'])
+                    and isinstance(metadata.get('author'), dict), 'Invalid historical intake metadata')
+            first.setdefault(row['number'], deepcopy(metadata))
+    return first
+
+
+def authenticated_intake_starting_metadata(root, current_rows):
+    """Authenticate full original source blobs without requiring Git or network."""
+    directory = root / 'scripts/historical-ci-inputs/intake-starting-heads'
+    require(all(not path.is_symlink() for path in
+                (root, root / 'scripts', directory.parent, directory)),
+            'Linked historical intake source directory')
+    history = []
+    for commit, blob, digest in INTAKE_HISTORY:
+        path = directory / (commit + '.json')
+        require(path.is_file() and not path.is_symlink(), 'Missing or linked historical intake source')
+        raw = path.read_bytes()
+        require(hashlib.sha256(raw).hexdigest() == digest, 'Changed historical intake source: ' + commit)
+        identity = hashlib.sha1(b'blob ' + str(len(raw)).encode('ascii') + b'\0' + raw).hexdigest()
+        require(identity == blob, 'Historical intake Git blob mismatch: ' + commit)
+        history.append(json.loads(raw)['pull_requests'])
+    return project_intake_starting_metadata(history, current_rows)
 
 
 def check_batch1047_file(item):
@@ -297,6 +360,11 @@ def main():
         if not family_path.exists():
             continue
         family = json.loads(family_path.read_text())
+        if family_path == ROOT / 'docs/research/pr-intake-decisions.json':
+            initial = authenticated_intake_starting_metadata(ROOT, family['pull_requests'])
+            for number, metadata in initial.items():
+                # Immutable starting snapshot and earlier family rounds win.
+                expected.setdefault(number, metadata)
         family_rounds.append(family['pull_requests'])
         numbers = [p['number'] for p in family['pull_requests']]
         require(len(numbers) == len(set(numbers)), 'Duplicate family PR')

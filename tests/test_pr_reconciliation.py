@@ -14,6 +14,125 @@ checker = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(checker)
 
 
+class IntakeStartingHistory(unittest.TestCase):
+    def row(self, number, head):
+        return dict(number=number, metadata=dict(number=number, headRefOid=head * 40,
+                                                author={'login': 'original'}))
+
+    def test_ordered_first_appearance_and_source_immutability(self):
+        history = [[self.row(7, 'a')], [self.row(7, 'b'), self.row(8, 'c')]]
+        current = [self.row(7, 'd'), self.row(8, 'e'), self.row(9, 'f')]
+        before = deepcopy((history, current))
+        got = checker.project_intake_starting_metadata(history, current)
+        self.assertEqual({n: row['headRefOid'] for n, row in got.items()},
+                         {7: 'a' * 40, 8: 'c' * 40})
+        got[7]['author']['login'] = 'mutation'
+        self.assertEqual((history, current), before)
+
+    def test_missing_extra_duplicate_and_malformed_history_reject(self):
+        current = [self.row(7, 'b')]
+        mutations = [[self.row(8, 'a')], [self.row(7, 'a'), self.row(7, 'b')],
+                     [self.row(True, 'a')], [dict(number=7, metadata=self.row(8, 'a')['metadata'])],
+                     [self.row(7, 'z')]]
+        for rows in mutations:
+            with self.subTest(rows=rows), self.assertRaises(ValueError):
+                checker.project_intake_starting_metadata([rows], current)
+        with self.assertRaises(ValueError):
+            checker.project_intake_starting_metadata([[self.row(7, 'a')]], [])
+        with self.assertRaises(ValueError):
+            checker.project_intake_starting_metadata([], current + current)
+
+    def test_complete_current_starting_metadata_matches_original_sources(self):
+        snapshot = json.loads((checker.AUDIT / 'starting-snapshot.json').read_text())
+        expected = {row['number']: row for row in snapshot['pull_requests']}
+        for path in checker.decision_paths():
+            if not path.exists():
+                continue
+            rows = json.loads(path.read_text())['pull_requests']
+            if path.name == 'pr-intake-decisions.json':
+                initial = checker.authenticated_intake_starting_metadata(ROOT, rows)
+                for number, metadata in initial.items():
+                    expected.setdefault(number, metadata)
+            for row in rows:
+                expected.setdefault(row['number'], row['metadata'])
+        ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
+        self.assertEqual(len(expected), len(ledger['pull_requests']))
+        for item in ledger['pull_requests']:
+            with self.subTest(number=item['number']):
+                self.assertEqual(item['starting_head'], expected[item['number']]['headRefOid'])
+                self.assertEqual(item['contributor'], expected[item['number']]['author'])
+
+    def test_changed_swapped_or_forged_pinned_source_rejects(self):
+        rows = json.loads((ROOT / 'docs/research/pr-intake-decisions.json').read_text())['pull_requests']
+        directory = ROOT / 'scripts/historical-ci-inputs/intake-starting-heads'
+        path = directory / (checker.INTAKE_HISTORY[0][0] + '.json')
+        original = path.read_bytes()
+        other = (directory / (checker.INTAKE_HISTORY[1][0] + '.json')).read_bytes()
+        read_bytes = Path.read_bytes
+        for changed in (original + b' ', other):
+            def read(p):
+                return changed if p == path else read_bytes(p)
+            with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(ValueError, 'Changed historical'):
+                checker.authenticated_intake_starting_metadata(ROOT, rows)
+        commit, blob, digest = checker.INTAKE_HISTORY[0]
+        forged = ((commit, '0' * 40, digest), *checker.INTAKE_HISTORY[1:])
+        with patch.object(checker, 'INTAKE_HISTORY', forged), self.assertRaisesRegex(ValueError, 'Git blob mismatch'):
+            checker.authenticated_intake_starting_metadata(ROOT, rows)
+
+    def test_missing_and_linked_source_rejects(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            with self.assertRaisesRegex(ValueError, 'Missing or linked'):
+                checker.authenticated_intake_starting_metadata(root, [])
+            directory = root / 'scripts/historical-ci-inputs/intake-starting-heads'
+            directory.mkdir(parents=True)
+            original = ROOT / 'scripts/historical-ci-inputs/intake-starting-heads' / (checker.INTAKE_HISTORY[0][0] + '.json')
+            (directory / original.name).symlink_to(original)
+            with self.assertRaisesRegex(ValueError, 'Missing or linked'):
+                checker.authenticated_intake_starting_metadata(root, [])
+
+    def test_entrypoint_rejects_forged_starting_and_current_heads(self):
+        ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
+        original_read = Path.read_text
+        for number in (3107, 3184, 3251):
+            for field in ('starting_head', 'reviewed_head', 'current_head'):
+                changed = deepcopy(ledger)
+                item = next(row for row in changed['pull_requests'] if row['number'] == number)
+                item[field] = '0' * 40
+                def read(path, *args, **kwargs):
+                    return json.dumps(changed) if path == ROOT / 'docs/research/pr-ledger.json' else original_read(path, *args, **kwargs)
+                expected = 'starting head' if field == 'starting_head' else field
+                with self.subTest(number=number, field=field), patch.object(Path, 'read_text', read), self.assertRaisesRegex(ValueError, f'#{number}:.*{expected}'):
+                    checker.main()
+
+    def test_generator_keeps_original_heads_without_writing_evidence(self):
+        spec = importlib.util.spec_from_file_location('history_aware_generator',
+                                                     ROOT / 'scripts/reconcile_pr_queue.py')
+        generator = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(generator)
+        outputs = {}
+        permitted = {ROOT / 'docs/research/pr-ledger.json', ROOT / 'docs/research/pr-ledger.md'}
+        def capture(path, content, *args, **kwargs):
+            self.assertIn(path, permitted)
+            outputs[path] = content
+            return len(content)
+        original = (ROOT / 'docs/research/pr-ledger.json').read_bytes()
+        with patch.object(Path, 'write_text', capture), patch('builtins.print'):
+            generator.build()
+        self.assertEqual((ROOT / 'docs/research/pr-ledger.json').read_bytes(), original)
+        self.assertEqual(set(outputs), permitted)
+        rebuilt = json.loads(outputs[ROOT / 'docs/research/pr-ledger.json'])
+        actual = {row['number']: row for row in json.loads(original)['pull_requests']}
+        self.assertEqual(len(rebuilt['pull_requests']), len(actual))
+        for row in rebuilt['pull_requests']:
+            for field in ('starting_head', 'contributor', 'current_head', 'reviewed_head'):
+                with self.subTest(number=row['number'], field=field):
+                    self.assertEqual(row.get(field), actual[row['number']].get(field))
+        for commit, _blob, digest in checker.INTAKE_HISTORY:
+            name = 'scripts/historical-ci-inputs/intake-starting-heads/' + commit + '.json'
+            self.assertEqual(rebuilt['source_sha256'][name], digest)
+
+
 class FamilyClosureProjection(unittest.TestCase):
     def decision(self, number=7):
         return dict(number=number, reviewed_head='a' * 40, current_head='a' * 40,
