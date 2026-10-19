@@ -55,24 +55,3 @@
       "blocked_by": "Search radius and parity bounds for weight-4 combinations."
     }
   ]
-}
-  "base_commit": "0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2",
-  
-  "scope_status": "changed",
-  "actual_scope": "Resolve Open Question #1 of PR #2397 by proving that profile (6,2,2,2,2,2,2) cannot cover all 63 masks (sharp maximum 61/63 across 105 canonical words) and classifying all 54 canonical full-63 words of profile (4,4,2,2,2,2,2).",
-  "scope_change_reason": "Closes Open Question #1 in research/seven-source-18event-connector (PR #2397) with an exact projection proof and complete canonical censuses for both 144-call 18-event profiles.",
-  "bottleneck_link": "research/seven-source-18event-connector/README.md",
-  "stop_rule": "Complete exact enumeration of all canonical 12-event words on six sources, all six-toggle lifts to 18 events, and all dual sub-alphabet lifts to 18 events.",
-  "evidence": "verify.py replays the 10,395-word 6-source projection bound (max 39/41), all 105 canonical 61/63 words of profile (6,2,2,2,2,2,2), all 54 canonical full-63 words of profile (4,4,2,2,2,2,2), and dirty-state replay in under 1.5 seconds.",
-  "author": "nightangelflowerwin-ops",
-  "ai_assistance": "Substantial AI assistance for exact code generation and combinatorial enumeration under Apache-2.0.",
-  "outcome": "completed",
-  "open_questions": [
-    {
-      "question": "What is the minimum complete-call schedule for the 98 nonzero seven-source masks of Hamming weight at most four?",
-      "why_it_matters": "Determines whether the 144-call threshold extends to weight-4 masks or requires higher toggle multiplicity.",
-      "first_step": "Enumerate canonical double-occurrence and triple-occurrence paths testing coverage of the 98 weight-<=4 masks.",
-      "blocked_by": "Search radius and parity bounds for weight-4 combinations."
-    }
-  ]
-}
