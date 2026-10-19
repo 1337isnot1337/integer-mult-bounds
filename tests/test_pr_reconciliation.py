@@ -326,6 +326,96 @@ class FamilyDecision(unittest.TestCase):
             checker.main()
 
 
+class HistoricalReviewCompletion(unittest.TestCase):
+    def setUp(self):
+        self.ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
+        self.actual = {row['number']: row for row in self.ledger['pull_requests']}
+        self.path = ROOT / 'research/community-batch1099-audit/DISPOSITIONS.json'
+        self.historical = json.loads(self.path.read_text())['pull_requests']
+        self.latest = {}
+        for path in checker.decision_paths():
+            if path.exists():
+                for row in json.loads(path.read_text())['pull_requests']:
+                    self.latest[row['number']] = row
+        self.decision = next(row for row in self.historical if row['number'] == 1048)
+
+    def test_all_batch1099_historical_and_current_projections(self):
+        before = deepcopy((self.actual, self.historical, self.latest))
+        changed = []
+        for decision in self.historical:
+            number = decision['number']
+            item, latest = self.actual[number], self.latest[number]
+            with self.subTest(number=number):
+                checker.check_historical_review_completion(item, decision, latest)
+            if any(item[field] != decision[field] for field in
+                   ('review_completion', 'verification_evidence')):
+                changed.append(number)
+        self.assertEqual(changed, [1048])
+        self.assertEqual((self.actual, self.historical, self.latest), before)
+        self.assertTrue(self.decision['review_completion']['changed_file_coverage'])
+        self.assertFalse(self.latest[1048]['review_completion']['changed_file_coverage'])
+        self.assertTrue(set(self.decision['verification_evidence']).issubset(
+            self.actual[1048]['verification_evidence']))
+        with self.assertRaisesRegex(ValueError, 'Ledger lost'):
+            checker.check_review_completion(self.actual[1048], self.decision)
+
+    def test_latest_ledger_mutations_and_missing_fields_reject(self):
+        fields = ('reviewed_head', 'current_head', 'disposition', 'closure',
+                  'review_completion', 'verification_evidence')
+        for field in fields:
+            for remove in (False, True):
+                item = deepcopy(self.actual[1048])
+                if remove:
+                    item.pop(field)
+                else:
+                    item[field] = 'forged'
+                with self.subTest(field=field, remove=remove), self.assertRaises(ValueError):
+                    checker.check_historical_review_completion(item, self.decision, self.latest[1048])
+        item = deepcopy(self.actual[1048])
+        item['review_completion']['published'] = 0
+        with self.assertRaisesRegex(ValueError, 'review_completion'):
+            checker.check_historical_review_completion(item, self.decision, self.latest[1048])
+
+    def test_historical_incorporation_and_schema_invariants_reject(self):
+        mutations = [dict(disposition='incorporated'), dict(verification_evidence=[])]
+        flags = deepcopy(self.decision['review_completion'])
+        flags['published'] = 0
+        mutations.append(dict(review_completion=flags))
+        for mutation in mutations:
+            decision = dict(deepcopy(self.decision), **mutation)
+            with self.subTest(mutation=mutation), self.assertRaises(ValueError):
+                checker.check_historical_review_completion(self.actual[1048], decision, self.latest[1048])
+        for field in ('review_completion', 'verification_evidence'):
+            latest = deepcopy(self.latest[1048])
+            latest.pop(field)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, 'Latest family decision lacks'):
+                checker.check_historical_review_completion(self.actual[1048], self.decision, latest)
+        latest = dict(self.latest[1048], number=1049)
+        with self.assertRaisesRegex(ValueError, 'different PR'):
+            checker.check_historical_review_completion(self.actual[1048], self.decision, latest)
+        latest = dict(deepcopy(self.latest[1048]), disposition='incorporated')
+        item = dict(deepcopy(self.actual[1048]), disposition='incorporated')
+        with self.assertRaisesRegex(ValueError, 'before review'):
+            checker.check_historical_review_completion(item, self.decision, latest)
+
+    def test_current_review_still_requires_exact_completion_binding(self):
+        checker.check_historical_review_completion(self.actual[1048], self.latest[1048], self.latest[1048])
+        item = deepcopy(self.actual[1048])
+        item['verification_evidence'] = self.decision['verification_evidence']
+        with self.assertRaisesRegex(ValueError, 'verification_evidence'):
+            checker.check_historical_review_completion(item, self.latest[1048], self.latest[1048])
+
+    def test_entrypoint_authenticates_superseded_source_bytes(self):
+        original = self.path.read_bytes()
+        original_read = Path.read_bytes
+        # The historical row is no longer the latest ledger projection. Its
+        # source hash must nevertheless reject even a whitespace-only change.
+        def read(path):
+            return original + b' ' if path == self.path else original_read(path)
+        with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(ValueError, 'Stale source:.*batch1099'):
+            checker.main()
+
+
 class SpectrumRefresh(unittest.TestCase):
     def setUp(self):
         coverage = json.loads((ROOT / 'research/community-frontier890-audit/CONTENT-COVERAGE.json').read_bytes())

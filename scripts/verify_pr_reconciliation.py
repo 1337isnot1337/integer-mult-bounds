@@ -227,6 +227,23 @@ def check_review_completion(item, decision):
         require(item['integration_location'], 'Incorporated without integration location')
 
 
+def check_historical_review_completion(item, decision, latest_decision):
+    """Validate a pinned past review separately from its current projection.
+
+    Later source-only triage can explicitly replace completion flags while
+    retaining the earlier evidence. It must still match the latest decision
+    exactly; an old review must not silently certify today's ledger state.
+    """
+    require(item['number'] == decision['number'] == latest_decision['number'],
+            'Historical review belongs to a different PR')
+    require(all(field in latest_decision for field in ('review_completion', 'verification_evidence')),
+            'Latest family decision lacks detailed review or evidence state')
+    check_family_decision(item, latest_decision)
+    check_review_completion(item, latest_decision)
+    if latest_decision != decision:
+        check_review_completion(decision, decision)
+
+
 def check_companion_review(item, companion, decision=None):
     """Keep scoped evidence; only a later authoritative whole-head review clears its hold."""
     require(item['current_head'] == companion['head'] and
@@ -738,7 +755,7 @@ def main():
                     'Batch1099 coverage head differs')
             require(len(row['files']) == row['changed_files'] == len({f['source_path'] for f in row['files']}),
                     'Batch1099 changed-file inventory incomplete')
-            check_review_completion(actual[number], decision)
+            check_historical_review_completion(actual[number], decision, family_decisions[number])
             for item in row['files']:
                 require(item['action'] in {'retained', 'adapted', 'excluded', 'pending'}, 'Unknown file action')
                 if item['action'] == 'pending':
