@@ -107,7 +107,7 @@ def entry_contract(events, a, word, residuals, receipt):
     need(dict(counts) == {'shears':7344,'scales':56,'frame_adapters':464,'residual_pre_wrappers':240}, 'complete invertible entry prefix')
     return dict(counts)
 
-def scalar_prefix(events, a, gap, skeleton, group):
+def scalar_prefix(events, a, gap, skeleton, group, word):
     # Scalar-coordinate ledger: frame transitions preserve the abstract column.
     # All selected group columns are still frame zero; therefore their rows
     # here give literal physical input forms in the post-entry-adapter
@@ -118,6 +118,9 @@ def scalar_prefix(events, a, gap, skeleton, group):
         if e[0] != 'scalar':
             continue
         o = e[1]
+        need(word['start'][o[1][1]] == e[2], 'prefix target literal frame matches annotation')
+        if o[0] == 'add':
+            need(word['start'][o[2][1]] == e[2], 'prefix source literal frame matches target')
         need(o[1][0] == 'L', 'no private target before selected group')
         t = o[1][1]
         if o[0] == 'scale':
@@ -256,7 +259,7 @@ def main():
     need([e[3:] for e in events] == [[0,4,1]]*8+[[0,5,1]], 'group frames')
     need(all(w['start'][q] == 0 and q >= 2*w['v'] for q in REGISTERS), 'cold-entry helpers retain arbitrary dirty payloads')
     need(all(not (e[0] == 'residual_adapter' and e[2] in REGISTERS) for e in p['forward'][:a]), 'selected helpers have no hidden entry wrappers')
-    forms=scalar_prefix(p['forward'],a,g,s,group)
+    forms=scalar_prefix(p['forward'],a,g,s,group,w)
     operators=exact_operator(w,r)
     result={'scope':'one actual forward phase-A group; same-width Toom-only interface', 'entry_contract':'every arbitrary data/helper column; exact selected receipt','invertible_entry_prefix':entry,'registers':REGISTERS,'original_event_indices_zero_based':[x[0] for x in group], 'skeleton_gap':g,'windows':[[x[2],x[3]] for x in group], 'input_form_coordinates':'post-entry-adapter unframed Z_j; not raw initial payloads', 'input_forms':forms,'operators':operators,'actual_input_and_output_rank':4608,'five_product_linear_decoder_output_rank_upper':2560,'minimum_extra_output_dimension_five_product_decoder':2048,'fixed_factor_toom_input_rank_upper':1536,'two_affine_factors_input_rank_upper':3072,'minimum_extra_input_dimension_two_affine_factors':1536,'controls':controls(w,r),'implemented_replacements':0,'kappa_change':0}
     result=json.loads(json.dumps(result))

@@ -29,7 +29,9 @@ adapters, so physical register `j` is `T_start(j) Z_j`. These are **not** raw
 initial values: for example register 512 has a residual pre-wrapper. Entry
 adapters are invertible; frame coordinates do not impose a zero or clean-data
 promise on a productive helper. The selected nine helpers start at frame zero,
-have ordinary identity entry adapters, and end at full frame. The pinned `INDEPENDENT-LOCAL-REPLAY.json` explicitly declares replay on
+have ordinary identity entry adapters, and end at full frame.
+
+The pinned `INDEPENDENT-LOCAL-REPLAY.json` explicitly declares replay on
 "every arbitrary data/helper column", with all 704 input columns and 480
 helpers; this is the selected local replacement contract. The verifier binds
 that receipt and independently checks the entire entry prefix consists of
@@ -40,7 +42,13 @@ Thus the full pre-cut map is invertible on all productive columns, and the
 nine payload projection is surjective. This establishes independence from
 the actual prefix and its arbitrary-dirty contract, not from an assumed
 clean-helper initialization. A globally restricted clean-input caller would
-be a different contract; it is not excluded by the dimension argument. A direct
+be a different contract; it is not excluded by the dimension argument.
+
+For the additional input-form receipt, the verifier checks that this first
+phase-A prefix contains no climbs or adapters, and every scalar source and
+target has the literal common frame recorded by the trace. Thus propagating
+plain rational rows in the unframed coordinates is valid. The independent
+surjectivity argument above already suffices for the rank obstruction. The
 rational replay gives the actual incoming forms at the chosen gap:
 
 `Z_546,Z_560,Z_547,Z_568,Z_548,Z_558,Z_549,Z_570,Z_464+Z_512`.
@@ -86,7 +94,10 @@ the direct recipe decoder and Gram certificate are separate implementations.
 
 ## Declared Toom-only substitution contract
 
-The rejected contract has exactly these restrictions:
+The rejected contract asks for the formal exact local operator on `W^9`,
+not an encoding of a bounded finite set into wider-precision scalar words.
+The latter would require its own precision and decoding contract. The
+rejected contract has exactly these restrictions:
 
 1. Each polynomial has three coefficients in a vector space of dimension 512
    over `Q(i)`. Both triples are produced by affine maps of the nine incoming
