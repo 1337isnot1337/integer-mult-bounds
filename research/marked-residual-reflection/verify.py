@@ -108,7 +108,45 @@ def replay(name,function,receipt):
     print('PASS_REPLAY',name,function,flush=True)
     return actual
 
+def query_count_scope():
+    """Replay arbitrary-support queries on every independent marked column."""
+    gate=module('marked_residual_gate')
+    cases=[]
+    for L,masks,words in [
+        (2,(3,3),[[(0,3),(1,3)],[(0,1),(0,2),(1,3)],
+                  [(0,1),(0,2),(1,1),(1,2)]]),
+        (3,(1,6),[[(0,1),(1,6)]])]:
+        target=[(bank,x^mask,owner,mask.bit_count()%4)
+                for bank,mask in enumerate(masks)
+                for x in range(1<<L) for owner in range(L)]
+        for word in words:
+            actual=[]
+            for bank in range(2):
+                for x in range(1<<L):
+                    for owner in range(L):
+                        y,phase=x,0
+                        for operand,support in word:
+                            if operand==bank:
+                                y^=support;phase=(phase+support.bit_count())%4
+                        actual.append((bank,y,owner,phase))
+            need(actual==target,'multi-plane query word: every column and Gaussian phase')
+            ranks=[len(gate.commutator_entries(L,support)) for _,support in word]
+            target_rank=sum(len(gate.commutator_entries(L,mask)) for mask in masks)
+            planes=sum(support.bit_count() for _,support in word)
+            need(sum(ranks)==target_rank==planes*(1<<L),'query words pay the complete plane debt')
+            cases.append(dict(planes=L,bank_masks=list(masks),queries=len(word),
+                              native_plane_count=planes,query_commutator_ranks=ranks))
+    need(cases[0]['query_commutator_ranks']==[8,8] and
+         cases[2]['query_commutator_ranks']==[4,4,4,4],
+         'two multi-plane calls and four single-plane calls have the same rank bill')
+    rejection(lambda:need(all(rank<=4 for rank in cases[0]['query_commutator_ranks']),
+                          'single-plane commutator cap'), 'single-plane commutator cap')
+    RESULTS.append(dict(entry='query_count_scope',cases=cases,
+                        arbitrary_support_single_plane_cap_rejected=True))
+    print('PASS_QUERY_COUNT_SCOPE two/three/four calls, same full-pair plane bill',flush=True)
+
 replay('marked_residual_gate','prove','q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.json')
+query_count_scope()
 replay('audit_marked_plane_bound','run','root-chronology/INDEPENDENT-MARKED-PLANE-BOUND.json')
 replay('audit_partial_reflection','run','root-chronology/INDEPENDENT-PARTIAL-REFLECTION.json')
 replay('conjugated_reflection','run','native-frames/CONJUGATED-REFLECTION.json')

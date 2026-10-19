@@ -208,7 +208,7 @@ def excluded_Z_control():
 def prove():
     fullpair = local_fixture(2, [3, 3])
     need(fullpair['target_commutator_rank'] == 16 and fullpair['single_bank_query_commutator_ranks']['1'] == 4,
-         'three unary queries cannot pay the two-bank full pair')
+         'three single-plane (rank-2f) queries cannot pay the two-bank full pair')
     return dict(status='PASS_EXACT_MARKED_RESIDUAL_GLOBAL_FLOOR', no_new_kappa=True,
                 full_pair_three_query_gate=fullpair,
                 q3_disjoint_debt_gate=local_fixture(3, [1, 6]),

@@ -173,10 +173,10 @@
       "sha256": "bf1ba9973be787aaf8267b08b2d6bf3665953fc87ab8d8938534a526339dbef3"
     },
     {
-      "kind": "unchanged frozen input",
+      "kind": "query-count scope correction",
       "origin": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
       "path": "source/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
-      "sha256": "79d1c134fe1c9930b13ec6b580239f100102ce23558d9246f7438a21b949f2a0"
+      "sha256": "4bf6716e3801a96bda041e639e0581bf137a9c722cd73b4a28497c9e68e32e97"
     },
     {
       "kind": "unchanged frozen input",
@@ -191,10 +191,10 @@
       "sha256": "8d3137072860b1e7d85307fac79f8349d6a41f26786f7f42bf6a8a667b769718"
     },
     {
-      "kind": "unchanged frozen input",
+      "kind": "query-count scope correction",
       "origin": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/marked_residual_gate.py",
       "path": "source/q4-pauli-fusion/marked_residual_gate.py",
-      "sha256": "0110b774289bd52284a8605dab44ffe88a225c64790a43025b60d1eb33295061"
+      "sha256": "7a0c286af1d908030f8d89bf7062a4f91b1279705b56654e9b279e7c6d2b0c30"
     },
     {
       "kind": "unchanged frozen input",
@@ -279,6 +279,18 @@
       "origin": "/Users/ross/git/math/.research-automation/runs/kappa-changed-endpoints-20261019T0153Z/stabilizer-escape/full_stabilizer_bound.py",
       "path": "source/vendor/full_stabilizer_bound.py",
       "sha256": "f073a00ad4831616e873eb110fd33ad7226010a7c2f6cfa6a6b63167bf58ef75"
+    },
+    {
+      "kind": "unchanged pre-correction source",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
+      "path": "original/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
+      "sha256": "79d1c134fe1c9930b13ec6b580239f100102ce23558d9246f7438a21b949f2a0"
+    },
+    {
+      "kind": "unchanged pre-correction source",
+      "origin": "/Users/ross/git/math/.research-automation/runs/kappa-four-coordinate-20261019T0717Z/q4-pauli-fusion/marked_residual_gate.py",
+      "path": "original/q4-pauli-fusion/marked_residual_gate.py",
+      "sha256": "0110b774289bd52284a8605dab44ffe88a225c64790a43025b60d1eb33295061"
     }
   ],
   "limits": "Byte retention and replay bindings are not mathematical acceptance. Historical receipt paths and producer hashes remain original; selected entrypoints are replayed through the explicit source-byte loader.",
@@ -298,5 +310,23 @@
     }
   ],
   "schema_version": 1,
-  "scientific_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90"
+  "scientific_base": "20ecf2891d80b5acf18d980b2164fb44ea7faa90",
+  "source_corrections": [
+    {
+      "change": "Restrict joint-debt query-count claims to single-plane rank-2f calls; give the multi-plane two/three-query realizations at the unchanged rank-mass floor.",
+      "corrected_sha256": "4bf6716e3801a96bda041e639e0581bf137a9c722cd73b4a28497c9e68e32e97",
+      "original_path": "original/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
+      "original_sha256": "79d1c134fe1c9930b13ec6b580239f100102ce23558d9246f7438a21b949f2a0",
+      "path": "source/q4-pauli-fusion/MARKED-RESIDUAL-GLOBAL-FLOOR.md",
+      "review": "https://github.com/CrocSwap/integer-mult-bounds/pull/4056#discussion_r4313846357"
+    },
+    {
+      "change": "Clarify one assertion message as single-plane/rank-2f queries. No arithmetic, certificate fields, predicates or coverage changed.",
+      "corrected_sha256": "7a0c286af1d908030f8d89bf7062a4f91b1279705b56654e9b279e7c6d2b0c30",
+      "original_path": "original/q4-pauli-fusion/marked_residual_gate.py",
+      "original_sha256": "0110b774289bd52284a8605dab44ffe88a225c64790a43025b60d1eb33295061",
+      "path": "source/q4-pauli-fusion/marked_residual_gate.py",
+      "review": "https://github.com/CrocSwap/integer-mult-bounds/pull/4056#discussion_r4313846357"
+    }
+  ]
 }

@@ -33,6 +33,13 @@ all characters for f=1..5, and every native support for L=1..8. The written
 tensor embedding and rank subadditivity prove the stated all-parameter
 result.
 
+The joint-debt query-count corollaries apply to **single-plane**, rank-`2f`
+queries. A unary query may cover several planes: `diag(N0 N1,N0 N1)`
+uses two rank-`4f` queries, still paying four planes and rank mass `8f`.
+The registered replay checks the complete marked-basis actions and phases
+of the two-, three- and four-query realizations, plus the q3 split `(1,2)`.
+These controls distinguish query count from the unchanged rank-mass floor.
+
 The [reflection proof](source/native-frames/ORTHOGONAL-REFLECTION-PROOF.md)
 and independent 64x64 matrix check retain exact physical phases and the
 marked-space leakage. The incorrectly uncorrected paired reflection fails.
@@ -64,9 +71,14 @@ no Git/network and no original Ross-specific directory. `--json` prints the
 complete replay summary. It writes no package files.
 
 [BINDINGS.json](BINDINGS.json) retains every consumed original source/data
-byte hash and explicitly records the path-only adaptations. Original versions
-of adapted scripts remain under `original/`. Other source bytes and historical
-receipts remain unchanged. Those receipts retain their old absolute provenance
+byte hash and explicitly records the path-only adaptations and the query-count
+scope correction. Original versions of adapted/corrected files remain under
+`original/`; the old proof and checker are retained byte-for-byte in
+`original/q4-pauli-fusion/`. The correction changes only the joint-debt prose
+and one assertion message; historical certificate fields and arithmetic are
+unchanged. Its old `full_pair_three_query_gate` field concerns single-plane
+queries. Other source bytes and historical receipts remain unchanged. Those
+receipts retain their old absolute provenance
 paths; they are data, not required filesystem locations. The replay adapter
 resolves only the explicitly retained original source inventory. Original lane
 notes are archival and keep their original scope and attribution.

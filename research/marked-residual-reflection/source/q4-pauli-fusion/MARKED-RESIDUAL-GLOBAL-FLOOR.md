@@ -109,14 +109,23 @@ longer free word evades the argument.
 
 The same witness proves that a two-bank diagonal debt on disjoint native
 supports `S0,S1` requires total native-plane count at least
-`|S0|+|S1|`. Thus the q3 split `(1,2)` cannot use two unary native
-queries, and the q4 split `(2,2)` cannot use total native-plane count
-three in this grammar.
+`|S0|+|S1|`. Thus the q3 split `(1,2)` cannot use two single-plane
+native queries (each of recursive rank `2f`), and the q4 split `(2,2)`
+cannot use total native-plane count three in this grammar. The q3 target
+`diag(N0,N1 N2)` does use two unary bank queries when their supports have
+sizes one and two; it still pays three native planes.
 
 The distinct full-pair target
 `diag(N0 N1,N0 N1)` has rank16 on its two-bank, two-plane marked block.
-Every unary query has rank4. It requires at least four unary queries;
-three cannot suffice, including arbitrary `GL2(K[Q,R,P])` bridges.
+Every single-plane query has commutator rank4, so at least four such
+queries are required; three cannot suffice, including arbitrary
+`GL2(K[Q,R,P])` bridges. A unary bank query is not necessarily single-plane:
+applying `N0 N1` once to each bank realizes this target in two queries,
+each of commutator rank8 and recursive rank `4f`. Splitting the first
+bank's query into `N0` then `N1` also gives a three-query realization.
+Both words pay four native planes, or total rank mass `8f`, exactly the
+two-bank stock floor. The general bound is on plane count/rank mass,
+not on the number of arbitrary-support unary queries.
 
 For the actual handoff family, write the terminal pivot-input block as
 `H=D R J`, where `R` is a scalar bank permutation and the rows of `D`
