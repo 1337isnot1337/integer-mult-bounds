@@ -201,6 +201,13 @@ class SpectrumRefresh(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Changed integrated file'):
                 checker.check_frontier890_file(item)
 
+    def test_reviewed_parallel_verifier_successor_passes_without_rewriting_pin(self):
+        checker.check_frontier890_file({
+            'integrated_path': 'scripts/verify_complex741_parallel.py',
+            'integrated_sha256':
+                '616cff67233958647dd1e6f33dcc5ffc6132df68e0e1230dc768e820d00155a1',
+        })
+
     def test_successor_helper_drift_is_rejected(self):
         original_read = Path.read_bytes
         def read(path):
