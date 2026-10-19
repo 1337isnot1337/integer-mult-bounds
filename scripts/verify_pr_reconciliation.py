@@ -47,6 +47,9 @@ def check_frontier890_file(item):
     current = (ROOT / name).read_bytes()
     if hashlib.sha256(current).hexdigest() == item['integrated_sha256']:
         return
+    if name == 'scripts/verify_complex741_parallel.py':
+        check_reviewed_family_source(name, item['integrated_sha256'])
+        return
     predecessors = {
         'research/single-intersection-spectrum-audit/RESULT.json':
             '9cb2210e148b2cce3fe59cf529fbf99f3b663dc7673db2e3969246595692f580',
@@ -132,6 +135,10 @@ def check_reviewed_family_source(name, digest):
         'scripts/verify_selected_result.py': (
             'd7fd929726b326aeeaf0a3996475adec88eee9aac09ae0bebeeaa0bc1fc8f199',
             'c0cc23a8534d91c8d272195315c725213f13279815750ffdef055ec3adfbe911',
+        ),
+        'scripts/verify_complex741_parallel.py': (
+            '616cff67233958647dd1e6f33dcc5ffc6132df68e0e1230dc768e820d00155a1',
+            'f368e6ed6461806107ab425cbe15f5c6dc9056a2bd29a90ed75d22791744c61b',
         ),
     }
     require(name in successor and successor[name] == (digest, current),
