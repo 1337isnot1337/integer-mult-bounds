@@ -8,22 +8,32 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from tensor_sources import opened, require
 
+GROUPS = {
+    "mechanics": ("moves", "router", "gather", "windows", "plan"),
+    "arithmetic_all": ("word", "counts", "twiddles", "arithmetic"),
+    "sources": ("sources", "budget"),
+}
+
+
+def check(suite):
+    name = "tensor_check_" + ("full" if suite in ("full_opposite", "consumer", "consumer_opposite") else suite)
+    module = importlib.import_module(name)
+    require(Path(module.__file__).resolve() == Path(__file__).resolve().parent / (name + ".py"),
+            "package-local tensor checker")
+    if suite in ("consumer", "consumer_opposite"):
+        from tensor_fixture import prepared_catalogue
+        return module.run(opposite=suite == "consumer_opposite", prepared=prepared_catalogue())
+    return module.run(opposite=True) if suite == "full_opposite" else module.run()
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", required=True)
     args = parser.parse_args()
-    require(args.suite in ("moves", "router", "gather", "windows", "plan", "word", "catalogue", "twiddles", "counts", "arithmetic", "full", "full_opposite", "consumer", "consumer_opposite"), "declared tensor check")
+    require(args.suite in ("moves", "router", "gather", "windows", "plan", "word", "catalogue", "twiddles", "counts", "arithmetic", "full", "full_opposite", "consumer", "consumer_opposite", "budget")
+            or args.suite in GROUPS, "declared tensor check")
     with opened():
-        name = "tensor_check_" + ("full" if args.suite in ("full_opposite", "consumer", "consumer_opposite") else args.suite)
-        module = importlib.import_module(name)
-        require(Path(module.__file__).resolve() == Path(__file__).resolve().parent / (name + ".py"),
-                "package-local tensor checker")
-        if args.suite in ("consumer", "consumer_opposite"):
-            from tensor_fixture import prepared_catalogue
-            evidence = module.run(opposite=args.suite == "consumer_opposite", prepared=prepared_catalogue())
-        else:
-            evidence = module.run(opposite=True) if args.suite == "full_opposite" else module.run()
+        evidence = {name: check(name) for name in GROUPS[args.suite]} if args.suite in GROUPS else check(args.suite)
         print(json.dumps({"status": "PASS_PHYSICAL_GAUSSIAN_TENSOR", "suite": args.suite,
                           "evidence": evidence}, sort_keys=True))
 

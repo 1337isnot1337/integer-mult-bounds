@@ -7,6 +7,7 @@ def run():
     from cardinal_counts import Count
     from check_support import no_decode
     from fft_word_engine import FftWord
+    from expansion_check_block import packet_bytes
     from ring_check_words import decode
     from ring_words import Signed
     from router_metadata import owned
@@ -37,7 +38,7 @@ def run():
                         if reject:
                             try:
                                 with no_decode():
-                                    result = arithmetic.multiply(left, right, nominal)
+                                    result = arithmetic.multiply(left, left if a == b else right, nominal)
                             except ValueError:
                                 pass
                             else:
@@ -45,11 +46,11 @@ def run():
                                 raise ValueError("missing nominal-width guard")
                         else:
                             with no_decode():
-                                result = arithmetic.multiply(left, right, nominal)
+                                result = arithmetic.multiply(left, left if a == b else right, nominal)
                             with owned(result):
                                 actual = decode(result.magnitude)*(-1 if result.negative else 1)
                                 require(actual == a*b, "effective-width physical word matches the complete signed product")
-                                digest.update(bytes(borrowed_tape(result.magnitude.tape).cells))
+                                digest.update(packet_bytes(result.magnitude.tape))
                     finally:
                         pool.empty()
             finally:
@@ -66,6 +67,37 @@ def run():
         evaluate(*case)
     for case in ((0, 0, 0), (1 << 16, 0, 16), (0, 1 << 16, 16), (1 << 16, 1, 16)):
         evaluate(*case, reject=True)
+    with owned(Count.literal(3), Count.literal(5), Count.literal(8)) as parameters:
+        protected = word.run(*parameters)
+        saved_return = packet_bytes(protected)
+        try:
+            with owned(Signed(Count.literal(3)), Signed(Count.literal(5)), Count.literal(546)) as (left, right, width):
+                for tape in pool.tapes:
+                    initialize_marker(tape)
+                try:
+                    with sealed_constructors(), scope.installed():
+                        try:
+                            try:
+                                with no_decode():
+                                    result = arithmetic.multiply(left, right, width)
+                            except ValueError as error:
+                                require("consume prior word return" in str(error), "scalar leaf preserves the word-owner boundary")
+                            else:
+                                result.close()
+                                raise ValueError("scalar leaf bypassed the protected word return")
+                        finally:
+                            pool.empty()
+                finally:
+                    for tape in pool.tapes:
+                        erase_marker(tape)
+            require(packet_bytes(protected) == saved_return, "scalar rejection preserves the complete protected child output")
+        finally:
+            protected.clear()
+            erase_marker(protected)
     evaluate(-31, 17, 546)
-    return {"products": len(cases)+1, "rejections": 4, "pool_peak": pool.peak,
-            "sha256": digest.hexdigest(), "scope": "actual shorter word calls after both nominal-width guards"}
+    require(arithmetic.leaves > 0 and arithmetic.words > 0
+            and arithmetic.leaves+arithmetic.words == arithmetic.products == len(cases)+1,
+            "actual fixed scalar leaves and retained larger word calls")
+    return {"products": len(cases)+1, "rejections": 5, "pool_peak": pool.peak,
+            "leaves": arithmetic.leaves, "words": arithmetic.words,
+            "sha256": digest.hexdigest(), "scope": "fixed physical scalar leaves and shorter word calls after both nominal-width guards"}

@@ -2,8 +2,8 @@
 
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance.
 I retain the source premises and contributor notices through `inputs/`.
-I checked its complete finite forward execution against a separate staged
-reference. I still need the opposite direction and publication replay.
+I checked complete finite execution in both directions against separate
+staged references. I retain publication receipts separately from this proof.
 I do not claim independent review, production-sized execution or a new
 selected exponent in this working proof.
 
@@ -243,6 +243,34 @@ the untouched-gap requirement, metadata validation and sorting, the
 polynomial planner cost per batch, complete spectators and restoration.
 I retain the router's cutoff and literal branch as source premises.
 
+More explicitly, set `tau=332353/332929` and
+`b=2^floor(.997 floor(log2 p))`, so `p^.997/4<b<=p^.997`. Factoring a support
+of size `k<=n` gives two matchings with at most `floor(k/2)` edges each.
+I finish the first matching before the second. The batch count is at most
+`n/b+2`. With `b'=min(n,b)`, I sum the retained single-router invoices to
+
+\[
+O_q\!\left(V+V\sum_j(2r_j+1)^\tau\log^{1+\tau}p\right)
+=O_q\!\left(V+Vn(b')^{\tau-1}\log^{1+\tau}p\right).
+\]
+
+For `n=Theta(p)`, I obtain
+`beta=1-.997(1-tau)=41544341/41616125`. Each child still recompiles and
+refactorizes its batch. I charge its `O(p^6)` planner per batch, global
+validation/factorization conservatively at `O(p^5 log²p)`, and all metadata
+sorting and wrapper copies. Under `c p<=n<=C_0 p` and
+`log2(R+1)<=A_0 p`, I absorb these polynomial costs into
+`V=C 2^n R`, uniformly for positive `C`.
+
+The child requires a `ceil(log2 p)^2`-bit untouched interval and reservoir
+room per batch. I choose and restore those intervals separately. I do not
+assume that the full permutation has one common untouched interval. The
+retained cutoff proof makes a failed geometry test a bounded-precision case,
+where its literal fallback fits after enlarging the shape-dependent
+constant. I also retain the exact B1/sparse endpoint and universal cost
+premises. I charge the fixed native compilation and storage `F_q` separately;
+I do not rebuild it for each batch or claim its production-prime execution.
+
 Combining these charges gives, in addition to the actual complete chirp,
 
 \[
@@ -282,8 +310,8 @@ bound, I obtain the conditional total `O(V p^Phi log p)` and `O(V)` space.
 
 ## Remaining proof and publication work
 
-I must finish numerical replay in both directions, fault controls and
-source-bound export. I must retain the full
+Consult the public investigation for completed committed-export and hosted
+replay receipts, separately from the author checks. I retain the full
 ordinary-supplier and Fourier premises when stating that cost. The complete
 CRT conversion and final integer recovery remain outside this package.
 Independent scientific review remains open.

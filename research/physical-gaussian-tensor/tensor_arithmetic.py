@@ -9,6 +9,7 @@ from ring_words import Signed, fits
 from router_metadata import owned
 from session import borrowed_count, erase_marker
 from words import BLANK, RIGHT, need
+from tensor_counts import byte_count_product
 
 
 def magnitude_width(value):
@@ -29,12 +30,26 @@ def magnitude_width(value):
 
 
 class NarrowArithmetic(Arithmetic):
+    def __init__(self, word, scope):
+        super().__init__(word, scope)
+        self.leaves = self.words = 0
+
     def multiply(self, left, right, width):
         positive(width)
         fits(left.magnitude, width)
         fits(right.magnitude, width)
-        with owned(magnitude_width(left.magnitude), magnitude_width(right.magnitude)) as (a, b):
+        with owned(magnitude_width(left.magnitude), magnitude_width(right.magnitude),
+                   Count.literal(256)) as (a, b, cutoff):
             size = a if compare(a, b) >= 0 else b
+            if compare(size, cutoff) <= 0:
+                self.word.idle()
+                need(self.word.closed and not self.word.pool.live and self.word.output.read() == BLANK,
+                     "consume prior word return before scalar leaf")
+                result = Signed(byte_count_product(Count, left.magnitude, right.magnitude),
+                                left.negative != right.negative)
+                self.products += 1
+                self.leaves += 1
+                return result
             with self.scope.suspended():
                 returned = self.word.run(borrowed_count(left.magnitude),
                                          borrowed_count(right.magnitude), borrowed_count(size))
@@ -47,6 +62,7 @@ class NarrowArithmetic(Arithmetic):
                 result = Signed(magnitude, left.negative != right.negative)
                 magnitude = None
                 self.products += 1
+                self.words += 1
                 return result
             finally:
                 if magnitude is not None:

@@ -5,7 +5,7 @@ from unittest.mock import patch
 from tensor_sources import require
 
 CATALOGUE_SHA256 = "46dbbc4b4aff71548e8203fa5837762ea3f78117564952e8087a339e55ef208a"
-CATALOGUE_ARCHIVE_SHA256 = "88ed67a030f4c338ad8949eac0aaa7a91112c4ed432b2929aa19917e4e3a76cf"
+CATALOGUE_ARCHIVE_SHA256 = "7e10a7344d19674c68cc64537cbec48b2ff038a907ca00f92fab1c41aaae9af8"
 
 
 def prepared_catalogue():
@@ -13,7 +13,7 @@ def prepared_catalogue():
     from hashlib import sha256
     from pathlib import Path
     import tarfile
-    path = Path(__file__).resolve().parent / "inputs/p48-catalogue.tar.gz"
+    path = Path(__file__).resolve().parent / "inputs/p48-catalogue-v2.tar.gz"
     require(path.is_file() and not path.is_symlink()
             and sha256(path.read_bytes()).hexdigest() == CATALOGUE_ARCHIVE_SHA256,
             "exact prepared-catalogue archive")

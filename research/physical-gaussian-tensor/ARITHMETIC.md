@@ -94,6 +94,8 @@ error below `2^-P`. Each complex value therefore has norm at most one and
 error below `sqrt(2)*2^-P < 2*2^-P`.
 
 These estimates meet the retained Twiddles and positive PhaseBasis contracts.
+I install the same small-order producer in the FFT-word product owner and
+rebuild its canonical port inventory with that actual child's output.
 I retain the original run methods, including signed emission, norm checks,
 protected returns and cleanup. I bind their `TwiddlePlan` constructor to the
 authored `SmallOrderPlan`. For orders above16 that plan delegates to the
@@ -109,8 +111,10 @@ fixture.
 
 In `tensor_arithmetic.py` I first enforce the declared positive word width
 and both operand-fit guards. I then scan the two canonical magnitude tapes
-and count their actual bit lengths. I call the same physical word owner at
-the larger of those two lengths and consume its complete double-width return.
+and count their actual bit lengths. At effective widths at most256 I use the
+fixed physical byte leaf within the scalar owner, preserving the word owner's
+protected-return guard. Above256 I call the same physical word owner at
+the larger operand length and consume its complete double-width return.
 I preserve the exact signed integer product, including zero and aliased
 operands. I introduce no numerical rounding.
 
@@ -118,12 +122,14 @@ This interface lets the Gaussian consumers avoid repeated serialization of
 unused high zero digits in their conservative work-width guards. I retain
 the guards: a wide operand with a zero partner still fails before the word
 call. For effective width `m<=n`, I pay `O(n)` for the entrance scans and
-`O(m log²(m+2))` for the retained word call. This fits the original
+`O(m log²(m+2))` above the fixed leaf cutoff. Below that cutoff the byte
+calculation has a uniform constant bound. This fits the original
 `O(n log²(n+2))` allowance and fixed-tape space bound. I change neither
 coefficient-page widths nor the producer's arithmetic.
 
-I checked25 complete signed physical products and four rejection cases,
-including both wide-operand/zero-partner orders and positive reuse afterward.
+The checker covers25 complete signed physical products and five rejection
+cases, including both wide-operand/zero-partner orders, a protected child
+return and positive reuse afterward.
 
 ## Local evidence and limits
 

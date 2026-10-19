@@ -120,13 +120,17 @@ class SmallPhaseBasis(PhaseBasis):
     run = specialized(PhaseBasis.run)
 
 
+def adapt_twiddles(owner):
+    old = owner.twiddles
+    need(type(old) is Twiddles and old.closed and not old.pool.live and old.output.read() == BLANK,
+         "fresh retained twiddle producer")
+    owner.twiddles = SmallTwiddles()
+
+
 def adapt_small_chirp(owner):
     need(owner.closed and all(value == 0 for value in owner.calls.values()), "fresh small-root chirp adaptation")
     for scalar in (owner.cyclic, owner.cyclic.convolution.product):
-        old = scalar.twiddles
-        need(type(old) is Twiddles and old.closed and not old.pool.live and old.output.read() == BLANK,
-             "fresh retained twiddle producer")
-        scalar.twiddles = SmallTwiddles()
+        adapt_twiddles(scalar)
     old = owner.kernel.basis
     need(type(old) is PhaseBasis and old.closed and not old.pool.live and old.output.read() == BLANK,
          "fresh retained phase-basis producer")

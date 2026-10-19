@@ -1,6 +1,6 @@
 # Prepared-page verification boundary
 
-I generated `inputs/p48-catalogue.tar.gz` from the actual
+I generated `inputs/p48-catalogue-v2.tar.gz` from the actual
 `TensorPreparation.run` return, using producer commit
 `2dbbd2c37` and the authenticated source archives. I used CPython3.12.13 on
 Darwin arm64. The preparation and catalogue check completed with exit0 on
@@ -19,7 +19,11 @@ The archive contains one regular file,
 one serialized tape cell. Its SHA256 is
 `46dbbc4b4aff71548e8203fa5837762ea3f78117564952e8087a339e55ef208a`.
 The immutable archive SHA256 is
-`88ed67a030f4c338ad8949eac0aaa7a91112c4ed432b2929aa19917e4e3a76cf`.
+`7e10a7344d19674c68cc64537cbec48b2ff038a907ca00f92fab1c41aaae9af8`.
+I retained this portable container at commit
+`ff1d8bf104e2b763aa1f57086e2f777c0af467f4`. The strict source check rejected
+the first container's macOS sidecar; I removed that container and preserved
+the numerical payload unchanged.
 
 I split verification at the existing explicit coefficient-page port after
 one combined producer/consumer attempt reached600 seconds. The producer

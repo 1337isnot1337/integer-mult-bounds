@@ -155,11 +155,13 @@ def adapt_scalar(owner):
 
 
 def adapt_fft_word(owner):
+    from tensor_twiddles import adapt_twiddles
     need(owner.closed and not owner.pool.live and owner.output.read() == BLANK
          and all(value == 0 for value in owner.calls.values()), "fresh FFT-word source adaptation")
     pristine(owner.base)
     owner.base = ByteWordProduct()
     adapt_scalar(owner.product)
+    adapt_twiddles(owner.product)
     owner.canonical = (*owner.base.canonical, owner.base.output, owner.product.output,
                        *owner.product.word.canonical, owner.product.word.output,
                        owner.product.twiddles.output)
