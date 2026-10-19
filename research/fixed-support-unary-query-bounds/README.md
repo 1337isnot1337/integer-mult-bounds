@@ -63,5 +63,18 @@ The carrier lineage retains the H6/chirp, paired-root and exact Clifford
 sources recorded in predecessor/REVIEW-INPUTS.json. The balanced-spectrum
 calculation concerns the displayed operator formula; it does not certify the
 native compiler. Original card and base pins are in TASK.json/SOURCES.json.
-No selected record or upstream source is changed. All packaging is local;
-publication and hosted CI have not occurred.
+The causal factorization, image/row-space rank arguments and character
+specialization retain the earlier method credit to eumemic's
+[retained PR288 source](https://github.com/CrocSwap/integer-mult-bounds/blob/20ecf2891d80b5acf18d980b2164fb44ea7faa90/research/abelian-cayley-metric-scope/sources/pr288-README.md)
+and Ali Romman's
+[PR468](https://github.com/CrocSwap/integer-mult-bounds/blob/07a78bf335b0b5039a1fecd7cd74a0fe1d1605ea/research/bit-three-register-lower-bound/README.md).
+These methods are not claimed as new. The present extension retains the
+noncommuting swap-algebra coefficients and both actual characters to cover
+arbitrary finite restored dirty banks for this fixed carrier.
+[PR2108](https://github.com/CrocSwap/integer-mult-bounds/blob/b25eb9b6a95d8b644c582a5c0d8229bc2ffc3eb7/research/two-register-three-mix/README.md)
+is related two-register work with at most three nonmonomial scalar mixing
+blocks; its different alphabet and register restriction do not imply this
+unlimited-bridge, arbitrary-bank theorem. No exhaustive novelty claim is made.
+
+No selected record or upstream source is changed. Publication and hosted CI
+status are tracked separately in the contribution PR.

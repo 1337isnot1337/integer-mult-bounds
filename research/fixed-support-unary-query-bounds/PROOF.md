@@ -77,6 +77,16 @@ and the normalized endpoint is exactly
 
 ## Noncommutative chronological identity
 
+The causal product factorization and its image/row-space and character-rank
+method are inherited from eumemic's retained PR288 source at canonical
+`20ecf2891d80b5acf18d980b2164fb44ea7faa90` and Ali Romman's PR468
+(head `07a78bf335b0b5039a1fecd7cd74a0fe1d1605ea`); see the exact source
+links in `README.md`. The retained PR288 acquisition metadata records the
+historical head `475a088b5862f75f0b10596cfd6842d19531a5ec`; it is not a
+fresh replay of that historical checkout. The argument below retains the noncommuting R
+coefficients and uses a two-character rank sum to allow arbitrary restored
+dirty banks. It does not claim the generic factorization as a new method.
+
 Set d_j = B^epsilon_j - I, U = [u_1 ... u_k], V = [v_1; ...; v_k],
 D = diag(d_1,...,d_k), and define the strictly lower triangular k by k block
 matrix L by L_ab = v_a u_b for a>b and zero otherwise. Expanding the ordered

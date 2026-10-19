@@ -54,11 +54,14 @@ The image of the invertible difference times V lies in ker U. Therefore
 
 For the actual common1/fresh1 carrier,
 `A_f=(U_f tensor I)SWAP`, `U_f=H_p^(tensor f)`, `U_f^2=(-i)^f I`.
-At odd f its fourth power is−I. The frozen native receipt verifies all
-four primitive eighth-root characters, exact phases and native arities
-`A_f^+/-:f`, `A_f^2:2f`. Hence the fixed-support invoice
-`m=2,W=n,H={1:k}` has `D=2n-k<=0`. Even f is covered by the separately
-preserved order4 proof. Neither parity supplies a scalar-GL shortcut.
+At odd f its fourth power is−I. The written derivation in
+the companion-theorem section of `SCOPE-REVIEW.md` proves that all four
+primitive eighth-root characters occur for this displayed formula. The historical native arities
+`A_f^+/-:f`, `A_f^2:2f` are inherited carrier premises; their physical
+lowering is not replayed or admitted by this package. Conditional on that
+invoice, `m=2,W=n,H={1:k}` has `D=2n-k<=0`. Even f is covered by the
+separately preserved order4 scalar proof. Neither parity supplies a
+scalar-GL shortcut in its stated query model.
 
 The root and stabilizer lanes independently reviewed the rank argument.
 `quartic_opposite_gate.py` checks the full quartic coefficients, exact
