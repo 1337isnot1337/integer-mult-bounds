@@ -216,6 +216,20 @@ class SpectrumRefresh(unittest.TestCase):
             checker.check_frontier890_file(item)
 
 
+class HyperplaneSourceSuccessor(unittest.TestCase):
+    def test_reviewed_utf8_successor_passes_without_rewriting_source_pin(self):
+        checker.check_hyperplane_source(
+            'scripts/verify_hpe_lean_binding.py',
+            '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03')
+
+    def test_unreviewed_source_successor_is_rejected(self):
+        with patch.object(Path, 'read_bytes', return_value=b'unreviewed source'), \
+                self.assertRaisesRegex(ValueError, 'Changed hyperplane reviewed source'):
+            checker.check_hyperplane_source(
+                'scripts/verify_hpe_lean_binding.py',
+                '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03')
+
+
 class AssertionSafetyRefresh(unittest.TestCase):
     def setUp(self):
         coverage = json.loads((ROOT / 'research/community-batch932-audit/CONTENT-COVERAGE.json').read_bytes())

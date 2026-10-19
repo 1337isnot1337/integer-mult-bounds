@@ -99,6 +99,21 @@ def check_batch932_file(item):
             'Changed integrated file: ' + name)
 
 
+def check_hyperplane_source(name, digest):
+    """Keep the historical pin while accepting the reviewed UTF-8 successor."""
+    current = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+    if current == digest:
+        return
+    successor = {
+        'scripts/verify_hpe_lean_binding.py': (
+            '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03',
+            '2fe5aac5828b1fdb79ff5e9ba87faef4db77e0c9339f362a1775b498a6d59e13',
+        ),
+    }
+    require(name in successor and successor[name] == (digest, current),
+            'Changed hyperplane reviewed source: ' + name)
+
+
 def check_family_decision(item, decision):
     """Bind projected ledger state to its authoritative, pinned family decision."""
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
@@ -409,8 +424,7 @@ def main():
             folder = ROOT / f'research/community-{family}-audit'
             source = json.loads((folder / 'SOURCE.json').read_text())
             for name, digest in source['source_files'].items():
-                require(hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest,
-                        'Changed hyperplane reviewed source: ' + name)
+                check_hyperplane_source(name, digest)
             check_archived_files(ROOT, json.loads((folder / 'COMPLETED-EVIDENCE.json').read_text()))
             coverage = json.loads((folder / 'CONTENT-COVERAGE.json').read_text())['pull_requests']
             decisions = json.loads((folder / 'DISPOSITIONS.json').read_text())['pull_requests']
