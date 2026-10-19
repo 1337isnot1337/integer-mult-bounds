@@ -1,0 +1,148 @@
+"""Finite-control exhaustiveness, exact byte leaves and recursive/FFT joins."""
+from hashlib import sha256
+from unittest.mock import patch
+from tensor_sources import require
+
+
+def run():
+    from cardinal_counts import Count
+    from check_support import no_decode
+    from expansion_check_block import packet_bytes
+    from expansion_tile import Tile
+    from fft_arithmetic import Arithmetic
+    from fft_word_engine import FftWord
+    from gaussian_core import Core
+    from records import Tape
+    from ring_check_words import decode
+    from ring_words import Signed
+    from router_metadata import owned
+    from scratch_pool import ScratchPool
+    from session import OuterScope, erase_marker, initialize_marker, sealed_constructors
+    import tensor_word
+    from tensor_fixture import finite_chirp
+    from tensor_word import ByteWordProduct, adapt_chirp, adapt_fft_word, byte_product
+    from words import BLANK
+    for a in range(256):
+        for b in range(256):
+            require(byte_product(a, b) == a*b, "exhaustive eight-phase finite-control multiplication")
+    machine = ByteWordProduct()
+    hashes, case_count, recursive = sha256(), 0, 0
+    def clear(tape):
+        tape.clear()
+        erase_marker(tape)
+    def restored(word):
+        require(word.closed and not word.pool.live and word.output.read() == BLANK
+                and all(t.head == 1 and all(v == BLANK for v in t.cells)
+                        for t in (*word.pool.tapes, *word.canonical)), "complete adapted word restoration")
+    widths = (1, 2, 7, 8, 9, 15, 16, 17, 31, 32, 33, 63, 64, 65, 127, 128, 129, 255, 256, 257, 513, 1024, 1025, 2049)
+    for width in widths:
+        limit = (1 << width)-1
+        cases = [(limit, limit), ((1 << (width-1)) | 1, ((1 << (width//2))+3) & limit)]
+        if width in (1, 8, 1024, 2049):
+            cases.append((0, limit))
+        for a, b in cases:
+            with owned(Count.literal(a), Count.literal(b), Count.literal(width)) as parameters:
+                saved = [(bytes(v.tape.cells), v.tape.head) for v in parameters]
+                before = machine.calls["parks"]
+                with no_decode():
+                    output = machine.run(*parameters)
+                raw = packet_bytes(output)
+                actual = sum(bit << index for index, bit in enumerate(raw))
+                require(actual == a*b and len(raw) == 2*width, "complete exact word including partial bytes and all carries")
+                require(saved == [(bytes(v.tape.cells), v.tape.head) for v in parameters], "adapted word preserves borrowed values and heads")
+                recursive += machine.calls["parks"] > before
+                hashes.update(raw)
+                case_count += 1
+                clear(output)
+                restored(machine)
+    require(recursive > 0 and machine.byte_counts["max_control"] == 65535,
+            "actual inherited recursive continuation and worst sixteen-bit carry")
+    controls = []
+    def reject(call, fragment):
+        try:
+            with no_decode():
+                call()
+        except ValueError as error:
+            require(fragment in str(error), "specific byte-word rejection: " + str(error))
+        else:
+            raise ValueError("missing byte-word rejection")
+    for a, b, width, label, fragment in ((0, 1, 0, "zero_width", "positive"),
+                                       (256, 0, 8, "wide_first_with_zero_second", "width"),
+                                       (0, 256, 8, "wide_second_with_zero_first", "width")):
+        with owned(Count.literal(a), Count.literal(b), Count.literal(width)) as parameters:
+            reject(lambda: machine.run(*parameters), fragment)
+        restored(machine)
+        controls.append(label)
+    with owned(Count.literal((1 << 128)-1), Count.literal((1 << 128)-1), Count.literal(128)) as parameters:
+        original, updates = tensor_word.byte_product, 0
+        def allocate(a, b):
+            nonlocal updates
+            value = original(a, b)
+            updates += 1
+            if updates == 23:
+                Tape()
+            return value
+        with patch.object(tensor_word, "byte_product", allocate):
+            reject(lambda: machine.run(*parameters), "physical Tape allocation inside")
+        restored(machine)
+        controls.append("late_leaf_allocation")
+        with no_decode():
+            output = machine.run(*parameters)
+        raw = packet_bytes(output)
+        reject(lambda: machine.run(*parameters), "consume prior word-product output")
+        require(packet_bytes(output) == raw, "protected byte-word return survives rejected reuse")
+        controls.append("protected_return")
+        clear(output)
+        restored(machine)
+    pool = ScratchPool(32)
+    scope = OuterScope(pool)
+    for tape in pool.tapes:
+        erase_marker(tape)
+    arithmetic = Arithmetic(machine, scope)
+    with owned(Count.literal((1 << 71)+3), Count.literal((1 << 63)+7), Count.literal(80)) as parameters:
+        a, b, width = parameters
+        for tape in pool.tapes:
+            initialize_marker(tape)
+        with sealed_constructors(), scope.installed():
+            with no_decode():
+                result = arithmetic.multiply(Signed(a, True), Signed(b), width)
+            with owned(result):
+                require(result.negative and decode(result.magnitude) == ((1 << 71)+3)*((1 << 63)+7),
+                        "retained signed Arithmetic consumes the actual byte-word owner")
+            pool.empty()
+        for tape in pool.tapes:
+            erase_marker(tape)
+    restored(machine)
+    tile, core, chirp = Tile(), Core(), finite_chirp()
+    adapt_fft_word(tile.word)
+    adapt_fft_word(core.word)
+    adapt_chirp(chirp)
+    require(tile.word is tile.block.word is tile.block.convolution.word
+            and core.word is core.interior.word is core.boundary.word is core.interior.convolution.word,
+            "adaptation preserves scalar/convolution FFT-word root aliases")
+    for fft_word in (tile.word, core.word):
+        require(type(fft_word.base) is ByteWordProduct and type(fft_word.product.word) is ByteWordProduct
+                and fft_word.product.arithmetic.word is fft_word.product.word,
+                "actual byte-word children and retained arithmetic links")
+        expected = (*fft_word.base.canonical, fft_word.base.output, fft_word.product.output,
+                    *fft_word.product.word.canonical, fft_word.product.word.output, fft_word.product.twiddles.output)
+        require(fft_word.canonical == expected, "FFT-word canonical inventory names the new actual children")
+    for owner in (chirp, chirp.kernel, chirp.cyclic, chirp.cyclic.convolution.product):
+        require(type(owner.word) is ByteWordProduct and owner.arithmetic.word is owner.word,
+                "complete chirp arithmetic points to its actual adapted owner")
+    # Exercise the real FFT branch with the adapted exact scalar leaves.
+    fft_word = adapt_fft_word(FftWord(base_bits=16))
+    with owned(Count.literal((1 << 17)-13), Count.literal((1 << 16)+19), Count.literal(17)) as parameters:
+        with no_decode():
+            output = fft_word.run(*parameters)
+        raw = packet_bytes(output)
+        require(sum(bit << i for i, bit in enumerate(raw)) == ((1 << 17)-13)*((1 << 16)+19)
+                and len(raw) == 34 and fft_word.calls == dict(base=0, fft=1),
+                "complete actual FFT-word return with byte scalar leaves")
+        fft_hash = sha256(raw).hexdigest()
+        clear(output)
+        fft_word.idle()
+    return {"byte_control_pairs": 65536, "physical_products": case_count,
+            "widths": list(widths), "recursive_products": recursive, "product_sequence_sha256": hashes.hexdigest(),
+            "byte_counts": machine.byte_counts, "controls": controls, "fft_output_sha256": fft_hash,
+            "scope": "new bounded byte-control leaf, retained recursive continuation and one actual FFT-word join; full tensor remains separate"}
