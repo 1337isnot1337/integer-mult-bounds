@@ -102,6 +102,9 @@ def check_family_decision(item, decision):
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
               'github_state', 'integration_location', 'unresolved_question', 'closure')
     for field in fields + ('review_completion', 'verification_evidence'):
+        if field == 'closure' and field not in decision:
+            # Intake decisions without closure metadata predate the closure projection.
+            continue
         if field in fields or field in decision:
             # JSON equality must distinguish true from 1, including nested flags.
             require(field in item and json.dumps(item[field], sort_keys=True) ==
