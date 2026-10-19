@@ -21,15 +21,33 @@ def require(condition, message):
 
 
 def check_batch1047_file(item):
-    """Preserve the pinned Makefile prefix after batch1099 appends reviewed targets.
+    """Preserve the Makefile prefix and exact reviewed P112 source successors.
 
     Batch1099 separately binds the entire current Makefile. Other historical
-    source files still require their original complete byte hashes.
+    source files still require their original complete byte hashes unless the
+    exact successor is also bound by the historical-input ledger.
     """
     current = (ROOT / item['integrated_path']).read_bytes()
-    if hashlib.sha256(current).hexdigest() == item['integrated_sha256']:
+    name = item['integrated_path']
+    digest = hashlib.sha256(current).hexdigest()
+    if digest == item['integrated_sha256']:
         return
-    require(item['integrated_path'] == 'Makefile', 'Changed integrated file: ' + item['integrated_path'])
+    reviewed = {
+        'research/p112-free-sink-audit97/README.md': (
+            'c792fc8f5de0c784049904c6febf3eed9b20e2462b30dc643c72730470d72b79',
+            '6924c590eaa9a954d986153fa417c3f1ee074bcb194a42c79e1e37cb69f2cd4a',
+        ),
+        'research/p112-free-sink-audit97/independent.py': (
+            '46806efe1ee7744c810a69981d471b42dfceaa336fee226991c55ba1edfd129f',
+            'c77cf3dd1234c26cfb7df2d356752721e8b1b37169f20543678fe2f4d07a53f8',
+        ),
+    }
+    if name in reviewed:
+        predecessor, successor = reviewed[name]
+        require(item['integrated_sha256'] == predecessor, 'Changed historical P112 pin: ' + name)
+        require(digest == successor, 'Changed integrated file: ' + name)
+        return
+    require(name == 'Makefile', 'Changed integrated file: ' + name)
     original = (ROOT / 'research/community-batch1099-audit/checkpoints/Makefile1047').read_bytes()
     require(hashlib.sha256(original).hexdigest() == item['integrated_sha256'], 'Changed historical Makefile')
     require(original.endswith(b'\n') and current.startswith(original), 'Historical Makefile content changed')
@@ -186,11 +204,28 @@ def check_starting_head(item, expected_head, in_starting_snapshot):
 
 
 def check_batch1099_file(item):
-    """Authenticate the original Makefile prefix after the opt-in PR154 target."""
+    """Authenticate the Makefile prefix and exact reviewed R439 successors."""
     current = (ROOT / item['integrated_path']).read_bytes()
-    if hashlib.sha256(current).hexdigest() == item['integrated_sha256']:
+    name = item['integrated_path']
+    digest = hashlib.sha256(current).hexdigest()
+    if digest == item['integrated_sha256']:
         return
-    require(item['integrated_path'] == 'Makefile', 'Changed integrated file: ' + item['integrated_path'])
+    reviewed = {
+        'research/r439-omission-atlas-seed81/README.md': (
+            '6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f',
+            '812fabd455a7d1f77331e59d57150f28ff8ddc6ff47f9a54c5b24970f6dcc00a',
+        ),
+        'research/r439-omission-atlas-seed81/verify.py': (
+            '127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866',
+            '6c3c94b01e3db5fb6d9e45eda4f60628252de1fab218e6e8233cc7949afd8966',
+        ),
+    }
+    if name in reviewed:
+        predecessor, successor = reviewed[name]
+        require(item['integrated_sha256'] == predecessor, 'Changed historical R439 pin: ' + name)
+        require(digest == successor, 'Changed integrated file: ' + name)
+        return
+    require(name == 'Makefile', 'Changed integrated file: ' + name)
     original = (ROOT / 'research/community-reconciliation92-audit/checkpoints/Makefile-before154').read_bytes()
     require(hashlib.sha256(original).hexdigest() == item['integrated_sha256'], 'Changed historical Makefile')
     require(original.endswith(b'\n') and current.startswith(original), 'Historical Makefile content changed')
