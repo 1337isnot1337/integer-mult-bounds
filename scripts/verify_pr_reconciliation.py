@@ -113,6 +113,26 @@ def check_reviewed_family_source(name, digest):
             'c9a05ff291016b870b4fc925b317abd9c3a604c73ffc8920dfdbbeb475e20aa3',
             'd777db4abe316594df5cd3dc1269b42f4af4a8c87d4d0df500d32655e3775b87',
         ),
+        'research/complex-factory5-resynthesis/SOURCE-PINS.json': (
+            '79e00db34b721dc38830a7816f3126a09615d49c12f1b6a630147f1f50378f63',
+            '9581d53e525c4f7f7a6e9bd96c02814cb3ab7be7734c5de3c42cc74042df8718',
+        ),
+        'research/complex-factory5-resynthesis/verify.py': (
+            'edbae43b68c0e4f65978a2f9b9a739867128f4ef19d8bbe81d06ed2e5bc165f1',
+            '90c917080f577f24390b1ba8ab059e052314eb0cee2cccb2e4321bcc2c6cf74a',
+        ),
+        'research/supplier-circuit-consolidation/SOURCES.json': (
+            'ef2568aac251c94d86736936b9d8c7507d224b129da2907d1bc6a1c2b5546742',
+            'ad8665bf62453b4597f798aeeec1fa9d145413dbb725f11893a5345ba5a4ee4b',
+        ),
+        'docs/ci-verification.md': (
+            'a854022e0e1d5d4db4d60e586be3ea56005013ef14a1fc06d02bc06e8529c4b0',
+            'a3711fe12d560fac7726c530b9c8c622182f3d4f231a876c163616e49bd911bc',
+        ),
+        'scripts/verify_selected_result.py': (
+            'd7fd929726b326aeeaf0a3996475adec88eee9aac09ae0bebeeaa0bc1fc8f199',
+            'c0cc23a8534d91c8d272195315c725213f13279815750ffdef055ec3adfbe911',
+        ),
     }
     require(name in successor and successor[name] == (digest, current),
             'Changed reviewed family source: ' + name)
@@ -481,8 +501,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete PR marked reviewed')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_reviewed_family_source(item['integrated_path'], item['integrated_sha256'])
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing adaptation or remaining scope')
         print('PASS frontier741 batch: scoped source coverage, replay evidence and projection bindings')
@@ -619,8 +638,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete review')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_reviewed_family_source(item['integrated_path'], item['integrated_sha256'])
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing scope or adaptation reason')
         companion_path = folder / 'COMPANION-REVIEWS.json'
