@@ -4,6 +4,29 @@ from contextlib import contextmanager
 from unittest.mock import patch
 from tensor_sources import require
 
+CATALOGUE_SHA256 = "46dbbc4b4aff71548e8203fa5837762ea3f78117564952e8087a339e55ef208a"
+CATALOGUE_ARCHIVE_SHA256 = "88ed67a030f4c338ad8949eac0aaa7a91112c4ed432b2929aa19917e4e3a76cf"
+
+
+def prepared_catalogue():
+    """Authenticate the immutable return of the checked p48/P80 producer."""
+    from hashlib import sha256
+    from pathlib import Path
+    import tarfile
+    path = Path(__file__).resolve().parent / "inputs/p48-catalogue.tar.gz"
+    require(path.is_file() and not path.is_symlink()
+            and sha256(path.read_bytes()).hexdigest() == CATALOGUE_ARCHIVE_SHA256,
+            "exact prepared-catalogue archive")
+    with tarfile.open(path, "r:gz") as archive:
+        members = archive.getmembers()
+        require(len(members) == 1 and members[0].isfile() and not members[0].issym()
+                and not members[0].islnk() and members[0].name == "gaussian-tensor-p48-page-20261019.bin"
+                and members[0].size == 113537, "single bounded prepared-catalogue member")
+        raw = archive.extractfile(members[0]).read()
+    require(len(raw) == 113537 and sha256(raw).hexdigest() == CATALOGUE_SHA256,
+            "exact serialized physical coefficient return")
+    return raw
+
 
 def literal_native():
     from macro_code import Code

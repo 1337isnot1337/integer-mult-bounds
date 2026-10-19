@@ -15,6 +15,8 @@ def run():
     from scratch_pool import ScratchPool
     from session import OuterScope, erase_marker, initialize_marker, sealed_constructors
     from tensor_catalogue import Catalogue, TensorPreparation, read_frame
+    from tensor_fixture import CATALOGUE_SHA256, prepared_catalogue
+    from expansion_check_block import packet_bytes
     from words import BLANK
     preparation = TensorPreparation()
     pool, evidence = ScratchPool(512), []
@@ -34,6 +36,8 @@ def run():
         require(preparation.last_counts == dict(global_axes=1, reused_axes=1, tiles=4, expansion_blocks=8),
                 "one actual global-axis producer and exact reuse for its identical second axis")
         digest = sha256(bytes(output.cells)).hexdigest()
+        require(packet_bytes(output) == prepared_catalogue(),
+                "fresh physical coefficient producer reproduces the immutable consumer input exactly")
         catalogue = None
         for item in pool.tapes:
             initialize_marker(item)
@@ -105,6 +109,6 @@ def run():
     for item in (sources, flags):
         item.clear()
         erase_marker(item)
-    return {"sha256": digest, "axes": evidence, "producer": preparation.last_counts,
+    return {"sha256": digest, "packet_sha256": CATALOGUE_SHA256, "axes": evidence, "producer": preparation.last_counts,
             "producer_pool_peak": preparation.pool.peak, "reader_pool_peak": pool.peak,
             "scope": "actual explicit p48 P80 two-axis catalogue; reduced halos, no production locality claim"}
