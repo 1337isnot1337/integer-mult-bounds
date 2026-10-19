@@ -55,7 +55,7 @@ five-call invoice, all 3,131 boundary outputs, all 24,898 coefficient rows,
 exercise signed code sensitivity, omitted cleanup, code order and the ADDRESS
 map. Source/receipt/type/path/cached-code controls cover the portable boundary.
 See [REVIEW-NATIVE.md](REVIEW-NATIVE.md),
-[REVIEW-OBSERVATION.md](REVIEW-OBSERVATION.md), and the final integration record.
+[REVIEW-OBSERVATION.md](REVIEW-OBSERVATION.md), [REVIEW-PORTABILITY.md](REVIEW-PORTABILITY.md), and [VALIDATION.md](VALIDATION.md).
 
 Historical search utilities are retained only because the producer imports
 their algebra definitions. Their million-pair searches are not run, required
