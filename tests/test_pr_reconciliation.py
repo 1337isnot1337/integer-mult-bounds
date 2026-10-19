@@ -257,6 +257,36 @@ class ReviewedFamilySourceSuccessor(unittest.TestCase):
                 '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03')
 
 
+class ReviewedArchiveSuccessors(unittest.TestCase):
+    def test_batch1047_and_batch1099_successors_keep_historical_pins(self):
+        cases = (
+            (checker.check_batch1047_file,
+             'research/p112-free-sink-audit97/README.md',
+             'c792fc8f5de0c784049904c6febf3eed9b20e2462b30dc643c72730470d72b79'),
+            (checker.check_batch1047_file,
+             'research/p112-free-sink-audit97/independent.py',
+             '46806efe1ee7744c810a69981d471b42dfceaa336fee226991c55ba1edfd129f'),
+            (checker.check_batch1099_file,
+             'research/r439-omission-atlas-seed81/README.md',
+             '6fc756df2aa0afe5b63985c1a5b4878659a3387250092e9ae5167f3316d5de9f'),
+            (checker.check_batch1099_file,
+             'research/r439-omission-atlas-seed81/verify.py',
+             '127d7679fb26e264018548a1301b2f0f437d834eb1f0ffa215556243077ff866'),
+        )
+        for check, path, predecessor in cases:
+            item = {'integrated_path': path, 'integrated_sha256': predecessor}
+            with self.subTest(path=path):
+                check(item)
+                forged = dict(item, integrated_sha256='0' * 64)
+                with self.assertRaises(ValueError):
+                    check(forged)
+                original_read = Path.read_bytes
+                def read(target):
+                    return original_read(target) + b' ' if target == ROOT / path else original_read(target)
+                with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+                    check(item)
+
+
 class AssertionSafetyRefresh(unittest.TestCase):
     def setUp(self):
         coverage = json.loads((ROOT / 'research/community-batch932-audit/CONTENT-COVERAGE.json').read_bytes())
