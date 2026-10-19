@@ -53,7 +53,7 @@
   },
   "scope_status": "changed",
   "actual_scope": "Screen the selected complex source for direct fusion of successive rank-one frame climbs into an available rank-two endpoint recipe, including exact scalar-interference windows in both orientations.",
-  "scope_change_reason": "The task card asks for a new block decoder and fully charged profile. This first experiment is a bounded source-level feasibility screen for the attachment's two-level macro-fusion idea; it does not synthesize a decoder or claim a profile improvement.",
+  "scope_change_reason": "The task card asks for a new block decoder and fully charged profile. This experiment screens a sequential same-register macro contract from the attachment: two rank-one climbs separated by scalar work. PR #1836 and complex-heterogeneous-child-interface instead study simultaneous unequal-rank climbs and reciprocal one-child encodings; this screen complements that work without repeating its census or claiming a profile improvement.",
   "bottleneck_link": "The selected complex word contains 2,412 rank-one children, and the recursive cost is concave in child rank when a > 0. An exact two-rank-one to one-rank-two replacement would lower that pair's recursive charge by a factor 2^-a, but only if the composed operator and all intervening work are preserved.",
   "budget_minutes": 60,
   "stop_rule": "Stop the direct-replacement screen when every selected-source rank-one successor pair has been checked against exact rank-two endpoint recipes in both orientations. Do not claim macro equivalence from matching endpoint frames. Continue only by reconstructing one candidate's complete operator and scalar window, then charging its full joint realization.",

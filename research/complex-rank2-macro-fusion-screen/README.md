@@ -14,7 +14,7 @@ This is a negative result for direct local pair replacement, not an impossibilit
 
 Base: canonical main `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. The original task is `complex-rank-shape-decoder`; this package narrows it to direct fusion of two rank-one frame climbs into an available rank-two endpoint recipe in the selected complex schedule. It does not satisfy the task's construction or five-percent acceptance gate.
 
-The overlap refresh covered 677 open PRs and 2,578 Discussions with complete pagination and found no direct match for selected-source rank-two pair fusion. The local [two-invocation stage-pair audit](../../docs/research/stage-pair-audit.md) studies a different bit-side graph and a bounded family of joint frame changes; it is relevant boundary guidance, not the same source-level test. The overlap report is not a novelty certificate. Exact source and member pins are in `SOURCES.json`.
+The overlap refresh covered 681 open PRs and 2,580 Discussions with complete pagination. The keyword query did not surface a close local antecedent: [PR #1836](https://github.com/CrocSwap/integer-mult-bounds/pull/1836) and [its follow-up `complex-heterogeneous-child-interface` audit](../complex-heterogeneous-child-interface/README.md) study pairing simultaneous unequal-rank climbs into one higher-rank child, including a 215-pair selected-source census and reciprocal-encoding limits. This package studies a different contract: two successive rank-one climbs on the same register with intervening scalar operations, and whether an endpoint-matching rank-two recipe can be substituted or its second call reused through an add. The results are complementary, not a broad novelty claim. The local [two-invocation stage-pair audit](../../docs/research/stage-pair-audit.md) studies yet another bit-side graph. Exact source and member pins are in `SOURCES.json`.
 
 ## Reproduction
 
@@ -33,4 +33,4 @@ The exact next experiment starts with the forward phase-B candidate on register 
 
 ## Credit
 
-Credit the selected PR #1094 provider lineage and its pinned source audit. Prepared by Gonzalo Mier with substantial OpenAI Codex assistance. Apache-2.0; no independent human review claimed.
+Credit Cinna Davis / PR #1836 and Adam Gall's `complex-heterogeneous-child-interface` package for the simultaneous unequal-rank census and reciprocal-encoding classification; credit the selected PR #1094 provider lineage and its pinned source audit. Prepared by Gonzalo Mier with substantial OpenAI Codex assistance. Apache-2.0; no independent human review claimed.
