@@ -294,7 +294,7 @@ def exact_instance(spaces, gm, groups, den, rows, seed=2297):
     return cost
 
 
-def controls(den, rows, P, rho, gm, d):
+def controls(den, rows, P, rho, gm, labels, groups, spaces):
     rejected = []
 
     def rejects(name, fn):
@@ -313,15 +313,24 @@ def controls(den, rows, P, rho, gm, d):
     line = [[1 if len(P[i]) == 1 and len(P[j]) == 1 else rho[i][j] for j in range(len(P))] for i in range(len(P))]
     rejects('line-label tariff instead of full-port tariff', lambda: check_dual(den, rows, P, line))
     rejects('doubled certificate (value 1108 > direct cost)', lambda: check_dual(den, [(S, 2 * w) for S, w in rows], P, rho))
-    full = flats_closure(gm)
-    rejects('flat family missing the ambient space', lambda: need(full - {max(full, key=int.bit_count)} == flats_small_subsets(gm), 'flat mismatch'))
-    # Without the no-free-pair premise Lemma 1 fails: for three mutually orthogonal
-    # lines every off-diagonal entry is free, K = J = 1 1^T is admissible with one
-    # term, and its principal block has rank 1 < f(S) = 3.
-    lines = [1, 2, 4]
-    need(all(dot(a, b) == 0 for a, b in itertools.combinations(lines, 2)), 'toy lines are orthogonal')
-    rejects('free-pair toy mask (principal block J has rank 1 < 3)', lambda: need(
-        rank_packed([7, 7, 7]) >= len(lines), 'principal-rank count fails on a free-pair mask'))
+    # Method B fed a mutated input (one group dropped) must disagree with method A.
+    rejects('method B fed a group list missing one group', lambda: need(
+        flats_small_subsets(gm[:-1]) == flats_closure(gm), 'flat mismatch'))
+    # Premise check: move the residual pair into E_0-perp, creating an orthogonal (free)
+    # group pair; cover() must reject it for exactly that reason.
+    perp0 = [x for x in range(1, 512) if dot(x, x) and not any(dot(x, v) for v in spaces[0])]
+    a, b = next((a, b) for a, b in itertools.combinations(perp0, 2) if not dot(a, b))
+    mutated = list(labels)
+    mutated[groups[-1][0]], mutated[groups[-1][1]] = a, b
+
+    def free_pair_cover():
+        try:
+            cover(mutated, groups)
+        except Reject as exc:
+            if 'free (orthogonal) group pair' not in str(exc):
+                raise SystemExit('FAIL: free-pair control rejected for the wrong reason: %s' % exc)
+            raise
+    rejects('cover with a free (orthogonal) group pair', free_pair_cover)
     return rejected
 
 
@@ -347,14 +356,15 @@ def main():
     direct = sum(len(g) * rho_elimination(m, m) for g, m in zip(groups, gm))
     need(direct == EXPECTED['direct'] == floor, 'direct decoder attains the floor')
     unpaid = Q(8, 9) * sum(len(g) * len(g) for g in groups)
-    need(str(unpaid) == EXPECTED['unpaid'] and floor > unpaid, 'no saving at the zero-saving threshold')
+    threshold = unpaid.numerator // unpaid.denominator  # largest integer cost with no loss
+    need(str(unpaid) == EXPECTED['unpaid'] and threshold == 492 and floor > threshold, 'no saving at the zero-saving threshold')
     random_pairs_check(den, rows, gm, 2000, 554)
     inst = exact_instance(spaces, gm, groups, den, rows)
-    rej = controls(den, rows, P, rho, gm, d)
+    rej = controls(den, rows, P, rho, gm, labels, groups, spaces)
     result = dict(status='PASS_PR2297_PRINCIPAL_RANK_FLOOR', flats=len(P), flat_pairs=len(P) ** 2,
                   certificate_sets=len(rows), certificate_denominator=den,
                   certificate_value=str(value), certificate_value_float=float(value), min_slack_numerator=slack,
-                  floor=floor, direct_decoder_cost=direct, zero_saving_threshold=492, unpaid_budget=str(unpaid),
+                  floor=floor, direct_decoder_cost=direct, zero_saving_threshold=threshold, unpaid_budget=str(unpaid),
                   exact_instance_cost=inst, rejected_controls=rej)
     print(json.dumps(result, indent=1))
     print('PASS_PR2297_PRINCIPAL_RANK_FLOOR')

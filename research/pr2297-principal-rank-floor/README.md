@@ -10,10 +10,13 @@ tariff `rho_t = rank_F2(pairing on L_t x R_t)`, its cost is
 
 The direct one-term-per-port decoder attains 554, so the bound is sharp. The
 zero-saving bound `C <= 492` is therefore unreachable. The unpaid budget is
-`4432/9`, so every scalar decoder has deficit at most `-554/9`. **On this cover
-the u=5 coverage lever row has no positive saving under the scalar contract.**
-That holds for every number of terms, every support pattern (matched or
-unmatched spans), every sign and every denominator.
+`4432/9`, so every scalar decoder has deficit (budget minus cost) at most
+`-554/9`, i.e. a loss of at least `554/9`. Here the **u=5 coverage lever row** is
+the k=5 port-group route of the `coverage-law-change` card (five unpaid
+coordinates per port group, PR #2532 and PR #2879). **On this cover that row
+has no positive saving under the scalar-decoder contract.** That holds for every
+number of terms, every support pattern (matched or unmatched spans), every sign
+and every denominator. Non-scalar endpoint contracts are not covered (see Scope).
 
 The proof is in [PROOF.md](PROOF.md). It has two parts.
 
@@ -36,20 +39,32 @@ integer, so `C >= 554`.
 
 - **Predecessors.** PR #2879 (Arham Tahir, `research/support-balanced-port-floor`)
   proved 554 only for terms with equal complete spans. For the general case it
-  gave a necessary condition: at least 16 unmatched-span terms with credit at
-  least 62. philippeVV's Theorem 1 (Discussion #1587, applied to this cover in
+  gave a necessary condition: at least 16 unmatched-span terms with total
+  asymmetry credit `sum delta_t >= 62`. philippeVV's Theorem 1 (Discussion #1587, applied to this cover in
   PR #2532) proved 554 only for 2-integral decoders. The general
   unmatched-span, even-denominator class was the open question of both packages.
 - **This package** closes that class. It does so by counting ranks over the base
   field, not by a 2-adic argument. The counting constraints are weighted by an
-  exact dual certificate over the cover's flats. The relaxation is tight here:
-  its value is within `0.0036` of the direct cost. This also answers PR #2532's
-  open question "even-denominator gain for k=5": that gain is zero.
+  exact dual certificate over the cover's flats. The certified relaxation value
+  lies in `[553.996479, 554]`, within `0.0036` of the direct cost; after integer
+  rounding the floor equals the direct cost 554. (That the LP optimum is exactly
+  554 is not certified.) This also answers PR #2532's open question
+  "even-denominator gain for k=5": the achievable even-denominator saving is
+  zero, because every decoder costs at least 554.
+- **Method precedent.** The principal-block rank count and the weighted rank
+  cover are not new. They were used on C5 masks in PR #3232 and PR #3256
+  (thakrarsagar, `research/c5-gram-rank-cover`, `research/c5-asymmetric-cost-floor`),
+  PR #3271 (Nick Petalas, `research/c5-residual-weighted-cover`) and PR #3281
+  (Krzysztof Wojt, `research/c5-four-residual-floors`, exact rational separation
+  certificates). New here are the application to the PR2297 cover, the
+  flat-indexed LP-dual certificate and the verifier.
 - **Why Lemma 1 is available here.** The mask has no free pair, so every
   principal block is `c I`. On masks with free pairs, Lemma 1 holds only for
   group sets that contain no free pair. Examples are the PR2041 triad cover and
-  the plane and line masks of Discussion #1587, where E8-type savings exist. This agrees with philippeVV's follow-up 4: bounds
-  that also hold for line ports cap at 128 on plane covers.
+  the plane and line masks of Discussion #1587. E8-type savings are known only
+  on the line masks; no decoder below the naive cost is known on the plane masks
+  or on PR2041. This agrees with philippeVV's follow-up 4: bounds that also hold
+  for line ports cap at 128 on plane covers.
 
 ## Reproduce
 
@@ -100,9 +115,14 @@ The generic hook is
 - the line-label tariff (cost 1 per single-group pair) instead of the full-port
   tariff;
 - the doubled certificate;
-- a flat family missing the ambient space;
-- a toy mask with free pairs (three orthogonal lines), which fails the premise
-  `K = c I`.
+- method B of step 3 fed a group list with one group dropped (its flats must
+  disagree with method A);
+- a mutated cover whose residual pair is moved into `E_0^perp`, creating a free
+  (orthogonal) group pair: `cover()` must reject it for exactly that reason.
+
+The verifier also computes the zero-saving threshold `floor(4432/9) = 492` from
+the unpaid budget. PROOF.md §1 notes why Lemma 1 fails with free pairs (three
+orthogonal lines admit `K = J` with one term).
 
 `find_certificate.py` is a provenance helper and **not** part of verification.
 It shows how the certificate was found: the HiGHS LP over 3,252 distinct
@@ -131,10 +151,19 @@ floor.
 - **Scope.** The exact PR2297 cover, the scalar-decoder contract and the
   full-port tariff, as defined in PR #2532 and PR #2879. This is a scoped proof
   plus a finite certificate. It is not a complete multiplication theorem.
+- **Not addressed: non-scalar endpoint contracts on this cover.** PR #2532 left
+  an operator- or block-valued interpretation and other call contracts open.
+  PR2297's own `C_E^2` correction blocks and PR #3480 (Gonzalo Mier, head
+  `8e6fcaa557d2bff56c914f167e19929b0b656e1f`, deferred corrections under a shared
+  register; family thread Discussion #2292) work outside the scalar contract.
+  This package says nothing about them.
 - **Inherited assumptions.** The tariff charges each touched port's complete
   group space. The planning law is the portwise, nine-stage law of PR #2879 §3,
   which gives the unpaid budget `(8/9) sum d_i`. Both are taken as given; this
-  package does not re-derive them.
+  package does not re-derive them. The conclusion does not hinge on the 8/9
+  law alone: 554 also exceeds the incumbent-tie threshold 455-460 of PR #2532
+  and the u=5 rank-32 copy budget 488 of PR #3344 (Matarener,
+  `research/complex-multi-unpaid-copy-budgets`).
 - **Unresolved obligations.**
   - Lemmas 1 and 2 are elementary and written out, but have not been checked
     by a proof assistant.
@@ -149,11 +178,16 @@ The structured versions are in [TASK.json](TASK.json).
 
 1. **Clique-restricted principal-rank LP on the PR2041 triad cover.** Lemma 1
    still holds for group sets that contain no free (orthogonal) pair.
-   - *Why it matters:* PR #2879's floor of 297 does not exclude the
-     uniform-three completion, whose budget is `896/3 ≈ 298.67`. A clique LP
-     value of 299 or more would close that row too.
+   - *Why it matters:* PR #2879's 297 is an equal-span floor only; the
+     unmatched-span class on the literal PR2041 cover is still open. A clique LP
+     value of 297 or more would close the literal cover's general class. A value
+     of 299 or more would also exclude the uniform-three completion (budget
+     `896/3 ≈ 298.67`), provided the certificate's sets avoid the completed
+     group and the tariff is monotone under the completion.
    - *First step:* run `find_certificate.py`'s LP with the candidate sets
      restricted to orthogonal-pair-free group sets of the PR2041 cover.
+   - *Related, check first:* the rank-57 triad line, PR #2757 and PR #3684
+     (flyingviper) and PR #3505, #3513, #3527 and #3538 (Nick Petalas).
 2. **Free-pair masks.** Is there a principal-rank analogue for masks with free
    pairs, using only cliques of the nonorthogonality graph, that is not also
    valid for line ports?
@@ -162,8 +196,11 @@ The structured versions are in [TASK.json](TASK.json).
    - *First step:* compute the clique-restricted LP on philippeVV's a23 plane
      assignment and compare it with 128.
 3. **Changed contracts.** The u=5 row on PR2297 is now closed for scalar
-   decoders. Any k-port coverage saving must therefore change the mask (free
-   pairs), the tariff or the cover.
+   decoders. A k-port coverage saving on this row needs something other than a
+   different scalar decoder: a mask with free pairs, another tariff, another
+   cover, or another endpoint contract (an operator- or block-valued decoder
+   with its own complete identity and charges, such as PR2297's `C_E^2` blocks
+   or PR #3480).
    - *Why it matters:* this marks which contract change still has room.
    - *First step:* state which of these a proposed k-port contract changes
      before pricing a decoder.
@@ -185,14 +222,23 @@ The structured versions are in [TASK.json](TASK.json).
 - **Adam Gall (adamgall).** PR1889 mask and tariff foundations.
 - **Tekalign (tekuuu).** PR2782, the Gram denominator gate, commit
   `002a9983079a3244c10221b4e16d0cff7e70da40`.
+- **Method precedent.** PR #3232 (head `9d75ed2b5bc9`) and PR #3256 (head
+  `1ea98246dabb`) by thakrarsagar; PR #3271 by Nick Petalas (petalas, head
+  `1bbe044ba2c7`); PR #3281 by Krzysztof Wojt (krzysztofwojt, head
+  `a3a7306c15c7`). Principal-block rank counts, weighted rank covers and exact
+  rational separation certificates on C5 masks.
 - **ywz65.** PR #2528, the mixed-cover weighted unpaid dimension `554/112 = 277/56`.
   It agrees with the budget `(8/9) * 554 = 4432/9`, whose integer part 492 is the
   zero-saving threshold used here.
 
-The proof, certificate and verifier are new. The cross-checks are an
-independent flat enumeration, a second rank method, random non-closed supports
-and an exact rational instance. They were run by the same AI-assisted session.
-There has been no human review.
+The application to the PR2297 cover, the flat-indexed LP-dual certificate and
+the verifier are new; the principal-block rank count and the weighted rank
+cover follow the C5 packages above. The cross-checks are an independent flat
+enumeration, a second rank method, random non-closed supports and an exact
+rational instance. They were run by the same AI-assisted session. The package
+was reviewed by four independent AI review passes in the same loop
+(reproducibility, mathematics, provenance, referee), which recomputed the
+certificate with separate scripts. There has been no human review.
 
 Prepared by Sagar Thakrar (thakrarsagar) with substantial AI assistance from
 Claude (Anthropic, Claude Opus 5.5). Apache-2.0.

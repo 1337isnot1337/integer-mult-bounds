@@ -9,11 +9,11 @@ full-port tariff of PR #2879 and PR #2532).
 
 ## Theorem
 
-Let `F` be any field (in particular `Q`), `c in F` nonzero, and
+Let `k` be any field (in particular `Q`), `c in k` nonzero, and
 
     c I_112 = A diag(c_t) B^T,      c_t != 0,
 
-any finite factorization over `F`. For term `t` let `L_t` (`R_t`) be the sum of
+any finite factorization over `k`. For term `t` let `L_t` (`R_t`) be the sum of
 the port spaces on which column `t` of `A` (`B`) is nonzero. Let
 `rho_t = rank_F2(pairing on L_t x R_t)` and `C = sum_t rho_t`. Then
 
@@ -24,14 +24,21 @@ on the number of terms, supports, span matching, signs or denominators.
 
 **Corollary.** The zero-saving bound `C <= 492` is unreachable. With unpaid
 budget `(8/9) * 554 = 4432/9`, every scalar decoder has deficit at most
-`4432/9 - 554 = -554/9`. On this cover the u=5 coverage lever row has no
-positive saving under the scalar contract.
+`4432/9 - 554 = -554/9` (deficit = budget minus cost). On this cover the u=5
+coverage lever row (the k=5 port-group route of PR #2532 and PR #2879) has no
+positive saving under the scalar-decoder contract.
 
 ## 1. Principal-rank count
 
-The mask has no free pair. The verifier checks that every two distinct group
-spaces have a nonzero pairing. Distinct ports of one group share a
-nondegenerate space. So the scalar contract forces `K = c I_112`.
+The PR #2532 mask rule: for ports `i != j`, the entry `K_ij` is free (may be
+nonzero) only if `E_j <= E_i^perp`; the diagonal is a common nonzero `c`. A
+**free pair** is a pair of groups with `E_h <= E_g^perp`. This mask has none.
+The verifier checks that every two distinct group spaces have a nonzero
+pairing, and distinct ports of one group share a nondegenerate space. So the
+scalar contract forces `K = c I_112`.
+
+The principal-block rank count below follows the C5 packages of PR #3232 and
+PR #3256 (thakrarsagar), PR #3271 (Nick Petalas) and PR #3281 (Krzysztof Wojt).
 
 For a set `S` of groups, write `ports(S)` and `f(S) = |ports(S)| = sum_{g in S} d_g`.
 Say term `t` **hits** `S` when both `A[ports(S), t]` and `B[ports(S), t]` are
@@ -43,9 +50,11 @@ nonzero.
 Only terms that hit `S` survive. A sum of `h(S)` matrices of rank at most one
 has rank at most `h(S)`, so `h(S) >= f(S)`. ∎
 
-This is a statement about ranks over `F`. It needs no reduction modulo 2, so
-denominators play no role. It is false when a principal block has free entries
-(control 6 in `verify.py`).
+This is a statement about ranks over `k`. It needs no reduction modulo 2, so
+denominators play no role. It is false when a principal block has free entries:
+for three mutually orthogonal lines every off-diagonal entry is free, and
+`K = J = 1 1^T` is admissible with one term of principal rank 1 < 3. The
+verifier's premise check in `cover()` rejects a mutated cover with a free pair.
 
 ## 2. Group supports and flats
 
@@ -79,8 +88,10 @@ Summing over `t`, exchanging the sums and applying Lemma 1 gives
     C >= sum_S y_S h(S) >= sum_S y_S f(S). ∎
 
 This is LP duality for the relaxation that keeps only Lemma 1's
-principal-rank constraints. The relaxation is exact on this cover: the
-certificate below comes within `0.0036` of the direct cost 554.
+principal-rank constraints. The relaxation is tight to within `0.0036` on this
+cover: the certified value lies in `[553.996479, 554]`, and after integer
+rounding the floor equals the direct cost 554. That the LP optimum is exactly
+554 is not certified (the solver's value is a float).
 
 ## 4. The certificate and the floor
 
@@ -93,8 +104,9 @@ elimination of the Gram matrix, and the count `dim F - dim(F ∩ F'^perp)` over 
 512 vectors.
 
 The certificate's shape explains the floor. Each five-frame lies in total
-weight 5, and the residual pair in total weight 2. These are the constraints
-`(E_g, E_g)`, which cost `d_g`. The total weight is `449997/50000 < 9`. This is
+weight just under 5 (between 4.99996 and 5), and the residual pair in total
+weight just under 2 (1.999987). The constraints `(E_g, E_g)`, which cost `d_g`,
+cap these totals at `d_g`. The total weight is `449997/50000 < 9`. This is
 the constraint `(F_2^9, F_2^9)`: a term meeting every group on both sides costs
 9 and hits every set. Sets have sizes 4 to 20. By (*) on single-group flats,
 two groups whose pairing has rank `r` lie together in total weight at most `r`.
@@ -107,13 +119,18 @@ shared term creates.
   any field. It contains PR #2879's equal-span floor and the 2-integral floor
   (philippeVV, Discussion #1587 Theorem 1, applied in PR #2532) for this cover.
   It settles the open unmatched-span, even-denominator class: PR #2879 §4 showed
-  a saving would need at least 16 unmatched-span terms with credit at least 62.
-  No such decoder exists.
+  a saving would need at least 16 unmatched-span terms with total asymmetry
+  credit `sum delta_t >= 62`. No such decoder exists. The achievable
+  even-denominator saving for k=5 is zero: every decoder costs at least 554.
 - It does not apply to masks with free pairs. There a principal block need not
   be `c I` and Lemma 1 can fail. Examples are the PR2041 triad cover and the
-  plane and line masks of Discussion #1587, where E8-type savings exist. This
-  agrees with philippeVV's follow-up 4: bounds that also hold for line ports
-  cap at 128 on plane covers. Lemma 1 does not hold for line masks with free
-  pairs.
+  plane and line masks of Discussion #1587. E8-type savings are known only on
+  the line masks; no decoder below the naive cost is known on the plane masks
+  or on PR2041. This agrees with philippeVV's follow-up 4: bounds that also hold
+  for line ports cap at 128 on plane covers. Lemma 1 does not hold for line
+  masks with free pairs.
+- It covers only the scalar-decoder contract. Operator- or block-valued
+  decoders and other call contracts on this cover (PR2297's `C_E^2` blocks,
+  PR #3480 by Gonzalo Mier) are not addressed.
 - It prices no native frame, restoration, hosting, precision, consumer, other
   cover or other `u`. No supplier or κ follows.
