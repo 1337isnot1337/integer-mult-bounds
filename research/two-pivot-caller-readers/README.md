@@ -2,6 +2,11 @@
 
 **Scoped caller result; no new κ or selected-frontier change.**
 
+**Reviewer guide:** the [evidence index](EVIDENCE-INDEX.md) maps each retained
+receipt to its replay role, distinguishes mathematical inputs and status-only
+dependencies from archival-only receipts, and lists the loaded source modules.
+All retained files, including archival evidence, remain required by the hash gate.
+
 ## Result
 
 For every integer `q>=2` and `f>=1`, the displayed complete caller on
