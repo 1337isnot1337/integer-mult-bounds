@@ -99,8 +99,8 @@ def check_batch932_file(item):
             'Changed integrated file: ' + name)
 
 
-def check_hyperplane_source(name, digest):
-    """Keep the historical pin while accepting the reviewed UTF-8 successor."""
+def check_reviewed_family_source(name, digest):
+    """Keep historical pins while accepting exact, separately reviewed successors."""
     current = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
     if current == digest:
         return
@@ -109,9 +109,13 @@ def check_hyperplane_source(name, digest):
             '52aa1d23641e4c716b43c98f6b883ad042087dd03a9d01369e8e6a735b07aa03',
             '2fe5aac5828b1fdb79ff5e9ba87faef4db77e0c9339f362a1775b498a6d59e13',
         ),
+        'research/complex-k492-owner-repair/code/hpe_audit_and_transport.py': (
+            'c9a05ff291016b870b4fc925b317abd9c3a604c73ffc8920dfdbbeb475e20aa3',
+            'd777db4abe316594df5cd3dc1269b42f4af4a8c87d4d0df500d32655e3775b87',
+        ),
     }
     require(name in successor and successor[name] == (digest, current),
-            'Changed hyperplane reviewed source: ' + name)
+            'Changed reviewed family source: ' + name)
 
 
 def check_family_decision(item, decision):
@@ -424,7 +428,7 @@ def main():
             folder = ROOT / f'research/community-{family}-audit'
             source = json.loads((folder / 'SOURCE.json').read_text())
             for name, digest in source['source_files'].items():
-                check_hyperplane_source(name, digest)
+                check_reviewed_family_source(name, digest)
             check_archived_files(ROOT, json.loads((folder / 'COMPLETED-EVIDENCE.json').read_text()))
             coverage = json.loads((folder / 'CONTENT-COVERAGE.json').read_text())['pull_requests']
             decisions = json.loads((folder / 'DISPOSITIONS.json').read_text())['pull_requests']
