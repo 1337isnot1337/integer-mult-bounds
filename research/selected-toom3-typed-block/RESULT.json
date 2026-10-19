@@ -4,10 +4,13 @@
     "global_phase",
     "translation",
     "quadratic_scaling",
-    "omitted_dirty_register"
+    "omitted_dirty_register",
+    "rational_lost_scale",
+    "rational_undefined_pullback"
   ],
   "entry_contract": "every arbitrary data/helper column; exact selected receipt",
   "five_product_linear_decoder_output_rank_upper": 2560,
+  "five_product_rational_decoder_transcendence_degree_upper": 2560,
   "fixed_factor_toom_input_rank_upper": 1536,
   "implemented_replacements": 0,
   "input_form_coordinates": "post-entry-adapter unframed Z_j; not raw initial payloads",
@@ -117,7 +120,8 @@
     570,
     464
   ],
-  "scope": "one actual forward phase-A group; same-width Toom-only interface",
+  "scope": "one actual forward phase-A group; affine coefficient-only and rational-encoding/rational-decoding Toom-only interfaces",
+  "six_coefficient_rational_field_transcendence_degree_upper": 3072,
   "skeleton_gap": 1190,
   "two_affine_factors_input_rank_upper": 3072,
   "windows": [

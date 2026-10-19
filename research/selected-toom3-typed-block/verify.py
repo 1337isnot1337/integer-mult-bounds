@@ -228,6 +228,24 @@ def exact_operator(word, recipes):
     outputs['eight_lane_packing'] = {'payload_dimension':4096,'index_bits':12,'fourier_rank':1,'same_rank_payload_multiplier':8,'paid_profile_delta':'unknown; no admitted larger-payload call'}
     return outputs
 
+def rational_boundary_fixture():
+    # Laurent monomials are exact rational functions; exponent addition gives
+    # exact substitution. This fixture does not prove the general theorem.
+    encoding = [(1,-1,0),(0,1,-1),(0,0,1)]
+    inverse = [(1,1,1),(0,1,1),(0,0,1)]
+    def substitute_monomial(exponents, images):
+        return tuple(sum(e*image[j] for e,image in zip(exponents,images)) for j in range(3))
+    need([substitute_monomial(row,encoding) for row in inverse] == [(1,0,0),(0,1,0),(0,0,1)], 'rational birational positive control')
+    def ratio_pair(x): return Q(x[0],x[1]),Q(x[1],x[2])
+    need(ratio_pair((1,2,3)) == ratio_pair((2,4,6)), 'lost common scale in rational encoding')
+    need((1,2,3) != (2,4,6), 'distinct required outputs for lost-scale pair')
+    # Pull back u-v by (u,v)=(x,x). Cancellation is identically zero,
+    # so 1/(u-v) cannot be used as a generic decoder on that image.
+    denominator=collections.defaultdict(int)
+    for coefficient,image in [(1,(1,0,0)),(-1,(1,0,0))]: denominator[image]+=coefficient
+    need(not any(denominator.values()), 'identically vanishing pulled-back denominator rejected')
+    return ['rational_lost_scale','rational_undefined_pullback']
+
 def controls(word,recipes):
     import copy
     rec = next(r for r in recipes['children'] if (r['old'],r['new']) == (0,4))
@@ -245,7 +263,7 @@ def controls(word,recipes):
     # Explicit naive three-coefficient packing loses dirty register570.
     x=[0]*9;x[7]=1
     need(x[:3] == [0,0,0] and x[7] == 1 and base[0] != {}, 'omitted dirty input has nonzero demanded output')
-    return mutants + ['quadratic_scaling','omitted_dirty_register']
+    return mutants + ['quadratic_scaling','omitted_dirty_register'] + rational_boundary_fixture()
 
 def main():
     p,w,r,residuals,receipt=sources()
@@ -261,12 +279,12 @@ def main():
     need(all(not (e[0] == 'residual_adapter' and e[2] in REGISTERS) for e in p['forward'][:a]), 'selected helpers have no hidden entry wrappers')
     forms=scalar_prefix(p['forward'],a,g,s,group,w)
     operators=exact_operator(w,r)
-    result={'scope':'one actual forward phase-A group; same-width Toom-only interface', 'entry_contract':'every arbitrary data/helper column; exact selected receipt','invertible_entry_prefix':entry,'registers':REGISTERS,'original_event_indices_zero_based':[x[0] for x in group], 'skeleton_gap':g,'windows':[[x[2],x[3]] for x in group], 'input_form_coordinates':'post-entry-adapter unframed Z_j; not raw initial payloads', 'input_forms':forms,'operators':operators,'actual_input_and_output_rank':4608,'five_product_linear_decoder_output_rank_upper':2560,'minimum_extra_output_dimension_five_product_decoder':2048,'fixed_factor_toom_input_rank_upper':1536,'two_affine_factors_input_rank_upper':3072,'minimum_extra_input_dimension_two_affine_factors':1536,'controls':controls(w,r),'implemented_replacements':0,'kappa_change':0}
+    result={'scope':'one actual forward phase-A group; affine coefficient-only and rational-encoding/rational-decoding Toom-only interfaces', 'entry_contract':'every arbitrary data/helper column; exact selected receipt','invertible_entry_prefix':entry,'registers':REGISTERS,'original_event_indices_zero_based':[x[0] for x in group], 'skeleton_gap':g,'windows':[[x[2],x[3]] for x in group], 'input_form_coordinates':'post-entry-adapter unframed Z_j; not raw initial payloads', 'input_forms':forms,'operators':operators,'actual_input_and_output_rank':4608,'five_product_rational_decoder_transcendence_degree_upper':2560,'six_coefficient_rational_field_transcendence_degree_upper':3072,'five_product_linear_decoder_output_rank_upper':2560,'minimum_extra_output_dimension_five_product_decoder':2048,'fixed_factor_toom_input_rank_upper':1536,'two_affine_factors_input_rank_upper':3072,'minimum_extra_input_dimension_two_affine_factors':1536,'controls':controls(w,r),'implemented_replacements':0,'kappa_change':0}
     result=json.loads(json.dumps(result))
     expected=json.loads((HERE/'RESULT.json').read_text()) if (HERE/'RESULT.json').exists() else None
     if '--write' in sys.argv: (HERE/'RESULT.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     else: need(result == expected,'committed result equality')
-    print('PASS_SELECTED_TOOM3_TYPED_BLOCK basis_columns=1024 actual_rank=4608 affine_toom_input_cap=3072 fixed_factor_cap=1536 controls=4 replacements=0 no_new_kappa')
+    print('PASS_SELECTED_TOOM3_TYPED_BLOCK basis_columns=1024 actual_rank=4608 affine_toom_input_cap=3072 fixed_factor_cap=1536 controls=6 replacements=0 no_new_kappa')
 
 if __name__ == '__main__':
     main()

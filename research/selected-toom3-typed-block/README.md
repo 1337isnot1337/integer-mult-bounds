@@ -2,7 +2,9 @@
 
 **One actual nine-climb group is an invertible 4,608-dimensional linear map.
 It cannot factor through the 3,072-dimensional input boundary of a same-width,
-Toom-only coefficient module. No replacement or new kappa is claimed.**
+Toom-only coefficient module. The obstruction extends to rational encoders
+and rational decoders by transcendence degree. No replacement or new kappa
+is claimed.**
 
 This answers the first source-binding experiment left by Gonzalo Mier's
 [PR #3974](https://github.com/CrocSwap/integer-mult-bounds/pull/3974), head
@@ -17,12 +19,18 @@ coefficients per operand. We reconstruct both 512-dimensional Clifford maps
 on **all 1,024 basis columns**, including phases and halving, and independently
 check their exact Gram matrices. The selected block rank is **4,608**.
 
-| Explicit coefficient interface | Maximum linear input rank | Deficit |
+| Explicit coefficient interface | Capacity in scalar dimensions | Deficit |
 |---|---:|---:|
 | One variable coefficient triple, one fixed factor | 1,536 | 3,072 |
 | Two affine variable coefficient triples, decoder may read both | 3,072 | 1,536 |
-| Five product blocks, affine output decoder | 2,560 | 2,048 |
+| Five product blocks, affine or rational output decoder | 2,560 | 2,048 |
 | Actual selected nine-payload boundary | 4,608 | 0 |
+
+The rational extension uses `K(x)=K(Fx) subset K(E(x))` and transcendence
+degree, or equivalently the generic Jacobian chain rule. Decoder denominators
+must remain nonzero after substitution and all input-dependent side data
+must be counted. The original affine-encoder result permits an arbitrary
+decoder; the rational-encoder extension requires rational decoding.
 
 The obstruction assumes outputs receive data only through the coefficient
 blocks. General circuits may retain original inputs or use bypasses; five
@@ -46,7 +54,8 @@ python3 scripts/research_package.py --package research/selected-toom3-typed-bloc
 The two registered runs (normal and optimized Python) bind the selected
 archive, reconstruct the first eligible group, derive its input minor, check
 all basis columns and exact Gram matrices, compare the result, and exercise
-four failure controls. They do not replay the complete selected supplier.
+six failure controls, including a legal birational-coordinate fixture and
+rejected lost-scale/undefined-denominator boundaries. They do not replay the complete selected supplier.
 The canonical-frame evaluator is retained predecessor code; the recipe
 interpreter and sparse Gram check are new separate implementations. No
 independent human or formal-kernel acceptance is claimed.
@@ -82,5 +91,6 @@ lineage. Predecessor attribution is preserved rather than treating archive
 retention as scientific acceptance.
 
 Prepared for Clear1nsight with substantial OpenAI Codex assistance in source
-inspection, proof, implementation and exposition. Apache-2.0. Frozen sources
+inspection, proof, implementation and exposition, with separate same-team mathematical
+review of the rational-interface extension. Apache-2.0. Frozen sources
 are unchanged.

@@ -16,7 +16,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Exact source-bound group, literal input forms,1024basis columns,Gram ranks and four mutation/degree controls."
+      "checks": "Exact source-bound group, literal input forms,1024basis columns,Gram ranks, six failure controls and rational-interface boundary fixtures; general rational obstruction is proved in PROOF.md."
     },
     {
       "argv": [

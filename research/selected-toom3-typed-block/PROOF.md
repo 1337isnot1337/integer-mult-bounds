@@ -146,6 +146,58 @@ interpolation scalars are central: each ordered term is `A_i B_j`, and no
 reversal is used. What is missing here is a typed coefficient embedding of
 nine independent payloads, not a scalar identity.
 
+## Larger rational-interface obstruction
+
+There is a separate extension beyond affine encoders: allow **rational
+encoding and rational decoding** over K=Q(i). This does not assume, or imply,
+that an arbitrary set-theoretic decoder is rational.
+
+Let x=(x_1,...,x_N) be algebraically independent over K, N=4608, and let
+E=(E_1,...,E_m) be rational functions in K(x). All fixed coefficients and fixed
+side information belong to K. If independent other dirty coordinates remain
+visible as parameters, adjoin them to the base field and work at the generic
+full cut; invertibility of the full prefix keeps the nine selected payloads
+algebraically independent over that field. No special zero-valued helper
+slice is required, since such a slice could annihilate a denominator.
+Suppose D is rational over K, every denominator
+of D remains nonzero after substitution E(x), and `D(E(x))=F x` as a generic
+rational identity, where F is the exact invertible selected operator. Then
+
+`K(x)=K(F x) subset K(E_1,...,E_m) subset K(x)`.
+
+Indeed F inverse recovers each x_j from the coordinates of F x. The fields
+are equal, but the middle field has transcendence degree at most m over K,
+whereas K(x) has transcendence degree N. Therefore **m >= 4608**. Equivalently,
+the chain rule on the generic domain gives `J_D(E) J_E=F`; the left side has
+rank at most m and the right side rank 4608. This differential proof uses
+characteristic zero and the same generic-denominator condition.
+
+The two coefficient triples contain m=3072 scalar rational functions. A fixed
+operand leaves m=1536. If the decoder receives only the five product blocks,
+m=2560, so the product-only deficit is **2048 even for a nonlinear rational
+decoder**. Every input-dependent bypass, retained register or side channel
+visible to the decoder must be counted in m. Adding d rational side-channel
+coordinates thus requires d at least 1536, 3072 or 2048 respectively; these are
+information dimensions, not operation/child/native-cost lower bounds.
+
+Ordinary Toom evaluation and interpolation are rational scalar operations.
+Any fixed finite-dimensional bilinear coefficient algebra, including a
+noncommutative one with structure constants in K, has polynomial multiplication
+in its scalar entries. Variable inversion is rational where the element is a
+unit and the corresponding denominator is nonzero. Thus this larger model
+covers rational coefficient preparation, those products and rational output
+recovery, while leaving nonrational operations, wider coefficient spaces,
+finite-set/precision encodings and changed output contracts open. A denominator
+vanishing identically on the encoded image does not define an available
+rational decoder there. Pointwise injectivity over the countable field K is
+not a replacement for the formal generic identity.
+
+A small verifier fixture demonstrates a legal nonlinear rational change of
+coordinates `(x/y,y/z,z)` with exact inverse `(uvw,vw,w)`, and rejects the
+lost-scale map `(x/y,y/z)` and the identically undefined decoder denominator
+`u-v` under encoding `(x,x)`. These fixtures check boundary failure modes;
+the written function-field/chain-rule argument proves the general theorem.
+
 ## What can reopen the route
 
 Adding an affine side channel of scalar dimension d changes the encoding to
@@ -153,7 +205,7 @@ Adding an affine side channel of scalar dimension d changes the encoding to
 factor it requires **d >= 3072**. These are information dimensions, **not**
 native operation, child-count, storage, or time lower bounds. Already-retained
 productive data could supply such a channel; its exact use and legal costs
-must be specified. Wider coefficient spaces, data-dependent non-affine
+must be specified. Wider coefficient spaces, nonrational data
 encoding, a different output contract, or a new coupled recursive primitive
 are also outside this proposition. A wider space must be priced at its actual
 recursive size, rather than silently counted as the same five children.
