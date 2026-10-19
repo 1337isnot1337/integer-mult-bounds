@@ -8,8 +8,11 @@ import hashlib
 import io
 import itertools
 import json
+import shutil
 from pathlib import Path
+import subprocess
 import tarfile
+import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
 PACKAGE = Path(__file__).resolve().parent
@@ -181,7 +184,7 @@ def actual_inverse_pattern(matrix: list[list[int]],
                            adj: list[list[int]]) -> tuple[tuple[int, int], ...]:
     pattern = []
     for message in range(4):
-        source_ports = sum(matrix[row][message] << row for row in range(4))
+        source_ports = sum(bool(matrix[row][message]) << row for row in range(4))
         reader_ports = sum(bool(adj[message][output]) << output for output in range(4))
         pattern.append((plane_mask(source_ports), plane_mask(reader_ports)))
     return tuple(pattern)
@@ -213,6 +216,76 @@ def binary_controls(generic: set[tuple[tuple[int, int], ...]]) -> tuple[int, set
     singular_rows = (0b0001, 0b0001, 0b0100, 0b1000)
     need(generic_inverse_pattern(singular_rows) is None, "structural singularity control")
     return binary_count, binary_patterns
+
+
+def encode_pattern(pattern: tuple[tuple[int, int], ...]) -> int:
+    return sum((source * 4 + reader) << (4 * term)
+               for term, (source, reader) in enumerate(pattern))
+
+
+def ternary_artifact(generic: set[tuple[tuple[int, int], ...]]) -> dict:
+    """Validate every signed-ternary witness in the optional exhaustive C receipt."""
+    artifact = PACKAGE / "TERNARY-SCREEN.txt"
+    source = PACKAGE / "ternary_screen.c"
+    data = artifact.read_bytes()
+    source_bytes = source.read_bytes()
+    lines = data.decode("ascii").splitlines()
+    need(lines, "ternary screen receipt is empty")
+    header = lines[0].split()
+    need(header[0] == "TERNARY_SCREEN_V1", "ternary screen receipt schema")
+    fields = dict(item.split("=", 1) for item in header[1:])
+    expected = {"total": "43046721", "invertible": "27947520", "signatures": "439",
+                "binary_invertible": "22560", "binary_signatures": "391"}
+    need(fields == expected, "ternary screen receipt counts")
+
+    signatures = set()
+    for line in lines[1:]:
+        fields = line.split()
+        need(len(fields) == 17, "ternary witness row shape")
+        signature = int(fields[0], 16)
+        need(signature not in signatures, "duplicate ternary signature")
+        values = [int(value) for value in fields[1:]]
+        need(all(value in (-1, 0, 1) for value in values), "non-ternary witness value")
+        matrix = [values[4 * row:4 * row + 4] for row in range(4)]
+        determinant_value, adj = adjugate(matrix)
+        need(determinant_value != 0, "singular ternary witness")
+        actual = actual_inverse_pattern(matrix, adj)
+        need(encode_pattern(actual) == signature, "ternary witness signature mismatch")
+        signatures.add(signature)
+    need(len(signatures) == 439, "ternary signature witness count")
+    need(signatures == {encode_pattern(pattern) for pattern in generic},
+         "ternary and generic rational signature sets differ")
+
+    compiler = shutil.which("cc") or shutil.which("gcc") or shutil.which("clang")
+    replayed = False
+    if compiler:
+        with tempfile.TemporaryDirectory(prefix="joint-plane-ternary-") as temporary:
+            executable = Path(temporary) / "ternary-screen"
+            compiled = subprocess.run(
+                [compiler, "-std=c11", "-O3", "-Wall", "-Wextra", "-Werror",
+                 str(source), "-o", str(executable)],
+                capture_output=True, check=False, timeout=30)
+            need(compiled.returncode == 0,
+                 "C11 ternary screen compilation failed: "
+                 + compiled.stderr.decode("utf-8", errors="replace"))
+            run = subprocess.run([str(executable)], capture_output=True,
+                                 check=False, timeout=60)
+            need(run.returncode == 0, "C11 ternary screen failed")
+            need(run.stdout == data, "C11 ternary screen differs from receipt")
+            replayed = True
+    return {
+        "total_matrices": 43046721,
+        "invertible_matrices": 27947520,
+        "unique_signatures": len(signatures),
+        "binary_invertible_matrices": 22560,
+        "binary_signatures": 391,
+        "signature_set_sha256": digest(b"".join(
+            signature.to_bytes(2, "big") for signature in sorted(signatures))),
+        "source_sha256": digest(source_bytes),
+        "receipt_sha256": digest(data),
+        "matches_generic_support_family": True,
+        "c_replay_if_available": "required when a C11 compiler is available",
+    }, replayed
 
 
 def binary_rank(rows: list[int]) -> int:
@@ -318,6 +391,7 @@ def compute() -> dict:
     labels, planes = load_inputs()
     patterns, support_count = generic_patterns()
     binary_count, binary_patterns = binary_controls(patterns)
+    ternary, _ = ternary_artifact(patterns)
     combined_patterns = patterns | binary_patterns
     result = screen(labels, planes, patterns)
     combined_result = screen(labels, planes, combined_patterns)
@@ -340,10 +414,11 @@ def compute() -> dict:
         "binary_cancellation_only_patterns": len(binary_patterns - patterns),
         "generic_or_binary_pattern_union": len(combined_patterns),
         "controls_passed": 6,
+        "signed_ternary_screen": ternary,
         **result,
         "generic_union_binary_screen": combined_result,
         "scope_limits": [
-            "special rational assignments with cofactor cancellation",
+            "special rational assignments outside {-1,0,1} that create additional cofactor cancellations",
             "overcomplete factorizations with more than four scalar messages",
             "joint mixing across three or more matched planes",
             "coefficient arithmetic and scaling overhead in a native implementation",
@@ -366,11 +441,13 @@ def main() -> None:
         need(output.exists(), "RESULT.json missing; run with --write")
         need(output.read_text(encoding="utf-8") == encoded,
              "RESULT.json differs from exact replay")
+    has_c_compiler = any(shutil.which(name) for name in ("cc", "gcc", "clang"))
+    ternary_status = "REPLAYED" if has_c_compiler else "RECEIPT_CHECKED_NO_C_COMPILER"
     print("PASS_GENERIC_RATIONAL_JOINT_SUPPORT_SCREEN "
           f"structural_supports={result['structurally_invertible_support_matrices']} "
           f"patterns={result['generic_source_reader_support_patterns']} "
           f"plane_pairs={result['plane_pairs']} min_copy={result['minimum_copy_cost']} "
-          f"strict_improvements={result['strict_improvements']}")
+          f"strict_improvements={result['strict_improvements']} ternary_c={ternary_status}")
 
 
 if __name__ == "__main__":
