@@ -59,9 +59,8 @@ the companion-theorem section of `SCOPE-REVIEW.md` proves that all four
 primitive eighth-root characters occur for this displayed formula. The historical native arities
 `A_f^+/-:f`, `A_f^2:2f` are inherited carrier premises; their physical
 lowering is not replayed or admitted by this package. Conditional on that
-invoice, `m=2,W=n,H={1:k}` has `D=2n-k<=0`. Even f is covered by the
-separately preserved order4 scalar proof. Neither parity supplies a
-scalar-GL shortcut in its stated query model.
+invoice, `m=2,W=n,H={1:k}` has `D=2n-k<=0` for this odd-f carrier.
+No scalar-GL shortcut exists in this stated query model.
 
 The root and stabilizer lanes independently reviewed the rank argument.
 `quartic_opposite_gate.py` checks the full quartic coefficients, exact
