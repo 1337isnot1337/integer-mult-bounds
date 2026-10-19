@@ -25,7 +25,9 @@ def run():
              (7, 8, 2, 1, 1, 1, 4, 32, 4),
              (7, 8, 2, 2, 7, 2, 4, 40, 5),
              (13, 14, 2, 2, -2, 2, 8, 48, 8),
-             (13, 14, 2, 2, 11, 1, 8, 48, 8))
+             (13, 14, 2, 2, 11, 1, 8, 48, 8),
+             (3, 4, 2, 2, 2, 2, 4, 32, 3),
+             (3, 4, 2, 2, 4, 1, 4, 32, 3))
     for s, t, alpha, radius, start, length, p, bits, sigma in cases:
         with owned(*(Count.literal(v) for v in (s, t, alpha, radius, abs(start), length, p, bits, sigma))) as args:
             source_length, target_length, a, b, origin, m, target_p, P, scale = args
@@ -94,6 +96,8 @@ def run():
                     pool.empty()
             for tape in pool.tapes:
                 erase_marker(tape)
+    require(records[-2]["source"] == [-2, 9] and records[-1]["source"] == [0, 7],
+            "positive left advance with an equal source right endpoint")
     production = []
     for p, alpha in ((101, 2), (127, 3), (16384, 6)):
         with owned(Count.literal(p), Count.literal(alpha)) as args:

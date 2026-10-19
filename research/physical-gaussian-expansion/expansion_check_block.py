@@ -70,7 +70,7 @@ def expected_page(page, s, t, alpha, radius, start, length, p, bits, sigma):
     return j0+low, factors, c
 
 
-def models(data, factors, c, s, t, alpha, source_start, target_start, m, p, bits, sigma):
+def models(data, factors, c, s, t, alpha, source_start, target_start, m, p, bits, sigma, check_premature=True):
     from gaussian_check_exponentials import oracle
     n = len(data)
     rounding = lambda value: Q(int(value*(1 << bits)), 1 << bits)
@@ -98,8 +98,37 @@ def models(data, factors, c, s, t, alpha, source_start, target_start, m, p, bits
         actual.append(pair)
         premature.append(wrong)
     require(errors < Q(2, 1 << p), "whole normalized finite block agrees with direct Gaussian intervals")
-    require(actual != premature, "premature p-grid extraction changes the complete normalized result")
-    return actual, premature, errors
+    if check_premature:
+        require(actual != premature, "premature p-grid extraction changes the complete normalized result")
+    return actual, premature, Q((errors*(1 << 96)).__ceil__(), 1 << 96)
+
+
+def periodic_error(actual, s, t, alpha, target_start, p):
+    """Independent periodic S/2 enclosure, with a rigorous omitted tail."""
+    from gaussian_check_exponentials import oracle
+    require(alpha >= 2, "periodic Gaussian oracle alpha domain")
+    result = Q(0)
+    scale = 1 << 96
+    tail = Q(1, 1 << 256)
+    for z, pair in enumerate(actual):
+        center = Q(s, t)*(target_start+z)
+        origin = center.__floor__()
+        lower = [Q(0), Q(0)]
+        upper = [Q(0), Q(0)]
+        for j in range(origin-8*alpha, origin+8*alpha+1):
+            lo, hi = oracle((j-center)**2/(alpha*alpha))
+            values = inputs(j, 1, s)[0]
+            for component, value in enumerate(values):
+                ends = sorted((value*lo/(2*alpha), value*hi/(2*alpha)))
+                lower[component] += Q((ends[0]*scale).__floor__(), scale)
+                upper[component] += Q((ends[1]*scale).__ceil__(), scale)
+        # Beyond distance8alpha the two normalized tails are bounded by
+        # (1/alpha+1/(16pi))*exp(-64pi)<2^-256 for alpha>=2.
+        for component, value in enumerate(pair):
+            result = max(result, abs(Q(value, 1 << p)-(lower[component]-tail)),
+                         abs(Q(value, 1 << p)-(upper[component]+tail)))
+    require(result < Q(2, 1 << p), "finite complete output agrees with the periodic Gaussian map")
+    return Q((result*scale).__ceil__(), scale)
 
 
 def run():
@@ -132,6 +161,7 @@ def run():
                 data = inputs(source_start, len(factors["A"]), s)
                 expected, premature, error = models(data, factors, c, s, t, alpha, source_start,
                                                     start, length, p, bits, sigma)
+                global_error = periodic_error(expected, s, t, alpha, start, p)
                 with owned(Count.literal(p+2)) as (width,):
                     for pair in data:
                         for value in pair:
@@ -164,6 +194,7 @@ def run():
                                     "target": [start, length], "source": [source_start, len(data)],
                                     "p": p, "P": bits, "sigma": sigma, "values": actual,
                                     "premature_values": premature, "direct_error": str(error),
+                                    "periodic_error": str(global_error),
                                     "page_sha256": sha256(page_bytes).hexdigest(), "core_sha256": sha256(raw).hexdigest(),
                                     "word_calls": word_calls, "preparation_counts": preparation.last_counts})
             finally:

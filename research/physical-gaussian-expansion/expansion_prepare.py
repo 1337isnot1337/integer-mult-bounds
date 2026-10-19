@@ -2,13 +2,14 @@
 from expansion_sources import active
 active()
 from cardinal_counts import Count
-from encoded import compare
+from encoded import compare, subtract
 from expansion_geometry import BlockGeometry, ProductionBlock, absolute
 from expansion_records import BlockHeader
 from gaussian_exponentials import Exponentials
+from gaussian_page import skip_bits
 from gaussian_rationals import read_rational, write_rational
 from records import Tape
-from ring_words import Signed, right_shift, write_signed
+from ring_words import Signed, read_signed, right_shift, write_signed
 from router_metadata import indices, owned
 from scratch_pool import ScratchPool
 from session import (OuterScope, borrowed_count, erase_marker, initialize_marker,
@@ -17,10 +18,34 @@ from twiddle_setup import quotient
 from words import BLANK, need
 
 
+def reflected_kernel(plan, index, cache):
+    if compare(index, plan.h_high.magnitude) <= 0:
+        return None
+    with owned(Count(plan.h_high.magnitude)) as (twice,):
+        twice.multiply_small(2)
+        if compare(index, twice) > 0:
+            return None
+        with owned(subtract(twice, index)) as (earlier,):
+            cache.rewind()
+            with owned(Count.product(earlier, plan.width)) as (prefix,):
+                skip_bits(cache, prefix)
+            value = read_signed(cache, plan.width)
+            try:
+                with owned(subtract(index, earlier), Count.literal(1)) as (distance, one):
+                    with owned(subtract(distance, one)) as (remaining,):
+                        with owned(Count.product(remaining, plan.width)) as (suffix,):
+                            skip_bits(cache, suffix)
+                need(cache.read() == BLANK, "complete reflected expansion kernel prefix")
+                return value
+            except BaseException:
+                value.close()
+                raise
+
+
 def prepare_page(plan, target, pool):
     streams = {}
-    bound = exponentials = None
-    exact_units = 0
+    bound = exponentials = kernel_cache = None
+    exact_units = reflected = 0
     try:
         bound = Count.literal(1)
         for kind, length in (("A", plan.n), ("K", plan.nc), ("B", plan.m)):
@@ -37,18 +62,27 @@ def prepare_page(plan, target, pool):
                                 bound = following
             stream.rewind()
         exponentials = Exponentials(plan.P, bound)
+        kernel_cache = pool.acquire()
         BlockHeader.dump(plan, target)
         for kind, length in (("A", plan.n), ("K", plan.nc), ("B", plan.m)):
             stream = streams[kind]
             scale = None if kind == "K" else plan.sigma
-            for _ in indices(length):
+            for index in indices(length):
                 with owned(read_rational(stream)) as (exponent,):
                     if kind == "K":
                         need(not exponent.numerator.negative, "nonnegative expansion Gaussian kernel")
-                    if exponent.numerator.magnitude.zero():
+                    reused = reflected_kernel(plan, index, kernel_cache) if kind == "K" else None
+                    if reused is not None:
+                        with owned(reused):
+                            write_signed(reused, target, plan.width)
+                            write_signed(reused, kernel_cache, plan.width)
+                        reflected += 1
+                    elif exponent.numerator.magnitude.zero():
                         value = Count(plan.unit) if scale is None else right_shift(plan.unit, scale)
                         with owned(Signed(value)) as (coefficient,):
                             write_signed(coefficient, target, plan.width)
+                            if kind == "K":
+                                write_signed(coefficient, kernel_cache, plan.width)
                         exact_units += 1
                     else:
                         with owned(absolute(exponent)) as (argument,):
@@ -57,6 +91,8 @@ def prepare_page(plan, target, pool):
                             need(compare(bound_upper, plan.unit) <= 0,
                                  "certified expansion factor within normalized unit interval")
                             write_signed(coefficient, target, plan.width)
+                            if kind == "K":
+                                write_signed(coefficient, kernel_cache, plan.width)
             need(stream.read() == BLANK, "complete prepared expansion factor family")
         with owned(Count(plan.alpha)) as (denominator,):
             denominator.multiply_small(2)
@@ -64,6 +100,7 @@ def prepare_page(plan, target, pool):
                 need(not normalization.magnitude.zero(), "positive expansion normalization")
                 write_signed(normalization, target, plan.width)
         return {"exponentials": exponentials.calls, "exact_unit_factors": exact_units,
+                "reflected_kernel_factors": reflected,
                 "taylor_steps": exponentials.taylor_steps, "early_stops": exponentials.early_stops}
     finally:
         if exponentials is not None:
@@ -72,6 +109,8 @@ def prepare_page(plan, target, pool):
             bound.close()
         for stream in streams.values():
             stream.clear()
+        if kernel_cache is not None:
+            kernel_cache.clear()
 
 
 class Preparation:

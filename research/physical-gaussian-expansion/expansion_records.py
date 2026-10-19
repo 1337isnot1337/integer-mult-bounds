@@ -76,6 +76,13 @@ def compile_frame(owner):
              "near-one expansion ratio")
     need(compare(owner.m, owner.radius) <= 0 and compare(owner.m, owner.n) <= 0,
          "complete short expansion block shape")
+    with owned(Count(owner.radius), Count.literal(3)) as (minimum, three):
+        minimum.multiply_small(2)
+        minimum.add(three)
+        with owned(Count(minimum)) as (maximum,):
+            maximum.add(owner.m)
+            need(compare(minimum, owner.n) <= 0 and compare(owner.n, maximum) <= 0,
+                 "complete bounded expansion stencil span")
     with owned(Count(owner.n), Count.literal(1)) as (total, one):
         total.add(owner.m)
         with owned(subtract(total, one)) as (expected,):

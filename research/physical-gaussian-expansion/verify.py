@@ -13,12 +13,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--suite", required=True)
     args = parser.parse_args()
-    require(args.suite in ("geometry", "block"), "declared expansion check")
+    require(args.suite in ("sources", "budget", "geometry", "block", "tile_overlap", "tile_wrap", "ownership", "production"), "declared expansion check")
     with opened():
-        module = importlib.import_module("expansion_check_" + args.suite)
-        require(Path(module.__file__).resolve() == Path(__file__).resolve().parent / ("expansion_check_" + args.suite + ".py"),
+        name = "expansion_check_tile" if args.suite.startswith("tile_") else "expansion_check_" + args.suite
+        module = importlib.import_module(name)
+        require(Path(module.__file__).resolve() == Path(__file__).resolve().parent / (name + ".py"),
                 "package-local expansion checker")
-        evidence = module.run()
+        evidence = module.run(args.suite.removeprefix("tile_")) if args.suite.startswith("tile_") else module.run()
         print(json.dumps({"status": "PASS_PHYSICAL_GAUSSIAN_EXPANSION", "suite": args.suite,
                           "evidence": evidence}, sort_keys=True))
 
