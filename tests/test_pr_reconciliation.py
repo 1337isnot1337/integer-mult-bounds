@@ -227,6 +227,21 @@ class ReviewedFamilySourceSuccessor(unittest.TestCase):
             'research/complex-k492-owner-repair/code/hpe_audit_and_transport.py',
             'c9a05ff291016b870b4fc925b317abd9c3a604c73ffc8920dfdbbeb475e20aa3')
 
+    def test_reviewed_frontier741_successors_pass_without_rewriting_pins(self):
+        for path, digest in (
+                ('research/complex-factory5-resynthesis/SOURCE-PINS.json',
+                 '79e00db34b721dc38830a7816f3126a09615d49c12f1b6a630147f1f50378f63'),
+                ('research/complex-factory5-resynthesis/verify.py',
+                 'edbae43b68c0e4f65978a2f9b9a739867128f4ef19d8bbe81d06ed2e5bc165f1'),
+                ('research/supplier-circuit-consolidation/SOURCES.json',
+                 'ef2568aac251c94d86736936b9d8c7507d224b129da2907d1bc6a1c2b5546742'),
+                ('docs/ci-verification.md',
+                 'a854022e0e1d5d4db4d60e586be3ea56005013ef14a1fc06d02bc06e8529c4b0'),
+                ('scripts/verify_selected_result.py',
+                 'd7fd929726b326aeeaf0a3996475adec88eee9aac09ae0bebeeaa0bc1fc8f199')):
+            with self.subTest(path=path):
+                checker.check_reviewed_family_source(path, digest)
+
     def test_unreviewed_source_successor_is_rejected(self):
         with patch.object(Path, 'read_bytes', return_value=b'unreviewed source'), \
                 self.assertRaisesRegex(ValueError, 'Changed reviewed family source'):
