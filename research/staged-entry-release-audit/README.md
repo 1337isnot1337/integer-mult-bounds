@@ -44,7 +44,9 @@ not import or trust that PR's report histograms or checker outputs.
 
 Overlap: refreshed latest100 open bodies, another100 updated bodies, previous
 772-open-body snapshot,80 handoff comments and recent4075/4076 comments. Broader
-Discussion/closed/code coverage is partial. Existing tensor tests caused that
+Discussion/closed/code coverage is partial. The final refresh also found #4085 receiver sharing on helpers672/676; that is
+a distinct construction, and this audit does not validate its updated claim.
+Existing tensor tests caused that
 candidate to be dropped. #3949 supplies staged-entry identities; #3969 checks
 an older terminal/owner bridge; #3987 checks native phases; #3994 checks older
 word error reserves. None is represented as evidence for the new defect factors.
