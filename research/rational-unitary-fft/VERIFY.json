@@ -15,7 +15,12 @@
     "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py",
     "research/rational-unitary-fft/vendor/stein_rational.py",
     "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
-    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/certified-gaussian-recovery/intervals.py",
+    "research/certified-gaussian-recovery/NOTICE.md",
+    "research/certified-gaussian-recovery/PROOF.md",
+    "research/capped-fusion-t74-k554/outer/check_gaugefree.py",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md"
   ],
   "commands": [
     {
@@ -49,14 +54,14 @@
       "checks": "Repeat the complete generator program with source assertions enabled under optimized Python and compare its full typed receipt."
     },
     {
-      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py"],
+      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian"],
       "timeout_seconds": 300,
-      "checks": "Execute the retained full Toeplitz recursion and stored inverse, check leading-section admission, legal downsets/frontiers and active fragments, and compare exact endpoints plus rounded global error/width budgets."
+      "checks": "Execute the retained full Toeplitz recursion and stored inverse, check leading-section admission, legal downsets/frontiers and active fragments, and compare exact endpoints plus rounded global error/width budgets. Then execute the retained normalized Gaussian Tsec/full_plan caller with certified coefficients and truncation, compare ideal forward/inverse references and preserve both complete receipts."
     },
     {
-      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py"],
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian"],
       "timeout_seconds": 300,
-      "checks": "Repeat full recursive execution and discriminating conditioning/schedule controls under optimized Python with authenticated source assertions and a complete typed receipt."
+      "checks": "Repeat full recursive and normalized Gaussian execution sequentially under optimized Python with authenticated source assertions, conditioning/schedule/orientation/stale-certificate controls and both complete typed receipts."
     }
   ]
 }

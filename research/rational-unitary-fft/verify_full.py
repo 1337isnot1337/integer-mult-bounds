@@ -255,6 +255,7 @@ def run():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write-result", action="store_true")
+    parser.add_argument("--with-gaussian", action="store_true")
     args = parser.parse_args()
     result = run()
     path = HERE / "FULL-RESULT.json"
@@ -268,6 +269,9 @@ def main():
                           downsets=sum(len(x["downsets"]) for x in result["cases"]),
                           physical_cuts=sum(len(x["physical_cuts"]) for x in result["cases"]),
                           result_sha256=sha256(canonical(result)).hexdigest()), sort_keys=True))
+    if args.with_gaussian:
+        from verify_gaussian import verify_result
+        verify_result(args.write_result)
 
 
 if __name__ == "__main__":

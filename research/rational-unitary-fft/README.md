@@ -1,4 +1,21 @@
-# Certified full Toeplitz circuits with polynomial conditioning bounds
+# Certified normalized Gaussian calls through full Toeplitz circuits
+
+I connect the retained normalized Gaussian `Tsec` function and its
+`full_plan` call to requested-precision rational coefficients and the
+complete logical forward/inverse circuit. For dyadic size \(N\),
+rational \(c>0\), \(|s|\le1/2\), and
+\(T_{ij}=\exp[-\pi c((j-i)^2-2s(j-i))]\), I prove error below \(2^{-t}\)
+with online widths
+\[
+O(F_0+t+\log N+\log R+1/c).
+\]
+I derive leading-section conditioning, pay omitted offsets and coefficient
+quantization, and pass the same rational root to the full compiler.
+I preserve the diagonal ones and both closed half-shift endpoints.
+[GAUSSIAN-PROOF.md](GAUSSIAN-PROOF.md) gives the interval termination,
+conditioning, perturbation and composed error arguments.
+Raw Gaussian gauges, common-reference assembly and physical delivery
+require further work.
 
 I execute the retained full Toeplitz recursion and its stored inverse,
 using the rational generator, triangular and FFT circuits below.
@@ -104,6 +121,16 @@ python3.12 -B scripts/research_package.py \
 
 I declare eight normal/optimized commands, with limits of 60, 60, 90,
 90, 150, 150, 300 and 300 seconds, totaling 1,200 seconds.
+In each final slot I run the full verifier followed by the Gaussian
+verifier in the same process. I preserve the full receipt and compare
+the separate [GAUSSIAN-RESULT.json](GAUSSIAN-RESULT.json) receipt.
+I check nine Gaussian cases, 4,527 gates and 38 rounded forward/inverse
+states, including both half shifts, paid truncation and a 512-bit
+incoming vector. I compare finer scalar interval references and exact
+leading-section inverses, and reject 16 controls. The finer references
+share the declared interval backend; I claim no independent transcendental
+implementation. The complete Gaussian receipt is
+`0a0548963b8132b430f43b8534abbd4220b93a138eb9e0a28a9cfd7432922928`.
 I authenticate the source before parsing its schedule or executing its
 interval oracle. The adapter preserves bit reversal, gate ownership,
 disjoint layers, shear orientation and chronological calls. It replaces
@@ -223,6 +250,22 @@ near-identity stability argument. I add the explicit global coefficient
 perturbation, inverse, rounding and intermediate-width contract, with
 source-bound recursive execution.
 
+For the normalized Gaussian extension, I retain Mason Hale/PR2313's
+interval arithmetic and existing dense Gaussian/integer execution,
+Jeremy Kothe/IdeaOuter's shifted `Tsec` source, and Vlado's q-LDU factors.
+I rederive our PR4193 finite-cap implication in GAUSSIAN-PROOF.md rather
+than require an unmerged sibling proof as an unchecked hypothesis.
+I preserve full revision `7ab1bc8973cc9e606053c65f094ca3abc4a42fee`
+and its complete receipt
+`b1bdf09eb959cc4821c5515fa865c06541215224174bcdfc667e6515210bfbb6`.
+Its [hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39463338955)
+remains evidence for that revision.
+Before the extension I refreshed unchanged main, inspected 20 recent
+open PR records and 8/776 hub comments, and checked our canonical thread.
+I found no competing normalized coefficient-to-circuit claim in that
+coverage. I compared PR4212's P112 audit and PR4208's CRT stencil work;
+they address different native/physical obligations.
+
 I preserve the first completed revision `f02a4ab5ab70a8af80415ac35c5b48cd5a93a475`
 and its FFT receipt
 `2e203e42d3d617e828e3341ffeb44254c931db2aebb8a040d04d67338b5b4016`.
@@ -250,8 +293,8 @@ Apache-2.0.
 
 ## Open next questions
 
-In [TASK.json](TASK.json) I specify the next steps and blockers: bind the
-full circuit's conditioning and precision to the actual Gaussian block
-producer, then connect its coefficients and data widths to physical
-delivery. Complete setup, fixed-tape lowering and independent acceptance
-of the complete multiplication theorem remain open.
+In [TASK.json](TASK.json) I specify the next steps and blockers: incorporate
+the raw Gaussian gauges and scalar factors, compare with the common rounded
+reference, and connect the coefficients and data widths to physical delivery.
+Reviewers still need to assess the universal proofs and complete setup,
+fixed-tape lowering and the full multiplication construction.

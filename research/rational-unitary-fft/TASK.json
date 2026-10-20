@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Execute the retained full Toeplitz recursion and stored inverse with exact rational reference coefficients, certified generator/FFT/triangle gates, a polynomial completed-downset/frontier bound, one global grid and explicit online widths.",
-  "scope_change_reason": "The completed generator contract supports the full recursive caller. I preserve the three earlier receipts and add a global LDU/downset proof that avoids multiplying conditioning losses through recursion depth, including unequal sibling schedules and active fragments.",
+  "actual_scope": "Execute the retained normalized Gaussian Tsec/full_plan caller with requested-precision rational coefficients, closed-half-shift leading-section conditioning and complete forward/inverse ideal-kernel error and online-width bounds.",
+  "scope_change_reason": "The completed full circuit requires conditioning for the same rational root it receives. I connect the retained Gaussian evaluator to that boundary, rederive the finite-cap bound, and pay truncation, quantization and circuit errors while preserving four prior receipts.",
   "bottleneck_link": "The Gaussian caller needs full circuit execution and a quantified conditioning/rounding contract before physical delivery and the complete numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "I preserve the completed FFT, triangle and generator proofs/receipts. FULL-PROOF.md gives the leading-section, polynomial downset/frontier, perturbation, scalar and width arguments. FULL-RESULT.json records 11 cases, 3659 gates, 68 rounded states, 151 completed-call sets and 12 physical cuts. Schedule checks cover every cut; operator factorizations cover the selected cuts. Nontrivial fixtures reach size8; size16 is an identity/zero-call case. Scientific acceptance remains separate.",
+  "evidence": "I preserve the completed FFT, triangle, generator and full proofs/receipts. GAUSSIAN-PROOF.md derives the interval width/termination, finite-cap conditioning and complete normalized-kernel error bounds. GAUSSIAN-RESULT.json records 9 cases, 4527 gates, 38 rounded states and 16 controls. I execute Tsec and its adjacent full_plan call, compare finer scalar interval references sharing the declared backend, and compute exact leading inverses. Scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the actual Gaussian block producer supply the full circuit's leading-section conditioning and reference-error contract?",
-      "why_it_matters": "The full circuit theorem assumes a rational Toeplitz root and bounded leading inverses. The physical Gaussian caller must supply the same rounded/truncated root and pay its approximation error.",
-      "first_step": "Connect PR4193's conditioning estimates and the retained Gaussian coefficient producer to exact rational roots, then allocate truncation/coefficient/circuit errors in the actual block call.",
-      "blocked_by": "A source-bound Gaussian-to-full-circuit interface and complete preparation/error ledger."
+      "question": "Can the normalized circuit contract cover the raw Gaussian gauges and common rounded reference?",
+      "why_it_matters": "The actual broad and narrow callers include diagonal and scalar factors outside Tsec. Those factors change input radii, inverse sensitivity and error propagation.",
+      "first_step": "Bind one retained raw broad or narrow block formula to certified gauge coefficients, compose its rounded forward/inverse calls and compare with the same common Gaussian reference.",
+      "blocked_by": "A complete raw-factor preparation and error allocation, including boundary factors that the caller applies without inversion."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",
