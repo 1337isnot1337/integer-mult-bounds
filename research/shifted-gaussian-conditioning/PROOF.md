@@ -21,7 +21,11 @@ and phase argument in `vendor/GAUGEFREE-INTERIORS.md`, Lemmas 3.1–3.3.
 In Section 1 I make their minimum implication explicit. Vlado Vojdanovski
 already used the unshifted Poisson estimate in `FORWARD-SMALL-A-AUDIT.md`.
 I add the shifted uniform floor, its sharp exponential order, the
-finite-section inverse limit, and the source-specific bound in Section 5.
+finite-section inverse limit, and the source-specific bounds in Section 5.
+For the stronger finite-cap estimate I use Vlado's retained exact q-LDU
+identities from `HOLES-AND-Q-LDU.md`, Section 2, and the finite-origin
+Newton argument in `BILATERAL-LDU.md`. I claim the conditioning corollary
+and caller substitution, not the factorization identities.
 
 ## 1. Exact minimum from the retained product argument
 
@@ -219,6 +223,93 @@ dyadic size descriptor for \(\varepsilon=1/8\); I do not execute those
 large matrices or claim monotonicity in \(N\). This statement concerns fixed
 \(\gamma,s\) and unrestricted sizes, not attainment within a caller's capped block.
 
+## 3a. A finite-size bound through the half-shift endpoints
+
+We can use the finite cap to avoid the loss as \(\delta\downarrow0\).
+For this section allow \(|s|\le1/2\), including both endpoints, and let
+\(N\ge1\) be an integer. With \(q=e^{-\gamma}\), \(Q=q^2\), put
+\[
+P_j=\prod_{r=1}^j(1-Q^r),\quad P_0=1,\quad
+{i\brack j}_Q=\frac{P_i}{P_jP_{i-j}}\quad(0\le j\le i).
+\]
+I prove the finite bound
+\[
+\boxed{\displaystyle
+|(T_N(s)^{-1})_{ij}|
+\le \frac{q^{|i-j|+2s(i-j)}}{P_{N-1}^3}
+\le\frac1{P_{N-1}^3},\qquad
+\|T_N(s)^{-1}\|_2\le\frac{N}{P_{N-1}^3}
+\le N e^{\pi^2/(4\gamma)}.}
+\]
+Unlike the uniform-over-all-sizes accretivity bound, this estimate remains
+finite at the half shifts for a fixed \(N\).
+
+Start from the source's exact finite factorization for
+\(G_{ij}=q^{(i-j)^2}\):
+\[
+G=L\,\operatorname{diag}(P_j)L^T,\qquad
+L_{ij}=q^{(i-j)^2}{i\brack j}_Q,\qquad
+(L^{-1})_{ij}=(-q)^{i-j}{i\brack j}_Q \quad(i\ge j).
+\]
+For completeness, factor \(G_{ij}=q^{i^2}(Q^{-i})^jq^{j^2}\).
+Vandermonde determinants give the leading minor
+\(\Delta_n=\prod_{j=0}^{n-1}P_j\); the powers of \(q\) cancel.
+The minor with rows \(0,\ldots,j-1,i\) and columns \(0,\ldots,j\),
+divided by \(\Delta_{j+1}\), gives the stated \(L_{ij}\).
+The positive pivots are \(P_j\), so symmetry supplies the upper factor.
+To check the inverse, use
+\({i\brack k}_Q{k\brack j}_Q={i\brack j}_Q{i-j\brack k-j}_Q\).
+For \(n=i-j\), the product reduces to a nonzero scalar times
+\[
+\sum_{r=0}^n(-1)^rQ^{r(r-1)/2}{n\brack r}_Q
+=\prod_{r=0}^{n-1}(1-Q^r).
+\]
+For \(n>0\) the product vanishes; for \(n=0\) it equals one. This is the
+classical [finite q-binomial theorem, DLMF17.2.35](https://dlmf.nist.gov/17.2.E35).
+
+Write \(D_s[i,i]=q^{2si}\). Then
+\(T_N(s)=D_sGD_s^{-1}\), which proves invertibility for these finite
+matrices without a positive symbol minimum. At \(s=1/2\), the absolute
+entries of the shifted lower inverse are
+\[
+|(D_{1/2}L^{-1}D_{1/2}^{-1})_{ij}|
+=Q^{i-j}{i\brack j}_Q
+\le Q^{i-j}/P_{i-j}.
+\]
+Here \(P_i/P_j\le1\). Its column sums are at most
+\[
+\sum_{r=0}^{N-1}\frac{Q^r}{P_r}=\frac1{P_{N-1}},
+\]
+because \(Q^r/P_r=1/P_r-1/P_{r-1}\) for \(r\ge1\).
+The shifted upper inverse has absolute entries
+\({j\brack i}_Q\le1/P_{N-1}\), and each inverse diagonal pivot is also
+at most \(1/P_{N-1}\). Multiplying the three finite factors gives
+\[
+|(T_N(1/2)^{-1})_{ij}|\le P_{N-1}^{-3}.
+\]
+The negative endpoint is the transpose, so it satisfies the same entry bound.
+
+For \(i\ge j\), use
+\((T_N(-1/2)^{-1})_{ij}=q^{-(i-j)}(G^{-1})_{ij}\);
+for \(i<j\), use the positive endpoint instead. Thus
+\(|(G^{-1})_{ij}|\le q^{|i-j|}/P_{N-1}^3\).
+Conjugating by \(D_s\) proves the displayed entry estimate for the entire
+closed shift interval. Bounding both row and column sums by \(N/P_{N-1}^3\)
+gives the Euclidean norm bound.
+
+Finally \(P_{N-1}\ge P_\infty>0\). Expanding the logarithm and summing
+nonnegative terms gives
+\[
+-\log P_\infty
+=\sum_{h\ge1}\frac1{h(e^{2\gamma h}-1)}
+\le\frac1{2\gamma}\sum_{h\ge1}\frac1{h^2}
+=\frac{\pi^2}{12\gamma}.
+\]
+This proves \(P_{N-1}^{-3}\le e^{\pi^2/(4\gamma)}\).
+For strict shifts, reviewers may use the smaller of this finite-size
+bound and \(1/m\). I do not claim an optimal finite-size constant or an
+inverse algorithm with controlled intermediate precision from this norm bound.
+
 ## 4. Rounding, truncation and certificate interpretation
 
 If an approximate kernel \(\widetilde k\) satisfies
@@ -267,6 +358,11 @@ The `kernel_error_majorant` interval encloses the computed upper-bound
 expression; its lower endpoint is not a lower bound on the actual error.
 The finite-section inverse lower/upper fields concern the ideal matrix.
 The separately named rounded inverse bound uses \(1/(m-\varepsilon)\).
+The additional finite-cap fixtures use exact rational \(q\), including
+both half shifts. I reconstruct the finite q-LDU and triangular-inverse
+identities, check both products with the direct shifted matrix, and
+check the entry decay and row/column bounds. These checks concern completed
+inverses; they do not certify a physical implementation of the factorization.
 
 I use precision-80 directed Decimal arithmetic for basic operations.
 Python documents correctly rounded nearest `exp` and `sqrt`; I widen each
@@ -341,13 +437,27 @@ Hence \(e^{a\rho/4}=p^{1+o(1)}\), while \(\theta^{-1}\le4p^2\).
 The source's coarse \(a\le5\log(16p)\) alone would not give this exponent.
 The ceiling term also prevents an \(O(p^3)\) conclusion from this argument.
 
+For the actual finite cap, Section 3a gives the stronger bound
+\[
+\boxed{\displaystyle
+\|K^{-1}\|_2\le Q_p^{\rm cap}:=
+\alpha G N e^{a\rho/4}
+\le p^{1+\xi+o(1)}\qquad (N\le B\le p^\xi).}
+\]
+Here \(\alpha=p^{o(1)}\), \(G=1+o(1)\) and
+\(e^{a\rho/4}=p^{1+o(1)}\), uniformly over the admitted blocks.
+This avoids the \(\theta^{-1}\) loss in the unrestricted-size symbol estimate.
+At fixed \(\xi<1\), we obtain an inverse allowance below \(p^2\) eventually.
+We can use \(\min(Q_p,Q_p^{\rm cap})\) in a perturbation argument.
+
 For a raw operator perturbation of norm \(\varepsilon_p\) with
-\(\varepsilon_pQ_p\le1/2\), the inverse bound becomes
-\(Q_p/(1-\varepsilon_pQ_p)\le2Q_p\), preserving \(p^{3+o(1)}\).
+\(\varepsilon_pQ_p^{\rm cap}\le1/2\), the inverse bound becomes
+\(Q_p^{\rm cap}/(1-\varepsilon_pQ_p^{\rm cap})\le2Q_p^{\rm cap}\),
+preserving \(p^{1+\xi+o(1)}\).
 A claimed truncation/rounding implementation must prove that premise.
 
 I improve the source's loose \(p^6\) allowance for these capped interiors.
-I do not assert optimality of \(p^{3+o(1)}\) for capped, gauged blocks.
+I do not assert optimality of \(p^{1+\xi+o(1)}\) for capped, gauged blocks.
 The caller assigns holes, phase cuts and period cuts to the boundary, and
 applies the broad Schur complement without inverting it. I retain those
 restrictions. The shallow-circuit construction, coefficient-generation costs,

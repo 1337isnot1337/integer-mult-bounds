@@ -138,7 +138,7 @@ def fraction_hash(values):
     return digest.hexdigest()
 
 
-def sections(coefficients, rounded, m):
+def sections(coefficients, rounded, m, finite_constant):
     result = []
     for size in (1, 2, 4, 8, 16):
         margin = Q(m.lo) / 2
@@ -156,7 +156,8 @@ def sections(coefficients, rounded, m):
         result.append({"size": size, "ldl_pivot_sha256": fraction_hash(pivots),
                        "smallest_pivot": I(min(pivots)).record(),
                        "ideal_inverse_norm_lower": str(inverse_lower),
-                       "ideal_uniform_inverse_norm_upper": str(inverse_upper)})
+                       "ideal_uniform_inverse_norm_upper": str(inverse_upper),
+                       "ideal_gap_free_inverse_norm_upper": str((size * finite_constant).hi)})
     return result
 
 
@@ -181,6 +182,79 @@ def rejected(operation, label):
     except ValueError:
         return label
     raise ValueError("control unexpectedly passed: " + label)
+
+
+def multiply(left, right):
+    return [[sum((left[i][k] * right[k][j] for k in range(len(right))), Q(0))
+             for j in range(len(right[0]))] for i in range(len(left))]
+
+
+def finite_shift_validate(shift):
+    need(abs(shift) <= Q(1, 2), "closed half-shift domain")
+
+
+def exact_power(base, exponent):
+    exponent = Q(exponent)
+    need(exponent.denominator == 1, "integer power in rational Gaussian fixture")
+    return base ** exponent.numerator
+
+
+def finite_cap_certificates():
+    records = []
+    wrong_shift_rejections = 0
+    for root_q in (Q(1, 2), Q(3, 4), Q(15, 16)):
+        q = root_q ** 2
+        for size in (1, 2, 4, 8):
+            product = [Q(1)]
+            for j in range(1, size):
+                product.append(product[-1] * (1 - q ** (2 * j)))
+            choose = [[product[i] / (product[j] * product[i - j]) if j <= i else Q(0)
+                       for j in range(size)] for i in range(size)]
+            lower = [[q ** ((i - j) ** 2) * choose[i][j] if j <= i else Q(0)
+                      for j in range(size)] for i in range(size)]
+            lower_inverse = [[(-q) ** (i - j) * choose[i][j] if j <= i else Q(0)
+                              for j in range(size)] for i in range(size)]
+            identity = [[Q(i == j) for j in range(size)] for i in range(size)]
+            centered = [[q ** ((i - j) ** 2) for j in range(size)] for i in range(size)]
+            diagonal_times_transpose = [[product[i] * lower[j][i] for j in range(size)]
+                                        for i in range(size)]
+            need(multiply(lower, diagonal_times_transpose) == centered, "retained q-LDU identity")
+            need(multiply(lower_inverse, lower) == identity, "finite q-binomial triangular inverse")
+            centered_inverse = [[sum((lower_inverse[k][i] * lower_inverse[k][j] / product[k]
+                                      for k in range(max(i, j), size)), Q(0))
+                                 for j in range(size)] for i in range(size)]
+            # The finite product is larger than P_infinity, so this is a stronger
+            # finite-fixture bound than the universal P_infinity expression.
+            constant = 1 / product[-1] ** 3
+            for shift in (Q(-1, 2), Q(-1, 4), Q(0), Q(1, 4), Q(1, 2)):
+                finite_shift_validate(shift)
+                matrix = [[exact_power(root_q, 2 * ((j - i) ** 2 - 2 * shift * (j - i)))
+                           for j in range(size)] for i in range(size)]
+                inverse = [[centered_inverse[i][j] * exact_power(root_q, 4 * shift * (i - j))
+                            for j in range(size)] for i in range(size)]
+                need(multiply(matrix, inverse) == identity and multiply(inverse, matrix) == identity,
+                     "exact shifted Gaussian left and right inverse")
+                for i in range(size):
+                    for j in range(size):
+                        decay = exact_power(root_q, 2 * abs(i - j) + 4 * shift * (i - j))
+                        need(abs(inverse[i][j]) <= constant * decay <= constant,
+                             "gap-free inverse entry bound")
+                row_norm = max(sum(abs(x) for x in row) for row in inverse)
+                column_norm = max(sum(abs(inverse[i][j]) for i in range(size)) for j in range(size))
+                need(max(row_norm, column_norm) <= size * constant, "finite Euclidean norm majorant")
+                if shift and size > 1:
+                    wrong = [[centered_inverse[i][j] * exact_power(root_q, -4 * shift * (i - j))
+                              for j in range(size)] for i in range(size)]
+                    need(multiply(matrix, wrong) != identity, "reversed shift conjugation rejects")
+                    wrong_shift_rejections += 1
+                records.append({"q": str(q), "shift": str(shift), "size": size,
+                                "inverse_sha256": fraction_hash([x for row in inverse for x in row]),
+                                "row_norm": I(row_norm).record(), "column_norm": I(column_norm).record(),
+                                "finite_product_constant": I(constant).record(),
+                                "gap_free_inverse_norm_upper": I(size * constant).record()})
+    rejected(lambda: finite_shift_validate(Q(3, 4)), "outside closed half-shift domain")
+    return {"cases": records, "reversed_shift_rejections": wrong_shift_rejections,
+            "outside_domain_rejected": True}
 
 
 def controls():
@@ -241,18 +315,19 @@ def run():
         circle_count = circle_checks(coefficients, m, tail)
         rounded, error = rounded_kernel(coefficients, tail)
         need(error.hi < DOWN.divide(m.lo, D(2)), "complete kernel perturbation budget")
+        finite_constant = (pi.square() / (4 * gamma)).exp()
         records.append({"gamma": str(gamma), "shift": str(shift), "gap": str(delta),
                         "minimum": m.record(), "enclosures": methods,
                         "new_floor": floor.record(), "old_floor": old_floor.record(),
                         "poisson_enclosure": poisson.record(),
                         "circle_samples": circle_count, "kernel_error_majorant": error.record(),
                         "rounded_inverse_norm_upper": str((1 / (m - error)).hi),
-                        "finite_sections": sections(coefficients, rounded, m),
+                        "finite_sections": sections(coefficients, rounded, m, finite_constant),
                         "near_sharp_size_descriptor": size_descriptor(gamma, m)})
     return {"schema_version": 1, "scope": "finite certified evidence; universal proof in PROOF.md",
             "sources": sources, "arithmetic": arithmetic_record, "pi": pi.record(),
             "kernel_half_width": WIDTH, "coefficient_fractional_bits": BITS,
-            "cases": records, "controls": controls()}
+            "cases": records, "finite_cap": finite_cap_certificates(), "controls": controls()}
 
 
 def main():
@@ -269,6 +344,7 @@ def main():
                       "case_count": len(result["cases"]),
                       "finite_sections": sum(len(row["finite_sections"]) for row in result["cases"]),
                       "circle_samples": sum(row["circle_samples"] for row in result["cases"]),
+                      "exact_finite_cap_cases": len(result["finite_cap"]["cases"]),
                       "result_sha256": sha256(canonical(result)).hexdigest()}, sort_keys=True))
 
 

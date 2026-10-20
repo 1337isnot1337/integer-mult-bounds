@@ -38,26 +38,26 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Prove a shift-uniform Gaussian accretivity floor with exponential coefficient 1/4, the sharp finite-section inverse limit, and a p^(3+o(1)) upper bound at PR4100's capped broad caller; certify finite consequences with directed enclosures and exact rational positivity.",
-  "scope_change_reason": "The retained source already supplies the product/phase argument and its minimum-at-pi corollary. The separate shifted floor and inverse sharpness improve its conditioning estimate without changing the arithmetic mechanism or paid supplier profile.",
+  "actual_scope": "Prove a shift-uniform Gaussian accretivity floor with exponential coefficient 1/4, the sharp unrestricted-size inverse limit, and a finite-cap q-LDU bound through half shifts giving p^(1+xi+o(1)) at PR4100's broad caller; certify finite consequences with directed enclosures and exact rational identities.",
+  "scope_change_reason": "The retained source already supplies the product/phase argument and exact q-LDU factors. The new conditioning corollaries improve the actual caller estimate without changing the arithmetic mechanism or paid profile. Final review sharpened the first p^(3+o(1)) estimate by using the finite cap in the same package.",
   "bottleneck_link": "The broad Gaussian caller needs a correctly normalized inverse bound before truncation, rounding and circuit-prefix estimates can be integrated into the full transform.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid normalization, unjustified infinite-product limit, nonnormal section treated as Hermitian, or fixed-cap optimality inferred from unrestricted-size sharpness. Keep complete circuit and multiplication acceptance outside this scope.",
   "outcome": "completed",
-  "evidence": "PROOF.md gives quantified analytic statements and the exact caller substitution. RESULT.json records 25 interval cases, 125 exact rational finite-section positivity certificates, 150 circle samples and domain/normalization/tail controls. Hosted and exported receipts are separate from scientific acceptance.",
+  "evidence": "PROOF.md gives quantified analytic statements and the exact caller substitution. RESULT.json records 25 interval cases, 125 rational positivity certificates, 150 circle samples, 60 exact finite-cap inverse cases including half shifts, and domain/normalization/tail/conjugation controls. Hosted and exported receipts are separate from scientific acceptance.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the caller obtain a smaller inverse bound using the restriction N<=B(p), rather than the unrestricted-size sharp constant?",
-      "why_it_matters": "The p^(3+o(1)) upper bound is not an optimality theorem for finite capped, gauged blocks.",
-      "first_step": "Compare an explicit finite-section singular-value lower bound against the retained symbol floor at the actual scale, shift gap and block cap.",
-      "blocked_by": "A size-dependent argument that remains uniform near half shifts and preserves the real diagonal gauges."
+      "question": "Is the finite-cap inverse estimate sharp in N near the half shifts, and can the actual caller obtain a smaller bound?",
+      "why_it_matters": "The p^(1+xi+o(1)) upper bound is not an optimality theorem for capped, gauged blocks.",
+      "first_step": "Construct a finite-section singular vector or refine the source q-LDU entry sum at the actual scale, shift gap and block cap.",
+      "blocked_by": "A matching size-dependent estimate that remains uniform near half shifts and preserves the real diagonal gauges."
     },
     {
       "question": "Can the complete Gaussian circuit and error ledger consume the improved bound with source-bound coefficient and perturbation costs?",
       "why_it_matters": "Conditioning alone does not establish the shallow circuit, physical coefficient generation or complete multiplication theorem.",
-      "first_step": "Substitute the explicit Q_p from PROOF.md into one actual interior's perturbation and prefix bounds, retaining the incoming-height and rounded-boundary obligations.",
+      "first_step": "Substitute the explicit Q_p^cap from PROOF.md into one actual interior's perturbation and prefix bounds, retaining the incoming-height and rounded-boundary obligations.",
       "blocked_by": "Separate all-size circuit/precision review and physical caller integration."
     }
   ]

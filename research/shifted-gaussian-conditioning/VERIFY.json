@@ -10,13 +10,15 @@
     "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
     "research/capped-phase-fusion/README.md",
     "research/capped-fusion-t74-k554/README.md",
-    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md",
+    "research/capped-phase-fusion/BILATERAL-LDU.md"
   ],
   "commands": [
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
       "timeout_seconds": 180,
-      "checks": "Authenticate sources, enclose shifted Gaussian minima by two convergent representations, check Poisson bounds, charge coefficient/tail perturbations, reconstruct exact rational LDL certificates and reject domain/normalization controls."
+      "checks": "Authenticate sources, enclose shifted Gaussian minima and perturbations, reconstruct rational positivity certificates, and check finite q-LDU inverse bounds through both half-shift endpoints with exact kernel/inverse identities."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
