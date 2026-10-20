@@ -16,6 +16,13 @@ intermediate is illegal. An unchanged histogram is not a paid-profile gain.
 
 The argument and the twelve dependence pairs are in [PROOF.md](PROOF.md).
 
+PR #4122 prices a different scalar identity for the same open question: a
+swap of `y += x` with `y += z`, plus restoration, also at histogram delta 0.
+That package does not search these providers. The obstruction above is the
+provider half it leaves open. The two-ADD identity in section 3 of the proof
+is the synthetic control already named by PR #3964, recomputed here only to
+show that its bill is zero and that it is not an occurrence.
+
 ## Scope and evidence
 
 Original card: `scalar-to-moment`, scope **refined**. The card asks for one
@@ -72,8 +79,9 @@ replay was run.
 The providers are dataisfire's PR #3734 words as vendored by Chris R /
 Clear1nsight in PR #3964. The stationary legality theorem, the crossed-line
 control, and `retiming.py` are from that PR and its credited PR #3886 /
-PR #3942 lineage. The witness partition, the invariance argument, and the
-histogram of the scalar identity are new.
+PR #3942 lineage. Parallel PR #4122, discussion comment 19056694, invoices a
+swap-and-restore identity and does not search these words. The witness
+partition and the invariance argument are the part added here.
 
 Prepared by unpaidmoon with substantial Cursor Grok assistance. No independent
 human or formal-kernel review is claimed. Apache-2.0.

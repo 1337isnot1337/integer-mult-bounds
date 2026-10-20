@@ -88,6 +88,9 @@ that pattern replaces `M` by a disjoint line on both gates.
 
 The pattern left open by PR #3964 is still a real scalar identity. It just
 does not occur under this move contract, and it does not improve the bill.
+PR #4122 already invoices a richer swap-and-restore identity at delta zero
+and explicitly does not search these providers. The calculation below is the
+#3964 synthetic control, not a second claim on that invoice.
 
 On helpers `h = 300` and `s = 301`, with fixed terminal frame `span(e1, e2)`:
 
