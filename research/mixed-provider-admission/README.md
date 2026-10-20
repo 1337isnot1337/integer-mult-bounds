@@ -7,6 +7,12 @@ width, and preserves the inherited release checks. It does not construct a new
 supplier, change the selected frontier, or prove the all-size multiplication
 theorem.
 
+The default full replay passed from an isolated committed export, including
+ordinary, strict and outer release. [EVIDENCE.json](EVIDENCE.json) records its
+actual receipts and [REPLAY.log](REPLAY.log) preserves the executed stdout
+excerpts. These are author-produced finite evidence, pending independent
+scientific review.
+
 The question is the revision-7 `supplier-boundary-audit` card's concrete missing
 replay. The scientific baseline is
 `12fa8c5c844be21bfefb38a19503fbd867a11244`; the exact consumed Git objects and
@@ -177,7 +183,8 @@ author receipts are distinct from maintainer scientific review.
 2. **One caller-bound all-size implication.** Finite admission leaves the
    uniform compiler/precision/fixed-tape transfer question open. The first
    feasible step is to consult the current `uniform-transfer-audit` card and
-   PR4100/PR4169 handoffs, then pin one real caller and quantified proposition.
+   PR4100/PR4169 handoffs and Discussion4173's live CRT reservoir claim, then
+   pin one unclaimed real caller and quantified proposition.
    A general argument, rather than another evaluation of this root, is needed.
 
 The structured questions and their blockers are also in [TASK.json](TASK.json).
@@ -204,8 +211,9 @@ The structured questions and their blockers are also in [TASK.json](TASK.json).
 The retained archive SHA256 is
 `e74d545c18f77b7a9b8f0cc3d4901a87bb686888edaf3e41b30e5b2748751041`.
 All predecessor notices and licenses remain in their source packages and are
-preserved by reconstruction. PR4170's pooled-ceiling transfer audit addresses
-a distinct obligation. This does not repeat yssite's PR959, PR1558 or PR2377.
+preserved by reconstruction. PR4170's pooled-ceiling transfer, PR4171's moment
+arithmetic and Discussion4173's CRT reservoir audit address distinct
+obligations. This does not repeat yssite's PR959, PR1558 or PR2377.
 
 Prepared for yssite with substantial OpenAI Codex assistance in investigation,
 implementation, documentation and two separate AI checking contexts.
