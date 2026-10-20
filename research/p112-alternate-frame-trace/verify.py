@@ -10,7 +10,7 @@ import json
 
 HERE = Path(__file__).resolve().parent
 WORK = HERE.parents[1]
-PINS = {'research/p112-alternate-frame-trace/FIXTURE.json': '6253d605fbdb603a8a1076c95fba7cb3381658c71cc6b2c215ff56cfd9e45207', 'research/p112-rational-decoder-gate/CANDIDATE.json': 'dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b', 'research/adaptive-kernel-demotion/inputs/DATA-PHASES.json': 'c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa'}
+PINS = {'research/p112-alternate-frame-trace/FIXTURE.json': '13e1f33aa04e417968535d2b2fd4eb2b90672e117b95c0d449d3796563883578', 'research/p112-rational-decoder-gate/CANDIDATE.json': 'dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b', 'research/adaptive-kernel-demotion/inputs/DATA-PHASES.json': 'c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa'}
 
 def need(condition, message):
     if not condition:
@@ -269,7 +269,7 @@ def main():
     import sys
     receipt = HERE/'RESULT.json'
     if sys.argv[1:] == ['--write-receipt']:
-        receipt.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+        receipt.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     else:
         need(not sys.argv[1:], 'only --write-receipt is accepted')
         need(json.loads(receipt.read_text(encoding='utf-8')) == result, 'committed primary receipt matches recomputation')

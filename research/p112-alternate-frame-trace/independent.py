@@ -174,7 +174,7 @@ def determinant(A):
 
 
 def run():
-    hashes = {'research/p112-alternate-frame-trace/FIXTURE.json': '6253d605fbdb603a8a1076c95fba7cb3381658c71cc6b2c215ff56cfd9e45207', 'research/p112-rational-decoder-gate/CANDIDATE.json': 'dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b', 'research/adaptive-kernel-demotion/inputs/DATA-PHASES.json': 'c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa'}
+    hashes = {'research/p112-alternate-frame-trace/FIXTURE.json': '13e1f33aa04e417968535d2b2fd4eb2b90672e117b95c0d449d3796563883578', 'research/p112-rational-decoder-gate/CANDIDATE.json': 'dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b', 'research/adaptive-kernel-demotion/inputs/DATA-PHASES.json': 'c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa'}
     inputs = {p:read(p, sha) for p, sha in hashes.items()}
     anchor = inputs[next(iter(hashes))]['asymmetric_template_matrix']
     A = [list(map(F, row)) for row in anchor]
@@ -260,6 +260,11 @@ def run():
     need(mm(fixture,fixture) == fixture and rank(fixture) == 2, 'known two-cap positive fixture')
     trace_defect = F(1,2)*fixture[0][0]-fixture[3][3]
     need(trace_defect == -4, 'exact nonzero trace contradiction')
+    fixture_T = [[fixture[i][j]*(F(1,2) if j == 0 else 1) for j in range(3)] for i in range(3)]
+    fixture_B = [[fixture_T[i][j]+int(i == j == 0) for j in range(3)] for i in range(3)]
+    need(rank(fixture_B) <= 1, 'positive fixture satisfies literal cap34')
+    fixture_S4 = [[F(i == j)-fixture_T[i][j] for j in range(3)]+[fixture_T[i][0]] for i in range(3)]+[fixture_T[0]+[-fixture_T[0][0]]]
+    need(rank(fixture_S4) <= 3, 'positive fixture satisfies literal cap22')
     need(mm(mm(fixture,W),fixture) != fixture, 'omitting cap28 admits prior two-cap fixture')
     need(rank(subtract_numeric(eye(4),fixture)) == 2, 'fixture complement rank')
     candidate = inputs['research/p112-rational-decoder-gate/CANDIDATE.json']
@@ -289,7 +294,7 @@ if __name__ == '__main__':
     result = run()
     receipt = HERE/'INDEPENDENT-RESULT.json'
     if sys.argv[1:] == ['--write-receipt']:
-        receipt.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
+        receipt.write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8',newline='\n')
     else:
         need(not sys.argv[1:], 'only --write-receipt is accepted')
         need(json.loads(receipt.read_text(encoding='utf-8')) == json.loads(json.dumps(result)), 'committed independent receipt matches recomputation')

@@ -20,7 +20,7 @@
   },
   "scope": "Every rational split in the fixed alternate H0,K0 frame obeying the mandatory flags is excluded by masks34,22,28. Other complements and other anchor matrices remain outside the claim; no decoder bound changes.",
   "input_sha256": {
-    "research/p112-alternate-frame-trace/FIXTURE.json": "6253d605fbdb603a8a1076c95fba7cb3381658c71cc6b2c215ff56cfd9e45207",
+    "research/p112-alternate-frame-trace/FIXTURE.json": "13e1f33aa04e417968535d2b2fd4eb2b90672e117b95c0d449d3796563883578",
     "research/p112-rational-decoder-gate/CANDIDATE.json": "dc5fbe51f9cd3a14361256ac136736bffb18971d0247b891accf0d2ee060d06b",
     "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json": "c5916ff312678f12aba403847643fbbc29f643acec60bdf836fa56cd3e8251fa"
   },
