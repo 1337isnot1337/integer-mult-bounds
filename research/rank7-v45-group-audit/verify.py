@@ -1,11 +1,19 @@
 #!/usr/bin/env python3
-"""Independent audit of one #2979 rank-7 group: V45.
+"""Measured V45 price on the monotone 61-edit walk.
 
-Reconstructs the shared end frame of helpers 249, 251, 265 and 267 on both
-PR2942 parent words, prices every subset against the published integer frame
-surrogate, and checks the losing single-helper controls. This file does not
-import research/rank7-joint-endframes/producer.py, verify.py, or
-construction/STAGE-PRICES.json.
+PR #3911 prices V45 endpoint subsets on the full 139-edit stage-one word and
+obtains the shared overhead by subtracting a measured endpoint delta from the
+pinned group-price row. The 29 edits that name helpers 249, 251, 265 or 267
+are nonmonotone at register 169, so that audit leaves the group price
+underived.
+
+This verifier selects the 61 stage-one edits whose new frame lies in the
+declared V45 frame and in no other declared group frame. On both PR #2942
+parents that walk is monotone. Its profile cost is +78512 with the four
+endpoints left unchanged and -8388172 with all four lowered. Every 60-edit
+subset of that joint walk is nonmonotone. The weights are the published
+surrogate. This file does not import producer.py, verify.py, or
+STAGE-PRICES.json.
 
 The frame profile is a separate transcription of the inherited climb rules
 (Jeremy Kothe, PR #2894, as stated in that package's vendored preload_move.py):
@@ -44,6 +52,13 @@ PARTNER_ALLOWANCE = 25371
 BREAK_EVEN = WEIGHTS[1] - PARTNER_ALLOWANCE
 HELPERS = (249, 251, 265, 267)
 NORMALS = (7, 42, 45)
+# These two role edits can be omitted from the gate-only walk. The walk stays
+# monotone, and the profile cost rises from 78512 to 83508. With all four
+# endpoints lowered, omitting either edit is nonmonotone at that helper.
+GATE_ONLY_EXCEPTIONS = {
+    ("restore", 137): 267,
+    ("restore", 157): 265,
+}
 
 
 def basis(vectors):
@@ -85,6 +100,10 @@ def roles(gate):
     raise ValueError("not a scalar gate")
 
 
+def edit_key(edit):
+    return (edit["section"], edit["index"])
+
+
 def frame_report(word):
     full = basis(1 << i for i in range(9))
     ends = (
@@ -105,7 +124,7 @@ def frame_report(word):
     def climb(register, frame):
         frame = basis(frame)
         if not contained(current[register], frame):
-            raise ValueError("nonmonotone")
+            raise ValueError("nonmonotone " + str(register))
         rank_jump = len(frame) - len(current[register])
         if rank_jump:
             paid[rank_jump] += 1
@@ -180,6 +199,10 @@ def group_owners(record, frame):
     ]
 
 
+def touches_v45(edit):
+    return bool(set(roles(edit["gate"])) & set(HELPERS))
+
+
 def apply_v45(parent, record, edits, helpers):
     word = copy.deepcopy(parent)
     subspace = list(record["groups"]["V45"][0])
@@ -211,17 +234,25 @@ def gates_outside(word, helpers, subspace):
     return outside
 
 
-def expect_nonmonotone(parent, record, edits, helpers):
+def expect_nonmonotone(parent, record, edits, helpers, register=None):
     try:
         apply_v45(parent, record, edits, helpers)
     except ValueError as error:
-        if str(error) != "nonmonotone":
-            raise SystemExit("control rejected for the wrong reason: " + str(error))
+        text = str(error)
+        if register is None:
+            if not text.startswith("nonmonotone "):
+                raise SystemExit("control rejected for the wrong reason: " + text)
+        elif text != "nonmonotone " + str(register):
+            raise SystemExit("control rejected at " + text + ", expected register " + str(register))
         return
     raise SystemExit("control accepted a nonmonotone mutant")
 
 
-def audit_provider(tag, record, edits):
+def without(edits, key):
+    return [edit for edit in edits if edit_key(edit) != key]
+
+
+def audit_provider(tag, record, edits, role_edits):
     with gzip.open(DATA / f"PARENT-{tag}.json.gz", "rt", encoding="utf-8") as handle:
         parent = json.load(handle)
     parent_profile, parent_inventory = frame_report(parent)
@@ -239,19 +270,31 @@ def audit_provider(tag, record, edits):
         if len(basis(old)) != 8 or len(basis(subspace)) != 7 or not contained(subspace, old):
             raise SystemExit("lowered end frame is not a hyperplane of the old end frame")
 
+    expect_nonmonotone(parent, record, role_edits, (), register=169)
+    expect_nonmonotone(parent, record, role_edits, HELPERS, register=169)
+    partner_edits = [edit for edit in edits if not touches_v45(edit)]
+    for edit in partner_edits:
+        expect_nonmonotone(parent, record, role_edits + [edit], ())
+
     base = cost(parent_profile)
     subset_margins = {}
     joint_word = None
     joint_profile = None
     joint_inventory = None
+    overhead = None
+    joint_delta = None
     for size in range(5):
         found = set()
         for subset in combinations(HELPERS, size):
             word, profile, inventory = apply_v45(parent, record, edits, subset)
-            found.add(margin(cost(profile) - base, size))
+            delta = cost(profile) - base
+            found.add(margin(delta, size))
+            if size == 0:
+                overhead = delta
             if size == 4:
                 joint_word, joint_profile, joint_inventory = word, profile, inventory
-            if size == len(subset) and gates_outside(word, subset, subspace):
+                joint_delta = delta
+            if size and gates_outside(word, subset, subspace):
                 raise SystemExit("a lowered helper is touched outside W")
         subset_margins[size] = found
     expected = {
@@ -261,14 +304,12 @@ def audit_provider(tag, record, edits):
         3: {-2399},
         4: {22972},
     }
-    if subset_margins != expected:
-        raise SystemExit(tag + " subset margins " + str(subset_margins))
-    joint_delta = cost(joint_profile) - base
-    if joint_delta != -8388172 or margin(joint_delta, 4) != 22972:
-        raise SystemExit(tag + " joint price mismatch")
-    overhead = joint_delta + 4 * WEIGHTS[1]
-    if overhead != 78512 or 4 * PARTNER_ALLOWANCE - overhead != 22972:
-        raise SystemExit(tag + " overhead decomposition mismatch")
+    if overhead != 78512 or subset_margins != expected:
+        raise SystemExit(tag + " measured margins " + str(subset_margins) + " overhead " + str(overhead))
+    if joint_delta != overhead - 4 * WEIGHTS[1] or joint_delta != -8388172:
+        raise SystemExit(tag + " joint delta is not the measured gate cost minus four rank-1 savings")
+    if margin(joint_delta, 4) != 22972 or 4 * PARTNER_ALLOWANCE - overhead != 22972:
+        raise SystemExit(tag + " overhead identity failed")
     if joint_word["cleanup"] != parent["cleanup"] or len(joint_word["helper_final"]) != 86:
         raise SystemExit(tag + " cleanup or buffer count changed")
     if any(
@@ -283,24 +324,20 @@ def audit_provider(tag, record, edits):
     }
     if width_delta != {"4": 0, "5": 0, "7": 4, "8": -4, "9": 0}:
         raise SystemExit(tag + " width inventory " + str(width_delta))
-    sections = Counter(edit["section"] for edit in edits)
-    if set(sections) != {"B", "restore"}:
-        raise SystemExit(tag + " V45 edits are not confined to B and restore")
 
-    touching = [edit for edit in edits if set(roles(edit["gate"])) & set(HELPERS)]
-    omitted = [edit for edit in edits if edit is not touching[0]]
-    expect_nonmonotone(parent, record, omitted, HELPERS)
-    stale = copy.deepcopy(edits)
-    for edit in stale:
-        if edit["section"] == touching[0]["section"] and edit["index"] == touching[0]["index"]:
-            edit["new_frame"] = list(edit["old_frame"])
-            break
-    expect_nonmonotone(parent, record, stale, HELPERS)
+    for edit in edits:
+        expect_nonmonotone(parent, record, without(edits, edit_key(edit)), HELPERS)
+    for key, helper_register in GATE_ONLY_EXCEPTIONS.items():
+        reduced = without(edits, key)
+        _, profile, _ = apply_v45(parent, record, reduced, ())
+        if cost(profile) - base != 83508:
+            raise SystemExit(tag + " gate-only omission " + str(key) + " changed cost unexpectedly")
+        expect_nonmonotone(parent, record, reduced, HELPERS, register=helper_register)
     return {
         "joint_delta": joint_delta,
-        "joint_margin": 22972,
-        "sections": dict(sections),
+        "overhead": overhead,
         "edits": len(edits),
+        "role_edits": len(role_edits),
     }
 
 
@@ -315,21 +352,36 @@ def main():
         for edit in record["frame_edits"]
         if group_owners(record, edit["new_frame"]) == ["V45"]
     ]
-    if len(edits) != 61:
-        raise SystemExit("expected 61 V45-only frame edits")
-    reports = {tag: audit_provider(tag, record, edits) for tag in ("base", "extra")}
+    role_edits = [edit for edit in record["frame_edits"] if touches_v45(edit)]
+    if [edit_key(edit) for edit in role_edits] != [edit_key(edit) for edit in edits if touches_v45(edit)]:
+        raise SystemExit("a helper-touching edit lies outside the V45-only frames")
+    partner_edits = [edit for edit in edits if not touches_v45(edit)]
+    if len(edits) != 61 or len(role_edits) != 29 or len(partner_edits) != 32:
+        raise SystemExit("expected 61 V45-only edits, 29 role edits and 32 partner edits")
+    if Counter(edit["section"] for edit in edits) != Counter({"B": 20, "restore": 41}):
+        raise SystemExit("V45-only edits are not 20 in B and 41 in restore")
+    if Counter(edit["section"] for edit in partner_edits) != Counter({"B": 14, "restore": 18}):
+        raise SystemExit("partner-only section counts changed")
+    if Counter(len(basis(edit["new_frame"])) for edit in partner_edits) != Counter({7: 18, 5: 6, 4: 4, 6: 4}):
+        raise SystemExit("partner-only new-frame dimensions changed")
+    if not set(GATE_ONLY_EXCEPTIONS) <= {edit_key(edit) for edit in role_edits}:
+        raise SystemExit("gate-only exceptions are not role edits")
+    reports = {
+        tag: audit_provider(tag, record, edits, role_edits) for tag in ("base", "extra")
+    }
     if reports["base"] != reports["extra"]:
         raise SystemExit("providers disagree: " + str(reports))
     report = reports["base"]
     print(
-        "PASS_RANK7_V45_GROUP_AUDIT"
-        f" providers=2 edits={report['edits']}"
-        f" sections={report['sections']['B']}+{report['sections']['restore']}"
-        " joint_delta=-8388172 joint_margin=22972"
-        " single_margin=-53141 pair_margin=-27770 triple_margin=-2399"
-        " frame_only_margin=-78512 overhead=78512"
-        " width_8_to_7=4 buffers=86 cleanup_unchanged=yes"
-        " controls=omit-edit,stale-frame"
+        "PASS_RANK7_V45_MONOTONE_SPLIT"
+        f" providers=2 containment_edits={report['edits']}"
+        f" role_edits={report['role_edits']} partner_only=32"
+        " sections=20+41 role_only_nonmonotone=169"
+        f" measured_overhead={report['overhead']} joint_delta={report['joint_delta']}"
+        " joint_margin=22972 single_margin=-53141"
+        " leave_one_out_joint=nonmonotone"
+        " one_partner_extension=nonmonotone"
+        " gate_only_omit_restore_137_or_157=83508"
     )
 
 

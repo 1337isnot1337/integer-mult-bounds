@@ -1,78 +1,81 @@
-# Independent audit of #2979 group V45
+# Measured V45 price on a monotone 61-edit walk
 
 **Partial frame-surrogate certificate. No new κ.** Selected κ stays
 `0.001672660197076918`. PR #2979's conditional κ ≈ 0.001729 is not selected
 and is not re-certified here.
 
-On both PR #2942 parent words, the four restored helpers 249, 251, 265 and 267
-share one rank-7 end frame
+Upstream main checked 2026-10-20 is still `bb4bccbf42844d2801487450727c2f63e10d1d0f`
+(priority revision 6). The three replay inputs have the same git blobs there.
 
-```text
-W = ⟨256, 128, 64, 35, 16, 11, 5⟩ = E_7 ∩ E_42 = E_7 ∩ E_42 ∩ E_45
-```
+## What the open V45 audits already cover
 
-because `7 ⊕ 42 = 45`. Lowering any proper subset of those four end frames, after
-the 61 gate frames that land only in `W`, loses money under #2979's published
-integer frame weights. Lowering all four gains **22,972** surrogate units.
-The shared gate-frame overhead is **78,512** units, and each added helper then
-saves exactly one rank-1 climb, `c_1 = 2,116,671`.
+[PR #3911](https://github.com/CrocSwap/integer-mult-bounds/pull/3911) rebuilds
+the frame walk and the stage-one ledger. It toggles the four V45 endpoints
+under all 139 gate edits, checks the 15 nonempty subset profiles, and gets
+margins `−53,141`, `−27,770`, `−2,399` and `+22,972`. The `+78,512` figure in
+that audit is the pinned V45 `joint_delta` minus an endpoint delta of
+`−4·c_1`. Its open question is to rederive that group price on a monotone
+walk. The blocker it records is that the 29 edits naming helpers 249, 251,
+265 or 267 are nonmonotone at register 169.
 
-## What was checked
+[PR #3543](https://github.com/CrocSwap/integer-mult-bounds/pull/3543) checks
+the printed intersection and the declared subset margins from the price table.
+[PR #3823](https://github.com/CrocSwap/integer-mult-bounds/pull/3823) records
+the 128-vector triple intersection `E_7 ∩ E_42 ∩ E_45`.
+[PR #3841](https://github.com/CrocSwap/integer-mult-bounds/pull/3841) records
+the printed arithmetic-progression ladder (difference 25,371) and the sum of
+the five joint prices. Those three do not replay an isolated word.
 
-The parents are `research/rank7-joint-endframes/data/PARENT-base.json.gz` and
-`PARENT-extra.json.gz`, with the stage-1 record
-`STAGE1-FRAME-EDITS.json`. Group V45 owns the 61 edits whose new frame is
-contained in `W` and in no other declared group frame (20 in `B`, 41 in
-`restore`). No `A` gate moves. Scalars, operators and the cleanup list are
-unchanged, and the private-buffer count stays 86.
+## What this package adds
 
-The paid profile is recomputed by a separate transcription of the inherited
-climb rules (monotone subspace climbs, warp resets, centre and target cuts,
-final climb to the live end frame). It is not imported from
-`rank7-joint-endframes/producer.py` or from `STAGE-PRICES.json`. Calibration:
-both stored parent profiles and width inventories are reproduced before any
-edit. Weights are the published surrogate
+The stage-one record has 61 edits whose new frame is contained in the declared
+V45 frame and in no other declared group frame: 20 in `B` and 41 in `restore`.
+Twenty-nine of them name a V45 helper. That is the same set of 29 edits named
+by #3911. The other 32 name only partner registers (14 in `B`, 18 in
+`restore`; new-frame dimensions 18 of rank 7, 6 of rank 5, 4 of rank 6 and 4
+of rank 4).
 
-```text
-c = (2116671, 4228346, 6338140, 8446713, 10554378, 12661320, 14767661, 16873488, 18978865)
-```
+On both PR #2942 parents, replaying those 61 gate frames is monotone.
 
-at the recorded base saving, and the break-even charge for one freed width is
-`c_1 - 25371 = 2091300`. This package does not re-derive `c_r` from the moment
-engines.
-
-For a subset of `k` helpers, with those end frames set to `W` and all 61 gate
-frames applied, the margin is `-Δ - k·2091300`. Both providers give the same
-margins:
-
-| k | subsets | margin |
+| Endpoints lowered | Measured profile delta | Margin `−Δ − k·2,091,300` |
 |---:|---:|---:|
-| 0 | 1 | −78,512 |
-| 1 | 4 | −53,141 |
-| 2 | 6 | −27,770 |
-| 3 | 4 | −2,399 |
-| 4 | 1 | **+22,972** |
+| 0 | **+78,512** | −78,512 |
+| 1 |  | −53,141 |
+| 2 |  | −27,770 |
+| 3 |  | −2,399 |
+| 4 | **−8,388,172** | **+22,972** |
 
-The `k = 4` profile delta is `−8,388,172`, and the width inventory moves four
-units from width 8 to width 7. The identity
+The joint delta equals the measured gate-only cost minus four rank-1 tariffs:
+`78512 − 4·2,116,671 = −8,388,172`. The weights are the published surrogate.
+`STAGE-PRICES.json` is not read, so the overhead is a profile cost of this
+walk. The same identity gives `4·25,371 − 78,512 = 22,972`.
 
-```text
-4·25371 − 78512 = 22972
-```
+The 29 role edits alone, with or without the four endpoint changes, are
+nonmonotone at register 169 on both parents. That agrees with the blocker
+stated in #3911. Extending those 29 by any one partner edit, still with
+endpoints unchanged, stays nonmonotone. Separately, every 60-edit subset of
+the joint walk is nonmonotone, so each partner edit is required in the
+four-endpoint witness.
 
-is the whole joint margin: partner frames are paid once, and each helper
-returns `c_1` against a break-even of `c_1 - 25371`. Every one-helper control
-loses. Omitting the first helper-touching edit, or putting that gate's old
-frame back, makes the word nonmonotone.
+Every 60-edit subset of the 61 makes the four-endpoint walk nonmonotone. Two
+role edits are a gate-only exception: omitting `restore` index 137, or
+`restore` index 157, keeps the no-endpoint walk monotone and raises its cost
+from 78,512 to 83,508. With all four endpoints lowered, those omissions fail
+at registers 267 and 265. So the joint witness uses all 61 edits, and no
+60-edit subset is a joint witness.
+
+Scalars, operators and the cleanup list stay fixed. The private-buffer count
+stays 86. The joint width inventory moves four units from width 8 to width 7.
 
 ## What this does not establish
 
-Groups A–D, the five paired extractions, the fourteen rewrites, the T74
-allocation, idle packing, native admission and both supplier caps are
+The intersection, the printed ladder, the endpoint subsets of the full
+139-edit word, and the physical invoice remain the subjects of #3823, #3841,
+#3543 and #3911. This package does not rerun that ledger. Matching the pinned
+V45 price on one monotone walk does not show that the frame search was
+optimal. Groups A–D, idle packing, native admission and both supplier caps are
 unchecked. A positive local margin in this surrogate is not a multiplication
-exponent. `research/rank7-joint-endframes-restore-edit` starts from the #2979
-words and does not replace this group check. PR #3585 records archive blobs
-only.
+exponent.
 
 ## Reproduce
 
@@ -86,28 +89,34 @@ python3 -B scripts/research_package.py --package research/rank7-v45-group-audit
 Expected first line:
 
 ```text
-PASS_RANK7_V45_GROUP_AUDIT providers=2 edits=61 sections=20+41 joint_delta=-8388172 joint_margin=22972 single_margin=-53141 pair_margin=-27770 triple_margin=-2399 frame_only_margin=-78512 overhead=78512 width_8_to_7=4 buffers=86 cleanup_unchanged=yes controls=omit-edit,stale-frame
+PASS_RANK7_V45_MONOTONE_SPLIT providers=2 containment_edits=61 role_edits=29 partner_only=32 sections=20+41 role_only_nonmonotone=169 measured_overhead=78512 joint_delta=-8388172 joint_margin=22972 single_margin=-53141 leave_one_out_joint=nonmonotone one_partner_extension=nonmonotone gate_only_omit_restore_137_or_157=83508
 ```
-
-The direct verifier finished in about 6 seconds on the recorded host.
 
 ## Open next questions
 
-1. Isolate groups A, B, C and D by the same containment rule and test whether
-   each added helper saves exactly `c_1` after one shared overhead. That is the
-   same finite check; it was not run here.
-2. Enclose `c_r` independently at `b = 0.001703676387993676` and price this
-   profile delta through the idle-width cap. Until that is done, the unit
-   margin does not move κ. The frame-domain-ceiling engines are the blocker.
+1. Is there a proper subset of these 61 edits, necessarily omitting at least
+   two of them, that stays monotone for every endpoint subset and still
+   measures `+78,512` and `−8,388,172`? Every 60-edit subset fails the joint
+   walk, and the two gate-only omissions above miss the joint price. A
+   compensating pair remains unchecked. The missing frame-search witness also
+   leaves optimality open.
+2. Do groups A–D have an exclusive-containment superset of their
+   helper-touching edits that is monotone and prices the group from profile
+   costs? #3911's residual method still leaves those four group prices on the
+   pinned row.
+3. Does this local margin survive an independent enclosure of `c_r` at
+   `b = 0.001703676387993676` and the idle-width cap? Until that is done, the
+   unit margin does not move κ.
 
 ## Credit
 
 Marius-Paul Dumitrean (Dugongue / mdumitrean), PR #2979, for the words, the
-V45 claim and the published weights under audit. The parent words descend from
-Mason Hale's PR #2917 and the PR #2942 extractions; frame climb rules are
-Jeremy Kothe's, from the PR #2894 lineage. Jeremy Diviney's paired-extraction
-method and Dugongue's PR #2969 comparator sit behind that claim and are not
-rechecked here. Archive disposition PR #3585 is separate.
+V45 claim and the published weights. The parent words descend from Mason
+Hale's PR #2917 and the PR #2942 extractions. Frame climb rules are Jeremy
+Kothe's, from the PR #2894 lineage. 1337isnot1337, PR #3911, for the
+independent frame and ledger audit whose open question this walk answers.
+jwr404, PRs #3543, #3823 and #3841, for the intersection and printed-ladder
+checks cited above.
 
 Prepared by unpaidmoon with substantial AI assistance (Cursor Grok). No
 independent human or formal-kernel review is claimed. Apache-2.0.

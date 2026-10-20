@@ -15,8 +15,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 120,
-      "checks": "Both PR2942 parents: reproduced profiles; V45 equals E_7 intersect E_42; every subset margin; joint delta -8388172; cleanup and scalars unchanged; width 8 to 7 by 4; omit-one-edit and stale-frame mutants are nonmonotone."
+      "timeout_seconds": 180,
+      "checks": "Both PR2942 parents. The 29 helper-touching edits fail at register 169 with and without the four endpoint changes. Adding any one of the 32 partner edits to those 29 stays nonmonotone when endpoints are unchanged. The 61 exclusive-containment edits are monotone, measure gate-only cost +78512 and four-endpoint cost -8388172 without STAGE-PRICES.json, and every 60-edit subset of the joint walk is nonmonotone. Omitting restore 137 or restore 157 leaves the gate-only cost at 83508 and breaks the joint walk. Cleanup and scalars stay fixed."
     }
   ]
 }
