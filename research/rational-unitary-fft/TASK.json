@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Construct shared rounded periodic narrow/broad references and execute anchored raw constant-phase interior restrictions and their stored inverses, with positive-weight setup, global tail/row-gap bounds and complete reference-error/online-width budgets.",
-  "scope_change_reason": "The normalized circuit omits raw diagonal/scalar factors and the fixed-reference comparison. I preserve five earlier receipts and supply those factors and their complete error composition, with source geometry, distinct hole rules, original period cuts and shared pages.",
+  "actual_scope": "Execute ordinary finite-core narrow inverse and broad forward Gaussian words with retained carving, shared-reference Schur pages, raw interior circuits, prepared rounded boundary arithmetic and one complete radius/grid/error budget.",
+  "scope_change_reason": "The completed raw interior contract leaves the actual carve, sparse couplings and boundary program unjoined. I preserve six earlier receipts and connect these stages against the same reference, with exact offline pages and one online grid.",
   "bottleneck_link": "The Gaussian caller needs full circuit execution and a quantified conditioning/rounding contract before physical delivery and the complete numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "I preserve the five completed scientific receipts. RAW-GAUSSIAN-PROOF.md derives positive relative coefficients, uniformly allocated common periodic references, both tail norms, a narrow row-gap certificate and complete raw forward/inverse reference-error bounds. RAW-GAUSSIAN-RESULT.json records two complete 33x33 references, 6 circuit fixtures, 1086 gates, 26 rounded states and 17 controls, plus a local query on a source axis of size10^20+1 without axis enumeration. Comparisons share the declared interval backend; scientific acceptance remains separate.",
+  "evidence": "I preserve six earlier scientific receipts. CORE-PROOF.md derives ordinary carve geometry, same-reference factor norms, noncircular allocation, prepared boundary-page equivalence and complete error at most 2^(-t-1). CORE-RESULT.json records four cases, four nontrivial interiors, 88704 dense gate applications, 19992 boundary scalar products and 13 controls. I check stage inputs, narrow residuals, broad exact products and incoming/temporary widths. The finite cap16 fixtures have physical half-band18. Comparisons share the declared scalar backend; scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the actual carve and five-factor boundary word use the same common reference and raw interior programs?",
-      "why_it_matters": "Correct constant-phase restrictions do not establish separated interiors, shared boundary pages or the complete Gaussian map. Broad boundary Schur factors require application; narrow inverse execution needs a solve.",
-      "first_step": "Construct the retained separated dyadic carve with original cuts and holes, derive its exact Schur and coupling pages from Reference, and bind the applied broad and solved narrow boundary stages to the same forward/inverse error ledger.",
-      "blocked_by": "Carve and boundary-program integration, followed by physical setup, routing and tape costs."
+      "question": "Can the complete finite-core error join the actual core/halo comparison on the same reference?",
+      "why_it_matters": "A finite reference word does not establish the analytic error of overlapping global cores or remove cyclic corners.",
+      "first_step": "Bind the caller's actual windows and overlap rule to this ordinary-core domain, incorporate PR4217's scoped HALO corrections, and pay both analytic and numerical errors.",
+      "blocked_by": "Caller geometry, analytic comparison and a complete outer error ledger."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",

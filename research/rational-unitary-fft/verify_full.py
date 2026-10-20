@@ -257,8 +257,10 @@ def main():
     parser.add_argument("--write-result", action="store_true")
     parser.add_argument("--with-gaussian", action="store_true")
     parser.add_argument("--with-raw", action="store_true")
+    parser.add_argument("--with-core", action="store_true")
     args = parser.parse_args()
     need(not args.with_raw or args.with_gaussian, "raw verification follows normalized verification")
+    need(not args.with_core or args.with_raw, "core verification follows raw verification")
     result = run()
     path = HERE / "FULL-RESULT.json"
     if args.write_result:
@@ -277,6 +279,9 @@ def main():
     if args.with_raw:
         from verify_raw_gaussian import verify_result as verify_raw_result
         verify_raw_result(args.write_result)
+    if args.with_core:
+        from verify_core import verify_result as verify_core_result
+        verify_core_result(args.write_result)
 
 
 if __name__ == "__main__":

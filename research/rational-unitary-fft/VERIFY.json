@@ -26,48 +26,53 @@
     "research/capped-phase-fusion/BILATERAL-LDU.md",
     "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
     "research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md",
-    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md"
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+    "research/rational-unitary-fft/vendor/boundary_adapter.py",
+    "research/rational-unitary-fft/vendor/BOUNDARY-PROVENANCE.json",
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/check_constructions.py",
+    "research/capped-phase-fusion/evidence/gaussian_fast_ultra/check_capped_gauges.py",
+    "research/capped-phase-fusion/evidence/phase_layout_audit_ultra/check_union.py"
   ],
   "commands": [
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
-      "timeout_seconds": 60,
+      "timeout_seconds": 20,
       "checks": "Authenticate and adapt the actual FFT/shear schedule, certify rational phases and unitary gates, prepare charged spectral coefficients, execute fixed-grid dirty data, compare independent Fourier/Toeplitz references and reject schedule/precision controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
-      "timeout_seconds": 60,
+      "timeout_seconds": 20,
       "checks": "Repeat the complete gate/rounding certificate under optimized Python, keeping authenticated source assertions and exact typed receipt comparison."
     },
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify_triangle.py"],
-      "timeout_seconds": 90,
+      "timeout_seconds": 30,
       "checks": "Execute the retained parity recursion and exact stored inverse on one grid; check macro identities, independent exact endpoint inverses, global error/width budgets, reversed indices, nonunitary leaves and adversarial controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_triangle.py"],
-      "timeout_seconds": 90,
+      "timeout_seconds": 30,
       "checks": "Repeat the complete recursive forward/inverse certificate under optimized Python with authenticated source assertions and complete typed receipt comparison."
     },
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify_generator.py"],
-      "timeout_seconds": 150,
+      "timeout_seconds": 50,
       "checks": "Execute the exact rational producer and retained compensated generator gate program on actual Schur fixtures; check paired spectral coefficients, additive endpoint defects, dirty-source rounding, intermediate widths and cancellation controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_generator.py"],
-      "timeout_seconds": 150,
+      "timeout_seconds": 50,
       "checks": "Repeat the complete generator program with source assertions enabled under optimized Python and compare its full typed receipt."
     },
     {
-      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw"],
-      "timeout_seconds": 300,
-      "checks": "Execute the full Toeplitz verifier, then normalized Gaussian verification, preserving both receipts. Then check one periodic rounded reference, holes/cuts/overlaps and row-gap admission, execute anchored raw broad/narrow programs and their stored inverses, and compare rounded errors and widths against the same reference restrictions."
+      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw", "--with-core"],
+      "timeout_seconds": 500,
+      "checks": "Run full, normalized and raw verifiers sequentially, preserving their receipts. Then execute the retained finite-core carve and factor words with shared-reference Schur pages, raw interiors and prepared boundary pages. Check each actual stage input, complete narrow residual and broad product, incoming grids, arithmetic widths and 13 controls."
     },
     {
-      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw"],
-      "timeout_seconds": 300,
-      "checks": "Repeat full, normalized and raw Gaussian verification sequentially under optimized Python. Preserve source assertions, compare three complete typed receipts, and reject precision, inverse-wrapper, stale-reference, hole-completion and period/cell controls."
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw", "--with-core"],
+      "timeout_seconds": 500,
+      "checks": "Repeat full, normalized, raw and finite-core verification sequentially under optimized Python. Preserve source assertions and compare four complete typed receipts, including exact child-plan hashes, prepared-page equivalence and corrupted-page rejection."
     }
   ]
 }

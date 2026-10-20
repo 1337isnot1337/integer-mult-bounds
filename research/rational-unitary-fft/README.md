@@ -1,4 +1,26 @@
-# Raw Gaussian interiors against a shared rounded reference
+# Rounded Gaussian factor words on shared finite-core references
+
+I execute complete ordinary finite-core narrow inverse and broad forward
+words against one shared rational reference. I retain the original
+constant-phase carve and six-call order, prepare exact Schur pages from
+that reference, and join the raw interior circuits below to PR4186's
+rounded boundary program. I supply the boundary program with prepared
+dyadic inverse pages and preserve its arithmetic and rounding sites.
+
+For input maximum complex-l1 norm \(Y_0\), five-factor norm bound
+\(\mathcal K\), and target \(2^{-t}\), I allocate
+\[
+Y_*=6\mathcal K^5Y_0,\qquad e=2^{-t}/(10\mathcal K^4).
+\]
+I fund the common reference for the amplified dense inputs, preserve
+the incoming grid and obtain complete error at most \(2^{-t-1}\).
+[CORE-PROOF.md](CORE-PROOF.md) gives the domain, exact-page identities,
+boundary residual argument and composed error/temporary bounds.
+I require an ordinary window with enough omitted coordinates to remove
+periodic corner couplings. I leave core/halo approximation, tensor
+composition and physical page/tape costs open.
+
+## Retained raw and child results
 
 I construct fixed rational narrow and broad references for a periodic
 source/target axis, retaining original phase cells, the period cut and
@@ -18,8 +40,9 @@ I keep full-cell weights in offline setup at
 \(O(b_e+\alpha^2/\theta)\) bits. I also compute a row-gap certificate for
 the same narrow reference; a positive gap gives dimension-independent
 row/column inverse bounds for its principal restrictions in the original
-circular coordinates. I leave the carve, boundary program, physical
-delivery and complete tensor/tape execution open.
+circular coordinates. The finite-core extension above now joins the
+carve and boundary program; physical delivery and complete tensor/tape
+execution remain open.
 `Reference.for_cap` chooses one global cutoff and coefficient precision
 for a declared block cap, radius and accuracy. I reject periods too short
 for those cuts. Coordinate and coefficient queries avoid enumerating the
@@ -144,12 +167,21 @@ python3.12 -B scripts/research_package.py \
   --package research/rational-unitary-fft
 ```
 
-I declare eight normal/optimized commands, with limits of 60, 60, 90,
-90, 150, 150, 300 and 300 seconds, totaling 1,200 seconds.
-In each final slot I run the full, normalized Gaussian and raw Gaussian
-verifiers sequentially in the same process. I preserve the full and
-[GAUSSIAN-RESULT.json](GAUSSIAN-RESULT.json) receipts and compare the
-separate [RAW-GAUSSIAN-RESULT.json](RAW-GAUSSIAN-RESULT.json) receipt.
+I declare eight normal/optimized commands, with limits of 20, 20, 30,
+30, 50, 50, 500 and 500 seconds, totaling 1,200 seconds.
+In each final slot I run the full, normalized, raw and finite-core
+verifiers sequentially in the same process. I preserve six earlier
+scientific receipts and compare [CORE-RESULT.json](CORE-RESULT.json).
+Four core fixtures include two 143-row words, each with two nontrivial
+16-row interiors, and two 11-row windows crossing a hole.
+I execute 88,704 dense gate applications and 19,992 boundary scalar
+products. I check all six stages against their actual inputs, complete
+reference residuals/products, a 768-bit incoming grid and 13 controls.
+The core receipt is
+`65f0cefaed8d7b8b21125cde5155401b3880e896b49068e8e8c86895b5004e4d`.
+These fixtures use cap 16 and physical half-band 18; I make no
+large-cap scaling claim from them. I hash exact child plans and large
+checker fractions, and report dyadic upper bounds for their errors.
 For the raw extension I check 2,178 entries across two complete
 33-by-33 references, with three explicit windings and analytic tails.
 I check row gaps, a principal inverse across a cell boundary and a hole,
@@ -312,14 +344,32 @@ Mason's backend.
 For the raw extension I use the retained narrow weight-ratio reference,
 while I choose a fixed entrywise broad reference and prove its comparison.
 I do not identify it with the older factorwise-rounded broad matrix.
-The block admission checks constant phase and the original cut; it does
-not implement the outer carving algorithm.
+The raw block admission checks constant phase and the original cut.
+The new core adapter applies the retained carving algorithm to those
+same source coordinates.
 Before this extension I refreshed unchanged main, checked 15 recent PR
 records and 6/790 hub comments, and compared PR4214's GL3 audit and
 PR4208's CRT stencil work. I found no overlapping raw-reference claim
 in that coverage. Broader history and unpublished work remain outside it.
 Before publication I checked 12 newer PR records, 5/815 hub comments
 and the new scalar-audit handoff while canonical main remained unchanged.
+
+I preserve raw head `c9db4069d59bfad26a15fe000b91cc3a058684e5` and its
+[hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39477979592).
+For the core extension I credit Vlado's retained carve, factor order,
+block/Strassen program and Schur gap argument. I archive our PR4186
+adapter unchanged with its original provenance and restate the needed
+residual proof in CORE-PROOF.md. I add the exact common-reference pages,
+prepared-page execution and one whole-word error budget.
+I compared Nick Petalas's [PR4217](https://github.com/CrocSwap/integer-mult-bounds/pull/4217)
+HALO locality/error audit, including its factor-two correction. That
+work addresses a separate obligation; I do not include a HALO theorem
+in this finite-core result. Initial overlap covers 15 recent PR records
+and 6/816 hub comments. Broader unpublished work remains outside it.
+Before submission I refreshed unchanged canonical main and checked
+12 recent PR records, 5/853 hub comments and the canonical thread.
+The newer connector, fallback-header and GL3 audits address separate
+obligations within that coverage.
 
 I preserve the first completed revision `f02a4ab5ab70a8af80415ac35c5b48cd5a93a475`
 and its FFT receipt
@@ -348,8 +398,8 @@ Apache-2.0.
 
 ## Open next questions
 
-In [TASK.json](TASK.json) I specify the next steps and blockers: bind the
-actual interior/boundary carve and Schur pages to these shared references,
-then connect the coefficients and data widths to physical delivery.
+In [TASK.json](TASK.json) I specify the next steps and blockers: connect
+the finite-core result to an explicit core/halo error comparison and
+join its prepared coefficient pages and data widths to physical delivery.
 Reviewers still need to assess the universal proofs, complete setup,
 fixed-tape lowering and the full multiplication construction.

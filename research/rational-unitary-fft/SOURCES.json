@@ -26,6 +26,11 @@
     {"path":"research/capped-phase-fusion/BILATERAL-LDU.md","usage":"input","git_blob":"5cad6ee19f60d626beb9f6d7be78cbc22fdd08c6","sha256":"0d65e66d227464dda1a19f781ae0a0be671cbfd347c41e37ec954f3d629d8a77"},
     {"path":"research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md","usage":"input","git_blob":"3bcf490a8c164d44aff5b7e2ec2e0f4bf07d7a73","sha256":"e05d6b8596c80b6e8676569a0ff464a29fa704c3304143f58914f47cdf38b272"},
     {"path":"research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md","usage":"input","git_blob":"bbeeee7431720817f031360f67b2186abac5cd23","sha256":"54aafc7afd09fe1a5312e69fad09c87422690543ab75c6ae35f6cbcc26b3eb8a"},
-    {"path":"research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md","usage":"input","git_blob":"0f7f80b3f74d469c2f72f3b9f338d32568b4eae3","sha256":"e37aaa30b15671a1dff00676b14572213efaaac99df202dbba5e09f57af487c0"}
+    {"path":"research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md","usage":"input","git_blob":"0f7f80b3f74d469c2f72f3b9f338d32568b4eae3","sha256":"e37aaa30b15671a1dff00676b14572213efaaac99df202dbba5e09f57af487c0"},
+    {"path":"research/rational-unitary-fft/vendor/boundary_adapter.py","usage":"input","pin":"head:c13c08ba4f957af70cfc2560ea43d837fe730d21:research/rational-unitary-fft/vendor/boundary_adapter.py","git_blob":"cc9c6815791a8290537d56bb69320201173e1978","sha256":"6738df51cdf7ecb55d1521b9f8d38e627c8feb4c4afe242ba2344ffc024c772e"},
+    {"path":"research/rational-unitary-fft/vendor/BOUNDARY-PROVENANCE.json","usage":"input","pin":"head:c13c08ba4f957af70cfc2560ea43d837fe730d21:research/rational-unitary-fft/vendor/BOUNDARY-PROVENANCE.json","git_blob":"7286022fdd083adea45a2e7151b71ef1ec38381e","sha256":"93a0f0584ae8760abc83752f9f151d62e41bfa7f9ade682edef61ff07dec4fb9"},
+    {"path":"research/capped-phase-fusion/evidence/radical_reduction_ultra/check_constructions.py","usage":"input","git_blob":"2090a45566fc0fc7af4e2b448833a9c4de578b96","sha256":"91387c9bd763a5c55c22a9907947bd07b6002f739aa6feedf6d3a02adea1e316"},
+    {"path":"research/capped-phase-fusion/evidence/gaussian_fast_ultra/check_capped_gauges.py","usage":"input","git_blob":"d6f5a14cb26c04ab3feb728430005808e56613fa","sha256":"121279bef47dd490bf29fc72ddbce547176cdaf1154af67dc8b96d7baa8cfc6f"},
+    {"path":"research/capped-phase-fusion/evidence/phase_layout_audit_ultra/check_union.py","usage":"input","git_blob":"0b3f0af7014dc23d8d80a82c67f2f7b24d3bd1ab","sha256":"74608380d72567edcd4470c8d226b15848f9d3a4e5d77d652bdd8963480ab9ce"}
   ]
 }
