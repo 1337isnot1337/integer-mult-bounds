@@ -100,9 +100,10 @@ class AdaptTriangle(ast.NodeTransformer):
 
 
 class Triangle:
-    def __init__(self, bound, circuit_source, oracle_source):
+    def __init__(self, bound, circuit_source, oracle_source, phase_oracle=None):
         self.bound, self.circuit_source = bound, circuit_source
-        self.phases = Phases(bound["phase_bits"], oracle_source)
+        self.phases = phase_oracle if phase_oracle is not None else Phases(bound["phase_bits"], oracle_source)
+        need(self.phases.bits == bound["phase_bits"], "common triangular phase precision")
         base = Builder(self.phases, bound["multiplier_bits"], circuit_source)
         self.source_parallel = base.namespace["parallel"]
         self.source_inverse = base.namespace["inverse"]

@@ -1,12 +1,11 @@
-# Certified rational FFT and rounded parity-triangular programs
+# Certified rational bounded-generator circuits
 
-I connect the retained rational phase construction to the actual FFT and
-Toeplitz-shear gate schedule, and prove a complete coefficient/data error
-bound for both dirty banks. I execute the adapted one- and two-wire gates.
-This advances the child-execution obligation left by PR4198's macro replay.
-I also execute the retained near-identity parity-triangular recursion and
-its inverse under one coefficient and data-grid allocation. I preserve
-the source's parallel even/odd branches, including reversed caller wires.
+I connect PR4198's exact rational generators to the retained compensated
+gate program, replacing its exact matrix callbacks with certified FFT,
+Toeplitz-shear and parity-triangular circuits. I execute the actual
+one- and two-wire schedule on both dirty banks and prove a common
+coefficient/data error and storage budget. I preserve parallel even/odd
+branches, reversed caller wires and the source's compensation order.
 
 For dyadic \(n=2^d\), the target is \((x,y)\mapsto(x,y+Tx)\), with rational
 Toeplitz \(T\). I use rational butterflies
@@ -54,6 +53,23 @@ segments. The online records and gate temporaries need
 [TRIANGLE-PROOF.md](TRIANGLE-PROOF.md) separates that claim from exact
 offline preparation and physical coefficient delivery.
 
+For a rational matrix \(T\) of dyadic size \(m\), the complete generator
+program implements \((x,y)\mapsto(x,y+Tx)\). I reuse each stored triangular
+inverse and pair the compensating shear with negated stored spectral
+multipliers. Completed terms then have exact unrounded endpoints
+\(\widehat G_j(\widehat P_j-I)\), and their operator defects add.
+I prove a complete error bound
+\[
+\Delta R+D K_{\rm exec}m\,2^{-F}<2^{-t}
+\]
+with explicit polynomial \(K_{\rm exec}\), depth
+\(D=r(8d^2+32d+18)\), and online widths
+\(O(F_0+t+\log m+\log(1+B_E)+\log R)\).
+Here \(r\) is the exact Stein rank, \(d=\log_2m\), and
+\(B_E\ge\|T-ZTZ^T\|_2\).
+[GENERATOR-PROOF.md](GENERATOR-PROOF.md) gives the four checkpoint
+prefix/suffix forms, paired-rounding rule and complete allocation.
+
 I start from canonical main `12fa8c5c844be21bfefb38a19503fbd867a11244`,
 priority 7, and pin the retained PR4100 source
 `337d04939571a637aeab54a0f58f54fde811663a`.
@@ -70,7 +86,8 @@ python3.12 -B scripts/research_package.py \
   --package research/rational-unitary-fft
 ```
 
-I declare four normal/optimized commands, with 240-second limits each.
+I declare six normal/optimized commands, with limits of 120, 120, 180,
+180, 300 and 300 seconds, totaling 1,200 seconds.
 I authenticate the source before parsing its schedule or executing its
 interval oracle. The adapter preserves bit reversal, gate ownership,
 disjoint layers, shear orientation and chronological calls. It replaces
@@ -111,6 +128,23 @@ width allowances. [TRIANGLE-RESULT.json](TRIANGLE-RESULT.json) records
 the complete recursive receipt. Exact dense endpoint arithmetic remains
 a checker oracle, outside the online representation claim.
 
+The full generator replay covers 57 matrices, 71 generators, 5,614 gates
+and 172 rounded dirty-bank states. I execute the retained Schur walk
+to collect 50 actual shear matrices, including the predecessor's complex
+corner fixture, then add seven stress matrices. I check exact rank with
+separate elimination, both Stein reconstructions, the full stored endpoint
+and source restoration, and rounded error/width bounds. I check actual
+checkpoint prefixes, suffixes and their inverses on selected root-Schur,
+dense-complex and large-scale cases.
+
+Controls include omitted inverse/compensation, extra row conjugation,
+tiny exact rank, inadequate scaled-child precision and the half-grid
+failure of independently rounded positive/negative compensation.
+[GENERATOR-RESULT.json](GENERATOR-RESULT.json) carries the full receipt.
+I freeze the executed producer with its original
+[provenance](vendor/STEIN-PROVENANCE.json) and pin its local archive
+separately from the original sibling PR commit.
+
 ## Overlap and attribution
 
 I inspected 100 recent PR records and 35 hub comments, the retained
@@ -130,6 +164,11 @@ orientation. I found no competing rounded parity-child claim in that
 coverage. James Reed's claimed finite PR4198 check addresses the generator
 identities, a separate question. I extend this PR rather than duplicate
 the child package.
+Before the generator extension I refreshed unchanged main, inspected
+30 PR records and 10/717 hub comments, and checked targeted generator
+searches. The card-wide helper searched 5,236 local records but had no
+usable remote cache. I found no competing complete generator-gate claim
+in that coverage. PR4208 addresses CRT stencil production.
 
 I credit Chafik Boukhalfa/PR628 for exact rational unit phases and the
 certified interval machinery; Vlado Vojdanovski/PR1673 for the FFT/shear
@@ -149,6 +188,11 @@ and its FFT receipt
 Its [hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39442494617)
 and 18-file export remain evidence for that revision. The recursive
 extension has a separate receipt and verification commands.
+I also preserve recursive revision `203d04313c0cb2b4a4663a5a2d4d407e5a5b6d20`,
+its [hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39448550970)
+and receipt `d430fced712daa2e620b53a49dd09f0ba10ddddb4a4ff6b79d2abbbfd3afc1e6`.
+The generator extension retains both earlier scientific receipts and
+adds a third record and two commands.
 
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance,
 including source-analysis agents. I count those agents within the author
@@ -159,7 +203,7 @@ Apache-2.0.
 ## Open next questions
 
 In [TASK.json](TASK.json) I specify the next steps and blockers: compose
-these children inside the actual bounded-generator program, then bind
-their coefficients and data widths to the physical
-Gaussian caller. This package supplies neither complete fixed-tape
-lowering nor complete multiplication-theorem acceptance.
+the completed generator program inside the actual full Toeplitz recursion,
+then bind its coefficients and data widths to the physical Gaussian caller.
+Full setup/delivery, fixed-tape lowering and independent acceptance of
+the complete multiplication theorem remain open.

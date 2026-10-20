@@ -99,10 +99,16 @@ class Vec(list):
     def copy(self):
         return Vec(self)
 
+    def __truediv__(self, scalar):
+        return Vec(x / scalar for x in self)
+
 
 class Mat(list):
     def __init__(self, rows):
         super().__init__([C.wrap(x) for x in row] for row in rows)
+
+    def __rmul__(self, scalar):
+        return Mat([[scalar * x for x in row] for row in self])
 
     @property
     def shape(self):

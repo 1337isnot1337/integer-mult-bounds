@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Certify rational-unitary FFT/Toeplitz-shear gates and the retained near-identity parity-triangular recursion and stored inverse, including multiplier and leaf preparation, global fixed-grid rounding, incoming precision and explicit error/width budgets.",
-  "scope_change_reason": "PR4198 leaves numerical child execution open. PR628 already supplies rational phases and Vlado supplies the parity recursion; this result connects those source programs to one complete coefficient/data precision contract. The extension preserves the first FFT revision and its receipt.",
-  "bottleneck_link": "The bounded-generator compiler needs an actual FFT/shear child with charged approximation, source-restoration error and data width before its full numerical composition can be admitted.",
+  "actual_scope": "Execute the retained compensated bounded-generator program with exact rational generators and certified FFT/shear/parity children, paired compensation multipliers, additive endpoint defects, one global data grid and explicit intermediate-width bounds.",
+  "scope_change_reason": "PR4198 used exact matrix callbacks for its children. The completed child contracts now support the literal compensated generator schedule. I preserve both earlier revisions and receipts, pin the exact producer bytes, and add one complete generator-level error/width proof and gate replay.",
+  "bottleneck_link": "The full Toeplitz compiler needs the actual compensated generator program, including cleanup and rounded dirty-source restoration, before its full numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "PROOF.md and TRIANGLE-PROOF.md give the quantified phase, recursion, coefficient, prefix/suffix, rounding and width arguments. RESULT.json preserves 12 FFT/shear cases, 1428 gates and 61 rounded states. TRIANGLE-RESULT.json adds 10 recursive cases, 1806 gates and 62 forward/inverse states with exact macro and separate inverse references. Scientific acceptance remains separate.",
+  "evidence": "PROOF.md, TRIANGLE-PROOF.md and GENERATOR-PROOF.md give the phase, recursive, compensated coefficient/error and width arguments. I preserve the 12-case FFT and 10-case triangular receipts. GENERATOR-RESULT.json adds 57 matrices, 71 generators, 5614 gates and 172 rounded states, with all 50 predecessor source Schur matrices, separate exact rank and full endpoint references, paired half-tie compensation and selected checkpoint checks. Scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the actual bounded-generator program consume these rounded triangular and shear children under one precision allocation?",
-      "why_it_matters": "The source composes a triangular transform, scaled shear, stored inverse and compensation; the individual child contracts do not finish that complete generator schedule.",
-      "first_step": "Combine the actual rational generator producer with the literal four-stage schedule and propagate child defects through its macro prefixes, including rounded restoration and compensation.",
-      "blocked_by": "A source-bound full-generator error/width proof and complete emitted-gate replay."
+      "question": "Can the actual full Toeplitz recursion consume this rounded compensated-generator program under one precision allocation?",
+      "why_it_matters": "The source composes Schur factorization and recursive solves beyond each individual dirty shear. The generator contract does not finish that full matrix program.",
+      "first_step": "Bind the literal full_plan source, bound its leading-section/Schur coefficients and global prefixes, then execute the emitted generator and inverse plans on one grid.",
+      "blocked_by": "A source-bound full-recursion error/width proof, its conditioning hypotheses and complete emitted-gate replay."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",

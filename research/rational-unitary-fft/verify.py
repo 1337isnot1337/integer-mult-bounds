@@ -33,7 +33,7 @@ def rejected(operation, label):
     raise ValueError("control unexpectedly passed: " + label)
 
 
-def authenticate():
+def authenticate(include_generator=False):
     rows = [r for r in json.loads((HERE / "SOURCES.json").read_text())["files"] if r["usage"] == "input"]
     raw = {}
     for row in rows:
@@ -42,7 +42,15 @@ def authenticate():
         rejected(lambda: need(sha256(content + b"\0").hexdigest() == row["sha256"], "changed source"),
                  "source corruption")
         raw[row["path"]] = content
-    return raw, [{"path": r["path"], "sha256": r["sha256"]} for r in rows]
+    # Preserve the completed child receipts' mathematical input inventory.
+    # All declared inputs above still receive the same byte-integrity check.
+    added = {
+        "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py",
+        "research/rational-unitary-fft/vendor/stein_rational.py",
+        "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
+    }
+    return raw, [{"path": r["path"], "sha256": r["sha256"]} for r in rows
+                 if include_generator or r["path"] not in added]
 
 
 def operator(plan, n):
