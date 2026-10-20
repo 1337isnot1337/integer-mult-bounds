@@ -83,8 +83,9 @@ The verifier checks these finite consequences:
   against direct Gaussian matrices. I reconstruct the inherited q-LDU
   identities, multiply each shifted inverse on both sides, and check the
   new entry-decay and row/column bounds. I reject reversed shift conjugation.
-- I reject altered source bytes, half-shift/zero-scale parameters and an
-  indefinite matrix. I check exact cancellation at the half shift, loss
+- I reject altered source bytes, zero scales and an indefinite matrix.
+  I reject half shifts for positive symbol-margin admission while admitting
+  them in the finite-cap theorem. I check exact cancellation at the half shift, loss
   of accretivity outside the domain, the missing-normalization failure,
   an unpaid truncation tail and JSON scalar-type corruption.
 
