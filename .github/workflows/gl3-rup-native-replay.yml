@@ -24,9 +24,15 @@ jobs:
           python-version: '3.12'
       - name: Compile and replay the unchanged certificates with controls
         run: python -I -B research/gl3-rup-native-replay/native_replay.py --output "$RUNNER_TEMP/gl3-rup-native"
-      - name: Compare all proof-relevant fields and retain raw logs in job output
+      - name: Compare all proof-relevant fields
+        run: python -I -B research/gl3-rup-native-replay/verify.py --native-receipt "$RUNNER_TEMP/gl3-rup-native/RESULT.json"
+      - name: Retain raw logs even when a replay fails
+        if: always()
         run: |
-          python -I -B research/gl3-rup-native-replay/verify.py --native-receipt "$RUNNER_TEMP/gl3-rup-native/RESULT.json"
-          find "$RUNNER_TEMP/gl3-rup-native" -maxdepth 1 -name '*.log' -print -exec cat {} \;
-      - name: Committed inputs remain unchanged
-        run: git diff --exit-code
+          if [ -d "$RUNNER_TEMP/gl3-rup-native" ]; then
+            find "$RUNNER_TEMP/gl3-rup-native" -maxdepth 1 -name '*.log' -print -exec cat {} \;
+          fi
+      - name: Package files remain unchanged
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain --untracked-files=all -- research/gl3-rup-native-replay)"
