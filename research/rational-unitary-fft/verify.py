@@ -33,7 +33,7 @@ def rejected(operation, label):
     raise ValueError("control unexpectedly passed: " + label)
 
 
-def authenticate(include_generator=False):
+def authenticate(include_generator=False, include_full=False):
     rows = [r for r in json.loads((HERE / "SOURCES.json").read_text())["files"] if r["usage"] == "input"]
     raw = {}
     for row in rows:
@@ -49,8 +49,10 @@ def authenticate(include_generator=False):
         "research/rational-unitary-fft/vendor/stein_rational.py",
         "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
     }
+    full = {"research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"}
     return raw, [{"path": r["path"], "sha256": r["sha256"]} for r in rows
-                 if include_generator or r["path"] not in added]
+                 if (include_generator or r["path"] not in added)
+                 and (include_full or r["path"] not in full)]
 
 
 def operator(plan, n):

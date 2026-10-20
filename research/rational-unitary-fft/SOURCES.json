@@ -14,6 +14,7 @@
     {"path":"research/physical-ring-product/README.md","usage":"input","git_blob":"823f72e1b26aa8c71c5bd7141c5f93b2d59847fe","sha256":"dc4769ad9d7f3179659e28dc02bacc2822931a9bb8daaf9ad67cd935c1bb7094"},
     {"path":"research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py","usage":"input","git_blob":"4f0180c88f6ea25b85814883ef7cf2ad41e67110","sha256":"5ff7f25c55b370a1d0cda6c84ab9cdf2c7b0de3266d3f2e7a43280a6491074ab"},
     {"path":"research/rational-unitary-fft/vendor/stein_rational.py","usage":"input","pin":"head:0e181260108dd940a594fad6b912588bdee62522:research/rational-unitary-fft/vendor/stein_rational.py","git_blob":"71b240a460a185ee2fe926cd189b56aeac6f997f","sha256":"3065fc5d6d22ec44de533b08fb0c639603449456383668e561dc46629e641502"},
-    {"path":"research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json","usage":"input","pin":"head:0e181260108dd940a594fad6b912588bdee62522:research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json","git_blob":"c602fb5bb332dbe098950b14d55da05ce2cf4312","sha256":"e7f0e8dc517387e302b1e8bf5dff7e12b29da8aa91abc6ea597f33c1ac08ba62"}
+    {"path":"research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json","usage":"input","pin":"head:0e181260108dd940a594fad6b912588bdee62522:research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json","git_blob":"c602fb5bb332dbe098950b14d55da05ce2cf4312","sha256":"e7f0e8dc517387e302b1e8bf5dff7e12b29da8aa91abc6ea597f33c1ac08ba62"},
+    {"path":"research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md","usage":"input","git_blob":"20585e44fa4e49b13b5d8495bbf6ed254459a362","sha256":"d1423ac0ea0003521797209f4396e6981a66994bbee4f8b48026e5b95f8c5116"}
   ]
 }

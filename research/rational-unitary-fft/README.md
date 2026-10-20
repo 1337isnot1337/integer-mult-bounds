@@ -1,4 +1,20 @@
-# Certified rational bounded-generator circuits
+# Certified full Toeplitz circuits with polynomial conditioning bounds
+
+I execute the retained full Toeplitz recursion and its stored inverse,
+using the rational generator, triangular and FFT circuits below.
+For dyadic size \(N\), I assume \(\|T\|\le\Lambda\) and
+\(\|T_b^{-1}\|\le Q\) for every leading section.
+I prove a completed-call prefix/inverse bound
+\(256N^3(\Lambda Q)^{12}\) through scalar unit-LDU factors and legal
+completed-call sets. I handle unequal parallel branches with disjoint
+active fragments and obtain sufficient online widths
+\[
+O(F_0+t+\log N+\log\Lambda+\log Q+\log R).
+\]
+I compute stronger rational component envelopes for executable admission;
+their inflation preserves this width bound.
+[FULL-PROOF.md](FULL-PROOF.md) gives the domain, frontier induction,
+explicit allocation and comparison with the earlier guard.
 
 I connect PR4198's exact rational generators to the retained compensated
 gate program, replacing its exact matrix callbacks with certified FFT,
@@ -7,8 +23,8 @@ one- and two-wire schedule on both dirty banks and prove a common
 coefficient/data error and storage budget. I preserve parallel even/odd
 branches, reversed caller wires and the source's compensation order.
 
-For dyadic \(n=2^d\), the target is \((x,y)\mapsto(x,y+Tx)\), with rational
-Toeplitz \(T\). I use rational butterflies
+For the Toeplitz-shear child of dyadic size \(n=2^d\), the target is
+\((x,y)\mapsto(x,y+Tx)\), with rational Toeplitz \(T\). I use rational butterflies
 \[
 \begin{pmatrix}a&bw\\b&-aw\end{pmatrix},
 \qquad a^2+b^2=|w|^2=1,
@@ -17,7 +33,7 @@ and adjoints of the same stored gates. I certify their approximation to
 the ideal FFT, prepare the **unnormalized** DFT multipliers, round those
 coefficients before online use, and round data after each gate.
 
-The exact rational circuit restores the source. Fixed-grid execution
+The exact rational shear circuit restores its source bank. Fixed-grid execution
 generally has nonzero source-restoration error, which I include in the
 budget rather than treating exact coefficient unitarity as exact data recovery.
 
@@ -86,8 +102,8 @@ python3.12 -B scripts/research_package.py \
   --package research/rational-unitary-fft
 ```
 
-I declare six normal/optimized commands, with limits of 120, 120, 180,
-180, 300 and 300 seconds, totaling 1,200 seconds.
+I declare eight normal/optimized commands, with limits of 60, 60, 90,
+90, 150, 150, 300 and 300 seconds, totaling 1,200 seconds.
 I authenticate the source before parsing its schedule or executing its
 interval oracle. The adapter preserves bit reversal, gate ownership,
 disjoint layers, shear orientation and chronological calls. It replaces
@@ -145,6 +161,25 @@ I freeze the executed producer with its original
 [provenance](vendor/STEIN-PROVENANCE.json) and pin its local archive
 separately from the original sibling PR commit.
 
+The full-recursion replay adds 11 cases, 3,659 gates and 68 rounded
+forward/inverse states. Nontrivial cases reach size eight; a size-16
+identity exercises zero-layer shear calls. I include indefinite and
+half-shift Gaussian matrices, complex scalar pivots, a small pivot,
+reversed wires, a nonzero 512-bit incoming fixture and an identity left
+subtree paired with a longer right subtree.
+
+I check 151 ideal completed-call sets and 12 selected physical cuts.
+I enumerate all legal sets through size four and use actual atom-boundary
+sets for larger cases. Ownership/precedence checks cover every layer cut;
+selected operator checks compare both active-fragment factorizations,
+including two simultaneously unfinished, nonempty fragments.
+I check complete matrix and separate inverse references, stored-circuit
+inversion, global rounding errors and signed word widths.
+Fifteen controls cover leading-section admission, source order, ordinary
+transpose, parallel timing, zero-layer calls, scalar reciprocals, incoming
+precision and the upper-frontier inverse.
+[FULL-RESULT.json](FULL-RESULT.json) records the complete receipt.
+
 ## Overlap and attribution
 
 I inspected 100 recent PR records and 35 hub comments, the retained
@@ -169,6 +204,12 @@ Before the generator extension I refreshed unchanged main, inspected
 searches. The card-wide helper searched 5,236 local records but had no
 usable remote cache. I found no competing complete generator-gate claim
 in that coverage. PR4208 addresses CRT stencil production.
+Before the full extension I refreshed unchanged main and inspected
+25 PR records and 8/733 hub comments. ToikY's PR4209 supplies a distinct
+same-rho Schur-closure theorem under row/column majorant admission,
+excluding full gate execution and global allocation. I credit that
+sharper local result without transferring its hypothesis to the present
+leading-section domain.
 
 I credit Chafik Boukhalfa/PR628 for exact rational unit phases and the
 certified interval machinery; Vlado Vojdanovski/PR1673 for the FFT/shear
@@ -193,6 +234,13 @@ its [hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs
 and receipt `d430fced712daa2e620b53a49dd09f0ba10ddddb4a4ff6b79d2abbbfd3afc1e6`.
 The generator extension retains both earlier scientific receipts and
 adds a third record and two commands.
+I preserve the completed generator head
+`fdcdc2690910392f7b42dbae4155b7d7b5790abd`, its
+[hosted replay](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39454327335)
+and receipt `f74e0efc459e9c3d44d8ca8b3a33dc0fccc31731d0829419c3d515fe7f0f1e02`.
+James Reed's [finite audit](https://github.com/CrocSwap/integer-mult-bounds/pull/4205#issuecomment-6295524563)
+at that fixed head checks budgets and source seals; he excludes circuit
+re-execution and universal-proof acceptance. I retain that scoped credit.
 
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance,
 including source-analysis agents. I count those agents within the author
@@ -202,8 +250,8 @@ Apache-2.0.
 
 ## Open next questions
 
-In [TASK.json](TASK.json) I specify the next steps and blockers: compose
-the completed generator program inside the actual full Toeplitz recursion,
-then bind its coefficients and data widths to the physical Gaussian caller.
-Full setup/delivery, fixed-tape lowering and independent acceptance of
-the complete multiplication theorem remain open.
+In [TASK.json](TASK.json) I specify the next steps and blockers: bind the
+full circuit's conditioning and precision to the actual Gaussian block
+producer, then connect its coefficients and data widths to physical
+delivery. Complete setup, fixed-tape lowering and independent acceptance
+of the complete multiplication theorem remain open.

@@ -145,9 +145,10 @@ class PairedNegative(Builder):
 
 
 class Program:
-    def __init__(self, bound, triangle_bound, raw):
+    def __init__(self, bound, triangle_bound, raw, phase_oracle=None):
         self.bound, self.triangle_bound, self.raw = bound, triangle_bound, raw
-        self.phases = Phases(bound["phase_bits"], raw[ORACLE])
+        self.phases = phase_oracle if phase_oracle is not None else Phases(bound["phase_bits"], raw[ORACLE])
+        need(self.phases.bits == bound["phase_bits"], "common generator phase precision")
         self.source = list(range(bound["m"]))
         self.target = list(range(bound["m"], 2 * bound["m"]))
         self.stages, self.position, self.calls = [], 0, []

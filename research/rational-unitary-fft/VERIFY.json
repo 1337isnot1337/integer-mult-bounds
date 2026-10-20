@@ -14,38 +14,49 @@
     "research/physical-ring-product/README.md",
     "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_exact_algebra.py",
     "research/rational-unitary-fft/vendor/stein_rational.py",
-    "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json"
+    "research/rational-unitary-fft/vendor/STEIN-PROVENANCE.json",
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md"
   ],
   "commands": [
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
-      "timeout_seconds": 120,
+      "timeout_seconds": 60,
       "checks": "Authenticate and adapt the actual FFT/shear schedule, certify rational phases and unitary gates, prepare charged spectral coefficients, execute fixed-grid dirty data, compare independent Fourier/Toeplitz references and reject schedule/precision controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
-      "timeout_seconds": 120,
+      "timeout_seconds": 60,
       "checks": "Repeat the complete gate/rounding certificate under optimized Python, keeping authenticated source assertions and exact typed receipt comparison."
     },
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify_triangle.py"],
-      "timeout_seconds": 180,
+      "timeout_seconds": 90,
       "checks": "Execute the retained parity recursion and exact stored inverse on one grid; check macro identities, independent exact endpoint inverses, global error/width budgets, reversed indices, nonunitary leaves and adversarial controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_triangle.py"],
-      "timeout_seconds": 180,
+      "timeout_seconds": 90,
       "checks": "Repeat the complete recursive forward/inverse certificate under optimized Python with authenticated source assertions and complete typed receipt comparison."
     },
     {
       "argv": ["{python}", "-I", "-B", "{package}/verify_generator.py"],
-      "timeout_seconds": 300,
+      "timeout_seconds": 150,
       "checks": "Execute the exact rational producer and retained compensated generator gate program on actual Schur fixtures; check paired spectral coefficients, additive endpoint defects, dirty-source rounding, intermediate widths and cancellation controls."
     },
     {
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_generator.py"],
-      "timeout_seconds": 300,
+      "timeout_seconds": 150,
       "checks": "Repeat the complete generator program with source assertions enabled under optimized Python and compare its full typed receipt."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py"],
+      "timeout_seconds": 300,
+      "checks": "Execute the retained full Toeplitz recursion and stored inverse, check leading-section admission, legal downsets/frontiers and active fragments, and compare exact endpoints plus rounded global error/width budgets."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py"],
+      "timeout_seconds": 300,
+      "checks": "Repeat full recursive execution and discriminating conditioning/schedule controls under optimized Python with authenticated source assertions and a complete typed receipt."
     }
   ]
 }

@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Execute the retained compensated bounded-generator program with exact rational generators and certified FFT/shear/parity children, paired compensation multipliers, additive endpoint defects, one global data grid and explicit intermediate-width bounds.",
-  "scope_change_reason": "PR4198 used exact matrix callbacks for its children. The completed child contracts now support the literal compensated generator schedule. I preserve both earlier revisions and receipts, pin the exact producer bytes, and add one complete generator-level error/width proof and gate replay.",
-  "bottleneck_link": "The full Toeplitz compiler needs the actual compensated generator program, including cleanup and rounded dirty-source restoration, before its full numerical composition can be admitted.",
+  "actual_scope": "Execute the retained full Toeplitz recursion and stored inverse with exact rational reference coefficients, certified generator/FFT/triangle gates, a polynomial completed-downset/frontier bound, one global grid and explicit online widths.",
+  "scope_change_reason": "The completed generator contract supports the full recursive caller. I preserve the three earlier receipts and add a global LDU/downset proof that avoids multiplying conditioning losses through recursion depth, including unequal sibling schedules and active fragments.",
+  "bottleneck_link": "The Gaussian caller needs full circuit execution and a quantified conditioning/rounding contract before physical delivery and the complete numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "PROOF.md, TRIANGLE-PROOF.md and GENERATOR-PROOF.md give the phase, recursive, compensated coefficient/error and width arguments. I preserve the 12-case FFT and 10-case triangular receipts. GENERATOR-RESULT.json adds 57 matrices, 71 generators, 5614 gates and 172 rounded states, with all 50 predecessor source Schur matrices, separate exact rank and full endpoint references, paired half-tie compensation and selected checkpoint checks. Scientific acceptance remains separate.",
+  "evidence": "I preserve the completed FFT, triangle and generator proofs/receipts. FULL-PROOF.md gives the leading-section, polynomial downset/frontier, perturbation, scalar and width arguments. FULL-RESULT.json records 11 cases, 3659 gates, 68 rounded states, 151 completed-call sets and 12 physical cuts. Schedule checks cover every cut; operator factorizations cover the selected cuts. Nontrivial fixtures reach size8; size16 is an identity/zero-call case. Scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the actual full Toeplitz recursion consume this rounded compensated-generator program under one precision allocation?",
-      "why_it_matters": "The source composes Schur factorization and recursive solves beyond each individual dirty shear. The generator contract does not finish that full matrix program.",
-      "first_step": "Bind the literal full_plan source, bound its leading-section/Schur coefficients and global prefixes, then execute the emitted generator and inverse plans on one grid.",
-      "blocked_by": "A source-bound full-recursion error/width proof, its conditioning hypotheses and complete emitted-gate replay."
+      "question": "Can the actual Gaussian block producer supply the full circuit's leading-section conditioning and reference-error contract?",
+      "why_it_matters": "The full circuit theorem assumes a rational Toeplitz root and bounded leading inverses. The physical Gaussian caller must supply the same rounded/truncated root and pay its approximation error.",
+      "first_step": "Connect PR4193's conditioning estimates and the retained Gaussian coefficient producer to exact rational roots, then allocate truncation/coefficient/circuit errors in the actual block call.",
+      "blocked_by": "A source-bound Gaussian-to-full-circuit interface and complete preparation/error ledger."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",
