@@ -171,3 +171,7 @@ The [exact-head delta](pr-intake-evidence/queue-oct20a-20261020.json) covers 100
 ## Delta intake through PR3731
 
 The [exact-head delta](pr-intake-evidence/queue-oct20b-20261020.json) covers 100 heads: 82 research archives, thirteen reviewed tooling fixes and five revision holds. PR3633 now has a repaired active owner validator, while old defective copies remain in other releases. Scientific admission remains unverified. The aggregate-versus-per-call integrality objection to PR3729 remains open. [Focused test receipts](pr-intake-evidence/queue-oct20b-20261020-checks.txt) cover tooling only; the selected result is unchanged. The separate [watch-mode migration](pr-intake-evidence/watch-mode-migration-20261020.json) refreshes 43 scheduling records without clearing their substantive obligations.
+
+## Delta intake through PR3831
+
+The [exact-head delta](pr-intake-evidence/queue-oct20c-20261020.json) records 100 decisions: {'archive': 100}. Source-only retention preserves attribution and open scientific obligations. Historical-only files and any workflow configuration resolutions are explicit in that receipt. No scientific replay or selected-frontier change.
