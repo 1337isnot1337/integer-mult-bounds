@@ -12,14 +12,14 @@
       "sha256": "844d8ac9cdcaaccb531c1019fe90a9c0afcdbdb39f15946643b951249fe9b3f3"
     },
     {
-      "bytes": 7680,
+      "bytes": 8605,
       "path": "README.md",
-      "sha256": "c4a068fdaa3f20662d2b4f1058c50e4555bdadcb6d99c380e70688fdb50be6f1"
+      "sha256": "1ec764e5c5a2352fa2e6a370f1669351af1a111b0b0ef6b2bae28ecb0921286e"
     },
     {
-      "bytes": 4232,
+      "bytes": 6466,
       "path": "RELATED-WORK.md",
-      "sha256": "1874787e93161ad1a01a9fad87b26999512eb66dfb8a1e54bb4139efb9250e13"
+      "sha256": "6cbc0c016897e1a2b65b16b23c8ce69f8d250b7ef612211a410027a5b18b9d5d"
     },
     {
       "bytes": 2518,
@@ -27,9 +27,14 @@
       "sha256": "6844a8d4936f728f60f68b7f7f09266764a4eda421dedc59d101ad0b9ab48431"
     },
     {
-      "bytes": 5656,
+      "bytes": 5658,
       "path": "TASK.json",
-      "sha256": "cd460deaa32b93f4d4753e6434fce132c7924a04b2f20a10887d275010b57448"
+      "sha256": "725989ca5eca1b5c327aae867cc56f13669314a9f0a81e5a0e99c31ebeb3f8ea"
+    },
+    {
+      "bytes": 2607,
+      "path": "VALIDATION.md",
+      "sha256": "b80c4b8abd444a12955462a1a1682acb0ff1ba045b3637ed9a5acdd0886b342b"
     },
     {
       "bytes": 433672,
@@ -262,9 +267,9 @@
       "sha256": "9d7360b301641e9fcd9a400a5ad0b401f85038db5f1ea82ee7a9b240dcf7af4d"
     },
     {
-      "bytes": 16231,
+      "bytes": 16298,
       "path": "independent/REVIEW.md",
-      "sha256": "e266c3b6a0451660003896f6e774ac028429c29be154e2360c11c3e765b974c2"
+      "sha256": "a02c11d01331b89e38beed47776832a520043ba20e988ea4ca9283b570350b36"
     },
     {
       "bytes": 1322,

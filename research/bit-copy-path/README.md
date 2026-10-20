@@ -1,4 +1,4 @@
-# Actual BIT COPY paths and the price of repairing the coded caller
+# The BIT COPY floor for closed snapshot paths
 
 **Scoped obstruction and complete planning budgets; no new supplier or κ.**
 
@@ -30,7 +30,7 @@ The written geometric argument proves
    \sum_i\left(r_i+\frac{m_i}{2}\right)\geq 7.
 \]
 
-Consequently the replacement cannot reduce either the COPY rank mass or
+Consequently the replacement cannot reduce either the total paid query rank or
 its recursive moment
 \(\sum_\ell 64^\beta r_\ell^{\,1-\beta}\), for \(0\leq\beta<1\).
 For a single copy of rank \(r<7\), the complete rank cost is at least
@@ -56,8 +56,9 @@ Two finite screens test ways around the late-continuation premise.
 - Source acquisitions at all existing common-frame cuts in the actual
   factory cannot replace any deleted centre scatter. Even relaxing the
   five partial-helper terminal conditions leaves exact binary separators.
-- Copying each completed centre earlier, before the remaining centre
-  copies, fails across all **254** eligible cuts. The screen includes the
+- Copying each completed centre earlier at **COPY rank at most four**,
+  before the remaining centre copies, fails across all **254** eligible
+  cuts. The screen includes the
   unchanged downstream COPYs and allows an arbitrary real intermediate
   frame separately for each receiver. It does not cover a changed
   incomplete total or a changed factory graph.
@@ -135,8 +136,10 @@ in ordinary and optimized Python modes, compares their exact receipts,
 and writes all logs and generated evidence outside the package. See
 [REPLAY.json](REPLAY.json) for the command inventory. It does not reexecute
 the predecessor's complete historical suite.
+The [validation record](VALIDATION.md) separates the retained mathematical
+replays, publication review and hosted CI.
 
-## Scope and next mathematical boundary
+## Open next questions
 
 A successful construction must change something excluded by the proved
 class: the queried totals, their factory or public query events, the
@@ -145,6 +148,20 @@ complete arbitrary-input word and pay its native queries, helpers,
 chronological owners, rounding, storage, and outer costs. Merely moving
 the same completed snapshot later, or treating a source code as a free
 terminal decoder, does not meet those requirements.
+
+Two concrete questions remain:
+
+- **Can different queried totals share a paid path?** This changes the
+  unchanged-total premise of the theorem. Start with one complete changed
+  factory/query word, check every dirty-input column and restoration, and
+  price its full child histogram and returned helper owners. The blocker is
+  the absence of a favorable literal candidate.
+- **Can a shared routed correction repair the coded caller cheaply?** This
+  lies outside the direct-reader and fixed-order wrapper bounds. Start with
+  one complete nine-call operator correction, charging every native query
+  and source observation against the stated repair allowance. The blocker
+  is the absence of a complete legal correction; scalar endpoint agreement
+  alone does not establish native caller compatibility.
 
 The source and attribution record is in [RELATED-WORK.md](RELATED-WORK.md),
 [PREDECESSOR.json](PREDECESSOR.json), and [SOURCES.json](SOURCES.json).

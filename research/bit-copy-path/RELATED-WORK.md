@@ -13,8 +13,11 @@ not claimed as freshly rerun here.
   BIT word and COPY pricing model. The R438 transport, five partial rank-four
   terminals, and their independent geometry checks are retained source
   constructions, not discoveries here. Their word and geometry bytes are
-  copied without alteration.
-- Ross Richardson's `research/bit-r438-source-code` supplies the existing
+  copied without alteration. Credit Ali Romman's R438/PR1043 construction
+  and boundary-persistence work, Sagar Thakrar's transport/rehosting work,
+  and the DreamingOfClouds/eumemic/PR589/PR555 lineage retained by those sources.
+- Ross Richardson's [PR3645](https://github.com/CrocSwap/integer-mult-bounds/pull/3645),
+  `research/bit-r438-source-code`, supplies the existing
   three-pivot repair and 429-helper source-code word. Its scientific source
   pin is `20ecf2891d80b5acf18d980b2164fb44ea7faa90`. The local 132-unit
   saving and 72-unit owner return were already established there.
@@ -31,6 +34,32 @@ not claimed as freshly rerun here.
 The present caller contribution is the actual nine-stage last-pair impulse,
 the all-column endpoint audit, and the explicitly bounded paid repair
 screens. The general warning about physical noncommutation is prior work.
+
+## Closest later interface and budget results
+
+The publication overlap check also inspected Ross Richardson's
+[PR4033](https://github.com/CrocSwap/integer-mult-bounds/pull/4033),
+[PR4039](https://github.com/CrocSwap/integer-mult-bounds/pull/4039),
+[PR4051](https://github.com/CrocSwap/integer-mult-bounds/pull/4051), and
+[PR4054](https://github.com/CrocSwap/integer-mult-bounds/pull/4054). They cover,
+respectively, binary cold-factor/separate-reader floors, a FULL-target
+interface and its caller invoice, the older C511 mutable-source interface,
+and kernel encoding at actual native cuts. Their premises and results are
+retained. The present main theorem instead fixes one actual completed total
+and allows arbitrarily many independent snapshots with paid closed private
+frame walks through the monotone continuation. None of those earlier interface
+results is claimed as new here.
+
+Sagar Thakrar's
+[PR3948](https://github.com/CrocSwap/integer-mult-bounds/pull/3948) prices
+target-scale centre-sharing and BIT levers against the selected PR589
+invoice. The present planning comparisons use the explicitly reconstructed
+R438/five-partial-terminal inventory and the predecessor's fractional
+owner relaxation, or the separately stated full-helper coded inventory.
+Their numerical thresholds belong to those different inventories and
+relaxations; they do not correct or replace PR3948's fixed-invoice result.
+Both analyses leave the selected complex supplier binding and establish
+no new κ.
 
 ## Prior direct-decoder floor
 
@@ -68,7 +97,15 @@ The entry overlap refresh read all 308 open PRs, 2703 discussion records,
 and 5234 local records, with no pagination warnings, as well as discussion
 hubs 1163, 1166 and 1167. This is an overlap search, not a novelty proof:
 it is not a census of closed remote PRs or every code diff. No public
-research claim, discussion post, or PR was made by this run.
+research claim, discussion post, or PR was made during that original
+local-only investigation.
+
+Before publication, a fresh snapshot on 2026-10-20 covered 314 open PRs,
+3540 closed/merged PRs, 2713 discussion records and 5234 local records.
+All three remote corpora reported complete pagination and no warnings.
+The search included titles, bodies, discussion replies and local package
+metadata; it did not inspect every code diff or establish global novelty.
+The canonical discussion and submission record are linked from the PR.
 
 ## Evidence boundaries
 

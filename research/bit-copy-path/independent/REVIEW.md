@@ -143,11 +143,13 @@ K column. This certifies the necessary span obstruction without assuming
 that independent insertion choices could coexist legally. It grants the
 extra choices, cleanup and scalar work, which only weakens the obstruction.
 
-The nine stronger late-factory duals are also independently checked on all
-254 completed-centre cuts before the first COPY, including the eight
+The nine stronger late-factory duals are also independently checked for
+replacement COPY rank at most four on all 254 completed-centre cuts before
+the first COPY, including the eight
 remaining COPYs in each changed suffix. The oracle treats COPY and ERASE
 source reads as uses when deciding whether a MOVE may be retimed. These
-checks cover arbitrary real lower frames in the actual centre hyperplane;
+checks cover arbitrary real lower frames of dimension at least three in
+the actual centre hyperplane;
 the fixed catalogue cases are subcases. They do not enumerate arbitrary
 earlier factory modifications or private frame walks across later COPYs.
 
