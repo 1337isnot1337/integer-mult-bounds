@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Derive all affine source zero strata and all minimal rational reader supports; rebuild4096 full-group tariffs; exact B&B on160 tariff tables covering324 source patterns; exact attaining endpoints, rank-collapse/outside-source/missing-root controls; read-only compact receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent source/support/physical-tariff reconstruction and unpruned10,497,600-cell optimization; all324 minima digest, exact fixed112x112 endpoints, rank3-extra-reader and corruption controls; independent P8 representation audit and immutable compact receipt."
+    }
+  ]
+}
