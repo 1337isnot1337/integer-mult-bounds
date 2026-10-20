@@ -79,3 +79,17 @@ PR #3493 / #3593 / #3599 / #3611 sources credited there. The handoff is
 discussion #1166 comment 19016699. New tape schedule, bill and checks by
 unpaidmoon, with substantial assistance from Grok 4.7 in Cursor. No
 independent human or formal-kernel acceptance is claimed. Apache-2.0.
+
+## Relation to the parallel arithmetic invoice
+
+While this package was being checked, the same account posted a different
+one-round answer to comment 19016699: discussion comment 19056745 and
+upstream PR #4123 (`research/typed-actual-width-h`, head
+`499427578245cbd3d2b07680945a94f6e927d020`). That invoice counts normalized
+`H0` add/sub operations, truncations and bit touches, and proves a Euclidean
+error below `sqrt(2) 2^{-p}`. This package does not repeat that count. It
+prices the unnormalized butterfly as a one-shot tape program: sequential
+split, interleave, adjacent butterfly, deinterleave and merge, then
+toward-zero division by `2^g`, with a closed read/write/gate form and a
+data-independent head itinerary. The two artifacts can be reviewed
+separately. Neither prices inter-round stock or the PR #3617 diagonal.
