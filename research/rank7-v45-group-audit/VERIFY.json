@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/rank7-joint-endframes/data/PARENT-base.json.gz",
+    "research/rank7-joint-endframes/data/PARENT-extra.json.gz",
+    "research/rank7-joint-endframes/data/STAGE1-FRAME-EDITS.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Both PR2942 parents: reproduced profiles; V45 equals E_7 intersect E_42; every subset margin; joint delta -8388172; cleanup and scalars unchanged; width 8 to 7 by 4; omit-one-edit and stale-frame mutants are nonmonotone."
+    }
+  ]
+}
