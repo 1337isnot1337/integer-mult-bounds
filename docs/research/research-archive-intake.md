@@ -167,3 +167,7 @@ The [exact-head delta](pr-intake-evidence/queue-oct18b-20261018.json) covers 100
 ## Delta intake through PR3628
 
 The [exact-head delta](pr-intake-evidence/queue-oct20a-20261020.json) covers 100 heads: 87 source archives, five reviewed tooling fixes, five revision holds and three deferred formalization reviews. PR3544 and PR3577 are retained only at their original commits; their proposed default-tree changes remain inactive. Four research heads share a separately inspected manual-workflow environment fix; it was not dispatched. Contributor-reported pricing, scatter-direction and negative-control defects remain explicit holds. [Focused test receipts](pr-intake-evidence/queue-oct20a-20261020-checks.txt) do not certify scientific claims or change the selected frontier.
+
+## Delta intake through PR3731
+
+The [exact-head delta](pr-intake-evidence/queue-oct20b-20261020.json) covers 100 heads: 82 research archives, thirteen reviewed tooling fixes and five revision holds. PR3633 now has a repaired active owner validator, while old defective copies remain in other releases. Scientific admission remains unverified. The aggregate-versus-per-call integrality objection to PR3729 remains open. [Focused test receipts](pr-intake-evidence/queue-oct20b-20261020-checks.txt) cover tooling only; the selected result is unchanged. The separate [watch-mode migration](pr-intake-evidence/watch-mode-migration-20261020.json) refreshes 43 scheduling records without clearing their substantive obligations.

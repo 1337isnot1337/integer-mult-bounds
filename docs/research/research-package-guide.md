@@ -48,7 +48,9 @@ path can still be declared), never fewer.
 A row without an explicit `pin` resolves as `base_commit:<path>`. A file vendored
 from a pull-request head can instead carry `"pin": "head:<40-hex sha>:<path>"`,
 whose bytes resolve at that commit rather than at the package base. Any other
-pin form fails closed. The originating task catalogue
+pin form fails closed. Both forms preserve the exact path, including any LF or
+CRLF characters in a Git filename; encode them as JSON escapes in the manifest.
+The originating task catalogue
 `docs/research/agent-task-catalog.json` must stay pinned at `base_commit`, so a
 later catalogue revision cannot replace the card a package answers. Pins resolve
 only against Git objects reachable in this repository (the base commit or an
