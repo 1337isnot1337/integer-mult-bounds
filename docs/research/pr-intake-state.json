@@ -86,12 +86,13 @@
       "status": "waiting_revision",
       "reason": "The exact width rule/pivot ceiling has successful light checks. The actual full Linux job 114567592208 reaches the final discover check but fails: frozen hosting selection differs from recomputed optimum. Correct or explain that frozen selection with a source-bound completed full replay before closing the construction claim.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/e8-complex-adapted-kernel.yml": null,
         ".github/workflows/e8-r715-kernel-cap.yml": null,
         ".github/workflows/e8-r715-paid-complex.yml": null,
@@ -143,12 +144,13 @@
       "status": "waiting_revision",
       "reason": "The proposal prices a cross-copy/cross-family split. PR451 supplies a trace obstruction to treating that split as the present physical operator. Retain the proposed ledger, but supply a realizable operator/interface and its complete charge before accepting the claimed improvement.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/e8-complex-adapted-kernel.yml": null,
         ".github/workflows/e8-r715-whole-hosted.yml": null,
         ".github/workflows/e8-r740-replica32.yml": null,
@@ -240,12 +242,13 @@
       "status": "deferred_replay",
       "reason": "The BW16 primary screen reached 180 seconds before all 21 declared checks completed. Continue its exact geometry/copy-budget replay; no conclusion is inferred from the timeout.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/bw16-unit-screen.yml": null,
         "research/bw16-unit-screen": null,
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
@@ -262,12 +265,13 @@
       "status": "deferred_replay",
       "reason": "After repairing a missing historical format-limits input, the full E7 classification replay reached 180 seconds. Finish the cover/near-cover domain and remaining controls; the initial missing-file error was our fixture setup.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/e7-flat-cover-classification.yml": null,
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/e7-flat-cover-classification": null
@@ -302,12 +306,13 @@
       "status": "deferred_replay",
       "reason": "Both native mixed providers, literal owners, strict global invoice/assembly, admission mutations and independent prices passed. The 1200-second run stopped inside the inherited cold PR799/741 ancestry replay (all-native-phase-edges), so no complete admission receipt exists. Finish that ancestry and its source/coverage bindings, then admit the full package; do not infer a selected frontier from the passed local/global stages.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/mixed-demotions-t37.yml": "996eddd8f0d15c0e8cd2444112c18e921a7f1835",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/mixed-demotions-t37": "f9dbe3c8790bd364163fe1c2ae5f559ffec9ec25",
@@ -452,12 +457,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Also discharge the PR1673 outer-construction proof and, where used, PR1699 matrix-boundary specialization before accepting this composition. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusio [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -474,12 +480,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Also discharge the PR1673 outer-construction proof and, where used, PR1699 matrix-boundary specialization before accepting this composition. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusio [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -496,12 +503,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Also discharge the PR1673 outer-construction proof and, where used, PR1699 matrix-boundary specialization before accepting this composition. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/NOTICE, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -551,12 +559,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Also discharge the PR1673 outer-construction proof and, where used, PR1699 matrix-boundary specialization before accepting this composition. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusio [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -573,12 +582,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Independently audit the new outer schedule/analytic cost argument and its precision, movement and recurrence interfaces; parameter inequalities alone do not establish it. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SP [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -611,12 +621,13 @@
       "status": "waiting_revision",
       "reason": "Resolve the inherited T74/#1319 supplier admission (controller, geometry, invoice and semantic regenerated-artifact checks) before accepting a stronger bound. Independently audit the new outer schedule/analytic cost argument and its precision, movement and recurrence interfaces; parameter inequalities alone do not establish it. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SP [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -633,12 +644,13 @@
       "status": "waiting_revision",
       "reason": "Whole-head supplier/outer admission remains pending. Review the new W^5 rectangular boundary batching and radix-distributed union schedule against inherited T74 admission, and verify the cited rectangular exponent and precision/tape composition. The claimed 54/53-constraint receipts alone do not discharge those constructions. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -655,12 +667,13 @@
       "status": "waiting_revision",
       "reason": "Whole-head supplier/outer admission remains pending. New Toeplitz/displacement-rank boundary solve requires a uniform generator-growth, stable-precision and operation-cost audit, alongside the shared radix-union and T74 dependencies. Numerical tau_eff just above2 is not that proof. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/ [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -677,12 +690,13 @@
       "status": "waiting_revision",
       "reason": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, research/capped-fusion-t74-k554/outer [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -699,12 +713,13 @@
       "status": "waiting_revision",
       "reason": "Source-integrity hold: a changed-file MANIFEST.json does not match the vendored PR1673 CAPPED-LAYOUT-CONTROLS.json. The same inconsistency exists upstream; provenance does not repair the package pin. Resolve the frozen manifest/byte contract before integration; mathematical proof/replay review remains open.",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         ".github/workflows/fine-prime-padding.yml": null,
         ".github/workflows/t74-signed554-phase-fusion.yml": null,
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
@@ -723,12 +738,13 @@
       "status": "waiting_revision",
       "reason": "105-digit arithmetic refinement of pending PR1725 k=2 rectangular/radix-union architecture. First admit the parent constructions and T74 supplier, then compare the refined native endpoint and all strict rows at this head. A smaller slack does not remove the parent obligations. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.jso [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -745,12 +761,13 @@
       "status": "waiting_revision",
       "reason": "Free-epsilon refinement of PR1786 fine-prime padding with PR1758 gauge-free interiors. Requires admission of those written interfaces and T74 supplier before the epsilon=1-2e-64 witness can be selected. Review uniform fixed-parameter asymptotics separately from its exact ledger. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.j [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -767,12 +784,13 @@
       "status": "waiting_revision",
       "reason": "Re-certifies supplier endpoint at1e-90 and uses1e-100 slacks on the pending fine-prime/gauge-free/radix-union stack. Check fresh native endpoint acceptance and rejection and composition after parent admission; the tiny gain over PR1828 is not new structural evidence. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, researc [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -862,12 +880,13 @@
       "status": "waiting_revision",
       "reason": "Review the fixed-point engine change, complete manifest/native reuse and outer proof chain; check release prose/parameters agree on the epsilon slack. The retained structured Toeplitz alternative is not the bound used here. Resolve carried-cutoff/label obligations at the exact submitted revision before admission. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, resear [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -884,12 +903,13 @@
       "status": "waiting_revision",
       "reason": "Review inherited outer interfaces plus the carried previous-stage constants and new label/adapter checks at this exact head. Confirm the three physical adapter mutants reject and native reuse/manifest bind all inputs. No independent full replay or changed all-size theorem audit has been completed in this tranche. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, research/cappe [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -925,12 +945,13 @@
       "status": "waiting_revision",
       "reason": "Review directed-rounding precision/scaling, complete manifest and authenticated native reuse, plus1956 carried-cutoff and1964 label/adapter-stage corrections. Then resolve the shared all-size fine-prime/gauge-free/fusion obligations; tiny fixed slacks and a finite release alone do not certify those implications. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/code/oracle_check.py, research/capped-fusion-t74-k554/new/SPEC.json, researc [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -963,12 +984,13 @@
       "status": "waiting_revision",
       "reason": "The proposed fine-grid kappa depends on ancestors whose full supplier admission is unresolved. Finish those dependencies before promoting the numerical witness. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, research/capped-fusion-t74-k554/outer/CLASSICAL-BOUNDARY.md, research/capped-fusion-t74-k554/outer/FINE-PADDING-COMPOSITION.md, research/capped-fusion-t74-k554/outer/IN [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555"
       },
@@ -1001,12 +1023,13 @@
       "status": "waiting_revision",
       "reason": "Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, research/capped-fusion-t74-k554/outer/CLASSICAL-BOUNDARY.md, research/capped-fusion-t74-k554/outer/FINE-PADDING-COMPOSITION.md, research/capped-fusion-t74-k554/out [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/frontier2044-epsilon-refinement": null
@@ -1024,12 +1047,13 @@
       "status": "waiting_revision",
       "reason": "Review the stacked capped-fusion parent and source-bound complete admission together; arithmetic-only gates do not cover the inherited native/outer supplier changes. Conflicting versions across this batch: research/capped-fusion-t74-k554/CLAIM.json, research/capped-fusion-t74-k554/MANIFEST.json, research/capped-fusion-t74-k554/README.md, research/capped-fusion-t74-k554/RELEASE.json, research/capped-fusion-t74-k554/code/assemble.py, research/capped-fusion-t74-k554/code/fine_mercator.py, research/capped-fusion-t74-k554/code/fine_moment.py, research/capped-fusion-t74-k554/new/SPEC.json, research/capped-fusion-t74-k554/outer/B.json, research/capped-fusion-t74-k554/outer/CLASSICAL-BOUNDARY.md, research/capped-fusion-t74-k554/outer/FINE-PADDING-COMPOSITION.md, research/capped-fusion-t74-k554/out [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/capped-fusion-t74-k554": "528353f146a3d29b964f9d39b1408046716bf17f",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/frontier2044-epsilon-refinement": null,
@@ -1209,12 +1233,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/SPEC.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/g [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1291,12 +1316,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/SPEC.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/g [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1385,12 +1411,13 @@
       "status": "waiting_revision",
       "reason": "Full supplier admission needs an external work directory and source-bound predecessor/native receipts or a fresh cold replay. Review inherited PR2322/2374 hosting and outer-theorem obligations plus the raised entrance-frame delivery before accepting the conditional bound; manifest/arithmetic checks alone are insufficient. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROF [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1424,12 +1451,13 @@
       "status": "waiting_revision",
       "reason": "Full supplier admission needs an external work directory and source-bound predecessor/native receipts or a fresh cold replay. Review inherited PR2322/2374 hosting and outer-theorem obligations plus the raised entrance-frame delivery before accepting the conditional bound; manifest/arithmetic checks alone are insufficient. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROF [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1446,12 +1474,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/SPEC.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/g [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1468,12 +1497,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/SPEC.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/g [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1506,12 +1536,13 @@
       "status": "waiting_revision",
       "reason": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-hando [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1528,12 +1559,13 @@
       "status": "waiting_revision",
       "reason": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-hando [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1550,12 +1582,13 @@
       "status": "waiting_revision",
       "reason": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-hando [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1572,12 +1605,13 @@
       "status": "waiting_revision",
       "reason": "Frontier/outer lane: establish exact supplier lineage, complete finite/native replays and analytic/implementation obligations before any admission or selected-result change. Metadata and full changed-file inventory are not certification. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-hando [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1594,12 +1628,13 @@
       "status": "waiting_revision",
       "reason": "Initial harness invocation omitted the required --work argument and exited at argument parsing; this is not a failed mathematical check. The declared entry point is a complete supplier admission with fresh native workers and astronomical-precision assembly, not a bounded research replay. Retain the raw invocation receipt; schedule a separately reviewed, resource-bounded full run with a new work directory and authenticated reuse where applicable. No frontier approval from this invocation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/ [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1616,12 +1651,13 @@
       "status": "waiting_revision",
       "reason": "Frontier release recipe contains archive/cache placeholders. Resolve source export, complete release dependencies and supplier/outer obligations before executing or selecting the bound. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/a [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1654,12 +1690,13 @@
       "status": "waiting_revision",
       "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/DISPATCH.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/ORDER.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/gmx-t74-borrow43-handoff/independent_core.py, res [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/concentrated-prelife-composition": null,
         "research/concentrated-prelife-refit": null,
@@ -1680,12 +1717,13 @@
       "status": "waiting_revision",
       "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/gmx-t74-borrow43-handoff/new/BORROW-PROVIDERS.json, research/gmx-t74-borrow43-handoff/new/PLAN.json, research/gmx-t74-borrow43-handoff/new/PROFI [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1718,12 +1756,13 @@
       "status": "waiting_revision",
       "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PARENT-LIFT-RECEIPT.json, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/audit_mixed.py, research/gmx-t74-borrow43-handoff/new/BORROW-PROVIDERS.json, research/gmx-t74-borrow43-handoff/new/PLAN.json, research/gmx-t74-borrow43-handoff/new/PROFI [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1772,12 +1811,13 @@
       "status": "waiting_revision",
       "reason": "Mechanism/proof and changed-code review remains pending. Recorded execution alone does not establish acceptance. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/new/BORROW-PROVIDERS.json, research/gmx-t74-borrow43-handoff/new/PLAN.json, research/gmx-t74-borrow43-handoff/new/PROFILE.json, research/gmx-t74-borrow43-handoff/new/SPEC.json, research/gmx-t74-borrow43-handoff/new/borrow-fill/FI [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9"
       },
@@ -1809,12 +1849,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/new/BORROW-PROVIDERS.json, research/gmx-t74-borrow43-handoff/new/PLAN.json, research/gmx-t74-borrow43-handoff/new/PROFILE.json, research/gmx-t74-borrow43-handoff/new/SPEC.json, research/gmx-t74-borrow43-handoff/new/borrow-fill [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9",
         "research/replica-integer-prefix": null,
@@ -1836,12 +1877,13 @@
       "status": "waiting_revision",
       "reason": "Pinned scoped execution is still pending; finish the command and compare the complete receipt before incorporation. Conflicting versions across this batch: research/gmx-t74-borrow43-handoff/CLAIM.json, research/gmx-t74-borrow43-handoff/CONSTRUCTION.json, research/gmx-t74-borrow43-handoff/MANIFEST.json, research/gmx-t74-borrow43-handoff/OWNERS.json.gz, research/gmx-t74-borrow43-handoff/PLAN.json, research/gmx-t74-borrow43-handoff/PROFILE.json, research/gmx-t74-borrow43-handoff/README.md, research/gmx-t74-borrow43-handoff/RELEASE.json, research/gmx-t74-borrow43-handoff/new/BORROW-PROVIDERS.json, research/gmx-t74-borrow43-handoff/new/PLAN.json, research/gmx-t74-borrow43-handoff/new/PROFILE.json, research/gmx-t74-borrow43-handoff/new/SPEC.json, research/gmx-t74-borrow43-handoff/new/borrow-fill [Full obligation in linked immutable review evidence; truncated here for scheduling.]",
       "evidence": [
-        "research/community-efficient2600-audit/INTAKE.json"
+        "research/community-efficient2600-audit/INTAKE.json",
+        "docs/research/pr-intake-evidence/new-package-attribute-holds-20261020.json"
       ],
       "policy_version": 1,
       "baseline": "a23bdc1b07be96bea0101d44ae27d14de67a79ed",
       "watch_paths": {
-        ".gitattributes": "5a34da7b20728bef603e5db635b2b5007776cf37",
+        ".gitattributes": "0c306f3748cd3bff91f8b7a7b7fc19886a4abb63",
         "research/community-efficient2600-audit/INTAKE.json": "66ac2ec224212206febf709a6f567f051c9cd555",
         "research/gmx-t74-borrow43-handoff": "834f4eeff172c51ab5677ee53c9c9acfec5a3ac9",
         "research/record-block-norm134": null,

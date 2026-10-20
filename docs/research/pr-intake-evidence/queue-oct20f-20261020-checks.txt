@@ -79,3 +79,5 @@ research/kappa-operator-repair/probe.py: text: unset
 research/kappa-operator-repair/probe.py: whitespace: unset
 research/staged544-mixed-idle-rebind/probe.json: text: unset
 research/staged544-mixed-idle-rebind/probe.json: whitespace: unset
+
+Final metadata checks: all 386 new decision rows agree with generated ledger fields and completion/publication flags; Markdown ledger agrees with JSON. Fresh delta plan reports zero actionable heads.

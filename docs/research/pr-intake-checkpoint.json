@@ -1011,13 +1011,13 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "93d5762dad3eb17607ddad1c75bf593666ee5114",
-    "decisions": 100,
-    "archive_count": 99,
-    "reviewed_tooling_count": 0,
+    "commit": "aa5a1502082c5062bd0ccb4f898dc4de9cb8a044",
+    "decisions": 86,
+    "archive_count": 82,
+    "reviewed_tooling_count": 1,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct20e-20261020.json",
-      "docs/research/pr-intake-evidence/queue-oct20e-closures.json"
+      "docs/research/pr-intake-evidence/queue-oct20f-20261020.json",
+      "docs/research/pr-intake-evidence/queue-oct20f-closures.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1081,14 +1081,34 @@
     }
   ],
   "latest_queue": {
-    "open_count": 373,
-    "actionable_count": 86,
+    "open_count": 290,
+    "actionable_count": 0,
     "counts": {
       "draft": 173,
-      "waiting_revision": 107,
-      "deferred_replay": 7,
-      "new": 86
+      "waiting_revision": 110,
+      "deferred_replay": 7
     },
-    "observed_at": "2026-10-20T05:24:43.526805+00:00"
+    "observed_at": "2026-10-20T05:29:45.610718+00:00"
+  },
+  "bulk_intake_20261020_completed": {
+    "decisions": 586,
+    "integrations": 569,
+    "archives": 549,
+    "tooling": 20,
+    "new_revision_holds": 14,
+    "new_deferrals": 3,
+    "latest_turn_decisions": 386,
+    "latest_turn_integrations": 382,
+    "latest_turn_archives": 380,
+    "latest_turn_tooling": 2,
+    "latest_turn_new_holds": [
+      4017,
+      4079,
+      4090,
+      4110
+    ],
+    "actionable_remaining": 0,
+    "selected_frontier_changed": false,
+    "heavy_replays_run": false
   }
 }
