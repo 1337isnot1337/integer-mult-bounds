@@ -20,6 +20,7 @@ import json
 import subprocess
 import sys
 import tempfile
+import time
 from pathlib import Path
 
 PACKAGE = Path(__file__).resolve().parent
@@ -196,7 +197,9 @@ def replay(text, workers):
         fail("engine bytes differ from the SOURCES.json pin")
     with tempfile.TemporaryDirectory(prefix="l22deep-replay-") as tmp:
         binary = deep_census.build(tmp)
+        start = time.monotonic()
         rows = deep_census.run_split(binary, (s, t), workers, tmp, keys)
+        elapsed = time.monotonic() - start
     for row in rows:
         if not row["complete"] or row["hits"] or row["hit_words"]:
             fail(f"({s},{t}) shard {row['prefix']} not a complete zero-hit run")
@@ -205,7 +208,8 @@ def replay(text, workers):
                  f"{record['per_shard_nodes'][row['prefix']]}")
     nodes = sum(r["nodes"] for r in rows)
     print(f"({s},{t}) prefixes [{first},{first + len(keys)}): {len(keys)} "
-          f"shards complete, hits 0, nodes {nodes:,} equal RESULT.json")
+          f"shards complete, hits 0, nodes {nodes:,} equal RESULT.json "
+          f"({elapsed:.1f} s, not compared)")
     print("PASS_F7_L22_DEEP_SHARD_REPLAY")
 
 

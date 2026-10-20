@@ -112,7 +112,7 @@ python3.12 -B research/f7-l22-deep-shard-census/deep_census.py --workers 14 \
 - `--replay` recomputes a slice of cover entries for one split and requires
   each shard's node count to equal `RESULT.json` exactly, with zero hits.
 
-CI replays only the registered slices. Every split was run in full locally;
+CI replays only the registered slices (about 1.2e9 nodes). Every split was run in full locally;
 the exhaustive replay is opt-in because the seven splits total about 1.74e11
 nodes.
 
