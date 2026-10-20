@@ -77,9 +77,18 @@ def inspect(walk, k, origin):
                 if t in charges or (t < len(walk) and t not in global_repeats):
                     raise ArithmeticError('duplicate or invalid parity charge')
                 charges.add(t)
-    capital_s = min(k, (r + 1) // 2)
+    if len(walk) in charges:
+        start, end = components[-1]
+        target = tuple(v % 2 for v in states[end])
+        choices = [t for t in range(start + 1, end)
+                   if tuple(v % 2 for v in states[t]) == target]
+        if not choices or choices[0] in charges or choices[0] not in global_repeats:
+            raise ArithmeticError('cyclic endpoint charge repair fails')
+        charges.remove(end)
+        charges.add(choices[0])
+    capital_s = min(k, r // 2)
     bound = k + capital_s + (k - capital_s) // 4
-    if 2 * small > len(charges) or len(charges) > r + 1 or s > bound:
+    if 2 * small > len(charges) or len(charges) > r or s > bound:
         raise ArithmeticError('component charge/intersection bound fails')
     return 1
 
@@ -87,8 +96,8 @@ def inspect(walk, k, origin):
 def compare_certificate(result):
     certificate = json.loads((HERE / "CERTIFICATE.json").read_text())
     actual = [(r["r"], r["H"], r["upper"]) for r in result["rows"]]
-    expected = [(r["r"], r["cube_intersection"], r["mask_upper"]) for r in certificate["rows"]]
-    if actual != expected or result["max_k19_upper"] != certificate["max_mask_upper"]:
+    expected = [(r["r"], r["cube_intersection"], r["mask_upper"]) for r in certificate["cube_control_rows"]]
+    if actual != expected or result["max_k19_upper"] != certificate["cube_control_max_mask_upper"]:
         raise ArithmeticError("independent cube table differs from certificate")
     if result["component_cases"] != 21120 or result["nonempty_cases"] != 20976:
         raise ArithmeticError("independent component family incomplete")
@@ -125,7 +134,7 @@ def check_catalog():
 
 def receipt():
     digest = hashlib.sha256()
-    names = ('CERTIFICATE.json', 'CUBE-SHARPNESS.json', 'README.md', 'SOURCES.json', 'TASK.json', 'VERIFY.json', 'DEPTH2.md', 'MAXIMIZERS.json', 'depth_two.py', 'independent_depth2.c', 'independent_check.py', 'verify.py')
+    names = ('PROOF17.md', 'axis_obstruction.py', 'n4_controls.py', 'CERTIFICATE.json', 'CUBE-SHARPNESS.json', 'README.md', 'SOURCES.json', 'TASK.json', 'VERIFY.json', 'DEPTH2.md', 'MAXIMIZERS.json', 'depth_two.py', 'independent_depth2.c', 'independent_check.py', 'verify.py')
     for name in names:
         digest.update(name.encode() + b"\0" + hashlib.sha256((HERE / name).read_bytes()).digest())
     return digest.hexdigest()
@@ -141,6 +150,53 @@ def check_sharpness():
     inside = [t for t, q in enumerate(states) if all(v <= 1 for v in q)]
     if len(parity) != 72 or len(inside) != 22 or inside != data["valid_boundaries"]:
         raise ArithmeticError("independent sharpness check failed")
+
+
+def check_seventeen(data):
+    """Recompute all base cases and both residual branches without producer code."""
+    total, target = 72, 1 << 18
+    values = comb(total, 3) - 105 * 70 + min(5 * 105, 22 * 18)
+    rows = []
+    for repeats in range(21):
+        retained = total - repeats
+        cap = 18 + repeats // 2 + (18 - repeats // 2) // 4
+        xedges, zedges = 210 - 2 * repeats, 263 - 13 * repeats
+        xbound = comb(total, 3) - 70 * xedges + min(8 * xedges, 70 * 18)
+        zbound = comb(retained, 3) - (retained - 2) * zedges + min(9 * zedges, 108 * 18)
+        numerator = 3 * values + (35 - cap) * xbound + (2 * cap - 38) * zbound
+        bound = 1 + comb(retained, 2) + numerator // 4
+        rows.append({'r': repeats, 'cube_cap': cap, 'V_upper': values,
+                     'X_upper': xbound, 'Z_upper': zbound,
+                     'incidence_numerator': numerator, 'mask_upper': bound,
+                     'excluded': bound < target})
+    exceptions = [row['r'] for row in rows if not row['excluded']]
+    if exceptions != [2, 4, 5]:
+        raise ArithmeticError('independent base cases leave unexpected exceptions')
+    residual = []
+    for repeats, deletions in ((2, 2), (4, 4), (5, 4)):
+        row = rows[repeats]
+        vertices, edges = total - deletions, 210 - 2 * repeats - 9 * deletions
+        xbound = comb(vertices, 3) - edges * (vertices - 2) + min(8 * edges, 70 * 18)
+        cap = row['cube_cap']
+        attained = 3 * values + (35 - cap) * xbound + (2 * cap - 38) * row['Z_upper']
+        absent = 4 * values + (35 - cap) * row['X_upper'] + (2 * cap - 40) * row['Z_upper']
+        pair_bound = 1 + comb(total - repeats, 2)
+        yes, no = pair_bound + attained // 4, pair_bound + absent // 4
+        if max(yes, no) >= target:
+            raise ArithmeticError('independent residual branch does not exclude eighteen')
+        residual.append({'r': repeats, 'cube_cap': cap, 'axis_deletions': deletions,
+                         'X_vertices': vertices, 'X_edges_lower': edges, 'X_upper': xbound,
+                         'attained_H_upper': yes, 'not_attained_H_upper': no})
+    tail = 1 + comb(51, 2) + comb(51, 4)
+    if tail >= target:
+        raise ArithmeticError('independent parity tail does not exclude eighteen')
+    expected = {'source_count': 18, 'target_masks_including_zero': target,
+                'base_rows': rows, 'base_exceptions': exceptions, 'residual_rows': residual,
+                'r_at_least_21_upper': tail}
+    if data != expected:
+        raise ArithmeticError('seventeen certificate differs from independent arithmetic')
+    return {'base_rows': len(rows), 'residual_branches': 2 * len(residual),
+            'tail_bound': tail, 'result': 'PASS'}
 
 
 def main():
@@ -177,9 +233,11 @@ def main():
     compare_certificate(result)
     check_catalog()
     check_sharpness()
+    data = json.loads((HERE / "CERTIFICATE.json").read_text())
+    print("independent_seventeen", json.dumps(check_seventeen(data["eighteen_exclusion"]["arithmetic"]), sort_keys=True))
     print(json.dumps({key: value for key, value in result.items() if key != 'rows'}, sort_keys=True))
     print('receipt_sha256', receipt())
-    print('PASS_INDEPENDENT_CUBE_COMPONENTS N4<=18')
+    print('PASS_INDEPENDENT_CHAR4_OBSTRUCTIONS N4<=17')
 
 
 if __name__ == '__main__':

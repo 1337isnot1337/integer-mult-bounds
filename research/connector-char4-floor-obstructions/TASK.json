@@ -42,27 +42,27 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Narrow the characteristic-four unsigned connector floor interval from 9 <= N(4) <= 20 to 9 <= N(4) <= 18 by a translated-cube intersection proof. Prove the sharp five-source depth-two coverage maximum 28 of 31 nonzero masks, classify all four maximizing words up to source relabelling, and provide an eight-inventory all-ones search normalization.",
+  "actual_scope": "Narrow the characteristic-four unsigned connector floor interval from 9 <= N(4) <= 20 to 9 <= N(4) <= 17 by a cube-union and triple-class proof with axis-deletion residual cases. Prove the sharp five-source depth-two coverage maximum 28 of 31 nonzero masks, classify all four maximizing words up to source relabelling, and provide an eight-inventory all-ones search normalization.",
   "scope_change_reason": "The user assigned exact N(4). The alphabet stays fixed and the source count changes, a scope-change trigger on the original card. This proof limits batch sizes for any characteristic-four floor consumer.",
   "bottleneck_link": "Side result about the complete-call interface floor; no physical consumer or kappa change is supplied.",
   "budget_minutes": 100,
   "stop_rule": "At the research checkpoint, publish the strongest independently checked bound or construction. Do not claim a general ten-source exclusion from a restricted search.",
   "outcome": "completed",
-  "evidence": "Written translated-cube/outside-component proof, all 76 parity-duplicate cases, exhaustive small translated-cube controls and separately written literal component checks. Complete canonical depth-two censuses at thresholds 30 and 29 account for 2,546,168,625 words, find zero and four solutions respectively, and agree with an independent C engine. Standard-library replay validates every maximizer and compares pruning with unpruned small cases. All 35 gap inventories are enumerated, leaving eight types and 19,448 type-count vectors at k=10. A 72-event eighteen-source witness attains the cube cap H(18,0)=22 with no parity-prefix duplicates; it is a finite sharpness witness, not a floor word.",
+  "evidence": "Written translated-cube/outside-component proof, all 76 parity-duplicate cases, exhaustive small translated-cube controls and separately written literal component checks. Complete canonical depth-two censuses at thresholds 30 and 29 account for 2,546,168,625 words, find zero and four solutions respectively, and agree with an independent C engine. Standard-library replay validates every maximizer and compares pruning with unpruned small cases. All 35 gap inventories are enumerated, leaving eight types and 19,448 type-count vectors at k=10. A 72-event eighteen-source witness attains the cube cap H(18,0)=22 with no parity-prefix duplicates; it is a finite sharpness witness, not a floor word. The stronger eighteen-source triple-class count excludes all repeat cases except r=2,4,5; axis deletions and conservative nonattainment bounds exclude all six residual branches, yielding N(4)<=17.",
   "author": "Nick Petalas",
   "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
   "open_questions": [
     {
-      "question": "What is N(4) exactly, within 9 <= N(4) <= 18?",
+      "question": "What is N(4) exactly, within 9 <= N(4) <= 17?",
       "why_it_matters": "It determines the largest batch paying exactly four calls per operator.",
       "first_step": "Use the eight-inventory all-ones normal form to search event orders outside the known nine-source insertion family, or derive a stronger obstruction.",
       "blocked_by": "Neither a ten-source witness nor a universal ten-source exclusion is known."
     },
     {
-      "question": "Can the translated-cube count exclude eighteen sources?",
-      "why_it_matters": "The current universal obstruction stops at nineteen, leaving a large interval.",
-      "first_step": "Control simultaneous translated-cube intersections or sharpen outside-component accounting beyond a single maximum.",
-      "blocked_by": "An explicit 72-event witness attains H(18,0)=22, so lowering that uniform intersection cap alone cannot close the eighteen-source case."
+      "question": "Can the cube-union/triple-class method exclude seventeen sources?",
+      "why_it_matters": "The present universal obstruction stops at eighteen sources.",
+      "first_step": "Generalize the graph and incidence arithmetic to k=17 and identify the remaining structural deficits.",
+      "blocked_by": "The current estimates are not strong enough at seventeen sources; no exclusion is claimed."
     },
     {
       "question": "Does a concrete characteristic-four caller benefit from a floor batch?",

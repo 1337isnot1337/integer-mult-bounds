@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded producer controls for translated-cube intersection proof."""
+"""Replay exact arithmetic and finite controls for characteristic-four floor obstructions."""
 
 from itertools import combinations, product
 from math import comb
@@ -9,6 +9,8 @@ import hashlib
 from pathlib import Path
 import sys
 from depth_two import census, calibrate, canonical, served_by_pairs
+from axis_obstruction import evaluate as axis_evaluate, calibrate as axis_calibrate
+from n4_controls import run_controls as structural_controls
 
 HERE = Path(__file__).resolve().parent
 
@@ -165,7 +167,7 @@ def depth_two_results():
 
 def receipt():
     digest = hashlib.sha256()
-    names = ('CERTIFICATE.json', 'CUBE-SHARPNESS.json', 'README.md', 'SOURCES.json', 'TASK.json', 'VERIFY.json', 'DEPTH2.md', 'MAXIMIZERS.json', 'depth_two.py', 'independent_depth2.c', 'independent_check.py', 'verify.py')
+    names = ('PROOF17.md', 'axis_obstruction.py', 'n4_controls.py', 'CERTIFICATE.json', 'CUBE-SHARPNESS.json', 'README.md', 'SOURCES.json', 'TASK.json', 'VERIFY.json', 'DEPTH2.md', 'MAXIMIZERS.json', 'depth_two.py', 'independent_depth2.c', 'independent_check.py', 'verify.py')
     for name in names:
         digest.update(name.encode() + b"\0" + hashlib.sha256((HERE / name).read_bytes()).digest())
     return digest.hexdigest()
@@ -176,10 +178,13 @@ def main():
     rows = arithmetic()
     words, translations = exhaustive_small()
     large_words = random_large()
-    result = {"claim": "9<=N(4)<=18", "rows": rows,
+    result = {"claim": "9<=N(4)<=17", "cube_control_rows": rows,
               "small_words": words, "small_translations": translations,
               "random_words": large_words,
-              "max_mask_upper": max(row["mask_upper"] for row in rows),
+              "cube_control_source_count": 19,
+              "cube_control_max_mask_upper": max(row["mask_upper"] for row in rows),
+              "eighteen_exclusion": {"arithmetic": axis_evaluate(), "controls": axis_calibrate()},
+              "structural_controls": structural_controls(),
               "inventory_normal_form": inventory_normal_form(),
               "cube_sharpness": check_cube_sharpness(),
               "depth_two": depth_two_results()}
@@ -188,10 +193,10 @@ def main():
     else:
         require(result == json.loads((HERE / "CERTIFICATE.json").read_text()),
                 "certificate differs from recomputation")
-    print(json.dumps({"claim": result["claim"], "max_mask_upper": result["max_mask_upper"],
+    print(json.dumps({"claim": result["claim"], "k18_residual_branches": 6,
                       "depth2_max_nonzero": 28, "canonical_maximizers": 4}, sort_keys=True))
     print("receipt_sha256", receipt())
-    print("PASS_CONNECTOR_CHAR4_FLOOR_OBSTRUCTIONS N4<=18 depth2_max=4 depth2_k5_coverage=28")
+    print("PASS_CONNECTOR_CHAR4_FLOOR_OBSTRUCTIONS N4<=17 depth2_max=4 depth2_k5_coverage=28")
 
 
 if __name__ == "__main__":
