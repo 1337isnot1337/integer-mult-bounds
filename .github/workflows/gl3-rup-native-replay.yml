@@ -26,12 +26,23 @@ jobs:
         run: python -I -B research/gl3-rup-native-replay/native_replay.py --output "$RUNNER_TEMP/gl3-rup-native"
       - name: Compare all proof-relevant fields
         run: python -I -B research/gl3-rup-native-replay/verify.py --native-receipt "$RUNNER_TEMP/gl3-rup-native/RESULT.json"
-      - name: Retain raw logs even when a replay fails
+      - name: Retain raw logs and full typed receipt even after failure
         if: always()
         run: |
-          if [ -d "$RUNNER_TEMP/gl3-rup-native" ]; then
-            find "$RUNNER_TEMP/gl3-rup-native" -maxdepth 1 -name '*.log' -print -exec cat {} \;
-          fi
+          python - "$RUNNER_TEMP/gl3-rup-native" <<'PY'
+          import base64, json, pathlib, sys
+          output = pathlib.Path(sys.argv[1])
+          logs = sorted(output.glob('*.log'))
+          if (output / 'RESULT.json').is_file():
+              evidence = {
+                  'receipt': json.loads((output / 'RESULT.json').read_bytes()),
+                  'logs_base64': {p.name: base64.b64encode(p.read_bytes()).decode() for p in logs},
+              }
+              print('NATIVE_EVIDENCE ' + json.dumps(evidence, sort_keys=True, separators=(',', ':')))
+          for path in logs:
+              print('\nRAW_LOG ' + path.name)
+              print(path.read_bytes().decode('utf-8', 'replace'))
+          PY
       - name: Package files remain unchanged
         run: |
           git diff --exit-code
