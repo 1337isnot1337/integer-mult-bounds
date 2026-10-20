@@ -31,6 +31,18 @@
       ],
       "timeout_seconds": 30,
       "checks": "Independent all-strict-fit symbolic I334 coefficients and canonical geometry; finite-field and changed-free controls, residual completion, bridge endpoint/kernel identities and fault controls; immutable receipt and independent written proof."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/mixed_controls.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Literal mixed-transfer controls: replicated balanced gain square, preserved unbalanced repeated-gain cycle, mixed I3 with forbidden cancellations across orientations, and F4 nonzero-diagonal tree with consistent global row scaling. Default read-only receipt. Quantified transfer remains a separate written proof. Includes reader-column normalization for the mixed coefficient/actual-reader exact-endpoint companion."
     }
   ]
 }

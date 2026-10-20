@@ -45,33 +45,33 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Prove a cost334 floor for every rational strict fit of the fixed P112 full-group mask when either all queries or all readers have at most two literal scalar ports, at arbitrary rank and term count. Retain exact-endpoint common-recovery and coefficient-space companions and the all-reader seven-query bridge floor18.",
-  "scope_change_reason": "The donor explicitly resumed the rational-decoder cost296 goal and requested independent agents. A bounded signed/gain-graph mechanism audit led to an all-strict-fit support transfer that changes only permitted free fitting entries. This replaces local coefficient searches with a structural exclusion; no new supplier or coverage law is proposed.",
-  "bottleneck_link": "All characteristic-two strict fits expand to I334. Support-preserving source transfer and shrinking actual readers make the full-group tariff floor apply to any rational uniformly two-port factor family. A saving must leave this entire class on both source and reader sides; sparse splitting requires at least38 overhead units at C<=296.",
+  "actual_scope": "Prove a cost334 floor for every rational strict fit of the fixed P112 full-group mask when each term has a query or reader on at most two literal scalar ports, with mixed orientations, arbitrary rank and term count. Retain uniform-side and exact-endpoint companions and the all-reader seven-query bridge floor18. The exact-endpoint coefficient companion also allows each term to use at most two canonical marks or at most two actual reader ports, assuming all queries lie in the canonical span.",
+  "scope_change_reason": "The donor explicitly resumed the rational-decoder cost296 goal and requested independent agents. A bounded gain-graph mechanism audit led to a complete-matrix transfer covering arbitrary mixtures of sparse source and sparse reader terms, including cancellations of forbidden entries across orientation classes. No new supplier or coverage law is proposed.",
+  "bottleneck_link": "Every characteristic-two strict fit expands to I334. Termwise support deletion transfers any mixed two-port factorization, so a saving requires a single term dense on both sides. Choosing the cheaper source/reader sparse partition per term requires at least38 total overhead units for C<=296.",
   "budget_minutes": null,
-  "stop_rule": "Stop after the quantified sparse-gain transfer and companions are independently audited and exact geometry/controls are reproducible. No additional gain, graph, coefficient or dense-support search belongs to this package.",
+  "stop_rule": "Stop after the mixed-orientation strict-fit transfer and retained companions are independently audited and exact geometry/controls are reproducible. No further gain, graph, coefficient or dense-support search belongs to this package.",
   "outcome": "negative-result",
-  "evidence": "PROOF.md, COMMON-RECOVERY.md, SCALAR-DEMAND-AND-BRIDGE.md and INDEPENDENT-PROOF.md; two standalone exact replays and immutable receipts; all literal/symbolic I334 positions, GF4 and strict-fit controls, residual6+1 refinement, and complete bridge reader-kernel identities.",
+  "evidence": "MIXED-ORIENTATION.md and INDEPENDENT-MIXED-PROOF.md give the quantified repeated-gain transfer; PROOF.md and retained companions give uniform-side/endpoint results. Three standalone read-only replays check authenticated I334 geometry, canonical invoice/residual completion, exact endpoint controls, repeated-gain cycles, mixed-class forbidden cancellations and nonzero diagonal normalization. SCALAR-DEMAND-AND-BRIDGE.md includes the mixed coefficient-query/actual-reader exact-endpoint transfer and its column-normalization argument.",
   "author": "flyingviper",
   "ai_assistance": "Substantial OpenAI Codex assistance for proof, implementation, separate-agent mathematical audit and packaging. No independent human or formal-kernel review claimed.",
   "open_questions": [
     {
-      "question": "Can a dense source/reader interaction lower the fixed full-group invoice?",
-      "why_it_matters": "Uniform two-port queries or readers cannot save, regardless of fitting rank or query dependence. Both sides must leave this class.",
-      "first_step": "Name one multiport algebraic mechanism, give its exact endpoint and actual supports, and price every term before any larger search.",
-      "blocked_by": "No saving, common-group-gauge escape certificate, native schedule or supplier is supplied by this obstruction."
+      "question": "Can a term dense on both sides support a verified full-group saving?",
+      "why_it_matters": "Every termwise mixture of two-port queries and two-port readers has invoice at least334, even with cross-class forbidden cancellations.",
+      "first_step": "Specify one exact mechanism containing a term with at least three source ports and three reader ports, price every term, and check the common within-group gauge obstruction.",
+      "blocked_by": "No such saving, compatible placement budget, native schedule or supplier is supplied."
     },
     {
-      "question": "Can a sparse-splitting partition reject a particular proposed dense decoder?",
-      "why_it_matters": "Every such partition must add at least334-C tariff units; a C<=296 candidate needs at least38.",
-      "first_step": "For one fixed candidate, exhibit one partition into at-most-two-port chunks and compute its complete-group rank charges exactly.",
-      "blocked_by": "No partition optimization or dense candidate construction is performed here; high splitting overhead alone does not prove feasibility."
+      "question": "Can mixed sparse splitting cheaply reject a proposed dense decoder?",
+      "why_it_matters": "The sum of per-term cheaper source/reader splitting overheads must be at least334-C; reaching296 requires at least38.",
+      "first_step": "Give one source and one reader partition into at-most-two-port chunks for each term and compute the complete-group rank charges.",
+      "blocked_by": "No partition optimizer or dense candidate is supplied; passing the necessary inequality does not prove feasibility."
     },
     {
-      "question": "Can a common within-group similarity reveal hidden two-sparsity of a factor family?",
-      "why_it_matters": "One such gauge preserves every group support and tariff, so the sparse floor applies in the original coordinates.",
-      "first_step": "Give one explicit invertible block-diagonal similarity working on every query or every reader in a proposed family.",
-      "blocked_by": "Independent per-term changes do not qualify; no general gauge-classification algorithm is proved."
+      "question": "Can a common within-group similarity reveal termwise mixed two-sparsity?",
+      "why_it_matters": "One common gauge preserves all complete-group supports and tariffs, so the mixed floor then applies in the original coordinates.",
+      "first_step": "Exhibit one invertible block-diagonal similarity making each transformed term sparse on at least one side.",
+      "blocked_by": "Independent per-term coordinate changes do not qualify; no general gauge-classification algorithm is proved."
     }
   ],
   "budget_override": "User requests continuation until 30 percent account usage remains, with independent checks and publication of useful verified partial results."

@@ -121,7 +121,7 @@ set to zero during transfer and cannot decrease the original invoice.
 For independent nonzero queries, common recovery is automatic. For dependent
 queries it is a genuine condition on this endpoint-preserving theorem, as
 the failed-intersection control shows. But failing that premise does not
-escape the invoice floor: the main theorem in [PROOF.md](PROOF.md) covers
+escape the invoice floor: the uniform strict-fit theorem in [PROOF.md](PROOF.md) covers
 all literal one-/two-port query families by allowing free fitting entries
 to change. This companion is retained for its stronger preservation of the
 specified endpoint, not as an open loophole in the strict-fit result.

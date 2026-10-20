@@ -1,7 +1,9 @@
 # Universal two-port transfer for strict fitting masks
 
-This is the main theorem of the package. It was derived and separately
-audited in this investigation. The transferred fit may change permitted
+This is the uniform-side companion theorem. The
+[mixed-orientation theorem](MIXED-ORIENTATION.md) allows the sparse side to vary
+term by term; this note retains the explicit sparse-side support equality and
+its separate derivation. It was derived and separately audited in this investigation. The transferred fit may change permitted
 free entries; it need not preserve the original endpoint matrix. See
 [INDEPENDENT-PROOF.md](INDEPENDENT-PROOF.md) for a separate derivation.
 The exact scripts check literal premises and controls, not a proof-assistant
@@ -108,11 +110,15 @@ family is uniformly two-port, so if the original invoice is C,
 Consequently an invoice at most 296 requires sum_t delta_t >=38 for every
 such sparse partition. The reader-side transpose gives the same necessary
 test. This is a certificate requirement, not a claim that partitions have
-been optimized or that dense vectors with this overhead produce a saving.
+been optimized or that dense vectors with this overhead produce a saving. The
+[mixed theorem](MIXED-ORIENTATION.md#5-the-stronger-splitting-budget) permits the
+cheaper source/reader partition to be chosen independently for every term.
 
 ## Exact consequence and limits
 
-No rational decoder on this fixed full-group mask can save if every query touches at most two literal scalar ports. The same holds if every reader touches at most two literal scalar ports. A successful decoder must have at least one genuinely three-or-more-port query AND at least one genuinely three-or-more-port reader. These conditions are necessary, not sufficient.
+No rational decoder on this fixed full-group mask can save if every query touches at most two literal scalar ports. The same holds if every reader touches at most two literal scalar ports. A successful decoder must have at least one genuinely three-or-more-port query AND at least one genuinely three-or-more-port reader. These uniform-side conditions are necessary, not sufficient. The
+[mixed theorem](MIXED-ORIENTATION.md) strengthens them: the at-least-three-port
+query and reader must occur in the same term.
 
 This theorem covers higher-rank fitting matrices and arbitrary rational term counts. It does not cover changed physical masks or tariffs. It concerns literal scalar-port sparsity; arbitrary dense groupwise coordinate changes can alter that sparsity. It does not preserve a chosen fixed fitting endpoint. The earlier fixed-endpoint support-intersection theorem and scalar-demand coalescence lemma remain stronger in their own endpoint-preserving conclusions and have useful wider support-coordinate interpretations.
 
