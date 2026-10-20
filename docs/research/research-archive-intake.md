@@ -175,3 +175,7 @@ The [exact-head delta](pr-intake-evidence/queue-oct20b-20261020.json) covers 100
 ## Delta intake through PR3831
 
 The [exact-head delta](pr-intake-evidence/queue-oct20c-20261020.json) records 100 decisions: {'archive': 100}. Source-only retention preserves attribution and open scientific obligations. Historical-only files and any workflow configuration resolutions are explicit in that receipt. No scientific replay or selected-frontier change.
+
+## Delta intake through PR3974
+
+The [exact-head delta](pr-intake-evidence/queue-oct20d-20261020.json) records 100 decisions: {'archive': 99, 'reviewed_tooling': 1}. Source-only retention preserves attribution and open scientific obligations. Historical-only files and any workflow configuration resolutions are explicit in that receipt. No scientific replay or selected-frontier change.
