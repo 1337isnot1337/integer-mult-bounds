@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md",
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py",
+    "research/cubic-cyclic-inverse/vendor/PR628-PROOF.md",
+    "research/cubic-cyclic-inverse/vendor/PR628-NOTICE.md",
+    "research/cubic-cyclic-inverse/vendor/interval_kernel.py",
+    "research/cubic-cyclic-inverse/vendor/check.py",
+    "research/physical-ring-product/README.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 240,
+      "checks": "Authenticate and adapt the actual FFT/shear schedule, certify rational phases and unitary gates, prepare charged spectral coefficients, execute fixed-grid dirty data, compare independent Fourier/Toeplitz references and reject schedule/precision controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 240,
+      "checks": "Repeat the complete gate/rounding certificate under optimized Python, keeping authenticated source assertions and exact typed receipt comparison."
+    }
+  ]
+}
