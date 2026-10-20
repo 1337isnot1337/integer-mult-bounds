@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "2124c547f6e3c67dae846d67679e53ebee5df7e2ec67bc720d5b5db6a05dd809",
+    "docs/research/pr-intake-decisions.json": "1d20717051140b6e62c67d83fb601ff55f3fbb7f0dee63a8d80dbdbde9f17702",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -173524,8 +173524,12 @@
       "integration_location": [
         "research/uniform-exponent-bound"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3529",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "f00dfbaa31b0a5c5d4ded4abfa95f926ac8aa9d6",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173533,7 +173537,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173570,8 +173574,12 @@
       "integration_location": [
         "research/uniform-complex-exponent"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3530",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "216389a8f6e1c9c6ef2d302398187508f44baac0",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173579,7 +173587,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173616,8 +173624,12 @@
       "integration_location": [
         "research/coupled-cap740-binomial40"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3531",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "550a660a97308d3aeb3620ee1f4218f77e2c2742",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173625,7 +173637,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173662,8 +173674,12 @@
       "integration_location": [
         "research/p104-flag1-head-step-repair"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3532",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "8fecbf7df7b48c9004bd10a0da6a81f33d455737",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173671,7 +173687,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173708,8 +173724,12 @@
       "integration_location": [
         "research/helper-star-literal-k"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3533",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c61d746404e534affd9fbcba1f2e448e45c06e42",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173717,7 +173737,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173754,8 +173774,12 @@
       "integration_location": [
         "research/synthetic-twiddle-tapes"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3534",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "52b2ea6ab9027f799223be7c4fa3cfeb711e31a2",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173763,7 +173787,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173800,8 +173824,12 @@
       "integration_location": [
         "research/p112-graphic-query-transfer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3535",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "91f9cae78a9e725202494f62065b53a44306ce27",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173809,7 +173837,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173846,8 +173874,12 @@
       "integration_location": [
         "research/q8-negative-core-bound"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3536",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "b485083ec79354778dc7c3b407f7ae8cd4b1010e",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173855,7 +173887,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173892,8 +173924,12 @@
       "integration_location": [
         "research/three-data-aux-direct"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3537",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "2fa7b5343a9d4322f4971b4b7794cf53b90f5e76",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173901,7 +173937,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173938,8 +173974,12 @@
       "integration_location": [
         "research/p112-four-term-query-classification"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3538",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "e63a7635da461ae14e562ed4bb26be26a0fdb5f4",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173947,7 +173987,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -173984,8 +174024,12 @@
       "integration_location": [
         "research/hpe-partner-binding"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3539",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "27f33169bfcfcbb9bb030af46f3668b1aa021be0",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -173993,7 +174037,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174030,8 +174074,12 @@
       "integration_location": [
         "research/cross-endframe-observability"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3540",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "49e815a9e40844ceda849a5cd395fdc6ba47641c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174039,7 +174087,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174082,8 +174130,12 @@
         "tests/test_partial_swap_digest.py",
         "tests/test_partial_swap_init.py"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3541",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "3e1e1e4395d5cfdf26a0dd659608ad1935dc0233",
       "disposition": "incorporated",
       "unresolved_question": "No remaining obligation for the stated tooling change. Live Lean/kernel tests and unrelated full historical or supplier replays were not run.",
@@ -174091,7 +174143,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174128,8 +174180,12 @@
       "integration_location": [
         "research/strict-ordinary-consumer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3542",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "3aed9763a14c754d7172dbca3c1f9b1142722418",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174137,7 +174193,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174174,8 +174230,12 @@
       "integration_location": [
         "research/rank7-v45-margin"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3543",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "f765f57189a18a08a28fa362851d5bd681f8ffda",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174183,7 +174243,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174220,8 +174280,12 @@
       "integration_location": [
         "https://github.com/CrocSwap/integer-mult-bounds/tree/6cfa4333a2e593ea092fe4bda686bb172b5b6d22"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3544",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "6cfa4333a2e593ea092fe4bda686bb172b5b6d22",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa. Complete original commit retained in source history only; all proposed files, including collateral shared tooling, stay out of the default tree.",
@@ -174229,7 +174293,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174266,8 +174330,12 @@
       "integration_location": [
         "research/canonical-gauge-field"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3545",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "8cd2dfeb6b5cf0f25a80e12127eebb28827303e6",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174275,7 +174343,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174312,8 +174380,12 @@
       "integration_location": [
         "research/selected-record-parse-cache"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3546",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "cb7c0595003abf057e443da8fd41e7c3f540b73b",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174321,7 +174393,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174358,8 +174430,12 @@
       "integration_location": [
         "research/p112-multiport-query-boundary"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3547",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "760659dd00128d84ef868c34b4128d9ba8dd9cdf",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174367,7 +174443,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174404,8 +174480,12 @@
       "integration_location": [
         "research/shared-centre-k2"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3548",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "e110d50c56a77b66378e16a1567cbe809b1171e3",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174413,7 +174493,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174450,8 +174530,12 @@
       "integration_location": [
         "research/p112-common-span-triple-floor"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3549",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "a419035441dc386a6c57ec2e2505d882117daf97",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174459,7 +174543,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174496,8 +174580,12 @@
       "integration_location": [
         "research/compact-twiddle-tapes"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3550",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "985f599442bb386e848a51c82277300f61ffd7e0",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174505,7 +174593,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174542,8 +174630,12 @@
       "integration_location": [
         "research/q8-quadratic-saturation"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3551",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "93fa831b68d423c9a912fe0711f4b099b1544330",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174551,7 +174643,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174588,8 +174680,12 @@
       "integration_location": [
         "research/qq16-l359-scalar"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3552",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "4f85225710435e10ac2ae0ff13dd0838fedce305",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174597,7 +174693,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174634,8 +174730,12 @@
       "integration_location": [
         "research/strict-selector-consumer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3553",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "d5ea38a0a613e721d828ef072379d7101d770cd6",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174643,7 +174743,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174680,8 +174780,12 @@
       "integration_location": [
         "research/p104-restored-query"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3554",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "afa14e6219e313e9bb1c60561125f38be130bd94",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174689,7 +174793,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174726,8 +174830,12 @@
       "integration_location": [
         "research/plane-port-endpoint"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3555",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "e017187bacd56dac523b7cdda8198d7d1d6ad4af",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174735,7 +174843,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174772,8 +174880,12 @@
       "integration_location": [
         "research/copied-total-rank"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3556",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c80f7810a69a6aff0d25bede47f011b39afe70b2",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174781,7 +174893,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174818,8 +174930,12 @@
       "integration_location": [
         "research/p112-alternate-star-transfer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3557",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "15955062f27faa2d5e3a15d850125b6011452d43",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174827,7 +174943,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174864,8 +174980,12 @@
       "integration_location": [
         "research/q8-cyclic-cubic-obstruction"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3558",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "00a1f0ff7284f98e25808c1566349a85c5963dae",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174873,7 +174993,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174910,8 +175030,12 @@
       "integration_location": [
         "research/twiddle-cut-state"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3559",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "05b9168674b6330059b2efc3c7dd19399311d75c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174919,7 +175043,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -174956,8 +175080,12 @@
       "integration_location": [
         "research/p112-orthogonal-block-triple-floor"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3560",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "b683f88558410fd19914f7dd4833ca55a5225edd",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -174965,7 +175093,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175002,8 +175130,12 @@
       "integration_location": [
         "research/line-port-unpaid-cap"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3561",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "19fc28185a53b09605d706cbe7a63d05f99e1b5d",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175011,7 +175143,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175048,8 +175180,12 @@
       "integration_location": [
         "research/retuned-ordinary-coupling"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3562",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "abb93be8b9ceca07a2b17f3a97db7bb6b074271d",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175057,7 +175193,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175094,8 +175230,12 @@
       "integration_location": [
         "research/historical-1042-link"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3563",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "d11655a9fd1c7eedc52e0e9720158bd17d29192a",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175103,7 +175243,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175140,8 +175280,12 @@
       "integration_location": [
         "research/sealed-strict-root"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3564",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c0c923a2cd5246cab970aaffea5f4fafea643f91",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175149,7 +175293,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175186,8 +175330,12 @@
       "integration_location": [
         "research/archive-2980-2981-receipt"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3565",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "936468ec4cb74ed383c6e3c8248483d112cd2a43",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175195,7 +175343,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175276,8 +175424,12 @@
       "integration_location": [
         "research/tetrad-effective-rank"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3567",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "9d7a2f0da3954651767d18103ee459534610ff60",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175285,7 +175437,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175322,8 +175474,12 @@
       "integration_location": [
         "research/r480-leaver-rank-bill"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3568",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "10fb1bac9393d1e651da927b9dc4988c0cf4b3b3",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175331,7 +175487,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175368,8 +175524,12 @@
       "integration_location": [
         "research/p112-cell-crossing-residual-floor"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3569",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "51f4425e91f39c6e966007f1ab0ec9172653d83d",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175377,7 +175537,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175414,8 +175574,12 @@
       "integration_location": [
         "research/q8-mixed-cubic-counts"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3570",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "849fcf8dfb3c34693ed54d911cd9914955a306b7",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175423,7 +175587,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175460,8 +175624,12 @@
       "integration_location": [
         "research/streaming-twiddle-header"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3571",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "3d197fbf50ed422afdd913b3d57ad9e593aa21ef",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175469,7 +175637,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175506,8 +175674,12 @@
       "integration_location": [
         "research/actual-body-fit-cutoff"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3572",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "25bed4486b333e5a5e35ee3ed4438491e8ecb6b6",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175515,7 +175687,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175552,8 +175724,12 @@
       "integration_location": [
         "research/p112-two-port-transfer-classification"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3573",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "f0cb59da21fbde87b4ca6a7480b0905d6f6fb9bc",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175561,7 +175737,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175598,8 +175774,12 @@
       "integration_location": [
         "research/p104-hosting-threshold"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3574",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "eb11cd484c23990c250bdc67ae61829ebae35536",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175607,7 +175787,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175644,8 +175824,12 @@
       "integration_location": [
         "research/p104-flag0-relay"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3575",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "22c56f9da1a0f4a149afd855e68dd25263240dcf",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175653,7 +175837,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175690,8 +175874,12 @@
       "integration_location": [
         "research/t74-retuned-ordinary-layer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3576",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "1630afea0fc1083717b5b2799b8de7a819a6ea02",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175699,7 +175887,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175736,8 +175924,12 @@
       "integration_location": [
         "https://github.com/CrocSwap/integer-mult-bounds/tree/3088a09c77fe5353218df861e34b0fe67dbf1b6b"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3577",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "3088a09c77fe5353218df861e34b0fe67dbf1b6b",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa. Complete original commit retained in source history only; all proposed files, including collateral shared tooling, stay out of the default tree.",
@@ -175745,7 +175937,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175782,8 +175974,12 @@
       "integration_location": [
         "research/q8-homogeneous-mixed-floor"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3578",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "4395a9cf3edf9ba36918c48477f36dcde110f45a",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175791,7 +175987,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175828,8 +176024,12 @@
       "integration_location": [
         "research/p112-crossing-attainment"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3579",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "013605b6a318f0ffe72a72f90c78a96aaffb4a14",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175837,7 +176037,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175874,8 +176074,12 @@
       "integration_location": [
         "research/p104-obstruction-index"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3580",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c867e61e2ea790738474025b6200bf8475e56957",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175883,7 +176087,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175920,8 +176124,12 @@
       "integration_location": [
         "research/isolated-axis-exposure"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3581",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "282915e57cf71d7a6f0087fbb6ae03345a0b33d4",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175929,7 +176137,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -175966,8 +176174,12 @@
       "integration_location": [
         "research/direct-twiddle-tapes"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3582",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "7eb46ed951b39e06f8bf56824619d4e6ba5e6ca2",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -175975,7 +176187,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176012,8 +176224,12 @@
       "integration_location": [
         "research/p112-two-hub-transfer-obstruction"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3583",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "f9db162a408ba978c10b00be265f5ffca321957c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176021,7 +176237,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176058,8 +176274,12 @@
       "integration_location": [
         "research/gzip-mtime-payload"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3584",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "ff46139c85cdf8ea9477622ba7ef81c522d82d04",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176067,7 +176287,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176104,8 +176324,12 @@
       "integration_location": [
         "research/archive-2979-receipt"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3585",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "6b56028da552d938ceaebfdf4e459d041118ac7d",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176113,7 +176337,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176150,8 +176374,12 @@
       "integration_location": [
         "research/connector-direct-call"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3586",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "cde0d3c3a3be86de0c051dc1d2f270ff0f5ae2cd",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176159,7 +176387,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176196,8 +176424,12 @@
       "integration_location": [
         "research/replay-ast-cache"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3587",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "d04bddd668a3a7764da5ae534bb4a7a4ee6c892c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176205,7 +176437,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176242,8 +176474,12 @@
       "integration_location": [
         "research/r439-scalar-histogram"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3588",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "08c664e02d79f96e10721c8475f117a108712c09",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176251,7 +176487,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176288,8 +176524,12 @@
       "integration_location": [
         "research/q8-mixed-boundary-rank"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3589",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "d269b2981edbc3e1989c1de7435a33ba90c37302",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176297,7 +176537,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176334,8 +176574,12 @@
       "integration_location": [
         "research/twiddle-address-sweep"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3590",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "5a607f77236bfc7caab957ce99f55377cd903980",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176343,7 +176587,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176380,8 +176624,12 @@
       "integration_location": [
         "research/p112-rooted-minor-transfer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3591",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "aeac7e0872cb192745fc714447d10acfcfb6de9b",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176389,7 +176637,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176426,8 +176674,12 @@
       "integration_location": [
         "research/rank1-deletion-target"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3592",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "7e44bea8674e1220825fdad9bddc46031162536f",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176435,7 +176687,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176472,8 +176724,12 @@
       "integration_location": [
         "research/encoded-twiddle-controller"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3593",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "46c04613a19a5b7bd50d98e50bbc8ea8dc6275b0",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176481,7 +176737,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176518,8 +176774,12 @@
       "integration_location": [
         "research/direct584-commuting-retiming-cover"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3594",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "e3dc9c1660bfec0501dd7522f44a21746f9b89e2",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176527,7 +176787,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176564,8 +176824,12 @@
       "integration_location": [
         "research/p112-mixed-basis-attainment"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3596",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "d92d37b6b875cc2c4d73606a3df8298c44e7d54c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176573,7 +176837,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176610,8 +176874,12 @@
       "integration_location": [
         "research/odd-pair-block-rank"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3597",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "0330362476bb1213666a6748bcbcab23d39692f3",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176619,7 +176887,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176656,8 +176924,12 @@
       "integration_location": [
         "research/k8-four-end-ceiling"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3598",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "cd3e789b65fb0882f14972fa6be1d3fa99bb26df",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176665,7 +176937,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176702,8 +176974,12 @@
       "integration_location": [
         "research/t74-retuned-physical-layer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3599",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "72df81b8cee17ffd990fc18b2d54024f65971556",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176711,7 +176987,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176748,8 +177024,12 @@
       "integration_location": [
         "research/stock-coefficient-absent"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3600",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "a101c4e42c5df705f9a3e8cf191e379dafcc7be7",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176757,7 +177037,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176794,8 +177074,12 @@
       "integration_location": [
         "research/p104-flag43-side-correction-bill"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3601",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "26394881f0a183ca0df3d986ec58aa56900ada6c",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176803,7 +177087,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176841,8 +177125,12 @@
         "scripts/check_lean_axioms.py",
         "tests/test_lean_axiom_audit_parser.py"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3602",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "f7a987e11007685bd88d7ac9693d26b4d604938d",
       "disposition": "incorporated",
       "unresolved_question": "No remaining obligation for the stated tooling change. Live Lean/kernel tests and unrelated full historical or supplier replays were not run.",
@@ -176850,7 +177138,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -176887,8 +177175,12 @@
       "integration_location": [
         "research/complex-owner-view-refinement"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3603",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "dd2796bf53d0db44a1e1050c18f3f0bad7141267",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -176896,7 +177188,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177021,8 +177313,12 @@
       "integration_location": [
         "research/complex-root-address-refinement"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3607",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "8f656674e660ce67abd8ae7d23f0d1068ea6d410",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177030,7 +177326,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177067,8 +177363,12 @@
       "integration_location": [
         "research/physical-sparse-xor-batch"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3608",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c6020096322012f7cc41236c3ac15a6b6cd3f8b9",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177076,7 +177376,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177113,8 +177413,12 @@
       "integration_location": [
         "research/p104-inplace-entrance"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3609",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "7efe397a034bdfa9eff1cb497b98923daa4b9f26",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177122,7 +177426,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177159,8 +177463,12 @@
       "integration_location": [
         "research/p104-flag1-side-correction-bill"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3610",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "4352496b3aa56ad17446ddbd1d78931f3d392996",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177168,7 +177476,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177205,8 +177513,12 @@
       "integration_location": [
         "research/encoded-twiddle-packet-consumer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3611",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c21172062a2d907804538aa5a74012a2a4cc144e",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177214,7 +177526,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177251,8 +177563,12 @@
       "integration_location": [
         "research/fstar-gram-full-box"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3612",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "8e95342b0f42000124e0a75a068fbb2057be501f",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177260,7 +177576,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177299,8 +177615,12 @@
         "scripts/find_overlap.py",
         "tests/test_research_pr_inventory_coverage.py"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3613",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "594c65a3d32983993422c8c74fcfea8a0ba1d061",
       "disposition": "incorporated",
       "unresolved_question": "No remaining obligation for the stated tooling change. Live Lean/kernel tests and unrelated full historical or supplier replays were not run.",
@@ -177308,7 +177628,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177345,8 +177665,12 @@
       "integration_location": [
         "research/p104-present-head-side-correction-forcing-census"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3614",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "a6c3ae20abe0a15d781ee952e717d489552c9c66",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177354,7 +177678,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177396,8 +177720,12 @@
         "tests/test_research_descendant_source_roles.py",
         "tests/test_research_git_replacements.py"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3615",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "05a7fa8434062016d733c3d92c0a4c4a53e52cc5",
       "disposition": "incorporated",
       "unresolved_question": "No remaining obligation for the stated tooling change. Live Lean/kernel tests and unrelated full historical or supplier replays were not run.",
@@ -177405,7 +177733,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177442,8 +177770,12 @@
       "integration_location": [
         "research/network-log-domain-audit"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3616",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "0467d6487920a328ca45ae0ebb6a0055d0b84431",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177451,7 +177783,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177488,8 +177820,12 @@
       "integration_location": [
         "research/encoded-twiddle-diagonal-pass"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3617",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "4bf091f415d6470b60a5062a08b0a47e5b12dbd7",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177497,7 +177833,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177534,8 +177870,12 @@
       "integration_location": [
         "research/p104-flag9-side-correction-bill"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3618",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "0c4b73507ba7ed7b992e47b17f2cbcb6e362466b",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177543,7 +177883,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177580,8 +177920,12 @@
       "integration_location": [
         "research/physical-support-router"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3619",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "51f3254a54aa5f419778c6e4bee89f7442a0d9c1",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177589,7 +177933,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177626,8 +177970,12 @@
       "integration_location": [
         "research/p104-caller-feasibility"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3620",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "a4c9fbc9e676c7e0f5bb2b3e537ec620011e7311",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177635,7 +177983,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177672,8 +178020,12 @@
       "integration_location": [
         "research/p104-present-head-side-correction-full-row-census"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3621",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "b37f6aef686c940a7613db3e04c6234e472399cf",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177681,7 +178033,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177718,8 +178070,12 @@
       "integration_location": [
         "research/twiddle-matched-layer"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3623",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "c5ab698bba8b35323e40ae3b132e78f26179d393",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177727,7 +178083,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177808,8 +178164,12 @@
       "integration_location": [
         "research/p112-lost-free-plane-bound"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3625",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "5cc87895e86a951d43f4725b122a4bcd2675bc43",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177817,7 +178177,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177898,8 +178258,12 @@
       "integration_location": [
         "research/t74-support-composition"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3627",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "757df5a1a4ef3b2594521db45fbea82f79bf2713",
       "disposition": "partially_reviewed",
       "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
@@ -177907,7 +178271,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177945,8 +178309,12 @@
         "scripts/check_selected_ci_inputs.py",
         "tests/test_selected_ci_inputs.py"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_reviewed_tooling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/3628",
+        "merge_commit": "65d9fb44c5bab6366d27ca25bd45aacdd17eb1fe"
+      },
       "reviewed_head": "2a9939bbde5826f284cc0f0c2e650466b6e65759",
       "disposition": "incorporated",
       "unresolved_question": "No remaining obligation for the stated tooling change. Live Lean/kernel tests and unrelated full historical or supplier replays were not run.",
@@ -177954,7 +178322,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct20a-20261020.json"
@@ -177974,7 +178342,7 @@
   ],
   "github_dispositions": {
     "CLOSED": 379,
-    "MERGED": 2381,
-    "OPEN": 365
+    "MERGED": 2473,
+    "OPEN": 273
   }
 }
