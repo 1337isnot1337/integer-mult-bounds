@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+    "research/capped-phase-fusion/README.md",
+    "research/capped-fusion-t74-k554/README.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Authenticate sources, enclose shifted Gaussian minima by two convergent representations, check Poisson bounds, charge coefficient/tail perturbations, reconstruct exact rational LDL certificates and reject domain/normalization controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 180,
+      "checks": "Repeat the complete certificate with optimized Python and explicit acceptance checks; compare the full typed receipt."
+    }
+  ]
+}
