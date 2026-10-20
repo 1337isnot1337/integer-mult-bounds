@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Execute the retained normalized Gaussian Tsec/full_plan caller with requested-precision rational coefficients, closed-half-shift leading-section conditioning and complete forward/inverse ideal-kernel error and online-width bounds.",
-  "scope_change_reason": "The completed full circuit requires conditioning for the same rational root it receives. I connect the retained Gaussian evaluator to that boundary, rederive the finite-cap bound, and pay truncation, quantization and circuit errors while preserving four prior receipts.",
+  "actual_scope": "Construct shared rounded periodic narrow/broad references and execute anchored raw constant-phase interior restrictions and their stored inverses, with positive-weight setup, global tail/row-gap bounds and complete reference-error/online-width budgets.",
+  "scope_change_reason": "The normalized circuit omits raw diagonal/scalar factors and the fixed-reference comparison. I preserve five earlier receipts and supply those factors and their complete error composition, with source geometry, distinct hole rules, original period cuts and shared pages.",
   "bottleneck_link": "The Gaussian caller needs full circuit execution and a quantified conditioning/rounding contract before physical delivery and the complete numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "I preserve the completed FFT, triangle, generator and full proofs/receipts. GAUSSIAN-PROOF.md derives the interval width/termination, finite-cap conditioning and complete normalized-kernel error bounds. GAUSSIAN-RESULT.json records 9 cases, 4527 gates, 38 rounded states and 16 controls. I execute Tsec and its adjacent full_plan call, compare finer scalar interval references sharing the declared backend, and compute exact leading inverses. Scientific acceptance remains separate.",
+  "evidence": "I preserve the five completed scientific receipts. RAW-GAUSSIAN-PROOF.md derives positive relative coefficients, uniformly allocated common periodic references, both tail norms, a narrow row-gap certificate and complete raw forward/inverse reference-error bounds. RAW-GAUSSIAN-RESULT.json records two complete 33x33 references, 6 circuit fixtures, 1086 gates, 26 rounded states and 17 controls, plus a local query on a source axis of size10^20+1 without axis enumeration. Comparisons share the declared interval backend; scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the normalized circuit contract cover the raw Gaussian gauges and common rounded reference?",
-      "why_it_matters": "The actual broad and narrow callers include diagonal and scalar factors outside Tsec. Those factors change input radii, inverse sensitivity and error propagation.",
-      "first_step": "Bind one retained raw broad or narrow block formula to certified gauge coefficients, compose its rounded forward/inverse calls and compare with the same common Gaussian reference.",
-      "blocked_by": "A complete raw-factor preparation and error allocation, including boundary factors that the caller applies without inversion."
+      "question": "Can the actual carve and five-factor boundary word use the same common reference and raw interior programs?",
+      "why_it_matters": "Correct constant-phase restrictions do not establish separated interiors, shared boundary pages or the complete Gaussian map. Broad boundary Schur factors require application; narrow inverse execution needs a solve.",
+      "first_step": "Construct the retained separated dyadic carve with original cuts and holes, derive its exact Schur and coupling pages from Reference, and bind the applied broad and solved narrow boundary stages to the same forward/inverse error ledger.",
+      "blocked_by": "Carve and boundary-program integration, followed by physical setup, routing and tape costs."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",

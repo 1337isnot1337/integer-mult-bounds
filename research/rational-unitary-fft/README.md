@@ -1,4 +1,29 @@
-# Certified normalized Gaussian calls through full Toeplitz circuits
+# Raw Gaussian interiors against a shared rounded reference
+
+I construct fixed rational narrow and broad references for a periodic
+source/target axis, retaining original phase cells, the period cut and
+their different hole-completion rules. I execute anchored raw
+constant-phase block restrictions through the normalized circuit below,
+including the inverse of the same stored program.
+I pay positive-weight setup, kernel tails, diagonal coefficients, circuit
+rounding and comparison with that same reference.
+[RAW-GAUSSIAN-PROOF.md](RAW-GAUSSIAN-PROOF.md) gives the all-size bounds.
+
+For target \(2^{-t}\), radius \(R\), incoming grid \(F_0\), normalized
+scale \(c\), and anchored exponent range \(F_g\), I obtain online widths
+\[
+O(F_0+t+\log n+\log R+1/c+F_g+\log\alpha).
+\]
+I keep full-cell weights in offline setup at
+\(O(b_e+\alpha^2/\theta)\) bits. I also compute a row-gap certificate for
+the same narrow reference; a positive gap gives dimension-independent
+row/column inverse bounds for its principal restrictions in the original
+circular coordinates. I leave the carve, boundary program, physical
+delivery and complete tensor/tape execution open.
+`Reference.for_cap` chooses one global cutoff and coefficient precision
+for a declared block cap, radius and accuracy. I reject periods too short
+for those cuts. Coordinate and coefficient queries avoid enumerating the
+whole axis; the verifier includes a window on an axis of size \(10^{20}+1\).
 
 I connect the retained normalized Gaussian `Tsec` function and its
 `full_plan` call to requested-precision rational coefficients and the
@@ -14,8 +39,8 @@ quantization, and pass the same rational root to the full compiler.
 I preserve the diagonal ones and both closed half-shift endpoints.
 [GAUSSIAN-PROOF.md](GAUSSIAN-PROOF.md) gives the interval termination,
 conditioning, perturbation and composed error arguments.
-Raw Gaussian gauges, common-reference assembly and physical delivery
-require further work.
+The raw extension above composes this normalized contract with its
+diagonal/scalar factors and reference comparison.
 
 I execute the retained full Toeplitz recursion and its stored inverse,
 using the rational generator, triangular and FFT circuits below.
@@ -121,9 +146,17 @@ python3.12 -B scripts/research_package.py \
 
 I declare eight normal/optimized commands, with limits of 60, 60, 90,
 90, 150, 150, 300 and 300 seconds, totaling 1,200 seconds.
-In each final slot I run the full verifier followed by the Gaussian
-verifier in the same process. I preserve the full receipt and compare
-the separate [GAUSSIAN-RESULT.json](GAUSSIAN-RESULT.json) receipt.
+In each final slot I run the full, normalized Gaussian and raw Gaussian
+verifiers sequentially in the same process. I preserve the full and
+[GAUSSIAN-RESULT.json](GAUSSIAN-RESULT.json) receipts and compare the
+separate [RAW-GAUSSIAN-RESULT.json](RAW-GAUSSIAN-RESULT.json) receipt.
+For the raw extension I check 2,178 entries across two complete
+33-by-33 references, with three explicit windings and analytic tails.
+I check row gaps, a principal inverse across a cell boundary and a hole,
+shared overlapping pages and period cuts. Six raw-circuit fixtures
+exercise 1,086 gates and 26 rounded states; 17 controls pass.
+The raw scientific receipt is
+`f9c2bfc6b61ca8a52c403d912d2f687beb3641955cec71d3879ab017b067d6f7`.
 I check nine Gaussian cases, 4,527 gates and 38 rounded forward/inverse
 states, including both half shifts, paid truncation and a 512-bit
 incoming vector. I compare finer scalar interval references and exact
@@ -266,6 +299,28 @@ I found no competing normalized coefficient-to-circuit claim in that
 coverage. I compared PR4212's P112 audit and PR4208's CRT stencil work;
 they address different native/physical obligations.
 
+I preserve normalized revision `66b95cc916552f487203be14fd99a7aea0bdd78e`
+and its [hosted evidence](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39470174495).
+ToikY's [PR4220](https://github.com/CrocSwap/integer-mult-bounds/pull/4220)
+at `5cf23ba47a28b78a98eb0665177b5030e65c01b9` supplies a separate
+implementation and written audit of that revision's scalar enclosure,
+width and precision rules. The author reports 128 independent intervals
+covering 186 source observations. I retain that scoped credit; its
+coverage excludes the full circuit, matrix-inverse theorem and this
+raw/reference extension. Our verifier's own comparisons still share
+Mason's backend.
+For the raw extension I use the retained narrow weight-ratio reference,
+while I choose a fixed entrywise broad reference and prove its comparison.
+I do not identify it with the older factorwise-rounded broad matrix.
+The block admission checks constant phase and the original cut; it does
+not implement the outer carving algorithm.
+Before this extension I refreshed unchanged main, checked 15 recent PR
+records and 6/790 hub comments, and compared PR4214's GL3 audit and
+PR4208's CRT stencil work. I found no overlapping raw-reference claim
+in that coverage. Broader history and unpublished work remain outside it.
+Before publication I checked 12 newer PR records, 5/815 hub comments
+and the new scalar-audit handoff while canonical main remained unchanged.
+
 I preserve the first completed revision `f02a4ab5ab70a8af80415ac35c5b48cd5a93a475`
 and its FFT receipt
 `2e203e42d3d617e828e3341ffeb44254c931db2aebb8a040d04d67338b5b4016`.
@@ -293,8 +348,8 @@ Apache-2.0.
 
 ## Open next questions
 
-In [TASK.json](TASK.json) I specify the next steps and blockers: incorporate
-the raw Gaussian gauges and scalar factors, compare with the common rounded
-reference, and connect the coefficients and data widths to physical delivery.
-Reviewers still need to assess the universal proofs and complete setup,
+In [TASK.json](TASK.json) I specify the next steps and blockers: bind the
+actual interior/boundary carve and Schur pages to these shared references,
+then connect the coefficients and data widths to physical delivery.
+Reviewers still need to assess the universal proofs, complete setup,
 fixed-tape lowering and the full multiplication construction.

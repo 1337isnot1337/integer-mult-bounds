@@ -20,7 +20,13 @@
     "research/certified-gaussian-recovery/NOTICE.md",
     "research/certified-gaussian-recovery/PROOF.md",
     "research/capped-fusion-t74-k554/outer/check_gaugefree.py",
-    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md"
+    "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+    "research/capped-phase-fusion/BILATERAL-LDU.md",
+    "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+    "research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md",
+    "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md"
   ],
   "commands": [
     {
@@ -54,14 +60,14 @@
       "checks": "Repeat the complete generator program with source assertions enabled under optimized Python and compare its full typed receipt."
     },
     {
-      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian"],
+      "argv": ["{python}", "-I", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw"],
       "timeout_seconds": 300,
-      "checks": "Execute the retained full Toeplitz recursion and stored inverse, check leading-section admission, legal downsets/frontiers and active fragments, and compare exact endpoints plus rounded global error/width budgets. Then execute the retained normalized Gaussian Tsec/full_plan caller with certified coefficients and truncation, compare ideal forward/inverse references and preserve both complete receipts."
+      "checks": "Execute the full Toeplitz verifier, then normalized Gaussian verification, preserving both receipts. Then check one periodic rounded reference, holes/cuts/overlaps and row-gap admission, execute anchored raw broad/narrow programs and their stored inverses, and compare rounded errors and widths against the same reference restrictions."
     },
     {
-      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian"],
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify_full.py", "--with-gaussian", "--with-raw"],
       "timeout_seconds": 300,
-      "checks": "Repeat full recursive and normalized Gaussian execution sequentially under optimized Python with authenticated source assertions, conditioning/schedule/orientation/stale-certificate controls and both complete typed receipts."
+      "checks": "Repeat full, normalized and raw Gaussian verification sequentially under optimized Python. Preserve source assertions, compare three complete typed receipts, and reject precision, inverse-wrapper, stale-reference, hole-completion and period/cell controls."
     }
   ]
 }

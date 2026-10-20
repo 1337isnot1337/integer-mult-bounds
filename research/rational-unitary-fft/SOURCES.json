@@ -20,6 +20,12 @@
     {"path":"research/certified-gaussian-recovery/NOTICE.md","usage":"input","git_blob":"5e3269b5afe5e11f044ffae45216c4731b42c7af","sha256":"10acae9e78402ca70c6afd0e8d6da8fefc0da519c646cf43d93f923aba85b86d"},
     {"path":"research/certified-gaussian-recovery/PROOF.md","usage":"input","git_blob":"9dace009004a4336d6ce57764c255190fbf87e64","sha256":"65480dd23fb1aae314365aeea4aacbc146e160e5c8a7a4ac4f602f22ae4581de"},
     {"path":"research/capped-fusion-t74-k554/outer/check_gaugefree.py","usage":"input","git_blob":"3fbb4a1b2acc3d5120d93d2ffd7cd5007d4f7f0e","sha256":"5274b2838f322dc56a88570e4f9262fcd3857cd387160ad138e083ccdfbe9761"},
-    {"path":"research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md","usage":"input","git_blob":"59d9128d75c57b790e6e602da8b2ab9c2cf7fa57","sha256":"c6a032ed495325806ddf491c5c85bc822a7fdd613aff906a7be553960d0f85a3"}
+    {"path":"research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md","usage":"input","git_blob":"59d9128d75c57b790e6e602da8b2ab9c2cf7fa57","sha256":"c6a032ed495325806ddf491c5c85bc822a7fdd613aff906a7be553960d0f85a3"},
+    {"path":"research/unconditional-batched-crt/PROOF.md","usage":"input","git_blob":"406eb561cc8d6041ea3fba1a849653b654f2198c","sha256":"689fc7b01c5f04f77019ff02d1b79cb4f7020bd98e05b1052020bad295dec060"},
+    {"path":"research/unconditional-batched-crt/vendor/FINE-PRIME.md","usage":"input","git_blob":"bf9899ee21be4058e4aac0b64bfa67d01ee8ddd3","sha256":"47d1b1b4df28aadda3cd6bdeb1fbc47290595e9208cd09c1a1f338520d33fdce"},
+    {"path":"research/capped-phase-fusion/BILATERAL-LDU.md","usage":"input","git_blob":"5cad6ee19f60d626beb9f6d7be78cbc22fdd08c6","sha256":"0d65e66d227464dda1a19f781ae0a0be671cbfd347c41e37ec954f3d629d8a77"},
+    {"path":"research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md","usage":"input","git_blob":"3bcf490a8c164d44aff5b7e2ec2e0f4bf07d7a73","sha256":"e05d6b8596c80b6e8676569a0ff464a29fa704c3304143f58914f47cdf38b272"},
+    {"path":"research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md","usage":"input","git_blob":"bbeeee7431720817f031360f67b2186abac5cd23","sha256":"54aafc7afd09fe1a5312e69fad09c87422690543ab75c6ae35f6cbcc26b3eb8a"},
+    {"path":"research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md","usage":"input","git_blob":"0f7f80b3f74d469c2f72f3b9f338d32568b4eae3","sha256":"e37aaa30b15671a1dff00676b14572213efaaac99df202dbba5e09f57af487c0"}
   ]
 }

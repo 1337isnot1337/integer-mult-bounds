@@ -256,7 +256,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write-result", action="store_true")
     parser.add_argument("--with-gaussian", action="store_true")
+    parser.add_argument("--with-raw", action="store_true")
     args = parser.parse_args()
+    need(not args.with_raw or args.with_gaussian, "raw verification follows normalized verification")
     result = run()
     path = HERE / "FULL-RESULT.json"
     if args.write_result:
@@ -272,6 +274,9 @@ def main():
     if args.with_gaussian:
         from verify_gaussian import verify_result
         verify_result(args.write_result)
+    if args.with_raw:
+        from verify_raw_gaussian import verify_result as verify_raw_result
+        verify_raw_result(args.write_result)
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ def rejected(operation, label):
     raise ValueError("control unexpectedly passed: " + label)
 
 
-def authenticate(include_generator=False, include_full=False, include_gaussian=False):
+def authenticate(include_generator=False, include_full=False, include_gaussian=False, include_raw=False):
     rows = [r for r in json.loads((HERE / "SOURCES.json").read_text())["files"] if r["usage"] == "input"]
     raw = {}
     for row in rows:
@@ -57,10 +57,19 @@ def authenticate(include_generator=False, include_full=False, include_gaussian=F
         "research/capped-fusion-t74-k554/outer/check_gaugefree.py",
         "research/capped-phase-fusion/evidence/radical_reduction_ultra/HOLES-AND-Q-LDU.md",
     }
+    raw_gaussian = {
+        "research/unconditional-batched-crt/PROOF.md",
+        "research/unconditional-batched-crt/vendor/FINE-PRIME.md",
+        "research/capped-phase-fusion/BILATERAL-LDU.md",
+        "research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md",
+        "research/capped-phase-fusion/PHASE-LAYOUT-AUDIT.md",
+        "research/capped-phase-fusion/FORWARD-SMALL-A-AUDIT.md",
+    }
     return raw, [{"path": r["path"], "sha256": r["sha256"]} for r in rows
                  if (include_generator or r["path"] not in added)
                  and (include_full or r["path"] not in full)
-                 and (include_gaussian or r["path"] not in gaussian)]
+                 and (include_gaussian or r["path"] not in gaussian)
+                 and (include_raw or r["path"] not in raw_gaussian)]
 
 
 def operator(plan, n):
