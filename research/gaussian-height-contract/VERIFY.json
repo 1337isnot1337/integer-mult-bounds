@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/complex-grid-prefix-audit/PROOF.md",
+    "research/staged544-mixed-fourth-entry/NOTICE.md",
+    "research/staged544-mixed-fourth-entry/RESULT.json",
+    "research/staged544-mixed-fourth-entry/evidence/NATIVE-CANONICAL-base.json.gz",
+    "research/staged544-mixed-fourth-entry/evidence/NATIVE-CANONICAL-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/evidence/NATIVE-LOCAL-base.json",
+    "research/staged544-mixed-fourth-entry/evidence/NATIVE-LOCAL-extra.json",
+    "research/staged544-mixed-fourth-entry/evidence/THREE-CANONICAL-base.json.gz",
+    "research/staged544-mixed-fourth-entry/evidence/THREE-CANONICAL-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/evidence/THREE-LOCAL-base.json",
+    "research/staged544-mixed-fourth-entry/evidence/THREE-LOCAL-extra.json",
+    "research/staged544-mixed-fourth-entry/inputs/FOUR-base.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/FOUR-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/THREE-base.json.gz",
+    "research/staged544-mixed-fourth-entry/inputs/THREE-extra.json.gz",
+    "research/staged544-mixed-fourth-entry/native/NATIVE-LINEAGE-NOTICE",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_adapters.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_check_recipes.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_emit.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_gauss.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_phases.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/bw_transport.py",
+    "research/staged544-mixed-fourth-entry/native/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/staged544-mixed-fourth-entry/operator_verify.py",
+    "research/staged544-mixed-fourth-entry/owner/ORDER.json",
+    "research/staged544-mixed-fourth-entry/owner/TEMPLATE.json.gz",
+    "research/staged544-mixed-fourth-entry/owner_verify.py",
+    "research/staged544-mixed-fourth-entry/vendor/full_operator.py",
+    "research/unconditional-batched-crt/COMPLEX.md",
+    "research/unconditional-batched-crt/GAUSSIAN.md",
+    "research/unconditional-batched-crt/PROOF.md",
+    "research/unconditional-batched-crt/vendor/TENSOR-COMPILER.md"
+  ],
+  "commands": [
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Authenticate sources, reconstruct canonical construction fields, emit eight complete programs, census scalar and bridge height, compare the receipt and exact boundary controls."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat the same audit with optimized audit code and explicit acceptance checks; retain predecessor assertions in the authenticated adapters."
+    }
+  ]
+}
