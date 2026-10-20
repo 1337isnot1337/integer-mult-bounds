@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/p112-rational-decoder-gate/CANDIDATE.json",
+    "research/adaptive-kernel-demotion/inputs/DATA-PHASES.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Reconstruct anchor and saturated flags, all-projector exact polynomial contradiction, coefficient and sign mutation controls, immutable receipt."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Separate exact arithmetic and polynomial representation; all degenerate rank-one cases and literal cap28 trace obstruction, immutable receipt."
+    }
+  ]
+}
