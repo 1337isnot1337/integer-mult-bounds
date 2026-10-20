@@ -45,21 +45,21 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Prove that every rational splitting of the specified [6,1,11] common frame fails mandatory full-group rank caps for the fixed rank-eight asymmetric P112 anchor.",
-  "scope_change_reason": "The donor assigned the rational-decoder cost296 research goal, explicitly resumed it, and requested independent agents. This closes one interrupted fixed-anchor proof rather than drawing a new card or proposing a supplier.",
-  "bottleneck_link": "A rational dominating lift would certify a complete-group decoder floor. Three exact rectangle caps exclude this entire selected frame, preventing further coefficient searches in it; arbitrary common frames remain open.",
+  "actual_scope": "Exclude every rational split in the two-parameter common-complement family H_t=<C0+tC1,A1,D2>, K_s=<C0+sC1,A1,D2>, 1+st!=0, for the fixed rank-eight asymmetric P112 anchor and rank-nine extension. Retain the selected [6,1,11] trace as a special case.",
+  "scope_change_reason": "The donor assigned the rational-decoder cost296 goal, resumed it, and requested independent agents. The selected-frame proof led to a justified two-parameter family under anchor automorphisms. This package closes both its generic and exceptional st=-2 strata without coefficient searches or proposing a supplier.",
+  "bottleneck_link": "A rational dominating lift would certify a complete-group decoder floor. Exact self-rectangle caps close the generic family; on st=-2 they force a rank-six minor at physical tariff five. This prevents further split searches in that family; arbitrary complements remain open.",
   "budget_minutes": null,
-  "stop_rule": "Stop this proof task once exact symbolic identities and a separately implemented check exclude every rank-two projector in the selected frame. Do not generalize to other frames without a new argument.",
+  "stop_rule": "Stop this structural round once the complete two-parameter family, including st=-2, is excluded by exact symbolic identities and separate independent checks. Do not extend to further common frames without a new structural argument and refreshed family decision.",
   "outcome": "negative-result",
-  "evidence": "PROOF.md, INDEPENDENT-PROOF.md, exact symbolic verifiers and committed receipts. Two explicit arithmetic fault controls and the prior two-cap positive fixture.",
+  "evidence": "FAMILY-PROOF.md and INDEPENDENT-FAMILY-PROOF.md; formal generic and exceptional replays and immutable receipts; exact centralizer/invariant; retained selected-frame trace and foundational data checks; the exceptional three-cap control has exactly twelve failures among all 3969 rectangles.",
   "author": "flyingviper",
   "ai_assistance": "Substantial OpenAI Codex assistance for proof, implementation, separate-agent mathematical audit and packaging. No independent human or formal-kernel review claimed.",
   "open_questions": [
     {
-      "question": "Can another admissible common source/reader frame extend the same anchor while meeting every mandatory rectangle cap?",
-      "why_it_matters": "The trace contradiction excludes one whole family of splits, but its literal compressed operator depends on the common frame. General fixed-anchor gluing remains open.",
-      "first_step": "Use anchor-preserving automorphisms or invariant compressed-operator identities to describe the remaining frames; prove an obstruction or give an exact all-cap rational extension.",
-      "blocked_by": "No reduction from arbitrary common frames to the selected frame is proved. Passing individual flag incidences is insufficient."
+      "question": "Can an admissible common source/reader frame outside this two-parameter family extend the same anchor while meeting every rectangle cap?",
+      "why_it_matters": "The family contains infinitely many label-preserving inequivalent complements, yet excludes only frames fixing A1 and D2 on both sides. General fixed-anchor gluing remains open.",
+      "first_step": "Use the general nested C/A+C flag incidences and nondegenerate pairing to derive a new structural reduction, or provide one exact all-cap extension. Do not widen a coefficient grid.",
+      "blocked_by": "No reduction from arbitrary Schubert complements H,K to this family is proved. Other anchors and higher-rank fits also remain outside scope."
     },
     {
       "question": "Can a sparse characteristic-dependent decoder save on the complete physical-group bill?",
