@@ -2,8 +2,11 @@
   "schema_version": 1,
   "status": "ready",
   "python": "3.12",
-  "requirements": [],
+  "requirements": ["sympy==1.14.0"],
   "inputs": [
+    "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_tensor_compiler.py",
+    "research/capped-phase-fusion/README.md",
+    "research/simultaneous-gate-rounding/README.md",
     "research/complex-grid-prefix-audit/PROOF.md",
     "research/staged544-mixed-fourth-entry/NOTICE.md",
     "research/staged544-mixed-fourth-entry/RESULT.json",
@@ -47,6 +50,16 @@
       "argv": ["{python}", "-I", "-O", "-B", "{package}/verify.py"],
       "timeout_seconds": 120,
       "checks": "Repeat the same audit with optimized audit code and explicit acceptance checks; retain predecessor assertions in the authenticated adapters."
+    },
+    {
+      "argv": ["{python}", "-I", "-B", "{package}/check_caller.py"],
+      "timeout_seconds": 120,
+      "checks": "Bind actual emitted six-H/Benes tables to rounded suffix caches and data, common coarse-label H calls, transient widths, exact raw-H export and independent endpoints."
+    },
+    {
+      "argv": ["{python}", "-I", "-O", "-B", "{package}/check_caller.py"],
+      "timeout_seconds": 120,
+      "checks": "Repeat the complete caller audit and rejection controls with optimized audit code and retained source assertions."
     }
   ]
 }

@@ -245,7 +245,11 @@ but it must specify the precision adjustment and restoration scale.
 For \(y=2^{-t_0}x\), a height-zero description uses base precision
 \(P+2t_0\); scaling without that adjustment does not prove exactness.
 
-I leave the actual Gaussian entrance-height trace, rounded-coefficient
-error analysis, native/free-algebra endpoint validity, tape/stock
-implementation and complete multiplication theorem to separate audits.
-I retain the selected frontier.
+In [CALLER.md](CALLER.md), I now bind an explicit rounded protocol to the
+actual tensor compiler. I include cached coefficient error, completed
+F-grid returns, raw-H scaling and transient product widths. That argument
+permits O(p) incoming height under the stated Gaussian norm hypotheses.
+I leave the universal coefficient/conditioning and boundary-prefix
+estimates, native/free-algebra endpoints, tape/stock implementation and
+complete multiplication theorem to separate audits. I retain the selected
+frontier.

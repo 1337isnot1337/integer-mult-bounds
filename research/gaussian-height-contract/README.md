@@ -19,6 +19,14 @@ omission from the remaining Gaussian entrance-height obligation.
 I credit the earlier generic prefix, divisibility and shift analysis;
 my new scope binds the actual mixed programs and caller.
 
+I extend that result in [CALLER.md](CALLER.md) with an explicit rounding
+protocol for the actual six-H/Beneš compiler. I round coefficient tables,
+cached suffix products and diagonal outputs; I restore raw H before
+exporting its exact F-grid endpoint. I prove a simultaneous forward-error
+bound and control temporary words. An O(p) incoming height suffices for
+O(p)-bit records, under the source's stated coefficient and boundary-norm
+hypotheses.
+
 ## Evidence
 
 I regenerated all eight programs through the authenticated emitter and
@@ -41,36 +49,48 @@ corruption, omitted cleanup and an altered emitted scalar direction.
 The finite checks accompany the quantified argument; I do not extrapolate
 that argument from them.
 
+I replay the actual emitted compiler tables for two coarse labels,
+including zero shears and complex phases: 34 trajectories, eighteen raw-H
+calls and nineteen diagonal stages per trajectory. I compare against
+separate original-gate endpoints and exercise cache, rounding, scale and
+coarse-label controls. I record these results in
+[CALLER-RESULT.json](CALLER-RESULT.json).
+
 I preserve the native endpoint, complete free-algebra, hosting/stock and
-Gaussian error premises. I have not run the native engine, Lean, a complete
-Gaussian trace or a multiplication recovery test for this audit.
+analytic Gaussian premises. I have not run the native engine, Lean, a
+complete Gaussian trace or a multiplication recovery test for this audit.
 Author checks and substantial AI assistance do not constitute independent
 human or formal-kernel acceptance.
 
 ## Reproduce
 
-From the repository root, using standard-library Python 3.12:
+From the repository root, using Python 3.12 with the predecessor compiler's
+SymPy 1.14.0:
 
 ```sh
 python3.12 scripts/research_package.py --package research/gaussian-height-contract
 ```
 
-The two registered commands compare the complete [RESULT.json](RESULT.json)
-under ordinary and optimized audit interpreters. I preserve assertions in
-the authenticated source adapters. Default replay writes no artifacts.
-For receipt generation, `verify.py --emit NEW_PATH` refuses overwrite.
-The source manifest binds 32 live inputs and two historical provenance files.
+The four registered commands compare the complete provider and caller
+receipts under ordinary and optimized audit interpreters. I preserve
+assertions in the authenticated source adapters. Default replay writes no
+artifacts. For receipt generation, both checkers accept `--emit NEW_PATH`
+and refuse overwrite. I pin 35 live inputs and two historical provenance
+files in the source manifest.
 
 ## Open next questions
 
-1. Bind each actual Gaussian raw-H entrance to its base grid and a uniform
-   \(t_*(p)=o(p)\), including denominator growth and rounding sites. Begin
-   with `GAUSSIAN.md:120–126` and the dense interior call sites. The complete
-   numerical circuit specification remains a prerequisite.
-2. Check the lifted native endpoints and ordinary/outer admission for the
-   four-provider dispatch. Begin with the complete original-word,
-   canonical, emitted and recipe correspondence. This arithmetic audit
-   retains those endpoint and hosting obligations.
+1. Validate the analytic coefficient, boundary-prefix and conditioning
+   envelopes consumed by the rounded caller. Begin with
+   `GAUSSIAN.md:112–152`, preserving the actual narrow/broad distinction.
+   The explicit protocol closes its grid and arithmetic propagation;
+   the underlying Gaussian norm estimates remain separate premises.
+2. Check the lifted native endpoints and remaining all-size obligations
+   for the four-provider dispatch. Begin with the complete original-word,
+   canonical, emitted and recipe correspondence, using yssite's new
+   [PR4180](https://github.com/CrocSwap/integer-mult-bounds/pull/4180)
+   finite-admission evidence rather than repeating that integration.
+   This arithmetic audit retains the endpoint and hosting obligations.
 
 I record the assignment and source pins in [TASK.json](TASK.json) and
 [SOURCES.json](SOURCES.json). I coordinate in
@@ -81,7 +101,8 @@ I record the assignment and source pins in [TASK.json](TASK.json) and
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance,
 including source-analysis agents. Apache-2.0.
 
-I credit Cinna Davis for PR4100/4088 and the borrowing/provider construction;
+I credit Vlado Vojdanovski for the tensor compiler and ywz65 for the
+earlier simultaneous-rounding theorem. I credit Cinna Davis for PR4100/4088 and the borrowing/provider construction;
 AAAmirinu for the earlier PR2287 primitive-prefix and shift audit; Gareth
 Davidson for earlier Horner/prefix analysis; and the retained native
 lineage, including icekylinx, DreamingOfClouds, Tekalign, Ali Romman and
