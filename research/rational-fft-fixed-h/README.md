@@ -1,4 +1,22 @@
-# Rational FFT circuits on fixed Hadamard stages
+# Rational FFT and conditioned Toeplitz circuits on fixed Hadamard stages
+
+I compile the complete stored Toeplitz program and its stored inverse
+from PR4205 through the retained fixed-Hadamard words and routing.
+I handle scalar leaves, zero and tiny complex shears, mixed layers
+and inactive wires. For a rational Toeplitz root with the retained
+leading-section admission, I give error below $2^{-t}$ against that
+same root or its inverse, with signed widths
+$O(F_0+t+\log N+\log\lambda+\log Q+\log R)$.
+[DENSE-PROOF.md](DENSE-PROOF.md) gives the domain and derivation.
+
+I use the existing zero-safe words and the source's polynomial
+logical prefix bound. I add the endpoint norm factor required for
+nonunitary execution, then charge the upstream coefficient defect
+and the new rounding path. A scaled two-wire counterexample rejects
+omission of that endpoint factor. I preserve the completed FFT
+result below and its original scientific receipt.
+
+## Completed FFT connection
 
 I connect PR4205's actual rational FFT and stored adjoint to the retained
 six-H/seven-diagonal words and Beneš routing. I preserve the source stage
@@ -43,6 +61,13 @@ I retain the producer at PR4205 head
 [original provenance](vendor/PROVENANCE.json). I pin its local archive
 at `e417b66e1106da6c44088a1aa63105fd776c9949` for exported source history.
 [SOURCES.json](SOURCES.json) binds the actual input bytes.
+For the full extension I also retain the unchanged scalar, triangular,
+generator and full compiler modules and proofs in
+[full_source](vendor/full_source/PROVENANCE.json), pinned at archive
+commit 1c707019535965f1d0d5d1be363e0a161b0b4731.
+I reuse the exact arithmetic and FFT modules from the same original
+source revision. I freeze the authenticated byte mapping before the
+retained constructors consume it.
 
 I extract nine unchanged functions from `check_tensor_compiler.py`,
 substitute exact scalar arithmetic for the needed SymPy scalar operations,
@@ -53,7 +78,9 @@ rounding sites. I authenticate input files before parsing or executing them.
 I execute mathematical $H_0$ arithmetic, followed by the declared grid
 rounding. I do not invoke a physical T74 supplier or certify full-stream
 tensor admission, coefficient delivery, tape movement or the outer theorem.
-The rounded forward and adjoint programs generally are not exact inverses.
+The rounded forward and reverse programs generally are not exact inverses.
+The full reverse program uses the stored scalar reciprocals and reversed
+gate order; a global adjoint would implement a different map.
 
 ## Verification
 
@@ -63,7 +90,27 @@ Use CPython 3.12 and its standard library:
 python3.12 -B scripts/research_package.py --package research/rational-fft-fixed-h
 ```
 
-I declare normal and optimized replays, each with a 120-second limit.
+I declare four normal/optimized commands: two FFT commands with
+120-second limits and two full-program commands with 300-second limits.
+Their total declared allowance is 840 seconds.
+
+For the full extension, I execute 11 root fixtures in both directions,
+including scalars, indefinite matrices, a half-shift Gaussian, unequal
+subtrees and a size-16 identity. I execute 146,262 native stages and
+992,742 complex roundings in those 22 programs. I compare complete
+outputs with the actual stored logical program and separate exact
+root/inverse references. I preserve reversed wires and a 512-bit
+incoming grid. Four additional generic cases exercise mixed oriented
+layers, zero/tiny shears, idle words and empty programs.
+
+I check 24 shear words and 2,184 contiguous segments and their inverses,
+the endpoint-factor counterexample, and 25 admission, precision and
+mutation controls. [DENSE-RESULT.json](DENSE-RESULT.json) retains the
+complete typed receipt, with digest
+`b3f78b230198f71d6b537ca2c1795ae430e65adb737873fc23861fdff36e69b4`.
+The full prefix and phase contracts remain
+explicit dependencies from the retained author proofs.
+
 Thirteen cases cover fields through 64 wires, nontrivial wire order,
 partial active fields, both directions, a large input radius, singleton
 programs and a 512-bit incoming spectator. I execute 2,525 primitive
@@ -101,12 +148,22 @@ that next task needs current-reference and output-ownership binding.
 I chose this connection to resolve the rational gate's mismatch with
 the existing fixed-H compiler while preserving its stage count.
 
+For the full extension I refreshed 363 open PR bodies and 3,127
+Discussion records, inspected the relevant matches among 32 phrase
+hits, and checked the current claim and PR feedback. I compared the
+core/halo task before extending this connection. The remaining
+nonunitary gates prevented the FFT-only compiler from consuming the
+completed full program. I target that interface, while preserving
+the separate physical and outer obligations.
+
 I credit Vlado Vojdanovski for the source words, Beneš routing and FFT
 schedule; Chafik Boukhalfa/PR628 for certified rational phases; and
 Cinna Davis for the later Gaussian caller. I retain the classical
 Fourier, LDU and perturbation lineage. Our earlier PR4178 supplies a
 distinct rounded tensor-scan protocol with its own caller hypotheses.
-I add the rational gate binding and complete fixed-grid FFT contract.
+I add the rational gate binding and complete fixed-grid FFT contract,
+then the actual full-plan connection and endpoint-sensitive precision
+allocation. Vlado's zero-safe scalar/shear words remain his contribution.
 
 Jose Manuel (`jmbarrancoml`), with substantial OpenAI Codex assistance in
 mathematics, source analysis, implementation and writing. Internal agents

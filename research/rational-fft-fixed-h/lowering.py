@@ -22,6 +22,9 @@ PROVENANCE = PREFIX + "vendor/PROVENANCE.json"
 CIRCUIT = "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_circuits.py"
 TENSOR = "research/capped-phase-fusion/evidence/inplace_algebra_ultra/check_tensor_compiler.py"
 ORACLE = "research/cubic-cyclic-inverse/vendor/interval_kernel.py"
+DENSE_PREFIX = PREFIX + "vendor/full_source/"
+DENSE_CONTEXT = {"research/unconditional-batched-crt/vendor/GAUGEFREE-INTERIORS.md",
+                 "research/unconditional-batched-crt/vendor/SHALLOW-TOEPLITZ.md"}
 K = 1 << 14
 
 
@@ -59,8 +62,11 @@ def authenticate(overrides=None):
 
 
 class Sources:
-    def __init__(self, overrides=None):
-        self.raw, self.seals = authenticate(overrides)
+    def __init__(self, overrides=None, include_dense=False):
+        need(type(include_dense) is bool, "declared source inventory")
+        self.raw, all_seals = authenticate(overrides)
+        self.seals = [row for row in all_seals if include_dense
+                      or not (row["path"].startswith(DENSE_PREFIX) or row["path"] in DENSE_CONTEXT)]
         self.e = ModuleType("_fixed_h_retained_exact")
         exec(compile(self.raw[EXACT], "<authenticated PR4205 exact arithmetic>", "exec", optimize=0),
              self.e.__dict__)
@@ -292,7 +298,8 @@ class FFT:
             stats["maximum_temporary_numerator_bits"] = max(stats["maximum_temporary_numerator_bits"], width)
             stats["maximum_temporary_fractional_bits"] = max(
                 stats["maximum_temporary_fractional_bits"], value.denominator.bit_length() - 1)
-            need(width <= self.temporary_bits and abs(value) <= 16 * self.amplitude,
+            need(width <= self.temporary_bits
+                 and abs(value) <= 16 * getattr(self, "temporary_amplitude", self.amplitude),
                  "native arithmetic temporary allowance")
             return value
 
