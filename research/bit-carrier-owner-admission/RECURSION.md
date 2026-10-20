@@ -434,9 +434,9 @@ a joint-assembly proof.
 ## Source pins and attribution
 
 The concrete new logical binding uses `caller.py` with SHA256
-`ed95651869d1631ab2760ac1179c2497ef2eb0e241abfb45ef893c6180713d96`
+`eda0aedcd1b57451c9fb3ad3b9e696dd3601dc7e956ef55d16819b32a42c6c88`
 and `CALLER.json` with SHA256
-`95417038adbf7968f639de3c2d7dcba7315675a70a754ad65f179be5398fdaba`.
+`e78211b1044de8381fa8bbe1ad674b6ebf5b970e206841216cb91e67b186ce2e`.
 Its 84 unchanged source files are authenticated by `CALLER-SOURCES.json`.
 
 At canonical base `12fa8c5c844be21bfefb38a19503fbd867a11244`:

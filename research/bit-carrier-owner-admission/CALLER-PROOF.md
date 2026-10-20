@@ -306,6 +306,18 @@ exact owner-route probes, and these actual generated trace decisions:
 rank7 at parent576 gives leaf63; rank7 at640 gives internal70; frozen
 rank6 at640 gives leaf60; frozen rank6 at704 gives internal66.
 
+Only these finite threshold fixtures memoize `Geometry.point`. Their keys
+include the row, dimension and both complete encoded input words. Each
+distinct input executes the unchanged routine, and every use returns a
+fresh owned Arena copy. All cached words are freed before the normal
+ownership/head/erasure audit. Every trace event is still traversed.
+The registered check authenticates full ordered Event, Request and Reference
+payloads against uncached reference digests, including word cells, heads
+and the exact normalized parent identity. This is checker acceleration;
+production Consumer/Driver/Frame arithmetic is unchanged. The fixture's
+different numerical step and allocation counts are not production time
+or storage claims.
+
 The Consumer probes execute the real numerical source callbacks for
 MOVE, COPY, partial terminal and idle labels. A test-only packet-engine
 substitution stops after checking both adapter and child coefficients;

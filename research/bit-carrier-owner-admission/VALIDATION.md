@@ -77,6 +77,30 @@ topology propagation, the old private index, a wrong terminal chart and
 a MOVE inside COPY. The full typed `CALLER.json` receipt and its literal,
 owner and profile bindings must match.
 
+Only the four finite threshold fixtures memoize exact address results.
+Each distinct complete input is evaluated by the unchanged `Geometry.point`;
+repeated inputs receive fresh owned copies of that result. Every trace
+event still executes, and all cached words are freed before the arena
+audit. This fixture optimization changes its allocation and step counts,
+which are excluded from the production caller's time and storage claims.
+The production Consumer, Driver, Frame and frozen source files are unchanged.
+The four golden streams cover 391,086 ordered events. Their uncached
+reference at commit `8bb569889d4a8b4707178a50eccd93f8c23593ec` matched
+the cached replay on every Event, Request and Reference field, complete
+encoded word contents and heads, parent identity and final cleanup.
+Both executions made the same 780,184 address calls; the registered checks
+also count all 5,120 distinct complete inputs across the four fixtures.
+The same four fixtures can be replayed without the cache against the same
+complete-event goldens:
+
+```sh
+python3.12 -I -B research/bit-carrier-owner-admission/caller.py \
+  --scope thresholds --uncached-thresholds
+```
+
+This optional reference replay performs the repeated address arithmetic;
+it is separate from the registered replay's fixed time budget.
+
 The price check binds the actual owner receipt, both complete profiles,
 all idle complements, private reserve, fallback and the explicit coordinate
 route invoice. Two independent exact interval methods certify every root

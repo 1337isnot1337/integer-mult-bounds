@@ -27,8 +27,8 @@ on helpers 413 and 444 remain.
 ordered helper widths, owner charts and all 126,144 helper occurrences.
 It retains the R438 allocation's families and stages, compacts each
 bin according to the actual widths, and dispatches every residual
-complement. The five shortened helpers return **5,760 ranks** globally
-to idle work. These ranks are charged.
+complement. The five shortened helpers return **5,760 additional ranks**
+globally to idle work. These ranks are charged.
 
 Helpers can share a physical family only through distinct owned cover
 classes. Explicit dyadic charts establish separation, including complete

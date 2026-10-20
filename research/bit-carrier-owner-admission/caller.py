@@ -495,14 +495,80 @@ def route_probes(catalogue,chosen):
     return probes
 
 
-def threshold_probes(candidate,baseline):
-    """Use the actual normal-form trace, including its leaf/internal decision."""
+def threshold_probes(candidate,baseline,*,use_address_cache=True):
+    """Walk every actual trace event, with checker-only pure-address caching."""
+    from dataclasses import fields,is_dataclass
     from catalogue import Specifications
     from check_support import audit,inspect_count,no_decode
     from numeric import Geometry
     import oracle
     from trace import execute
-    from words import Arena
+    from words import Arena,Word
+
+    # Full ordered traces obtained from the uncached published caller.py,
+    # SHA256 ed95651869d1631ab2760ac1179c2497ef2eb0e241abfb45ef893c6180713d96
+    # at commit 8bb569889d4a8b4707178a50eccd93f8c23593ec. Both modes below
+    # independently regenerate every event; the cache only saves pure arithmetic.
+    golden={
+        ("candidate",576):(89354,177696,
+            {"add":89037,"atom_swap":252,"enter":1,"return":1,"sign":63},
+            "48adaf800f4505cc292949f6a691cac61c34ba6a4d73f168679cadbced215514"),
+        ("candidate",640):(98723,197440,
+            {"add":98720,"enter":1,"invoke":1,"return":1},
+            "77d5a2846b0d75efe3642c01e1bc098df4548cdc985f6c3b8b3ee8d575eccd6f"),
+        ("baseline",640):(96922,192880,
+            {"add":96620,"atom_swap":240,"enter":1,"return":1,"sign":60},
+            "5b70978fe85a68bdffb8d193d6007976bcfdd64f7a6bccb0e92089d71523e143"),
+        ("baseline",704):(106087,212168,
+            {"add":106084,"enter":1,"invoke":1,"return":1},
+            "2a36ad722cbc14879fe4e72c45cf17bc6fd4800fa9811ad30fa828247dd14e9b"),
+    }
+
+    class FixtureGeometry(Geometry):
+        """Memoize only this finite fixture's unchanged Geometry.point calls.
+
+        Keys contain both complete encoded input words, the row and dimension.
+        The retained routine executes on every distinct input. Hits copy its
+        saved encoded result into a fresh owned register. This checker helper
+        is never installed on a production Consumer, Driver or recursive Frame.
+        """
+        def __init__(self,*args):
+            super().__init__(*args)
+            self.points={}
+            self.point_calls=0
+            self.point_inputs=set()
+
+        def point(self,field,column):
+            need(self.columns.head == column.head == 1,
+                 "canonical threshold fixture address inputs")
+            extent,coordinate=bytes(self.columns.cells),bytes(column.cells)
+            key=(self.plan.dimension,field,extent,coordinate)
+            self.point_calls+=1
+            self.point_inputs.add(key)
+            if not use_address_cache or key not in self.points:
+                value=super().point(field,column)
+                need(self.columns.head == column.head == value.head == 1
+                     and bytes(self.columns.cells) == extent
+                     and bytes(column.cells) == coordinate,
+                     "unchanged threshold address oracle preserves its inputs")
+                if not use_address_cache:
+                    return value
+                self.points[key]=value
+            value=self.points[key]
+            need(value.head == 1 and value.slot in self.index.live,
+                 "owned canonical cached threshold address")
+            result=self.index.copy(value)
+            need(result is not value and result.head == 1
+                 and bytes(result.cells) == bytes(value.cells),
+                 "fresh exact threshold address copy")
+            return result
+
+        def close(self):
+            for value in self.points.values():
+                self.index.free(value)
+            self.points.clear()
+            super().close()
+
     reports=[]
     identifiers={
         "candidate":selected_requests(candidate)["retired_carrier_rank7"],
@@ -520,11 +586,45 @@ def threshold_probes(candidate,baseline):
         plan=specifications.plan(spec.code)
         indices=Arena(12)
         columns,depth=indices.input(parent//64),indices.zero()
-        geometry=Geometry(plan,indices,columns,depth,spec.code,object())
+        geometry=FixtureGeometry(plan,indices,columns,depth,spec.code,object())
+        signature=sha256()
+        counts=Counter()
+        initial=(bytes(geometry.columns.cells),bytes(geometry.depth.cells),
+                 geometry.plan.dimension,geometry.plan.rank)
+
+        def normalize(value):
+            if value is geometry.parent_identity:
+                return ["exact_fixture_parent"]
+            if isinstance(value,Word):
+                need(value.arena is indices and value.slot in indices.live,
+                     "all emitted words belong to the exact threshold arena")
+                need(value.head == 1,"all emitted word heads canonical")
+                return ["word",value.head,bytes(value.cells).hex()]
+            if value is None or isinstance(value,(bool,int,str)):
+                return value
+            if isinstance(value,(tuple,list)):
+                return [normalize(x) for x in value]
+            if is_dataclass(value):
+                return [type(value).__name__,[[f.name,normalize(getattr(value,f.name))]
+                                             for f in fields(value)]]
+            raise ValueError("unrecognized emitted trace payload "+type(value).__name__)
+
+        signature.update(canonical({
+            "plan":normalize(geometry.plan),
+            "columns":normalize(geometry.columns),
+            "depth":normalize(geometry.depth),
+            "source_code":geometry.source_code,
+        })+b"\n")
         entered,invoked,returned=[],[],[]
         try:
             with no_decode():
                 for event in execute(geometry):
+                    need(event.parent_identity is None
+                         or event.parent_identity is geometry.parent_identity,
+                         "exact normalized emitted parent identity")
+                    # Consume every mutable word before the iterator resumes.
+                    signature.update(canonical(normalize(event))+b"\n")
+                    counts[event.kind]+=1
                     if event.child_kind != "good":
                         continue
                     if event.kind == "enter":
@@ -537,9 +637,23 @@ def threshold_probes(candidate,baseline):
             need(entered == returned == [width]
                  and invoked == ([width] if width >= 64 else []),
                  "actual changed child threshold")
+            need(initial == (bytes(geometry.columns.cells),bytes(geometry.depth.cells),
+                             geometry.plan.dimension,geometry.plan.rank),
+                 "unchanged threshold geometry")
+            need((sum(counts.values()),geometry.point_calls,dict(counts),
+                  signature.hexdigest()) == golden[name,parent],
+                 "complete uncached-reference threshold trace")
+            need(len(geometry.point_inputs) == 128*(parent//64),
+                 "complete threshold address input census")
             reports.append({"word":name,"parent_width":parent,"request":identifier,
                             "rank":template.rank,"child_width":width,
-                            "internal_invocations":len(invoked),"literal_trace_executed":True})
+                            "internal_invocations":len(invoked),"literal_trace_executed":True,
+                            "full_trace":{
+                                "events":sum(counts.values()),
+                                "event_kinds":dict(sorted(counts.items())),
+                                "ordered_full_event_sha256":signature.hexdigest(),
+                                "point_calls":geometry.point_calls,
+                                "distinct_point_inputs":len(geometry.point_inputs)}})
         finally:
             geometry.close()
             indices.free_many(columns,depth)
@@ -758,8 +872,13 @@ def binding_controls(catalogue):
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument("--scope",choices=("catalogue","literal","consumer","complete"),default="complete")
+    parser.add_argument("--scope",choices=("catalogue","literal","consumer","thresholds","complete"),
+                        default="complete")
+    parser.add_argument("--uncached-thresholds",action="store_true",
+                        help="replay all four threshold traces without address caching")
     args=parser.parse_args()
+    if args.uncached_thresholds and args.scope != "thresholds":
+        parser.error("--uncached-thresholds requires --scope thresholds")
     catalogue,loader,provenance=build_provider()
     baseline=type(catalogue)(3,"baseline")
     report={"status":"PASS_BOUND_CALLER_CATALOGUE","provenance":provenance,
@@ -774,6 +893,11 @@ def main():
         chosen=selected_requests(catalogue)
         report["consumer_probes"]=consumer_probes(catalogue,chosen)
         report["route_probes"]=route_probes(catalogue,chosen)
+    if args.scope == "thresholds":
+        report["threshold_probes"]=threshold_probes(
+            catalogue,baseline,use_address_cache=not args.uncached_thresholds)
+        report["status"]="PASS_BOUND_CALLER_COMPLETE_THRESHOLD_TRACES"
+    elif args.scope in ("consumer","complete"):
         report["threshold_probes"]=threshold_probes(catalogue,baseline)
         report["status"]="PASS_BOUND_CALLER_CONSUMER_AND_THRESHOLD_PROBES"
     if args.scope == "complete":

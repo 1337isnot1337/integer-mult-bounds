@@ -393,6 +393,19 @@
   "threshold_probes": [
     {
       "child_width": 63,
+      "full_trace": {
+        "distinct_point_inputs": 1152,
+        "event_kinds": {
+          "add": 89037,
+          "atom_swap": 252,
+          "enter": 1,
+          "return": 1,
+          "sign": 63
+        },
+        "events": 89354,
+        "ordered_full_event_sha256": "48adaf800f4505cc292949f6a691cac61c34ba6a4d73f168679cadbced215514",
+        "point_calls": 177696
+      },
       "internal_invocations": 0,
       "literal_trace_executed": true,
       "parent_width": 576,
@@ -402,6 +415,18 @@
     },
     {
       "child_width": 70,
+      "full_trace": {
+        "distinct_point_inputs": 1280,
+        "event_kinds": {
+          "add": 98720,
+          "enter": 1,
+          "invoke": 1,
+          "return": 1
+        },
+        "events": 98723,
+        "ordered_full_event_sha256": "77d5a2846b0d75efe3642c01e1bc098df4548cdc985f6c3b8b3ee8d575eccd6f",
+        "point_calls": 197440
+      },
       "internal_invocations": 1,
       "literal_trace_executed": true,
       "parent_width": 640,
@@ -411,6 +436,19 @@
     },
     {
       "child_width": 60,
+      "full_trace": {
+        "distinct_point_inputs": 1280,
+        "event_kinds": {
+          "add": 96620,
+          "atom_swap": 240,
+          "enter": 1,
+          "return": 1,
+          "sign": 60
+        },
+        "events": 96922,
+        "ordered_full_event_sha256": "5b70978fe85a68bdffb8d193d6007976bcfdd64f7a6bccb0e92089d71523e143",
+        "point_calls": 192880
+      },
       "internal_invocations": 0,
       "literal_trace_executed": true,
       "parent_width": 640,
@@ -420,6 +458,18 @@
     },
     {
       "child_width": 66,
+      "full_trace": {
+        "distinct_point_inputs": 1408,
+        "event_kinds": {
+          "add": 106084,
+          "enter": 1,
+          "invoke": 1,
+          "return": 1
+        },
+        "events": 106087,
+        "ordered_full_event_sha256": "2a36ad722cbc14879fe4e72c45cf17bc6fd4800fa9811ad30fa828247dd14e9b",
+        "point_calls": 212168
+      },
       "internal_invocations": 1,
       "literal_trace_executed": true,
       "parent_width": 704,

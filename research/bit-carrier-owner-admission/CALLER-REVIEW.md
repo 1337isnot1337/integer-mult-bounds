@@ -18,9 +18,9 @@ The reviewed implementation and receipts have these SHA256 pins:
 
 | File | SHA256 |
 |---|---|
-|`caller.py`|`ed95651869d1631ab2760ac1179c2497ef2eb0e241abfb45ef893c6180713d96`|
-|`CALLER.json`|`95417038adbf7968f639de3c2d7dcba7315675a70a754ad65f179be5398fdaba`|
-|`CALLER-PROOF.md`|`d2f8c91c0792a6f1ce6e9ae7b62008bd33637112af45a1dac47144d85c602500`|
+|`caller.py`|`eda0aedcd1b57451c9fb3ad3b9e696dd3601dc7e956ef55d16819b32a42c6c88`|
+|`CALLER.json`|`e78211b1044de8381fa8bbe1ad674b6ebf5b970e206841216cb91e67b186ce2e`|
+|`CALLER-PROOF.md`|`28c5457da4d273a558c43936f9da9a49094994a2f5da9f780d5d822e7faa9d56`|
 |`CALLER-SOURCES.json`|`ad4a6ad33e24baf471263a0e1a73db7fbaa071223ff11d1b20410185d8d5e8e3`|
 |`caller_source_cuts.py`|`fb05ca0e7fa5ca229efd4be517c8462c4a9a30263738d3297753bc71f03a1df4`|
 |`CALLER-SOURCE-CUTS.json`|`78aa2e2b33410540ae0bed856d722522cb5c43b5687e49b9fb0b435fb461ba5d`|
@@ -385,6 +385,56 @@ Consumer coefficient probes, four owner-route probes, threshold traces,
 and four targeted binding controls. The matched baseline has its own
 catalogue/profile and threshold checks and the complete two-orientation
 native proof. Its full 288-call caller census was not separately run.
+
+The four threshold fixtures use a reviewed cache confined to their nested
+`FixtureGeometry` class. Relative to the published uncached caller at
+`8bb569889d4a8b4707178a50eccd93f8c23593ec`, only `threshold_probes` and
+the checker's `main` dispatch changed. The production catalogue,
+Consumer, Driver, Frame, normal forms and retained source files are
+unchanged.
+
+For one fixture, `Geometry.point` depends on its fixed arena and constant
+words, the plan dimension, row, encoded extent and encoded column. The
+cache key includes the dimension, row and both complete input word
+contents, with canonical input heads checked. A miss calls the unchanged
+method and verifies unchanged inputs. The cache owns its saved result;
+every use returns a fresh `Arena.copy`, so the trace can free or mutate
+that returned word without affecting the cache. All saved words are
+freed before the existing full ownership, head and erasure audit.
+
+The old source, SHA256
+`ed95651869d1631ab2760ac1179c2497ef2eb0e241abfb45ef893c6180713d96`,
+and the cached fixture produced identical complete ordered event digests.
+The comparison includes the Plan context, every Event/Request/Reference
+field, complete encoded word contents and heads, and exact normalized
+parent identity. All four returned arenas had zero live registers,
+reset heads and erased work. The registered replay now checks those
+uncached goldens and these independent event/address counts:
+
+| Word | Parent | Events | Address calls | Distinct complete inputs |
+|---|---:|---:|---:|---:|
+|candidate|576|89,354|177,696|1,152|
+|candidate|640|98,723|197,440|1,280|
+|matched baseline|640|96,922|192,880|1,280|
+|matched baseline|704|106,087|212,168|1,408|
+
+For rank `r` the unchanged good Plan has
+`4096+2*(63r-r(r-1)/2)` commands. Its two adapter directions and actual
+leaf/internal body give the table's event counts, independently of the
+digest calculation. Both executions made the same 780,184 address calls;
+the registered distinct-input assertions total 5,120. The direct
+comparison records address-call counts and complete emitted payloads,
+not a separate serialized point-input stream.
+
+Every old semantic receipt field remains equal after removing only the
+new `threshold_probes[*].full_trace` records. The default complete replay
+retains all previous checks and adds full-event guards. The optional
+`--scope thresholds --uncached-thresholds` mode calls the retained
+address routine on every use and checks the same goldens. The fixture
+cache changes checker allocation and numerical-step counts; those
+counts are excluded from the production time and storage proof above.
+This is a reduction in repeated checking work, not an additional
+mathematical supplier improvement.
 
 The Frame probes use actual descriptor construction, Frame,
 SelectedNode construction and cleanup, including `640->70` and
