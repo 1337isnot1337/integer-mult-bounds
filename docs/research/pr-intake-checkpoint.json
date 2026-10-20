@@ -1011,11 +1011,13 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "14ee747bebf3d07715ec8754c0da24d01b42f5e5",
-    "archive_count": 100,
+    "commit": "0a2d65f22afd532ce3d17cdf229d98fbed910d59",
+    "decisions": 100,
+    "archive_count": 99,
+    "reviewed_tooling_count": 1,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct20c-20261020.json",
-      "docs/research/pr-intake-evidence/queue-oct20c-closures.json"
+      "docs/research/pr-intake-evidence/queue-oct20d-20261020.json",
+      "docs/research/pr-intake-evidence/queue-oct20d-closures.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1067,13 +1069,14 @@
     }
   ],
   "latest_queue": {
-    "open_count": 572,
-    "actionable_count": 286,
+    "open_count": 472,
+    "actionable_count": 186,
     "counts": {
       "draft": 173,
       "waiting_revision": 106,
       "deferred_replay": 7,
-      "new": 286
-    }
+      "new": 186
+    },
+    "observed_at": "2026-10-20T05:22:56.696413+00:00"
   }
 }
