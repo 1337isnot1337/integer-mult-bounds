@@ -85,8 +85,19 @@ class Vec(list):
         super().__init__(C.wrap(x) for x in values)
 
     def __mul__(self, other):
+        if isinstance(other, C) or type(other) in (int, Q):
+            return Vec(x * other for x in self)
         need(len(self) == len(other), "elementwise vector dimensions")
         return Vec(x * y for x, y in zip(self, other))
+
+    __rmul__ = __mul__
+
+    def __sub__(self, other):
+        need(len(self) == len(other), "vector subtraction dimensions")
+        return Vec(x - y for x, y in zip(self, other))
+
+    def copy(self):
+        return Vec(self)
 
 
 class Mat(list):
@@ -129,6 +140,8 @@ def unitary(matrix):
 def inverse_gate(matrix):
     if unitary(matrix):
         return adjoint(matrix)
+    if matrix.shape == (1, 1):
+        return Mat([[1 / matrix[0][0]]])
     if matrix.shape == (2, 2) and matrix[0][0] == matrix[1][1] == 1 and matrix[0][1] == 0:
         return Mat([[1, 0], [-matrix[1][0], 1]])
     raise ValueError("unsupported nonunitary inverse gate")

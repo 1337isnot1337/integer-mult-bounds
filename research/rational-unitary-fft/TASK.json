@@ -38,21 +38,21 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Certify rational-unitary FFT and Toeplitz-shear gates in the retained schedule, including multiplier preparation, fixed-grid rounding in both dirty banks, incoming-grid preservation and explicit error/width budgets.",
-  "scope_change_reason": "PR4198 leaves numerical child execution open. PR628 already supplies rational unit phases, and PR3709 already supplies inward-twiddle rounded FFTs; this result connects the retained unitary child to a complete coefficient/data precision contract.",
+  "actual_scope": "Certify rational-unitary FFT/Toeplitz-shear gates and the retained near-identity parity-triangular recursion and stored inverse, including multiplier and leaf preparation, global fixed-grid rounding, incoming precision and explicit error/width budgets.",
+  "scope_change_reason": "PR4198 leaves numerical child execution open. PR628 already supplies rational phases and Vlado supplies the parity recursion; this result connects those source programs to one complete coefficient/data precision contract. The extension preserves the first FFT revision and its receipt.",
   "bottleneck_link": "The bounded-generator compiler needs an actual FFT/shear child with charged approximation, source-restoration error and data width before its full numerical composition can be admitted.",
   "budget_minutes": 120,
   "stop_rule": "Stop at an invalid phase enclosure, nonunitary adapted gate, missing multiplier/twist error, understated word width or source-schedule mismatch. Do not equate coefficient-level unitarity with exact rounded restoration or physical execution.",
   "outcome": "completed",
-  "evidence": "PROOF.md gives the quantified oracle, coefficient, prefix, rounding and width argument. RESULT.json records 12 cases, 1428 actual gates and 61 rounded states with exact Fourier/Toeplitz references and schedule/precision controls. Scientific acceptance remains separate.",
+  "evidence": "PROOF.md and TRIANGLE-PROOF.md give the quantified phase, recursion, coefficient, prefix/suffix, rounding and width arguments. RESULT.json preserves 12 FFT/shear cases, 1428 gates and 61 rounded states. TRIANGLE-RESULT.json adds 10 recursive cases, 1806 gates and 62 forward/inverse states with exact macro and separate inverse references. Scientific acceptance remains separate.",
   "author": "Jose Manuel (jmbarrancoml)",
   "ai_assistance": "Substantial OpenAI Codex assistance in mathematics, source analysis, implementation and writing, including source-analysis agents. No independent human or formal-kernel acceptance.",
   "open_questions": [
     {
-      "question": "Can the actual parity-triangular and bounded-generator programs consume this rounded child under one precision allocation?",
-      "why_it_matters": "The source calls this child inside a recursive triangular transform and a compensated generator schedule; a child bound alone does not finish that composition.",
-      "first_step": "Bind the literal parity recursion and its coefficient preparation, then propagate this child's defects through the previously bounded macro prefixes and inverse prefixes.",
-      "blocked_by": "A separate source-bound recursive prefix/error proof and complete emitted-gate replay."
+      "question": "Can the actual bounded-generator program consume these rounded triangular and shear children under one precision allocation?",
+      "why_it_matters": "The source composes a triangular transform, scaled shear, stored inverse and compensation; the individual child contracts do not finish that complete generator schedule.",
+      "first_step": "Combine the actual rational generator producer with the literal four-stage schedule and propagate child defects through its macro prefixes, including rounded restoration and compensation.",
+      "blocked_by": "A source-bound full-generator error/width proof and complete emitted-gate replay."
     },
     {
       "question": "Can the coefficient preparation and canonical data widths be joined to the physical Gaussian caller?",
