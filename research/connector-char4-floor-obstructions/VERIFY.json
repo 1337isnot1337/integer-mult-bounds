@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Translated-cube arithmetic and small/exploratory controls; full sharp depth-two censuses, catalog, inventory lemma and unpruned calibration"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Translated-cube arithmetic and small/exploratory controls; full sharp depth-two censuses, catalog, inventory lemma and unpruned calibration; optimized Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal outside-component charges, arithmetic and maximizer coverage"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/independent_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent literal outside-component charges, arithmetic and maximizer coverage; optimized Python"
+    }
+  ]
+}
