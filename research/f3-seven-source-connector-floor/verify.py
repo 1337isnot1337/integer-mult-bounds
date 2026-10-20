@@ -1,7 +1,8 @@
 """Verify the seven-source unsigned F3 connector floor exclusion.
 
-Default mode: compile both C engines, replay their n <= 6 calibration counts
-against CERTIFICATE.json, cross-check the engines and both symmetry
+Default mode: compile both C engines, replay their calibration counts against
+CERTIFICATE.json (reduced n <= 6, independent n <= 5; --n7-independent adds
+the independent n = 6 count), cross-check the engines and both symmetry
 reductions against a pure-Python brute force for n <= 4, check the 405-call
 seven-source word cited from PR4232, and run rejection controls.
 
@@ -71,10 +72,14 @@ def prefix_points(path, n):
 def served_masks(path, n):
     """Binary masks equal to q_a + q_b + q_c for boundaries a <= b <= c."""
     q = prefix_points(path, n)
-    sums = {tuple((x + y + z) % 3 for x, y, z in zip(q[a], q[b], q[c]))
-            for a, b, c in itertools.combinations_with_replacement(range(len(q)), 3)}
-    return {m for m in range(1, 1 << n)
-            if tuple((m >> j) & 1 for j in range(n)) in sums}
+    pairs = {tuple((x + y) % 3 for x, y in zip(q[a], q[b]))
+             for a, b in itertools.combinations_with_replacement(range(len(q)), 2)}
+    served = set()
+    for m in range(1, 1 << n):
+        bits = [(m >> j) & 1 for j in range(n)]
+        if any(tuple((b - x) % 3 for b, x in zip(bits, qc)) in pairs for qc in q):
+            served.add(m)
+    return served
 
 
 def all_paths(n):
@@ -119,16 +124,16 @@ def reduced_forms(path):
 
 # ---- checks --------------------------------------------------------------
 
-def check_calibration(cert, binaries):
+def check_calibration(cert, binaries, max_independent):
     for key, rec in cert["calibration"].items():
         n = int(key)
         leaves, sols, _ = run_engine(binaries["reduced"], [n, 1, 0, 1, 0])
         require([leaves, sols] == rec["reduced"], f"reduced engine n={n}: {leaves},{sols}")
-        if n >= 2:
+        if 2 <= n <= max_independent:
             leaves, sols, _ = run_engine(binaries["independent"], [n, 1, 0])
             require([leaves, sols] == rec["independent"],
                     f"independent engine n={n}: {leaves},{sols}")
-    print("calibration n=1..6 reduced and independent counts match")
+    print(f"calibration: reduced n=1..6 and independent n=2..{max_independent} counts match")
 
 
 def independent_family_size(n):
@@ -241,11 +246,12 @@ def main():
             if opts.n7_all:
                 run_n7(cert, binaries, "reduced", list(range(cert["n7"]["reduced"]["shards"])))
             if opts.n7_independent:
+                check_calibration(cert, binaries, 6)
                 run_n7(cert, binaries, "independent",
                        list(range(cert["n7"]["independent"]["shards"])))
             marker = "PASS_F3_SEVEN_SOURCE_CENSUS"
         else:
-            check_calibration(cert, binaries)
+            check_calibration(cert, binaries, 5)
             check_brute_force(cert, binaries)
             check_independent_sizes(cert)
             check_seven_upper(cert)

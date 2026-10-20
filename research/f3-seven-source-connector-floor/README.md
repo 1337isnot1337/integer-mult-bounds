@@ -90,12 +90,13 @@ From the repository root (a C11 compiler `cc` is required):
 ~/git/integer-mult-bounds/.venv/bin/python3.12 -B research/f3-seven-source-connector-floor/verify.py --n7-independent
 ```
 
-The default mode runs the calibration, brute-force cross-checks, the 405-word
-check and controls (marker `PASS_F3_SEVEN_SOURCE_CALIBRATION`). `--n7-shards`
+The default mode runs the calibration (reduced engine n ≤ 6, independent
+engine n ≤ 5), brute-force cross-checks, the 405-word check and controls (marker `PASS_F3_SEVEN_SOURCE_CALIBRATION`). `--n7-shards`
 replays named shards of the reduced census and compares their leaf counts with
 the certificate (marker `PASS_F3_SEVEN_SOURCE_SHARDS`). `--n7-all` and
 `--n7-independent` replay the whole census for one engine (marker
-`PASS_F3_SEVEN_SOURCE_CENSUS`). They use every available core. Measured
+`PASS_F3_SEVEN_SOURCE_CENSUS`); `--n7-independent` also replays the
+independent engine's n = 6 calibration. They use every available core. Measured
 locally on an 18-core Apple machine: about 25 CPU minutes (2.5 minutes wall) for the
 reduced engine and about 12.5 minutes wall, all 18 cores busy, for the
 independent one. The independent leaf count equals the closed form
