@@ -89,12 +89,6 @@
   "evidence": "verify.py: moment straddles 1 across the 1e-24 bracket; mu_1 = 0.99435 < 199/200; 1 - mu_(1-b) = 1.42e-7 > 1e-7; gain over PR4183 0.415620% as recorded; profile aggregates equal RECORD.json; W+9 private-credit control moves the root.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
-  "open_questions": [
-    {
-      "question": "Rebuild #4326's profile from its word and remainders with separate code.",
-      "why_it_matters": "The 10^7 C prefactor margin is only 1.42e-7.",
-      "first_step": "Census inputs/WORD.json.gz and REMAINDERS.json.gz independently.",
-      "blocked_by": "None."
-    }
-  ]
+  "open_questions": [],
+  "no_open_questions_reason": "The profile reconstruction this asked for is #4349, whose rebuilt full_profile equals the checked profile."
 }

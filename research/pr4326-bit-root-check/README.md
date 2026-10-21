@@ -45,7 +45,11 @@ BIT saving does not change it.
 
 - Deriving the profile from #4326's word and remainders. The profile is
   transcribed from its independent pricer and matched to the record's
-  aggregates.
+  aggregates. **Update:**
+  [#4349](https://github.com/CrocSwap/integer-mult-bounds/pull/4349) (ToikY)
+  has since rebuilt it from the literal word and owners. Its `full_profile`
+  equals the profile checked here exactly, and its idle histogram equals the
+  one implied by it.
 - The logical supplier, fixed-tape lowering and caller premises.
 - No proof-kernel check.
 
@@ -63,12 +67,7 @@ its SHA256 is checked. The profile constant comes from
 
 ## Open next questions
 
-1. **Rebuild the profile from #4326's word and remainders.**
-   - *Why it matters:* the 10⁷C prefactor has only a `1.42·10⁻⁷` margin, so
-     one paid child could matter.
-   - *First step:* recompute the census from `inputs/WORD.json.gz` and
-     `REMAINDERS.json.gz` with separate code.
-   - *Blocked by:* nothing; it is a gzip census.
+None. The profile reconstruction asked for here is #4349; see "Not covered".
 
 ## Credit
 
