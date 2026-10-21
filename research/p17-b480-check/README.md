@@ -1,0 +1,77 @@
+# Independent arithmetic check of the p17 B/480 patch (#4447, #4453)
+
+**Claim type:** an independent certified arithmetic check. **No new κ, and neither PR is
+accepted.** The native contact replay is not re-run. Two PRs report the same patch, made at phase B
+scalar contact 480 on #4441's p17 invoice:
+
+- 1337isnot1337's [#4447](https://github.com/CrocSwap/integer-mult-bounds/pull/4447), at κ = 0.00300123
+  (head `322e0ec7`);
+- zxv's [#4453](https://github.com/CrocSwap/integer-mult-bounds/pull/4453), at κ = 0.00300120
+  (head `de6869e2`).
+
+The patch replaces frame 732 by a three-dimensional span, which changes the four incident paid ranks
+from `[2,2,1,3]` to `[1,1,2,4]`. Since `(1,4)` majorizes `(2,3)` and `x^τ` is strictly concave,
+`1 + 4^τ < 2^τ + 3^τ` holds for every `0 < τ < 1`, by Karamata.
+
+## Results
+
+**The invoice.** The shared p17 invoice equals #4441's invoice plus exactly 19 per-call swaps:
+paid ranks 1 and 4 rise by 19 each, ranks 2 and 3 fall by 19 each, and the targets are unchanged.
+That gives 11,560 productive fields, 69,273 paid calls and rank surplus `260,798 − 259,998 = 800`.
+
+**The raw root.** It lies in `(0.0030012390168, 0.0030012390174)`, certified.
+
+**Strictification.** Each PR uses main's higher-moment theorem: `α = P_t/T_t`,
+`γ_u = P_{t+u}/(c^u T_t)`, `δ = B·b/(c^C T_t)`, and the bound `α^v + 2γ_u^v + 2δ^v`. The split
+bound `2RJ^{−C} ≤ 2R^{t+u}J^{−u}` for `R > J` was checked by hand: it needs `u ≥ C`.
+
+| | #4447 | #4453 |
+| --- | --- | --- |
+| `(C, v, c, b, u)` | (0.003001235, 1024, 20, 21, 1/5) | (0.00300122, 675, 18, 22, 3/25) |
+| `α` upper (stated limit) | 0.999999995876755 (`1 − 10⁻⁹`) | 0.999999980480395 (`0.999999981`) |
+| `γ_u` upper (stated limit) | 0.969136675521 (`97/100`) | 0.981971727000 (`491/500`) |
+| `δ` upper (stated limit) | 0.932537504514 (`19/20`) | 0.977253011856 (`391/400`) |
+| tensor bound | 0.9999989760 | 0.9999970702 |
+| compiler `θ̄`, power `p` | 63/64, 1000 | 15/16, 160 |
+| stated `H` / **least certified `H`** | 64,215,200,000,000 / **64,215,171,181,937** | 2,299,850,000,000 / **2,299,613,602,047** |
+
+All three ratios agree with the PRs' printed intervals to every printed digit.
+
+**The compiler conditions.** These hold at ambient `153^v`, with `r_max = c^v` and `k_min = b^v`:
+
+- `c^b < b^a` gives `θ < θ̄ = a/b`;
+- `2^{b−a}r_max^b ≤ m^a`;
+- `θ̄^p < η = t·m^{t−1}`, which is tight for #4453: `(15/16)^160 ≈ 3.27·10⁻⁵` against `η ≈ 3.74·10⁻⁵`;
+- `m^{1−t} < 2^p`;
+- `z − t = d = (C − κ)/7`.
+
+## Not covered
+
+- The native replay of the new contact, its transports and phases.
+- #4441's predecessor native work, which mihir-s-05's #4448 audits separately.
+- The outer ledgers.
+
+## Reproduce
+
+```sh
+python3.12 -B scripts/research_package.py --package research/p17-b480-check --check-only
+python3.12 -B scripts/research_package.py --package research/p17-b480-check
+```
+
+The verifier prints `PASS_PR4447_PR4453_ARITHMETIC` in about 3 seconds, using only the standard
+library.
+
+## Open next questions
+
+1. **Does a second missing span exist at another contact?**
+   - *Why it matters:* the same concavity gain would apply.
+   - *First step:* rerun #4453's line/hyperplane min-cut discovery with the B/480 contact fixed.
+
+## Credit
+
+- The patch and constructions are 1337isnot1337's (#4447, #4440, #4441) and zxv's (#4453, #4359).
+- The higher-moment theorem and the polylog majorant are on main (`higher-moment-strictification`).
+- Theorem 1G is Jacob Alan Sussman's.
+
+Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
+Apache-2.0.
