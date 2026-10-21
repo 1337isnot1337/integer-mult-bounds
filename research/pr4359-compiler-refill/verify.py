@@ -91,7 +91,8 @@ if __name__ == '__main__':
     if args.write_result:
         expected.write_text(json.dumps(result, indent=2, sort_keys=True) + '\n')
     else:
-        need(json.loads(expected.read_text()) == result, 'Exact saved receipt reproduction')
+        need(json.loads(expected.read_text()) == json.loads(json.dumps(result)),
+             'Exact saved receipt reproduction')
     print(json.dumps({'status': result['status'], 'source_files': result['source_files'],
                       'kappa': result['endpoint_refill']['kappa'],
                       'old_savings_template_H1': [r['H1'] for r in result['template_refinement']['cases']],
