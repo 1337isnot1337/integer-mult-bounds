@@ -55,8 +55,7 @@ match its printed intervals: `α < 0.999999997758999`, `γ_u < 0.969126930834` a
 is 165,312,667,114,238.
 
 **#4440** (κ = 0.00296) consists of two query-thinned units, both at `v = 1024` and `u = 1/5`. Only
-their strictification ratios are checked here. The compiler is #4440's older power majorant and is
-not re-derived.
+their strictification ratios and its power-majorant compiler are checked here.
 
 | Unit | `α` upper | `γ_u` upper | `δ` upper | tensor bound |
 | --- | --- | --- | --- | --- |
@@ -64,6 +63,17 @@ not re-derived.
 | BIT (`c = 17`, `b = 18`) | 0.999995735238060 | 0.957429821066 | 0.949707924145 | `< 0.99565187` |
 
 All six ratios match #4440's printed interval endpoints to within `10⁻²⁸`.
+
+**#4440's compiler** is defined in its PROOF.md §3 with `h = 1/64`, `v = 1024` and `z0 = (t+z)/2`. It
+reproduces exactly:
+
+| Unit | `H0` | `H1` | uniform saving |
+| --- | --- | --- | --- |
+| complex | 75,415,467,350 | 10,418,370,291,022,217 | `κ + 6d = 103609/35000000`, with `κ = 0.00296` |
+| BIT | 3,755,884,544 | 25,986,965,159,937 | 0.003459 |
+
+The Bernoulli surpluses also match exactly, and so do `c^64 < b^63` and the decay blocks
+`(31/32)^128, (19/20)^128 < 1/16`.
 
 ## #4446
 

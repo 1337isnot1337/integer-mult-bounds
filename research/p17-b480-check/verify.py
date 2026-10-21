@@ -278,6 +278,26 @@ def main():
                    "delta_upper": f"{float(d_hi):.12f}", "tensor_bound": f"{float(bound):.10f}",
                    "exit_constant": [f"{float(true_B):.1f}", 88608], "neg_log2_eta": [f"{float(true_negl2eta):.3f}", f"{float(negl2eta):.3f}"],
                    "H0": H0, "H1": H1}
+    # #4440's power-majorant compiler (PROOF.md section 3): h = 1/64, v = 1024, z0 = (t + z)/2
+    def compiler4440(tested, uniform):
+        hh, vv = Q(1, 64), 1024
+        t_, z_ = 1 - tested, 1 - uniform
+        z0_ = (t_ + z_) / 2
+        gap = z0_ - t_
+        x = (gap * (5 + 8 * hh) * vv + 1 + 8 * vv * (1 - z0_)) / (hh * gap)
+        h0 = -((-x.numerator) // x.denominator)
+        x = h0 * (1 - z0_) / (z_ - z0_)
+        return h0, x.numerator // x.denominator + 1
+    k4440, tc = Q(37, 12500), Q(29603, 10000000)
+    uc = k4440 + 6 * (tc - k4440) / 7
+    need(uc == Q(103609, 35000000), "#4440: complex uniform saving kappa + 6d")
+    need(compiler4440(tc, uc) == (75415467350, 10418370291022217), "#4440: complex H0, H1")
+    need(compiler4440(Q(173, 50000), Q(3459, 1000000)) == (3755884544, 25986965159937), "#4440: BIT H0, H1")
+    for g_, s_ in ((Q(1, 30000000), Q(8589700209, 251666829934592)), (Q(1, 250000), Q(68719461047, 16845935476736))):
+        need(1 - 1 / (1 + 1024 * g_) - Q(4, 2 ** 32) == s_ > 0, "#4440: Bernoulli surplus")
+    need(20 ** 64 < 21 ** 63 and 17 ** 64 < 18 ** 63 and Q(31, 32) ** 128 < Q(1, 16) and Q(19, 20) ** 128 < Q(1, 16),
+         "#4440: exit exponent h = 1/64 and tail decay blocks")
+    out["4440_compiler"] = {"complex": [75415467350, 10418370291022217], "BIT": [3755884544, 25986965159937]}
     print(json.dumps(out, indent=1))
 
 
