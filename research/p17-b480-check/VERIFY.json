@@ -12,7 +12,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 300,
-      "checks": "Invoice = #4441 + 19 swaps; rank surplus 800; certified raw root bracket; per PR: alpha, gamma_u, delta below stated limits, tensor bound < 1, polylog compiler conditions, stated and least certified H."
+      "checks": "Invoice = #4441 + 19 swaps; rank surplus 800; certified raw root bracket; per PR: alpha, gamma_u, delta below stated limits, tensor bound < 1, polylog compiler conditions, stated and least certified H. Predecessors: #4441 strictification and compiler on its own invoice; #4440 complex and BIT strictification ratios matched to 1e-28."
     }
   ]
 }

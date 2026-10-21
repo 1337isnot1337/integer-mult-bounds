@@ -80,13 +80,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Independently check the arithmetic of #4447 and #4453's shared p17 B/480 patch: invoice accounting, raw root, higher-moment strictification and polylog compiler ranks.",
+  "actual_scope": "Independently check the arithmetic of #4447 and #4453's shared p17 B/480 patch: invoice accounting, raw root, higher-moment strictification and polylog compiler ranks. Also checks predecessors #4441 (strictification and compiler) and #4440 (complex and BIT strictification ratios).",
   "scope_change_reason": "The card asks for independent coverage of new paid-profile claims; these two kappa ~0.0030012 PRs had none.",
   "bottleneck_link": "The proposed kappa 0.0030012 rests on this invoice, its strictification and compiler rank before native premises.",
   "budget_minutes": 30,
   "stop_rule": "Stop at the arithmetic; do not replay native contacts.",
   "outcome": "completed",
-  "evidence": "verify.py: invoice is #4441 + 19 swaps; root (0.0030012390168, 0.0030012390174); alpha/gamma_u/delta match both PRs' intervals; tensor bounds 0.999998976 / 0.999997070; least H 64,215,171,181,937 / 2,299,613,602,047 below the stated ranks.",
+  "evidence": "verify.py: invoice is #4441 + 19 swaps; root (0.0030012390168, 0.0030012390174); alpha/gamma_u/delta match both PRs' intervals; tensor bounds 0.999998976 / 0.999997070; least H 64,215,171,181,937 / 2,299,613,602,047 below the stated ranks. #4441: ratios match, least H 165,312,667,114,238; #4440 complex/BIT ratios match to 1e-28 with tensor bounds < 1.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [

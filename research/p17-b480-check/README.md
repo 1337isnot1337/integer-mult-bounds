@@ -1,4 +1,4 @@
-# Independent arithmetic check of the p17 B/480 patch (#4447, #4453)
+# Independent arithmetic check of the p17 chain: #4440, #4441, #4447, #4453
 
 **Claim type:** an independent certified arithmetic check. **No new κ, and neither PR is
 accepted.** The native contact replay is not re-run. Two PRs report the same patch, made at phase B
@@ -44,6 +44,26 @@ All three ratios agree with the PRs' printed intervals to every printed digit.
 - `θ̄^p < η = t·m^{t−1}`, which is tight for #4453: `(15/16)^160 ≈ 3.27·10⁻⁵` against `η ≈ 3.74·10⁻⁵`;
 - `m^{1−t} < 2^p`;
 - `z − t = d = (C − κ)/7`.
+
+## Predecessors #4441 and #4440
+
+The same engine also checks the predecessors.
+
+**#4441** (κ = 0.00300105) uses its own invoice and the same tail parameters as #4447. Its ratios
+match its printed intervals: `α < 0.999999997758999`, `γ_u < 0.969126930834` and
+`δ < 0.932537400875`. Its stated `H` = 165,315,500,000,000 is certified, and the least passing value
+is 165,312,667,114,238.
+
+**#4440** (κ = 0.00296) consists of two query-thinned units, both at `v = 1024` and `u = 1/5`. Only
+their strictification ratios are checked here. The compiler is #4440's older power majorant and is
+not re-derived.
+
+| Unit | `α` upper | `γ_u` upper | `δ` upper | tensor bound |
+| --- | --- | --- | --- | --- |
+| complex (`c = 20`, `b = 21`) | 0.999999952117241 | 0.967466409565 | 0.941649713485 | `< 0.99995098` |
+| BIT (`c = 17`, `b = 18`) | 0.999995735238060 | 0.957429821066 | 0.949707924145 | `< 0.99565187` |
+
+All six ratios match #4440's printed interval endpoints to within `10⁻²⁸`.
 
 ## Not covered
 

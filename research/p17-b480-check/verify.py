@@ -93,12 +93,22 @@ def pow_upper(x, v):
 
 
 
+# #4440's query-thinned units (strictification only; its compiler uses the older power majorant)
+T4440C = {153: 224, 17: 448, 25: 448, 33: 448, 41: 448, 49: 448, 5: 532, 57: 448, 6: 342, 65: 448, 7: 1064, 73: 448, 8: 1767, 9: 4047}
+P4440C = {1: 49045, 16: 448, 2: 13547, 24: 448, 3: 4256, 32: 448, 4: 1938, 40: 448, 48: 448, 5: 380, 56: 448, 64: 448, 72: 448, 8: 152}
+T4440B = {127: 222, 15: 444, 22: 444, 29: 444, 36: 444, 43: 444, 50: 444, 57: 444, 64: 222, 8: 7902}
+P4440B = {1: 25479, 14: 444, 2: 24156, 21: 444, 28: 444, 3: 1422, 35: 444, 4: 792, 42: 444, 49: 444, 5: 1836, 56: 444, 6: 198, 63: 222, 7: 342}
+EXPECT4440 = {"complex": ("0.999999952117240859760145478346", "0.967466409565147920980822933860", "0.941649713484853845388929204841"),
+              "BIT": ("0.999995735238059506641600561768", "0.957429821066420278606254392111", "0.949707924144871179442776557219")}
 T = {153: 224, 17: 448, 25: 448, 33: 448, 4: 494, 41: 448, 49: 448, 5: 38, 57: 448, 65: 448, 7: 551, 73: 448, 8: 798, 9: 5871}
 P = {1: 44618, 16: 448, 2: 9766, 24: 448, 3: 8436, 32: 448, 4: 1957, 40: 448, 48: 448, 5: 760, 56: 448, 64: 448, 72: 448, 8: 152}
 P4441 = {1: 44599, 16: 448, 2: 9785, 24: 448, 3: 8455, 32: 448, 4: 1938, 40: 448, 48: 448, 5: 760, 56: 448, 64: 448, 72: 448, 8: 152}
 CASES = {
     "4447": {"kappa": Q("0.00300123"), "C": Q(600247, 200000000), "v": 1024, "c": 20, "b": 21, "u": Q(1, 5),
              "limits": (1 - Q(1, 10**9), Q(97, 100), Q(19, 20)), "theta_bar": Q(63, 64), "p": 1000, "H": 64215200000000},
+    "4441": {"kappa": Q("0.00300105"), "C": Q(750263, 250000000), "v": 1024, "c": 20, "b": 21, "u": Q(1, 5),
+             "limits": (1 - Q(1, 10**9), Q(97, 100), Q(19, 20)), "theta_bar": Q(63, 64), "p": 1000, "H": 165315500000000,
+             "invoice": "P4441"},
     "4453": {"kappa": Q(7503, 2500000), "C": Q(150061, 50000000), "v": 675, "c": 18, "b": 22, "u": Q(3, 25),
              "limits": (Q(999999981, 10**9), Q(491, 500), Q(391, 400)), "theta_bar": Q(15, 16), "p": 160, "H": 2299850000000},
 }
@@ -168,12 +178,13 @@ def main():
     B = sum(T.values())
     for name, cs in CASES.items():
         C, v, c, b, u = cs["C"], cs["v"], cs["c"], cs["b"], cs["u"]
+        Pinv = P4441 if cs.get("invoice") == "P4441" else P
         t = 1 - C
         need(u >= C and t + u >= 1 and 1 < c < b < 153, f"{name}: theorem hypotheses")
         tl, th = mom(T, t)
-        pl, ph = mom(P, t)
+        pl, ph = mom(Pinv, t)
         a_hi = ph / tl
-        g_num = mom(P, t + u)[1]
+        g_num = mom(Pinv, t + u)[1]
         cu = powq(c, u)[0]
         g_hi = g_num / (cu * tl)
         cC = powq(c, C)[0]
@@ -210,6 +221,23 @@ def main():
         out[name] = {"alpha_upper": f"{float(a_hi):.15f}", "gamma_u_upper": f"{float(g_hi):.12f}",
                      "delta_upper": f"{float(d_hi):.12f}", "stated_limits": [str(x) for x in cs["limits"]],
                      "tensor_bound": f"{float(total):.10f}", "stated_H": H, "least_certified_H": lo_h}
+    # #4440: strictification ratios against the printed upper ends
+    for name, (Tx, Px, C, c, b) in {"4440-complex": (T4440C, P4440C, Q(29603, 10000000), 20, 21),
+                                    "4440-BIT": (T4440B, P4440B, Q(173, 50000), 17, 18)}.items():
+        u, v, t = Q(1, 5), 1024, 1 - C
+        need(sum(k * w for k, w in Tx.items()) > sum(k * w for k, w in Px.items()), f"{name}: rank surplus")
+        tl, th = mom(Tx, t)
+        a_hi = mom(Px, t)[1] / tl
+        g_hi = mom(Px, t + u)[1] / (powq(c, u)[0] * tl)
+        d_hi = sum(Tx.values()) * b / (powq(c, C)[0] * tl)
+        ea, eg, ed = (Q(x) for x in EXPECT4440[name.split("-")[1]])
+        need(abs(a_hi - ea) < Q(1, 10**28) and abs(g_hi - eg) < Q(1, 10**28) and abs(d_hi - ed) < Q(1, 10**28),
+             f"{name}: ratios match the printed intervals")
+        lnb = lambda x: -(1 - x) - (1 - x) ** 2 / 2
+        bound = 1 / (1 - v * lnb(a_hi)) + 2 * Q(1, 2 ** int(-v * lnb(g_hi) / ln(2)[1])) + 2 * Q(1, 2 ** int(-v * lnb(d_hi) / ln(2)[1]))
+        need(bound < 1, f"{name}: tensor bound at v = 1024")
+        out[name] = {"alpha_upper": f"{float(a_hi):.15f}", "gamma_u_upper": f"{float(g_hi):.12f}",
+                     "delta_upper": f"{float(d_hi):.12f}", "tensor_bound_upper": f"{float(bound):.10f}"}
     print(json.dumps(out, indent=1))
 
 
