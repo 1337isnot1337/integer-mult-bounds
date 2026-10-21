@@ -44641,7 +44641,7 @@
       },
       "reviewed_head": "4ed92bed95dd483f5662e98ef246b258c3cfe64f",
       "current_head": "4ed92bed95dd483f5662e98ef246b258c3cfe64f",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/staged544-pooled-ceiling-fill",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
@@ -44653,13 +44653,19 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
         "docs/research/pr-intake-evidence/pr4359/SOURCE-RETENTION.json",
         "docs/research/community-productive4359-contributors.md"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4181",
+        "merge_commit": "4f2a121f88d08547fae689e747f979deeae7c8d1",
+        "note": "Historical pooled-ceiling fill retained: literal owner/fill audit, exact moment/root enclosure and six rejection controls pass. Conditional comparison endpoint only; not independently replaying inherited native and outer construction."
+      }
     },
     {
       "number": 4268,
@@ -44678,7 +44684,7 @@
       },
       "reviewed_head": "45323d210ebf6f4b201b1d2a27729d14d059f2e2",
       "current_head": "45323d210ebf6f4b201b1d2a27729d14d059f2e2",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/lever-mixed-targets-2979",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
@@ -44690,13 +44696,19 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
         "docs/research/pr-intake-evidence/pr4359/SOURCE-RETENTION.json",
         "docs/research/community-productive4359-contributors.md"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4268",
+        "merge_commit": "1e2cb3573bd3111ade731a5767ccffa093c68528",
+        "note": "Mixed-target recursion predecessor retained with all 37 submitted files and original attribution. Registered Python source/owner/pricing/rate checks; no independent Lean build or full DFT theorem proof. Does not itself claim multiplication kappa."
+      }
     },
     {
       "number": 4359,
@@ -44716,7 +44728,7 @@
       "reviewed_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
       "current_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/kappa-0023-productive-jobs",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
@@ -44727,7 +44739,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/REVIEW.json",
@@ -44738,7 +44750,13 @@
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
         "docs/research/pr-intake-evidence/pr4359/SOURCE-RETENTION.json",
         "docs/research/community-productive4359-contributors.md"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359",
+        "merge_commit": "72e9aacc2b9e76655544a73a63c8c36408c2960e",
+        "note": "Selected conditional productive-helper p3 construction at kappa=23/10000: exact 23-stage replay, 59 normalized artifacts and changed-interface proof review pass under retained hypotheses. Additional H-branch research retained as archive only."
+      }
     },
     {
       "number": 4404,
@@ -44757,25 +44775,31 @@
       },
       "reviewed_head": "77f20afb7c24286937c75cb65a7f19e24e7a567f",
       "current_head": "77f20afb7c24286937c75cb65a7f19e24e7a567f",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/kappa0023-explicit-rank-audit",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
       ],
-      "disposition": "partially_reviewed",
+      "disposition": "incorporated",
       "unresolved_question": "None within the explicitly limited arithmetic/finite-flow audit scope. Its exclusions do not certify the full multiplication construction.",
       "scope": "Complete scoped independent exact explicit-rank, superpotential and finite integer-flow audit through rank 10000. No native, cover, tape or outer multiplication proof claim.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
         "docs/research/pr-intake-evidence/pr4359/SOURCE-RETENTION.json",
         "docs/research/community-productive4359-contributors.md"
-      ]
+      ],
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4404",
+        "merge_commit": "f73948331ec26eb00d0da9a8be52358d76ca737c",
+        "note": "Complete scoped independent exact explicit-rank, superpotential and finite integer-flow audit through rank 10000. No native, cover, tape or outer multiplication proof claim."
+      }
     }
   ]
 }

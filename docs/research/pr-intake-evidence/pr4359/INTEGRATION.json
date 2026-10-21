@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "PREPARED_FOR_PUBLICATION",
+  "status": "PUBLISHED_CONDITIONAL_SELECTED_RESULT",
   "date": "2026-10-21",
   "base": "12fa8c5c844be21bfefb38a19503fbd867a11244",
   "selected_kappa": "23/10000",
@@ -41,10 +41,115 @@
     "Acceptance of unrelated archived research"
   ],
   "github_publication": {
-    "pushed": false,
-    "main_commit": null
+    "pushed": true,
+    "main_commit": "ae87507c0767c00f5a55ee9062c496191e978632",
+    "pull_requests": {
+      "4359": {
+        "number": 4359,
+        "title": "Conditional \u03ba = 0.0023 (+5.690e-4, +32.87% over #4181): productive helper jobs compiled into a uniform supplier",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359",
+        "state": "MERGED",
+        "headRefOid": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+        "isDraft": false,
+        "mergedAt": "2026-10-21T19:10:56Z",
+        "mergeCommit": {
+          "oid": "72e9aacc2b9e76655544a73a63c8c36408c2960e"
+        },
+        "author": {
+          "login": "zxv",
+          "id": "MDQ6VXNlcjM2NjQ3NA==",
+          "name": null
+        }
+      },
+      "4268": {
+        "number": 4268,
+        "title": "Research: the recursion lever on #2979 and #3945; the full cut on #2979's words with a re-solved table, b = 1.7887046e-3 for the DFT, checked by computer (Lean proofs up to 1.7806935e-3; no new \u03ba)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4268",
+        "state": "MERGED",
+        "headRefOid": "45323d210ebf6f4b201b1d2a27729d14d059f2e2",
+        "isDraft": false,
+        "mergedAt": "2026-10-21T19:10:56Z",
+        "mergeCommit": {
+          "oid": "1e2cb3573bd3111ade731a5767ccffa093c68528"
+        },
+        "author": {
+          "login": "jacobalansussman",
+          "id": "U_kgDOBbiWZg",
+          "name": null
+        }
+      },
+      "4404": {
+        "number": 4404,
+        "title": "Independently check #4359's explicit-rank chain: H0/H1, superpotentials, the exit recurrence and 19,895 exact lockstep flows hold (no new \u03ba)",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4404",
+        "state": "MERGED",
+        "headRefOid": "77f20afb7c24286937c75cb65a7f19e24e7a567f",
+        "isDraft": false,
+        "mergedAt": "2026-10-21T19:10:57Z",
+        "mergeCommit": {
+          "oid": "f73948331ec26eb00d0da9a8be52358d76ca737c"
+        },
+        "author": {
+          "login": "pinterbanget",
+          "id": "MDQ6VXNlcjcxMTQ0MzI0",
+          "name": "Ryanson (Ryan) Jonathan"
+        }
+      },
+      "4181": {
+        "number": 4181,
+        "title": "Conditional \u03ba = 0.001730980255989036959962 (+1.140e-9 over #4088): one-third fourth-entry fill attaining #4091's pooled ceiling",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4181",
+        "state": "MERGED",
+        "headRefOid": "4ed92bed95dd483f5662e98ef246b258c3cfe64f",
+        "isDraft": false,
+        "mergedAt": "2026-10-21T19:10:56Z",
+        "mergeCommit": {
+          "oid": "4f2a121f88d08547fae689e747f979deeae7c8d1"
+        },
+        "author": {
+          "login": "rohanarun",
+          "id": "MDQ6VXNlcjExNjU5ODM5",
+          "name": null
+        }
+      },
+      "1758": {
+        "number": 1758,
+        "title": "Conditional \u03ba = 0.001679745508802299: gauge-free (fractional-shift) interiors, structured boundary solves and radix-distributed sparse-union schedule on PR1673's capped phase-cell fusion outer, pivot-566+554 T74 supplier",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1758",
+        "state": "OPEN",
+        "headRefOid": "7c2634c42c5f583b94244bba8e985ea32c19bdf0",
+        "isDraft": false,
+        "mergedAt": null,
+        "mergeCommit": null,
+        "author": {
+          "login": "jeremykothe2",
+          "id": "U_kgDOEKXqaA",
+          "name": null
+        }
+      },
+      "1786": {
+        "number": 1786,
+        "title": "Conditional \u03ba = 0.001679754788150048 from fine source-prime padding",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/1786",
+        "state": "OPEN",
+        "headRefOid": "c52345caa318fc6b1b6e2659c57d746317a72823",
+        "isDraft": false,
+        "mergedAt": null,
+        "mergeCommit": null,
+        "author": {
+          "login": "chafreaky",
+          "id": "MDQ6VXNlcjQ0MDA1Mjc=",
+          "name": "chafreaky"
+        }
+      }
+    }
   },
-  "hosted_linux_ci": "Not yet run at preparation time",
+  "hosted_linux_ci": {
+    "status_at_publication_receipt": "in_progress",
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39659361390",
+    "head": "ae87507c0767c00f5a55ee9062c496191e978632",
+    "scope": "Separate hosted replay; local replay and proof-review evidence already retained. No hosted success inferred."
+  },
   "attribution": "../../community-productive4359-contributors.md",
   "tweet_draft": "../../community-productive4359-twitter.md",
   "dependency_replays": {

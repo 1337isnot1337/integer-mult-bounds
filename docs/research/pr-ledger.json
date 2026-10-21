@@ -55,8 +55,8 @@
     "docs/research/pr-intake-decisions.json"
   ],
   "counts": {
-    "incorporated": 2084,
-    "partially_reviewed": 1469,
+    "incorporated": 2085,
+    "partially_reviewed": 1468,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "0405a9e972ffaada653f01174e48834d73c92e79a7d8de4bf9e75cdae9e45050",
+    "docs/research/pr-intake-decisions.json": "b806292a3504e10c3cf0beee56e4525dcd0b8dc31bde4cfd9bb1de34869cbbd8",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -202648,7 +202648,12 @@
           "kind": "integration_or_partial_review"
         }
       ],
-      "closure": null,
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4181",
+        "merge_commit": "4f2a121f88d08547fae689e747f979deeae7c8d1",
+        "note": "Historical pooled-ceiling fill retained: literal owner/fill audit, exact moment/root enclosure and six rejection controls pass. Conditional comparison endpoint only; not independently replaying inherited native and outer construction."
+      },
       "reviewed_head": "4ed92bed95dd483f5662e98ef246b258c3cfe64f",
       "current_head": "4ed92bed95dd483f5662e98ef246b258c3cfe64f",
       "disposition": "partially_reviewed",
@@ -202656,13 +202661,13 @@
         "research/staged544-pooled-ceiling-fill",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
       ],
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "unresolved_question": "Inherited native/outer construction obligations remain conditional; historical checkpoint not separately selected.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
@@ -202697,7 +202702,12 @@
           "kind": "integration_or_partial_review"
         }
       ],
-      "closure": null,
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4268",
+        "merge_commit": "1e2cb3573bd3111ade731a5767ccffa093c68528",
+        "note": "Mixed-target recursion predecessor retained with all 37 submitted files and original attribution. Registered Python source/owner/pricing/rate checks; no independent Lean build or full DFT theorem proof. Does not itself claim multiplication kappa."
+      },
       "reviewed_head": "45323d210ebf6f4b201b1d2a27729d14d059f2e2",
       "current_head": "45323d210ebf6f4b201b1d2a27729d14d059f2e2",
       "disposition": "partially_reviewed",
@@ -202705,13 +202715,13 @@
         "research/lever-mixed-targets-2979",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
       ],
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "unresolved_question": "Independent full theorem and Lean review, and optional unregistered instances remain outside this intake. Registered finite checks do not establish the complete DFT theorem.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
@@ -202751,8 +202761,13 @@
         "research/kappa-0023-productive-jobs",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
       ],
-      "github_state": "OPEN",
-      "closure": null,
+      "github_state": "MERGED",
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359",
+        "merge_commit": "72e9aacc2b9e76655544a73a63c8c36408c2960e",
+        "note": "Selected conditional productive-helper p3 construction at kappa=23/10000: exact 23-stage replay, 59 normalized artifacts and changed-interface proof review pass under retained hypotheses. Additional H-branch research retained as archive only."
+      },
       "reviewed_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
       "disposition": "partially_reviewed",
       "unresolved_question": "Retained analytic/native/fixed-tape/exact-recovery assumptions remain; unselected H-branch claims not admitted. Independent human and formal review remain open.",
@@ -202760,7 +202775,7 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/REVIEW.json",
@@ -202800,21 +202815,26 @@
           "kind": "integration_or_partial_review"
         }
       ],
-      "closure": null,
+      "closure": {
+        "kind": "merged_with_scoped_review",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4404",
+        "merge_commit": "f73948331ec26eb00d0da9a8be52358d76ca737c",
+        "note": "Complete scoped independent exact explicit-rank, superpotential and finite integer-flow audit through rank 10000. No native, cover, tape or outer multiplication proof claim."
+      },
       "reviewed_head": "77f20afb7c24286937c75cb65a7f19e24e7a567f",
       "current_head": "77f20afb7c24286937c75cb65a7f19e24e7a567f",
-      "disposition": "partially_reviewed",
+      "disposition": "incorporated",
       "integration_location": [
         "research/kappa0023-explicit-rank-audit",
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json"
       ],
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "unresolved_question": "None within the explicitly limited arithmetic/finite-flow audit scope. Its exclusions do not certify the full multiplication construction.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/pr4359/INTEGRATION.json",
