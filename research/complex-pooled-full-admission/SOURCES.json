@@ -58,7 +58,7 @@
     },
     {
       "path": "research/community-frontier1094-audit/ASSEMBLY.json",
-      "usage": "provenance",
+      "usage": "input",
       "git_blob": "5fd676df060f3b450782fdf5ff5f6beb63a5eeb0",
       "sha256": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045"
     },
@@ -130,7 +130,7 @@
     },
     {
       "path": "research/e8-bit-p111-tuned/tune/EXPECTED.json",
-      "usage": "provenance",
+      "usage": "input",
       "git_blob": "e293ddc557742637f9f679f083a1a282d87b1b13",
       "sha256": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4"
     },

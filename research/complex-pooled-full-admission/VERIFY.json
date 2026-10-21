@@ -4,6 +4,8 @@
   "python": "3.12",
   "requirements": [],
   "inputs": [
+    "research/community-frontier1094-audit/ASSEMBLY.json",
+    "research/e8-bit-p111-tuned/tune/EXPECTED.json",
     "research/kappa-adaptive-continuation/admission/receiver_share.py",
     "research/kappa-adaptive-continuation/admission/review_receiver_share.py",
     "research/kappa-adaptive-continuation/runtime-repair/FIXTURES.json",
@@ -262,7 +264,7 @@
         "{package}/outer_suite.py"
       ],
       "timeout_seconds": 150,
-      "checks": "Run optional B2 source/rate arithmetic, complete finite outer normalization/recovery and actual constructor/cohort checks with explicit errors and isolated child cache paths. No production constructors or payload."
+      "checks": "Run complete finite outer normalization/recovery and actual constructor/cohort checks with explicit errors and isolated child cache paths. No production constructors or payload."
     },
     {
       "argv": [
@@ -272,7 +274,7 @@
         "{package}/outer_suite.py"
       ],
       "timeout_seconds": 150,
-      "checks": "Run optional B2 source/rate arithmetic, complete finite outer normalization/recovery and actual constructor/cohort checks with explicit errors and isolated child cache paths. No production constructors or payload."
+      "checks": "Run complete finite outer normalization/recovery and actual constructor/cohort checks with explicit errors and isolated child cache paths. No production constructors or payload."
     }
   ]
 }

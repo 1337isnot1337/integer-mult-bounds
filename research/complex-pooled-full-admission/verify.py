@@ -11,8 +11,10 @@ import subprocess
 import sys
 import tempfile
 
-from common import HERE, REPO, authenticate, check_no_python_caches, need, read, sha
+from common import HERE, REPO, authenticate, check_no_python_caches, need
 from replay import ACTIVE, COUNTS, make_adapter
+from receipt_transport import (check as check_transport, controls as transport_controls,
+                               historical_source_sha, read, sha)
 
 EXECUTION_SOURCES = {"common.py", "replay.py", "operator_admission.py",
                      "joint_bound.py", "INPUT-PINS.json"}
@@ -59,6 +61,8 @@ def cache_controls(root):
 
 def main():
     count = authenticate()
+    transport = check_transport()
+    transport['negative_controls'] = transport_controls()
     evidence = read(HERE / "EVIDENCE.json")
     need(evidence["status"] == "RECORDED_COMPLETE_FINITE_REPLAY", "complete run evidence")
     evidence_coverage(evidence)
@@ -68,7 +72,7 @@ def main():
         mutant[field].pop(next(iter(mutant[field])))
         rejecting(lambda: evidence_coverage(mutant), message)
     for name, digest in evidence["execution_source_sha256"].items():
-        need(sha(HERE / name) == digest, "full-run source changed: " + name)
+        need(historical_source_sha(name) == digest, "full-run source changed: " + name)
     for name, digest in evidence["receipt_sha256"].items():
         need(sha(HERE / name) == digest, "preserved receipt changed: " + name)
     outer = read(HERE / "evidence/RESULT.json")
@@ -101,7 +105,7 @@ def main():
 
         run(adapter / "test_binding.py")
         run(HERE / "operator_admission.py", ["--controls", "--output", root / "operator.json"])
-        run(HERE / "joint_bound.py", ["--output", root / "joint.json"])
+        run(HERE / "joint_bound_inputs.py", ["--output", root / "joint.json"])
         operator = read(root / "operator.json")
         joint = read(root / "joint.json")
         need(operator == read(HERE / "evidence/OPERATOR.json"), "exact operator reproduction")
@@ -123,6 +127,7 @@ def main():
     print(json.dumps(dict(status="PASS_POOLED_BOUNDED_REGRESSION", pinned_inputs=count,
                           active_providers=ACTIVE, call_counts=COUNTS, adapter_changes=len(patches),
                           operator_controls=len(operator["controls"]), arithmetic_controls=len(joint["controls"]),
+                          lossless_transport=transport,
                           scope="Fresh operator/arithmetic/binding regression plus preserved full-run source/receipt integrity; not a fresh complete release or all-size theorem."),
                      sort_keys=True))
 

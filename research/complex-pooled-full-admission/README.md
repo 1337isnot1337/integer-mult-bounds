@@ -99,10 +99,9 @@ calls, three CRT conversions, ordinary word products and all recovery work.
 
 The stronger legacy arithmetic candidate `0.001727989140903569` is preserved
 in [RECURSION.md](RECURSION.md), under its separate uniform-interface premises.
-It is not the bound proved by this physical outer composition. The optional
-[B2-BOOTSTRAP.md](B2-BOOTSTRAP.md) gives a noncircular next ordinary-stage
-cost calculation; it is not needed for `1/580`, and no B2 production factory
-was built or executed.
+It is not the bound proved by this physical outer composition. The optional B2
+ordinary-stage calculation is maintained separately; this package and `1/580`
+use B1 and do not depend on B2.
 
 ## Reproduction and evidence
 
@@ -120,10 +119,12 @@ python3.12 -B scripts/research_package.py --package research/complex-pooled-full
 ```
 
 The manifest runs normal and optimized checks of the finite adapter,
-source/evidence bindings, local/global physical programs, optional B2
-arithmetic, exact outer normalization/recovery and constructor/cohort adapter.
+source/evidence bindings, local/global physical programs, exact outer
+normalization/recovery and constructor/cohort adapter.
 It does not repeat the heavy complete release, instantiate a production-size
 native tape inventory or certify an all-parameter theorem by enumeration.
+[PACKAGING.md](PACKAGING.md) describes lossless receipt decompression, the
+unchanged historical commitments and reuse of canonical pinned inputs.
 Direct commands in `VERIFY.json` also work in the committed Git-free export;
 the generic metadata runner itself requires Git provenance.
 
@@ -133,7 +134,7 @@ output directory outside the checkout:
 
 ```sh
 python3.12 -B research/complex-pooled-full-admission/replay.py --work /tmp/pooled-complex-full
-python3.12 -B research/complex-pooled-full-admission/joint_bound.py \
+python3.12 -B research/complex-pooled-full-admission/joint_bound_inputs.py \
   --release-work /tmp/pooled-complex-full/replay --output /tmp/pooled-joint.json
 ```
 
@@ -175,9 +176,8 @@ Git object to be available in a fresh checkout.
   exact record formats and complete output-consumption contract; do not replace
   the eventual production domain with the Gaussian p48 diagnostic. The fixed
   compiled inventory and enormous asymptotic crossover limit practical replay.
-* **Tighter physical saving.** Instantiate and admit the optional B2 backend,
-  then repeat the actual stopped-tree and complete outer costs. The stronger
-  finite/legacy arithmetic values do not supply that construction. No faster
-  advertised κ is inferred from the B2 arithmetic alone.
+* **Tighter physical saving.** Admit a faster ordinary backend, then repeat
+  the actual stopped-tree and complete outer costs. Stronger finite/legacy
+  arithmetic values do not supply that construction.
 
 Structured next steps and their blockers are retained in [TASK.json](TASK.json).

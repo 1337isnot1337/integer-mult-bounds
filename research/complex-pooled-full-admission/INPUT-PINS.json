@@ -1106,14 +1106,14 @@
       "kind": "package"
     },
     {
-      "path": "frozen/selected/ASSEMBLY.json",
+      "path": "research/community-frontier1094-audit/ASSEMBLY.json",
       "sha256": "1122cb3a575f8c788345fc1bf4c108ac7c3250fb81a5988671f5eb04b3ab3045",
-      "kind": "package"
+      "kind": "repository"
     },
     {
-      "path": "frozen/selected/BIT-EXPECTED.json",
+      "path": "research/e8-bit-p111-tuned/tune/EXPECTED.json",
       "sha256": "b9f0e5ca038abe837b0007c8fe006f366a6f02009244ac57705a8a200e2301f4",
-      "kind": "package"
+      "kind": "repository"
     }
   ]
 }

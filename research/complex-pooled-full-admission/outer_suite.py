@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bounded outer/B2 checks; no production construction or numerical payload.
+"""Bounded outer checks; no production construction or numerical payload.
 
 Prepared for Ross Richardson with substantial OpenAI Codex assistance.
 Apache-2.0. Each child finishes and its status propagates before returning.
@@ -21,7 +21,6 @@ def main():
                    PYTHONPYCACHEPREFIX=str(Path(directory)/'bytecode'))
         env.pop('PYTHONOPTIMIZE', None)
         for name, flag, recorded in (
-                ('b2_bootstrap.py', '--output', 'B2-BOOTSTRAP.json'),
                 ('outer_check.py', '--out', 'OUTER-CHECK-PORTABLE.json'),
                 ('outer_domain.py', '--output', 'OUTER-DOMAIN.json')):
             receipt = Path(directory)/recorded
