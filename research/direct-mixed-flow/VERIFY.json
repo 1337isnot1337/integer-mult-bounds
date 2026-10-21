@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/direct-mixed-flow/vendor/theorem-1g.md",
+    "research/direct-mixed-flow/vendor/tree_flow.py",
+    "research/direct-mixed-flow/vendor/SUSSMAN-LICENSE",
+    "research/direct-mixed-flow/vendor/SUSSMAN-NOTICE",
+    "research/direct-mixed-flow/vendor/FINITE-PRECOMPILATION.md",
+    "research/direct-mixed-flow/vendor/higher-moment-README.md",
+    "research/direct-mixed-flow/vendor/higher-moment-RESULT.json",
+    "research/direct-mixed-flow/vendor/p7-RESULT.json",
+    "research/direct-mixed-flow/VENDOR.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact partially matched whole-job flows, chronological literal/merged controls, nested batching through p7 rank 1000, telescoped size bounds and rejected omissions. No direct exponent theorem."
+    }
+  ]
+}
