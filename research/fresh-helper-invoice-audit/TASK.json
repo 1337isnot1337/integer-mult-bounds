@@ -102,5 +102,25 @@
   "orientation_limitations": [
     "The prescribed research_baseline.py was attempted; its selected-source inventory check could not complete in this sparse checkout (missing research/kappa-0023-productive-jobs). No full selected replay was claimed.",
     "Entry overlap: 301 open PRs and 3289 Discussion records fully paginated; 5730 of 5731 local HEAD note paths omitted; closed remote PR bodies not scanned."
-  ]
+  ],
+  "submission_checkpoint": {
+    "canonical_main": "2a13eb1827784206202db90e5dc8327cf8a250db",
+    "priority_revision": 7,
+    "source_head_unchanged": true,
+    "open_prs": 302,
+    "discussion_records": 3294,
+    "complete_remote_pagination": true,
+    "checked_utc": "2026-10-21T21:14:30Z",
+    "concurrent_pr": 4446,
+    "concurrent_head": "7d05d73f96c27a9d360011e04af69b23fa903757",
+    "decision": "Continue bounded corroboration: the concurrent local supplier calls the retained native.py; this package independently derives per-role paths and conservation. No new construction or endpoint claimed."
+  },
+  "validation_environment": {
+    "python": "CPython 3.12.0 (MSC v.1935 64 bit AMD64)",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "registered_normal_and_optimized": "passed",
+    "git_free_normal_and_optimized": "passed",
+    "committed_bytes_and_export_integrity": "passed at scientific commit 6ffff4e474b97e9fcc1e13164676e372a9d3af80",
+    "full_history_ancestry_preflight": "not run: shallow checkout"
+  }
 }

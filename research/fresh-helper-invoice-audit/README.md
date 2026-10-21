@@ -109,6 +109,17 @@ distinct spaces, dependent frame basis, missing query, missing idle, unsigned
 swap, wrong boundary coefficient, unearned productive stage, and altered source
 bytes. Acceptance uses explicit exceptions and remains active under `-O`.
 
+Validation on CPython **3.12.0**, Windows 11 x64 (`10.0.26300`): metadata/pins
+and both registered commands passed. The committed-byte preflight and a
+15-file export integrity check passed at `6ffff4e474b97e9fcc1e13164676e372a9d3af80`.
+Both direct modes also passed from that export in a fresh directory with no
+Git checkout or predecessor Python modules. That commit contains the complete
+scientific code and inputs; the subsequent change only records validation and
+concurrent-work context. The optional full-history ancestry preflight was not
+run in this shallow checkout. The prescribed selected baseline was attempted
+but its unrelated source inventory is incomplete in the sparse checkout;
+neither it nor the full selected cold replay is claimed as passed.
+
 ## Limits
 
 The 632-role analysis checks frame paths and tariffs, not the full native
@@ -154,3 +165,15 @@ covered 301 open PRs and 3,289 Discussion records with complete remote paging;
 the sparse local note corpus and remote closed PR bodies were incomplete.
 The focused terms found #4440 and #4441. This deliberately audits their claims
 and makes no claim that the mechanism is new.
+
+The closing snapshot (21:12–21:14 UTC) covered 302 open PRs and 3,294 Discussion
+records; canonical main and the audited #4441 head were unchanged. The recent
+PR check also found concurrent
+[#4446](https://github.com/CrocSwap/integer-mult-bounds/pull/4446), head
+`7d05d73f96c27a9d360011e04af69b23fa903757`, which certifies the same profile
+and a slightly different endpoint. Its `local_supplier.py` freshly calls
+#4441's retained `native.py`; this audit adds a separately implemented
+per-role contact-path reconstruction and dimension-conservation check without
+those imports. #4446's own geometry and interval work retains its credit and
+was not independently replayed here. The scope remains this finite accounting
+audit; its result is compatible corroboration, not a competing construction.
