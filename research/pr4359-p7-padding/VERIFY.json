@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Authenticate immutable source exports; regenerate one exact p7 factor and replay all native contacts, endpoints and phases; certify charged post-tensor target padding and independent interval bounds; specify the uniform rank and all outer margins with rejection controls."
+    }
+  ]
+}
