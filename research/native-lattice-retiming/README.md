@@ -1,4 +1,4 @@
-# A new native contact: conditional κ = 0.00300120
+# Conditional κ = 0.00300120 (71.9× smaller uniform-rank exponent)
 
 **Local for user review. Do not push, publish a PR or post Discussions.**
 

@@ -112,12 +112,26 @@
   "stop_rule": "Freeze a strictly improving exact paid profile, retain all inherited native and consumer obligations, run complete relevant checks, and leave the result local for user review.",
   "task_id": "supplier-boundary-audit",
   "upstream_checkpoint": {
-    "checked_at_utc": "2026-10-21T20:31:00Z",
+    "checked_at_utc": "2026-10-21T20:56:24Z",
     "commit": "2a13eb1827784206202db90e5dc8327cf8a250db",
     "pending_sources": {
       "PR4440": "40e22a83ed660d3d6074c4f2dbf14bfb621eee51",
       "PR4441": "5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39"
     },
     "priority_revision": 7
+  },
+  "validation": {
+    "changed_receipt": "rejected",
+    "changed_source": "rejected",
+    "committed_bytes": "pass",
+    "export_integrity": "pass",
+    "git_free_optimized": "pass",
+    "metadata_pins": "pass",
+    "no_publication": true,
+    "optional_discovery": "reproduces exact patch",
+    "platform": "macOS arm64",
+    "python": "3.12.8",
+    "registered_replay": "pass",
+    "source_history": "unavailable: shallow checkout"
   }
 }

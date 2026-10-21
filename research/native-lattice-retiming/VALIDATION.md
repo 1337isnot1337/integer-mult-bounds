@@ -1,26 +1,59 @@
 # Validation
 
-Local only, CPython 3.12.8 on macOS arm64, 21 October 2026.
+All scientific checks below pass on CPython 3.12.8, macOS arm64, 21 October
+2026. Scientific code/receipts were committed at
+`71c54ffcfee4c77d77164f9b02bdf763a8f267d0`; the final follow-up only records
+validation and changes documentation/task status.
 
-- Explicit receipt generation: **PASS**. Two native interpreters replay both
-  orientations, 632 arbitrary persistent columns and owned-center erasure.
-- Four new edge types: forward and conjugate serialized Clifford recipes
-  decode with the right rank, tableau and absolute zero-state phase.
-- Complete p17 Laurent/source word and full changed invoice: **PASS**.
-- Two exact interval engines, both paid tails, the two finite uniform ranks,
-  54+4 current outer predicates, nine-row agreement and 63 legacy predicates:
-  **PASS**. Wrong contact, phase-only, short-product-bound and outer mutants
-  reject at their intended gates.
-- Optional C++20 discovery: **PASS**, reproducing exactly phase B contact 480
-  and the new span `[0,45,133,168,336,381,469,504]`.
+| Check | Result |
+| --- | --- |
+| Metadata and all source pins | PASS_PACKAGE_METADATA_AND_PINS |
+| Registered full replay | PASS_REGISTERED_RESEARCH_PACKAGE |
+| Both native orientations, two interpreters, 632 arbitrary persistent columns, arbitrary owned-center entry then legal erasure | PASS |
+| Four new edge types, forward/conjugate Clifford decoding, exact rank and absolute phase | PASS |
+| Complete p17 physical/Laurent word, changed full paid/productive invoice | PASS |
+| Two interval engines, new root bracket, both paid strictification tails, both finite uniform ranks | PASS |
+| Nine outer rows, 54 current predicates, four guards and 63 legacy predicates | PASS |
+| Wrong contact, global-phase-only, short-product-bound and outer negative controls | REJECTED as intended |
+| Committed-byte preflight, 59 exported files | PASS_RESEARCH_COMMIT_BYTES |
+| Deterministic committed export and independent integrity check | PASS_RESEARCH_EXPORT |
+| Isolated Git-free optimized replay (`-I -O -B`, explicit package import path) | PASS_CONDITIONAL_NEW_NATIVE_PROFILE_KAPPA |
+| Changed pinned source comment in the Git-free export | Rejected by source authentication |
+| Changed saved κ receipt in the Git-free export, full optimized replay | Rejected at exact RESULT.json comparison |
+| Optional C++20 discovery | Reproduces exactly phase B contact 480 and the new span |
 
-Registered replay, committed-byte preflight and Git-free optimized replay are
-recorded after the first committed package is validated. No hosted CI, Lean,
-Docker, complete historical suite or independent scientific review is claimed.
+Commands:
+
+```sh
+python3.12 -B scripts/research_package.py --package research/native-lattice-retiming --check-only
+python3.12 -B scripts/research_package.py --package research/native-lattice-retiming
+python3.12 -B scripts/check_research_commit.py --package research/native-lattice-retiming
+python3.12 -B scripts/export_research_package.py export --package research/native-lattice-retiming --ref 71c54ffcfee4c77d77164f9b02bdf763a8f267d0 --output /tmp/native-lattice-71c54ff.tar
+python3.12 -B scripts/export_research_package.py check /tmp/native-lattice-71c54ff.tar
+python3.12 -B research/native-lattice-retiming/discover.py --output /tmp/native-lattice-discovery-replay
+```
+
+The checked export was extracted without Git, then `verify.py` ran through
+`runpy.run_path` under `python3.12 -I -O -B` with only the explicit package
+folder inserted into `sys.path`. Its normal 43-input authentication, complete
+native and arithmetic checks and receipt comparisons all ran. The two external
+mutation controls used that export and restored the exact original bytes.
+The optional compiler was Apple clang 21.0.0 with `-O3 -std=c++20`.
+
+`--check-source-history` is **unavailable**: its explicit precondition rejects
+this shallow checkout with “source-history check requires full Git history.”
+No unshallow fetch was attempted. Exact pending heads and consumed bytes are
+present, pinned and retained in local merge ancestry; the unavailable check
+is not presented as scientific or provenance acceptance.
 
 Source ancestry includes PR4440 head
 `40e22a83ed660d3d6074c4f2dbf14bfb621eee51` and PR4441 head
-`5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39`. SOURCES.json binds the exact
-43 consumed source files; unchanged historical native/owned-query/analytic
-contracts remain explicit premises. Pending-source acceptance is not inherited
-from the reviewed .0023 or .00268647 checkpoints.
+`5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39`. SOURCES.json binds the 43
+consumed source files. The final upstream checkpoint at 20:56 UTC found
+canonical main still `2a13eb1827784206202db90e5dc8327cf8a250db`, unchanged
+priority guidance, unchanged pending heads and selected κ=.0023.
+
+No hosted CI, Lean, Docker, complete historical suite or independent
+scientific review is claimed. Universal native/all-column, owned-query,
+precision, physical tape, analytic and recovery contracts remain conditional
+premises. No push, PR or Discussion post was made for this package.
