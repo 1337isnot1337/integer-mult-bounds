@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "Delta-only queue intake; do not repeat unchanged holds. Next substantive frontier review: PR4416 native composition/padding chain plus PR4433 size refinement and companion audits. Their archive publication is not scientific admission. Selected conditional kappa remains 23/10000 from PR4359.",
+  "next": "PR4416 + PR4433 core conditional construction review passed at kappa 0.00268647; see pr-intake-evidence/pr4416/PROOF-REVIEW.md. Next substantive step: migrate selected source manifest, replay command and public status together. Current selected kappa remains 0.0023. PR4436 is new separate compiler research, not required for this result.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1166,5 +1166,20 @@
     "heavy_replays_run": false,
     "tooling_tests_passed": 60,
     "actionable_remaining": 0
+  },
+  "latest_substantive_review": {
+    "prs": [
+      4416,
+      4433
+    ],
+    "kappa": "268647/100000000",
+    "status": "passed_conditional_changed_construction",
+    "evidence": [
+      "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+      "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+      "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+      "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
+    ],
+    "selected_frontier_changed": false
   }
 }

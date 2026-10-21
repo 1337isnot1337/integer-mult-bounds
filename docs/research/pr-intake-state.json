@@ -19587,12 +19587,16 @@
       "number": 4416,
       "head": "e9058860b5c850760fdf970e796a96aefcdb1d98",
       "status": "ready_to_integrate",
-      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "reason": "Changed construction passed conditional proof review and source-bound replay; selection metadata/reproduction/public-status migration is the remaining publication step. Optional p7 search and inherited full theorem remain outside reviewed scope.",
       "evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "policy_version": 1,
-      "baseline": "21be39f5104d0d05fb9a4a3e6fd66168097b3e2d",
+      "baseline": "3a23e9d9d2e67833515d1c60a17e966bcdcab43c",
       "watch_paths": {},
       "watch_prs": {}
     },
@@ -19808,12 +19812,16 @@
       "number": 4433,
       "head": "b84060c9cba91b1e76f84617a877d259621eb015",
       "status": "ready_to_integrate",
-      "reason": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "reason": "Changed construction passed conditional proof review and source-bound replay; selection metadata/reproduction/public-status migration is the remaining publication step. Optional p7 search and inherited full theorem remain outside reviewed scope.",
       "evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "policy_version": 1,
-      "baseline": "21be39f5104d0d05fb9a4a3e6fd66168097b3e2d",
+      "baseline": "3a23e9d9d2e67833515d1c60a17e966bcdcab43c",
       "watch_paths": {},
       "watch_prs": {}
     },
