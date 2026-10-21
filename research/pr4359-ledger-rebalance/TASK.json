@@ -86,16 +86,10 @@
   "budget_minutes": 30,
   "stop_rule": "Stop at the ledger and ranks; do not re-run inherited ledgers or native checks.",
   "outcome": "completed",
-  "evidence": "verify.py: transcription reproduces #4359's margins/predicates; rebalanced choice keeps all 54 predicates strict; ranks 2^268300549 (complex, from 2^1546084442) and 2^14664 (BIT, from 2^42843607).",
+  "evidence": "verify.py: transcription reproduces #4359's margins/predicates; rebalanced choice keeps all 54 predicates strict; ranks 2^268300549 (complex, from 2^1546084442) and 2^14664 (BIT, from 2^42843607). The 19 outer_transfer_audit functional checks stay positive.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
-    {
-      "question": "Does the inherited 63-predicate ledger accept the same rebalance?",
-      "why_it_matters": "Only then is the rebalance admissible in #4405's full receipt.",
-      "first_step": "Run #4405's inherited-ledger check with the rebalanced values.",
-      "blocked_by": "None."
-    },
     {
       "question": "How small can the complex rank get at kappa 0.0023?",
       "why_it_matters": "The tested saving can approach the root and b can approach a.",
