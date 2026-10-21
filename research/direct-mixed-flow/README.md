@@ -16,9 +16,10 @@ Two results are established under the source native-word hypotheses:
    unmatched job as an exit. All recursive ranks decrease. This gives a
    finite uniform compiler, **without a proved near-root saving**.
 2. Choosing **nested divisible widths** gives `B_N <= exp(O(N log N))`.
-   Exact rank-one accounting also bounds raw instances, owned centers and
-   routing slots. This batching choice preserves the normalized leaf cost
-   and therefore applies to the already supported PR4433 supplier.
+   Exact rank-one accounting also bounds raw instances, owned centers,
+   routing slots and the source finite-constant envelopes. This batching
+   choice preserves the normalized leaf cost and therefore applies to the
+   already supported PR4433 supplier.
 
 The main exponent target remains open. Exact compilation at rank 1,000 on
 the raw p7 profile fails the desired saving. That finite failure is not an
@@ -248,8 +249,8 @@ record allowances. Every owned bank has an explicit initialization record,
 so total allocated owned banks can also be bounded by R_bar; the sharper
 raw-center bound remains separate. This is a **description/record bound**,
 not a new tariff for executing a
-general matrix or permutation. A dense binary address matrix and quadratic
-phase have O(N^2) descriptor bits. Explicit role indices add O(log B_N)
+general matrix or permutation. A Gaussian monomial adapter's dense binary
+address matrix and quadratic phase have O(N^2) descriptor bits. Explicit role indices add O(log B_N)
 bits. Thus an encoding of this finite word still has
 `exp(O(N log N))` bits for a fixed unit and its finite coefficient alphabet.
 If physical expansion of one adapter needs F(N) native records, multiply
@@ -448,6 +449,15 @@ Canonical base is `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision
 unchanged exports by commit, full path, Git blob and SHA256. Their bytes and
 notices are preserved; direct replay needs no foreign Git objects. The source
 theorem and earlier finite compiler remain attributed hypotheses, not new work.
+
+Local validation used Python 3.12.8 on macOS arm64. The registered replay,
+metadata/pin check and committed-byte preflight passed. A separate Git-free
+copy passed with `python3.12 -I -O -B verify.py`; changed-native-source and
+changed-receipt controls both rejected. Replay uses exact integer arithmetic
+and source hashes, with no network or foreign Git objects. The repository is
+shallow, so a full source-history preflight was not attempted. No Lean, Docker,
+full native/all-column admission, physical adapter expansion or historical
+suite was run. Independent mathematical acceptance remains open.
 
 The overlap refresh at 18:48 UTC covered 538 open PR bodies and 3,280
 discussion/comment records, with complete reported pagination. Specific

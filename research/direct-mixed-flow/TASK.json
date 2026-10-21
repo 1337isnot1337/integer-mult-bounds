@@ -126,5 +126,23 @@
     "full_finite_size_bounds": "proved in declared encoded native-record grammar; explicit bounds for the existing PR4433 supplier",
     "direct_near_root_exponent": "open; requires a uniform boundary-exit/complement estimate",
     "scientific_significance_target": "in progress; not claimed achieved"
+  },
+  "validation": {
+    "python": "3.12.8",
+    "platform": "macOS arm64",
+    "registered_replay": "pass",
+    "metadata_and_pins": "pass",
+    "committed_bytes": "pass",
+    "git_free_optimized": "pass",
+    "changed_native_source": "rejected",
+    "changed_receipt": "rejected",
+    "unrun": [
+      "full source history (shallow checkout)",
+      "independent mathematical review",
+      "native all-column/physical/analytic/recovery admission",
+      "Lean",
+      "Docker",
+      "historical suites"
+    ]
   }
 }

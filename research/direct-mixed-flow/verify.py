@@ -169,6 +169,10 @@ def inherited_rank_size_bound():
     W0, P0 = sum(T.values()), sum(P.values())
     Uproduct = sum(W0**(v-1-i)*P0**i for i in range(v))
     need(Uproduct < 2**2392, 'chronological product raw-instance count')
+    strict_surplus = (sum(k*n for k,n in T.items())**v-
+                      sum(k*n for k,n in P.items())**v)
+    need(strict_surplus > 0 and strict_surplus % 608 == 0
+         and strict_surplus//608 >= Uproduct, 'expanded product raw-column identity')
     product_allowance = (2**40+32*v*(W0+P0+1))*Uproduct+32*v*P0**v
     completed_allowance = product_allowance+32*(paid_mass_upper+W+P0**v)
     # Include each dense binary chart/quadratic phase descriptor and role
