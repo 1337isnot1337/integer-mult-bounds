@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Independent #4436 direct flow on raw p7 at 3,394 ranks (121..495,968): exits <= r_max N/m, leaf exits <= r_max^(G+1), exact potential identity; maximum boundary-exit t-potential share below 0.16 (observed 0.1545)."
+    }
+  ]
+}
