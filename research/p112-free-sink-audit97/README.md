@@ -26,6 +26,11 @@ histogram and 4,030 minors. Controls report `mathematical=6 package=5`.
 Python standard library only; no solver, NumPy or native compiler required.
 Use `verify.py --write` to regenerate the certificate.
 
+After `research/p112-signed-modular-production/`, `independent.py` uses the
+proved modulo-521 signed recovery for eligible minors (identical receipts;
+rational fallback retained). Pairwise Fraction-only bytes are vendored in that
+production package's `baseline.py`.
+
 The immutable input inventory in SOURCES.json is exact: missing or extra
 entries fail. Text hashes normalize CRLF to LF. BASE-SELECTED.json freezes
 context at base `2921874911956718fcaaaf9396fe8267b3cfa9f0`; replay does not

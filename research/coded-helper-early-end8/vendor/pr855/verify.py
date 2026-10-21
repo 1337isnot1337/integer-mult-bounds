@@ -12,10 +12,12 @@ import sys
 import tempfile
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[1]
+# Nested vendor copy: package/vendor/pr855 → repository root is parents[3].
+ROOT = HERE.parents[3]
 BASE = 'research/complex-k492-owner-repair/'
 VENDOR = BASE + 'vendor/multicold/vendor/pr558/vendor/pr552/'
-AUDITOR = BASE + 'code/hpe_audit_and_transport.py'
+# Pairwise transport bytes; k492 code/hpe_audit_and_transport.py ships integer rows.
+AUDITOR = 'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
 ROUTING = VENDOR + 'complex-local/inputs/phase-baseline/CANONICAL-WORD.json.gz'
 DATA = VENDOR + 'complex-global/vendor531/inputs/data-base/work/complex-nine-native/DATA-PHASES.json'
 EXACT = runpy.run_path(str(HERE/'exact.py'))

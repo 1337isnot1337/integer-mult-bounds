@@ -131,6 +131,106 @@ class IsolatedRunnerTest(unittest.TestCase):
         self.assertFalse(any(line.startswith('PASS all') for line in lines))
         self.assertIn('Failed modules: test_b_fail.py', result.stderr.decode())
 
+    def test_same_named_synthetic_clone_test_still_fails(self):
+        # A name alone must not trigger the production historical overlay.
+        box = self.sandbox({'test_skip_clones.py': FAIL_MODULE})
+        result = box.run('--workers', '1')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('deliberate negative control', result.stderr.decode())
+        self.assertIn('Failed modules: test_skip_clones.py', result.stderr.decode())
+
+    def test_frozen_family_routing_preserves_failure_reporting(self):
+        box = self.sandbox({'test_split_skip.py': FAIL_MODULE,
+                            'test_regular.py': PASS_MODULE})
+        manifest = self.tmp / 'research/skip-clones/SOURCE.json'
+        manifest.parent.mkdir(parents=True)
+        manifest.write_text('{}')
+        (self.tmp / 'scripts/replay_historical_check.py').write_text(
+            "import sys\nprint('historical route: ' + sys.argv[1])\n"
+            "raise SystemExit(7)\n")
+        result = box.run('--workers', '2')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('historical route: legacy-test-split-skip', result.stdout.decode())
+        self.assertIn('Failed modules: test_split_skip.py', result.stderr.decode())
+        self.assertNotIn('deliberate negative control', result.stderr.decode())
+        self.assertIn('Ran 1 test', result.stderr.decode())
+
+    def test_inherited_optimization_cannot_hide_verifier_assertions(self):
+        # Research tests call verifiers that still use Python assert. The
+        # outer runner itself may be optimized, but its checks must not be.
+        box = self.sandbox({'test_assertion.py': '''import os
+import unittest
+
+class T(unittest.TestCase):
+    def test_verifier(self):
+        self.assertEqual(os.environ.get('REPLAY_SENTINEL'), 'preserved')
+        assert False, 'deliberate mathematical assertion'
+'''})
+        for level in ('1', '2'):
+            with self.subTest(level=level):
+                result = box.run('--workers', '1', env={
+                    'PYTHONOPTIMIZE': level, 'REPLAY_SENTINEL': 'preserved'})
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('deliberate mathematical assertion', result.stderr.decode())
+                self.assertIn('Failed modules: test_assertion.py', result.stderr.decode())
+
+    def test_successful_exit_during_load_tests_is_not_completion(self):
+        box = self.sandbox({
+            'test_a_healthy.py': PASS_MODULE,
+            'test_b_exit.py': '''def load_tests(loader, tests, pattern):
+    raise SystemExit(0)
+''',
+        })
+        result = box.run('--workers', '2')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Checking test_a_healthy.py', result.stdout.decode())
+        self.assertIn('Checking test_b_exit.py', result.stdout.decode())
+        self.assertNotIn('PASS all', result.stdout.decode())
+        self.assertIn('Incomplete unittest run', result.stderr.decode())
+        self.assertIn('Failed modules: test_b_exit.py', result.stderr.decode())
+
+    def test_abrupt_zero_exit_during_execution_is_not_completion(self):
+        box = self.sandbox({'test_exit.py': '''import os
+import unittest
+class T(unittest.TestCase):
+    def test_exit(self):
+        os._exit(0)
+'''})
+        result = box.run('--workers', '1')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertNotIn('PASS all', result.stdout.decode())
+        self.assertIn('Incomplete unittest run', result.stderr.decode())
+
+    def test_completed_empty_and_skipped_suites_remain_valid(self):
+        box = self.sandbox({
+            'test_empty.py': 'import unittest\n',
+            'test_skipped.py': '''import unittest
+class T(unittest.TestCase):
+    @unittest.skip('deliberate completed skip')
+    def test_skipped(self):
+        self.fail('must remain skipped')
+''',
+        })
+        result = box.run('--workers', '2')
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        self.assertIn('Ran 0 tests', result.stderr.decode())
+        self.assertIn('skipped=1', result.stderr.decode())
+        self.assertIn('PASS all 2 test modules', result.stdout.decode())
+
+    def test_child_keeps_unittest_discovery_argv(self):
+        box = self.sandbox({'test_argv.py': '''from pathlib import Path
+import sys
+import unittest
+class T(unittest.TestCase):
+    def test_argv(self):
+        self.assertEqual(sys.argv, [
+            str(Path(unittest.__file__).with_name('__main__.py')), 'discover',
+            '-s', str(Path(__file__).parent), '-p', Path(__file__).name, '-v'])
+'''})
+        result = box.run('--workers', '1')
+        self.assertEqual(result.returncode, 0, result.stderr.decode())
+        self.assertIn('PASS all 1 test modules', result.stdout.decode())
+
 
 if __name__ == '__main__':
     unittest.main()

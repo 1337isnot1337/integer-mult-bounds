@@ -1,12 +1,57 @@
 # Current reviewed status
 
-Selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
+Selected conditional κ: **0.0023 = 23/10000**, zxv’s #4359 productive-helper construction, using Jacob Alan Sussman’s mixed-target recursion and the credited cumulative native/outer lineage.
+
+[Selected record](../../certificates/selected-result.json) · [Proof review](pr-intake-evidence/pr4359/PROOF-REVIEW.md) · [Integration receipt](pr-intake-evidence/pr4359/INTEGRATION.json) · [Contributors](community-productive4359-contributors.md).
+
+Cold replay: `make frontier4359-verify`. The fresh 23-stage replay and 59 normalized artifacts pass; the changed interfaces have an AI-assisted proof review under retained analytic/native/fixed-tape hypotheses. Winning uniform templates are not materialized. This is not a complete formal or independent human verification. #4404 independently checks a narrower arithmetic/flow scope.
+
+## Historical selected status through #1094
+
+Historical selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
 
 [Review and attribution](community-batch1099-review.md) · [Integration/CI receipt](community-batch1099-integration.json) · [Selected record](../../certificates/selected-result.json).
 
 Cold replay: `make frontier1094-verify`. This local review explicitly reuses the published, source-bound complete #1042 construction/bit evidence and freshly checks #1094. Exact native, hosting and arithmetic evidence remains conditional on the listed compiler/realization/precision/analytic interfaces. Linux CI is separate.
 
-#1048 remains open for the documented pricing and exact-certification corrections; no negative theorem from that proposal is accepted. Other historical deferrals, including #946, remain unchanged.
+#1048 remains open; no negative theorem from that proposal is accepted. The [PR1048 correction map](pr1048-correction-map.md) separates retained arithmetic repairs from pending transport-census review and the remaining domain-completeness questions. Other historical deferrals, including #946, remain unchanged.
+
+**Reviews since the #1094 selection.** These rounds retain scoped constructions,
+negative results, audits and tooling with individual credit, without changing the
+selected κ. The table records frozen prose review checkpoints, not live queue
+counts; later rounds can revisit older PRs. Use the [PR ledger](pr-ledger.md)
+for the current disposition of a specific contribution. The last prose review
+in this table is the [nineteenth reconciliation](community-efficient1900-review.md).
+Recorded intake continues through the
+[twenty-sixth reconciliation](../../research/community-efficient2600-audit/README.md);
+rounds [2000](../../research/community-efficient2000-audit/README.md) through
+[2600](../../research/community-efficient2600-audit/README.md) are archive and
+tooling intake, not a selected-frontier update. Round 2200's heading says
+"final unbatched remainder"; rounds 2300 through 2600 are recorded after it.
+Pending obligations in every round stay separate from incorporated research
+and supplier admission.
+
+| Review | Frozen PR selection | Disposition |
+| --- | --- | --- |
+| [efficient100](community-efficient100-review.md) | #697–#814 | 83 merged; 17 follow-ups |
+| [efficient200](community-efficient200-review.md) | #815–#1095 | 76 merged; 24 follow-ups |
+| [efficient300](community-efficient300-review.md) | #1100–#1208 | 69 merged; 31 follow-ups |
+| [efficient400](community-efficient400-review.md) | #1209–#1343 | 85 merged; 15 follow-ups |
+| [efficient500](community-efficient500-review.md) | #803, #1344–#1466 | 89 merged; 11 follow-ups |
+| [efficient600](community-efficient600-review.md) | #797, #1026, #1468–#1600 | 78 merged; 15 follow-ups |
+| [efficient700](community-efficient700-review.md) | #1601–#1726 | 79 merged; 21 pending |
+| [efficient800](community-efficient800-review.md) | #1729–#1862 | 85 merged; 15 pending |
+| [efficient900](community-efficient900-review.md) | #1863–#1951 | 56 merged; 12 pending |
+| [efficient1000](community-efficient1000-review.md) | #1952–#2027 | 44 merged; 2 pending |
+| [efficient1100](community-efficient1100-review.md) | #620–#2135 | 79 merged; 21 pending |
+| [efficient1200](community-efficient1200-review.md) | #654–#2257 | 78 merged; 22 pending |
+| [efficient1300](community-efficient1300-review.md) | #1175–#2377 | 76 merged; 24 pending |
+| [efficient1400](community-efficient1400-review.md) | #1155–#2490 | 78 merged; 22 pending |
+| [efficient1500](community-efficient1500-review.md) | #1758–#2591 | 76 merged; 24 pending |
+| [efficient1600](community-efficient1600-review.md) | #2592–#2715 | 83 merged; 17 pending |
+| [efficient1700](community-efficient1700-review.md) | #2478, #2716–#2828 | 66 merged; 34 pending |
+| [efficient1800](community-efficient1800-review.md) | 42 new/revised submissions; 58 earlier follow-ups | 42 merged; 58 pending |
+| [efficient1900](community-efficient1900-review.md) | 44 new; four revised; 52 earlier follow-ups | 63 merged; 1 closed as superseded; 36 pending. |
 
 > **Below this point every section is a historical snapshot.** Inside them, “current,”
 > “selected,” “latest” and “next” refer to that snapshot's own checkpoint. The authoritative
