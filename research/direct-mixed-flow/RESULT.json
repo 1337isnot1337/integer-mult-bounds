@@ -107,13 +107,23 @@
     "D": 943808600004652,
     "H": 349300000000,
     "N": "2^349300000000",
+    "compiled_record_upper": "R < 2^(D*2^H + H + 5001)",
+    "completed_unit_description_upper": "2^5000",
     "kappa": "268647/100000000",
     "owned_p7_center_bound": "one per raw instance; <= B_N * 2^H / 608",
     "paid_leaf_bound": "P_N < B_N * 2^H",
     "physical_scope": "Encoded whole-job adapter/move records. Their permitted physical implementation and tariffs remain inherited, separately priced premises.",
+    "raw_macro_allowance_upper": "2^40",
+    "raw_macro_and_payload_allowance": 319592968,
+    "raw_native_record_counts": {
+      "backward": 22633,
+      "forward": 22633
+    },
     "raw_p7_instance_bound": "U_raw <= (B_N * 2^H - P_N)/608",
-    "routing_macro_record_bound": "R <= (A + 16*(W+P) + 1) * B_N * N; A is the complete fixed-unit record allowance",
+    "routing_macro_record_bound": "R <= (A + 32*(W+P) + 1) * B_N * N; A < 2^5000",
     "routing_slot_bound": "slots <= 2*(W+P)*V, V completed-unit instances",
+    "source_C0_upper": "C0 < 2^(8*D*2^H)",
+    "source_precision_E_upper": "E < 2^(3*D*2^H + 3*H + 15021)",
     "width_bound": "B_N < 2^(D * 2^H)",
     "winning_uniform_word_materialized": false
   },
@@ -470,7 +480,7 @@
   ],
   "new_code_sha256": {
     "flow.py": "460f0b0262d7b6880973f46240b3fff1e9f04601fa1d658dda18688b1e26575a",
-    "verify.py": "8104bbaac3afb1910290f97965503564f4299f3d6008af0b043742e9baffcead"
+    "verify.py": "80ba21844b4f77b865091969edf9b8826362754df5efe714d366ee245ebf182f"
   },
   "rejected_mutations": [
     "whole integer subprogram batches",
@@ -480,10 +490,13 @@
   "scope": "New finite matching/scheduling and batching/size bounds. The direct near-root exponent is open. Existing conditional endpoint and native/physical hypotheses remain inherited; no new kappa.",
   "source_sha256": {
     "research/direct-mixed-flow/vendor/FINITE-PRECOMPILATION.md": "4cb32f6b8e388ecf6ed41b5bbdeeb4539cb40c8424f194974afea58f7e0921e8",
+    "research/direct-mixed-flow/vendor/P7-FACTOR.json": "6f96f6be5d8441f71cbe6ebb1657c69b543eb085b848b92b591b7ac01d6e6598",
     "research/direct-mixed-flow/vendor/SUSSMAN-LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
     "research/direct-mixed-flow/vendor/SUSSMAN-NOTICE": "8289a4ba75efe5da7bd2e389b951155ff74b3bf49b38ace0906a1e5205c7cd6e",
+    "research/direct-mixed-flow/vendor/THREE-base-FULL-IDENTITY-NATIVE.json.gz": "c54b0a3e129d28e6dbf74fa731fc3bb70fe3c6705f07256750fbecddcc842d39",
     "research/direct-mixed-flow/vendor/higher-moment-README.md": "ebe80b68ff026ce90f71f274c31744f4c0b36132d15ebb7e39cf2d5df4df270d",
     "research/direct-mixed-flow/vendor/higher-moment-RESULT.json": "ad79e3c0459e7b495a0ca34010553b12147779a007389e1695cc1336f123c156",
+    "research/direct-mixed-flow/vendor/p7-NATIVE.md": "26bf9312cdb496b1113c9ddd8aa0fa922ed9e480005703212942af358394183d",
     "research/direct-mixed-flow/vendor/p7-RESULT.json": "9b814be97e3b45fcc28eafa8a65694897a7387f71a14d44796c6aadf303d7fab",
     "research/direct-mixed-flow/vendor/theorem-1g.md": "c4a96c55c2509ff36e8bc6bddaaf6a8b1a34a5d794e4e09ac5214c82b51510e6",
     "research/direct-mixed-flow/vendor/tree_flow.py": "750782f6d1cc0a9fff8a768899f3f4c62a7efdf0696d8b5a5d640b1836f5ab72"

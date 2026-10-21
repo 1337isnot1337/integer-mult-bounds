@@ -52,7 +52,7 @@ the predecessor leaves productive width and owned-instance counts implicit.
 | Source complements and full uniform output | Source integer-batch induction, with nested divisible widths |
 | Direct near-root saving | **Open**; rank 1,000 fails; no global conclusion |
 | Productive width, rank-one leaves, raw instances, owned centers | Explicit bounds below, with exact finite controls |
-| Routing slots and encoded adapter/move records | Counted in the stated macro grammar; physical implementations retain their own tariffs |
+| Routing slots, encoded records and source finite-constant envelopes | Counted below in the stated grammar; physical implementations retain their own tariffs |
 | Native all-column, physical, analytic, precision and recovery premises | Inherited; no full replay or new admission |
 
 ## 2. Partially matched integer lockstep flow
@@ -230,19 +230,24 @@ each call contributes its own local unit instances. Exact compilation checks
 this identity alongside widths and leaves.
 
 In the macro grammar that records a whole-job adapter, inverse adapter or
-whole-field move as one record, a slot can be handled with at most eight
-records: up to two whole-job conjugations and their inverses, and park/load/
-return/reorder moves. Allocate separate owned scratch for those moves when
-needed; no zero-cost routing or free copying is assumed. If A is the complete
-fixed unit's nonrecursive record allowance, including its owned operations,
-the final macro word satisfies the conservative bound
+whole-field move as one record, a slot can be handled with at most sixteen
+records: up to two whole-job conjugations and their inverses, park/load/
+return/reorder moves, and explicit scratch initialization and erasure.
+Allocate separate owned scratch for those moves when needed; no zero-cost
+routing or free copying is assumed. Let A bound the fixed unit's complete
+nonrecursive record count, owned operations and scalar coefficient heights.
+The final weighted record allowance satisfies the conservative bound
 
 ```
-R_macro <= A*U_N + 16*(W+P)*U_N + P_N
-        <= (A+16*(W+P)+1)*B_N*N,  for Delta>=1.
+R_bar <= A*U_N + 32*(W+P)*U_N + P_N
+      <= (A+32*(W+P)+1)*B_N*N,  for Delta>=1.
 ```
 
-This is a **description/record bound**, not a new tariff for executing a
+R_bar bounds both the macro count and the sum of scalar-height and native
+record allowances. Every owned bank has an explicit initialization record,
+so total allocated owned banks can also be bounded by R_bar; the sharper
+raw-center bound remains separate. This is a **description/record bound**,
+not a new tariff for executing a
 general matrix or permutation. A dense binary address matrix and quadratic
 phase have O(N^2) descriptor bits. Explicit role indices add O(log B_N)
 bits. Thus an encoding of this finite word still has
@@ -296,7 +301,81 @@ one-center-per-instance allocation. These are large upper bounds, not
 emitted words, smallest widths or practical precision estimates. They replace
 one implicit part of the source finite-constant prescription. The native
 adapter bodies, analytic transfer and physical costs retain their original
-conditions; full numerical precision and tape thresholds are not closed here.
+conditions; a closed bound for the source's finite-constant prescription is
+given next, without a new physical runtime or exact-recovery threshold.
+
+### A closed envelope for the source finite constants
+
+The exported THREE-base native word has exactly 22,633 records in each
+orientation. Source-bound counting retains all 15 copies, the literal p7
+controller, scalar allowance 2,490,856, every productive/paid/contact/helper/
+idle slot, and all routing and owned operations. A raw macro allowance is
+
+```
+A_raw = 15*8*(decompressed native JSON bytes)
+      + 8*(literal controller JSON bytes)
+      + 32*(2490856 + all declared slots + 15*22633) < 2^40.
+```
+
+The payload-bit terms overcount the coefficient literals and full local
+descriptors, including both orientations. The 32-per-slot term overcounts
+whole-job normalizers and inverses, field movements, initialization and
+erasure. It is a bound on the declared source word in this grammar, not
+independent verification of its functional correctness or physical tariffs.
+
+For the chronological v-fold product, its number of raw p7 invocations is
+
+```
+U_v = sum_(i=0..v−1) 7688^(v−1−i)*55998^i < 2^2392.
+```
+
+At every product level retain the whole-job matching wrappers. A conservative
+product allowance is
+
+```
+A_product <= (2^40 + 32*v*(7688+55998+1))*U_v + 32*v*55998^v.
+```
+
+Add 32 records for every final paid call, completion role and original paid
+position. Counting paid calls by their rank mass gives
+
+```
+A_completed <= A_product
+    + 32*(131115^v + 7688^v*15^v + 7688^v + 55998^v).
+```
+
+A dense local binary map/quadratic phase and role index fit in
+`64*(121^v)^2` bits per such record. The verifier checks the integer bound
+`A_completed * 64*(121^v)^2 < 2^5000`. Thus **A=2^5000** is a valid weighted
+record/description allowance for this fixed completed unit. It includes all
+source coefficients and owned operations, with a large deliberate overcount.
+No instruction list of the completed product is emitted.
+
+Since `A+32*(W+P)+1 < 2^5001`, use the envelope
+
+```
+R_bar < 2^(D*2^H + H + 5001).
+```
+
+Apply the existing source finite-constant prescription to the **newly expanded
+word**. With Z=B_N+owned banks, G its scalar coefficient envelope, and P_N
+its rank-one leaves, we have `Z<=2*R_bar`, `G<=8*R_bar`, `P_N<=R_bar` and
+`N<=R_bar`. Therefore
+
+```
+E = 64*(Z+N+P_N+G+1)^3
+  < 2^(3*D*2^H + 3*H + 15021),
+B_constant = P_N+E,
+C0 = 32*N*B_constant^2
+   < 2^(6*D*2^H + 7*H + 30049)
+   < 2^(8*D*2^H).
+```
+
+The last comparison uses `2^H>=H+1` and an exact polynomial integer check
+on D and H. These are explicit, very loose upper bounds for the inherited
+semantic precision/stock constants, conditional on that source prescription
+and its admitted native record implementations. The exact numerical outer
+input threshold, prime exclusions and physical tape costs remain separate.
 
 ## 5. Exact finite checks and the open exponent gate
 
@@ -365,7 +444,7 @@ the verifier independently compares its merged and literal traversal outputs.
 Those are two internal implementations, not an independent mathematical review.
 
 Canonical base is `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision
-7. SOURCES.json pins orientation metadata. VENDOR.json separately binds eight
+7. SOURCES.json pins orientation metadata. VENDOR.json separately binds eleven
 unchanged exports by commit, full path, Git blob and SHA256. Their bytes and
 notices are preserved; direct replay needs no foreign Git objects. The source
 theorem and earlier finite compiler remain attributed hypotheses, not new work.
@@ -384,11 +463,11 @@ claim or PR has been posted for this partial checkpoint.
    with a proved bound on premature-exit potential relative to the actual
    complement capacity. This decides whether the flow can replace the
    tensor/padding layer. A larger rank scan is not a uniform proof.
-2. **Finish physical word and precision bounds.** Bind the macro-record
-   allowance A and each adapter's actual implementation to the fixed native
-   caller; insert their coefficient heights, routing scratch and movement
-   counts into the source precision/stock formulas. Macro description size
-   is not a physical execution tariff.
+2. **Independently admit the physical expansions and precision prescription.**
+   Audit the conservative A allowance against the actual native caller and
+   bind every adapter's physical implementation, row movements and recovery
+   exclusions. The encoded constants above use the inherited semantics;
+   description size is not a physical execution tariff.
 3. **Tighten the constructive width.** The nested product is an explicit
    upper bound, not an optimized LCM. A useful next step would control prime
    valuations of the actual source counts; another arbitrary batching choice

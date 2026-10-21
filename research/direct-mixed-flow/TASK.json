@@ -76,7 +76,7 @@
   "budget_minutes": 60,
   "stop_rule": "First prove exact whole-integer matching, chronological return, top sources and smaller exits. Then test whether the complete recurrence supports the desired exponent. Do not infer exponent admission from moment balance. If it fails, preserve the first counterexample or missing lemma and the explicit-size result; no broader census or new kappa claim.",
   "outcome": "partial",
-  "evidence": "README.md proves the finite partially matched direct compiler and exp(O(N log N)) productive-width bound. RESULT.json checks nine literal/merged flows, two full overlap compilations through rank 100, 880 exact p7 nonbase compilations through rank 1000, global surplus and routing-slot bounds. The direct exponent target remains open; rank 1000 fails.",
+  "evidence": "README.md proves the finite partial-matching compiler, nested exp(O(N log N)) widths, raw/owned/routing bounds and closed encoded precision envelopes for the existing PR4433 supplier. RESULT.json checks source record counts and all integer inequalities, nine literal/merged flows, two overlap compilations through rank 100, and 880 p7 nonbase compilations through rank 1000. Direct near-root exponent remains open.",
   "author": "zxv, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance; no subagents.",
   "open_questions": [
@@ -87,10 +87,10 @@
       "blocked_by": "No uniform boundary-exit bound or direct exponent proof yet."
     },
     {
-      "question": "Can nested divisible widths and rank-one potential bound the whole expanded program?",
-      "why_it_matters": "It would control widths, owned centers and precision constants beyond ambient rank.",
-      "first_step": "Choose B_n=S_n B_(n-1), prove every smaller width divides it, and telescope the exact rank-one surplus over all raw instances.",
-      "blocked_by": "Full route/record counting and endpoint binding remain to be written."
+      "question": "Do the complete encoded resource and precision envelopes survive independent native/physical admission?",
+      "why_it_matters": "The closed numerical envelopes depend on the source finite-record semantics and do not independently establish their physical tariffs or recovery threshold.",
+      "first_step": "Audit the raw/whole-job record allowance against the caller, then separately bind physical adapters, movement and recovery exclusions.",
+      "blocked_by": "Inherited native/physical/analytic premises remain outside this mathematical count proof."
     }
   ],
   "publication_policy": "LOCAL ONLY until user review. Do not push, submit another PR or post Discussions.",
@@ -120,5 +120,11 @@
     ],
     "specific_matches": "No matching public scope found; the later search matches this local task itself. This is not proof of novelty.",
     "limits": "Open bodies, discussions and local notes; no arbitrary remote code-diff or remote closed-body search."
+  },
+  "scope_deliverables": {
+    "finite_direct_compiler": "proved under inherited native/adapter hypotheses; max paid < ambient, no near-root saving yet",
+    "full_finite_size_bounds": "proved in declared encoded native-record grammar; explicit bounds for the existing PR4433 supplier",
+    "direct_near_root_exponent": "open; requires a uniform boundary-exit/complement estimate",
+    "scientific_significance_target": "in progress; not claimed achieved"
   }
 }

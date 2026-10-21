@@ -56,6 +56,27 @@
       "path": "research/direct-mixed-flow/vendor/p7-RESULT.json",
       "git_blob": "ebb30a9b3b94fb159a316350f7da57bde4a30c25",
       "sha256": "9b814be97e3b45fcc28eafa8a65694897a7387f71a14d44796c6aadf303d7fab"
+    },
+    {
+      "commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "original_path": "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+      "path": "research/direct-mixed-flow/vendor/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+      "git_blob": "b46d44c6ee624968dd57be928b0c15d9d45f3b2c",
+      "sha256": "c54b0a3e129d28e6dbf74fa731fc3bb70fe3c6705f07256750fbecddcc842d39"
+    },
+    {
+      "commit": "e9058860b5c850760fdf970e796a96aefcdb1d98",
+      "original_path": "research/pr4359-p7-padding/P7-FACTOR.json",
+      "path": "research/direct-mixed-flow/vendor/P7-FACTOR.json",
+      "git_blob": "04c7ef620e760cc8f1764bbf0ccd7f32c6a5bd86",
+      "sha256": "6f96f6be5d8441f71cbe6ebb1657c69b543eb085b848b92b591b7ac01d6e6598"
+    },
+    {
+      "commit": "e9058860b5c850760fdf970e796a96aefcdb1d98",
+      "original_path": "research/pr4359-p7-padding/NATIVE.md",
+      "path": "research/direct-mixed-flow/vendor/p7-NATIVE.md",
+      "git_blob": "394d9a03c165336d1cfbcd41921c93741042393b",
+      "sha256": "26bf9312cdb496b1113c9ddd8aa0fa922ed9e480005703212942af358394183d"
     }
   ]
 }

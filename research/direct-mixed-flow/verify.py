@@ -9,6 +9,7 @@ from collections import Counter
 from fractions import Fraction as Q
 from hashlib import sha1, sha256
 import json
+import gzip
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -147,13 +148,50 @@ def inherited_rank_size_bound():
     D = 1950+2702*(H+1)
     need(sum(k*n for k, n in T.items())-sum(k*n for k, n in P.items()) == 608,
          'underlying raw p7 rank-one surplus')
+    native_bytes = gzip.decompress((HERE/'vendor/THREE-base-FULL-IDENTITY-NATIVE.json.gz').read_bytes())
+    native = json.loads(native_bytes)
+    factor_bytes = (HERE/'vendor/P7-FACTOR.json').read_bytes()
+    factor = json.loads(factor_bytes)
+    need(sha256(factor_bytes).hexdigest() == p7['native_inventory']['factor_receipt_sha256'],
+         'actual p7 factor receipt')
+    need(set(native) == {'forward', 'backward'} and
+         all(len(w) == 22633 for w in native.values()), 'actual raw native record counts')
+    # Macro description allowance: 15 exact local words, both serialized
+    # orientations as an overcount, literal controller, source scalar
+    # allowance, every productive/paid/contact/helper/idle slot, with 32
+    # records per extra routing/ownership slot and literal payload bits.
+    ni = p7['native_inventory']
+    slots = (ni['productive_fields']+ni['paid_calls']+ni['contacts']+
+             ni['fresh_helper_fields']+ni['main_fields']+sum(ni['whole_idle_profile'].values()))
+    raw_allowance = (15*8*len(native_bytes)+8*len(factor_bytes)+
+                     32*(ni['scalar_allowance']+slots+15*max(map(len,native.values()))))
+    need(raw_allowance < 2**40, 'complete raw macro/serialized-input allowance')
+    W0, P0 = sum(T.values()), sum(P.values())
+    Uproduct = sum(W0**(v-1-i)*P0**i for i in range(v))
+    need(Uproduct < 2**2392, 'chronological product raw-instance count')
+    product_allowance = (2**40+32*v*(W0+P0+1))*Uproduct+32*v*P0**v
+    completed_allowance = product_allowance+32*(paid_mass_upper+W+P0**v)
+    # Include each dense binary chart/quadratic phase descriptor and role
+    # indices in the fixed completed-unit allowance, not just opcodes.
+    ambient = 121**v
+    serialized_unit_upper = completed_allowance*64*ambient**2
+    need(serialized_unit_upper < 2**5000, 'fixed completed-unit description allowance')
+    need(2**5000+32*(W+paid_mass_upper)+1 < 2**5001, 'compiled record coefficient')
+    need(2*D*(H+1) > 7*H+30049, 'explicit closure exponent absorption')
     return {'kappa': old['kappa'], 'H': H, 'N': '2^'+str(H), 'D': D,
             'width_bound': 'B_N < 2^(D * 2^H)',
             'paid_leaf_bound': 'P_N < B_N * 2^H',
             'raw_p7_instance_bound': 'U_raw <= (B_N * 2^H - P_N)/608',
             'owned_p7_center_bound': 'one per raw instance; <= B_N * 2^H / 608',
             'routing_macro_record_bound':
-                'R <= (A + 16*(W+P) + 1) * B_N * N; A is the complete fixed-unit record allowance',
+                'R <= (A + 32*(W+P) + 1) * B_N * N; A < 2^5000',
+            'raw_native_record_counts': {k:len(w) for k,w in native.items()},
+            'raw_macro_and_payload_allowance': raw_allowance,
+            'raw_macro_allowance_upper': '2^40',
+            'completed_unit_description_upper': '2^5000',
+            'compiled_record_upper': 'R < 2^(D*2^H + H + 5001)',
+            'source_precision_E_upper': 'E < 2^(3*D*2^H + 3*H + 15021)',
+            'source_C0_upper': 'C0 < 2^(8*D*2^H)',
             'routing_slot_bound': 'slots <= 2*(W+P)*V, V completed-unit instances',
             'physical_scope': 'Encoded whole-job adapter/move records. Their permitted physical implementation and tariffs remain inherited, separately priced premises.',
             'winning_uniform_word_materialized': False}

@@ -12,6 +12,9 @@
     "research/direct-mixed-flow/vendor/higher-moment-README.md",
     "research/direct-mixed-flow/vendor/higher-moment-RESULT.json",
     "research/direct-mixed-flow/vendor/p7-RESULT.json",
+    "research/direct-mixed-flow/vendor/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/direct-mixed-flow/vendor/P7-FACTOR.json",
+    "research/direct-mixed-flow/vendor/p7-NATIVE.md",
     "research/direct-mixed-flow/VENDOR.json"
   ],
   "commands": [
@@ -22,7 +25,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "Exact partially matched whole-job flows, chronological literal/merged controls, nested batching through p7 rank 1000, telescoped size bounds and rejected omissions. No direct exponent theorem."
+      "checks": "Exact partially matched flows, nested widths and global resource counts; source-bound finite-word/precision envelopes; rank-1000 direct-target rejection. No direct exponent theorem."
     }
   ]
 }
