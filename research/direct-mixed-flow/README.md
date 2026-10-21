@@ -1,6 +1,7 @@
 # Direct mixed flow and explicit compiler size: a partial research checkpoint
 
-**Local work for user review. Do not push or submit a PR yet.**
+**Publication authorized by the user on October 21, 2026.** This is a partial
+compiler/resource checkpoint; the direct exponent gate remains open.
 
 The target is a structural successor to
 [PR4433](https://github.com/CrocSwap/integer-mult-bounds/pull/4433): remove the
