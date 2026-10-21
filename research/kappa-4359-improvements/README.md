@@ -1,4 +1,4 @@
-# Conditional kappa 0.00231165 from the productive jobs in PR #4359
+# Conditional kappa 0.00231284 from the productive jobs in PR #4359
 
 Under the inherited native and outer-transfer hypotheses of
 [PR #4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359), the
@@ -6,15 +6,16 @@ proved native modification and finite compiler extension in this
 contribution support
 
 ```math
-T(n)=O\bigl(n(\log n)^{1-0.00231165}\bigr).
+T(n)=O\bigl(n(\log n)^{1-0.00231284}\bigr).
 ```
 
-This improves the predecessor's stated saving `0.0023` by `0.00001165`.
-The new complete native invoice deletes 102 rank-one topups and retains
-the corresponding fresh outputs at their native rank five. A new
-weighted-exit proof permits the resulting equality between maximum paid
-rank and minimum productive target rank. An exact finite-rank certificate
-and rational outer parameters complete the conditional implication.
+This improves the predecessor's stated saving `0.0023` by `0.00001284`.
+The construction first deletes 102 rank-one topups and retains the
+corresponding fresh outputs at their native rank five. It then repacks
+38 idle owners to use the changed rank interface more efficiently. A new
+weighted-exit proof permits equality between maximum paid rank and minimum
+productive target rank. An exact finite-rank certificate and rational
+outer parameters complete the conditional implication.
 
 The predecessor is pinned to
 `da637c87c89482bc4c86be36bd0071b3d400dbed`. This contribution is based on
@@ -29,11 +30,12 @@ record and is unchanged.
 | Result | Evidence | Scope |
 | --- | --- | --- |
 | Detailed review of the predecessor | [Audit](../kappa-4359-audit/README.md) | All 23 fresh replay stages and all 59 scientific artifact comparisons pass; 45 artifacts are byte-identical |
-| Improved complete native invoice | [Native deletion proof](../kappa-4359-native-five/README.md) | Exactly 102 authenticated, disjoint sixth-axis topups are removed, with lower endpoint promises and all complement costs retained |
+| Native topup removal | [Native deletion proof](../kappa-4359-native-five/README.md) | Exactly 102 authenticated, disjoint sixth-axis topups are removed, with lower endpoint promises and all complement costs retained |
+| Further native packing gain | [Packing proof](../kappa-4359-native-packing/README.md) | 38 literal idle owners receive a better helper partition, with full coordinate maps, inventories, normalizers and paid chronology reconstructed |
 | Equal-rank finite compilation | [WeakRule interface](../kappa-4359-weak-compiler/README.md) and [weighted-exit proof](../kappa-4359-weak-separation/PROOF.md) | Finite chronological integer batching with `r_max <= k_min < m` and `k_min >= 2` |
-| Specified successful finite rank | [Weak-separation certificate](../kappa-4359-weak-separation/CERTIFICATE.json) | Uniform saving `0.002311658` at `N=2^756934981` |
-| Final integer-multiplication exponent | [Outer proof](../kappa-4359-native-five/OUTER.md) | All nine cost rows strictly support `kappa=0.00231165`, with authenticated native and compiler dependencies |
-| Entire strict endpoint range | [Endpoint corollary](../kappa-4359-weak-separation/ENDPOINT.md) | Every fixed rational `0<kappa<C_*`, where `C_*` is the improved mixed root, with a finite template chosen for that kappa |
+| Specified successful finite rank | [Packed-tail proof](../kappa-4359-packed-tail/PROOF.md) | Uniform saving `0.002312848` at `N=2^756938551` |
+| Final integer-multiplication exponent | [Outer proof](../kappa-4359-native-packing/OUTER.md) | All nine cost rows strictly support `kappa=0.00231284`, with authenticated native and compiler dependencies |
+| Entire strict endpoint range | [Packed-tail theorem](../kappa-4359-packed-tail/PROOF.md) | Every fixed rational `0<kappa<C_*`, where `C_*` is the final mixed root, with a finite template chosen for that kappa |
 | Smaller templates for the original tariff | [Logarithmic potential proof](../kappa-4359-log-potential/PROOF.md) | A separate improvement preserving the predecessor's original native invoice |
 
 The audit found no blocking error in the predecessor's conditional
@@ -49,12 +51,12 @@ The revised productive and paid ranks are:
 
 | Rank | Productive jobs | Paid calls |
 | ---: | ---: | ---: |
-| 1 | 0 | 17,521 |
-| 2 | 0 | 5,065 |
+| 1 | 0 | 17,559 |
+| 2 | 0 | 5,027 |
 | 3 | 0 | 1,738 |
 | 4 | 0 | 714 |
-| 5 | 102 | 254 |
-| 6 | 90 | 0 |
+| 5 | 140 | 254 |
+| 6 | 52 | 0 |
 | 7 | 56 | 0 |
 | 8 | 93 | 0 |
 | 9 | 1,229 | 0 |
@@ -65,24 +67,46 @@ There are still 2,242 independent productive fields and one uncredited
 owned center. The rank surplus is still 224. The retained conservative
 scalar allowance is still 1,147,304 real primitives.
 
-For `0<t<1`, the target-minus-paid mixed moment improves by exactly
+For `0<t<1`, the initial topup deletion improves the target-minus-paid
+mixed moment by exactly
 
 ```math
 102\bigl(1+5^t-6^t\bigr)>0.
 ```
 
-The strict inequality follows from concavity. It survives complete
-accounting: at ambient rank 57, removing the topups reduces paid rank
-mass from 37,093 to 36,991 but increases the source complement mass from
-90,477 to 90,579. The full rank-one completion cost is 127,570 in both
-versions. The gain arises in the mixed hierarchy, whose recurrence pays
-all of those complements.
+Each of the two rank-16 idle families originally uses 19 helper pairs
+`(5,9)`, leaving a rank-two remainder. The further change replaces these
+with 18 pairs `(6,9)` and one pair `(9,6)`, leaving rank-one remainders.
+The literal helper inventories fit. All other window patterns remain:
+93 pairs `(8,8)`, 56 pairs `(7,9)`, 56 pairs `(9,7)`, and the two
+rank-eight middle families. This adds the strict moment improvement
+
+```math
+38\bigl(2^t+5^t-1-6^t\bigr)>0.
+```
+
+Both inequalities follow from strict concavity. The second uses
+`2^t-1>6^t-5^t`. Full completion accounting is preserved at each step:
+
+| Rank-one base bill at ambient rank 57 | Original | Topups removed | Repacked |
+| --- | ---: | ---: | ---: |
+| Productive target rank mass | 37,317 | 37,215 | 37,177 |
+| Paid rank mass | 37,093 | 36,991 | 36,953 |
+| Source complement rank mass | 90,477 | 90,579 | 90,617 |
+| Total full-completion leaves | 127,570 | 127,570 | 127,570 |
+
+The gain arises in the mixed hierarchy, whose recurrence pays all of
+those complements. The packing certificate reconstructs every fresh
+field and actual helper binding, including their full invertible
+coordinate maps. Its complete oriented normalizer multiset and scalar
+controller are unchanged; its changed coordinate moves receive their
+own finite movement constants.
 
 Exact rational intervals place the new mixed saving root strictly in
 
 ```text
-(0.002311660492818048695136925339,
- 0.002311660492818048695136925340).
+(0.002312854665364207351198238279,
+ 0.002312854665364207351198238280).
 ```
 
 The original compiler's strict rank-separation constructor rejects the
@@ -115,9 +139,9 @@ and ordered paid calls, including paid calls on owned storage.
 For the concrete choices
 
 ```text
-C   = 0.00231166
-C_u = 0.002311658
-H   = 756934981
+C   = 0.00231285
+C_u = 0.002312848
+H   = 756938551
 J   = 30,
 ```
 
@@ -138,22 +162,23 @@ instance is:
 
 | Quantity | Exact value |
 | --- | ---: |
-| Tested complete mixed saving `C` | `0.00231166` |
-| Uniform supplier saving `C_u` | `0.002311658` |
-| Selected complex saving `b` | `0.002311656` |
-| Effective common saving `a` | `0.002311654` |
-| Main recursion parameter `q` | `0.002311652` |
-| Claimed `kappa` | `0.00231165` |
+| Tested complete mixed saving `C` | `0.00231285` |
+| Uniform supplier saving `C_u` | `0.002312848` |
+| Selected complex saving `b` | `0.002312846` |
+| Effective common saving `a` | `0.002312844` |
+| Outer transform parameter `q_outer` | `0.002312842` |
+| Claimed `kappa` | `0.00231284` |
 | `d` | `0.000000002` |
 | `epsilon` | `0.999999998` |
 | `beta` | `0.999999994` |
-| Main-transform saving | `0.002311651995376696` |
+| Main-transform saving | `0.002312841995374316` |
 
 The main-transform saving exceeds the claim by
-`0.000000001995376696`. All nine outer cost rows strictly clear the
+`0.000000001995374316`. All nine outer cost rows strictly clear the
 claim. The verifier checks the direct inequalities and the inherited
 ledger, and replays the native deletion, weak compiler, and finite-rank
-certificates before accepting the final exponent.
+certificates, including the actual new paid-owner integration, before
+accepting the final exponent.
 
 Every template-dependent scalar, routing, storage, precision, and reserve
 constant must be the constant of the new fixed compiled word. Earlier
@@ -163,7 +188,7 @@ transfer hypotheses.
 
 ## The complete strict endpoint range
 
-The separate [endpoint corollary](../kappa-4359-weak-separation/ENDPOINT.md)
+The [packed-tail theorem](../kappa-4359-packed-tail/PROOF.md)
 proves that every fixed rational `0<kappa<C_*` is admitted under the same
 conditional interfaces, where `C_*` is the new mixed root enclosed above.
 This statement chooses a finite template for each strict kappa; it does
@@ -173,16 +198,29 @@ The weighted-exit estimate holds uniformly across this range. For every
 `t<=1`, the complete paid invoice satisfies
 
 ```math
-P_{t+1}-2P_t\leq P_2-2P_1=71197-2(36991)=-2785<0.
+P_{t+1}-2P_t\leq P_2-2P_1=71083-2(36953)=-2823<0.
 ```
 
 The rank-one term is constant, the rank-two coefficient is zero, and
 every higher-rank term has a positive coefficient and increases with
 `t`. The complement margin also remains strictly above `4047/4096`
-through the convenient rational upper bound `C=0.002312`, which exceeds
+through the convenient rational upper bound `C=0.00232`, which exceeds
 `C_*`. Thus the same `gamma=1/20` proof covers every mixed saving below
 the root. The unbounded finite-rank search in the endpoint package
 then supplies a template for every required positive rational gap.
+
+## Completed intermediate improvements
+
+The first native continuation, before repacking, supports
+`kappa=0.00231165` and every strict saving below its own mixed root
+`0.002311660492818048695136925339...`. Its native word, weak compiler,
+concrete rank certificate and full endpoint corollary remain separately
+frozen in `kappa-4359-native-five/`, `kappa-4359-weak-compiler/`, and
+`kappa-4359-weak-separation/`.
+
+The final packing raises the mixed root itself. Its stronger outer point
+uses the new uniform saving and complete paid-owner contract; the earlier
+template cannot simply be relabeled with the larger exponent.
 
 ## A separate improvement preserving the original native invoice
 
@@ -195,14 +233,44 @@ reproducible in `kappa-4359-log-potential/` and
 
 At the predecessor's original uniform savings, it gives:
 
-| Family | Uniform saving | Predecessor sufficient rank | New sufficient rank |
-| --- | ---: | ---: | ---: |
-| Complex | `0.002304` | `2^276540184361` | `2^2458275` |
-| BIT before the cover | `0.002760` | `2^6552928412` | `2^463652` |
+| Family | Uniform saving | PR #4359 | Related PR #4405 | Logarithmic bound here |
+| --- | ---: | ---: | ---: | ---: |
+| Complex | `0.002304` | `2^276540184361` | `2^1546084442` | `2^2458275` |
+| BIT before the cover | `0.002760` | `2^6552928412` | `2^42843607` | `2^463652` |
 
 These are comparisons of sufficient ambient ranks. The expanded words,
 batch multiplicities, and constants remain enormous. A smaller
 sufficient rank does not by itself give a practical runtime measurement.
+
+## Related contributions found in the final overlap check
+
+[PR #4405](https://github.com/CrocSwap/integer-mult-bounds/pull/4405), at
+head `873d1b3c96a83b701a5c0bba8e37a861e6672fef`, proves a strict outer
+family below the unchanged mixed root and checks the point
+`kappa=0.00230509`. It also tightens the original intermediate-power
+argument by using the actual complement coefficient. Its sufficient ranks
+at the original supplier savings appear in the comparison above.
+
+The original-tariff outer-family conclusion in this contribution overlaps
+that related result. No priority claim is made for that conclusion, and
+the retained `0.00230508` point is not an improvement over #4405's
+`0.00230509` point. The logarithmic paid-leaf bound gives the distinct
+smaller sufficient ranks shown above. The later weak-separation, topup
+deletion and literal repacking change the native tariff and raise its
+mixed root beyond both unchanged-tariff results.
+
+[PR #4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404), at
+head `77f20afb7c24286937c75cb65a7f19e24e7a567f`, independently checks the
+original explicit-rank argument and 19,895 aggregate lockstep flows. Its
+stated scope excludes the native word, denominator clearing, delayed BIT
+cover and outer transfer. The review retained here records its own
+broader source/ownership/operator scope and reproduction limits.
+
+These related public contributions were located during the final
+2026-10-21 overlap check. The search is not an exhaustive novelty audit;
+Discussion coverage was unavailable. Both PR heads and stated scopes
+were recorded, and #4405's endpoint and template proofs were read.
+Their different claims remain separate from the new native result.
 
 ## Reproduction
 
@@ -228,6 +296,10 @@ python3 -B research/kappa-4359-native-five/outer_verify.py --source-root /tmp/in
 python3 -B research/kappa-4359-weak-separation/endpoint_verify.py --source-root /tmp/integer-mult-pr4359-source --check
 python3 -B research/kappa-4359-weak-compiler/native_five.py --source-root /tmp/integer-mult-pr4359-source
 python3 -B research/kappa-4359-audit/count_multilevel.py --source-root /tmp/integer-mult-pr4359-source
+python3 -B research/kappa-4359-native-packing/verify.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-native-packing/compiler_check.py --source-root /tmp/integer-mult-pr4359-source
+python3 -B research/kappa-4359-packed-tail/verify.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-native-packing/outer_verify.py --source-root /tmp/integer-mult-pr4359-source --check
 ```
 
 The checkers use the Python standard library. They authenticate fixed
@@ -257,10 +329,13 @@ the pinned predecessor and the proof packages. New material is under
 Apache-2.0.
 
 The width-five change resolves the initial investigation of topups used
-only for strict separation. A next native search can reconsider the
-idle-owner packing under the new minimum target rank. Any candidate must
-reconstruct an integral owner assignment and preserve every chronological
-endpoint, arbitrary input, movement charge, and cleanup operation before
-its complete mixed root can be compared. A tighter exit estimate may
-also reduce finite template sizes; it cannot by itself raise the local
-mixed root.
+only for strict separation, and the new owner assignment completes one
+further packing improvement under that interface. Global optimality of
+the packing is not claimed. The retained rank-eight windows already use
+all available helpers of width at most eight, so a further improvement
+needs a different complete packing, controller, native contract or proved
+compiler interface. Every candidate must reconstruct its integral owner
+assignment and preserve all chronological endpoints, arbitrary inputs,
+movement charges and cleanup operations. A tighter exit estimate may also
+reduce finite template sizes; it cannot by itself raise the local mixed
+root.
