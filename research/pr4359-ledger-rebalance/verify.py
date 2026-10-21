@@ -84,6 +84,32 @@ def ledger(b, kappa=Q(23, 10000), bit_saving=Q(27, 10000), uniform=Q("0.002304")
     return margins, checks
 
 
+def transfer_audit_checks(b, bit_saving, uniform, epsilon=Q(99999, 100000), beta=Q(99997, 100000)):
+    """transcription of the 19 functional checks in #4359 transfer-audit/outer_transfer_audit.py"""
+    q, a, r0, stop = Q("0.002302"), Q("0.0023025"), Q(1, 10**6), Q(1, 10**8)
+    xi = epsilon * (1 + q) - (3 - Q(45, 16)) / 2 + Q(1, 10**6)
+    lam, lam_p = 1 - (q + a) / 2, 1 - q
+    sigma, tau = 1 - b, 1 - a
+    internal = tau + (1 - stop) * max(sigma - tau, Q(0))
+    leaf = sigma + stop * (1 - sigma)
+    return {
+        "new_uniform_complex_above_selected_b": uniform - b,
+        "actual_ordinary_BIT_above_effective": bit_saving - a,
+        "selected_complex_above_effective": b - a,
+        "lambda_above_actual_internal": lam - internal, "lambda_above_sigma": lam - sigma,
+        "lambda_prime_above_lambda": lam_p - lam, "lambda_prime_above_stopped_leaf": lam_p - leaf,
+        "new_semantic_main_guard": 1 - epsilon, "new_semantic_group_guard": 1 - beta,
+        "complete_per_axis_neighborhood": 1 - epsilon, "global_support_reservoir_and_suffix": 1 - beta,
+        "new_BIT_row_stock_sublinear_in_active_group": beta * (1 - Q(3, 1000)),
+        "group_strictly_smaller_than_global_dimension": epsilon - beta,
+        "global_gamma_spare_power": 1 - epsilon - r0, "fine_prime_group_guard": 1 - (2 * xi - 2) - r0 - beta,
+        "polynomial_descriptor_complete_fiber": 1 - epsilon,
+        "fixed_halo_explicit_metadata_branch": 128 - 48 - epsilon - beta - 1,
+        "member_and_tag_record_budget": 1 - beta - 2 * (1 - epsilon),
+        "old_full_span_short_record_fallback": epsilon - a,
+    }
+
+
 def bit_conversion(c0, c1, admitted, atom=Q(3, 1000), old=Q(384599, 10**10)):
     exact = (1 - atom) * c1 + atom * old
     gap = c0 - c1
@@ -171,6 +197,10 @@ def main():
     bad = [k for k, v in checks2.items() if not v > 0]
     need(not bad, f"rebalanced ledger predicates positive: {bad}")
     need(margins2 == margins, "outer margins unchanged (they do not depend on b or the savings)")
+    old_ta = transfer_audit_checks(Q("0.002303"), Q(27, 10000), Q("0.002304"))
+    new_ta = transfer_audit_checks(b_new, admitted, uniform_new)
+    need(len(new_ta) == 19 and all(v > 0 for v in old_ta.values()) and all(v > 0 for v in new_ta.values()),
+         "all 19 outer_transfer_audit functional checks positive before and after")
     min_slack = min(checks2.values())
 
     # 3. superpotentials and ranks
@@ -190,6 +220,7 @@ def main():
     print(json.dumps({
         "status": "PASS_PR4359_LEDGER_REBALANCE",
         "transcription_control": "nine published margins and 54 predicates reproduced",
+        "outer_transfer_audit_functional_checks": "19 positive at the rebalanced values",
         "rebalanced": {"b": str(b_new), "complex_uniform": str(uniform_new), "BIT_C0": str(c0), "BIT_C1": str(c1),
                        "BIT_exact_ordinary": str(exact_new), "BIT_admitted": str(admitted),
                        "cover_prime_rule": f"q > {256 / gap} N^5", "min_predicate_slack": str(min_slack)},

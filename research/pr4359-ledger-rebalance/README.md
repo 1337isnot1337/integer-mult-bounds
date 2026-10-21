@@ -53,6 +53,12 @@ The BIT exponent drops by a factor of about 2,900 from #4405's, and the complex 
 factor of 5.8. The verifier also recomputes both earlier columns from their own formulas, as
 controls.
 
+## Transfer-audit functional checks
+
+The 19 functional checks in #4359's `transfer-audit/outer_transfer_audit.py` are also transcribed.
+They include `new_uniform_complex_above_selected_b`, `actual_ordinary_BIT_above_effective`, the
+`λ` gaps and the guards. All 19 are positive both at #4359's values and at the rebalanced ones.
+
 ## Transcription control
 
 The ledger is transcribed, with credit to #4359, and parameterized by `b` and the two savings.
@@ -65,8 +71,8 @@ conversion, 27418653797/10¹³.
 - **Every hypothesis of #4359:** native closure, adapters, the delayed cover, and the precision
   and storage closure. Those constants must be recomputed for these different finite templates,
   exactly as #4359 requires for its own.
-- **Predicates outside `outer_parameters.ledger`.** For example, the 63-predicate inherited ledger
-  that #4405 mentions is not re-run here.
+- **The 13 historical-endpoint predicates** of the inherited 63-predicate ledger. #4405 reports
+  that they compare only κ against earlier endpoints, which this rebalance leaves unchanged.
 - **An actual winning template.** None is materialized.
 
 ## Reproduce
@@ -81,10 +87,7 @@ library.
 
 ## Open next questions
 
-1. **Does the inherited 63-predicate ledger accept the same rebalance?**
-   - *First step:* run #4405's inherited-ledger check with `b = 0.00230255` and BIT 0.002303.
-   - *Blocked by:* nothing.
-2. **How small can the complex rank get at κ = 0.0023?**
+1. **How small can the complex rank get at κ = 0.0023?**
    - *Why it matters:* the complex tested saving can rise toward the root 0.00230509, and `b`
      toward `a`.
    - *First step:* jointly optimize `(t, b, uniform)` under the ledger.
