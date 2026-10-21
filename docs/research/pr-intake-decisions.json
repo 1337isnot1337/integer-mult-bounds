@@ -53967,21 +53967,31 @@
       "integration_location": [
         "research/pr4359-p7-padding"
       ],
-      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
-      "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+      "unresolved_question": "Selected-result/source-manifest/replay/public-status migration remains. The core supports conditional kappa 0.00268647; the full historical analytic/physical theorem is not independently reproved. PR4416 optional 209-profile search is outside this review.",
+      "scope": "Conditional changed-construction proof review and fresh source-bound replay passed. Exact prior PR4359 native/BIT evidence reused. See PR4416 proof review for source coverage, inherited assumptions and excluded optional work; no selected-frontier migration in this review.",
       "review_completion": {
         "changed_file_coverage": true,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": true
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "closure": {
         "kind": "merged_for_archive_only",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4416",
         "merge_commit": "4c2261aa7d9587c9777ea05041e96064801b80a2"
+      },
+      "conditional_frontier_review": {
+        "status": "passed",
+        "kappa": "268647/100000000",
+        "review": "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "selection_migrated": false
       }
     },
     {
@@ -54638,21 +54648,31 @@
       "integration_location": [
         "research/higher-moment-strictification"
       ],
-      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
-      "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+      "unresolved_question": "Selected-result/source-manifest/replay/public-status migration remains. The core supports conditional kappa 0.00268647; the full historical analytic/physical theorem is not independently reproved. PR4416 optional 209-profile search is outside this review.",
+      "scope": "Conditional changed-construction proof review and fresh source-bound replay passed. Exact prior PR4359 native/BIT evidence reused. See PR4416 proof review for source coverage, inherited assumptions and excluded optional work; no selected-frontier migration in this review.",
       "review_completion": {
         "changed_file_coverage": true,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": true
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "closure": {
         "kind": "merged_for_archive_only",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4433",
         "merge_commit": "4c2261aa7d9587c9777ea05041e96064801b80a2"
+      },
+      "conditional_frontier_review": {
+        "status": "passed",
+        "kappa": "268647/100000000",
+        "review": "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "selection_migrated": false
       }
     },
     {

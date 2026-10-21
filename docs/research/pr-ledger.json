@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "cf28108a55421de38ccd11e94adeb21fab8ea6e88a28768a3f5e546d0c94f3dc",
+    "docs/research/pr-intake-decisions.json": "b25c32fe07b8feb89f7c164fa958087b51672053b6a7a6942bfb9c1374887ead",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -214495,7 +214495,7 @@
         {
           "head": "e9058860b5c850760fdf970e796a96aefcdb1d98",
           "evidence": "docs/research/pr-intake-decisions.json",
-          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "scope": "Conditional changed-construction proof review and fresh source-bound replay passed. Exact prior PR4359 native/BIT evidence reused. See PR4416 proof review for source coverage, inherited assumptions and excluded optional work; no selected-frontier migration in this review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -214511,15 +214511,19 @@
       "integration_location": [
         "research/pr4359-p7-padding"
       ],
-      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "unresolved_question": "Selected-result/source-manifest/replay/public-status migration remains. The core supports conditional kappa 0.00268647; the full historical analytic/physical theorem is not independently reproved. PR4416 optional 209-profile search is outside this review.",
       "review_completion": {
         "changed_file_coverage": true,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": true
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
@@ -215353,7 +215357,7 @@
         {
           "head": "b84060c9cba91b1e76f84617a877d259621eb015",
           "evidence": "docs/research/pr-intake-decisions.json",
-          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "scope": "Conditional changed-construction proof review and fresh source-bound replay passed. Exact prior PR4359 native/BIT evidence reused. See PR4416 proof review for source coverage, inherited assumptions and excluded optional work; no selected-frontier migration in this review.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -215369,15 +215373,19 @@
       "integration_location": [
         "research/higher-moment-strictification"
       ],
-      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa.",
+      "unresolved_question": "Selected-result/source-manifest/replay/public-status migration remains. The core supports conditional kappa 0.00268647; the full historical analytic/physical theorem is not independently reproved. PR4416 optional 209-profile search is outside this review.",
       "review_completion": {
         "changed_file_coverage": true,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": true
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
+        "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
