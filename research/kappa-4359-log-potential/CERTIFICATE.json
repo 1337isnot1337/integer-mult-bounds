@@ -1,0 +1,181 @@
+{
+  "arithmetic": "Exact integer/Fraction arithmetic; atanh log enclosure and alternating exp enclosure",
+  "cases": [
+    {
+      "H_binary_upper_exponent": 22,
+      "N": {
+        "H": 2458275,
+        "encoding": "2^H"
+      },
+      "eta_lower": "790705014201/800000000000",
+      "gamma": "1/9",
+      "global_leaf_bound": "L(n) <= m^(1-t)*n^t*max(1,log(n))^gamma",
+      "k_min": 6,
+      "log_m_upper": "81/20",
+      "m": 57,
+      "m_binary_upper_exponent": 6,
+      "materialized_native_word": false,
+      "name": "complex_incumbent_saving",
+      "negative_controls": {
+        "one_smaller_H_fails_stated_final_inequality": true,
+        "saving_0.004_rejected_by_actual_tariff": true,
+        "zero_gamma_fails_complement_contraction": true
+      },
+      "paid": {
+        "1": 17623,
+        "2": 5065,
+        "3": 1738,
+        "4": 714,
+        "5": 254
+      },
+      "previous_H_divided_by_new_H": "276540184361/2458275",
+      "previous_N": {
+        "H": 276540184361,
+        "encoding": "2^H"
+      },
+      "r_max": 5,
+      "source_exit_potential": "sum_e x_e*e^t <= sum_s w_s*s^t",
+      "strict_final_power_gap": "1/1800000",
+      "strict_mixed_margin": [
+        "0.0087269008625916595201834021833364360440",
+        "0.0087269008625916595201834021833364360441"
+      ],
+      "strict_uniform_moment": "P_N/B_N < N^(1-uniform_saving)",
+      "t": "199539/200000",
+      "targets": {
+        "25": 448,
+        "57": 224,
+        "6": 192,
+        "7": 56,
+        "8": 93,
+        "9": 1229
+      },
+      "tested_mixed_saving": "461/200000",
+      "theta_upper": "9/10",
+      "uniform_saving": "36/15625",
+      "uniform_saving_gap": "1/1000000"
+    },
+    {
+      "H_binary_upper_exponent": 19,
+      "N": {
+        "H": 463652,
+        "encoding": "2^H"
+      },
+      "eta_lower": "246546417361/250000000000",
+      "gamma": "7/32",
+      "global_leaf_bound": "L(n) <= m^(1-t)*n^t*max(1,log(n))^gamma",
+      "k_min": 8,
+      "log_m_upper": "4",
+      "m": 50,
+      "m_binary_upper_exponent": 6,
+      "materialized_native_word": false,
+      "name": "bit_incumbent_saving",
+      "negative_controls": {
+        "one_smaller_H_fails_stated_final_inequality": true,
+        "saving_0.004_rejected_by_actual_tariff": true,
+        "zero_gamma_fails_complement_contraction": true
+      },
+      "paid": {
+        "1": 9261,
+        "2": 9394,
+        "3": 553,
+        "4": 308,
+        "5": 714,
+        "6": 77,
+        "7": 1465
+      },
+      "previous_H_divided_by_new_H": "1638232103/115913",
+      "previous_N": {
+        "H": 6552928412,
+        "encoding": "2^H"
+      },
+      "r_max": 7,
+      "source_exit_potential": "sum_e x_e*e^t <= sum_s w_s*s^t",
+      "strict_final_power_gap": "1/250000",
+      "strict_mixed_margin": [
+        "0.0670931839102023063432240519471140477573",
+        "0.0670931839102023063432240519471140477574"
+      ],
+      "strict_uniform_moment": "P_N/B_N < N^(1-uniform_saving)",
+      "t": "997231/1000000",
+      "targets": {
+        "22": 444,
+        "50": 222,
+        "8": 3073
+      },
+      "tested_mixed_saving": "2769/1000000",
+      "theta_upper": "15/16",
+      "uniform_saving": "69/25000",
+      "uniform_saving_gap": "9/1000000"
+    },
+    {
+      "H_binary_upper_exponent": 31,
+      "N": {
+        "H": 1729137493,
+        "encoding": "2^H"
+      },
+      "eta_lower": "197676162986325561/200000000000000000",
+      "gamma": "1/9",
+      "global_leaf_bound": "L(n) <= m^(1-t)*n^t*max(1,log(n))^gamma",
+      "k_min": 6,
+      "log_m_upper": "81/20",
+      "m": 57,
+      "m_binary_upper_exponent": 6,
+      "materialized_native_word": false,
+      "name": "complex_improved_outer_saving",
+      "negative_controls": {
+        "one_smaller_H_fails_stated_final_inequality": true,
+        "saving_0.004_rejected_by_actual_tariff": true,
+        "zero_gamma_fails_complement_contraction": true
+      },
+      "paid": {
+        "1": 17623,
+        "2": 5065,
+        "3": 1738,
+        "4": 714,
+        "5": 254
+      },
+      "r_max": 5,
+      "source_exit_potential": "sum_e x_e*e^t <= sum_s w_s*s^t",
+      "strict_final_power_gap": "7/4500000000",
+      "strict_mixed_margin": [
+        "0.0000188554472952932126952022696385083941",
+        "0.0000188554472952932126952022696385083942"
+      ],
+      "strict_uniform_moment": "P_N/B_N < N^(1-uniform_saving)",
+      "t": "99769491/100000000",
+      "targets": {
+        "25": 448,
+        "57": 224,
+        "6": 192,
+        "7": 56,
+        "8": 93,
+        "9": 1229
+      },
+      "tested_mixed_saving": "230509/100000000",
+      "theta_upper": "9/10",
+      "uniform_saving": "36017/15625000",
+      "uniform_saving_gap": "1/500000000"
+    }
+  ],
+  "generator_sha256": "ad92ee3790c441f7e3065e70527ada8a038f21ca70005832c67476d7f146e2ad",
+  "proof_sha256": "80b975cb630b92b7a5cfd2cb43b7492115f8fd1eba187c1005ee606ad1f77062",
+  "schema": "logarithmic-finite-template-certificate/1",
+  "scope": [
+    "Conditional on the pinned finite compiler and complete native arbitrary-input contracts.",
+    "The new proof bounds paid rank-one leaves, including all complements and exits.",
+    "Every scalar, routing, owned-storage and precision constant must be computed from the selected finite word.",
+    "No winning instruction list, GL cover, B_N, P_N or U_N is materialized.",
+    "An integer-multiplication kappa requires the separate outer-transfer argument and its inherited hypotheses."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359",
+  "source_sha256": {
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md": "4cb32f6b8e388ecf6ed41b5bbdeeb4539cb40c8424f194974afea58f7e0921e8",
+    "research/kappa-rebuild/bit/MIXED-PRODUCTIVE-BIT.json": "2f69a19f417c0e0d141c180f9b2fae3d358391b9a230f5848ee07c45450e70bf",
+    "research/kappa-rebuild/controller/EXPLICIT-TEMPLATE-BOUNDS.json": "3f1abfafa6f1bb192aafdf342a33ef60fd469fb0764be3eb1516984fc3c22c3f",
+    "research/kappa-rebuild/controller/P3-NATIVE-COVER.json.gz": "facfc6d6ecde151afb7e6a167776f3fdaac1c816e785a21a39f7f0bfd9140f3f",
+    "research/kappa-rebuild/transfer-audit/finite_dag_audit.py": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e"
+  },
+  "status": "PASS_RATIONAL_LOG_POTENTIAL_AND_EXPLICIT_TEMPLATE_RANKS"
+}

@@ -1,0 +1,446 @@
+{
+  "complex_paid": {
+    "1": 17623,
+    "2": 5065,
+    "3": 1738,
+    "4": 714,
+    "5": 254
+  },
+  "complex_targets": {
+    "25": 448,
+    "57": 224,
+    "6": 192,
+    "7": 56,
+    "8": 93,
+    "9": 1229
+  },
+  "controls": {
+    "above_root_002306_margin": [
+      {
+        "decimal": "-0.0880289938839841745738434905649427128061309405866572987508954",
+        "rational": "-188028789721351279045757074015803480799491316454933955750268035532735501940084568689715200463849/2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576"
+      },
+      {
+        "decimal": "-0.0880289938839841745738434905649427128061309405866572987508954",
+        "rational": "-188028789721351279045757074015803480799491316454933955750268035532735501940084568689715200397721/2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576"
+      }
+    ],
+    "changed_inherited_source_rejected_before_execution": true,
+    "zero_gap_rejected": true
+  },
+  "explicit_uniform_template": {
+    "N": {
+      "H": 1729137493,
+      "encoding": "2^H"
+    },
+    "case": "complex_improved_outer_saving",
+    "certificate_sha256": "437249ec442e91ca758c08b09fa2ac2c99cbf30abb3004216bed7624b71b6d25",
+    "generator_sha256": "ad92ee3790c441f7e3065e70527ada8a038f21ca70005832c67476d7f146e2ad",
+    "proof_sha256": "80b975cb630b92b7a5cfd2cb43b7492115f8fd1eba187c1005ee606ad1f77062",
+    "strict_final_power_gap": {
+      "decimal": "1.55555555555555555555555555555555555555555555555555555555556E-9",
+      "rational": "7/4500000000"
+    },
+    "tested_mixed_saving": {
+      "decimal": "0.00230509",
+      "rational": "230509/100000000"
+    },
+    "uniform_saving": {
+      "decimal": "0.002305088",
+      "rational": "36017/15625000"
+    },
+    "validation": "Full independent rank-certificate replay and exact c/U/N cross-check"
+  },
+  "inherited_crosscheck": {
+    "inherited_checks": 63,
+    "matched_checks": 49,
+    "matched_outer_rows": 9,
+    "positive_backoff": {
+      "decimal": "1.995389836E-9",
+      "rational": "498847459/250000000000000000"
+    }
+  },
+  "not_claimed": [
+    "A changed local productive tariff.",
+    "Attainment of the mixed root itself.",
+    "A formally verified compiler or an unconditional integer multiplication theorem."
+  ],
+  "outer": {
+    "minimum_outer_slack": {
+      "decimal": "1.995389836E-9",
+      "rational": "498847459/250000000000000000"
+    },
+    "nine_outer_savings": {
+      "boundary_algebraic_matrix": {
+        "decimal": "0.002305082495389836",
+        "rational": "576270623847459/250000000000000000"
+      },
+      "fused_gaussian": {
+        "decimal": "0.002305083986169508",
+        "rational": "576270996542377/250000000000000000"
+      },
+      "global_coordinate_router": {
+        "decimal": "0.002305084",
+        "rational": "576271/250000000"
+      },
+      "group_bit_router": {
+        "decimal": "0.002305085986169496",
+        "rational": "288135748271187/125000000000000000"
+      },
+      "group_scans": {
+        "decimal": "0.999999996",
+        "rational": "249999999/250000000"
+      },
+      "main_transform": {
+        "decimal": "0.002305081995389836",
+        "rational": "576270498847459/250000000000000000"
+      },
+      "microbox_face_corrections": {
+        "decimal": "77.000000008",
+        "rational": "9625000001/125000000"
+      },
+      "polynomial_products": {
+        "decimal": "0.999999998",
+        "rational": "499999999/500000000"
+      },
+      "sparse_union_movement": {
+        "decimal": "0.408555082495389836",
+        "rational": "102138770623847459/250000000000000000"
+      }
+    },
+    "parameters": {
+      "BIT_saving": {
+        "decimal": "0.0027",
+        "rational": "27/10000"
+      },
+      "Strassen_exponent": {
+        "decimal": "2.8125",
+        "rational": "45/16"
+      },
+      "b": {
+        "decimal": "0.002305086",
+        "rational": "1152543/500000000"
+      },
+      "cap_xi": {
+        "decimal": "0.908555080495389836",
+        "rational": "227138770123847459/250000000000000000"
+      },
+      "complex_uniform_saving": {
+        "decimal": "0.002305088",
+        "rational": "36017/15625000"
+      },
+      "core_power": 128,
+      "delta": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "effective_saving": {
+        "decimal": "0.002305084",
+        "rational": "576271/250000000"
+      },
+      "epsilon": {
+        "decimal": "0.999999998",
+        "rational": "499999999/500000000"
+      },
+      "group_beta": {
+        "decimal": "0.999999994",
+        "rational": "499999997/500000000"
+      },
+      "halo_power": 48,
+      "kappa": {
+        "decimal": "0.00230508",
+        "rational": "57627/25000000"
+      },
+      "lambda": {
+        "decimal": "0.997694917",
+        "rational": "997694917/1000000000"
+      },
+      "lambda_prime": {
+        "decimal": "0.997694918",
+        "rational": "498847459/500000000"
+      },
+      "layout_slack": {
+        "decimal": "5E-10",
+        "rational": "1/2000000000"
+      },
+      "q": {
+        "decimal": "0.002305082",
+        "rational": "1152541/500000000"
+      },
+      "r0": {
+        "decimal": "5E-10",
+        "rational": "1/2000000000"
+      },
+      "stop": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "tested_mixed_saving": {
+        "decimal": "0.00230509",
+        "rational": "230509/100000000"
+      },
+      "theta_power": {
+        "decimal": "2",
+        "rational": "2"
+      }
+    },
+    "strict_checks": {
+      "actual_BIT_above_effective": {
+        "decimal": "0.000394916",
+        "rational": "98729/250000000"
+      },
+      "actual_logarithmic_gamma_guard": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "actual_logarithmic_group_guard": {
+        "decimal": "0.182889845009220328",
+        "rational": "22861230626152541/125000000000000000"
+      },
+      "alpha_logarithm_absorption": {
+        "decimal": "5E-10",
+        "rational": "1/2000000000"
+      },
+      "boundary_algebraic_matrix_above_kappa": {
+        "decimal": "2.495389836E-9",
+        "rational": "623847459/250000000000000000"
+      },
+      "cap_above_band": {
+        "decimal": "0.408555080495389836",
+        "rational": "102138770123847459/250000000000000000"
+      },
+      "cap_below_cell": {
+        "decimal": "0.091444917504610164",
+        "rational": "22861229376152541/250000000000000000"
+      },
+      "cap_below_phase_cell_power": {
+        "decimal": "1.091444919504610164",
+        "rational": "272861229876152541/250000000000000000"
+      },
+      "complex_above_effective": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "complex_below_one_over_32": {
+        "decimal": "0.028944914",
+        "rational": "14472457/500000000"
+      },
+      "complex_endpoint": {
+        "decimal": "4E-9",
+        "rational": "1/250000000"
+      },
+      "epsilon_below_one": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "epsilon_positive": {
+        "decimal": "0.999999998",
+        "rational": "499999999/500000000"
+      },
+      "fine_prime_halo_umbrella": {
+        "decimal": "3.5",
+        "rational": "7/2"
+      },
+      "fixed_halo_explicit_metadata_branch": {
+        "decimal": "77.000000008",
+        "rational": "9625000001/125000000"
+      },
+      "fused_gaussian_above_kappa": {
+        "decimal": "3.986169508E-9",
+        "rational": "996542377/250000000000000000"
+      },
+      "gaussian_above_main": {
+        "decimal": "1.990779672E-9",
+        "rational": "248847459/125000000000000000"
+      },
+      "global_coordinate_router_above_kappa": {
+        "decimal": "4E-9",
+        "rational": "1/250000000"
+      },
+      "global_gamma_power_slack": {
+        "decimal": "1.5E-9",
+        "rational": "3/2000000000"
+      },
+      "group_below_dimension": {
+        "decimal": "4E-9",
+        "rational": "1/250000000"
+      },
+      "group_bit_router_above_kappa": {
+        "decimal": "5.986169496E-9",
+        "rational": "748271187/125000000000000000"
+      },
+      "group_gauge_power_slack": {
+        "decimal": "0.182889844509220328",
+        "rational": "22861230563652541/125000000000000000"
+      },
+      "group_key_fits_record": {
+        "decimal": "4E-9",
+        "rational": "1/250000000"
+      },
+      "group_positive": {
+        "decimal": "0.999999994",
+        "rational": "499999997/500000000"
+      },
+      "group_scans_above_kappa": {
+        "decimal": "0.997694916",
+        "rational": "249423729/250000000"
+      },
+      "halo_covers_generic_inverse_radius": {
+        "decimal": "5",
+        "rational": "5"
+      },
+      "lambda_above_internal": {
+        "decimal": "1E-9",
+        "rational": "1/1000000000"
+      },
+      "lambda_above_sigma": {
+        "decimal": "3E-9",
+        "rational": "3/1000000000"
+      },
+      "lambda_above_tau": {
+        "decimal": "1E-9",
+        "rational": "1/1000000000"
+      },
+      "lambda_prime_above_lambda": {
+        "decimal": "1E-9",
+        "rational": "1/1000000000"
+      },
+      "lambda_prime_above_leaf": {
+        "decimal": "3.995389828E-9",
+        "rational": "998847457/250000000000000000"
+      },
+      "leaf_saving_above_effective": {
+        "decimal": "1.995389828E-9",
+        "rational": "498847457/250000000000000000"
+      },
+      "main_transform_above_kappa": {
+        "decimal": "1.995389836E-9",
+        "rational": "498847459/250000000000000000"
+      },
+      "membership_arithmetic_fits_record": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "microbox_face_corrections_above_kappa": {
+        "decimal": "76.997694928",
+        "rational": "4812355933/62500000"
+      },
+      "microbox_halo_volume": {
+        "decimal": "79.000000006",
+        "rational": "39500000003/500000000"
+      },
+      "new_BIT_row_stock_sublinear_in_active_group": {
+        "decimal": "0.996999994018",
+        "rational": "498499997009/500000000000"
+      },
+      "new_semantic_group_guard": {
+        "decimal": "6E-9",
+        "rational": "3/500000000"
+      },
+      "new_semantic_guard_with_C1_one": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "polynomial_products_above_kappa": {
+        "decimal": "0.997694918",
+        "rational": "498847459/500000000"
+      },
+      "positive_layout_slack": {
+        "decimal": "5E-10",
+        "rational": "1/2000000000"
+      },
+      "q_below_effective": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "q_below_internal": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "q_below_leaf": {
+        "decimal": "3.995389828E-9",
+        "rational": "998847457/250000000000000000"
+      },
+      "q_positive": {
+        "decimal": "0.002305082",
+        "rational": "1152541/500000000"
+      },
+      "short_record_fallback": {
+        "decimal": "0.997694914",
+        "rational": "498847457/500000000"
+      },
+      "source_axis_superpolynomial": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "sparse_union_movement_above_kappa": {
+        "decimal": "0.406250002495389836",
+        "rational": "101562500623847459/250000000000000000"
+      },
+      "stop_below_one": {
+        "decimal": "0.999999998",
+        "rational": "499999999/500000000"
+      },
+      "stop_positive": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "strassen_integer_power_gap": {
+        "decimal": "1951441519231",
+        "rational": "1951441519231"
+      },
+      "support_router_span": {
+        "decimal": "6E-9",
+        "rational": "3/500000000"
+      },
+      "tested_mixed_above_uniform": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "theta_positive_polynomial_power": {
+        "decimal": "2",
+        "rational": "2"
+      },
+      "uniform_above_selected_complex": {
+        "decimal": "2E-9",
+        "rational": "1/500000000"
+      },
+      "union_header_fits_record": {
+        "decimal": "6E-9",
+        "rational": "3/500000000"
+      },
+      "union_tag_work_per_visit_fits_record": {
+        "decimal": "6E-9",
+        "rational": "3/500000000"
+      }
+    }
+  },
+  "package_sha256": {
+    "README.md": "de633bf01e893f2e2fcb87ec50c86688d6b0b676d1941c04a276b305db3646de",
+    "verify.py": "4a51eea1d796224e4a8bb6e2031146ba743e63ed88b2e7e241093a7025a063de"
+  },
+  "schema": "strict-mixed-root-outer-approach/1",
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-observation-integration/release-work/current/package/outer/check_ledger.py": "1dd56009986eb14dd6603c9193c7ad71dd45c7d005bf71c9cd3f916e66f54d98",
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md": "4cb32f6b8e388ecf6ed41b5bbdeeb4539cb40c8424f194974afea58f7e0921e8",
+    "research/kappa-rebuild/bit/DELAYED-COVER-BRIDGE.md": "9731b93026717f5fa15851e3633cbb4bdc76eba2bffb9d6b4a3b69f7dd502443",
+    "research/kappa-rebuild/controller/OUTER-PARAMETERS.json": "15818c10c41ac2ea650e503de830795f6c88830a7f9be9553dd938bb1d76717a",
+    "research/kappa-rebuild/controller/P3-NATIVE-COVER.json.gz": "facfc6d6ecde151afb7e6a167776f3fdaac1c816e785a21a39f7f0bfd9140f3f",
+    "research/kappa-rebuild/transfer-audit/FINITE-TEMPLATE-CLOSURE.md": "3f8508c63862dd83968bd30df91b08ba5afcee1e10db15ca546cdff0caef95d9",
+    "research/kappa-rebuild/transfer-audit/OUTER-TRANSFER-AUDIT.md": "67569961d068633c6ff3ac9dfde47a0c17f0da6d20432799dcc920cff92b5779"
+  },
+  "status": "PASS_EXACT_CONDITIONAL_PARAMETER_IMPLICATION",
+  "strict_mixed_margin_at_tested_saving": [
+    {
+      "decimal": "0.0000188554472952932126952022696385083941888031737231842888019023",
+      "rational": "40274990979236290362752916328787021475114265275602881748188403911953255512884523100509173401/2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576"
+    },
+    {
+      "decimal": "0.0000188554472952932126952022696385083941888031737231842888019023",
+      "rational": "40274990979236290362752916328787021475114265275602881748188403911953255512884523100509239921/2135987035920910082395021706169552114602704522356652769947041607822219725780640550022962086936576"
+    }
+  ],
+  "template_closure": "Use the finite compiler at the authenticated new rank N, with the generic replacement scalar, semantic, stock and routing constants of the pinned FINITE-TEMPLATE-CLOSURE.md. The old .002304 template is not reused.",
+  "theorem_scope": "For every rational 0<kappa<c<min(C_complex_root,BIT_saving,1/32), the parameter family passes the stated strict outer interface, conditional on the unchanged native compiler, delayed cover, semantic/stock closure, and inherited analytic/tape hypotheses."
+}
