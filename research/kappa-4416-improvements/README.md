@@ -28,8 +28,9 @@ saving than the raw root, including `kappa=0.002686489`.
 | Closer-to-root finite endpoint | `0.002686489` | 9750 | 17 | `2^5670914876226139` |
 
 All rows use paid cutoff base 10 and raw ambient rank 121. A base in
-the table is raised to the row's tensor power. The unchanged-endpoint
-improvement reduces `log2(N)` by more than 1.3 million times compared
+the table is raised to the row's tensor power. The floor-17 construction
+at `kappa=0.00268647` makes `log2(N)` smaller by a factor exceeding
+1.3 million compared
 with #4416's specified bound. These are bounds on sufficient ambient
 rank. The complete words remain astronomical, and their instruction
 counts and productive widths need not decrease by the same ratio.
@@ -130,8 +131,9 @@ outer consumer.
 Write `T_t` and `P_t` for the two exact raw rank moments and
 `t=1-C`. An exact signed-rank decomposition proves that
 `(T_t-P_t)/5^t` is strictly increasing throughout `t>=0`.
-Its integer endpoint values are `-48310` and `608`. Directed rational
-intervals then enclose the unique saving root by the two numbers above.
+The unscaled moment `T_t-P_t` equals `-48310` at `t=0` and `608` at
+`t=1`. Directed rational intervals then enclose the unique saving
+root by the two numbers above.
 
 The construction has a uniform paid-tail estimate:
 
@@ -178,6 +180,40 @@ positive-moment certificates. It does not exclude a better raw
 controller, a different analysis of the supplier, or a different
 multiplication algorithm.
 
+## A ceiling for every declared two-chain profile
+
+The [all-p chain limit](../kappa-4416-chain-limit/PROOF.md) extends
+#4416's finite formula screen over `2<=p<=20`. Among every integer
+`p>=1` and every split of the two chains in that exact declared
+invoice family, the balanced `p=7` member has the largest raw
+mixed-moment root.
+
+For fixed `0<t<1`, the successive chain contributions are
+`f_t(j)=(16j+25)^t-(16j+16)^t`. Strict concavity makes them decrease
+with `j`, so balanced chains maximize the moment at each `p`.
+The successive differences of those balanced maxima then decrease
+strictly with `p`. Two exact rational comparisons at the full p7
+root enclosure settle the whole unbounded sequence:
+
+```math
+1.253606978240 < M_7-M_6 < 1.253606978241,
+\qquad
+1.427475680484 < M_7-M_8 < 1.427475680485.
+```
+
+Here each `M_p` denotes the balanced moment evaluated at the same
+point in the root enclosure. At the p7 root, its moment is zero
+and every other declared profile has a negative moment. An exact
+rank-8/rank-9 pairing proves that each profile's moment divided by
+`5^t` increases strictly with `t`, so none becomes positive again
+at a larger saving.
+
+This ceiling also survives tensor products of different declared
+profiles, paid target completion and paid splitting. It does not
+classify arbitrary idle masks or admit a physical controller for
+every formula. Even granting all those declared formulas native
+admission would not improve their raw endpoint beyond the p7 root.
+
 ## Reproduction
 
 Use Python 3.12 or newer with the standard library. Provide a separate
@@ -199,13 +235,16 @@ python3 -I -O -B research/kappa-4416-log-template/verify.py --source-root /tmp/p
 python3 -I -O -B research/kappa-4416-padding-endpoint/verify.py --source-root /tmp/pr4416-source --check
 python3 -I -O -B research/kappa-4416-root-family/verify.py --source-root /tmp/pr4416-source --check
 python3 -I -O -B research/kappa-4416-efficient-root-point/verify.py --source-root /tmp/pr4416-source --check
+python3 -I -O -B research/kappa-4416-chain-limit/verify.py --source-root /tmp/pr4416-source --check
 ```
 
 The second command authenticates and replays the first package, including
 the entire source verifier. The third replays both companions before
 checking the full strict root family. The fourth independently
 recomputes the tuned finite point; the frozen root-family receipt
-serves only as its historical rank comparison. All packages compare deterministic
+serves only as its historical rank comparison. The fifth replays the
+full root family and checks the declared-profile identities and
+neighbor signs used by the unbounded proof. All packages compare deterministic
 saved receipts. New acceptance decisions use exact rational or integer
 arithmetic. Two separately implemented directed moment engines check
 the changed mixed points and both complete paid tails.
@@ -218,7 +257,7 @@ outer parameters. A separate exact two-class obstruction explains why
 the unpadded raw rule cannot simply bypass the literal compiler's
 rank separation.
 
-The two finite-point packages also passed an isolated, optimized
+The initial log-template and padding-endpoint packages also passed an isolated, optimized
 replay under Python 3.12.14. A fresh Pyroam workspace downloaded all
 41 pinned source files and seven contribution files from GitHub,
 checked every Git blob, and reproduced the same receipts under
@@ -238,6 +277,12 @@ optimized deterministic replay under Python 3.12.14. Its proof and
 checker were independently reviewed; a separate rational logarithm
 calculation confirmed `gamma=608`, the rejected preceding exponent,
 the exact finite rank and the full outer funding.
+
+The all-p chain-limit package passed an isolated optimized
+deterministic replay under Python 3.12.14, including the full
+root-family dependency chain. Its whole-root-enclosure neighbor
+comparisons were also independently reproduced with a separate
+rational interval calculation.
 
 ## Context, attribution and remaining questions
 
@@ -268,25 +313,41 @@ its narrow remaining raw-root headroom. Its scope excludes the native
 word and full consumer; its source description and checker were read.
 The new contribution here includes the changed paid padding, complete
 finite templates, complete outer points, constructive full strict
-range and scoped certificate ceiling.
+range, scoped certificate ceiling and all-p declared-chain limit.
+
+The later [#4426](https://github.com/CrocSwap/integer-mult-bounds/pull/4426),
+at `6f918e2658c727007611d98ffb8d3c7336e2290c`, independently rebuilds
+the selected p7 Laurent word and invoice.
+[#4428](https://github.com/CrocSwap/integer-mult-bounds/pull/4428), at
+`ba0efeaac4e62d1757d7a9be6fd8aaf8f9bd35dc`, checks the original
+paid-completion proof and arithmetic and gives further fixed-recipe
+improvements under the earlier power induction. Both explicitly state
+no new final kappa. Their primary descriptions and #4428's checker
+were read during the final overlap refresh. They do not supply the
+constructive full outer range or the all-p declared-chain theorem here.
 
 This focused branch starts from canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`. Source heads were checked
 against the live PR queue before publication. The overlap search is
-not exhaustive, and Discussion coverage was unavailable.
+not exhaustive, and Discussion coverage was unavailable. The final
+queue refresh through #4429 at 18:13 UTC on 2026-10-21 found no larger
+stated final kappa than `0.002686489` in the checked entries.
 
 ## Open next questions
 
 A stronger raw controller or admitted native operation could move the
-mixed-moment root. A feasible first step is to extend the exact
-controller factorization and invoice to a fresh candidate. A candidate
+mixed-moment root. The all-p result rules out achieving that merely
+by increasing `p` or changing the split in the declared two-chain
+formula. A feasible first step is an exact controller factorization
+and complete invoice outside that formula. A candidate
 must retain the chronological word, arbitrary input fields, helper
 owners and complete paid calls before its numerical moment is useful.
 The root-family ceiling does not settle this broader search.
 
 Sharper finite parameters can reduce the very large sufficient
-templates. The immediate step is to combine a tighter raw-moment gap
-with the floor-17 paid-tail bound and rerun the full outer consumer.
+templates. The next step is to compare tighter complete splitting
+and paid-tail bounds across cutoff and tensor-power choices, then
+rerun the full outer consumer and charge the actual width and movement.
 An improvement in ambient rank alone does not establish a comparable
 reduction in productive width or expanded instruction count.
 
