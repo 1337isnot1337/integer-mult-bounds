@@ -46,3 +46,5 @@ python3 -B research/gauge44-a-resynthesis/verify.py --work /tmp/gauge44-a-resynt
 ```
 
 The command replays the package-local global verifier against the repository's pinned dependencies and checks the frozen candidate hash. The exact A-block search can be rerun with `search/reproduce.py` when the PR #799 X4 input word is available.
+
+The live execution receipt is frozen in `artifacts/CURRENT-MAIN-LIVE-REPLAY.json`. It records a fresh run of the package verifier from package logic commit `e83aaa13` against the full repository checkout at main `12fa8c5c844be21bfefb38a19503fbd867a11244`; every restore, bind, emit, audit, invoice, assembly, admission-control, and bit-supplier-control stage exited zero, with the same `κ = 0.001661634653669567` and candidate SHA.
