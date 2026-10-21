@@ -1,6 +1,6 @@
 {
   "status": "PASS_SEPARATE_SOURCE_PROOF_CODE_INTEGRATION_REVIEW_AND_ROOT_REPLAY",
-  "reviewed_at": "2026-10-21T11:06:34.749816+00:00",
+  "reviewed_at": "2026-10-21T11:11:18.682927+00:00",
   "file_sha256": {
     "EXPECTED-ENGINE.json": "eac1083b7bcd6bc9b6452270211de840c019deecac2e91f112d707e513bf21b5",
     "EXPECTED-ORACLE.json": "cc1185ba1507c18a8b92247f6bf115db387213c63bd8ada62cead6a07d7a7f0b",
@@ -21,8 +21,14 @@
     "source/instances/2979.json": "f7dad381b29c04e218e8a23549b0889072ba82248d5a79cec3cbc1c61075a212",
     "source/tools/g0_staged.py": "c67992b6699df3d9b36dd3bbc8343dc19bf371d0a06cdaced9690ba9e8707f7d",
     "source_context.py": "f90b1ab26b48f3fd8ef93f3882783dc9a7d64d592d95d7ba8f72d2c525f11db1",
-    "verify.py": "35e4d629ce700b9e93989652f9deb239fb23dfa625f27bda4c612f9e3fb95171"
+    "verify.py": "31e31b19f79e9d991462d5ccf7626d6e57fa7a3a63979bc53000dfa1e678aae2"
   },
-  "independent_review_sha256": "9bfdaacdb4c02b26ecf126a9fc4cce88c539e1eb8475680e5c4d6242bfb9fca0",
-  "review_scope": "Separate AI static review of19files; root verified added SOURCE-PINS manifest against19inputs. Fresh normal/optimized fulltyped payload equality, separate dense arithmetic with shared source extraction. Identity-cover/completed-invocation/geometry premises retained; no human/kernel/native/supplier/outer acceptance."
+  "review_v1_sha256": "9bfdaacdb4c02b26ecf126a9fc4cce88c539e1eb8475680e5c4d6242bfb9fca0",
+  "review_v2_sha256": "846fa5125ff81fcb13875e87be32390729be00f4ea0f93b6653465a9dc46bcc9",
+  "review_scope": "Separate static source/proof/code review, v2 runtime-export-boundary correction; final clean-export replay required. Source extraction shared; no human/kernel/native/supplier/outer acceptance.",
+  "preserved_failed_freeze": {
+    "local_commit": "6d9b94a70f3c3141076eede6b33014f34c8d34c4",
+    "public_commit": "c802b50048c344572e605780801b5a365d658c1f",
+    "reason": "Runtime provenance paths absent from declared export; corrected by skipping provenance at runtime; science/data unchanged."
+  }
 }

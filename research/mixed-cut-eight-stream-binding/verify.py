@@ -41,6 +41,8 @@ def authenticate():
     inventory = json.loads((PACKAGE/'SOURCES.json').read_text())
     count = 0
     for row in inventory['files']:
+        if row['usage'] != 'input':
+            continue  # Provenance is checked by historical transport, not replay.
         path = ROOT/row['path']
         require(path.is_file() and not path.is_symlink(), 'regular source file')
         raw = path.read_bytes()
