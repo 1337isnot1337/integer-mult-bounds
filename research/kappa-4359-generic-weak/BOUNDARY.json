@@ -1,0 +1,294 @@
+{
+  "generator_sha256": "489283996fda6feb3faf62824e8509dd91ba519c4201aecf27b7197877f55428",
+  "materialized_cases": [
+    {
+      "ambient_rank": 4,
+      "exponent_k": 2,
+      "full_rank_arrays": 2,
+      "leaves_per_array": "7/2",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": false,
+      "rank_one_leaves": 7,
+      "recursive_unit_count": 1,
+      "replication": 1,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 1,
+        "dependency_edges": 7,
+        "event_nodes": 6,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "2": 2
+        },
+        "generations": 0,
+        "ordered_exit_batches": 2,
+        "owned_fields_uncredited_conservative_allocation": 1,
+        "rank": 4,
+        "source_fields": 2,
+        "source_ranks": {
+          "2": 1,
+          "3": 1
+        },
+        "units": 1
+      }
+    },
+    {
+      "ambient_rank": 8,
+      "exponent_k": 3,
+      "full_rank_arrays": 8,
+      "leaves_per_array": "47/8",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 47,
+      "recursive_unit_count": 11,
+      "replication": 2,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 3,
+        "dependency_edges": 21,
+        "event_nodes": 16,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "4": 4
+        },
+        "generations": 1,
+        "ordered_exit_batches": 4,
+        "owned_fields_uncredited_conservative_allocation": 3,
+        "rank": 8,
+        "source_fields": 4,
+        "source_ranks": {
+          "4": 1,
+          "6": 3
+        },
+        "units": 3
+      }
+    },
+    {
+      "ambient_rank": 16,
+      "exponent_k": 4,
+      "full_rank_arrays": 64,
+      "leaves_per_array": "619/64",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 619,
+      "recursive_unit_count": 183,
+      "replication": 8,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 7,
+        "dependency_edges": 49,
+        "event_nodes": 36,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "8": 8
+        },
+        "generations": 2,
+        "ordered_exit_batches": 8,
+        "owned_fields_uncredited_conservative_allocation": 7,
+        "rank": 16,
+        "source_fields": 8,
+        "source_ranks": {
+          "8": 1,
+          "12": 7
+        },
+        "units": 7
+      }
+    },
+    {
+      "ambient_rank": 32,
+      "exponent_k": 5,
+      "full_rank_arrays": 1024,
+      "leaves_per_array": "16163/1024",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 16163,
+      "recursive_unit_count": 5391,
+      "replication": 64,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 15,
+        "dependency_edges": 105,
+        "event_nodes": 76,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "16": 16
+        },
+        "generations": 3,
+        "ordered_exit_batches": 16,
+        "owned_fields_uncredited_conservative_allocation": 15,
+        "rank": 32,
+        "source_fields": 16,
+        "source_ranks": {
+          "16": 1,
+          "24": 15
+        },
+        "units": 15
+      }
+    },
+    {
+      "ambient_rank": 64,
+      "exponent_k": 6,
+      "full_rank_arrays": 32768,
+      "leaves_per_array": "840403/32768",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 840403,
+      "recursive_unit_count": 300415,
+      "replication": 1024,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 31,
+        "dependency_edges": 217,
+        "event_nodes": 156,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "32": 32
+        },
+        "generations": 4,
+        "ordered_exit_batches": 32,
+        "owned_fields_uncredited_conservative_allocation": 31,
+        "rank": 64,
+        "source_fields": 32,
+        "source_ranks": {
+          "32": 1,
+          "48": 31
+        },
+        "units": 31
+      }
+    },
+    {
+      "ambient_rank": 128,
+      "exponent_k": 7,
+      "full_rank_arrays": 2097152,
+      "leaves_per_array": "87210803/2097152",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 87210803,
+      "recursive_unit_count": 32459615,
+      "replication": 32768,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 63,
+        "dependency_edges": 441,
+        "event_nodes": 316,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "64": 64
+        },
+        "generations": 5,
+        "ordered_exit_batches": 64,
+        "owned_fields_uncredited_conservative_allocation": 63,
+        "rank": 128,
+        "source_fields": 64,
+        "source_ranks": {
+          "64": 1,
+          "96": 63
+        },
+        "units": 63
+      }
+    },
+    {
+      "ambient_rank": 256,
+      "exponent_k": 8,
+      "full_rank_arrays": 268435456,
+      "leaves_per_array": "18080989171/268435456",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank_one_leaves": 18080989171,
+      "recursive_unit_count": 6895401759,
+      "replication": 2097152,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 127,
+        "dependency_edges": 889,
+        "event_nodes": 636,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "128": 128
+        },
+        "generations": 6,
+        "ordered_exit_batches": 128,
+        "owned_fields_uncredited_conservative_allocation": 127,
+        "rank": 256,
+        "source_fields": 128,
+        "source_ranks": {
+          "128": 1,
+          "192": 127
+        },
+        "units": 127
+      }
+    }
+  ],
+  "mixed_test": {
+    "exact_square_comparison": "3>2",
+    "surplus": "sqrt(3)-sqrt(2)>0",
+    "t": "1/2"
+  },
+  "not_claimed": [
+    "A native circuit realizing the synthetic role contract.",
+    "A lower bound for integer multiplication or arbitrary algorithms.",
+    "Impossibility of every other uniformization construction or of a useful specially chosen finite rank.",
+    "A failure of the actual repacked native tariff, which has many paid ranks strictly below q."
+  ],
+  "old_strict_interface_rejects": true,
+  "owned_roles": [
+    "owned-C0"
+  ],
+  "paid_mean": {
+    "P1": 4,
+    "P2": 8,
+    "P2_over_P1": "2",
+    "q": 2,
+    "strict_nonmaximal_paid_guard_satisfied": false
+  },
+  "paid_rounds": [
+    [
+      2,
+      "a"
+    ],
+    [
+      2,
+      "owned-C0"
+    ]
+  ],
+  "proof_sha256": "34b0832f0d6d07bf3be024348ecdd452cd52ffc3534e532f2a7ff1c47cf91070",
+  "rank_one_surplus": 1,
+  "recurrence": {
+    "f_0": "1",
+    "f_1": "2",
+    "f_k": "L(2^k)",
+    "formula": "f_k=(1+2^(1-k))*f_(k-1)+(1-2^(1-k))*f_(k-2)",
+    "lower_bound": "f_k>=phi^k, where phi=(1+sqrt(5))/2>sqrt(2)",
+    "valid_for": "Every integer k>=2; proved from exact lattice and source/exit counts."
+  },
+  "roles": [
+    [
+      "a",
+      2
+    ],
+    [
+      "b",
+      3
+    ]
+  ],
+  "schema": "literal-weak-compiler-all-maximal-paid-boundary/1",
+  "scope": [
+    "A synthetic complete-role contract for the literal finite compiler, including a paid owned-center call.",
+    "The all-k recurrence and growth obstruction are proved in BOUNDARY.md; seven finite graphs corroborate them.",
+    "No finite A and fixed gamma bound this compiler's L(n) by A*n^(1/2)*max(1,ln(n))^gamma for all n."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-rebuild/transfer-audit/finite_dag_audit.py": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e"
+  },
+  "status": "PASS_LITERAL_COMPILER_FIBONACCI_BOUNDARY",
+  "weak_interface_generator_sha256": "33d43a20a55e3eb6200abb478f3ef9bcd3d866233cacd7930d15c87fa0759605",
+  "weak_interface_receipt_sha256": "2bd9043b77e5219e92d101c3c5f469bf302618ac932484f169f1ad3614ac1187"
+}

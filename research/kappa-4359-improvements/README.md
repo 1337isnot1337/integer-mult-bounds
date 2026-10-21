@@ -17,6 +17,11 @@ weighted-exit proof permits equality between maximum paid rank and minimum
 productive target rank. An exact finite-rank certificate and rational
 outer parameters complete the conditional implication.
 
+The latest logarithmic-mean proof supplies the uniform saving
+`0.002312848` at the specified rank `N=2^206938551`. Further work
+also proves a generic weak-separation theorem and a maximum mixed root
+within the precisely stated existing native window-packing class.
+
 The predecessor is pinned to
 `da637c87c89482bc4c86be36bd0071b3d400dbed`. This contribution is based on
 canonical main `12fa8c5c844be21bfefb38a19503fbd867a11244`; its checkers
@@ -33,10 +38,12 @@ record and is unchanged.
 | Native topup removal | [Native deletion proof](../kappa-4359-native-five/README.md) | Exactly 102 authenticated, disjoint sixth-axis topups are removed, with lower endpoint promises and all complement costs retained |
 | Further native packing gain | [Packing proof](../kappa-4359-native-packing/README.md) | 38 literal idle owners receive a better helper partition, with full coordinate maps, inventories, normalizers and paid chronology reconstructed |
 | Equal-rank finite compilation | [WeakRule interface](../kappa-4359-weak-compiler/README.md) and [weighted-exit proof](../kappa-4359-weak-separation/PROOF.md) | Finite chronological integer batching with `r_max <= k_min < m` and `k_min >= 2` |
-| Specified successful finite rank | [Packed-tail proof](../kappa-4359-packed-tail/PROOF.md) | Uniform saving `0.002312848` at `N=2^756938551` |
-| Final integer-multiplication exponent | [Outer proof](../kappa-4359-native-packing/OUTER.md) | All nine cost rows strictly support `kappa=0.00231284`, with authenticated native and compiler dependencies |
+| Specified successful finite rank | [Logarithmic-mean proof](../kappa-4359-log-mean/PROOF.md) | Uniform saving `0.002312848` at `N=2^206938551`, reduced from the earlier `2^756938551` certificate |
+| Final integer-multiplication exponent | [Complete mean-bound certificate](../kappa-4359-log-mean/CERTIFICATE.json) and [outer parameter proof](../kappa-4359-native-packing/OUTER.md) | All nine cost rows strictly support `kappa=0.00231284`, with authenticated native and compiler dependencies and the new template's own constants |
 | Entire strict endpoint range | [Packed-tail theorem](../kappa-4359-packed-tail/PROOF.md) | Every fixed rational `0<kappa<C_*`, where `C_*` is the final mixed root, with a finite template chosen for that kappa |
 | Smaller templates for the original tariff | [Logarithmic potential proof](../kappa-4359-log-potential/PROOF.md) | A separate improvement preserving the predecessor's original native invoice |
+| Generic weak-separation theorem | [General proof](../kappa-4359-generic-weak/PROOF.md) and [boundary](../kappa-4359-generic-weak/BOUNDARY.md) | A constructive global logarithmic estimate when at least one paid rank is below the minimum target rank; the all-boundary-rank counterexample is delimited |
+| Exact limit of the current packing class | [Dual proof](../kappa-4359-packing-limit/PROOF.md) | The attained mixed root is maximal for the fixed inventories, original windows, one helper per stage slot and canonical residual completion |
 
 The audit found no blocking error in the predecessor's conditional
 source/exit argument, chronological ownership, native composition, or
@@ -121,19 +128,31 @@ exits satisfy `e <= (q/m)n < n`, so the recursive program terminates.
 Source complements also have smaller rank.
 
 For `G=floor(log_q(n/m))`, the exact unnormalized exit moment is
-`E_a=P_a^(G+1)`, where `P_a` is the complete paid-call moment. A weighted
-tail estimate controls the potential of exits above `n^(3/4)`. At the
-tested saving, `P_(t+1)/P_t<2`, and the large-exit fraction is less than
-`1/8` at every `n>=57`.
+`E_a=P_a^(G+1)`, where `P_a` is the complete paid-call moment. The latest
+proof uses the mean logarithmic exit rank. Under the exit `t`-weights,
+that mean is exactly `(G+1)*P'_t/P_t`. Concavity of the logarithm and
+the complete-invoice bound `P_(t+1)/P_t<2` give `P'_t/P_t<log(2)`.
+
+Set `ell(n)=1+log(n)`. A second application of Jensen's inequality,
+now to the concave power with `gamma=1/70`, gives
+
+$$
+\sum_e E_e e^t\ell(e)^\gamma
+\le E_t\bigl(1+(G+1)P'_t/P_t\bigr)^\gamma
+<W_t(7/16)^\gamma\ell(n)^\gamma,
+$$
+
+where `W_t` is the complete source potential. The rational slope and
+intercept bounds hold for every `n>=57`.
 
 This yields the global paid-leaf bound
 
 ```math
-L(n)\leq 57^C n^{1-C}\max(1,\log n)^{1/20}.
+L(n)\leq 57^C n^{1-C}(1+\log n)^{1/70}.
 ```
 
-The proof closes with a rational bound on the entire weighted exit
-term, including the large exits. It also retains all source complements
+The proof closes with a rational bound on the entire exit term.
+It also retains all source complements
 and ordered paid calls, including paid calls on owned storage.
 
 For the concrete choices
@@ -141,14 +160,14 @@ For the concrete choices
 ```text
 C   = 0.00231285
 C_u = 0.002312848
-H   = 756938551
-J   = 30,
+H   = 206938551
+J   = 28,
 ```
 
 the certificate verifies `H<2^J` and the strict sufficient inequality
 
 ```math
-H(C-C_u)-6C-J/20=1/500000000>0.
+H(C-C_u)-6C-J/70=1/500000000>0.
 ```
 
 Consequently the fully specified finite supplier at `N=2^H` has
@@ -194,7 +213,7 @@ conditional interfaces, where `C_*` is the new mixed root enclosed above.
 This statement chooses a finite template for each strict kappa; it does
 not assert attainment of `C_*` itself.
 
-The weighted-exit estimate holds uniformly across this range. For every
+The logarithmic-mean estimate holds uniformly across this range. For every
 `t<=1`, the complete paid invoice satisfies
 
 ```math
@@ -203,11 +222,62 @@ P_{t+1}-2P_t\leq P_2-2P_1=71083-2(36953)=-2823<0.
 
 The rank-one term is constant, the rank-two coefficient is zero, and
 every higher-rank term has a positive coefficient and increases with
-`t`. The complement margin also remains strictly above `4047/4096`
-through the convenient rational upper bound `C=0.00232`, which exceeds
-`C_*`. Thus the same `gamma=1/20` proof covers every mixed saving below
-the root. The unbounded finite-rank search in the endpoint package
-then supplies a template for every required positive rational gap.
+`t`. The complement margin is strictly above
+`eta_0=3088455621/3125000000` through the convenient rational upper
+bound `C=0.00232`, which exceeds `C_*`. The exact inequality
+`eta_0^70>7/16` makes `gamma=1/70` work throughout this range.
+An unbounded finite-rank search supplies a template for every required
+positive rational gap.
+
+## A generic theorem and its exact boundary
+
+The [generic weak-separation theorem](../kappa-4359-generic-weak/PROOF.md)
+requires a complete native contract, a nonempty chronological paid word,
+`2<=q=min(targets)<m=max(targets)`, every paid rank at most `q`, and at
+least one paid rank strictly below `q`. For a fixed rational `0<t<1`
+with positive mixed surplus, it proves a global bound
+`L(n)<=A*n^t*max(1,log(n))^gamma`. Every rational `t<z<1` then has
+a specified finite supplier with `L(N)<N^z`.
+
+The key rational estimate is
+`P_(t+1)/P_t<=P_2/P_1<q`. Explicit terminating searches choose the
+tail cutoff, logarithmic power, finite base threshold and final rank.
+The nontrivial exact example has targets `(9,16)`, paid ranks `(1,4,9)`,
+`t=1/2`, and tilted paid mean `6>2`. Its specified rank is `2^3823`
+for `z=3/4`. The example is a formal complete-role contract, not a
+claimed native transform; one actual two-generation compiler graph
+checks its full source/exit identity.
+
+The condition on a paid rank below `q` cannot simply be omitted from
+this global estimate. For targets `(2,3)` and two paid rank-two calls,
+the mixed `t=1/2` surplus is positive, but the literal compiler has
+`L(2^k)>=phi^k` with `phi=(1+sqrt(5))/2>sqrt(2)`. The exact recurrence
+and seven actual graphs appear in the
+[boundary proof](../kappa-4359-generic-weak/BOUNDARY.md).
+This concerns the specified compiler's global leaf bound; it is not
+an integer-multiplication lower bound.
+
+## A proved limit for the current native packing class
+
+The [scoped dual certificate](../kappa-4359-packing-limit/PROOF.md)
+proves that the published packing maximizes the mixed root when the
+seven local native words, per-stage helper inventories, four original
+window families, one helper per stage slot, independent fresh leftovers,
+and canonical rank-five residual completion are fixed.
+
+It allows arbitrary ordered assignments, asymmetry between stages and
+families, all available role exchanges within their actual stages, and
+all resulting fresh owner sets. The exact dual covers all 33 wide-window
+patterns throughout the entire certified root interval. Five patterns
+are identically tight and 28 have strict positive gaps. The published
+assignment attains the bound, as do the unchanged middle-window choices.
+
+The comparison is at the true mixed root, using monotonicity of each
+admitted profile's scaled moment. It is not an assertion based on an
+optimizer's stopping status. Further improvement requires changing at
+least one of the stated constraints. Other native words, additional
+windows, multiple helpers per stage slot, different fresh programs and
+different residual rules remain outside this theorem.
 
 ## Completed intermediate improvements
 
@@ -221,6 +291,12 @@ frozen in `kappa-4359-native-five/`, `kappa-4359-weak-compiler/`, and
 The final packing raises the mixed root itself. Its stronger outer point
 uses the new uniform saving and complete paid-owner contract; the earlier
 template cannot simply be relabeled with the larger exponent.
+
+The first complete packed-tail certificate used `N=2^756938551`.
+Its receipt and full outer checker remain frozen and independently
+reproducible. The later logarithmic-mean certificate reduces that rank
+to `2^206938551` at the same uniform saving and cross-checks the full
+outer ledger again.
 
 ## A separate improvement preserving the original native invoice
 
@@ -300,6 +376,10 @@ python3 -B research/kappa-4359-native-packing/verify.py --source-root /tmp/integ
 python3 -B research/kappa-4359-native-packing/compiler_check.py --source-root /tmp/integer-mult-pr4359-source
 python3 -B research/kappa-4359-packed-tail/verify.py --source-root /tmp/integer-mult-pr4359-source --check
 python3 -B research/kappa-4359-native-packing/outer_verify.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-log-mean/verify.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-generic-weak/verify.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-generic-weak/boundary_check.py --source-root /tmp/integer-mult-pr4359-source --check
+python3 -B research/kappa-4359-packing-limit/verify.py --source-root /tmp/integer-mult-pr4359-source --check
 ```
 
 The checkers use the Python standard library. They authenticate fixed
@@ -330,11 +410,11 @@ Apache-2.0.
 
 The width-five change resolves the initial investigation of topups used
 only for strict separation, and the new owner assignment completes one
-further packing improvement under that interface. Global optimality of
-the packing is not claimed. The retained rank-eight windows already use
-all available helpers of width at most eight, so a further improvement
-needs a different complete packing, controller, native contract or proved
-compiler interface. Every candidate must reconstruct its integral owner
+further packing improvement under that interface. The exact dual now
+proves optimality within the stated existing-window class; global
+optimality is not claimed. A higher mixed root needs a change outside
+that class, such as a different controller, native contract, residual
+rule or proved compiler interface. Every candidate must reconstruct its integral owner
 assignment and preserve all chronological endpoints, arbitrary inputs,
 movement charges and cleanup operations. A tighter exit estimate may also
 reduce finite template sizes; it cannot by itself raise the local mixed

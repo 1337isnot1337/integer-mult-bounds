@@ -1,0 +1,265 @@
+{
+  "actual_eta": "1/8",
+  "actual_paid_mean_at_t": "6",
+  "algebraic_refinement_case": {
+    "coefficients": {
+      "1": -2,
+      "2": -1,
+      "3": 2
+    },
+    "margin": [
+      "11/256",
+      "7/128"
+    ],
+    "powers": {
+      "1": [
+        "1",
+        "1"
+      ],
+      "2": [
+        "181/128",
+        "363/256"
+      ],
+      "3": [
+        "443/256",
+        "111/64"
+      ]
+    },
+    "precision_bits": 8,
+    "precisions_tried": [
+      1,
+      2,
+      4,
+      8
+    ]
+  },
+  "case": {
+    "A": {
+      "encoding": "n_0^(1-t)",
+      "exponent": "1/2",
+      "n_0": 550090491464563672541910228895766911144797974401
+    },
+    "D": 449,
+    "J": 12,
+    "N": {
+      "H": 3823,
+      "encoding": "2^H"
+    },
+    "P_1": 14,
+    "P_2": 98,
+    "alpha": "8/9",
+    "b": 159,
+    "complete_exit_coefficient_strict_upper": "600539214634286009392030587274445147391484829620869413259583414243211290529053918565460510289/19370427855040563337889757776166242087406297359033476852784046686830363729765331399121863442432",
+    "eta_0": "1/32",
+    "eta_0_minus_exit_bound": "4786655835731594917024343230749917839961962848926738389918044720237576026112687657097722287/19370427855040563337889757776166242087406297359033476852784046686830363729765331399121863442432",
+    "gamma": 73,
+    "h": 9,
+    "m": 16,
+    "mixed": {
+      "coefficients": {
+        "1": -1,
+        "4": -1,
+        "9": 0,
+        "16": 1
+      },
+      "margin": [
+        "1",
+        "1"
+      ],
+      "powers": {
+        "1": [
+          "1",
+          "1"
+        ],
+        "4": [
+          "2",
+          "2"
+        ],
+        "9": [
+          "3",
+          "3"
+        ],
+        "16": [
+          "4",
+          "4"
+        ]
+      },
+      "precision_bits": 1,
+      "precisions_tried": [
+        1
+      ]
+    },
+    "n_0": 550090491464563672541910228895766911144797974401,
+    "paid": {
+      "1": 1,
+      "4": 1,
+      "9": 1
+    },
+    "q": 9,
+    "strict_final_power_gap": "1/4",
+    "t": "1/2",
+    "tail_fraction_strict_upper": "7/449",
+    "targets": {
+      "9": 1,
+      "16": 1
+    },
+    "theta": "17/18",
+    "u": "7",
+    "z": "3/4"
+  },
+  "companion_sha256": {
+    "kappa-4359-generic-weak/BOUNDARY.json": "be06faf5ad6c9277f0c98067ced97431705513460c29c6062b954d5c6635a1a4",
+    "kappa-4359-generic-weak/BOUNDARY.md": "34b0832f0d6d07bf3be024348ecdd452cd52ffc3534e532f2a7ff1c47cf91070",
+    "kappa-4359-generic-weak/boundary_check.py": "489283996fda6feb3faf62824e8509dd91ba519c4201aecf27b7197877f55428",
+    "kappa-4359-weak-compiler/CERTIFICATE.json": "2bd9043b77e5219e92d101c3c5f469bf302618ac932484f169f1ad3614ac1187",
+    "kappa-4359-weak-compiler/verify.py": "33d43a20a55e3eb6200abb478f3ef9bcd3d866233cacd7930d15c87fa0759605",
+    "kappa-4359-weak-separation/PROOF.md": "27b6c38776b46cac2a81910773b6d59ebbb3b1f3f7a321a87b80aa728cc884d9"
+  },
+  "controls": {
+    "all_paid_ranks_equal_q_rejected": true,
+    "empty_paid_word_rejected": true,
+    "exact_zero_mixed_margin_rejected": true,
+    "one_less_D_fails_strict_high_exit_bound": true,
+    "one_less_H_fails_strict_uniform_bound": true,
+    "one_less_gamma_fails_strict_low_exit_bound": true,
+    "one_less_h_fails_strict_mean_bound": true,
+    "paid_rank_above_q_rejected": true,
+    "rank_one_lattice_rejected": true,
+    "zero_uniform_gap_rejected": true
+  },
+  "exact_A": 741680855533270234714049,
+  "generator_sha256": "480254df44845156073585b6a2b9d0aabda951e35b2e0da20a5c9733650b8ce8",
+  "global_bound": "L(n)<=n_0^(1-t)*n^t*max(1,ln(n))^gamma for every positive integer n.",
+  "materialized_flow": {
+    "exact_ordered_product_histogram": {
+      "1": 1,
+      "4": 3,
+      "9": 3,
+      "16": 3,
+      "36": 6,
+      "64": 1,
+      "81": 3,
+      "144": 3,
+      "324": 3,
+      "729": 1
+    },
+    "moment_identities": [
+      {
+        "E": 216,
+        "P": 6,
+        "S": 291,
+        "T": 7,
+        "exponent": "1/2",
+        "mixed_surplus": 1,
+        "unit_column_moment": 75
+      },
+      {
+        "E": 2744,
+        "P": 14,
+        "S": 8057,
+        "T": 25,
+        "exponent": "1",
+        "mixed_surplus": 11,
+        "unit_column_moment": 483
+      },
+      {
+        "E": 941192,
+        "P": 98,
+        "S": 7741937,
+        "T": 337,
+        "exponent": "2",
+        "mixed_surplus": 239,
+        "unit_column_moment": 28455
+      }
+    ],
+    "tree": {
+      "acyclic": true,
+      "class_input_disjointness": true,
+      "classes": 13,
+      "dependency_edges": 150,
+      "event_nodes": 102,
+      "every_paid_call_real_owner": true,
+      "exit_ranks": {
+        "1": 1,
+        "4": 3,
+        "9": 3,
+        "16": 3,
+        "36": 6,
+        "64": 1,
+        "81": 3,
+        "144": 3,
+        "324": 3,
+        "729": 1
+      },
+      "generations": 2,
+      "ordered_exit_batches": 27,
+      "owned_fields_uncredited_conservative_allocation": 15,
+      "rank": 1296,
+      "source_fields": 12,
+      "source_ranks": {
+        "144": 3,
+        "256": 1,
+        "576": 3,
+        "729": 1,
+        "1024": 1,
+        "1296": 3
+      },
+      "units": 15
+    }
+  },
+  "named_roles": [
+    [
+      "a",
+      9
+    ],
+    [
+      "b",
+      16
+    ]
+  ],
+  "non_square_denominator_interval": {
+    "interval": [
+      "25/16",
+      "13/8"
+    ],
+    "rank": 2,
+    "t": "2/3"
+  },
+  "ordered_paid_rounds": [
+    [
+      1,
+      "a"
+    ],
+    [
+      4,
+      "owned-C0"
+    ],
+    [
+      9,
+      "b"
+    ]
+  ],
+  "proof_sha256": "4f19cee3ae9e14cc99b8fa0939a30eeb9bff4be68bcbd2e1cb35625f6e745388",
+  "schema": "generic-weak-separation-effective-logarithmic-template/1",
+  "scope": [
+    "The theorem assumes a complete native mixed-unit contract, positive integral ranks and counts, 2<=q<m, r<=q, a nonempty paid word with some r<q, and a fixed rational strict mixed test 0<t<1.",
+    "The synthetic positive example has R_t=6 and q=9; no native operator implementation is claimed for that example.",
+    "The exact graph includes every source, exit, complement rank and paid owned field. No winning large template is materialized.",
+    "All three parameter searches are unbounded; their termination is proved under the stated strict hypotheses.",
+    "Dyadic algebraic refinement terminates on positive mixed margins; it is not a promised total equality classifier.",
+    "The separate authenticated boundary receipt documents a real obstruction to the literal compiler's global bound when every paid rank equals q.",
+    "All physical, arbitrary-input, spectator, adapter, scalar, restoration, precision and outer analytic premises remain separate obligations."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md": "4cb32f6b8e388ecf6ed41b5bbdeeb4539cb40c8424f194974afea58f7e0921e8",
+    "research/kappa-rebuild/transfer-audit/finite_dag_audit.py": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e"
+  },
+  "status": "PASS_GENERIC_RATIONAL_PARAMETERS_AND_NONMAXIMAL_PAID_BOUNDARY",
+  "strict_uniform_bound": "For each fixed rational t<z<1, the unbounded search specifies N=2^H with L(N)<N^z.",
+  "unbounded_rank_search_case": {
+    "H": 1321950000000000000000000000000000000000000000000000001,
+    "J": 180,
+    "gap": "1/100000000000000000000000000000000000000000000000000"
+  }
+}
