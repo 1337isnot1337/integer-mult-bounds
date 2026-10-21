@@ -23,6 +23,19 @@ stage savings `a1` and `a2`. Until now they were checked only by #4100's own
 
 ## Results
 
+0. **`H`, `W` and the surcharge are the selected supplier's.** The chain runs
+   from `certificates/selected-result.json`, through its SHA256-pinned
+   certificate `research/community-frontier1094-audit/ASSEMBLY.json`, to
+   `bit_supplier` = `research/e8-bit-p111-tuned/tune/EXPECTED.json` (Git blob
+   `e293ddc5…`, checked). There `nine.profile = H`, `nine.bit.live = W =
+   28416`, `maxchild = 42`, and the rank mass is 1,808,352.
+   - The certificate marks the BIT moment as surcharged, and #4100's `ηF`
+     term is that surcharge.
+   - With it, the root of `μ_(1−a) = 1` reproduces the selected
+     `bit_lower = 0.001733427039589844234749` inside a `10⁻²⁰` window.
+   - Without it, the root moves by about `2·10⁻¹²`.
+   - So #4100's `μ_x` is exactly the selected BIT moment, and the window
+     pins `W` given `H`.
 1. **`μ_1` is exact.** `μ_1 = 2874298095721977/2890625000000000`, which
    equals #4100's ledger value `bit_linear_moment`.
 2. **`μ_(1−c)` is certified below 1, with a thin margin.**
@@ -50,7 +63,8 @@ stage savings `a1` and `a2`. Until now they were checked only by #4100's own
 
 ## Not covered
 
-- `H`'s derivation from the selected word.
+- Rebuilding `H` from the selected word itself. This package binds `H` to
+  the selected record's pinned supplier data, not to a replay of the word.
 - The bad-packet rate behind `η` (#4227 and #4228 treat it).
 - The stock, fixed-tape and header-route constructions of BIT.md §2–§4.
 - No proof-kernel check was run.
@@ -63,16 +77,14 @@ python3.12 -B research/pr4100-bit-moment-enclosure/verify.py
 ```
 
 It prints `PASS_PR4100_BIT_MOMENT_ENCLOSURE` in under a second, using only
-the standard library.
+the standard library. It reads the pinned selected record, certificate and
+supplier data as declared inputs.
 
 ## Open next questions
 
-1. **Bind `H` and `W` to the selected word inside this package.**
-   - *Why it matters:* one extra rank-1 child breaks the inequality at this
-     `c`.
-   - *First step:* compare against the selected record's source-bound
-     profile, for example `research/bit-five-rank4-terminals` inputs.
-   - *Blocked by:* nothing.
+None justified here. The binding question this package first raised is
+answered in result 0. Re-deriving `H` from the word is the selected record's
+existing cold replay, not new coverage.
 
 ## Credit
 

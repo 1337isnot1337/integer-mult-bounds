@@ -60,15 +60,9 @@
   "budget_minutes": 30,
   "stop_rule": "Stop once both moments are certified with an independent enclosure and the stage algebra is checked.",
   "outcome": "completed",
-  "evidence": "verify.py: mu_1 exact and equal to the ledger; mu_(1-c) < 0.99999991163325597 certified (enclosure width < 1e-30); root c* in (0.0017334270, 0.0017334271); one extra rank-1 child exceeds 1; a1, a2, exponent identity and body-word states exact.",
+  "evidence": "verify.py: mu_1 exact and equal to the ledger; mu_(1-c) < 0.99999991163325597 certified (enclosure width < 1e-30); root c* in (0.0017334270, 0.0017334271); one extra rank-1 child exceeds 1; a1, a2, exponent identity and body-word states exact; H, W and the surcharge bound to the selected supplier (selected-result -> ASSEMBLY.json -> e8-bit-p111-tuned/tune/EXPECTED.json); the surcharged root reproduces the selected bit_lower within 1e-20.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
-  "open_questions": [
-    {
-      "question": "Bind H and W to the selected word's source-bound profile inside this package.",
-      "why_it_matters": "One extra rank-1 child breaks mu_(1-c) < 1 at this c.",
-      "first_step": "Compare against the selected record's source-bound profile inputs.",
-      "blocked_by": "None."
-    }
-  ]
+  "open_questions": [],
+  "no_open_questions_reason": "The binding question is answered; re-deriving H from the word is the selected record's existing cold replay, not new coverage."
 }

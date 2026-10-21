@@ -79,11 +79,31 @@ def mu_bounds(c, h=H):
 def main():
     text = BIT.read_text()
     pins = {row["path"]: row["sha256"] for row in json.loads((Path(__file__).parent / "SOURCES.json").read_text())["files"]}
-    for path in (BIT, LEDGER):
-        rel = path.relative_to(ROOT).as_posix()
-        need(hashlib.sha256(path.read_bytes()).hexdigest() == pins[rel], f"pin {rel}")
+    for rel in pins:
+        if rel != "docs/research/agent-task-catalog.json":
+            need(hashlib.sha256((ROOT / rel).read_bytes()).hexdigest() == pins[rel], f"pin {rel}")
     need(all(phrase in text for phrase in PHRASES), "BIT.md phrases")
     need(F == 118606528512, "F as printed")
+
+    # 0. H and W are the selected BIT supplier's: selected record -> certificate -> supplier EXPECTED.json.
+    selected = json.loads((ROOT / "certificates/selected-result.json").read_text())
+    cert_path = ROOT / selected["certificate"]
+    need(hashlib.sha256(cert_path.read_bytes()).hexdigest() == selected["certificate_sha256"], "selected certificate")
+    supplier = json.loads(cert_path.read_text())["bit_supplier"]
+    need(supplier["path"] == "research/e8-bit-p111-tuned/tune/EXPECTED.json", "selected BIT supplier path")
+    exp_path = ROOT / "research/e8-bit-p111-tuned/tune" / "EXPECTED.json"
+    blob = b"blob %d\0" % exp_path.stat().st_size + exp_path.read_bytes()
+    need(hashlib.sha1(blob).hexdigest() == supplier["git_blob_sha1"], "supplier Git blob")
+    nine = json.loads(exp_path.read_text())["nine"]
+    need({int(r): n for r, n in nine["profile"].items()} == H, "H is the selected nine-stage profile")
+    need(nine["bit"]["live"] == W and nine["bit"]["maxchild"] == max(H), "W is the selected live role count")
+    need(nine["bit"]["rank_mass"] == sum(r * n for r, n in H.items()), "rank mass")
+    # mu_x is the selected BIT moment, surcharge eta F included: its root is the selected bit_lower to 1e-20,
+    # which pins W given H. Without the surcharge the root moves by about 2e-12.
+    need(json.loads(cert_path.read_text())["surcharge_model"]["bit"] is True, "selected BIT moment carries a surcharge")
+    root = Q(nine["bit_lower"])
+    need(mu_bounds(root)[1] < 1 < mu_bounds(root + Q(1, 10**20))[0], "selected BIT root reproduced")
+    need(C < root, "c sits below the selected BIT saving")
 
     # 1. mu_1 is exact and matches #4100's ledger; mu_(1-c) is enclosed below 1.
     mu1 = (sum(r * n for r, n in H.items()) + ETA * F) / (64 * W)
@@ -138,6 +158,8 @@ def main():
         "root_c_bracket": [str(c_lo), str(c_hi)],
         "c_below_root_by_at_least": f"{float(c_lo - C):.3e}",
         "extra_rank1_child_breaks_margin": True,
+        "H_W_bound_to_selected_supplier": "research/e8-bit-p111-tuned/tune/EXPECTED.json (nine)",
+        "selected_bit_root_reproduced": str(root),
         "new_kappa_claimed": False,
     }, indent=1))
 
