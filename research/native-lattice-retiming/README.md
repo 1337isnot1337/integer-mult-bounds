@@ -1,6 +1,6 @@
 # Conditional κ = 0.00300120 (71.9× smaller uniform-rank exponent)
 
-**Local for user review. Do not push, publish a PR or post Discussions.**
+**Submission authorized by the user after review on 21 October 2026.**
 
 A changed native paid profile raises the conditional multiplication saving to
 **κ = 0.00300120** and specifies sufficient uniform rank
@@ -11,8 +11,14 @@ by **71.88×**. At PR4441's unchanged κ=0.00300105, the rank can instead be
 **`2^249900000000`**, a **661.53×** exponent reduction.
 These are sufficient mathematical template sizes, not practical speedups.
 
-This builds on zxv's selected [0.0023 construction](../kappa-0023-productive-jobs/README.md),
-its [higher-moment/logarithmic compiler](../higher-moment-strictification/README.md),
+The submission refresh found concurrent [PR4447](https://github.com/CrocSwap/integer-mult-bounds/pull/4447),
+which uses the same B/480 contact and paid profile and declares κ=0.00300123.
+This contribution retains the reviewed κ=0.00300120 and supplies the smaller
+paid-tail and uniform-template bounds above, with a separate discovery path.
+No unique-discovery or strongest-κ claim is made.
+
+This builds on my selected [0.0023 construction](../kappa-0023-productive-jobs/README.md),
+my [higher-moment/logarithmic compiler](../higher-moment-strictification/README.md),
 and Cinna Davis's new query-thinning and fresh-helper constructions
 ([PR4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440),
 [PR4441](https://github.com/CrocSwap/integer-mult-bounds/pull/4441)).

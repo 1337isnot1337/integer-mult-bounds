@@ -56,4 +56,20 @@ priority guidance, unchanged pending heads and selected κ=.0023.
 No hosted CI, Lean, Docker, complete historical suite or independent
 scientific review is claimed. Universal native/all-column, owned-query,
 precision, physical tape, analytic and recovery contracts remain conditional
-premises. No push, PR or Discussion post was made for this package.
+premises. At the initial validation checkpoint this package was unpublished.
+The user subsequently approved submission after review.
+
+## Publication preparation
+
+The submission branch starts from public PR4441 head `5f9d871c` and carries
+only this package beyond that dependency. The earlier unpublished p7 negative
+screen remains on its local branch and is excluded. All 46 source/provenance
+rows were checked byte-for-byte against this public base before updating the
+base pin; no scientific program, patch or receipt changed. The original local
+validation commit is retained locally, and its code/receipt bytes are identical
+to this submission's scientific files.
+
+The 21:36 UTC refresh found unchanged canonical main and guidance, plus
+concurrent PR4447 at `322e0ec764aa7ef7801383feb1f656e460dd8bed`. Its same
+contact/profile and higher declared endpoint are acknowledged in README.md
+and the PR description. No unique-discovery or strongest-kappa claim is made.

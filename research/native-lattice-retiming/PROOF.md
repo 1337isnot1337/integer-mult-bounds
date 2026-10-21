@@ -6,7 +6,7 @@ Source PR4441 is fixed at `5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39`,
 including PR4440 at `40e22a83ed660d3d6074c4f2dbf14bfb621eee51`.
 Their conditional contracts are retained. No selected result, independent
 scientific acceptance or universal implementation hypothesis is promoted.
-The exact byte closure is SOURCES.json. New work stays local for user review.
+The exact byte closure is SOURCES.json. The user authorized submission after review.
 
 ## One legal contact outside the predecessor frame menu
 

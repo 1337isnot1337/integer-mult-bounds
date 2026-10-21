@@ -1,6 +1,6 @@
 # Literature evaluated during this continuation
 
-Local research notes, 21 October 2026. This revisits zxv's
+Research notes, 21 October 2026. This revisits my
 [0.0023 literature list](../kappa-0023-productive-jobs/LITERATURE.md).
 The sources motivate experiments; their theorems are not imported as native
 instructions or as a proof of the new multiplication bound.
@@ -40,3 +40,7 @@ multiple-label moves, changed scalar graphs and other providers remain open.
 No global or exact search-optimality claim is made.
 
 Apache-2.0 for these notes. Papers retain their own copyrights and licenses.
+
+Submission refresh: concurrent [PR4447](https://github.com/CrocSwap/integer-mult-bounds/pull/4447)
+reports the same contact and profile. This separate discovery and replay is
+retained with the smaller charged templates; no novelty claim is made.

@@ -2,7 +2,7 @@
   "actual_scope": "Build a changed native frame contact beyond PR4441, then completely pay tensor completion, finite uniform compilation and the integer-multiplication consumer.",
   "ai_assistance": "Substantial OpenAI Codex assistance; no subagents.",
   "author": "zxv, with substantial OpenAI Codex assistance",
-  "base_commit": "28f58f6f9b72ddfe7aa5b986d1b678356c4e6350",
+  "base_commit": "5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39",
   "bottleneck_link": "New subspaces outside the predecessor frame menu can change the raw paid profile while exact native endpoints and all helper outputs stay fixed.",
   "budget_minutes": 60,
   "evidence": "Explicit one-contact native patch; two all-column replays in both orientations, new absolute-phase transports, complete changed invoice, two moment engines, both paid tails, finite ranks and all outer predicates.",
@@ -100,19 +100,25 @@
     "local_HEAD_notes": 5739,
     "local_notes_searched": 23,
     "open_pr_bodies": 301,
-    "remote_pagination_complete": true
+    "remote_pagination_complete": true,
+    "submission_refresh": {
+      "canonical_main": "2a13eb1827784206202db90e5dc8327cf8a250db",
+      "checked_at_utc": "2026-10-21T21:36:00Z",
+      "concurrent_PR4447": "322e0ec764aa7ef7801383feb1f656e460dd8bed",
+      "finding": "Same B/480 contact and paid profile, declared kappa .00300123. This contribution retains .00300120 and gives substantially smaller sufficient templates. No novelty or strongest-endpoint claim."
+    }
   },
   "priority_revision": 7,
-  "publication_policy": "User explicitly requested no publication of this successor. No push, PR or Discussion post.",
+  "publication_policy": "User approved submission of this reviewed contribution on 2026-10-21. First-person prose refers to the author, zxv. No further Discussion participation is requested.",
   "resource_budget": "Single-process bounded controller arithmetic, under a few minutes per screen; no Lean, Docker, concurrent artifact replay or native historical suites.",
   "schema_version": 1,
-  "scope_change_reason": "The explicit user requests a genuine kappa improvement, keeps this successor local, and asks for a literature pivot if stuck. Newly published PR4440/4441 change the useful starting model.",
-  "scope_decision": "Stop this finite model screen. No new hill-climbing construction step found. Keep the root-retuning witness as a separately labelled diagnostic, and require changed words/interfaces/providers/stock for the next actual climb.",
+  "scope_change_reason": "The explicit user requested a changed native construction and literature evaluation when stuck, then approved submission after reviewing the local result. PR4440/4441 supplied the useful starting model.",
+  "scope_decision": "The new exact contact changes the paid profile and passes the fully charged conditional transfer. Publish the reviewed result and smaller finite ranks; acknowledge concurrent PR4447 without a novelty or strongest-kappa claim.",
   "scope_status": "changed",
-  "stop_rule": "Freeze a strictly improving exact paid profile, retain all inherited native and consumer obligations, run complete relevant checks, and leave the result local for user review.",
+  "stop_rule": "Publish the reviewed, strictly improving exact paid profile with all inherited native and consumer obligations retained; do not expand the mathematical scope during submission.",
   "task_id": "supplier-boundary-audit",
   "upstream_checkpoint": {
-    "checked_at_utc": "2026-10-21T20:56:24Z",
+    "checked_at_utc": "2026-10-21T21:36:00Z",
     "commit": "2a13eb1827784206202db90e5dc8327cf8a250db",
     "pending_sources": {
       "PR4440": "40e22a83ed660d3d6074c4f2dbf14bfb621eee51",
@@ -127,11 +133,11 @@
     "export_integrity": "pass",
     "git_free_optimized": "pass",
     "metadata_pins": "pass",
-    "no_publication": true,
     "optional_discovery": "reproduces exact patch",
     "platform": "macOS arm64",
     "python": "3.12.8",
     "registered_replay": "pass",
-    "source_history": "unavailable: shallow checkout"
+    "source_history": "unavailable: shallow checkout",
+    "unpublished_at_initial_validation": true
   }
 }
