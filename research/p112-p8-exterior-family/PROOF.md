@@ -1,6 +1,15 @@
 # P8 exterior-family floor at the fixed three-role embedding
 
-## Theorem
+## Combined theorem and division into ranks
+
+For the fixed targets, six-query dictionary and exact endpoint below,
+every rational h on the 112 physical ports has full-group invoice at least
+18, with equality. The three target indicators are independent, so adjoining
+h has rank either three or four. This file proves the rank-four case;
+[RANK3-PROOF.md](RANK3-PROOF.md) separately proves the rank-three case with
+its full additional reader freedom. Together they cover all rational h.
+
+## Rank-four theorem
 
 Fix the canonical indicators c0,c1,c2 on physical port pairs `[0,67]`,
 `[7,64]`, `[1,75]`, in groups 17/18, 29/30, 31/32, respectively. Let h be any
@@ -21,10 +30,11 @@ all rational coefficients justifies the finite-coverage proof below.
 
 The theorem concerns this one fixed physical embedding and exact endpoint.
 It does not cover another added point/query dictionary, other geometries,
-changed allowed-free strict-fit entries, or all readers available when E
-has rank only three. Eighteen rank-three source patterns below are retained
-with the same coefficient-reader equations as a relaxation used in the
-rank-four proof; their extra rank-three reader freedoms are not tested.
+or changed allowed-free strict-fit entries. This rank-four argument alone
+does not cover all readers when E has rank only three. Eighteen rank-three
+source patterns below are retained with the same coefficient-reader equations
+as a relaxation used in the rank-four proof. The complete rank-three reader
+freedoms are handled separately in RANK3-PROOF.md.
 
 ## Coefficient-reader equations forced by rank four
 
