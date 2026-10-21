@@ -127,6 +127,12 @@
     "native_and_outer_producer_suites": "inherited source receipts, not rerun",
     "platform": "macOS arm64",
     "python": "3.12.8",
-    "independent_mathematical_checks": "Separate Sol 6.1 xhigh audit; Bell coefficients independently recovered through iid moment convolution and Newton differences."
+    "independent_mathematical_checks": "Separate Sol 6.1 xhigh audit; Bell coefficients independently recovered through iid moment convolution and Newton differences.",
+    "committed_bytes": "pass at 638f4fb6035abb2562f25d9fb7b570d9f2354108",
+    "export_integrity": "pass",
+    "git_free_isolated_optimized_export": "pass; PATH=/nonexistent",
+    "exported_source_and_receipt_mutations": "rejected",
+    "optional_source_history": "unavailable: shallow checkout; not a passing ancestry check",
+    "publication": "local only"
   }
 }
