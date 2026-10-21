@@ -13,7 +13,7 @@ supports a finite conditional construction for every fixed rational
 
 The resulting bound is `T(n)=O(n(log n)^(1-kappa))` under the retained
 premises. An explicit, separately checked recipe gives
-`kappa=0.002686488`, an increase of `0.000000018` over #4416's stated
+`kappa=0.002686489`, an increase of `0.000000019` over #4416's stated
 final saving. A logarithmic compiler bound and a larger fully paid
 target floor also substantially reduce its sufficient uniform template
 rank. The quantified construction reaches every strictly smaller
@@ -25,6 +25,7 @@ saving than the raw root, including `kappa=0.002686489`.
 | Logarithmic bound, unchanged source recipe | `0.00268647` | 6240 | 11 | `2^66091190261265` |
 | Larger paid target floor | `0.00268647` | 6240 | 17 | `2^12185590261265` |
 | Higher conditional endpoint | `0.002686488` | 8970 | 17 | `2^190671120967650` |
+| Closer-to-root finite endpoint | `0.002686489` | 9750 | 17 | `2^5670914876226139` |
 
 All rows use paid cutoff base 10 and raw ambient rank 121. A base in
 the table is raised to the row's tensor power. The unchanged-endpoint
@@ -98,6 +99,22 @@ All nine cost savings exceed that point; all 54 strict inequalities
 and three functional guards pass. Its minimum outer slack is exactly
 `20981194581/49000000000000000000`.
 
+A [further finite point](../kappa-4416-efficient-root-point/PROOF.md)
+uses `C=0.00268648904`, `v=9750` and final `kappa=0.002686489`.
+Both directed moment engines certify its raw gap and complete paid
+tails. The complete normalized paid-moment bound is
+
+```math
+\frac{6710887200000117}{6710887381467136}<1.
+```
+
+Using the actual logarithmic contraction gives `gamma=608`,
+`U=470135581/175000000000` and `N=2^5670914876226139`. All nine
+costs and 57 outer predicates pass; the minimum outer slack is
+`262264932211/15312500000000000000000`. The explicit sufficient rank
+has a smaller exponent than #4416's specified rank by more than
+2,857 times, while also increasing the final saving.
+
 Each new expanded word receives its own scalar, coordinate movement,
 storage, precision and reserve constants. The p7 raw scalar allowance
 is retained only per actual raw invocation. Product macros are not
@@ -146,8 +163,9 @@ a mathematical restriction on the requested saving.
 The generic constructor is deliberately generous. Its saved example
 at `kappa=0.002686489` has tensor power `34359739029` and sufficient
 rank `2^47400257013113900919251`. These numbers exercise the
-quantified construction; the smaller finite recipes in the table
-remain separate results. The large ambient powers and tensor words
+quantified construction. The tuned finite point in the table proves
+the same saving with a reduction in `log2(N)` exceeding 8.35 million.
+The large ambient powers and tensor words
 are represented symbolically, without materializing them.
 
 The same proof gives a precise limit for this certificate family.
@@ -180,11 +198,14 @@ From this contribution's checkout:
 python3 -I -O -B research/kappa-4416-log-template/verify.py --source-root /tmp/pr4416-source --check
 python3 -I -O -B research/kappa-4416-padding-endpoint/verify.py --source-root /tmp/pr4416-source --check
 python3 -I -O -B research/kappa-4416-root-family/verify.py --source-root /tmp/pr4416-source --check
+python3 -I -O -B research/kappa-4416-efficient-root-point/verify.py --source-root /tmp/pr4416-source --check
 ```
 
 The second command authenticates and replays the first package, including
 the entire source verifier. The third replays both companions before
-checking the full strict root family. All packages compare deterministic
+checking the full strict root family. The fourth independently
+recomputes the tuned finite point; the frozen root-family receipt
+serves only as its historical rank comparison. All packages compare deterministic
 saved receipts. New acceptance decisions use exact rational or integer
 arithmetic. Two separately implemented directed moment engines check
 the changed mixed points and both complete paid tails.
@@ -211,6 +232,12 @@ proof, generator and receipt files beside the separate pinned source.
 Independent reviews also compared all 57 symbolic predicates and
 nine cost slacks with the literal rational ledger at boundary and
 interior parameter points.
+
+The tuned `kappa=0.002686489` package also passed an isolated
+optimized deterministic replay under Python 3.12.14. Its proof and
+checker were independently reviewed; a separate rational logarithm
+calculation confirmed `gamma=608`, the rejected preceding exponent,
+the exact finite rank and the full outer funding.
 
 ## Context, attribution and remaining questions
 

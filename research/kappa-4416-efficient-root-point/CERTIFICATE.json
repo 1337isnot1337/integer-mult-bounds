@@ -1,0 +1,317 @@
+{
+  "alpha_gap": "3/200000000000",
+  "dependency_sha256": {
+    "kappa-4416-log-template/CERTIFICATE.json": "7162d01fab3c87b16998fecdd879a590e01f1d0b31a76f9af23b1ee86f64112b",
+    "kappa-4416-log-template/PROOF.md": "bd96275f80fb5d94d5add5a60645f42466c217fa29bd5c60883fcc980e42bd7e",
+    "kappa-4416-log-template/verify.py": "8c4b9ece37d2a12dd26a3c182709888251cad81d977637614ec6b6fcb1fa7713",
+    "kappa-4416-padding-endpoint/CERTIFICATE.json": "80dc286ed59618f88b6773a347bfdcdd7ee10e18da06f17372914b83587e4db6",
+    "kappa-4416-padding-endpoint/PROOF.md": "e366fa51daedacbd104949c77d7d7233556fef543428e1ce9d7ad09403fb07eb",
+    "kappa-4416-padding-endpoint/verify.py": "2cfd49cba8b5fd467d185593e7d714d07635e660ff7b9e4a5500099ecdf7ecc9",
+    "kappa-4416-root-family/CERTIFICATE.json": "af8dfb46adcdbf1acee2580b3a539204df9f4c5d2ea48b875d693f37eb8cffe4",
+    "kappa-4416-root-family/PROOF.md": "3600e8445612f732ffe0bbd4cb4c0f5b32761109da6f85c70067a3f66be6991a",
+    "kappa-4416-root-family/verify.py": "5f5e00fce1d3940189f957a2bde03bd9cd07daaefbd1e86958e0c461e415fa0c"
+  },
+  "generator_sha256": "99ed5cb68fc69a42ad5d6201f8f71d039cf58e77d48bba3882a5e16c787c54bd",
+  "historical_generic_comparison": {
+    "historical_receipt_used_as_mathematical_premise": false,
+    "log2_rank_reduction_factor": "47400257013113900919251/5670914876226139",
+    "new_H": 5670914876226139,
+    "old_H": 47400257013113900919251,
+    "receipt_sha256": "af8dfb46adcdbf1acee2580b3a539204df9f4c5d2ea48b875d693f37eb8cffe4",
+    "same_kappa": "2686489/1000000000"
+  },
+  "kappa": "2686489/1000000000",
+  "moment_engines": {
+    "independent": {
+      "alpha": {
+        "lower": "0.99999999998474487630244838991498157",
+        "upper": "0.99999999998474487630244838991498158"
+      },
+      "completion_paid_tail": {
+        "lower": "0.99500183265079535101761637074336526",
+        "upper": "0.99500183265079535101761637074336527"
+      },
+      "original_paid_tail": {
+        "lower": "0.99819172191963818669794615328714219",
+        "upper": "0.99819172191963818669794615328714220"
+      },
+      "paid_moment": {
+        "lower": "130542.50023711668175029051513641017954079",
+        "upper": "130542.50023711668175029051513641017954080"
+      },
+      "target_minus_paid": {
+        "lower": "0.00000199144198893525506425488344117",
+        "upper": "0.00000199144198893525506425488344118"
+      },
+      "target_moment": {
+        "lower": "130542.50023910812373922577020066506298197",
+        "upper": "130542.50023910812373922577020066506298198"
+      }
+    },
+    "source": {
+      "alpha": {
+        "lower": "0.99999999998474487630244838991498157",
+        "upper": "0.99999999998474487630244838991498158"
+      },
+      "completion_paid_tail": {
+        "lower": "0.99500183265079535101761637074336526",
+        "upper": "0.99500183265079535101761637074336527"
+      },
+      "original_paid_tail": {
+        "lower": "0.99819172191963818669794615328714219",
+        "upper": "0.99819172191963818669794615328714220"
+      },
+      "paid_moment": {
+        "lower": "130542.50023711668175029051513641017954079",
+        "upper": "130542.50023711668175029051513641017954080"
+      },
+      "target_minus_paid": {
+        "lower": "0.00000199144198893525506425488344117",
+        "upper": "0.00000199144198893525506425488344118"
+      },
+      "target_moment": {
+        "lower": "130542.50023910812373922577020066506298197",
+        "upper": "130542.50023910812373922577020066506298198"
+      }
+    }
+  },
+  "negative_controls": {
+    "full_outer_mutations": {
+      "closed_precision_slack": {
+        "actual_logarithmic_gamma_guard": "0",
+        "epsilon_below_one": "0",
+        "gaussian_above_main": "-705203367/15312500000000000000000",
+        "global_gamma_power_slack": "-1/1750000000000",
+        "new_semantic_guard_with_C1_one": "0",
+        "source_axis_superpolynomial": "0"
+      },
+      "closed_uniform_gap": {
+        "new_complex_uniform_saving_above_b": "0"
+      },
+      "insufficient_BIT": {
+        "actual_bit_above_effective": "-67635579/175000000000"
+      },
+      "unfunded_tested_endpoint": {
+        "boundary_algebraic_matrix_above_kappa": "-262735067789/15312500000000000000000",
+        "fused_gaussian_above_kappa": "-263205203367/15312500000000000000000",
+        "global_coordinate_router_above_kappa": "-3/175000000000",
+        "group_bit_router_above_kappa": "-351410406737/30625000000000000000000",
+        "main_transform_above_kappa": "-350235067789/15312500000000000000000"
+      }
+    },
+    "one_fewer_decay_block_upper": "10485762500000351/10485761472200704",
+    "one_lower_H_rejected": true,
+    "one_lower_gamma_log_gap_upper": "-11884231043549246682691734585216852876904037250729963353117456281287067857329/57896044618658097711785492504343953926634992332820282019728792003956564819968",
+    "preceding_logarithmic_bin_rejected": true
+  },
+  "normalized_paid_moment_upper": "6710887200000117/6710887381467136",
+  "outer": {
+    "controls": {
+      "closed_precision_slack": {
+        "actual_logarithmic_gamma_guard": "0",
+        "epsilon_below_one": "0",
+        "gaussian_above_main": "-705203367/15312500000000000000000",
+        "global_gamma_power_slack": "-1/1750000000000",
+        "new_semantic_guard_with_C1_one": "0",
+        "source_axis_superpolynomial": "0"
+      },
+      "closed_uniform_gap": {
+        "new_complex_uniform_saving_above_b": "0"
+      },
+      "insufficient_BIT": {
+        "actual_bit_above_effective": "-67635579/175000000000"
+      },
+      "unfunded_tested_endpoint": {
+        "boundary_algebraic_matrix_above_kappa": "-262735067789/15312500000000000000000",
+        "fused_gaussian_above_kappa": "-263205203367/15312500000000000000000",
+        "global_coordinate_router_above_kappa": "-3/175000000000",
+        "group_bit_router_above_kappa": "-351410406737/30625000000000000000000",
+        "main_transform_above_kappa": "-350235067789/15312500000000000000000"
+      }
+    },
+    "ledger": {
+      "functional_checks": {
+        "fixed_halo_explicit_metadata_branch": "3368750000001/43750000000",
+        "new_BIT_row_stock_sublinear_in_active_group": "174474999997009/175000000000000",
+        "new_semantic_group_guard": "3/175000000000"
+      },
+      "margins": {
+        "boundary_algebraic_matrix": "41136863162264932211/15312500000000000000000",
+        "fused_gaussian": "41136863161794796633/15312500000000000000000",
+        "global_coordinate_router": "470135579/175000000000",
+        "group_bit_router": "82273726498589593263/30625000000000000000000",
+        "group_scans": "87499999999/87500000000",
+        "main_transform": "41136863074764932211/15312500000000000000000",
+        "microbox_face_corrections": "3368750000001/43750000000",
+        "polynomial_products": "174999999999/175000000000",
+        "sparse_union_movement": "6261839988162264932211/15312500000000000000000"
+      },
+      "parameters": {
+        "a": "470135579/175000000000",
+        "b": "23506779/8750000000",
+        "beta": "174999999997/175000000000",
+        "bit_saving": "27/10000",
+        "cap_xi": "13918089988074764932211/15312500000000000000000",
+        "complex_uniform_saving": "470135581/175000000000",
+        "d": "1/175000000000",
+        "epsilon": "174999999999/175000000000",
+        "kappa": "2686489/1000000000",
+        "lambda_": "49865675549/50000000000",
+        "lambda_prime": "87264932211/87500000000",
+        "layout": "1/175000000000",
+        "q": "235067789/87500000000",
+        "r0": "1/1750000000000",
+        "stop": "1/175000000000",
+        "tested_saving": "33581113/12500000000"
+      },
+      "strict_checks": {
+        "actual_bit_above_effective": "2364421/175000000000",
+        "actual_logarithmic_gamma_guard": "1/175000000000",
+        "actual_logarithmic_group_guard": "1394410012056485067789/7656250000000000000000",
+        "alpha_logarithm_absorption": "1/1750000000000",
+        "boundary_algebraic_matrix_above_kappa": "349764932211/15312500000000000000000",
+        "cap_above_band": "6261839988074764932211/15312500000000000000000",
+        "cap_below_cell": "1394410011837735067789/15312500000000000000000",
+        "cap_below_phase_cell_power": "16706910011925235067789/15312500000000000000000",
+        "complex_above_effective": "1/175000000000",
+        "complex_below_one_over_32": "249930721/8750000000",
+        "complex_endpoint": "1/87500000000",
+        "epsilon_below_one": "1/175000000000",
+        "epsilon_positive": "174999999999/175000000000",
+        "fine_prime_halo_umbrella": "7/2",
+        "fused_gaussian_above_kappa": "349294796633/15312500000000000000000",
+        "gaussian_above_main": "43514932211/7656250000000000000000",
+        "global_coordinate_router_above_kappa": "1/43750000000",
+        "global_gamma_power_slack": "9/1750000000000",
+        "group_below_dimension": "1/87500000000",
+        "group_bit_router_above_kappa": "873589593263/30625000000000000000000",
+        "group_gauge_power_slack": "1394410012052110067789/7656250000000000000000",
+        "group_key_fits_record": "1/87500000000",
+        "group_positive": "174999999997/175000000000",
+        "group_scans_above_kappa": "174529864423/175000000000",
+        "halo_covers_generic_inverse_radius": "5",
+        "improvement_over_user_baseline": "477759290400418148631/500000000000000000000000",
+        "lambda_above_internal": "1/350000000000",
+        "lambda_above_sigma": "3/350000000000",
+        "lambda_above_tau": "1/350000000000",
+        "lambda_prime_above_lambda": "1/350000000000",
+        "lambda_prime_above_leaf": "17476493221/1531250000000000000000",
+        "leaf_saving_above_effective": "8726493221/1531250000000000000000",
+        "main_transform_above_kappa": "262264932211/15312500000000000000000",
+        "membership_arithmetic_fits_record": "1/175000000000",
+        "microbox_face_corrections_above_kappa": "13474529864429/175000000000",
+        "microbox_halo_volume": "13825000000003/175000000000",
+        "new_complex_uniform_saving_above_b": "1/175000000000",
+        "new_semantic_guard_with_C1_one": "1/175000000000",
+        "polynomial_products_above_kappa": "21816233053/21875000000",
+        "positive_layout_slack": "1/175000000000",
+        "q_below_effective": "1/175000000000",
+        "q_below_internal": "1/175000000000",
+        "q_below_leaf": "17476493221/1531250000000000000000",
+        "q_positive": "235067789/87500000000",
+        "short_record_fallback": "8726493221/8750000000",
+        "source_axis_superpolynomial": "1/175000000000",
+        "sparse_union_movement_above_kappa": "6220703125349764932211/15312500000000000000000",
+        "stop_below_one": "174999999999/175000000000",
+        "stop_positive": "1/175000000000",
+        "strassen_integer_power_gap": "1951441519231",
+        "support_router_span": "3/175000000000",
+        "theta_positive_polynomial_power": "2",
+        "union_header_fits_record": "3/175000000000",
+        "union_tag_work_per_visit_fits_record": "3/175000000000"
+      }
+    },
+    "minimum_saving_minus_kappa": "262264932211/15312500000000000000000"
+  },
+  "paid": {
+    "1": 37305,
+    "16": 448,
+    "2": 10695,
+    "3": 3360,
+    "32": 448,
+    "4": 1530,
+    "48": 448,
+    "5": 300,
+    "8": 1464
+  },
+  "paid_cutoff_base": 10,
+  "paid_tail_upper": "4991/5000",
+  "proof_sha256": "b30e523aae3ed587d8f74566e64f51b0a1a86e537853a0076209fbc3ed792903",
+  "rank_one_surplus": {
+    "negative_base": 131115,
+    "positive_base": 131723,
+    "power": 9750
+  },
+  "schema": "efficient-finite-p7-strict-root-point/1",
+  "scope": [
+    "The unchanged source native chronology and complete invoice are authenticated and replayed.",
+    "All paid target completions, paid splits, whole-job adapters, owned-bank calls and source complements remain charged.",
+    "The full seven-gap outer point uses the exact uniform saving certified by this new finite word.",
+    "All new finite-word scalar, movement, storage, precision and reserve constants must use the new actual word counts.",
+    "The all-column, physical, precision, analytic, fixed-tape and exact-recovery premises remain conditional.",
+    "No globally optimal kappa, minimal word, practical runtime or unconditional multiplication theorem is claimed."
+  ],
+  "source_commit": "e9058860b5c850760fdf970e796a96aefcdb1d98",
+  "source_replay_status": "PASS_COMPLETE_P7_PADDING_AND_HIGHER_CONDITIONAL_KAPPA",
+  "source_result_sha256": "9b814be97e3b45fcc28eafa8a65694897a7387f71a14d44796c6aadf303d7fab",
+  "status": "PASS_COMPLETE_CONDITIONAL_KAPPA_002686489_WITH_SMALLER_FINITE_TEMPLATE",
+  "strict_complete_moment_gap": "181467019/6710887381467136",
+  "target_floor_base": 17,
+  "targets": {
+    "121": 224,
+    "25": 448,
+    "41": 448,
+    "5": 420,
+    "57": 448,
+    "6": 270,
+    "7": 840,
+    "8": 1395,
+    "9": 3195
+  },
+  "template": {
+    "H": 5670914876226139,
+    "J": 53,
+    "N_encoding": "2^5670914876226139",
+    "binary_ambient_bound": 67459,
+    "cutoff_base": 10,
+    "final_strict_power_gap": "1/175000000000",
+    "gamma": 608,
+    "log_m_base_interval": [
+      "69414325852401896064418538664114798981000092575418592859549215265062096026311/14474011154664524427946373126085988481658748083205070504932198000989141204992",
+      "555314606819215168515348309312918391848000740603348742876393722120496768210489/115792089237316195423570985008687907853269984665640564039457584007913129639936"
+    ],
+    "log_reciprocal_theta_interval": [
+      "23924295599941503308211656190420559162167255527289508121131977628199815350247/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "2990536949992687913526457023802569895270906940911188515141497203524976918781/14474011154664524427946373126085988481658748083205070504932198000989141204992"
+    ],
+    "log_t_interval": [
+      "-311492777215588172054805426782513577058658024092352140049693165040813574363/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "-155746388607794086027402713391256788529329012046176070024846582520406787181/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+    ],
+    "logarithm_terms": 128,
+    "m_base": 121,
+    "m_encoding": "121^9750",
+    "materialized_tensor_or_uniform_word": false,
+    "negative_log_eta_interval": [
+      "14545815891251591001449858776755713117189332179566191356233345332879862053315123/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "3636453972812897750362464694188928279297333044891547839058336333219965513328781/28948022309329048855892746252171976963317496166410141009864396001978282409984"
+    ],
+    "paid_max_bound_encoding": "10^9750",
+    "potential_log_gap_interval": [
+      "155833512843009942828187019986853408359181025829581414897065065625679635589/115792089237316195423570985008687907853269984665640564039457584007913129639936",
+      "77916756421504971414093509993426704179590512914790707448532532812839817795/57896044618658097711785492504343953926634992332820282019728792003956564819968"
+    ],
+    "q_encoding": "17^9750",
+    "receipt_interval_bits": 256,
+    "strict_uniform_gap": "1/175000000000",
+    "t": "12466418887/12500000000",
+    "target_floor_base": 17,
+    "tensor_power": 9750,
+    "tested_saving": "33581113/12500000000",
+    "theta": "61/75",
+    "uniform_saving": "470135581/175000000000"
+  },
+  "tensor_power": 9750,
+  "tested_saving": "33581113/12500000000",
+  "uniform_saving": "470135581/175000000000"
+}
