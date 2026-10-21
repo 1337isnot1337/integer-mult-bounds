@@ -16558,18 +16558,18 @@
     {
       "number": 4359,
       "head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
-      "status": "pending_review",
-      "reason": "23-stage replay and 59 normalized artifacts pass. Finish independent universal native/compiler, delayed-cover routing, and precision/row-reserve outer proofs; no concrete failure identified.",
+      "status": "ready_to_integrate",
+      "reason": "Productive-helper p3 conditional proof audit passes at kappa 23/10000 with prior 23-stage replay. Integrate exact closure and conditional selected-result metadata; unrelated H-branch work and inherited assumptions remain outside this verdict.",
       "evidence": [
-        "docs/research/pr-intake-evidence/pr4359/REVIEW.json"
+        "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.json"
       ],
       "policy_version": 1,
-      "baseline": "b87dd5718279c59f97af658b0a30ab9900ae90d9",
+      "baseline": "715426c1ee7eb9852bc76be7cf41c53fa19c832b",
       "watch_paths": {
-        "docs/research/pr-intake-evidence/pr4359/REVIEW.json": "3249cc717b0452cfa83111c02670b070a14b612d"
+        "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.json": "d413aaa9a6c6ada15c82ee1548f8f0e3a1b45688"
       },
       "watch_modes": {
-        "docs/research/pr-intake-evidence/pr4359/REVIEW.json": "100644"
+        "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.json": "100644"
       },
       "watch_prs": {
         "4404": "77f20afb7c24286937c75cb65a7f19e24e7a567f"
