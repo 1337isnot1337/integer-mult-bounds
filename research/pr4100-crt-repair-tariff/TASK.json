@@ -60,7 +60,7 @@
   "budget_minutes": 75,
   "stop_rule": "Stop once dense and sparse repair costs are bounded with explicit constants, absorbed at #4100's parameters, and matched by literal tape counts with failing controls.",
   "outcome": "completed",
-  "evidence": "README accounting: dense <= 9MR+5M, sorted holes <= N(L+R)(9L+6), counter <= 8M+4LN+4L; exact absorption 2^-640 (p=16) to 2^-37326 (p=2^64) of V; verify.py on #4100's compact/good fixture (5 fixtures, M up to 65,536): repair realizes T on every record, keys only at holes, dense <= 7.23 MR, sorted ~9.3-9.5 L(L+R) per hole; controls: full sort 262 MR, keys S^-1 misplace 5,888 records undetected by the key check, no repair leaves 2,048 wrong.",
+  "evidence": "README accounting: dense <= 9MR+5M, sorted holes <= N(L+R)(9L+6), counter <= 8M+4LN+4L; exact r-target density 1-[(1-1/B)^2(1-8B/2^K)]^r; exact absorption 2^-640 (p=16) to 2^-37326 (p=2^64) of V. verify.py on #4100's compact/good: 5 one-target fixtures (M up to 65,536) plus every one of 2^20 two-target addresses for two sources; densities equal the product formula exactly (943/1024 at r=2); repair realizes T on every record; sweep-level repair matches per-cell repair exactly; controls: full sort 262 MR, keys without T misplace records (5,888; 724,224; 603,520) undetected by the key check, no repair leaves 2,048 wrong, a source reading the other active target breaks S=T on 55,296 good addresses.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, accounting proof, simulator implementation and writing; no independent human or proof-kernel review.",
   "open_questions": [
@@ -71,10 +71,10 @@
       "blocked_by": "The full E(p,ell) evaluator from CRT data (#4192 follow-up)."
     },
     {
-      "question": "Check the r-target bad density exactly on a multi-target fixture.",
-      "why_it_matters": "CRT.md's r-target density is a union bound over targets with disjoint guards; only r=1 is enumerated here.",
-      "first_step": "Enumerate the two-target fixture (positions (0,6), 12 y bits) through the same repair.",
-      "blocked_by": "None; 2^20 records."
+      "question": "Bind disjoint guard windows at the actual position-mod-K coloring and mixed ell/ell-1 axis offsets.",
+      "why_it_matters": "The exact r-target density (and the union bound) needs every active guard window disjoint from the others and from active targets.",
+      "first_step": "Check coloring mod K with (K-1)-bit windows against #4174's actual split-axis descriptors.",
+      "blocked_by": "None."
     }
   ]
 }

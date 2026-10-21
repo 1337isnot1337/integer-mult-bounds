@@ -123,7 +123,9 @@ class Counter:
         self.moves += 2 * self.L
 
 
-def fixture(crt, bits, cb, yb, guard, fn):
+def fixture(crt, bits, cb, yb, guard, fn, positions=(0,), strict=True):
+    """Enumerate every address (u, t, y). With strict=False, return the number of good
+    addresses where the macro disagrees with the ideal switch instead of failing."""
     L = 2 * cb + yb
     M = 1 << L
 
@@ -136,18 +138,34 @@ def fixture(crt, bits, cb, yb, guard, fn):
     S, T, good = [0] * M, [0] * M, [False] * M
     for q in range(M):
         u, t, y = split(q)
-        S[q] = join(*crt.compact(u, t, y, fn, bits=bits, positions=(0,), ybits=yb, control_bits=cb))
-        T[q] = join(u, t, y ^ fn(y)[0])
-        good[q] = crt.good(u, t, y, bits=bits, positions=(0,), guard=guard)
+        S[q] = join(*crt.compact(u, t, y, fn, bits=bits, positions=positions, ybits=yb, control_bits=cb))
+        flips = sum(f << pos for f, pos in zip(fn(y), positions))
+        T[q] = join(u, t, y ^ flips)
+        good[q] = crt.good(u, t, y, bits=bits, positions=positions, guard=guard)
     need(sorted(S) == list(range(M)) and sorted(T) == list(range(M)), "S and T are bijections")
+    disagreements = 0
     for q in range(M):
-        need(good[S[q]] == good[q] and good[T[q]] == good[q], "S and T preserve the good set")
-        if good[q]:
-            need(S[q] == T[q], "S agrees with T on good addresses")
+        need(good[T[q]] == good[q], "T preserves the good set")
+        if strict:
+            need(good[S[q]] == good[q], "S preserves the good set")
+        if good[q] and S[q] != T[q]:
+            disagreements += 1
+    if strict:
+        need(disagreements == 0, "S agrees with T on good addresses")
     inv_S = [0] * M
     for q in range(M):
         inv_S[S[q]] = q
-    return L, M, S, T, good, inv_S
+    if strict:
+        return L, M, S, T, good, inv_S
+    return L, M, S, T, good, inv_S, disagreements
+
+
+def exact_bad_fraction(bits, guard, r):
+    """Complete enumeration, r targets on disjoint digits and disjoint guard windows:
+    the good events are independent, so delta_r = 1 - [(1-1/B)^2 (1-8B/2^K)]^r exactly."""
+    B = 1 << bits
+    per_target_good = (1 - Fraction(1, B)) ** 2 * (1 - Fraction(8 * B, 1 << guard))
+    return 1 - per_target_good ** r
 
 
 def repair(L, M, R, S, T, good, inv_S, *, key_mode="TS^-1", full_sort=False):
@@ -225,6 +243,91 @@ def repair(L, M, R, S, T, good, inv_S, *, key_mode="TS^-1", full_sort=False):
                         n_sorted=n_sorted)
 
 
+class SweepTape:
+    """The Tape above, charged per sweep instead of per cell (same head semantics)."""
+
+    def __init__(self, width=1):
+        self.pos, self.moves, self.end, self.w = 0, 0, 0, width
+
+    def goto(self, i):
+        self.moves += abs(i - self.pos) * self.w
+        self.pos = i
+
+    def sweep(self, n, writing=False):
+        if not writing:
+            need(self.pos + n <= self.end, "read past the end marker")
+        self.pos += n
+        self.moves += n * self.w
+        if writing:
+            self.end = max(self.end, self.pos)
+
+    def truncate(self):
+        self.end = self.pos
+
+    def erase(self):
+        self.goto(self.end)
+        self.goto(0)
+        self.moves += self.end * self.w
+        self.end = 0
+
+
+def counter_scan_cost(L, M):
+    """Head moves of M increments of the L-bit counter from zero: 2(trailing ones + 1) each."""
+    return sum(2 * (min(L, (x ^ (x + 1)).bit_length() - 1) + 1) for x in range(M))
+
+
+def repair_bulk(L, M, R, S, T, good, inv_S, *, key_mode="TS^-1"):
+    """repair() with sweep-level charging, for M = 2^20; data moves as Python lists."""
+    DATA, GOOD, BAD = SweepTape(R), SweepTape(R), SweepTape(L + R)
+    BK, MASK = [SweepTape(L + R), SweepTape(L + R)], SweepTape(1)
+    DATA.end, MASK.end = M, M
+    holes = [not g for g in good]
+    nbad = sum(holes)
+    key_of = (lambda x: T[inv_S[x]]) if key_mode == "TS^-1" else (lambda x: inv_S[x])
+    inc = counter_scan_cost(L, M)
+    counter = 0
+    # Split scan.
+    MASK.sweep(M); DATA.sweep(M)
+    good_list = [inv_S[x] for x in range(M) if not holes[x]]
+    bad_list = [(key_of(x), inv_S[x]) for x in range(M) if holes[x]]
+    GOOD.sweep(len(good_list), writing=True); BAD.sweep(nbad, writing=True)
+    counter += inc + 2 * L * nbad
+    BAD.truncate(); GOOD.truncate()
+    # Radix passes.
+    for j in range(L):
+        BAD.goto(0); BAD.sweep(nbad)
+        zeros = [kr for kr in bad_list if not (kr[0] >> j) & 1]
+        ones = [kr for kr in bad_list if (kr[0] >> j) & 1]
+        BK[0].sweep(len(zeros), writing=True); BK[1].sweep(len(ones), writing=True)
+        for b in BK:
+            b.truncate()
+        BAD.goto(0)
+        for b, part in zip(BK, (zeros, ones)):
+            b.goto(0); b.sweep(len(part)); BAD.sweep(len(part), writing=True); b.erase()
+        BAD.truncate()
+        bad_list = zeros + ones
+    BAD.goto(0)
+    # Reinsertion.
+    MASK.goto(0); GOOD.goto(0); DATA.goto(0)
+    counter += 2 * L
+    layout, gi, bi = [], iter(good_list), iter(bad_list)
+    for x in range(M):
+        if holes[x]:
+            key, rec = next(bi)
+            need(key == x, "sorted key equals the current hole address")
+        else:
+            rec = next(gi)
+        layout.append(rec)
+    MASK.sweep(M); BAD.sweep(nbad); GOOD.sweep(M - nbad); DATA.sweep(M, writing=True)
+    counter += inc + 2 * L * nbad
+    for tape in (GOOD, BAD, MASK):
+        tape.erase()
+    DATA.goto(0)
+    dense = DATA.moves + GOOD.moves + MASK.moves
+    sparse = BAD.moves + BK[0].moves + BK[1].moves
+    return layout, dict(dense=dense, sparse=sparse, counter=counter, evaluations=nbad, n_sorted=nbad)
+
+
 def written_bounds(L, M, R, nbad):
     """README accounting, in cells.
 
@@ -262,8 +365,11 @@ def check_repairs(crt):
         R = L  # records and keys both Theta(p)
         nbad = M - sum(good)
         B = 1 << bits
+        need(Fraction(nbad, M) == exact_bad_fraction(bits, guard, 1), "density equals the exact product formula")
         need(Fraction(nbad, M) <= Fraction(2, B) + Fraction(8 * B, 1 << guard), "density <= 2/B + 8B/2^K")
         layout, meter = repair(L, M, R, S, T, good, inv_S)
+        bulk_layout, bulk_meter = repair_bulk(L, M, R, S, T, good, inv_S)
+        need(bulk_layout == layout and bulk_meter == meter, "sweep-level repair matches the per-cell repair exactly")
         need(all(layout[T[q]] == q for q in range(M)), "repair realizes T on every record")
         need(meter["evaluations"] == nbad, "keys evaluated only at holes")
         dense_b, sparse_b, counter_b = written_bounds(L, M, R, nbad)
@@ -329,17 +435,69 @@ def check_absorption():
     return rows
 
 
+TWO_TARGET_FN = {
+    "source_pair": lambda y: ((y >> 3) & 1, (y & ~65).bit_count() & 1),   # #4100's own two-target source
+    "mixed_pair": lambda y: (((y >> 1) & 1) ^ ((y >> 11) & 1), ((y >> 5) & 1) & ((y >> 8) & 1)),
+}
+
+
+def check_two_target(crt):
+    """Every one of the 2^20 addresses of #4100's two-target layout: positions (0, 6), B = 4,
+    guard K = 6, 4-bit control fields, 12 y bits. Each source omits both active targets."""
+    bits, cb, yb, guard, positions = 2, 4, 12, 6, (0, 6)
+    B = 1 << bits
+    rows = []
+    for name, fn in TWO_TARGET_FN.items():
+        L, M, S, T, good, inv_S = fixture(crt, bits, cb, yb, guard, fn, positions=positions)
+        R = L
+        nbad = M - sum(good)
+        exact = exact_bad_fraction(bits, guard, 2)
+        need(Fraction(nbad, M) == exact, "two-target density equals the exact product formula")
+        union = 2 * (Fraction(2, B) + Fraction(8 * B, 1 << guard))
+        need(exact <= union, "product formula implies the union bound")
+        layout, meter = repair_bulk(L, M, R, S, T, good, inv_S)
+        need(all(layout[T[q]] == q for q in range(M)), "repair realizes the two-target switch on every record")
+        dense_b, sparse_b, counter_b = written_bounds(L, M, R, nbad)
+        need(meter["dense"] <= dense_b and meter["sparse"] <= sparse_b and meter["counter"] <= counter_b,
+             "two-target meters within the written bounds")
+        wrong_layout, _ = repair_bulk(L, M, R, S, T, good, inv_S, key_mode="S^-1")
+        rows.append(dict(source=name, L=L, M=M, holes=nbad, density=str(Fraction(nbad, M)),
+                         union_bound=str(union),
+                         dense_per_MR=round(meter["dense"] / (M * R), 3),
+                         sparse_per_hole_LR=round(meter["sparse"] / (nbad * L * (L + R)), 3),
+                         key_without_T_wrong_records=sum(wrong_layout[T[q]] != q for q in range(M))))
+        need(rows[-1]["key_without_T_wrong_records"] > 0, "control: keys without T misplace hole records")
+    # Premise control: a source that reads the other active target breaks agreement on good
+    # addresses, which the sparse repair never touches.
+    reads_other = lambda y: ((y >> 6) & 1, (y >> 1) & 1)
+    L, M, S, T, good, inv_S, disagreements = fixture(crt, bits, cb, yb, guard, reads_other,
+                                                      positions=positions, strict=False)
+    need(disagreements > 0, "control: reading another active target breaks S = T on good addresses")
+    preserved = all(good[S[q]] == good[q] for q in range(M))
+    control = dict(source_reads_other_target=True, good_addresses_where_S_differs_from_T=disagreements,
+                   S_preserves_good_set=preserved)
+    if preserved:
+        layout, _ = repair_bulk(L, M, L, S, T, good, inv_S)
+        control["records_wrong_after_repair"] = sum(layout[T[q]] != q for q in range(M))
+        need(control["records_wrong_after_repair"] > 0, "control: the repair cannot fix good-set disagreement")
+    return rows, control
+
+
 def main():
     crt, phrases = check_sources()
     rows = check_repairs(crt)
     controls = check_controls(crt)
     absorption = check_absorption()
+    two_target, premise_control = check_two_target(crt)
     print(json.dumps({
         "status": "PASS_PR4100_CRT_REPAIR_TARIFF_FINITE",
         "source_phrases": phrases,
         "fixtures": rows,
         "controls": controls,
         "absorption": absorption,
+        "two_target": two_target,
+        "two_target_premise_control": premise_control,
+        "sweep_repair_matches_per_cell": True,
         "max_dense_per_MR": max(r["dense_per_MR"] for r in rows),
         "max_sparse_per_hole_LR": max(r["sparse_per_hole_LR"] for r in rows),
         "all_size_theorem_claimed": False,

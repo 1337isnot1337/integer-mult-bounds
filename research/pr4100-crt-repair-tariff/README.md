@@ -76,8 +76,17 @@ word, composed with `T`.
 
 **5. Absorption at #4100's parameters.** CRT.md sets
 `G = 64(ell + ⌈log₂(p+2)⌉)`, `B = 2^G`, `K = 64G` and `r ≤ L/(100G)`.
-The bad density is `δ ≤ r(2/B + 8B/2^K)`, which the fixtures check exactly
-at `r = 1`.
+The bad density is `δ ≤ r(2/B + 8B/2^K)`.
+
+**Exact `r`-target density.** The `r` active targets use distinct `u` and `t`
+digits and pairwise disjoint guard windows. On a complete enumeration these
+fields are independent, so the good events are independent and
+
+`δ_r = 1 − [(1−1/B)²(1 − 8B/2^K)]^r`
+
+holds *exactly*. CRT.md's bound follows from `1 − Π(1−x_i) ≤ Σ x_i`. The
+fixtures check the identity exactly at `r = 1` (all five) and at `r = 2`
+(all `2^20` addresses, below).
 
 - **Sparse moves:** `δ(1+L/R)(9L+6) + δ·4L/R`. Since
   `2^-G ≤ 2^-64ell (p+2)^-64`, this is below `p³(p+2)^-64` for `L ≤ p` and
@@ -89,7 +98,7 @@ at `r = 1`.
 
 ## Evidence
 
-`verify.py` uses only the standard library and takes about 6 seconds.
+`verify.py` uses only the standard library and takes about 45 seconds.
 
 - **Fixtures.** The macro `S` and the ideal switch `T` come from #4100's
   pinned `check_batched_crt.py` (`compact`, `good`). There are five fixtures,
@@ -98,7 +107,11 @@ at `r = 1`.
 - **Correctness.** Each fixture checks that `S` and `T` are bijections, that
   both preserve the good set, and that `S = T` on good addresses. The repair
   then realizes `T` on every record.
-- **Density.** The measured density never exceeds `2/B + 8B/2^K`.
+- **Density.** Every measured density equals the product formula exactly,
+  and therefore never exceeds `2/B + 8B/2^K`.
+- **Sweep-level repair.** A second implementation charges whole sweeps instead
+  of single cells. It matches the per-cell repair exactly (meters and layout)
+  on all five fixtures, and it runs the `2^20` case.
 
 | `B`, guard, `M` | Holes | Dense / `MR` | Sorted / (holes·`L(L+R)`) |
 | --- | --- | --- | --- |
@@ -109,6 +122,28 @@ at `r = 1`.
 | 16, 8, 65,536 | 36,736 | 6.51 | 9.31 |
 
 Toy `B` makes holes dense here. At #4100's `G`, `δ ≈ 2^-G` (item 5).
+
+**Two targets, every address.** The layout is #4100's own two-target layout:
+`positions=(0,6)`, `B = 4`, guard 6, 4-bit control fields, 12 `y` bits, so
+`M = 2^20`. Two sources were run: #4100's own `source_pair`, and a second pair
+that reads guard bits of both targets. Each omits both active targets.
+
+| Source | Holes | Density | Union bound | Dense / `MR` | Sorted / (holes·`L(L+R)`) | Keys without `T`: wrong records |
+| --- | --- | --- | --- | --- | --- | --- |
+| `source_pair` | 965,632 | 943/1024 (exact) | 2 | 4.65 | 9.25 | 724,224 |
+| `mixed_pair` | 965,632 | 943/1024 (exact) | 2 | 4.65 | 9.25 | 603,520 |
+
+In both cases `S` and `T` are bijections, both preserve the good set,
+`S = T` on good addresses, and the repair realizes the two-target switch on
+all 1,048,576 records. At toy `B` the union bound exceeds 1, so the exact
+identity is what is checked here.
+
+**Two-target premise control.** Take a source that reads the *other* active
+target: `f_0` reads bit 6. Then `S ≠ T` on 55,296 good addresses, and `S` no
+longer preserves the good set. The repair's premise, that both maps preserve
+the bad set, fails, and a sparse repair cannot correct good-address errors.
+CRT.md requires "all f_i omit the target set"; this is the two-target
+counterpart of #4169's counterexample.
 
 **Controls,** each of which must fail:
 - **Full-input sort.** It evaluates 16,384 keys, not 11,776, and moves
@@ -126,8 +161,9 @@ PR2250's PROOF.md, with 9 exact phrases.
 - The guard scan that produces the hole mask (#4201, #4208).
 - The macro `S`'s ordinary interchanges, the last-`K` branch (#4187), and
   reservoir placement (#4174).
-- The fixtures have one target. CRT.md's `r`-target density is the union
-  bound, checked here only at `r = 1`.
+- `r ≥ 3` is not enumerated: `r` targets need `2^(8r+4)` addresses at
+  `B = 4`. The exact `r`-target formula rests on the field-disjointness
+  argument above.
 - There is no proof-kernel check.
 
 ## Reproduce
@@ -151,12 +187,15 @@ The verifier prints `PASS_PR4100_CRT_REPAIR_TARIFF_FINITE`.
      into this repair on one shared fixture.
    - *Blocked by:* the full `E(p,ell)` evaluator from CRT data (#4192's
      follow-up).
-2. **Check multi-target density exactly.**
-   - *Why it matters:* the `r`-target bound is a union bound over targets
-     with disjoint guards.
-   - *First step:* enumerate a two-target fixture (`positions=(0,6)`, 12 `y`
-     bits) through the same repair.
-   - *Blocked by:* nothing; it costs `2^20` records.
+2. **Bind disjoint guard windows at the actual coloring.** (Done for
+   `r = 2`; the earlier question 2 is closed above.)
+   - *Why it matters:* the exact formula needs every active target's `K-1`
+     guard window to be disjoint from every other window and from every
+     active target. CRT.md colors targets by position mod `K` for this.
+   - *First step:* check that coloring mod `K` with `(K−1)`-bit windows gives
+     disjointness for the actual mixed `ell`/`ell−1` axis offsets of #4174's
+     descriptors.
+   - *Blocked by:* nothing.
 
 ## Credit
 
