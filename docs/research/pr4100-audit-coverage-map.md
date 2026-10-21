@@ -8,7 +8,7 @@ each obligation row of #4100's [AUDIT.md](../../research/unconditional-batched-c
 the open PRs that audit it and what remains. The snapshot was taken on
 2026-10-21 at 06:50 UTC against canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision 7. It was
-updated at 07:45 UTC to add #4320.
+updated at 07:45 UTC to add #4320, and at 08:30 UTC to add #4321 and #4325.
 
 **This is navigation, not acceptance.** Every outcome below is what that PR
 reports. This map did not replay any package or recheck any proof. A positive
@@ -29,7 +29,7 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Nonlinear CRT near ε=1: balanced tree and padded caller (§1) | #4195 | Positive. Binds the declared widths `h_i∈{ell−1,ell}` to the complete padded balanced-tree caller. Reversing the levels and rows inverts every padded state. | Uniform evaluator cost (see the E row below). |
 | Beneš switch compiler (§2) | #4192 | Positive, conditional. Lowers the compiler on an *encoded permutation* to fixed tapes in `O(N³(p+2)^7)` time. | Turning CRT reconstruction, modular inversion and split descriptors into that permutation. The full `E(p,ell)` evaluator. |
 | Reservoir placement (§3) | #4174; [#4173](https://github.com/CrocSwap/integer-mult-bounds/discussions/4173) thread | Positive. At most 25,600 batches per layer and three disjoint exchanges, with dense left-child dependencies kept. | Dirty restoration is conditional on the repaired switch's all-address contract. |
-| Compact switches and total repair (§4) | #4169 | Positive. Every control omits every active target, which is the condition CRT.md states. The PR also gives an explicit inverse on dirty addresses. A counterexample shows that omitting only a control's own target fails. | Exceptions: extraction, radix-sort tariff and reinsertion cost. #4174 and #4201 both exclude these. |
+| Compact switches and total repair (§4) | #4169; #4321 | Positive. Every control omits every active target, which is the condition CRT.md states. #4169 also gives an explicit inverse on dirty addresses, and a counterexample shows that omitting only a control's own target fails. #4321 (unpaidmoon) notes that the displayed gadget reuses `t_i` as a frozen coefficient while the cancellation and the published `primitive_f` use the live digit. It proves the live-digit lemma and finds the `2B` guard margin sufficient but stricter than needed. | Exceptions: extraction, radix-sort tariff and reinsertion cost. #4174 and #4201 both exclude these. |
 | Last-K elementary branch (§4) | #4187 | Positive, conditional. A two-slice schedule has `M/2^(H+1)` preparations and costs `O(VK)`. | It assumes the uniform evaluator, the complete omitted suffix and the ordinary width-one callee. |
 | Dense guard detection at Θ(p)-bit records (§4) | #4201, #4208 | Positive. #4201 gives a literal three-tape scan for an *admitted* stencil. #4208 produces that stencil for one target from unary fields. | Many-target and binary/global descriptor production. |
 
@@ -65,7 +65,7 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Weighted leaves and fast header routes | No #4100-specific audit. BIT.md reuses PR2915's reached call sites; see the [physical contract map](selected-bit-physical-contract-map.md) for that lineage's review status. | n/a | BIT.md's two completed stages that use the preceding stage at both reached primitive sites, at the new `c`. |
 | Row stock, whole high packets and fixed tapes | No #4100-specific audit. BIT.md cites the PR2809 block construction, which is still partially reviewed ([caller and storage map](selected-bit-caller-storage-map.md)). | n/a | Divisible stock, depth induction, complete-field preparation, encoded state and geometric work accounting. #4228 and #4235 exclude these explicitly. |
 | BIT recurrence moment at the retuned `c = 8667/5,000,000` | Author check only (`check_composition.py`). #4171 checks the bootstrap constants `a1`, `a2`, not this moment. | Computed here at 50 digits (informational, not certified): `μ_1 = 0.9943517737` and `μ_(1−c) = 0.9999999116`, a margin of `8.8·10⁻⁸`. The root in `c` is `≈ 0.00173342704`, matching the selected BIT primitive. `H` is the selected PR589 profile; one extra rank-1 child would add `≈ 5.5·10⁻⁷` and exceed the margin at this `c`. | A certified independent enclosure of `μ_(1−c)`. |
-| Chirp generation | #4320 (the identity only) | Positive. The chirp identity holds for all `x, z` exactly when `s·t` is even, so PROOF.md's even-`t` condition suffices. | The head-travel tariff for the cached tables, prefix products and rewinds. |
+| Chirp generation | #4320 (the identity); #4325 (the tariff) | Positive. The chirp identity holds for all `x, z` exactly when `s·t` is even, so PROOF.md's even-`t` condition suffices (#4320). With literal four-tape head counts, table travel is `≤ 31·TP` uniformly in `d` under the factor-two radix premise, with fewer than two products per record and error `≤ (2d−1)√2·2^(−P)` (#4325). A per-record `d`-scan and skewed radices both fail. | Table setup cost, and interleaving with the packed payload records. |
 | Input order and exact recovery | #4320 | Positive. The address isomorphism (equal to CRT.md's root map), synthetic convolution, Gaussian identity and factorization, dilation commutation and recovery inequalities all hold with PROOF.md's normalizations. `T < 2^b` holds from `b ≥ 8`. A presentational note: the carry scan must flush a final carry when `S = 2Ndigits − 1`. | The `2^-4p` precision constant. Invertibility of `N` follows from the retained row gap (see the row-gap row above). |
 | Strict powers and logarithms | #4171 | Positive. A second implementation shows every paid-power and side-condition slack strictly positive, and all five obsolete routes still rejected. | None within the ledger; the ledger does not validate the constructions. |
 
@@ -79,10 +79,8 @@ the written theorem.
    whole-high-packet and fixed-tape induction, at the new `c`. Their PR2809,
    PR2899 and PR2915 lineage is partially reviewed; start from the two BIT
    scope maps.
-2. PROOF.md: the chirp-table head-travel tariff and the `2^-4p` precision
-   constant. Its algebraic identities are audited in #4320. The tariff
-   matters: one leftover `d` factor would make that row's power
-   `ε > 1−κ`, which the ledger rejects.
+2. PROOF.md: the `2^-4p` precision constant. Its algebraic identities are
+   audited in #4320 and its chirp head-travel tariff in #4325.
 3. GAUSSIAN.md: physical head travel of the union schedule. Its algebra is
    reviewed in the lineage, and the row has large slack.
 4. CRT.md: exception extraction, sorting and reinsertion, and the full uniform
@@ -141,6 +139,8 @@ one quantified implication. Search again first: this list goes stale quickly.
 | #4308 | jwr404 | `8421ce3dec790743cc59c701eedc6746d9a6ce68` |
 | #4309 | jwr404 | `106e26e3c0f62a6e0017afb0a72fc81bd20271fd` |
 | #4320 | pinterbanget | `178986e09670a5607794202339a3ce87dbfcdb74` |
+| #4321 | unpaidmoon | `05ff71ae097fe5cf19894beb83178cac442bbd35` |
+| #4325 | pinterbanget | `404e307ccb29a854e1f0a34289c86c4bf2a7dd7b` |
 
 Header-law successors to #4239/#4246 (#4240, #4259, #4261, #4273–#4275, #4278)
 answer counting questions that #4228 raised. They change the card's scope to
