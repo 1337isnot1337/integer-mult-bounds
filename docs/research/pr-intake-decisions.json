@@ -44621,6 +44621,40 @@
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4166",
         "merge_commit": "aa5a1502082c5062bd0ccb4f898dc4de9cb8a044"
       }
+    },
+    {
+      "number": 4359,
+      "metadata": {
+        "author": {
+          "id": "MDQ6VXNlcjM2NjQ3NA==",
+          "is_bot": false,
+          "login": "zxv",
+          "name": ""
+        },
+        "headRefOid": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+        "isDraft": false,
+        "number": 4359,
+        "title": "Conditional \u03ba = 0.0023 (+5.690e-4, +32.87% over #4181): productive helper jobs compiled into a uniform supplier",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359"
+      },
+      "reviewed_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "current_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "disposition": "partially_reviewed",
+      "github_state": "OPEN",
+      "integration_location": [],
+      "unresolved_question": "Complete independent proof-level review of the all-column native-to-compiler binding, delayed cover/fixed-tape routing and weighted-leaf interface, and new precision/row-reserve outer closure before selected-frontier admission. Arguments are supplied; no concrete failure found in this targeted pass.",
+      "scope": "Exact-source check-only and fresh serial 23-stage critical replay passed; 59 normalized artifacts agree. Targeted ownership/compiler/cover review recorded. Universal proofs and inherited assumptions not independently admitted.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/pr4359/REVIEW.json",
+        "docs/research/pr-intake-evidence/pr4359/REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4359/VALIDATION.json"
+      ]
     }
   ]
 }

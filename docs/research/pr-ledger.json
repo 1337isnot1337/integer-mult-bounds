@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 3611,
+  "inventory_count": 3612,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2084,
-    "partially_reviewed": 1465,
+    "partially_reviewed": 1466,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "3eac1b919a840b2a0f750531225396552102065c5db703bea6d250c371bee941",
+    "docs/research/pr-intake-decisions.json": "98bc776876b1f2a33e55b1518b0662a7e7dd818273fc629002c6775be89f4c2b",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -202622,6 +202622,52 @@
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
       ]
+    },
+    {
+      "number": 4359,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4359",
+      "title": "Conditional κ = 0.0023 (+5.690e-4, +32.87% over #4181): productive helper jobs compiled into a uniform supplier",
+      "contributor": {
+        "id": "MDQ6VXNlcjM2NjQ3NA==",
+        "is_bot": false,
+        "login": "zxv",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "current_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "previously_reviewed_heads": [],
+      "historical_assessment_heads": [],
+      "evidence": [
+        {
+          "head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "Exact-source check-only and fresh serial 23-stage critical replay passed; 59 normalized artifacts agree. Targeted ownership/compiler/cover review recorded. Universal proofs and inherited assumptions not independently admitted.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "historical_mentions": [],
+      "integration_location": [],
+      "github_state": "OPEN",
+      "closure": null,
+      "reviewed_head": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+      "disposition": "partially_reviewed",
+      "unresolved_question": "Complete independent proof-level review of the all-column native-to-compiler binding, delayed cover/fixed-tape routing and weighted-leaf interface, and new precision/row-reserve outer closure before selected-frontier admission. Arguments are supplied; no concrete failure found in this targeted pass.",
+      "review_completion": {
+        "changed_file_coverage": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": false
+      },
+      "verification_evidence": [
+        "docs/research/pr-intake-evidence/pr4359/REVIEW.json",
+        "docs/research/pr-intake-evidence/pr4359/REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4359/VALIDATION.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "docs/research/pr-intake-decisions.json"
+      ]
     }
   ],
   "ending_snapshot": "research/pr-reconciliation-20261012/ending-snapshot.json",
@@ -202634,6 +202680,6 @@
   "github_dispositions": {
     "CLOSED": 379,
     "MERGED": 2950,
-    "OPEN": 282
+    "OPEN": 283
   }
 }
