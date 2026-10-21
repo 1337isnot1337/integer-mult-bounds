@@ -1,8 +1,8 @@
 # Proposed title
 
-Use higher paid moments to reduce the p7 tensor power from 6240 to 150
+Reduce p7 tensor power and uniform-rank exponent (41.6× and 46.38M×)
 
-# Local submission draft — await user review
+# Submission description
 
 The p7 supplier's paid ranks overlap its productive ranks. Its current
 strictification pays to complete small targets after chronological products,
@@ -31,4 +31,4 @@ arithmetic and rejection controls.
 Prepared by zxv with substantial OpenAI Codex assistance, Apache-2.0.
 Retains @1337isnot1337's p7/padding work, Jacob Alan Sussman's mixed flow,
 @pinterbanget's invoice replay and the original native/outer lineage.
-Do not publish before the user reviews this contribution.
+Submission authorized by the user on 2026-10-21.

@@ -1,6 +1,6 @@
 # Higher-moment strictification: tensor power 150 and a smaller uniform rank
 
-**Local contribution for user review. Do not push or submit a PR yet.**
+**Submission authorized by the user on 2026-10-21.**
 
 The complete p7 mixed supplier in [PR4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)
 has productive ranks down to 5 and paid ranks up to 48. Its chronological
@@ -386,7 +386,7 @@ records with complete reported pagination, plus local notes. The newer
 slightly smaller sufficient powers; #4426 supplies the invoice replay reused
 here. No remote closed-PR-body or arbitrary code-diff search was performed.
 The task metadata records the changed scope and remaining direct-compiler
-question. No Discussion claim or new PR has been published for this work.
+question. Submission was authorized after local review; no Discussion claim was posted.
 
 ## Open next questions
 
