@@ -1,0 +1,241 @@
+{
+  "cases": [
+    {
+      "leaves": 8,
+      "leaves_per_array": "8/3",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": false,
+      "rank": 3,
+      "replication": 1,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 1,
+        "dependency_edges": 13,
+        "event_nodes": 10,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "1": 2,
+          "2": 2
+        },
+        "generations": 0,
+        "ordered_exit_batches": 4,
+        "owned_fields_uncredited_conservative_allocation": 1,
+        "rank": 3,
+        "source_fields": 3,
+        "source_ranks": {
+          "2": 2,
+          "3": 1
+        },
+        "units": 1
+      },
+      "units": 1,
+      "width": 3
+    },
+    {
+      "leaves": 144,
+      "leaves_per_array": "24/5",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank": 6,
+      "replication": 3,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 5,
+        "dependency_edges": 78,
+        "event_nodes": 52,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "1": 4,
+          "2": 8,
+          "4": 4
+        },
+        "generations": 1,
+        "ordered_exit_batches": 16,
+        "owned_fields_uncredited_conservative_allocation": 6,
+        "rank": 6,
+        "source_fields": 10,
+        "source_ranks": {
+          "3": 2,
+          "4": 4,
+          "6": 4
+        },
+        "units": 6
+      },
+      "units": 24,
+      "width": 30
+    },
+    {
+      "leaves": 26032,
+      "leaves_per_array": "6508/765",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank": 12,
+      "replication": 90,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 21,
+        "dependency_edges": 390,
+        "event_nodes": 244,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "1": 8,
+          "2": 24,
+          "4": 24,
+          "8": 8
+        },
+        "generations": 2,
+        "ordered_exit_batches": 64,
+        "owned_fields_uncredited_conservative_allocation": 30,
+        "rank": 12,
+        "source_fields": 34,
+        "source_ranks": {
+          "6": 12,
+          "8": 8,
+          "9": 2,
+          "12": 12
+        },
+        "units": 30
+      },
+      "units": 5288,
+      "width": 3060
+    },
+    {
+      "leaves": 15987136,
+      "leaves_per_array": "999196/66555",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank": 24,
+      "replication": 9180,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 85,
+        "dependency_edges": 1820,
+        "event_nodes": 1096,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "1": 16,
+          "2": 64,
+          "4": 96,
+          "8": 64,
+          "16": 16
+        },
+        "generations": 3,
+        "ordered_exit_batches": 256,
+        "owned_fields_uncredited_conservative_allocation": 140,
+        "rank": 24,
+        "source_fields": 116,
+        "source_ranks": {
+          "9": 4,
+          "12": 48,
+          "16": 16,
+          "18": 16,
+          "24": 32
+        },
+        "units": 140
+      },
+      "units": 3587936,
+      "width": 1064880
+    },
+    {
+      "leaves": 2215674004608,
+      "leaves_per_array": "7693312516/292109895",
+      "ordered_batches_integral": true,
+      "owned_center_enters_child": true,
+      "rank": 48,
+      "replication": 212443560,
+      "tree": {
+        "acyclic": true,
+        "class_input_disjointness": true,
+        "classes": 341,
+        "dependency_edges": 8164,
+        "event_nodes": 4792,
+        "every_paid_call_real_owner": true,
+        "exit_ranks": {
+          "1": 32,
+          "2": 160,
+          "4": 320,
+          "8": 320,
+          "16": 160,
+          "32": 32
+        },
+        "generations": 4,
+        "ordered_exit_batches": 1024,
+        "owned_fields_uncredited_conservative_allocation": 628,
+        "rank": 48,
+        "source_fields": 396,
+        "source_ranks": {
+          "18": 40,
+          "24": 160,
+          "27": 4,
+          "32": 32,
+          "36": 80,
+          "48": 80
+        },
+        "units": 628
+      },
+      "units": 527759674416,
+      "width": 84127649760
+    }
+  ],
+  "controls": {
+    "actual_equality_tree_alias_rejected": true,
+    "duplicate_productive_name_rejected": true,
+    "minimum_equal_to_ambient_rejected": true,
+    "minimum_one_nonterminating_lattice_rejected": true,
+    "nonexistent_paid_owner_rejected": true,
+    "old_strict_constructor_rejects_equality": true,
+    "owned_role_credited_as_productive_rejected": true,
+    "paid_rank_above_minimum_rejected": true
+  },
+  "generator_sha256": "33d43a20a55e3eb6200abb478f3ef9bcd3d866233cacd7930d15c87fa0759605",
+  "new_interface": "r_max <= k_min < m and k_min >= 2, with unchanged complete named-role and owned-field obligations",
+  "schema": "weak-separation-finite-compiler-interface/1",
+  "scope": [
+    "The new WeakRule deliberately broadens the accepted rank interface.",
+    "The original IntegerTree and Compiler implementations are unchanged.",
+    "Five literal equality-case graphs, including owned-center recursion and independent ordered batching, are checked.",
+    "The toy is a generic complete-role contract, not a claimed native transform.",
+    "The weak-separation theorem and adjusted actual native profile require their separate proofs and certificates."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-rebuild/transfer-audit/finite_dag_audit.py": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e"
+  },
+  "status": "PASS_EQUALITY_RULE_AND_MULTIGENERATION_OWNED_DAG",
+  "toy_paid_rounds": [
+    [
+      1,
+      "a"
+    ],
+    [
+      2,
+      "owned-C0"
+    ],
+    [
+      1,
+      "b"
+    ],
+    [
+      2,
+      "c"
+    ]
+  ],
+  "toy_roles": [
+    [
+      "a",
+      2
+    ],
+    [
+      "b",
+      2
+    ],
+    [
+      "c",
+      3
+    ]
+  ]
+}

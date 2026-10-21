@@ -1,0 +1,87 @@
+{
+  "H_binary_upper_exponent": 30,
+  "N": {
+    "H": 756934981,
+    "encoding": "2^H"
+  },
+  "arithmetic_generator_sha256": "ad92ee3790c441f7e3065e70527ada8a038f21ca70005832c67476d7f146e2ad",
+  "changed_fresh_owner_count": 102,
+  "companion_sha256": {
+    "kappa-4359-native-five/CERTIFICATE.json": "9a4036e30d38be476cd529b4aebba40270f719744c13a86efd9306892d903ed8",
+    "kappa-4359-weak-compiler/CERTIFICATE.json": "2bd9043b77e5219e92d101c3c5f469bf302618ac932484f169f1ad3614ac1187"
+  },
+  "complement_strict_gap": "15532495071009/50000000000000000",
+  "complete_exit_coefficient_upper": "4047/4096",
+  "eta_lower": "49417387963821009/50000000000000000",
+  "exact_exit_moment": "E_a=P_a^(G+1), G=floor(log_q(n/m))",
+  "gamma": "1/20",
+  "generator_sha256": "07a950c217320b2770b783e8b2b0bf9bf039e9b336bb9156f1bb162bd2fd7a1c",
+  "global_leaf_bound": "L(n) <= m^(1-t)*n^t*max(1,log(n))^(1/20)",
+  "high_exit_fraction_upper": "1/8",
+  "high_exit_potential_bound": "high_exit_t/source_t <= 2*m^(-1/2)*n^(-1/4) <= 2*m^(-3/4) < 1/8",
+  "low_exit_log_factor_upper": "505/512",
+  "m": 57,
+  "m_binary_upper_exponent": 6,
+  "negative_controls": {
+    "entire_exit_potential_cannot_be_treated_as_low": true,
+    "old_strict_separation_fails_for_actual_new_tariff": true,
+    "old_tariff_cannot_claim_new_mixed_saving": true,
+    "one_smaller_H_fails_stated_final_bound": true
+  },
+  "new_profile": {
+    "paid": {
+      "1": 17521,
+      "2": 5065,
+      "3": 1738,
+      "4": 714,
+      "5": 254
+    },
+    "targets": {
+      "5": 102,
+      "6": 90,
+      "7": 56,
+      "8": 93,
+      "9": 1229,
+      "25": 448,
+      "57": 224
+    }
+  },
+  "old_tariff_margin_at_new_saving": [
+    "-0.6356605057493223824723375272638098554613",
+    "-0.6356605057493223824723375272638098554612"
+  ],
+  "paid_moment_ratio": [
+    "1.9233876847307549398804098837614910375488",
+    "1.9233876847307549398804098837614910375489"
+  ],
+  "paid_moment_ratio_strict_upper": "2",
+  "proof_sha256": "27b6c38776b46cac2a81910773b6d59ebbb3b1f3f7a321a87b80aa728cc884d9",
+  "q": 5,
+  "r_max": 5,
+  "schema": "weighted-tail-weak-separation-template/1",
+  "scope": [
+    "The weak-separation construction requires 2<=k_min<m and r_max<=k_min.",
+    "The complete native derivative and changed compiler guard are separately authenticated.",
+    "The source/exit recurrence charges every complement and every paid call on owned storage.",
+    "No near-threshold native word, B_N, P_N, U_N or full precision constant is materialized.",
+    "Every finite-template constant must be replaced using this selected word.",
+    "A complete integer-multiplication bound requires the separate outer transfer and inherited hypotheses."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-rebuild/architecture/FINITE-PRECOMPILATION.md": "4cb32f6b8e388ecf6ed41b5bbdeeb4539cb40c8424f194974afea58f7e0921e8",
+    "research/kappa-rebuild/controller/P3-NATIVE-COVER.json.gz": "facfc6d6ecde151afb7e6a167776f3fdaac1c816e785a21a39f7f0bfd9140f3f",
+    "research/kappa-rebuild/transfer-audit/finite_dag_audit.py": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e"
+  },
+  "status": "PASS_NATIVE_WEAK_SEPARATION_TAIL_AND_EXPLICIT_TEMPLATE",
+  "strict_final_power_gap": "1/500000000",
+  "strict_mixed_margin": [
+    "0.0000475467876675676857782735813400941815",
+    "0.0000475467876675676857782735813400941816"
+  ],
+  "strict_uniform_moment": "P_N/B_N < N^(1-uniform_saving)",
+  "t": "49884417/50000000",
+  "tested_mixed_saving": "115583/50000000",
+  "theta": "3/4",
+  "uniform_saving": "1155829/500000000"
+}

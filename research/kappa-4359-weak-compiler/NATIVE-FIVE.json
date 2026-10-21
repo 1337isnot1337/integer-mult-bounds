@@ -1,0 +1,189 @@
+{
+  "compiled": {
+    "all_productive_fields_full_rank": true,
+    "leaves": 127570,
+    "native_halving_guard": true,
+    "owned_fields_uncredited": 1,
+    "per_array": "63785/1121",
+    "rank": 57,
+    "replication": 1,
+    "strict_uniform_child_rank": 1,
+    "units": 1,
+    "width": 2242
+  },
+  "controls": {
+    "dropped_actual_owned_center_call_rejected": true,
+    "strict_original_rule_rejects_actual_native_equality": true,
+    "unearned_deleted_sixth_axis_credit_rejected": true
+  },
+  "event_graph": {
+    "acyclic": true,
+    "class_input_disjointness": true,
+    "classes": 1,
+    "dependency_edges": 75877,
+    "event_nodes": 50586,
+    "every_paid_call_real_owner": true,
+    "exit_ranks": {
+      "1": 17521,
+      "2": 5065,
+      "3": 1738,
+      "4": 714,
+      "5": 254
+    },
+    "generations": 0,
+    "ordered_exit_batches": 25292,
+    "owned_fields_uncredited_conservative_allocation": 1,
+    "rank": 57,
+    "source_fields": 2242,
+    "source_ranks": {
+      "5": 102,
+      "6": 90,
+      "7": 56,
+      "8": 93,
+      "9": 1229,
+      "25": 448,
+      "57": 224
+    },
+    "units": 1
+  },
+  "generator_sha256": "692e87409565aca685345e3c3bbe43827b92f3a7e192ceed178f5e171445b3bd",
+  "native_deletion_sha256": "9a4036e30d38be476cd529b4aebba40270f719744c13a86efd9306892d903ed8",
+  "ordered_paid_word_sha256": "a0b5d5f48a2166e39e74937fea4ec4b4bef9e9b82115535cdceed920db32c879",
+  "original_compiler_sha256": "f842f0e07ca40a181782a565a381b0ee20c6a4b08b8c2b8a4d5d630381bd1e8e",
+  "paid": {
+    "1": 17521,
+    "2": 5065,
+    "3": 1738,
+    "4": 714,
+    "5": 254
+  },
+  "paid_rounds": 25292,
+  "productive_fields": 2242,
+  "role_contract_sha256": "a656fb736f004db2f5e7104c2cec4c770522ea8cea3d8282eb009afce6ec08cd",
+  "schema": "actual-native-five-weak-compiler-integration/1",
+  "scope": [
+    "Actual native p3 role names and chronological paid owners are reconstructed from pinned sources.",
+    "Exactly the separately authenticated 102 rank-one residuals are removed.",
+    "The literal rank57 compiler graph has one native unit and generation depth zero.",
+    "Positive-generation equality scheduling is exercised by the independent toy certificate.",
+    "This rank57 completion does not attain the improved mixed exponent.",
+    "The native endpoint proof, large uniform-template theorem, and outer transfer remain separate obligations."
+  ],
+  "source_commit": "da637c87c89482bc4c86be36bd0071b3d400dbed",
+  "source_sha256": {
+    "research/kappa-rebuild/bit/COMPLEX-CONTROLLER-FACTOR.json": "a6d3d835c1ccf4bee5a9771beb0bec8e0dcb3c4b9e49d158835f195507ade280",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz": "c54b0a3e129d28e6dbf74fa731fc3bb70fe3c6705f07256750fbecddcc842d39",
+    "research/kappa-rebuild/controller/P3-NATIVE-COVER.json.gz": "facfc6d6ecde151afb7e6a167776f3fdaac1c816e785a21a39f7f0bfd9140f3f"
+  },
+  "stages": [
+    {
+      "direction": "forward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2487,
+        "2": 713,
+        "3": 232,
+        "4": 102,
+        "5": 28
+      },
+      "paid_rounds": 3562,
+      "pair": 0,
+      "stage": 0
+    },
+    {
+      "direction": "backward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2487,
+        "2": 732,
+        "3": 232,
+        "4": 102,
+        "5": 28
+      },
+      "paid_rounds": 3581,
+      "pair": 0,
+      "stage": 1
+    },
+    {
+      "direction": "forward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2543,
+        "2": 731,
+        "3": 289,
+        "4": 102,
+        "5": 57
+      },
+      "paid_rounds": 3722,
+      "pair": 0,
+      "stage": 2
+    },
+    {
+      "direction": "backward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2487,
+        "2": 713,
+        "3": 232,
+        "4": 102,
+        "5": 28
+      },
+      "paid_rounds": 3562,
+      "pair": 1,
+      "stage": 3
+    },
+    {
+      "direction": "forward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2543,
+        "2": 731,
+        "3": 289,
+        "4": 102,
+        "5": 57
+      },
+      "paid_rounds": 3722,
+      "pair": 1,
+      "stage": 4
+    },
+    {
+      "direction": "backward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2487,
+        "2": 713,
+        "3": 232,
+        "4": 102,
+        "5": 28
+      },
+      "paid_rounds": 3562,
+      "pair": 2,
+      "stage": 5
+    },
+    {
+      "direction": "forward",
+      "owned_center_calls": 16,
+      "paid": {
+        "1": 2487,
+        "2": 732,
+        "3": 232,
+        "4": 102,
+        "5": 28
+      },
+      "paid_rounds": 3581,
+      "pair": 2,
+      "stage": 6
+    }
+  ],
+  "status": "PASS_ACTUAL_NATIVE_FIVE_OWNERS_ORDER_AND_RANK57_COMPILATION",
+  "targets": {
+    "5": 102,
+    "6": 90,
+    "7": 56,
+    "8": 93,
+    "9": 1229,
+    "25": 448,
+    "57": 224
+  },
+  "weak_interface_sha256": "33d43a20a55e3eb6200abb478f3ef9bcd3d866233cacd7930d15c87fa0759605"
+}
