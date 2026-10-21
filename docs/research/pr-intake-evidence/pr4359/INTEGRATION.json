@@ -145,10 +145,11 @@
     }
   },
   "hosted_linux_ci": {
-    "status_at_publication_receipt": "in_progress",
+    "status_at_publication_receipt": "completed",
     "url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39659361390",
     "head": "ae87507c0767c00f5a55ee9062c496191e978632",
-    "scope": "Separate hosted replay; local replay and proof-review evidence already retained. No hosted success inferred."
+    "scope": "Hosted sequential fresh 23-stage replay completed successfully at the publication source SHA; preserved workflow artifacts available at the linked run.",
+    "conclusion": "success"
   },
   "attribution": "../../community-productive4359-contributors.md",
   "tweet_draft": "../../community-productive4359-twitter.md",

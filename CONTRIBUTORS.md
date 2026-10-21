@@ -2875,3 +2875,108 @@ Source archives retain attribution; mathematical review remains open.
 - **Nick Petalas (@petalas)** — [#4234](https://github.com/CrocSwap/integer-mult-bounds/pull/4234): Prove a shape-sensitive bound for mixed negative Q8 targets (source archive).
 - **Nick Petalas (@petalas)** — [#4235](https://github.com/CrocSwap/integer-mult-bounds/pull/4235): Construct a paid pivoted BIT fallback with at most 1+12r children (source archive).
 - **ToikY (@ToikY)** — [#4206](https://github.com/CrocSwap/integer-mult-bounds/pull/4206): Independently audit BIT COPY support propagation at the retained caller (source archive; repaired review metadata retained).
+
+## Queue intake, 21 October 2026 (chunk B)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Nick Petalas (@petalas)** — [#4236](https://github.com/CrocSwap/integer-mult-bounds/pull/4236): Count optimal unsigned one-source connector words in every characteristic (source archive).
+- **Nick Petalas (@petalas)** — [#4237](https://github.com/CrocSwap/integer-mult-bounds/pull/4237): Prove the sharp fallback child count: 33269, not 49911, at m = 64 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4238](https://github.com/CrocSwap/integer-mult-bounds/pull/4238): Prove the exact 744-call F3 optimum for full ternary five-source demand (source archive).
+- **Nick Petalas (@petalas)** — [#4239](https://github.com/CrocSwap/integer-mult-bounds/pull/4239): Prove the exact joint header law for orthogonal rank-one requests (source archive).
+- **Nick Petalas (@petalas)** — [#4240](https://github.com/CrocSwap/integer-mult-bounds/pull/4240): Prove the joint header law for nonorthogonal rank-one requests (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4241](https://github.com/CrocSwap/integer-mult-bounds/pull/4241): Prove the exact signed connector tariff with sign-dependent prices (no new κ) (source archive).
+- **ToikY (@ToikY)** — [#4242](https://github.com/CrocSwap/integer-mult-bounds/pull/4242): Replay pinned GL3 RUP certificates on another native platform (source archive).
+- **Nick Petalas (@petalas)** — [#4243](https://github.com/CrocSwap/integer-mult-bounds/pull/4243): Prove free basis changes keep the right-vector diagonal count (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4244](https://github.com/CrocSwap/integer-mult-bounds/pull/4244): Prove the exact 2208-call F3 optimum for full ternary six-source demand (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4245](https://github.com/CrocSwap/integer-mult-bounds/pull/4245): Prove a pivot-policy swap floor for the pivoted BIT fallback: at least 385 of 505 boundary children remain (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4246](https://github.com/CrocSwap/integer-mult-bounds/pull/4246): Prove the joint full-guard header law for orthogonal requests of any rank (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4247](https://github.com/CrocSwap/integer-mult-bounds/pull/4247): Refute the rank-dependent fallback swap bound s ≤ 2(m − r): s = 7 at m = 6, r = 3 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4248](https://github.com/CrocSwap/integer-mult-bounds/pull/4248): Reach the unsigned connector floor for k ≤ 2c in every characteristic; 9 ≤ N(4) ≤ 21 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4249](https://github.com/CrocSwap/integer-mult-bounds/pull/4249): Prove the shortest unsigned depth-three chain connector in every characteristic (3m; 4m at c ≡ -1 for m ≤ 4; no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4250](https://github.com/CrocSwap/integer-mult-bounds/pull/4250): Prove the seven-source F3 connector floor fails: optimum 405, floor attained exactly for n ≤ 6 (no new κ) (source archive).
+- **flyingviper (@flyingviper)** — [#4251](https://github.com/CrocSwap/integer-mult-bounds/pull/4251): P112: exclude a complete two-parameter common-frame family (source archive).
+- **flyingviper (@flyingviper)** — [#4252](https://github.com/CrocSwap/integer-mult-bounds/pull/4252): P112: prove the invoice floor for mixed two-port factor terms (source archive).
+- **Jose Manuel (@jmbarrancoml)** — [#4253](https://github.com/CrocSwap/integer-mult-bounds/pull/4253): Lower rational FFT and conditioned Toeplitz programs to fixed Hadamard stages (source archive).
+- **flyingviper (@flyingviper)** — [#4254](https://github.com/CrocSwap/integer-mult-bounds/pull/4254): P112: exclude every rational choice in the fixed six-query P8 family (source archive).
+- **Nick Petalas (@petalas)** — [#4255](https://github.com/CrocSwap/integer-mult-bounds/pull/4255): Lower the characteristic-four connector floor bound to N(4) ≤ 20; the known nine-source walk does not extend (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4256](https://github.com/CrocSwap/integer-mult-bounds/pull/4256): Prove the optimal full-coefficient connector overhead exponent in every finite characteristic (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4257](https://github.com/CrocSwap/integer-mult-bounds/pull/4257): Classify all depth-three connector count vectors and unequal-price optima (source archive).
+- **Nick Petalas (@petalas)** — [#4258](https://github.com/CrocSwap/integer-mult-bounds/pull/4258): Prove exact sign-dependent tariffs for every signed 3x3 connector target (source archive).
+- **Nick Petalas (@petalas)** — [#4259](https://github.com/CrocSwap/integer-mult-bounds/pull/4259): Prove the exact full-guard header law for laminar projector families (no new κ) (source archive).
+- **Ross Richardson (@RossRichardson)** — [#4260](https://github.com/CrocSwap/integer-mult-bounds/pull/4260): Construct and price cyclic H6 partial-frame networks (source archive).
+- **Nick Petalas (@petalas)** — [#4261](https://github.com/CrocSwap/integer-mult-bounds/pull/4261): Prove the joint full-guard law for an overlapping corank-one pair (source archive).
+- **Nick Petalas (@petalas)** — [#4262](https://github.com/CrocSwap/integer-mult-bounds/pull/4262): Prove fallback swap counts add over direct sums: same-bank excess grows to 22 at m = 64 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4263](https://github.com/CrocSwap/integer-mult-bounds/pull/4263): Attain the depth-four chain connector floor 4m for every 6 ≤ m ≤ 32 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4264](https://github.com/CrocSwap/integer-mult-bounds/pull/4264): Prove the F3 connector excess grows with n: exact 795-call eight-source optimum (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4265](https://github.com/CrocSwap/integer-mult-bounds/pull/4265): Refute the right-vector general-target formula: M2(F2) targets need 3 factors, not 2 (no new κ) (source archive).
+- **Ross Richardson (@RossRichardson)** — [#4266](https://github.com/CrocSwap/integer-mult-bounds/pull/4266): Prove common-cut endpoint debt and heterogeneous path bounds (source archive).
+- **Ross Richardson (@RossRichardson)** — [#4267](https://github.com/CrocSwap/integer-mult-bounds/pull/4267): Prove the sharp formal orbit query bound with returned spectators (source archive).
+- **Ross Richardson (@RossRichardson)** — [#4269](https://github.com/CrocSwap/integer-mult-bounds/pull/4269): Prove cubic scalar-caller query and pure-layer bounds (source archive).
+- **Ross Richardson (@RossRichardson)** — [#4270](https://github.com/CrocSwap/integer-mult-bounds/pull/4270): Complete pooled complex admission and conditional κ = 1/580 transfer (source archive).
+- **Nick Petalas (@petalas)** — [#4271](https://github.com/CrocSwap/integer-mult-bounds/pull/4271): Prove N(4) ≤ 17 and classify optimal five-source depth-two blocks (source archive).
+- **Nick Petalas (@petalas)** — [#4272](https://github.com/CrocSwap/integer-mult-bounds/pull/4272): Lower the seven-source full ternary connector upper bound to 6600 calls (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4273](https://github.com/CrocSwap/integer-mult-bounds/pull/4273): Prove the exact ternary full-guard law for two corank-one requests (source archive).
+- **Nick Petalas (@petalas)** — [#4274](https://github.com/CrocSwap/integer-mult-bounds/pull/4274): Prove the full-guard law for one-way coupled corank-one requests (source archive).
+- **Nick Petalas (@petalas)** — [#4275](https://github.com/CrocSwap/integer-mult-bounds/pull/4275): Prove the full-guard header law for k corank-one requests with orthogonal kernels: binary threshold m ≥ k+1 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4276](https://github.com/CrocSwap/integer-mult-bounds/pull/4276): Prove the exact two-factor right-vector criterion at n = 2; the M2(F2) failure lifts to F2[S3] (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4277](https://github.com/CrocSwap/integer-mult-bounds/pull/4277): Prove exact tariffs for rectangular signed connector duplications (source archive).
+- **Nick Petalas (@petalas)** — [#4278](https://github.com/CrocSwap/integer-mult-bounds/pull/4278): Prove the exact one-step Schur commutator criterion (source archive).
+- **Nick Petalas (@petalas)** — [#4279](https://github.com/CrocSwap/integer-mult-bounds/pull/4279): Classify depth-four chain connector count vectors and unequal-price tariffs for m = 2..5 (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4280](https://github.com/CrocSwap/integer-mult-bounds/pull/4280): Attain the depth-four chain connector floor 4m for every 33 ≤ m ≤ 64, via an exact row model (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4281](https://github.com/CrocSwap/integer-mult-bounds/pull/4281): Bound the depth-five chain connector: 8m at m = 2, 3, residue-dependent at m = 4, floor 5m for 9 ≤ m ≤ 20 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4282](https://github.com/CrocSwap/integer-mult-bounds/pull/4282): Record the circular-section Neumann bound (source archive).
+- **James Reed (@jwr404)** — [#4283](https://github.com/CrocSwap/integer-mult-bounds/pull/4283): Separate Schur bandwidth from the narrow inverse bound (source archive).
+- **James Reed (@jwr404)** — [#4284](https://github.com/CrocSwap/integer-mult-bounds/pull/4284): Show which two-index pivots keep the narrow bandwidth (source archive).
+- **James Reed (@jwr404)** — [#4285](https://github.com/CrocSwap/integer-mult-bounds/pull/4285): Cap the Schur bandwidth of a middle interval by 2b-1 (source archive).
+- **James Reed (@jwr404)** — [#4286](https://github.com/CrocSwap/integer-mult-bounds/pull/4286): Show that circular Schur bandwidth follows the arc length (source archive).
+- **James Reed (@jwr404)** — [#4287](https://github.com/CrocSwap/integer-mult-bounds/pull/4287): Show that width 2 does not survive an arc on the length-8 cycle (source archive).
+- **James Reed (@jwr404)** — [#4288](https://github.com/CrocSwap/integer-mult-bounds/pull/4288): Show that every width on the length-8 cycle meets the touching diameter (source archive).
+- **James Reed (@jwr404)** — [#4289](https://github.com/CrocSwap/integer-mult-bounds/pull/4289): Prove that equal-weight cycle arcs meet the touching diameter (source archive).
+- **James Reed (@jwr404)** — [#4290](https://github.com/CrocSwap/integer-mult-bounds/pull/4290): Show that one positive entry cancels only one length-9 rim direction (source archive).
+- **James Reed (@jwr404)** — [#4291](https://github.com/CrocSwap/integer-mult-bounds/pull/4291): Show that one positive entry cancels only one width-2 far direction (source archive).
+- **James Reed (@jwr404)** — [#4292](https://github.com/CrocSwap/integer-mult-bounds/pull/4292): Show that no positive entry inside this arc zeros both far directions (source archive).
+- **James Reed (@jwr404)** — [#4293](https://github.com/CrocSwap/integer-mult-bounds/pull/4293): Show that the entry 17/8 zeros both directions of one far pair (source archive).
+- **James Reed (@jwr404)** — [#4294](https://github.com/CrocSwap/integer-mult-bounds/pull/4294): Show that the four-vertex far numerators do not share a positive root (source archive).
+- **James Reed (@jwr404)** — [#4295](https://github.com/CrocSwap/integer-mult-bounds/pull/4295): On a five-vertex arc, the far numerators split and one direction vanishes at 809/1296 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4296](https://github.com/CrocSwap/integer-mult-bounds/pull/4296): On a six-vertex arc, both far directions vanish only at diagonals below 1/2 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4297](https://github.com/CrocSwap/integer-mult-bounds/pull/4297): On a seven-vertex arc, the survivor pair vanishes together only at diagonals below 1/2 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4298](https://github.com/CrocSwap/integer-mult-bounds/pull/4298): On a width-2 path, one interior has boundary-order half-bandwidth 3 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4299](https://github.com/CrocSwap/integer-mult-bounds/pull/4299): On a width-3 path, one interior has boundary-order half-bandwidth 5 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4300](https://github.com/CrocSwap/integer-mult-bounds/pull/4300): A centered truncated Gaussian keeps a positive separator corner (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4301](https://github.com/CrocSwap/integer-mult-bounds/pull/4301): A shifted truncated Gaussian keeps both separator corners positive (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4302](https://github.com/CrocSwap/integer-mult-bounds/pull/4302): A prime-scale truncated Gaussian keeps its separator corner positive (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4303](https://github.com/CrocSwap/integer-mult-bounds/pull/4303): At the prime-scale shift endpoint both separator corners stay positive (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4304](https://github.com/CrocSwap/integer-mult-bounds/pull/4304): A centred prime-scale chirp keeps both corners positive, with a row sum above 1 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4305](https://github.com/CrocSwap/integer-mult-bounds/pull/4305): Translating the prime-scale origin puts every row sum below 97/100 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4306](https://github.com/CrocSwap/integer-mult-bounds/pull/4306): The translated prime-scale kernel keeps both separator corners positive (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4307](https://github.com/CrocSwap/integer-mult-bounds/pull/4307): Every translated width-2 row sum lies below the displayed Gaussian bound (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4308](https://github.com/CrocSwap/integer-mult-bounds/pull/4308): The translated Schur rows stay below the displayed Gaussian bound (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4309](https://github.com/CrocSwap/integer-mult-bounds/pull/4309): The translated Schur diagonals are positive and at most 1 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4310](https://github.com/CrocSwap/integer-mult-bounds/pull/4310): The normalized translated Schur rows stay below the displayed bound (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4311](https://github.com/CrocSwap/integer-mult-bounds/pull/4311): Map independent audit coverage of #4100's obligations (navigation; no new κ) (reviewed workflow).
+- **James Reed (@jwr404)** — [#4312](https://github.com/CrocSwap/integer-mult-bounds/pull/4312): The normalized translated Schur gaps exceed 1/(16 p^2) (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4313](https://github.com/CrocSwap/integer-mult-bounds/pull/4313): The normalized translated Schur row sums are strictly below 2 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4314](https://github.com/CrocSwap/integer-mult-bounds/pull/4314): Every principal restriction of the normalized section keeps the row gap (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4315](https://github.com/CrocSwap/integer-mult-bounds/pull/4315): The normalized separator corners stay positive at half-bandwidth 3 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4316](https://github.com/CrocSwap/integer-mult-bounds/pull/4316): The narrow Neumann bounds on this section are 5776, 200144176, and 5776*sqrt(34651) (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4317](https://github.com/CrocSwap/integer-mult-bounds/pull/4317): The Neumann bounds at the displayed-expression gap are at most 27, 3938, and below 321 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4318](https://github.com/CrocSwap/integer-mult-bounds/pull/4318): Principal restrictions inherit the displayed-gap Neumann ceilings (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4319](https://github.com/CrocSwap/integer-mult-bounds/pull/4319): Direct elimination puts the inverse infinity norm strictly between 18/5 and 361/100 (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4320](https://github.com/CrocSwap/integer-mult-bounds/pull/4320): Audit #4100 PROOF.md's transform and exact-recovery chain: all identities hold (no new κ) (source archive).
+- **unpaidmoon (@unpaidmoon)** — [#4321](https://github.com/CrocSwap/integer-mult-bounds/pull/4321): Audit the compact-switch coefficient and guard contract. (source archive).
+- **unpaidmoon (@unpaidmoon)** — [#4322](https://github.com/CrocSwap/integer-mult-bounds/pull/4322): Show the fixed L/2 firing set is not monotone in length. (source archive).
+- **flyingviper (@flyingviper)** — [#4323](https://github.com/CrocSwap/integer-mult-bounds/pull/4323): P112: preserve marked recovery through query-only matroid relaxations (source archive).
+- **flyingviper (@flyingviper)** — [#4324](https://github.com/CrocSwap/integer-mult-bounds/pull/4324): P112: exclude every canonical-source decoder at a fixed three-target placement (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4325](https://github.com/CrocSwap/integer-mult-bounds/pull/4325): Audit #4100's cached chirp odometer: O(p) head travel per record uniformly in d (no new κ) (source archive).
+- **ai-nanachi (@ai-nanachi)** — [#4326](https://github.com/CrocSwap/integer-mult-bounds/pull/4326): Retire two BIT helpers and bind the compact caller at c > 0.00174485376 (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4327](https://github.com/CrocSwap/integer-mult-bounds/pull/4327): Audit literal head travel of #4100's sparse-union schedule: section 2.3 holds with constant 17 (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4328](https://github.com/CrocSwap/integer-mult-bounds/pull/4328): Audit #4100 CRT.md's sparse exception repair tariff at Θ(p)-bit records: O(V) dense, o(V) sparse at every p (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4329](https://github.com/CrocSwap/integer-mult-bounds/pull/4329): Decide #4100 CRT.md's guard premise: mod-K coloring needs (K-1)-bit guards; vacuous on #4174's production plans (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4330](https://github.com/CrocSwap/integer-mult-bounds/pull/4330): Certify #4100 BIT.md's recurrence moments: mu_(1-c) < 1 with margin 8.8e-8 (no new κ) (source archive).
+- **ToikY (@ToikY)** — [#4331](https://github.com/CrocSwap/integer-mult-bounds/pull/4331): Independently check the GL3 length-seven refutation with LRAT hints (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4332](https://github.com/CrocSwap/integer-mult-bounds/pull/4332): Independently check #4270's conservative κ = 1/580 exponent chain: every link holds (no new κ) (source archive).
+- **ToikY (@ToikY)** — [#4334](https://github.com/CrocSwap/integer-mult-bounds/pull/4334): Prove the sharp component threshold for commutative right-vector targets (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4335](https://github.com/CrocSwap/integer-mult-bounds/pull/4335): Independently check #4326's BIT moment root and majorant constants: all hold, 10^7 C margin 1.4e-7 (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4336](https://github.com/CrocSwap/integer-mult-bounds/pull/4336): Certify the inverse 1-norm of #4319's normalized Gaussian Schur section: 2.8138, against the lemma's 3938 ceiling (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4339](https://github.com/CrocSwap/integer-mult-bounds/pull/4339): Independently check #4154's P104 fiber-tag seam: census holds; its code transposes #3966's row tag, so the witness flips are (1,0) and the uniform tag matches the row owner on the shared line (no new κ) (source archive).
