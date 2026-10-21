@@ -65,21 +65,21 @@ class OverlapTests(unittest.TestCase):
             calls.append(variables)
             if 'repository(owner:' in query:
                 return {"repository": {"discussions": page([
-                    {"id": "D", "number": 1, "title": "thread", **comment("topic")}
+                    {"id": "D", "number": 1, "title": "thread", **comment("topic"),
+                     "comments": page([
+                         {"id": "C", **comment("first claim"),
+                          "replies": page([comment("early reply")], True)}
+                     ], True)}
                 ] if variables["cursor"] is None else [], variables["cursor"] is None)}}
             if "... on DiscussionComment" in query:
                 return {"node": {"replies": page([comment("late reply claim")])}}
-            if variables["cursor"] is None:
-                return {"node": {"comments": page([
-                    {"id": "C", **comment("first claim"), "replies": page([comment("early reply")], True)}
-                ], True)}}
             return {"node": {"comments": page([
                 {"id": "C2", **comment("late claim"), "replies": page([])}
             ])}}
         with patch.object(overlap, "graphql", side_effect=api):
             records = overlap.fetch_discussions()
         self.assertEqual(len(records), 5)
-        self.assertEqual(len(calls), 5)
+        self.assertEqual(len(calls), 4)
         self.assertIn("late reply claim", [r["body"] for r in records])
         self.assertIn("late claim", [r["body"] for r in records])
 
@@ -116,8 +116,8 @@ class OverlapTests(unittest.TestCase):
 class OverlapPathIndexTests(unittest.TestCase):
     """Changed-file index for open PRs (discussion 1200 request: search by path)."""
 
-    ROWS = [{"number": 7, "paths": ["docs/research/current-status.md", "README.md"], "truncated": False},
-            {"number": 8, "paths": ["research/lean-external-review/EXPLAINER.md"], "truncated": True}]
+    ROWS = [{"number": 7, "head": "a" * 40, "base": "b" * 40, "paths": ["docs/research/current-status.md", "README.md"], "truncated": False},
+            {"number": 8, "head": "b" * 40, "paths": ["research/lean-external-review/EXPLAINER.md"], "truncated": True}]
 
     def test_path_report_exact_glob_substring_and_rejection(self):
         prs = [{"kind": "pr", "number": 7, "title": "T", "body": "b", "url": "u7", "head": "a" * 40,
@@ -140,12 +140,12 @@ class OverlapPathIndexTests(unittest.TestCase):
                          "https://github.com/CrocSwap/integer-mult-bounds/pull/8")
         self.assertTrue(unjoined[0]["truncated"])
 
-    def test_fetch_pr_files_paginates_and_flags_truncation(self):
+    def test_fetch_pr_files_paginates_and_flags_shortfall(self):
         def page(rows, more):
             return {"repository": {"pullRequests": {
                 "pageInfo": {"hasNextPage": more, "endCursor": "next"},
-                "nodes": [{"number": n, "files": {
-                    "pageInfo": {"hasNextPage": trunc},
+                "nodes": [{"number": n, "headRefOid": "abc", "baseRefOid": "def", "changedFiles": len(paths), "files": {
+                    "pageInfo": {"hasNextPage": False},
                     "nodes": [{"path": p} for p in paths]}}
                     for n, paths, trunc in rows]}}}
         pages = [page([(1, ["a.txt", "b.txt"], False)], True),
@@ -153,31 +153,33 @@ class OverlapPathIndexTests(unittest.TestCase):
         with patch.object(overlap, "graphql", side_effect=pages) as call:
             rows = overlap.fetch_pr_files()
         self.assertEqual(call.call_count, 2)
-        self.assertEqual(rows[0], {"number": 1, "paths": ["a.txt", "b.txt"], "truncated": False})
-        self.assertEqual(rows[1], {"number": 2, "paths": ["c.txt"], "truncated": True})
+        self.assertEqual(rows[0], {"number": 1, "head": "abc", "base": "def", "paths": ["a.txt", "b.txt"], "truncated": False})
+        self.assertEqual(rows[1], {"number": 2, "head": "abc", "base": "def", "paths": ["c.txt"], "truncated": True})
 
     def test_fetch_pr_files_skips_unavailable_file_lists(self):
         page = {"repository": {"pullRequests": {
             "pageInfo": {"hasNextPage": False, "endCursor": None},
-            "nodes": [{"number": 376, "files": None},
-                      {"number": 9, "files": {"pageInfo": {"hasNextPage": False},
+            "nodes": [{"number": 376, "headRefOid": "abc", "baseRefOid": "def", "files": None},
+                      {"number": 9, "headRefOid": "abc", "baseRefOid": "def", "changedFiles": 1,
+                       "files": {"pageInfo": {"hasNextPage": False},
                                               "nodes": [{"path": "ok.md"}, None]}}]}}}
         with patch.object(overlap, "graphql", return_value=page):
             rows = overlap.fetch_pr_files()
-        self.assertEqual(rows[0], {"number": 9, "paths": ["ok.md"], "truncated": False})
+        self.assertEqual(rows[0], {"number": 9, "head": "abc", "base": "def", "paths": ["ok.md"], "truncated": False})
         # An unavailable file list is recorded as empty and flagged, never silently trusted.
-        self.assertEqual(rows[1], {"number": 376, "paths": [], "truncated": True})
+        self.assertEqual(rows[1], {"number": 376, "head": "abc", "base": "def", "paths": [], "truncated": True})
 
     def test_fetch_pr_files_retries_transient_page_failures(self):
         page = {"repository": {"pullRequests": {
             "pageInfo": {"hasNextPage": False, "endCursor": None},
-            "nodes": [{"number": 1, "files": {"pageInfo": {"hasNextPage": False},
+            "nodes": [{"number": 1, "headRefOid": "abc", "baseRefOid": "def", "changedFiles": 1,
+                       "files": {"pageInfo": {"hasNextPage": False},
                                               "nodes": [{"path": "a.md"}]}}]}}}
         boom = subprocess.CalledProcessError(1, "gh api graphql")
         with patch.object(overlap, "graphql", side_effect=[boom, boom, page]) as call, \
              patch.object(overlap.time, "sleep") as slept:
             rows = overlap.fetch_pr_files()
-        self.assertEqual(rows, [{"number": 1, "paths": ["a.md"], "truncated": False}])
+        self.assertEqual(rows, [{"number": 1, "head": "abc", "base": "def", "paths": ["a.md"], "truncated": False}])
         self.assertEqual(call.call_count, 3)
         self.assertEqual(slept.call_count, 2)
         with patch.object(overlap, "graphql", side_effect=[boom] * 4), \
@@ -186,7 +188,7 @@ class OverlapPathIndexTests(unittest.TestCase):
                 overlap.fetch_pr_files()
 
     def test_pr_files_fetched_only_when_requested_and_cached(self):
-        rows = [{"number": 3, "paths": ["x.md"], "truncated": False}]
+        rows = [{"number": 3, "head": "a" * 40, "base": "b" * 40, "paths": ["x.md"], "truncated": False}]
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp) / "cache.json"
             with patch.object(overlap, "gh_json", return_value=[[]]), \
@@ -209,7 +211,7 @@ class OverlapPathIndexTests(unittest.TestCase):
                 self.assertTrue(any("pr_files" in w for w in warnings))
 
     def test_pr_files_refresh_failure_keeps_old_records(self):
-        rows = [{"number": 5, "paths": ["keep.md"], "truncated": False}]
+        rows = [{"number": 5, "head": "a" * 40, "base": "b" * 40, "paths": ["keep.md"], "truncated": False}]
         with tempfile.TemporaryDirectory() as tmp:
             cache = Path(tmp) / "cache.json"
             with patch.object(overlap, "gh_json", return_value=[[]]), \
@@ -389,6 +391,68 @@ class PackageTests(unittest.TestCase):
                 result = subprocess.run(argv, env=env, capture_output=True, text=True, timeout=10)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn("PASS_REGISTERED_RESEARCH_PACKAGE research/fixture", result.stdout)
+
+    @unittest.skipUnless(sys.version_info[:2] == (3, 12), "generic replay environment is Python 3.12")
+    def test_cli_unicode_coverage_survives_legacy_stdout(self):
+        _, manifest = self.ready()
+        label = "Verify κ → ∑ and café 🚀"
+        manifest["commands"][0]["checks"] = label
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest, ensure_ascii=False), encoding="utf-8")
+        scripts = self.root / "scripts"
+        scripts.mkdir()
+        runner = scripts / "research_package.py"
+        runner.write_bytes((ROOT / "scripts/research_package.py").read_bytes())
+        verifier = self.target / "verify.py"
+        argv = [sys.executable, "-B", str(runner), "--package", "research/fixture"]
+        for encoding in ("cp1252", "ascii", "utf-8"):
+            env = dict(os.environ, PYTHONIOENCODING=encoding + ":strict", PYTHONUTF8="0")
+            with self.subTest(encoding=encoding):
+                verifier.write_text(
+                    'import json, os, sys\n'
+                    'print("CHILD " + json.dumps([sys.stdout.errors, os.environ["PYTHONIOENCODING"]]))\n',
+                    encoding="utf-8")
+                result = subprocess.run(argv, env=env, capture_output=True, timeout=30)
+                self.assertEqual(result.returncode, 0, result.stderr.decode("ascii", "replace"))
+                self.assertIn(("CHECK " + label).encode(encoding, "backslashreplace"), result.stdout)
+                # Changing the runner's display policy must not alter child policy or environment.
+                self.assertIn(('CHILD ["strict", "' + encoding + ':strict"]').encode("ascii"), result.stdout)
+                self.assertIn(b"PASS_REGISTERED_RESEARCH_PACKAGE research/fixture", result.stdout)
+                verifier.write_text('raise SystemExit(7)\n', encoding="utf-8")
+                result = subprocess.run(argv, env=env, capture_output=True, timeout=30)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn(b"verification command exited 7", result.stderr)
+                self.assertNotIn(b"PASS_REGISTERED", result.stdout)
+
+    @unittest.skipUnless(sys.version_info[:2] == (3, 12), "generic replay environment is Python 3.12")
+    def test_cli_unicode_coverage_does_not_relax_source_pins(self):
+        _, manifest = self.ready()
+        manifest["commands"][0]["checks"] = "Verify κ"
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest), encoding="utf-8")
+        scripts = self.root / "scripts"
+        scripts.mkdir()
+        runner = scripts / "research_package.py"
+        runner.write_bytes((ROOT / "scripts/research_package.py").read_bytes())
+        (self.root / "input.txt").write_text("changed input\n", encoding="utf-8")
+        (self.target / "verify.py").write_text('print("UNEXPECTED_CHILD")\n', encoding="utf-8")
+        result = subprocess.run([sys.executable, "-B", str(runner), "--package", "research/fixture"],
+                                env=dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0"),
+                                capture_output=True, timeout=30)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b"working source drift: input.txt", result.stderr)
+        self.assertNotIn(b"CHECK ", result.stdout)
+        self.assertNotIn(b"UNEXPECTED_CHILD", result.stdout)
+        self.assertNotIn(b"PASS_REGISTERED", result.stdout)
+        # A non-ASCII path in a validation diagnostic must still report failure.
+        (self.root / "input.txt").write_text("pinned fixture\n", encoding="utf-8")
+        manifest["inputs"].append("κ-missing.txt")
+        (self.target / "VERIFY.json").write_text(json.dumps(manifest), encoding="utf-8")
+        result = subprocess.run([sys.executable, "-B", str(runner), "--package", "research/fixture"],
+                                env=dict(os.environ, PYTHONIOENCODING="cp1252:strict", PYTHONUTF8="0"),
+                                capture_output=True, timeout=30)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn(b"use an exact Git-tracked input path from HEAD: \\u03ba-missing.txt", result.stderr)
+        self.assertNotIn(b"UNEXPECTED_CHILD", result.stdout)
+        self.assertNotIn(b"PASS_REGISTERED", result.stdout)
 
 
 class TextEncodingTests(unittest.TestCase):

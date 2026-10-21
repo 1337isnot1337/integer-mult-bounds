@@ -81,9 +81,14 @@ class SharedPointDigestTests(unittest.TestCase):
             self.baseline.SharedPointCircuit.verify(circuit)
 
     def test_production_digest_pin(self):
+        # Accepted #2054 frame-containment successor retains the digest code;
+        # its exact earlier production source remains independently pinned.
+        self.assertEqual(
+            sha256((ROOT / 'research/shared-point-frame-contains/baseline.py').read_bytes()).hexdigest(),
+            'f5abbf6d61f3c10349416a3e1a1ed038bbd1279ed223367f2df549de46dd7ea5')
         self.assertEqual(
             sha256((ROOT / "scripts/shared_point_circuit.py").read_bytes()).hexdigest(),
-            "f5abbf6d61f3c10349416a3e1a1ed038bbd1279ed223367f2df549de46dd7ea5",
+            "360d9bffc0f55315fe294789b72c71c79e0991524555b3a5f42a2ca504d7da95",
         )
 
 

@@ -2,9 +2,14 @@
 
 Use this map before reopening a decoder search. The bounds below cover different
 algebraic classes. Changing a coefficient field or adding a term does not by itself
-leave every retained obstruction. Conversely, a masked identity is outside these
-all-pairs theorems. Check [live overlap](../../autoresearch.md#1-orient-briefly-then-choose-a-distinct-task)
+leave every retained obstruction. A masked identity is outside the all-pairs
+theorems, but the [retained rank-eight results](#masked-exactness-the-retained-rank-eight-boundary)
+below cover specific masked classes. Check [live overlap](../../autoresearch.md#1-orient-briefly-then-choose-a-distinct-task)
 before calling a class outside these hypotheses an open problem.
+
+For the fixed paired-plane masked endpoint, use the
+[paired-plane contract map](paired-plane-contract-map.md) to distinguish binary
+label identities, scalar/vector fitting rank and native payload costs.
 
 ## Shared model and the three boundaries
 
@@ -37,6 +42,54 @@ Every exact nine-term factorization retaining those eight reader columns fits
 this family. A ninth term or an asymmetric source alone therefore does not
 escape PR845. Allowing reader changes leaves PR845's scope, but does not evade
 PR1077 if the resulting decoder still has exactly eight all-pairs terms.
+
+## Masked exactness: the retained rank-eight boundary
+
+In PR717's **E-graph model**, only the diagonal and orthogonal root pairs
+constrain the sum `K` of costly terms: `K_ii = 4` and `K_ij = 0` on orthogonal
+pairs. Odd-pair entries are free because they can be corrected by cost-zero
+terms in this algebraic model. This is not the all-pairs identity above.
+
+[Brett Halligan / burntout76's PR1212, §§0 and 8–10](../../research/complex-rank8-decoder-rigidity/PROOF.md)
+proves that, on its covered live sets, `rank K <= 8` forces
+`K = D (2G) D^{-1}` for an invertible diagonal `D`. With **exactly eight costly
+terms**, this gauge form gives an all-pairs decoder with the same term supports
+and binary pairing costs. Josie Elliston's extensions cover the missing P111
+and P104 cases:
+
+| Live set | Retained rigidity source | Real eight-costly-term COPY floor |
+| --- | --- | --- |
+| P120; P112 obtained by deleting any frame | [PR1212](../../research/complex-rank8-decoder-rigidity/README.md) | 72; 64 |
+| P111 obtained by deleting one further line from P112 | [PR1389](../../research/complex-rank8-rigidity-p111-p104-44/PROOF.md) | 63 |
+| P104: 336 type-(2,2,2,2) second-frame complements | [PR1212 §10](../../research/complex-rank8-decoder-rigidity/PROOF.md#10-beyond-one-frame-what-transfers-to-p111-and-to-the-p104-units) | 56 |
+| P104: 28 type-(4,4) second-frame complements | [PR1389](../../research/complex-rank8-rigidity-p111-p104-44/PROOF.md); [PR1788's alternate-pivot proof](../../research/e8-rank8-transport-audit/PROOF.md) | 56 |
+| P104: 896 admissible second-frame complements | [PR1399](../../research/complex-rank8-rigidity-p104-admissible/PROOF.md) | 56 |
+
+The P104 rows cover all 1,260 frames disjoint from a fixed first frame, **not
+arbitrary sixteen-line punctures**. PR1399 records attainment of 56 on the
+admissible orbit; the table does not claim attainment on the other two orbits.
+PR1788 independently checks orbit transport and supplies an alternate complete
+pivot for type (4,4). It corroborates PR1389, not a new floor.
+
+Two limits matter when choosing the next experiment:
+
+- **Rank is not term count.** Nine or more costly terms can sum to a rank-eight
+  matrix. Rigidity then constrains that sum, but PR1212's square-factor argument
+  does not determine the individual supports or their COPY bill. Higher-rank
+  sums are outside the rigidity theorem too. Neither case is excluded by this
+  chain; absence from this map is not evidence that no other result applies.
+- **Field and proof dependencies remain explicit.** The gauge algebra holds
+  over characteristic-zero fields. The cost conclusions tabulated here use the
+  real PR968 theorem and its inherited hyperplane-flat classification (F6).
+  A complex-cost claim additionally needs the separate PR1077 extension; this
+  map does not add that composition proof. Zero exclusion and orbit transport
+  are finite premises alongside the written algebra, not a full supplier proof.
+
+The older source packages still describe some successor cases as open. Those
+are historical statements: the retained [fifth integration review](community-efficient500-review.md)
+records PR1389/1399, and the [eighth integration review](community-efficient800-review.md)
+records PR1788. Their exact reviewed heads are below. Do not edit frozen
+packages or reinterpret their old status as the present research frontier.
 
 ## What the independent Gram evidence proves
 
@@ -100,6 +153,21 @@ python3 -B research/p112-single-lift/independent_check.py
 python3 -I -B research/p112-gram-support-seed80/verify.py
 ```
 
+For the masked-rigidity chain, use the retained PR1212 files in this checkout:
+
+```sh
+python3 -I -B research/complex-rank8-decoder-rigidity/verify.py
+python3 -I -B research/complex-rank8-decoder-rigidity/verify.py --live P120
+python3 -I -B research/complex-rank8-rigidity-p111-p104-44/verify.py --pr1212-dir .
+python3 -I -B research/complex-rank8-rigidity-p104-admissible/verify.py --pr1212-dir .
+python3 -I -B research/e8-rank8-transport-audit/verify.py
+```
+
+The two `--pr1212-dir .` commands check pinned predecessor blobs and replay its
+zero-exclusion and transport checks, rather than merely citing them. A source
+mismatch must be investigated, not bypassed. Each command exits zero and ends
+with its package's `PASS_` summary on the documented source set.
+
 These check the packages' declared exact finite evidence, including their
 failure controls. The quantified lower bounds also use written arguments.
 PR968's quoted headroom belongs to #942; it is not a repricing of today's
@@ -117,7 +185,8 @@ or supplier.
 
 For a candidate with changed readers, masked exactness or more terms, first
 record its precise identity, coefficient field, puncture, support-pairing bill
-and which of the above hypotheses changes. This makes the next overlap check
+and which of the above hypotheses changes. Masking alone does not escape the
+covered eight-costly-term cases. This makes the next overlap check
 specific and avoids repeating PR845 under a new optimizer seed. A mathematical
 identity and a favorable fully charged budget are the first steps toward a
 supplier; a legal centre/frame/restoration implementation remains a separate
@@ -150,3 +219,22 @@ Coordination and overlap limits are recorded in [discussion #1621](https://githu
 Prepared by Arham Tahir with substantial OpenAI Codex assistance; no independent
 human review or proof-assistant verification of these statements is claimed.
 Apache-2.0.
+
+The masked-rigidity navigation update uses main
+`0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`, priority revision 4, task
+`scope-navigation` (nonce `b354c3f7c6a0345880a54f10bfa849bf`). Its refined scope
+is the missing route from masked exactness to retained eight-term obstructions,
+not a new bound or a survey of every puncture. Reviewed source heads from the
+[PR ledger](pr-ledger.md):
+
+| PR | Reviewed head |
+| --- | --- |
+| 1212 | `57099cb5684f38877f31d149d598801671a633db` |
+| 1389 | `5480912a95c3edd0a9ef7532dcc7fc7060d12380` |
+| 1399 | `4e1ba3a1ded94772cce5f8c0ad667a92afd6c493` |
+| 1788 | `c7d75c1dd348ed4312b095ca467ce966493cf9e8` |
+
+Credit Brett Halligan / burntout76 for PR1212; Josie Elliston for
+PR1389/1399/1788; and the PR717/968 model and floor authors credited above.
+Navigation update by starship-s with substantial Hermes and OpenAI Codex assistance.
+[Scoped claim and verification](https://github.com/CrocSwap/integer-mult-bounds/discussions/1621#discussioncomment-18945325).

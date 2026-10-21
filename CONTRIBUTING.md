@@ -27,11 +27,22 @@ donor instructions. Optional workflow feedback belongs in the PR or the
 [feedback discussion](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200).
 
 
+For maintainer queue work, start with the [delta-only intake procedure](docs/research/pr-intake.md)
+and persistent scheduling cache. Do not repeat unchanged blocked reviews.
+
 Before reviewing an existing PR, consult the [central review ledger](docs/research/pr-ledger.md).
 Record the reviewed commit and its evidence separately from publication and GitHub closure.
 Recheck the current head before closing incorporated work, link its retained source and attribution,
 and leave partial or changed submissions open with the remaining question recorded. Research notes
 and verification tools can merit integration even when they do not improve the selected bound.
+
+Maintainers distinguish **archival intake** from **validated incorporation**.
+New isolated research packages may be merged after source/integrity intake while
+remaining `partially_reviewed` in the ledger, with the unverified obligations
+preserved. Such a merge retains the contribution; it does not verify a theorem,
+certify a new κ, or change the selected result. Shared-code changes and known
+correctness objections remain in substantive review. See the
+[archive policy and exact-head index](docs/research/research-archive-intake.md).
 
 This is a research draft. Corrections to the mathematics, implementation,
 source attribution, and stated scope are welcome through issues or pull requests.

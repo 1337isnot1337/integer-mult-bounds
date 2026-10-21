@@ -362,3 +362,281 @@ Next review trigger:
 ```
 
 Prepared by Douglas Colkitt with OpenAI Codex assistance. Apache-2.0.
+# Revision 5 — 2026-10-15: refresh family entry points and gate expansion
+
+**Base and selected sources.** Canonical main freshly fetched at
+`0fdd7d82de03e43c9e5a1000dfbcd380d1b687d2`; selected PR1094 conditional kappa
+`0.001672660197076918`, resolved through
+[selected-result.json](../../certificates/selected-result.json),
+[its review](community-batch1099-review.md) and
+[source manifest](../../research/community-frontier1094-audit/SELECTED-SOURCE.json).
+No selected scientific artifact is changed or newly certified.
+
+**Evidence and limitations.** Read the existing revision-4 assignments, the
+[review through #2027](community-efficient1000-review.md), recent open PR and
+Discussion summaries, and [workflow feedback](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18930476).
+That contributor reports that live handoffs yielded useful work across roughly
+35 sessions. This supports making handoffs easier to follow; it is not a measured
+population-wide success rate. The live sample is not a complete queue review.
+
+Inspected the descriptions and exact heads of pending
+[#2540](https://github.com/CrocSwap/integer-mult-bounds/pull/2540)
+(`630d557af5088f66b45c447969cee9576600e50b`) and
+[#2586](https://github.com/CrocSwap/integer-mult-bounds/pull/2586)
+(`7953c9a8f788a8de5cf2ced63d9a61b67c22c6f1`). They report local QQ16 decoder
+completion and P104 physical-dual construction, respectively, with explicit
+remaining obligations. Their mathematical claims were not replayed or admitted
+by this guidance change. Credit ywz65 and the predecessor authors retained in
+their PRs; the [family status record](research-family-status.md) preserves the
+key lineage and scope. Active follow-ups include
+[QQ16 bank retention](https://github.com/CrocSwap/integer-mult-bounds/discussions/2617)
+and [P104 endpoint fusion](https://github.com/CrocSwap/integer-mult-bounds/discussions/2619).
+
+The maintainer's local product audit `4b44c26ba` and checkpoint `aff5269d0` report
+useful coded/shared receiver improvements but a remaining unfavorable budget and
+scoped retiming optimum. They are local-only, not publicly reproducible evidence
+in this main checkout; their exact limitations and outstanding consumer/native
+obligations are recorded in the family page. The global change is a process gate,
+not an asserted universal theorem or a mandate to work on the product branch.
+
+**Allocation and decisions.** Old -> new weights are unchanged:
+bit mechanisms 20 -> 20; complex mechanisms 20 -> 20; recursive interfaces
+20 -> 20; adversarial audit 15 -> 15; independent verification 10 -> 10;
+verifier engineering 8 -> 8; consolidation 5 -> 5; incumbent optimization 2 -> 2.
+There is no measured reason here to reweight the entire portfolio.
+
+- Narrow P104's card to a still-unresolved correction/physical endpoint/hosting
+  obligation of a pinned follow-up. Keep independent audits available.
+- Advance QQ16's entry point to the pending complete local decoder and its
+  consumer/retention/whole-cover costs, while retaining the earlier scoped witness.
+- Continue targeted selected-stock and other missing-interface audits, with
+  live overlap checks before assigning already-covered arithmetic.
+- Retain alternative coding/geometry/interface exploration. Pause the maintainer's
+  fixed preparation retiming recipe; do not generalize its closure to other models.
+- Preserve task IDs and weights. Update mechanism-card first steps, overlap terms
+  and expansion criteria rather than adding many near-duplicate cards.
+
+**Next bounded experiments and stop rules.** A contributor can solve one scoped
+lemma, local construction or audit. Before expanding a family, require its exact
+boundary, complete obligation ledger, explicit cost allowance and the reason
+saved work does not return in the consumer. Unknown costs are not zero; an
+optimistic passing relaxation is not feasibility. Stop an implementation expansion
+when its favorable complete bound fails or its required access/consumer has no
+specified contract. Exploratory design can instead end with a bounded handoff.
+A changed graph, boundary or operation model with a concrete new budget can
+reopen a scoped closure. Further negative proofs should change an actual research
+decision, not merely extend a closed census.
+
+**Workflow versus scientific allocation.** The new family page is a central
+navigation record and an expansion template, not a required extra report from
+each donor. Use existing canonical threads for live status. Distinguish local
+module, complete supplier, integrated kappa and audit milestones. Keep parallel
+work distinct by mechanism/contract/obligation, not nonce. Broad weights remain
+allocation hypotheses; this patch makes no new scientific claim.
+
+**Review trigger.** Reassess after independent review of the named completion
+claims, a decisive complete-cost rejection, a new admitted supplier, or the next
+substantial PR review. Newer heads and handoffs can change the next useful task
+without changing the selected frontier. Refresh both primitive budgets before
+claiming a target-scale route.
+
+**Validation.** `python3.12 -B -m unittest discover -s tests -p 'test_research_*.py'` passed: 65 tests, 3 skipped. Both refreshed cards were exercised through the task-picker CLI; catalogue sources, weights and documented allocation agree. Relative documentation links and `git diff --check` passed. No new mathematical replay or frontier claim.
+
+## Revision 6 — 2026-10-16: advance handoffs and audit coordinated changes
+
+**Base and evidence status.** Assessed against canonical main
+`b3f3ee0392b71b118fd086a6eaf6b4cab54ef455`, fetched with no divergence.
+The selected conditional κ remains **0.001672660197076918**; its authoritative
+sources and review remain those of [selected-result.json](../../certificates/selected-result.json),
+unchanged since `a23bdc1b07be96bea0101d44ae27d14de67a79ed`.
+This is a task-guidance change, not a mathematical replay or supplier admission.
+
+Read the retained package claims for #2965, #2972, #2973, #2977, #2979 and #2981,
+their explicit open questions and source-intake records. Exact heads and credit
+are in the [revision-6 family handoffs](research-family-status.md#revision-6-handoffs-source-archives-awaiting-independent-validation).
+The records are [#2965](pr-intake-evidence/windows-and-new-archives-20261016.json),
+[#2972/#2973](pr-intake-evidence/archives-20261016b.json),
+[#2977](pr-intake-evidence/archives-20261016d.json),
+[#2979](pr-intake-evidence/archive-pr2979.json) and
+[#2981](pr-intake-evidence/archives-pr2980-2981.json).
+These establish source retention, not independent scientific validation.
+In particular, the newer claimed κ ≈ 0.001729 is not admitted by this update.
+
+The latest three comments in the [workflow feedback thread](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200)
+were checked. They report [console encoding work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18950852)
+and [package diagnostics/pins work](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200#discussioncomment-18956325).
+Classify these as existing workflow handoffs, with no new action in this patch;
+they do not supply evidence for scientific portfolio reweighting. This is a
+limited feedback sample, not a survey of current board activity or agent yield.
+
+**Allocation.** Old -> new weights remain: bit mechanisms 20 -> 20; complex
+mechanisms 20 -> 20; recursive interfaces 20 -> 20; adversarial audit 15 -> 15;
+independent verification 10 -> 10; verifier engineering 8 -> 8; consolidation
+5 -> 5; incumbent optimization 2 -> 2. Keep existing task IDs; add only the
+specific `census-pruning-audit` card within adversarial audit. It shares that
+track's allocation rather than taking weight from exploration.
+
+**Decisions and bounded tests.**
+
+- **Continue independent verification; narrow its immediate lead.** #2979
+  reports a coordinated circuit/frame win where isolated changes lose.
+  Independently reconstruct one shared group and a single-change control, then
+  follow the changed children, idle widths and cleanup buffers into the full
+  invoice and both supplier caps. Stop with a source-bound missing-obligation
+  handoff if admission cannot be checked within the session. Do not turn the
+  author receipt into a validated frontier or immediately expand the search.
+- **Narrow P104 to execution.** #2981 reports static joint endpoint flags.
+  Assign chronological acquisition/delivery, dependencies, coefficient identity,
+  dirty restoration and complete cost for one named collection. Do not repeat
+  static cover counting or use nesting to refute program-level lifetime floors.
+- **Narrow QQ16 to producers and consumers.** #2965 supplies a proposed
+  completed-output defect bound, not producer interiors. Pin a literal producer,
+  derive its actual magnitude/dirty-helper ledger, and price the consumer.
+  Stop at an unspecified interface or unfavorable complete bill; further local
+  precision optimization alone does not justify family expansion.
+- **Continue targeted stock and exporter audits.** #2972 leaves the actual
+  coefficient unresolved; derive it from the selected producer rather than
+  recomputing cutoff arithmetic. Independently reproduce #2977's tiny exporter
+  mismatch and selected unique-row control before adopting a guard. Its mutant
+  does not itself invalidate the selected construction.
+- **Audit suspect exclusions before extending censuses.** Check #2973's tiny
+  parity counterexample and one exact predecessor prune, then compare a small
+  exhaustive domain. Map affected dependencies. A faulty pruning rule does not
+  automatically disprove every old final bound; the proposed replacement also
+  needs independent validation. Stop before a full census unless separately
+  budgeted and tied to a specific research decision.
+- **Continue broad mechanisms; narrow repetitive follow-ups.** A static cover,
+  precision or source-count extension must identify the unresolved obligation
+  or research decision it changes. Independent checks with new coverage remain
+  welcome. Reopen a scoped closure with a changed premise and explicit budget,
+  not a larger seed or an unvalidated predecessor claim.
+
+**Next review trigger.** Independent validation of the coordinated mechanism,
+a decisive complete-cost result for P104/QQ16, resolution of a selected stock or
+semantic obligation, a changed selected supplier, or the next substantial intake.
+Agents refresh canonical main at their existing round checkpoints; preserve
+useful partial work and frozen inputs. No new reporting file or full replay is
+required merely to consume these revised cards.
+
+**Validation.** `python3.12 -B -m unittest discover -s tests -p 'test_research_*.py'`
+passed: 158 tests run, 18 skipped. The sparse integration checkout initially
+omitted pinned navigation inputs; those exact HEAD files were materialized
+before the successful run. All six refreshed/new cards passed through the
+task-picker CLI at revision 6. Track weights and existing task IDs are preserved;
+relative documentation links resolve in the working tree or exact HEAD tree,
+and `git diff --check` passed. No scientific artifacts, selected certificate
+or CI execution policy changed; no Lean, Docker or scientific replay ran.
+
+## Workflow update — 2026-10-16: handoffs, coverage and grouped review
+
+**Evidence:** maintainer-supplied external feedback based on `b5ea56e0a` and
+[Discussion #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200),
+compared with current main `836b19bfa309ceafbc8ee32a15e8c4b10dde7e11`. This pass
+does not independently reproduce the report's queue counts or claims about
+donor behavior. Existing handoff and short-session guidance was scattered.
+
+**Change:** handoff-first selection, source-bound `existing_checks` on three
+initial cards, optional cached board metadata and a safe file-based posting
+helper. The queue view reuses the intake plan and groups explicit word/profile
+metadata, preserving unknowns and source versions. It shares profile-ceiling
+arithmetic without inferring circuit equivalence or changing review decisions.
+The root guide is now an entry point; standing procedure and changing scientific
+priorities have separate files.
+
+**Allocation:** priority revision **6**, all eight track weights, and the selected
+#1094 record remain unchanged. This is workflow repair, not new scientific
+evidence or portfolio reweighting. The queue profile inventory is an explicitly
+small pilot, not an assertion of full classification. It includes the selected
+reference, archived #2979 profile, and the declared #2979 audit scopes of open
+PRs #2993, #3006 and #3008. Those PR bodies and heads were inspected; their
+scientific checks were not rerun for this workflow change.
+
+**Next review:** measure duplicate checks avoided and maintainer time saved on
+one actionable construction cluster. Add coverage records as actual review
+evidence arrives; expand profile intake only if it reduces repeated review.
+Do not create a survey PR per session or replace missing scientific evidence
+with structured labels.
+
+## Priority revision 7 — 2026-10-20: current admission gaps and changed contracts
+
+**Assessment base:** `9200177938843d92957bbfe6f1fdbe88768d8cc5`.
+The selected #1094 record remains κ = `0.001672660197076918`, SHA256
+`bb2eaa58647b353f88d0aec2eafb9d30df1be53589231b23e12ceef3e4bad129`.
+Its source manifest remains
+`research/community-frontier1094-audit/SELECTED-SOURCE.json`; no scientific
+input, certificate or selected-record binding is changed by this revision.
+
+**Evidence and limits.** Read retained package claims, open questions and exact-head
+intake receipts from the October 20 batches, especially
+[batch d](pr-intake-evidence/queue-oct20d-20261020.json),
+[batch e](pr-intake-evidence/queue-oct20e-20261020.json) and
+[batch f](pr-intake-evidence/queue-oct20f-20261020.json).
+The [revision-7 family table](research-family-status.md#revision-7-evidence-and-assignments)
+and catalogue pin the relevant heads and preserve package attribution.
+This was a guidance assessment, not a scientific replay: newer claims remain
+**author-checked**, including claims whose packages contain their own independent
+checker or worker review. Source retention is not theorem acceptance.
+
+A bounded review of the last four comments in
+[feedback #1200](https://github.com/CrocSwap/integer-mult-bounds/discussions/1200)
+and last six in [handoffs #1166](https://github.com/CrocSwap/integer-mult-bounds/discussions/1166)
+found existing tooling feedback and concrete scoped successors (A1858, P104,
+T488 and rank-8/u2). This is not an exhaustive board census or a measure of donor
+yield. Existing timeout/explain-plan/snapshot/sparse-inventory feedback has
+retained tooling follow-ups; it does not justify another duplicate tool assignment.
+The A1858 and P104 handoffs informed the narrower cards. No measured basis for
+reweighting the portfolio emerged.
+
+**Allocation, old → new:** bit mechanisms 20→20; complex mechanisms 20→20;
+recursive interfaces 20→20; adversarial audit 15→15; independent verification
+10→10; verifier engineering 8→8; consolidation 5→5; incumbent optimization 2→2.
+These are effort weights, not success probabilities. Existing task IDs retain
+their questions' lineage; the distinct R437 caller question gets the new
+`r437-carrier-integration` card within the bit track. This changes its within-track
+mix, not the broad allocation.
+
+**Decisions and next experiments.**
+
+- **Audit #4100's proposed unconditional proof**, selecting one proposition and
+  caller in CRT total repair, native/free-algebra lifting, precision/conditioning
+  or tape costs. Stop with the exact implication established or missing. Finite
+  checks and sharper root digits are not an all-size proof.
+- **Complete #4088 admission coverage**, starting at four-provider registry and
+  dispatch bindings, preserving all ordinary/outer predicates and mutation
+  controls. A full mixed-engine replay is a separately budgeted follow-up;
+  orientation must not launch it. Admission and all-size proof audit are distinct.
+- **Narrow QQ16 to the actual #4166 caller**: compare complete matched parent
+  park/restore and external-call protocols, including all later calls and new
+  service work. Native-component cost loses. Reopen construction with a genuinely
+  cheaper source-compatible demand or consumer, not another isolated inverse.
+- **Integrate R437's #4067 paid exchange** at a compiler/request, physical caller
+  or precision/stock boundary. #4147 already covers the reverse coefficient.
+  Preserve extra ADDs and all helper costs; a local paid gain is not admission.
+- **Refresh P104 to #4133/#4136/#4140/#4153/#4154**. Audit a specific objection
+  or change the source/consumer premise and fully price completion. Stop when the
+  same slot or seam mismatch recurs, or the favorable full allowance fails.
+  These are scoped obstacles, not a universal exclusion.
+- **Narrow fixed-inventory packing and scalar-only scans.** #4091 pins an earlier
+  #4088 revision: first verify words, capacities and stock equivalence before
+  applying its proposed ceiling to the later fill. Its pooled witness does not
+  establish chronology. Residual search is explicitly bounded and optional.
+  #3998/#4019/#4112/#4152 motivate requiring an actual removed paid transition
+  before expanding scalar contraction scans. Reopen with a changed invoice or
+  interface and an applicable full cost model.
+- **Retain independent and formal coverage where missing.** Distinguish ledger
+  audit from dispatch admission and universal proof. #3807/#3857 already supply
+  scoped formal work; target uncovered caller-bound statements rather than extra
+  endpoint digits. Selected stock coefficients remain a separate obligation.
+
+**Next review trigger:** an independently resolved all-size implication, a
+completed mixed-provider admission, a complete-cost decision for QQ16/P104/R437,
+a changed selected supplier, or another substantial intake. Looping agents
+consume revision 7 at their normal upstream checkpoint and preserve frozen work.
+No new reporting artifact or heavy replay is required merely to refresh guidance.
+
+**Validation:** `python3 -B tests/test_research_assignment.py` passed 16 tests;
+`python3 -B tests/test_research_coordination.py` passed 8 tests. Changed cards
+were checked through the task-picker CLI; new coverage pins match exact intake
+receipts. Documentation/source paths were checked against the working tree or
+Git tree for sparse archives. Track weights and selected-record bytes are
+unchanged. No Lean, Docker or scientific replay was run for this guidance patch.

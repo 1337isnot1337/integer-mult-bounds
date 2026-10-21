@@ -37,28 +37,16 @@ jobs:
         name: Select changed packages and declared input dependents
         env:
           REVIEW_BASE: ${{ github.event.pull_request.base.sha || github.event.before || inputs.base }}
-        run: python -B scripts/research_package.py --changed-since "$REVIEW_BASE" --github-output "$GITHUB_OUTPUT"
+        run: python -B scripts/research_package.py --changed-since "$REVIEW_BASE" --matrix-batch-size 256 --github-output "$GITHUB_OUTPUT"
   replay:
     needs: plan
     if: needs.plan.outputs.count != '0'
     strategy:
       fail-fast: false
-      max-parallel: 4
+      # Each called workflow owns at most 256 package jobs; batches run in
+      # sequence so the inner four-worker concurrency budget is unchanged.
+      max-parallel: 1
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
-    env:
-      PYTHONDONTWRITEBYTECODE: '1'
-      RESEARCH_PACKAGE: ${{ matrix.package }}
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
-        with:
-          python-version: '3.12'
-      - name: Explicit bounded package replay
-        run: python -B scripts/research_package.py --package "$RESEARCH_PACKAGE" --install-deps
-      - name: Committed inputs remain unchanged
-        run: git diff --exit-code
+    uses: ./.github/workflows/research-package-batch.yml
+    with:
+      packages: ${{ toJSON(matrix.packages) }}
