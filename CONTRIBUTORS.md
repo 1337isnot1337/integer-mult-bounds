@@ -3075,3 +3075,9 @@ Source archives retain attribution; mathematical review remains open.
 - **Matarener (@Matarener)** — [#4432](https://github.com/CrocSwap/integer-mult-bounds/pull/4432): Audit #4100 BIT.md's local-ring algebra, row stock, depth, recurrence and wrapper: all hold (no new κ) (source archive).
 - **zxv (@zxv)** — [#4433](https://github.com/CrocSwap/integer-mult-bounds/pull/4433): Reduce p7 tensor power and uniform-rank exponent (41.6× and 46.38M×) (source archive).
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4434](https://github.com/CrocSwap/integer-mult-bounds/pull/4434): Decide #4281's depth-five connector at m = 5 exactly (minima 25, 30, 35, 35) and at m = 6 for length 5m (c = 1 new, c = 3; others >= 36) by exact meet-in-the-middle (no new κ) (source archive).
+
+## Queue intake, 21 October 2026 (chunk D)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4435](https://github.com/CrocSwap/integer-mult-bounds/pull/4435): Derive the broad forward inverse asymptotics: ||K^-1||_2 ~ e^(a/4)/(2 alpha sqrt(pi)) theta^(-1/2) from a turning-point harmonic oscillator; confirmed to 0.3% (no new κ) (source archive).
