@@ -146,5 +146,14 @@
     }
   ],
   "scope": "Internal local checks. Hosted CI and maintainer acceptance are not claimed.",
-  "excluded_from_FILES": "This receipt is outside the scientific byte manifest to avoid self-reference; Git authenticates it."
+  "excluded_from_FILES": "This receipt is outside the scientific byte manifest to avoid self-reference; Git authenticates it.",
+  "post_submission_metadata": {
+    "at_utc": "2026-10-21T08:41:44.488444+00:00",
+    "changed": [
+      "RECORD.json",
+      "FILES.json"
+    ],
+    "change": "Actual new PR number, URL and creation time recorded; executable and scientific inputs unchanged.",
+    "source_release_commit": "2d909bf9b91820585f9b0eb9575611f123a2c529"
+  }
 }
