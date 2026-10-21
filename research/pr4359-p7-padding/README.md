@@ -28,18 +28,18 @@ check all main contacts and endpoints. [NATIVE.md](NATIVE.md) gives the
 construction and source bindings; a tariff alone is insufficient evidence.
 
 [TENSOR.md](TENSOR.md) first forms a chronological native tensor power.
-For each completed productive rank K below `8^30000`, it pays for the
+For each completed productive rank K below `11^6240`, it pays for the
 transform on the missing disjoint axes of that same arbitrary input field.
-The resulting target has rank `8^30000`. No new input or productive field
-is credited. All original and added paid jobs are split at cutoff `7^30000`.
+The resulting target has rank `11^6240`. No new input or productive field
+is credited. All original and added paid jobs are split at cutoff `10^6240`.
 The new minimum target strictly exceeds the maximum paid rank, while the
 rank-one surplus is unchanged.
 
 At tested saving **0.00268648**, exact bounds certify the original mixed
 moment, the entire original paid rank-one tail, and the entire added padding
 bill. These are three separate terms; the padding is never treated as free.
-The resulting tensor power is 30,000. [ENDPOINT.md](ENDPOINT.md) specifies
-the sufficient uniform ambient rank `N = 2^47613655221424910001` and
+The resulting tensor power is 6,240. [ENDPOINT.md](ENDPOINT.md) specifies
+the sufficient uniform ambient rank `N = 2^16201843136005340321` and
 verifies every inherited outer cost
 using the unchanged ordinary BIT admission of 0.0027.
 
@@ -83,6 +83,14 @@ Sussman, Theorem 1G. Earlier attribution and notices remain in copied sources.
 New native audit, paid-padding proof, exact arithmetic and integration were
 prepared for @1337isnot1337 with substantial OpenAI Codex assistance.
 Apache-2.0.
+
+## Bounded continuation
+
+[FOLLOWUP.md](FOLLOWUP.md) and its registered `scan.py` replay check 209
+explicit algebraic profiles with pair counts 2 through 20. Only the selected
+p7 profile passes at 0.00268648; all fail at 0.00268649. This is a finite
+profile result, without native admission of every candidate or global
+optimality. Its exact intervals are saved in `FOLLOWUP.json`.
 
 ## Open next questions
 

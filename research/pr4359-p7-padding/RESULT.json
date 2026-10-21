@@ -1,22 +1,22 @@
 {
   "endpoint": {
     "compiler": {
-      "H0": 12659600210000,
-      "H1": 47613655221424910001,
-      "N_encoding": "2^47613655221424910001",
+      "H0": 4307773805920,
+      "H1": 16201843136005340321,
+      "N_encoding": "2^16201843136005340321",
       "delta": "1/1400000000",
-      "exit_coefficient_log2_upper": "103125",
+      "exit_coefficient_log2_upper": "26640",
       "final_strict_power_gap": "1/1400000000",
-      "h": "1/16",
+      "h": "1/26",
       "materialized_tensor_rule_or_uniform_word": false,
-      "negative_log2_eta_upper": "11303213/20000",
-      "paid_max_bound_encoding": "7^30000",
+      "negative_log2_eta_upper": "147931769/1250000",
+      "paid_max_bound_encoding": "10^6240",
       "rank_one_induction": "131723^n > 131115^n; target padding adds equal paid and target rank, and splitting preserves rank",
       "t": "12466419/12500000",
-      "target_max_encoding": "121^30000",
-      "target_min_encoding": "8^30000",
-      "tensor_power": 30000,
-      "theta_upper": "15/16",
+      "target_max_encoding": "121^6240",
+      "target_min_encoding": "11^6240",
+      "tensor_power": 6240,
+      "theta_upper": "25/26",
       "z": "139623893/140000000",
       "z0": "1396238929/1400000000"
     },
@@ -145,7 +145,7 @@
     "schema": "native-p7-padding-strictification-outer-endpoint/1",
     "scope": "Source-bound native p7 geometry, a finite tensor recipe with target padding, exact moment and outer inequalities, and a specified finite uniform rank. Native tensor closure and the PR4359 inherited precision, storage, analytic, fixed-tape and recovery hypotheses are written premises, not a full formal theorem certificate.",
     "status": "PASS_CONDITIONAL_P7_OUTER_POINT",
-    "strictification_source_sha256": "b588dded720ca9063ddc3760de6864385e59cdb57bc2d866040fc73c551b3c3a",
+    "strictification_source_sha256": "1f3c2a38b34d9dad7266be212ca5d0225827d8e05bda4831e6c25c5713f624f0",
     "tested_saving": "33581/12500000"
   },
   "independent_interval_crosscheck": true,
@@ -158,26 +158,27 @@
       "upper": "0.99999998440390797702869232902431333"
     },
     "alpha_upper": "99999999/100000000",
+    "completion_decay_block_length": 2,
     "controls": {
       "one_decay_block_rejected": true,
       "undamped_completion_rejected": true,
       "unpadded_rank_one_tail_rejected": true
     },
-    "cutoff_base": 7,
-    "cutoff_encoding": "7^30000",
-    "decay_block_count": 15,
-    "decay_block_length": 2000,
+    "cutoff_base": 10,
+    "cutoff_encoding": "10^6240",
+    "decay_block_count": 16,
+    "decay_block_length": 390,
     "delta_interval": {
-      "lower": "0.46868503106323215655720547807230369",
-      "upper": "0.46868503106323215655720547807230370"
+      "lower": "0.64382470915163933966321257464784307",
+      "upper": "0.64382470915163933966321257464784308"
     },
-    "delta_upper": "1/2",
-    "exponent": 30000,
+    "delta_upper": "2/3",
+    "exponent": 6240,
     "gamma_interval": {
-      "lower": "0.99914863826508331502012871126187076",
-      "upper": "0.99914863826508331502012871126187077"
+      "lower": "0.99819171247300624373216957625759087",
+      "upper": "0.99819171247300624373216957625759088"
     },
-    "gamma_upper": "1999/2000",
+    "gamma_upper": "4991/5000",
     "materialized_tensor_or_completed_word": false,
     "native_inventory": {
       "artifact_hash_encoding": "Uncompressed UTF-8 JSON, sort_keys=True, separators=(comma,colon)",
@@ -246,9 +247,9 @@
         "8": 1344
       }
     },
-    "new_max_target_encoding": "121^30000",
-    "new_min_target_encoding": "8^30000",
-    "normalized_moment_upper_rational": "81930003/81944576",
+    "new_max_target_encoding": "121^6240",
+    "new_min_target_encoding": "11^6240",
+    "normalized_moment_upper_rational": "10240625039/10240638976",
     "paid": {
       "1": 37305,
       "16": 448,
@@ -262,7 +263,7 @@
     },
     "paid_rank_one_moment": 131115,
     "productive_fields": 7688,
-    "rank_one_surplus_encoding": "131723^30000-131115^30000",
+    "rank_one_surplus_encoding": "131723^6240-131115^6240",
     "schema": "p7-paid-target-completion-tensor-certificate/1",
     "scope": "Exact moment bounds for the documented chronological native product, paid target completion and disjoint splitting. Native all-column, precision, storage, analytic and fixed-tape premises remain separate; no full multiplication theorem is formally verified.",
     "source_sha256": {
@@ -271,12 +272,12 @@
     "status": "PASS_EXACT_P7_TARGET_COMPLETION_STRICTIFICATION",
     "strict_moment_verified": true,
     "strictification_gap": {
-      "lower": "0.00017783971449190242927121863440967",
-      "upper": "0.00017783971449190242927121863440968"
+      "lower": "0.00000136095023295546357907266586564",
+      "upper": "0.00000136095023295546357907266586565"
     },
-    "strictification_gap_rational": "14573/81944576",
-    "target_floor_base": 8,
-    "target_floor_encoding": "8^30000",
+    "strictification_gap_rational": "13937/10240638976",
+    "target_floor_base": 11,
+    "target_floor_encoding": "11^6240",
     "target_rank_one_moment": 131723,
     "targets": {
       "121": 224,
@@ -290,6 +291,6 @@
       "9": 3195
     },
     "tested_saving": "33581/12500000",
-    "theta_upper": "15/16"
+    "theta_upper": "25/26"
   }
 }

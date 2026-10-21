@@ -14,14 +14,14 @@ import sys
 
 sys.dont_write_bytecode = True
 HERE = Path(__file__).resolve().parent
-EXPONENT = 30000
-CUTOFF = 7
-TARGET_FLOOR = 8
+EXPONENT = 6240
+CUTOFF = 10
+TARGET_FLOOR = 11
 TESTED_SAVING = Q('0.00268648')
 ALPHA_UPPER = 1-Q(1,10**8)
-GAMMA_UPPER = Q(1999,2000)
-DELTA_UPPER = Q(1,2)
-BLOCK = 2000
+GAMMA_UPPER = Q(4991,5000)
+DELTA_UPPER = Q(2,3)
+BLOCK = 390
 TARGETS = {5:420,6:270,7:840,8:1395,9:3195,
            25:448,41:448,57:448,121:224}
 PAID = {1:37305,2:10695,3:3360,4:1530,5:300,
@@ -69,18 +69,19 @@ def run(source_root, native_result=None):
     delta_lo = productive_count*TARGET_FLOOR/(power_hi*target_hi)
     delta_hi = productive_count*TARGET_FLOOR/(power_lo*target_lo)
     need(0 < alpha_hi < ALPHA_UPPER < 1,'Certified alpha < 1-10^-8')
-    need(0 < gamma_hi < GAMMA_UPPER < 1,'Certified original-paid tail gamma < 1999/2000')
-    need(0 < delta_hi < DELTA_UPPER < 1,'Certified completion tail delta < 1/2')
+    need(0 < gamma_hi < GAMMA_UPPER < 1,'Certified original-paid tail gamma < 4991/5000')
+    need(0 < delta_hi < DELTA_UPPER < 1,'Certified completion tail delta < 2/3')
     need(GAMMA_UPPER**BLOCK < Q(1,2),'Exact finite rational block decay')
     need(EXPONENT % BLOCK == 0,'Complete decay blocks')
     blocks = EXPONENT//BLOCK
-    need(EXPONENT >= blocks,'Completion tail is below the conservative block bound')
+    need(DELTA_UPPER**2 < Q(1,2),'Exact two-step completion-tail decay')
+    need(EXPONENT//2 >= blocks,'Completion tail is below the conservative block bound')
     bound = 1/(1+EXPONENT*(1-ALPHA_UPPER))+Q(4,2**blocks)
     need(bound < 1,'Complete normalized paid moment, including all target completion')
     need(1 < CUTOFF < TARGET_FLOOR < max(targets) and 0 < TESTED_SAVING < 1,
          'Completion fits the actual ambient space and restores strict rank separation')
-    need(CUTOFF**16 < TARGET_FLOOR**15,'theta < 15/16')
-    need(CUTOFF < 2**3 and max(targets) < 2**7,'Exact compiler power bounds')
+    need(CUTOFF**26 < TARGET_FLOOR**25,'theta < 25/26')
+    need(CUTOFF < 2**4 and max(targets) < 2**7,'Exact compiler power bounds')
     need(1/(1+BLOCK*(1-ALPHA_UPPER))+Q(4,2) > 1,
          'One decay block is insufficient under these bounds')
     need(1/(1+EXPONENT*(1-ALPHA_UPPER))+2 > 1,
@@ -94,20 +95,21 @@ def run(source_root, native_result=None):
         'schema':'p7-paid-target-completion-tensor-certificate/1',
         'status':'PASS_EXACT_P7_TARGET_COMPLETION_STRICTIFICATION',
         'exponent':EXPONENT,'cutoff_base':CUTOFF,'target_floor_base':TARGET_FLOOR,
-        'cutoff_encoding':'7^30000','target_floor_encoding':'8^30000',
+        'cutoff_encoding':'10^6240','target_floor_encoding':'11^6240',
         'tested_saving':str(TESTED_SAVING),'targets':targets,'paid':paid,
         'productive_fields':productive_count,
         'target_rank_one_moment':target_rank,'paid_rank_one_moment':paid_rank,
-        'rank_one_surplus_encoding':str(target_rank)+'^30000-'+str(paid_rank)+'^30000',
+        'rank_one_surplus_encoding':str(target_rank)+'^6240-'+str(paid_rank)+'^6240',
         'alpha_upper':str(ALPHA_UPPER),'alpha_interval':E.show((alpha_lo,alpha_hi)),
         'gamma_upper':str(GAMMA_UPPER),'gamma_interval':E.show((gamma_lo,gamma_hi)),
         'delta_upper':str(DELTA_UPPER),'delta_interval':E.show((delta_lo,delta_hi)),
         'decay_block_length':BLOCK,'decay_block_count':blocks,
+        'completion_decay_block_length':2,
         'normalized_moment_upper_rational':str(bound),
         'strictification_gap_rational':str(1-bound),
         'strictification_gap':E.show((1-bound,1-bound)),
-        'strict_moment_verified':True,'new_min_target_encoding':'8^30000',
-        'new_max_target_encoding':'121^30000','theta_upper':'15/16',
+        'strict_moment_verified':True,'new_min_target_encoding':'11^6240',
+        'new_max_target_encoding':'121^6240','theta_upper':'25/26',
         'native_inventory':native_result,
         'source_sha256':{'research/kappa-rebuild/architecture/mixed_target_probe.py':
                          sha256(engine_path.read_bytes()).hexdigest()},

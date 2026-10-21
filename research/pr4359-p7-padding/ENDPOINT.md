@@ -42,10 +42,10 @@ rank-one moment 131115, leaving surplus 608. Its raw paid ranks exceed its
 smallest target ranks. Moreover, a rank-one tail bound with cutoff below
 the raw minimum target rank does not suffice near this proposed saving.
 
-The new construction tensors the native word `v=30000` times, completes
-every productive endpoint of rank smaller than `8^v` to rank `8^v` on
+The new construction tensors the native word `v=6240` times, completes
+every productive endpoint of rank smaller than `11^v` to rank `11^v` on
 unused disjoint axes, and splits every paid call, including those endpoint
-completions, into consecutive pieces of size at most `7^v`. Endpoint
+completions, into consecutive pieces of size at most `10^v`. Endpoint
 completion occurs only after the whole native tensor word has finished.
 It uses the same arbitrary productive array, without new productive credit
 for copied inputs or work storage. The ambient rank `121^v` has room for
@@ -56,30 +56,31 @@ the raw moments. The certificate proves
 
 ```
 P_tau/T_tau < 1 - 1/10^8,
-131115/(7^C_test*T_tau) < 9995/10000,
-7688*8/(7^C_test*T_tau) < 1/2.
+131115/(10^C_test*T_tau) < 4991/5000,
+7688*11/(10^C_test*T_tau) < 2/3.
 ```
 
 The first bound controls the original tensor word. The second pays for
 splitting its large calls. The third pays for completing small productive
 endpoints and splitting those completion calls. For a completion of rank
-`D<8^v`, writing `D=q*J+r` with `J=7^v` gives, including `q=0`,
+`D<11^v`, writing `D=q*J+r` with `J=10^v` gives, including `q=0`,
 
 ```
 q*J^tau+r^tau <= D*J^(-C_test)+J^tau
-              < 2*8^v/J^C_test.
+              < 2*11^v/J^C_test.
 ```
 
 Thus the complete normalized paid moment is bounded by
 `alpha^v+2*gamma^v+2*padding^v`, while the target moment only increases.
-The exact block bound `(9995/10000)^2000<1/2`, with 15 blocks and
-`padding<1/2`, gives the simpler sufficient inequality
+The exact block bound `(4991/5000)^390<1/2` gives 16 decay blocks. The
+completion tail satisfies `(2/3)^2<1/2`, giving 3120 blocks. Bounding both
+tails by `2^-16` yields the simpler sufficient inequality
 
 ```
-1/(1+30000/10^8) + 4/2^15 < 1.
+1/(1+6240/10^8) + 4/2^16 < 1.
 ```
 
-Every paid rank is now at most `7^v`, and target ranks lie between `8^v`
+Every paid rank is now at most `10^v`, and target ranks lie between `11^v`
 and `121^v`. Rank-one surplus is unchanged: each endpoint completion adds
 the same rank to the paid and target totals, and paid splitting preserves
 rank. Hence it remains `131723^v-131115^v>0`.
@@ -98,20 +99,20 @@ z0      = (t+z)/2,
 delta   = z0-t = 1/1400000000.
 ```
 
-The source compiler now has `m=121^v`, `k_min=8^v`, and `r_max<=7^v`.
-The exact integer inequality `7^16<8^15` gives exit exponent below
-`15/16`, so use `h=1/16`. For ambient rank `x>=m`,
+The source compiler now has `m=121^v`, `k_min=11^v`, and `r_max<=10^v`.
+The exact integer inequality `10^26<11^25` gives exit exponent below
+`25/26`, so use `h=1/26`. For ambient rank `x>=m`,
 
 ```
 m E(x)/x < m^h*r_max*x^(-h)
-          < 2^B*x^(-h),              B=(55/16)*v=103125.
+          < 2^B*x^(-h),              B=(111/26)*v=26640.
 ```
 
-This follows from `7<2^3` and `121<2^7`. The exact complement coefficient
+This follows from `10<2^4` and `121<2^7`. The exact complement coefficient
 is `eta=z0*m^(z0-1)`. Since `z0>1/2`,
 
 ```
--log2(eta) < 1+7*v*(1-z0) = 11303213/20000.
+-log2(eta) < 1+7*v*(1-z0) = 147931769/1250000.
 ```
 
 The entirely rational sufficient formulas
@@ -124,9 +125,9 @@ H1 = floor(H0*(1-z0)/(z-z0))+1
 therefore give
 
 ```
-H0 = 12659600210000,
-H1 = 47613655221424910001,
-N  = 2^47613655221424910001.
+H0 = 4307773805920,
+H1 = 16201843136005340321,
+N  = 2^16201843136005340321.
 ```
 
 The verifier checks `H0>=7*v`, covering the entire finite base range.
@@ -141,7 +142,10 @@ the tensorized and padded word nor the uniform compiled word has been
 materialized. Their complete instructions, integer batch factors, paid
 leaves, scalar operations, and owned banks are defined by the finite
 recipes. The one-less-integer controls only concern these sufficient
-formulas; no minimal-rank claim is made.
+formulas; no minimal-rank claim is made. The initial sufficient choice
+`v=30000`, paid cutoff `7^v` and target floor `8^v` gave
+`H1=47613655221424910001`; the final parameters reduce both the tensor
+power and this rank exponent while preserving the same tested saving.
 
 ## Outer parameters and changed constants
 

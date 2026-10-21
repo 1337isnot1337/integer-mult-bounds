@@ -42,17 +42,17 @@ def encode(value):
 
 
 def compiler_rank(exponent, tested, uniform):
-    """Explicit sufficient ambient rank after target padding to 8^exponent and paid cutoff 7^exponent."""
+    """Explicit sufficient ambient rank after target padding to 11^exponent and paid cutoff 10^exponent."""
     n = exponent
     t, z = 1-tested, 1-uniform
-    z0, h = (t+z)/2, Q(1, 16)
+    z0, h = (t+z)/2, Q(1, 26)
     delta = z0-t
     need(n >= 1 and Q(1, 2) < t < z0 < z < 1, 'Strict compiler exponents')
-    need(7**16 < 8**15, 'log(7)/log(8) < 15/16')
-    need(7 < 2**3 and 121 < 2**7, 'Exact power bounds for exit and complement')
-    # r_max=7^n, k_min=8^n, m=121^n. Thus m*E(x)/x is
-    # below 2^B*x^-h, with B=(3+7h)n. Also -log2(eta)<1+7n(1-z0).
-    B = (3+7*h)*n
+    need(10**26 < 11**25, 'log(10)/log(11) < 25/26')
+    need(10 < 2**4 and 121 < 2**7, 'Exact power bounds for exit and complement')
+    # r_max=10^n, k_min=11^n, m=121^n. Thus m*E(x)/x is
+    # below 2^B*x^-h, with B=(4+7h)n. Also -log2(eta)<1+7n(1-z0).
+    B = (4+7*h)*n
     debt = 1+7*n*(1-z0)
     ratio = (delta*B+debt)/(h*delta)
     H0 = -((-ratio.numerator)//ratio.denominator)
@@ -63,10 +63,10 @@ def compiler_rank(exponent, tested, uniform):
     need(H1 > H0 and H1*(z-z0) > H0*(1-z0), 'Strict final uniform moment')
     need((H0-1)*h*delta < delta*B+debt, 'One lower H0 fails the stated sufficient bound')
     need((H1-1)*(z-z0) <= H0*(1-z0), 'One lower H1 fails the final strict bound')
-    return {'tensor_power': n, 'target_min_encoding': '8^'+str(n),
+    return {'tensor_power': n, 'target_min_encoding': '11^'+str(n),
             'target_max_encoding': '121^'+str(n),
-            'paid_max_bound_encoding': '7^'+str(n),
-            'theta_upper': Q(15, 16), 'h': h, 't': t, 'z0': z0, 'z': z,
+            'paid_max_bound_encoding': '10^'+str(n),
+            'theta_upper': Q(25, 26), 'h': h, 't': t, 'z0': z0, 'z': z,
             'delta': delta, 'exit_coefficient_log2_upper': B,
             'negative_log2_eta_upper': debt, 'H0': H0, 'H1': H1,
             'N_encoding': '2^'+str(H1),
@@ -79,7 +79,7 @@ def run(source_root, strict_result=None):
     if strict_result is None:
         strict_result = module('tensor_strictification', HERE/'strictification.py').run(source_root)
     need(strict_result['strict_moment_verified'], 'Strict mixed moment was certified')
-    need(strict_result['cutoff_base'] == 7 and strict_result['target_floor_base'] == 8
+    need(strict_result['cutoff_base'] == 10 and strict_result['target_floor_base'] == 11
          and Q(strict_result['tested_saving']) == TESTED,
          'Compiler inputs bind to the certified cutoff and saving')
     ledger_path = HERE/'dependencies/compiler-refill/endpoint.py'

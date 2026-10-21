@@ -68,8 +68,8 @@ def verify():
     block = strict['decay_block_length']
     need(n % block == 0 and Q(strict['gamma_upper']) ** block < Q(1, 2),
          'Independent exact rational block decay')
-    need(Q(strict['delta_upper']) <= Q(1, 2) and n >= n // block,
-         'Independent complete padding tail decay')
+    need(Q(strict['delta_upper']) ** block < Q(1, 2),
+         'Independent complete padding tail block decay')
     upper = 1 / (1 + n * (1 - Q(strict['alpha_upper']))) + Q(4, 2 ** (n // block))
     need(upper == Q(strict['normalized_moment_upper_rational']), 'Exact charged-padding and cutoff bound')
     need(upper < 1, 'Independent complete strictified moment')

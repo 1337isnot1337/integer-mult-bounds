@@ -134,37 +134,41 @@ saving C=0.00268648 the rational interval checker proves
 
 ```
 alpha < 1-1/10^8,
-gamma < 1999/2000       with c=7,
-delta < 1/2            with b=8.
+gamma < 4991/5000       with c=10,
+delta < 2/3            with b=11.
 ```
 
-Take v=30000. The exact integer comparison
-`(1999/2000)^2000<1/2` gives gamma^v<2^-15. Also delta^v<2^-15.
+Take v=6240. The exact integer comparison
+`(4991/5000)^390<1/2` gives gamma^v<2^-16. Also `(2/3)^2<1/2`,
+so delta^v<2^-3120<=2^-16.
 Bernoulli's inequality bounds alpha^v by 1/(1+v/10^8), so
 
 ```
 alpha^v+2*gamma^v+2*delta^v
-  < 1/(1+30000/10^8)+4/2^15 < 1.
+  < 1/(1+6240/10^8)+4/2^16 < 1.
 ```
 
 This proves an explicit finite power. The checker separately rejects an
 undamped completion tail and an insufficient single decay block. It also
 checks the raw rank-one cutoff-base-five tail at this point: that simpler
 tail condition fails, explaining why target completion is needed here.
-No smallest tensor power or optimal native controller is claimed.
+The exact sufficient gap is greater than 0.00000136095023295546.
+An earlier sufficient choice used v=30000, c=7 and b=8. The new parameters
+reduce the finite tensor power and the derived uniform rank at the same
+saving. No smallest tensor power or optimal native controller is claimed.
 
 ## 5. Effective uniform rank
 
-The completed mixed unit has m_new=121^v, k_min=8^v and r_max<=7^v.
-The exact comparison 7^16<8^15 gives theta<15/16; put h=1/16.
+The completed mixed unit has m_new=121^v, k_min=11^v and r_max<=10^v.
+The exact comparison 10^26<11^25 gives theta<25/26; put h=1/26.
 For ambient rank x>=m_new the inherited exit estimate gives
 
 ```
 m_new*E(x)/x <= r_max*m_new^h*x^(-h)
-                < 2^((55/16)*v)*x^(-h),
+                < 2^((111/26)*v)*x^(-h),
 ```
 
-using 7<8=2^3 and 121<128=2^7. For a desired uniform exponent
+using 10<16=2^4 and 121<128=2^7. For a desired uniform exponent
 z>t=1-C, put z0=(t+z)/2 and d=z0-t. The exact complement coefficient
 eta=z0*m_new^(z0-1), with z0>1/2, satisfies
 
@@ -175,7 +179,7 @@ eta=z0*m_new^(z0-1), with z0>1/2, satisfies
 Thus rational sufficient choices are
 
 ```
-H0 = ceil((((55/16)*v)*d+1+7*v*(1-z0))/(h*d)),
+H0 = ceil((((111/26)*v)*d+1+7*v*(1-z0))/(h*d)),
 H1 = floor(H0*(1-z0)/(z-z0))+1,
 N = 2^H1.
 ```
@@ -217,6 +221,16 @@ small-word numerical reserve is substituted for these counts.
 All these constants are finite and fixed before the multiplication input
 varies. Their absorption still requires the stated inherited physical,
 analytic, fine-prime, fixed-tape and exact-recovery hypotheses.
+
+The related [PR4375 tensor-frame audit](https://github.com/CrocSwap/integer-mult-bounds/pull/4375),
+read at head `9712f7cfc09723a557b3230a0d5e9826eaedcd2e`, concerns the
+different PR4088/PR4100 profile. It distinguishes one rank-r*f child from
+f scalar rank-r copies and leaves native frame realization and monomial
+pricing open. The construction here requires the complete PR4359 all-column
+contract: a paid position at column count f is one rank-r*f job, with every
+whole-job route charged. Factorwise repetition is not a substitute for that
+contract. The finite p7 geometry and moment checks do not independently
+discharge this all-column native or tape-action premise.
 
 Open next questions include reducing the sufficient tensor power, varying
 the target completion and paid cutoff, and extending the native controller
