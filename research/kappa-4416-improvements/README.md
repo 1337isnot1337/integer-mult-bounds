@@ -1,16 +1,23 @@
-# Conditional kappa 0.002686488 with smaller p7 templates
+# A constructive p7 saving family with smaller finite templates
 
 The source-bound p7 controller from
 [PR #4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416)
-supports the improved conditional point
+supports a finite conditional construction for every fixed rational
+`0 < kappa < C_star`, where
 
 ```math
-T(n)=O\!\left(n(\log n)^{1-0.002686488}\right).
+0.002686489048851021139378940762
+< C_\star <
+0.002686489048851021139378940763.
 ```
 
-The increase over #4416's stated final saving is `0.000000018`.
-A logarithmic compiler bound and a larger fully paid target floor
-also substantially reduce its sufficient uniform template rank.
+The resulting bound is `T(n)=O(n(log n)^(1-kappa))` under the retained
+premises. An explicit, separately checked recipe gives
+`kappa=0.002686488`, an increase of `0.000000018` over #4416's stated
+final saving. A logarithmic compiler bound and a larger fully paid
+target floor also substantially reduce its sufficient uniform template
+rank. The quantified construction reaches every strictly smaller
+saving than the raw root, including `kappa=0.002686489`.
 
 | Construction | Final conditional kappa | Tensor power | Target floor base | Sufficient uniform rank |
 | --- | ---: | ---: | ---: | --- |
@@ -31,7 +38,7 @@ precision, storage, analytic, fixed-tape and exact-recovery hypotheses.
 No full multiplication theorem is formally verified or winning template
 materialized. The selected result on canonical main is unchanged.
 
-## Review and the two changes
+## Review and finite-template improvements
 
 The dependency is the exact #4416 head
 `e9058860b5c850760fdf970e796a96aefcdb1d98`, in
@@ -96,6 +103,63 @@ storage, precision and reserve constants. The p7 raw scalar allowance
 is retained only per actual raw invocation. Product macros are not
 counted as single raw invocations or single owned centers.
 
+## Every fixed saving below the raw root
+
+The [constructive root-family proof](../kappa-4416-root-family/PROOF.md)
+establishes the full strict range. This extends the earlier qualitative
+raw-root headroom in #4420 with a finite constructor and the complete
+outer consumer.
+
+Write `T_t` and `P_t` for the two exact raw rank moments and
+`t=1-C`. An exact signed-rank decomposition proves that
+`(T_t-P_t)/5^t` is strictly increasing throughout `t>=0`.
+Its integer endpoint values are `-48310` and `608`. Directed rational
+intervals then enclose the unique saving root by the two numbers above.
+
+The construction has a uniform paid-tail estimate:
+
+```math
+\frac{131115}{10^C T_{1-C}}<\frac{999}{1000},
+\qquad
+\frac{7688\cdot17}{10^C T_{1-C}}
+<
+\frac{131115}{10^C T_{1-C}}.
+```
+
+These inequalities hold across the entire interval containing the
+root. Given any fixed positive raw moment, an increasing-precision
+rational calculation certifies `P_t/T_t<=1-epsilon` for some
+`epsilon>0`. A finite tensor power then makes the complete normalized
+paid bill smaller than `3/4`. The larger-floor construction, strict
+integer compiler and logarithmic template bound apply to that fully
+paid rule.
+
+The outer step is proved for a continuum of parameters: the checker
+executes the unchanged source ledger over `Q[x,d]` and supplies a
+strict rational positivity witness for each of its **54 strict
+predicates and three functional guards**. All nine actual cost rows
+are matched to their corresponding witnesses. Smaller requested
+savings use the already certified fixed program and weaken its bound.
+This avoids confusing a historical incumbent-comparison check with
+a mathematical restriction on the requested saving.
+
+The generic constructor is deliberately generous. Its saved example
+at `kappa=0.002686489` has tensor power `34359739029` and sufficient
+rank `2^47400257013113900919251`. These numbers exercise the
+quantified construction; the smaller finite recipes in the table
+remain separate results. The large ambient powers and tensor words
+are represented symbolically, without materializing them.
+
+The same proof gives a precise limit for this certificate family.
+When the raw mixed moment is nonpositive, tensoring preserves that
+sign. Paid target completion changes the moment by
+`(K+D)^t-K^t-D^t<0`, and paid splitting also cannot increase it.
+Consequently those operations cannot yield a positive complete mixed
+moment at or above `C_star`. This is a ceiling for the specified
+positive-moment certificates. It does not exclude a better raw
+controller, a different analysis of the supplier, or a different
+multiplication algorithm.
+
 ## Reproduction
 
 Use Python 3.12 or newer with the standard library. Provide a separate
@@ -115,11 +179,13 @@ From this contribution's checkout:
 ```sh
 python3 -I -O -B research/kappa-4416-log-template/verify.py --source-root /tmp/pr4416-source --check
 python3 -I -O -B research/kappa-4416-padding-endpoint/verify.py --source-root /tmp/pr4416-source --check
+python3 -I -O -B research/kappa-4416-root-family/verify.py --source-root /tmp/pr4416-source --check
 ```
 
 The second command authenticates and replays the first package, including
-the entire source verifier. Both packages compare deterministic saved
-receipts. New acceptance decisions use exact rational or integer
+the entire source verifier. The third replays both companions before
+checking the full strict root family. All packages compare deterministic
+saved receipts. New acceptance decisions use exact rational or integer
 arithmetic. Two separately implemented directed moment engines check
 the changed mixed points and both complete paid tails.
 
@@ -130,6 +196,21 @@ criterion, the nearby failing raw test `C=0.00268649`, and unfunded
 outer parameters. A separate exact two-class obstruction explains why
 the unpadded raw rule cannot simply bypass the literal compiler's
 rank separation.
+
+The two finite-point packages also passed an isolated, optimized
+replay under Python 3.12.14. A fresh Pyroam workspace downloaded all
+41 pinned source files and seven contribution files from GitHub,
+checked every Git blob, and reproduced the same receipts under
+Python 3.12.13. That independent execution used contribution commit
+`806d491bcd31caae35e3cf5f8e97cbce40b452e3` and completed in 35.53
+seconds. It did not depend on the earlier p3 exploration workspace.
+
+The root-family package separately passed an isolated optimized
+deterministic replay under Python 3.12.14, with only the nine new
+proof, generator and receipt files beside the separate pinned source.
+Independent reviews also compared all 57 symbolic predicates and
+nine cost slacks with the literal rational ledger at boundary and
+interior parameter points.
 
 ## Context, attribution and remaining questions
 
@@ -159,16 +240,31 @@ independently checks the original p7 moment/tail arithmetic and reports
 its narrow remaining raw-root headroom. Its scope excludes the native
 word and full consumer; its source description and checker were read.
 The new contribution here includes the changed paid padding, complete
-finite templates and complete outer points.
+finite templates, complete outer points, constructive full strict
+range and scoped certificate ceiling.
 
 This focused branch starts from canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`. Source heads were checked
 against the live PR queue before publication. The overlap search is
 not exhaustive, and Discussion coverage was unavailable.
 
-Further work should connect a stronger raw controller or admitted
-native operation to a complete paid invoice, sharpen the uniform
-tail-to-template construction, bound full productive width and program
-size, and independently resolve the retained universal native and
-analytic premises. The nearby failed raw test and any bounded
-controller search do not establish a global barrier.
+## Open next questions
+
+A stronger raw controller or admitted native operation could move the
+mixed-moment root. A feasible first step is to extend the exact
+controller factorization and invoice to a fresh candidate. A candidate
+must retain the chronological word, arbitrary input fields, helper
+owners and complete paid calls before its numerical moment is useful.
+The root-family ceiling does not settle this broader search.
+
+Sharper finite parameters can reduce the very large sufficient
+templates. The immediate step is to combine a tighter raw-moment gap
+with the floor-17 paid-tail bound and rerun the full outer consumer.
+An improvement in ambient rank alone does not establish a comparable
+reduction in productive width or expanded instruction count.
+
+Full productive width, program size and the inherited universal
+physical and analytic premises remain separate questions. A first
+step is to extend the charged native-record inventory to an explicit
+width and movement formula for the new word. Finite invoice replay
+does not resolve those universal premises.
