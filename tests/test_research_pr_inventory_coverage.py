@@ -84,7 +84,10 @@ class InventoryCoverageTests(unittest.TestCase):
     def test_complete_empty_inventory_is_not_reported_as_a_gap(self):
         report = json.loads(self.run_cli([self.row(376, [], False)], '--path', 'missing.py', '--json'))
         self.assertEqual(report['coverage']['pr_files']['truncated_prs'], [])
-        self.assertEqual(report['warnings'], [])
+        # PATH is empty in this CLI fixture, so Git inventory is unavailable.
+        self.assertIsNone(report['coverage']['local']['complete_head_inventory'])
+        self.assertEqual(len(report['warnings']), 1)
+        self.assertTrue(report['warnings'][0].startswith('local: HEAD note inventory unavailable;'))
         self.assertEqual(report['path_matches_total'], 0)
 
 
