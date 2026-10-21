@@ -17,7 +17,7 @@ This proves the linear boundary and its exact cost rank. The conditional step is
 
 ## Complete finite census
 
-The verifier reads the selected local word pinned by the current main source chain. It replays every A, B, and scheduled cleanup-tail operation in both orientations, checks all frame inclusions and old/new endpoints, and extracts only single ADD gates with two positive climbs and `max(r,s) > 1`.
+The verifier reads the archived frontier-1094 word pinned to the historical selected record. `SELECTED-BASE.json` reproduces the exact previously selected Git blob `ae6a99f28aa4` rather than the mutable current frontier. It replays every A, B, and scheduled cleanup-tail operation in both orientations, checks all frame inclusions and old/new endpoints, and extracts only single ADD gates with two positive climbs and `max(r,s) > 1`.
 
 It finds 359 gates:
 
@@ -72,7 +72,7 @@ python3 scripts/research_package.py --package research/complex-joint-higher-rank
 python3.12 -B scripts/research_package.py --package research/complex-joint-higher-rank-seed3444f4
 ```
 
-The direct verifier checks the selected-record and word pins, all source gate and frame endpoints in both orientations, the exact shape census, rank-mass conservation, exact fixed-word ceilings, the overhead budget, and four negative controls. `CENSUS.tsv` stores one compact row per gate; `RESULT.json` stores the exact profiles and rational ceiling brackets. `--check-only` checks package metadata and source pins, not the mathematics.
+The direct verifier checks the historical selected-record snapshot and word pins, all source gate and frame endpoints in both orientations, the exact shape census, rank-mass conservation, exact fixed-word ceilings, the overhead budget, and four negative controls. `CENSUS.tsv` stores one compact row per gate; `RESULT.json` stores the exact profiles and rational ceiling brackets. `--check-only` checks package metadata and source pins, not the mathematics.
 
 The assignment is recorded in `TASK.json`, its input and provenance pins in `SOURCES.json`, and the registered commands in `VERIFY.json`. The claim is on [Discussion #1167, comment #18922740](https://github.com/CrocSwap/integer-mult-bounds/discussions/1167#discussioncomment-18922740). The final overlap snapshots cover all open PRs and Discussions with complete pagination and no warnings; see `OVERLAP.json` and `OVERLAP-RELATED.json`.
 

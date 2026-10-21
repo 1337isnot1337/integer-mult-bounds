@@ -6,13 +6,14 @@
       "git_blob": "06c96f5579bb67ed1b86d334e78fbed7da6945f1",
       "path": "docs/research/agent-task-catalog.json",
       "sha256": "6686ad58f1fbdbc87134a78901b60fd53a20d3984355e91defbbebc9e9fa8075",
-      "usage": "input"
+      "usage": "provenance"
     },
     {
       "git_blob": "ae6a99f28aa468649eb66a361e764d769363bf11",
-      "path": "certificates/selected-result.json",
+      "path": "research/complex-joint-higher-rank-seed3444f4/SELECTED-BASE.json",
       "sha256": "10b9e340fd8e354a37a0c4813c90e5de1dd42044b5f6aca4a3fc5a42b685fa32",
-      "usage": "input"
+      "usage": "input",
+      "pin": "head:3564d75ca0a78e985f1472427a26fec2fd33c636:research/complex-joint-higher-rank-seed3444f4/SELECTED-BASE.json"
     },
     {
       "git_blob": "6cb6ec061a071a06a2d18cd4dc3e9a2b05d28099",

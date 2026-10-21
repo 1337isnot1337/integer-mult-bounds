@@ -59,7 +59,7 @@ def included(old_frame, new_frame):
 
 
 def load_inputs():
-    selected_bytes = (ROOT / "certificates/selected-result.json").read_bytes()
+    selected_bytes = (HERE / "SELECTED-BASE.json").read_bytes()
     need(digest(selected_bytes) == EXPECTED_SELECTED, "selected-record SHA256 changed")
     selected = json.loads(selected_bytes)
     need(selected["proof"] == "docs/research/community-batch1099-review.md", "selected review pointer changed")
@@ -255,7 +255,7 @@ def reject_mutation(row, canonical, mutate):
 
 def main(write=False):
     canonical, programs, full_gz, full_raw = load_inputs()
-    need(digest((ROOT / "certificates/selected-result.json").read_bytes()) == EXPECTED_SELECTED,
+    need(digest((HERE / "SELECTED-BASE.json").read_bytes()) == EXPECTED_SELECTED,
          "selected result changed during verification")
     need(set(programs) == {"forward", "backward"}, "unexpected program orientations")
     forward, fpairs, ffinal = scan_orientation(programs["forward"], canonical, False)
