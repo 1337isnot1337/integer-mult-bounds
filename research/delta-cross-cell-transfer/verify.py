@@ -71,6 +71,8 @@ def robust(p):
     B = 1 / (1 - off)
     need(B * B < p ** 11 and B < p ** 6 and B < 10 * p * p and 100 * p ** 4 < p ** 11 and 10 * p * p < p ** 6, "B: endpoint 11, normalizer 6")
     need(2 * (p - 1) * F(1, 64 * p ** 4) <= rho, "B: per-entry error 1/(64p^4)")
+    # the raw exponential oracle (|z - n| < 2 eta, eta = 2^-32768p, no downward repair) on <= 2W = 2(p-1) entries
+    need(2 * (p - 1) * 2 * F(1, 2 ** (32768 * p)) <= rho, "B: raw oracle output fits the budget")
     L = p ** 24
     need((2 * L - 1) * (p - 1) < p ** 26 and (2 * L + 1) * (p - 1) < p ** 26, "bandwidth/agreement 26")
 

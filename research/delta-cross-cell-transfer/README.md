@@ -42,6 +42,11 @@ with absolute error at most `1/(64p⁴)` per entry works. In particular FINE-PRI
 `poly(p)·2^{−(C−o(1))p}` row and column perturbation works eventually, which matches the eventual
 status of the ideal gaps.
 
+**#4449's repair is not needed for these exponents.** The raw negative-exponential oracle output `z`,
+with `|z − n| < 2η` and `η = 2^{−32768p}`, has a per-row excess of at most `2(p−1)·2η`. That is far
+below `1/(32p³)`, and the verifier checks it for every `p` from 2 to 64. Downward repair (#4449) is still
+what gives the exact ceiling `U` of Lemma A.
+
 **Near-tightness at `p = 2`.** On this route the excess tolerance at `p = 2` lies in
 `(0.0091, 0.0092)`. The budget `1/(32p³) = 1/256` sits inside it.
 
