@@ -27,7 +27,7 @@ python3.12 -B scripts/research_package.py --package research/joint-helper-lattic
 python3.12 -B scripts/research_package.py --package research/joint-helper-lattice
 ```
 
-The normal replay uses only the Python standard library. It authenticates the declared sources, reconstructs the changed native word, replays all 632 arbitrary-input columns in both orientations using two retained interpreters, and lowers the new transports and helper boundaries including absolute phase. It regenerates the p16 Laurent and literal controller, checks its boundary factorization, cross-checks the moments with a second rational engine, and verifies the full compiler and outer ledger. Mutation controls reject false ranks, unsupported query orientation, unpaid full stages, the old invoice at the new saving, and invalid outer parameters.
+The registered replay has three required gates (dependencies, native, arithmetic) and uses only the Python standard library. It authenticates the declared sources, reconstructs the changed native word, replays all 632 arbitrary-input columns in both orientations using two retained interpreters, and lowers the new transports and helper boundaries including absolute phase. It regenerates the p16 Laurent and literal controller, checks its boundary factorization, cross-checks the moments with a second rational engine, and verifies the full compiler and outer ledger. Mutation controls reject false ranks, unsupported query orientation, unpaid full stages, the old invoice at the new saving, and invalid outer parameters.
 
 `--write` is an authoring path using saved native and predecessor receipts. It is not the registered full replay. `VALIDATION.md` records the commands actually completed.
 

@@ -4,10 +4,34 @@
       "argv": [
         "{python}",
         "-B",
-        "{package}/verify.py"
+        "{package}/verify.py",
+        "--part",
+        "dependencies"
       ],
-      "checks": "Fresh p16 rational/Laurent and literal replay; both native orientations on all 632 arbitrary input columns, exact new transport and helper phases; two rational interval engines; complete paid-tail, uniform compiler, BIT, and outer ledger checks with semantic controls.",
+      "checks": "Fresh retained physical phases, owned-query primitives, complete binary controller, both BIT tails, compiler and ordinary conversion.",
+      "timeout_seconds": 300
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--part",
+        "native"
+      ],
+      "checks": "Fresh exact 632-column replay in both orientations with two interpreters and 423 phase-bearing transport/helper pairs.",
       "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--part",
+        "arithmetic"
+      ],
+      "checks": "Fresh p16 rational/Laurent word and literal boundaries; both rational interval engines; uniform local gain; paid tails; compiler and all outer predicates.",
+      "timeout_seconds": 300
     }
   ],
   "inputs": [

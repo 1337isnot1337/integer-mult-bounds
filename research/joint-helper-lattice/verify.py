@@ -79,11 +79,23 @@ def ceiling(E,T,P):
 
 
 def controller16(C):
-    """Generate the new controller, then check it with the literal engine."""
-    row=C.run('complex',16,7)
+    """Reconstruct the word and check its supplied exact factorization."""
+    row=read(HERE/'CONTROLLER.json')
+    need((row['kind'],row['pairs'],row['prefix_pairs'],row['ambient_rank'])==('complex',16,7,145),'Exact controller parameters')
+    need(row['keep_mask']==C.keep_mask(16,7),'Exact retained idle mask')
     B,E=C.engines()
     coefficients,events,idles=E.controller(16,C.keep_mask(16,7))
     coefficients=C.specialize_complex(coefficients,C.thick_stages(16))
+    rebuilt=[]
+    for event in events:
+        if event[0]=='LOCAL' and event[1] not in C.thick_stages(16):
+            rebuilt.append(['QUERY_SHEAR',*event[1:]])
+        elif event[0]=='IDLE':
+            selected=[stage for stage in event[2] if stage in C.thick_stages(16)]
+            if selected:rebuilt.append(['IDLE',event[1],selected])
+        else:rebuilt.append(event)
+    need(rebuilt==row['physical_events'],'Every emitted event freshly reconstructed')
+    need(encode(C.inventories('complex',16,7,row['diagonal'],idles))==row['invoice'],'Fresh independent controller invoice')
     left=[[Q(x) for x in r] for r in row['boundaries']['left']]
     right=[[Q(x) for x in r] for r in row['boundaries']['right']]
     diagonal=[tuple(k) for k in row['diagonal']]
@@ -101,6 +113,34 @@ def controller16(C):
     need(C.replay_events(bad,16,'complex')!=coefficients,'An unpaid full stage is rejected')
     return row
 
+
+def replay_dependencies():
+    """Fresh checks of the inherited physical primitives and unchanged BIT side.
+
+    The superseded p17 complex arithmetic is not a premise of the new p16 word.
+    Its replacement is freshly reconstructed by controller16 below.
+    """
+    authenticate()
+    query=ROOT/'research/query-thinned-controllers'
+    sys.path.insert(0,str(query));S=load(query/'verify.py','joint_source_bit')
+    C=S.C;C.engines()
+    source=read(query/'RESULT.json')
+    need(S.native_contacts()==source['native'],'Retained physical main contacts, binary charts and owned-query lowering')
+    row=C.run('bit',16,7)
+    need(encode(row)==read(query/'BIT-CONTROLLER.json'),'Fresh complete binary controller')
+    B,_=C.engines();coefficients,_,_=B.physical_controller(16,C.keep_mask(16,7))
+    coefficients=C.specialize_bit(coefficients,C.thick_stages(16))
+    need(C.replay_events(row['physical_events'],16,'bit')==coefficients,'Independent literal binary physical word')
+    need(encode(row['invoice'])==source['bit_invoice'],'Complete source-bound BIT invoice')
+    E=C.load(ROOT/'research/higher-moment-strictification/verify.py','joint_bit_intervals')
+    tail=S.tail(E,row['invoice'],Q('.00346'),Q('.003459'),17,18,Q(1,250000))
+    need(encode(tail)==source['bit_strictification'],'Exact paid BIT tails and finite compiler')
+    bit=source['ordinary_BIT'];before,after,atom=map(Q,(bit['before_cover'],bit['after_cover'],bit['atom']))
+    ordinary=(1-atom)*after+atom*Q('.0000384599')
+    need(before>after and 2**26>256/(before-after),'Explicit delayed-cover exponent gap and prime allowance')
+    need(atom>ordinary>Q(bit['admitted']) and atom<1-ordinary,'Complete ordinary BIT conversion and stock')
+    return {'status':'PASS_RETAINED_NATIVE_AND_BIT_DEPENDENCIES','native':source['native'],'ordinary_BIT':bit}
+
 def run(execute_sources=True):
     count=authenticate()
     fresh=ROOT/'research/fresh-helper-boundary'
@@ -108,13 +148,13 @@ def run(execute_sources=True):
     sys.path.insert(0,str(fresh));F=load(fresh/'verify.py','audited_fresh_boundary_package')
     sys.path.insert(0,str(query));S=load(query/'verify.py','audited_query_thinning_package')
     source_query=read(query/'RESULT.json')
-    if execute_sources:
-        need(S.native_contacts()==source_query['native'],'Retained physical main contacts and owned-query lowering')
-        need(encode(S.run())==source_query,'PR4440 complete source replay')
+    if execute_sources: replay_dependencies()
     local=J.run() if execute_sources else read(HERE/'NATIVE.json.gz')
     need(json.loads(json.dumps(local))==read(HERE/'NATIVE.json.gz'),'Fresh exact missing-span native replay')
     H={int(k):v for k,v in local['helpers'].items()};N={int(k):v for k,v in local['paid'].items()}
+    print('CHECK_JOINT_CONTROLLER',flush=True)
     word=controller16(S.C)
+    print('PASS_JOINT_CONTROLLER',flush=True)
     need(json.loads(json.dumps(word))==read(HERE/'CONTROLLER.json'),'Fresh p16 controller and literal boundary replay')
     T,P=Counter(),Counter();full=thin=idle=0
     for event in word['physical_events']:
@@ -138,7 +178,9 @@ def run(execute_sources=True):
         check.subtract({k:18*v for k,v in old_unit.items()});check.update({k:18*v for k,v in new_unit.items()})
         need(+check==new,'Literal event count equals whole-call substitution: '+key)
     E=S.C.load(ROOT/'research/higher-moment-strictification/verify.py','combined_exact_intervals')
+    print('CHECK_EXACT_CEILING',flush=True)
     root=ceiling(E,T,P)
+    print('PASS_EXACT_CEILING',flush=True)
     # A finite interval proof of a uniform strict local moment improvement.
     coefficients={1:17,2:126,3:-50,4:-42,5:2,7:-22,8:5,9:17}
     prior_native=read(ROOT/'research/missing-join-frame/NATIVE.json.gz')
@@ -156,6 +198,7 @@ def run(execute_sources=True):
             bound+=n*product[1 if n>0 else 0]
         derivative_upper=bound if derivative_upper is None else max(derivative_upper,bound)
     need(derivative_upper<0,'Joint local moment gain for every 0<t<1')
+    print('PASS_UNIFORM_LOCAL_GAIN',flush=True)
     local_gain={'coefficients':coefficients,'vanishes_at_one':True,'derivative_upper':E.display((derivative_upper,)*2),'intervals':128}
 
     parent=read(ROOT/'research/missing-join-frame/RESULT.json')
@@ -197,6 +240,7 @@ def run(execute_sources=True):
     need(local_scalar+local_routes<10**7,'Every new local scalar and monomial route fits')
     scalar_upper=18*10**7+15*1792+32*112*(len(word['physical_events'])+sum(len(word['boundaries'][k+'_program']) for k in ('left','right')))
     need(scalar_upper<10**9,'Retain the complete raw nonrecursive bound')
+    print('PASS_COMPLETION_AND_COMPILER',flush=True)
     bit=source_query['ordinary_BIT'];atom=Q(bit['atom']);ordinary=(1-atom)*Q(bit['after_cover'])+atom*Q('.0000384599')
     admitted=Q(bit['admitted']);need(atom==Q('.004') and atom>ordinary>admitted>TESTED and atom<1-ordinary,'Complete stronger source BIT admission')
     L=S.C.load(ROOT/'research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py','combined_outer_ledger')
@@ -226,8 +270,21 @@ def run(execute_sources=True):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
-    parser.add_argument('--write',action='store_true',help='Author the new arithmetic receipt from already-audited dependency receipts; normal replay freshly reruns both dependencies.')
-    args=parser.parse_args();result=run(execute_sources=not args.write)
-    if args.write:(HERE/'RESULT.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
-    else:need(result==read(HERE/'RESULT.json'),'Exact combined receipt replay')
-    print(json.dumps({k:result[k] for k in ('status','kappa_decimal','gain_over_PR4441','compiler')},sort_keys=True))
+    parser.add_argument('--write',action='store_true',help='Author arithmetic from pinned receipts; not a fresh native/dependency replay.')
+    parser.add_argument('--part',choices=('all','dependencies','native','arithmetic'),default='all')
+    args=parser.parse_args()
+    need(not args.write or args.part=='all','The authoring switch is separate from partial replay modes')
+    if args.part=='dependencies':
+        print(json.dumps(replay_dependencies(),sort_keys=True))
+    elif args.part=='native':
+        authenticate();local=J.run()
+        need(json.loads(json.dumps(local))==read(HERE/'NATIVE.json.gz'),'Fresh complete native receipt')
+        print(json.dumps({'status':'PASS_JOINT_NATIVE_632_COLUMNS_BOTH_ORIENTATIONS','helpers':local['helpers'],'paid':local['paid'],'physical_pairs':len(local['new_physical_edges_and_boundaries'])},sort_keys=True))
+    else:
+        result=run(execute_sources=args.part=='all' and not args.write)
+        if args.write:(HERE/'RESULT.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+        else:need(result==read(HERE/'RESULT.json'),'Exact combined arithmetic receipt')
+        keys=('status','kappa_decimal','gain_over_PR4447','compiler')
+        output={k:result[k] for k in keys}
+        if args.part=='arithmetic':output['replay_scope']='Arithmetic and p16 controller only; the registered native and dependency gates are separate required commands.'
+        print(json.dumps(output,sort_keys=True))

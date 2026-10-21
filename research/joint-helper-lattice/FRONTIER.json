@@ -1,8 +1,116 @@
 {
-  "checked_at": "2026-10-21T23:05:41.906476+00:00",
-  "purpose": "Refresh before publishing the 0.00302015 candidate; no higher kappa found among these recent open PRs.",
-  "coverage": "Latest 30 open PRs sorted by update; earlier research checkpoints separately covered the active kappa chain.",
+  "checked_at": "2026-10-21T23:33:26.343365+00:00",
+  "coverage": "Latest 30 open PRs sorted by updated time; prior snapshots covered the active kappa chain.",
+  "comparison": "No higher kappa than the submitted 0.00302015 found in the checked claims.",
   "pull_requests": [
+    {
+      "number": 1764,
+      "title": "Research: rank-two interface candidate for paired frame transitions",
+      "head": "92a6b7fef74a7f1e3efb911a366ce32e2d026397",
+      "updated_at": "2026-10-21T23:33:24Z"
+    },
+    {
+      "number": 1930,
+      "title": "Construction: three-stage persistent prefix shear chain (no new kappa)",
+      "head": "f4bfa47d0a050b3ecf0cdf198d077093661014ef",
+      "updated_at": "2026-10-21T23:33:20Z"
+    },
+    {
+      "number": 2216,
+      "title": "QQ16: add an F0-B1 selected-state shear",
+      "head": "b384a72e79054fc9589048c2f9eb9fa85fab65ce",
+      "updated_at": "2026-10-21T23:33:17Z"
+    },
+    {
+      "number": 2249,
+      "title": "Research: high-arity connector toggle cost floor",
+      "head": "2d3a99a0887236ff340596b1295604b9a3a39b07",
+      "updated_at": "2026-10-21T23:32:58Z"
+    },
+    {
+      "number": 4469,
+      "title": "Independently check #4438: within-cell gauge column transfer (C = 3 least, equality at p = 2; no new \u03ba)",
+      "head": "baf56b163de5981ade5afa28f75bbd7e019f8b65",
+      "updated_at": "2026-10-21T23:32:55Z"
+    },
+    {
+      "number": 4467,
+      "title": "research: #4436 direct-flow leaf walk \u2014 exact \u221aG regime to depth 60, predicted saturation keeps the refined-induction cap below s* (no new \u03ba)",
+      "head": "43cc0fa102706dbddf97a76f7b4f34363e086071",
+      "updated_at": "2026-10-21T23:30:29Z"
+    },
+    {
+      "number": 2134,
+      "title": "Six-source one-TRIO path misses full paired coverage at 14 calls",
+      "head": "7d9b18640c410dc3da19aef0a66291c5ab9b2ec1",
+      "updated_at": "2026-10-21T23:27:39Z"
+    },
+    {
+      "number": 1900,
+      "title": "Construction: five plane queries for selected P111 bit decoder (no new kappa)",
+      "head": "2f7c02ddcc7c086baa57f0db28c0a4ebdc465496",
+      "updated_at": "2026-10-21T23:27:31Z"
+    },
+    {
+      "number": 1865,
+      "title": "Research: nonconsecutive commuting C3 fanout schedule",
+      "head": "e7d290e9d56eb1a7a8622572272af8e0aef161b9",
+      "updated_at": "2026-10-21T23:27:23Z"
+    },
+    {
+      "number": 1836,
+      "title": "Research: higher-rank paired boundary at a single ADD gate",
+      "head": "9a7cb3c6c74b9745084f859c5fc8142ebb775cea",
+      "updated_at": "2026-10-21T23:27:03Z"
+    },
+    {
+      "number": 4468,
+      "title": "Independently check #4437: the ideal column majorant holds (and is attained) across g = 2 steps (no new \u03ba)",
+      "head": "b5f7fbbb4a4a778f78da69ee1a5d965a6af081ad",
+      "updated_at": "2026-10-21T23:26:49Z"
+    },
+    {
+      "number": 4465,
+      "title": "research: refined-induction ceiling on #4436's direct flow grows with lockstep depth (log-gap g, no new \u03ba)",
+      "head": "36d9c475d4bbc99e93952e0ad86a802e1bc581e8",
+      "updated_at": "2026-10-21T23:16:29Z"
+    },
+    {
+      "number": 4466,
+      "title": "Independently check #4464's stage-zero commutation; the recorded translations are forced: t_i = [c_i \u2261 3 mod 4] (no new \u03ba)",
+      "head": "496a7d6bd053b7019935529ce5b5c3eb3dc664ed",
+      "updated_at": "2026-10-21T23:13:54Z"
+    },
+    {
+      "number": 4440,
+      "title": "Conditional \u03ba = 0.00296 via query-thinned productive controllers (+10.18%)",
+      "head": "9123d75afea5096d25eb98b2b6080cbbe0d91c01",
+      "updated_at": "2026-10-21T23:13:42Z"
+    },
+    {
+      "number": 4441,
+      "title": "Conditional \u03ba = 0.00300105 (+4.105e-5 over #4440): combine query thinning and helper retiming",
+      "head": "149af87f1101dc7a72f2fe57294f9bacf8d053ba",
+      "updated_at": "2026-10-21T23:13:04Z"
+    },
+    {
+      "number": 4446,
+      "title": "Independent retimed p17 certificate: conditional kappa = 0.003001053",
+      "head": "e2bde8f5b9bfa2e8d51f959656d84ebcc2af81b7",
+      "updated_at": "2026-10-21T23:12:34Z"
+    },
+    {
+      "number": 4447,
+      "title": "Conditional kappa = 0.00300123 via a missing three-dimensional contact span",
+      "head": "02b51f341013c607dc480248c94c216b8260d8af",
+      "updated_at": "2026-10-21T23:11:49Z"
+    },
+    {
+      "number": 4464,
+      "title": "research: certify the actual stage-zero Gaussian commutation premise",
+      "head": "82c7db427100033aa1275ecdb16ebc2e2ef10b91",
+      "updated_at": "2026-10-21T23:06:01Z"
+    },
     {
       "number": 4459,
       "title": "research: #4436 boundary exits \u2014 exact mirror identity, rigorous share bound 0.321, and a correction (leaf exits dominate)",
@@ -74,114 +182,6 @@
       "title": "Independently reconstruct PR4441 helper tariffs and complete p17 invoice",
       "head": "6d535abed7b60d4a99dc54903011a72ec367e901",
       "updated_at": "2026-10-21T21:21:23Z"
-    },
-    {
-      "number": 4450,
-      "title": "Audit THREE-base supplier billing from native events (no new kappa)",
-      "head": "e8305f07db188d6fa0be1c91ae77cc2414ea029d",
-      "updated_at": "2026-10-21T21:19:46Z"
-    },
-    {
-      "number": 4449,
-      "title": "Prove the downward rounding contract for across-cell Gaussian entries",
-      "head": "1fb77b377f570ca84a89a465b2ee4ce8674b7159",
-      "updated_at": "2026-10-21T21:18:04Z"
-    },
-    {
-      "number": 4447,
-      "title": "Conditional kappa = 0.00300123 via a missing three-dimensional contact span",
-      "head": "322e0ec764aa7ef7801383feb1f656e460dd8bed",
-      "updated_at": "2026-10-21T21:14:57Z"
-    },
-    {
-      "number": 4446,
-      "title": "Independent retimed p17 certificate: conditional kappa = 0.003001053",
-      "head": "7d05d73f96c27a9d360011e04af69b23fa903757",
-      "updated_at": "2026-10-21T21:07:29Z"
-    },
-    {
-      "number": 4441,
-      "title": "Conditional \u03ba = 0.00300105 (+4.105e-5 over #4440): combine query thinning and helper retiming",
-      "head": "5f9d871c6bd1b9e34db5a7ea5ef08a908e94db39",
-      "updated_at": "2026-10-21T20:42:39Z"
-    },
-    {
-      "number": 4440,
-      "title": "Conditional \u03ba = 0.00296 via query-thinned productive controllers (+10.18%)",
-      "head": "40e22a83ed660d3d6074c4f2dbf14bfb621eee51",
-      "updated_at": "2026-10-21T20:14:35Z"
-    },
-    {
-      "number": 4442,
-      "title": "Apply the smaller halo exponents across a cell, under the downward reading (no new \u03ba)",
-      "head": "d079c2b058ebd3d7a9ff424113b095bf61175427",
-      "updated_at": "2026-10-21T20:11:41Z"
-    },
-    {
-      "number": 4439,
-      "title": "Apply the smaller halo exponents inside one cell, with normalizer 6 (no new \u03ba)",
-      "head": "26af8afbadd7f8feb737d98b47ac9f4b45d35c7a",
-      "updated_at": "2026-10-21T20:02:46Z"
-    },
-    {
-      "number": 4438,
-      "title": "Bound the within-cell column gap by a relative weight error of 1/(16p^2) (no new \u03ba)",
-      "head": "6157a47bfe169cd9c5f666f85ab8caa929e1174f",
-      "updated_at": "2026-10-21T19:56:30Z"
-    },
-    {
-      "number": 4436,
-      "title": "Bound compiler width by exp(O(N log N)) and route overlapping ranks",
-      "head": "56003680aee2871773de408e5f01cc5dd46b144c",
-      "updated_at": "2026-10-21T19:54:23Z"
-    },
-    {
-      "number": 4437,
-      "title": "Extend the ideal column majorant across every legal g=2 step (no new \u03ba)",
-      "head": "7ca94e9762ee33edbfb2e527e7313bc579e463ee",
-      "updated_at": "2026-10-21T19:49:34Z"
-    },
-    {
-      "number": 4079,
-      "title": "Research: seven-source weight-at-most-four connector boundary (L<=18 excluded, 216-call floor) (no new kappa)",
-      "head": "39a1fd620d1c702b72ab080ec11b090ea9ce98b7",
-      "updated_at": "2026-10-21T19:46:06Z"
-    },
-    {
-      "number": 2411,
-      "title": "[Lean] Link an end-to-end proof of multiplication below n log n",
-      "head": "ab708c78a6e50b1ba469262c23acffa5f508d6fd",
-      "updated_at": "2026-10-21T16:05:33Z"
-    },
-    {
-      "number": 4338,
-      "title": "Extract optional ordinary B2 bootstrap with canonical-source replay",
-      "head": "0ac8192bdf6b5217787ffe44c4b1d91732ef6b23",
-      "updated_at": "2026-10-21T11:03:05Z"
-    },
-    {
-      "number": 4192,
-      "title": "Audit uniform Bene\u0161 compiler with charged sequential arena scans",
-      "head": "519d811cc48693ad9969d6d7994bef3940167005",
-      "updated_at": "2026-10-20T21:04:42Z"
-    },
-    {
-      "number": 4187,
-      "title": "Audit conditional CRT last-K two-slice streaming tariff",
-      "head": "45fc0750436ae5cc14b95fba81c030a3d7df3412",
-      "updated_at": "2026-10-20T21:03:38Z"
-    },
-    {
-      "number": 4110,
-      "title": "fix(research): repin central-factor-packed sources to the integrated tree (batch952 red streak)",
-      "head": "2d5da0e018082b8fa140cb5e4a9553bb9b9de283",
-      "updated_at": "2026-10-20T19:30:44Z"
-    },
-    {
-      "number": 3143,
-      "title": "Certify precision-40 \u03ba above PR #3133",
-      "head": "dcfaf1d1a7cfebaab22b95776a36a543bc684d50",
-      "updated_at": "2026-10-20T18:53:54Z"
     }
   ]
 }
