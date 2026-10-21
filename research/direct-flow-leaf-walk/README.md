@@ -54,7 +54,8 @@ So `g` stays bounded and the refined-induction cap stays strictly below `s*`.
   `g∞ ≳ 88` and a cap of at least about 0.00252.
 
 Either way, saving 0.0023 is reached at `g ≈ 34.5`. That happens inside the √G regime, near
-`G ≈ 1,000`, or `N ≈ 10^{700}`.
+`G ≈ 1,340`, or `N ≈ 10^{940}`. `diagnostics/SATURATION.md` refines the earlier `10^{700}` and observes the
+saturation directly by importance sampling up to `G = 10⁶`: the overshoot reaches 131.7, against `1/λ* = 133.3`.
 
 ## Reading
 
