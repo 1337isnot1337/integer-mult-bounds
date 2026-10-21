@@ -54712,7 +54712,7 @@
       "reviewed_head": "d08a3fdd9b840ae79c11d830a53d66586e6a4b8a",
       "current_head": "d08a3fdd9b840ae79c11d830a53d66586e6a4b8a",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/forward-turning-point"
       ],
@@ -54722,12 +54722,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct21d-20261021.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4435",
+        "merge_commit": "f2a1a85d598a20d9bc141ed41dd69b83c4f05de5"
+      }
     }
   ]
 }

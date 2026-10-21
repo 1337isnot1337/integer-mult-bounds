@@ -2954,7 +2954,7 @@ Source archives retain attribution; mathematical review remains open.
 - **James Reed (@jwr404)** — [#4308](https://github.com/CrocSwap/integer-mult-bounds/pull/4308): The translated Schur rows stay below the displayed Gaussian bound (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4309](https://github.com/CrocSwap/integer-mult-bounds/pull/4309): The translated Schur diagonals are positive and at most 1 (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4310](https://github.com/CrocSwap/integer-mult-bounds/pull/4310): The normalized translated Schur rows stay below the displayed bound (no new κ) (source archive).
-- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4311](https://github.com/CrocSwap/integer-mult-bounds/pull/4311): Map independent audit coverage of #4100's obligations (navigation; no new κ) (reviewed workflow).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4311](https://github.com/CrocSwap/integer-mult-bounds/pull/4311): Map independent audit coverage of #4100's obligations (navigation; no new κ) (reviewed tooling or guidance).
 - **James Reed (@jwr404)** — [#4312](https://github.com/CrocSwap/integer-mult-bounds/pull/4312): The normalized translated Schur gaps exceed 1/(16 p^2) (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4313](https://github.com/CrocSwap/integer-mult-bounds/pull/4313): The normalized translated Schur row sums are strictly below 2 (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4314](https://github.com/CrocSwap/integer-mult-bounds/pull/4314): Every principal restriction of the normalized section keeps the row gap (no new κ) (source archive).
@@ -3004,7 +3004,7 @@ Source archives retain attribution; mathematical review remains open.
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4360](https://github.com/CrocSwap/integer-mult-bounds/pull/4360): Check #4331's GL3 length-eight refutation without drat-trim: all 281,714 additions pass a hint-free forward RUP check (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4361](https://github.com/CrocSwap/integer-mult-bounds/pull/4361): The normalized matrix 2-norm is strictly below 1226/625 and below 19^10 (no new κ) (source archive).
 - **James Reed (@jwr404)** — [#4362](https://github.com/CrocSwap/integer-mult-bounds/pull/4362): Eigenvalues of this section's Q lie strictly inside (0, 1 - p^{-40}) (no new κ) (source archive).
-- **rohanarun (@rohanarun)** — [#4363](https://github.com/CrocSwap/integer-mult-bounds/pull/4363): Add a hill-climbing track to autoresearch.md (reviewed workflow).
+- **rohanarun (@rohanarun)** — [#4363](https://github.com/CrocSwap/integer-mult-bounds/pull/4363): Add a hill-climbing track to autoresearch.md (reviewed tooling or guidance).
 - **James Reed (@jwr404)** — [#4364](https://github.com/CrocSwap/integer-mult-bounds/pull/4364): This section's polynomial-inverse tail is strictly below p^{10} exp(-p^2) (no new κ) (source archive).
 - **CubeJerry (@CubeJerry)** — [#4365](https://github.com/CrocSwap/integer-mult-bounds/pull/4365): Prove the sharp two-plane COPY floor for arbitrary scalar factorizations (source archive).
 - **James Reed (@jwr404)** — [#4366](https://github.com/CrocSwap/integer-mult-bounds/pull/4366): This section's polynomial-inverse error is strictly below 2^{-19} (no new κ) (source archive).
@@ -3059,7 +3059,7 @@ Source archives retain attribution; mathematical review remains open.
 - **Cinna Davis (@1337isnot1337)** — [#4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416): Conditional κ = 0.00268647 via paid target padding after native composition (source archive).
 - **Matarener (@Matarener)** — [#4417](https://github.com/CrocSwap/integer-mult-bounds/pull/4417): Close nonlinear and adaptive centre sharing at the fresh-information floor (no new κ) (source archive).
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4418](https://github.com/CrocSwap/integer-mult-bounds/pull/4418): Decide #4281's eleven open depth-five connector residues: exact minima 30, 35, 35 (m=5), 30, 36, 36, 36 (m=6), 35, 42 (m=7), 40, 40 (m=8) (no new κ) (source archive).
-- **lee-phys (@lee-phys)** — [#4419](https://github.com/CrocSwap/integer-mult-bounds/pull/4419): Report omitted local notes in overlap searches (reviewed workflow).
+- **lee-phys (@lee-phys)** — [#4419](https://github.com/CrocSwap/integer-mult-bounds/pull/4419): Report omitted local notes in overlap searches (reviewed tooling or guidance).
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4420](https://github.com/CrocSwap/integer-mult-bounds/pull/4420): Independently check #4416's moment and paid-tail inequalities at κ = 0.00268647: all hold; the tested saving sits 9.05e-9 below this invoice's limit (no new κ) (source archive).
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4421](https://github.com/CrocSwap/integer-mult-bounds/pull/4421): Extend #4365's rank dual to every plane triple: three-plane COPY floor 12 over every field on 27,395 of 27,720 triples; F2 minimum 12 on the rest (no new κ) (source archive).
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4422](https://github.com/CrocSwap/integer-mult-bounds/pull/4422): Independently check #4412's and #4414's strictification inequalities: all hold; each tested saving sits within 1e-8 of its invoice's limit (no new κ) (source archive).
