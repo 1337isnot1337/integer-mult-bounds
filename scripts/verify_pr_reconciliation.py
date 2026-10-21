@@ -8,9 +8,14 @@ import hashlib
 import tempfile
 import json
 import zipfile
+import subprocess
+import sys
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
+initial_head_for_decision = runpy.run_path(
+    str(Path(__file__).with_name('pr_intake_initial_heads.py')))['initial_head_for_decision']
 
 
 def require(condition, message):
@@ -33,14 +38,99 @@ def check_batch1047_file(item):
     require(original.endswith(b'\n') and current.startswith(original), 'Historical Makefile content changed')
 
 
+def check_frontier890_file(item):
+    """Authenticate the exact spectrum pin refresh accepted in 02c46c7e.
+
+    Preserve the frozen frontier890 receipt. Sagar Thakrar's refresh changed
+    only the single_intersection.py source digest in SOURCE.json and RESULT.json;
+    every other byte, including all 41 mathematical cases, must still match.
+    Dennis with substantial OpenAI Codex assistance; Apache-2.0.
+    """
+    name = item['integrated_path']
+    current = (ROOT / name).read_bytes()
+    if hashlib.sha256(current).hexdigest() == item['integrated_sha256']:
+        return
+    predecessors = {
+        'research/single-intersection-spectrum-audit/RESULT.json':
+            '9cb2210e148b2cce3fe59cf529fbf99f3b663dc7673db2e3969246595692f580',
+        'research/single-intersection-spectrum-audit/SOURCE.json':
+            '610fb9887add31b4f597a39dc58b3beff0e14c91a5fd7ee340c3b2e7d4b0fb4c',
+    }
+    require(name in predecessors and item['integrated_sha256'] == predecessors[name],
+            'Changed integrated file: ' + name)
+    old = b'08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d'
+    new = b'6874d41b75590369182ed61e0c6da5b547e035e0e43b50ea2b39e1f3861dca6d'
+    source = 'scripts/experiments/single_intersection.py'
+    require(hashlib.sha256((ROOT / source).read_bytes()).hexdigest().encode() == new,
+            'Changed spectrum successor source')
+    require(json.loads(current)['source_sha256'][source].encode() == new
+            and current.count(new) == 1, 'Changed spectrum source pin')
+    require(hashlib.sha256(current.replace(new, old)).hexdigest() == predecessors[name],
+            'Changed spectrum evidence beyond the accepted source pin')
+
+
+def check_batch932_file(item):
+    """Bind exact assertion-safety and historical replay runner successors.
+
+    Credit woklerx for keeping assertions enabled in child research processes.
+    These two exact successor blobs are an explicit maintenance adaptation,
+    not permission to change any other bytes or the frozen batch932 receipt.
+    Also authenticate the exact PR53 replay adapter and its test from c58c1778;
+    this extension retains the earlier assertion guard and every module.
+    Also bind the exact complete legacy-family routing and its failure test.
+    The da400586 runner retains Nick Petalas's 9158ee6d private caches,
+    Tekalign's 54bbb81c optional deadlines and Douglas Colkitt's descendant
+    cache propagation. Admit only that complete successor, preserving receipts.
+    """
+    name = item['integrated_path']
+    digest = hashlib.sha256((ROOT / name).read_bytes()).hexdigest()
+    if digest == item['integrated_sha256']:
+        return
+    successors = {
+        'scripts/run_isolated_tests.py': (
+            '96ea543e6c707424afe247e77bd86c82152f90fc76a0773c4232145da5cdf8d1',
+            ('b1c645e815a6abfbfdc2d77c4121c543ed0ca958095e97e1181d64e84cac0ed8',
+             '05839996482058359b2ab8087d7d96e76934bd03d79981df9b99447e8ed09331',
+             'fdc022f70e42a9b5a2be8c6c3645cfdc211c6dffdffac68904b2945b1cdc3e5a', 'f569b1c287252c698b4d59bc1bd0f013159e772cc3be64e26c4eab8eb99d0478', '6f353dae3f922d78f62bedddcb50cfe2b500b4195a888cec5ffac2367b1a4f88', '2bcc91541d4c328e9ca329aa02516836dc55fe326299ad6ecee6439f5806f6aa', '8f9298eb83184a447ee2dda64a42dfc5a56df08e4affae56f99974cad632713a',
+             'ef5035e6216d39569da670f32b2717c870b23c418016fd134cc0a72649fb912a')),
+        'tests/test_isolated_test_runner.py': (
+            '628391b6abfbc8674ceec1751867a4392f2cc0b5b66886243e139af86cf355ac',
+            ('8262f36202e426b849a925123ff789843115d5e564962710c31ab14f84c88067',
+             '6f5ad20a5f174be0aab874cf524cba01c5401dafa46dd176999bad43ab566522',
+             '5c2a715a66c0c87fd672ce46889cb878dd7017a8bfa0c44395b340306b1b5382', '3638fb4a6233475d1984568a5027b57af30f0dbcce9a22d3c459cef4f7716aa7', '8188e0ff7755bf72dfcd8728413cbda9793d3d7913507f7a9831f91e19ab93b8')),
+    }
+    require(name in successors and successors[name][0] == item['integrated_sha256']
+            and digest in successors[name][1],
+            'Changed integrated file: ' + name)
+
+
+def project_family_decision(previous, decision):
+    """Carry optional metadata through incremental decisions, as the ledger does.
+
+    Keep mandatory fields from the latest decision: an incomplete later row
+    must not inherit an earlier head or disposition and silently pass.
+    """
+    projected = dict(decision)
+    for field in ('closure', 'review_completion', 'verification_evidence'):
+        if field not in projected and field in previous:
+            projected[field] = previous[field]
+    return projected
+
+
 def check_family_decision(item, decision):
     """Bind projected ledger state to its authoritative, pinned family decision."""
     fields = ('number', 'reviewed_head', 'current_head', 'disposition',
-              'github_state', 'integration_location', 'unresolved_question', 'closure')
-    for field in fields + ('review_completion', 'verification_evidence'):
+              'github_state', 'integration_location', 'unresolved_question')
+    if 'closure' not in decision:
+        # New intake rows may omit an unrecorded closure. No receipt may be
+        # invented; an earlier explicit null or receipt is carried above and
+        # still requires the corresponding ledger key below.
+        require(item.get('closure') is None,
+                f'#{decision["number"]}: ledger differs from family decision: closure')
+    for field in fields + ('closure', 'review_completion', 'verification_evidence'):
         if field in fields or field in decision:
             # JSON equality must distinguish true from 1, including nested flags.
-            require(field in item and json.dumps(item[field], sort_keys=True) ==
+            require(field in item and field in decision and json.dumps(item[field], sort_keys=True) ==
                     json.dumps(decision[field], sort_keys=True),
                     f'#{decision["number"]}: ledger differs from family decision: {field}')
 
@@ -146,36 +236,64 @@ def archive_inventory(package, manifest):
     return archive
 
 
+def decision_paths(root=ROOT):
+    """Authoritative family order shared by the ledger checker and its tests."""
+    return (root / 'research/community-family533-audit/DISPOSITIONS.json',
+            root / 'research/community-family588-audit/DISPOSITIONS.json',
+            root / 'research/community-hyperplane599-audit/DISPOSITIONS.json',
+            root / 'research/community-cold617-audit/DISPOSITIONS.json',
+            root / 'research/community-k492-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier741-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier799-audit/DISPOSITIONS.json',
+            root / 'research/community-frontier890-audit/DISPOSITIONS.json',
+            root / 'research/community-batch932-audit/DISPOSITIONS.json',
+            root / 'research/community-batch952-audit/DISPOSITIONS.json',
+            root / 'research/community-batch970-audit/DISPOSITIONS.json',
+            root / 'research/community-batch1047-audit/DISPOSITIONS.json',
+            root / 'research/community-batch1099-audit/DISPOSITIONS.json',
+            root / 'research/pr-reconciliation100-20261013/DISPOSITIONS.json',
+            root / 'research/community-historical-five-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation92-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-next100-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-third100-audit/DISPOSITIONS.json',
+            root / 'research/community-reconciliation-fourth100-audit/DISPOSITIONS.json',
+            root / 'research/community-pilot20-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient100-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient200-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient300-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient400-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient500-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient600-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient700-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient800-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient900-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1000-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1100-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1200-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1300-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1400-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1500-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1600-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1700-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient1800-audit/DISPOSITIONS.json',
+        root / 'research/community-efficient1900-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2000-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2100-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2200-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2300-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2400-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2500-audit/DISPOSITIONS.json',
+            root / 'research/community-efficient2600-audit/DISPOSITIONS.json',
+            root / 'docs/research/pr-intake-decisions.json')
+
+
 def main():
     ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
     snapshot = json.loads((AUDIT / 'starting-snapshot.json').read_text())
     expected = {p['number']: p for p in snapshot['pull_requests']}
     family_decisions = {}
-    for family_path in (ROOT / 'research/community-family533-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-family588-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-hyperplane599-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-cold617-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-k492-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier741-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier799-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-frontier890-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch932-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch952-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch970-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch1047-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-batch1099-audit/DISPOSITIONS.json',
-                        ROOT / 'research/pr-reconciliation100-20261013/DISPOSITIONS.json',
-                        ROOT / 'research/community-historical-five-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation92-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-next100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-third100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-reconciliation-fourth100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-pilot20-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient100-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient200-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient300-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient400-audit/DISPOSITIONS.json',
-                        ROOT / 'research/community-efficient500-audit/DISPOSITIONS.json'):
+    family_projections = {}
+    for family_path in decision_paths():
         if not family_path.exists():
             continue
         family = json.loads(family_path.read_text())
@@ -185,12 +303,15 @@ def main():
             # The generator applies later rounds in this order; retain the final
             # authoritative projection without rewriting historical metadata.
             family_decisions[row['number']] = row
+            family_projections[row['number']] = project_family_decision(
+                family_projections.get(row['number'], {}), row)
             if row['number'] not in expected:
-                expected[row['number']] = row['metadata']
+                expected[row['number']] = dict(row['metadata'], headRefOid=initial_head_for_decision(
+                    ROOT, family_path.relative_to(ROOT).as_posix(), row))
     actual = {p['number']: p for p in ledger['pull_requests']}
     require(len(actual) == len(ledger['pull_requests']) == len(expected), 'Duplicate or missing PR')
     require(actual.keys() == expected.keys(), 'Starting PR set changed')
-    for number, decision in family_decisions.items():
+    for number, decision in family_projections.items():
         check_family_decision(actual[number], decision)
     for number, pr in actual.items():
         require(pr['starting_head'] == expected[number]['headRefOid'], f'#{number}: starting head changed')
@@ -411,8 +532,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete review')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_frontier890_file(item)
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing scope or adaptation reason')
         print('PASS frontier890 batch: reviewed sources, finite replays, scoped claims and closure bindings')
@@ -439,8 +559,7 @@ def main():
                 if item['action'] == 'pending':
                     require(not decision['review_completion']['changed_file_coverage'], 'Incomplete review')
                 if item.get('integrated_sha256'):
-                    require(hashlib.sha256((ROOT / item['integrated_path']).read_bytes()).hexdigest()
-                            == item['integrated_sha256'], 'Changed integrated file: ' + item['integrated_path'])
+                    check_batch932_file(item)
                 if item['action'] != 'retained':
                     require(bool(item.get('reason')), 'Missing scope or adaptation reason')
         print('PASS batch932 batch: reviewed sources, finite replays, scoped claims and closure bindings')
@@ -503,7 +622,7 @@ def main():
         if companion_path.exists():
             for companion in json.loads(companion_path.read_text())['pull_requests']:
                 item = actual[companion['number']]
-                check_companion_review(item, companion, family_decisions.get(companion['number']))
+                check_companion_review(item, companion, family_projections.get(companion['number']))
         print('PASS batch970 batch: reviewed sources, finite replays, scoped claims and closure bindings')
     receipt_path = ROOT / 'docs/research/community-batch1047-integration.json'
     if receipt_path.exists():
@@ -568,7 +687,10 @@ def main():
         runpy.run_path(str(historical_five), run_name='__main__')
     reconciliation92 = ROOT / 'research/community-reconciliation92-audit/verify.py'
     if reconciliation92.exists():
-        runpy.run_path(str(reconciliation92), run_name='__main__')
+        # The original checker binds the pre-PR154 Makefile. Reuse the
+        # authenticated isolated replay rather than weakening that pin.
+        subprocess.run([sys.executable, '-B', str(ROOT / 'scripts/replay_historical_check.py'),
+                        'reconciliation92'], cwd=ROOT, check=True)
     third100 = ROOT / 'research/community-reconciliation-third100-audit/verify.py'
     if third100.exists():
         runpy.run_path(str(third100), run_name='__main__')

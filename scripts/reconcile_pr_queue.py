@@ -9,13 +9,75 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import runpy
 
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT = ROOT / 'research/pr-reconciliation-20261012'
+initial_head_for_decision = runpy.run_path(
+    str(Path(__file__).with_name('pr_intake_initial_heads.py')))['initial_head_for_decision']
 
 
 def read(path):
     return json.loads((ROOT / path).read_text())
+
+
+def apply_pr148_retention(item, receipt, coverage):
+    """Index PR1572's source-only evidence without granting PR148 review.
+
+    Thiago Goulart's retained proof resolves the old fourteen-file source gap.
+    Its checker remains the authority for the authenticated trees and payloads;
+    this projection checks the receipt's head and coverage before indexing it.
+    A later head or a later review's remaining question is never overwritten.
+    """
+    head = '975c3cf5d4ee0c90d5a76500d431bfc59102bb72'
+    package = 'research/pr148-source-retention/'
+    if (item['number'] != 148 or receipt['head_commit'] != head
+            or coverage['head_commit'] != head
+            or receipt['status'] != 'PASS_PR148_SOURCE_RETENTION'):
+        raise ValueError('PR148 retention receipt belongs to a different source')
+    rows = coverage['rows']
+    paths = [r['path'] for r in rows]
+    counts = dict(collections.Counter(r['storage']['kind'] for r in rows))
+    direct = sorted(r['path'] for r in rows if r['direct_change'])
+    recovered = sorted(r['path'] for r in rows if r['storage']['kind'] == 'recovered')
+    if (len(paths) != len(set(paths)) or len(paths) != 114
+            or receipt['comparison_changed_paths'] != len(paths)
+            or counts != {'main-file': 96, 'pr181-archive': 4, 'recovered': 14}
+            or receipt['coverage'] != counts
+            or direct != receipt['direct_changed_paths'] or len(direct) != 11
+            or recovered != receipt['recovered_paths']):
+        raise ValueError('PR148 retention receipt has inconsistent coverage')
+    item['source_retention'] = dict(
+        head=head, applies_to_current_head=item['current_head'] == head,
+        receipt=package + 'RESULT.json', coverage=package + 'COVERAGE.json',
+        location=package, status='complete_historical_source_retention',
+        scope='Source bytes and author-delta classification only; no whole-PR mathematical review or closure.')
+    evidence = dict(head=head, evidence=package + 'README.md',
+                    scope='PR1572 (Thiago Goulart / Tuafo) authenticates all 114 PR148 changed paths: '
+                          '96 main, 4 PR181 archive, 14 recovered; 11 direct author changes. '
+                          'Source coverage only; Rohan Gupta / gupt1156 retains construction credit.',
+                    kind='source_retention')
+    if evidence not in item['evidence']:
+        item['evidence'].append(evidence)
+    old_question = ('Whole-current-PR incorporation is not established: 14 changed paths lack byte-identical '
+                    'coverage in main or its checked PR181 archive. Distinguish later equivalent edits, '
+                    'unique content and historical implementations before closure.')
+    if item['current_head'] == head and item.get('unresolved_question') == old_question:
+        item['unresolved_question'] = (
+            'PR1572 resolves the historical 14-path source gap and authenticates all 114 changed paths. '
+            'Whole-PR mathematical review remains open: inspect the 11-file direct author delta and '
+            'reconstruct the complete historical paired-cube verification from the pinned PR148 tree '
+            'before any incorporation or closure decision. Source retention is not that execution.')
+
+
+def apply_independent_parent_evidence(item, companion, source_path):
+    """Append scoped evidence without changing any later review or closure decision."""
+    if item['number'] != companion['number'] or item['current_head'] != companion['head']:
+        raise ValueError('Independent parent evidence belongs to a different head')
+    evidence = dict(head=companion['head'], evidence=source_path,
+                    scope=companion['scope'], kind='independent_consolidation')
+    if evidence not in item['evidence']:
+        item['evidence'].append(evidence)
 
 
 def build():
@@ -95,7 +157,7 @@ def build():
             continue
         text = p.read_text()
         for number in set(re.findall(r'(?:pull/|\bPR\s*#?|#)([0-9]+)\b', text)):
-            mentions[int(number)].append(str(p.relative_to(ROOT)))
+            mentions[int(number)].append(p.relative_to(ROOT).as_posix())
 
     decisions = load('research/pr-reconciliation-20261012/decisions.json')['decisions']
     ending_path = 'research/pr-reconciliation-20261012/ending-snapshot.json'
@@ -176,6 +238,28 @@ def build():
         'research/community-efficient300-audit/DISPOSITIONS.json',
                         'research/community-efficient400-audit/DISPOSITIONS.json',
         'research/community-efficient500-audit/DISPOSITIONS.json',
+        'research/community-efficient600-audit/DISPOSITIONS.json',
+        'research/community-efficient700-audit/DISPOSITIONS.json',
+        'research/community-efficient800-audit/DISPOSITIONS.json',
+        'research/community-efficient900-audit/DISPOSITIONS.json',
+        'research/community-efficient1000-audit/DISPOSITIONS.json',
+        'research/community-efficient1100-audit/DISPOSITIONS.json',
+        'research/community-efficient1200-audit/DISPOSITIONS.json',
+        'research/community-efficient1300-audit/DISPOSITIONS.json',
+        'research/community-efficient1400-audit/DISPOSITIONS.json',
+        'research/community-efficient1500-audit/DISPOSITIONS.json',
+                        'research/community-efficient1600-audit/DISPOSITIONS.json',
+                        'research/community-efficient1700-audit/DISPOSITIONS.json',
+        'research/community-efficient1800-audit/DISPOSITIONS.json',
+        'research/community-efficient1900-audit/DISPOSITIONS.json',
+        'research/community-efficient2000-audit/DISPOSITIONS.json',
+        'research/community-efficient2100-audit/DISPOSITIONS.json',
+        'research/community-efficient2200-audit/DISPOSITIONS.json',
+        'research/community-efficient2300-audit/DISPOSITIONS.json',
+        'research/community-efficient2400-audit/DISPOSITIONS.json',
+        'research/community-efficient2500-audit/DISPOSITIONS.json',
+        'research/community-efficient2600-audit/DISPOSITIONS.json',
+        'docs/research/pr-intake-decisions.json',
     ) if (ROOT / p).exists()]
     family_path = family_paths[-1] if family_paths else None
     for family_path in family_paths:
@@ -187,7 +271,8 @@ def build():
                 pr = decision['metadata']
                 item = dict(number=n, url=f'https://github.com/CrocSwap/integer-mult-bounds/pull/{n}',
                             title=pr['title'], contributor=pr['author'], draft=pr['isDraft'],
-                            starting_head=pr['headRefOid'], current_head=pr['headRefOid'],
+                            starting_head=initial_head_for_decision(ROOT, family_path, decision),
+                            current_head=pr['headRefOid'],
                             previously_reviewed_heads=[], historical_assessment_heads=[], evidence=[],
                             historical_mentions=[], integration_location=[], github_state='OPEN', closure=None)
                 result.append(item)
@@ -217,15 +302,19 @@ def build():
             # Keep the historical evidence without resurrecting its resolved question.
             if not item.get('review_completion', {}).get('required_execution_complete', False):
                 item['unresolved_question'] = companion['remaining']
-    extra_parent_path = 'research/community-efficient300-audit/PARENT-EVIDENCE.json'
-    if (ROOT / extra_parent_path).exists():
-        indexed = {p['number']: p for p in result}
-        for companion in load(extra_parent_path)['pull_requests']:
-            item = indexed[companion['number']]
-            if item['current_head'] != companion['head']:
-                raise ValueError('Independent parent evidence belongs to a different head')
-            item['evidence'].append(dict(head=companion['head'], evidence=extra_parent_path,
-                                        scope=companion['scope'], kind='independent_consolidation'))
+    for extra_parent_path in (
+            'research/community-efficient300-audit/PARENT-EVIDENCE.json',
+            'research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json'):
+        if (ROOT / extra_parent_path).exists():
+            indexed = {p['number']: p for p in result}
+            for companion in load(extra_parent_path)['pull_requests']:
+                apply_independent_parent_evidence(indexed[companion['number']], companion,
+                                                  extra_parent_path)
+    retention_path = 'research/pr148-source-retention/'
+    if (ROOT / retention_path / 'RESULT.json').exists():
+        item = next(p for p in result if p['number'] == 148)
+        apply_pr148_retention(item, load(retention_path + 'RESULT.json'),
+                              load(retention_path + 'COVERAGE.json'))
     counts = dict(sorted(collections.Counter(p['disposition'] for p in result).items()))
     output = dict(schema_version=1, snapshot='research/pr-reconciliation-20261012/starting-snapshot.json',
                   starting_main=snapshot['published_main'], starting_open_count=len(snapshot['pull_requests']),

@@ -161,8 +161,10 @@ Prepared by Navinor (with help from opencode). Predecessor credit: the pricing
 model and the `a < D/E` diagnostic are Douglas Colkitt's (autoresearch.md,
 `research/pending-claims-independent-pricing`); the complex ledger is Rohan
 Arun's #1094 construction on Jeremy Kothe's packing chain, audited by Josie
-Elliston and Sagar Thakrar; the bit supplier is the PR589/PR555 lineage
-(eumemic and predecessors, retained unchanged by the selected record); the
+Elliston and Sagar Thakrar; the bit supplier is the [PR 589](https://github.com/CrocSwap/integer-mult-bounds/pull/589)
+by DreamingOfClouds / [PR 555](https://github.com/CrocSwap/integer-mult-bounds/pull/555)
+by eumemic lineage
+(with their credited predecessors, retained unchanged by the selected record); the
 fixed-word packing-ceiling lineage (including
 [PR #1240](https://github.com/CrocSwap/integer-mult-bounds/pull/1240)) is
 static44, PR525, PR643 and the author of that PR. Substantial AI assistance

@@ -71,6 +71,29 @@ def replay(gates,omit=-1):
     return rows
 
 
+def packed_replays(gates,width=N,batch_size=16):
+    """Yield every one-gate-omission map in chronological gate order.
+
+    Sixteen independent omissions share one integer bit-lane batch. XOR cannot
+    carry across lanes, so each lane equals the historical per-omission replay.
+    Opt-in predecessor: research/omission-lanes-seed92/ (#1433).
+    """
+    need(type(width) is int and width>0,'positive width required')
+    need(type(batch_size) is int and batch_size>0,'positive batch size required')
+    mask=(1<<width)-1
+    for start in range(0,len(gates),batch_size):
+        stop=min(start+batch_size,len(gates))
+        repeated=((1<<(width*(stop-start)))-1)//mask
+        rows=[repeated<<i for i in range(width)]
+        for k,(destination,source,_,__) in enumerate(gates):
+            value=rows[source]
+            if start<=k<stop:
+                value&=~(mask<<(width*(k-start)))
+            rows[destination]^=value
+        for lane in range(stop-start):
+            yield [(row>>(width*lane))&mask for row in rows]
+
+
 def factors(gates):
     # Forward row action obtains the covector immediately BEFORE each gate.
     rows=[1<<i for i in range(N)]
@@ -127,13 +150,17 @@ def run():
         else:
             need(111<=d<222 and 222<=s<N,'middle region operands')
     atlas=factors(gates)
+    mutants=packed_replays(gates,N)
     region_counts=defaultdict(Counter);full_unique=Counter();target_unique=Counter()
     invisible=[];allones_blind=[];digest=hashlib.sha256()
     for k,((u,v),(d,s,record,position)) in enumerate(zip(atlas,gates)):
         need(u and v,'zero omission factor')
         # Independent literal mutant replays EVERY prefix/suffix, using no
-        # precomputed factors or inverse shortcut.
-        changed=replay(gates,k)
+        # precomputed factors or inverse shortcut. Packed lanes equal the
+        # historical per-omission `replay(gates,k)` (see packed_replays).
+        changed=next(mutants,None)
+        need(changed is not None,'missing literal omission replay')
+        need(len(changed)==N,'literal omission row coverage')
         for row,(a,b) in enumerate(zip(baseline,changed)):
             need((a^b)==(v if u>>row&1 else 0),'literal omission delta disagrees at '+str(k))
         seen_target=bool(u&target)
@@ -144,6 +171,7 @@ def run():
         else:invisible.append(k)
         if v.bit_count()%2==0:allones_blind.append(k)
         digest.update(canonical([k,d,s,record,position,str(u),str(v)])+b'\n')
+    need(next(mutants,None) is None,'extra literal omission replay')
     # A singleton input in v's support activates exactly u. Provide literal
     # Boolean witnesses for every distinct invisible output/input pair.
     witnesses=[]

@@ -67,9 +67,11 @@ class ReplayTest(unittest.TestCase):
         cls.directory = tempfile.TemporaryDirectory(prefix='corner-controls-')
         cls.work = Path(cls.directory.name)
         _, cls.blobs = replay.admitted_inputs()
-        cls.source = cls.blobs['research/copied-fixed/data_corners.cpp'].decode()
+        cls.source = cls.blobs['research/data-corner-performance/baseline.cpp'].decode()
+        cls.production = cls.blobs['research/copied-fixed/data_corners.cpp'].decode()
         cls.expected = json.loads(cls.blobs['research/copied-fixed/data-corners.json'])
-        optimized = replay.transform(cls.source)
+        assert cls.production == replay.transform(cls.source)
+        optimized = cls.production
         variants = dict(original=cls.source, optimized=optimized,
             reversed=optimized.replace('for(int k=0;k<length;k++)', 'for(int k=length-1;k>=0;k--)'),
             missing_left=optimized.replace('columns[length++]=j;', 'if(j>c)columns[length++]=j;'))
