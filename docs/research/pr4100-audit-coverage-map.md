@@ -8,7 +8,7 @@ each obligation row of #4100's [AUDIT.md](../../research/unconditional-batched-c
 the open PRs that audit it and what remains. The snapshot was taken on
 2026-10-21 at 06:50 UTC against canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision 7. It was
-updated at 07:45 UTC to add #4320, at 08:30 UTC to add #4321 and #4325, at 09:05 UTC to add #4327, and at 09:20 UTC to add #4328.
+updated at 07:45 UTC to add #4320, at 08:30 UTC to add #4321 and #4325, at 09:05 UTC to add #4327, at 09:20 UTC to add #4328, and at 09:26 UTC for #4328's two-target update.
 
 **This is navigation, not acceptance.** Every outcome below is what that PR
 reports. This map did not replay any package or recheck any proof. A positive
@@ -29,7 +29,7 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Nonlinear CRT near ε=1: balanced tree and padded caller (§1) | #4195 | Positive. Binds the declared widths `h_i∈{ell−1,ell}` to the complete padded balanced-tree caller. Reversing the levels and rows inverts every padded state. | Uniform evaluator cost (see the E row below). |
 | Beneš switch compiler (§2) | #4192 | Positive, conditional. Lowers the compiler on an *encoded permutation* to fixed tapes in `O(N³(p+2)^7)` time. | Turning CRT reconstruction, modular inversion and split descriptors into that permutation. The full `E(p,ell)` evaluator. |
 | Reservoir placement (§3) | #4174; [#4173](https://github.com/CrocSwap/integer-mult-bounds/discussions/4173) thread | Positive. At most 25,600 batches per layer and three disjoint exchanges, with dense left-child dependencies kept. | Dirty restoration is conditional on the repaired switch's all-address contract. |
-| Compact switches and total repair (§4) | #4169; #4321; #4328 | Positive. Every control omits every active target, which is the condition CRT.md states. #4169 also gives an explicit inverse on dirty addresses, and a counterexample shows that omitting only a control's own target fails. #4321 (unpaidmoon) notes that the displayed gadget reuses `t_i` as a frozen coefficient while the cancellation and the published `primitive_f` use the live digit. It proves the live-digit lemma and finds the `2B` guard margin sufficient but stricter than needed. #4328 prices the sparse repair at `Θ(p)`-bit records, where PR2250's `M·A³` tariff does not carry over: per color `≤ 9MR+5M` dense and `N(L+R)(9L+6)` sorted, which is `≤ p³(p+2)^-64·V` at #4100's `G`. Its caution: the reinsertion check accepts any keys that permute the holes, so correctness rests on the inverse keys. | Composing the hole mask, key evaluator and repair into one program; the full `E(p,ell)` evaluator. |
+| Compact switches and total repair (§4) | #4169; #4321; #4328 | Positive. Every control omits every active target, which is the condition CRT.md states. #4169 also gives an explicit inverse on dirty addresses, and a counterexample shows that omitting only a control's own target fails. #4321 (unpaidmoon) notes that the displayed gadget reuses `t_i` as a frozen coefficient while the cancellation and the published `primitive_f` use the live digit. It proves the live-digit lemma and finds the `2B` guard margin sufficient but stricter than needed. #4328 prices the sparse repair at `Θ(p)`-bit records, where PR2250's `M·A³` tariff does not carry over: per color `≤ 9MR+5M` dense and `N(L+R)(9L+6)` sorted, which is `≤ p³(p+2)^-64·V` at #4100's `G`. #4328 also proves the exact `r`-target density `1−[(1−1/B)²(1−8B/2^K)]^r`, which implies CRT.md's union bound. It checks this exactly on all `2^20` two-target addresses (943/1024), where the repair realizes the switch on every record. Its caution: the reinsertion check accepts any keys that permute the holes, so correctness rests on the inverse keys. | Composing the hole mask, key evaluator and repair into one program; the full `E(p,ell)` evaluator. |
 | Last-K elementary branch (§4) | #4187 | Positive, conditional. A two-slice schedule has `M/2^(H+1)` preparations and costs `O(VK)`. | It assumes the uniform evaluator, the complete omitted suffix and the ordinary width-one callee. |
 | Dense guard detection at Θ(p)-bit records (§4) | #4201, #4208 | Positive. #4201 gives a literal three-tape scan for an *admitted* stencil. #4208 produces that stencil for one target from unary fields. | Many-target and binary/global descriptor production. |
 
@@ -142,7 +142,7 @@ one quantified implication. Search again first: this list goes stale quickly.
 | #4321 | unpaidmoon | `05ff71ae097fe5cf19894beb83178cac442bbd35` |
 | #4325 | pinterbanget | `404e307ccb29a854e1f0a34289c86c4bf2a7dd7b` |
 | #4327 | pinterbanget | `a020d6c25cb9201d19bebdf0ab5675b780a3caa2` |
-| #4328 | pinterbanget | `45bb71aed0dc03323338d6d648585c1a424d072d` |
+| #4328 | pinterbanget | `b3ea5ee525b131273d190747b892e5f3667d286f` |
 
 Header-law successors to #4239/#4246 (#4240, #4259, #4261, #4273–#4275, #4278)
 answer counting questions that #4228 raised. They change the card's scope to
