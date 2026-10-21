@@ -37,7 +37,8 @@ stack was not rerun. New winning tensor/uniform words are specified by
 finite algorithms; their enormous instruction lists have not been emitted.
 No finite pass establishes an unconditional theorem or formal verification.
 
-The exact-commit preflight and source-history check are run after committing
-the package; the submitted PR describes their result and hosted CI separately.
+The committed-byte preflight and source-history check both pass after
+committing the package, with all 28 package/input files matching and the pinned
+canonical base in publication ancestry. Hosted CI is reported separately.
 All reports retain the inherited native, whole-job, owned-erasure, fixed-tape,
 precision, analytic, prime-supply and exact-recovery proof boundaries.
