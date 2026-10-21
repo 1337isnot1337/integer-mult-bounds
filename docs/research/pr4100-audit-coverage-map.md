@@ -8,7 +8,7 @@ each obligation row of #4100's [AUDIT.md](../../research/unconditional-batched-c
 the open PRs that audit it and what remains. The snapshot was taken on
 2026-10-21 at 06:50 UTC against canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision 7. It was
-updated at 07:45 UTC to add #4320, at 08:30 UTC to add #4321 and #4325, at 09:05 UTC to add #4327, at 09:20 UTC to add #4328, at 09:26 UTC for #4328's two-target update, at 09:36 UTC to add #4329, and at 09:47 UTC for #4329's width-pattern update.
+updated at 07:45 UTC to add #4320, at 08:30 UTC to add #4321 and #4325, at 09:05 UTC to add #4327, at 09:20 UTC to add #4328, at 09:26 UTC for #4328's two-target update, at 09:36 UTC to add #4329, and at 09:47 UTC for #4329's width-pattern update, and at 09:52 UTC to add #4330.
 
 **This is navigation, not acceptance.** Every outcome below is what that PR
 reports. This map did not replay any package or recheck any proof. A positive
@@ -64,7 +64,7 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Fallback child bound | #4237; #4247, #4262; #4235, #4245 | The 49,911-child bound is valid but not sharp: the sharp maximum is 33,269 at `m=64`, `f≥2` (#4237). The conjectured rank-dependent bound is refuted (#4247), and the excess is unbounded (#4262). #4235 is an alternative pivoted fallback with at most `1+12r` children, with #4245 bounding pivot policies. | Which headers actually reach the fallback in the BIT recurrence. |
 | Weighted leaves and fast header routes | No #4100-specific audit. BIT.md reuses PR2915's reached call sites; see the [physical contract map](selected-bit-physical-contract-map.md) for that lineage's review status. | n/a | BIT.md's two completed stages that use the preceding stage at both reached primitive sites, at the new `c`. |
 | Row stock, whole high packets and fixed tapes | No #4100-specific audit. BIT.md cites the PR2809 block construction, which is still partially reviewed ([caller and storage map](selected-bit-caller-storage-map.md)). | n/a | Divisible stock, depth induction, complete-field preparation, encoded state and geometric work accounting. #4228 and #4235 exclude these explicitly. |
-| BIT recurrence moment at the retuned `c = 8667/5,000,000` | Author check only (`check_composition.py`). #4171 checks the bootstrap constants `a1`, `a2`, not this moment. | Computed here at 50 digits (informational, not certified): `μ_1 = 0.9943517737` and `μ_(1−c) = 0.9999999116`, a margin of `8.8·10⁻⁸`. The root in `c` is `≈ 0.00173342704`, matching the selected BIT primitive. `H` is the selected PR589 profile; one extra rank-1 child would add `≈ 5.5·10⁻⁷` and exceed the margin at this `c`. | A certified independent enclosure of `μ_(1−c)`. |
+| BIT recurrence moment at the retuned `c = 8667/5,000,000` | #4330 (certified, independent of #4100's engine); #4171 checks only `a1`, `a2`. | Positive. `μ_1` is exact and equals the ledger. `μ_(1−c) < 0.99999991163325597` (margin `> 8.8·10⁻⁸`, enclosure width `< 10⁻³⁰`). The root `c*` lies in `(0.0017334270, 0.0017334271)`. One extra rank-1 child in `H` breaks the inequality, and the stage algebra and body-word states hold exactly. | Binding `H` and `W` to the selected word inside the package. |
 | Chirp generation | #4320 (the identity); #4325 (the tariff) | Positive. The chirp identity holds for all `x, z` exactly when `s·t` is even, so PROOF.md's even-`t` condition suffices (#4320). With literal four-tape head counts, table travel is `≤ 31·TP` uniformly in `d` under the factor-two radix premise, with fewer than two products per record and error `≤ (2d−1)√2·2^(−P)` (#4325). A per-record `d`-scan and skewed radices both fail. | Table setup cost, and interleaving with the packed payload records. |
 | Input order and exact recovery | #4320 | Positive. The address isomorphism (equal to CRT.md's root map), synthetic convolution, Gaussian identity and factorization, dilation commutation and recovery inequalities all hold with PROOF.md's normalizations. `T < 2^b` holds from `b ≥ 8`. A presentational note: the carry scan must flush a final carry when `S = 2Ndigits − 1`. | The `2^-4p` precision constant. Invertibility of `N` follows from the retained row gap (see the row-gap row above). |
 | Strict powers and logarithms | #4171 | Positive. A second implementation shows every paid-power and side-condition slack strictly positive, and all five obsolete routes still rejected. | None within the ledger; the ledger does not validate the constructions. |
@@ -144,6 +144,7 @@ one quantified implication. Search again first: this list goes stale quickly.
 | #4327 | pinterbanget | `a020d6c25cb9201d19bebdf0ab5675b780a3caa2` |
 | #4328 | pinterbanget | `b3ea5ee525b131273d190747b892e5f3667d286f` |
 | #4329 | pinterbanget | `a3b9095c536c404e11d2ed868699fc4fcd4d4f57` |
+| #4330 | pinterbanget | `5cb35d47c1e68b450633b4f48acc4aaefcfb80d6` |
 
 Header-law successors to #4239/#4246 (#4240, #4259, #4261, #4273–#4275, #4278)
 answer counting questions that #4228 raised. They change the card's scope to
