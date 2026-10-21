@@ -1,8 +1,9 @@
 # The fixed L/2 firing set at n = 5 beyond length 16
 
 **Claim type: a scoped proof for L ≥ 26, plus an independent census through
-L = 22. No new κ.** It answers most of #4322's open question 1. The selected
-conditional κ stays `0.001672660197076918`.
+L = 24. No new κ.** It answers #4322's open question 1: at `n = 5` the first
+length at which every functional is sound is **26**. The selected conditional
+κ stays `0.001672660197076918`.
 
 ## Object
 
@@ -38,7 +39,7 @@ is sound on **every** 26-, 28-, 30- or 32-point subset, not only on walks. At
 `L = 24` the cap leaves only the `(8, 16)` split. A firing word there must
 contain an entire level set of its mask.
 
-**2. Census through L = 22.**
+**2. Census through L = 24.**
 
 | L | closed | universal | false prunes | firing masks |
 |---:|---:|---:|---:|---|
@@ -48,12 +49,15 @@ contain an entire level set of its mask.
 | 18 | 1,737,048 | 1,737,048 | 1,812,996 | **28**: adds `27, 29, 30` (weight 4) |
 | 20 | 9,019,738 | 9,019,738 | 5,357,220 | **30**: adds `15, 23` |
 | 22 | 35,938,056 | 35,938,056 | 11,569,998 | **30**: every mask but `31` |
+| 24 | 103,944,140 | 103,944,140 | 14,151,156 | **28**: `15` and `23` fall silent again |
 
-- **No n = 4-style collapse.** The `n = 5` firing set stays nested through
-  `L = 22`, and the all-ones mask `31` never fires.
-- **Answer.** The first length at which every functional is sound is
-  **24 or 26**. Only the `L = 24` census, restricted to the `(8, 16)` split,
-  remains.
+- **Not monotone at n = 5 either.** The firing set stays nested through
+  `L = 22`. At `L = 24` the weight-4 masks `15` and `23`, which fired at 20
+  and 22, fall silent, and the all-ones mask `31` never fires. By the cap,
+  every word that fires at `L = 24` contains an entire level set of its mask.
+- **Answer.** Something still fires at `L = 24`, and the cap proves every
+  functional sound from `L = 26`. So the first all-sound length at `n = 5` is
+  **26**. This is two steps later than the length-14 collapse at `n = 4`.
 
 **Agreement with the predecessors.** The census reproduces the published
 per-mask rows exactly: #3699's `(4,8)`, `(4,10)` and `(5,12)`, #3733's
@@ -71,17 +75,15 @@ Nothing is imported from #4322.
 - **`census.c`** is a separate C enumerator for the lengths Python cannot
   reach. Its recorded runs in `evidence/CENSUS-RUNS.txt` are bound to the
   source by SHA256. They match every published row and the Python census at
-  `(5,16)`, and give the new lengths 18, 20 and 22.
+  `(5,16)`, and give the new lengths 18, 20, 22 and 24.
 - **The C runs are local evidence.** CI reads them and does not recompile.
-  `(5,22)` took about 17 minutes.
+  `(5,22)` took about 17 minutes and `(5,24)` about 56 CPU-minutes.
 - **Vendored file.** #4322's `verify.py` is vendored byte-identically only
   for its literal `EXPECTED_5_16` row, which is read with `ast.literal_eval`
   and never run.
 
 ## Not covered
 
-- `L = 24`. A plain census would take about two hours here. The cap reduces
-  it to walks containing a full level set.
 - `(7, 18)` and `(7, 20)`, and `n ≥ 6`.
 - Any change to a retained seven-label exclusion.
 
@@ -89,19 +91,17 @@ Nothing is imported from #4322.
 
 ```sh
 python3.12 -B research/f7-firing-n5-length-census/verify.py
-cc -O2 -o census research/f7-firing-n5-length-census/census.c && ./census 5 22
+cc -O2 -o census research/f7-firing-n5-length-census/census.c && ./census 5 24
 ```
 
 The first prints `PASS_F7_FIRING_N5_LENGTH_CENSUS` in about a minute.
 
 ## Open next questions
 
-1. **Does any mask fire at `(5, 24)`?**
-   - *Why it matters:* it decides #4322's open question 1 between 24 and 26.
-   - *First step:* enumerate only universal simple closed walks of length 24
-     that contain a full level set of some mask (the cap's surviving
-     `(8, 16)` split).
-   - *Blocked by:* about two hours for a plain census on this machine.
+None for `n = 5`: open question 1 is decided. #4322's open question 3, whether
+a larger `n` repeats a collapse after its firing set fills, now has a second
+data point. At `n = 5` the set shrinks from 30 to 28 masks at `L = 24` and is
+empty from 26.
 
 ## Credit
 

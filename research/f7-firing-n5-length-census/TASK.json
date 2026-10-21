@@ -46,21 +46,15 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Decide for n = 5 which even length first makes every fixed L/2 functional sound (#4322 open question 1): prove soundness from L = 26 by the 16-point flat cap and run an independent census through L = 22.",
+  "actual_scope": "Decide for n = 5 which even length first makes every fixed L/2 functional sound (#4322 open question 1): prove soundness from L = 26 by the 16-point flat cap and run an independent census through L = 24.",
   "scope_change_reason": "The card's census-pruning question at n = 5 was left open by #4322 beyond L = 16.",
   "bottleneck_link": "Where the fixed substitution falsely prunes decides which census exclusions it can safely shortcut.",
   "budget_minutes": 45,
-  "stop_rule": "Stop at L = 22 with the cap result; L = 24 needs a separate two-hour budget.",
+  "stop_rule": "Stop once the first all-sound length at n = 5 is decided.",
   "outcome": "completed",
-  "evidence": "verify.py: 16-point flat caps by full enumeration prove every subset sound at n = 5 exactly from L = 26; Python census reproduces #3699, #3733 and #4322 rows including (5,16); recorded census.c runs match them and give L = 18, 20, 22 with 1,737,048 / 9,019,738 / 35,938,056 closed (all universal) and firing sets of 28, 30, 30 masks, nested, mask 31 never firing; at L = 24 only the (8,16) split survives the cap.",
+  "evidence": "verify.py: 16-point flat caps by full enumeration prove every subset sound at n = 5 exactly from L = 26; Python census reproduces #3699, #3733 and #4322 rows including (5,16); recorded census.c runs match them and give L = 18, 20, 22, 24 with 1,737,048 / 9,019,738 / 35,938,056 / 103,944,140 closed (all universal) and firing sets of 28, 30, 30, 28 masks; nested through 22, then masks 15 and 23 fall silent at 24; mask 31 never fires; so the first all-sound length is 26 and the n = 5 firing set is not monotone.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, verifier implementation and writing; no independent human or proof-kernel review.",
-  "open_questions": [
-    {
-      "question": "Does any mask fire at (5, 24)?",
-      "why_it_matters": "It decides #4322's open question 1 between 24 and 26.",
-      "first_step": "Enumerate universal simple closed walks of length 24 that contain a full level set of some mask.",
-      "blocked_by": "About two hours for a plain census on this machine."
-    }
-  ]
+  "no_open_questions_reason": "#4322's open question 1 is decided at n = 5: the first all-sound length is 26.",
+  "open_questions": []
 }

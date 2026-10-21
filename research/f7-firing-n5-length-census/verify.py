@@ -134,15 +134,16 @@ def main():
         if key in runs:
             need(runs[key]["per"] == row, f"C census {key} matches the published row")
     need(runs[5, 16]["per"] == expected_5_16 and (runs[5, 16]["closed"], runs[5, 16]["universal"], runs[5, 16]["prunes"]) == totals[5, 16], "C census (5,16) matches #4322 and the Python census")
-    new = {L: runs[5, L] for L in (18, 20, 22, 24) if (5, L) in runs}
-    need({18, 20, 22} <= set(new), "lengths 18, 20 and 22 recorded")
-    sets = {L: set(runs[5, L]["per"]) for L in (12, 14, 16, 18, 20, 22) if (5, L) in runs}
+    new = {L: runs[5, L] for L in (18, 20, 22, 24)}
+    sets = {L: set(runs[5, L]["per"]) for L in (12, 14, 16, 18, 20, 22, 24)}
     order = sorted(sets)
-    need(all(sets[a] <= sets[b] for a, b in zip(order, order[1:])), "n = 5 firing sets nested from 12 through 22")
-    need([len(sets[L]) for L in order] == [24, 25, 25, 28, 30, 30], "n = 5 firing-set sizes 24, 25, 25, 28, 30, 30")
+    need([len(sets[L]) for L in order] == [24, 25, 25, 28, 30, 30, 28], "n = 5 firing-set sizes 24, 25, 25, 28, 30, 30, 28")
+    need(all(sets[a] <= sets[b] for a, b in zip(order[:-1], order[1:-1])), "n = 5 firing sets nested from 12 through 22")
     need(sets[22] == set(range(1, 31)), "at L = 22 every mask but 31 fires")
+    need(sets[24] == sets[22] - {15, 23}, "at L = 24 masks 15 and 23 fall silent: the n = 5 firing set is not monotone")
     need(all(r["closed"] == r["universal"] for L, r in new.items()), "from L = 18 every closed word is universal")
-    # what remains: the cap leaves only the (8, 16) split at L = 24, so a firing word there must contain a whole level set
+    need(runs[5, 24]["prunes"] > 0, "something still fires at L = 24, so with the cap the first all-sound length is 26")
+    # at L = 24 the cap leaves only the (8, 16) split: every firing word there contains a whole level set of its mask
     need([s for s in range(8, 17) if caps[s] + caps[24 - s] > base(5, 24)] == [8, 16], "L = 24: only the 8/16 split survives the cap")
 
     print(json.dumps({
@@ -150,7 +151,8 @@ def main():
         "cap_sound_from": 26,
         "cap_open_lengths": open_lengths,
         "n5": {str(L): {k: v for k, v in r.items() if k != "per"} for L, r in sorted(new.items())},
-        "first_all_sound_length_n5": "24" if 24 in new and not new[24]["prunes"] else ("26" if 24 in new else "24 or 26"),
+        "first_all_sound_length_n5": 26,
+        "silent_at_24": sorted(set(range(1, 32)) - sets[24]),
         "new_kappa_claimed": False,
     }, indent=1))
 

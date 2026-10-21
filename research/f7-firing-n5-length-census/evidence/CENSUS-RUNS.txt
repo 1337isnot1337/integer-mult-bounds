@@ -1,6 +1,6 @@
 # Recorded runs of census.c (SHA256 b907a74467e23c370e0de2867138490d76b7ab0994133f7b6eb108a73ebfc137)
 # Apple clang 21.0.0, arm64, macOS 27.2; built with: cc -O2 -o census census.c; run: ./census n L
-# Local evidence: CI does not rerun these. Wall time (some runs shared the machine): (5,18) 29 s, (5,20) 193 s, (5,22) 998 s.
+# Local evidence: CI does not rerun these. Wall time (some runs shared the machine): (5,18) 29 s, (5,20) 193 s, (5,22) 998 s; (5,24) 3,344 CPU s (8,321 s wall, the machine slept during the run).
 n=4 L=8 closed=29 universal=22 prunes=44 firing_masks=9
 mask 1 6
 mask 2 6
@@ -206,3 +206,32 @@ mask 27 952
 mask 28 308586
 mask 29 920
 mask 30 920
+n=5 L=24 closed=103944140 universal=103944140 prunes=14151156 firing_masks=28
+mask 1 1004286
+mask 2 1004286
+mask 3 578724
+mask 4 1011532
+mask 5 474180
+mask 6 602794
+mask 7 123908
+mask 8 1124810
+mask 9 501051
+mask 10 464410
+mask 11 150698
+mask 12 737598
+mask 13 134182
+mask 14 156056
+mask 16 1555470
+mask 17 687481
+mask 18 595508
+mask 19 270140
+mask 20 578477
+mask 21 173625
+mask 22 281321
+mask 24 1061009
+mask 25 283885
+mask 26 154315
+mask 27 8564
+mask 28 415718
+mask 29 8564
+mask 30 8564
