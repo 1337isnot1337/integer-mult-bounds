@@ -86,6 +86,9 @@ u >= C,  sigma = t+u >= 1,
 J = c^v,  L = b^v.
 ```
 
+The bases c,b and the power v are integers, so L and J are exact integer
+ranks. All moments here are finite sums over the actual rank inventory.
+
 For any original paid rank R>J, write R=qJ+r with 0<=r<J. Its exact split
 charge obeys
 
