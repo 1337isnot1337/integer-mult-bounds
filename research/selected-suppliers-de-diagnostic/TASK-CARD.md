@@ -79,8 +79,9 @@ rejected. Compute cap: seconds per run, stdlib only.
 
 Predecessor authors; intended artifact and reproduction command:
 Predecessors: Douglas Colkitt (repository pricing model, autoresearch
-diagnostic), Rohan Arun (#1094 complex ledger), the PR589 bit supplier lineage
-(eumemic/PR555/PR543 lineage per the selected record), Sagar Thakrar and
+diagnostic), Rohan Arun (#1094 complex ledger), the PR 589 by DreamingOfClouds /
+PR 555 / PR 543 by eumemic bit supplier lineage (with their credited
+predecessors, retained unchanged by the selected record), Sagar Thakrar and
 Josie Elliston (independent audits), Jeremy Kothe (packing chain),
 static44/PR525/PR643 and the author of
 https://github.com/CrocSwap/integer-mult-bounds/pull/1240 (packing-ceiling

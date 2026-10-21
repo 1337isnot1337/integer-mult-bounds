@@ -152,7 +152,8 @@ def main():
     ap.add_argument('--work', type=Path, required=True)
     ap.add_argument('--jobs', type=int, default=min(8, os.cpu_count() or 1))
     a = ap.parse_args()
-    assert __debug__, 'Assertions are required; do not use -O'
+    if sys.flags.optimize:
+        raise SystemExit('Assertions are required; do not use -O')
     source = VERIFY.read_text(encoding='utf-8')
     check_pin(VERIFY)
     assert stage_names(source) == list(STAGE_DEPS), 'stage table differs from verify.py'
