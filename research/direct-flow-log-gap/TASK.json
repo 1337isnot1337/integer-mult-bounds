@@ -86,14 +86,14 @@
   "budget_minutes": 45,
   "stop_rule": "Stop at measurements to N ~ 1.7e7 and the first-order cap.",
   "outcome": "completed",
-  "evidence": "Balance at t*; kappa ~ exp(-(z0-t*)g) within 3e-5; per-level minima of g: 1.98, 2.20, 2.54, 2.75, 2.95 (verifier), 3.21, 3.37 (local to 1.7e7); first-order cap 0.00068 -> 0.00099. Saving 0.0023 would need g ~ 34.5 (heuristic N ~ 1e100).",
+  "evidence": "Balance at t*; kappa ~ exp(-(z0-t*)g) within 3e-5; per-level minima of g: 1.98, 2.20, 2.54, 2.75, 2.95 (verifier), 3.21, 3.37 (local to 1.7e7); first-order cap 0.00068 -> 0.00099. Saving 0.0023 would need g ~ 34.5 (heuristic N ~ 1e100). Growth comes from leaf exits alone (leaf log-depth 5.02->6.21; boundary ~1.84 and sources ~2.45 fixed); tilted P-step mean exceeds ln 5 by 0.0165, suggesting a sqrt(G) meander law.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Why does g grow ~0.23 per level, and is it unbounded?",
-      "why_it_matters": "Decides whether and how fast the direct saving approaches the root.",
-      "first_step": "Express leaf-exit t*-potential via the #4459 mirror base measure and compute the per-level drift.",
+      "question": "Is the leaf log-depth of order sqrt(G) (meander law)?",
+      "why_it_matters": "Gives the rate at which the direct saving approaches the root.",
+      "first_step": "Ballot/meander estimate for the tilted P-walk below G ln 5 with drift +0.0165.",
       "blocked_by": "None."
     }
   ]

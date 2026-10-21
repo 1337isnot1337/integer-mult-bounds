@@ -45,13 +45,35 @@ Consistency checks:
   fails at some.
 - #4456's effective savings (0.000634 at 10³, 0.000835 at 3·10⁴) sit just under these caps.
 
+## What drives the growth
+
+Decompose the log-depth `E ln(N/·)` at the per-level minima. Columns 2–5 are checked in the verifier;
+columns 6–7 are local.
+
+| G | 2 | 3 | 4 | 5 | 6 | 7 |
+| --- | --- | --- | --- | --- | --- | --- |
+| leaf exits | 5.020 | 5.129 | 5.509 | 5.701 | 6.026 | 6.209 |
+| boundary exits | 1.859 | 1.842 | 1.814 | 1.832 | 1.848 | 1.841 |
+| sources | 2.453 | 2.362 | 2.454 | 2.440 | 2.458 | 2.462 |
+
+Only the leaf exits sink, and they carry about 91% of the exit potential. A leaf exit is `rρ`, with
+`ρ` a product of `G` letters of `P` under the barrier `mρr ≤ N`, weighted by `cnt(ρ)ρ^t`. In log
+scale this is a random walk with tilted step mean `1.6259`, killed above the barrier
+`ln(N/m) ≈ G ln 5`. The relative drift is small and positive: `1.6259 − ln 5 = +0.0165`. A walk with
+positive drift, conditioned to stay below a line of matching slope, behaves like a meander. Its end
+gap grows like `√G`, not linearly. The data cannot separate `a + b√G` (with `b ≈ 0.97`) from linear
+growth of about 0.24 per level.
+
 ## Reading
 
-- **The ceiling is not bounded away from `s*`.** If `g` keeps growing by about 0.23 per level, the
-  cap tends to `s*`, so #4436's direct exponent gate plausibly closes in the limit.
+- **The ceiling is not bounded away from `s*`.** If `g → ∞`, the cap tends to `s*`, so #4436's
+  direct exponent gate plausibly closes in the limit.
 - **But extremely slowly.** A saving `s` needs `g ≥ s(1 + ln m)/(s* − s)`. Saving 0.001 needs
-  `g ≈ 3.44`, about level 8 (`N ~ 5·10⁷`). The selected 0.0023 would need `g ≈ 34.5`, roughly 135
-  more levels, `N ~ 10^{100}`. This is a heuristic extrapolation, not a bound.
+  `g ≈ 3.44`, about level 8 (`N ~ 5·10⁷`). The selected 0.0023 needs `g ≈ 34.5`.
+  - Under linear growth that is roughly 135 more levels, `N ~ 10^{100}`.
+  - Under the meander-motivated `√G` law it is `G ≈ 1,300`, `N ~ 10^{900}`.
+
+  Both are heuristic extrapolations, not bounds.
 - **The tensor/padding route is not superseded.** The direct flow is not a practical substitute for
   it at κ near 0.0023, unless the induction itself is improved, for example by using several steps
   of exits.
@@ -74,10 +96,10 @@ The verifier prints `PASS_DIRECT_FLOW_LOG_GAP`, using only the standard library.
 
 ## Open next questions
 
-1. **Why does `g` grow by about 0.23 per level, and does it grow without bound?**
-   - *Why it matters:* it decides whether #4436's direct saving approaches the root, and how fast.
-   - *First step:* express the leaf exits' `t*`-potential through the mirror base measure of #4459,
-     and compute the per-level drift of its log-mean.
+1. **Prove the leaf meander law: is `E ln(N/e)` for leaves of order `√G`?**
+   - *Why it matters:* it gives the rate at which #4436's direct saving approaches the root.
+   - *First step:* a ballot or meander estimate for the tilted P-walk below `G ln 5`, with drift
+     `+0.0165`.
 2. **Can a multi-step exit test beat the single-step ceiling?**
    - *First step:* substitute the exits' own flows once, giving a two-step coefficient, and remeasure.
 

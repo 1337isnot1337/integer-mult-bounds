@@ -5,7 +5,8 @@ At the unit root t* (sum_k W_k k^t = sum_r P_r r^t) exits and sources carry equa
 gap g(N) = E_S[ln s] - E_X[ln e], first order gives kappa(N, z0) ~ exp(-(z0 - t*) g) while eta(z0) =
 z0 m^(z0 - 1) ~ exp(-(1 - z0)(1 + ln m)), so the test certifies savings up to about s* g / (g + 1 + ln m).
 On a 5% grid 1000 <= N <= 5e5 this checks: the potential balance at t*, the first-order formula, that the per-level
-(sawtooth) minima of g increase with the lockstep depth G, and the pass/fail savings 0.0008 / 0.001.
+(sawtooth) minima of g increase with the lockstep depth G, that this growth comes from the leaf exits alone (boundary
+exits and sources keep fixed log-depth), and the pass/fail savings 0.0008 / 0.001.
 Floating-point finite evidence. Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 import json
@@ -107,20 +108,35 @@ def main():
         kap = {sv: sum(v * e ** (1 - sv) for e, v in X.items()) / sum(v * s ** (1 - sv) for s, v in S.items())
                for sv in (0.0008, 0.001)}
         need(abs(kap[0.001] - math.exp(-(sstar - 0.001) * g)) < 3e-5, f"N={N}: first-order kappa")
-        rows.append((N, R["G"], g, kap))
+        BX = R["BX"]
+        leaf = {e: v - BX.get(e, 0) for e, v in X.items() if v != BX.get(e, 0)}
+        bd = {e: v for e, v in BX.items() if v}
+        depth = lambda D: sum(v * e ** ts * math.log(N / e) for e, v in D.items()) / sum(v * e ** ts for e, v in D.items())
+        comp = (depth(leaf), depth(bd) if bd else None, depth(S))
+        rows.append((N, R["G"], g, kap, comp))
     mins = {}
-    for N, G, g, _ in rows:
+    for N, G, g, _, _ in rows:
         if G not in mins or g < mins[G][1]:
             mins[G] = (N, g)
     levels = [mins[G][1] for G in range(2, 6)]
     need(all(a < b for a, b in zip(levels, levels[1:])), "per-level minima of g increase with G")
     need((levels[-1] - levels[0]) / 3 > 0.15, "average growth per level above 0.15")
     eta = lambda sv: (1 - sv) * M ** (-sv)
-    need(all(k[0.0008] < eta(0.0008) for N, G, g, k in rows if N >= 3e5), "saving 0.0008 passes for N >= 3e5")
-    need(any(k[0.001] > eta(0.001) for N, G, g, k in rows if N >= 3e5), "saving 0.001 still fails somewhere N >= 3e5")
+    need(all(k[0.0008] < eta(0.0008) for N, G, g, k, _ in rows if N >= 3e5), "saving 0.0008 passes for N >= 3e5")
+    need(any(k[0.001] > eta(0.001) for N, G, g, k, _ in rows if N >= 3e5), "saving 0.001 still fails somewhere N >= 3e5")
+    # decomposition at the per-level minima: only the leaf exits sink; boundary exits and sources stay put
+    at = {N: c for N, G, g, k, c in rows}
+    comps = {G: at[mins[G][0]] for G in range(2, 6)}
+    need(all(abs(comps[G][1] - comps[2][1]) < 0.1 and abs(comps[G][2] - comps[2][2]) < 0.1 for G in comps),
+         "boundary-exit and source log-depths are stable across levels")
+    need(all(comps[a][0] < comps[b][0] for a, b in zip(range(2, 5), range(3, 6))), "leaf log-depth increases with G")
+    tilt = lambda D: sum(D[x] * x ** ts * math.log(x) for x in D) / sum(D[x] * x ** ts for x in D)
+    need(tilt(P) - math.log(5) > 0, "tilted P-step mean exceeds the barrier slope ln 5 (positive relative drift)")
     cap = lambda g: sstar * g / (g + 1 + math.log(M))
     print(json.dumps({"status": "PASS_DIRECT_FLOW_LOG_GAP", "t_star": f"{ts:.12f}", "ranks": len(rows),
                       "per_level_min_g": {G: [mins[G][0], round(mins[G][1], 4)] for G in sorted(mins)},
+                      "log_depth_at_level_minima_leaf_bd_src": {G: [round(x, 4) for x in comps[G]] for G in comps},
+                      "tilted_P_step_mean_minus_ln5": round(tilt(P) - math.log(5), 6),
                       "first_order_cap_at_level_minima": {G: round(cap(mins[G][1]), 6) for G in sorted(mins)},
                       "new_kappa_claimed": False}, indent=1))
 
