@@ -80,20 +80,20 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Reduce #4436's open direct-exponent gate to a uniform boundary-exit t-potential share bound (written lemma) and measure that share on raw p7.",
+  "actual_scope": "#4436's boundary exits: exact mirror identity, rigorous uniform share bound 0.3208, and a correction (leaf exits dominate) with the measured exit coefficient vs eta.",
   "scope_change_reason": "Follow-up to #4456; #4436 left the direct exponent gate open.",
   "bottleneck_link": "A direct-flow exponent would remove the tensor/padding step behind the kappa ~0.0027-0.0030 claims.",
   "budget_minutes": 30,
   "stop_rule": "Stop at the conditional lemma and measurements.",
   "outcome": "completed",
-  "evidence": "Lemma: kappa_exit <= beta r_max^delta + (mE/n)^delta, so the refined induction closes if beta r_max^delta < eta (~0.984 for p7). Measured max beta 0.1545 over 3,394 ranks to 5e5.",
+  "evidence": "Mirror identity exact at 4 ranks; beta <= 0.3208 for all N (measured max 0.1545). Correction: leaf exits reach 0.397N with 85-92% of the t-potential, so the first version's reduction fails. Refined-induction test passes at saving 0.0008 and fails at 0.001 through N<=5e5.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Prove a uniform bound on the boundary-exit t-potential share.",
-      "why_it_matters": "It would close #4436's exponent gate.",
-      "first_step": "Bound the u(b)-weighted potential of boundary points by the last-layer multinomial mass.",
+      "question": "Do leaf exits admit a mirror-type comparison with sources?",
+      "why_it_matters": "They carry ~90% of the exit potential and decide kappa.",
+      "first_step": "Write leaf exits and last-layer sources over a common base.",
       "blocked_by": "None."
     }
   ]
