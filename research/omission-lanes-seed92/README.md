@@ -1,5 +1,9 @@
 # Packed literal replay for the R439 omission atlas
 
+**Production note:** `research/omission-lanes-production/` wires packed lanes into
+production `research/r439-omission-atlas-seed81/verify.py`. This opt-in package
+keeps a vendored literal `baseline.py` for reference-engine comparisons.
+
 An opt-in acceleration of woklerx's retained [PR1017](https://github.com/CrocSwap/integer-mult-bounds/pull/1017)
 checker. Sixteen independent single-gate omissions run in integer bit lanes.
 All 5,563 mutant maps still propagate all 661 symbolic inputs through every

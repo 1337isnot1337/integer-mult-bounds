@@ -20,20 +20,28 @@ class FamilyDecision(unittest.TestCase):
         cls.ledger = json.loads((ROOT / 'docs/research/pr-ledger.json').read_text())
         cls.items = {row['number']: row for row in cls.ledger['pull_requests']}
         cls.families = {}
-        for family in ('family533', 'family588', 'hyperplane599', 'cold617', 'k492', 'frontier741', 'frontier799', 'frontier890', 'reconciliation-fourth100', 'pilot20', 'efficient100', 'efficient200', 'efficient300', 'efficient400', 'efficient500', 'efficient600', 'efficient700', 'efficient800', 'efficient900'):
-            path = ROOT / f'research/community-{family}-audit/DISPOSITIONS.json'
-            cls.families[family] = json.loads(path.read_text())['pull_requests']
+        # The former test stopped at efficient1200, so later valid reviews
+        # looked like forged projections. Follow the actual authoritative order.
+        for path in checker.decision_paths():
+            if path.exists():
+                cls.families[path.parent.name.removeprefix('community-').removesuffix('-audit')] = json.loads(path.read_text())['pull_requests']
+        cls.latest = {}
+        for decisions in cls.families.values():
+            for row in decisions:
+                cls.latest[row['number']] = checker.project_family_decision(
+                    cls.latest.get(row['number'], {}), row)
 
     def setUp(self):
-        self.decision = deepcopy(next(row for row in self.families['k492']
-                                      if row['number'] == 626))
+        self.decision = deepcopy(self.latest[626])
         self.item = deepcopy(self.items[626])
 
     def test_current_family_projections_match_authoritative_decisions(self):
         final = {}
         for family, decisions in self.families.items():
             for decision in decisions:
-                final[decision['number']] = (family, decision)
+                number = decision['number']
+                previous = final.get(number, (None, {}))[1]
+                final[number] = (family, checker.project_family_decision(previous, decision))
         for number, (family, decision) in final.items():
             with self.subTest(family=family, number=number):
                 checker.check_family_decision(self.items[number], decision)
@@ -68,16 +76,99 @@ class FamilyDecision(unittest.TestCase):
                     checker.check_family_decision(item, self.decision)
 
     def test_missing_closure_is_distinct_from_recorded_null(self):
+        # PR620 later gained a closure receipt; retain its explicit-null
+        # historical decision as this missing-key rejection fixture.
         decision = next(row for row in self.families['k492'] if row['number'] == 620)
-        item = deepcopy(self.items[620])
+        item = deepcopy(decision)
         self.assertIsNone(decision['closure'])
         item.pop('closure')
         with self.assertRaisesRegex(ValueError, '#620:.*closure'):
             checker.check_family_decision(item, decision)
 
+    def test_incremental_decision_preserves_recorded_optional_metadata(self):
+        later = deepcopy(self.decision)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            later.pop(field)
+        projected = checker.project_family_decision(self.decision, later)
+        self.assertEqual(projected, self.decision)
+        self.assertNotIn('closure', later)
+        checker.check_family_decision(self.item, projected)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            for operation in ('drop', 'replace'):
+                item = deepcopy(self.item)
+                if operation == 'drop':
+                    item.pop(field)
+                else:
+                    item[field] = None
+                with self.subTest(field=field, operation=operation), self.assertRaisesRegex(
+                        ValueError, '#626:.*' + field):
+                    checker.check_family_decision(item, projected)
+        item = deepcopy(self.item)
+        item['review_completion']['published'] = 1
+        with self.assertRaisesRegex(ValueError, '#626:.*review_completion'):
+            checker.check_family_decision(item, projected)
+
+    def test_incremental_explicit_closure_overrides_previous_receipt(self):
+        later = deepcopy(self.decision)
+        for closure in (None, {'url': 'https://example.invalid/new-receipt'}):
+            later['closure'] = closure
+            projected = checker.project_family_decision(self.decision, later)
+            item = deepcopy(self.item)
+            item['closure'] = closure
+            checker.check_family_decision(item, projected)
+            with self.subTest(closure=closure), self.assertRaisesRegex(ValueError, '#626:.*closure'):
+                checker.check_family_decision(self.item, projected)
+        later.pop('closure')
+        previous = deepcopy(self.decision)
+        previous['closure'] = None
+        projected = checker.project_family_decision(previous, later)
+        item = deepcopy(self.item)
+        item['closure'] = None
+        checker.check_family_decision(item, projected)
+        item.pop('closure')
+        with self.assertRaisesRegex(ValueError, '#626:.*closure'):
+            checker.check_family_decision(item, projected)
+
+    def test_unrecorded_closure_accepts_only_absent_or_explicit_null(self):
+        decision = deepcopy(self.decision)
+        decision.pop('closure')
+        for operation in ('drop', 'null'):
+            item = deepcopy(decision)
+            if operation == 'null':
+                item['closure'] = None
+            checker.check_family_decision(item, decision)
+        for closure in (False, 0, {}, [], {'url': 'https://example.invalid/forged'}):
+            item = deepcopy(decision)
+            item['closure'] = closure
+            with self.subTest(closure=closure), self.assertRaisesRegex(ValueError, '#626:.*closure'):
+                checker.check_family_decision(item, decision)
+
+    def test_incremental_decision_cannot_inherit_missing_mandatory_fields(self):
+        for field in ('reviewed_head', 'current_head', 'disposition', 'github_state',
+                      'integration_location', 'unresolved_question'):
+            later = deepcopy(self.decision)
+            later.pop(field)
+            projected = checker.project_family_decision(self.decision, later)
+            self.assertNotIn(field, projected)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, '#626:.*' + field):
+                checker.check_family_decision(self.item, projected)
+
+    def test_companion_review_retains_inherited_whole_head_completion(self):
+        later = deepcopy(self.decision)
+        for field in ('closure', 'review_completion', 'verification_evidence'):
+            later.pop(field)
+        projected = checker.project_family_decision(self.decision, later)
+        companion = {'head': self.item['current_head'], 'remaining': 'Earlier scoped hold.'}
+        item = deepcopy(self.item)
+        item['companion_reviews'] = [companion]
+        checker.check_companion_review(item, companion, projected)
+        item['closure'] = None
+        with self.assertRaisesRegex(ValueError, '#626:.*closure'):
+            checker.check_companion_review(item, companion, projected)
+
     def test_boolean_completion_flags_cannot_be_replaced_by_integers(self):
         for number in (626, 620):
-            decision = next(row for row in self.families['k492'] if row['number'] == number)
+            decision = self.latest[number]
             for flag in decision['review_completion']:
                 item = deepcopy(self.items[number])
                 item['review_completion'][flag] = int(item['review_completion'][flag])
@@ -119,6 +210,141 @@ class FamilyDecision(unittest.TestCase):
         with patch.object(Path, 'read_text', read_text), self.assertRaisesRegex(
                 ValueError, '#626:.*reviewed_head'):
             checker.main()
+
+
+class SpectrumRefresh(unittest.TestCase):
+    def setUp(self):
+        coverage = json.loads((ROOT / 'research/community-frontier890-audit/CONTENT-COVERAGE.json').read_bytes())
+        self.items = [deepcopy(item) for row in coverage['pull_requests'].values()
+                      for item in row['files'] if item.get('integrated_path') in {
+                          'research/single-intersection-spectrum-audit/RESULT.json',
+                          'research/single-intersection-spectrum-audit/SOURCE.json'}]
+        self.old = b'08ddae46e5621a5b4c525b504e67ae655abe9b49461d894feaa7abc89a51847d'
+        self.new = b'6874d41b75590369182ed61e0c6da5b547e035e0e43b50ea2b39e1f3861dca6d'
+
+    def test_exact_accepted_refresh_and_original_bytes_pass(self):
+        self.assertEqual(len(self.items), 2)
+        for item in self.items:
+            checker.check_frontier890_file(item)
+            current = (ROOT / item['integrated_path']).read_bytes()
+            original = current.replace(self.new, self.old)
+            self.assertEqual(sha256(original).hexdigest(), item['integrated_sha256'])
+            with patch.object(Path, 'read_bytes', return_value=original):
+                checker.check_frontier890_file(item)
+
+    def test_any_other_proof_or_metadata_edit_is_rejected(self):
+        for item in self.items:
+            current = (ROOT / item['integrated_path']).read_bytes()
+            for mutated in (current.replace(b'"assignment_seed": 65', b'"assignment_seed": 66'),
+                            current + b' ', current.replace(self.new, b'0' * 64),
+                            current + self.new):
+                self.assertNotEqual(mutated, current)
+                original_read = Path.read_bytes
+                def read(path):
+                    return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+                with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+                    checker.check_frontier890_file(item)
+
+    def test_changed_mathematical_case_is_rejected(self):
+        item = next(item for item in self.items if item['integrated_path'].endswith('RESULT.json'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutated = current.replace(b'"binary_rank": 3,', b'"binary_rank": 4,', 1)
+        self.assertNotEqual(current, mutated)
+        original_read = Path.read_bytes
+        def read(path):
+            return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+        with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(ValueError, 'beyond'):
+            checker.check_frontier890_file(item)
+
+    def test_forged_historical_pin_is_rejected(self):
+        for item in self.items:
+            item['integrated_sha256'] = '0' * 64
+            with self.assertRaisesRegex(ValueError, 'Changed integrated file'):
+                checker.check_frontier890_file(item)
+
+    def test_successor_helper_drift_is_rejected(self):
+        original_read = Path.read_bytes
+        def read(path):
+            return b'changed helper' if path == ROOT / 'scripts/experiments/single_intersection.py' else original_read(path)
+        with patch.object(Path, 'read_bytes', read):
+            for item in self.items:
+                with self.assertRaisesRegex(ValueError, 'Changed spectrum successor source'):
+                    checker.check_frontier890_file(item)
+
+    def test_unrelated_file_changes_still_fail(self):
+        item = {'integrated_path': 'CONTRIBUTING.md', 'integrated_sha256': '0' * 64}
+        with self.assertRaisesRegex(ValueError, 'Changed integrated file'):
+            checker.check_frontier890_file(item)
+
+
+class AssertionSafetyRefresh(unittest.TestCase):
+    def setUp(self):
+        coverage = json.loads((ROOT / 'research/community-batch932-audit/CONTENT-COVERAGE.json').read_bytes())
+        self.items = [deepcopy(item) for row in coverage['pull_requests'].values()
+                      for item in row['files'] if item.get('integrated_path') in {
+                          'scripts/run_isolated_tests.py', 'tests/test_isolated_test_runner.py'}]
+
+    def test_exact_accepted_successors_pass(self):
+        self.assertEqual(len(self.items), 2)
+        for item in self.items:
+            checker.check_batch932_file(item)
+
+    def test_historical_adapter_cannot_be_disabled(self):
+        item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutated = current.replace(b"path.name in legacy", b'False')
+        self.assertNotEqual(current, mutated)
+        original_read = Path.read_bytes
+        def read(path):
+            return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+        with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+            checker.check_batch932_file(item)
+
+    def test_assertion_guard_removal_and_other_byte_edits_fail(self):
+        original_read = Path.read_bytes
+        for item in self.items:
+            current = (ROOT / item['integrated_path']).read_bytes()
+            mutations = [current + b' ']
+            if item['integrated_path'].startswith('scripts/'):
+                mutations.append(current.replace(b"env.pop('PYTHONOPTIMIZE', None)", b'pass'))
+            for mutated in mutations:
+                self.assertNotEqual(current, mutated)
+                def read(path):
+                    return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+                with patch.object(Path, 'read_bytes', read), self.assertRaises(ValueError):
+                    checker.check_batch932_file(item)
+
+    def test_current_successor_cache_and_timeout_edits_fail(self):
+        item = next(item for item in self.items if item['integrated_path'].startswith('scripts/'))
+        current = (ROOT / item['integrated_path']).read_bytes()
+        mutations = [
+            current.replace(b'cwd=cwd, env=module_env, start_new_session=True',
+                            b'cwd=cwd, env=env, start_new_session=True'),
+            current.replace(b'if deadline is not None and time.monotonic() >= deadline:',
+                            b'if False:'),
+        ]
+        original_read = Path.read_bytes
+        for mutated in mutations:
+            self.assertNotEqual(current, mutated)
+            def read(path):
+                return mutated if path == ROOT / item['integrated_path'] else original_read(path)
+            with patch.object(Path, 'read_bytes', read), self.assertRaisesRegex(
+                    ValueError, 'Changed integrated file: scripts/run_isolated_tests.py'):
+                checker.check_batch932_file(item)
+
+    def test_forged_predecessor_and_cross_file_successor_fail(self):
+        for item in self.items:
+            item['integrated_sha256'] = '0' * 64
+            with self.assertRaises(ValueError):
+                checker.check_batch932_file(item)
+        other = (ROOT / self.items[1]['integrated_path']).read_bytes()
+        with patch.object(Path, 'read_bytes', return_value=other), self.assertRaises(ValueError):
+            checker.check_batch932_file(self.items[0])
+
+    def test_unrelated_file_still_needs_exact_bytes(self):
+        item = {'integrated_path': 'CONTRIBUTING.md', 'integrated_sha256': '0' * 64}
+        with self.assertRaises(ValueError):
+            checker.check_batch932_file(item)
 
 
 class ReviewCompletion(unittest.TestCase):

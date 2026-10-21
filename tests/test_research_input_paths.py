@@ -23,6 +23,10 @@ class ResearchInputPathTests(unittest.TestCase):
         (self.root / "research/alpha").mkdir(parents=True)
         self.manifest = self.root / "research/alpha/VERIFY.json"
         self.write_manifest("fixtures/input.txt")
+        subprocess.run(["git", "init", "-q"], cwd=self.root, check=True, timeout=15)
+        subprocess.run(["git", "add", "."], cwd=self.root, check=True, timeout=15)
+        subprocess.run(["git", "-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                        "-c", "gc.auto=0", "commit", "-qm", "source"], cwd=self.root, check=True, timeout=15)
 
     def write_manifest(self, name):
         self.manifest.write_text(json.dumps({"inputs": [name]}))

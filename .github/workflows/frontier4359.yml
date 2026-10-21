@@ -1,0 +1,96 @@
+name: Productive-helper conditional construction
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/verify_hpe_lean_binding.py"
+      - "scripts/historical-ci-inputs/verify_hpe_lean_binding.py"
+      - "research/kappa-0023-productive-jobs/**"
+      - "research/kappa-accounted-composition/**"
+      - "research/kappa-causal-continuation/**"
+      - "research/kappa-function-composition/**"
+      - "research/kappa-global-routing/**"
+      - "research/kappa-native-resume/**"
+      - "research/kappa-observation-integration/**"
+      - "research/kappa-rebuild/**"
+      - "notes/batched-bit-rows.tex"
+      - "notes/batched-complex-rows.tex"
+      - "notes/compact-control-movement.tex"
+      - "notes/general-clifford-frames.tex"
+      - "notes/stopped-product-complex.tex"
+      - "notes/three-stage-cover-bit.tex"
+      - "notes/three-stage-cover-rows.tex"
+      - "references/semantic-bulk/pr23/semantic-bulk-17-note.tex"
+      - "research/e8-bit-carrier-skeleton/code/bit/export_records.py"
+      - "research/e8-bit-carrier-skeleton/code/nine/geometry.py"
+      - "research/e8-bit-p111-tuned/code/gen_p3.py"
+      - "research/e8-bit-p111-tuned/code/xcheck_p.py"
+      - "research/e8-bit-p111-tuned/tune/EXPECTED.json"
+      - "research/e8-bit-p111-tuned/tune/apply.py"
+      - "research/e8-bit-p111-tuned/tune/wlib.py"
+      - "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+      - "scripts/verify_frontier4359.py"
+      - "scripts/verify_selected_result.py"
+      - "certificates/selected-result.json"
+      - "certificates/frontier4359-source.json"
+      - "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.md"
+      - "Makefile"
+      - ".github/workflows/frontier4359.yml"
+  pull_request:
+    paths:
+      - "scripts/verify_hpe_lean_binding.py"
+      - "scripts/historical-ci-inputs/verify_hpe_lean_binding.py"
+      - "research/kappa-0023-productive-jobs/**"
+      - "research/kappa-accounted-composition/**"
+      - "research/kappa-causal-continuation/**"
+      - "research/kappa-function-composition/**"
+      - "research/kappa-global-routing/**"
+      - "research/kappa-native-resume/**"
+      - "research/kappa-observation-integration/**"
+      - "research/kappa-rebuild/**"
+      - "notes/batched-bit-rows.tex"
+      - "notes/batched-complex-rows.tex"
+      - "notes/compact-control-movement.tex"
+      - "notes/general-clifford-frames.tex"
+      - "notes/stopped-product-complex.tex"
+      - "notes/three-stage-cover-bit.tex"
+      - "notes/three-stage-cover-rows.tex"
+      - "references/semantic-bulk/pr23/semantic-bulk-17-note.tex"
+      - "research/e8-bit-carrier-skeleton/code/bit/export_records.py"
+      - "research/e8-bit-carrier-skeleton/code/nine/geometry.py"
+      - "research/e8-bit-p111-tuned/code/gen_p3.py"
+      - "research/e8-bit-p111-tuned/code/xcheck_p.py"
+      - "research/e8-bit-p111-tuned/tune/EXPECTED.json"
+      - "research/e8-bit-p111-tuned/tune/apply.py"
+      - "research/e8-bit-p111-tuned/tune/wlib.py"
+      - "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+      - "scripts/verify_frontier4359.py"
+      - "scripts/verify_selected_result.py"
+      - "certificates/selected-result.json"
+      - "certificates/frontier4359-source.json"
+      - "docs/research/pr-intake-evidence/pr4359/PROOF-REVIEW.md"
+      - "Makefile"
+      - ".github/workflows/frontier4359.yml"
+permissions:
+  contents: read
+concurrency:
+  group: frontier4359-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python3 -B scripts/verify_frontier4359.py --work "$RUNNER_TEMP/frontier4359"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: frontier4359-replay
+          path: |
+            ${{ runner.temp }}/frontier4359/VALIDATION.json
+            ${{ runner.temp }}/frontier4359/logs

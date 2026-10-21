@@ -56,6 +56,6 @@ pivot maximum.
 
 Predecessor authors; intended artifact and reproduction command: Douglas
 Colkitt (CrocSwap/integer-mult-bounds#1240, CrocSwap/integer-mult-bounds#1264); the individual claim authors (tomdif, rohanarun,
-jeremykothe2, Jeremy Diviney, and others as cited per claim). Artifact:
+Rohan Arun, Jeremy Diviney, and others as cited per claim). Artifact:
 `research/complex-queue-ceiling-uncovered/`. Reproduce:
 `python3 -I -B research/complex-queue-ceiling-uncovered/verify.py`.
