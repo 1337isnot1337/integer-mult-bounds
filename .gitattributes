@@ -198,3 +198,13 @@ research/kappa-boundary-continuation/** -text -whitespace
 
 # Exact PR4088 export bytes and the pinned two-provider rebind.
 research/staged544-mixed-idle-rebind/** -text -whitespace
+
+# Exact delivered 0.0023 checkpoint, scoped dependencies and local review evidence.
+research/kappa-0023-productive-jobs/** -text -whitespace
+research/kappa-accounted-composition/** -text -whitespace
+research/kappa-causal-continuation/** -text -whitespace
+research/kappa-function-composition/** -text -whitespace
+research/kappa-global-routing/** -text -whitespace
+research/kappa-native-resume/** -text -whitespace
+research/kappa-observation-integration/** -text -whitespace
+research/kappa-rebuild/** -text -whitespace
