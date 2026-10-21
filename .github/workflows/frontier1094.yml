@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - scripts/verify_hpe_lean_binding.py
+      - scripts/historical-ci-inputs/verify_hpe_lean_binding.py
+      - research/hyperplane-end-lean/HyperplaneEnd/Exact.lean
       - 'research/complex-t16-rare-pattern-exchanges/**'
       - 'research/gauge44-leaver8/**'
       - 'research/gauge44-slots/**'
@@ -71,6 +74,9 @@ on:
       - 'research/structural-gain/frontier-composition/multicold-eight-word/FULL-WORD.json.gz'
   pull_request:
     paths:
+      - scripts/verify_hpe_lean_binding.py
+      - scripts/historical-ci-inputs/verify_hpe_lean_binding.py
+      - research/hyperplane-end-lean/HyperplaneEnd/Exact.lean
       - 'research/complex-t16-rare-pattern-exchanges/**'
       - 'research/gauge44-leaver8/**'
       - 'research/gauge44-slots/**'

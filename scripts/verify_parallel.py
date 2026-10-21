@@ -17,6 +17,7 @@ from pathlib import Path
 import re
 import shutil
 import signal
+import stat
 import subprocess
 import tempfile
 import time
@@ -45,8 +46,25 @@ def git(*args, cwd):
 def snapshot(template):
     """Copy every non-ignored working-tree file into a new one-commit repository."""
     names = git('ls-files', '-z', '--cached', '--others', '--exclude-standard', cwd=ROOT).split('\0')
+    names = list(filter(None, names))
+    # Preserving an absolute link preserves its alias into the original tree.
+    # Relative links are relocatable only when their full chain stays inside it.
+    # Check the whole inventory before writing even a partial snapshot.
+    root = ROOT.resolve()
+    for name in names:
+        source = ROOT/name
+        if source.is_symlink():
+            try:
+                target = Path(os.readlink(source))
+                # strict=True rejects cycles on Python 3.13+, where non-strict
+                # resolve may return an unresolved cyclic path without raising.
+                contained = source.resolve(strict=True).is_relative_to(root)
+            except (OSError, RuntimeError) as exc:
+                raise ValueError(f'Unresolvable snapshot symlink: {name}') from exc
+            if target.anchor or not contained:
+                raise ValueError(f'Non-relocatable snapshot symlink: {name}')
     copied = []
-    for name in filter(None, names):
+    for name in names:
         source = ROOT/name
         if source.is_file() or source.is_symlink():
             (template/name).parent.mkdir(parents=True, exist_ok=True)
@@ -72,6 +90,40 @@ def default_jobs():
     return max(1, min(2, available_cpus(), int(memory//2) if memory else 2))
 
 
+def remove_snapshot(path, ignore_errors=False):
+    """Remove an owned snapshot, including Git's read-only Windows objects."""
+    def readonly_retry(function, name, error):
+        try:
+            if os.name != 'nt' or not isinstance(error[1], PermissionError) or Path(name).is_symlink():
+                raise error[1]
+            os.chmod(name, stat.S_IWRITE | stat.S_IREAD)
+            function(name)
+        except OSError:
+            if not ignore_errors:
+                raise
+    # Passing ignore_errors=True to rmtree would bypass the repair callback.
+    shutil.rmtree(path, onerror=readonly_retry)
+
+
+def stop_process(process):
+    """End a running verifier's process group/tree before deleting its snapshot."""
+    if process.poll() is not None:
+        return
+    if hasattr(os, 'killpg'):
+        try:
+            os.killpg(process.pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        try:
+            process.wait(timeout=5)
+        except subprocess.TimeoutExpired:
+            os.killpg(process.pid, signal.SIGKILL)
+            process.wait()
+    else:
+        subprocess.run(['taskkill', '/F', '/T', '/PID', str(process.pid)], capture_output=True)
+        process.wait(timeout=10)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument('groups', nargs='*', help='groups to run (default: every group of `make verify`)')
@@ -95,7 +147,9 @@ def main():
     durations = json.loads(durations_path.read_text()) if durations_path.exists() else {}
     # Longest first, using the previous run's times.
     queue = sorted(groups, key=lambda g: -durations.get(g, 0))
-    env = {k: v for k, v in os.environ.items() if k not in ('MAKEFLAGS', 'MFLAGS', 'MAKELEVEL')}
+    # Preserve assertion-based checks in every Python descendant of make.
+    env = {k: v for k, v in os.environ.items()
+           if k not in ('MAKEFLAGS', 'MFLAGS', 'MAKELEVEL', 'PYTHONOPTIMIZE')}
     # Keep nested worker counts bounded; actual memory use depends on the groups.
     env.setdefault('JOBS', '4')
     make = os.environ.get('MAKE', 'make')
@@ -132,21 +186,20 @@ def main():
                 status = 'PASS' if ok else ('FAIL (files changed)' if changed else 'FAIL')
                 print(f'[{len(results)}/{len(groups)}] {status} {group} in {seconds/60:.1f} min', flush=True)
                 if ok and not args.keep:
-                    shutil.rmtree(tree)
+                    remove_snapshot(tree)
                 else:
                     kept.append(tree)
     except BaseException:
-        for process, _, _ in running.values():
+        for process, log, _ in running.values():
             try:
-                os.killpg(process.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-            process.wait()
-        shutil.rmtree(work, ignore_errors=True)
+                stop_process(process)
+            finally:
+                log.close()
+        remove_snapshot(work, ignore_errors=True)
         raise
     finally:
         durations_path.write_text(json.dumps(durations, indent=1, sort_keys=True)+'\n')
-    shutil.rmtree(work/'template')
+    remove_snapshot(work/'template')
     if not kept:
         work.rmdir()
     failed = sorted(g for g, (ok, _) in results.items() if not ok)

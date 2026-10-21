@@ -42,7 +42,8 @@ def run(out):
     old = out / 'original9'; old.mkdir()
     base = ROOT / BASE
     route = base / 'vendor/multicold/vendor/pr558/vendor/pr552/complex-local/inputs/phase-baseline/CANONICAL-WORD.json.gz'
-    execute(HERE / 'vendor/pr855/native_worker.py', [HERE / 'vendor/pr855', base / 'code/hpe_audit_and_transport.py', route, old], out / 'original9-worker.log', env)
+    auditor = ROOT / 'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
+    execute(HERE / 'vendor/pr855/native_worker.py', [HERE / 'vendor/pr855', auditor, route, old], out / 'original9-worker.log', env)
     new = out / 'early8';new.mkdir()
     execute(HERE / 'native_worker.py', [new], out / 'early8-worker.log', env)
     original, retimed = read(old / 'NATIVE-RESULT.json'), read(new / 'NATIVE-RESULT.json')

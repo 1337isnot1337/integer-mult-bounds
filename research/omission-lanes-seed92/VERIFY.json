@@ -4,7 +4,8 @@
   "python": "3.12",
   "requirements": [],
   "inputs": [
-    "research/r439-omission-atlas-seed81/verify.py",
+    "research/omission-lanes-seed92/baseline.py",
+    "research/omission-lanes-seed92/replay.py",
     "research/r439-omission-atlas-seed81/SOURCES.json",
     "research/r439-omission-atlas-seed81/CERTIFICATE.json",
     "research/r439-helper-stars-seed19/candidate.json.gz",
