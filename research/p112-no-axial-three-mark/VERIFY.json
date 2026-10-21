@@ -31,6 +31,30 @@
       ],
       "timeout_seconds": 30,
       "checks": "Independent annihilator-set reconstruction of the geometric premises and all7770triadtriples, no producer imports."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/fixed_three_mark_source_span.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "All441fixed-placementtariffs,uniqueoff-axisprice2type,41singletonprice3types,axialmerge subadditivity and canonical18baseline; finitepremises for normalized\u22645reduction only."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-Werror",
+        "-B",
+        "{package}/independent_fixed_source_span.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Independent binaryspan/annihilator reconstruction of all441tariffs and identical complete-table digest; no producerimports. Prior\u22645theorem is separatelycited, not rerun."
     }
   ]
 }

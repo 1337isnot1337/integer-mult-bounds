@@ -45,20 +45,20 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Prove a coefficient-independent12+n full-group invoice floor for no-axial queries in the span of three ordinary P112 marks from distinct paired roles, with arbitrary actual readers and restricted active term count n. Extend to axial queries after support-monotone merging: cost>=12+n-3a, giving normalized term caps8/11/14 for hypothetical cost<=17.",
+  "actual_scope": "Prove a coefficient-independent12+n full-group invoice floor for no-axial queries in the span of three ordinary P112 marks from distinct paired roles, with arbitrary actual readers and restricted active term count n. Extend to axial queries after support-monotone merging: cost>=12+n-3a, giving normalized term caps8/11/14 for hypothetical cost<=17. At fixedmarks{0,67},{7,64},{1,75}, prove every cost<=17 canonical-source factorization reduces to\u22645terms, via all441supporttariffs; combine with preciselycitedprior\u22645theorem to close everyrationaldictionary/termcount at thisplacement.",
   "scope_change_reason": "The donor-assigned rational-decoder goal and continuous literature screen led to a seven-query non-Fano gluing. A dimension/incidence proof rejects every no-axial dictionary in this three-mark scope without coefficient or invoice searches.",
-  "bottleneck_link": "Any six-or-more-active-term decoder in this class costs at least18. Combined with the cited prior five-term theorem, a useful three-role canonical-source candidate must include an axial query.",
+  "bottleneck_link": "The fixed three-mark canonical-source family has no saving at any term count; any cheaper factorization there must escape the canonical span on both sides. General density/axial budgets constrain other three-role placements.",
   "budget_minutes": null,
   "stop_rule": "Stop after the source-density proofs, two independent geometry checks, precise prior-theorem interface and focused publication. No coefficient/placement or support-feasibility census.",
   "outcome": "negative-result",
-  "evidence": "PROOF.md gives the new12+n theorem and separately states its prior-dependent all-term corollary; verify.py and independent.py certify the small binary geometry premises. AXIAL-PROOF.md gives the separately audited axial merge and term cap from the same geometry.",
+  "evidence": "PROOF.md gives the new12+n theorem and separately states its prior-dependent all-term corollary; verify.py and independent.py certify the small binary geometry premises. AXIAL-PROOF.md gives the separately audited axial merge and term cap from the same geometry. FIXED-THREE-MARK-SOURCE-SPAN.md and an independent proof audit establish the normalized\u22645reduction; two separate441tariffcheckers certify its premises.",
   "author": "flyingviper",
   "ai_assistance": "Substantial OpenAI Codex assistance for proof, implementation, separate-agent mathematical audit and packaging. No independent human or formal-kernel review claimed.",
   "open_questions": [
     {
-      "question": "Can axial and dense queries share readers below18?",
+      "question": "Does the cheap-tariff obstruction close other three-role placements?",
       "why_it_matters": "Axial queries evade both steps in this source-density floor.",
-      "first_step": "Apply the proved normalized term cap to at most441 source/reader types at one declared placement, imposing exact tariffs, required-entry coverage and impossible-single-cover cancellation constraints.",
+      "first_step": "Check their441source/reader tariffs against the proved unique-cheap-type criterion; if it fails, use the normalized term budget and necessary cancellation constraints.",
       "blocked_by": "No saving identity or sufficient tariff certificate yet."
     },
     {

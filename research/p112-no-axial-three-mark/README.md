@@ -1,4 +1,17 @@
-# Source-density budgets for three ordinary P112 targets
+# Source-span floors and density budgets for three P112 targets
+
+At the fixed marks `{0,67}`, `{7,64}`, `{1,75}`, the package now closes **every
+rational query dictionary in their canonical span**, with arbitrary term count
+and actual readers. The exact minimum is18. A complete441-type tariff table
+and support-monotone normalization reduce any hypothetical cost<=17 decoder
+to at most five terms; the precisely cited prior five-term theorem closes
+that remaining case. The same statement holds with queries and readers
+exchanged. This is an all-coefficient source-span result at one placement,
+not a fixed-dictionary or coefficient-box search.
+
+FIXED-THREE-MARK-SOURCE-SPAN.md gives the new reduction and its exact prior
+dependency. Two independent checkers rebuild all441 tariffs. The general
+source-density budgets below also apply to other distinct ordinary roles.
 
 For three ordinary canonical marks in distinct paired roles, suppose every
 query is in their span and uses at least two marks. Restrict arbitrary actual
@@ -33,22 +46,25 @@ From the repository root, Python3.12 or later, standard library only:
 ```sh
 python3 -I -O -Werror -B research/p112-no-axial-three-mark/verify.py
 python3 -I -O -Werror -B research/p112-no-axial-three-mark/independent.py
+python3 -I -O -Werror -B research/p112-no-axial-three-mark/fixed_three_mark_source_span.py
+python3 -I -O -Werror -B research/p112-no-axial-three-mark/independent_fixed_source_span.py
 python3 -B scripts/research_package.py --package research/p112-no-axial-three-mark
 ```
 
-Both checkers authenticate only the two foundational geometry inputs. Their
+All four checkers authenticate only the two foundational geometry inputs. Their
 normal modes are read-only. They use different rank methods and validate the
 finite premises of the written proof, not the general theorem by enumeration.
 
 The12+n theorem excludes axial queries (a single marked coordinate); the
-12+n-3a bound covers them after the stated normalization. Both exclude exterior
+12+n-3a bound covers them after the stated normalization. The general density statements exclude exterior
 query directions, repeated paired roles, singleton/residual targets and
-changed endpoints. It supplies no cost296 decoder, native schedule, universal
+changed endpoints; the complete source-span closure fixes one placement. It supplies no cost296 decoder, native schedule, universal
 334 floor or improved multiplication bound.
 
 ## Open next questions
 
-- Can axial and dense queries share readers profitably? First use the proved normalized term cap and test the at-most441
+- Can another physical placement admit a cheaper axial/dense mixture? First check whether the complete441-type cheap-tariff obstruction also
+  applies there; otherwise use the normalized term cap and at-most441
   exact support types at one declared placement, with cancellation constraints
   and invoice<=17. Blocker: support feasibility alone does not provide
   compatible nonzero rational coefficients or an exact endpoint.
