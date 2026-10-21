@@ -1,4 +1,46 @@
-# Conditional kappa 0.00231284 from the productive jobs in PR #4359
+# Compiler improvements and native review for PR #4359
+
+## Current comparison with later contributions
+
+The later all-fresh native constructions supersede the `kappa=0.00231284`
+point developed below. The strongest located predecessor PR is
+[PR #4416](https://github.com/CrocSwap/integer-mult-bounds/pull/4416),
+`kappa=0.00268647`, at head
+`e9058860b5c850760fdf970e796a96aefcdb1d98`. Its p7 construction uses
+chronological native composition, paid completion of small productive
+targets, and complete paid splitting. All 41 changed files were checked
+against their exact Git blobs; its integrated source-authenticated replay
+reproduced `RESULT.json` under `python -I -O -B`.
+
+The continuation has now moved to a
+[focused p7 contribution](https://github.com/1337isnot1337/integer-mult-bounds/blob/806d491bcd31caae35e3cf5f8e97cbce40b452e3/research/kappa-4416-improvements/README.md).
+It proves `kappa=0.002686488` with a specified finite template, and
+reduces the sufficient rank at unchanged `kappa=0.00268647` to
+`2^12185590261265`. Its seven files are published at
+`806d491bcd31caae35e3cf5f8e97cbce40b452e3` on the separate branch
+`research/pr4416-log-padding-20261021`. The p3 material here remains
+an independently replayable record of the earlier native and generic
+compiler results.
+
+Its predecessors
+[PR #4412](https://github.com/CrocSwap/integer-mult-bounds/pull/4412)
+at `9f0df9bf6f49942faf5f31389e7e387fdfe511b3` and
+[PR #4414](https://github.com/CrocSwap/integer-mult-bounds/pull/4414)
+at `90da4b0ab894350ca12cac9110cc6da2225d18af` state conditional points
+`0.00247755` and `0.00267987`. Those are full outer points, not merely
+local mixed-moment roots. Their descriptions and endpoint receipts were
+read; the complete new replay here concerns #4416.
+
+The p3 modifications, logarithmic compiler estimates, generic
+weak-separation theorem, scoped packing limit and original-source review
+below retain their separate claims and proofs. The p3 point is not the
+best available conditional saving. The p7 raw invoice has maximum paid
+rank 48 and minimum productive rank 5, so it cannot be substituted
+directly into the weak compiler proved here. Its completed and split
+unit has strict separation and is a suitable input to the logarithmic
+estimate.
+
+## Retained p3 improvement
 
 Under the inherited native and outer-transfer hypotheses of
 [PR #4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359), the
@@ -309,16 +351,27 @@ reproducible in `kappa-4359-log-potential/` and
 
 At the predecessor's original uniform savings, it gives:
 
-| Family | Uniform saving | PR #4359 | Related PR #4405 | Logarithmic bound here |
-| --- | ---: | ---: | ---: | ---: |
-| Complex | `0.002304` | `2^276540184361` | `2^1546084442` | `2^2458275` |
-| BIT before the cover | `0.002760` | `2^6552928412` | `2^42843607` | `2^463652` |
+| Family | Uniform saving | PR #4359 | Related PR #4405 | Related PR #4411 | Logarithmic bound here |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Complex | `0.002304` | `2^276540184361` | `2^1546084442` | `2^2352000` | `2^2458275` |
+| BIT before the cover | `0.002760` | `2^6552928412` | `2^42843607` | `2^529000` | `2^463652` |
 
 These are comparisons of sufficient ambient ranks. The expanded words,
 batch multiplicities, and constants remain enormous. A smaller
 sufficient rank does not by itself give a practical runtime measurement.
 
-## Related contributions found in the final overlap check
+## Related contributions
+
+[PR #4411](https://github.com/CrocSwap/integer-mult-bounds/pull/4411),
+by zxv at `ec2c9505d863c7f5f2a5f08628e8ee6fb740c0a7`,
+independently supplies a logarithmic compiler majorant. Its stated
+sufficient ranks at unchanged supplier savings appear above. Retuning
+the consumer while keeping final `kappa=0.0023` gives the smaller
+reported ranks `2^465000` and `2^7100`; the supplier savings then change
+to `0.0023005` and `0.002318`. These retuned ranks are not comparisons
+at unchanged supplier savings. No priority claim is made for the
+logarithmic-majorant idea. This comparison records #4411's source
+description and receipts, not a complete independent native replay.
 
 [PR #4405](https://github.com/CrocSwap/integer-mult-bounds/pull/4405), at
 head `873d1b3c96a83b701a5c0bba8e37a861e6672fef`, proves a strict outer
@@ -342,11 +395,13 @@ stated scope excludes the native word, denominator clearing, delayed BIT
 cover and outer transfer. The review retained here records its own
 broader source/ownership/operator scope and reproduction limits.
 
-These related public contributions were located during the final
-2026-10-21 overlap check. The search is not an exhaustive novelty audit;
-Discussion coverage was unavailable. Both PR heads and stated scopes
-were recorded, and #4405's endpoint and template proofs were read.
-Their different claims remain separate from the new native result.
+These public contributions were located during the 2026-10-21 overlap
+checks, including a refreshed search after the user identified newer
+points. The search is not an exhaustive novelty audit; Discussion
+coverage was unavailable. Exact heads and stated scopes are recorded.
+#4405's endpoint and template proofs and #4416's native, composition,
+padding and endpoint proofs were read. Their stronger native
+constructions remain separate from the retained p3 result.
 
 ## Reproduction
 
