@@ -45,12 +45,12 @@ partitions in the [family record](research-family-status.md#current-leads).
 
 | AUDIT.md obligation | Open audits | Reported outcome | Still open |
 | --- | --- | --- | --- |
-| Fine primes and setup precision | None for #4100's parameters | n/a | The Trudgian interval consequence at `θ∈[1/(4p²),1/p²]`, `d=Θ(p^ε)`. Merged #4029 (ToikY) proves prime supply for the earlier `D=Θ(p^.997)` tensor caller on different intervals, so it does not discharge this row. |
+| Fine primes and setup precision | Merged lineage audit [`pr1786-fine-prime-transfer-audit`](../../research/pr1786-fine-prime-transfer-audit/README.md). #4100's `vendor/FINE-PRIME.md` is byte-identical to the PR1786 text it audits (SHA256 `47d1b1b4…`). | Positive. The `θ` interval is exact for `p=2..2000`, and `S/T > 1/2` whenever `d ≤ p`. The Trudgian step is sound. Setup precision satisfies `a ≤ 16⌈log₂ p⌉` for every `p ≥ 3`. | Only the size of "eventually" at #4100's `ε = 1−10^−30`. The audit's cutoff condition gives `ln p ≈ 4.3·10⁸` at `ε = 0.9999999`; the same condition gives roughly `ln p ≈ 1.5·10³²` here (my estimate, informational). Merged #4029 (ToikY) covers a different tensor caller. |
 | Gaussian conditioning, narrow | #4282; #4283, #4285, #4286 | **#4282:** INVERSE-CONDITIONING.md's compression sentence does not cover the circular sections the caller uses. Counting walks inside an arc repairs it. Under the caller's stated gap, bandwidth and row norm, both 2-norms are below `p^10` for every `p≥2`. #4283/#4285/#4286: Schur complements do not keep bandwidth `b` (a middle interval reaches `2b−1`; circular arcs follow arc length), but the inverse bounds survive. | Whether the row-gap hypothesis itself holds (see the row-gap row below). Whether GAUSSIAN.md's `O(W)` Schur bandwidth at the actual carve matches #4285's `2b−1` cap. Not checked here. |
 | Gaussian conditioning, broad | #4193; [#4191](https://github.com/CrocSwap/integer-mult-bounds/discussions/4191) | A tightening, not a defect: the capped broad inverse allowance improves from `p^6` to `p^(1+ξ+o(1))`. | Its truncation-perturbation condition at the caller. |
-| Narrow row-gap estimate `‖N−I‖∞ ≤ e^(−2aθ)+5e^(−2a)` after alias removal, truncation and rounding | #4304, #4305, #4307, #4308, #4309 (finite instances at `p=19`) | Origin-dependent. With a centred chirp, one entry is `exp(63π/1444) > 1` (#4304). With origin `t_i=i`, every row and one Schur section stay below the displayed bound, and that section's diagonals lie in `(0,1]` (#4305/#4307/#4308/#4309). | **The all-size estimate.** This is #4217's open question 1. Which origin GAUSSIAN.md's caller actually uses has not been bound. |
+| Narrow row-gap estimate `‖N−I‖∞ ≤ e^(−2aθ)+5e^(−2a)` | Retained proof: [PR1673 LOG-A-PHASE-SCHUR-AUDIT.md §1](../../research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md), valid for every `θ>0` and counting the periodic aliases. It is re-derived independently in that package's [lineage review](../../research/capped-phase-fusion/evidence/independent_fusion_review_ultra/gaussian_layout_review.md) and in the merged `pr1786-fine-prime-transfer-audit`. | Positive. The `1/(8p²)` margin holds for every `p ≥ 1` (checked exactly to 5000), and the column analogue is proved. #4304–#4309 are `p=19` instances of the shifted interior kernel `exp(−aρh²−2aβ0h)`, not of `N`'s rows; with a centred chirp one entry exceeds 1 (#4304). | An explicit statement that alias removal, band truncation and rounding keep half the gap (PR1786 asserts this in one sentence; #4217's open question 1). Which chirp origin the interior caller uses. |
 | Shallow interior and tensor circuits | #4198, #4205, #4209, #4220; [#4196](https://github.com/CrocSwap/integer-mult-bounds/discussions/4196), [#4202](https://github.com/CrocSwap/integer-mult-bounds/discussions/4202) | Positive scoped results: exact rational Stein generators (#4198), rounded words executed against shared finite-core references (#4205), same-ρ Schur closure for the parity-triangular child (#4209), and an independent scalar-enclosure oracle (#4220). | A full tensor-circuit cost. Each PR lists its own remaining hypotheses. |
-| Boundaries and current sparse values | #4186; [#4182](https://github.com/CrocSwap/integer-mult-bounds/discussions/4182) | Positive. The rounded block-solve error at gap `1/(16p²)` has no factor equal to the number of row blocks. | **The per-visit union schedule** (vendor/UNION-SCHEDULE.md): visit count `Σ|F(x)|`, `gV`-bit indicator stacks. No audit found. |
+| Boundaries and current sparse values | #4186; [#4182](https://github.com/CrocSwap/integer-mult-bounds/discussions/4182) | Positive. The rounded block-solve error at gap `1/(16p²)` has no factor equal to the number of row blocks. | **Physical head travel of the per-visit union schedule** (vendor/UNION-SCHEDULE.md §2.3 and the variable-length transpose); the source itself flags both for review. Its operator and volume identities were reviewed in merged PR2578 ([`pr1731-union-rect-review`](../../research/pr1731-union-rect-review/README.md)) on the predecessor text, and #4100's copy changes only the numbers in §5b. In #4100 the union row has slack ≈ 0.406. |
 | Position-dependent halo corrections | #4217 | Positive, with a minor slip. The locality witness has the exact radius `(2J−1)W`. The core error constant should be `2g`, not `g`; the `2^−Cp` margin absorbs this. | Charging the source-driven enumeration when an address lies in many rectangles (#4217's open question 2). The halo ledger rows. |
 | Common-grid precision at the Gaussian caller | #4178; [#4175](https://github.com/CrocSwap/integer-mult-bounds/discussions/4175) | See #4178 in the complex recursion row above. | The author's response. |
 
@@ -62,29 +62,39 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Local-ring split ranks | #4215 | Positive. The normal-form identity holds over every commutative ring, with exhaustive checks on small rings. | The `f>1` fiber argument was not executed. |
 | Good and bad packets at every width | #4227, #4228; #4239, #4246 and successors | A sharpening, not a defect. Exact good-header fractions are given for every rank. The bad fraction is below `(r+1)/q`, so each request fits `43/(2^89−1)`. They hold only for *complete, equally weighted* header covers; a restricted cover can be entirely bad. | **Binding the count to the actual emitted header stream** (#4215's open question 1, #4228's open question 1). |
 | Fallback child bound | #4237; #4247, #4262; #4235, #4245 | The 49,911-child bound is valid but not sharp: the sharp maximum is 33,269 at `m=64`, `f≥2` (#4237). The conjectured rank-dependent bound is refuted (#4247), and the excess is unbounded (#4262). #4235 is an alternative pivoted fallback with at most `1+12r` children, with #4245 bounding pivot policies. | Which headers actually reach the fallback in the BIT recurrence. |
-| Weighted leaves and fast header routes | None found | n/a | BIT.md's two completed stages that use the preceding stage at both reached primitive sites. |
-| Row stock, whole high packets and fixed tapes | None found | n/a | Divisible stock, depth induction, complete-field preparation, encoded state and geometric work accounting. #4228 and #4235 exclude these explicitly. |
+| Weighted leaves and fast header routes | No #4100-specific audit. BIT.md reuses PR2915's reached call sites; see the [physical contract map](selected-bit-physical-contract-map.md) for that lineage's review status. | n/a | BIT.md's two completed stages that use the preceding stage at both reached primitive sites, at the new `c`. |
+| Row stock, whole high packets and fixed tapes | No #4100-specific audit. BIT.md cites the PR2809 block construction, which is still partially reviewed ([caller and storage map](selected-bit-caller-storage-map.md)). | n/a | Divisible stock, depth induction, complete-field preparation, encoded state and geometric work accounting. #4228 and #4235 exclude these explicitly. |
+| BIT recurrence moment at the retuned `c = 8667/5,000,000` | Author check only (`check_composition.py`). #4171 checks the bootstrap constants `a1`, `a2`, not this moment. | Computed here at 50 digits (informational, not certified): `μ_1 = 0.9943517737` and `μ_(1−c) = 0.9999999116`, a margin of `8.8·10⁻⁸`. The root in `c` is `≈ 0.00173342704`, matching the selected BIT primitive. `H` is the selected PR589 profile; one extra rank-1 child would add `≈ 5.5·10⁻⁷` and exceed the margin at this `c`. | A certified independent enclosure of `μ_(1−c)`. |
 | Chirp generation | #4320 (the identity only) | Positive. The chirp identity holds for all `x, z` exactly when `s·t` is even, so PROOF.md's even-`t` condition suffices. | The head-travel tariff for the cached tables, prefix products and rewinds. |
-| Input order and exact recovery | #4320 | Positive. The address isomorphism (equal to CRT.md's root map), synthetic convolution, Gaussian identity and factorization, dilation commutation and recovery inequalities all hold with PROOF.md's normalizations. `T < 2^b` holds from `b ≥ 8`. A presentational note: the carry scan must flush a final carry when `S = 2Ndigits − 1`. | The `2^-4p` precision constant, and invertibility of `N` (the row-gap row above). |
+| Input order and exact recovery | #4320 | Positive. The address isomorphism (equal to CRT.md's root map), synthetic convolution, Gaussian identity and factorization, dilation commutation and recovery inequalities all hold with PROOF.md's normalizations. `T < 2^b` holds from `b ≥ 8`. A presentational note: the carry scan must flush a final carry when `S = 2Ndigits − 1`. | The `2^-4p` precision constant. Invertibility of `N` follows from the retained row gap (see the row-gap row above). |
 | Strict powers and logarithms | #4171 | Positive. A second implementation shows every paid-power and side-condition slack strictly positive, and all five obsolete routes still rejected. | None within the ledger; the ledger does not validate the constructions. |
 
 ## Shortest list of unaudited obligations
 
-At this check, no open PR or discussion audits the following. All lie on the
-critical path of the written theorem.
+At this check, nothing audits the following: no open PR or discussion, and no
+merged audit of byte-identical lineage text. All lie on the critical path of
+the written theorem.
 
 1. BIT.md: weighted leaves and fast header routes, and the row-stock,
-   whole-high-packet and fixed-tape induction.
+   whole-high-packet and fixed-tape induction, at the new `c`. Their PR2809,
+   PR2899 and PR2915 lineage is partially reviewed; start from the two BIT
+   scope maps.
 2. PROOF.md: the chirp-table head-travel tariff and the `2^-4p` precision
-   constant. Its algebraic identities are audited in #4320.
-3. GAUSSIAN.md: the per-visit union schedule, and the fine-prime interval
-   consequence at #4100's parameters.
-4. GAUSSIAN.md: the all-size narrow row-gap estimate, with the caller's chirp
-   origin bound. Only `p=19` instances exist.
-5. CRT.md: exception extraction, sorting and reinsertion, and the full uniform
+   constant. Its algebraic identities are audited in #4320. The tariff
+   matters: one leftover `d` factor would make that row's power
+   `ε > 1−κ`, which the ledger rejects.
+3. GAUSSIAN.md: physical head travel of the union schedule. Its algebra is
+   reviewed in the lineage, and the row has large slack.
+4. CRT.md: exception extraction, sorting and reinsertion, and the full uniform
    `E(p,ell)` evaluator from CRT data.
-6. COMPLEX.md: the arbitrary-f lift's complete-cover execution and physical
+5. COMPLEX.md: the arbitrary-f lift's complete-cover execution and physical
    placement.
+
+**Correction, 2026-10-21 08:20 UTC.** Earlier versions of this map listed
+the fine-prime interval and the all-size narrow row gap as unaudited. Both
+have merged lineage audits of identical or cited text: PR1673's LOG-A §1 with
+its review, and `pr1786-fine-prime-transfer-audit`. The first search covered
+only open records that cite #4100, so it missed them.
 
 Name one proposition and its actual caller before starting; the card asks for
 one quantified implication. Search again first: this list goes stale quickly.
