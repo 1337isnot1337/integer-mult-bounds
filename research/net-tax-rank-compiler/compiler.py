@@ -288,7 +288,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('profile', type=Path, nargs='?')
     parser.add_argument('witness', type=Path, nargs='?')
-    parser.add_argument('--example', help='replay one source-bound BENCHMARKS.json example')
+    parser.add_argument('--example', help='replay a BENCHMARKS.json example; verify.py authenticates sources')
     args = parser.parse_args()
     if args.example:
         if args.profile or args.witness:

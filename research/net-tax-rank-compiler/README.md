@@ -13,7 +13,8 @@ The contribution is four connected proof steps and a generic exact checker:
 
 1. **Net splitting and completion taxes.** Charge the increase in paid
    moment and retain the productive moment added by same-owner completion.
-   The splitting coefficient scales as `O(C/u)` rather than a fixed two.
+   For `C<=u<=1`, the splitting coefficient scales as `O(C/u)` rather
+   than a fixed two.
 2. **Normalized logarithmic majorants.** Use `(1+log2(n)/h)^p`, checking the
    entire ordinary base range at one endpoint. The scale is a certified
    parameter adapted to the finite unit.

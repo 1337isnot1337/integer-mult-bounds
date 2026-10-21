@@ -119,12 +119,14 @@ def expect_rejected(profile, witness, fragment, mutate):
 
 def run():
     sources = authenticate()
+    E.need(FLOW in sources, 'literal oracle must be an authenticated live input')
     tests = unittest.defaultTestLoader.loadTestsFromModule(test_math)
     stream = io.StringIO()
     tested = unittest.TextTestRunner(stream=stream, verbosity=1).run(tests)
     E.need(tested.wasSuccessful(), stream.getvalue())
     examples, profiles, witnesses = {}, {}, {}
     for case in json.loads((HERE/'BENCHMARKS.json').read_text())['cases']:
+        E.need(case['source'] in sources, 'benchmark source must be an authenticated live input')
         source = json.loads((ROOT/case['source']).read_text())
         kind = 'p7' if case['profile_key'] else 'native'
         if kind == 'native':
