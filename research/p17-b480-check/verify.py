@@ -238,6 +238,46 @@ def main():
         need(bound < 1, f"{name}: tensor bound at v = 1024")
         out[name] = {"alpha_upper": f"{float(a_hi):.15f}", "gamma_u_upper": f"{float(g_hi):.12f}",
                      "delta_upper": f"{float(d_hi):.12f}", "tensor_bound_upper": f"{float(bound):.10f}"}
+    # #4446: rank-one tail (gamma = P_1/(c^C T)), v = 17160, c = 18, b = 19, ambient 281^v; power-majorant compiler
+    C, v, c, b, kap = Q(1500527, 500000000), 17160, 18, 19, Q(3001053, 10**9)
+    t = 1 - C
+    tl, th = mom(T, t)
+    a_hi = mom(P4441, t)[1] / tl
+    P1 = sum(k * w for k, w in P4441.items())
+    g_hi = P1 / (powq(c, C)[0] * tl)
+    d_hi = sum(T.values()) * b / (powq(c, C)[0] * tl)
+    for got, want in ((a_hi, "0.99999999981197332875426410809243317"), (g_hi, "0.99907124299228386730839393376721824"),
+                      (d_hi, "0.84399113766577138522456189514008498")):
+        need(abs(got - Q(want)) < Q(1, 10**30), "#4446: ratio matches its printed interval")
+    la, lg, ld = 1 - Q(1, 10**10), Q(9991, 10000), Q(6, 7)
+    need(a_hi < la and g_hi < lg and d_hi < ld, "#4446: below stated limits")
+    need(lg ** 780 < Q(1, 2) and ld ** 5 < Q(1, 2), "#4446: decay blocks")
+    bound = 1 / (1 + v * (1 - la)) + 2 * Q(1, 2 ** 22) + 2 * Q(1, 2 ** (v // 5))
+    need(bound < 1, "#4446: alpha^v + 2 gamma^v + 2 delta^v < 1")
+    need(18 ** 55 < 19 ** 54, "#4446: theta = log 18 / log 19 < 54/55")
+    h, d = Q(1, 55), (C - kap) / 7
+    z = 1 - (kap + 6 * d)
+    z0 = (t + z) / 2
+    dl = z0 - t
+    need(dl == Q(1, 14000000000), "#4446: delta gap")
+    Bexit, negl2eta = Q(88608), Q(32513793811, 70000000)
+    l2 = ln(2)
+    true_B = v * (ln(18)[1] + h * ln(281)[1]) / l2[0]
+    need(true_B < Bexit, "#4446: exit constant dominates log2(r_max m^h) at ambient 281^v")
+    s_, term = Q(0), 1 - z0
+    for j in range(1, 30):
+        s_ += term / j
+        term *= (1 - z0)
+    true_negl2eta = (s_ + term / z0) / l2[0] + (1 - z0) * v * ln(281)[1] / l2[0]
+    need(true_negl2eta < negl2eta, "#4446: -log2(eta) upper bound dominates")
+    H0 = -((-(Bexit * dl + negl2eta)) // (h * dl))
+    r = H0 * (1 - z0) / (z - z0)
+    H1 = r.numerator // r.denominator + 1
+    need(H0 == 357651736794440 and H1 == 15026650096742881962201, "#4446: H0, H1 reproduced")
+    out["4446"] = {"alpha_upper": f"{float(a_hi):.15f}", "gamma_upper": f"{float(g_hi):.12f}",
+                   "delta_upper": f"{float(d_hi):.12f}", "tensor_bound": f"{float(bound):.10f}",
+                   "exit_constant": [f"{float(true_B):.1f}", 88608], "neg_log2_eta": [f"{float(true_negl2eta):.3f}", f"{float(negl2eta):.3f}"],
+                   "H0": H0, "H1": H1}
     print(json.dumps(out, indent=1))
 
 

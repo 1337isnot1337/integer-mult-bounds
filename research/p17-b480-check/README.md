@@ -1,4 +1,4 @@
-# Independent arithmetic check of the p17 chain: #4440, #4441, #4447, #4453
+# Independent arithmetic check of the p17 chain: #4440, #4441, #4446, #4447, #4453
 
 **Claim type:** an independent certified arithmetic check. **No new κ, and neither PR is
 accepted.** The native contact replay is not re-run. Two PRs report the same patch, made at phase B
@@ -64,6 +64,25 @@ not re-derived.
 | BIT (`c = 17`, `b = 18`) | 0.999995735238060 | 0.957429821066 | 0.949707924145 | `< 0.99565187` |
 
 All six ratios match #4440's printed interval endpoints to within `10⁻²⁸`.
+
+## #4446
+
+**#4446** (κ = 0.003001053) uses #4441's invoice with the rank-one tail of #4416, where
+`γ = P₁/(c^C T_t)`. Its parameters are `v = 17160`, cutoff `18^v`, target floor `19^v` and ambient
+`281^v`. Its ratios match the 36-digit printed intervals to `10⁻³⁰`:
+
+- `α < 0.999999999811973`;
+- `γ < 0.999071242992`, against the limit 9991/10000;
+- `δ < 0.843991137666`, against the limit 6/7.
+
+The tensor bound is 0.99999876. Its compiler is #4405's refined power majorant. Each conservative
+constant it uses dominates the true quantity:
+
+- the exit constant 88,608 exceeds the actual `log₂(r_max·m^h) = 74,093.9`;
+- the bound `−log₂η ≤ 464.483` exceeds the actual value, 418.912;
+- `18^55 < 19^54` gives `θ < 54/55`.
+
+The stated `H0` = 357,651,736,794,440 and `H1` = 15,026,650,096,742,881,962,201 reproduce exactly.
 
 ## Not covered
 
