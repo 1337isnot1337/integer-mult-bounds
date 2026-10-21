@@ -113,7 +113,7 @@ def main():
     require(violation is not None, 'relaxed schedule unexpectedly satisfies ordinary caps')
 
     constructor = ROOT/'research/complex-k492-owner-repair/code/construct_k_triangle.py'
-    auditor = ROOT/'research/complex-k492-owner-repair/code/hpe_audit_and_transport.py'
+    auditor = ROOT/'research/complex-sw4-frame8/local/hpe_audit_and_transport.py'
     inputs = ROOT/'research/direct-delivery504-global/inputs/hamming'
     triangles = ROOT/'research/complex-k492-owner-repair/data/TRI-SCHEDULE.json'
     routing = ROOT/'research/direct-delivery504-global/inputs/data-base/split-centres/CANONICAL-WORD.json.gz'

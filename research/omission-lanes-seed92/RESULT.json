@@ -14,7 +14,6 @@
     "extra omission map",
     "missing last partial-batch lane",
     "missing helper output row",
-    "pin research/r439-omission-atlas-seed81/verify.py",
     "pin research/r439-omission-atlas-seed81/SOURCES.json",
     "pin research/r439-omission-atlas-seed81/CERTIFICATE.json",
     "pin research/r439-helper-stars-seed19/candidate.json.gz",
@@ -33,7 +32,13 @@
   "rows_per_matrix": 661,
   "scope": "Finite PR1017 omission replay only; no new kappa or full theorem proof.",
   "seed": 92,
-  "short_word_batch_sizes": [1, 2, 3, 16, 64],
+  "short_word_batch_sizes": [
+    1,
+    2,
+    3,
+    16,
+    64
+  ],
   "short_words": 1564,
   "status": "PASS_PACKED_OMISSION_EQUIVALENCE"
 }

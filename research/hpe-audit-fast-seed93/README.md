@@ -2,6 +2,8 @@
 
 **Status: tooling improvement (verification engineering). No new κ. No check is changed, removed or weakened; the selected result is unchanged.**
 
+After `research/hpe-transport-integer-production/`, production k492 `hpe_audit_and_transport.py` ships the integer-row rewrite; this opt-in package still pins and compares against the pairwise PR635 vendor copy.
+
 - **Track and seed:** track 85–94 (verification engineering), assignment seed **93** from the OS CSPRNG (Python `secrets`).
 - **Base commit:** `ba82555c64e1879e4b7decce28186f208fcb8262`.
 - **Adds:** this directory and two Makefile targets. No existing file is modified.

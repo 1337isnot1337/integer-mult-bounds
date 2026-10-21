@@ -1,5 +1,10 @@
 # R439 complete single-ADD omission atlas
 
+**Production note:** literal single-omission maps now use the packed integer-lane
+replay from `research/omission-lanes-seed92/` / [#1433](https://github.com/CrocSwap/integer-mult-bounds/pull/1433)
+(wired by `research/omission-lanes-production/`). Mathematical receipts are
+unchanged.
+
 **Finite independent verification; no new kappa.** In PR967's frozen 5,563-ADD D phase, every single elementary ADD omission changes the complete D boundary. All 5,563 resulting linear-map differences are distinct and have rank one. Observing only the 111 target outputs misses exactly **221 omissions**, all in the final helper-restoration region. Even observing every output on the single all-ones input misses **1,522 omissions**.
 
 This package supplies an exact fault-class census, all 221 concrete helper-only witnesses, and a practical independent replay. It does not propose a new circuit or improve the selected frontier.

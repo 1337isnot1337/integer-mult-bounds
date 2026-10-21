@@ -1,10 +1,14 @@
 # Exact data-corner replay with cached update columns
 
 **Tooling improvement; no new κ or construction claim.** This optional runner
-accelerates the historical `research/copied-fixed/data_corners.cpp` checker.
-It preserves the complete domain of 4,073,300 pairs of triples, every existing
-assertion, and the complete output receipt, including all ten modular failures.
-At the recorded base, the selected #626/#543 conditional result was
+proved a per-pivot cached update-column loop for the historical
+`research/copied-fixed/data_corners.cpp` checker. After
+`research/data-corner-production/`, that loop is the **production** default;
+this package vendors the pairwise-era source as `baseline.cpp` and differential
+replays baseline versus production. It preserves the complete domain of
+4,073,300 pairs of triples, every existing assertion, and the complete output
+receipt, including all ten modular failures. At the recorded base, the selected
+#626/#543 conditional result was
 κ = 51110230636731/31250000000000000 = 0.001635527380375392.
 
 ## Reproduce
