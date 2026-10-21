@@ -26,3 +26,18 @@ and not part of the verifier. Run it with `python3.12 -B depth_variants.py`.
 `g`. Can #4405's induction absorb a tiny low-source mass, for example through the induction hypothesis
 at smaller rank? If so, a mixed-depth flow could lift the single-step ceiling. That is a question for
 #4436 and #4405, and it is not claimed here.
+
+## Conservative mixed depth (`depth_mixed_scan.py`, about 10 min)
+
+Low sources (`≤ N/m`) get **no credit**: they are dropped from the denominator. The table gives
+`sup κ` over the 5% grid with `3·10⁵ ≤ N < 2.5·10⁶`.
+
+| saving | η | depth `G0` | depth `G0−1` | per-rank best of the two |
+| --- | --- | --- | --- | --- |
+| 0.001 | 0.994220 | 0.995037 | 0.995786 | **0.994521** |
+| 0.0012 | 0.993068 | 0.995623 | 0.996568 | 0.995199 |
+| 0.0015 | 0.991343 | 0.996504 | 0.997743 | 0.996165 |
+
+Choosing the depth rank by rank helps, but only modestly: about 0.0005 in κ. Under this conservative
+reading it does not yet certify 0.001 by `2.5·10⁶`. Depth `G0−1` alone is worse in the supremum,
+because it loses near the level changes.
