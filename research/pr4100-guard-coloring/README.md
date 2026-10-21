@@ -91,18 +91,51 @@ fragments:
   388,466 plan-layers contain exceptions, up to all 5 targets. At these sizes
   `K/|y| ≈ 13%`. #4187 audits that branch at `O(VK)`.
 
+### 4. Other admitted width patterns
+
+The same census ran on eight more width patterns at `d = 65,536`, each
+accepted by #4174's `Layout`:
+
+| Pattern | Plans | Possible same-color pairs | Aligned: max multiplicity / exact-`K` pairs | Plans with last-`K` axes |
+| --- | --- | --- | --- | --- |
+| alternating 24/23 (production) | 104,864 | 0 | 1 / 0 | 16,225 |
+| blocked: 24 on axes 0..32767, then 23 | 104,864 | 0 | 1 / 0 | 16,534 |
+| blocked: 23 on axes 0..32767, then 24 | 104,864 | 0 | 1 / 0 | 15,925 |
+| uniform 24 | 104,864 | 0 | 1 / 0 | 15,899 |
+| uniform 23 (all `ell−1`, `r_max = 4`) | 131,072 | 0 | 1 / 0 | 20,654 |
+| random, half short, seed 4100 | 104,864 | 0 | 1 / 0 | 16,227 |
+| random, half short, seed 4174 | 104,864 | 0 | 1 / 0 | 16,232 |
+| random, 1/8 short, seed 4329 | 104,864 | 0 | 1 / 0 | 15,986 |
+| alternating 32/31 (`ell = 32`, `K = 229,376`) | 104,864 | 0 | 1 / 0 | 14,078 |
+| **uniform 24, one `ell−1` axis at 20000** | 104,864 | **1** (exact `K`) | 1 / 0 | 15,899 |
+| **uniform 24, `ell−1` axes 16384..16407** | 104,864 | **1** (exact `K`) | **2 / 24** | 15,899 |
+
+In every pattern, every active axis lies in `y`, and wherever a color holds
+two targets, the `(K−1)`-bit windows are checked directly to be target-free.
+
+**The vacuity is pattern-specific, and the `K−1` correction is needed on
+admitted layouts.** Uniform 24 comes within one bit of a collision. At level
+14, batch 1638 pairs axes 16383 and 24576. A batch can straddle a skipped
+left half, and here the 8,193 axes between them span `196,632 = K + 24` bits.
+Shortening 24 of the axes in between gives an admitted pattern (the last row)
+where the aligned Beneš schedule puts two active targets of one color
+**exactly `K` apart** at 24 layers. Under literal `K`-bit guards each such
+target sits inside the other's window, which is the gadget failure of §2.
+With `(K−1)`-bit guards those windows are target-free. Shortening a single
+axis instead reaches exact `K` for some bit schedule, but not the aligned one.
+
 ## Evidence
 
-`verify.py` uses only the standard library and takes about 18 seconds. It
+`verify.py` uses only the standard library and takes about 2 minutes (11 censuses). It
 also checks the source bindings: SHA256 pins of CRT.md and
 `check_batched_crt.py`, 3 exact CRT.md phrases, `good()`'s `guard−1` window
 expression, and the byte hash of the vendored allocator.
 
 ## Not covered
 
-- Other production layouts. Only #4174's own pattern is censused here.
-  Other mixed-width patterns or larger `ell` could, in principle, create
-  same-color pairs; the lemma still covers them with `(K−1)`-bit guards.
+- Other values of `d` and `ell`. Eleven patterns are censused at
+  `d = 65,536`, with `ell ∈ {24, 32}`. The lemma covers every descriptor with
+  `(K−1)`-bit guards.
 - The elementary last-`K` branch's correctness (#4187).
 - The control-function supports (#4169, #4174).
 - There is no proof-kernel check.
@@ -120,17 +153,21 @@ The verifier prints `PASS_PR4100_GUARD_COLORING_FINITE`.
 ## Open next questions
 
 1. **Price macros per occupied color, not per residue.**
-   - *Why it matters:* at production every color is a singleton, so a layer
-     uses at most `r_max` macros per batch rather than `K`. The tariff could
+   - *Why it matters:* in every regular pattern each color is a singleton, so
+     a layer uses at most `r_max` macros per batch rather than `K`. The tariff could
      be stated per occupied color.
    - *First step:* bound occupied colors per batch by `r_max` in the CRT §4
      cost line.
    - *Blocked by:* nothing.
-2. **Census other admitted width patterns.**
-   - *Why it matters:* the vacuity finding is pattern-specific.
-   - *First step:* run the census on blocked and random `ell`/`ell−1`
-     patterns at `d = 65,536`.
-   - *Blocked by:* nothing; about 20 seconds per pattern.
+2. **Fix the window convention in the written construction.** (The earlier
+   question 2, other width patterns, is answered in §4.)
+   - *Why it matters:* an admitted layout puts same-color targets exactly `K`
+     apart, so the text's "K-bit guard" must become `(K−1)` bits, or the
+     coloring must be mod `K+1`. That change also changes #4321's hypothesis
+     wording.
+   - *First step:* restate CRT.md §4's predicate with `(K−1)`-bit windows and
+     re-derive `8B/2^K`.
+   - *Blocked by:* author or maintainer action on #4100's text.
 
 ## Credit
 

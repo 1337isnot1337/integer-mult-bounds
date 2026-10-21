@@ -199,7 +199,10 @@ def census(alloc, ell, widths):
                 if len(same) > 1:
                     stats["aligned_multi_target_colors"] += 1
                     same.sort()
-                    stats["aligned_exact_K_pairs"] += sum(b - a == K for a, b in zip(same, same[1:]))
+                    gaps = [b - a for a, b in zip(same, same[1:])]
+                    # (K-1)-bit windows [j+1, j+K-1]: disjoint and free of the other targets iff every gap >= K.
+                    need(all(gap >= K for gap in gaps), "(K-1)-bit windows are target-free on actual descriptors")
+                    stats["aligned_exact_K_pairs"] += sum(gap == K for gap in gaps)
             exceptions = sum(j > ylen - K for j in js)
             if exceptions:
                 stats["aligned_exception_layers"] += 1
@@ -209,20 +212,76 @@ def census(alloc, ell, widths):
     return stats
 
 
+def random_widths(ell, seed, short_fraction):
+    """Deterministic pseudo-random ell/ell-1 pattern (64-bit LCG, no external state)."""
+    state, out = seed, []
+    for _ in range(65536):
+        state = (6364136223846793005 * state + 1442695040888963407) % (1 << 64)
+        out.append(ell - 1 if (state >> 11) / (1 << 53) < short_fraction else ell)
+    return tuple(out)
+
+
+HALF = 32768
+PATTERNS = [
+    ("alternating 24/23 (#4174 production)", 24, tuple(24 - (i % 2) for i in range(65536))),
+    ("blocked: 24 on axes 0..32767, then 23", 24, (24,) * HALF + (23,) * HALF),
+    ("blocked: 23 on axes 0..32767, then 24", 24, (23,) * HALF + (24,) * HALF),
+    ("uniform 24", 24, (24,) * 65536),
+    ("uniform 23 (all ell-1)", 24, (23,) * 65536),
+    ("random, half short, seed 4100", 24, random_widths(24, 4100, 0.5)),
+    ("random, half short, seed 4174", 24, random_widths(24, 4174, 0.5)),
+    ("random, 1/8 short, seed 4329", 24, random_widths(24, 4329, 0.125)),
+    ("alternating 32/31", 32, tuple(32 - (i % 2) for i in range(65536))),
+]
+
+
+def with_short(shorts):
+    widths = [24] * 65536
+    for i in shorts:
+        widths[i] = 23
+    return tuple(widths)
+
+
+# Uniform 24 misses a multiple of K by one bit: at level 14, batch 1638 pairs axes 16383 and
+# 24576, which are 8,193 axes = 196,632 = K + 24 bits apart. Shortening axes between them
+# lands pairs exactly on K. Both patterns are admitted by #4174's Layout.
+ADVERSARIAL = [
+    ("uniform 24, one ell-1 axis at 20000", 24, with_short([20000]), "possible"),
+    ("uniform 24, ell-1 axes 16384..16407", 24, with_short(range(16384, 16408)), "aligned"),
+]
+
+
 def main():
     crt, alloc, phrases = check_sources()
     lemma_cases = check_lemma()
     gadget = check_gadget(crt)
-    widths = tuple(24 - (i % 2) for i in range(65536))   # #4174's production pattern
-    production = census(alloc, 24, widths)
+    production = census(alloc, 24, PATTERNS[0][2])
     need(production["plans"] == 104864 and production["axis_visits"] == 524288,
          "same plan count as #4174's production census")
+    patterns = [dict(pattern=PATTERNS[0][0], short_axes=PATTERNS[0][2].count(23), **production)]
+    for name, ell, widths in PATTERNS[1:]:
+        patterns.append(dict(pattern=name, short_axes=widths.count(ell - 1), **census(alloc, ell, widths)))
+    for row in patterns:
+        need(row["possible_same_color_pairs"] == 0 and row["aligned_max_color_multiplicity"] == 1,
+             f"no same-color pair on the regular pattern {row['pattern']}")
+    for name, ell, widths, kind in ADVERSARIAL:
+        row = dict(pattern=name, short_axes=widths.count(ell - 1), **census(alloc, ell, widths))
+        need(row["possible_exact_K_pairs"] > 0, f"exact-K spacing reachable on {name}")
+        if kind == "aligned":
+            need(row["aligned_exact_K_pairs"] > 0, f"aligned schedule puts same-color targets exactly K apart on {name}")
+        patterns.append(row)
     print(json.dumps({
         "status": "PASS_PR4100_GUARD_COLORING_FINITE",
         "source_bindings": phrases,
         "lemma_cases": lemma_cases,
         "gadget": gadget,
         "production_census": production,
+        "pattern_census": [{k: row[k] for k in (
+            "pattern", "ell", "short_axes", "L", "K", "r_max", "plans", "targets_outside_y",
+            "possible_same_color_pairs", "possible_exact_K_pairs", "aligned_target_visits",
+            "aligned_max_color_multiplicity", "aligned_multi_target_colors", "aligned_exact_K_pairs",
+            "plans_with_possible_exception_axes", "aligned_max_exceptions_per_layer", "max_pair_distance")}
+            for row in patterns],
         "all_size_theorem_claimed": False,
         "new_kappa_claimed": False,
     }, indent=1))

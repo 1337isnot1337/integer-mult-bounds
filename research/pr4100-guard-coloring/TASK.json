@@ -54,13 +54,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Decide the disjoint-guard premise of #4100 CRT.md section 4 under position-mod-K coloring: a window lemma, a counterexample to the literal K-bit guard on #4100's own gadget, and a census of #4174's actual production placement descriptors.",
+  "actual_scope": "Decide the disjoint-guard premise of #4100 CRT.md section 4 under position-mod-K coloring: a window lemma, a counterexample to the literal K-bit guard on #4100's own gadget, and a census of #4174's actual production placement descriptors, plus eight further admitted width patterns and two adversarial ones.",
   "scope_change_reason": "The card asks for one quantified implication at its caller; this is the guard hypothesis that #4321 and #4328 assume and no audit decided, checked at the actual caller's descriptors (#4174).",
   "bottleneck_link": "The compact switch's correctness and the bad-density term both rest on this premise; a wrong window convention breaks the gadget on good addresses.",
   "budget_minutes": 75,
   "stop_rule": "Stop once the premise is decided (lemma plus counterexample) and checked on #4174's production descriptors.",
   "outcome": "completed",
-  "evidence": "verify.py: 3,266 exhaustive lemma cases; #4100's gadget on all 2^20 two-target addresses at spacing K: (K-1)-bit guards give S=T on all 82,944 good addresses, K-bit guards fail on 3,888/2,388 good addresses and T leaves the good set on 31,104/15,552; #4174 production census (104,864 plans, 524,288 axis visits): all axes in y, zero possible same-color pairs for any Benes schedule, aligned multiplicity 1, 16,225 plans with last-K exception axes.",
+  "evidence": "verify.py: 3,266 exhaustive lemma cases; #4100's gadget on all 2^20 two-target addresses at spacing K: (K-1)-bit guards give S=T on all 82,944 good addresses, K-bit guards fail on 3,888/2,388 good addresses and T leaves the good set on 31,104/15,552; #4174 production census (104,864 plans, 524,288 axis visits): all axes in y, zero possible same-color pairs for any Benes schedule, aligned multiplicity 1, 16,225 plans with last-K exception axes; eight more admitted patterns (blocked both ways, uniform 24, uniform 23, three random, ell=32): zero possible same-color pairs; uniform 24 misses a multiple of K by one bit, and the admitted pattern with ell-1 axes 16384..16407 puts aligned same-color targets exactly K apart at 24 layers, where (K-1)-bit windows are checked target-free.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance in reading, the lemma, census implementation and writing; no independent human or proof-kernel review.",
   "open_questions": [
@@ -71,10 +71,10 @@
       "blocked_by": "None."
     },
     {
-      "question": "Census other admitted ell/ell-1 width patterns at d=65,536.",
-      "why_it_matters": "The vacuity of the premise at production is pattern-specific.",
-      "first_step": "Run the census on blocked and random width patterns.",
-      "blocked_by": "None; about 20 seconds per pattern."
+      "question": "Restate CRT.md section 4's guard with (K-1)-bit windows (or coloring mod K+1).",
+      "why_it_matters": "An admitted layout puts same-color targets exactly K apart, so the literal K-bit guard fails there; #4321's hypothesis wording follows the text.",
+      "first_step": "Restate the predicate with (K-1)-bit windows and re-derive the 8B/2^K term.",
+      "blocked_by": "Author or maintainer action on #4100's text."
     }
   ]
 }
