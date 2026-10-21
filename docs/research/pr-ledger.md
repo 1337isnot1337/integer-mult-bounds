@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **3612**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **3615**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2084 |
-| partially reviewed | 1466 |
+| partially reviewed | 1469 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -3654,4 +3654,7 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#4164](https://github.com/CrocSwap/integer-mult-bounds/pull/4164) | unpaidmoon | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4165](https://github.com/CrocSwap/integer-mult-bounds/pull/4165) | unpaidmoon | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4166](https://github.com/CrocSwap/integer-mult-bounds/pull/4166) | Clear1nsight | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#4181](https://github.com/CrocSwap/integer-mult-bounds/pull/4181) | rohanarun | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#4268](https://github.com/CrocSwap/integer-mult-bounds/pull/4268) | jacobalansussman | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359) | zxv | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#4404](https://github.com/CrocSwap/integer-mult-bounds/pull/4404) | pinterbanget | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |

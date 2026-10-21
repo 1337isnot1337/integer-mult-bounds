@@ -3,6 +3,24 @@
 The [selected record](certificates/selected-result.json) identifies the current
 frontier; numbered checkpoints below retain their historical attribution.
 
+## Productive-helper checkpoint: κ = 0.0023
+
+**zxv (#4359)** supplied the new complete conditional construction, using
+**Jacob Alan Sussman's (#4268) mixed-target recursion**. Immediate construction
+and framework credit also goes to **Rohan Arun, Cinna Davis, David Ganz,
+Jeremy Kothe, Marius-Paul Dumitrean, Erwan Secousses, Vlado-V, Chafik Boukhalfa,
+Zhihao Chen, eumemic and DreamingOfClouds**. Rohan's **#4181** is retained as the
+later pooled-ceiling comparison checkpoint.
+
+**Ryanson Jonathan (#4404)** supplied the separately implemented exact flow/rank
+audit. **Ross Richardson, Nick Petalas, Sagar Thakrar, roger-sato, Josie Elliston
+and dataisfire** retain their scoped mechanism, ceiling and verification credit.
+See the [contributor map](docs/research/community-productive4359-contributors.md)
+for individual sources and roles; it distinguishes direct ingredients,
+comparison work and earlier audits. No predecessor credit is displaced.
+
+## Earlier contributions and checkpoints
+
 - **Andrew Barnes / Bortlesboat (#2):** aligned pair ordering and its smaller
   h50 side circuit, original proof/review packet and historical `17·2^-63` witness.
 - **David Leen / dleen (#4):** retained complex totals composed with eumemic's
