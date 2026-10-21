@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Exact premises of README.md's logarithmic leaf-count majorant.
 
-No predecessor verifier is imported. This is not native/outer admission.
+Leaf arithmetic is separately implemented. The pinned outer ledger function
+is executed as a second arithmetic oracle; this is not native/outer admission.
 zxv, with substantial OpenAI Codex assistance. Apache-2.0.
 """
 import argparse

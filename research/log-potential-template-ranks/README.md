@@ -176,8 +176,9 @@ avoids both an intermediate exponent and an unknown multiplicative constant.
 ## Two explicit choices of N
 
 The source histograms are copied byte-for-byte in `vendor/`, and their exact
-origin is recorded in [VENDOR.json](VENDOR.json). The checker imports no
-predecessor Python code.
+origin is recorded in [VENDOR.json](VENDOR.json). Leaf arithmetic uses separate
+code; the consumer cross-check executes the pinned outer ledger function as
+described below.
 
 | Family | `t` | `z` | `theta_bar` | `q` | Certified `eta^q - theta_bar` lower bound |
 | --- | ---: | ---: | ---: | ---: | ---: |
