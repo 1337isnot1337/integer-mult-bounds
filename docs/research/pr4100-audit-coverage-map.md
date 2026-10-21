@@ -8,7 +8,7 @@ each obligation row of #4100's [AUDIT.md](../../research/unconditional-batched-c
 the open PRs that audit it and what remains. The snapshot was taken on
 2026-10-21 at 06:50 UTC against canonical main
 `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision 7. It was
-updated at 07:45 UTC to add #4320, and at 08:30 UTC to add #4321 and #4325.
+updated at 07:45 UTC to add #4320, at 08:30 UTC to add #4321 and #4325, and at 09:05 UTC to add #4327.
 
 **This is navigation, not acceptance.** Every outcome below is what that PR
 reports. This map did not replay any package or recheck any proof. A positive
@@ -50,7 +50,7 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Gaussian conditioning, broad | #4193; [#4191](https://github.com/CrocSwap/integer-mult-bounds/discussions/4191) | A tightening, not a defect: the capped broad inverse allowance improves from `p^6` to `p^(1+ξ+o(1))`. | Its truncation-perturbation condition at the caller. |
 | Narrow row-gap estimate `‖N−I‖∞ ≤ e^(−2aθ)+5e^(−2a)` | Retained proof: [PR1673 LOG-A-PHASE-SCHUR-AUDIT.md §1](../../research/capped-phase-fusion/LOG-A-PHASE-SCHUR-AUDIT.md), valid for every `θ>0` and counting the periodic aliases. It is re-derived independently in that package's [lineage review](../../research/capped-phase-fusion/evidence/independent_fusion_review_ultra/gaussian_layout_review.md) and in the merged `pr1786-fine-prime-transfer-audit`. | Positive. The `1/(8p²)` margin holds for every `p ≥ 1` (checked exactly to 5000), and the column analogue is proved. #4304–#4309 are `p=19` instances of the shifted interior kernel `exp(−aρh²−2aβ0h)`, not of `N`'s rows; with a centred chirp one entry exceeds 1 (#4304). | An explicit statement that alias removal, band truncation and rounding keep half the gap (PR1786 asserts this in one sentence; #4217's open question 1). Which chirp origin the interior caller uses. |
 | Shallow interior and tensor circuits | #4198, #4205, #4209, #4220; [#4196](https://github.com/CrocSwap/integer-mult-bounds/discussions/4196), [#4202](https://github.com/CrocSwap/integer-mult-bounds/discussions/4202) | Positive scoped results: exact rational Stein generators (#4198), rounded words executed against shared finite-core references (#4205), same-ρ Schur closure for the parity-triangular child (#4209), and an independent scalar-enclosure oracle (#4220). | A full tensor-circuit cost. Each PR lists its own remaining hypotheses. |
-| Boundaries and current sparse values | #4186; [#4182](https://github.com/CrocSwap/integer-mult-bounds/discussions/4182) | Positive. The rounded block-solve error at gap `1/(16p²)` has no factor equal to the number of row blocks. | **Physical head travel of the per-visit union schedule** (vendor/UNION-SCHEDULE.md §2.3 and the variable-length transpose); the source itself flags both for review. Its operator and volume identities were reviewed in merged PR2578 ([`pr1731-union-rect-review`](../../research/pr1731-union-rect-review/README.md)) on the predecessor text, and #4100's copy changes only the numbers in §5b. In #4100 the union row has slack ≈ 0.406. |
+| Boundaries and current sparse values | #4186; [#4182](https://github.com/CrocSwap/integer-mult-bounds/discussions/4182); union schedule: merged PR2578 ([`pr1731-union-rect-review`](../../research/pr1731-union-rect-review/README.md)) and #4327 | Positive. The rounded block-solve error at gap `1/(16p²)` has no factor equal to the number of row blocks (#4186). For the union schedule, PR2578 reviewed its operator and volume identities on the predecessor text; #4100's copy changes only the numbers in §5b. #4327 checks §2.3's head accounting and the variable-length transpose on a literal multitape simulation: per round at most `17·RW·N·(⌈log₂g⌉+⌈log₂a⌉+1)` plus bit terms, with exact Kronecker results and complete-line checks. Rewinds over stale cells break the bound. | The boundary-arithmetic row-field movement on the same tape model, and the record header width. The union row has slack ≈ 0.406. |
 | Position-dependent halo corrections | #4217 | Positive, with a minor slip. The locality witness has the exact radius `(2J−1)W`. The core error constant should be `2g`, not `g`; the `2^−Cp` margin absorbs this. | Charging the source-driven enumeration when an address lies in many rectangles (#4217's open question 2). The halo ledger rows. |
 | Common-grid precision at the Gaussian caller | #4178; [#4175](https://github.com/CrocSwap/integer-mult-bounds/discussions/4175) | See #4178 in the complex recursion row above. | The author's response. |
 
@@ -81,8 +81,8 @@ the written theorem.
    scope maps.
 2. PROOF.md: the `2^-4p` precision constant. Its algebraic identities are
    audited in #4320 and its chirp head-travel tariff in #4325.
-3. GAUSSIAN.md: physical head travel of the union schedule. Its algebra is
-   reviewed in the lineage, and the row has large slack.
+3. GAUSSIAN.md: the boundary-arithmetic row-field movement. The union
+   schedule's algebra is reviewed in the lineage, and its head travel in #4327.
 4. CRT.md: exception extraction, sorting and reinsertion, and the full uniform
    `E(p,ell)` evaluator from CRT data.
 5. COMPLEX.md: the arbitrary-f lift's complete-cover execution and physical
@@ -141,6 +141,7 @@ one quantified implication. Search again first: this list goes stale quickly.
 | #4320 | pinterbanget | `178986e09670a5607794202339a3ce87dbfcdb74` |
 | #4321 | unpaidmoon | `05ff71ae097fe5cf19894beb83178cac442bbd35` |
 | #4325 | pinterbanget | `404e307ccb29a854e1f0a34289c86c4bf2a7dd7b` |
+| #4327 | pinterbanget | `a020d6c25cb9201d19bebdf0ab5675b780a3caa2` |
 
 Header-law successors to #4239/#4246 (#4240, #4259, #4261, #4273–#4275, #4278)
 answer counting questions that #4228 raised. They change the card's scope to
