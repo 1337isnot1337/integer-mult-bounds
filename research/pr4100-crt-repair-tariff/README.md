@@ -161,8 +161,8 @@ PR2250's PROOF.md, with 9 exact phrases.
 - The guard scan that produces the hole mask (#4201, #4208).
 - The macro `S`'s ordinary interchanges, the last-`K` branch (#4187), and
   reservoir placement (#4174).
-- `r ≥ 3` is not enumerated: `r` targets need `2^(8r+4)` addresses at
-  `B = 4`. The exact `r`-target formula rests on the field-disjointness
+- `r ≥ 3` is not enumerated: `r` targets need `2^(10r)` addresses at
+  `B = 4` (`4r` control bits and `6r` `y` bits). The exact `r`-target formula rests on the field-disjointness
   argument above.
 - There is no proof-kernel check.
 
