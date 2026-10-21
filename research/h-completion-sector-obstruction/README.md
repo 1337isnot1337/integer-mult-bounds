@@ -1,6 +1,6 @@
 # One fixed native edge obstructs every completion-only fresh H inverse
 
-**Local contribution for user review. Do not publish or submit a PR yet.**
+**Submission authorized by the user on 2026-10-21.**
 
 The complex H branch in [PR4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359)
 leaves endpoint monodromies that cannot be discarded as free scalar factors.
