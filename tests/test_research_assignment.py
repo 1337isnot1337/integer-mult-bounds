@@ -7,7 +7,9 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location("choose_research_task", ROOT / "scripts/choose_research_task.py")
@@ -21,7 +23,7 @@ class ResearchAssignmentTests(unittest.TestCase):
         assignment.validate_catalog(CATALOG, ROOT)
 
     def test_documented_allocation_matches_catalog(self):
-        guide = (ROOT / "autoresearch.md").read_text(encoding="utf-8")
+        guide = (ROOT / "docs/research/current-priorities.md").read_text(encoding="utf-8")
         rows = re.findall(r"^\| [^|\n]*\(`([a-z0-9-]+)`\) \| (\d+)% \|", guide, re.MULTILINE)
         self.assertEqual(len(rows), len(CATALOG["tracks"]))
         self.assertEqual(
@@ -104,6 +106,136 @@ class ResearchAssignmentTests(unittest.TestCase):
         self.assertEqual(receipt["priority_revision"], CATALOG["priority_revision"])
         self.assertEqual(receipt["priority_log"], CATALOG["priority_log"])
         self.assertEqual(len(receipt["catalog_sha256"]), 64)
+
+
+class SparseResearchAssignmentTests(unittest.TestCase):
+    def setUp(self):
+        self.temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temporary.cleanup)
+        self.root = Path(self.temporary.name)
+        self.catalog = copy.deepcopy(CATALOG)
+        self.catalog["tracks"] = [self.catalog["tracks"][0]]
+        self.catalog["tracks"][0]["weight"] = 100
+        self.catalog["tracks"][0]["tasks"] = [self.catalog["tracks"][0]["tasks"][0]]
+        self.catalog["priority_log"] = "priority.log"
+        card = self.catalog["tracks"][0]["tasks"][0]
+        card["first_step"]["command"] = ["python3", "-B", "programs/first.py"]
+        card["starting_points"] = ["notes/entry.md"]
+        for name, body in {
+            "priority.log": "fixture log\n",
+            "programs/first.py": "print('fixture')\n",
+            "notes/entry.md": "fixture note\n",
+            str(assignment.CATALOG): json.dumps(self.catalog),
+            "certificates/selected-result.json": json.dumps({
+                "kappa": "1/1000", "review": "review.md",
+                "source_manifest": "source.json", "reproduce": "fixture-only",
+            }),
+            "scripts/choose_research_task.py": (ROOT / "scripts/choose_research_task.py").read_text(),
+        }.items():
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(body, encoding="utf-8")
+        self.git("init", "-q")
+        self.git("add", ".")
+        self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                 "-c", "core.hooksPath=/dev/null", "commit", "-qm", "fixture")
+
+    def git(self, *args):
+        return subprocess.run(["git", *args], cwd=self.root, check=True,
+                              capture_output=True, text=True).stdout
+
+    def sparse(self):
+        self.git("sparse-checkout", "init", "--no-cone")
+        self.git("sparse-checkout", "set", "/scripts/", "/docs/", "/certificates/")
+
+    def receipt(self):
+        result = subprocess.run(
+            [sys.executable, "-B", "scripts/choose_research_task.py", "--seed", "a1" * 16],
+            cwd=self.root, capture_output=True, text=True, check=True,
+        )
+        return json.loads(result.stdout)
+
+    def test_sparse_cli_preserves_assignment_and_reports_omitted_inputs(self):
+        full = self.receipt()
+        self.sparse()
+        self.assertFalse((self.root / "programs/first.py").exists())
+        sparse = self.receipt()
+        self.assertEqual(sparse.pop("sparse_checkout")["omitted_catalogue_paths"],
+                         ["notes/entry.md", "priority.log", "programs/first.py"])
+        self.assertEqual(sparse, full)
+        self.assertFalse((self.root / "programs/first.py").exists())
+
+    def test_cone_sparse_index_also_validates_omitted_files(self):
+        self.git("sparse-checkout", "init", "--cone", "--sparse-index")
+        self.git("sparse-checkout", "set", "scripts", "docs", "certificates")
+        self.assertEqual(assignment.validate_catalog(self.catalog, self.root),
+                         ["notes/entry.md", "programs/first.py"])
+
+    def test_ordinary_deletion_and_unknown_path_still_fail(self):
+        (self.root / "notes/entry.md").unlink()
+        with self.assertRaisesRegex(ValueError, "entry.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+        self.sparse()
+        self.catalog["tracks"][0]["tasks"][0]["starting_points"] = ["unknown.md"]
+        with self.assertRaisesRegex(ValueError, "unknown.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+
+    def test_staged_sparse_change_must_match_head(self):
+        self.sparse()
+        path = self.root / "notes/entry.md"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("staged replacement\n")
+        self.git("add", "--sparse", "notes/entry.md")
+        self.git("update-index", "--skip-worktree", "notes/entry.md")
+        path.unlink()
+        with self.assertRaisesRegex(ValueError, "entry.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+
+    def test_staged_only_sparse_file_has_no_head_source(self):
+        self.sparse()
+        path = self.root / "new.md"
+        path.write_text("new staged file\n")
+        self.git("add", "--sparse", "new.md")
+        self.git("update-index", "--skip-worktree", "new.md")
+        path.unlink()
+        self.catalog["tracks"][0]["tasks"][0]["starting_points"] = ["new.md"]
+        with self.assertRaisesRegex(ValueError, "new.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+
+    def test_missing_sparse_symlink_is_not_a_regular_source(self):
+        path = self.root / "notes/entry.md"
+        path.unlink()
+        try:
+            path.symlink_to("../priority.log")
+        except OSError:
+            self.skipTest("symlinks unavailable")
+        self.git("add", "notes/entry.md")
+        self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                 "-c", "core.hooksPath=/dev/null", "commit", "-qm", "symlink fixture")
+        self.sparse()
+        with self.assertRaisesRegex(ValueError, "entry.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+
+    def test_directory_and_external_alias_cannot_replace_omitted_file(self):
+        self.sparse()
+        path = self.root / "notes/entry.md"
+        path.mkdir(parents=True)
+        with self.assertRaisesRegex(ValueError, "entry.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+        path.rmdir()
+        try:
+            path.symlink_to(self.root.parent / "outside-missing-chooser-input")
+        except OSError:
+            self.skipTest("symlinks unavailable")
+        with self.assertRaisesRegex(ValueError, "entry.md"):
+            assignment.validate_catalog(self.catalog, self.root)
+
+    def test_git_failure_does_not_accept_missing_files(self):
+        self.sparse()
+        with mock.patch.object(assignment.subprocess, "run",
+                               side_effect=subprocess.CalledProcessError(1, "git")):
+            with self.assertRaises(ValueError):
+                assignment.validate_catalog(self.catalog, self.root)
 
 
 if __name__ == "__main__":

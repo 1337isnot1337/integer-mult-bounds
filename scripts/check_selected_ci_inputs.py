@@ -158,7 +158,7 @@ def check_records(names, root=ROOT):
     for name in names:
         record = read(root/name)
         try:
-            module.check(record, root)
+            module.check(record, root, historical=name != 'certificates/selected-result.json')
         except (ValueError, KeyError, OSError) as error:
             failures[name] = str(error)
         # Proof supplements and reviews are hard-checked above on every PR; the
@@ -227,7 +227,8 @@ def event_paths(text, event):
     unsupported = set(filters) - {'paths', 'branches'}
     require(not unsupported, 'Unsupported ' + event + ' filter: ' + ', '.join(sorted(unsupported)))
     if 'branches' in filters:
-        require('main' in filters['branches'], event + ' branch filter excludes main')
+        require('main' in filters['branches'] and triggers(filters['branches'], 'main'),
+                event + ' branch filter excludes main')
     return filters.get('paths', [])
 
 
@@ -249,7 +250,8 @@ def glob_regex(pattern):
             require(pattern[i] not in '?+[]{}', 'Unsupported glob syntax: ' + pattern)
             out.append(re.escape(pattern[i]))
             i += 1
-    return re.compile('^' + ''.join(out) + '$')
+    # Paths match in full; globstars include LF, which Git permits in filenames.
+    return re.compile(r'\A' + ''.join(out) + r'\Z', re.DOTALL)
 
 
 def triggers(patterns, name):

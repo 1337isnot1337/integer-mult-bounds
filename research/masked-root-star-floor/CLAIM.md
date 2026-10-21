@@ -70,7 +70,7 @@ instead. Cap: single-machine minutes; no network; stdlib only.
 
 Predecessor authors; intended artifact and reproduction command:
 DreamingOfClouds (CrocSwap/integer-mult-bounds#717, CrocSwap/integer-mult-bounds#595 and CrocSwap/integer-mult-bounds#604), Joel Pulikkan / GamingPuzzled (CrocSwap/integer-mult-bounds#620),
-woklerx (CrocSwap/integer-mult-bounds#968 and CrocSwap/integer-mult-bounds#1077), Mihir Srivastava (CrocSwap/integer-mult-bounds#845), seed48 package authors, and the
+themilkman216 ([PR 968](https://github.com/CrocSwap/integer-mult-bounds/pull/968), with Anthropic Claude assistance) and woklerx ([PR 1077](https://github.com/CrocSwap/integer-mult-bounds/pull/1077), with OpenAI Codex assistance), Mihir Srivastava (CrocSwap/integer-mult-bounds#845), seed48 package authors, and the
 selected T37 chain (see certificates/selected-result.json). Artifact:
 research/masked-root-star-floor/ with verify.py; command:
 
