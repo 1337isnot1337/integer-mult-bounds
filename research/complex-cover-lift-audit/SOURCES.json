@@ -49,6 +49,30 @@
       "usage": "input",
       "git_blob": "1f3239c30e9343cf4e34b4371fcbeebb94a19011",
       "sha256": "615093190aa5479034bb8acdd8925d7a910e082b84dec7df84b459b62421235a"
+    },
+    {
+      "path": "research/staged544-mixed-fourth-entry/evidence/NATIVE-CANONICAL-base.json.gz",
+      "usage": "input",
+      "git_blob": "77ee265be3cc15d76054c023d825578d9c62fa5c",
+      "sha256": "bff67890d0d350646d11f45aa1b098d6a415b1850b4982e8a05b4c146d247eda"
+    },
+    {
+      "path": "research/staged544-mixed-fourth-entry/evidence/NATIVE-CANONICAL-extra.json.gz",
+      "usage": "input",
+      "git_blob": "bc6433bbf5c355d53eec218448fa49c5f4d45346",
+      "sha256": "e0c473d62127a09cb3cbf451564dbdd19c0c10f1674dab0575e65251aa5e1e3c"
+    },
+    {
+      "path": "research/staged544-mixed-fourth-entry/evidence/THREE-CANONICAL-base.json.gz",
+      "usage": "input",
+      "git_blob": "40d74e5638d08ccb0b8270e6c47843cc45762c72",
+      "sha256": "f07fae1011160b53e2df1f3135465db1277a093319de2a1da52d648f00a39542"
+    },
+    {
+      "path": "research/staged544-mixed-fourth-entry/evidence/THREE-CANONICAL-extra.json.gz",
+      "usage": "input",
+      "git_blob": "2af11b77b0d1f9ed54584fb1ec63f808d08071e6",
+      "sha256": "882271d70602354cbada8d77f479703ccc6c47e689e8ccd91f9e4c87de0f4379"
     }
   ]
 }

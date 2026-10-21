@@ -60,14 +60,14 @@
   "budget_minutes": 90,
   "stop_rule": "Stop after the cover algebra and the lift of the literal PR4088 words are proved or refuted; do not re-derive the complex moment (#4171) or the rank-r child reading (#4375).",
   "outcome": "completed",
-  "evidence": "Written proofs in README.md; verify.py binds sources and runs the finite checks and the four-word lift; test_verify.py has rejecting controls.",
+  "evidence": "Written proofs in README.md; verify.py binds sources and runs the finite cover checks and the supplementary lift; native_warps.py shows every native warp edge class of the four PR4088 words is a Z4-monomial matrix; test_verify.py has rejecting controls.",
   "author": "Mark (Matarener)",
   "ai_assistance": "Prepared with substantial Claude Code (Claude) assistance.",
   "open_questions": [
     {
-      "question": "Is the free-word certificate of PR4088 a faithful model of the native warp realizations, i.e. is each literal warp (512-point permutation plus its PHASES data) exactly a monomial matrix with entries i^a, so that the monomial lift checked here is the one executed?",
-      "why_it_matters": "The lift is proved for every group representation; it applies to the physical program only if each native warp is such a representation of its free symbol.",
-      "first_step": "Read inputs/DATA-PHASES.json and evidence/*-PHASES-*.json of PR4088 and check that every warp's phase table is a function of the input point only (monomial), with values in Z/4.",
+      "question": "Does the expanded global emitted program of each PR4088 word compose its local frame, centre and warp recipes into exactly the free-word shadow (the scalar-interface integration that PR4088's PHASES receipts list as a separate obligation)?",
+      "why_it_matters": "The lift proof needs each executed event to be the representation of its free symbol in context; local recipes are now checked, their global composition is not.",
+      "first_step": "Regenerate LOCAL-PROGRAMS for one word with PR4088's emitter and check that the frame labels between consecutive events cancel exactly (global phase included).",
       "blocked_by": "none"
     }
   ]

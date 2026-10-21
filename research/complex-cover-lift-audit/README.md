@@ -26,6 +26,7 @@ The reading of the rank-r transition (one `C⊗rf` child versus f copies) is
 | `H0 = ((1-i)/2) D C D`, tensor diagonals `i^wt`, `((1-i)/2)^h` split by parity | Holds exactly (Gaussian rationals), tensor powers h ≤ 6. `H0` is `[[1,1],[1,-1]]/2`. |
 | `D(e) = 1 + D(48 floor(e/73))`; every child decreases D; two levels halve e | Holds (proof below; scanned for e ≤ 2·10^5, and ≤ 2·10^6 in the development run). |
 | Row stock padded to `R = ceil(2^q/M) M`, `M = (W Gamma)^D(h)`, factor below two | Factor below two holds. **Presentational correction:** `R > 2^q` at every tested h (73 … 10^30), so the padded range needs `q+1` reserved bits (or a radix-R field), not `q`. Only a constant changes. |
+| Each native warp is a monomial `i^a` matrix | Holds: all 720 warp edge classes of the four words (`native_warps.py`). |
 | Arbitrary-f lift: each warp generator `G -> G⊗f`, each scalar kept as a scalar, constant monomial phase `i^a -> i^(fa)` | Already audited by #4184 (exact pullback, all 5,784 output functionals). The supplementary check below agrees: there are no complex scalars, and `i^a` monomial representations pass for f = 1, 2, 3. |
 
 ## Supplementary lift check (complements #4184)
@@ -117,11 +118,35 @@ M divides `2^q`. M is divisible by odd primes (for example
   `O(V h^(1-b+eta b))`, and `(1-eta) b > q` gives the stated
   `O(V h^(1-q) polylog p)`.
 
+## Native warps are Z4 monomials
+
+`native_warps.py` (numpy) answers the native-realization question that #4184 left open. A warp
+event of operator k, moving its lender from frame U to frame E, executes
+`Z = T_E K_G^(±1) T_U^-1` on the lender's 9 hosted axes. Here `K_G` is the
+phase-corrected permutation `|x⟩ → i^(q(Gx)) |Gx⟩`, with q the Z4 form of
+`M = I + G^-T G^-1`, and `T_U = K_c (C on |U| axes) K_c^-1`. These
+definitions are read from PR4088's `bw_gauss.py`; the script imports nothing
+from it.
+
+- **Binding.** Each canonical word (`evidence/{NATIVE,THREE}-CANONICAL-*`, where
+  NATIVE is FOUR by its PHASES hash) matches its literal input word: the same
+  72 warps by B position and G columns, and the same frame spans. Only the
+  register labels are compacted.
+- **Result.** All 180 warp edge classes of each of the four words, 720 in
+  total, give a matrix with exactly one entry per row and column, each in
+  `{1, i, -1, -i}`, global phase included. So every native warp is a monomial
+  `i^a` matrix. Its `⊗f` lift is again monomial, with phase `i^(Σa)`, which is
+  COMPLEX.md's `i^a → i^(fa)` statement. This independently re-derives
+  PR4088's own `PASS_WARP_RECIPES_EXACT_ON_ALL_512_COLUMNS` receipt.
+- **Controls.** The plain permutation `P_G` without the quadratic phase is
+  not monomial on any of 40 tested classes, and swapping the frames breaks 86
+  classes. So the phase correction in `K_G` is essential.
+
 ## Not covered
 
-- Whether each native warp realization (a 512-point permutation plus its
-  PHASES data) is exactly a monomial `i^a` matrix, so that the representation
-  checked here is the executed one. See `TASK.json`.
+- The composition of these local recipes into the global emitted program,
+  which PR4088's PHASES receipts list as a separate obligation (see
+  `TASK.json`).
 - The rank-r child reading (#4375), and the physical gather/execute schedule
   and work-slot count of the cover.
 
@@ -130,6 +155,7 @@ M divides `2^q`. M is divisible by odd primes (for example
 ```sh
 python3.12 -B research/complex-cover-lift-audit/verify.py
 python3.12 -B research/complex-cover-lift-audit/test_verify.py
+python3.12 -B research/complex-cover-lift-audit/native_warps.py   # numpy, about 2.5 min
 python3.12 scripts/research_package.py --package research/complex-cover-lift-audit
 ```
 
@@ -147,9 +173,7 @@ Apache-2.0.
 
 ## Open next questions
 
-Is every literal PR4088 warp (a 512-point permutation plus its PHASES data)
-exactly a monomial matrix with entries `i^a`, so that the representation
-checked here is the one executed? First step: read PR4088's
-`inputs/DATA-PHASES.json` and `evidence/*-PHASES-*.json` and check that each
-warp's phase table depends only on the input point and takes values in Z/4.
-See `TASK.json`.
+Does each PR4088 word's global emitted program compose its local frame,
+centre and warp recipes into exactly the free-word shadow? First step:
+regenerate LOCAL-PROGRAMS for one word and check that the frame labels between
+consecutive events cancel exactly. See `TASK.json`.
