@@ -367,6 +367,16 @@ controller, supplier-receipt and port-recipe checks remain intact. The two
 ledger oracles retain predecessor code and attribution; they are arithmetic
 cross-checks, not fresh native supplier admission.
 
+Local validation used Python 3.12.8 on macOS arm64. The registered replay,
+metadata/pin check and committed-byte preflight passed. A separate Git-free
+copy passed `python3.12 -I -O -B verify.py` in 0.333 seconds; changed-source
+and changed-receipt controls rejected. The optional full source-history
+preflight could not run because this checkout is shallow. All pending-source
+inputs are self-contained exports; standalone replay does not need those
+foreign Git objects. No Lean, Docker, native all-size or historical suite was
+run. These checks authenticate the stated result, not independent scientific
+acceptance.
+
 Overlap at 18:19 UTC covered 536 open PR bodies and 3,279 discussion/comment
 records with complete reported pagination, plus local notes. The newer
 #4420/#4428/#4429 checks cover earlier strictification proof/arithmetic and

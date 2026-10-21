@@ -127,5 +127,23 @@
       "#4428 earlier proof/arithmetic and least power 5745, not this higher-moment bound"
     ],
     "limits": "Open PR bodies, discussion/comment records and local notes; not remote closed PR bodies or arbitrary diffs."
+  },
+  "validation": {
+    "python": "3.12.8",
+    "platform": "macOS arm64",
+    "registered_replay": "pass",
+    "metadata_pins": "pass",
+    "committed_bytes": "pass",
+    "git_free_optimized_seconds": 0.333,
+    "changed_source": "rejected",
+    "changed_receipt": "rejected",
+    "source_history_preflight": "unavailable: shallow checkout; all pending inputs exported",
+    "unrun": [
+      "full native/all-column replay",
+      "complete physical/analytic/recovery proof",
+      "Lean",
+      "Docker",
+      "historical suites"
+    ]
   }
 }
