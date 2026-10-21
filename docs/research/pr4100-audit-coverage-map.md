@@ -5,9 +5,10 @@ Use this map before choosing a `uniform-transfer-audit` task on
 unconditional construction ([package](../../research/unconditional-batched-crt/README.md),
 retained head `337d04939571a637aeab54a0f58f54fde811663a`, Cinna Davis). It lists, for
 each obligation row of #4100's [AUDIT.md](../../research/unconditional-batched-crt/AUDIT.md),
-the open PRs that audit it and what remains. Checked on 2026-10-21 at 07:30 UTC
-against canonical main `12fa8c5c844be21bfefb38a19503fbd867a11244`, priority
-revision 7.
+the open PRs that audit it and what remains. The snapshot was taken on
+2026-10-21 at 06:50 UTC against canonical main
+`12fa8c5c844be21bfefb38a19503fbd867a11244`, priority revision 7. It was
+updated at 07:45 UTC to add #4320.
 
 **This is navigation, not acceptance.** Every outcome below is what that PR
 reports. This map did not replay any package or recheck any proof. A positive
@@ -63,8 +64,8 @@ partitions in the [family record](research-family-status.md#current-leads).
 | Fallback child bound | #4237; #4247, #4262; #4235, #4245 | The 49,911-child bound is valid but not sharp: the sharp maximum is 33,269 at `m=64`, `f≥2` (#4237). The conjectured rank-dependent bound is refuted (#4247), and the excess is unbounded (#4262). #4235 is an alternative pivoted fallback with at most `1+12r` children, with #4245 bounding pivot policies. | Which headers actually reach the fallback in the BIT recurrence. |
 | Weighted leaves and fast header routes | None found | n/a | BIT.md's two completed stages that use the preceding stage at both reached primitive sites. |
 | Row stock, whole high packets and fixed tapes | None found | n/a | Divisible stock, depth induction, complete-field preparation, encoded state and geometric work accounting. #4228 and #4235 exclude these explicitly. |
-| Chirp generation | None found | n/a | PROOF.md's comparable-radix tables, cached prefix products and rewinds. |
-| Input order and exact recovery | None found | n/a | PROOF.md's transform identities, CRT composition, the `<1/2` error bound, and using the established multiplier only on shorter records. |
+| Chirp generation | #4320 (the identity only) | Positive. The chirp identity holds for all `x, z` exactly when `s·t` is even, so PROOF.md's even-`t` condition suffices. | The head-travel tariff for the cached tables, prefix products and rewinds. |
+| Input order and exact recovery | #4320 | Positive. The address isomorphism (equal to CRT.md's root map), synthetic convolution, Gaussian identity and factorization, dilation commutation and recovery inequalities all hold with PROOF.md's normalizations. `T < 2^b` holds from `b ≥ 8`. A presentational note: the carry scan must flush a final carry when `S = 2Ndigits − 1`. | The `2^-4p` precision constant, and invertibility of `N` (the row-gap row above). |
 | Strict powers and logarithms | #4171 | Positive. A second implementation shows every paid-power and side-condition slack strictly positive, and all five obsolete routes still rejected. | None within the ledger; the ledger does not validate the constructions. |
 
 ## Shortest list of unaudited obligations
@@ -74,8 +75,8 @@ critical path of the written theorem.
 
 1. BIT.md: weighted leaves and fast header routes, and the row-stock,
    whole-high-packet and fixed-tape induction.
-2. PROOF.md: chirp tables, and the transform, CRT-composition and exact-recovery
-   argument.
+2. PROOF.md: the chirp-table head-travel tariff and the `2^-4p` precision
+   constant. Its algebraic identities are audited in #4320.
 3. GAUSSIAN.md: the per-visit union schedule, and the fine-prime interval
    consequence at #4100's parameters.
 4. GAUSSIAN.md: the all-size narrow row-gap estimate, with the caller's chirp
@@ -129,6 +130,7 @@ one quantified implication. Search again first: this list goes stale quickly.
 | #4307 | jwr404 | `e59ae5559aaf4c9db60b61067ff1c50c5120dd32` |
 | #4308 | jwr404 | `8421ce3dec790743cc59c701eedc6746d9a6ce68` |
 | #4309 | jwr404 | `106e26e3c0f62a6e0017afb0a72fc81bd20271fd` |
+| #4320 | pinterbanget | `178986e09670a5607794202339a3ce87dbfcdb74` |
 
 Header-law successors to #4239/#4246 (#4240, #4259, #4261, #4273–#4275, #4278)
 answer counting questions that #4228 raised. They change the card's scope to
@@ -147,7 +149,9 @@ conditional transfer. Neither audits a #4100 premise.
 3. `gh pr list --state closed --search "4100 in:body"` found one closed PR,
    #4165, which records an idle cost and does not audit #4100.
 4. I fetched every head above with `gh pr view` at the check time. A final
-   refresh at about 07:40 UTC found one new related PR, #4309, now included.
+   refresh just before this PR opened, at about 06:57 UTC, found one new
+   related PR, #4309, now included. A refresh at 07:42 UTC found no new
+   #4100 audit other than #4320.
 
 The limits:
 
