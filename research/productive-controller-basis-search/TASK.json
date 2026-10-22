@@ -46,21 +46,21 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Exhaust all five-call, four-field binary controllers without idle calls after arbitrary changes of basis, with three to five full native calls.",
+  "actual_scope": "Prove two all-pair-count binary no-idle controller obstructions and exhaust the five-call/four-field change-of-basis model.",
   "scope_change_reason": "Explicit user request for a bottleneck breakthrough and frequent verified checkpoints; the older card predates productive-helper selection.",
-  "bottleneck_link": "Changing the actual controller topology may remove the large whole-idle bill; independent Fourier output factorization is required before any moment credit.",
+  "bottleneck_link": "Two global mechanism barriers separate closed all-full and shortest-query no-idle classes from mixed longer-query designs that could still change the large idle bill.",
   "budget_minutes": 60,
   "stop_rule": "Exhaust the declared finite class, reject all unpriced or unfactored endpoints, publish a scoped checkpoint, then continue larger mechanisms.",
   "outcome": "negative-result",
-  "evidence": "PROOF.md, RESULT.json, search.cpp, algebra.py, verify.py",
+  "evidence": "GLOBAL-PROOF.md, PROOF.md, RESULT.json, global_check.py, search.cpp, algebra.py, verify.py",
   "author": "Cinna Davis / 1337isnot1337, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance in research, programming and writing; no subagents.",
   "open_questions": [
     {
-      "question": "Can a larger branching controller avoid the matched idle bill?",
+      "question": "Can a mixed branching controller with more than 2p+1 queries beat the complete current invoice?",
       "why_it_matters": "This is a controller-level mechanism for a larger K on both suppliers.",
       "first_step": "Define an exact larger finite word and test all polynomial coefficient ranks before pricing.",
-      "blocked_by": "No factorable new word found in the declared finite class."
+      "blocked_by": "No admitted changed word; all-full and minimum-query no-idle models are now excluded under the stated binary hypotheses."
     }
   ]
 }

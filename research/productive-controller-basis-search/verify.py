@@ -10,6 +10,7 @@ import subprocess
 import tempfile
 
 import algebra as A
+import global_check
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -61,9 +62,49 @@ def controls():
             'gate_relations_checked': 1680}
 
 
+def check_numeric_transitions(executable):
+    """Compare C++ updates with evaluation of distinct symbolic monomials."""
+    def multiply(a, b):
+        value = 0
+        while b:
+            if b & 1:
+                value ^= a
+            b >>= 1
+            a <<= 1
+            if a & 16:
+                a ^= 19
+        return value
+
+    result = subprocess.run([str(executable), 'trace'], check=True,
+                            capture_output=True, text=True, timeout=5)
+    count = 0
+    for line in result.stdout.splitlines():
+        args = line.split()
+        need(args[0] == 'TRACE' and len(args) == 15, 'Numeric trace format')
+        mask, *values = map(int, args[1:])
+        ids, expected = values[:5], values[5:]
+        matrix = A.literal(mask, ids)
+        even, odd = [0] * 4, [0] * 4
+        for i, row in enumerate(matrix):
+            for j, poly in enumerate(row):
+                for g in range(poly.bit_length()):
+                    if not poly >> g & 1:
+                        continue
+                    value = 1
+                    for stage in range(5):
+                        if g >> (stage + 1) & 1:
+                            value = multiply(value, stage + 2)
+                    (odd if g & 1 else even)[i] ^= value << (4*j)
+        need(even + odd == expected, 'Independent polynomial/numeric transition check')
+        count += 1
+    need(count == 128, 'All numeric traces checked')
+    return count
+
+
 def run():
     authenticate()
     checked = controls()
+    checked['global_proof_controls'] = global_check.check()
     compiler = shutil.which('g++') or shutil.which('clang++')
     need(compiler is not None, 'A C++17 compiler is required')
     cases, all_counts = {}, Counter()
@@ -71,6 +112,7 @@ def run():
         executable = Path(tmp) / 'search'
         subprocess.run([compiler, '-O2', '-std=c++17', str(HERE / 'search.cpp'),
                         '-o', str(executable)], check=True, capture_output=True, timeout=30)
+        checked['independent_transition_words'] = check_numeric_transitions(executable)
         for mask in range(32):
             if mask.bit_count() < 3:
                 continue
@@ -95,7 +137,7 @@ def run():
                  in result.stderr, 'Complete survivor stream')
             # The prefix counts authenticate the actually run search, not a saved list.
             cases[str(mask)] = {'counts': dict(sorted(counts.items())),
-                                'rank_sum_histogram': dict(sorted(ranks.items())),
+                                'rank_sum_histogram': {str(k): v for k, v in sorted(ranks.items())},
                                 'survivor_sha256': digest.hexdigest(),
                                 'prefix_census': result.stderr.splitlines()[-1]}
             all_counts.update(counts)

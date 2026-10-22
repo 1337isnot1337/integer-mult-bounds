@@ -1,13 +1,24 @@
-# Changing the controller basis does not remove the smallest idle bill
+# Global binary controller barriers and a complete finite search
 
-**Scoped finite search; no new supplier or kappa.** We searched outside the
-selected path controller: every call may act on arbitrary binary linear
-combinations of four main fields, with arbitrary constant changes of basis
-between calls and at both boundaries. For five query-bearing calls, three to
-five of them full native calls with independent fresh multipliers, none of the
-controllers without idle calls produces four independent Fourier jobs.
+**Two scoped all-pair-count proofs; no new supplier or kappa.** Deleting the
+productive controller's idle work fails in two broad binary classes, even
+with arbitrary changes of basis between native calls:
 
-The search includes 1,680 conjugated native maps and 105 thin-query maps,
+- If every call is full, at least three native calls per main pair are needed.
+  The complete concave moment cannot beat disjoint three-call units.
+- At the minimum 2p+1 query count, p>=2 permits at most two full native calls.
+  With the retained BIT inventory, the complete target-minus-paid moment is
+  at most **-15 for every exponent in [0,1]**.
+
+[GLOBAL-PROOF.md](GLOBAL-PROOF.md) gives the all-pair-count arguments. The first
+uses edge parity after simultaneous diagonalization of native projectors.
+The second uses the corank-one simplex forced by a shortest rank-one query
+factorization. An exact integer inequality certifies the uniform BIT moment
+rejection. The written proofs remain subject to independent review; finite
+checks do not constitute proof-assistant acceptance.
+
+A complete four-field, five-call search led to these proofs and supplies an
+independent finite check of the obstruction. The search includes 1,680 conjugated native maps and 105 thin-query maps,
 rather than only coordinate-pair calls or the existing path's bridge choices.
 It uses safe finite-field rank pruning, then a separate exact polynomial
 replay. All **12,480** surviving query cancellations fail the complete output
@@ -32,22 +43,24 @@ python3 -B scripts/research_package.py --package research/productive-controller-
 ```
 
 The hook recompiles and reruns all 16 masks and compares the exact receipt.
-It checks all gate relations, a working six-call example, a wrong-query
-control, a genuine five-call query cancellation that fails factorization,
+It checks all gate relations, the global proof formulas through 32 pairs,
+a sharp two-native-call word, an independent numeric/symbolic transition
+comparison on 128 words, a working six-call example, a wrong-query control, a genuine five-call query cancellation that fails factorization,
 and the false positive obtained by collapsing all fresh multipliers to one.
 `--write` regenerates the receipt and is only an authoring option.
 
 This does not run the selected cold supplier replay or an outer ledger:
 no changed supplier passed the algebraic gate. There is no native admission,
-formal-kernel acceptance, independent human review, new exponent or claim of
-an all-length lower bound. In particular this binary exclusion is not silently
+formal-kernel acceptance, independent human review or new exponent. The two
+global theorems have the explicit alphabet and output hypotheses above. In particular this binary exclusion is not silently
 transferred to arbitrary complex dyadic boundary changes.
 
 ## Open next questions
 
-1. Does a larger branching controller admit independent monomial outputs with
-   fewer paid idle transforms? This four-field, five-call census does not
-   answer it. First give the complete word and test coefficient ranks.
+1. Can a mixed branching controller with **more than 2p+1 queries** admit
+   independent monomial outputs and a favorable complete invoice? That changes
+   a premise of the global minimum-query obstruction. First give the complete
+   word and test coefficient ranks; another shortest no-idle search is closed.
 2. Can a changed output interface retain a rank-five/six coefficient pencil at
    a funded recovery price? Query cancellation alone earns no output credit.
 3. Can a native local family make multiple ports share a query line, or reduce

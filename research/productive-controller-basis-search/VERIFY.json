@@ -15,7 +15,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 180,
-      "checks": "All binary five-call masks, exact survivor coefficient ranks, gate identities, working and failure controls"
+      "checks": "All-pair-count proof controls, sharp native-bound word, exact all-t BIT inequality, complete binary five-call census, independent polynomial/numeric transition checks"
     }
   ]
 }

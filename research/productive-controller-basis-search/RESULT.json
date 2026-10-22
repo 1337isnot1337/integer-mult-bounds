@@ -8,11 +8,11 @@
       },
       "prefix_census": "mask=11 hits=192 s0=0/0 s1=1/0 s2=1680/1168 s3=53760/51712 s4=3440640/3437568",
       "rank_sum_histogram": {
+        "10": 72,
         "6": 12,
         "7": 12,
         "8": 60,
-        "9": 36,
-        "10": 72
+        "9": 36
       },
       "survivor_sha256": "d9905fb9f728925a4f3c0c6640f6fdc9d2a32c08b7cf80fbc87245268017cb34"
     },
@@ -42,11 +42,11 @@
       },
       "prefix_census": "mask=19 hits=3072 s0=0/0 s1=1/0 s2=1680/1168 s3=53760/51712 s4=215040/214848",
       "rank_sum_histogram": {
+        "10": 792,
         "6": 192,
         "7": 336,
         "8": 888,
-        "9": 864,
-        "10": 792
+        "9": 864
       },
       "survivor_sha256": "8fa41e21d46c92def427bf289b2ffc625da45b82a9e4bef5a53eab084328ae94"
     },
@@ -76,11 +76,11 @@
       },
       "prefix_census": "mask=25 hits=3072 s0=0/0 s1=1/0 s2=105/73 s3=3360/3040 s4=537600/534528",
       "rank_sum_histogram": {
+        "10": 792,
         "6": 192,
         "7": 336,
         "8": 888,
-        "9": 864,
-        "10": 792
+        "9": 864
       },
       "survivor_sha256": "7d497755d297d162fbe9b26dad36e9dd12560fe172d28a4a6ff01f82dda7f6cb"
     },
@@ -92,11 +92,11 @@
       },
       "prefix_census": "mask=26 hits=3072 s0=0/0 s1=1/0 s2=1680/1168 s3=53760/51712 s4=3440640/3437568",
       "rank_sum_histogram": {
+        "10": 1152,
         "6": 192,
         "7": 192,
         "8": 960,
-        "9": 576,
-        "10": 1152
+        "9": 576
       },
       "survivor_sha256": "13dfc7fad3d09e6adbc99acb0b82e395a19b98c334bc5536a6fb90874b6c2cd5"
     },
@@ -108,10 +108,6 @@
       },
       "prefix_census": "mask=27 hits=3072 s0=0/0 s1=1/0 s2=1680/1168 s3=53760/51712 s4=3440640/3437568",
       "rank_sum_histogram": {
-        "6": 12,
-        "7": 24,
-        "8": 132,
-        "9": 120,
         "10": 288,
         "11": 372,
         "12": 216,
@@ -120,7 +116,11 @@
         "15": 324,
         "16": 324,
         "17": 216,
-        "18": 108
+        "18": 108,
+        "6": 12,
+        "7": 24,
+        "8": 132,
+        "9": 120
       },
       "survivor_sha256": "3bb8a6eb111bc08ed2035e5f7f185f67dd6dbe0f2f46fcb4ce165c417d8b1d4d"
     },
@@ -159,6 +159,19 @@
     "collapsed_stage_false_positive": true,
     "five_call_all_Q_rank_sum": 6,
     "gate_relations_checked": 1680,
+    "global_proof_controls": {
+      "all_full_edge_parity_patterns": 8,
+      "bit_all_concave_moments_upper": -15,
+      "endpoint_obstructions": 992,
+      "formal_kernel": false,
+      "largest_main_field_count": 64,
+      "log_product_inequality_exact": true,
+      "minimum_query_native_bound_sharp": true,
+      "odd_projectors": 528,
+      "simplex_pairings": 47904,
+      "status": "PASS_GLOBAL_BINARY_CONTROLLER_PROOF_CONTROLS"
+    },
+    "independent_transition_words": 128,
     "positive_six_call_rank_sum": 4,
     "wrong_query_rejected": true
   },
