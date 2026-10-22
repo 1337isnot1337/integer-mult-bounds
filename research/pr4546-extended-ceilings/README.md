@@ -38,6 +38,8 @@ This package recomputes #4546 with separately written code and **extends the cap
 
 8. **Two-contact joint retiming, whole word.** This retimes pairs of consecutive contacts of one field jointly, with different partner fields: 26,092 pairs. The dimension relaxation gives no gain for 26,042 of them. It suggests a gain of about 0.0016 for 50 pairs, but an exact search over actual nested subspaces finds **no gain for any of the 50**.
 
+9. **Agreement with #4581's all-length certificate.** mihir-s-05's #4581 (head `b154350f`, `RESULT.json` vendored, blob `3fec4b9b`, SHA256-pinned) proves the all-length floor with a different relaxation: a DAG over dimensions and a source-dependence mask. **In all 128 windows, its all-length terminal profile set is identical to this package's length-≤6 relaxed profile set**, computed by different code with a per-word forward-span/backward-intersection relaxation. Its capped-rank majorization certificate (`Σmin(r,k)` for `k ≤ 9`, equal mass) is rechecked here with my own integers. The telescoping identity that turns it into every concave price is checked exactly on 200 random rank-price tables. So length 6 already attains every all-length relaxed profile here, and the two relaxations corroborate each other.
+
 **Why it does not move.** In this relaxation, every contact frame lies between the forward sum of the operands' current lower bounds and the backward intersection of their exits. For these windows those bounds already pin each field's admissible rank steps. For example, in the `{1:3}` windows a field climbing `0 → 2` has every contact capped at an exit intersection of dimension 1. Longer words only add contacts under the same caps, so they cannot merge the two rank-1 payments. This explains the observed invariance but is **not** proved here for all lengths; the checked statement is lengths ≤ 6.
 
 **Model** (re-implemented from #4546's README):
@@ -59,7 +61,7 @@ This runs in about 3 s with the standard library only.
 ## Limitations
 
 - **Coverage.** All 128 eligible adjacent windows and 88 nonadjacent pairs are covered, with coefficients up to 3 in absolute value (adjacent windows) and unit coefficients (nonadjacent), the same three fields and fixed boundaries.
-- **Lengths.** Lengths above 6 are not checked, and the structural explanation above is not a proof for all lengths.
+- **Lengths.** This package checks lengths ≤ 6. The all-length statement for the 128 adjacent windows is #4581's theorem, with which these sets agree exactly. Nonadjacent pairs, nonunit coefficients beyond the checked alphabets, and retiming neighbourhoods remain finite checks here.
 - **Overlap.** Individual window results must not be summed across overlapping windows.
 
 ## Open next questions

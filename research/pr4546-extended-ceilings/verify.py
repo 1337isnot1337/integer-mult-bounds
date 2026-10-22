@@ -34,6 +34,8 @@ import tempfile
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 RESULT = HERE / "PR4546-RESULT.json"  # #4546 head 55b8d34c, research/four-shear-window-ceilings/RESULT.json, blob f2f41100
+PR4581 = HERE / "PR4581-RESULT.json"  # #4581 head b154350f, research/receiver-window-all-length-floor/RESULT.json, blob 3fec4b9b
+PR4581_SHA256 = "da70c9292df9922377a0bf0fd1a208562a0c5861de7eca8ddac4a7fde29d568b"
 RESULT_SHA256 = "9e2306e8023f03b483701cd06bfafb0b4980de457b39e0e41c1009cecd2da96a"
 C = Fr(60403, 20000000)
 GATES = tuple((i, j, s) for i in range(3) for j in range(3) if i != j for s in (-1, 1))
@@ -627,6 +629,41 @@ def main():
             need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling, window {w['index']}, len<={L}")
             if L == 6:
                 profile_counts[len(profiles)] += 1
+    # Cross-check with #4581's all-length certificate: its terminal partitions per window against this file's
+    # finite (length <= 6) relaxed profile sets, and an independent recheck of its capped-rank majorization.
+    raw81 = PR4581.read_bytes()
+    need(hashlib.sha256(raw81).hexdigest() == PR4581_SHA256, "vendored #4581 RESULT.json")
+    allen = {w["index"]: w for w in json.loads(raw81)["windows"]}
+    need(len(allen) == len(every) == 128, "same 128 windows")
+
+    def partition(h):
+        return sorted((r for r, n in enumerate(h) for _ in range(n)), reverse=True)
+
+    def capped(part, k):
+        return sum(min(r, k) for r in part)
+
+    agree = 0
+    for w in every:
+        a = allen[w["index"]]
+        old = actual_profile(w["starts"], w["ends"], w["frames"])
+        need(sorted(a["incumbent"], reverse=True) == partition(old), "same incumbent")
+        ms, _ = matches(*w["coefficients"], 6)
+        mine = set()
+        for word in ms:
+            mine |= relaxed(w["starts"], w["ends"], word)
+        mine_parts = sorted(tuple(partition(h)) for h in mine)
+        theirs = sorted(tuple(sorted(p, reverse=True)) for p in a["terminal_profiles"])
+        need(mine_parts == theirs, f"finite length-6 set equals #4581's all-length set, window {w['index']}")
+        u = partition(old)
+        for v_ in theirs:
+            need(sum(u) == sum(v_) and all(capped(u, k) <= capped(v_, k) for k in range(1, 10)), "majorization")
+        agree += 1
+    # Telescoping: f(r) = delta_9 r + sum_{k<9} (delta_k - delta_{k+1}) min(r, k) for any f with f(0) = 0 (exact check).
+    for trial in range(200):
+        fvals = [Fr(0)] + [Fr(((trial * 7919 + r * 104729) % 997) + 1, 13) for r in range(1, 10)]
+        delta = [None] + [fvals[k] - fvals[k - 1] for k in range(1, 10)]
+        for r in range(0, 10):
+            need(fvals[r] == delta[9] * r + sum((delta[k] - delta[k + 1]) * min(r, k) for k in range(1, 9)), "telescoping")
     # Nonunit coefficients: optimistic in the rewrite's favour (their scalar-height cost is not charged).
     nonunit = {}
     for coefs, L in (((-2, -1, 1, 2), 6), ((-3, -2, -1, 1, 2, 3), 5)):
@@ -685,6 +722,8 @@ def main():
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
+                      "agreement_with_4581_all_length": {"windows_with_identical_profile_sets": agree,
+                                                         "majorization_rechecked": True},
                       "single_contact_retiming_all_phases": single_contact_retiming(c, program),
                       "two_contact_retiming_all_phases": two_contact_retiming(c, program),
                       "nonadjacent_pairs_len<=6": {"count": len(nonadj), **dict(na)},
