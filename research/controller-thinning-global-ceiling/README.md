@@ -31,7 +31,9 @@ python3.12 -B scripts/research_package.py --package research/controller-thinning
 
 The registered replay requires Python 3.12 and the standard library only.
 It verifies the committed [RESULT.json](RESULT.json), source/profile pins,
-outward rational intervals and charge controls. `--write` regenerates the
+outward rational intervals and charge controls. A second replay rejects four
+actual source/profile mutations, including an unpaid owned-centre profile
+with its hashes maliciously rebound. `--write` regenerates the
 receipt and is an authoring command, not the publication replay.
 
 No selected record, BIT construction, compiler, production verifier or

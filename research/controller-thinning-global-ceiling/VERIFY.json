@@ -17,6 +17,15 @@
       ],
       "timeout_seconds": 300,
       "checks": "Source/profile pins, exact rational interval all-family ceiling, literal source projectors and every stage subset through p5, and rejecting charge/profile controls."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/adversarial.py"
+      ],
+      "timeout_seconds": 60,
+      "checks": "Actual source hash, Git blob, frozen byte and rebound owned-job profile corruptions are rejected."
     }
   ]
 }
