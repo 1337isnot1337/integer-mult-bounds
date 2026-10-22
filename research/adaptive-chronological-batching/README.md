@@ -10,8 +10,9 @@ For every height `G >= 0` and every ambient rank whose forest contains a unit,
 the same batch list, least-LCM replication factor and cost recurrence hold, and
 the normalized rank-one leaf cost is unchanged. #4483 already covers the
 aggregate arbitrary-height flow, so what is new here is the **batch level**:
-which exits must form one whole supplier batch, and why. This package makes no
-convergence claim, no native-admission claim and no tighter-exponent claim.
+which exits must form one whole supplier batch, and why. The conditional
+width theorem below bounds width growth, not a tighter leaf exponent;
+there is no convergence or native-admission claim.
 
 **Executed evidence.** Python 3.12.14 in the declared development environment.
 The direct isolated replay passed in 35.02 s: 405 nonempty census fixtures,
@@ -34,7 +35,32 @@ checks, not human or proof-kernel acceptance.
 
 The companion conditional all-rank width theorem is in [WIDTH.md](WIDTH.md).
 It is a separate argument, written and reviewed by the parent, and is not
-repeated here.
+repeated here. This package and the preserved
+[default-height package](../chronological-width-bound/README.md) form one
+contribution with two scoped replays, not two competing submissions.
+
+**Delta against the closest proofs and checks.**
+[#4586](https://github.com/CrocSwap/integer-mult-bounds/pull/4586) at
+`aadb7bc59390683450b1969e4632f546929dc569` already proves the default-height
+bound `log B_N=O((1+log N)^(d+2))`. The default companion sharpens it to
+`d+1` by bounding visits to each source-count plateau.
+[#4588](https://github.com/CrocSwap/integer-mult-bounds/pull/4588) at
+`2f6578907b7f8718a13921552cc3069d3908e936` supplies independent finite
+default checks. [#4591](https://github.com/CrocSwap/integer-mult-bounds/pull/4591)
+at `84c0fb3a39bcb1e4b8c48892bfdd8a6e7ae58a50` checks arbitrary-height
+aggregate identities, not feasibility of each actual chronological cut.
+This package adds that cut-level transfer and its conditional fixed-parameter
+all-rank envelope; it does not claim the inherited aggregate identities,
+least-LCM algorithm or default finite width improvement as new.
+
+**Specialization is symbolic, with distinct hypotheses.** WIDTH.md gives
+`z=max(0,1-g log_M(k0))` and degree `d'+1`. At `M=k0,g=1`, `d'=d,z=0`,
+so it recovers the default order on their common domain. The named adaptive
+code interface requires positive `a,b`, hence `g=a+b>=2`; that route does
+not exercise `g=1`. Direct fixed-height/g witnesses are separate. WIDTH.md
+assumes paid rank one for nonemptiness; the default proof needs no such
+assumption because its root is nonempty. The default plateau-product and
+adaptive level-LCM divisors differ; neither is claimed universally smaller.
 
 ## 1. What is certified
 
@@ -207,10 +233,27 @@ python3 scripts/research_package.py --package research/adaptive-chronological-ba
 The complete registered replay is
 `python3.12 -B scripts/research_package.py --package research/adaptive-chronological-batching`.
 `--write` is needed only to intentionally regenerate receipts, not to replay them.
+The other scoped replay in the same PR is
+`python3.12 -B scripts/research_package.py --package research/chronological-width-bound`.
 
 `--write` regenerates the committed receipt and then exits. A plain run
 replays and requires equality with the receipt. `--survey` prints the
 authoring statistics for the pooling gaps.
+
+## Coordination and historical provenance
+
+The base `f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc`, priority revision 7,
+the `independent-moment` original card and all source pins remain historical
+provenance. The consolidation comparison uses fetched main
+`fbc9ea0249746acca4f504d4fda2b84e0e36cf0d`: selected conditional κ is
+`.00302015` from #4470, not #4483 or #4507. No selected-frontier file changes.
+The 2026-10-22 overlap refresh covers 408 open PRs at 13:08:38 UTC, 3,852
+closed PRs at 13:09:39 UTC and 3,577 Discussion records at 13:09:11 UTC,
+with complete reported pagination. This non-atomic snapshot is not an
+exhaustive novelty proof; the actual #4586/#4588/#4591 proofs/code supply
+the comparison above. Evidence and the combined PR draft remain local-only
+pending publication approval. Existing receipts report author/AI runs and
+were not regenerated during consolidation; no human/formal acceptance is claimed.
 
 ## Open next questions
 

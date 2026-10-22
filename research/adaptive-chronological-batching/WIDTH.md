@@ -28,6 +28,21 @@ subexponential. The constants depend on the fixed native rule, `M` and `g`.
 This is an upper bound, not a tight growth rate, optimal batching theorem,
 leaf-cost improvement, physical cost bound or new κ.
 
+This theorem and the
+[default-height proof](../chronological-width-bound/README.md) are two
+scoped parts of one contribution. The default proof sharpens
+[#4586](https://github.com/CrocSwap/integer-mult-bounds/pull/4586)
+(`aadb7bc59390683450b1969e4632f546929dc569`) from logarithmic degree
+`d+2` to `d+1` via bounded per-plateau visits; it does not originate the
+quasipolynomial classification. Independent finite default checks in
+[#4588](https://github.com/CrocSwap/integer-mult-bounds/pull/4588)
+(`2f6578907b7f8718a13921552cc3069d3908e936`) are complementary.
+[#4591](https://github.com/CrocSwap/integer-mult-bounds/pull/4591)
+(`84c0fb3a39bcb1e4b8c48892bfdd8a6e7ae58a50`) checks arbitrary-height
+aggregate identities, not actual chronological cut divisibility. That
+cut-level transfer is proved in this package's README; the new width
+bound here applies to its resulting recurrence.
+
 ## 1. Hypotheses and exact recurrence
 
 Let `W_k` and `P_r` be positive integer multiplicities, with
@@ -41,6 +56,9 @@ height-G forest nonempty: the all-rank-one paid path reaches a degree-zero
 leaf unit. Every finite forest with a unit has at least one fresh source.
 More general rules require their own nonemptiness proof; an empty flow must
 not be silently substituted by a productive supplier.
+The default companion has a separate root-nonemptiness proof and needs
+no paid rank-one position. Thus the theorem as stated here does not
+subsume its entire hypothesis domain.
 
 Let `W = sum W_k`, `P = sum P_r`. Widths are one below any fixed ordinary
 cutoff `n0 >= m`. For `n >= n0`, define exactly
@@ -50,6 +68,15 @@ C_n = floor(n/m),
 ell(n) = floor(log_M C_n),
 G_n = g ell(n).
 ```
+
+**Default specialization versus executable interface.** Formally setting
+`M=k0,g=1` gives the default height, `d'=d` (the primes of `k0` already
+occur among target ranks), `z=0` and logarithmic degree `d+1`. This is a
+symbolic specialization, with the nonemptiness qualification above. The
+named `('adaptive', M, a, b)` interface in `batching.py` requires positive
+integers `a,b`, so `g=a+b>=2`; no claim is made that this route ran `g=1`.
+`width_bound.py` also takes `g` directly for its finite witnesses, including
+a `g=1` toy case; that is not an all-rank default specialization replay.
 
 Instantiate **all** chronological classes of the height-G_n forest, including
 later components beneath empty parent classes. Let `S_n > 0` be the source
@@ -160,6 +187,10 @@ b_N=\sum_\ell t_\ell J_\ell
 Then `B_n <= Q_N <= 2^b_N` for every `n <= N`. Computing enormous `Q_N` is
 not necessary to use the symbolic theorem. The finite verifier uses exact
 integer divisibility on bounded fixtures, rather than sampling a few primes.
+The default companion instead uses a product of individual plateau source
+counts raised to its constant plateau-visit bound. That divisor and (6)
+are different certificates; equal asymptotic order at `M=k0,g=1` does not
+establish universal finite numerical dominance of either one.
 
 ## 5. Growth in the two regimes
 
@@ -205,6 +236,11 @@ compilations. It separately binds the three real geometries and exercises
 height boundaries through `M^2`, without materializing their all-rank
 compilers. Finite checks exercise the proof's hypotheses and implementations;
 they are not a proof of the asymptotic statement.
+
+The historical base and immutable input pins are unchanged. At the
+consolidation comparison main `fbc9ea0249746acca4f504d4fda2b84e0e36cf0d`,
+the selected conditional κ is `.00302015` from #4470; #4483/#4507 remain
+non-selected research inputs, not an admitted replacement frontier.
 
 ## 7. Remaining obligations and credit
 
