@@ -33,6 +33,12 @@ digit columns are outside scope. Other paid profile improvements with the
 same center bill remain possible. This is not a universal 64-unit lower
 bound on multiplication suppliers.
 
+Historical [fixed-interface floors](https://github.com/CrocSwap/integer-mult-bounds/pull/1517)
+and [receiver-window floors](https://github.com/CrocSwap/integer-mult-bounds/pull/4585)
+are related predecessors. Here the object is all eight centers of the
+complete PR4610 word, with all helper boundaries and logical warp charts
+free. These older local floors are not used as proof premises.
+
 ## Reproduce
 
 ```
