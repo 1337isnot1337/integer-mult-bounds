@@ -1,0 +1,84 @@
+{
+  "status": "EXACT_TYPED_SIXTEEN_STATE_J_INTERFACE",
+  "state_roles": [
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239
+  ],
+  "remaining_clean_helpers": 392,
+  "remaining_clean_rank9_helpers": 310,
+  "basis_E_elementary_operations": 53,
+  "receipts": {
+    "backward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2237,
+        "2": 388,
+        "3": 494,
+        "4": 147,
+        "5": 36
+      },
+      "paid_rank_mass": 5263,
+      "real_scalar_allowance": 168022,
+      "max_formal_prefix_l1": "391",
+      "max_denominator": 64,
+      "l1_witness": {
+        "event": 22376,
+        "role": [
+          "L",
+          319
+        ]
+      }
+    },
+    "forward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2237,
+        "2": 388,
+        "3": 494,
+        "4": 147,
+        "5": 36
+      },
+      "paid_rank_mass": 5263,
+      "real_scalar_allowance": 168022,
+      "max_formal_prefix_l1": "7704",
+      "max_denominator": 32,
+      "l1_witness": {
+        "event": 19040,
+        "role": [
+          "L",
+          272
+        ]
+      }
+    }
+  },
+  "forward": "Y += J X + Rt u + 2 Rt v",
+  "backward": "X -= J Y; u -= R Y; v += 2 R Y",
+  "not_raw_inverse_transposes": true,
+  "missing": [
+    "Gaussian width-nine states versus width-eight main jobs",
+    "Global controller",
+    "State restoration and independent target credit",
+    "Full rounding/compiler/outer integration"
+  ],
+  "no_kappa_claim": true
+}

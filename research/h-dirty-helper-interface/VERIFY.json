@@ -51,7 +51,7 @@
         "--check"
       ],
       "timeout_seconds": 180,
-      "checks": "Verify the separate dyadic basis and 112-by-128 rectangular right-inverse algebra; no native sixteen-state admission."
+      "checks": "Verify dyadic basis and rectangular right-inverse algebra, separately from the emitted-word and global-caller obligations."
     },
     {
       "argv": [
@@ -62,6 +62,26 @@
       ],
       "timeout_seconds": 180,
       "checks": "Exact conditional cache-state budget, with disjoint versus shared-head target repricing; all global closures explicitly hypothetical."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/rectangular_native.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Replay both emitted sixteen-state J words on 632 arbitrary columns, scalar charts, paid profile and owned cleanup; no global caller admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/state_minimum.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Check exact mod-three ranks and the attaining construction for the scoped dyadic sixteen-state lower bound."
     }
   ]
 }

@@ -24,7 +24,7 @@ Write the uncompleted symmetric kernel as J=I-R^transpose R/4, where R R^transpo
 
     J^2 - 3 R^transpose R = I_112.
 
-The concentrated defect basis changes to R^transpose by a matrix E for which both E and E^-1 are dyadic. This suggests a sixteen-state interface with
+The concentrated defect basis changes to R^transpose by a matrix E for which both E and E^-1 are dyadic. This gives a sixteen-state algebraic interface with
 
     A = [J, R^transpose, 2 R^transpose],
     B = [J; R; -2 R],
@@ -32,7 +32,11 @@ The concentrated defect basis changes to R^transpose by a matrix E for which bot
 
 The coefficients use 1 and 2 with a sign change, not an unproved square root or division by three. A is 112-by-128 and B is 128-by-112. RECTANGULAR.json verifies this exact algebra and the dyadic basis matrices.
 
-This is NOT an emitted sixteen-state native controller. Its state fields have width nine while the old main jobs have width eight. That mismatch, shared-head reuse, actual state restoration and all target credits must be resolved. A right-inverse matrix alone does not supply a legal recursive caller.
+RECTANGULAR-NATIVE-WORD.json.gz now emits both asymmetric sixteen-state native words. They act as Y += J X + R^transpose u + 2 R^transpose v in the forward orientation, and X -= J Y, u -= R Y, v += 2 R Y in the backward orientation. Both replay exactly on all 632 arbitrary persistent columns, with owned cleanup and actual scalar charts checked. These are two deliberately different words, not raw inverse transposes. Their paid profile is {1:2237, 2:388, 3:494, 4:147, 5:36}, removing eight rank-one H completions. There remain 392 clean helpers, including 310 rank-nine helpers. None of the sixteen coupled state outputs receives clean-helper credit.
+
+The explicit helper wrappers use dyadic scalars and the actual common input/output charts. STATE-MINIMUM.md proves that sixteen is minimal for this particular rectangular completion under primitive, invertible dyadic state-basis changes: reduction modulo three forces the image of an eight-rank map into the kernel of another eight-rank map. This is not a universal caller lower bound.
+
+There is still NO complete recursive controller. The state fields have width nine while the old main jobs have width eight. That mismatch, shared-head reuse, actual state restoration and all target credits must be resolved. Even these emitted local words do not by themselves supply a legal recursive caller.
 
 ## Replay
 
@@ -41,12 +45,19 @@ From the repository root, with assertions enabled:
     python -B research/h-dirty-helper-interface/probe.py --check
     python -B research/h-dirty-helper-interface/concentrate.py --check
     python -B research/h-dirty-helper-interface/rectangular_probe.py --check
+    python -B research/h-dirty-helper-interface/rectangular_native.py --check
+    python -B research/h-dirty-helper-interface/state_minimum.py --check
+    python -B research/h-dirty-helper-interface/cache_budget.py --check
 
 The first two commands authenticate included source snapshots. They reproduce the raw defect, actual integer basis operations, complete emitted word and receipts without modifying them. The third checks the separate rectangular algebra using the credited geometry source. Without --check the scripts regenerate their own artifacts. The registered package command runs these checks and the conditional cache budget: `python -B scripts/research_package.py --package research/h-dirty-helper-interface`. This is a scoped local replay, not the selected scientific cold replay.
 
 ## Conditional budget
 
 CACHE-BUDGET.md and CACHE-BUDGET.json reprice explicitly hypothetical persistent-state scenarios. They distinguish disjoint helper axes from repeated head axes and never count coupled state outputs as restored targets. The eight-state word itself supplies no one-head boundary decoder.
+
+## Concurrent work and scope
+
+The 2026-10-22 16:37 UTC upstream refresh found PR4694 and PR4698 (https://github.com/CrocSwap/integer-mult-bounds/pull/4698). PR4698 independently gives a 379-gate dyadic helper basis reducing the retained-center observation to eight actual helper fields. This is closely related to our 553-operation integer concentration, on a different retained H interface. We claim no priority for eight-helper concentration and credit that concurrent construction. The follow-on here is the explicitly emitted asymmetric sixteen-state J pair and its scoped mod-three minimality proof. Neither branch establishes a larger kappa. This overlap check is bounded, not an exhaustive novelty review.
 
 ## Open next questions
 

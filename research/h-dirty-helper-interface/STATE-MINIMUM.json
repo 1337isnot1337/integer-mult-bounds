@@ -1,0 +1,15 @@
+{
+  "status": "SCOPED_SHARP_SIXTEEN_STATE_MINIMUM",
+  "ring": "Z[1/2]",
+  "reduction_prime": 3,
+  "rank_R": 8,
+  "rank_U": 8,
+  "rank_V": 8,
+  "rank_UV": 0,
+  "kernel_dimension_at_h16": 8,
+  "necessary_state_dimension": 16,
+  "construction_state_dimension": 16,
+  "hypothesis": "State couplings preserve primitive mod-three rank eight under invertible dyadic basis changes",
+  "rational_eight_state_relaxation_requires_inverse_one_third": true,
+  "no_kappa_claim": true
+}
