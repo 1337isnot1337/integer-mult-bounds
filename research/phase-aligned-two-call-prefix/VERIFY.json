@@ -17,7 +17,7 @@
         "--check",
         "{package}/RESULT.json"
       ],
-      "timeout_seconds": 240,
+      "timeout_seconds": 600,
       "checks": "Exact target-alignment ranks, predecessor calibrations, all-width inverse, four-point pencils, residual/projector identities and failure controls."
     }
   ]

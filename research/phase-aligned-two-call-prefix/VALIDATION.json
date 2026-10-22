@@ -36,5 +36,10 @@
     "No independent human verification.",
     "Optional --check-source-history preflight requires a full Git history and declined this shallow checkout. Original predecessor blob equality and all committed package bytes were checked separately."
   ],
-  "scientific_commit": "e7988a43f523690c279232845ab2bfeabb5df10b"
+  "scientific_commit": "e7988a43f523690c279232845ab2bfeabb5df10b",
+  "hosted_ci": {
+    "initial_head": "66dee75557a6685f550476eb413d59d23a39d1f2",
+    "run": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39822323568",
+    "result": "Initial Ubuntu replay hit the 240-second manifest timeout after predecessor controls and six of eight new cuts passed. No mathematical assertion failed. Timeout raised to the repository maximum 600 seconds for the same unchanged exact verification; rerun pending."
+  }
 }
