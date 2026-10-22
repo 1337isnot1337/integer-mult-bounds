@@ -12,7 +12,7 @@ highest admissible kappa.
 
     python3 -B scan_kernels.py
 
-Apache-2.0; substantial OpenAI assistance.
+Apache-2.0; substantial AI assistance.
 """
 import importlib.util
 import sys

@@ -1,11 +1,11 @@
 {
-  "actual_scope": "Quotient the complex local word's nine-axis ambient by the linear map phi(x) = drop_j(x xor v) with kernel span{v}, for v = 153 chosen from the 511 directions by scan_kernels.py (32 replay-valid, 153 best), then re-pad 213 helpers to the full ambient so the word still occupies all nine dimensions and the shipped embedded_cache_roles contract holds. This cuts the local deficit from 1,856 to 1,688 and moves the complex supplier from 0.003020166 to 0.015637149. The outer theorem kappa is capped at 0.0034 by the BIT admission chain.",
-  "ai_assistance": "Claude (OpenAI-compatible Codex tooling), stdlib only, no network access in the verifier.",
-  "author": "Douglas Colkitt, with OpenAI Codex assistance",
+  "actual_scope": "Quotient the complex local word's nine-axis ambient by the linear map phi(x) = drop_j(x xor v) with kernel span{v}, for v = 153 chosen from the 511 directions by scan_kernels.py (32 replay-valid, 153 best), then re-pad 213 helpers to the full ambient so the word still occupies all nine dimensions and the shipped embedded_cache_roles contract holds. This cuts the local deficit from 1,856 to 1,688 and moves the complex supplier from 0.003020166 to 0.015637149. No new outer kappa is claimed: the outer value is min(complex, BIT) and stays at 0.00302015.",
+  "ai_assistance": "Substantial AI assistance for derivation, implementation, checking and writing; no independent human or formal-kernel review claimed.",
+  "author": "Douglas Colkitt, with substantial AI assistance",
   "base_commit": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
   "bottleneck_link": "The complex supplier binds the outer kappa at min(complex, BIT) = 0.003020. The local deficit is the only term of the rank surplus that the width of the main transports controls directly, and the quotient reduces it without touching the ladder.",
   "budget_minutes": 60,
-  "evidence": "Complex supplier kappa 0.003020165977 -> 0.015637149091 (+417.8%); the outer theorem value is BIT-limited at 0.0034 (+12.58%). verify.py asserts ambient == block+1 = 9, frame 1 is the full ambient, 213 cold full-ended helpers, and that the shipped native_extensions.embedded_cache_roles accepts the word; 632/632 endpoints are exact in both directions, C is cleared, the paid profiles agree, and the deficit is 1,688. scan_kernels.py prices all 511 quotient directions.",
+  "evidence": "Complex supplier kappa 0.003020165977 -> 0.015637149091 (+417.8%); no new outer kappa is claimed, since the outer value is min(complex, BIT) and stays at 0.00302015. verify.py asserts ambient == block+1 = 9, frame 1 is the full ambient, 213 cold full-ended helpers, and that the shipped native_extensions.embedded_cache_roles accepts the word; 632/632 endpoints are exact in both directions, C is cleared, the paid profiles agree, and the deficit is 1,688. scan_kernels.py prices all 511 quotient directions.",
   "open_questions": [
     {
       "blocked_by": "None; the quotient word is in this package.",

@@ -1,6 +1,7 @@
-# Conditional kappa = 0.0034 (BIT-limited, +12.58%): complex supplier to 0.015637149 by an ambient quotient
+# No new kappa: complex supplier to 0.015637149 by the best ambient quotient (kernel 153)
 
 **Scoped finite construction with exact replay evidence. Not a multiplication theorem.**
+**No new outer kappa is claimed.**
 
 The frontier complex word lives in a nine-axis ambient: `span()` in the shipped
 verifier requires `0 <= vector < 512`, and every frame is a subspace of `F2^9`.
@@ -22,17 +23,10 @@ so the submitted word occupies all nine, which is what keeps the ladder block at
 8 (see below) and restores the 213 cold full-ended helpers the shipped contract
 requires.
 
-**The theorem's kappa does not become 0.0156.** The outer value is
-`min(complex, BIT)`, and the frontier's admission chain requires
-
-```
-atom 0.004 > ordinary 0.0034363 > admitted 0.0034 > TESTED
-```
-
-where `TESTED` is the complex tested saving. A complex saving above `admitted =
-0.0034` fails that chain, so the outer kappa is capped at **0.0034**, i.e.
-**+12.58%** over `0.00302015`. What this package establishes is that the complex
-supplier stops being the binding side and leaves 4.6x of headroom.
+**No new outer kappa is claimed.** The outer value is `min(complex, BIT)` and is
+unchanged at `0.00302015`; the BIT sets it, and an open PR already carries the
+`0.0034` admission. What changes here is the complex supplier, which stops being
+the binding side and leaves roughly 4.6x of headroom.
 
 | quantity | frontier | quotient |
 |---|---:|---:|
@@ -45,7 +39,7 @@ supplier stops being the binding side and leaves 4.6x of headroom.
 | rank surplus | 752 | **3,776** |
 | distinct main output charts | 113 | 57 |
 | **complex supplier kappa** | **0.003020165977** | **0.015637149091** |
-| **outer theorem kappa** | **0.00302015** | **0.0034 (BIT cap, +12.58%)** |
+| outer theorem kappa | 0.00302015 | **unchanged (no new kappa claimed)** |
 
 `+0.012616983`, **+417.8%** on the complex supplier. Both screen constraints hold
 at the new kappa (`alpha slack 1.1e-16`, `gamma slack 0.0142`).
@@ -151,9 +145,8 @@ profiles the controller would need are in `RESULT.json`
 3. **What is the general surplus identity for mixed main widths?** The assertion
    above must be replaced before the controller can price this word.
 4. **How does this compose at the outer `min()`?** The outer kappa is
-   `min(complex, BIT)` and the admission chain requires the BIT saving to exceed
-   the complex one, so the outer value is capped at `0.0034`. Raising it further
-   needs the BIT side above `admitted`.
+   `min(complex, BIT)` and the BIT sets it, so this package claims no new outer
+   kappa. Raising the outer value needs the BIT side.
 5. **Is the redundancy a property of the identity or of this schedule?** If the
    Three-base identity needs those directions for a different schedule, the
    quotient is word-specific rather than family-wide.
@@ -170,4 +163,4 @@ frontier's declared kappa to twelve digits. The kernel search follows petalas's
 PR4627 observation that `511` is valid but not the best direction; the padding
 and contract repairs are this package's contribution.
 
-Apache-2.0; substantial OpenAI assistance.
+Apache-2.0; substantial AI assistance.

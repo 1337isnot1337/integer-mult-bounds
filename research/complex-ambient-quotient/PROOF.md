@@ -125,21 +125,13 @@ quotient  complex kappa = 0.015637149091    (+417.8%)
 alpha slack 1.1e-16 ; gamma slack 0.0142   (both satisfied)
 ```
 
-## 3b. The outer theorem kappa is capped by the BIT
+## 3b. No new outer kappa
 
-This raises the complex supplier, not the theorem. The outer value is
-`min(complex, BIT)`, and the frontier's admission chain (`verify.py` in
-`research/joint-helper-lattice`) requires
-
-```
-atom 0.004 > ordinary 0.0034363 > admitted 0.0034 > TESTED
-```
-
-with `TESTED` the complex tested saving. A complex saving above `admitted =
-0.0034` fails that chain, so the outer kappa is at most **0.0034**, which is
-**+12.58%** over `0.00302015`. The contribution here is to remove the complex
-side as the bottleneck: after it, the BIT sets the limit with 4.6x of headroom on
-the complex side.
+This raises the complex supplier and claims no new outer kappa. The outer value
+is `min(complex, BIT)` and is unchanged at `0.00302015`; the BIT sets it, and an
+open PR already carries the `0.0034` admission. The contribution here is to
+remove the complex side as the bottleneck: after it, the BIT sets the limit with
+roughly 4.6x of headroom on the complex side.
 
 ## 4. What is checked, and what is not
 
