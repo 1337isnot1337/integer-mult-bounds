@@ -12,6 +12,11 @@ inverse power and helper normalizer is retained. This is a comparison of
 recursive prices; fixed routing, scalar, ownership and native admission
 obligations are stated separately.
 
+The direct helper implementation includes rank-nine jobs, so it does not
+retain the native word's rank-eight child cap. Its use in a compiler needs
+new rank/tail checks, or a caller that removes neutral fresh helper jobs
+from both target and paid lists. Local price dominance alone is not admission.
+
 For comparison, PR4610's original block-eight offer has a real discount
 until its unique local price crossing in
 **(0.0062073960, 0.0062073961)**. This crossing is a local budget threshold,

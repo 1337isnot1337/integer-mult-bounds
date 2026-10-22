@@ -44,6 +44,14 @@ arbitrary inputs; implementing each source-normalized helper job directly
 adds its complete actual target moment H_t to the paid list. All helper
 monomial normalizers are retained. No helper target is counted twice.
 
+Some direct helper jobs have rank nine. The fallback therefore does not
+preserve the native word's rank-eight local child cap. The price comparison
+is not drop-in compiler admission: any replacement must recheck child ranks,
+strictification tails and allocation. If a consumer introduces these helpers
+only as fresh independent bystanders, its direct main implementation can
+instead omit both their inputs/targets and their matching direct paid jobs;
+that cancellation preserves the surplus, but changes the caller's inventory.
+
 This is an operator-level fallback and a comparison of recursive paid
 moments. ADDs, copies, clear/erase, monomial wrappers, fixed routing and
 helper normalizers have finite volume-linear work. We do not assert
