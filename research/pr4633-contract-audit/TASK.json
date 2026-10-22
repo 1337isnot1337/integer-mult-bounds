@@ -70,8 +70,8 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "User-assigned audit of PR4633 physical main-port contracts and bounded repairs at exact head b390d64a.",
-  "scope_change_reason": "Explicit user task overrides the historical supplier-boundary card assignment.",
+  "actual_scope": "User-assigned PR4633 review, published after overlap refresh as complementary exact endpoint-preserving repair bounds alongside PR4636 and PR4642.",
+  "scope_change_reason": "Explicit user assignment; publication narrowed after finding PR4636 already covers the broader negative audit.",
   "bottleneck_link": "Reject a supplier screen that does not implement its invoiced local operator; do not promote it to a new outer kappa.",
   "budget_minutes": 60,
   "stop_rule": "Reproduce artifacts, independently test physical endpoint contracts, and finish two bounded endpoint-preserving repair checks.",

@@ -1,4 +1,4 @@
-# PR4633 contract audit and bounded repair attempts
+# Endpoint-preserving repair bounds for PR4633
 
 **The submitted quotient screens do not establish a new κ.** This audit reviews
 PR4633 at `b390d64abfcdba1a3816b86fc763cbc95d43c12c` and keeps every submitted
@@ -13,6 +13,25 @@ paths, commit, Git blobs and SHA256 hashes. The vendored Python files are
 unchanged. The audit binds the copied builder's `SOURCE` path to the original
 PR589 source directory before calling it. `SOURCES.json` pins the remaining
 inputs from main. Every audit input is available in the publication checkout.
+
+## Overlap and the contribution here
+
+The publication overlap check found [PR4636](https://github.com/CrocSwap/integer-mult-bounds/pull/4636)
+at `b0a325a3e312b7c5ebceb420de4b8cb13181f43e`, which already supplies a broader
+negative audit: rational-field counterexamples, endpoint failures, verifier
+false positives and full scan discrepancies. Those objections are prior
+concurrent findings; the endpoint and field checks below provide reproducible
+context for this package's repair tests.
+
+This package contributes the exact **636-frame contraction obstruction**, the
+**general hyperplane-dimension obstruction for global full-image padding**, and
+the **endpoint-preserving expansion candidate and its failed price**. PR4636's
+README and both short verifiers were inspected at that head; no equivalent
+repair-bound certificate was found in that scope.
+[PR4642](https://github.com/CrocSwap/integer-mult-bounds/pull/4642), at
+`d8c59e36a8efb301f0298871218cfe00f4e043f7`, independently audits complex re-padding
+and its invoice. Its ledger corrections are separate from the repair bounds
+here. `OVERLAP.json` records the bounded search coverage and exact related heads.
 
 ## What reproduces
 
@@ -166,7 +185,10 @@ endpoint concern was raised by pinterbanget (#4604), the quotient-kernel census
 by Nick Petalas (#4627), and the per-port controller-contract audit by Rohan
 Arun in his PR4633 comment. This audit independently checks those concerns,
 adds the rational/GF(2) witness, covers the actual three-dimensional artifact,
-corrects the COPY/main rank attribution, and bounds two repair routes.
+corrects the COPY/main rank attribution, and bounds two repair routes. The
+broader independent audit in #4636 already establishes the rational-field,
+endpoint and verifier objections; this package's publication focuses on the
+complementary repair bounds described above.
 
 Prepared for Cinna Davis with substantial OpenAI Codex assistance. Apache-2.0.
 This package changes no selected-result record and claims no new κ. Its local
