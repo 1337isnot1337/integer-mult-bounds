@@ -174,6 +174,27 @@ F <= -112 + k(112+1792t-2482) + 224S(t-1) < 0.
 This also covers k=S=0. Combining the two ranges and the dominance
 reduction excludes every `0.0030217759<=C<1` in the stated family.
 
+## 5. Even free owned centres do not reach C=0.01
+
+As an explicitly unrealized optimistic relaxation, remove all eight paid
+rank-eight owned-centre jobs, keeping every other charge and target. The
+same dominance proof applies. The local derivative L' becomes still smaller,
+and the small-t lower bound becomes 2474, which still exceeds 560.
+
+Reoptimizing **all** pair counts, splits and thinning masks, rather than
+keeping p16, puts the best relaxed crossing in
+`(0.0080596238,0.0080596239)`, at p5 with both side lengths 2 and all three
+separate flags full. The eight maximizing S values at the upper endpoint,
+in the bit order used above, are `7,6,6,5,6,5,5,4`; all maxima are strictly
+negative, and their adjacent differences have the required strict signs.
+The p5 surplus is positive at the lower endpoint. Exact certificates are
+in RESULT.json. The same monotonicity and small-t argument excludes every
+larger C<1 in this relaxed family.
+
+Thus even deleting the entire owned-centre bill cannot reach C=0.01 by
+retuning this path. A C>=0.01 attack needs another changed hypothesis.
+This is a planning obstruction, not an implementation of free centres.
+
 ## Implication and limits
 
 The existing p16 allocation already attains this family's best raw crossing

@@ -199,6 +199,148 @@
     "source and profile pins"
   ],
   "exact_source_masks_checked": 12744,
+  "free_owned_centres": {
+    "canonical_maxima": [
+      {
+        "flags": [
+          0,
+          0,
+          0
+        ],
+        "side_windows": 7,
+        "sides": [
+          4,
+          3
+        ],
+        "surplus": {
+          "lower": "-19.160692467124252864938109681869",
+          "upper": "-19.160692467124252864938109681868"
+        }
+      },
+      {
+        "flags": [
+          1,
+          0,
+          0
+        ],
+        "side_windows": 6,
+        "sides": [
+          3,
+          3
+        ],
+        "surplus": {
+          "lower": "-13.556781328096692196152849765181",
+          "upper": "-13.556781328096692196152849765180"
+        }
+      },
+      {
+        "flags": [
+          0,
+          1,
+          0
+        ],
+        "side_windows": 6,
+        "sides": [
+          4,
+          2
+        ],
+        "surplus": {
+          "lower": "-13.556781328096692196152849765181",
+          "upper": "-13.556781328096692196152849765180"
+        }
+      },
+      {
+        "flags": [
+          1,
+          1,
+          0
+        ],
+        "side_windows": 5,
+        "sides": [
+          3,
+          2
+        ],
+        "surplus": {
+          "lower": "-7.952870189069131527367589848493",
+          "upper": "-7.952870189069131527367589848492"
+        }
+      },
+      {
+        "flags": [
+          0,
+          0,
+          1
+        ],
+        "side_windows": 6,
+        "sides": [
+          3,
+          3
+        ],
+        "surplus": {
+          "lower": "-11.207828944080986568999085355421",
+          "upper": "-11.207828944080986568999085355420"
+        }
+      },
+      {
+        "flags": [
+          1,
+          0,
+          1
+        ],
+        "side_windows": 5,
+        "sides": [
+          2,
+          3
+        ],
+        "surplus": {
+          "lower": "-5.603917805053425900213825438734",
+          "upper": "-5.603917805053425900213825438733"
+        }
+      },
+      {
+        "flags": [
+          0,
+          1,
+          1
+        ],
+        "side_windows": 5,
+        "sides": [
+          3,
+          2
+        ],
+        "surplus": {
+          "lower": "-5.603917805053425900213825438734",
+          "upper": "-5.603917805053425900213825438733"
+        }
+      },
+      {
+        "flags": [
+          1,
+          1,
+          1
+        ],
+        "side_windows": 4,
+        "sides": [
+          2,
+          2
+        ],
+        "surplus": {
+          "lower": "-0.000006666025865231428565522046",
+          "upper": "-0.000006666025865231428565522045"
+        }
+      }
+    ],
+    "conclusion": "Even free centres and arbitrary stage thinning cannot reach C=0.01",
+    "lower_endpoint_surplus": {
+      "lower": "0.000001549532231927529811361690",
+      "upper": "0.000001549532231927529811361691"
+    },
+    "raw_root_bracket": [
+      "40298119/5000000000",
+      "80596239/10000000000"
+    ],
+    "scope": "Unrealized optimistic relaxation; no higher K construction"
+  },
   "local_derivative_upper": {
     "lower": "-9.534824922458622507134205148508",
     "upper": "-9.534824922458622507134205148507"

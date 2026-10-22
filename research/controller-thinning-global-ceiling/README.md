@@ -15,6 +15,12 @@ their maxima over all pair counts. A separate derivative and small-exponent
 bound excludes every larger saving C<1. Changed words, idle topologies,
 query alphabets and local profiles remain open.
 
+An optimistic corollary removes all eight owned-centre charges and reoptimizes
+the whole family. Its best raw crossing is only
+**(0.0080596238, 0.0080596239)**, at p5. Thus even free centres cannot reach
+C=0.01 through this path. Free centres are a hypothetical relaxation;
+this does not supply a construction at that larger value.
+
 The source binding checks the literal path's rational projector identities and
 all 12,744 full/thin stage subsets, for every split through p5. This bounded
 operator check supports the invoice binding; the proof supplies the infinite

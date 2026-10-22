@@ -183,11 +183,34 @@ def certify():
     need(high[0]+15*V > 0, 'Control: unpaid queries would falsely pass')
     swap = add(E.power(8, Q(1,2)), E.power(8, Q(1,2)), E.scale(E.power(16,Q(1,2)), -1))
     need(swap[0] > 0, 'Strict even-to-odd swap control')
+    # Optimistic relaxation: delete all eight owned rank-eight charges.
+    # The local derivative becomes still smaller, so its proved sign persists.
+    free_paid = dict(P)
+    free_paid[8] -= 8
+    need(sum(free_paid.values())-2*sum(H.values()) == 2474 > V+2*V*D*Q(1,4),
+         'Small-exponent bound also covers free owned centres')
+    free_lower, free_upper = Q('0.0080596238'), Q('0.0080596239')
+    free_maxima = []
+    for encoded, count in enumerate([7, 6, 6, 5, 6, 5, 5, 4]):
+        flags = tuple((encoded >> j) & 1 for j in range(3))
+        current, sides = canonical(E, H, free_paid, count, flags, free_upper)
+        previous, _ = canonical(E, H, free_paid, count-1, flags, free_upper)
+        following, _ = canonical(E, H, free_paid, count+1, flags, free_upper)
+        need(current[0] > previous[1] and current[0] > following[1] and current[1] < 0,
+             'Global maximum with free centres, not fixed-p lever pricing')
+        free_maxima.append({'flags':flags, 'side_windows':count, 'sides':sides,
+                            'surplus':E.display(current)})
+    free_low, _ = canonical(E, H, free_paid, 4, (1,1,1), free_lower)
+    need(free_low[0] > 0, 'Tight free-centre lower endpoint at p5')
     return {'status':'PASS_GLOBAL_PAIRED_PATH_THINNING_CEILING', 'source_pr':4610,
             'scope':'All pair counts, prefix/suffix splits, and binary full-stage subsets of the retained path',
             'raw_root_bracket':[str(LOWER), str(UPPER)], 'new_kappa':False,
             'local_derivative_upper':E.display(derivative), 'canonical_maxima':maxima,
             'lower_endpoint_surplus':E.display(low), 'exact_source_masks_checked':finite_source_binding(),
+            'free_owned_centres':{'scope':'Unrealized optimistic relaxation; no higher K construction',
+                'raw_root_bracket':[str(free_lower), str(free_upper)],
+                'canonical_maxima':free_maxima, 'lower_endpoint_surplus':E.display(free_low),
+                'conclusion':'Even free centres and arbitrary stage thinning cannot reach C=0.01'},
             'controls':['charged queries', 'strict even-to-odd swap', 'source and profile pins'],
             'proof':'PROOF.md supplies infinite-family dominance and concavity'}
 
