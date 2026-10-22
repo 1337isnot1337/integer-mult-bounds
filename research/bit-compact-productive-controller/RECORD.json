@@ -22,8 +22,34 @@
   "complex_supplier_changed": false,
   "selected_global_kappa_at_base": "60403/20000000",
   "author_side_verification": "Exact finite native/caller and price checks; pending external acceptance",
-  "external_third_party_reproduction": "Not claimed",
-  "maintainer_admission": "Pending",
-  "hosted_CI": "Not yet observed; record exact head separately after submission",
-  "publication": "PR identity and actual creation time will be recorded after posting; edits/commits do not count as a new PR."
+  "external_third_party_reproduction": "No independent external report observed; hosted author-submitted replay is recorded separately.",
+  "maintainer_admission": "Pending; no reviews observed at this observation.",
+  "hosted_CI": {
+    "observed_at_utc": "2026-10-22T19:30:54.133903+00:00",
+    "head_sha": "08fab758c76909aaff4bf163627ecdd60ca41a84",
+    "checks": [
+      {
+        "name": "replay (research/bit-compact-productive-controller) / replay (research/bit-compact-productive-controller)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39838963514/job/120035934374"
+      },
+      {
+        "name": "plan",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39838963514/job/120034618603"
+      }
+    ],
+    "scope": "Hosted package replay, separate from external mathematical acceptance; this observation is tied only to the stated head."
+  },
+  "publication": {
+    "PR": 4760,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4760",
+    "created_at_utc": "2026-10-22T19:18:40Z",
+    "initial_posted_head": "08fab758c76909aaff4bf163627ecdd60ca41a84",
+    "scientific_commit": "c0945c235432fc83547c2db80896ba8a64b5f49f",
+    "status_at_observation": "open",
+    "cadence_rule": "Only this actual creation time counts as a new PR; edits and added commits do not."
+  }
 }
