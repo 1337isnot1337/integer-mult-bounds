@@ -57514,6 +57514,47 @@
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4507",
         "merge_commit": "b1857553b7ea74493b01080c67842e2b4a0dfea0"
       }
+    },
+    {
+      "number": 4633,
+      "metadata": {
+        "author": {
+          "id": "MDQ6VXNlcjg4MjYxNTE2",
+          "is_bot": false,
+          "login": "DaysSky",
+          "name": ""
+        },
+        "headRefOid": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+        "isDraft": false,
+        "number": 4633,
+        "title": "Conditional \u03ba = 0.012401086416 (BIT-limited, +310.6%): BIT supplier to 0.012401086416 via the ambient quotient (kernel 150)"
+      },
+      "reviewed_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+      "current_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+      "disposition": "partially_reviewed",
+      "github_state": "CLOSED",
+      "integration_location": [],
+      "unresolved_question": "Revision required: rational-kernel realization and physical main-port controller fail; the verifier accepts zero MOVE charges and empty frame bases. Raw numerical crossings also lack ordinary BIT/outer admission. See the exact-head audit, including full submitted scans.",
+      "closure": {
+        "kind": "closed_unmerged_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4633",
+        "closed_at": "2026-10-22T13:41:17Z",
+        "merged": false,
+        "scope": "Observed during audit; this agent did not close the PR and does not infer the reason."
+      },
+      "scope": "User-assigned full audited replay of both submitted packages and the nine-file update. Passing executions are preserved; scoped negative findings are not supplier or theorem acceptance. Proposed ledger entry only; the reviewed PR closed unmerged before audit publication.",
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/pr4633-quotient-contract-audit/README.md",
+        "research/pr4633-quotient-contract-audit/REPLAY.json",
+        "research/pr4633-quotient-contract-audit/EXPECTED.json",
+        "research/pr4633-quotient-contract-audit/EXPECTED-LATEST.json"
+      ]
     }
   ]
 }

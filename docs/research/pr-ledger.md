@@ -1,6 +1,6 @@
 # PR review and integration ledger
 
-The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **3926**; unrelated arrivals remain outside the round.
+The immutable starting snapshot contains **446 PRs**. Explicit later family rounds extend the current inventory to **3927**; unrelated arrivals remain outside the round.
 
 [Machine-readable ledger](pr-ledger.json) · [Starting snapshot](../../research/pr-reconciliation-20261012/starting-snapshot.json)
 
@@ -9,7 +9,7 @@ The ledger separates historical review from integration. A prior snapshot or a m
 | Disposition | Count |
 |---|---:|
 | incorporated | 2089 |
-| partially reviewed | 1775 |
+| partially reviewed | 1776 |
 | superseded | 2 |
 | unreviewed | 60 |
 
@@ -3969,3 +3969,4 @@ Each evidence link leads to the original scoped assessment. The JSON records exa
 | [#4505](https://github.com/CrocSwap/integer-mult-bounds/pull/4505) | Dugongue | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4506](https://github.com/CrocSwap/integer-mult-bounds/pull/4506) | jwr404 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
 | [#4507](https://github.com/CrocSwap/integer-mult-bounds/pull/4507) | mihir-s-05 | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) |
+| [#4633](https://github.com/CrocSwap/integer-mult-bounds/pull/4633) | DaysSky | partially reviewed | [record 1](../../docs/research/pr-intake-decisions.json) · [record 2](../../research/pr4633-quotient-contract-audit/README.md) · [record 3](../../research/pr4633-quotient-contract-audit/REPLAY.json) |

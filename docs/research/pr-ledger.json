@@ -3,7 +3,7 @@
   "snapshot": "research/pr-reconciliation-20261012/starting-snapshot.json",
   "starting_main": "f19cb621be2caf3a7291a37c343c1c55afe935e0",
   "starting_open_count": 446,
-  "inventory_count": 3926,
+  "inventory_count": 3927,
   "family_round": "docs/research/pr-intake-decisions.json",
   "family_rounds": [
     "research/community-family533-audit/DISPOSITIONS.json",
@@ -56,7 +56,7 @@
   ],
   "counts": {
     "incorporated": 2089,
-    "partially_reviewed": 1775,
+    "partially_reviewed": 1776,
     "superseded": 2,
     "unreviewed": 60
   },
@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "d357fca16133cad4e3e5ab629556d804f648fe0cfed143b6a8dade6275fdf7eb",
+    "docs/research/pr-intake-decisions.json": "ff3e439a28e798497ef68a105e9fcfbd841b906f0401370641ecdb1040711ea0",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -218812,6 +218812,62 @@
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
+      ]
+    },
+    {
+      "number": 4633,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4633",
+      "title": "Conditional κ = 0.012401086416 (BIT-limited, +310.6%): BIT supplier to 0.012401086416 via the ambient quotient (kernel 150)",
+      "contributor": {
+        "id": "MDQ6VXNlcjg4MjYxNTE2",
+        "is_bot": false,
+        "login": "DaysSky",
+        "name": ""
+      },
+      "draft": false,
+      "starting_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+      "previously_reviewed_heads": [
+        "b2998bacd50d57c301fe67c5392054440c42398c"
+      ],
+      "historical_assessment_heads": [],
+      "historical_mentions": [],
+      "evidence": [
+        {
+          "head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+          "evidence": "docs/research/pr-intake-decisions.json",
+          "scope": "User-assigned full audited replay of both submitted packages and the nine-file update. Passing executions are preserved; scoped negative findings are not supplier or theorem acceptance. Proposed ledger entry only; the reviewed PR closed unmerged before audit publication.",
+          "kind": "integration_or_partial_review"
+        }
+      ],
+      "reviewed_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+      "current_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+      "disposition": "partially_reviewed",
+      "github_state": "CLOSED",
+      "integration_location": [],
+      "unresolved_question": "Revision required: rational-kernel realization and physical main-port controller fail; the verifier accepts zero MOVE charges and empty frame bases. Raw numerical crossings also lack ordinary BIT/outer admission. See the exact-head audit, including full submitted scans.",
+      "closure": {
+        "kind": "closed_unmerged_observed",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4633",
+        "closed_at": "2026-10-22T13:41:17Z",
+        "merged": false,
+        "scope": "Observed during audit; this agent did not close the PR and does not infer the reason."
+      },
+      "review_completion": {
+        "changed_file_coverage": true,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
+        "published": false
+      },
+      "verification_evidence": [
+        "research/pr4633-quotient-contract-audit/README.md",
+        "research/pr4633-quotient-contract-audit/REPLAY.json",
+        "research/pr4633-quotient-contract-audit/EXPECTED.json",
+        "research/pr4633-quotient-contract-audit/EXPECTED-LATEST.json"
+      ],
+      "current_head_observed_in": "docs/research/pr-intake-decisions.json",
+      "reconciliation_evidence": [
+        "research/pr4633-quotient-contract-audit/README.md",
+        "research/pr4633-quotient-contract-audit/REPLAY.json"
       ]
     }
   ],

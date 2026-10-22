@@ -1,11 +1,16 @@
 # PR4633 audited replay: numerical replay passes; supplier contract fails
 
-**Recommend waiting for revision at `b390d64abfcdba1a3816b86fc763cbc95d43c12c`.**
+**Do not admit the claimed supplier at `b390d64abfcdba1a3816b86fc763cbc95d43c12c`.**
 The submitted checks reproduce the reported BIT and complex numerical screens.
 They do not establish the claimed BIT supplier or outer saving. This audit
 supplies exact counterexamples to the rational quotient interpretation and the
 retained main-port contract, and a false-positive mutation of the BIT verifier.
 No selected result, theorem, supplier or new kappa is certified here.
+Before publication, GitHub reported PR4633 **closed without merge** at
+`2026-10-22T13:41:17Z`, with the same head. This audit did not close it and does
+not infer a reason for closure. No open-queue scheduling entry is created for a
+closed submission; the central ledger records the negative review and closure
+observation separately from mathematical acceptance.
 
 ## Current-head delta: three-dimensional kernel
 
@@ -36,6 +41,22 @@ augmentation is never entered because 1940 is already greater than 600. This
 is the full submitted finite domain, not an exhaustive enumeration of all
 subspaces of dimensions two through four. The serial delta replay and results
 are included with the first-head evidence in `REPLAY.json` and `evidence/`.
+
+The complete updated scan also **refutes the plateau/optimal-dimension claim**:
+
+| Listed kernel size | Candidates | Accepted | Distinct accepted screen values | Best numerical screen |
+|---|---:|---:|---:|---:|
+| 1 | 15 | 15 | 15 | 0.012401086416 |
+| 2 | 105 | 105 | 71 | 0.021804306829 |
+| 3 | 455 | 438 | 145 | 0.032249423395 |
+| 4 | 1365 | 1122 | 128 | 0.042304306669 |
+
+The README/PROOF claim 445 accepted triples, all at the same value; the exact
+submitted code instead returns 438 and 145 distinct values. Triple `[240,7,9]`
+prices at `0.001073869184`. Four-dimensional basis `[150,102,255,165]` prices
+at `0.042304306669`, contradicting the assertion that dimension four falls
+back to `0.017525188018`. These are discrepancies in the numerical experiment,
+not newly established suppliers or improved bounds.
 
 `LATEST-SOURCE-INVENTORY.json` and `sources-current/` freeze the revised BIT;
 `EXPECTED-LATEST.json` records its independent counterexamples. The short
@@ -228,6 +249,10 @@ DaysSky authored PR4633 and the included complex quotient work (PR4629 and
 PR4596). PR589's retained E8 word credits DreamingOfClouds, eumemic and its
 cited lineage. The complex input retains PR4470 and predecessor attribution.
 Ryanson Jonathan's PR4604 is the earlier endpoint-frame audit. This independent
-audit was prepared for Cinna Davis with substantial OpenAI Codex assistance.
+audit also overlaps [Rohan Arun's concurrent per-port-contract comment](https://github.com/CrocSwap/integer-mult-bounds/pull/4633#issuecomment-6341849407),
+discovered during the final live refresh. The rational-field counterexamples,
+verifier mutations, both-head full scans and native edge replay here provide
+additional reproducible evidence. This audit was prepared for Cinna Davis with
+substantial OpenAI Codex assistance.
 All source notices are preserved; Apache-2.0. No independent human or formal
 kernel verification of the multiplication theorem is claimed.
