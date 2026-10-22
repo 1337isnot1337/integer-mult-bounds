@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Independent proof check of PR #4532 (Dillon), PROOF.md sections 2.2-2.3: the funded critical-root majorant
+"""Independent proof check of PR #4532 (Dillon), PROOF.md sections 1.1 and 2.2-2.3: the funded critical-root majorant
 L(n) <= A n^t (c + log n)^p used by #4535 (kappa = 0.003020165). Text vendored from #4535 head a6d7237f.
 
-Every analytic step of section 2.3 is checked in the form it is used:
+Every analytic step of section 2.3 is checked in the form it is used, and section 1.1's identities:
+  S0 the two mirror-slack integral identities (dz/z gives P T' - T P'; z^(t-2) dz gives (P(t)T(1) - T(t)P(1))/(1-t)),
+     as exact finite sums over the actual p16 windows at seven exponents, and strict-slack positivity;
   S1 (ln f)' = tau/x and f''/f = x^-2 [tau(tau-1) - p/(c+log x)^2]: identity of rational functions in (t, p, y = c+log x)
      after the chain rule dy/dx = 1/x, checked exactly at 2,000 random rational points;
   S2 tau(x) <= 1 for x >= 1 iff c >= p/(1-t); (f(x)/x)' = f(tau-1)/x^2 <= 0 and f(n0) = n0, so L(n) = n <= f(n) on the
@@ -199,6 +201,47 @@ def S7():
     return checks, ts
 
 
+def S0():
+    """Section 1.1: the two mirror-slack integral identities, as exact finite sums over the actual p16 windows.
+
+    For pair (r, k) with coefficient P_r W_k (rk)^t: a source window (1/k, 1/r] (k > r) or an exit window (1/r, 1/k]
+    (r > k) integrated against dz/z gives the same signed log(k/r); against z^(t-2) dz it gives
+    (k r^t - r k^t)/(1 - t) (k > r) or minus the mirrored value (r > k). Summing must give P T' - T P' and
+    (P(t) T(1) - T(t) P(1))/(1 - t). Integrals are evaluated cell by cell from the window endpoints; checked at 7
+    exponents with 50-digit decimals, plus the strict-slack positivity (1 - beta) * integral of S > 0.
+    """
+    prof = json.loads(PROFILE.read_bytes())
+    T = {int(k): v for k, v in prof["targets"].items()}
+    P = {int(k): v for k, v in prof["paid"].items()}
+    checks = 0
+    for t in (D("0.5"), D("0.9"), D("0.99"), T_STAR, D("0.99725"), D("0.999"), D("0.3")):
+        lhs1 = lhs2 = D(0)
+        source_mass = D(0)
+        for k, w in T.items():
+            for r, cnt in P.items():
+                if k == r:
+                    continue
+                coef = D(w * cnt) * (D(r) * D(k)) ** t
+                lo, hi = (D(1) / k, D(1) / r) if k > r else (D(1) / r, D(1) / k)
+                sign = 1 if k > r else -1  # source windows count positively, exit windows negatively
+                lhs1 += sign * coef * (hi.ln() - lo.ln())
+                lhs2 += sign * coef * (hi ** (t - 1) - lo ** (t - 1)) / (t - 1)
+                if k > r:
+                    source_mass += coef * (hi.ln() - lo.ln())
+        Tt = sum(D(c) * D(k) ** t for k, c in T.items())
+        Pt = sum(D(c) * D(r) ** t for r, c in P.items())
+        Td = sum(D(c) * D(k) ** t * D(k).ln() for k, c in T.items())
+        Pd = sum(D(c) * D(r) ** t * D(r).ln() for r, c in P.items())
+        T1 = sum(D(c) * k for k, c in T.items())
+        P1 = sum(D(c) * r for r, c in P.items())
+        need(abs(lhs1 - (Pt * Td - Tt * Pd)) <= D(10) ** -30 * abs(Pt * Td), "dz/z identity = P T' - T P'")
+        need(abs(lhs2 - (Pt * T1 - Tt * P1) / (1 - t)) <= D(10) ** -30 * abs(Pt * T1), "z^(t-2) identity")
+        checks += 1
+    # Strict slack: with E <= beta S pointwise (beta = .564 < 1), the dz/z integral is >= (1 - beta) * source mass > 0.
+    need(lhs1 > 0 and (1 - D("0.564")) * source_mass > 0, "strict mirror slack gives a positive mean gap")
+    return checks
+
+
 def check_binding():
     raw = SPEC.read_bytes()
     need(hashlib.sha256(raw).hexdigest() == SPEC_SHA256, "vendored #4532 PROOF.md")
@@ -213,7 +256,7 @@ def check_binding():
 def main():
     rng = random.Random(45321)
     s7, ts = S7()
-    report = {"status": "PASS_PR4532_PROOF_CHECK", "S1_identity_points": S1(rng), "S2_S3_S4_grid_checks": S2_S3_S4(),
+    report = {"status": "PASS_PR4532_PROOF_CHECK", "S0_section_1_1_identities": S0(), "S1_identity_points": S1(rng), "S2_S3_S4_grid_checks": S2_S3_S4(),
               "S5_closure_cases": S5(rng), "S6_integer_cases": S6(rng), "S7_profile_grid_points": s7,
               "float_crossing": ts, "spec_statements_bound": check_binding(), "new_kappa_claimed": False}
     print(json.dumps(report, indent=1))

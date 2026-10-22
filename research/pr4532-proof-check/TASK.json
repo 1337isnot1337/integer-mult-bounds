@@ -84,16 +84,16 @@
   "scope_change_reason": null,
   "bottleneck_link": "Independent proof-level coverage of the majorant theorem underlying the best open conditional kappa (#4535).",
   "budget_minutes": 45,
-  "stop_rule": "Stop at #4532 sections 2.2-2.3.",
+  "stop_rule": "Stop at #4532 sections 1.1 and 2.2-2.3.",
   "outcome": "completed",
-  "evidence": "S1 identity (2,000 exact points); S2-S4 base range, (11), (12) on 60-digit grids for both witnesses; S5 closure chain; S6 K_ell identity and 17,118 integer rank cases; S7 monotonicity directions and (6) on the p16 profile over both cover intervals; 6 statements bound.",
+  "evidence": "S0 section 1.1 identities as exact finite sums on the p16 windows (7 exponents); S1 identity (2,000 exact points); S2-S4 on 60-digit grids for both witnesses; S5 closure; S6 K_ell identity and 17,118 integer cases; S7 monotonicity directions and (6) on both cover intervals; 6 statements bound.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Independent proof check of #4532 section 1.1 (mirror-slack integral identities).",
-      "why_it_matters": "They supply the mean gap and rank-one surplus used at the crossing.",
-      "first_step": "Verify both identities exactly on the p16 cells as finite sums.",
+      "question": "Independent check of #4532 section 3 (exact tail-gate feasibility criterion).",
+      "why_it_matters": "Completes #4532; not needed by #4535.",
+      "first_step": "Check the H(lambda) characterisation on the p16 profile.",
       "blocked_by": "None."
     }
   ]

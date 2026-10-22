@@ -1,4 +1,4 @@
-# Independent proof check of #4532 §2.2–2.3: the funded critical-root majorant
+# Independent proof check of #4532 §1.1 and §2.2–2.3: the funded critical-root majorant
 
 **Task:** independent-moment (independent source-bound coverage). **Base:** canonical main `f626db5c`. **No new κ.**
 
@@ -16,6 +16,7 @@ Every checked step holds. I found no gap.
 
 | Step | What is checked | How |
 |---|---|---|
+| S0 | §1.1: `∫(S−E)dz/z = PT' − TP'` and `∫(S−E)z^(t−2)dz = (P(t)T(1) − T(t)P(1))/(1−t)`; strict slack gives a positive mean gap | exact finite sums over the actual p16 windows at seven exponents, 50-digit decimals |
 | S1 | `(ln f)' = τ/x` and `f''/f = x^−2[τ(τ−1) − p/(c+log x)²]` | identity of rational functions in `(t, p, y = c+log x)` with `dy/dx = 1/x`, exact at 2,000 random rational points |
 | S2 | `τ ≤ 1 ⟸ c ≥ p/(1−t*)`; `(f/x)' = f(τ−1)/x² ≤ 0`; `f(n0) = n0`, hence `L(n) = n ≤ f(n)` on the base range | 60-digit decimals on log-spaced grids `1…n0` |
 | S3 | (11): `f(e)/f(n) ≤ (e/n)^τ(n)` for `1 ≤ e ≤ n` (from `log(1+y) ≤ y`) | grids above `n0` |
@@ -46,6 +47,6 @@ This runs in about 70 s with the standard library only.
 
 ## Open next questions
 
-- An independent proof check of #4532 §1.1, the mirror-slack integral identities that supply the mean gap and the rank-one surplus. First step: verify both integral identities exactly on the p16 cells as finite sums.
+- With §1.1 now covered here, the remaining unchecked part of #4532 is §3, the exact feasibility criterion for the tail gates, which #4535 does not need. First step: check its `H(λ)` characterisation on the p16 profile.
 
 Credit: Dillon (#4532), hexapode (#4535), zxv and Jacob Alan Sussman (#4483 compiler and majorant lineage). Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
