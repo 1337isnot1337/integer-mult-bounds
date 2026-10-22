@@ -1,0 +1,7 @@
+# Historical guidance versus scientific inputs
+
+The fork PR14 navigation repair selects this package because current-status.md is among its declared invalidation inputs. The old manifest additionally required the current autoresearch, selected record, catalogue and status page to retain their earlier bytes. Those pages have advanced since base 0b1cccf86e2f5132ed286a26ef0a681a495740ea.
+
+The complete unchanged verifier at Git blob a48d025d118840009764efe893654e2d28441f98 performs no file reads and imports no external data. It constructs the D8 group, F2 group algebra, 240 paid factors and finite word search from explicit definitions. Its seven controls and length-five positive witness do not depend on any current guidance or selected frontier. The four guidance/selection rows are therefore recorded as historical provenance at their original base. All original blob IDs and SHA256 hashes are retained. The referenced lower-bound README remains a pinned live input, and every original VERIFY.json input and command remains unchanged, including the changed-document triggers.
+
+This is a metadata-role correction, not a new mathematical check, altered alphabet, weakened negative control or changed result. The unchanged scientific replay must still run and succeed on the publication head. No current selection is inferred from the historical package. Original author and predecessor credit remain in README.md and TASK.json. This note was prepared for Chris / Clear1nsight with substantial OpenAI assistance, Apache-2.0.
