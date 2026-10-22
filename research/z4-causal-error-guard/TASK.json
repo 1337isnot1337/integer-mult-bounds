@@ -89,7 +89,7 @@
     "scope": "Live titles and bodies, recent account submissions and hub claims, active discussions, targeted merged PR title/body reads, and separate all-main README term searches. No exact-scope match found; sparse local notes, arbitrary diffs and unpublished work limit coverage."
   },
   "local_validation": {
-    "python": "3.12.14",
+    "python": "3.12.15",
     "registered_normal": "PASS, 0.310 seconds",
     "registered_optimized": "PASS, 0.315 seconds",
     "source_binding_orientation": "PASS_RESEARCH_BASELINE_BINDINGS_ONLY",
