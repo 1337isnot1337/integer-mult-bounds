@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "wait_started_utc": "2026-10-22T13:57:54Z",
+  "first_refresh_utc": "2026-10-22T14:03:20Z",
+  "elapsed_seconds_before_refresh": 326,
+  "reviewed_pr": {
+    "number": 4633,
+    "state": "CLOSED",
+    "head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+    "updated_at": "2026-10-22T13:41:17Z"
+  },
+  "refreshed_main": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
+  "guidance_catalogue_selected_record_changed_since_previous_main": false,
+  "coverage": {
+    "recent_pr_query": "sort:updated-desc updated:>=2026-10-22",
+    "recent_pr_limit": 60,
+    "direct_pr_query": "4633 in:title,body",
+    "direct_pr_limit": 25,
+    "quotient_pr_query": "quotient sort:updated-desc",
+    "quotient_pr_limit": 20,
+    "recent_discussion_limit": 15,
+    "comments_per_discussion": 12,
+    "limitations": "Bounded live search and source/readme review; not an exhaustive history search or independent replay of peer audits."
+  },
+  "overlap": [
+    {
+      "pr": 4636,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4636",
+      "head": "b0a325a3e312b7c5ebceb420de4b8cb13181f43e",
+      "state": "OPEN",
+      "updated_at": "2026-10-22T13:49:31Z",
+      "reported_scope": "Publishes the rational-field, rank-eight erased-line, endpoint and MOVE-undercharge findings, plus broader scans/native replay.",
+      "independently_replayed_during_refresh": false
+    },
+    {
+      "pr": 4642,
+      "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4642",
+      "head": "d8c59e36a8efb301f0298871218cfe00f4e043f7",
+      "state": "OPEN",
+      "updated_at": "2026-10-22T14:01:14Z",
+      "reported_scope": "Independently reports complex block-7 surplus -256, 56 zero-central-rank ports, and detailed helper re-padding accounting.",
+      "independently_replayed_during_refresh": false
+    }
+  ],
+  "conclusion": "Substantial corroborating overlap; no repaired quotient kappa found. Preserve the audit as a scoped repair-obstruction check without claiming novelty for repeated counterexamples."
+}

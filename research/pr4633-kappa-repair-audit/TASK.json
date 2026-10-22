@@ -47,7 +47,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after exact counterexamples and checks of global-quotient, endpoint-restoration and smaller-block repairs; claim no new supplier without a complete operator and invoice.",
   "outcome": "negative-result",
-  "evidence": "README.md, RESULT.json and verify.py: exact source/endpoint controls, rank-eight erased-line witness, full-verifier undercharge mutation, and repaired-block diagnostics.",
+  "evidence": "README.md, RESULT.json and verify.py: exact source/endpoint controls, rank-eight erased-line witness, full-verifier undercharge mutation, and repaired-block diagnostics. OVERLAP.json records the delayed publication refresh and substantial overlap with PR4636 and PR4642.",
   "author": "Cinna Davis",
   "ai_assistance": "Substantial OpenAI Codex assistance with source review, exact counterexamples, implementation and CPython 3.12 replay.",
   "open_questions": [

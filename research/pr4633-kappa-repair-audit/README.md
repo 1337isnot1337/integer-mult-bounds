@@ -6,6 +6,28 @@ three-dimensional BIT kernel. The two original packages remain unchanged.
 [RESULT.json](RESULT.json) records `supported_new_kappa: null`; its passing
 status means the counterexamples pass.
 
+## Overlap refresh before push
+
+After the requested five-minute wait, GitHub was refreshed at
+2026-10-22 14:03:20 UTC. PR4633 was closed without a merge and its reviewed head
+was unchanged. Canonical main had advanced to
+`b58ad9ef4d4e861b0eaa5dba41742bdc072dca51`; the applicable guidance, task
+catalogue and selected record were unchanged from the main snapshot above.
+
+[PR4636](https://github.com/CrocSwap/integer-mult-bounds/pull/4636), head
+`b0a325a3e312b7c5ebceb420de4b8cb13181f43e`, already publishes the rational-field,
+rank-eight erased-line, endpoint and MOVE-undercharge counterexamples, with
+broader scan and native replay coverage. Those findings are corroboration here,
+with no novelty claim. This package additionally focuses on the scoped
+global-quotient repair obstruction and explicit smaller-block diagnostics.
+
+[PR4642](https://github.com/CrocSwap/integer-mult-bounds/pull/4642), head
+`d8c59e36a8efb301f0298871218cfe00f4e043f7`, independently reports the complex
+block-7 surplus of -256 and the 56 zero-central-rank ports, along with a more
+detailed re-padding ledger. Its numerical replay was not rerun for this refresh.
+Neither overlapping audit supplies a repaired kappa claim. Search coverage and
+source links are recorded in [OVERLAP.json](OVERLAP.json).
+
 ## Findings
 
 1. **The BIT builder changes the scalar field of the frame geometry.** PR589
