@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Exact finite source-bound cascade audit. Apache-2.0, Clear1nsight with Codex."""
 import ast
+import contextlib
+import io
 from fractions import Fraction as F
 import hashlib
 import json
@@ -18,13 +20,13 @@ def load(name):
     raw = path.read_bytes()
     row = next(r for r in json.loads((ROOT/'ORIGINS.json').read_text()) if r['path'] == name)
     require(hashlib.sha256(raw).hexdigest() == row['sha256'], 'source bytes differ: '+name)
-    ns = {'__name__': 'frozen_source'}
+    ns = {'__name__': 'frozen_source', '__authenticated_source_bytes__': raw}
     exec(compile(raw, str(path), 'exec'), ns)
     return ns
 
 def source_prefix(ns, filename, function, stop_variable):
     """Execute only literal source construction, stopping before expensive rank/test suite."""
-    tree = ast.parse((ROOT/filename).read_bytes())
+    tree = ast.parse(ns['__authenticated_source_bytes__'])
     fn = next(n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == function)
     prefix=[]
     for stmt in fn.body:
@@ -75,8 +77,12 @@ def audit_cycle(n,shifts,declared):
             'condition_number':'3','rejected_bound':str(declared)}
 
 def run():
-    a=load('inputs/pr4818-verify_schedule.py')['build_operators_m4']()
-    b=load('inputs/pr4819-verify_schedule.py')['build_operators_m4']()
+    ans=load('inputs/pr4818-verify_schedule.py')
+    a=ans['build_operators_m4']()
+    with contextlib.redirect_stdout(io.StringIO()):
+        literal_a=source_prefix(ans,'inputs/pr4818-verify_schedule.py','run_3in10_synthesis','rank_M')
+    bns=load('inputs/pr4819-verify_schedule.py')
+    b=bns['build_operators_m4']()
     cns=load('inputs/pr4826-verify_schedule.py')
     c=source_prefix(cns,'inputs/pr4826-verify_schedule.py','run_3in9_schedule_verification','rank_M')
     require([a[k]for k in ['G1','G2','G3']]==expected_couplers(16,[1,2,4]),'4818 literal couplers')
@@ -85,12 +91,22 @@ def run():
     cases={'4818':audit_cycle(16,[1,2,4],F(9,7)),
            '4819':audit_cycle(16,list(range(1,14)),F(8193,8191)),
            '4826':audit_cycle(32,[1,2,4],F(9,7))}
-    # Confirm #4826's actually assembled M, not just its couplers.
-    M=c['M_cascade'];n=32;shifts=[1,2,4]
-    for r in range(96):
-        for col in range(96):
-            wanted=F(int(r==col))+F(int(col==((r//n+1)%3)*n+((r%n)^shifts[r//n])),2)
-            require(M[r][col]==(wanted,F(0)),'4826 actual cascade mismatch')
+    # Compare both assembled matrices to the independent permutation model.
+    for M,n,shifts in [(literal_a['M_cascade'],16,[1,2,4]),(c['M_cascade'],32,[1,2,4])]:
+        dim=len(M)
+        for r in range(dim):
+            for col in range(dim):
+                wanted=F(int(r==col))+F(int(col==((r//n+1)%3)*n+((r%n)^shifts[r//n])),2)
+                require(M[r][col]==(wanted,F(0)),'actual assembled cascade mismatch')
+    # #4819 supplies a forward method rather than materializing M: replay all columns.
+    engine=bns['Cascade13in41Engine'](b['couplers'])
+    for col in range(208):
+        blocks=[[(F(int(k*16+r==col)),F(0)) for r in range(16)] for k in range(13)]
+        got=engine.forward_multiply(blocks)
+        for k in range(13):
+            for r in range(16):
+                wanted=F(int(k*16+r==col))+F(int(((k+1)%13)*16+(r^(k+1))==col),2)
+                require(got[k][r]==(wanted,F(0)),'4819 actual forward cascade mismatch')
     # #4826 residual claim is TRUE at this width, although its verifier does not assert it.
     pns=load('inputs/pr4826-verify_ports.py')
     p=source_prefix(pns,'inputs/pr4826-verify_ports.py','run_ports_verification','saving_kappa')

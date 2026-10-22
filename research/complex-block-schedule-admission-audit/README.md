@@ -29,7 +29,7 @@ python3 -I -O -B research/complex-block-schedule-admission-audit/verify.py
 python3 -B scripts/research_package.py --package research/complex-block-schedule-admission-audit
 ```
 
-Expected: `PASS_COMPLEX_BLOCK_SCHEDULE_ADMISSION_AUDIT`. RESULT.json records exact witnesses. `--write-result` explicitly regenerates that receipt. Ordinary checks are read-only. Checks stay active under optimized Python. The predecessor constructors contain assertions; this audit's independent comparison and rejection predicates use explicit exceptions. No original complete native suite, Lean, full phase proof, compiler, hosted CI or independent human review is claimed.
+Expected: `PASS_COMPLEX_BLOCK_SCHEDULE_ADMISSION_AUDIT`. RESULT.json records exact witnesses. `--write-result` explicitly regenerates that receipt. Ordinary checks are read-only. `mutation_check.py` copies the package to a temporary Git-free directory, runs optimized Python with no tools on PATH, corrupts a retained source byte and then the scientific receipt in separate subprocesses, and requires both mutations to be rejected. Original package bytes remain untouched. Checks stay active under optimized Python. The predecessor constructors contain assertions; this audit's independent comparison and rejection predicates use explicit exceptions. No original complete native suite, Lean, full phase proof, compiler, hosted CI or independent human review is claimed.
 
 ## Open next questions
 

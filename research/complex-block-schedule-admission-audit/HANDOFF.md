@@ -1,6 +1,6 @@
 # Handoff: actual shared-register realization before κ accounting
 
-Status: exact finite endpoint conditioning correction and one sector misuse witness complete locally; publication coordinated by parent. No new κ.
+Status: exact finite endpoint conditioning correction and one conditional-rule misuse witness complete locally; publication coordinated by parent. No new κ.
 
 The most promising distinct constructive test is #4813's first two overlapping native ports, because its local two-/three-call operators come from the documented #4743 interface. Compose those two ports on the actual current five-bank state, track every independent original input, and compare with the alleged observations. Either emit the necessary preservation/restoration work and price it, or exhibit the first failed bank substitution. Do not repeat the full rank solve on ideal observations. For #4826 a genuine three-call port is an earlier missing gate; its valid residual identity alone uses a two-call prefix plus a three-call operator.
 

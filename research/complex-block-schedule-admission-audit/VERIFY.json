@@ -31,6 +31,16 @@
       ],
       "timeout_seconds": 120,
       "checks": "Same scientific predicates remain active under optimized Python"
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-B",
+        "{package}/mutation_check.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Actual exported source-byte and scientific receipt corruption must reject in separate optimized Git-free subprocesses"
     }
   ]
 }
