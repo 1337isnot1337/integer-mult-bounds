@@ -91,9 +91,9 @@
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Do two-short-row coefficients meet the 4m call floor?",
-      "why_it_matters": "Call-count side of #4600.",
-      "first_step": "Count calls of the construction via the row-model converse.",
+      "question": "Short-row versus call counts for unbalanced or signed depth-four words.",
+      "why_it_matters": "In the balanced model every realized coefficient costs exactly 4m calls.",
+      "first_step": "Restate #4280's congruences with one call used m+1 times.",
       "blocked_by": "None."
     }
   ]
