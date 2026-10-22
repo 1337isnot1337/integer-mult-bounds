@@ -100,3 +100,35 @@ python3 -B scripts/check_research_commit.py --package research/sol1337-global-ce
 No prospective public CLAIM was posted before the short sweep finished. Any
 publication is a DONE finding and honest evidence handoff. Hosted execution,
 independent human acceptance and formal proof-kernel acceptance are unclaimed.
+
+## Independent adjacent-pair addendum
+
+[PAIRS-ADDENDUM.md](PAIRS-ADDENDUM.md) and the authenticated, unchanged
+[pair proof](pairs/PROOF.md) extend this same archival package to arbitrary
+independent nontrivial distance-one neighbours at both endpoints of any of the
+264 actual internal edges. The original common-axis proof/scanner/verifier and
+receipts above are preserved byte-for-byte; their stated exclusions refer to
+that original theorem. The additive theorem covers independent adjacent pairs,
+while larger independently retagged blocks remain outside both results.
+
+A separate source-bound C++ screen recounts all 261,632 opposite-neighbour
+assignments, with 1,831,424 incident rank checks and 44 histogram classes.
+Independent Python exactly reproduces all class counts. Every class has paid
+loss at least `3+7^theta-8^theta>=2`. Different-hyperplane geometry, transferred
+PR4867 single/coherent-pair bounds and the exact eight rank-eight edge inventories
+close **every independent adjacent pair**, with strict loss for `0<=theta<1`.
+The nominal 8,355,872 rank-eight assignments were not scanned; their complete
+optimistic bill already gives `2+6^theta-8^theta>=2-2^theta>0`.
+
+```
+python3 -I -W error -B research/sol1337-global-centre-cut/verify_pairs.py
+python3 -I -O -W error -B research/sol1337-global-centre-cut/verify_pairs.py
+```
+
+The pair wrapper is additionally registered alongside the unchanged original
+commands. It regenerates exact graph bytes, runs producer code only in scratch,
+checks source hashes and exact receipts, and rejects three actual malformed
+input graphs. Producer provenance and credit are retained in pairs/ORIGIN.json,
+pairs/SOURCES.json and the top-level source manifest. No extra PR, changed graph
+search, native witness or new kappa is supplied. The smallest useful next step
+is the changed central function/consumer complete-invoice gate in TASK.json.
