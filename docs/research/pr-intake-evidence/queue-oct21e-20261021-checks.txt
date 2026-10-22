@@ -22,3 +22,6 @@ test_noncertificate_source_and_proof_corruption_reject (test_research_selected_b
 Ran 13 tests in 0.688s
 
 OK
+
+Ledger projection checks: check_family_decision and check_review_completion passed for every current decision; Markdown/count consistency passed.
+The full historical verify_pr_reconciliation.py entry point was attempted but stopped at sparse-omitted research/pr-reconciliation-20261012/starting-snapshot.json; no full historical replay is claimed or required for this delta.

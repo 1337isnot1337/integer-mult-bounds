@@ -57440,7 +57440,7 @@
       "reviewed_head": "210ad368fcb971cb0e30ff41379608b846e462a4",
       "current_head": "210ad368fcb971cb0e30ff41379608b846e462a4",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/gaussian-tensor-nine-faces"
       ],
@@ -57450,12 +57450,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct21f-20261021.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4506",
+        "merge_commit": "b1857553b7ea74493b01080c67842e2b4a0dfea0"
+      }
     },
     {
       "number": 4507,
@@ -57475,7 +57479,7 @@
       "reviewed_head": "98b9f9e1b96940c0c405638afa974e378436fc55",
       "current_head": "98b9f9e1b96940c0c405638afa974e378436fc55",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/chronological-batch-width"
       ],
@@ -57485,12 +57489,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct21f-20261021.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4507",
+        "merge_commit": "b1857553b7ea74493b01080c67842e2b4a0dfea0"
+      }
     }
   ]
 }
