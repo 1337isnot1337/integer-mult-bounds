@@ -63,13 +63,13 @@ For complex kernel 153, 56 ports have widths (7,7) and a surviving central
 complement; the other 56 have widths (7,8) and X entrance contained in Y final.
 Neither type is the block-8 call priced by the invoice.
 
-There is a general obstruction for the submitted global full-image padding.
+There is a general obstruction for the BIT builder's global full-image padding.
 Let h be the original ambient dimension and K a nonzero k-dimensional kernel.
 For a source hyperplane H, dim(phi(H)) is h-k or h-k-1. In the former case the
 image is the full quotient and the builder re-pads it to dimension h. In the
 latter case it remains dimension h-k-1 <= h-2. Thus **no Y terminal can have the
 required dimension h-1**, for any nonzero kernel in this construction. This
-rules out repairing the existing priced contract by searching more kernels.
+rules out repairing the existing priced BIT contract by searching more kernels.
 It does not rule out a new controller with different operator contracts.
 
 The correct BIT rank-mass decomposition is:
