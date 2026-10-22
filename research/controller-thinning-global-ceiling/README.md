@@ -48,6 +48,19 @@ unconditional multiplication theorem or independent human acceptance.
 
 ## Open next questions
 
+Publication refresh found concurrent [PR4658](https://github.com/CrocSwap/integer-mult-bounds/pull/4658):
+it certifies C<0.003022 for three pinned profiles through p64 using a max-plus
+DP. This contribution instead proves the reduction for unbounded p, sharpens
+the round-three bracket and adds the globally retuned free-centre corollary.
+PR4658 was inspected at the description level; no independent replay is claimed.
+
+The concurrent [typed quotient interface, PR4654](https://github.com/CrocSwap/integer-mult-bounds/pull/4654),
+is outside this theorem. [PR4660](https://github.com/CrocSwap/integer-mult-bounds/pull/4660)
+reports that extracting its B pairs and keeping an A-only path fails for all p
+and C. Its remaining constructive target is a controller that keeps both types
+active, or a changed centre/phase schedule. These are provisional source claims,
+not newly replayed native constructions in this package.
+
 Find a profitable change outside the retained path: a different scalar word,
 idle topology, nonbinary replacement or native query interface. First emit its
 complete endpoint contract and paid/target moment. An optimistic moment gain

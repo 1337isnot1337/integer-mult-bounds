@@ -39,3 +39,7 @@ The current selected cold replay, historical suites, Lean and manual hosted
 workflows were not run: no selected construction or shared code changed.
 Hosted CI status must be checked separately. No native, physical, compiler,
 BIT or outer admission is established by these arithmetic checks.
+
+The final live PR refresh included concurrent #4658, #4654 and #4660.
+Their descriptions were inspected and the overlap/escape scope recorded in
+README.md. Their full sources and proofs were not independently replayed.
