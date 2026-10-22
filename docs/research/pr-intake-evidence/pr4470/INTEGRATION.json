@@ -21,7 +21,14 @@
   "historical_checkpoint": "certificates/checkpoints/frontier4359.json",
   "contributors": "docs/research/community-joint4470-contributors.md",
   "scope": "Finite changed-construction and independent-audit replay with exact-source prior foundation review reuse. Inherited analytic, native/all-column, owned-erasure, compiler, precision/tape and exact-recovery hypotheses remain. No new full theorem or Lean verification.",
-  "hosted_ci": "Not run at receipt creation; the new selected workflow runs on publication.",
+  "hosted_ci": {
+    "status": "success",
+    "platform": "ubuntu-latest / Python 3.12",
+    "run_id": 39777050467,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39777050467",
+    "tested_commit": "4f19cedcd8d81e4a2359449309fa6e9f17dfd22e",
+    "scope": "Selected eight-stage serial replay, unchanged-input check and artifact upload. Subsequent status-navigation edit changed no source or replay inputs."
+  },
   "local_checks": {
     "focused_tests": 42,
     "selected_source_binding": "PASS",
@@ -29,6 +36,7 @@
     "ledger_markdown": "PASS, 3926 rows",
     "diff_check": "PASS",
     "elapsed_serial_replay_seconds": 209.47,
-    "full_history_or_lean_run": false
+    "full_history_or_lean_run": false,
+    "status_navigation_tests": 6
   }
 }
