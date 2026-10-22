@@ -80,3 +80,6 @@ with substantial OpenAI assistance; no independent human review is claimed.
 PR4813's discussion had no returned comments at the inspection checkpoint.
 No public comment was posted and no broader novelty search is claimed.
 Apache-2.0, under the repository's license.
+
+The source-pinned follow-up in BLOCK4-ADDENDUM.md addresses PR4818/4819,
+including independent exact counterexamples to their whole-cycle condition bounds.

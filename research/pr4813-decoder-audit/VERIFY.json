@@ -13,6 +13,15 @@
       ],
       "timeout_seconds": 120,
       "checks": "Exact C0 unitarity and deletion rank controls, not a paid-circuit replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify_cycle_control.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Exact Rayleigh quotient counterexamples to the PR4818/4819 whole-cycle condition claims."
     }
   ]
 }

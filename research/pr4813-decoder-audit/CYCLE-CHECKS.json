@@ -1,0 +1,41 @@
+{
+  "new_kappa": false,
+  "paid_schedule_executed": false,
+  "pr4818": {
+    "arrays": 3,
+    "claimed_bound_refuted": true,
+    "claimed_whole_cycle_bound": "9/7",
+    "condition_squared_lower_bound": "27/11",
+    "large_rayleigh": "9/4",
+    "masks": [
+      1,
+      2,
+      4
+    ],
+    "small_rayleigh": "11/12"
+  },
+  "pr4819": {
+    "arrays": 13,
+    "claimed_bound_refuted": true,
+    "claimed_whole_cycle_bound": "8193/8191",
+    "condition_squared_lower_bound": "39/7",
+    "large_rayleigh": "9/4",
+    "masks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "small_rayleigh": "21/52"
+  },
+  "status": "PASS_BLOCK4_CYCLE_CONDITION_CONTROLS"
+}

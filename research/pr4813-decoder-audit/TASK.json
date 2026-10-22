@@ -52,13 +52,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Audit whether PR4813 observation rank proves a fourteen-call decoder.",
+  "actual_scope": "Audit observation-rank/paid-decoder implications in PR4813 and later PR4818/4819; refute two whole-cycle condition claims.",
   "scope_change_reason": "A newly advertised large saving requires a decoder-cost audit before building on it.",
   "bottleneck_link": "Input recoverability does not establish productive target cost.",
   "budget_minutes": 30,
   "stop_rule": "Record the scoped missing implication and exact rank control; do not claim impossibility.",
   "outcome": "completed",
-  "evidence": "README.md and CHECKS.json",
+  "evidence": "README.md, CHECKS.json, BLOCK4-ADDENDUM.md and CYCLE-CHECKS.json",
   "author": "Cinna Davis / 1337isnot1337, with substantial OpenAI assistance",
   "ai_assistance": "Substantial OpenAI assistance in proof, source inspection and independent checker; no independent human review.",
   "open_questions": [
