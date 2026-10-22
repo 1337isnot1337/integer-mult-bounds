@@ -422,9 +422,9 @@ by itself prove a larger multiplication kappa.
 1. Independently check the arbitrary-height flow and mirror identity,
    including small root sources and empty-root classes. A finite integer
    check should distinguish this flow from the old minimum-target height.
-2. Certify the strongest relevant raw profile using (18)--(20), and compare
-   complete final ranks through (17). Better constants are useful only
-   when every guard and the normalization are included.
+2. Extend the certificates beyond the three supplied raw profiles using
+   (18)--(20), or improve their geometry while holding the consumer saving
+   fixed. Compare complete final ranks through (17), including normalization.
 3. Audit the resulting word's native physical implementations and full
    finite constants. The theorem removes an exponent-convergence obstacle;
    it does not discharge those caller obligations.

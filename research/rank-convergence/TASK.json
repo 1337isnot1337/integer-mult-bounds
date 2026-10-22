@@ -89,7 +89,8 @@
       "PR4479": "035008ddc2cea4949829d309770e67479e696d9e",
       "PR4470": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
       "PR4436": "56003680aee2871773de408e5f01cc5dd46b144c"
-    }
+    },
+    "PR4480_publication_head": "4cf054a50c5718616594ec4ca2c9114278120a8b"
   },
   "open_questions": [
     {
@@ -132,6 +133,11 @@
     "exact_certificates": 4,
     "rejected_witnesses": 8,
     "native_outer_producer_replays": "inherited exact receipts; not rerun",
-    "review": "Separate Sol 6.1 medium proof and implementation audits; not formal or independent human acceptance."
+    "review": "Separate Sol 6.1 medium proof and implementation audits; not formal or independent human acceptance.",
+    "registered_final": "pass",
+    "committed_byte_preflight": "pass at 527dc558072f0336b3b0b8023fd972f0af398d15",
+    "checked_export": "pass: 26 files",
+    "git_free_isolated_optimized": "pass: no Git and PATH=/nonexistent",
+    "exported_mutation_controls": "pass: changed predecessor rejected before execution; altered exact receipt rejected after recomputation"
   }
 }

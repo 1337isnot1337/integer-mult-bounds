@@ -35,7 +35,25 @@ SHA256/Git-blob authenticated. The predecessor flow authenticates before
 execution. Original Sussman license and notice are retained in the explicit
 export closure. All changed research is scoped to this package.
 
-Final committed-byte and Git-free export results will be appended after the
-scientific commit; this avoids representing uncommitted bytes as a transport
-receipt. Full source-history ancestry checking requires an unshallow repository
+Scientific commit: `527dc558072f0336b3b0b8023fd972f0af398d15`.
+
+- Final registered replay with the original Sussman license and notice inputs:
+  `PASS_REGISTERED_RESEARCH_PACKAGE`, outcome completed.
+- `python3.12 -B scripts/check_research_commit.py --package research/rank-convergence`:
+  `PASS_RESEARCH_COMMIT_BYTES`, 26 files.
+- `python3.12 -B scripts/export_research_package.py export --package research/rank-convergence --output /tmp/rank-convergence-science.tar`:
+  `PASS_RESEARCH_EXPORT`, 26 files; archive checker passed.
+- Extracted to a fresh directory with no `.git`. Direct replay with
+  `python3.12 -I -O -B`, absolute interpreter path and `PATH=/nonexistent`:
+  `PASS_PADDING_FREE_ADAPTIVE_COMPILER`, all four certificates, 13 tests and
+  eight rejected witnesses. Neither Git nor an undeclared Python dependency
+  was available through PATH.
+- Altering the extracted predecessor flow bytes is rejected before execution.
+  A first external test harness expected the wrong diagnostic substring;
+  the verifier itself rejected correctly. The harness was corrected.
+- Altering the extracted exact RESULT receipt is rejected after recomputation;
+  both exported mutation controls passed. Original extracted bytes were restored.
+
+Only documentation and validation metadata were edited after the scientific
+commit. Full source-history ancestry checking requires an unshallow repository
 and is not claimed here.
