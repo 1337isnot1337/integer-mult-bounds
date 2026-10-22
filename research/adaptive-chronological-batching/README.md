@@ -14,7 +14,7 @@ which exits must form one whole supplier batch, and why. The conditional
 width theorem below bounds width growth, not a tighter leaf exponent;
 there is no convergence or native-admission claim.
 
-**Executed evidence.** Python 3.12.14 in the declared development environment.
+**Executed evidence.** Python 3.12.14, standard library only.
 The direct isolated replay passed in 35.02 s: 405 nonempty census fixtures,
 19,089 literal oracle classes, 2,304 brute-force minimality cases and 25
 semantic rejection controls. Six compilations check 186,476 chronological

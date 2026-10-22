@@ -14,7 +14,3 @@ build/
 *.toc
 *.out
 *.synctex.gz
-
-# Local development environments
-.direnv/
-.devenv/

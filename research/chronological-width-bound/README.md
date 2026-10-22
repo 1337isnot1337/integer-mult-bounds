@@ -345,9 +345,8 @@ python3.12 -B scripts/research_package.py --package research/adaptive-chronologi
 
 `--write` regenerates only this package's `RESULT.json`. Source pins are in
 `SOURCES.json`; the historical task card and selected record remain
-provenance, not moving scientific inputs. The development environment
-supplies Python 3.12 through `direnv`; equivalent author commands use
-`direnv exec . uv run --no-project --python 3.12 python ...`.
+provenance, not moving scientific inputs. Reproduction requires Python 3.12
+and the standard library; no Nix or direnv environment is required.
 
 Historical base: canonical main `f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc`,
 priority revision 7. The historical selected record was `23/10000`; those
