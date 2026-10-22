@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "PROPOSED_CONDITIONAL_ORDINARY_BIT_003475458",
+  "scientific_base": "624de9dc66858af0945e5f8a0942488d62280d43",
+  "axis": "ordinary_BIT_saving",
+  "admitted": "1737729/500000000",
+  "ordinary_exact_last_level": "2277676167393184261090061/655360000000000000000000000",
+  "levels": [
+    {
+      "level": 1,
+      "backend": "34597/10000000",
+      "exact": "2277572906250144261090061/655360000000000000000000000",
+      "admitted": "8688251/2500000000"
+    },
+    {
+      "level": 2,
+      "backend": "8688251/2500000000",
+      "exact": "2277675145031584261090061/655360000000000000000000000",
+      "admitted": "8688641/2500000000"
+    },
+    {
+      "level": 3,
+      "backend": "8688641/2500000000",
+      "exact": "2277676167393184261090061/655360000000000000000000000",
+      "admitted": "1737729/500000000"
+    }
+  ],
+  "previous_exact_ordinary": "17713901828029/5120000000000000",
+  "relative_gain_over_previous_exact": "80443131971/17713901828029",
+  "raw_moment_word_changed": false,
+  "raw_crossing_interval": [
+    "0.003475458064076428997514",
+    "0.003475458064076428997515"
+  ],
+  "selected_global_kappa_changed": false,
+  "selected_global_kappa_at_base": "60403/20000000",
+  "complex_supplier_changed": false,
+  "maintainer_mathematical_review": "Pending",
+  "external_independent_reproduction": "Not claimed; separate internal AI source-type and arithmetic audits.",
+  "hosted_CI": "Not yet observed for this proposed package.",
+  "publication": "Actual PR number, creation time and initial scientific head will be recorded after posting."
+}
