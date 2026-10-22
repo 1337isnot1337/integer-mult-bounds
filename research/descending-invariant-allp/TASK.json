@@ -86,14 +86,14 @@
   "budget_minutes": 40,
   "stop_rule": "Stop at the invariant; physical realization out of scope.",
   "outcome": "completed",
-  "evidence": "Written proof from the constructor schedule; mechanized check over 590 cases (p<=60) and 440 recorded cases (p<=200).",
+  "evidence": "Written proof from the constructor schedule; mechanized check over 590 cases (p<=60) and 440 recorded cases (p<=200). BIT controller: same invariant, 590 cases (p<=60).",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Same invariant for #4440's BIT controller?",
-      "why_it_matters": "Extends the result to the binary side.",
-      "first_step": "Run the tracker on bit.physical_controller events.",
+      "question": "A physically priced noncommuting stage family (#4534 Q1).",
+      "why_it_matters": "The algebra now permits any p.",
+      "first_step": "One pair of stage embeddings with exact symplectic matrix and central-Q commutation.",
       "blocked_by": "None."
     }
   ]

@@ -11,7 +11,8 @@ Mechanized check: the constructor (research/kappa-rebuild/bit/complex_controller
 research/query-thinned-controllers/controller.py) emits its event stream with its polynomial arithmetic stubbed out;
 this verifier tracks, per line, the largest letter present, and checks the strict-increase condition at every
 prepend, for p = 2..60, keep masks all-ones, all-zeros and three random masks, with and without thick-stage thinning.
-evidence/ records the same check up to p = 200.
+The same is checked for #4440's BIT controller (bit.physical_controller; IDLE bitmasks decoded to stage lists).
+evidence/ records the complex check up to p = 200.
 Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 import hashlib
@@ -35,10 +36,13 @@ def load_constructor():
     spec = importlib.util.spec_from_file_location("qtc_controller", ROOT / "research/query-thinned-controllers/controller.py")
     C = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(C)
-    _, M = C.engines()
+    B, M = C.engines()
     M.plus = lambda a, b, c=1: a              # the event stream does not depend on the polynomial values
     M.monomial_times = lambda poly, exp, c=1: poly
-    return M
+    B.add = lambda a, b: a                    # same for the binary group-ring controller
+    B.shift = lambda a, m: a
+    B.polynomial_coefficients = lambda m: {}
+    return M, B
 
 
 def invariant(events, p, thick=None):
@@ -78,9 +82,9 @@ def invariant(events, p, thick=None):
 def main():
     for row in json.loads((HERE / "SOURCES.json").read_text(encoding="utf-8"))["files"]:
         need(hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest() == row["sha256"], row["path"])
-    M = load_constructor()
+    M, B = load_constructor()
     rng = random.Random(4540)
-    cases = 0
+    cases = bit_cases = 0
     for p in range(2, 61):
         thick = {0, 2 * p, *range(1, 2 * p, 2)}
         for keep in [(1 << (8 * p)) - 1, 0] + [rng.getrandbits(8 * p) for _ in range(3)]:
@@ -88,12 +92,17 @@ def main():
             for th in (None, thick):
                 need(invariant(events, p, th), f"p={p}: descending invariant")
                 cases += 1
+            _, bev, _ = B.physical_controller(p, keep)
+            bev = [["IDLE", e[1], [s for s in range(2 * p + 1) if e[2] >> (s + 1) & 1]] if e[0] == "IDLE" else e for e in bev]
+            for th in (None, thick):
+                need(invariant(bev, p, th), f"p={p}: BIT descending invariant")
+                bit_cases += 1
     # control: a schedule that prepends an old stage again must fail
     bad = [["LOCAL", 1, 0, False], ["LOCAL", 0, 0, False]]
     need(not invariant(bad, 1), "non-increasing prepend rejected")
     ev = (HERE / "evidence/INVARIANT-P2-200.txt").read_text(encoding="utf-8")
     need("invariant holds:" in ev and "FAIL" not in ev, "recorded sweep to p = 200")
-    print(json.dumps({"status": "PASS_DESCENDING_INVARIANT_ALLP", "cases_checked_here": cases, "p_range": [2, 60],
+    print(json.dumps({"status": "PASS_DESCENDING_INVARIANT_ALLP", "cases_checked_here": cases, "bit_cases_checked_here": bit_cases, "p_range": [2, 60],
                       "new_kappa_claimed": False}, indent=1))
 
 

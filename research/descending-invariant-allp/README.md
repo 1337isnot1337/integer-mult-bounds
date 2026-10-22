@@ -56,6 +56,15 @@ all-zeros and three random masks, both with and without thick-stage thinning: **
 A control in which an old stage is prepended again is rejected. `evidence/` records the same check up to
 `p = 200` (440 cases). My #4540 already confirmed the full free-algebra identity directly for `p ≤ 14`.
 
+## The BIT controller
+
+#4440's binary controller, `bit.physical_controller` over `F₂[(ℤ/2)^{2p+2}]`, runs the identical stage and
+idle schedule. The verifier checks the same invariant on its event stream, with idle bitmasks decoded to
+stage lists: **590 more cases**, `p ≤ 60`, five keep masks, with and without thinning. All pass.
+
+Because no letter repeats within a word, the group-ring relation `d² = 1` never acts on the support.
+Abelianization is therefore again injective, and the same corollary applies on the BIT side.
+
 ## Not covered
 
 - Existence of the commutative factorization for every `p`. This is #4440's constructor claim.
@@ -72,8 +81,8 @@ The verifier prints `PASS_DESCENDING_INVARIANT_ALLP` in about a minute, using on
 
 ## Open next questions
 
-1. **Does #4440's BIT controller have the same invariant over its binary group ring?**
-   - *First step:* run this tracker on `bit.physical_controller`'s event stream.
+1. **A physically priced noncommuting stage family.** This is #4534's open question 1; the algebra
+   now permits any `p`.
 
 ## Credit
 

@@ -19,7 +19,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 400,
-      "checks": "Descending-support invariant on #4440's constructor event stream for p=2..60, five keep masks, with and without thinning (590 cases); rejection control; recorded sweep to p=200."
+      "checks": "Descending-support invariant on #4440's constructor event stream for p=2..60, five keep masks, with and without thinning (590 cases); rejection control; recorded sweep to p=200. Also #4440's BIT controller (590 cases)."
     }
   ]
 }
