@@ -47,9 +47,37 @@ and recovery premises are inherited, not recertified by these checks.
 
 ## Publication checks
 
-Committed-byte, source-history, archive integrity and isolated exported replay
-results are recorded below after the scientific files are committed. Until
-then, the scientific results above are local author-executed evidence.
+Scientific commit `d5f8e3fdad3b7e2f168b33cf17c4a70131b7e501` passed
+committed-byte/source-history preflight. Its export contains all 15 package
+files and the three declared live inputs (18 files total); archive integrity
+also passes. All source pins resolve to the retained canonical-main ancestor.
+
+The extracted verifier passes Python 3.12.15 with `-I -O -B`, `PATH=/nonexistent`
+and a macOS process sandbox denying network access. It therefore needs neither
+Git nor a network connection after export. The exact receipt matches the normal
+and optimized in-tree replays. Commands:
+
+```sh
+python3.12 -B scripts/check_research_commit.py --package research/controller-border-interface --check-source-history
+python3.12 -B scripts/export_research_package.py export --package research/controller-border-interface --output /tmp/controller-border.tar
+python3.12 -B scripts/export_research_package.py check /tmp/controller-border.tar
+```
+
+Four separate mutations of extracted copies fail in optimized Python 3.12:
+changed source bytes fail authentication; a false RESULT status fails exact
+receipt comparison; a changed X orientation fails the Laurent identity; and
+an omitted thin-query bill fails the rank-surplus control. Together with the
+three independent-checker mutations above, these exercise source transport,
+receipt, algebra, accounting, orientation and precision failure paths.
+
+Canonical main was fetched again before publication and remained `f626db5c3`.
+Guidance, priorities, selected record and pinned scientific inputs were unchanged.
+The 10:33 UTC overlap refresh covered 397 open PRs, 3,560 Discussion records
+and the complete 5,860 tracked note inventory, with reported complete remote
+pagination. The newer #4610 changes a different exact native word; it is not
+included in these frozen-inventory ceilings. No competing border-controller
+construction was found in this bounded search. Hosted CI is separate from
+these local and exported checks; no hosted pass is claimed here.
 
 ## Research decision and remaining obligations
 
