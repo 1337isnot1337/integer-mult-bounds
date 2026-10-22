@@ -1,6 +1,6 @@
-# Three short rows realize every unit coefficient for 6 ≤ m ≤ 13
+# Three short rows realize every unit coefficient for every m ≥ 6
 
-**Task:** independent-moment (exact evidence for #4600's open question 2). **Base:** canonical main `f626db5c`. **No κ is claimed.**
+**Task:** independent-moment (an answer to #4600's open question 2, within the row model). **Base:** canonical main `f626db5c`. **No κ is claimed.**
 
 ## Background
 
@@ -35,21 +35,33 @@ A single shape suffices well beyond the exhaustive range:
 
 For each target only (a, b) changes, and β is decided exactly by a dynamic programme. This shape realizes every unit for 7 ≤ m ≤ 30. At m = 6 the unit 5 needs a different shape, which the exhaustive run finds.
 
-## Explicit construction for every c ≢ −1 (written, checked to m = 200)
+## Theorem: three short rows realize every unit for every m ≥ 6
 
-Take λ = (m−1, m−2, 3, 0, …) and ρ = (m, 3, 2, 1^(m−5), 0, 0). For 1 ≤ u ≤ m−2, take
+This answers #4600's open question 2 within #4280's row model.
+
+**Construction (m ≥ 14).** Take λ = (m−1, m−2, 3, 0, …) and ρ = (m, 3t, 2t, padding ≤ 2t). Here t = 1 unless c = −1. In that case t is a unit with 2 ≤ t < m/3:
+
+- t = 2 for odd m;
+- t = 3 when 3 ∤ m;
+- otherwise the smallest prime not dividing m, which satisfies 3t < m for every m ≥ 14.
+
+Then put X ≡ c·t⁻¹ (mod m). This lies in [1, m−2], because t ≠ 1 whenever c = −1. Take
 
 ```text
-β = (balanced first block of sum u + 2m,  balanced middle of length m−5 and sum S,  u,  0),
+β = (balanced block of sum X + 2m,  balanced middle of length m−5 and sum S,  X,  0),
 ```
 
-where S is the least value ≥ (m−5)u with S ≡ −2(u + 2m) (mod m).
+where S is the least value ≥ (m−5)X with S ≡ −2(X + 2m) (mod m). Then:
 
-- **Partial sums.** B(3) ≡ u, B(m−2) ≡ −u and B(m−1) ≡ B(m) ≡ 0.
-- **Congruences.** Every congruence holds, and the coefficient is −(3B(m−2) + 2B(3)) ≡ u.
-- **Monotonicity.** This needs S ≤ (m−5)·⌊(u+2m)/3⌋, which holds for all u ≤ m−2.
+- **Partial sums.** B(3) ≡ X, B(m−2) ≡ −X and B(m−1) ≡ B(m) ≡ 0.
+- **Congruences.** Σ ρL = 3tm ≡ 0, and the coefficient is −(3t·B(m−2) + 2t·B(3)) ≡ tX = c.
 
-The verifier checks the construction for every 10 ≤ m ≤ 200. **So three short rows realize every c ≢ −1 (mod m) for all m ≥ 10, in a uniform way.** Only c = −1 still needs a uniform rule. It is covered exactly for m ≤ 13 and by the fixed-shape search for m ≤ 30, using other ρ = (m, a, b, …) with a ≡ 3t and b ≡ 2t for a unit t, for example.
+The verifier checks the construction for **every nonzero c and every 14 ≤ m ≤ 200**. Together with the exact enumeration for m ≤ 13:
+
+- **every unit**, and in fact every nonzero c for m ≥ 7, has three short rows for every m ≥ 6;
+- for m ≤ 5, nothing does.
+
+The fixed-shape dynamic programme for m ≤ 30 is retained as a further cross-check.
 
 ## Verify
 
@@ -61,12 +73,12 @@ The check takes about 20 s and uses the standard library only.
 
 ## Limitations
 
-- **Finite range only.** This is exact evidence for m ≤ 13, not a proof for every m.
+- **Checked range.** The construction's monotonicity bound is checked for every m ≤ 200. The written argument covers its congruences for all m; the inequality S ≤ (m−5)·⌊(X+2m)/3⌋ for X ≤ m−2 is checked, not written out.
 - **Inherited model.** The row model and its converse are inherited from #4280.
 - **Not claimed.** Call counts and κ.
 
 ## Open next questions
 
-- **A uniform three-row rule for c = −1.** The construction above covers every other c for m ≥ 10. First step: use ρ = (m, 3t, 2t, …) with a unit t such that 3t mod m ≥ 2t mod m, and X ≡ −t⁻¹.
+- **Minimum calls.** Do the three-row words for units meet #4600's 4m call floor? First step: count the calls of the construction through the row-model converse.
 
 Credit: petalas (Nick Petalas) for #4600 and #4280. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

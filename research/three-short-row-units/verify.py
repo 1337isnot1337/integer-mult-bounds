@@ -13,7 +13,10 @@ So the answer to #4600's open question 2 is yes for 6 <= m <= 13, and the thresh
 Further, the single shape lambda = (m-1, m-2, 3), rho = (m, a, b, padding) (one (a, b) per target, beta exact by a
 dynamic programme) realizes every unit for 7 <= m <= 30; and an explicit construction with rho = (m, 3, 2, 1^(m-5),
 0, 0), beta = (balanced block of sum u + 2m, middle of length m - 5 with sum = -2(u + 2m) mod m just above (m-5)u,
-u, 0) realizes every c = u with 1 <= u <= m - 2 for 10 <= m <= 200 (only c = -1 needs another rho).
+u, 0) realizes every c = u with 1 <= u <= m - 2; with rho = (m, 3t, 2t, padding) for a unit 2 <= t < m/3 it also
+realizes c = -1. Such t exists for every m >= 14 (t = 2 for odd m; t = 3 if 3 does not divide m; otherwise the
+smallest prime p not dividing m satisfies 3p < m). Checked for every nonzero c and 14 <= m <= 200. With the exact
+enumeration for m <= 13: three short rows realize every unit for every m >= 6, every nonzero c for every m >= 7.
 Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 from math import gcd
@@ -100,15 +103,28 @@ def even_split(total, n):
     return [q + 1] * r + [q] * (n - r)
 
 
-def construction(m, u):
-    """Explicit three-short-row profiles realizing c = u for 1 <= u <= m - 2 (m >= 10)."""
+def multiplier(m, c):
+    """t = 1 unless c = -1; then a unit 2 <= t < m/3 (t = 2 for odd m, else the smallest prime not dividing m)."""
+    if c != m - 1:
+        return 1
+    return next(t for t in range(2, m) if 3 * t < m and gcd(t, m) == 1)
+
+
+def construction(m, c):
+    """Explicit three-short-row profiles realizing any nonzero c (m >= 14): rho = (m, 3t, 2t, padding),
+    B(3) = X with X = c / t (mod m) in [1, m - 2], coefficient (3t - 2t) X = c."""
+    t = multiplier(m, c)
+    x = c * pow(t, -1, m) % m
+    need(1 <= x <= m - 2, "X avoids -1 because t != 1 when c = -1")
     lam = [m - 1, m - 2, 3] + [0] * (m - 3)
-    rho = [m, 3, 2] + [1] * (m - 5) + [0, 0]
-    first = even_split(u + 2 * m, 3)
-    low = (m - 5) * u
-    mid_sum = low + (-2 * (u + 2 * m) - low) % m
+    pad = -(m + 5 * t) % m
+    need(pad <= 2 * t * (m - 3), "rho padding")
+    rho = [m, 3 * t, 2 * t] + even_split(pad, m - 3)
+    first = even_split(x + 2 * m, 3)
+    low = (m - 5) * x
+    mid_sum = low + (-2 * (x + 2 * m) - low) % m
     need(mid_sum <= (m - 5) * first[-1], "middle fits under the first block")
-    beta = first + even_split(mid_sum, m - 5) + [u, 0]
+    beta = first + even_split(mid_sum, m - 5) + [x, 0]
     for p in (lam, rho, beta):
         need(len(p) == m and all(0 <= v <= m for v in p) and all(a >= b for a, b in zip(p, p[1:])), "profile")
     pre = [0]
@@ -116,7 +132,7 @@ def construction(m, u):
         pre.append(pre[-1] + v)
     need(sum(lam) % m == sum(rho) % m == sum(beta) % m == 0, "sums")
     need(sum(a * l for a, l in zip(rho, lam)) % m == 0 and sum(pre[l] for l in lam) % m == 0, "weighted sums")
-    need(-sum(a * pre[l] for a, l in zip(rho, lam)) % m == u, "coefficient")
+    need(-sum(a * pre[l] for a, l in zip(rho, lam)) % m == c, "coefficient")
 
 
 def main():
@@ -129,9 +145,9 @@ def main():
         else:
             need(units <= found, "m = %d: every unit realized with three short rows" % m)
         table[m] = sorted(found)
-    for m in range(10, 201):
-        for u in range(1, m - 1):
-            construction(m, u)
+    for m in range(14, 201):
+        for c in range(1, m):
+            construction(m, c)
     for m in range(7, 31):
         need({c for c in range(1, m) if gcd(c, m) == 1} <= template_units(m), "fixed-shape template, m = %d" % m)
     print(json.dumps({"status": "PASS_THREE_SHORT_ROW_UNITS", "realized_by_m": table, "template_m_range": [7, 30], "new_kappa_claimed": False},
