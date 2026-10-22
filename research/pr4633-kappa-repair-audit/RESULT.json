@@ -1,0 +1,80 @@
+{
+  "bit": {
+    "binary_source_contract": {
+      "accepted_ports": 8,
+      "endpoint_dimensions": {
+        "(1, 8, 0, 7)": 111
+      },
+      "rejected_ports": 103
+    },
+    "block4_screen_search_result": null,
+    "block4_surplus": -6069,
+    "declared_kernel_dimension": 3,
+    "distinct_binary_reductions": 157,
+    "erased_rational_lines": 41,
+    "erased_rational_span_rank": 8,
+    "independent_erased_port_witness": [
+      8,
+      9,
+      10,
+      11,
+      46,
+      47,
+      59,
+      60
+    ],
+    "independent_rank_mismatches": 2184,
+    "quotient_contract": {
+      "accepted_ports": 0,
+      "endpoint_dimensions": {
+        "(0, 8, 0, 4)": 41,
+        "(1, 8, 0, 4)": 62,
+        "(1, 8, 0, 8)": 8
+      },
+      "rejected_ports": 111
+    },
+    "rational_frames": 636,
+    "rational_source_ports_accepted": 111,
+    "removed_COPY_related_rank": 27,
+    "removed_main_rank": 260,
+    "source_kappa_screen": 0.003464248972023964,
+    "source_surplus": 753,
+    "terminal_normal_rank_over_Q": 8,
+    "undercharged_MOVE_mutation_accepted_by_author": true,
+    "undercharged_mutation_reported_kappa": 0.25,
+    "unjustified_quotient_screen": 0.03224942339489283,
+    "unjustified_quotient_surplus": 5919
+  },
+  "complex": {
+    "block7_surplus": -256,
+    "quotient_block7_contract": {
+      "accepted_ports": 56,
+      "endpoint_dimensions": {
+        "(1, 8, 0, 7)": 56,
+        "(1, 8, 0, 8)": 56
+      },
+      "rejected_ports": 56
+    },
+    "quotient_block8_contract": {
+      "accepted_ports": 0,
+      "endpoint_dimensions": {
+        "(1, 8, 0, 7)": 56,
+        "(1, 8, 0, 8)": 56
+      },
+      "rejected_ports": 112
+    },
+    "source_contract": {
+      "accepted_ports": 112,
+      "endpoint_dimensions": {
+        "(1, 9, 0, 8)": 112
+      },
+      "rejected_ports": 0
+    },
+    "terminal_normal_rank_over_F2": 9,
+    "unjustified_block8_surplus": 3776
+  },
+  "reviewed_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+  "scope": "Exact counterexamples and necessary endpoint conditions; no replacement supplier.",
+  "status": "PASS_PR4633_REPAIR_AUDIT",
+  "supported_new_kappa": null
+}

@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "base_commit": "b390d64abfcdba1a3816b86fc763cbc95d43c12c",
+  "files": [
+    {
+      "path": "certificates/selected-result.json",
+      "usage": "provenance",
+      "git_blob": "ed33caef5c5827693e9572d252a66f99cbb73d40",
+      "sha256": "5732707cc1e460b090b53f2463162749ad860de878a18f7408938671d295a9d9"
+    },
+    {
+      "path": "docs/research/agent-task-catalog.json",
+      "usage": "provenance",
+      "git_blob": "64bfc5af6709ed9811171e0a2108f05e1219cb65",
+      "sha256": "352a6184713b8843d96fd2c2071eb7aeaa655906b7c51d45ad444912666c8a96"
+    },
+    {
+      "path": "research/bit-ambient-quotient/QUOTIENT-BIT-WORD.json.gz",
+      "usage": "input",
+      "git_blob": "fa2fa7618a66b98a4e78711f307bc893c86b1405",
+      "sha256": "a1b9555b38d234e3921cdabd280e6a754619e26dd620a069a2a85a93efa31b2c"
+    },
+    {
+      "path": "research/bit-ambient-quotient/RESULT.json",
+      "usage": "input",
+      "git_blob": "ba73ce57db43d7a1535751c50bcb25b01b2dc677",
+      "sha256": "fdb1059a80c345004259eea514585a7ac2f199b1825af46477b9dc0bff8aaf90"
+    },
+    {
+      "path": "research/bit-ambient-quotient/build.py",
+      "usage": "input",
+      "git_blob": "ae55584ddb9555f62975a07ae28efaf71b30c291",
+      "sha256": "1d6601e57f4d8809065ed6821b1bda35621fb6a08a8fd48cc3fdf95ed59e19c7"
+    },
+    {
+      "path": "research/bit-ambient-quotient/verify.py",
+      "usage": "input",
+      "git_blob": "f0acb7c51ebb095853e55dd6f997db8a898dab38",
+      "sha256": "d60e8db9aea2dbee786432143aac8c18996bf491b513b57d1729a4bbb3f7464e"
+    },
+    {
+      "path": "research/complex-ambient-quotient/QUOTIENT-WORD.json.gz",
+      "usage": "input",
+      "git_blob": "31444b48850cbe220d4ddbf88496722682581fb8",
+      "sha256": "10155f81100e9cd6283f1d9dfd071bc0c3e0e89dc3794a66e4129a1f34d99dc4"
+    },
+    {
+      "path": "research/complex-ambient-quotient/RESULT.json",
+      "usage": "input",
+      "git_blob": "dc50c5a29a471de8183d9d371954b31947f34a6a",
+      "sha256": "1cfcda8517c945e3a3a61c86b2d3e724bdcfc86b453668131ecbf741f8a1b90f"
+    },
+    {
+      "path": "research/complex-ambient-quotient/build.py",
+      "usage": "input",
+      "git_blob": "3c317eb2e004a2646eec45843b68e6a2287dc763",
+      "sha256": "ac9b12cd84055a83c9c1fae5c7aea8a18212ade5a71726095218da242a677015"
+    },
+    {
+      "path": "research/complex-ambient-quotient/verify.py",
+      "usage": "input",
+      "git_blob": "119405057cc7e8ce0d7c31d2437ed3cf91ebeefe",
+      "sha256": "66ae6bd7567996f02363d9e40622d11182fc7c1fbf40692f2a4ecf49adc44d9a"
+    },
+    {
+      "path": "research/fresh-helper-boundary/CHANGES.json",
+      "usage": "input",
+      "git_blob": "45744fedd0e28967aa72586048b8bc0c72f419a9",
+      "sha256": "cde73b8ff5b3c0d06e69e2293b991b24fd14a16dd4ccab7ff6b3439074a94624"
+    },
+    {
+      "path": "research/fresh-helper-boundary/native.py",
+      "usage": "input",
+      "git_blob": "1b36f6cb5f205c33bf48811e0b1b3621c55e8154",
+      "sha256": "9b55a2d3c3972148fae9d112e745d9244968166bd89bd900c938f429fc76ab29"
+    },
+    {
+      "path": "research/joint-helper-lattice/PATCH.json",
+      "usage": "input",
+      "git_blob": "51304a6601061ed4e698f910b09135ef109555e3",
+      "sha256": "296d0e8c58cc70febe042c681ef30d6bb469818c0835fbcaac8aa8d330f5b727"
+    },
+    {
+      "path": "research/joint-helper-lattice/native_joint.py",
+      "usage": "input",
+      "git_blob": "0315f80e2fdef5e0eef13e3e9b8f72066238164d",
+      "sha256": "50869b1bcad7493e6b4cb2a4cd5d2fd9a193a5921100483fa2c3f2c999ddfd46"
+    },
+    {
+      "path": "research/kappa-causal-continuation/buffer-borrowing/verify_buffers.py",
+      "usage": "input",
+      "git_blob": "5a55034ec9e6185d981e16c28e1e2e455069e2cb",
+      "sha256": "106b4d5e052427230df452f0c901d5390a0583782960b80a8af94d9a984022c7"
+    },
+    {
+      "path": "research/kappa-rebuild/bit/sources/pr589-regenerated/WORD.json.gz",
+      "usage": "input",
+      "git_blob": "85a4499bf9e4911a705d50567a2c2ef6cf23739a",
+      "sha256": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f"
+    },
+    {
+      "path": "research/kappa-rebuild/bit/sources/pr589-regenerated/records/249-records.bin",
+      "usage": "input",
+      "git_blob": "bdf9ab4ca0fd74cde6837f95f5f4e88133704e0e",
+      "sha256": "ea44aa047a2a9cf034de8b56b2166c49cf2dbdf9cd9ed6a20299a4f2b05ef09a"
+    },
+    {
+      "path": "research/kappa-rebuild/bit/sources/pr589-regenerated/records/frames.json",
+      "usage": "input",
+      "git_blob": "a9a932b9268da28af9ba4bccdab205c5bcd50ad3",
+      "sha256": "d006b3bfe0c04afecfea7aecfa59dfe4298b99501c70da3938e40289bc2f5010"
+    },
+    {
+      "path": "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+      "usage": "input",
+      "git_blob": "4a8c4ed26e53a72362d571c972e65aff546be784",
+      "sha256": "6418ec3da24d548a57f5c3fe5b9062c26c9478e638504a61c387f5cfb5f4ed61"
+    },
+    {
+      "path": "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+      "usage": "input",
+      "git_blob": "b46d44c6ee624968dd57be928b0c15d9d45f3b2c",
+      "sha256": "c54b0a3e129d28e6dbf74fa731fc3bb70fe3c6705f07256750fbecddcc842d39"
+    },
+    {
+      "path": "research/kappa-rebuild/complex/native_extensions.py",
+      "usage": "input",
+      "git_blob": "7f84894efc309546a903d314c7ac1473e7f594a8",
+      "sha256": "50ad007d9c386393657e86c99a96ae0a63a8fbc52872579b185002cc626e88e3"
+    },
+    {
+      "path": "research/missing-join-frame/PATCH.json",
+      "usage": "input",
+      "git_blob": "f96d295d40014d4dd503f58eb3cdabcbb4b8e101",
+      "sha256": "9ab5328245ff02c9d0be21d39bcc375f50bc5d7909e9f7b9a3a9a6f812f5bd6e"
+    }
+  ]
+}
