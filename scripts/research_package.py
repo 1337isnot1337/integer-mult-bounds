@@ -4,6 +4,7 @@
 Douglas Colkitt, with OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
+import errno
 from contextlib import closing
 from itertools import chain
 import hashlib
@@ -139,6 +140,13 @@ class _UnsupportedNulBatch(Exception):
     """Git rejected the initial NUL-mode request before yielding any source."""
 
 
+def _closed_stdin_error(error):
+    # Windows can report EINVAL instead of EPIPE when a child closes stdin.
+    # This classifies the pipe error only; the retry still requires exit 129.
+    return (isinstance(error, BrokenPipeError)
+            or (os.name == "nt" and error.errno == errno.EINVAL))
+
+
 def _git_blob_batch(root, specs, nul):
     argv = ["git", "cat-file", "--batch"] + (["-z"] if nul else [])
     # Usage diagnostics from the unsupported-option probe are expected. Avoid
@@ -156,7 +164,9 @@ def _git_blob_batch(root, specs, nul):
                 try:
                     process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
                     process.stdin.flush()
-                except BrokenPipeError:
+                except OSError as exc:
+                    if not _closed_stdin_error(exc):
+                        raise
                     header = b""
                 else:
                     header = process.stdout.readline()
@@ -177,8 +187,9 @@ def _git_blob_batch(root, specs, nul):
             # Option rejection can close stdin before our first write/flush.
             try:
                 process.stdin.close()
-            except BrokenPipeError:
-                pass
+            except OSError as exc:
+                if not _closed_stdin_error(exc):
+                    raise
             process.stdout.close()
             if process.poll() is None:
                 try:

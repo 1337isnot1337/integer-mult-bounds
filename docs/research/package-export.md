@@ -89,11 +89,36 @@ closures; guessing them from imports is outside this tool's contract.
 Tekalign, with substantial OpenAI Codex assistance. Apache-2.0.
 
 The drive-prefix containment check and five regression methods were prepared
-for roger-sato with substantial OpenAI Codex assistance. Real Git exports are
-tested on POSIX; platform-independent handcrafted archive checks invoke the actual CLI.
-The tests use `ntpath` for Windows path semantics without extracting archives;
-they do not claim a Windows runtime replay. The original exporter and its
-transport-integrity contract retain Tekalign's attribution.
+for roger-sato with substantial OpenAI Codex assistance. Their two real-Git
+fixtures now create blobs, NUL-delimited trees and a commit directly, following
+[PR4579](https://github.com/CrocSwap/integer-mult-bounds/pull/4579)'s object-tree
+precedent. This retains the literal colon-bearing names without materializing
+them on the host filesystem. Both tests run on Windows without platform skips:
+drive-qualified inputs fail through the actual CLI before publication, while
+nondrive colons retain their names and exact binary/CRLF payloads. The accepted
+archive also passes the CLI integrity check with Git absent from `PATH`.
+
+Run the drive-path module with ordinary and optimized Python:
+
+```sh
+python -W error -B -m unittest discover -s tests -p 'test_research_export_drive_paths.py' -v
+python -O -W error -B -m unittest discover -s tests -p 'test_research_export_drive_paths.py' -v
+```
+
+At main base `b58ad9ef4d4e861b0eaa5dba41742bdc072dca51`, the repair passes all
+five methods with no skips on Windows / CPython 3.12.14 and Ubuntu under WSL2 /
+CPython 3.12.3, in both modes. This is local test evidence, not hosted CI or a
+mathematical replay. These tests do not extract colon-bearing members or promise
+that Windows can materialize every accepted archive name. Production exporter
+code and source pins are unchanged.
+
+This completes the bounded drive-fixture handoff in
+[Discussion #4578](https://github.com/CrocSwap/integer-mult-bounds/discussions/4578);
+[Discussion #4675](https://github.com/CrocSwap/integer-mult-bounds/discussions/4675)
+records its scope and evidence. Prepared for Mihir Srivastava with substantial
+OpenAI Codex assistance; Apache-2.0. The original exporter and its
+transport-integrity contract retain Tekalign's attribution, and the boundary
+regressions retain roger-sato's attribution.
 
 ## Native Windows fixture replay
 

@@ -198,13 +198,20 @@ returns failure code 124 with captured diagnostics; even a completion receipt
 cannot turn a timeout into success. Other modules continue, and the final CLI
 exit remains nonzero. No test or assertion is skipped to meet the deadline.
 
-The runner stops the owned process group on POSIX. On Windows its existing
-`taskkill` plus leader cleanup applies while the module is running; descendants
-that detach, and Windows descendants after an already-exited leader, retain
-the existing cleanup limitations. After cleanup, capture has a bounded drain
+The runner stops the owned process group on POSIX. On Windows a private
+supervisor reuses `research_package.py`'s gated Job Object and waits for its
+ordinary descendants to stop even when the test module has already exited.
+Timeout/cancellation targets the live supervisor; closing its job handle also
+terminates the owned descendants. Copies of the runner on Windows must include
+`research_package.py` in the same scripts directory. Test modules must still
+join proof-relevant children and propagate their failures: cleanup does not
+validate unfinished work. After cleanup, capture has a bounded drain
 so an inherited pipe cannot impose an unlimited EOF wait. Cleanup failures
 propagate through the existing cancellation path instead of becoming a pass.
 This is a failure bound, not a speedup or a new mathematical result.
+
+The [Windows exit-cleanup evidence](research/isolated-test-windows-exit.md)
+records the caller-specific native-handle controls and remaining limits.
 
 Regression command: `python3 -B -m unittest discover -s tests -p 'test_isolated*.py'`.
 The deadline controls exercise hung imports, partial output, child cleanup,
