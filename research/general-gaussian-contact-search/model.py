@@ -140,3 +140,66 @@ def invoice(model, selected):
         helper[r] += 1
     return paid, helper
 
+
+def binary_rank(rows):
+    pivots = {}
+    for x in rows:
+        while x:
+            i = x.bit_length()-1
+            if i not in pivots:
+                pivots[i] = x
+                break
+            x ^= pivots[i]
+    return len(pivots)
+
+def phase_matrix(functionals):
+    rows = [0]*9
+    for functional in functionals:
+        for i in range(9):
+            if functional >> i & 1:
+                rows[i] ^= functional
+    return rows
+
+def restrict_form(rows, basis):
+    def value(x, y):
+        return sum((x >> i & 1)*((rows[i] & y).bit_count() % 2)
+                   for i in range(9)) % 2
+    return [sum(value(x,y) << j for j,y in enumerate(basis)) for x in basis]
+
+def build_phase(payload, functionals):
+    """Binary gauges b_U=0 or Q|U, Q=sum lambda*lambda^T over F2.
+
+    Subspaces and logical G maps stay fixed. All changed paid and warp
+    Gaussian ranks are charged. Both helper boundaries can change.
+    """
+    nodes, edges, fixed, _ = graph(payload, 'free')
+    frames = payload['canonical']['frames']
+    q = phase_matrix(functionals)
+    matrices = [restrict_form(q, b) for b in frames]
+    active = [bool(binary_rank(s)) for s in matrices]
+    tables = []
+    for kind,a,b,x,y in edges:
+        if kind == 'paid':
+            extra = binary_rank(matrices[nodes[a]])
+            ranks = [x, x+extra, x+extra, x]
+        else:
+            source, target = restrict_form(q,x), restrict_form(q,y)
+            ranks = [0, binary_rank(source), binary_rank(target),
+                     binary_rank([u^v for u,v in zip(source,target)])]
+        need(max(ranks) <= 9, 'valid physical phase rank')
+        tables.append((kind,a,b,ranks))
+    helpers = []
+    for r in range(224,632):
+        a,b = 2+r,len(nodes)-632+r
+        h = len(frames[nodes[b]])-len(frames[nodes[a]])
+        extra = binary_rank(matrices[nodes[a]])
+        helpers.append((r,a,b,[h,h+extra,h+extra,h]))
+    centers = Counter(e[4] for e in payload['programs']['forward'] if e[0]=='center')
+    expected = Counter(e[5] for e in payload['programs']['forward'] if e[0]=='climb')+centers
+    # Discovery only compares these tokens for whether a node has an alternative.
+    m = dict(nodes=nodes, fixed=sorted(fixed), edges=tables, helpers=helpers,
+             centers=dict(centers), old_spaces=list(range(len(frames))),
+             new_spaces=[i+len(frames) if active[i] else i for i in range(len(frames))])
+    paid,_ = invoice(m, [])
+    need(paid == expected, 'reconstructed paid-phase baseline')
+    return m

@@ -11,12 +11,13 @@ from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 import model as M
 
-def solve(source,forms,seconds,fixed_helper_side):
+def solve(source,forms,seconds,fixed_helper_side,mode="kernel"):
     import numpy as np
     import scipy
     from scipy.optimize import milp,Bounds,LinearConstraint
     from scipy.sparse import coo_array
-    payload=M.load(source);model=M.build(payload,forms);frozen=set(model['fixed'])
+    payload=M.load(source);builder=M.build if mode=='kernel' else M.build_phase
+    model=builder(payload,forms);frozen=set(model['fixed'])
     for _,a,b,_ in model['helpers']:
         if fixed_helper_side=='entrance':frozen.add(a)
         if fixed_helper_side=='exit':frozen.add(b)
@@ -57,7 +58,7 @@ def solve(source,forms,seconds,fixed_helper_side):
     matrix=coo_array((np.array(values),(np.array(rows,dtype=np.int32),np.array(cols,dtype=np.int32))),shape=(len(lower),total)).tocsc();started=time.monotonic()
     result=milp(cost,integrality=np.r_[np.ones(n),np.zeros(total-n)],bounds=Bounds(np.zeros(total),np.ones(total)),constraints=LinearConstraint(matrix,np.array(lower),np.array(upper)),options=dict(time_limit=seconds,mip_rel_gap=0.0))
     out=dict(scope='BOUNDED_FLOATING_DISCOVERY_ONLY_NO_NEW_KAPPA',source_sha256=hashlib.sha256(Path(source).read_bytes()).hexdigest(),functionals=forms,
-             tested_saving=C,scipy=scipy.__version__,status=int(result.status),message=result.message,
+             mode=mode,tested_saving=C,scipy=scipy.__version__,status=int(result.status),message=result.message,
              seconds=time.monotonic()-started,variable_contacts=n,pair_terms=len(pairs),fixed_helper_side=fixed_helper_side)
     if result.x is not None:
         selected=[node for node,i in variables.items() if round(result.x[i])]
@@ -71,8 +72,8 @@ def solve(source,forms,seconds,fixed_helper_side):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,default=Path(__file__).parent/'inputs/round3-word.json.gz')
-    ap.add_argument('--functionals',default='1',help='Comma-separated ambient binary functionals')
+    ap.add_argument('--functionals',default='1',help='Comma-separated ambient binary functionals');ap.add_argument('--mode',choices=['kernel','phase'],default='kernel')
     ap.add_argument('--seconds',type=float,default=30);ap.add_argument('--fixed-helper-side',choices=['none','entrance','exit'],default='none');ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
     forms=[int(x) for x in args.functionals.split(',')];M.need(forms and all(0<x<512 for x in forms),'nonzero nine-bit functionals');M.need(args.seconds>0,'positive bounded solver time')
-    result=solve(args.source,forms,args.seconds,args.fixed_helper_side);args.output.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='selected_nodes'},sort_keys=True))
+    result=solve(args.source,forms,args.seconds,args.fixed_helper_side,args.mode);args.output.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='selected_nodes'},sort_keys=True))
 if __name__=='__main__':main()

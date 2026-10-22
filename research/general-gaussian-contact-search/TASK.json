@@ -46,13 +46,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Implement and exactly calibrate a costed common-kernel search allowing downward/nonnested Gaussian moves, paid native warps and both helper endpoints.",
-  "scope_change_reason": "User requests continued aggressive higher-K research after phase rigidity. This changes the monotone frame-retiming model rather than repeating its fixed paid profile.",
+  "actual_scope": "Implement and exactly calibrate costed common-kernel and paid symmetric-form searches, including downward/nonnested Gaussian moves, paid native warps and both helper endpoints.",
+  "scope_change_reason": "User requests continued aggressive higher-K research after phase rigidity. This changes the monotone frame-retiming model rather than repeating its fixed paid profile. Continued user instruction also authorizes testing paid phase changes outside the unchanged-paid-rank rigidity premise.",
   "bottleneck_link": "Prices actual Clifford rank on all changed transitions, allowing new source-compatible candidates outside monotone climbs without retaining invalid free-warp or helper-width credits.",
   "budget_minutes": 60,
   "stop_rule": "Retain exact physical rank and complete invoice checks; accept no exponent claim without a profitable exact moment and full native/compiler/outer replay.",
   "outcome": "completed",
-  "evidence": "model.py, discover.py, verify.py, RESULT.json, CALIBRATION.json and bounded SEARCH.json",
+  "evidence": "model.py, discover.py, verify.py, RESULT.json, CALIBRATION.json and bounded SEARCH.json, PHASE-SEARCH.json",
   "author": "Cinna Davis, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance in model derivation, implementation, bounded discovery, verification and writing; no subagents.",
   "open_questions": [
@@ -73,5 +73,23 @@
     ],
     "coverage": "5862 local note records; 453 open PRs; 3614 discussions; complete reported pagination",
     "result": "Only this package matched those terms; narrow overlap check is not a novelty certificate. Explicitly retains PR4610, PR4654 and PR4672 predecessors."
+  },
+  "phase_expansion_decision": {
+    "decision": "bounded design exploration",
+    "source_head": "1eb8da6cfb35512c0cc2533413e5ca42f48e13c6",
+    "boundary": "Same subspaces and chronological scalar word; main, explicit adapter and owned gauges fixed; both helper forms variable.",
+    "proved_costs": "Exact Gaussian rank tables and full old paid/helper census; owned centers unchanged and included.",
+    "unknown_obligations": "Any new positive candidate still needs emitted physical word, absolute phases, all-column native, compiler/ordinary/outer admission and inherited analytic/precision/execution premises.",
+    "reason": "Fixed-rank phase rigidity leaves explicitly paid rank changes open. Compare complete changed paid energy with actual helper-rank reward before native implementation.",
+    "bounded_next_test": "511 ambient rank-one phase forms plus a declared finite compound-form list; floating discovery only.",
+    "stop_rule": "No supplier or kappa claim without an exact profitable full invoice and admission; retain bounded failures without a universal exclusion claim.",
+    "outcome": "511 rank-one and 18 compound common-form floating searches found no profitable candidate; not an exact exclusion."
+  },
+  "paid_phase_overlap": {
+    "searched_at": "2026-10-22T16:11:21.265286+00:00",
+    "local_records": 5862,
+    "open_prs": 461,
+    "discussions": 3620,
+    "result": "Broad phrase matches concern other mechanisms; exact unchanged-rank predecessor #4665 and chart grammar #4654 explicitly retained."
   }
 }

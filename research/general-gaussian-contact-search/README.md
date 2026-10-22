@@ -36,7 +36,7 @@ reproduce the source paid list exactly. Changed shared G matrices are outside
 scope: the maps remain the same, while their changed physical implementations
 may require Gaussian children of positive rank.
 
-The formulas are the canonical zero-form case of Dugongue's #4654 Lagrangian
+The subspace formulas are the canonical zero-form case of Dugongue's #4654 Lagrangian
 chart grammar. If U subset V and intersecting with M removes alpha and beta
 dimensions respectively, the paid four-state table is
 
@@ -46,6 +46,42 @@ ordered (00,10,01,11). Thus the mixed state 01 must not silently be assigned
 r-beta. Native warp tables are computed from their actual mapped subspaces.
 The verifier compares the general rank formula with the exact Clifford B-block
 on all 285 ordered subspace pairs in dimensions one through three.
+
+## Explicitly paid symmetric phases
+
+The `--mode phase` variant keeps each subspace U fixed and chooses the zero
+form or Q restricted to U, where Q is the binary symmetric matrix
+`sum(lambda * lambda^T)` for the supplied functionals. This includes compound
+forms; the ambient common-Q switch family is a strict restriction of arbitrary
+independent symmetric forms at every node. It changes the unchanged-paid-rank
+premise of #4665 and uses #4654's full charged phase-rank grammar.
+
+For a nested paid edge U subset V with old rank r, put
+`t = rank(Q restricted to U)`. Its exact four-state rank table is
+`(r,r+t,r+t,r)`. On a native warp G:U->V, the four ranks are the ranks of
+`0`, `Q|U`, `(G^T Q G)|U` and `(Q+G^T Q G)|U`. A helper's table uses its
+whole old rank plus the rank of the phase difference on its entrance space.
+Both helper boundaries remain variable. Owned centers stay fixed and fully paid.
+
+The verifier compares every symmetric form on every ordered pair of subspaces
+in dimensions one through three against actual Clifford B-blocks: 66,368
+transition checks. It also performs 50,128 native-warp checks on the first 12
+invertible maps in product order per dimension (all maps in dimensions one and
+two). These finite controls check the implementation; the rank identities and
+complete source invoice are stated explicitly rather than inferred from samples.
+
+```sh
+python3 research/general-gaussian-contact-search/discover.py \
+  --mode phase --functionals 1,2 --seconds 30 --output /tmp/phase-candidate.json
+```
+
+A synthetic moment sign control confirms that charging a paid rank increase
+2->3 can cost less than a helper increase 1->2 earns. It is not a supplier.
+Actual current-word phase search receipts are retained separately in
+`PHASE-SEARCH.json`: all 511 rank-one forms and 18 named compound forms
+returned zero best candidate energy in their bounded floating runs. This is
+not an exact exclusion or a search of independently chosen node forms. No
+profitable new current-word witness is claimed.
 
 ## Discovery and acceptance
 
@@ -89,7 +125,8 @@ python3.12 -B scripts/research_package.py --package research/general-gaussian-co
 python3.12 -I -O -B research/general-gaussian-contact-search/verify.py
 ```
 
-The standard-library replay verifies 285 actual Clifford ranks, the complete
+The standard-library replay verifies the 285 canonical ranks plus the charged
+phase and native-warp cases above, the complete
 source invoices, frozen-boundary rejection, new charges at previously zero
 edges and the non-nested-rank counterexample. The fixed 62-node positive
 calibration gives paid `{1:2183,2:416,3:507,4:135,5:40,8:8}` and helpers
@@ -105,7 +142,8 @@ timeouts. They establish no theorem. The selected conditional kappa stays
 
 ## Open next questions
 
-Apply the model to changed native words or compound different common kernels,
+Apply the model to changed native words, compound different common kernels,
+or allow different phase forms at different contacts,
 then reprice every old and new edge before further native implementation. A
 negative verified energy is the first stopping/expansion gate; solver status
 alone is insufficient. The actual physical witness and its complete supplier

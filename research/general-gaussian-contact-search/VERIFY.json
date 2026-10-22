@@ -17,7 +17,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "285 exact physical Clifford ranks, complete old/new invoices, known strictly positive calibration with rational powers, old-zero-edge/nonnested-rank and frozen-boundary controls."
+      "checks": "285 canonical, 66368 symmetric-phase transition and 50128 paid native-warp exact Clifford rank checks; complete old/new invoices, known strictly positive calibration with rational powers, synthetic paid-phase moment sign and frozen/old-zero/nonnested controls."
     }
   ]
 }
