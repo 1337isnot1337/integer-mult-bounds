@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fresh-helper-boundary/CHANGES.json",
+    "research/fresh-helper-boundary/native.py",
+    "research/joint-helper-lattice/PATCH.json",
+    "research/joint-helper-lattice/native_joint.py",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/missing-join-frame/PATCH.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate seven source inputs, extract all 128 adjacent windows, exhaust the dimension/dependency DAG, prove integer concave-price dominance, replay 2868 geometric control paths and three premise-removal controls, and compare the complete receipt."
+    }
+  ]
+}
