@@ -119,3 +119,19 @@ and their credited predecessors retain their original attribution. The earlier
 0.00302152 and 0.00302176 packages remain frozen.
 
 Signed-off-by: Cao Yifan. Substantial OpenAI Codex assistance.
+
+## Open next questions
+
+- Can a changed scalar word or recursive interface increase the raw crossing?
+  Start with a concrete emitted word and its full arbitrary-helper contract.
+  The current paid profile and retained paired path are the limiting inputs;
+  numerical tightening alone cannot move their crossing.
+- Can the complete compiler implication be formalized in Lean? First add the
+  native amplitude/absolute-phase semantics and a precise physical execution
+  contract, then connect them to the existing finite frame certificates.
+  The universal tape, precision and recovery premises remain external here.
+- How close can this finite compiler approach the same raw crossing? First
+  balance contraction reserve against the charged completion term and improve
+  numerical enclosure precision if necessary. Every new choice needs fresh
+  tails, capacity, finite threshold and outer-formula checks; it would still
+  be a compiler refinement of the same native construction.
