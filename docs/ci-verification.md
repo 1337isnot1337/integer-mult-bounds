@@ -31,6 +31,18 @@ Selected source pointers: [manifest](../certificates/frontier4470-source.json),
 [proof review](research/pr-intake-evidence/pr4470/PROOF-REVIEW.md), and
 [review validation](research/pr-intake-evidence/pr4470/VALIDATION.json).
 
+The fast `scripts/check_selected_ci_inputs.py` guard accepts both historical
+package-root inventories and the current explicit-file inventory. For explicit
+exports it reads only inventoried pin maps and resolves remapped provenance
+against the frozen exported source. Unlisted neighboring files do not add
+replay dependencies. Unknown manifest formats fail closed.
+
+Its trigger report remains advisory: #4470 deliberately runs on selected-input
+pushes to `main` or manual dispatch, not every PR. Static script inspection also
+reports historical HPE paths mentioned by the shared record checker, even
+though they are not inputs of the current export. A passing metadata guard is
+not a fresh construction replay.
+
 ## Historical selected-family replay through #1094
 
 Start with the [selected record](../certificates/selected-result.json). Its
