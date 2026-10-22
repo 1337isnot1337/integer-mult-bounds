@@ -11,6 +11,8 @@ ceiling. The current selected kappa remains 0.00302015. The theorem is
 independent of the local helper/paid tariff, so substituting another tariff
 does not reopen this idle-selection mechanism. Changed stage patterns,
 topologies, boundary contracts and border exactification remain outside it.
+The scalar boundaries act on the main roles; a new contract that mixes native
+helper outputs into them is also outside this theorem.
 The formal BIT group ring is covered too: coefficient comparison in the
 one-generator algebra replaces differentiation, so imposing D_s²=1 in
 characteristic two does not escape the proof. This says nothing about a

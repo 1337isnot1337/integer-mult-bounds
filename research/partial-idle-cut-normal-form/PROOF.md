@@ -18,7 +18,9 @@ indeterminates Q,D_s over a field; or the source BIT algebra
 F2[(Z/2)^(2p+2)], where Q and all D_s are independent involutive generators.
 Require invertible scalar input/output matrices, independent of these
 generators, that turn the endpoint into independent monomial jobs.
-Native helpers and the local paid inventory stay fixed. A main job
+These boundaries act on the 2p main roles at one port. Native helpers
+remain separate arbitrary productive jobs; mixing them into the main
+boundary is outside this model. The local paid inventory stays fixed. A main job
 with k stage factors has physical rank 1+bk; an idle with k factors costs
 rank bk. The complex values are b=8, with 112 ports; BIT uses b=7 and
 111 ports. Every idle
