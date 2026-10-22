@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/general-gaussian-contact-search/inputs/round2-word.json.gz",
+    "research/general-gaussian-contact-search/inputs/round3-word.json.gz",
+    "research/general-gaussian-contact-search/CALIBRATION.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "285 exact physical Clifford ranks, complete old/new invoices, known strictly positive calibration with rational powers, old-zero-edge/nonnested-rank and frozen-boundary controls."
+    }
+  ]
+}
