@@ -3417,3 +3417,13 @@ Source archives retain attribution; mathematical review remains open.
 - **Ali Romman (@aliromman)** — [#4768](https://github.com/CrocSwap/integer-mult-bounds/pull/4768): Add native centre capture and local fixed-reader services (source archive).
 - **Nick Petalas (@petalas)** — [#4769](https://github.com/CrocSwap/integer-mult-bounds/pull/4769): Prove the all-field one-way corank-one header formula (no new κ) (source archive).
 - **Nick Petalas (@petalas)** — [#4770](https://github.com/CrocSwap/integer-mult-bounds/pull/4770): Count rank-one residue lifts over local algebras (no new κ) (source archive).
+
+## Queue intake, 22 October 2026 (chunk D)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **Brian (@JoyboyBrian)** — [#4758](https://github.com/CrocSwap/integer-mult-bounds/pull/4758): Prove equal-key wrapper sharing for the finite physical caller (source archive).
+- **ai-nanachi (@ai-nanachi)** — [#4760](https://github.com/CrocSwap/integer-mult-bounds/pull/4760): Ordinary BIT saving 0.0034597 (+0.67939%) via compact partial helpers (source archive).
+- **Nick Petalas (@petalas)** — [#4771](https://github.com/CrocSwap/integer-mult-bounds/pull/4771): Classify exact Schur dimensions for prescribed scalar pivots (no κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4772](https://github.com/CrocSwap/integer-mult-bounds/pull/4772): Prove exact rank-one matrix-algebra cost at every role count (no new κ) (source archive).
+- **Nick Petalas (@petalas)** — [#4773](https://github.com/CrocSwap/integer-mult-bounds/pull/4773): Prove an all-length radical pencil obstruction for any role count (source archive).
