@@ -31,7 +31,17 @@
     "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/VERIFY.source.json",
     "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/build.py",
     "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/scan_kernels.py",
-    "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/verify.py"
+    "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/verify.py",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/PROOF.md",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/QUOTIENT-BIT-WORD.json.gz",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/README.md",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/RESULT.json",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/SOURCES.source.json",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/TASK.source.json",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/VERIFY.source.json",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/build.py",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/scan_kernels.py",
+    "research/pr4633-quotient-contract-audit/sources-current/research/bit-ambient-quotient/verify.py"
   ],
   "commands": [
     {
@@ -42,6 +52,15 @@
       ],
       "timeout_seconds": 600,
       "checks": "Authenticates sources; independently reconstructs the BIT artifact; checks rational frame dimensions and the rank-four erased span; proves all 111 port-width failures; reproduces the positive replay and demonstrates free-MOVE false acceptance, with an independently rejecting rank check and broken-frame negative control."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify_latest.py"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Authenticates the b390d64 delta and reconstructs every rewritten record by independent cosets; proves 41 erased rational lines span rank eight, all 111 retained port contracts fail, and the author accepts free MOVEs and entirely empty frame bases."
     }
   ]
 }

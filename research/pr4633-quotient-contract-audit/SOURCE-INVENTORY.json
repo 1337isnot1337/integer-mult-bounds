@@ -171,5 +171,7 @@
       "bytes": 9928,
       "vendored_path": "research/pr4633-quotient-contract-audit/sources/research/complex-ambient-quotient/verify.py"
     }
-  ]
+  ],
+  "retained_snapshot_commit": "2336c0da1c567b5086e948e30590b85982933fff",
+  "source_history_note": "Original reviewed-head blobs were compared byte-for-byte and vendored. Live package pins reference this retained snapshot ancestor, avoiding a dependency on an unmerged PR commit; the reviewed PR is not merged by ancestry."
 }

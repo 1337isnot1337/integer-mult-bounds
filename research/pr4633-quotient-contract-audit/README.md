@@ -1,11 +1,47 @@
 # PR4633 audited replay: numerical replay passes; supplier contract fails
 
-**Recommend waiting for revision at `b2998bacd50d57c301fe67c5392054440c42398c`.**
+**Recommend waiting for revision at `b390d64abfcdba1a3816b86fc763cbc95d43c12c`.**
 The submitted checks reproduce the reported BIT and complex numerical screens.
 They do not establish the claimed BIT supplier or outer saving. This audit
 supplies exact counterexamples to the rational quotient interpretation and the
 retained main-port contract, and a false-positive mutation of the BIT verifier.
 No selected result, theorem, supplier or new kappa is certified here.
+
+## Current-head delta: three-dimensional kernel
+
+The PR advanced from `b2998bacd50d57c301fe67c5392054440c42398c` to
+`b390d64abfcdba1a3816b86fc763cbc95d43c12c` during review. Nine BIT files changed;
+the complex package is byte-identical. The current BIT uses kernel basis
+`[150,102,255]` and its registered replay reproduces **0.032249423394893**.
+The PR title/body still describe the older one-dimensional result.
+
+All three principal objections survive, with stronger concrete witnesses:
+
+* The three-dimensional binary kernel erases **41 rational entrance lines
+  spanning all eight rational dimensions**. A rational linear map with kernel
+  dimension three cannot have that action. `verify_latest.py` reconstructs
+  the quotient using canonical cosets, independently of the author's
+  annihilator algorithm, and checks every rewritten record.
+* All 111 ports still fail the inherited `(7,7)` transport requirement:
+  **8 have `(7,8)`, 41 have `(8,4)`, and 62 have `(7,4)`**. Main rank mass is
+  now **1294**; the invoice still books the unchanged rank-seven ladders.
+* Zeroing all **2,184** positive MOVE charges still produces a full author
+  `PASS` with **kappa 0.25**. This version adds `frame_bases`, but the verifier
+  never reads them: replacing **every basis with the empty list** produces
+  exactly the same successful result as the original artifact.
+
+The complete new scan's candidate domain is all **1,940 combinations of one
+through four elements of the submitted 15-element list**. Its nominal random
+augmentation is never entered because 1940 is already greater than 600. This
+is the full submitted finite domain, not an exhaustive enumeration of all
+subspaces of dimensions two through four. The serial delta replay and results
+are included with the first-head evidence in `REPLAY.json` and `evidence/`.
+
+`LATEST-SOURCE-INVENTORY.json` and `sources-current/` freeze the revised BIT;
+`EXPECTED-LATEST.json` records its independent counterexamples. The short
+registered audit runs both historical and current checks. The detailed
+one-dimensional findings below remain evidence about the first reviewed head,
+and are not silently attributed to the replacement artifact.
 
 The user assigned a full audit of [PR4633](https://github.com/CrocSwap/integer-mult-bounds/pull/4633).
 The observed base was `fbc9ea0249746acca4f504d4fda2b84e0e36cf0d`.
@@ -123,6 +159,15 @@ kernel 1..511, using each submitted `price()` unchanged **serially**, in place
 of its eight-process driver. A sampled 1 GiB process-group RSS watchdog and
 explicit timeouts apply. Author PASS status is recorded as executable evidence,
 not as independent acceptance of its mathematical interpretation.
+
+Additional native controls pass: the original BIT `audit_local` validates its
+rational projectors and nested transports, and all **2,101 distinct complex
+climb/helper-boundary edges** lower with their stated Fourier rank in both
+orientations, with exact absolute-phase recipe decoding. These controls support
+the scoped local evidence; they do not supply the missing main-port controller
+contract. The BIT control uses the retained `joint_pair_dag` dependency under
+`kappa-0023-productive-jobs/dependencies/`; the first direct import failed at its
+obsolete historical path, and the explicit path correction and retry are logged.
 
 | Submitted scan | Replayed candidates | Accepted | Best kernel | Best numerical screen |
 |---|---:|---:|---:|---:|

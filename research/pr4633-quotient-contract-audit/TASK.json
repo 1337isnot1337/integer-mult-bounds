@@ -41,13 +41,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "User-assigned full audited replay of PR4633 at b2998bacd50d57c301fe67c5392054440c42398c, including both changed packages, all stated one-dimensional kernel scans, rational frame/source checks, controller boundary review and adversarial verifier controls.",
+  "actual_scope": "User-assigned full audited replay of PR4633 at b2998bacd50d57c301fe67c5392054440c42398c, and its nine-file b390d64abfcdba1a3816b86fc763cbc95d43c12c update, including both changed packages, all stated one-dimensional kernel scans, rational frame/source checks, controller boundary review and adversarial verifier controls.",
   "scope_change_reason": "Explicit audit assignment of the ambient-quotient replacement for the BIT supplier; this does not propose a helper-mixing construction.",
   "bottleneck_link": "A lower numeric invoice can improve kappa only after its word satisfies the native supplier and outer admission contracts. This audit tests that implication.",
   "budget_minutes": 60,
   "stop_rule": "Finish submitted replays and finite scans, source-bound counterexamples, exact-head review evidence and an audit PR; do not promote the selected result.",
   "outcome": "completed",
-  "evidence": "Both registered replays and regenerated artifacts pass; independent rational-kernel and controller-boundary obstructions plus a free-MOVE false-positive control are reproducible in verify.py. Detailed coverage is in README.md and REPLAY.json.",
+  "evidence": "Both registered replays and regenerated artifacts pass; independent rational-kernel and controller-boundary obstructions plus a free-MOVE false-positive control are reproducible in verify.py. Detailed coverage is in README.md and REPLAY.json. Current-head counterexamples are in verify_latest.py and EXPECTED-LATEST.json.",
   "author": "Cinna Davis, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance for source review, exact arithmetic, replay, counterexamples and audit writing; no independent human or formal-kernel theorem review claimed.",
   "open_questions": [
