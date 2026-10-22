@@ -18,6 +18,7 @@ The owned temporary directory is removed after workers finish or are stopped.
 """
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+import json
 import math
 import os
 from pathlib import Path
@@ -64,7 +65,9 @@ def stop_module(process):
             try:
                 result = subprocess.run(['taskkill', '/F', '/T', '/PID', str(process.pid)],
                                         capture_output=True, timeout=5)
-                if result.returncode:
+                # The supervisor may finish job cleanup between poll and
+                # taskkill. An already-exited owner needs no further kill.
+                if result.returncode and process.poll() is None:
                     problems.append('taskkill exited ' + str(result.returncode))
             except (OSError, subprocess.TimeoutExpired) as error:
                 problems.append(str(error))
@@ -94,6 +97,25 @@ def module_budget(value):
     if not math.isfinite(seconds) or seconds <= 0:
         raise ValueError('module timeout must be finite and positive')
     return seconds
+
+
+WINDOWS_OWNER = '''import json, os, sys
+sys.path.insert(0, sys.argv[1])
+from research_package import run_windows_command
+sys.exit(run_windows_command(json.loads(sys.argv[2]), os.getcwd(), None, dict(os.environ)))
+'''
+
+
+def windows_module_command(command, python, cache):
+    """Keep a live owner until its gated module's whole Job Object is empty.
+
+    Reuse the registered replay runner's native ownership implementation. This
+    supervisor inherits the capture pipes and preserves the module's exit code;
+    closing its non-inherited job handle also kills descendants on cancellation.
+    Isolate supervisor startup and bytecode without changing the test environment.
+    """
+    return isolated_python(python, cache) + [
+        '-I', '-S', '-c', WINDOWS_OWNER, str(ROOT / 'scripts'), json.dumps(command)]
 
 
 def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
@@ -144,6 +166,8 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
         # Keep their inherited cache policy private to this module as well.
         module_env = dict(env, PYTHONPYCACHEPREFIX=str(receipt) + '-descendant-pycache',
                           PYTHONDONTWRITEBYTECODE='1')
+        if os.name == 'nt':
+            command = windows_module_command(command, python, Path(str(receipt) + '-owner-pycache'))
         # Serialize launch/registration with cancellation: no worker may start
         # an unregistered module after the controlling thread takes its snapshot.
         with lock:
@@ -196,8 +220,9 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                 # Pipe EOF and leader exit do not imply solver completion: a
                 # descendant may have closed its inherited capture streams.
                 # Keep ownership until POSIX group cleanup succeeds, including
-                # ordinary success/failure. Windows exited leaders need a Job
-                # Object; the existing taskkill cancellation contract is unchanged.
+                # ordinary success/failure. On Windows the supervisor empties
+                # its Job Object before exit; taskkill targets that live owner
+                # on timeout/cancellation, and handle closure kills its job.
                 if os.name != 'nt' and not cleaned:
                     stop_module(process)
                 with lock:
