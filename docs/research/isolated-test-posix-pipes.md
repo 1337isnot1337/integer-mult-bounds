@@ -40,8 +40,9 @@ runner copies, registered-package replay, bytecode policy, Windows job ownership
 and frozen scientific sources are unchanged.
 
 After a capture poll times out, the existing cancellation and elapsed-deadline
-branches retain priority. A newly observed exit cannot turn an elapsed budget
-into success. Before that deadline, an exited POSIX leader triggers the existing
+branches retain priority. The leader is polled before the deadline clock is
+checked, so time spent observing exit cannot admit a late completion. Before
+that deadline, an exited POSIX leader triggers the existing
 `stop_module`, followed by a bounded two-second capture drain. The original
 return-code and completion-receipt checks then run. Group cleanup or drain
 failure raises rather than reporting success; no captured-output truncation is
@@ -62,14 +63,16 @@ native process identities before module release: macOS `kqueue` exit watches or
 Linux pidfds. It checks child and grandchild termination independently of the
 runner, including the deliberately weakened cleanup control.
 
-The nine new cases cover unlimited successful completion with a queued module,
+The ten new cases cover unlimited successful completion with a queued module,
 failed unittest status, zero exit without a completion receipt, joined work,
 200,000 exact stdout bytes plus 100,000 binary stderr bytes across repeated
 capture timeouts, real live-leader timeout, real SIGINT cancellation, omitted
-group cleanup, and deterministic elapsed-deadline precedence over a newly
-observed exit. The last case controls the clock; native lifecycle cases use real
-processes. The old explicit timeout assertion is renamed and updated to the
-new documented policy.
+group cleanup, and two deterministic deadline-order controls. Those controls
+cover an already-elapsed budget and a scheduling pause inside exit observation
+with a valid completion receipt. Moving the clock check before that observation
+makes the latter control report success instead of timeout 124. The deadline
+controls use a controlled clock; native lifecycle cases use real processes.
+The old explicit timeout assertion is renamed and updated to the new policy.
 
 Run from the repository root with Python 3.12:
 
@@ -79,15 +82,15 @@ python3.12 -B -m unittest discover -s tests -p test_research_isolated_test_posix
 python3.12 -O -B -m unittest discover -s tests -p test_research_isolated_test_posix_pipes.py -v
 ```
 
-On this host, the focused coverage totals 59 tests: 36 passed and 23
-platform-specific cases skipped. The final new module passes all nine cases in
-normal and optimized modes; the optimized run takes 7.691 s. The new module
+On this host, the focused coverage totals 60 tests: 37 passed and 23
+platform-specific cases skipped. The final new module passes all ten cases in
+normal and optimized modes. The new module
 also passes through the actual `run_modules`
 entry point with one worker and a 30-second module budget. These results are
 local macOS evidence. Native Linux/Windows execution, hosted CI, a full repository
 suite and mathematical verification are not claimed. Its final
 `test_research_isolated_test_posix_pipes.py` name makes the existing registered
-package workflow's `test_research_*.py` onboarding discovery execute these nine
+package workflow's `test_research_*.py` onboarding discovery execute these ten
 cases, including the Linux pidfd cases on that workflow's Ubuntu host; this is
 the selected CI route, not a claim of a completed hosted run.
 

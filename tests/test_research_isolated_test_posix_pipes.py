@@ -223,6 +223,34 @@ class DeadlinePrecedenceTests(unittest.TestCase):
         self.assertEqual(rows[0][2], b'late output')
         stop.assert_called_once_with(child)
 
+    @unittest.skipUnless(os.name == 'posix', 'POSIX leader observation')
+    def test_exit_poll_crossing_deadline_cannot_admit_late_completion(self):
+        spec = importlib.util.spec_from_file_location('pipe_poll_runner',
+                                                    ROOT / 'scripts/run_isolated_tests.py')
+        runner = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runner)
+        clock = [0]
+        child = Mock(returncode=0)
+        def exited_after_budget():
+            clock[0] = 2  # A scheduling pause while observing the leader's exit.
+            return 0
+        child.poll.side_effect = exited_after_budget
+        child.communicate.side_effect = [subprocess.TimeoutExpired('fixture', 1),
+                                         (b'late output', b'OK')]
+        def launch(argv, **kwargs):
+            Path(argv[-1]).write_bytes(runner.COMPLETED)
+            return child
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            with patch.object(runner.subprocess, 'Popen', side_effect=launch), \
+                    patch.object(runner, 'stop_module') as stop, \
+                    patch.object(runner.time, 'monotonic', side_effect=lambda: clock[0]):
+                rows = runner.run_modules([root / 'test_late.py'], tests_dir=root,
+                                          cwd=root, workers=1, module_timeout=1)
+        self.assertEqual(rows[0][1], 124)
+        self.assertIn(b'Module timeout after 1s', rows[0][3])
+        stop.assert_called_once_with(child)
+
 
 if __name__ == '__main__':
     unittest.main()

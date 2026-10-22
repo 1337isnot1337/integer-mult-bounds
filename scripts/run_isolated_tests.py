@@ -192,6 +192,7 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                             # pipes. Do not make cancellation wait for their EOF.
                             finished = True
                             return path, -1, b'', b''
+                    exited = os.name != 'nt' and process.poll() is not None
                     if deadline is not None and time.monotonic() >= deadline:
                         stop_module(process)
                         cleaned = True
@@ -207,9 +208,9 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
                         err += (f'Module timeout after {module_timeout:g}s: {path.name}; '
                                 'unittest completion is not accepted\n').encode('utf-8')
                         return path, 124, out, err
-                    if os.name != 'nt' and process.poll() is not None:
+                    if exited:
                         # Owned descendants may retain pipes after the module exits.
-                        # The elapsed deadline above still wins over a late exit.
+                        # Check the deadline after observing exit, including poll time.
                         stop_module(process)
                         cleaned = True
                         out, err = process.communicate(timeout=2)
