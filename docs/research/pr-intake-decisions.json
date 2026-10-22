@@ -66348,7 +66348,7 @@
       "reviewed_head": "9a606f3885930ec4faafaf0dc6bb0e202e18de1b",
       "current_head": "9a606f3885930ec4faafaf0dc6bb0e202e18de1b",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/selected-wrapper-sharing"
       ],
@@ -66358,12 +66358,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22d-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4758",
+        "merge_commit": "73976d9f511e527715ebe45b71e1c506c5795d5f"
+      }
     },
     {
       "number": 4759,
@@ -66422,7 +66426,7 @@
       "reviewed_head": "ecdfcabd56dfa663ae020733f9f1a88c6644743c",
       "current_head": "ecdfcabd56dfa663ae020733f9f1a88c6644743c",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/bit-compact-productive-controller"
       ],
@@ -66432,12 +66436,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22d-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4760",
+        "merge_commit": "73976d9f511e527715ebe45b71e1c506c5795d5f"
+      }
     },
     {
       "number": 4761,
@@ -66848,7 +66856,7 @@
       "reviewed_head": "22cb0bda57237d39d0e6944b232447d3a2809311",
       "current_head": "22cb0bda57237d39d0e6944b232447d3a2809311",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/scalar-pivot-schur-dimension"
       ],
@@ -66858,12 +66866,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22d-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4771",
+        "merge_commit": "73976d9f511e527715ebe45b71e1c506c5795d5f"
+      }
     },
     {
       "number": 4772,
@@ -66883,7 +66895,7 @@
       "reviewed_head": "116992ef72c8aa9f8994137b04395584d3b350e8",
       "current_head": "116992ef72c8aa9f8994137b04395584d3b350e8",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/right-vector-rank-one"
       ],
@@ -66893,12 +66905,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22d-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4772",
+        "merge_commit": "73976d9f511e527715ebe45b71e1c506c5795d5f"
+      }
     },
     {
       "number": 4773,
@@ -66918,7 +66934,7 @@
       "reviewed_head": "f5d0f421efec55c5f4b3dbb142eee1e79a4e21db",
       "current_head": "f5d0f421efec55c5f4b3dbb142eee1e79a4e21db",
       "disposition": "partially_reviewed",
-      "github_state": "OPEN",
+      "github_state": "MERGED",
       "integration_location": [
         "research/multirole-radical-pencil"
       ],
@@ -66928,12 +66944,16 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": false,
         "required_execution_complete": false,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "docs/research/pr-intake-evidence/queue-oct22d-20261022.json"
       ],
-      "closure": null
+      "closure": {
+        "kind": "merged_for_archive_only",
+        "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4773",
+        "merge_commit": "73976d9f511e527715ebe45b71e1c506c5795d5f"
+      }
     }
   ]
 }

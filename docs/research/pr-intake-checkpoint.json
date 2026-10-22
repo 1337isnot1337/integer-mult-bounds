@@ -994,7 +994,7 @@
     "summary": "37 copied manifest failures trace the same JSON/manifest mismatch to upstream PR1673; broader bundles differ. Provenance does not repair integrity. Preserve holds.",
     "upstream_head": "85ddaa312e463cfaca98d49a2a262994551cec4e"
   },
-  "next": "PR4416 + PR4433 core conditional construction review passed at kappa 0.00268647; see pr-intake-evidence/pr4416/PROOF-REVIEW.md. Next substantive step: migrate selected source manifest, replay command and public status together. Current selected kappa remains 0.0023. PR4436 is new separate compiler research, not required for this result.",
+  "next": "Bulk intake caught up at the recorded live snapshot. Start future queue work with delta-only plan --refresh; do not repeat dormant holds. Selected conditional kappa remains 0.00302015 (PR4470). Next substantive candidate is PR4610, with PR4760 a separate BIT-only supplier review.",
   "publication": {
     "source_commit": "484a8adea580345a7c37d8ac772cedfd47bcde92",
     "merged": [
@@ -1011,22 +1011,27 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "b1857553b7ea74493b01080c67842e2b4a0dfea0",
-    "decisions": 70,
-    "archive_count": 64,
-    "reviewed_tooling_count": 1,
-    "retained_revision_holds": [
-      1900,
-      1930,
-      2134,
-      2216,
-      2249
+    "commit": "73976d9f511e527715ebe45b71e1c506c5795d5f",
+    "decisions": 241,
+    "archive_count": 230,
+    "reviewed_tooling_count": 6,
+    "new_revision_holds": [
+      4547,
+      4580,
+      4612,
+      4628
     ],
+    "retained_revision_hold": 122,
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct21e-20261021.json",
-      "docs/research/pr-intake-evidence/queue-oct21e-closures.json",
-      "docs/research/pr-intake-evidence/queue-oct21f-20261021.json",
-      "docs/research/pr-intake-evidence/queue-oct21f-closures.json"
+      "docs/research/pr-intake-evidence/queue-oct22a-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22b-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22c-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22d-20261022.json",
+      "docs/research/pr-intake-evidence/queue-oct22a-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22b-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22c-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct22d-closures.json",
+      "docs/research/pr-intake-evidence/attribute-watch-refresh-20261022.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1119,14 +1124,14 @@
     }
   ],
   "latest_queue": {
-    "open_count": 293,
+    "open_count": 299,
     "actionable_count": 0,
     "counts": {
-      "draft": 172,
-      "waiting_revision": 114,
+      "draft": 174,
+      "waiting_revision": 118,
       "deferred_replay": 7
     },
-    "observed_at": "2026-10-22T02:50:13.489328+00:00"
+    "observed_at": "2026-10-22T19:33:19.271517+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1197,11 +1202,43 @@
     "selected_frontier_changed": true
   },
   "next_substantive_review": {
-    "source_pr": 4483,
+    "source_pr": 4610,
+    "source_head": "20bb93cd990d2ff683e4d0fc56b87a42cd5d3296",
+    "claim": "Conditional TM kappa 0.0030217758; archived, not selected.",
     "supporting_followup": [
-      4507
+      4532,
+      4535,
+      4536,
+      4537,
+      4568,
+      4569,
+      4570,
+      4614,
+      4615,
+      4616,
+      4640
     ],
-    "claim": "Compiler-size reductions at the same conditional kappa; not needed for the PR4470 verdict.",
-    "plan": "Selected PR4470 migration complete. Review optional compiler-size changes separately; no need to repeat unchanged selected replays."
+    "plan": "Audit the current native/helper ABI and complete profile, critical-root compiler and outer transfer. Bind independent audits to their actual older source versions before reusing evidence; original 4614-4616 do not certify every later 4610 revision. Do not rerun unchanged selected historical suites.",
+    "separate_bit_followup": {
+      "pr": 4760,
+      "head": "ecdfcabd56dfa663ae020733f9f1a88c6644743c",
+      "claim": "Ordinary BIT saving 0.0034597; conditional BIT-only improvement, not a global kappa result.",
+      "status": "Source archive only; supplier admission remains open."
+    }
+  },
+  "bulk_intake_20261022_completed": {
+    "merged": 236,
+    "research_archives": 230,
+    "reviewed_tooling": [
+      4579,
+      4631,
+      4679,
+      4683,
+      4686,
+      4738
+    ],
+    "unchanged_attribute_wakes_resolved": 42,
+    "scientific_replays": 0,
+    "scope": "Exact Git inventories, syntax and declared source integrity for archives; separately reviewed and focused-tested tooling. No scientific frontier promotion. Native Windows author evidence retained but not independently replayed on macOS."
   }
 }
