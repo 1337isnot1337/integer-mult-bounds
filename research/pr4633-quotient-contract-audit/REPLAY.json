@@ -327,7 +327,7 @@
     "scripts/research_package.py": "3ff38a291677f9ebbbe54379d629208b17b7f526f73aee46d5f850ead768504e"
   },
   "source_control_import_note": "First attempt failed at an obsolete joint_pair_dag import path. Retry prepended the retained dependency path explicitly; no scientific source was modified.",
-  "publication_state": "Source PR closed unmerged at 2026-10-22T13:41:17Z; audit PR publication pending.",
+  "publication_state": "Audit published at https://github.com/CrocSwap/integer-mult-bounds/pull/4636; reviewed source PR closed unmerged. This is publication of negative audit evidence, not acceptance of the source supplier.",
   "checks_not_run": [
     "Unchanged selected-frontier cold multiplication replay",
     "Lean/formal proof",
@@ -371,5 +371,6 @@
     "evidence/source-control.log": "76c3ce7083d7ac72b354ff800f2a839407c3e37376dee4ffe4d2c8d93c310469",
     "evidence/source-control.receipt.json": "c29701afae63c91659d88a65ddf580f3dff20a7df29cb92b703150e5b3a69192",
     "evidence/source_control.py": "44cd7e6f1f8945f744eb980297f4f2930937b5915d8888a6e1d365b948471b0b"
-  }
+  },
+  "audit_pr": "https://github.com/CrocSwap/integer-mult-bounds/pull/4636"
 }

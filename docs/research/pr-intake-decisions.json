@@ -57547,13 +57547,14 @@
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
         "required_execution_complete": true,
-        "published": false
+        "published": true
       },
       "verification_evidence": [
         "research/pr4633-quotient-contract-audit/README.md",
         "research/pr4633-quotient-contract-audit/REPLAY.json",
         "research/pr4633-quotient-contract-audit/EXPECTED.json",
-        "research/pr4633-quotient-contract-audit/EXPECTED-LATEST.json"
+        "research/pr4633-quotient-contract-audit/EXPECTED-LATEST.json",
+        "https://github.com/CrocSwap/integer-mult-bounds/pull/4636"
       ]
     }
   ]
