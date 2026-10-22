@@ -47,6 +47,12 @@
       "usage": "input",
       "git_blob": "7b4817a187cb029b9c7273f0a80adea80656252d",
       "sha256": "37c3168998dada8c9388aef9accf29007996dc3dd5c348817bc098b6964cedb7"
+    },
+    {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/bw_adapters.py",
+      "usage": "provenance",
+      "git_blob": "82beaa9c1d13bcd5f79d0a5e10e8a10733eac347",
+      "sha256": "c5907050a9a7fa36d4fcba3ad4fe440d1bec2063360c095013891785ba65c3ce"
     }
   ]
 }

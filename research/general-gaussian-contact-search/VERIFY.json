@@ -17,7 +17,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 120,
-      "checks": "285 canonical, 66368 symmetric-phase transition and 50128 paid native-warp exact Clifford rank checks; complete old/new invoices, known strictly positive calibration with rational powers, synthetic paid-phase moment sign and frozen/old-zero/nonnested controls."
+      "checks": "285 canonical, 66368 symmetric-phase transition, 50128 phase native-warp, 66060 Pauli transition and 50208 Pauli native-warp exact Clifford rank checks; complete source invoices and pure-Z phase/Pauli agreement; rational positive calibration and sign/frozen/old-zero/nonnested controls."
     }
   ]
 }

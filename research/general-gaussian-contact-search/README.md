@@ -83,6 +83,41 @@ returned zero best candidate energy in their bounded floating runs. This is
 not an exact exclusion or a search of independently chosen node forms. No
 profitable new current-word witness is claimed.
 
+## Coupled subspace/phase moves from Pauli quarter turns
+
+`--mode pauli --functionals X_MASK,Z_MASK` chooses a common Hermitian Pauli P
+with those nine-bit masks, and at each contact chooses C_U or C_U S_P, where
+`S_P = ((1+i) I + (1-i) P)/2`. This can change both subspace and phase form.
+It is a broader neighborhood than the pure symmetric-phase switch family.
+The pure-Z case agrees with the rank-one phase model on every edge and helper
+of the complete nine-bit source; replay checks that equality.
+
+In binary symplectic coordinates w=(x,z), S_P induces the transvection
+`v -> v + <v,w> w`. The inverse zero-chart L_U has basis `(u,u)` for the
+basis vectors u of U, together with `(0,z)` for z in U-perp. For Lagrangians
+A and B the actual Fourier rank is `rank(stack(A,B))-9`. These definitions
+price all four states of every chronological edge. On an ordinary edge the
+table is `(r,s,s,r)`; s can be smaller than r. A native G sends the Pauli axis
+to `(Gx, G^-T(x+z)+Gx)`, and all four warped costs are explicitly recomputed.
+The helpers use the same full relative-rank calculation. No changed warp is
+silently declared monomial, and every original zero edge remains represented.
+
+The verifier constructs literal Clifford circuits for the Pauli quarter turns
+and checks all nonzero axes on all ordered subspace pairs in dimensions one
+through three: 66,060 transition checks and 50,208 native-warp checks (the
+same first-12-map scope). This validates the implementation's rank convention;
+it does not perform new source-word absolute-phase or supplier admission.
+
+```sh
+python3 research/general-gaussian-contact-search/discover.py \
+  --mode pauli --functionals 1,0 --seconds 30 --output /tmp/pauli-candidate.json
+```
+
+`PAULI-SEARCH.json` names all 255 tested axes and bounded floating receipts.
+They returned no profitable candidate. This is a sample of the 262,143 nonzero
+nine-bit Pauli axes, with only a zero/common-quarter-turn switch at each node.
+It is not an exclusion of all axes or of arbitrary independent Clifford gauges.
+
 ## Discovery and acceptance
 
 `discover.py` converts each exact rank table into its rank-power energy at the
@@ -142,9 +177,10 @@ timeouts. They establish no theorem. The selected conditional kappa stays
 
 ## Open next questions
 
-Apply the model to changed native words, compound different common kernels,
-or allow different phase forms at different contacts,
-then reprice every old and new edge before further native implementation. A
+Change the scalar word or owned-center protocol before expanding these local
+sweeps solely because a search implementation is available. Arbitrary
+independent Clifford gauges also remain outside the tested finite families.
+For any changed model, reprice every old and new edge before further native implementation. A
 negative verified energy is the first stopping/expansion gate; solver status
 alone is insufficient. The actual physical witness and its complete supplier
 admission remain the blocker. This package supplies the search and invoice

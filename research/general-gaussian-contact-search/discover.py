@@ -16,7 +16,7 @@ def solve(source,forms,seconds,fixed_helper_side,mode="kernel"):
     import scipy
     from scipy.optimize import milp,Bounds,LinearConstraint
     from scipy.sparse import coo_array
-    payload=M.load(source);builder=M.build if mode=='kernel' else M.build_phase
+    payload=M.load(source);builder={'kernel':M.build,'phase':M.build_phase,'pauli':M.build_pauli}[mode]
     model=builder(payload,forms);frozen=set(model['fixed'])
     for _,a,b,_ in model['helpers']:
         if fixed_helper_side=='entrance':frozen.add(a)
@@ -72,8 +72,11 @@ def solve(source,forms,seconds,fixed_helper_side,mode="kernel"):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--source',type=Path,default=Path(__file__).parent/'inputs/round3-word.json.gz')
-    ap.add_argument('--functionals',default='1',help='Comma-separated ambient binary functionals');ap.add_argument('--mode',choices=['kernel','phase'],default='kernel')
+    ap.add_argument('--functionals',default='1',help='Binary functionals, or X,Z masks in pauli mode');ap.add_argument('--mode',choices=['kernel','phase','pauli'],default='kernel')
     ap.add_argument('--seconds',type=float,default=30);ap.add_argument('--fixed-helper-side',choices=['none','entrance','exit'],default='none');ap.add_argument('--output',type=Path,required=True);args=ap.parse_args()
-    forms=[int(x) for x in args.functionals.split(',')];M.need(forms and all(0<x<512 for x in forms),'nonzero nine-bit functionals');M.need(args.seconds>0,'positive bounded solver time')
+    forms=[int(x) for x in args.functionals.split(',')]
+    if args.mode=='pauli':M.need(len(forms)==2 and all(0<=x<512 for x in forms) and any(forms),'nonzero Pauli X,Z masks')
+    else:M.need(forms and all(0<x<512 for x in forms),'nonzero nine-bit functionals')
+    M.need(args.seconds>0,'positive bounded solver time')
     result=solve(args.source,forms,args.seconds,args.fixed_helper_side,args.mode);args.output.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n');print(json.dumps({k:v for k,v in result.items() if k!='selected_nodes'},sort_keys=True))
 if __name__=='__main__':main()

@@ -46,13 +46,13 @@
     ]
   },
   "scope_status": "changed",
-  "actual_scope": "Implement and exactly calibrate costed common-kernel and paid symmetric-form searches, including downward/nonnested Gaussian moves, paid native warps and both helper endpoints.",
+  "actual_scope": "Implement and exactly calibrate costed common-kernel, paid symmetric-form and coupled Pauli-quarter-turn contact searches, with all native warp charges and both helper endpoints.",
   "scope_change_reason": "User requests continued aggressive higher-K research after phase rigidity. This changes the monotone frame-retiming model rather than repeating its fixed paid profile. Continued user instruction also authorizes testing paid phase changes outside the unchanged-paid-rank rigidity premise.",
   "bottleneck_link": "Prices actual Clifford rank on all changed transitions, allowing new source-compatible candidates outside monotone climbs without retaining invalid free-warp or helper-width credits.",
   "budget_minutes": 60,
   "stop_rule": "Retain exact physical rank and complete invoice checks; accept no exponent claim without a profitable exact moment and full native/compiler/outer replay.",
   "outcome": "completed",
-  "evidence": "model.py, discover.py, verify.py, RESULT.json, CALIBRATION.json and bounded SEARCH.json, PHASE-SEARCH.json",
+  "evidence": "model.py, discover.py, verify.py, RESULT.json, CALIBRATION.json and bounded SEARCH.json, PHASE-SEARCH.json, PAULI-SEARCH.json",
   "author": "Cinna Davis, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance in model derivation, implementation, bounded discovery, verification and writing; no subagents.",
   "open_questions": [
@@ -91,5 +91,36 @@
     "open_prs": 461,
     "discussions": 3620,
     "result": "Broad phrase matches concern other mechanisms; exact unchanged-rank predecessor #4665 and chart grammar #4654 explicitly retained."
+  },
+  "pauli_expansion_decision": {
+    "decision": "bounded design exploration completed; no new candidate",
+    "changed_premise": "Allow subspace and symmetric form to change together via a common Pauli quarter turn.",
+    "boundary_and_costs": "Same logical scalar word and G maps; main/adapter/owned interfaces fixed; all changed transition and warp ranks paid; helpers priced at their full relative rank.",
+    "scope": "255 named axes, all floating solver status 0 and no profitable candidate; no universal exclusion.",
+    "next_decision": "Prefer a changed scalar word or owned-center protocol over more local frozen-word sweeps. No native implementation expansion without an exact profitable complete invoice.",
+    "remaining_obligations": "Changed-word absolute phases, all-column native, compiler/ordinary/outer and inherited analytic/precision/execution contracts are unrun."
+  },
+  "pauli_overlap": {
+    "searched_at": "2026-10-22T16:34:06.249925+00:00",
+    "coverage": {
+      "local": {
+        "head": "bbb589aeb0cca889e1ace5468c45633d8e14fbda",
+        "records": 5862,
+        "head_records": 5862,
+        "complete_head_inventory": true,
+        "unsearched_head_paths": []
+      },
+      "open_prs": {
+        "fetched_at": "2026-10-22T16:33:19.405410+00:00",
+        "complete_pagination": true,
+        "records": 466
+      },
+      "discussions": {
+        "fetched_at": "2026-10-22T16:34:06.032606+00:00",
+        "complete_pagination": true,
+        "records": 3622
+      }
+    },
+    "result": "Narrow phrase search is not a novelty certificate; exact rank grammar and fixed-word predecessors remain credited."
   }
 }

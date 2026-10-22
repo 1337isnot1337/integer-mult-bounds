@@ -203,3 +203,77 @@ def build_phase(payload, functionals):
     paid,_ = invoice(m, [])
     need(paid == expected, 'reconstructed paid-phase baseline')
     return m
+
+def nullspace(rows, width):
+    rows=list(rows);pivots=[];k=0
+    for j in range(width):
+        found=next((i for i in range(k,len(rows)) if rows[i]>>j&1),None)
+        if found is None:continue
+        rows[k],rows[found]=rows[found],rows[k]
+        for i in range(len(rows)):
+            if i!=k and rows[i]>>j&1:rows[i]^=rows[k]
+        pivots.append(j);k+=1
+    return [(1<<j)|sum(((rows[i]>>j)&1)<<v for i,v in enumerate(pivots))
+            for j in range(width) if j not in pivots]
+
+def lagrangian(basis, width):
+    return [x|(x<<width) for x in basis]+[x<<width for x in nullspace(basis,width)]
+
+def transvection(basis, axis, width):
+    low=(1<<width)-1
+    def pairing(x):
+        return (((x&low)&(axis>>width)).bit_count()+
+                ((x>>width)&(axis&low)).bit_count())%2
+    return [x^(axis if pairing(x) else 0) for x in basis]
+
+def lagrangian_distance(a,b,width):
+    return binary_rank(a+b)-width
+
+def build_pauli(payload, coordinates):
+    """Gauge C_U or C_U S_P for one common Hermitian Pauli quarter turn.
+
+    The chosen axis is (X mask, Z mask); this can change both the chart
+    subspace and its symmetric form. All changed physical edges are paid.
+    """
+    x,z=coordinates;axis=x|(z<<9)
+    need(0<=x<512 and 0<=z<512 and axis,'nonzero nine-bit Pauli axis')
+    nodes,edges,fixed,_=graph(payload,'free');c=payload['canonical'];frames=c['frames']
+    old=[lagrangian(b,9) for b in frames]
+    new=[transvection(b,axis,9) for b in old]
+    active=[bool(lagrangian_distance(a,b,9)) for a,b in zip(old,new)]
+    maps={w['op']:w['G_columns'] for w in c['warps']}
+    maps.update({-op:inv(g) for op,g in list(maps.items())})
+    warp_ops=iter(e[2] for e in payload['programs']['forward'] if e[0]=='warp')
+    cache={};tables=[]
+    for kind,a,b,r,image in edges:
+        fa,fb=nodes[a],nodes[b]
+        if kind=='paid':
+            if (fa,fb) not in cache:
+                need(lagrangian_distance(old[fa],old[fb],9)==r,'old chart rank')
+                changed=lagrangian_distance(new[fa],old[fb],9)
+                cache[fa,fb]=[r,changed,changed,r]
+            ranks=cache[fa,fb]
+        else:
+            g=maps[next(warp_ops)];gi=inv(g)
+            git=[sum(((gi[j]>>i)&1)<<j for j in range(9)) for i in range(9)]
+            need(span(mv(g,v) for v in frames[fa])==span(frames[fb]),'native chart image')
+            gx=mv(g,x);mapped_axis=gx|((mv(git,x^z)^gx)<<9)
+            mapped=transvection(old[fb],mapped_axis,9)
+            ranks=[0,lagrangian_distance(mapped,old[fb],9),
+                   lagrangian_distance(old[fb],new[fb],9),
+                   lagrangian_distance(mapped,new[fb],9)]
+        need(0<=min(ranks)<=max(ranks)<=9,'physical Pauli-gauge ranks')
+        tables.append((kind,a,b,ranks))
+    helpers=[]
+    for role in range(224,632):
+        a,b=2+role,len(nodes)-632+role;fa,fb=nodes[a],nodes[b]
+        h=lagrangian_distance(old[fa],old[fb],9)
+        changed=lagrangian_distance(new[fa],old[fb],9)
+        helpers.append((role,a,b,[h,changed,changed,h]))
+    centers=Counter(e[4] for e in payload['programs']['forward'] if e[0]=='center')
+    expected=Counter(e[5] for e in payload['programs']['forward'] if e[0]=='climb')+centers
+    model=dict(nodes=nodes,fixed=sorted(fixed),edges=tables,helpers=helpers,centers=dict(centers),
+               old_spaces=list(range(len(frames))),
+               new_spaces=[i+len(frames) if active[i] else i for i in range(len(frames))])
+    paid,_=invoice(model,[]);need(paid==expected,'Pauli-gauge baseline invoice')
+    return model

@@ -98,6 +98,67 @@ def phase_geometry():
     return dict(paid_pairs=paid_checks,native_warps=warp_checks,
                 scope='All symmetric forms and all subspaces in dimensions 1..3; first 12 invertible maps in product order per dimension.')
 
+def pauli_rotation(ce,n,x,z):
+    # A literal Clifford circuit with the requested symplectic transvection.
+    # The Hermitian Pauli's sign affects phases but not these Fourier ranks.
+    if not x:return ce.diag(n,tuple(z if z>>i&1 else 0 for i in range(n)))
+    j=(x&-x).bit_length()-1;q=[0]*n
+    for i in range(n):
+        if i!=j and z>>i&1:q[i]^=1<<j;q[j]^=1<<i
+    q[j]^=(((z>>j)&1)^(((z&~(1<<j))&x).bit_count()%2))<<j
+    G=ce.transpose(ce.basis_extend([x],n),n)
+    basis=ce.perm(n,G).then(ce.diag(n,q))
+    return basis.adjoint().then(ce.cgate(n,1)).then(basis)
+
+def pauli_geometry():
+    path=ROOT/'research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py'
+    spec=importlib.util.spec_from_file_location('pauli_clifford',path)
+    ce=importlib.util.module_from_spec(spec);sys.modules[spec.name]=ce;spec.loader.exec_module(ce)
+    paid_checks=warp_checks=0
+    for n in (1,2,3):
+        spaces={frozenset({0}):[]}
+        for v in range(1,1<<n):
+            for a,b in list(spaces.items()):
+                if v not in a:spaces.setdefault(frozenset(a|{x^v for x in a}),b+[v])
+        old={a:M.lagrangian(b,n) for a,b in spaces.items()}
+        maps=[]
+        for cols in itertools.product(range(1,1<<n),repeat=n):
+            if ce.rank(cols)==n:maps.append(cols)
+            if len(maps)==12:break
+        for axis in range(1,1<<(2*n)):
+            low=(1<<n)-1;x,z=axis&low,axis>>n;rotation=pauli_rotation(ce,n,x,z)
+            new={a:M.transvection(b,axis,n) for a,b in old.items()}
+            charts={a:[ce.canonical_frame(n,b),rotation.then(ce.canonical_frame(n,b))]
+                    for a,b in spaces.items()}
+            for a in spaces:
+                for b in spaces:
+                    expected=[M.lagrangian_distance(old[a],old[b],n),
+                              M.lagrangian_distance(new[a],old[b],n),
+                              M.lagrangian_distance(old[a],new[b],n),
+                              M.lagrangian_distance(new[a],new[b],n)]
+                    for i,j in itertools.product(range(2),repeat=2):
+                        op=charts[a][i].adjoint().then(charts[b][j])
+                        M.need(ce.rank([u for u,v,p in op.tab[n:]])==expected[i+2*j],'literal Pauli-gauge transition rank')
+                        paid_checks+=1
+            for cols in maps:
+                G=ce.transpose(cols,n);gi=ce.inv(G,n);git=ce.transpose(gi,n)
+                correction=tuple((1<<i)^sum(ce.parity(a&b)<<j for j,b in enumerate(git))
+                                 for i,a in enumerate(git))
+                native=ce.perm(n,G).then(ce.diag(n,correction))
+                gx=ce.mv(G,x);mapped_axis=gx|((ce.mv(git,x^z)^gx)<<n)
+                for a,ba in spaces.items():
+                    image=[ce.mv(G,v) for v in ba];target_old=M.lagrangian(image,n)
+                    left=M.transvection(target_old,mapped_axis,n);right=M.transvection(target_old,axis,n)
+                    expected=[0,M.lagrangian_distance(left,target_old,n),
+                              M.lagrangian_distance(target_old,right,n),M.lagrangian_distance(left,right,n)]
+                    target=[ce.canonical_frame(n,image),rotation.then(ce.canonical_frame(n,image))]
+                    for i,j in itertools.product(range(2),repeat=2):
+                        op=charts[a][i].adjoint().then(native).then(target[j])
+                        M.need(ce.rank([u for u,v,p in op.tab[n:]])==expected[i+2*j],'literal Pauli-gauge native warp rank')
+                        warp_checks+=1
+    return dict(paid_pairs=paid_checks,native_warps=warp_checks,
+                scope='All nonzero Pauli axes and all subspaces in dimensions 1..3; first 12 invertible maps in product order per dimension.')
+
 def run():
     fixture=M.load(HERE/'CALIBRATION.json');old=M.load(HERE/'inputs/round2-word.json.gz')
     m=M.build(old,fixture['functionals']);p0,h0=M.invoice(m,[]);p1,h1=M.invoice(m,fixture['selected_nodes'])
@@ -122,9 +183,12 @@ def run():
     two=power(2,C);three=power(3,C)
     M.need(2*two[0]-three[1]-1>0,'paid-phase synthetic concavity gain control')
     phase_checks=phase_geometry()
+    pauli=M.build_pauli(current,[0,1])
+    M.need(pauli['edges']==phase['edges'] and pauli['helpers']==phase['helpers'],'pure-Z Pauli agrees with full source phase model')
+    pauli_checks=pauli_geometry()
     mass=lambda p:sum(r*n for r,n in p.items())
     return dict(status='PASS_GENERAL_GAUSSIAN_CONTACT_MODEL_NO_NEW_KAPPA',
-                exact_clifford_pair_checks=geometry(),paid_phase_physical_checks=phase_checks,calibration_selected_nodes=len(fixture['selected_nodes']),
+                exact_clifford_pair_checks=geometry(),paid_phase_physical_checks=phase_checks,pauli_physical_checks=pauli_checks,calibration_selected_nodes=len(fixture['selected_nodes']),
                 calibration_paid=dict(p1),calibration_helpers=dict(h1),
                 calibration_positive_local_gain_interval=[str(x) for x in gain],
                 calibration_local_gain_decimal=[float(x) for x in gain],
