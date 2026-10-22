@@ -14,6 +14,8 @@ own certified intervals (helpers of research/rank-convergence-gates) it checks:
     1-eps+a*beta, group scans 1-eps+beta, polynomial products eps, micro-box faces 79-eps-beta) exceed kappa; the
     binding main-transform margin equals the reported minimum 29969798347/10^20; the parameter schedule is kappa + k d.
 xi is not printed in #4535's outer parameters, so the two xi rows are not recomputed.
+  * the finite envelope arithmetic: height G <= 2e11 at N = 2^(10^12), W0 < 2^14, W0+P0+1 < 2^17, C_N < 2^(17G+31) =
+    2^3400000000031, and the episode counts 144 = 18*8 and 1680 = 15*112.
 Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 from fractions import Fraction as Q
@@ -205,6 +207,18 @@ def main():
     d=op['d']; need(op['tested_saving']==ka+7*d and us==ka+6*d and op['b']==ka+5*d and a_==ka+4*d and q==ka+3*d and e==1-d and be==1-3*d,"parameter schedule kappa + k d")
     print("schedule ok")
 
+    # finite envelope (#4535 RESULT finite_envelope): height, class-count and episode arithmetic
+    fe = R["finite_envelope"]
+    W0, P0, M_, g_ = 10928, 64620, fe["height_base"], fe["height_multiplier"]
+    need((fe["raw_productive_fields"], fe["raw_paid_jobs"], fe["raw_rank_surplus"]) == (W0, P0, 752), "raw counts")
+    logN = 10 ** 12                                         # N = 2^(10^12)
+    # ell = floor(log_M floor(N/145)); floor(N/145) lies in [2^(logN-8), 2^logN) since 145 < 2^8
+    ell_hi = logN // 10                                     # M = 1024 = 2^10
+    need(M_ == 1024 and g_ * ell_hi <= fe["G_depth_upper"] == 2 * 10 ** 11, "height G = g * ell <= 2e11")
+    need(W0 < 2 ** 14 and W0 + P0 + 1 < 2 ** 17, "W0 < 2^14 and W0 + P0 + 1 < 2^17")
+    need(17 * fe["G_depth_upper"] + 31 == fe["log2_C_N_strict_upper"] == 3400000000031, "C_N < 2^(17 G + 31)")
+    need(fe["full_call_centre_episodes_per_raw_unit"] == 18 * 8 and fe["thin_query_episodes_per_raw_unit"] == 15 * 112,
+         "episodes 144 = 18 * 8 and 1680 = 15 * 112")
     print(json.dumps({"status": "PASS_PR4535_ARITHMETIC_CHECK", "kappa": str(ka), "uniform_saving": str(us),
                       "mirror_worst": f"{float(worst):.6f}", "binding_margin": str(rows[mn] - ka),
                       "new_kappa_claimed": False}, indent=1))

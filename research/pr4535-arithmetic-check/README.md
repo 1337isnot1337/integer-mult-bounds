@@ -44,10 +44,18 @@ profile is read from main.
    schedule `κ + 7d, 6d, 5d, 4d, 3d` and `1 − d`, `1 − 3d`, with `d = 10⁻¹⁰`. The two ξ rows are not recomputed,
    because ξ is not printed among #4535's outer parameters.
 
+6. **The finite envelope.**
+   - The height `G = 2⌊log₁₀₂₄⌊N/145⌋⌋` is at most `2·10¹¹` at `N = 2^{10¹²}`.
+   - Since `W₀ = 10,928 < 2¹⁴` and `W₀ + P₀ + 1 = 75,549 < 2¹⁷`, the class envelope is
+     `C_N < 2^{17G+31} ≤ 2^{3400000000031}`.
+   - The episode counts are 144 = 18·8 (centre) and 1,680 = 15·112 (thin queries).
+
+   All of this matches #4535's `finite_envelope`.
+
 ## Not covered
 
 - #4532's critical-root theorem: the leaf bound `L(n) ≤ A n^θ(c + log n)^p` and its gate criterion.
-- The finite envelope, owned storage, routing, precision, stock and tape bounds.
+- Owned storage, routing, precision, stock and tape bounds, beyond the displayed envelope arithmetic.
 - The native and physical premises.
 - The two ξ outer rows.
 
