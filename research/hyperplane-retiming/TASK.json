@@ -74,17 +74,19 @@
   "scope_change_reason": "Explicit owner task asks for a much higher kappa. This changes supplier contact and helper gauges using a globally coordinated hyperplane cut, rather than repeating a fixed controller invoice search.",
   "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
   "budget_minutes": 60,
-  "stop_rule": "TODO",
+  "stop_rule": "Do not promote a discovery objective or raw crossing into a selected or unconditional theorem.",
   "outcome": "partial",
-  "evidence": "TODO",
+  "evidence": "RESULT.json and ARITHMETIC.json: native/phase/all-fiber gauge proof, complete p16 moment, finite/compiler and 58 outer arithmetic conditions.",
   "author": "Cinna Davis with substantial OpenAI Codex assistance",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial OpenAI Codex assistance for derivation, search, code and verification. No independent human review.",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "Can further coordinated moves yield a much larger gain?",
+      "why_it_matters": "The current improvement changes the distribution but leaves rank surplus 752.",
+      "first_step": "Allow previously zero bridges to become paid and include joint native-map changes.",
+      "blocked_by": "No larger admitted candidate yet."
     }
-  ]
+  ],
+  "question": "Can coordinated common-subspace changes improve the full native supplier while preserving its real main endpoint?",
+  "success_criterion": "Reconstruct a changed supplier; check all arbitrary columns, physical phases and its complete moment."
 }
