@@ -4,7 +4,7 @@ Prepared by Cinna Davis with substantial OpenAI Codex assistance. Apache-2.0.
 
 ## Exact changed supplier
 
-The predecessor is Cao Yifan's PR4610, head `1eb8da6cfb35512c0cc2533413e5ca42f48e13c6`. Its emitted actual word, including unchanged native maps and main endpoint adapters, is frozen byte for byte. PR4470 and its credited predecessor chain supply the independent-helper/controller contract. PR4654's chart grammar motivates coordinated changes; its changed seven-axis main interface is not substituted here.
+The predecessor is the round-two word `research/warp-interface-20261022/ACTUAL-WORD.json.gz` in Cao Yifan's PR4610, head `1eb8da6cfb35512c0cc2533413e5ca42f48e13c6`. The same head also contains a stronger round-three word, used by #4635; this package does not supersede it. The pinned round-two actual word, including unchanged native maps and main endpoint adapters, is frozen byte for byte. PR4470 and its credited predecessor chain supply the independent-helper/controller contract. PR4654's chart grammar motivates coordinated changes; its changed seven-axis main interface is not substituted here.
 
 Let C_U be the retained canonical gauge for binary subspace U. At a shared scalar contact, every operand has the same C_U. A physical transport is exactly C_V C_U^-1. Replace 49 contacts whose original frame is the line with registry ID 114 by the zero frame, and change the 13 helper entrances listed in PATCH.json from the same line to zero. These changes are one coherent connected component of the contact graph. All main endpoints, all helper exits, scalar opcodes/order/coefficients, shared logical native warps, main adapters and owned center instructions stay fixed.
 

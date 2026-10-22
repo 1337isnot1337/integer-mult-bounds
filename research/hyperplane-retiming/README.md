@@ -2,7 +2,7 @@
 
 Prepared by Cinna Davis with substantial OpenAI Codex assistance. Apache-2.0.
 
-A coordinated change to 49 scalar-contact frames and 13 arbitrary helper entrances improves Cao Yifan's PR4610 supplier. The exact p16 raw crossing increases from about **0.00302155515** to **(0.0030216758, 0.0030216759)**. Fresh native/phase checks and a finite/compiler/outer arithmetic replay support **conditional κ = 0.00302166**, versus PR4610's .00302152 under the retained assumptions. This is a small improvement, not the requested large bottleneck breakthrough. No claim is made to supersede every other pending proposal.
+A coordinated change to 49 scalar-contact frames and 13 arbitrary helper entrances improves the **round-two word** in Cao Yifan's PR4610. The exact p16 raw crossing increases from about **0.00302155515** to **(0.0030216758, 0.0030216759)**. Fresh native/phase checks and a finite/compiler/outer arithmetic replay support **conditional κ = 0.00302166**, versus that round's .00302152 under the retained assumptions. This is a small improvement, not the requested large bottleneck breakthrough. **This is not the pending frontier:** #4610 also contains a newer round-three word, priced at conditional κ=.0030217754 in #4635. The frozen source used here is `research/warp-interface-20261022/ACTUAL-WORD.json.gz`, not `research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz`. The coordinated-cut search is being rebound to the latter.
 
 The new local paid census is `{1:2183,2:416,3:507,4:135,5:40,8:8}`. Independent helper jobs are `{4:28,7:5,8:38,9:337}`. Both local rank masses increase by 13; the whole p16 rank surplus stays 752. The gain comes from a better distribution under the concave moment, not additional rank surplus.
 
