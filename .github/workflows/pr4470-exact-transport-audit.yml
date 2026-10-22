@@ -1,0 +1,38 @@
+name: PR4470 exact transport audit
+on:
+  pull_request:
+    paths:
+      - 'research/pr4470-exact-transport-audit/**'
+      - '.github/workflows/pr4470-exact-transport-audit.yml'
+permissions:
+  contents: read
+concurrency:
+  group: pr4470-exact-transport-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  exact-matrices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            research/pr4470-exact-transport-audit
+            docs/research/agent-task-catalog.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned numerical storage dependency
+        run: python -m pip install numpy==2.2.6
+      - name: Exact source-bound scientific replay
+        run: timeout 600s python -B research/pr4470-exact-transport-audit/verify.py --out /tmp/pr4470-exact-result.json
+      - name: Optimized-mode controls
+        run: python -I -O -B research/pr4470-exact-transport-audit/verify.py --self-test
+      - name: Preserve exact receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr4470-exact-transport-receipt
+          path: /tmp/pr4470-exact-result.json
+          if-no-files-found: error
