@@ -1,6 +1,6 @@
 """Recompute the helper621 complete arithmetic certificate; read-only by default.
 
-Reuses the attributed PR4610 arithmetic engine, with its sole path adjustment
+Reuses the attributed PR4610 arithmetic engine, with its path and compiler-gap adjustments
 recorded in VENDOR.json. Apache-2.0. Substantial OpenAI assistance.
 """
 from pathlib import Path
@@ -40,11 +40,11 @@ def run(native):
     need(pin['predecessor_head']==HEAD and digest(vendor)==pin['vendored_sha256'],'Vendored arithmetic source pin')
     spec=importlib.util.spec_from_file_location('helper621_inherited_arithmetic',vendor)
     engine=importlib.util.module_from_spec(spec);sys.modules[spec.name]=engine;spec.loader.exec_module(engine)
-    result=engine.run(native,Fraction('.00302156'))
-    need(result['kappa']=='75539/25000000','Requested whole saving')
+    result=engine.run(native,Fraction('.003021569'))
+    need(result['kappa']=='3021569/1000000000','Requested whole saving')
     need(result['local_paid']==PAID and result['local_helpers']==HELPERS,'Arithmetic input binding')
     need(result['rank_mass_surplus']==752 and result['productive_fields']==10928 and result['paid_calls']==64422,'Full controller inventory')
-    result['gain_over_PR4610']=str(Fraction('.00302156')-Fraction('.00302152'))
+    result['gain_over_PR4610']=str(Fraction('.003021569')-Fraction('.00302152'))
     result['native_data_sha256']=canonical_hash(native)
     dependencies=['research/fresh-helper-boundary/native.py', 'research/higher-moment-strictification/verify.py', 'research/joint-helper-lattice/CONTROLLER.json', 'research/joint-helper-lattice/native_joint.py', 'research/joint-helper-lattice/verify.py', 'research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/bit-compression/carrier-reuse/reference/joint_pair_dag.py', 'research/kappa-rebuild/architecture/mixed_target_probe.py', 'research/kappa-rebuild/bit/complex_controller_factor.py', 'research/kappa-rebuild/bit/mixed_productive_bit.py', 'research/kappa-rebuild/complex/full-identity-certificates/RESULT.json', 'research/pr4359-p7-padding/dependencies/compiler-refill/endpoint.py', 'research/query-thinned-controllers/RESULT.json', 'research/query-thinned-controllers/controller.py']
     paths={Path(__file__).resolve(),vendor,*(ROOT/path for path in dependencies)}

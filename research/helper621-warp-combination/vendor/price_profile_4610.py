@@ -70,7 +70,7 @@ def run(local,kappa=None):
     root_low,root_high=Q(lo,grid),Q(hi,grid)
     need(margin(root_low)[0]>0 and margin(root_high)[1]<0,'Strict changed-profile rational root enclosure')
     if kappa is None:kappa=Q((root_low*10**8).__floor__()-3,10**8)
-    tested=kappa+Q(1,10**8)
+    tested=kappa+Q(1,10**9)
     need(Q('.003020165')<kappa<tested<root_low,'New multiplication saving with compiler headroom')
     t,u,v,c,b=1-tested,Q(1,5),1024,20,21
     target,paid=E.moment(T,t),E.moment(P,t)

@@ -5,7 +5,7 @@
 Under the inherited physical compiler, native execution, precision, tape, analytic, and recovery hypotheses, the modified supplier and the freshly verified outer parameters give integer multiplication saving
 
 \[
-\kappa=\frac{75539}{25000000}=0.00302156.
+\kappa=\frac{3021569}{1000000000}=0.003021569.
 \]
 
 The starting native word is Cao Yifan's PR4610 at head `4b4c75bc0fd64d3eee54029e8d2fab834251fca6`, building on Cinna Davis's PR4470 and the credited predecessor chain. We retain its actual G maps, scalar operation order and coefficients, 224 public boundaries, eight owned centres, and all 408 independent helper inputs. We change only helper621's entrance chart and the common chart of its first scalar contact, then regenerate the affected physical transports. This is a changed productive helper interface, not deletion of an input or reuse of an owned zero as a productive field.
@@ -97,10 +97,10 @@ The raw complex crossing is bracketed by `(0.0030215713,0.0030215714)`. We claim
 
 The changed helper target is matched as one rank-seven native job with its fresh normalizers. Its replacement of a rank-nine job is reflected in the productive inventory before the strictification and whole-job matching calculations. The public controller, its stage coverage, and its owned-centre accounting remain unchanged.
 
-The fresh arithmetic certificate uses tested saving `.00302157`, uniform complex saving `1057549/350000000`, and outer gap `1/700000000`. The finite compiler size is
+The fresh arithmetic certificate uses tested saving `.00302157`, uniform complex saving `21150989/7000000000`, and outer gap `1/7000000000`. The finite compiler size is
 
 \[
-N=2^{31385200000000}.
+N=2^{337848000000000}.
 \]
 
 The strictification parameters and finite operation, route, stock, denominator/precision, and tape allowances are rebound to the changed native source. The finite expanded word is algorithmically defined and is not materialized. Fresh checks verify all 54 strict inequalities and four functional conditions in the inherited outer calculation. The ordinary BIT supplier remains the credited inherited supplier, with admitted saving `17/5000`; no improvement to its construction is claimed.
@@ -109,6 +109,8 @@ These checks establish the asserted whole saving under the same conditional phys
 
 ## 6. Attribution and remaining questions
 
-Cao Yifan's PR4610 supplies the changed G maps and contact geometry; Cinna Davis's PR4470 supplies the underlying helper/controller structure. Retain their full source-chain attribution and license. Our prior PR4568 contributes to the inherited compiler/outer chain, not the discovery or authorship of PR4610's maps. The new contribution is the two-chart helper621 adjustment, its complete relative target accounting, and the fresh verification supporting `.00302156`.
+Cao Yifan's PR4610 supplies the changed G maps and contact geometry; Cinna Davis's PR4470 supplies the underlying helper/controller structure. Retain their full source-chain attribution and license. Our prior PR4568 contributes to the inherited compiler/outer chain, not the discovery or authorship of PR4610's maps. The new contribution is the two-chart helper621 adjustment, its complete relative target accounting, and the fresh verification supporting `.003021569`.
 
 Joint changes to several helper endpoints and neighbouring contacts remain open. So do genuinely different productive interfaces capable of larger whole gains. Neither the successful local change nor earlier failures of more restricted frame menus establish a global optimum. No `.004` or `.01` claim follows from this result.
+
+The tighter compiler gap retains the same tested saving `.00302157` and native word. The least integer compiler test exponent is48,264, with `step=7,000,000,000`, producing the larger finite size above. Both the strict integer inequality and its predecessor failure are recomputed. This spends reserved compiler headroom; it introduces no additional native cost saving.

@@ -3,7 +3,7 @@
 This package gives a conditional integer-multiplication saving
 
 \[
-\kappa=0.00302156,
+\kappa=0.003021569,
 \]
 
 by combining Cao Yifan's PR4610 changed-warp supplier with the productive-helper interface of Cinna Davis's PR4470. The change moves helper621's entrance and its first scalar contact together to the chart spanned by `[30,429]`. The public interface, scalar coefficients and order, logical warp maps, and all 408 independent helper inputs are preserved.
@@ -22,7 +22,7 @@ and its productive helper profile is
 
 One rank-nine helper target becomes an exact rank-seven relative Clifford target. Its complete native normalizers and absolute phase are retained; it is counted once. The resulting whole controller has 64,422 paid calls, 10,928 productive fields, and rank-mass surplus 752. Its raw complex moment crossing lies in `(0.0030215713, 0.0030215714)`; that crossing is not itself the whole multiplication exponent.
 
-Fresh checks cover the full native word in both orientations, independent dirty inputs, physical phases, changed helper normalization, and all 54 strict plus four functional outer checks. The finite compiler parameter is `N = 2^31385200000000`; the corresponding enormous expanded word is specified algorithmically, not materialized. The theorem remains conditional on the inherited physical compiler, native execution, precision, tape, analytic, and recovery premises. No new unconditional multiplication theorem or practical input threshold is asserted.
+Fresh checks cover the full native word in both orientations, independent dirty inputs, physical phases, changed helper normalization, and all 54 strict plus four functional outer checks. The finite compiler parameter is `N = 2^337848000000000`; the corresponding enormous expanded word is specified algorithmically, not materialized. The theorem remains conditional on the inherited physical compiler, native execution, precision, tape, analytic, and recovery premises. No new unconditional multiplication theorem or practical input threshold is asserted.
 
 See [PROOF.md](PROOF.md) for the exact operator contract, complete cost change, and conditional chain.
 
