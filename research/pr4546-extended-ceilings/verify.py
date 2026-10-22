@@ -332,7 +332,29 @@ def main():
             need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling, window {w['index']}, len<={L}")
             if L == 6:
                 profile_counts[len(profiles)] += 1
+    # #4543's receiver-sharing word a += s b; b += cb x; a -= s b with s = -ca cb, on all 128 windows. The relaxation
+    # contains every actual monotone path, so "infeasible" here means the rewrite cannot meet the frame contract at all.
+    rs = Counter()
+    for w in every:
+        ca, cb = w["coefficients"]
+        sgn = -ca * cb
+        word = ((0, 1, sgn), (1, 2, cb), (0, 1, -sgn))
+        m = IDENTITY
+        for g in word:
+            m = act(m, g)
+        need(m == target(ca, cb), "receiver-sharing endpoint identity with s = -ca*cb")
+        old = actual_profile(w["starts"], w["ends"], w["frames"])
+        profiles = relaxed(w["starts"], w["ends"], word)
+        if not profiles:
+            # The certain obstruction: the first gate a += s b needs a common frame containing b's entrance frame
+            # inside a's exit frame.
+            need(not (w["starts"][1] <= w["ends"][0]), "infeasibility explained by S_b not inside E_a")
+            rs["infeasible", w["phase"]] += 1
+            continue
+        need(max(gain_upper(old, p) for p in profiles) == 0, "receiver sharing never improves")
+        rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
+                      "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
                       "windows_with_positive_optimistic_gain": summary,
                       "all_eligible_windows": {"count": len(every), "phases": dict(phases),
                                                "zero_ceiling_len<=4": len(every), "zero_ceiling_len<=6": len(every),

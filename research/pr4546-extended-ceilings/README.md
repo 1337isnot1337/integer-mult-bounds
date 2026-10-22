@@ -26,6 +26,8 @@ This package recomputes #4546 with separately written code and **extends the cap
 
 3. **All 128 eligible windows.** #4546 tested only the first twelve, so this extension covers all 128 eligible adjacent pairs: 123 in phase B and 5 in cleanup_tail. **Every one has an optimistic ceiling of exactly 0 at both length ≤ 4 and length ≤ 6.** At length ≤ 6, 93 windows have one relaxed profile and the others have 2–9, none of which improves on the incumbent.
 
+4. **#4543's receiver-sharing rewrite on all 128 windows.** #4543 replaces `a += ca·x; b += cb·x` with `a += s·b; b += cb·x; a −= s·b`, `s = −ca·cb`, and tests twelve windows. On all 128, the endpoint identity holds. In **96 windows** (91 in phase B, 5 in cleanup_tail) the relaxation admits the incumbent profile and nothing better. In the other **32 phase-B windows the rewrite is infeasible**: `b`'s entrance frame is not contained in `a`'s exit frame, so the first gate `a += s·b` has no admissible common frame. Since the relaxation contains every actual path, this is a sound impossibility, not just an optimistic bound.
+
 **Why it does not move.** In this relaxation, every contact frame lies between the forward sum of the operands' current lower bounds and the backward intersection of their exits. For these windows those bounds already pin each field's admissible rank steps. For example, in the `{1:3}` windows a field climbing `0 → 2` has every contact capped at an exit intersection of dimension 1. Longer words only add contacts under the same caps, so they cannot merge the two rank-1 payments. This explains the observed invariance but is **not** proved here for all lengths; the checked statement is lengths ≤ 6.
 
 **Model** (re-implemented from #4546's README):
