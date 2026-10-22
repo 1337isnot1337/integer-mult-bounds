@@ -37,5 +37,9 @@ receipt comparison. Its four source-pin keys had Windows path separators.
 The generator now uses repository-relative POSIX keys on every OS. Exact
 comparison proves these key separators are the only changed certificate
 fields; all mathematics, input hashes, bounds and controls are identical.
-Normal and isolated optimized checks of the correction pass. A new Linux
-hosted replay is pending; its result is recorded separately by exact head.
+Normal and isolated optimized checks of the correction pass, including a
+fresh Git-free export of the corrected independent check. The Linux hosted
+primary and independent replay both passed on head
+`4a4418d1f274da5dbac8778f0fdf6907a9828594`:
+[exact run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39853042928).
+This records that head's result and does not claim external mathematical approval.

@@ -38,17 +38,23 @@
   "maintainer_mathematical_review": "Pending",
   "external_independent_reproduction": "Not claimed; separate internal AI source-type and arithmetic audits.",
   "hosted_CI": {
-    "observed_at_utc": "2026-10-22T20:38:07.423496+00:00",
-    "head": "acac896e0599bf0c0c3be09345247c5213aa686a",
+    "observed_at_utc": "2026-10-22T21:15:30.134364+00:00",
+    "head": "4a4418d1f274da5dbac8778f0fdf6907a9828594",
     "checks": [
       {
+        "name": "replay (research/bit-finite-ordinary-bootstrap) / replay (research/bit-finite-ordinary-bootstrap)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39853042928/job/120085718020"
+      },
+      {
         "name": "plan",
-        "status": "in_progress",
-        "conclusion": null,
-        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39850391834/job/120074657124"
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39853042928/job/120083966537"
       }
     ],
-    "scope": "Exact observed head only; separate from mathematical review."
+    "scope": "Linux hosted replay at the stated head; author-submitted CI is not independent mathematical approval."
   },
   "publication": {
     "PR": 4814,
@@ -57,5 +63,10 @@
     "initial_posted_head": "acac896e0599bf0c0c3be09345247c5213aa686a",
     "scientific_commit": "db3856719bdf2b913f9662ec348e39c2c7c65242",
     "cadence_rule": "Only actual PR creation counts as a new submission; added commits/body edits do not."
+  },
+  "portability_correction": {
+    "failed_head": "709fcb31cc66bd8ce2165d60f495259502325536",
+    "corrected_head": "4a4418d1f274da5dbac8778f0fdf6907a9828594",
+    "cause": "Four source-pin keys used Windows separators. POSIX repository-relative keys now match across operating systems; all nonpath certificate fields and source hashes are identical."
   }
 }
