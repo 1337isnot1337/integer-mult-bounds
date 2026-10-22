@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "complex-new-helper-inventory",
   "priority_revision": 7,
-  "base_commit": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
+  "base_commit": "fcdf5ce4682beb29e6729f9a41eb971a1d35d0fa",
   "original_card": {
     "id": "complex-new-helper-inventory",
     "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
@@ -70,5 +70,25 @@
     "grammar_pr": 4654,
     "grammar_head": "dca175fed8ebde8980635fd3b4508b8cba89a1b0",
     "selected_kappa": "0.00302015"
-  }
+  },
+  "overlap_coverage": {
+    "local": {
+      "head": "fcdf5ce4682beb29e6729f9a41eb971a1d35d0fa",
+      "records": 5862,
+      "head_records": 5862,
+      "complete_head_inventory": true,
+      "unsearched_head_paths": []
+    },
+    "open_prs": {
+      "fetched_at": "2026-10-22T14:45:51.046622+00:00",
+      "complete_pagination": true,
+      "records": 434
+    },
+    "discussions": {
+      "fetched_at": "2026-10-22T14:46:46.485113+00:00",
+      "complete_pagination": true,
+      "records": 3593
+    }
+  },
+  "overlap_scope": "Builds directly on the new phase-form grammar in PR4654, which does not report a useful nonzero solution. No competing exact rigidity certificate surfaced in searched metadata; this is not proof of novelty."
 }

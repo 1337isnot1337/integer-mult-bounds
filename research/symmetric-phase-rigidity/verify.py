@@ -48,6 +48,7 @@ def graph(payload):
     frames = c['frames']
     spaces = list(map(span, frames))
     nodes, fixed, edges, helpers = [0, 0], set(), [], []
+    reconstructed = Counter()
 
     def new(f, freeze=False):
         n = len(nodes)
@@ -63,6 +64,8 @@ def graph(payload):
         a = current[r]
         old = nodes[a]
         need(spaces[old] <= spaces[f], 'nested paid transition')
+        if old != f:
+            reconstructed[len(frames[f]) - len(frames[old])] += 1
         b = new(f) if dst is None else dst
         edges.append(('paid', a, b, tuple(frames[old]), tuple(frames[old])))
         current[r] = b
@@ -100,6 +103,7 @@ def graph(payload):
             need(spaces[a] < spaces[b] or spaces[b] < spaces[a], 'nested owned center')
             need(abs(len(frames[a]) - len(frames[b])) == width, 'owned center rank')
             paid[width] += 1
+            reconstructed[width] += 1
         else:
             need(kind == 'phase', 'known source event')
     for r, f in enumerate(c['final']):
@@ -110,6 +114,7 @@ def graph(payload):
             helpers.append((r, entry[r], dst, tuple(frames[c['start'][r]])))
     need(paid == {1: 2201, 2: 412, 3: 510, 4: 127, 5: 40, 8: 8},
          'exact round-three paid source profile')
+    need(reconstructed == paid, 'contact graph reproduces the actual paid profile')
     return frames, nodes, fixed, edges, helpers
 
 

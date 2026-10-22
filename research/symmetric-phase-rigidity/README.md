@@ -18,7 +18,8 @@ optimal kappa is claimed.
 
 The input is `research/kappa-round3-warp-20261022/ACTUAL-WORD.json.gz` at PR4610
 head `1eb8da6cfb35512c0cc2533413e5ca42f48e13c6`. Its exact bytes are vendored
-with their original Git-object pin in [SOURCES.json](SOURCES.json). Its local
+with original commit/path/blob provenance and an exact Git pin for the retained
+copy in [SOURCES.json](SOURCES.json). Its local
 paid profile is `{1:2201,2:412,3:510,4:127,5:40,8:8}` and its productive helper
 profile is the retained `{4:28,7:7,8:47,9:326}`. This package neither changes
 that word nor claims its proposed integer-multiplication exponent as reviewed.
