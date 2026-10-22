@@ -557,6 +557,43 @@ def two_contact_retiming(c, program):
     return dict(tally)
 
 
+def geometric_profiles(starts, ends, word):
+    """Every exactly realisable profile of one word (actual nested subspaces, joint incidence enforced)."""
+    cur, upper = list(ends), [None] * len(word)
+    for k in range(len(word) - 1, -1, -1):
+        i, j, _ = word[k]
+        f = cur[i] & cur[j]
+        upper[k] = f
+        cur[i] = cur[j] = f
+    out = set()
+
+    def rec(k, state, hist):
+        if k == len(word):
+            h = list(hist)
+            for r in range(3):
+                if not state[r] <= ends[r]:
+                    return
+                g = dim(ends[r]) - dim(state[r])
+                if g:
+                    h[g] += 1
+            out.add(tuple(h))
+            return
+        i, j, _ = word[k]
+        L, U = ssum(state[i], state[j]), upper[k]
+        for dd in range(dim(L), dim(U) + 1):
+            for F in subspaces_between(L, U, dd):
+                h, st = list(hist), list(state)
+                for r in (i, j):
+                    g = dim(F) - dim(st[r])
+                    if g:
+                        h[g] += 1
+                    st[r] = F
+                rec(k + 1, tuple(st), tuple(h))
+
+    rec(0, tuple(starts), (0,) * 10)
+    return out
+
+
 def matches_alphabet(ca, cb, coefs, max_len):
     """All words of length <= max_len over shears y_i += c y_j (c in coefs) with the window endpoint (meet in middle)."""
     gates = tuple((i, j, c) for i in range(3) for j in range(3) if i != j for c in coefs)
@@ -739,6 +776,10 @@ def main():
             continue
         need(max(gain_upper(old, p) for p in profiles) == 0, "receiver sharing never improves")
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
+        exact = geometric_profiles(w["starts"], w["ends"], word)
+        need(old in exact and max(gain_upper(old, p) for p in exact) == 0,
+             f"receiver sharing exactly realises the incumbent, window {w['index']}")
+        rs["incumbent_exactly_realised"] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
                       "agreement_with_4581_4582_4587_all_length": {"windows_with_identical_profile_sets": agree,
@@ -747,7 +788,8 @@ def main():
                       "single_contact_retiming_all_phases": single_contact_retiming(c, program),
                       "two_contact_retiming_all_phases": two_contact_retiming(c, program),
                       "nonadjacent_pairs_len<=6": {"count": len(nonadj), **dict(na)},
-                      "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
+                      "receiver_sharing_4543_all_windows": {(f"{k[0]}:{k[1]}" if isinstance(k, tuple) else k): v
+                                                            for k, v in sorted(rs.items(), key=str)},
                       "windows_with_positive_optimistic_gain": summary,
                       "all_eligible_windows": {"count": len(every), "phases": dict(phases),
                                                "zero_ceiling_len<=4": len(every), "zero_ceiling_len<=6": len(every),
