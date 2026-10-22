@@ -55,6 +55,10 @@ The first two commands authenticate included source snapshots. They reproduce th
 
 CACHE-BUDGET.md and CACHE-BUDGET.json reprice explicitly hypothetical persistent-state scenarios. They distinguish disjoint helper axes from repeated head axes and never count coupled state outputs as restored targets. The eight-state word itself supplies no one-head boundary decoder.
 
+## Rational relaxation, not admitted
+
+RATIONAL-STATE-SPLIT.md gives an exact rational change that separates eight active and eight passive state channels. Its inverse requires division by three, so it does not contradict the dyadic minimum and is not an admitted reduction in the physical state bill. The same small-matrix check records the identity; compiler and precision integration remain open.
+
 ## Concurrent work and scope
 
 The 2026-10-22 16:37 UTC upstream refresh found PR4694 and PR4698 (https://github.com/CrocSwap/integer-mult-bounds/pull/4698). PR4698 independently gives a 379-gate dyadic helper basis reducing the retained-center observation to eight actual helper fields. This is closely related to our 553-operation integer concentration, on a different retained H interface. We claim no priority for eight-helper concentration and credit that concurrent construction. The follow-on here is the explicitly emitted asymmetric sixteen-state J pair and its scoped mod-three minimality proof. Neither branch establishes a larger kappa. This overlap check is bounded, not an exhaustive novelty review.
