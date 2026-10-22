@@ -1,4 +1,12 @@
-# All-length floor for the 128 PR4470 receiver windows
+# Independent receiver-window floor and peer-certificate comparison
+
+This package independently corroborates the concurrent all-length results in
+[#4581](https://github.com/CrocSwap/integer-mult-bounds/pull/4581) and
+[#4582](https://github.com/CrocSwap/integer-mult-bounds/pull/4582), and supplies
+an executable comparison of their pinned receipts. All three implementations
+agree on every window boundary, incumbent bill and terminal rank partition.
+The contribution adds a separate three-ancestry model and exhaustive small
+geometric inclusion controls, with no exclusive novelty or priority claim.
 
 **Every eligible window has zero paid-cost headroom for any finite shear word
 on the same three fields, with the same monotone frame boundaries.** There is
@@ -143,6 +151,37 @@ development cross-check matched all 128 indices, roles, signs, complete
 subspaces and incumbent bills against #4567's separately loaded extractor at
 the pinned head. That comparison is corroboration, not a replay dependency.
 
+## Executable comparison with concurrent certificates
+
+The submission refresh found [#4572](https://github.com/CrocSwap/integer-mult-bounds/discussions/4572),
+[#4577](https://github.com/CrocSwap/integer-mult-bounds/discussions/4577) and the
+static-contact proof in [#4574](https://github.com/CrocSwap/integer-mult-bounds/discussions/4574).
+They are concurrent investigations of the same conclusion. This package was
+already implemented when discovered and is offered as independent corroboration.
+It does not claim to have independently audited their proof code.
+
+[PEERS.json](PEERS.json) pins the exact source Git blobs and SHA256 payloads for
+two committed receipts, retained as unchanged gzip-compressed inputs under
+`peers/`. [compare_peers.py](compare_peers.py) authenticates those bytes, expands
+bases to complete binary subspaces (basis order may differ), and compares all
+128 identities, phases, roles, signs, entrances, contacts, exits, incumbent
+bills and 239 terminal partitions with this package's freshly verified receipt.
+It executes no peer code. This is the third registered command, also runnable
+directly with `python -I -O -B research/receiver-all-length-floor/compare_peers.py`.
+
+| Certificate | Exact head | Reported states | Matched window/partition pairs |
+|---|---|---:|---:|
+| #4581, directed source dependence | `b154350fbf1e7d49118851ab899a733727483289` | 1,303 | 239 |
+| #4582, bidirectional source dependence | `23c515a3c071a6bfdd1fe80bc67cea55f6d43643` | 1,496 | 239 |
+| This package, all three entrance-ancestry masks | See this PR head | 1,603 | 239 |
+
+State counts are representation-dependent, not an improvement measure. The
+executable comparison certifies the common projected data, not equivalence of
+all intermediate states or peer tests. The peer receipts are package-local
+immutable inputs; the generic runner includes them in package invalidation and
+export, while their external-origin Git blob checks are explicit in the
+comparison code. They do not add pending source-history dependencies.
+
 ## Scope, overlap, and credit
 
 Canonical base: `f626db5c3a3d781d8f7695038776c621651f75e1`, priority revision 7.
@@ -150,7 +189,11 @@ Coordination: [Discussion #4573](https://github.com/CrocSwap/integer-mult-bounds
 The handoff-first selection and exact predecessor heads are in [TASK.json](TASK.json).
 The initial overlap refresh covered 355 open PR bodies and 3,470 Discussion
 records; all 5,860 tracked top-level package README/TASK notes were then
-materialized and searched. Coverage is a dated search, not proof of novelty.
+materialized and searched. The 08:08-08:09 UTC submission refresh covered 358
+open PRs and 3,493 Discussion records and revealed the concurrent work above.
+Canonical main and the priority revision were unchanged. Coverage is a dated
+search, not proof of novelty. #4567's head `58695721e3cf9d5101440dd53a3ea5bbcc0e9313`
+adds nonadjacent and contact-retiming checks outside this fixed adjacent scope.
 The older R420 all-length cleanup floor and P111 receiver census concern
 different targets and tariffs; neither covers these PR4470 frame contracts.
 
@@ -173,6 +216,8 @@ comparison. The committed extractor, state graph and cost checker are new,
 and import no #4546/#4567 acceptance code. This is a separate implementation,
 not a separately launched audit team. Prepared for mihir-s-05 with substantial
 OpenAI Codex assistance. Apache-2.0; retained source notices are unchanged.
+Credit the concurrent #4572/#4582, #4577/#4581 and #4574 investigations as well;
+the compressed peer receipts retain their exact authored payloads and origin.
 
 ## Open next questions
 

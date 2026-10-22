@@ -80,13 +80,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Prove an all-length, coefficient-independent paid-profile floor for all 128 fixed three-field PR4470 receiver windows, using temporal ancestry and monotone frame dimensions.",
-  "scope_change_reason": "Take the live #4546/#4567 length-cap handoff instead of the catalogue historical examples. Replace finite scalar-word enumeration with a finite-state relaxation and exact concave-cost certificates.",
+  "actual_scope": "Independently corroborate the all-length concave-cost floor for all 128 PR4470 receiver windows, with a three-ancestry frame DAG and an executable comparison of the exact #4581/#4582 receipts.",
+  "scope_change_reason": "Take the live #4546/#4567 length-cap handoff instead of the catalogue historical examples. Replace finite scalar-word enumeration with a finite-state relaxation and exact concave-cost certificates. The final refresh revealed concurrent same-conclusion work; preserve independent derivation, explicitly credit it, and add exact receipt agreement rather than claiming exclusive novelty.",
   "bottleneck_link": "Decides whether increasing word length or coefficient range alone can remove paid work in these fixed receiver windows; a zero floor redirects further construction to a changed boundary, fields, or nonmonotone frame model.",
   "budget_minutes": 60,
   "stop_rule": "Stop after source-bound coverage of the 128 windows and geometric/semantic controls. If a relaxed cheaper profile survives, report it as inconclusive; do not expand a construction search.",
   "outcome": "negative-result",
-  "evidence": "RESULT.json: 128 windows, 1603 states, 239 rank partitions; incumbent attains every floor. Integer capped-rank sums certify every increasing concave cost. Registered replay and optimized semantic controls; see README.md.",
+  "evidence": "RESULT.json: 128 windows, 1603 states, 239 rank partitions; incumbent attains every floor. Integer capped-rank sums certify every increasing concave cost. Registered replay and optimized semantic controls; see README.md. PEERS.json and compare_peers.py authenticate and match every projected field of #4581/#4582 at their pinned heads; peer proof code is not executed or certified.",
   "author": "mihir-s-05",
   "ai_assistance": "Prepared for mihir-s-05 with substantial OpenAI Codex assistance; no separately launched agents, formal kernel, or independent human review.",
   "open_questions": [
@@ -120,6 +120,27 @@
     "priority_revision": 7,
     "initial_open_prs_utc": "2026-10-22T07:47:49Z",
     "initial_discussions_utc": "2026-10-22T07:49:34Z",
-    "local_coverage": "All 5860 tracked top-level README/TASK notes materialized and searched after the initial sparse check."
-  }
+    "local_coverage": "All 5860 tracked top-level README/TASK notes materialized and searched after the initial sparse check.",
+    "final_fetch_utc": "2026-10-22T08:08:30Z",
+    "final_open_prs_utc": "2026-10-22T08:08:35Z",
+    "final_discussions_utc": "2026-10-22T08:09:49Z",
+    "final_open_pr_count": 358,
+    "final_discussion_record_count": 3493
+  },
+  "concurrent_investigations": [
+    {
+      "discussion": 4572,
+      "pr": 4582,
+      "head": "23c515a3c071a6bfdd1fe80bc67cea55f6d43643"
+    },
+    {
+      "discussion": 4577,
+      "pr": 4581,
+      "head": "b154350fbf1e7d49118851ab899a733727483289"
+    },
+    {
+      "discussion": 4574,
+      "scope": "static mandatory-contact and graph-bridge proof"
+    }
+  ]
 }

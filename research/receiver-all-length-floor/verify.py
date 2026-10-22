@@ -266,7 +266,7 @@ def main():
         header = json.dumps({k: v for k, v in result.items() if k != "windows"}, indent=2)
         rows = ",\n".join("    " + json.dumps(row, sort_keys=True) for row in result["windows"])
         receipt = header[:-2] + ',\n  "windows": [\n' + rows + "\n  ]\n}\n"
-        (HERE / "RESULT.json").write_text(receipt, encoding="utf-8")
+        (HERE / "RESULT.json").write_text(receipt, encoding="utf-8", newline="\n")
     else:
         expected = json.loads((HERE / "RESULT.json").read_text(encoding="utf-8"))
         require(canonical(result) == canonical(expected), "complete retained receipt equality")

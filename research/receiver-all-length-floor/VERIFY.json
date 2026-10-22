@@ -33,6 +33,17 @@
       ],
       "timeout_seconds": 120,
       "checks": "Exhaust all 1728 triples of comparable F2^2 subspaces with a separate actual-frame traversal; causal, terminal-charge, incompatible-frame, extraction, concavity, and source-corruption controls under optimized Python."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-B",
+        "{package}/compare_peers.py"
+      ],
+      "timeout_seconds": 30,
+      "checks": "Authenticate exact #4581/#4582 archived receipts and compare every window identity, complete frame subspace, incumbent bill and terminal rank partition; no peer proof code executes."
     }
   ]
 }
