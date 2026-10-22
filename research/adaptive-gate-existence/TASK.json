@@ -135,7 +135,29 @@
     "semantic_rejections": 21,
     "root_application_arithmetic_controls": 48,
     "proof_review": "Separate author-side AI reviews of the theorem, exact feasibility lemma, mirror integrals, arithmetic enclosures and unknown-root quantitative guards; no formal or independent human review.",
-    "native_and_outer_replays": "not run; source inventories and contracts inherited"
+    "native_and_outer_replays": "not run; source inventories and contracts inherited",
+    "scientific_commit": "1a623ad2c268b2b23878bc0cc3cf0f67b4b1b5fa",
+    "committed_bytes_and_source_history": "PASS; 15 files, canonical base reachable",
+    "checked_export": "PASS; 15 files",
+    "offline_replay": "PASS; exported tree without Git, PATH=/nonexistent, macOS sandbox-exec deny network*, Python 3.12.15 -I -O -B",
+    "exported_mutation_controls": "PASS; changed predecessor rejected before evaluation, underfunded logarithm rejected by recurrence guard"
   },
-  "verification_started_utc": "2026-10-22T03:54:13Z"
+  "verification_started_utc": "2026-10-22T03:54:13Z",
+  "publication_checkpoint": {
+    "canonical_main": "f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc",
+    "checked_at_utc": "2026-10-22T03:56:15Z",
+    "priority_revision": 7,
+    "guidance_and_selection": "unchanged",
+    "open_pr_bodies": 316,
+    "discussion_records": 3411,
+    "remote_pagination_complete": true,
+    "overlap_result": "Only own claim/local package match gate existence, critical-root and mirror integral; relevant predecessor #4483 head unchanged and merged."
+  },
+  "hosted_ci_context": {
+    "status": "shared upstream planning failures known before submission",
+    "evidence": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39716553034/job/119619920401",
+    "prior_report": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4443#discussioncomment-19109289",
+    "cause": "Four unchanged test_research_current_status failures: stale CI target, decimal bold format, historical banner and heading. Affected blobs match canonical main. Six focused local tests reproduce four failures.",
+    "package_replay": "local registered replay passes; previous PR hosted replay was skipped. New PR status must be checked separately."
+  }
 }

@@ -54,6 +54,11 @@ python3 scripts/export_research_package.py check /tmp/adaptive-gate-existence.ta
 The direct verifier consumes only package files and the six declared inputs;
 it requires neither Git nor network access. The generic registered runner
 separately needs Git history to authenticate historical card/source provenance.
+A 15-file export from scientific commit
+`1a623ad2c268b2b23878bc0cc3cf0f67b4b1b5fa` passed integrity and direct
+Python 3.12.15 replay with `PATH=/nonexistent` under a macOS per-process
+`deny network*` policy. Changed predecessor bytes and an underfunded logarithm
+were rejected in copied exports; original inputs stayed unchanged.
 Final publication results are recorded in `TASK.json`.
 
 ## Remaining obligations
@@ -64,3 +69,14 @@ restoration, chronological divisible widths, movement, precision, stock,
 fixed-tape execution, analytic transfer and exact recovery remain inherited.
 The result is a conditional leaf-count theorem with explicit certificates;
 there is no new selected κ, materialized winning word or practical threshold.
+
+## Shared hosted-planning limitation
+
+The earlier #4521 [hosted run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39716553034/job/119619920401)
+stopped before package replay: four shared `test_research_current_status`
+failures concerning the CI target, selected decimal formatting and historical
+navigation. The affected files are byte-identical on canonical main and both
+research branches; six focused local tests reproduce the same four failures.
+This was already [reported for #4448](https://github.com/CrocSwap/integer-mult-bounds/discussions/4443#discussioncomment-19109289).
+An upstream navigation repair and hosted rerun remain separate obligations.
+The local registered pass does not imply a hosted CI pass.
