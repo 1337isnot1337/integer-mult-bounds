@@ -1,0 +1,229 @@
+{
+  "status": "PASS_CHANGED_PROFILE_ARITHMETIC_NATIVE_ADMISSION_SEPARATE",
+  "kappa": "3021769/1000000000",
+  "gain_over_PR4535": "401/250000000",
+  "raw_root_interval": [
+    "15108879/5000000000",
+    "30217759/10000000000"
+  ],
+  "margin_at_old_root_upper": [
+    "78072058023577019965454984044224523228758899702419408235/196159429230833773869868419475239575503198607639501078528",
+    "1249152928377232319447279744707592371660142395238823308861/3138550867693340381917894711603833208051177722232017256448"
+  ],
+  "local_helpers": {
+    "4": 28,
+    "7": 7,
+    "8": 47,
+    "9": 326
+  },
+  "local_paid": {
+    "1": 2201,
+    "2": 412,
+    "3": 510,
+    "4": 127,
+    "5": 40,
+    "8": 8
+  },
+  "targets": {
+    "4": 504,
+    "7": 126,
+    "8": 846,
+    "9": 5868,
+    "17": 448,
+    "25": 448,
+    "33": 448,
+    "41": 448,
+    "49": 448,
+    "57": 448,
+    "65": 448,
+    "73": 224,
+    "145": 224
+  },
+  "paid": {
+    "1": 41298,
+    "2": 7416,
+    "3": 9180,
+    "4": 2286,
+    "5": 720,
+    "8": 144,
+    "16": 448,
+    "24": 448,
+    "32": 448,
+    "40": 448,
+    "48": 448,
+    "56": 448,
+    "64": 448,
+    "72": 224
+  },
+  "productive_fields": 10928,
+  "paid_calls": 64404,
+  "rank_mass_surplus": 752,
+  "strictification": {
+    "tested": "302177/100000000",
+    "power": 1024,
+    "cutoff": 20,
+    "floor": 21,
+    "tail_offset": "1/5",
+    "alpha": {
+      "lower": "0.999999993884252622740095906769",
+      "upper": "0.999999993884252622740095906770"
+    },
+    "gamma": {
+      "lower": "0.956217506703714253758457710273",
+      "upper": "0.956217506703714253758457710274"
+    },
+    "delta": {
+      "lower": "0.958285305508943939401236992035",
+      "upper": "0.958285305508943939401236992036"
+    },
+    "normalized_paid_upper": "2097152001953127/2097154147483648"
+  },
+  "compiler": {
+    "theta": "63/64",
+    "logarithm_power": 1000,
+    "eta": {
+      "lower": "0.000000204541256425394083726654",
+      "upper": "0.000000204541256425394083726655"
+    },
+    "gap": "1/7000000000",
+    "uniform_saving": "21152389/7000000000",
+    "H": 337848000000000,
+    "N": "2^337848000000000",
+    "integer_test_exponent": 48264,
+    "word_materialized": false
+  },
+  "nonrecursive": {
+    "local_scalar": 158168,
+    "local_routes": 4802000,
+    "raw_scalar_upper": 181098496
+  },
+  "ordinary_BIT": {
+    "admitted": "17/5000",
+    "after_cover": "69/20000",
+    "atom": "1/250",
+    "before_cover": "3459/1000000",
+    "ordinary_saving": "8590884599/2500000000000",
+    "prime_rule": "odd q > 2^26*N^5 avoiding all fixed denominators and rank witnesses"
+  },
+  "outer": {
+    "parameters": {
+      "kappa": "3021769/1000000000",
+      "tested_saving": "302177/100000000",
+      "complex_uniform_saving": "21152389/7000000000",
+      "b": "5288097/1750000000",
+      "a": "21152387/7000000000",
+      "q": "10576193/3500000000",
+      "bit_saving": "17/5000",
+      "epsilon": "6999999999/7000000000",
+      "beta": "6999999997/7000000000",
+      "r0": "1/70000000000",
+      "stop": "1/7000000000",
+      "layout": "1/7000000000",
+      "d": "1/7000000000",
+      "cap_xi": "22277158350989423807/24500000000000000000",
+      "lambda_": "1993956461/2000000000",
+      "lambda_prime": "3489423807/3500000000"
+    },
+    "margins": {
+      "main_transform": "74033350989423807/24500000000000000000",
+      "global_coordinate_router": "21152387/7000000000",
+      "fused_gaussian": "74033354468271421/24500000000000000000",
+      "group_bit_router": "148066715936542839/49000000000000000000",
+      "group_scans": "3499999999/3500000000",
+      "boundary_algebraic_matrix": "74033354489423807/24500000000000000000",
+      "sparse_union_movement": "10027158354489423807/24500000000000000000",
+      "polynomial_products": "6999999999/7000000000",
+      "microbox_face_corrections": "134750000001/1750000000"
+    },
+    "strict_checks": {
+      "actual_bit_above_effective": "2647613/7000000000",
+      "complex_above_effective": "1/7000000000",
+      "q_positive": "10576193/3500000000",
+      "complex_endpoint": "1/3500000000",
+      "q_below_effective": "1/7000000000",
+      "stop_positive": "1/7000000000",
+      "stop_below_one": "6999999999/7000000000",
+      "leaf_saving_above_effective": "1744711903/12250000000000000000",
+      "q_below_internal": "1/7000000000",
+      "q_below_leaf": "3494711903/12250000000000000000",
+      "lambda_above_tau": "1/14000000000",
+      "lambda_above_sigma": "3/14000000000",
+      "lambda_above_internal": "1/14000000000",
+      "lambda_prime_above_lambda": "1/14000000000",
+      "lambda_prime_above_leaf": "3494711903/12250000000000000000",
+      "epsilon_positive": "6999999999/7000000000",
+      "epsilon_below_one": "1/7000000000",
+      "cap_above_band": "10027158350989423807/24500000000000000000",
+      "cap_below_cell": "2222841645510576193/24500000000000000000",
+      "group_positive": "6999999997/7000000000",
+      "group_below_dimension": "1/3500000000",
+      "support_router_span": "3/7000000000",
+      "group_gauge_power_slack": "2222841654085576193/12250000000000000000",
+      "actual_logarithmic_group_guard": "2222841654260576193/12250000000000000000",
+      "global_gamma_power_slack": "9/70000000000",
+      "actual_logarithmic_gamma_guard": "1/7000000000",
+      "alpha_logarithm_absorption": "1/70000000000",
+      "group_key_fits_record": "1/3500000000",
+      "membership_arithmetic_fits_record": "1/7000000000",
+      "microbox_halo_volume": "553000000003/7000000000",
+      "positive_layout_slack": "1/7000000000",
+      "short_record_fallback": "1744711903/1750000000",
+      "complex_below_one_over_32": "49399403/1750000000",
+      "strassen_integer_power_gap": "1951441519231",
+      "theta_positive_polynomial_power": "2",
+      "cap_below_phase_cell_power": "26722841649010576193/24500000000000000000",
+      "halo_covers_generic_inverse_radius": "5",
+      "union_tag_work_per_visit_fits_record": "3/7000000000",
+      "union_header_fits_record": "3/7000000000",
+      "source_axis_superpolynomial": "1/7000000000",
+      "gaussian_above_main": "1739423807/12250000000000000000",
+      "new_complex_uniform_saving_above_b": "1/7000000000",
+      "improvement_over_user_baseline": "645399290400418148631/500000000000000000000000",
+      "new_semantic_guard_with_C1_one": "1/7000000000",
+      "fine_prime_halo_umbrella": "7/2",
+      "main_transform_above_kappa": "10489423807/24500000000000000000",
+      "global_coordinate_router_above_kappa": "1/1750000000",
+      "fused_gaussian_above_kappa": "13968271421/24500000000000000000",
+      "group_bit_router_above_kappa": "34936542839/49000000000000000000",
+      "group_scans_above_kappa": "1395769523/1400000000",
+      "boundary_algebraic_matrix_above_kappa": "13989423807/24500000000000000000",
+      "sparse_union_movement_above_kappa": "9953125013989423807/24500000000000000000",
+      "polynomial_products_above_kappa": "54522247/54687500",
+      "microbox_face_corrections_above_kappa": "538978847621/7000000000"
+    },
+    "functional_checks": {
+      "new_semantic_group_guard": "3/7000000000",
+      "new_BIT_row_stock_sublinear_in_active_group": "6978999997009/7000000000000",
+      "fixed_halo_explicit_metadata_branch": "134750000001/1750000000",
+      "actual_new_BIT_stock_sublinear": "1742999999253/1750000000000"
+    }
+  },
+  "negative_controls": {
+    "old_BIT": [
+      "actual_bit_above_effective"
+    ],
+    "closed_uniform": [
+      "new_complex_uniform_saving_above_b"
+    ],
+    "unfunded_endpoint": [
+      "main_transform_above_kappa",
+      "global_coordinate_router_above_kappa",
+      "fused_gaussian_above_kappa",
+      "group_bit_router_above_kappa",
+      "boundary_algebraic_matrix_above_kappa"
+    ],
+    "closed_epsilon": [
+      "epsilon_below_one",
+      "global_gamma_power_slack",
+      "actual_logarithmic_gamma_guard",
+      "source_axis_superpolynomial",
+      "gaussian_above_main",
+      "new_semantic_guard_with_C1_one"
+    ]
+  },
+  "scope": "Exact changed-profile arithmetic only. Requires separately admitted changed native programs, paid transports and absolute phases. Retained compiler/native/precision/tape/analytic/recovery assumptions.",
+  "gain_over_PR4626": "1/5000000",
+  "native_receipt_sha256": "68f859dbae503f05d41d8ac4ab8ab3be0534ab15a5919585e333e7e465328b5b",
+  "candidate_payload_sha256": "b8427a19e1fc2336cab022267293d11a92b4ab71f5b968f22ccd3004233d74d9",
+  "arithmetic_engine_sha256": "bbbafd38b8fee15f4a19f5b726aaf67b8c4e897ecb01ea89a5722168eb27e151"
+}
