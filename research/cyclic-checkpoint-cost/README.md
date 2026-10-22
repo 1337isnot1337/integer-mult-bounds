@@ -115,7 +115,7 @@ The written proof establishes the quantified statement. The generated
 - All 9,216 pairs `1<=u,v<=12` at those prices, checking the one-cut bound and
   its attained maximum; 72 exact rational-price cases.
 - All 756 cut-mask/dimension fixtures through six children, with `1<=m<=4`
-  workspace triples and `1<=n<=3` output triples. Distinct integer circulant
+  workspace triples and `1<=n<=3` output triples. Periodic integer circulant
   readers execute each schedule on every dirty input/output basis vector and
   one signed rational probe. The 10,962 probes check the restored source and
   canonical partial batch output at every prescribed cut.

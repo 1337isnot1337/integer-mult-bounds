@@ -142,7 +142,7 @@ def image(matrix, vector):
 
 
 def run_batch(lengths, m, n, source, output, word):
-    """Literal rotations and distinct circulant readers, including each cut."""
+    """Literal rotations and periodic circulant readers, including each cut."""
     checked_lengths(lengths)
     require(1 <= m <= 4 and 1 <= n <= 3, "invalid literal dimensions")
     require(len(source) == 3 * m and len(output) == 3 * n, "invalid input shape")
