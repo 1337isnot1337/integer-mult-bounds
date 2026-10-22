@@ -460,6 +460,97 @@ def single_contact_retiming(c, program):
     return dict(tally)
 
 
+def two_contact_retiming(c, program):
+    """Joint retiming of two consecutive contacts k1 < k2 of one field r (other operands p at k1, q at k2, p != q):
+    F1 >= S_r + S_p, F1 <= E_p, F1 <= F2, F2 >= F1 + S_q, F2 <= E_r & E_q. First a dimension relaxation; where it is
+    positive, an exact search over actual nested subspaces. Returns tallies; any exact gain fails the check."""
+    word = [e for e in program if e[0] != "climb"]
+    frames = c["frames"]
+
+    def roles(e):
+        g = e[1]
+        return g[1:3] if g[0] in ("add", "copy") else g[1:2]
+
+    def fr(i):
+        return span(tuple(frames[i]))
+
+    def is2(e):
+        return e[0] == "scalar" and len(roles(e)) == 2 and all(r[0] == "L" for r in roles(e))
+
+    state, before = list(c["start"]), []
+    for e in word:
+        before.append(list(state))
+        if e[0] == "scalar":
+            for r in roles(e):
+                if r[0] == "L":
+                    state[r[1]] = e[2]
+        elif e[0] == "warp":
+            state[e[1][1]] = e[4]
+    nexttouch, cur = [None] * len(word), {}
+    for k in range(len(word) - 1, -1, -1):
+        e = word[k]
+        nexttouch[k] = dict(cur)
+        if e[0] == "scalar":
+            for r in roles(e):
+                if r[0] == "L":
+                    cur[r[1]] = k
+        elif e[0] == "warp" and e[1][0] == "L":
+            cur[e[1][1]] = k
+
+    def exit_frame(field, k):
+        t = nexttouch[k].get(field)
+        if t is None:
+            return fr(c["final"][field])
+        return fr(word[t][2]) if word[t][0] == "scalar" else fr(word[t][3])
+
+    def cost(h):
+        return sum(n * PRICE[r][1] for r, n in enumerate(h) if n and r)
+
+    tally = Counter()
+    for k1, e1 in enumerate(word):
+        if not is2(e1):
+            continue
+        f1 = [r[1] for r in roles(e1)]
+        for r in f1:
+            k2 = nexttouch[k1].get(r)
+            if k2 is None or not is2(word[k2]):
+                continue
+            p = [x for x in f1 if x != r][0]
+            q = [x[1] for x in roles(word[k2]) if x[1] != r][0]
+            if q == p:
+                continue
+            Sr, Sp, Sq = fr(before[k1][r]), fr(before[k1][p]), fr(before[k2][q])
+            Ep, Er, Eq = exit_frame(p, k1), exit_frame(r, k2), exit_frame(q, k2)
+
+            def prof(d1, d2):
+                h = [0] * 10
+                for lo_, hi_ in ((dim(Sr), d1), (d1, d2), (d2, dim(Er)), (dim(Sp), d1), (d1, dim(Ep)), (dim(Sq), d2), (d2, dim(Eq))):
+                    if hi_ > lo_:
+                        h[hi_ - lo_] += 1
+                return tuple(h)
+
+            base = cost(prof(dim(fr(e1[2])), dim(fr(word[k2][2]))))
+            L1, U2 = ssum(Sr, Sp), Er & Eq
+            U1 = Ep & U2
+            need(L1 <= U1, "incumbent bounds consistent")
+            relaxed_best = min(cost(prof(d1, d2)) for d1 in range(dim(L1), dim(U1) + 1)
+                               for d2 in range(max(d1, dim(ssum(L1, Sq))), dim(U2) + 1))
+            if relaxed_best >= base:
+                tally["zero_by_relaxation"] += 1
+                continue
+            exact = None
+            for d1 in range(dim(L1), dim(U1) + 1):
+                for F1 in subspaces_between(L1, U1, d1):
+                    L2 = ssum(F1, Sq)
+                    for d2 in range(dim(L2), dim(U2) + 1):
+                        if subspaces_between(L2, U2, d2):
+                            cc = cost(prof(d1, d2))
+                            exact = cc if exact is None or cc < exact else exact
+            need(exact is None or exact >= base, f"two-contact retiming gain at {k1},{k2}")
+            tally["zero_by_exact_geometry"] += 1
+    return dict(tally)
+
+
 def matches_alphabet(ca, cb, coefs, max_len):
     """All words of length <= max_len over shears y_i += c y_j (c in coefs) with the window endpoint (meet in middle)."""
     gates = tuple((i, j, c) for i in range(3) for j in range(3) if i != j for c in coefs)
@@ -595,6 +686,7 @@ def main():
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
                       "single_contact_retiming_all_phases": single_contact_retiming(c, program),
+                      "two_contact_retiming_all_phases": two_contact_retiming(c, program),
                       "nonadjacent_pairs_len<=6": {"count": len(nonadj), **dict(na)},
                       "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
                       "windows_with_positive_optimistic_gain": summary,

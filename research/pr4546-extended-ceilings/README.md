@@ -36,6 +36,8 @@ This package recomputes #4546 with separately written code and **extends the cap
 
 7. **Single-contact retiming, whole word.** Across every phase, every two-operand scalar contact of #4470's word (16,089 contacts) already sits at a cost-minimising contact dimension, given its operands' current frames and next-contact frames. Every intermediate dimension is realisable by a nested subspace, so this local-optimality check is exact. The phase breakdown is zero_frame_precondition 5,908, full_frame_cleanup 4,637, A 3,557, B 1,791 and cleanup_tail 196.
 
+8. **Two-contact joint retiming, whole word.** This retimes pairs of consecutive contacts of one field jointly, with different partner fields: 26,092 pairs. The dimension relaxation gives no gain for 26,042 of them. It suggests a gain of about 0.0016 for 50 pairs, but an exact search over actual nested subspaces finds **no gain for any of the 50**.
+
 **Why it does not move.** In this relaxation, every contact frame lies between the forward sum of the operands' current lower bounds and the backward intersection of their exits. For these windows those bounds already pin each field's admissible rank steps. For example, in the `{1:3}` windows a field climbing `0 → 2` has every contact capped at an exit intersection of dimension 1. Longer words only add contacts under the same caps, so they cannot merge the two rank-1 payments. This explains the observed invariance but is **not** proved here for all lengths; the checked statement is lengths ≤ 6.
 
 **Model** (re-implemented from #4546's README):
