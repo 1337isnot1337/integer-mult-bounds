@@ -73,13 +73,13 @@
   "actual_scope": "Prove and certify a padding-free adaptive-height compiler for overlapping native rank profiles, with rigorous local-exponent induction and inherited consumer binding.",
   "scope_change_reason": "The user requested a qualitatively larger successor to PR4480, drastic rank reduction and progress toward kappa. Changing the lockstep stopping geometry addresses the previously missing direct near-root convergence argument rather than rerunning an old root or parameter scan.",
   "bottleneck_link": "The old height saturates paid leaf paths and defeats one-step induction. Adaptive mixed-layer geometry, two Chernoff bounds and exact source cancellation fund a small fractional logarithmic power without tensor padding.",
-  "stop_rule": "Finish a scoped direct compiler theorem and exact independently checked witnesses. Keep this successor local for user review; no PR, Discussion or selected-frontier change.",
+  "stop_rule": "Finish the scoped direct compiler theorem and exact independently checked witnesses, then publish the focused PR as explicitly authorized by the user. No selected-frontier change or Discussion posting.",
   "evidence": "Arbitrary-height integer forest, exact mirror-window funding, uniformly certified mixed/root tails, sharp cancellation, concave majorant and funded base; three source profiles and matched-saving comparisons.",
   "author": "zxv, with substantial OpenAI Codex assistance",
   "ai_assistance": "Substantial OpenAI Codex assistance, including three user-requested Sol 6.1 medium subagents for divergent theory, native probes and independent audits. No xhigh subagents were used in this successor.",
   "budget_minutes": 60,
   "outcome": "completed",
-  "publication_policy": "PR4480 was submitted at the user request. This successor remains local for review. Future subagents use Sol 6.1 medium.",
+  "publication_policy": "The user reviewed the local successor and explicitly authorized submission with predecessor and related PR links on 2026-10-21 (America/Detroit). Future subagents use Sol 6.1 medium.",
   "upstream_checkpoint": {
     "checked_at_utc": "2026-10-22T00:16:00Z",
     "canonical_main": "2a13eb1827784206202db90e5dc8327cf8a250db",
@@ -139,5 +139,12 @@
     "checked_export": "pass: 26 files",
     "git_free_isolated_optimized": "pass: no Git and PATH=/nonexistent",
     "exported_mutation_controls": "pass: changed predecessor rejected before execution; altered exact receipt rejected after recomputation"
+  },
+  "publication_checkpoint": {
+    "checked_at_utc": "2026-10-22T00:56:15Z",
+    "canonical_main": "2a13eb1827784206202db90e5dc8327cf8a250db",
+    "priority_revision": 7,
+    "guidance_changes": "None since research checkpoint; canonical main unchanged.",
+    "authorization": "Explicit user request: submit but make sure to link PRs."
   }
 }

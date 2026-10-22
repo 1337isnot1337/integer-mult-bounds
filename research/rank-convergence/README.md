@@ -6,11 +6,11 @@ chronological tensor product, paid target completion and splitting stage
 from the three instantiated constructions. The raw native words and paid
 invoices stay unchanged.
 
-For the recent p16 construction, it retains **PR4470's conditional
+For the recent p16 construction, it retains **[PR #4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)'s conditional
 κ = 0.00302015** and reduces the sufficient uniform rank from
 **`2^558100005581` to `2^2800000000`**: a **199.321× reduction in its
 exponent**, with **the same uniform saving and outer parameter point** as
-PR4479. The initial supplier uses tensor power **one**, replacing power
+[PR #4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479). The initial supplier uses tensor power **one**, replacing power
 682. No new κ or selected-frontier update is claimed.
 
 ## What changes mathematically
@@ -41,13 +41,13 @@ In the table, `H` means the specified sufficient rank is `N=2^H`.
 
 | Raw profile | Retained κ | Prior H | New H | Reduction |
 |---|---:|---:|---:|---:|
-| P7, same saving as PR4480's unchanged-C witness | .00268647 | 130,200,000,000 | 3,040,000,000 | 42.83× |
-| Native4453, same saving as PR4480's main witness | .00300120 | 125,790,000,000 | 4,300,000,000 | 29.25× |
-| P16, same saving as PR4479 | .00302015 | 558,100,005,581 | **2,800,000,000** | **199.32×** |
+| P7, same saving as [PR #4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480)'s unchanged-C witness | .00268647 | 130,200,000,000 | 3,040,000,000 | 42.83× |
+| Native4453, same saving as [PR #4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480)'s main witness | .00300120 | 125,790,000,000 | 4,300,000,000 | 29.25× |
+| P16, same saving as [PR #4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479) | .00302015 | 558,100,005,581 | **2,800,000,000** | **199.32×** |
 
 An additional native4453 certificate uses its original outer point's
 weaker required uniform saving, giving `H=1300000000` (96.76× against
-PR4480's H at the same κ). That comparison changes the uniform-saving
+[PR #4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480)'s H at the same κ). That comparison changes the uniform-saving
 allocation; the 29.25× row holds it fixed. The exact receipt labels this
 distinction and binds every baseline to the same authenticated profile.
 
@@ -59,8 +59,8 @@ No practical size or runtime factor follows from the ambient-rank bounds.
 
 ## The main p16 certificate
 
-The raw profile is authenticated against both PR4470's joint-helper
-receipt and PR4479's compact consumer receipt. Choose
+The raw profile is authenticated against both [PR #4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)'s joint-helper
+receipt and [PR #4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479)'s compact consumer receipt. Choose
 
 ```
 t0=.99697984, p=2/5, c=133,
@@ -138,7 +138,7 @@ The selected frontier is unchanged. Smaller local template rank does not
 establish a smaller eventual multiplication-input threshold.
 
 The successor starts from refreshed canonical main and retains the pending
-PR4480, PR4470/4479 and PR4436 histories. Only the needed new predecessor
+[PR #4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480), [PR #4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470)/[PR #4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479) and [PR #4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436) histories. Only the needed new predecessor
 directories were imported byte-for-byte. Existing scientific files and frozen
 evidence were preserved; shared documentation matches canonical main.
 [SOURCES.json](SOURCES.json) pins the exact inputs.
@@ -165,13 +165,14 @@ zxv, with substantial OpenAI Codex assistance and three user-requested
 **Sol 6.1 medium** subagents. Separate author-side agents audited the
 algebra, exponent covers, mirror endpoints, literal chronology and
 source/consumer bindings. This is not formal or independent human review.
-The successor remains local for user review; only PR4480 was authorized
-for publication in this round.
+The user reviewed the local result and authorized publication on October 21,
+2026 (America/Detroit).
 
-Credit Jacob Alan Sussman's integer compiler; my PR4436 direct flow,
-PR4480 rank compiler and κ=.0023/native/controller predecessors;
-Ryanson Jonathan's corrected PR4459 mirror identity; the finite-flow
-and leaf analyses in PR4456/4465/4467/4476; Cinna Davis's PR4470 native
-construction and prior thinning/helper work; Dugongue's PR4479 compact
+Credit Jacob Alan Sussman's integer compiler; my [PR #4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436) direct flow,
+[PR #4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480) rank compiler, my [κ=.0023 construction in PR #4359](https://github.com/CrocSwap/integer-mult-bounds/pull/4359),
+and [PR #4453](https://github.com/CrocSwap/integer-mult-bounds/pull/4453) native/controller predecessors;
+Ryanson Jonathan's corrected [PR #4459](https://github.com/CrocSwap/integer-mult-bounds/pull/4459) mirror identity; the finite-flow
+and leaf analyses in [PR #4456](https://github.com/CrocSwap/integer-mult-bounds/pull/4456), [PR #4465](https://github.com/CrocSwap/integer-mult-bounds/pull/4465), [PR #4467](https://github.com/CrocSwap/integer-mult-bounds/pull/4467) and [PR #4476](https://github.com/CrocSwap/integer-mult-bounds/pull/4476); Cinna Davis's [PR #4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470) native
+construction and prior thinning/helper work; Dugongue's [PR #4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479) compact
 compiler; and all retained BIT, scalar, Clifford, geometry and outer
 sources. New work is Apache-2.0.

@@ -8,8 +8,8 @@ decimals alone are not a certificate.
 
 The finite integer/Pascal compiler is Jacob Alan Sussman's construction.
 The capped overlapping-rank flow and its chronological interpretation are
-zxv's PR4436. Ryanson Jonathan's corrected PR4459 supplies the mirror-window
-identity and boundary-share method. PR4456, PR4465, PR4467 and PR4476 provide
+my [PR #4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436). Ryanson Jonathan's corrected [PR #4459](https://github.com/CrocSwap/integer-mult-bounds/pull/4459) supplies the mirror-window
+identity and boundary-share method. [PR #4456](https://github.com/CrocSwap/integer-mult-bounds/pull/4456), [PR #4465](https://github.com/CrocSwap/integer-mult-bounds/pull/4465), [PR #4467](https://github.com/CrocSwap/integer-mult-bounds/pull/4467) and [PR #4476](https://github.com/CrocSwap/integer-mult-bounds/pull/4476) provide
 independent finite checks and important warnings about the original height:
 leaf exits need not be sublinear and their potential cannot be discarded.
 The present argument changes that height, bounds root and leaf contributions,
@@ -52,7 +52,7 @@ retain excess parent supply as boundary exits, and supply demands with
 absent parent points by distinct top input arrays. At depth G all paid
 jobs are leaf exits. At the root all target demands are top sources.
 
-This is the same finite Pascal routing argument as PR4436. It does not
+This is the same finite Pascal routing argument as [PR #4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436). It does not
 require G=floor(log_(k_min) C_n). In particular a root class may be empty
 while later classes receive new top sources. These are finitely many
 chronological classes with explicit fresh source endpoints. They do not
@@ -111,7 +111,7 @@ Indeed a capped leaf path is a subset of all paid paths of length G,
 followed by one paid letter. Formula (3) is an upper bound; an exact
 untruncated leaf law is not assumed.
 
-The mirror identity from corrected PR4459 remains valid at arbitrary G.
+The mirror identity from corrected [PR #4459](https://github.com/CrocSwap/integer-mult-bounds/pull/4459) remains valid at arbitrary G.
 For a paid-prefix path rho of length d<G and target multiindex alpha of
 degree G-d-1, write z=rho*c(alpha), with its integer base weight. For a
 pair (r,k), boundary exits occur when
@@ -404,7 +404,7 @@ remain present in the finite word.
 The arbitrary-height flow has finitely many classes and integer weights.
 Its source counts and recursive batch denominators must be cleared with
 actual divisible widths. The normalized recurrence alone does not bound
-those widths or physical resources. PR4436's fixed-rule finite counting
+those widths or physical resources. [PR #4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436)'s fixed-rule finite counting
 method can be applied after accounting for the new G=O(log n), but no old
 numerical precision or stock constant may simply be copied to the new
 expanded word. An ambient rank reduction is neither a materialized-word
