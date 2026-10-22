@@ -56,7 +56,16 @@ where S is the least value ≥ (m−5)X with S ≡ −2(X + 2m) (mod m). Then:
 - **Partial sums.** B(3) ≡ X, B(m−2) ≡ −X and B(m−1) ≡ B(m) ≡ 0.
 - **Congruences.** Σ ρL = 3tm ≡ 0, and the coefficient is −(3t·B(m−2) + 2t·B(3)) ≡ tX = c.
 
-The verifier checks the construction for **every nonzero c and every 14 ≤ m ≤ 200**. Together with the exact enumeration for m ≤ 13:
+**Monotonicity (written).** Write X = m − k with k ≥ 2.
+
+- **First block.** Its minimum is ⌊(X+2m)/3⌋ = m − ⌈k/3⌉, so the middle block may rise by ⌊2k/3⌋ ≥ 1 per entry.
+- **Middle block.** S − (m−5)X ≡ 3X ≡ −3k (mod m), so the needed excess is (−3k mod m).
+- **Case k = 2.** The excess is m − 6 ≤ m − 5.
+- **Case k ≥ 3.** The excess is at most m − 1 ≤ 2(m−5), using m ≥ 9.
+
+So the middle block fits between the first block and X. All entries lie in [0, m], and the padding sum is below m ≤ 2t(m−3).
+
+The verifier also checks the construction for **every nonzero c and every 14 ≤ m ≤ 200**. Together with the exact enumeration for m ≤ 13:
 
 - **every unit**, and in fact every nonzero c for m ≥ 7, has three short rows for every m ≥ 6;
 - for m ≤ 5, nothing does.
@@ -73,7 +82,6 @@ The check takes about 20 s and uses the standard library only.
 
 ## Limitations
 
-- **Checked range.** The construction's monotonicity bound is checked for every m ≤ 200. The written argument covers its congruences for all m; the inequality S ≤ (m−5)·⌊(X+2m)/3⌋ for X ≤ m−2 is checked, not written out.
 - **Inherited model.** The row model and its converse are inherited from #4280.
 - **Not claimed.** Call counts and κ.
 
