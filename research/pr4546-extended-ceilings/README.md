@@ -30,6 +30,10 @@ This package recomputes #4546 with separately written code and **extends the cap
 
 5. **Nonunit coefficients, all 128 windows.** This allows shears `y_i += c·y_j` with `c ∈ {±1, ±2}` up to length 6 (37,076 endpoint-matching words per sign case), and with `c ∈ {±1, ±2, ±3}` up to length 5 (8,386 per sign case). **Every ceiling is still exactly 0.** The coefficients' scalar-height cost is not charged, which only favours the rewrites, so this zero is still a sound negative.
 
+6. **Nonadjacent pairs.** These are pairs `a += ca·x … b += cb·x` with unit coefficients, separated by at least one operation, none of which touches `a`, `b` or `x`, so the pair can be rewritten in place. My extraction finds 88 of them.
+   - **87 pairs.** The relaxation already gives ceiling 0 through length 6.
+   - **One pair** (positions 11334 and 11344, gap 9). The relaxation is **not tight**: it allows a cheaper dimension profile, `{2:5, 3:1}` against the incumbent `{1:3, 2:2, 3:2}`, with optimistic gain about 0.0026, for 186 words of length ≤ 6, including the original two-shear word. An **exact search over actual nested subspaces**, which enforces joint incidence across gates, finds **no positive gain** for any of those 186 words. The incumbent contact frames, of dimensions 4 and 6, are already geometrically optimal.
+
 **Why it does not move.** In this relaxation, every contact frame lies between the forward sum of the operands' current lower bounds and the backward intersection of their exits. For these windows those bounds already pin each field's admissible rank steps. For example, in the `{1:3}` windows a field climbing `0 → 2` has every contact capped at an exit intersection of dimension 1. Longer words only add contacts under the same caps, so they cannot merge the two rank-1 payments. This explains the observed invariance but is **not** proved here for all lengths; the checked statement is lengths ≤ 6.
 
 **Model** (re-implemented from #4546's README):
@@ -50,13 +54,13 @@ This runs in about 3 s with the standard library only.
 
 ## Limitations
 
-- **Coverage.** All 128 eligible windows are covered, with coefficients up to 3 in absolute value, the same three fields and fixed boundaries.
+- **Coverage.** All 128 eligible adjacent windows and 88 nonadjacent pairs are covered, with coefficients up to 3 in absolute value (adjacent windows) and unit coefficients (nonadjacent), the same three fields and fixed boundaries.
 - **Lengths.** Lengths above 6 are not checked, and the structural explanation above is not a proof for all lengths.
 - **Overlap.** Individual window results must not be summed across overlapping windows.
 
 ## Open next questions
 
 - Prove the length-independence: show that the relaxed-profile set of a window is determined by its start and exit frames. First step: characterise the reachable contact dimensions from the pairwise exit intersections and start sums alone.
-- Change the model further: owned-field allowances, extra fields or nonadjacent pairs. Length up to 6 and coefficients up to ±3 are now closed on every eligible window.
+- Change the model further: owned-field allowances or extra fields. Length up to 6, coefficients up to ±3 and nonadjacent pairs are now closed. The exact-geometry search here shows the relaxation can be loose, so any positive relaxed lead in a new model should be rechecked with it.
 
 Credit: Clear1nsight (#4546), Cinna Davis (#4470), and zxv's receiver-sharing and helper work. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

@@ -283,6 +283,126 @@ def actual_profile(starts, ends, frames):
     return tuple(h)
 
 
+def extract_nonadjacent(c, program):
+    """Pairs a += ca x ... b += cb x (unit ca, cb) in phases B/cleanup_tail separated by >= 1 operation, none of which
+    touches a, b or x (so the pair can be rewritten in place). Starts are taken at the first shear, exits after the second."""
+    word = [e for e in program if e[0] != "climb"]
+    frames = c["frames"]
+
+    def roles(e):
+        g = e[1]
+        return g[1:3] if g[0] in ("add", "copy") else g[1:2]
+
+    def touches(e, fields):
+        if e[0] == "scalar":
+            return any(r[0] == "L" and r[1] in fields for r in roles(e))
+        return e[0] == "warp" and e[1][0] == "L" and e[1][1] in fields
+
+    state, phase, states = list(c["start"]), None, []
+    for e in word:
+        if e[0] == "phase":
+            phase = e[1]
+        states.append((phase, list(state)))
+        if e[0] == "scalar":
+            for r in roles(e):
+                if r[0] == "L":
+                    state[r[1]] = e[2]
+        elif e[0] == "warp":
+            state[e[1][1]] = e[4]
+    out = []
+    for pos, e in enumerate(word):
+        ph, st = states[pos]
+        if ph not in ("B", "cleanup_tail") or e[0] != "scalar" or e[1][0] != "add" or not all(r[0] == "L" for r in roles(e)):
+            continue
+        a, x, ca = e[1][1][1], e[1][2][1], Fr(*e[1][3:])
+        if ca not in (-1, 1):
+            continue
+        for q in range(pos + 1, len(word)):
+            f = word[q]
+            if f[0] == "phase":
+                break
+            if (f[0] == "scalar" and f[1][0] == "add" and all(r[0] == "L" for r in roles(f)) and f[1][2][1] == x
+                    and f[1][1][1] not in (a, x) and Fr(*f[1][3:]) in (-1, 1) and q > pos + 1):
+                b = f[1][1][1]
+                if not any(touches(word[k], {a, b, x}) for k in range(pos + 1, q)):
+                    owners = (a, b, x)
+                    ends = []
+                    for r in owners:
+                        t = c["final"][r]
+                        for later in word[q + 1:]:
+                            if later[0] == "scalar" and ["L", r] in roles(later):
+                                t = later[2]
+                                break
+                            if later[0] == "warp" and later[1] == ["L", r]:
+                                t = later[3]
+                                break
+                        ends.append(span(tuple(frames[t])))
+                    out.append({"index": pos, "partner": q, "coefficients": [int(ca), int(Fr(*f[1][3:]))],
+                                "starts": [span(tuple(frames[st[r]])) for r in owners], "ends": ends,
+                                "frames": [span(tuple(frames[e[2]])), span(tuple(frames[f[2]]))]})
+            if touches(f, {a, x}):
+                break
+    return out
+
+
+def subspaces_between(L, U, k):
+    """Every subspace F with L <= F <= U and dim F = k."""
+    if not L <= U or not dim(L) <= k <= dim(U):
+        return []
+    found, seen, stack = set(), {L}, [L]
+    while stack:
+        cur = stack.pop()
+        if dim(cur) == k:
+            found.add(cur)
+            continue
+        for vec in U:
+            if vec not in cur:
+                nxt = ssum(cur, span((vec,)))
+                if nxt not in seen:
+                    seen.add(nxt)
+                    stack.append(nxt)
+    return list(found)
+
+
+def geometric_best_gain(starts, ends, old, word):
+    """Exact search over actual nested subspaces (joint incidence enforced) for one word; None if infeasible."""
+    cur, upper = list(ends), [None] * len(word)
+    for k in range(len(word) - 1, -1, -1):
+        i, j, _ = word[k]
+        f = cur[i] & cur[j]
+        upper[k] = f
+        cur[i] = cur[j] = f
+    best = [None]
+
+    def rec(k, state, hist):
+        if k == len(word):
+            h = list(hist)
+            for r in range(3):
+                if not state[r] <= ends[r]:
+                    return
+                g = dim(ends[r]) - dim(state[r])
+                if g:
+                    h[g] += 1
+            gain = gain_upper(old, tuple(h))
+            if best[0] is None or gain > best[0]:
+                best[0] = gain
+            return
+        i, j, _ = word[k]
+        L, U = ssum(state[i], state[j]), upper[k]
+        for dd in range(dim(L), dim(U) + 1):
+            for F in subspaces_between(L, U, dd):
+                h, st = list(hist), list(state)
+                for r in (i, j):
+                    g = dim(F) - dim(st[r])
+                    if g:
+                        h[g] += 1
+                    st[r] = F
+                rec(k + 1, tuple(st), tuple(h))
+
+    rec(0, tuple(starts), (0,) * 10)
+    return best[0]
+
+
 def matches_alphabet(ca, cb, coefs, max_len):
     """All words of length <= max_len over shears y_i += c y_j (c in coefs) with the window endpoint (meet in middle)."""
     gates = tuple((i, j, c) for i in range(3) for j in range(3) if i != j for c in coefs)
@@ -374,6 +494,26 @@ def main():
             need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling with coefficients {coefs}")
         nonunit[f"coefficients {sorted(set(abs(c) for c in coefs))}, len<={L}"] = {
             "matching_words_per_sign_case": len(next(iter(cache.values()))), "windows_zero": len(every)}
+    # Nonadjacent pairs (a model change #4546 suggests): relaxation first; exact joint geometry where it is positive.
+    nonadj = extract_nonadjacent(c, program)
+    na = Counter()
+    for w in nonadj:
+        old = actual_profile(w["starts"], w["ends"], w["frames"])
+        ms, _ = matches(*w["coefficients"], 6)
+        positive_words = []
+        for word in ms:
+            ps = relaxed(w["starts"], w["ends"], word)
+            if ps and max(gain_upper(old, p) for p in ps) > 0:
+                positive_words.append(word)
+        if not positive_words:
+            na["zero_by_relaxation"] += 1
+            continue
+        for word in positive_words:
+            g = geometric_best_gain(w["starts"], w["ends"], old, word)
+            need(g is None or g <= 0, f"exact geometry: no gain, window {w['index']}")
+        na["zero_by_exact_geometry"] += 1
+        na["exact_geometry_words_checked"] += len(positive_words)
+    need(len(nonadj) == 88 and na["zero_by_relaxation"] + na["zero_by_exact_geometry"] == 88, "88 nonadjacent pairs")
     # #4543's receiver-sharing word a += s b; b += cb x; a -= s b with s = -ca cb, on all 128 windows. The relaxation
     # contains every actual monotone path, so "infeasible" here means the rewrite cannot meet the frame contract at all.
     rs = Counter()
@@ -397,6 +537,7 @@ def main():
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
+                      "nonadjacent_pairs_len<=6": {"count": len(nonadj), **dict(na)},
                       "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
                       "windows_with_positive_optimistic_gain": summary,
                       "all_eligible_windows": {"count": len(every), "phases": dict(phases),
