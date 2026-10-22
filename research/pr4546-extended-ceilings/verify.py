@@ -403,6 +403,63 @@ def geometric_best_gain(starts, ends, old, word):
     return best[0]
 
 
+def single_contact_retiming(c, program):
+    """For every two-operand scalar contact in the whole word (all phases), compare the incumbent contact dimension with
+    every admissible dimension between the operands' current-frame sum and their next-contact (exit) intersection.
+    Any dimension in that range is realisable by a nested subspace, so this is exact for single-contact retiming."""
+    word = [e for e in program if e[0] != "climb"]
+    frames = c["frames"]
+
+    def roles(e):
+        g = e[1]
+        return g[1:3] if g[0] in ("add", "copy") else g[1:2]
+
+    exit_after, cur = [None] * len(word), {}
+    for k in range(len(word) - 1, -1, -1):
+        e = word[k]
+        exit_after[k] = dict(cur)
+        if e[0] == "scalar":
+            for r in roles(e):
+                if r[0] == "L":
+                    cur[r[1]] = e[2]
+        elif e[0] == "warp" and e[1][0] == "L":
+            cur[e[1][1]] = e[3]
+
+    def cost(h):
+        return sum(n * PRICE[r][1] for r, n in enumerate(h) if n and r)
+
+    state, phase, tally = list(c["start"]), None, Counter()
+    for k, e in enumerate(word):
+        if e[0] == "phase":
+            phase = e[1]
+        if e[0] == "scalar" and len(roles(e)) == 2 and all(r[0] == "L" for r in roles(e)):
+            i, j = roles(e)[0][1], roles(e)[1][1]
+            Si, Sj = span(tuple(frames[state[i]])), span(tuple(frames[state[j]]))
+            Ei = span(tuple(frames[exit_after[k].get(i, c["final"][i])]))
+            Ej = span(tuple(frames[exit_after[k].get(j, c["final"][j])]))
+            F0 = span(tuple(frames[e[2]]))
+            L, U = ssum(Si, Sj), Ei & Ej
+            need(L <= F0 <= U, "incumbent contact inside its bounds")
+
+            def prof(dd):
+                h = [0] * 10
+                for lo_, hi_ in ((dim(Si), dd), (dd, dim(Ei)), (dim(Sj), dd), (dd, dim(Ej))):
+                    if hi_ > lo_:
+                        h[hi_ - lo_] += 1
+                return tuple(h)
+
+            incumbent = cost(prof(dim(F0)))
+            need(all(cost(prof(dd)) >= incumbent for dd in range(dim(L), dim(U) + 1)), f"single-contact optimum at {k}")
+            tally[phase] += 1
+        if e[0] == "scalar":
+            for r in roles(e):
+                if r[0] == "L":
+                    state[r[1]] = e[2]
+        elif e[0] == "warp":
+            state[e[1][1]] = e[4]
+    return dict(tally)
+
+
 def matches_alphabet(ca, cb, coefs, max_len):
     """All words of length <= max_len over shears y_i += c y_j (c in coefs) with the window endpoint (meet in middle)."""
     gates = tuple((i, j, c) for i in range(3) for j in range(3) if i != j for c in coefs)
@@ -537,6 +594,7 @@ def main():
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
+                      "single_contact_retiming_all_phases": single_contact_retiming(c, program),
                       "nonadjacent_pairs_len<=6": {"count": len(nonadj), **dict(na)},
                       "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
                       "windows_with_positive_optimistic_gain": summary,
