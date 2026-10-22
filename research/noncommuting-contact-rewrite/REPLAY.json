@@ -1,0 +1,57 @@
+{
+  "status": "PASS_LITERAL_NONCOMMUTING_REWRITES",
+  "rewrites": 22,
+  "reports": {
+    "backward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2201,
+        "2": 412,
+        "3": 510,
+        "4": 127,
+        "5": 40,
+        "8": 8
+      },
+      "paid_rank_mass": 5327,
+      "real_scalar_allowance": 157952,
+      "max_formal_prefix_l1": "169",
+      "max_denominator": 64,
+      "l1_witness": {
+        "event": 6396,
+        "role": [
+          "L",
+          225
+        ]
+      }
+    },
+    "forward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2201,
+        "2": 412,
+        "3": 510,
+        "4": 127,
+        "5": 40,
+        "8": 8
+      },
+      "paid_rank_mass": 5327,
+      "real_scalar_allowance": 157904,
+      "max_formal_prefix_l1": "457",
+      "max_denominator": 32,
+      "l1_witness": {
+        "event": 19016,
+        "role": [
+          "L",
+          224
+        ]
+      }
+    }
+  },
+  "no_new_kappa": true
+}

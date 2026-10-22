@@ -1,0 +1,31 @@
+{
+  "status": "EXACT_SINGLE_PAID_EDGE_DEFECT_SCREEN",
+  "variables": 10165,
+  "total_edges": 3530,
+  "groups_with_basis_rows": 1972,
+  "nonzero_defects": [
+    {
+      "edge": 3081,
+      "nullity": 1,
+      "helpers": []
+    },
+    {
+      "edge": 3083,
+      "nullity": 1,
+      "helpers": []
+    },
+    {
+      "edge": 3088,
+      "nullity": 1,
+      "helpers": []
+    },
+    {
+      "edge": 3093,
+      "nullity": 1,
+      "helpers": []
+    }
+  ],
+  "productive_defects": [],
+  "seconds": 10.77350085999933,
+  "no_kappa_claim": true
+}

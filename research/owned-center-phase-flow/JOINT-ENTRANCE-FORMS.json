@@ -1,0 +1,28 @@
+{
+  "status": "EXHAUSTIVE_LOCALIZED_FORM_DISCOVERY_FLOAT_MOMENTS",
+  "rows": [
+    {
+      "node": [
+        1748,
+        1754
+      ],
+      "dimension": 6,
+      "forms": 65535,
+      "energy": 0.0,
+      "form_bits": 0
+    }
+  ],
+  "best": {
+    "node": [
+      1748,
+      1754
+    ],
+    "dimension": 6,
+    "forms": 65535,
+    "energy": 0.0,
+    "form_bits": 0
+  },
+  "tested": 65535,
+  "seconds": 0.5428937899996527,
+  "no_kappa_claim": true
+}

@@ -1,0 +1,27 @@
+{
+  "status": "DISCOVERY_ONLY",
+  "operator": "all",
+  "scipy": "1.17.0",
+  "numpy": "2.3.5",
+  "solver_status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "variables": 1661639,
+  "constraints": 320373,
+  "old_objective": 12.636866373022901,
+  "constant": 14.804880911004908,
+  "objective": 12.636866373023697,
+  "counts": {
+    "gap_0": 555,
+    "gap_1": 798,
+    "gap_2": 138,
+    "gap_3": 36,
+    "gap_5": 21,
+    "gap_4": 3,
+    "gap_9": 1,
+    "skipped_large_interval": 1,
+    "catalogue_truncated": 1
+  },
+  "seconds": 28.07046225600061,
+  "scope": "Optimistic independent-map discovery only; no common-G or physical word claim",
+  "relaxed_gain": -7.958078640513122e-13
+}

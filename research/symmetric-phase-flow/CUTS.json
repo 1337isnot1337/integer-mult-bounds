@@ -1,0 +1,6148 @@
+{
+  "status": "BOUNDED_APPROXIMATE_MINCUT_DISCOVERY",
+  "scale": 1000000,
+  "exponent": 0.996978224129225,
+  "rows": [
+    {
+      "mode": "entrance_fixed",
+      "functional": 1,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 2,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 3,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 4,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 5,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 6,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 7,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 8,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 9,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 10,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 11,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 12,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 13,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 14,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 15,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 16,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 17,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 18,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 19,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 20,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 21,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 22,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 23,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 24,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 25,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 26,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 27,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 28,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 29,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 30,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 31,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 32,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 33,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 34,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 35,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 36,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 37,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 38,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 39,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 40,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 41,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 42,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 43,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 44,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 45,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 46,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 47,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 48,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 49,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 50,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 51,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 52,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 53,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 54,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 55,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 56,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 57,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 58,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 59,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 60,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 61,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 62,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 63,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 64,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 65,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 66,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 67,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 68,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 69,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 70,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 71,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 72,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 73,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 74,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 75,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 76,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 77,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 78,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 79,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 80,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 81,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 82,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 83,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 84,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 85,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 86,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 87,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 88,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 89,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 90,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 91,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 92,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 93,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 94,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 95,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 96,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 97,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 98,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 99,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 100,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 101,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 102,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 103,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 104,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 105,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 106,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 107,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 108,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 109,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 110,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 111,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 112,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 113,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 114,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 115,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 116,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 117,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 118,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 119,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 120,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 121,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 122,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 123,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 124,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 125,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 126,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 127,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 128,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 129,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 130,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 131,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 132,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 133,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 134,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 135,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 136,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 137,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 138,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 139,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 140,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 141,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 142,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 143,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 144,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 145,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 146,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 147,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 148,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 149,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 150,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 151,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 152,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 153,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 154,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 155,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 156,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 157,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 158,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 159,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 160,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 161,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 162,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 163,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 164,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 165,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 166,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 167,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 168,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 169,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 170,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 171,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 172,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 173,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 174,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 175,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 176,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 177,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 178,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 179,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 180,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 181,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 182,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 183,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 184,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 185,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 186,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 187,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 188,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 189,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 190,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 191,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 192,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 193,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 194,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 195,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 196,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 197,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 198,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 199,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 200,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 201,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 202,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 203,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 204,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 205,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 206,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 207,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 208,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 209,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 210,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 211,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 212,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 213,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 214,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 215,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 216,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 217,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 218,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 219,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 220,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 221,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 222,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 223,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 224,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 225,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 226,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 227,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 228,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 229,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 230,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 231,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 232,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 233,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 234,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 235,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 236,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 237,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 238,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 239,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 240,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 241,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 242,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 243,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 244,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 245,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 246,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 247,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 248,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 249,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 250,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 251,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 252,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 253,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 254,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 255,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 256,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 257,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 258,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 259,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 260,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 261,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 262,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 263,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 264,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 265,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 266,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 267,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 268,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 269,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 270,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 271,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 272,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 273,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 274,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 275,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 276,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 277,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 278,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 279,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 280,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 281,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 282,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 283,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 284,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 285,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 286,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 287,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 288,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 289,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 290,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 291,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 292,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 293,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 294,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 295,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 296,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 297,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 298,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 299,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 300,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 301,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 302,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 303,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 304,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 305,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 306,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 307,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 308,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 309,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 310,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 311,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 312,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 313,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 314,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 315,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 316,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 317,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 318,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 319,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 320,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 321,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 322,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 323,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 324,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 325,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 326,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 327,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 328,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 329,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 330,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 331,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 332,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 333,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 334,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 335,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 336,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 337,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 338,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 339,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 340,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 341,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 342,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 343,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 344,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 345,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 346,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 347,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 348,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 349,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 350,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 351,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 352,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 353,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 354,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 355,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 356,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 357,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 358,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 359,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 360,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 361,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 362,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 363,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 364,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 365,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 366,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 367,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 368,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 369,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 370,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 371,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 372,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 373,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 374,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 375,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 376,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 377,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 378,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 379,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 380,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 381,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 382,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 383,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 384,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 385,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 386,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 387,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 388,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 389,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 390,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 391,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 392,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 393,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 394,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 395,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 396,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 397,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 398,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 399,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 400,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 401,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 402,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 403,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 404,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 405,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 406,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 407,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 408,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 409,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 410,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 411,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 412,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 413,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 414,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 415,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 416,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 417,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 418,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 419,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 420,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 421,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 422,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 423,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 424,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 425,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 426,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 427,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 428,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 429,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 430,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 431,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 432,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 433,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 434,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 435,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 436,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 437,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 438,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 439,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 440,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 441,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 442,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 443,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 444,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 445,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 446,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 447,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 448,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 449,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 450,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 451,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 452,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 453,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 454,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 455,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 456,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 457,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 458,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 459,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 460,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 461,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 462,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 463,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 464,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 465,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 466,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 467,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 468,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 469,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 470,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 471,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 472,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 473,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 474,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 475,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 476,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 477,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 478,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 479,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 480,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 481,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 482,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 483,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 484,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 485,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 486,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 487,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 488,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 489,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 490,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 491,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 492,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 493,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 494,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 495,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 496,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 497,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 498,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 499,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 500,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 501,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 502,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 503,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 504,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 505,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 506,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 507,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 508,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 509,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 510,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "entrance_fixed",
+      "functional": 511,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 1,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 2,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 3,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 4,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 5,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 6,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 7,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 8,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 9,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 10,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 11,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 12,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 13,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 14,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 15,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 16,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 17,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 18,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 19,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 20,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 21,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 22,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 23,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 24,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 25,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 26,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 27,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 28,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 29,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 30,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 31,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 32,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 33,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 34,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 35,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 36,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 37,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 38,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 39,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 40,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 41,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 42,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 43,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 44,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 45,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 46,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 47,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 48,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 49,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 50,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 51,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 52,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 53,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 54,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 55,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 56,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 57,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 58,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 59,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 60,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 61,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 62,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 63,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 64,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 65,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 66,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 67,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 68,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 69,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 70,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 71,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 72,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 73,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 74,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 75,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 76,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 77,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 78,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 79,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 80,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 81,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 82,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 83,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 84,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 85,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 86,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 87,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 88,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 89,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 90,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 91,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 92,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 93,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 94,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 95,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 96,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 97,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 98,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 99,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 100,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 101,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 102,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 103,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 104,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 105,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 106,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 107,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 108,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 109,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 110,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 111,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 112,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 113,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 114,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 115,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 116,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 117,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 118,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 119,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 120,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 121,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 122,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 123,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 124,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 125,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 126,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 127,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 128,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 129,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 130,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 131,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 132,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 133,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 134,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 135,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 136,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 137,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 138,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 139,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 140,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 141,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 142,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 143,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 144,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 145,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 146,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 147,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 148,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 149,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 150,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 151,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 152,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 153,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 154,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 155,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 156,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 157,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 158,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 159,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 160,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 161,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 162,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 163,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 164,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 165,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 166,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 167,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 168,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 169,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 170,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 171,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 172,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 173,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 174,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 175,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 176,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 177,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 178,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 179,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 180,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 181,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 182,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 183,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 184,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 185,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 186,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 187,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 188,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 189,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 190,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 191,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 192,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 193,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 194,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 195,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 196,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 197,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 198,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 199,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 200,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 201,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 202,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 203,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 204,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 205,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 206,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 207,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 208,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 209,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 210,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 211,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 212,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 213,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 214,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 215,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 216,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 217,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 218,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 219,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 220,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 221,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 222,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 223,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 224,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 225,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 226,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 227,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 228,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 229,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 230,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 231,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 232,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 233,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 234,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 235,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 236,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 237,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 238,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 239,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 240,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 241,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 242,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 243,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 244,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 245,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 246,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 247,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 248,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 249,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 250,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 251,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 252,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 253,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 254,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 255,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 256,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 257,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 258,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 259,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 260,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 261,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 262,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 263,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 264,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 265,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 266,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 267,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 268,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 269,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 270,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 271,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 272,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 273,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 274,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 275,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 276,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 277,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 278,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 279,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 280,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 281,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 282,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 283,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 284,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 285,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 286,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 287,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 288,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 289,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 290,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 291,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 292,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 293,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 294,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 295,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 296,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 297,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 298,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 299,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 300,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 301,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 302,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 303,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 304,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 305,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 306,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 307,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 308,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 309,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 310,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 311,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 312,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 313,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 314,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 315,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 316,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 317,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 318,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 319,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 320,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 321,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 322,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 323,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 324,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 325,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 326,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 327,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 328,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 329,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 330,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 331,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 332,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 333,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 334,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 335,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 336,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 337,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 338,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 339,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 340,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 341,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 342,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 343,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 344,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 345,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 346,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 347,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 348,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 349,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 350,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 351,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 352,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 353,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 354,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 355,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 356,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 357,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 358,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 359,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 360,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 361,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 362,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 363,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 364,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 365,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 366,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 367,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 368,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 369,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 370,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 371,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 372,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 373,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 374,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 375,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 376,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 377,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 378,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 379,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 380,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 381,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 382,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 383,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 384,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 385,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 386,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 387,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 388,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 389,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 390,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 391,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 392,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 393,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 394,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 395,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 396,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 397,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 398,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 399,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 400,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 401,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 402,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 403,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 404,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 405,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 406,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 407,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 408,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 409,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 410,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 411,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 412,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 413,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 414,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 415,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 416,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 417,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 418,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 419,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 420,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 421,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 422,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 423,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 424,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 425,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 426,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 427,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 428,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 429,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 430,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 431,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 432,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 433,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 434,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 435,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 436,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 437,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 438,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 439,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 440,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 441,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 442,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 443,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 444,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 445,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 446,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 447,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 448,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 449,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 450,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 451,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 452,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 453,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 454,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 455,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 456,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 457,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 458,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 459,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 460,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 461,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 462,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 463,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 464,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 465,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 466,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 467,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 468,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 469,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 470,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 471,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 472,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 473,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 474,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 475,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 476,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 477,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 478,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 479,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 480,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 481,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 482,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 483,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 484,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 485,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 486,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 487,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 488,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 489,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 490,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 491,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 492,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 493,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 494,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 495,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 496,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 497,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 498,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 499,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 500,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 501,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 502,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 503,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 504,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 505,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 506,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 507,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 508,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 509,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 510,
+      "energy": 0.0,
+      "selected": 0
+    },
+    {
+      "mode": "exit_fixed",
+      "functional": 511,
+      "energy": 0.0,
+      "selected": 0
+    }
+  ],
+  "best": {
+    "mode": "entrance_fixed",
+    "functional": 1,
+    "energy": 0.0,
+    "selected": 0,
+    "chosen": []
+  },
+  "seconds": 68.73070147499675,
+  "no_kappa_claim": true
+}

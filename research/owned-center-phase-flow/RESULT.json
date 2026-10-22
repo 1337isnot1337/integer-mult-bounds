@@ -1,0 +1,12 @@
+{
+  "status": "EXACT_HOMOGENEOUS_PHASE_SCREEN",
+  "nodes": 4186,
+  "merged_nodes": 1067,
+  "variables": 10237,
+  "equations": 43890,
+  "rank": 10237,
+  "nullity": 0,
+  "productive_queries": [],
+  "seconds": 0.6320867459871806,
+  "no_kappa_claim": true
+}

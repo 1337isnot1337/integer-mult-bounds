@@ -1,0 +1,11 @@
+{
+  "status": "PASS_EXACT_PUBLISHED_ARITHMETIC_REPRODUCTION",
+  "head": "085251d8113b174651cac0f3a04ed4505d1d35b0",
+  "kappa": "15108879/5000000000",
+  "arithmetic_sha256": "ddd21fd49569b78b0a9aae94bb4837b93552bb8ba13e716119fe3c85940d822b",
+  "strict_checks": 54,
+  "functional_checks": 4,
+  "source_manifest_files": 13,
+  "extra_runtime_input": "research/kappa-rebuild/complex/full-identity-certificates/RESULT.json",
+  "scope": "Producer arithmetic replay only. No fresh Lean or full native replay."
+}

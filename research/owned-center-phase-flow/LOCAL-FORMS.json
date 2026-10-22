@@ -1,0 +1,50 @@
+{
+  "status": "EXHAUSTIVE_LOCALIZED_FORM_DISCOVERY_FLOAT_MOMENTS",
+  "rows": [
+    {
+      "node": 1745,
+      "dimension": 1,
+      "forms": 1,
+      "energy": 0.0,
+      "form_bits": 0
+    },
+    {
+      "node": 1747,
+      "dimension": 1,
+      "forms": 1,
+      "energy": 0.0,
+      "form_bits": 0
+    },
+    {
+      "node": 1748,
+      "dimension": 1,
+      "forms": 1,
+      "energy": 0.0,
+      "form_bits": 0
+    },
+    {
+      "node": 1754,
+      "dimension": 5,
+      "forms": 32767,
+      "energy": 0.0,
+      "form_bits": 0
+    },
+    {
+      "node": 2321,
+      "dimension": 2,
+      "forms": 7,
+      "energy": 0.0,
+      "form_bits": 0
+    }
+  ],
+  "best": {
+    "node": 1745,
+    "dimension": 1,
+    "forms": 1,
+    "energy": 0.0,
+    "form_bits": 0
+  },
+  "tested": 32777,
+  "seconds": 0.22191856399876997,
+  "no_kappa_claim": true
+}

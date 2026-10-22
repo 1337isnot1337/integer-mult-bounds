@@ -1,0 +1,1147 @@
+{
+  "status": "NECESSARY_NORMAL_EDGE_SCREEN",
+  "rows": [
+    {
+      "first": 11312,
+      "last": 12581,
+      "relaxed_empty_intervals": 38,
+      "first_witness": [
+        {
+          "node": 8754,
+          "lower": [
+            196
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11301,
+      "last": 12573,
+      "relaxed_empty_intervals": 62,
+      "first_witness": [
+        {
+          "node": 8598,
+          "lower": [
+            41
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11305,
+      "last": 12576,
+      "relaxed_empty_intervals": 62,
+      "first_witness": [
+        {
+          "node": 8906,
+          "lower": [
+            487
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11309,
+      "last": 12579,
+      "relaxed_empty_intervals": 63,
+      "first_witness": [
+        {
+          "node": 9061,
+          "lower": [
+            148
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11313,
+      "last": 12582,
+      "relaxed_empty_intervals": 62,
+      "first_witness": [
+        {
+          "node": 8752,
+          "lower": [
+            375
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11300,
+      "last": 12572,
+      "relaxed_empty_intervals": 38,
+      "first_witness": [
+        {
+          "node": 8600,
+          "lower": [
+            439
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11304,
+      "last": 12575,
+      "relaxed_empty_intervals": 22,
+      "first_witness": [
+        {
+          "node": 9218,
+          "lower": [
+            446
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11308,
+      "last": 12578,
+      "relaxed_empty_intervals": 22,
+      "first_witness": [
+        {
+          "node": 9372,
+          "lower": [
+            224
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11112,
+      "last": 12511,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8608,
+          "lower": [
+            81
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11114,
+      "last": 12513,
+      "relaxed_empty_intervals": 16,
+      "first_witness": [
+        {
+          "node": 8600,
+          "lower": [
+            439
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11167,
+      "last": 12515,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8916,
+          "lower": [
+            415
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11169,
+      "last": 12517,
+      "relaxed_empty_intervals": 16,
+      "first_witness": [
+        {
+          "node": 8908,
+          "lower": [
+            84
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11218,
+      "last": 12519,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9226,
+          "lower": [
+            88
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11220,
+      "last": 12521,
+      "relaxed_empty_intervals": 17,
+      "first_witness": [
+        {
+          "node": 9218,
+          "lower": [
+            446
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11271,
+      "last": 12523,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9534,
+          "lower": [
+            443
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11273,
+      "last": 12525,
+      "relaxed_empty_intervals": 17,
+      "first_witness": [
+        {
+          "node": 9526,
+          "lower": [
+            112
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11302,
+      "last": 12574,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8606,
+          "lower": [
+            463
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11306,
+      "last": 12577,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8914,
+          "lower": [
+            44
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11310,
+      "last": 12580,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9069,
+          "lower": [
+            351
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11314,
+      "last": 12583,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8760,
+          "lower": [
+            145
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11249,
+      "last": 13762,
+      "relaxed_empty_intervals": 17,
+      "first_witness": [
+        {
+          "node": 9680,
+          "lower": [
+            259
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11194,
+      "last": 13793,
+      "relaxed_empty_intervals": 17,
+      "first_witness": [
+        {
+          "node": 9372,
+          "lower": [
+            224
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11247,
+      "last": 13910,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9688,
+          "lower": [
+            200
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11192,
+      "last": 14436,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9380,
+          "lower": [
+            262
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11084,
+      "last": 14756,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8762,
+          "lower": [
+            290
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11034,
+      "last": 13887,
+      "relaxed_empty_intervals": 51,
+      "first_witness": [
+        {
+          "node": 10148,
+          "lower": [
+            274
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 10948,
+      "last": 13919,
+      "relaxed_empty_intervals": 43,
+      "first_witness": [
+        {
+          "node": 10140,
+          "lower": [
+            146
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 10904,
+      "last": 13925,
+      "relaxed_empty_intervals": 34,
+      "first_witness": [
+        {
+          "node": 9986,
+          "lower": [
+            73
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 10883,
+      "last": 13926,
+      "relaxed_empty_intervals": 33,
+      "first_witness": [
+        {
+          "node": 8444,
+          "lower": [
+            400
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 10884,
+      "last": 15613,
+      "relaxed_empty_intervals": 34,
+      "first_witness": [
+        {
+          "node": 8138,
+          "lower": [
+            448
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11339,
+      "last": 13711,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 8916,
+          "lower": [
+            415
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11315,
+      "last": 13712,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9686,
+          "lower": [
+            379
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11311,
+      "last": 13716,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9378,
+          "lower": [
+            152
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11307,
+      "last": 13720,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9224,
+          "lower": [
+            491
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11303,
+      "last": 13724,
+      "relaxed_empty_intervals": 25,
+      "first_witness": [
+        {
+          "node": 9532,
+          "lower": [
+            37
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8120,
+      "last": 11396,
+      "relaxed_empty_intervals": 27,
+      "first_witness": [
+        {
+          "node": 8293,
+          "lower": [
+            381
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8121,
+      "last": 11397,
+      "relaxed_empty_intervals": 35,
+      "first_witness": [
+        {
+          "node": 8290,
+          "lower": [
+            208
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8104,
+      "last": 11398,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8446,
+          "lower": [
+            35
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8105,
+      "last": 11399,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8443,
+          "lower": [
+            400
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8132,
+      "last": 11404,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8292,
+          "lower": [
+            336
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8133,
+      "last": 11405,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8289,
+          "lower": [
+            208
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8075,
+      "last": 11406,
+      "relaxed_empty_intervals": 27,
+      "first_witness": [
+        {
+          "node": 8448,
+          "lower": [
+            14
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8076,
+      "last": 11407,
+      "relaxed_empty_intervals": 35,
+      "first_witness": [
+        {
+          "node": 8443,
+          "lower": [
+            400
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8128,
+      "last": 11428,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 8294,
+          "lower": [
+            381
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8129,
+      "last": 11429,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8289,
+          "lower": [
+            208
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8092,
+      "last": 11430,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 8448,
+          "lower": [
+            14
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8093,
+      "last": 11431,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8443,
+          "lower": [
+            400
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 6886,
+      "last": 11434,
+      "relaxed_empty_intervals": 33,
+      "first_witness": [
+        {
+          "node": 9062,
+          "lower": [
+            266
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 6904,
+      "last": 11435,
+      "relaxed_empty_intervals": 33,
+      "first_witness": [
+        {
+          "node": 9060,
+          "lower": [
+            148
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8124,
+      "last": 11436,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8292,
+          "lower": [
+            336
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8125,
+      "last": 11437,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8289,
+          "lower": [
+            208
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8080,
+      "last": 11438,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8446,
+          "lower": [
+            35
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8081,
+      "last": 11439,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8443,
+          "lower": [
+            400
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 6901,
+      "last": 11442,
+      "relaxed_empty_intervals": 34,
+      "first_witness": [
+        {
+          "node": 8907,
+          "lower": [
+            84
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 6883,
+      "last": 11443,
+      "relaxed_empty_intervals": 34,
+      "first_witness": [
+        {
+          "node": 8905,
+          "lower": [
+            487
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8085,
+      "last": 11444,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 8602,
+          "lower": [
+            388
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8086,
+      "last": 11445,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8597,
+          "lower": [
+            41
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8108,
+      "last": 11446,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 8756,
+          "lower": [
+            247
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8109,
+      "last": 11447,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8751,
+          "lower": [
+            375
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8097,
+      "last": 11452,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8600,
+          "lower": [
+            439
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8098,
+      "last": 11453,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8597,
+          "lower": [
+            41
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8114,
+      "last": 11454,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8754,
+          "lower": [
+            196
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8115,
+      "last": 11455,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 8751,
+          "lower": [
+            375
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11288,
+      "last": 12490,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 9528,
+          "lower": [
+            67
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11289,
+      "last": 12492,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 9524,
+          "lower": [
+            494
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11290,
+      "last": 12493,
+      "relaxed_empty_intervals": 21,
+      "first_witness": [
+        {
+          "node": 9682,
+          "lower": [
+            304
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11291,
+      "last": 12495,
+      "relaxed_empty_intervals": 31,
+      "first_witness": [
+        {
+          "node": 9678,
+          "lower": [
+            176
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11296,
+      "last": 12496,
+      "relaxed_empty_intervals": 30,
+      "first_witness": [
+        {
+          "node": 9526,
+          "lower": [
+            112
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11297,
+      "last": 12498,
+      "relaxed_empty_intervals": 30,
+      "first_witness": [
+        {
+          "node": 9524,
+          "lower": [
+            494
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11298,
+      "last": 12499,
+      "relaxed_empty_intervals": 30,
+      "first_witness": [
+        {
+          "node": 9680,
+          "lower": [
+            259
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11299,
+      "last": 12501,
+      "relaxed_empty_intervals": 30,
+      "first_witness": [
+        {
+          "node": 9678,
+          "lower": [
+            176
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11170,
+      "last": 12505,
+      "relaxed_empty_intervals": 35,
+      "first_witness": [
+        {
+          "node": 8752,
+          "lower": [
+            375
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11049,
+      "last": 12510,
+      "relaxed_empty_intervals": 78,
+      "first_witness": [
+        {
+          "node": 8606,
+          "lower": [
+            463
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11051,
+      "last": 12514,
+      "relaxed_empty_intervals": 78,
+      "first_witness": [
+        {
+          "node": 8914,
+          "lower": [
+            44
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11053,
+      "last": 12518,
+      "relaxed_empty_intervals": 78,
+      "first_witness": [
+        {
+          "node": 9224,
+          "lower": [
+            491
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11055,
+      "last": 12522,
+      "relaxed_empty_intervals": 78,
+      "first_witness": [
+        {
+          "node": 9532,
+          "lower": [
+            37
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 8964,
+      "last": 12530,
+      "relaxed_empty_intervals": 35,
+      "first_witness": [
+        {
+          "node": 8598,
+          "lower": [
+            41
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11145,
+      "last": 12537,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8754,
+          "lower": [
+            196
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11146,
+      "last": 12538,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8752,
+          "lower": [
+            375
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11171,
+      "last": 12545,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8600,
+          "lower": [
+            439
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11172,
+      "last": 12546,
+      "relaxed_empty_intervals": 26,
+      "first_witness": [
+        {
+          "node": 8598,
+          "lower": [
+            41
+          ],
+          "upper": []
+        }
+      ]
+    },
+    {
+      "first": 11454,
+      "last": 13548,
+      "relaxed_empty_intervals": 0,
+      "first_witness": []
+    }
+  ],
+  "total_candidates": 353,
+  "exhausted": false
+}
