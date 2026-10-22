@@ -3149,3 +3149,10 @@ Source archives retain attribution; mathematical review remains open.
 - **David Ganz (@Dugongue)** — [#4502](https://github.com/CrocSwap/integer-mult-bounds/pull/4502): Borrowed rank-one adapters: 674 → 666 scalar allowance with no extra fields (source archive).
 - **mihir-s-05 (@mihir-s-05)** — [#4504](https://github.com/CrocSwap/integer-mult-bounds/pull/4504): Independently audit #4470 chronological frames and paid invoice (no new kappa) (source archive).
 - **David Ganz (@Dugongue)** — [#4505](https://github.com/CrocSwap/integer-mult-bounds/pull/4505): Install #4502 adapters: full native replay saves 100 scalar allowance per orientation (source archive).
+
+## Queue intake, 21 October 2026 (chunk F)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **James Reed (@jwr404)** — [#4506](https://github.com/CrocSwap/integer-mult-bounds/pull/4506): Absorb the face factor 2 on the coefficient-9 approximant (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4507](https://github.com/CrocSwap/integer-mult-bounds/pull/4507): Reduce direct-flow batch widths while preserving chronological calls (source archive).
