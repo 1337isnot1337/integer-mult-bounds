@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/WORD.json.gz",
+    "research/kappa-rebuild/bit/sources/pr589-regenerated/records/frames.json",
+    "research/kappa-rebuild/bit/mixed_productive_bit.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "--check"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Independent all255-kernel endpoint dimensions, kernel150 pair mismatch, capped repair dominance and strict rational p16 moment failures."
+    }
+  ]
+}

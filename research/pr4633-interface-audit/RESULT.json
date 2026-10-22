@@ -1,0 +1,3830 @@
+{
+  "all255_kernels": [
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 1,
+      "main_widths": {
+        "6": 56,
+        "7": 110,
+        "8": 56
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 54,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 2,
+      "main_widths": {
+        "6": 60,
+        "7": 110,
+        "8": 52
+      },
+      "pairs": {
+        "7,6": 60,
+        "7,8": 50,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 3,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 4,
+      "main_widths": {
+        "6": 60,
+        "7": 110,
+        "8": 52
+      },
+      "pairs": {
+        "7,6": 60,
+        "7,8": 50,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 5,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 6,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 7,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 8,
+      "main_widths": {
+        "6": 58,
+        "7": 110,
+        "8": 54
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 52,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 9,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 10,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 11,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 12,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 13,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 14,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 118,
+      "kernel": 15,
+      "main_widths": {
+        "6": 107,
+        "7": 104,
+        "8": 11
+      },
+      "pairs": {
+        "7,6": 100,
+        "7,8": 4,
+        "8,6": 7
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 16,
+      "main_widths": {
+        "6": 58,
+        "7": 110,
+        "8": 54
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 52,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 17,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 18,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 19,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 20,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 21,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 22,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 23,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 24,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 25,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 26,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 27,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 28,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 29,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 30,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 31,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 32,
+      "main_widths": {
+        "6": 58,
+        "7": 110,
+        "8": 54
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 52,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 33,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 34,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 35,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 36,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 37,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 38,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 39,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 40,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 41,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 42,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 43,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 44,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 45,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 46,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 47,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 48,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 49,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 50,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 51,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 52,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 53,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 54,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 55,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 56,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 57,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 58,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 59,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 60,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 61,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 62,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 63,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 64,
+      "main_widths": {
+        "6": 58,
+        "7": 110,
+        "8": 54
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 52,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 65,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 66,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 67,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 68,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 69,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 70,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 71,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 72,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 73,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 74,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 75,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 76,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 77,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 78,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 79,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 80,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 81,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 82,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 83,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 84,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 85,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 86,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 87,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 88,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 89,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 90,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 91,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 92,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 93,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 94,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 95,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 96,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 97,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 98,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 99,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 100,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 101,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 117,
+      "kernel": 102,
+      "main_widths": {
+        "6": 107,
+        "7": 105,
+        "8": 10
+      },
+      "pairs": {
+        "7,6": 101,
+        "7,8": 4,
+        "8,6": 6
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 103,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 104,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 105,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 106,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 107,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 108,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 109,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 110,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 111,
+      "main_widths": {
+        "6": 43,
+        "7": 111,
+        "8": 68
+      },
+      "pairs": {
+        "7,6": 43,
+        "7,8": 68
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 112,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 113,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 114,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 115,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 116,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 117,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 118,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 119,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 120,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 121,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 122,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 123,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 124,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 125,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 126,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 127,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 112,
+      "kernel": 128,
+      "main_widths": {
+        "6": 60,
+        "7": 110,
+        "8": 52
+      },
+      "pairs": {
+        "7,6": 60,
+        "7,8": 50,
+        "8,8": 1
+      },
+      "pairs_with_equal_width": 1
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 129,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 130,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 131,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 132,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 133,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 134,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 135,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 136,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 137,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 138,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 139,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 140,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 141,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 142,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 143,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 144,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 145,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 146,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 147,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 148,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 149,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 117,
+      "kernel": 150,
+      "main_widths": {
+        "6": 107,
+        "7": 105,
+        "8": 10
+      },
+      "pairs": {
+        "7,6": 101,
+        "7,8": 4,
+        "8,6": 6
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 151,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 152,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 118,
+      "kernel": 153,
+      "main_widths": {
+        "6": 107,
+        "7": 104,
+        "8": 11
+      },
+      "pairs": {
+        "7,6": 100,
+        "7,8": 4,
+        "8,6": 7
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 154,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 155,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 156,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 157,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 158,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 159,
+      "main_widths": {
+        "6": 43,
+        "7": 111,
+        "8": 68
+      },
+      "pairs": {
+        "7,6": 43,
+        "7,8": 68
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 160,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 161,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 162,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 163,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 164,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 165,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 166,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 167,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 168,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 169,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 118,
+      "kernel": 170,
+      "main_widths": {
+        "6": 107,
+        "7": 104,
+        "8": 11
+      },
+      "pairs": {
+        "7,6": 100,
+        "7,8": 4,
+        "8,6": 7
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 171,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 172,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 173,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 174,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 175,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 176,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 177,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 178,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 179,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 180,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 181,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 182,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 183,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 184,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 185,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 186,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 187,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 188,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 189,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 190,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 191,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 192,
+      "main_widths": {
+        "6": 51,
+        "7": 111,
+        "8": 60
+      },
+      "pairs": {
+        "7,6": 51,
+        "7,8": 60
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 193,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 194,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 119,
+      "kernel": 195,
+      "main_widths": {
+        "6": 107,
+        "7": 103,
+        "8": 12
+      },
+      "pairs": {
+        "7,6": 99,
+        "7,8": 4,
+        "8,6": 8
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 196,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 197,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 198,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 199,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 200,
+      "main_widths": {
+        "6": 58,
+        "7": 111,
+        "8": 53
+      },
+      "pairs": {
+        "7,6": 58,
+        "7,8": 53
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 201,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 202,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 203,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 118,
+      "kernel": 204,
+      "main_widths": {
+        "6": 107,
+        "7": 104,
+        "8": 11
+      },
+      "pairs": {
+        "7,6": 100,
+        "7,8": 4,
+        "8,6": 7
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 205,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 206,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 207,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 208,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 209,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 210,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 211,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 212,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 213,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 214,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 215,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 216,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 217,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 218,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 219,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 220,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 221,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 222,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 223,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 224,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 225,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 226,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 227,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 228,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 229,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 230,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 231,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 232,
+      "main_widths": {
+        "6": 49,
+        "7": 111,
+        "8": 62
+      },
+      "pairs": {
+        "7,6": 49,
+        "7,8": 62
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 233,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 234,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 235,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 236,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 237,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 238,
+      "main_widths": {
+        "6": 45,
+        "7": 111,
+        "8": 66
+      },
+      "pairs": {
+        "7,6": 45,
+        "7,8": 66
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 239,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 118,
+      "kernel": 240,
+      "main_widths": {
+        "6": 107,
+        "7": 104,
+        "8": 11
+      },
+      "pairs": {
+        "7,6": 100,
+        "7,8": 4,
+        "8,6": 7
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 241,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 242,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 243,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 244,
+      "main_widths": {
+        "6": 56,
+        "7": 111,
+        "8": 55
+      },
+      "pairs": {
+        "7,6": 56,
+        "7,8": 55
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 245,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 246,
+      "main_widths": {
+        "6": 43,
+        "7": 111,
+        "8": 68
+      },
+      "pairs": {
+        "7,6": 43,
+        "7,8": 68
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 247,
+      "main_widths": {
+        "6": 52,
+        "7": 111,
+        "8": 59
+      },
+      "pairs": {
+        "7,6": 52,
+        "7,8": 59
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 248,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 249,
+      "main_widths": {
+        "6": 43,
+        "7": 111,
+        "8": 68
+      },
+      "pairs": {
+        "7,6": 43,
+        "7,8": 68
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 250,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 251,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 252,
+      "main_widths": {
+        "6": 47,
+        "7": 111,
+        "8": 64
+      },
+      "pairs": {
+        "7,6": 47,
+        "7,8": 64
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 253,
+      "main_widths": {
+        "6": 54,
+        "7": 111,
+        "8": 57
+      },
+      "pairs": {
+        "7,6": 54,
+        "7,8": 57
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 254,
+      "main_widths": {
+        "6": 50,
+        "7": 111,
+        "8": 61
+      },
+      "pairs": {
+        "7,6": 50,
+        "7,8": 61
+      },
+      "pairs_with_equal_width": 0
+    },
+    {
+      "append_width7_rank_lower_bound": 111,
+      "kernel": 255,
+      "main_widths": {
+        "6": 103,
+        "7": 111,
+        "8": 8
+      },
+      "pairs": {
+        "7,6": 103,
+        "7,8": 8
+      },
+      "pairs_with_equal_width": 0
+    }
+  ],
+  "artifact_sha256": "559c01f57aabe204c4db922485d56242dfaa94a0bc85e64bbccb34d6b686d208",
+  "capped_repaired_minus_source": [
+    8,
+    24,
+    127,
+    102,
+    35,
+    29,
+    11
+  ],
+  "exact_first_moment_failures": [
+    {
+      "kappa": "866062243/250000000000",
+      "paid_minus_target_lower_micro": 202509877,
+      "paid_minus_target_upper_micro": 202509878,
+      "strict_first_moment_fails": true
+    },
+    {
+      "kappa": "775067901/62500000000",
+      "paid_minus_target_lower_micro": 2105999999,
+      "paid_minus_target_upper_micro": 2106000000,
+      "strict_first_moment_fails": true
+    }
+  ],
+  "kernel150": {
+    "append_width7_rank_lower_bound": 117,
+    "kernel": 150,
+    "main_widths": {
+      "6": 107,
+      "7": 105,
+      "8": 10
+    },
+    "pairs": {
+      "7,6": 101,
+      "7,8": 4,
+      "8,6": 6
+    },
+    "pairs_with_equal_width": 0
+  },
+  "latest_dimension_three": {
+    "all_concave_first_moments_fail": true,
+    "artifact_sha256": "a1b9555b38d234e3921cdabd280e6a754619e26dd620a069a2a85a93efa31b2c",
+    "kernel_basis": [
+      150,
+      102,
+      255
+    ],
+    "kernel_dimension": 3,
+    "main_widths": {
+      "4": 103,
+      "7": 70,
+      "8": 49
+    },
+    "optimistic_append_repairs": {
+      "1": 49,
+      "3": 103
+    },
+    "paid": {
+      "1": 1020,
+      "2": 495,
+      "3": 75,
+      "4": 442,
+      "5": 143,
+      "6": 4,
+      "7": 12,
+      "8": 2
+    },
+    "repaired_global_capped_paid_minus_target": [
+      35751,
+      50595,
+      56529,
+      59259,
+      54033,
+      46233,
+      38361,
+      30273,
+      30051,
+      29829,
+      29607,
+      29385,
+      29163,
+      28941,
+      28275,
+      28053,
+      27831,
+      27609,
+      27387,
+      27165,
+      26943,
+      26277,
+      26055,
+      25833,
+      25611,
+      25389,
+      25167,
+      24945,
+      24279,
+      24057,
+      23835,
+      23613,
+      23391,
+      23169,
+      22947,
+      22281,
+      22059,
+      21837,
+      21615,
+      21393,
+      21171,
+      20949,
+      20283,
+      20061,
+      19839,
+      19617,
+      19395,
+      19173,
+      18951,
+      18285,
+      18063,
+      17841,
+      17619,
+      17397,
+      17175,
+      16953,
+      16287,
+      16065,
+      15843,
+      15621,
+      15399,
+      15177,
+      14955,
+      14511,
+      14289,
+      14067,
+      13845,
+      13623,
+      13401,
+      13179,
+      12957,
+      12735,
+      12513,
+      12291,
+      12069,
+      11847,
+      11625,
+      11403,
+      11181,
+      10959,
+      10737,
+      10515,
+      10293,
+      10071,
+      9849,
+      9627,
+      9405,
+      9183,
+      8961,
+      8739,
+      8517,
+      8295,
+      8073,
+      7851,
+      7629,
+      7407,
+      7185,
+      6963,
+      6741,
+      6519,
+      6297,
+      6075,
+      5853,
+      5631,
+      5409,
+      5187,
+      4965,
+      4743,
+      4521,
+      4299,
+      4077,
+      3855,
+      3633,
+      3411,
+      3189,
+      2967,
+      2745,
+      2523,
+      2301,
+      2079,
+      1857,
+      1635,
+      1413,
+      1191,
+      969,
+      747,
+      525
+    ],
+    "repaired_paid": {
+      "1": 1069,
+      "2": 495,
+      "3": 178,
+      "4": 442,
+      "5": 143,
+      "6": 4,
+      "7": 12,
+      "8": 2
+    },
+    "source_head": "b390d64abfcdba1a3816b86fc763cbc95d43c12c"
+  },
+  "no_new_kappa": true,
+  "optimistic_append_repaired_paid": {
+    "1": 1315,
+    "2": 1255,
+    "3": 207,
+    "4": 86,
+    "5": 41,
+    "6": 23,
+    "7": 1
+  },
+  "paid": {
+    "1": 1198,
+    "2": 1255,
+    "3": 207,
+    "4": 86,
+    "5": 41,
+    "6": 23,
+    "7": 1
+  },
+  "repaired_paid_mass": 5140,
+  "scope": "Existing width-seven common-stage consumer; append-only independent main corrections with unchanged quotient word, helpers and all other invoice rows. Not a lower bound on re-synthesis or a changed controller.",
+  "source_head": "b2998bacd50d57c301fe67c5392054440c42398c",
+  "source_paid_mass": 5129,
+  "source_pr": 4633,
+  "source_word_sha256": "e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f",
+  "status": "PASS_PR4633_ENDPOINT_AND_APPEND_REPAIR_AUDIT"
+}
