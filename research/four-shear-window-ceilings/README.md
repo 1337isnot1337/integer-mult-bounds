@@ -1,40 +1,40 @@
-# Finite four-shear ceilings on receiver windows
+# Four-shear ceilings for twelve receiver windows
 
-Assignment B independently screens the same first twelve source-indexed receiver windows as fork PR15, but covers every word of at most four unit shears on the three persistent fields rather than only the three-shear receiver identity. The construction checker is not imported. No new kappa, global ceiling, or physical attainability claim is made. The actual source-bound outcome must be read from the hosted replay.
+**All twelve windows have certified zero headroom at C=0.00302015. No new kappa.** Assignment B independently covers every word of at most four unit shears on the same three persistent fields and fixed boundaries used by fork PR15. Even a favourable geometric relaxation cannot improve their paid moment. [RESULT.json](RESULT.json) retains the exact source-bound receipt; [VALIDATION.md](VALIDATION.md) records the passing hosted replay.
 
-## Alphabet and complete census
+## Complete alphabet and scope
 
-There are twelve generators y_i += sign*y_j, i != j, sign in {-1,1}. The checker enumerates every word of lengths zero through four, including cancellations, so it visits 1+12+144+1728+20736=22621 words. It compares exact integer 3 by 3 endpoint matrices with a += ca*x; b += cb*x. For each of the four sign choices exactly 84 words match: two of length two, two of length three and eighty of length four. No heuristic pruning or floating-point equality is used.
+The twelve generators are y_i += sign*y_j for i != j and sign in {-1,1}. Every word of lengths zero through four is enumerated, including cancellations: 22,621 words. For each of the four sign choices exactly 84 words have the required exact integer 3 by 3 receiver endpoint, comprising two length-two, two length-three and eighty length-four words. No heuristic pruning or floating-point equality is used.
 
-## Optimistic geometry theorem
+The source has 128 eligible adjacent pairs. Only the explicitly bounded first twelve are tested; all are in phase B. Each has all 84 matching words admitted by the dimension screen. Ten windows have one relaxed paid profile, and the two at indices 10575 and 10579 have four. Every profile's directed gain upper bound is nonpositive; the best is exactly zero. The original path is included, so the optimistic ceiling is attained by the incumbent. This does not cover the other 116 windows or joint changes to overlapping windows.
 
-For each endpoint-matching word, propagate mandatory lower subspaces forward. At a contact of fields i,j, every legal common frame must contain the sum of their current lower subspaces; update both lower bounds to that sum. Propagate upper subspaces backwards from the three fixed exits, replacing the bounds of both operands by their intersection. Induction shows every genuinely legal monotone frame path satisfies L_j contained in F_j contained in U_j at every contact. If L_j is not contained in U_j, that word is impossible under this contract.
+## Why the relaxation is a valid ceiling
 
-For surviving words, enumerate every integer contact dimension between dim(L_j) and dim(U_j), subject to nondecreasing dimensions along each operand's path and the fixed terminal dimensions. Charge both operands' positive entrance/intermediate gaps, and every remaining exit gap. The sum of charged ranks must equal the total terminal-minus-entrance rank mass. This deliberately forgets some simultaneous subspace-incidence constraints. It can admit extra profiles, never remove an actual legal path. Therefore the minimum relaxed paid moment is a lower bound on every legal implementation's cost, and old cost minus that lower bound is a rigorous optimistic ceiling on local savings.
+For each endpoint-matching word, propagate mandatory lower subspaces forward. At a contact of fields i,j, every legal common frame contains the sum of their current lower bounds; update both to that sum. Propagate permissible upper subspaces backwards from the fixed exits, replacing both operands' bounds by their intersection. Induction gives L_j contained in F_j contained in U_j for every actual monotone path. If L_j is not contained in U_j, the word is impossible under this contract.
 
-The checker keeps all distinct relaxed profiles and bounds every signed old-minus-new difference with directed rational intervals. Identical profiles are exactly equal, not a floating-point near-zero gain. The powers are obtained independently of PR15 by binary-reduced logarithms and an alternating expansion of r*exp(-C log r), at C=0.00302015. The output marks no-strict-gain only when every upper gain bound is nonpositive. A positive optimistic profile is not an attainable circuit.
+For surviving words, enumerate every integer contact dimension between dim(L_j) and dim(U_j), nondecreasing along each operand's path and bounded by its fixed terminal dimension. Charge each positive entrance/intermediate gap and every remaining exit gap. The sum of charged ranks equals total terminal-minus-entrance rank mass. Forgetting simultaneous incidence constraints can add profiles, never remove a legal one. Thus minimum relaxed paid moment is a lower bound on legal cost, and old cost minus that lower bound is an upper bound on possible gain.
 
-## Exact source and validation
+All distinct relaxed profiles are retained. Directed rational intervals bound signed old-minus-new costs, with identical profiles treated as exact equality. The independent power method uses binary-reduced logarithms and an alternating expansion of r*exp(-C log r). Optimistic positive profiles would not establish a construction; here none exists. Individual window gains must never be summed across overlapping operations or shared resources.
 
-The original pinned constructor emits the forward word only; no predecessor proof engine or PR15 acceptance routine is called. The window extraction independently follows the actual field demands and fixes each next required frame. Both old scalar operations are adjacent in the nontransport chronological word. No productive helper endpoint, warp or external operation is changed. Individual window ceilings must not be added when windows overlap or share resources.
+## Reproduction and independence
 
-Seven live sources are pinned by Git blob and SHA256 on canonical f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc, corresponding to PR4470 b9a13c1673e0e9697de410de16e8bbf3207a7363. Python 3.12, standard library only:
+Python 3.12, standard library only:
 
 ```sh
 python -B scripts/research_package.py --package research/four-shear-window-ceilings
 python -I -O -B research/four-shear-window-ceilings/verify.py --self-test
 ```
 
-Local normal and optimised controls check the four complete scalar censuses, all 68 legal small geometric paths in the declared toy domain, required terminal charges, incompatible exits and exact equal-invoice handling. The written relaxation argument justifies the bound beyond those toy cases. The historical baseline helper and a full native/outer replay were not run.
+The registered source-bound replay passed on CPython 3.12.15, including normal verification, optimised controls and preservation of committed inputs. Seven source files are pinned by Git blob and SHA256. The inherited constructor emits candidate data only; no predecessor proof engine or PR15 acceptance routine is imported. Window extraction, scalar enumeration, relaxation and interval arithmetic are separately implemented. Normal replay compares the full retained receipt without rewriting it. Exact small-domain controls include 68 actual geometric paths plus exit-charge, incompatible-exit and equality checks.
 
 ## Task and overlap
 
-This is the user's ceiling assignment, refined from independent-moment and complementary to PR15's construction. PR4121 searches older T360 sources; this uses PR4470's productive-helper boundaries. The old #4091 fixed-inventory ceiling is not applied to this changed mechanism. New #4529/#4532/#4533 concern the compiler. Searches were targeted, not exhaustive overlap pagination or a novelty certificate. No frozen inputs or selected record change.
+Canonical base f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc, priority revision 7; PR4470 source b9a13c1673e0e9697de410de16e8bbf3207a7363. TASK.json records the refined independent-moment assignment. PR4121 uses older T360 sources; #4091's fixed-inventory ceiling is not transferred outside its hypotheses. PR4529/4532/4533 concern compiler gates and ranks. Searches were targeted, not exhaustive overlap pagination or proof of novelty. The historical baseline helper was not run. No selected record or frozen input changed.
 
 ## Open next questions
 
-If a window has no headroom, change the alphabet, length cap, adjacency or boundary contract explicitly before expanding. If the relaxation leaves headroom, first realise one optimistic profile by actual nested common frames and charge the complete word in both orientations. Do not treat the relaxed profile as a construction or sum overlapping gains. TASK.json records the first step and blockers.
+Do not reseed this exact domain. A useful next experiment must change the length cap, coefficient alphabet, adjacency, owned-field allowance or producer/consumer boundary explicitly and reprice the complete contract. Another window is outside the certificate but should have a concrete structural reason for investigation. Physical lowering, full native correctness and consumer transfer remain necessary for any later positive candidate. TASK.json records the next question and blockers.
 
 ## Credit
 
-Credit zxv's receiver-sharing and productive-helper work, Cinna Davis's PR4470, Jacob Alan Sussman, GamingPuzzled's earlier finite census and the retained native/geometry/Clifford/outer contributors. The source constructor is inherited generation; the scalar enumeration, relaxation and interval checker are separately implemented here for Chris R / Clear1nsight with substantial OpenAI assistance, Apache-2.0. Separate workstreams do not imply independently launched agents or human/formal acceptance.
+Credit zxv's receiver-sharing and productive-helper work, Cinna Davis's PR4470, Jacob Alan Sussman, GamingPuzzled's earlier finite census and the retained native/Clifford/geometry/outer contributors. Prepared for Chris R / Clear1nsight with substantial OpenAI assistance, Apache-2.0. Separate implementations in one session do not imply separately launched agents, independent human review or formal acceptance.
