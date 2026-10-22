@@ -140,6 +140,9 @@
   "validation": {
     "environment": "CPython 3.12.0, Windows AMD64, standard library only",
     "registered_normal_and_optimized": "passed",
+    "committed_bytes": "passed for all 14 package files",
+    "official_export": "14-file integrity check and isolated optimized replay passed; Git unavailable, socket creation disabled, bytes unchanged",
+    "optional_source_history_preflight": "not run: the helper requires full Git history; this checkout is shallow; every pin is at the canonical-main base",
     "isolated_copy": "passed with -I -O -B, Git absent from PATH, socket creation disabled, bytes preserved",
     "external_controls": [
       "changed-source rejected",

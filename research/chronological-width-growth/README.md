@@ -249,8 +249,14 @@ and optimized replays pass (about 12 seconds together). An isolated copy
 passes with `-I -O -B`, Git absent from PATH and socket creation disabled;
 its files remain unchanged. Separate source-byte and receipt corruptions
 reject, as do mutations omitting paid breakpoint primes or collapsing the
-depth factor. These are author-side tests, not an independent reviewer. No full selected cold replay, formal proof kernel,
-independent human review or native/physical/outer admission is claimed.
+depth factor. The committed 14-file export also passes integrity checking
+and an isolated optimized replay with Git unavailable, socket creation
+disabled and unchanged bytes. Committed-byte preflight passes. The optional
+source-history preflight requires full Git history and did not run in this
+shallow checkout; all source pins are at this branch's canonical-main base.
+These are author-side tests, not an independent reviewer. No full selected
+cold replay, formal proof kernel, independent human review or
+native/physical/outer admission is claimed.
 
 ## Open next questions
 
@@ -267,8 +273,8 @@ independent human review or native/physical/outer admission is claimed.
    policy, so it supplies no transferred bound for it.
 
 Neither question authorizes an automatic search campaign. Stop at the
-bounded source-state/valuation obligation. A width bound is not a bound on the time
-to generate every smaller program; native realization, complete
+bounded source-state/valuation obligation. A width bound is not a bound on
+the time to generate every smaller program; native realization, complete
 storage, precision and tape costs still require their own evidence.
 
 ## Credit
