@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "86526da3a195568f9e452258e2f537cf464a12e4f133a99d591d80fd73985d9c",
+    "docs/research/pr-intake-decisions.json": "df1a229443cfb4d47d3030bfb65a2f0ad52e72e10da40f185099bb6fa6957243",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -217046,7 +217046,7 @@
         {
           "head": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
           "evidence": "docs/research/pr-intake-decisions.json",
-          "scope": "Exact Git inventory/modes, Python/JSON syntax and available declared source pins checked. Author scientific evidence not independently replayed.",
+          "scope": "Cumulative conditional construction and fresh source-bound native/dependency/arithmetic review passed at kappa 0.00302015, with independent frame, commutation and arithmetic audits. Exact prior native/compiler evidence reused; see proof review for limits.",
           "kind": "integration_or_partial_review"
         }
       ],
@@ -217066,20 +217066,30 @@
         "research/missing-join-frame",
         "research/query-thinned-controllers"
       ],
-      "unresolved_question": "Independent scientific review and source-bound replay remain open. Archival publication does not admit a supplier, outer theorem or improved kappa. Collateral docs/ci-verification.md retained only in original source ancestry; not installed. Collateral docs/research/current-status.md retained only in original source ancestry; not installed.",
+      "unresolved_question": "Selected source closure, cold replay and public-status migration remain. Inherited full analytic/physical theorem, optional search and later compiler-size improvements are outside this review.",
       "review_completion": {
         "changed_file_coverage": true,
-        "scoped_mechanism_review": false,
-        "required_execution_complete": false,
+        "scoped_mechanism_review": true,
+        "required_execution_complete": true,
         "published": true
       },
       "verification_evidence": [
-        "docs/research/pr-intake-evidence/queue-oct21e-20261021.json"
+        "docs/research/pr-intake-evidence/queue-oct21e-20261021.json",
+        "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
+        "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
+        "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
+        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
         "docs/research/pr-intake-decisions.json"
-      ]
+      ],
+      "conditional_frontier_review": {
+        "status": "passed",
+        "kappa": "60403/20000000",
+        "review": "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
+        "selection_migrated": false
+      }
     },
     {
       "number": 4471,

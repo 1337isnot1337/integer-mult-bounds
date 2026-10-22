@@ -1172,40 +1172,35 @@
   },
   "latest_substantive_review": {
     "prs": [
-      4416,
-      4433
+      4470
     ],
-    "kappa": "268647/100000000",
-    "status": "passed_conditional_changed_construction",
-    "evidence": [
-      "docs/research/pr-intake-evidence/pr4416/PROOF-REVIEW.md",
-      "docs/research/pr-intake-evidence/pr4416/VALIDATION.json",
-      "docs/research/pr-intake-evidence/pr4416/SOURCE-REUSE.json",
-      "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
-    ],
-    "selected_frontier_changed": false
-  },
-  "next_substantive_review": {
-    "source_pr": 4470,
-    "claim": "conditional kappa 0.00302015; not yet selected or independently replayed by maintainer",
-    "source_dependencies": [
+    "dependencies": [
       4440,
       4441,
       4447
     ],
-    "supporting_audits": [
-      4448,
-      4455,
-      4457,
-      4464,
-      4466,
+    "independent_audits_replayed": [
+      4504,
       4478,
-      4504
+      4464,
+      4466
     ],
-    "compiler_followup": [
-      4483,
+    "kappa": "60403/20000000",
+    "status": "passed_conditional_changed_construction",
+    "evidence": [
+      "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
+      "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
+      "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
+      "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
+    ],
+    "selected_frontier_changed": false
+  },
+  "next_substantive_review": {
+    "source_pr": 4483,
+    "supporting_followup": [
       4507
     ],
-    "plan": "Review the strongest complete native chain and unique deltas once; reuse exact-source audit coverage with explicit limits. Keep compiler-size improvement review separate from admitting a new exponent."
+    "claim": "Compiler-size reductions at the same conditional kappa; not needed for the PR4470 verdict.",
+    "plan": "Migrate reviewed PR4470 source closure, cold-replay entry point and selected/public status consistently; review compiler-size changes separately."
   }
 }

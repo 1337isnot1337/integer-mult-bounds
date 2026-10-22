@@ -6,6 +6,18 @@ Selected conditional κ: **0.0023 = 23/10000**, zxv’s #4359 productive-helper 
 
 Cold replay: `make frontier4359-verify`. The fresh 23-stage replay and 59 normalized artifacts pass; the changed interfaces have an AI-assisted proof review under retained analytic/native/fixed-tape hypotheses. Winning uniform templates are not materialized. This is not a complete formal or independent human verification. #4404 independently checks a narrower arithmetic/flow scope.
 
+**Newer conditional review, pending selection migration:** Cinna Davis's #4470
+supports **κ = 0.00302015** under the retained hypotheses, following the
+[cumulative proof review and bounded replays](pr-intake-evidence/pr4470/PROOF-REVIEW.md).
+It builds on the query-thinned controller and joint helper retiming, zxv's
+native and compiler lineage, and Jacob Alan Sussman's mixed-target recursion.
+Mihir Srivastava and Ryanson Jonathan's independent audits are included in the
+review, with Mark / Matarener credited for the commutation question.
+The earlier [#4416/#4433 review](pr-intake-evidence/pr4416/PROOF-REVIEW.md)
+supports 0.00268647. Neither review alone changes the selected record or its
+cold-replay command above. #4483/#4507 compiler-size improvements remain a
+separate review; they are not premises of the #4470 verdict.
+
 ## Historical selected status through #1094
 
 Historical selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
