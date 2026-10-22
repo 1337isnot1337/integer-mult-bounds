@@ -25,7 +25,9 @@
     "research/hyperplane-retiming/inputs/p16-controller.json",
     "research/hyperplane-retiming/second_intervals.py",
     "research/hyperplane-retiming/outer_ledger.py",
-    "research/hyperplane-retiming/ARITHMETIC-ORIGINS.json"
+    "research/hyperplane-retiming/ARITHMETIC-ORIGINS.json",
+    "research/hyperplane-retiming/inputs/pr4610-round3-word.json.gz",
+    "research/hyperplane-retiming/SEARCH-ORIGINS.json"
   ],
   "commands": [
     {

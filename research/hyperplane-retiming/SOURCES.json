@@ -167,6 +167,20 @@
       "pin": "head:f26c1166e12dd45dff2cfed9b00eec1e42507389:research/hyperplane-retiming/ARITHMETIC-ORIGINS.json",
       "git_blob": "d426d4cc662e72fe6b5aacf4700fb8a1953ebe18",
       "sha256": "25e26669a25161c749aaf62525b5c96bf0aa3b82bd58f31ef44cec4618b6e901"
+    },
+    {
+      "path": "research/hyperplane-retiming/inputs/pr4610-round3-word.json.gz",
+      "usage": "input",
+      "pin": "head:1cff01f5b7673c537afa55733729377f8afeb427:research/hyperplane-retiming/inputs/pr4610-round3-word.json.gz",
+      "git_blob": "46d929df83817b85a5387bcdb9745e0627d6366e",
+      "sha256": "7679daa4ec6a40f56fc7f0202379a6f454310e94945aba4f48beaaaafb838d05"
+    },
+    {
+      "path": "research/hyperplane-retiming/SEARCH-ORIGINS.json",
+      "usage": "input",
+      "pin": "head:1cff01f5b7673c537afa55733729377f8afeb427:research/hyperplane-retiming/SEARCH-ORIGINS.json",
+      "git_blob": "5f4ab6a16d9593cb77da9e583f843572fa75ae2c",
+      "sha256": "5e71dba985a2d15145c7219b8863ce226267c4f2e52627b9721dc34f7aa0275a"
     }
   ]
 }
