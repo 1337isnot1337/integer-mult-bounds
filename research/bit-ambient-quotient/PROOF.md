@@ -85,12 +85,16 @@ controller, eighteen thick calls, fifteen thin queries, `ports = 111` and
 `block = 7`, the invoice's rank surplus is
 
 ```
-S = ladder - calls*(paid - helpers) - thin
-  = 31,524 - 18*(5,023 - 3,512) - 1,665
-  = 2,661                    (was 753)
+targets = 63,216 (helpers) + 154,290 (ladder)              = 217,506
+paid    = 18*paid_mass + 1,665 (thin) + 122,766 (idles)
+
+emitted   217,506 - (18*5,129 + 1,665 + 122,766) =   753
+quotient  217,506 - (18*5,023 + 1,665 + 122,766) = 2,661
 ```
 
-and the two-constraint screen gives
+equivalently `S = 31,524 - 18*(paid - 3,512) - 1,665`, where 31,524 is the ladder's
+own surplus (154,290 target mass minus 122,766 paid mass). The two-constraint
+screen then gives
 
 ```
 emitted   BIT kappa = 0.003464248972    (the frontier's declared BIT value)
@@ -124,7 +128,10 @@ the frontier's BIT kappa; and the quotient strictly improves the screen.
 Not claimed:
 
 - This is not a multiplication theorem and not a Lean verification.
-- **No new outer kappa.** The outer value is unchanged by this package.
+- **The outer value needs the admission literals raised.** The composition to
+  0.012401 requires `atom`, `ordinary` and `admitted` in
+  `research/query-thinned-controllers/verify.py` to be re-derived for a 0.0124
+  supplier, and the complex side throttled to the BIT's value.
 - **The frame charts are not preserved**: 636 frames become 117. The interpreter
   validates the word's own frame record, and `inventories` reads only the paid and
   helper profiles, so no consumer in this tree reads the charts — but a contract
