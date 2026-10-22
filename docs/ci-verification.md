@@ -27,6 +27,10 @@ the inherited all-column, movement, compiler, precision, analytic or recovery
 contracts. Frozen source packages retain their original provenance records;
 the replay deliberately supplies those records from historical snapshots.
 
+Selected source pointers: [manifest](../certificates/frontier4470-source.json),
+[proof review](research/pr-intake-evidence/pr4470/PROOF-REVIEW.md), and
+[review validation](research/pr-intake-evidence/pr4470/VALIDATION.json).
+
 ## Historical selected-family replay through #1094
 
 Start with the [selected record](../certificates/selected-result.json). Its

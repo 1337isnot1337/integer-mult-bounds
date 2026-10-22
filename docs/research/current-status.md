@@ -1,6 +1,6 @@
 # Current reviewed status
 
-Selected conditional κ: **0.00302015 = 60403/20000000**, Cinna Davis's #4470
+Selected conditional κ: **0.00302015** = 60403/20000000, Cinna Davis's #4470
 joint-helper construction on the query-thinned controller, zxv's productive-helper
 native/compiler machinery and Jacob Alan Sussman's mixed-target recursion.
 
@@ -28,7 +28,10 @@ selection had not yet migrated describes its review-time state; the current
 integration receipt supersedes that publication status. #4483/#4507 compiler-size
 improvements remain a separate review and are not premises of this selection.
 
-## Historical selected status through #1094
+The remaining sections form a **historical snapshot**; their “current” wording
+is local to their checkpoint, not the selected record above.
+
+## Historical status through #1094
 
 Historical selected conditional κ: **0.001672660197076918**, Rohan Arun's #1094 on Jeremy Kothe's #1087 packing and the cumulative k8/slot/T16 construction. The bit supplier remains #589 on #555.
 
