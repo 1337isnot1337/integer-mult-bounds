@@ -9,7 +9,8 @@ both masses +37) and its surplus-gain polynomial (vanishes at t = 1, positive on
 bracket (0.0030201659770, 0.0030201659771); and the higher-moment tails alpha, gamma_u, delta at #4470's tested
 saving 604031/200000000, u = 1/5, cutoff 20, floor 21, against its limits 1 - 1e-9, 97/100, 97/100.
 Invoices are as printed in #4470; nothing is imported from it. Also the logarithmic compiler conditions at ambient 145^1024
-(theta 63/64, p = 1000) and the sufficiency of H = 64,215,200,000,000. Not checked: the outer rows. Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
+(theta 63/64, p = 1000) and the sufficiency of H = 64,215,200,000,000. And the nine outer rows from #4470's printed parameters
+(FINE-PRIME row formulas, Strassen constant 3/32): all reproduce, binding row main_transform above kappa. Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 from fractions import Fraction as Q
 import json
@@ -186,7 +187,18 @@ def main():
     need(zt == Q(1, 1400000000), "compiler: z - t = 1/1400000000")
     H = 64215200000000
     need(p * ln_int(H + 1)[1] < zt * H * ln(2)[0], "compiler: (1+H)^p < 2^((z-t)H) at the stated H")
-    print(json.dumps({"status": "PASS_PR4470_ARITHMETIC_CHECK", "compiler_H_sufficient": H, "paid_jobs": 64620, "fields": 10928, "surplus": 752,
+    # outer ledger: #4470's printed parameters and margins against the FINE-PRIME row formulas
+    OP = {k: Q(x) for k, x in {"epsilon": "1399999999/1400000000", "q": "4228213/1400000000", "a": "2114107/700000000", "beta": "1399999997/1400000000", "cap_xi": "1782169498195771787/1960000000000000000", "kappa": "60403/20000000"}.items()}
+    OM = {k: Q(x) for k, x in {"boundary_algebraic_matrix": "5919499595771787/1960000000000000000", "fused_gaussian": "5919499587315361/1960000000000000000", "global_coordinate_router": "2114107/700000000", "group_bit_router": "2959750493657679/980000000000000000", "group_scans": "699999999/700000000", "main_transform": "5919498195771787/1960000000000000000", "microbox_face_corrections": "26950000001/350000000", "polynomial_products": "1399999999/1400000000", "sparse_union_movement": "802169499595771787/1960000000000000000"}.items()}
+    e, q_, a_, be, xi, kap = OP["epsilon"], OP["q"], OP["a"], OP["beta"], OP["cap_xi"], OP["kappa"]
+    need(kap == Q(60403, 20000000), "kappa 0.00302015")
+    rows = {"main_transform": e * q_, "global_coordinate_router": a_, "fused_gaussian": 1 - e + q_ * be,
+            "group_bit_router": 1 - e + a_ * be, "group_scans": 1 - e + be, "polynomial_products": e,
+            "sparse_union_movement": xi + Q(1, 2) - e, "microbox_face_corrections": 1 - (e + be + 48 - 128 + 2),
+            "boundary_algebraic_matrix": Q(3, 32) + xi - e}
+    need(rows == OM, "all nine outer rows reproduce from the parameters (Strassen constant c = 3/32)")
+    need(min(OM, key=OM.get) == "main_transform" and min(OM.values()) > kap, "binding row main_transform, strictly above kappa")
+    print(json.dumps({"status": "PASS_PR4470_ARITHMETIC_CHECK", "outer_min_minus_kappa": str(min(OM.values()) - kap), "compiler_H_sufficient": H, "paid_jobs": 64620, "fields": 10928, "surplus": 752,
                       "root_bracket": ["0.0030201659770", "0.0030201659771"], "alpha_upper": f"{float(alpha):.15f}",
                       "gamma_upper": f"{float(gamma):.12f}", "delta_upper": f"{float(delta):.12f}",
                       "new_kappa_claimed": False}, indent=1))

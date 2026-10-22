@@ -35,9 +35,24 @@ package is self-contained.
    - `z − t = 1/1400000000` exactly;
    - the stated `H = 64,215,200,000,000` satisfies `(1+H)^p < 2^{(z−t)H}`.
 
-## Not covered
+7. **The outer ledger.** All nine outer rows reproduce **exactly** from #4470's printed parameters
+   with the FINE-PRIME row formulas:
 
-- The nine outer rows.
+   | Row | Formula |
+   | --- | --- |
+   | main transform | `εq` |
+   | global router | `a` |
+   | fused Gaussian | `1−ε+qβ` |
+   | group bit router | `1−ε+aβ` |
+   | group scans | `1−ε+β` |
+   | polynomial products | `ε` |
+   | sparse union movement | `ξ+1/2−ε` |
+   | micro-box faces | `79−ε−β` |
+   | boundary algebraic matrix | `3/32+ξ−ε` |
+
+   The binding row is the main transform, at `κ + 4195771787/1960000000000000000`.
+
+## Not covered
 - The native word and the controller replay.
 - Positivity of the gain polynomial as a proof.
 
@@ -52,8 +67,7 @@ The verifier prints `PASS_PR4470_ARITHMETIC_CHECK` in about 2 seconds, using onl
 
 ## Open next questions
 
-1. **The outer rows of #4470.**
-   - *First step:* recompute the nine outer margins from the ledger formulas at κ = 0.00302015.
+1. **None arithmetic.** What remains for #4470 is the native word and the controller replay.
 
 ## Credit
 

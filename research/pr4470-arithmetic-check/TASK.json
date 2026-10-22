@@ -86,14 +86,14 @@
   "budget_minutes": 20,
   "stop_rule": "Stop at invoice, root and tails; compiler and outer rows left.",
   "outcome": "completed",
-  "evidence": "Invoice totals, local change (53 fewer jobs, +37 masses), gain polynomial, certified root bracket and alpha/gamma/delta all reproduce #4470's printed values. Compiler conditions and stated H reproduce.",
+  "evidence": "Invoice totals, local change (53 fewer jobs, +37 masses), gain polynomial, certified root bracket and alpha/gamma/delta all reproduce #4470's printed values. Compiler conditions and stated H reproduce. Outer ledger: all nine rows reproduce; binding main_transform = kappa + 2.14e-9.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Check #4470's outer rows.",
-      "why_it_matters": "Completes arithmetic coverage.",
-      "first_step": "Recompute the nine outer margins at kappa 0.00302015.",
+      "question": "Native word and controller replay of #4470.",
+      "why_it_matters": "Only non-arithmetic parts remain.",
+      "first_step": "Replay the 16-pair controller as in #4457.",
       "blocked_by": "None."
     }
   ]
