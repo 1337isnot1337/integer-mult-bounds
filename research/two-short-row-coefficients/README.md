@@ -1,6 +1,6 @@
 # Which coefficients admit exactly two short rows?
 
-**Task:** independent-moment (a partial answer to #4600's open question 1). **Base:** canonical main `f626db5c`. **No κ is claimed.**
+**Task:** independent-moment (a complete answer, within the row model, to #4600's open question 1). **Base:** canonical main `f626db5c`. **No κ is claimed.**
 
 ## Background
 
@@ -41,7 +41,26 @@ The enumeration ranges over all nonincreasing ρ and β, and every placement of 
 | 2, 3, 5, 7, 11 | — | — |
 
 - **The annihilator condition alone is not sufficient.**
-- **The strengthened condition is exactly right for m ≤ 12.**
+- **The strengthened condition is exactly right for m ≤ 12**, and the construction below extends this to every m.
+
+### Theorem: gcd(c, m) ≥ 3 is sufficient for every m, with an explicit construction
+
+Let g = gcd(c, m) ≥ 3, d = m/g and c ≡ g·r with 0 < r < d. Take
+
+```text
+λ = (m, m−d, d, 0, …),   ρ = (m−g, g, 0, …),
+β = ((g+1)^r, g^(d−r), M, 1^r, 0^(d−r)),
+```
+
+where M is the balanced nonincreasing sequence of length (g−2)d and sum m − 2r. Its entries lie in [1, g] because g ≥ 3.
+
+- **Profiles valid.** All three profiles are nonincreasing with entries in [0, m].
+- **Partial sums.** B(d) = m + r, B(m−d) = 2m − r and B(m) = 2m.
+- **Congruences.** Σ L = 2m, Σ ρ = m, Σ ρL ≡ −gd ≡ 0 and Σ B(L) = 5m. The coefficient is −[(m−g)·2m + g(2m−r)] ≡ g·r = c. ∎
+
+The verifier checks the construction for every pair (m, c) with m ≤ 200 and gcd(c, m) ≥ 3, which is 4,626 pairs.
+
+**So within #4280's row model, exactly two short rows realize c ≠ 0 if and only if gcd(c, m) ≥ 3.**
 - **Family check.** #4600's family m = 8t, c = 4t is checked directly for t = 1, …, 64: valid profiles, all congruences, exactly two short rows and c = 4t. This agrees with the table, since gcd(4t, 8t) = 4t ≥ 4.
 
 ## Verify
@@ -54,12 +73,11 @@ The check takes about 3 s and uses the standard library only.
 
 ## Limitations
 
-- **Sufficiency is shown only for m ≤ 12.** Whether every c with gcd(c, m) ≥ 3 admits two short rows for all m is open.
 - **Inherited assumptions.** The row model and its converse (every correct triple comes from a balanced word) are inherited from #4280 and are not re-proved here.
 - **Not claimed.** A call-count claim beyond #4600's, a physical caller, a supplier or κ.
 
 ## Open next questions
 
-- **Is gcd(c, m) ≥ 3 sufficient for every m?** First step: construct profiles for c = m/g·k with g ≥ 3 from #4600's m = 8t template. The candidates are L₁ = m − m/g, L₂ = m/g and ρ = (·, g′, 0, …), extending the 6t/2t split.
+- **Minimum calls.** Does every two-short-row coefficient also meet the 4m call floor? First step: count the calls of the construction above through the row-model converse.
 
 Credit: petalas (Nick Petalas) for #4600 and #4280 (row model). Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

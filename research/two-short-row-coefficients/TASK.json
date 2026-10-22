@@ -84,16 +84,16 @@
   "scope_change_reason": null,
   "bottleneck_link": "Partial answer to #4600 OQ1 (two-short-row coefficients in the depth-four row model).",
   "budget_minutes": 30,
-  "stop_rule": "Stop at m <= 12 and the gcd-2 theorem.",
+  "stop_rule": "Stop at the exact characterization.",
   "outcome": "completed",
-  "evidence": "Proof that gcd(c,m)=2 is impossible with two short rows; exact enumeration of the #4280 profile model for m <= 12 gives achievable c exactly {gcd(c,m) >= 3}; annihilator-only c exist for m = 4,6,8,10,12; #4600 m=8t family checked t <= 64.",
+  "evidence": "Necessity proof gcd(c,m) >= 3; explicit sufficiency construction for every m (checked for all 4,626 pairs with m <= 200); exact enumeration for m <= 12 agrees; annihilator-only c exist; #4600 family t <= 64.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Is gcd(c,m) >= 3 sufficient for all m?",
-      "why_it_matters": "Completes #4600 OQ1.",
-      "first_step": "Generalize the m=8t profile template to L1 = m - m/g.",
+      "question": "Do two-short-row coefficients meet the 4m call floor?",
+      "why_it_matters": "Call-count side of #4600.",
+      "first_step": "Count calls of the construction via the row-model converse.",
       "blocked_by": "None."
     }
   ]
