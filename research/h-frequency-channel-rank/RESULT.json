@@ -1,0 +1,4122 @@
+{
+  "status": "EXACT_POINTWISE_RESPONSE_CHANNEL_RANK",
+  "rows": [
+    {
+      "frequency": 0,
+      "eigenclass_ranks": [
+        8,
+        0
+      ],
+      "required_channels": 8
+    },
+    {
+      "frequency": 1,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 2,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 3,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 4,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 5,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 6,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 7,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 8,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 9,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 10,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 11,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 12,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 13,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 14,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 15,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 16,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 17,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 18,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 19,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 20,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 21,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 22,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 23,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 24,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 25,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 26,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 27,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 28,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 29,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 30,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 31,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 32,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 33,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 34,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 35,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 36,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 37,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 38,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 39,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 40,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 41,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 42,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 43,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 44,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 45,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 46,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 47,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 48,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 49,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 50,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 51,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 52,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 53,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 54,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 55,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 56,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 57,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 58,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 59,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 60,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 61,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 62,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 63,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 64,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 65,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 66,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 67,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 68,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 69,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 70,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 71,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 72,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 73,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 74,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 75,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 76,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 77,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 78,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 79,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 80,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 81,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 82,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 83,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 84,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 85,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 86,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 87,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 88,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 89,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 90,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 91,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 92,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 93,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 94,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 95,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 96,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 97,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 98,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 99,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 100,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 101,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 102,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 103,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 104,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 105,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 106,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 107,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 108,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 109,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 110,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 111,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 112,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 113,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 114,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 115,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 116,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 117,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 118,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 119,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 120,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 121,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 122,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 123,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 124,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 125,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 126,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 127,
+      "eigenclass_ranks": [
+        8,
+        7
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 128,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 129,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 130,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 131,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 132,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 133,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 134,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 135,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 136,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 137,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 138,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 139,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 140,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 141,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 142,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 143,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 144,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 145,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 146,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 147,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 148,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 149,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 150,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 151,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 152,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 153,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 154,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 155,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 156,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 157,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 158,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 159,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 160,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 161,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 162,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 163,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 164,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 165,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 166,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 167,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 168,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 169,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 170,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 171,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 172,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 173,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 174,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 175,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 176,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 177,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 178,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 179,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 180,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 181,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 182,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 183,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 184,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 185,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 186,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 187,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 188,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 189,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 190,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 191,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 192,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 193,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 194,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 195,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 196,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 197,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 198,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 199,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 200,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 201,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 202,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 203,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 204,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 205,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 206,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 207,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 208,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 209,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 210,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 211,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 212,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 213,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 214,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 215,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 216,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 217,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 218,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 219,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 220,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 221,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 222,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 223,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 224,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 225,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 226,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 227,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 228,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 229,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 230,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 231,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 232,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 233,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 234,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 235,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 236,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 237,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 238,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 239,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 240,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 241,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 242,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 243,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 244,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 245,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 246,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 247,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 248,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 249,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 250,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 251,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 252,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 253,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 254,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 255,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 256,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 257,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 258,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 259,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 260,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 261,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 262,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 263,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 264,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 265,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 266,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 267,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 268,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 269,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 270,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 271,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 272,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 273,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 274,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 275,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 276,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 277,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 278,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 279,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 280,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 281,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 282,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 283,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 284,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 285,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 286,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 287,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 288,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 289,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 290,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 291,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 292,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 293,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 294,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 295,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 296,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 297,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 298,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 299,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 300,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 301,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 302,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 303,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 304,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 305,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 306,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 307,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 308,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 309,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 310,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 311,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 312,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 313,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 314,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 315,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 316,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 317,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 318,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 319,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 320,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 321,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 322,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 323,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 324,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 325,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 326,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 327,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 328,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 329,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 330,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 331,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 332,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 333,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 334,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 335,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 336,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 337,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 338,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 339,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 340,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 341,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 342,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 343,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 344,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 345,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 346,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 347,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 348,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 349,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 350,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 351,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 352,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 353,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 354,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 355,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 356,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 357,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 358,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 359,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 360,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 361,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 362,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 363,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 364,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 365,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 366,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 367,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 368,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 369,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 370,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 371,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 372,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 373,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 374,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 375,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 376,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 377,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 378,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 379,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 380,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 381,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 382,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 383,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 384,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 385,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 386,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 387,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 388,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 389,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 390,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 391,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 392,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 393,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 394,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 395,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 396,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 397,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 398,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 399,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 400,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 401,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 402,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 403,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 404,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 405,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 406,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 407,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 408,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 409,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 410,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 411,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 412,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 413,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 414,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 415,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 416,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 417,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 418,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 419,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 420,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 421,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 422,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 423,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 424,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 425,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 426,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 427,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 428,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 429,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 430,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 431,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 432,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 433,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 434,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 435,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 436,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 437,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 438,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 439,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 440,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 441,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 442,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 443,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 444,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 445,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 446,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 447,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 448,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 449,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 450,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 451,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 452,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 453,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 454,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 455,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 456,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 457,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 458,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 459,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 460,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 461,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 462,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 463,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 464,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 465,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 466,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 467,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 468,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 469,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 470,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 471,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 472,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 473,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 474,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 475,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 476,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 477,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 478,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 479,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 480,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 481,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 482,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 483,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 484,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 485,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 486,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 487,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 488,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 489,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 490,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 491,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 492,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 493,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 494,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 495,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 496,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 497,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 498,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 499,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 500,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 501,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 502,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 503,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 504,
+      "eigenclass_ranks": [
+        7,
+        8
+      ],
+      "required_channels": 15
+    },
+    {
+      "frequency": 505,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 506,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 507,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 508,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 509,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 510,
+      "eigenclass_ranks": [
+        8,
+        8
+      ],
+      "required_channels": 16
+    },
+    {
+      "frequency": 511,
+      "eigenclass_ranks": [
+        0,
+        8
+      ],
+      "required_channels": 8
+    }
+  ],
+  "distribution": {
+    "8": 2,
+    "16": 494,
+    "15": 16
+  },
+  "three_column_witness": {
+    "frequencies": [
+      2,
+      366,
+      423
+    ],
+    "eigenclass_ranks": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "required_channels": 32
+  },
+  "seconds": 3.1084250530111603,
+  "no_kappa_claim": true
+}
