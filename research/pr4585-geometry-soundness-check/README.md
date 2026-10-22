@@ -24,6 +24,10 @@ So this package checks the needed property directly against **exact geometry**. 
 - **Profiles.** There are 235 exactly realisable profiles at length ≤ 5. **151 are listed and 84 refine a listed partition, with 0 violations.**
 - **Incumbent.** It is realisable, listed and capped-rank dominant in every window.
 
+**Length 6 (recorded run, about 20 min, not in the registered verifier because of runtime).** There are 239 realisable profiles, 151 listed and 88 refining, with 0 violations.
+
+**A tightness observation.** For each window, the realisable set is contained in the relaxed set of #4567/#4581/#4582/#4587, because the relaxation contains every actual path. At length 6 the total, 239, equals those certificates' 239 window/profile pairs. So **every relaxed profile is realised exactly by some actual word of length ≤ 6**: the relaxation is tight for these 128 windows.
+
 So #4585's coarsened lists are consistent with exact geometry where they differ from the relaxed sets of the other certificates. Its smaller lists still cover every realised profile by refinement.
 
 ## Verify
