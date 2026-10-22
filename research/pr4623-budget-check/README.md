@@ -25,6 +25,8 @@ Nothing is imported from #4623.
 | complex | .006 | −2.6366097978 | −132.6282065738 |
 | BIT | .007 | −3.5731057049 | −133.1717283853 |
 
+- **Monotone extension (separator premise).** The equal-rank signed terms of h are positive only above the separator (complex: ranks 7, 8 and 9 above 6; BIT: rank 8 above 7.5) and negative only below it. The Jensen base 1 + b + 2b/p lies above the separator and the rank-one thin queries lie below it. So J_p(t)/separator^t increases in t, and the exclusion extends to every larger saving, as #4623 states.
+
 ## Verify
 
 ```text
@@ -35,10 +37,10 @@ The check takes under 1 s and uses the standard library only.
 
 ## Limitations
 
-**Not checked:** the monotone extension to larger savings, the repeated-evaluation and decoder barriers, and the precision lemma.
+**Not checked:** the repeated-evaluation and decoder barriers, and the precision lemma.
 
 ## Open next questions
 
-- **Monotone extension.** Check the separator argument independently: after division by separator^t, every signed summand of J_p is increasing. First step: list the equal-rank signed terms of h for both inventories and compare each against the separator, 6 for complex and 15/2 for BIT.
+- **Decoder barrier.** Check #4623's copied-input decoder rank p − 1 independently. First step: rebuild the per-port query matrix for p = 2 and 3 exactly.
 
 Credit: dillona (Dillon) for #4623; Cinna Davis and the #4440/#4470/BIT lineage. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
