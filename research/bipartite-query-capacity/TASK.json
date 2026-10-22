@@ -63,9 +63,9 @@
   "ai_assistance": "Independent human and formal proof-kernel review are unclaimed.",
   "open_questions": [
     {
-      "question": "Which changed nonbipartite permitted-read masks admit a block query rate below integral coordinate sharing?",
+      "question": "Which triangle-free nonbipartite permitted-read masks, if any, admit a block query rate below integral edge sharing?",
       "why_it_matters": "Bipartite masks cannot provide such a gain under this contract.",
-      "first_step": "Supply one exact matrix factorization on a named nonbipartite mask and compare with its integral sharing optimum.",
+      "first_step": "Supply one exact fitting factorization on a named triangle-free nonbipartite mask and compare with its integral edge-sharing optimum.",
       "blocked_by": "No such candidate or physical read contract is supplied here."
     },
     {

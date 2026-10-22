@@ -97,8 +97,8 @@ The registered scientific replay needs only the Python standard library.
 
 ## Open next questions
 
-Can one named nonbipartite mask support a block query rate below its integral
-coordinate-sharing optimum? Start with an exact fitting identity and price every
+Can one named triangle-free nonbipartite mask support a block query rate below
+its integral coordinate-sharing optimum? Start with an exact fitting identity and price every
 required read. The present theorem offers no candidate or native contract.
 
 Can an attaining pair-query factorization fit a fully charged native consumer?
