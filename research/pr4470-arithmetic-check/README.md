@@ -15,8 +15,9 @@ package is self-contained.
    That is **53 fewer paid jobs** per local call. The helper profile changes from
    {4:26, 5:2, 7:29, 8:42, 9:309} to {4:28, 7:7, 8:47, 9:326}. Both rank masses rise by **37**.
 3. **The surplus-gain polynomial.** It is `17 + 126·2^t − 50·3^t − 42·4^t + 2·5^t − 22·7^t + 5·8^t + 17·9^t`,
-   derived independently from the two profiles. It vanishes at `t = 1` and is positive on a 999-point grid
-   of `(0, 1)`. #4470 proves positivity by a derivative interval cover; this check only samples.
+   derived independently from the two profiles. It vanishes at `t = 1`, and **its derivative is certified negative on
+   `[0, 1]`** by interval bounds on 256 subintervals. So the gain is positive on `(0, 1)`, matching #4470's
+   own derivative-cover proof by independent code.
 4. **The raw root.** With certified intervals, `T_t > P_t` at 0.0030201659770 and `T_t < P_t` at
    0.0030201659771, which reproduces #4470's enclosure.
 5. **The tails** at the tested saving `604031/200000000`, `u = 1/5`, cutoff 20, floor 21:
@@ -54,7 +55,6 @@ package is self-contained.
 
 ## Not covered
 - The native word and the controller replay.
-- Positivity of the gain polynomial as a proof.
 
 ## Reproduce
 

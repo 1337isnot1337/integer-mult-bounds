@@ -159,7 +159,18 @@ def main():
     coef = {k: c for k, c in coef.items() if c}
     need(coef == {1: 17, 2: 126, 3: -50, 4: -42, 5: 2, 7: -22, 8: 5, 9: 17}, "surplus-gain polynomial")
     need(sum(c * k for k, c in coef.items()) == 0, "gain vanishes at t = 1")
-    need(min(sum(c * k ** (i / 1000) for k, c in coef.items()) for i in range(1, 1000)) > 0, "gain positive on a grid of (0,1)")
+    # rigorous: g(1) = 0 and g'(t) = sum c_k ln k k^t < 0 on [0, 1], certified on 256 subintervals with interval bounds
+    pieces = 256
+    for i in range(pieces):
+        t0, t1 = Q(i, pieces), Q(i + 1, pieces)
+        upper = Q(0)
+        for k, c in coef.items():
+            if k == 1:
+                continue
+            lk = ln(k)
+            lo_pow, hi_pow = powq(k, t0)[0], powq(k, t1)[1]  # k^t on [t0, t1]
+            upper += c * (lk[1] * hi_pow if c > 0 else lk[0] * lo_pow)
+        need(upper < 0, f"g' < 0 on [{t0}, {t1}]")
     lo, hi = Q(30201659770, 10**13), Q(30201659771, 10**13)
     tl, th = moment(Ti, lo); pl, ph = moment(Pi, lo)
     need(tl > ph, "T_t > P_t at the lower root end")
