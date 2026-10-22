@@ -1,4 +1,4 @@
-# #4546's zero shear headroom, recomputed independently and extended to six-shear words
+# #4546's zero shear headroom: recomputed, extended to six-shear words and to all 128 eligible windows
 
 **Task:** independent-moment. **Base:** canonical main `f626db5c`. **No new κ.**
 
@@ -24,6 +24,8 @@ This package recomputes #4546 with separately written code and **extends the cap
 | 10575, 10579 | {1:1, 2:1, 3:1} | 4 / 4 / 4 | 0 |
 | 10577, 10581 | {1:2, 2:1} | 1 / 1 / 1 | 0 |
 
+3. **All 128 eligible windows.** #4546 tested only the first twelve, so this extension covers all 128 eligible adjacent pairs: 123 in phase B and 5 in cleanup_tail. **Every one has an optimistic ceiling of exactly 0 at both length ≤ 4 and length ≤ 6.** At length ≤ 6, 93 windows have one relaxed profile and the others have 2–9, none of which improves on the incumbent.
+
 **Why it does not move.** In this relaxation, every contact frame lies between the forward sum of the operands' current lower bounds and the backward intersection of their exits. For these windows those bounds already pin each field's admissible rank steps. For example, in the `{1:3}` windows a field climbing `0 → 2` has every contact capped at an exit intersection of dimension 1. Longer words only add contacts under the same caps, so they cannot merge the two rank-1 payments. This explains the observed invariance but is **not** proved here for all lengths; the checked statement is lengths ≤ 6.
 
 **Model** (re-implemented from #4546's README):
@@ -44,13 +46,13 @@ This runs in about 3 s with the standard library only.
 
 ## Limitations
 
-- **Coverage.** Only the first twelve of the 128 eligible windows are covered, as in #4546. Only unit coefficients, the same three fields and fixed boundaries are allowed.
+- **Coverage.** All 128 eligible windows are covered, but only with unit coefficients, the same three fields and fixed boundaries.
 - **Lengths.** Lengths above 6 are not checked, and the structural explanation above is not a proof for all lengths.
 - **Overlap.** Individual window results must not be summed across overlapping windows.
 
 ## Open next questions
 
 - Prove the length-independence: show that the relaxed-profile set of a window is determined by its start and exit frames. First step: characterise the reachable contact dimensions from the pairwise exit intersections and start sums alone.
-- Apply the same computation to the other 116 eligible windows, with a structural reason to expect headroom first, as #4546 asks.
+- Change the model, as #4546 suggests, now that length ≤ 6 is closed on every eligible window: nonunit coefficients, owned-field allowances or nonadjacent pairs.
 
 Credit: Clear1nsight (#4546), Cinna Davis (#4470), and zxv's receiver-sharing and helper work. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

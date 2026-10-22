@@ -84,9 +84,9 @@
   "scope_change_reason": null,
   "bottleneck_link": "Strengthens a negative result on the native supplier: no optimistic paid-moment headroom from up to six unit shears in #4546's twelve windows, so a profile change must come from a different model.",
   "budget_minutes": 45,
-  "stop_rule": "Stop at length 6 on #4546's twelve windows.",
+  "stop_rule": "Stop at length 6 on all 128 eligible windows.",
   "outcome": "negative-result",
-  "evidence": "Own window extraction from main's #4470 constructor matches #4546 on all twelve windows; length<=4 census and ceilings reproduced exactly; lengths 5 and 6 (272 and 3,812 matching words per window) leave the relaxed-profile sets unchanged and every ceiling exactly 0.",
+  "evidence": "Own window extraction from main's #4470 constructor matches #4546 on its twelve windows (length<=4 census and ceilings reproduced exactly); lengths 5 and 6 leave those twelve unchanged at 0; all 128 eligible windows (123 B, 5 cleanup_tail) have ceiling exactly 0 at lengths <=4 and <=6.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [

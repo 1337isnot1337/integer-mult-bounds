@@ -289,7 +289,8 @@ def main():
     ref = {w["index"]: w for w in json.loads(raw)["windows"]}
     c, program = construct()
     wins = extract_windows(c, program)
-    need(len(wins) >= 12, "at least twelve windows")
+    need(len(wins) == 128, "#4546's 128 eligible windows")
+    every = wins
     wins = wins[:12]
     rows = []
     for w in wins:
@@ -318,8 +319,25 @@ def main():
                                 "best_gain_upper": str(best), "positive": best > 0}
         rows.append(row)
     summary = {L: sum(1 for r in rows if r[f"len<={L}"]["positive"]) for L in (4, 5, 6)}
+    # All 128 eligible windows (#4546 tested only the first twelve): lengths <= 4 and <= 6.
+    phases = Counter(w["phase"] for w in every)
+    profile_counts = Counter()
+    for w in every:
+        old = actual_profile(w["starts"], w["ends"], w["frames"])
+        for L in (4, 6):
+            ms, _ = matches(*w["coefficients"], L)
+            profiles = set()
+            for word in ms:
+                profiles |= relaxed(w["starts"], w["ends"], word)
+            need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling, window {w['index']}, len<={L}")
+            if L == 6:
+                profile_counts[len(profiles)] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
-                      "windows_with_positive_optimistic_gain": summary, "new_kappa_claimed": False}, indent=1))
+                      "windows_with_positive_optimistic_gain": summary,
+                      "all_eligible_windows": {"count": len(every), "phases": dict(phases),
+                                               "zero_ceiling_len<=4": len(every), "zero_ceiling_len<=6": len(every),
+                                               "relaxed_profile_count_histogram_len<=6": dict(sorted(profile_counts.items()))},
+                      "new_kappa_claimed": False}, indent=1))
 
 
 if __name__ == "__main__":
