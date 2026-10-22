@@ -37,8 +37,10 @@ python3.12 -B scripts/research_package.py --package research/typed-quotient-path
 The package authenticates exact PR4654 input bytes, computes the helper
 profile from its native word, independently recounts paid jobs and checks
 both formal Laurent matrix orientations. It relies on the supplied typed
-operator theorem; it does not repeat PR4654's full native/phase proof or
-claim its maintainer acceptance. Original source pins are in inputs/ORIGINS.json.
+operator theorem. A separate full PR4654 portable verifier replay also passed
+on Linux/CPython 3.12.15; see LINUX-SOURCE-REPLAY.json. That finite replay does
+not independently review its universal proof or claim maintainer acceptance.
+Original source pins are in inputs/ORIGINS.json.
 
 ## Open next questions
 
