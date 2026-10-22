@@ -25,7 +25,20 @@ in temporary directories. Comparisons use canonical decompressed content;
 gzip OS header differences across Python versions are excluded. Immutable
 input archive hashes remain checked.
 
-Committed-byte/source-history and fresh source-export receipts are recorded
-with their actual publication commits after those checks. No external human
+Scientific commit `c0945c235432fc83547c2db80896ba8a64b5f49f` passed the
+43-file committed-byte/source-history preflight and committed export integrity
+check. A fresh43-file Git-free export then passed both direct scripts under
+CPython3.12.14 `-I -O -B`, with an empty PATH (2026-10-22T19:13:24Z).
+No network-denial policy is claimed for that replay. Later publication records
+are metadata-only and retain the scientific implementation.
+
+Before submission the canonical main fetch remained
+`b58ad9ef4d4e861b0eaa5dba41742bdc072dca51`. The overlap refresh covered506 open
+PRs,3858 closed PRs and3667 Discussion records with complete reported remote
+pagination; sparse local note coverage was incomplete. Literal-term results
+are leads, not proof of novelty. The current BIT source, PR4697 and the relevant
+recent typed-interface/outer proposals were compared at their pinned heads.
+
+No external human
 review, hosted-CI success, selected full cold replay, materialized uniform
 template or new global multiplication κ is claimed here.
