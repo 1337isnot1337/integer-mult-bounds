@@ -8,8 +8,8 @@ masses 239,886 / 239,134, surplus 752); the local profile change against #4447 (
 both masses +37) and its surplus-gain polynomial (vanishes at t = 1, positive on a grid of (0, 1)); the raw root
 bracket (0.0030201659770, 0.0030201659771); and the higher-moment tails alpha, gamma_u, delta at #4470's tested
 saving 604031/200000000, u = 1/5, cutoff 20, floor 21, against its limits 1 - 1e-9, 97/100, 97/100.
-Invoices are as printed in #4470; nothing is imported from it. Not checked: the logarithmic compiler (H = 6.42e13)
-and the outer rows. Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
+Invoices are as printed in #4470; nothing is imported from it. Also the logarithmic compiler conditions at ambient 145^1024
+(theta 63/64, p = 1000) and the sufficiency of H = 64,215,200,000,000. Not checked: the outer rows. Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 from fractions import Fraction as Q
 import json
@@ -123,6 +123,22 @@ def mom(hist, expo):
 
 
 
+def ln_int(n):
+    k = n.bit_length() - 1
+    y = Q(n, 2 ** k)
+    u = (y - 1) / (y + 1)
+    s, term, j = Q(0), u, 0
+    while True:
+        s += term / (2 * j + 1)
+        j += 1
+        term *= u * u
+        tail = term / (2 * j + 1) / (1 - u * u) if u else Q(0)
+        if tail < Q(1, 10**40):
+            break
+    l2 = ln(2)
+    return 2 * s + k * l2[0], 2 * (s + tail) + k * l2[1]
+
+
 P = {"1": 41946, "16": 448, "2": 6984, "24": 448, "3": 8892, "32": 448, "4": 2646, "40": 448, "48": 448, "5": 648, "56": 448, "64": 448, "72": 224, "8": 144}
 T = {"145": 224, "17": 448, "25": 448, "33": 448, "4": 504, "41": 448, "49": 448, "57": 448, "65": 448, "7": 126, "73": 224, "8": 846, "9": 5868}
 
@@ -157,7 +173,20 @@ def main():
     need(alpha < 1 - Q(1, 10**9) and gamma < Q(97, 100) and delta < Q(97, 100), "tails within #4470's limits")
     need(abs(float(alpha) - 0.999999988558808354) < 1e-15 and abs(float(gamma) - 0.956176646497545) < 1e-12
          and abs(float(delta) - 0.958284435309221) < 1e-12, "tails match #4470's printed values")
-    print(json.dumps({"status": "PASS_PR4470_ARITHMETIC_CHECK", "paid_jobs": 64620, "fields": 10928, "surplus": 752,
+    # logarithmic compiler (polylog majorant) at ambient m = 145^v (largest target rank), v = 1024, c = 20, b = 21
+    v, c, b, tb, p = 1024, 20, 21, Q(63, 64), 1000
+    A_, Bd = tb.numerator, tb.denominator
+    need(max(Ti) == 145 and c ** Bd < b ** A_, "compiler: ambient 145, theta = log c / log b < 63/64")
+    need((Bd - A_) + Bd * v * ln(c)[1] / ln(2)[0] <= A_ * v * ln(145)[0] / ln(2)[1], "compiler: 2^(b-a) r^b <= m^a")
+    ln_eta_lo = lnq(t)[0] - v * tested * ln(145)[1]
+    need(p * lnq(tb)[1] < ln_eta_lo, "compiler: theta_bar^p < eta")
+    need(v * tested * ln(145)[1] < p * ln(2)[0], "compiler: m^(1-t) < 2^p")
+    uniform = Q(528527, 175000000)
+    zt = (1 - uniform) - t
+    need(zt == Q(1, 1400000000), "compiler: z - t = 1/1400000000")
+    H = 64215200000000
+    need(p * ln_int(H + 1)[1] < zt * H * ln(2)[0], "compiler: (1+H)^p < 2^((z-t)H) at the stated H")
+    print(json.dumps({"status": "PASS_PR4470_ARITHMETIC_CHECK", "compiler_H_sufficient": H, "paid_jobs": 64620, "fields": 10928, "surplus": 752,
                       "root_bracket": ["0.0030201659770", "0.0030201659771"], "alpha_upper": f"{float(alpha):.15f}",
                       "gamma_upper": f"{float(gamma):.12f}", "delta_upper": f"{float(delta):.12f}",
                       "new_kappa_claimed": False}, indent=1))

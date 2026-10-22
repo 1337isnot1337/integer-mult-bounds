@@ -26,9 +26,17 @@ package is self-contained.
 
    All three match #4470's printed values.
 
+6. **The logarithmic compiler**, at ambient `145^{1024}` (the largest target rank), `θ̄ = 63/64` and
+   `p = 1000`:
+   - `θ = log 20/log 21 < 63/64`;
+   - `2^{b−a}r^b ≤ m^a`;
+   - `θ̄^p < η`;
+   - `m^{1−t} < 2^p`;
+   - `z − t = 1/1400000000` exactly;
+   - the stated `H = 64,215,200,000,000` satisfies `(1+H)^p < 2^{(z−t)H}`.
+
 ## Not covered
 
-- The logarithmic compiler (`H = 64,215,200,000,000`).
 - The nine outer rows.
 - The native word and the controller replay.
 - Positivity of the gain polynomial as a proof.
@@ -44,9 +52,8 @@ The verifier prints `PASS_PR4470_ARITHMETIC_CHECK` in about 2 seconds, using onl
 
 ## Open next questions
 
-1. **The compiler and the outer rows of #4470.**
-   - *First step:* the polylog compiler conditions, as in #4455's #4447 check, at `theta = 63/64`,
-     `p = 1000`.
+1. **The outer rows of #4470.**
+   - *First step:* recompute the nine outer margins from the ledger formulas at κ = 0.00302015.
 
 ## Credit
 
