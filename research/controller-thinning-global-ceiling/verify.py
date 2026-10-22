@@ -200,7 +200,8 @@ def main():
     if args.write:
         (HERE/'RESULT.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
     else:
-        need(json.loads((HERE/'RESULT.json').read_text()) == result, 'Committed exact receipt')
+        need(json.loads((HERE/'RESULT.json').read_text()) == json.loads(json.dumps(result)),
+             'Committed exact receipt')
     print(json.dumps(result, sort_keys=True))
 
 
