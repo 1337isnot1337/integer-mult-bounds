@@ -3081,3 +3081,71 @@ Source archives retain attribution; mathematical review remains open.
 Source archives retain attribution; mathematical review remains open.
 
 - **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4435](https://github.com/CrocSwap/integer-mult-bounds/pull/4435): Derive the broad forward inverse asymptotics: ||K^-1||_2 ~ e^(a/4)/(2 alpha sqrt(pi)) theta^(-1/2) from a turning-point harmonic oscillator; confirmed to 0.3% (no new κ) (source archive).
+
+## Queue intake, 21 October 2026 (chunk E)
+
+Source archives retain attribution; mathematical review remains open.
+
+- **DreamingOfClouds (@DreamingOfClouds)** — [#3191](https://github.com/CrocSwap/integer-mult-bounds/pull/3191): Row 579 (DEG2 = C6): the last open row of the one-sided ledger, 603/603 KILLED; follow-up to #3154 (source archive).
+- **zxv (@zxv)** — [#4436](https://github.com/CrocSwap/integer-mult-bounds/pull/4436): Bound compiler width by exp(O(N log N)) and route overlapping ranks (source archive).
+- **James Reed (@jwr404)** — [#4437](https://github.com/CrocSwap/integer-mult-bounds/pull/4437): Extend the ideal column majorant across every legal g=2 step (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4438](https://github.com/CrocSwap/integer-mult-bounds/pull/4438): Bound the within-cell column gap by a relative weight error of 1/(16p^2) (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4439](https://github.com/CrocSwap/integer-mult-bounds/pull/4439): Apply the smaller halo exponents inside one cell, with normalizer 6 (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4440](https://github.com/CrocSwap/integer-mult-bounds/pull/4440): Conditional κ = 0.00296 via query-thinned productive controllers (+10.18%) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4441](https://github.com/CrocSwap/integer-mult-bounds/pull/4441): Conditional κ = 0.00300105 (+4.105e-5 over #4440): combine query thinning and helper retiming (source archive).
+- **James Reed (@jwr404)** — [#4442](https://github.com/CrocSwap/integer-mult-bounds/pull/4442): Apply the smaller halo exponents across a cell, under the downward reading (no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4446](https://github.com/CrocSwap/integer-mult-bounds/pull/4446): Independent retimed p17 certificate: conditional kappa = 0.003001053 (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4447](https://github.com/CrocSwap/integer-mult-bounds/pull/4447): Conditional kappa = 0.00300123 via a missing three-dimensional contact span (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4448](https://github.com/CrocSwap/integer-mult-bounds/pull/4448): Independently reconstruct PR4441 helper tariffs and complete p17 invoice (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4449](https://github.com/CrocSwap/integer-mult-bounds/pull/4449): Prove the downward rounding contract for across-cell Gaussian entries (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4450](https://github.com/CrocSwap/integer-mult-bounds/pull/4450): Audit THREE-base supplier billing from native events (no new kappa) (source archive).
+- **James Reed (@jwr404)** — [#4451](https://github.com/CrocSwap/integer-mult-bounds/pull/4451): The published 4η weight error meets the 1/(16p^2) ratio budget (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4452](https://github.com/CrocSwap/integer-mult-bounds/pull/4452): Lower the within-cell halo exponents to 11, 24, 26, 26 and 6 (no new κ) (source archive).
+- **zxv (@zxv)** — [#4453](https://github.com/CrocSwap/integer-mult-bounds/pull/4453): Conditional κ = 0.00300120 (71.9× smaller uniform-rank exponent) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4454](https://github.com/CrocSwap/integer-mult-bounds/pull/4454): Extend the rank dual to four planes: COPY floor 16 over every field on 361,706 of 367,290 plane quadruples; 5,584 open (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4455](https://github.com/CrocSwap/integer-mult-bounds/pull/4455): Independently check the p17 chain #4440, #4441, #4446, #4447, #4453 (kappa 0.00296..0.0030012): invoices, strictification, roots and compiler ranks hold (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4456](https://github.com/CrocSwap/integer-mult-bounds/pull/4456): Independently check #4436's direct overlapping flow: all 9 recorded flows reproduced, exact potential identity to rank 1000, L(1000) matches (no new κ) (source archive).
+- **Matarener (@Matarener)** — [#4457](https://github.com/CrocSwap/integer-mult-bounds/pull/4457): Independently execute #4440's controllers and #4447's native word on lifted operators and physical frames; check #4359's delayed cover (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4459](https://github.com/CrocSwap/integer-mult-bounds/pull/4459): research: #4436 boundary exits — exact mirror identity, rigorous share bound 0.321, and a correction (leaf exits dominate) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4460](https://github.com/CrocSwap/integer-mult-bounds/pull/4460): Independently check #4451/#4452: within-cell halo exponents 11, 24, 26, 26, 6 under delta (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4462](https://github.com/CrocSwap/integer-mult-bounds/pull/4462): Transfer the δ halo exponents 11, 24, 26, 26, 6 across cells; robust to the 'rounded' reading (no new κ) (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4463](https://github.com/CrocSwap/integer-mult-bounds/pull/4463): Add a source-bound baseline for the selected productive-helper schema (reviewed workflow).
+- **mihir-s-05 (@mihir-s-05)** — [#4464](https://github.com/CrocSwap/integer-mult-bounds/pull/4464): research: certify the actual stage-zero Gaussian commutation premise (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4465](https://github.com/CrocSwap/integer-mult-bounds/pull/4465): research: refined-induction ceiling on #4436's direct flow grows with lockstep depth (log-gap g, no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4466](https://github.com/CrocSwap/integer-mult-bounds/pull/4466): Independently check #4464's stage-zero commutation; the recorded translations are forced: t_i = [c_i ≡ 3 mod 4] (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4467](https://github.com/CrocSwap/integer-mult-bounds/pull/4467): research: #4436 direct-flow leaf walk — exact √G regime to depth 60, predicted saturation keeps the refined-induction cap below s* (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4468](https://github.com/CrocSwap/integer-mult-bounds/pull/4468): Independently check #4437: the ideal column majorant holds (and is attained) across g = 2 steps (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4469](https://github.com/CrocSwap/integer-mult-bounds/pull/4469): Independently check #4438: within-cell gauge column transfer (C = 3 least, equality at p = 2; no new κ) (source archive).
+- **Cinna Davis (@1337isnot1337)** — [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470): Conditional kappa = 0.00302015 (+0.6304% over #4447): joint helper boundaries (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4471](https://github.com/CrocSwap/integer-mult-bounds/pull/4471): Independently check #4439/#4442: halo exponents 12, 26, 28, 28, 6 under eps = 1/(16p^2) (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4472](https://github.com/CrocSwap/integer-mult-bounds/pull/4472): Independently check #4449: across-cell downward rounding contract (exact exponent, repair lemma, sharpness; no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4473](https://github.com/CrocSwap/integer-mult-bounds/pull/4473): Disposition receipt for the Gaussian halo-exponent PR chain (13 open PRs; none retained; one unchecked) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4474](https://github.com/CrocSwap/integer-mult-bounds/pull/4474): Disposition receipt for the p17 κ ≈ 0.003 PR chain (stacked content, pin-only differences, docs conflict with #4436) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4475](https://github.com/CrocSwap/integer-mult-bounds/pull/4475): Independently recount #4450's THREE-base paid census (3,554 calls, rank mass 5,157, both orientations; no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4476](https://github.com/CrocSwap/integer-mult-bounds/pull/4476): Independently check #4436 §3 on raw p7: width factor, exact routing-slot identity, N log N growth (no new κ) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4477](https://github.com/CrocSwap/integer-mult-bounds/pull/4477): Disposition receipt for the #4436 direct-flow chain (6 PRs; one withdrawn claim recorded) (source archive).
+- **Ryanson (Ryan) Jonathan (@pinterbanget)** — [#4478](https://github.com/CrocSwap/integer-mult-bounds/pull/4478): Independently check #4470's arithmetic (κ = 0.00302015): invoice, local change, root bracket, tails (no new κ) (source archive).
+- **David Ganz (@Dugongue)** — [#4479](https://github.com/CrocSwap/integer-mult-bounds/pull/4479): Reduce #4470 local compiler rank 115× at unchanged conditional κ (source archive).
+- **zxv (@zxv)** — [#4480](https://github.com/CrocSwap/integer-mult-bounds/pull/4480): Reduce sufficient uniform-rank exponent 18.28× with net taxes and log moments (source archive).
+- **James Reed (@jwr404)** — [#4481](https://github.com/CrocSwap/integer-mult-bounds/pull/4481): Keep the 10 p^2 row margin through a Schur complement (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4482](https://github.com/CrocSwap/integer-mult-bounds/pull/4482): Lower the core side exponent from 400 to 80 (no new κ) (source archive).
+- **zxv (@zxv)** — [#4483](https://github.com/CrocSwap/integer-mult-bounds/pull/4483): Remove tensor padding (199.32× smaller uniform-rank exponent) (source archive).
+- **James Reed (@jwr404)** — [#4484](https://github.com/CrocSwap/integer-mult-bounds/pull/4484): Absorb the factor (10 p^2)^g in the tensor error (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4485](https://github.com/CrocSwap/integer-mult-bounds/pull/4485): Absorb the telescoping factor (10 p^2)^{g-1} p^6 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4486](https://github.com/CrocSwap/integer-mult-bounds/pull/4486): Absorb the approximant base 10 p^2 + p^6 exp(-p^2) (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4487](https://github.com/CrocSwap/integer-mult-bounds/pull/4487): Absorb the face factor 2 on the approximant monomial (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4488](https://github.com/CrocSwap/integer-mult-bounds/pull/4488): Bound one tensor axis by two section errors (no new κ) (source archive).
+- **David Ganz (@Dugongue)** — [#4489](https://github.com/CrocSwap/integer-mult-bounds/pull/4489): Owned-query shear adapters and portable split-port search (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4490](https://github.com/CrocSwap/integer-mult-bounds/pull/4490): Split one axis through the section polynomial (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4491](https://github.com/CrocSwap/integer-mult-bounds/pull/4491): Place a core row past the agreement radius p^26 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4492](https://github.com/CrocSwap/integer-mult-bounds/pull/4492): Show the Neumann ceiling U is below 10 p^2 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4493](https://github.com/CrocSwap/integer-mult-bounds/pull/4493): Show the smallest Neumann coefficient is 9 (no new κ) (source archive).
+- **David Ganz (@Dugongue)** — [#4494](https://github.com/CrocSwap/integer-mult-bounds/pull/4494): Compile native dyadic blocks: 766 → 698 scalar allowance (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4495](https://github.com/CrocSwap/integer-mult-bounds/pull/4495): Absorb the factor (9 p^2)^g by the same gate (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4496](https://github.com/CrocSwap/integer-mult-bounds/pull/4496): Absorb the telescoping factor (9 p^2)^{g-1} p^6 (no new κ) (source archive).
+- **James Reed (@jwr404)** — [#4497](https://github.com/CrocSwap/integer-mult-bounds/pull/4497): Absorb the approximant base 9 p^2 + p^6 exp(-p^2) (no new κ) (source archive).
+- **David Ganz (@Dugongue)** — [#4499](https://github.com/CrocSwap/integer-mult-bounds/pull/4499): Exact native gauges: 698 → 674 scalar allowance, with a zero-scratch option (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4501](https://github.com/CrocSwap/integer-mult-bounds/pull/4501): Independently audit cross-cell rounding and inverse bounds (no new kappa) (source archive).
+- **David Ganz (@Dugongue)** — [#4502](https://github.com/CrocSwap/integer-mult-bounds/pull/4502): Borrowed rank-one adapters: 674 → 666 scalar allowance with no extra fields (source archive).
+- **mihir-s-05 (@mihir-s-05)** — [#4504](https://github.com/CrocSwap/integer-mult-bounds/pull/4504): Independently audit #4470 chronological frames and paid invoice (no new kappa) (source archive).
+- **David Ganz (@Dugongue)** — [#4505](https://github.com/CrocSwap/integer-mult-bounds/pull/4505): Install #4502 adapters: full native replay saves 100 scalar allowance per orientation (source archive).
