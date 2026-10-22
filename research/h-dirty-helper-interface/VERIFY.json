@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fresh-helper-boundary/CHANGES.json",
+    "research/fresh-helper-boundary/native.py",
+    "research/joint-helper-lattice/PATCH.json",
+    "research/joint-helper-lattice/native_joint.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/native_common.py",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/DATA-PHASES.json",
+    "research/kappa-0023-productive-jobs/dependencies/kappa-next-regime/direct-decoder/sources/certificate.json.gz",
+    "research/kappa-causal-continuation/buffer-borrowing/verify_buffers.py",
+    "research/kappa-function-composition/complex/prune_native.py",
+    "research/kappa-rebuild/architecture/mixed_target_probe.py",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/kappa-rebuild/complex/native_extensions.py",
+    "research/kappa-rebuild/complex/power_two_balance.py",
+    "research/kappa-rebuild/complex/rebuild_native.py",
+    "research/missing-join-frame/PATCH.json",
+    "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/probe.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Reproduce both raw arbitrary-input defect matrices from pinned source snapshots."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/concentrate.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Reproduce integer basis, both 632-column interfaces, literal paid-operation equality and emitted word."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/rectangular_probe.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Verify the separate dyadic basis and 112-by-128 rectangular right-inverse algebra; no native sixteen-state admission."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/cache_budget.py",
+        "--check"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Exact conditional cache-state budget, with disjoint versus shared-head target repricing; all global closures explicitly hypothetical."
+    }
+  ]
+}

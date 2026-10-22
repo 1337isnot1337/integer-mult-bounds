@@ -1,0 +1,5456 @@
+{
+  "status": "EXACT_EIGHT_STATE_PORT_INTERFACE",
+  "state_roles": [
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231
+  ],
+  "original_affected_helpers": 106,
+  "remaining_clean_helpers": 400,
+  "original_clean_rank9_helpers": 326,
+  "remaining_clean_rank9_helpers": 318,
+  "rank": 8,
+  "pivots": [
+    "-1/2",
+    "1/4",
+    "1/2",
+    "-1/2",
+    "1/2",
+    "-1/2",
+    "-1/2",
+    "-1"
+  ],
+  "elementary_operations": 553,
+  "differences": {
+    "backward": [
+      {
+        "output": 224,
+        "input": "(('L', 112), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 119), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 120), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 121), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 122), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 123), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 124), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 125), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 126), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 127), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 138), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 139), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 140), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 141), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 142), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 143), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 144), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 145), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 146), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 160), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 161), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 162), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 163), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 164), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 165), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 166), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 167), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 168), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 169), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 170), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 171), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 172), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 173), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 174), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 175), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 176), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 177), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 178), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 190), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 191), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 197), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 198), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 204), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 205), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 206), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 207), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 208), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 209), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 210), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 211), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 212), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 213), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 224,
+        "input": "(('L', 214), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 113), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 114), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 117), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 118), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 119), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 120), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 121), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 122), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 123), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 125), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 126), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 127), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 128), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 129), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 130), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 133), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 134), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 135), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 136), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 137), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 138), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 140), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 141), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 142), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 144), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 145), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 146), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 147), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 149), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 150), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 151), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 152), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 153), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 154), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 155), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 156), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 157), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 158), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 160), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 161), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 162), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 163), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 164), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 165), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 166), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 170), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 171), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 172), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 173), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 174), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 175), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 177), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 178), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 181), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 182), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 183), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 184), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 185), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 186), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 187), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 188), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 189), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 190), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 191), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 193), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 194), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 195), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 196), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 197), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 198), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 199), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 201), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 202), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 203), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 204), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 205), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 206), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 207), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 208), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 209), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 210), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 211), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 214), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 215), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 216), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 217), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 218), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 219), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 220), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 221), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 225,
+        "input": "(('L', 223), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 114), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 115), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 116), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 117), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 120), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 121), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 122), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 123), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 124), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 125), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 126), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 127), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 128), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 129), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 130), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 131), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 134), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 135), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 136), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 137), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 138), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 139), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 143), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 147), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 150), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 151), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 152), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 153), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 154), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 155), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 156), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 157), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 163), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 164), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 165), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 166), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 167), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 168), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 169), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 173), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 174), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 175), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 176), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 177), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 178), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 179), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 180), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 181), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 182), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 183), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 184), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 188), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 189), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 190), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 191), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 192), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 193), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 200), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 201), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 202), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 203), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 206), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 207), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 208), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 209), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 211), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 212), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 213), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 214), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 215), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 216), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 217), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 218), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 219), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 220), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 226,
+        "input": "(('L', 221), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 115), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 116), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 117), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 121), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 122), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 123), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 124), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 128), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 134), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 135), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 136), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 140), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 141), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 142), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 143), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 147), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 153), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 154), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 155), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 156), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 157), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 166), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 167), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 168), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 169), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 170), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 171), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 172), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 173), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 174), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 175), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 179), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 180), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 181), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 188), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 191), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 192), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 193), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 198), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 199), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 200), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 204), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 205), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 206), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 212), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 213), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 214), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 216), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 217), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 218), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 219), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 220), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 227,
+        "input": "(('L', 221), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 116), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 118), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 119), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 120), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 121), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 122), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 123), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 126), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 130), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 132), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 134), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 136), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 141), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 143), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 144), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 146), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 147), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 149), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 150), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 152), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 154), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 158), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 161), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 164), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 166), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 168), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 169), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 170), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 172), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 173), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 175), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 177), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 179), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 181), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 183), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 186), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 189), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 191), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 192), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 193), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 194), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 196), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 197), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 202), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 204), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 205), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 206), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 207), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 209), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 213), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 217), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 220), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 228,
+        "input": "(('L', 222), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 117), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 118), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 119), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 120), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 121), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 122), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 123), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 127), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 131), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 133), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 135), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 136), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 142), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 143), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 144), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 145), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 147), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 148), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 150), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 151), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 153), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 159), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 162), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 165), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 167), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 168), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 169), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 170), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 171), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 173), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 174), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 176), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 179), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 180), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 182), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 185), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 189), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 191), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 192), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 193), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 194), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 195), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 197), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 203), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 204), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 205), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 206), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 207), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 208), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 214), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 218), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 221), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 229,
+        "input": "(('L', 223), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 118), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 119), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 120), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 121), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 122), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 123), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 124), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 125), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 126), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 127), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 128), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 129), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 130), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 131), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 132), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 133), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 134), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 135), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 136), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 137), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 138), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 139), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 140), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 141), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 142), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 156), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 157), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 158), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 159), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 160), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 161), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 162), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 163), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 164), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 165), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 166), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 167), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 168), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 169), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 170), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 171), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 172), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 173), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 174), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 175), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 176), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 177), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 178), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 179), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 180), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 181), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 182), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 183), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 184), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 185), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 186), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 187), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 188), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 189), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 190), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 197), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 198), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 199), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 200), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 201), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 202), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 203), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 204), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 205), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 206), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 207), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 208), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 230,
+        "input": "(('L', 209), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 124), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 125), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 126), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 127), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 128), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 129), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 130), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 131), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 132), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 133), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 134), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 135), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 136), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 137), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 138), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 139), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 140), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 141), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 142), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 143), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 144), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 145), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 146), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 147), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 148), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 149), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 150), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 151), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 152), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 153), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 154), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 155), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 156), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 157), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 158), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 159), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 160), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 161), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 162), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 163), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 164), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 165), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 166), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 167), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 168), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 169), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 170), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 171), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 172), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 173), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 174), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 175), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 176), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 177), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 178), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 179), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 180), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 181), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 182), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 183), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 184), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 185), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 186), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 187), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 188), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 189), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 190), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 191), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 192), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 193), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 194), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 195), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 196), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 198), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 199), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 200), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 201), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 202), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 203), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 204), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 205), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 206), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 207), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 208), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 231,
+        "input": "(('L', 209), ())",
+        "coefficient": "-1"
+      }
+    ],
+    "forward": [
+      {
+        "output": 112,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 113,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 114,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 114,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 115,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 115,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 116,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 116,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 116,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 117,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 117,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 117,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 117,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 118,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 118,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 118,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 118,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 119,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 119,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 119,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 119,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 119,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 120,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 121,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 122,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 229), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 123,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 124,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 124,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 124,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 124,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 124,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 125,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 125,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 125,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 125,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 125,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 126,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 127,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 128,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 128,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 128,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 128,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 128,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 129,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 129,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 129,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 129,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 130,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 130,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 130,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 130,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 130,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 131,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 131,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 131,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 131,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 132,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 132,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 132,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 133,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 133,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 133,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 133,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 134,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 135,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 136,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 137,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 137,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 137,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 137,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 138,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 138,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 138,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 138,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 138,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 139,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 139,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 139,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 139,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 140,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 140,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 140,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 140,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 140,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 141,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 142,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 143,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 144,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 144,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 144,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 144,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 144,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 145,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 145,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 145,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 145,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 146,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 146,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 146,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 146,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 147,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 148,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 148,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 149,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 149,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 149,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 150,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 150,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 150,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 150,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 150,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 151,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 151,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 151,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 151,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 152,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 152,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 152,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 152,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 153,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 153,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 153,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 153,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 153,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 154,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 154,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 154,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 154,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 154,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 155,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 155,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 155,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 155,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 156,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 156,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 156,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 156,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 156,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 157,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 157,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 157,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 157,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 157,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 158,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 158,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 158,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 158,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 159,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 159,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 159,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 160,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 160,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 160,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 160,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 161,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 161,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 161,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 161,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 161,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 162,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 162,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 162,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 162,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 162,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 163,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 163,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 163,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 163,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 163,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 164,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 165,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 166,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 167,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 168,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 227), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 169,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 170,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 171,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 172,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 173,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 174,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 175,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 176,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 176,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 176,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 176,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 176,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 177,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 178,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 178,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 178,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 178,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 178,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 179,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 180,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 180,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 180,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 180,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 180,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 181,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 182,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 182,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 182,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 182,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 182,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 183,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 183,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 183,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 183,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 183,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 184,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 184,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 184,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 184,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 185,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 185,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 185,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 185,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 186,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 186,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 186,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 186,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 187,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 187,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 187,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 188,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 188,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 188,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 188,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 188,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 189,
+        "input": "(('L', 231), ())",
+        "coefficient": "3/2"
+      },
+      {
+        "output": 190,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 190,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 190,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 190,
+        "input": "(('L', 230), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 190,
+        "input": "(('L', 231), ())",
+        "coefficient": "-3/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 191,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 192,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 192,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 192,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 192,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 192,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 193,
+        "input": "(('L', 231), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 194,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 194,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 194,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 194,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 195,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 195,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 195,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 196,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 196,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 196,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 197,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 197,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 197,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 197,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 197,
+        "input": "(('L', 230), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 198,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 198,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 198,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 198,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 198,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 199,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 199,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 199,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 199,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 200,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 200,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 200,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 200,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 201,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 201,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 201,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 201,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 202,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 202,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 202,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 202,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 202,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 203,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 203,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 203,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 203,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 203,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 230), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 204,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 227), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 205,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 225), ())",
+        "coefficient": "-3/4"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 230), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 206,
+        "input": "(('L', 231), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 207,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 208,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 224), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 225), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 230), ())",
+        "coefficient": "-1"
+      },
+      {
+        "output": 209,
+        "input": "(('L', 231), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 210,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 210,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 211,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 211,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 211,
+        "input": "(('L', 226), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 212,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 212,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 212,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 213,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 213,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 213,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 213,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 214,
+        "input": "(('L', 224), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 214,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 214,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 214,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 214,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 215,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 215,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 216,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 216,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 216,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 217,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 217,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 217,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 217,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 218,
+        "input": "(('L', 225), ())",
+        "coefficient": "3/4"
+      },
+      {
+        "output": 218,
+        "input": "(('L', 226), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 218,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 218,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 219,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 219,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 219,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 220,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/4"
+      },
+      {
+        "output": 220,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 220,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 220,
+        "input": "(('L', 228), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 221,
+        "input": "(('L', 225), ())",
+        "coefficient": "1/4"
+      },
+      {
+        "output": 221,
+        "input": "(('L', 226), ())",
+        "coefficient": "1"
+      },
+      {
+        "output": 221,
+        "input": "(('L', 227), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 221,
+        "input": "(('L', 229), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 222,
+        "input": "(('L', 228), ())",
+        "coefficient": "1/2"
+      },
+      {
+        "output": 223,
+        "input": "(('L', 225), ())",
+        "coefficient": "-1/2"
+      },
+      {
+        "output": 223,
+        "input": "(('L', 229), ())",
+        "coefficient": "-1/2"
+      }
+    ]
+  },
+  "receipts": {
+    "backward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2245,
+        "2": 388,
+        "3": 494,
+        "4": 147,
+        "5": 36
+      },
+      "paid_rank_mass": 5271,
+      "real_scalar_allowance": 171116,
+      "max_formal_prefix_l1": "2384",
+      "max_denominator": 64,
+      "l1_witness": {
+        "event": 20113,
+        "role": [
+          "L",
+          108
+        ]
+      }
+    },
+    "forward": {
+      "independent_persistent_columns": 632,
+      "independent_owned_entry_columns": 1,
+      "scalar_frames_checked": true,
+      "arbitrary_owned_C0_cleared": true,
+      "paid_profile": {
+        "1": 2245,
+        "2": 388,
+        "3": 494,
+        "4": 147,
+        "5": 36
+      },
+      "paid_rank_mass": 5271,
+      "real_scalar_allowance": 171116,
+      "max_formal_prefix_l1": "5274",
+      "max_denominator": 32,
+      "l1_witness": {
+        "event": 18961,
+        "role": [
+          "L",
+          272
+        ]
+      }
+    }
+  },
+  "scope": "Typed arbitrary state ports, not eight clean Gaussian outputs; no global closure or kappa claimed"
+}

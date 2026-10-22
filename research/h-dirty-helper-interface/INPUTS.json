@@ -1,0 +1,12 @@
+{
+  "source_native_package": "research/h-modern-native at local commit 76a3654f3 (retained source snapshots included)",
+  "source_sha256": {
+    "README.md": "03142f201197004bf7c056447baab528dfb29d0b94405f35f47068607bda9f41",
+    "PHASES.json": "5c6e43ebd5048210e3f1f91313f657f55af5c9c6a57dd043f532c2908de4c0d1",
+    "NATIVE.json.gz": "5eadc420fb30979135af67c66198fe455f7bc6c80768bb0e83cb7c152fc032e5",
+    "CANONICAL.json.gz": "7ca9d6359c50477d59e08a852f8522dce854f5a0c250d7d3980f3df240ad4fca",
+    "SOURCE-BUDGET.json": "5e21184d2c0d71bc3899203c978db20c3f042882b72027762d199e129183d82a"
+  },
+  "source_basis": "PR4470 native word with the previously verified H completion and zero-frame compensation; source proof boundaries retained",
+  "scope": "Typed local interface only, no global controller or kappa"
+}

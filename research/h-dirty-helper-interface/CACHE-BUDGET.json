@@ -1,0 +1,66 @@
+{
+  "status": "CONDITIONAL_CACHE_BOUNDARY_BUDGET_ONLY",
+  "benchmark": "15108879/5000000000",
+  "budget": {
+    "lower": "344.70612734923057689213172305370544144",
+    "upper": "344.70612734923057689213172305370544145"
+  },
+  "hypothetical_one_head_per_interval_cost": 336,
+  "remaining_for_all_cache_work": {
+    "lower": "8.70612734923057689213172305370544144",
+    "upper": "8.70612734923057689213172305370544145"
+  },
+  "hypothetical_boundary_only_crossing": [
+    "837337059/268435456000",
+    "41866853/13421772800"
+  ],
+  "source_sha256": "5e21184d2c0d71bc3899203c978db20c3f042882b72027762d199e129183d82a",
+  "persistent_state_scenarios": [
+    {
+      "state_ports": 8,
+      "merged_rank": 63,
+      "axis_hypothesis": "disjoint nine-axis jobs",
+      "remove_H_completions": false,
+      "remaining_after_hypothetical_336_boundary": {
+        "lower": "5.77080481403291144978170694469240554",
+        "upper": "5.77080481403291144978170694469240555"
+      },
+      "all_state_restoration_assumed_not_proved": true
+    },
+    {
+      "state_ports": 8,
+      "merged_rank": 57,
+      "axis_hypothesis": "shared head seven calls",
+      "remove_H_completions": false,
+      "remaining_after_hypothetical_336_boundary": {
+        "lower": "-41.49578657617662208284677598445809911",
+        "upper": "-41.49578657617662208284677598445809910"
+      },
+      "all_state_restoration_assumed_not_proved": true
+    },
+    {
+      "state_ports": 16,
+      "merged_rank": 63,
+      "axis_hypothesis": "disjoint nine-axis jobs",
+      "remove_H_completions": true,
+      "remaining_after_hypothetical_336_boundary": {
+        "lower": "58.83548227883524600743169083567936965",
+        "upper": "58.83548227883524600743169083567936966"
+      },
+      "all_state_restoration_assumed_not_proved": true
+    },
+    {
+      "state_ports": 16,
+      "merged_rank": 57,
+      "axis_hypothesis": "shared head seven calls",
+      "remove_H_completions": true,
+      "remaining_after_hypothetical_336_boundary": {
+        "lower": "-35.69770050158382105782527502262163966",
+        "upper": "-35.69770050158382105782527502262163965"
+      },
+      "all_state_restoration_assumed_not_proved": true
+    }
+  ],
+  "no_native_candidate": true,
+  "no_kappa_claim": true
+}
