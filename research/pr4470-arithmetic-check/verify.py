@@ -183,6 +183,9 @@ def main():
     gamma = mom(Pi, t + Q(1, 5))[1] / (powq(20, Q(1, 5))[0] * tl)
     delta = Q(sum(Ti.values()) * 21) / (powq(20, tested)[0] * tl)
     need(alpha < 1 - Q(1, 10**9) and gamma < Q(97, 100) and delta < Q(97, 100), "tails within #4470's limits")
+    need(Q(97, 100) ** 1024 < Q(1, 2 ** 32), "both tails at power 1024 below 2^-32")
+    need(1 / (1 + Q(1024, 10**9)) + 4 * Q(1, 2 ** 32) == Q(2097152001953127, 2097154147483648) < 1,
+         "normalized paid bound 1/(1 + v (1 - limit_alpha)) + 2*2^-32 + 2*2^-32 reproduces and is below one")
     need(abs(float(alpha) - 0.999999988558808354) < 1e-15 and abs(float(gamma) - 0.956176646497545) < 1e-12
          and abs(float(delta) - 0.958284435309221) < 1e-12, "tails match #4470's printed values")
     # logarithmic compiler (polylog majorant) at ambient m = 145^v (largest target rank), v = 1024, c = 20, b = 21

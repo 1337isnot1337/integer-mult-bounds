@@ -25,7 +25,8 @@ package is self-contained.
    - `γ = 0.956176646498 < 0.97`;
    - `δ = 0.958284435309 < 0.97`.
 
-   All three match #4470's printed values.
+   All three match #4470's printed values. Since `0.97^{1024} < 2^{−32}`, the normalized paid bound
+   `1/(1 + 1024·10⁻⁹) + 4·2^{−32} = 2097152001953127/2097154147483648 < 1` also reproduces exactly.
 
 6. **The logarithmic compiler**, at ambient `145^{1024}` (the largest target rank), `θ̄ = 63/64` and
    `p = 1000`:
