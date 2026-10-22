@@ -87,6 +87,32 @@ def projection_checks():
             'wrong_backward_sign_rejected':True}
 
 
+def binary_source_checks():
+    path=ROOT/'research/kappa-rebuild/bit/mixed_productive_bit.py'
+    tree=ast.parse(path.read_text())
+    names={'shift','add','polynomial_coefficients','physical_controller'}
+    fs=[f for f in tree.body if isinstance(f,ast.FunctionDef) and f.name in names]
+    need({f.name for f in fs}==names,'Exact pure binary function inventory')
+    ctx={'need':need};exec(compile(ast.Module(body=fs,type_ignores=[]),str(path),'exec'),ctx)
+    constructor=source_controller();cases=0
+    for p in range(1,8):
+        mask=(1<<(3*(p-1)))-1
+        integer,_,_=constructor(p,mask)
+        binary,_,_=ctx['physical_controller'](p,mask)
+        reduced={}
+        for exps,matrix in integer.items():
+            key=sum((e%2)<<i for i,e in enumerate(exps))
+            target=reduced.setdefault(key,[0]*(2*p))
+            for i,row in enumerate(matrix):
+                for j,v in enumerate(row):
+                    need(v.denominator==1,'Integral source coefficients')
+                    if v.numerator%2:target[i]^=1<<j
+        reduced={k:v for k,v in reduced.items() if any(v)}
+        need(reduced==binary,'Actual BIT source is the involutive characteristic-two specialization')
+        cases+=1
+    return {'binary_group_ring_source_words':cases,'quotient':'F2[(Z/2)^(2p+2)]'}
+
+
 def commutator_checks():
     count=0
     for p in range(1,7):
@@ -98,14 +124,19 @@ def commutator_checks():
                     for t in range(1<<p):
                         if not t>>k&1:continue
                         b=M.core(p,k,t);y=M.projector(p,k,t)
-                        actual=M.multiply(x,y)==M.multiply(y,x)
+                        xy=M.multiply(x,y);yx=M.multiply(y,x)
+                        actual=xy==yx
                         overlap=max(a[0],b[0])<=min(a[1],b[1])
                         need(actual==overlap,'Commutation iff core intervals intersect')
+                        need(all((r-s)%2==0 for arow,brow in zip(xy,yx)
+                                 for r,s in zip(arow,brow))==overlap,
+                             'Same necessary core condition in characteristic two')
                         count+=1
     need(M.multiply(M.projector(2,0,1),M.projector(2,1,2))!=
          M.multiply(M.projector(2,1,2),M.projector(2,0,1)),
          'Removing all idles fails the diagonalization necessity')
-    return {'exact_subset_pairs':count,'unpaid_no_idle_diagonal_rejected':True}
+    return {'exact_subset_pairs':count,'characteristic_two_subset_pairs':count,
+            'unpaid_no_idle_diagonal_rejected':True}
 
 
 def endpoint_checks():
@@ -203,12 +234,18 @@ def domination_checks():
     need(dict(paid)=={int(r):m for r,m in x['paid'].items()},'Every selected paid job is priced')
     need(sum(r*m for r,m in t.items())-sum(r*m for r,m in paid.items())==752,
          'Positive selected rank surplus')
+    bit=json.loads((ROOT/'research/query-thinned-controllers/BIT-CONTROLLER.json').read_text())['invoice']
+    bt,bp=M.family_invoice(16,M.canonical_masks(16,7),block=7,ports=111,helpers={8:439},
+                          paid_local={1:1323,2:1342,3:79,4:44,5:102,6:11,7:19})
+    need(dict(bt)=={int(r):m for r,m in bit['targets'].items()},'Full BIT target invoice')
+    need(dict(bp)=={int(r):m for r,m in bit['paid'].items()},'Full BIT paid invoice')
     need(min(17,9)-min(16,9) < min(9,9)-min(8,9),
          'A direction-reversed concavity claim is rejected')
     return {'compatible_families':families,'by_pairs':by_p,'deleted_stage_factors':removed,
             'balanced_cut_comparisons':balanced_cases,
             'all_capped_rank_prices':True,'selected_p16_calls':sum(paid.values()),
             'selected_p16_targets':sum(t.values()),'selected_p16_surplus':752,
+            'bit_p16_targets':sum(bt.values()),'bit_p16_calls':sum(bp.values()),
             'selected_full_native_and_outer_replay':False}
 
 
@@ -220,7 +257,8 @@ def run():
                  'Authenticated live source '+r['path'])
     return {'status':'PASS_PARTIAL_IDLE_CUT_NORMAL_FORM_FINITE_CONTROLS',
             'theorem_scope':'All-p written necessity and concave-price domination; no new kappa',
-            'projection':projection_checks(),'commutators':commutator_checks(),
+            'projection':projection_checks(),'binary_source':binary_source_checks(),
+            'commutators':commutator_checks(),
             'endpoint':endpoint_checks(),'dominance':domination_checks()}
 
 

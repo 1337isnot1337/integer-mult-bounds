@@ -6,7 +6,9 @@
   "inputs": [
     "research/joint-helper-lattice/RESULT.json",
     "research/kappa-rebuild/bit/complex_controller_factor.py",
-    "research/query-thinned-controllers/controller.py"
+    "research/query-thinned-controllers/controller.py",
+    "research/kappa-rebuild/bit/mixed_productive_bit.py",
+    "research/query-thinned-controllers/BIT-CONTROLLER.json"
   ],
   "commands": [
     {

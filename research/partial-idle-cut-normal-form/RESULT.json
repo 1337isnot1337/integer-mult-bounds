@@ -1,11 +1,18 @@
 {
+  "binary_source": {
+    "binary_group_ring_source_words": 7,
+    "quotient": "F2[(Z/2)^(2p+2)]"
+  },
   "commutators": {
+    "characteristic_two_subset_pairs": 26093,
     "exact_subset_pairs": 26093,
     "unpaid_no_idle_diagonal_rejected": true
   },
   "dominance": {
     "all_capped_rank_prices": true,
     "balanced_cut_comparisons": 528,
+    "bit_p16_calls": 57555,
+    "bit_p16_targets": 11454,
     "by_pairs": {
       "1": 1,
       "2": 7,

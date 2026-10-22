@@ -13,12 +13,15 @@ or terminal idle window may contain an arbitrary subset of the retained
 stage factors originally available there. This strictly enlarges the
 all-or-nothing whole-window family used by the predecessor search.
 
-The factors Q and D_s are independent commuting Laurent indeterminates
-over Q. Require invertible scalar input/output matrices, independent of
-these indeterminates, that turn the endpoint into independent monomial
-jobs. Native helpers and the local paid inventory stay fixed. A main job
+There are two admitted formal settings: independent commuting Laurent
+indeterminates Q,D_s over a field; or the source BIT algebra
+F2[(Z/2)^(2p+2)], where Q and all D_s are independent involutive generators.
+Require invertible scalar input/output matrices, independent of these
+generators, that turn the endpoint into independent monomial jobs.
+Native helpers and the local paid inventory stay fixed. A main job
 with k stage factors has physical rank 1+bk; an idle with k factors costs
-rank bk. The actual complex value is b=8, with 112 ports. Every idle
+rank bk. The complex values are b=8, with 112 ports; BIT uses b=7 and
+111 ports. Every idle
 factor on a pair costs two jobs, and every retained full call and thin
 query remains charged.
 
@@ -32,8 +35,9 @@ outperform the best ordinary cut at the same p and local inventory.
 
 This is an all-p written proof, with separate finite source/identity
 controls. It is not a new kappa, a global controller obstruction, a proof
-that the p16 invoice is optimal over every p, or a theorem for a quotient
-ring imposing D_s^2=1. Changed stage alphabets, topology, native words,
+that the p16 invoice is optimal over every p, or a theorem for arbitrary
+geometric quotients that erase or identify native directions.
+Changed stage alphabets, topology, native words,
 joint non-diagonal output contracts and nonconstant boundaries are outside it.
 
 ## 1. The enlarged word and its triangular endpoint
@@ -107,8 +111,15 @@ and its diagonal is v. This formula is also used by the independent checker.
 
 If constant scalar boundaries diagonalize the full multivariate endpoint,
 its specialization at Q=1 does so too. Since the all-one endpoint is I,
-the two scalar boundaries at that specialization are inverses. Its
-single-variable projectors must consequently commute pairwise. We use
+the two scalar boundaries at that specialization are inverses (constant
+nonzero output prefactors may first be absorbed into a boundary).
+Comparing coefficients in each one-generator specialization makes its
+projectors simultaneously diagonal, and hence pairwise commuting.
+This does not use differentiation or four distinct scalar eigenvalues.
+In particular, 1 and z remain linearly independent in F2[z]/(z^2-1),
+even though that algebra is not semisimple. In the Laurent setting,
+affineness forces each target's specialized exponent to be 0 or 1;
+in the involutive setting those are the two monomials by definition. We use
 only this necessity, and do not assume it is sufficient for arbitrary
 partial-idle words.
 
@@ -130,7 +141,9 @@ It commutes with diag(1_S) exactly when, at every transition of T at b,
 S is constant on [j,b]. Because j is in S and k is in T, this is
 equivalent to r_j>=l_k: the initial all-one run of S must meet the final
 all-one run of T. This is exactly intersection of their core intervals.
-Disconnected extra members of S or T do not change that condition.
+Disconnected extra members of S or T do not change that condition. The
+nonzero entries in this argument are +1 or -1 and their signs; no division
+by two occurs. Thus the criterion also holds in characteristic two.
 
 Thus exact diagonalizability forces all the core intervals to intersect
 pairwise. Finite intervals on a line have a common point: their maximum
@@ -162,13 +175,25 @@ independent exact monomial targets. This is the ordinary minimal-cut
 word, with each initial window below c and each terminal window above c
 retained, and the same native/query stages as the source construction.
 
-For completeness, diagonal target degrees cannot be reallocated to earn
-more credit in the original exact word. Its two blocks are triangular;
-over the rational-function field, its eigenvalue multiset is exactly its
-diagonal multiset. Any constant similarity to diagonal monomials at Q=1
-has those same monomials, including multiplicity. At formal Q, the X and
-Y characters remain separate. Hence main rank credit is exactly the
-native-plus-initial-plus-terminal count at each vertex, twice per port.
+For completeness, target degrees cannot be reallocated to earn more
+credit, including in the nonsemisimple binary group algebra. For each
+zero/one signature sigma across stages, form the product of P_s or I-P_s
+according to sigma. The factors commute. Its rank is the number of target
+jobs with that signature in any simultaneous constant diagonalization.
+The same product in the displayed triangular bases is an idempotent;
+its rank is the number of diagonal ones. Those diagonals are exactly the
+memberships i in S_s, in each of the X and Y blocks. Thus the full
+signature multiset, with multiplicities, is fixed, rather than only its
+first moments. This rank argument is over the coefficient field and does
+not assume that the group algebra itself is semisimple.
+
+Specializing every D_s to 1 leaves diag(Q^-1 I,Q I) in the Laurent case
+and Q I in the involutive case. Consequently each target has exactly one
+central rank-one factor under the stated monomial-job contract. Main rank
+credit is therefore exactly the native-plus-initial-plus-terminal count
+at each vertex, twice per port. Source BIT specialization is checked
+against the actual retained group-ring emitter; this is not a new
+physical scalar-extension or ordinary-BIT admission theorem.
 
 ## 5. Deletion improves every concave moment
 

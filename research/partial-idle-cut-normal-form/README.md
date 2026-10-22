@@ -11,6 +11,10 @@ ceiling. The current selected kappa remains 0.00302015. The theorem is
 independent of the local helper/paid tariff, so substituting another tariff
 does not reopen this idle-selection mechanism. Changed stage patterns,
 topologies, boundary contracts and border exactification remain outside it.
+The formal BIT group ring is covered too: coefficient comparison in the
+one-generator algebra replaces differentiation, so imposing D_s²=1 in
+characteristic two does not escape the proof. This says nothing about a
+geometric quotient that changes native directions or their physical ranks.
 
 The result targets a concrete larger mechanism: the predecessor selects
 whole idle windows, whereas this model selects each available stage factor
@@ -47,7 +51,10 @@ capped-rank comparisons cover every discrete concave price for those
 families. They include 23,974 deleted stage factors and the complete
 selected p16 positive invoice: 10,928 targets, 64,620 paid calls, surplus 752.
 The checker also covers 128 multistage recurrences at Q=2, 36 exact canonical-cut boundaries and 528 balanced-cut comparisons. The all-p conclusion comes from the written proof, not those finite counts.
-No full selected native/outer replay or formal kernel verification is claimed.
+Seven source BIT group-ring words and the complete BIT p16 invoice are
+also checked. All 26,093 commutator cases are checked in characteristic
+two as well. No full selected native/outer replay or formal kernel
+verification is claimed.
 
 ## Attribution and overlap
 
