@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/fresh-helper-boundary/CHANGES.json",
+    "research/fresh-helper-boundary/native.py",
+    "research/joint-helper-lattice/PATCH.json",
+    "research/joint-helper-lattice/native_joint.py",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-CANONICAL.json.gz",
+    "research/kappa-rebuild/complex/full-identity-certificates/THREE-base-FULL-IDENTITY-NATIVE.json.gz",
+    "research/missing-join-frame/PATCH.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 300,
+      "checks": "Own extraction of twelve #4470 windows cross-checked with #4546; length<=4 census/ceilings reproduced; lengths 5 and 6 by meet in the middle with own relaxation and certified rank prices: all ceilings 0."
+    }
+  ]
+}
