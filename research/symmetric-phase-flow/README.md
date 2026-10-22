@@ -21,3 +21,7 @@ These are bounded discovery results. Capacities are rounded to a 10^-6 grid and 
 ## Open next questions
 
 Frozen owned-center gauges are a genuine restriction. The adjacent owned-center-phase-flow package explores them with explicit center-rank accounting. Multiple paid defects and simultaneous moving subspaces remain outside these tests. A profitable proposal must undergo exact moment, phase, all-column, compiler and outer admission checks.
+
+## Concurrent overlap
+
+PR4665 reports the same fixed-rank rigidity conclusion for Cao Yifan's round-three witness. It was located during the 16:02 UTC upstream refresh. This package instead uses the distinct published helper-warp witness and collapses shared-contact nodes before elimination, so its variable counts are not directly comparable. No priority or unique mechanism claim is made. PR4665's independent implementation has not been replayed here. The paid-cut and owned-center extensions retain their separately stated scope.
