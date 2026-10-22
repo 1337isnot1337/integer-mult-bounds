@@ -5,6 +5,25 @@
 Start with the [selected record](../certificates/selected-result.json). Its
 `reproduce`, `review`, `source_manifest` and `validation` fields identify the
 replay command, scoped assessment, source bindings and integration evidence.
+The selected checkpoint is #4359, documented in
+[the proof review](research/pr-intake-evidence/pr4359/PROOF-REVIEW.md),
+[the source manifest](../certificates/frontier4359-source.json) and
+[the validation receipt](research/pr-intake-evidence/pr4359/VALIDATION.json).
+The public cold replay is `make frontier4359-verify`; the configured
+[frontier4359 workflow](../.github/workflows/frontier4359.yml) executes it
+on Ubuntu 24.04 with Python 3.12 and the pinned requirements. Consult
+[the integration receipt](research/pr-intake-evidence/pr4359/INTEGRATION.json)
+and [workflow runs](https://github.com/CrocSwap/integer-mult-bounds/actions/workflows/frontier4359.yml)
+for dated evidence and exact tested heads.
+
+`make selected-record-check` checks metadata and source/proof hashes. The
+finite replay and changed-interface review retain the native/physical,
+analytic, precision, fixed-tape and recovery hypotheses in the selected
+record; they are not a full formal multiplication theorem. The winning
+uniform templates are algorithm-defined and are not materialized.
+
+## Historical checkpoint through #1094
+
 At this checkpoint, the selected composition is #589 with #1094, documented in
 [the review](research/community-batch1099-review.md),
 [the source manifest](../research/community-frontier1094-audit/SELECTED-SOURCE.json)
