@@ -216,6 +216,11 @@ or external libraries is an input to the registered proof computation**.
 No Lean build, all-history replay, or full integer-multiplication verification
 is claimed or needed for this scope.
 
+`SOURCES.json` pins the originating catalogue and selected record in this
+branch's base history. The pending predecessor's exact URLs and document
+hashes are bibliographic references in this note and `TASK.json`; replay
+does not require fetching an unrelated PR's Git objects.
+
 Predecessor credit:
 
 - Jacob Sussman, [#4628 README](https://github.com/jacobalansussman/integer-mult-bounds/blob/ee4fd87f064017c23e5a86fc1dcfe0a5237caed3/research/complex-small-m-lower-bounds/README.md)
