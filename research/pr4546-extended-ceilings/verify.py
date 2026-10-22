@@ -36,6 +36,10 @@ ROOT = HERE.parents[1]
 RESULT = HERE / "PR4546-RESULT.json"  # #4546 head 55b8d34c, research/four-shear-window-ceilings/RESULT.json, blob f2f41100
 PR4581 = HERE / "PR4581-RESULT.json"  # #4581 head b154350f, research/receiver-window-all-length-floor/RESULT.json, blob 3fec4b9b
 PR4581_SHA256 = "da70c9292df9922377a0bf0fd1a208562a0c5861de7eca8ddac4a7fde29d568b"
+OTHER_CERTS = {  # mihir-s-05's further all-length certificates (vendored RESULT.json, sha256-pinned)
+    4582: (HERE / "PR4582-RESULT.json", "2d1e520641a6bfbcd2ba84654a1a34f34a4c32592dc731acd943cce658c705fc", "relaxed_profiles"),  # head 23c515a3, blob 3e13f2b6
+    4587: (HERE / "PR4587-RESULT.json", "8257d2cc0dac2dca1e0becf77c09f537730d8bd8ffb1b2f570bda9c0b5666474", "relaxed_rank_partitions"),  # head 4f05085b, blob be079e0b
+}
 RESULT_SHA256 = "9e2306e8023f03b483701cd06bfafb0b4980de457b39e0e41c1009cecd2da96a"
 C = Fr(60403, 20000000)
 GATES = tuple((i, j, s) for i in range(3) for j in range(3) if i != j for s in (-1, 1))
@@ -658,6 +662,21 @@ def main():
         for v_ in theirs:
             need(sum(u) == sum(v_) and all(capped(u, k) <= capped(v_, k) for k in range(1, 10)), "majorization")
         agree += 1
+    others = {}
+    for prn, (path, digest, key) in OTHER_CERTS.items():
+        raw_o = path.read_bytes()
+        need(hashlib.sha256(raw_o).hexdigest() == digest, f"vendored #{prn} RESULT.json")
+        table = {w["index"]: sorted(tuple(sorted(p, reverse=True)) for p in w[key]) for w in json.loads(raw_o)["windows"]}
+        need(len(table) == 128, f"#{prn}: 128 windows")
+        others[prn] = table
+    for w in every:
+        ms, _ = matches(*w["coefficients"], 6)
+        mine = set()
+        for word in ms:
+            mine |= relaxed(w["starts"], w["ends"], word)
+        mine_parts = sorted(tuple(partition(h)) for h in mine)
+        for prn, table in others.items():
+            need(table[w["index"]] == mine_parts, f"#{prn} agrees in window {w['index']}")
     # Telescoping: f(r) = delta_9 r + sum_{k<9} (delta_k - delta_{k+1}) min(r, k) for any f with f(0) = 0 (exact check).
     for trial in range(200):
         fvals = [Fr(0)] + [Fr(((trial * 7919 + r * 104729) % 997) + 1, 13) for r in range(1, 10)]
@@ -722,7 +741,8 @@ def main():
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
                       "nonunit_coefficients_all_windows": nonunit,
-                      "agreement_with_4581_all_length": {"windows_with_identical_profile_sets": agree,
+                      "agreement_with_4581_4582_4587_all_length": {"windows_with_identical_profile_sets": agree,
+                                                         "also_identical": sorted(others),
                                                          "majorization_rechecked": True},
                       "single_contact_retiming_all_phases": single_contact_retiming(c, program),
                       "two_contact_retiming_all_phases": two_contact_retiming(c, program),
