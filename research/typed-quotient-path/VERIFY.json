@@ -4,7 +4,10 @@
   "python": "3.12",
   "requirements": [],
   "inputs": [
-    "research/higher-moment-strictification/verify.py"
+    "research/higher-moment-strictification/verify.py",
+    "research/typed-quotient-path/inputs/ORIGINS.json",
+    "research/typed-quotient-path/inputs/native-word.json.gz",
+    "research/typed-quotient-path/inputs/typed-interface.json"
   ],
   "commands": [
     {
