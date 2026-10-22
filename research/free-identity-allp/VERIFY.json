@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-helper-lattice/CONTROLLER.json",
+    "research/query-thinned-controllers/controller.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 400,
+      "checks": "Free-algebra controller identity for p=2..10, all prefix lengths (45 cases): commutative boundaries diagonalize in the free algebra, W has 2p strictly descending monomials; p16 #4470 support; recorded p<=14 sweep (91 cases)."
+    }
+  ]
+}
