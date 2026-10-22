@@ -134,7 +134,13 @@ python3.12 -B scripts/research_package.py --package research/selected-wrapper-sh
 ```
 
 Verification is read-only; only explicit `verify.py --write` writes RESULT.json.
-Normal and optimized replays compare the same complete receipt. No Lean,
+Normal and optimized replays compare the same complete receipt. Each has a
+600-second command budget (1,200 seconds in total), the registered runner caps.
+The initial [Ubuntu 24.04 / Python 3.12.15 CI run](https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39838365377/job/120034162122)
+completed its first nested execution in 274.67 seconds, then reached the former
+360-second command limit during the second execution. The budget adjustment
+retains both complete runs and all checks; it does not establish hosted success
+or change the scientific receipt. No Lean,
 Docker, selected cold replay, GL64 enumeration or supplier adoption is included.
 
 ## Coordination, scope and credit

@@ -106,7 +106,7 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 360,
+      "timeout_seconds": 600,
       "checks": "Same-byte source authentication, conditional normalization controls, complete reduced first-range and nested physical before/after equivalence"
     },
     {
@@ -117,7 +117,7 @@
         "-O",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 360,
+      "timeout_seconds": 600,
       "checks": "Same-byte source authentication, conditional normalization controls, complete reduced first-range and nested physical before/after equivalence"
     }
   ]
