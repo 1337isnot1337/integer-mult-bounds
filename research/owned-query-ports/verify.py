@@ -2,7 +2,7 @@
 from collections import Counter
 from fractions import Fraction as Q
 from pathlib import Path
-import gzip, hashlib, importlib.util, json, sys
+import gzip, hashlib, json, sys, types
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 
@@ -43,11 +43,12 @@ def load_ce():
     need(len(inputs) == 1, 'Exactly one live Clifford source')
     row = inputs[0]
     path = ROOT / row['path']
-    need(hashlib.sha256(path.read_bytes()).hexdigest() == row['sha256'], 'Clifford source drift')
-    spec = importlib.util.spec_from_file_location('owned_query_exact_clifford', path)
-    module = importlib.util.module_from_spec(spec)
-    sys.modules[spec.name] = module
-    spec.loader.exec_module(module)
+    data = path.read_bytes()
+    need(hashlib.sha256(data).hexdigest() == row['sha256'], 'Clifford source drift')
+    module = types.ModuleType('owned_query_exact_clifford')
+    module.__file__ = str(path)
+    sys.modules[module.__name__] = module
+    exec(compile(data, str(path), 'exec'), module.__dict__)
     return module
 
 def monomial(ce, rec, n):
@@ -197,12 +198,19 @@ def audit_graph():
 
 def audit_integrity():
     manifest = read('INTEGRITY.json')
-    for name,digest in manifest.items():
+    for name,record in manifest.items():
         rel = Path(name)
         need(not rel.is_absolute() and '..' not in rel.parts, 'Canonical package file')
         path = HERE / rel
         need(path.is_file() and not path.is_symlink(), 'Regular package file')
-        need(hashlib.sha256(path.read_bytes()).hexdigest() == digest, 'Package drift: '+name)
+        data = path.read_bytes()
+        if isinstance(record, dict):
+            need(record['mode'] == 'gzip-payload', 'Known integrity mode')
+            data = gzip.decompress(data)
+            digest = record['sha256']
+        else:
+            digest = record
+        need(hashlib.sha256(data).hexdigest() == digest, 'Package drift: '+name)
 
 def main():
     audit_integrity()
