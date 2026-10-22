@@ -20,7 +20,12 @@
     "research/hyperplane-retiming/vendor/research/kappa-rebuild/complex/power_two_balance.py",
     "research/hyperplane-retiming/vendor/research/kappa-rebuild/complex/rebuild_native.py",
     "research/hyperplane-retiming/vendor/research/missing-join-frame/PATCH.json",
-    "research/hyperplane-retiming/vendor/research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py"
+    "research/hyperplane-retiming/vendor/research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+    "research/hyperplane-retiming/inputs/bit-stock.json",
+    "research/hyperplane-retiming/inputs/p16-controller.json",
+    "research/hyperplane-retiming/second_intervals.py",
+    "research/hyperplane-retiming/outer_ledger.py",
+    "research/hyperplane-retiming/ARITHMETIC-ORIGINS.json"
   ],
   "commands": [
     {
