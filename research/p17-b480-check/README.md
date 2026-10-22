@@ -75,6 +75,33 @@ reproduces exactly:
 The Bernoulli surpluses also match exactly, and so do `c^64 < b^63` and the decay blocks
 `(31/32)^128, (19/20)^128 < 1/16`.
 
+## Outer ledgers of all five κ PRs
+
+For #4440, #4441, #4446, #4447 and #4453, all nine outer rows reproduce **exactly** from each PR's printed
+parameters. The FINE-PRIME row formulas are used:
+
+| Row | Formula |
+| --- | --- |
+| main transform | `εq` |
+| global router | `a` |
+| fused Gaussian | `1−ε+qβ` |
+| group bit router | `1−ε+aβ` |
+| group scans | `1−ε+β` |
+| polynomial products | `ε` |
+| sparse union movement | `ξ+1/2−ε` |
+| micro-box faces | `79−ε−β` |
+| boundary algebraic matrix | `3/32+ξ−ε` |
+
+In every case the binding row is the main transform. Its margin above κ is:
+
+| PR | Margin above κ |
+| --- | --- |
+| #4440 | `1.3·10⁻⁷` |
+| #4441 | `8.6·10⁻¹⁰` |
+| #4446 | `4.3·10⁻¹⁰` |
+| #4447 | `2.1·10⁻⁹` |
+| #4453 | `8.6·10⁻⁹` |
+
 ## #4446
 
 **#4446** (κ = 0.003001053) uses #4441's invoice with the rank-one tail of #4416, where
