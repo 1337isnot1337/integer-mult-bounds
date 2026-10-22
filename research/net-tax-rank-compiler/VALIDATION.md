@@ -50,4 +50,5 @@ uniform saving supplies the retained outer point by monotonicity. No
 winning word, full productive width, physical count, precision constant,
 new κ or selected-frontier update is certified by this replay.
 
-No PR, Discussion post or remote branch was published for this contribution.
+The initial validation was local. The user authorized PR submission on
+2026-10-22; no Discussion participation is requested.
