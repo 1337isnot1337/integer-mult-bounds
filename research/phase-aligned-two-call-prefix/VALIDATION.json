@@ -1,0 +1,29 @@
+{
+  "scoped_result": "Phase-repaired prefix and necessary continuation condition; no new exponent",
+  "checks": [
+    {
+      "command": "python3 scripts/research_package.py --package research/phase-aligned-two-call-prefix --check-only",
+      "result": "PASS_PACKAGE_METADATA_AND_PINS"
+    },
+    {
+      "command": "python3.14 -I -B research/phase-aligned-two-call-prefix/verify.py --check research/phase-aligned-two-call-prefix/RESULT.json",
+      "result": "PASS_PHASE_PREFIX_TARGET_ALIGNMENT"
+    },
+    {
+      "command": "python3.14 -O -B verify.py --check RESULT.json",
+      "result": "PASS_PHASE_PREFIX_TARGET_ALIGNMENT (independent construction directory)"
+    },
+    {
+      "command": "python3.12 scripts/research_package.py --package research/phase-aligned-two-call-prefix",
+      "result": "PASS_REGISTERED_RESEARCH_PACKAGE"
+    }
+  ],
+  "python312": "CPython 3.12.15, aarch64-apple-darwin; authenticated official python-build-standalone release 20261021",
+  "python312_archive_sha256": "a18cc33862b53bd54a148c710def5375c1b47470cccedf817a19c2d211764584",
+  "independent_agent_mathematical_review": "REVIEW.md",
+  "unrun": [
+    "No selected cold replay (selected construction unchanged).",
+    "No Lean or full compiler/outer theorem audit.",
+    "No independent human verification."
+  ]
+}
