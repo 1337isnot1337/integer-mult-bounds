@@ -99,7 +99,12 @@ The stated `H0` = 357,651,736,794,440 and `H1` = 15,026,650,096,742,881,962,201 
 
 - the rank masses are 102,419 (paid) and 102,932 (target), with surplus 513;
 - the raw root lies in `(0.00314, 0.00315)`, above the admitted 0.00312;
-- `α < 99999/100000` at the tested saving `157/50000` (computed upper bound 0.9999882).
+- `α < 99999/100000` at the tested saving `157/50000` (computed upper bound 0.9999882);
+- the rank-one tail `γ = P_1/(7^C T_t) < 999/1000` (upper bound 0.998596);
+- the finite paid moment `1/(1 + 6000/100000) + 2·2^{−6} = 1653/1696`;
+- the separation `7^{16} < 8^{15}`;
+- the compiler, `H0 = 850,090,000` and `H1 = 1,066,862,950,001`;
+- the delayed-cover gap `1/200000`.
 
 ## Not covered
 

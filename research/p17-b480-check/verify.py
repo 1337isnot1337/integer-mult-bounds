@@ -309,6 +309,22 @@ def main():
     need(lo_t > hi_p and hi_t < lo_p, "#4446 BIT: raw root in (0.00314, 0.00315), above the admitted 0.00312")
     out["4446_BIT_supplier"] = {"rank_masses": [102419, 102932], "surplus": 513, "alpha_upper": f"{float(ph / tl):.9f}",
                                 "raw_root_bracket": ["0.00314", "0.00315"]}
+    # gamma (rank-one tail at cutoff 7), the finite paid moment at power 6000, the compiler and the delayed cover
+    Cb, Ub, Cov, POW = Q(157, 50000), Q(627, 200000), Q(313, 100000), 6000
+    e7 = exp_bounds(-Cb * ln(7)[1], -Cb * ln(7)[0])  # 7^(-C) bounds
+    gamma_hi = Q(102419) * e7[1] / tl  # P1 / (7^C T_t), upper bound via 7^(-C) upper and T_t lower
+    need(gamma_hi < Q(999, 1000) and Q(999, 1000) ** 1000 < Q(1, 2), "#4446 BIT: gamma < 999/1000 and decay block")
+    need(Q(1, 1) / (1 + Q(POW, 100000)) + 2 * Q(1, 2) ** (POW // 1000) == Q(1653, 1696), "#4446 BIT: finite paid moment 1653/1696")
+    need(7 ** 16 < 8 ** 15 and 92 < 2 ** 7, "#4446 BIT: separation and ambient")
+    tb, zb = 1 - Cb, 1 - Ub
+    z0b = (tb + zb) / 2
+    db, hb = z0b - tb, Q(1, 16)
+    x = ((3 + 7 * hb) * POW * db + 1 + 7 * POW * (1 - z0b)) / (hb * db)
+    H0b = -((-x.numerator) // x.denominator)
+    x = H0b * (1 - z0b) / (zb - z0b)
+    need((H0b, x.numerator // x.denominator + 1) == (850090000, 1066862950001), "#4446 BIT: compiler H0, H1")
+    need(Ub - Cov == Q(1, 200000) and (1 + (Ub - Cov) / 4) / (1 + (Ub - Cov) / 2) < 1, "#4446 BIT: delayed cover gap")
+    out["4446_BIT_supplier"].update({"gamma_upper": f"{float(gamma_hi):.6f}", "H0_H1": [850090000, 1066862950001]})
     out["4440_compiler"] = {"complex": [75415467350, 10418370291022217], "BIT": [3755884544, 25986965159937]}
     print(json.dumps(out, indent=1))
 
