@@ -25,13 +25,23 @@ It finds the following.
 - **The threshold m ≥ 6 is sharp.** For m ≤ 5, no nonzero coefficient is realized with three short rows.
 - **Two vs three rows at m = 6.** The coefficient 3 needs two rows rather than three, consistent with #4622.
 
+## Fixed-shape evidence up to m = 30
+
+A single shape suffices well beyond the exhaustive range:
+
+```text
+λ = (m−1, m−2, 3, 0, …),   ρ = (m, a, b, padding ≤ b, …).
+```
+
+For each target only (a, b) changes, and β is decided exactly by a dynamic programme. This shape realizes every unit for 7 ≤ m ≤ 30. At m = 6 the unit 5 needs a different shape, which the exhaustive run finds.
+
 ## Verify
 
 ```text
 python3 -B research/three-short-row-units/verify.py
 ```
 
-The check takes about 13 s and uses the standard library only.
+The check takes about 20 s and uses the standard library only.
 
 ## Limitations
 
@@ -41,6 +51,6 @@ The check takes about 13 s and uses the standard library only.
 
 ## Open next questions
 
-- **A uniform three-row construction for units, for every m ≥ 6.** First step: extract minimal witnesses for m = 6 to 13 and fit a template, as #4622 does for two rows: λ = (L₁, L₂, L₃) with one coordinate adjusted from the two-row construction.
+- **A uniform three-row construction for units, for every m ≥ 7.** First step: write closed-form β and (a, b) for the shape λ = (m−1, m−2, 3), which works for every m ≤ 30.
 
 Credit: petalas (Nick Petalas) for #4600 and #4280. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

@@ -10,6 +10,8 @@ rows L1 >= L2 >= L3, L1 + L2 + L3 = 0 mod m, preceded by f full rows) and finds,
   * m <= 5: no nonzero coefficient at all is realized with three short rows (so no unit);
   * 6 <= m <= 13: every unit is realized with exactly three short rows.
 So the answer to #4600's open question 2 is yes for 6 <= m <= 13, and the threshold m >= 6 is sharp.
+Further, the single shape lambda = (m-1, m-2, 3), rho = (m, a, b, padding) (one (a, b) per target, beta exact by a
+dynamic programme) realizes every unit for 7 <= m <= 30.
 Ryanson Jonathan with Claude Code (Claude Opus 5.5) assistance. Apache-2.0.
 """
 from math import gcd
@@ -63,6 +65,34 @@ def three_row_coefficients(m):
     return found
 
 
+def template_units(m):
+    """Units realized by the fixed shape lambda = (m-1, m-2, 3), rho = (m, a, b, padding <= b, ...), exact over beta."""
+    states = {(m, 0, None)}
+    for i in range(1, m + 1):
+        nxt = set()
+        for last, s, info in states:
+            for v in range(last + 1):
+                s2 = (s + v) % m
+                if i == 3:
+                    inf = s2
+                elif i == m - 2:
+                    inf = (info, s2)
+                elif i == m - 1:
+                    inf = (info[0], info[1], (info[0] + info[1] + s2) % m)
+                else:
+                    inf = info
+                nxt.add((v, s2, inf))
+        states = nxt
+    xy = {(x, y) for _, s, (x, y, t) in states if s == 0 and t == 0}
+    got = set()
+    for a in range(m + 1):
+        for b in range(a + 1):
+            pad = -(m + a + b) % m
+            if (a * (m - 2) + 3 * b) % m == 0 and any(k % m == pad for k in range(b * (m - 3) + 1)):
+                got |= {-(a * y + b * x) % m for x, y in xy}
+    return got
+
+
 def main():
     table = {}
     for m in range(2, 14):
@@ -73,7 +103,9 @@ def main():
         else:
             need(units <= found, "m = %d: every unit realized with three short rows" % m)
         table[m] = sorted(found)
-    print(json.dumps({"status": "PASS_THREE_SHORT_ROW_UNITS", "realized_by_m": table, "new_kappa_claimed": False},
+    for m in range(7, 31):
+        need({c for c in range(1, m) if gcd(c, m) == 1} <= template_units(m), "fixed-shape template, m = %d" % m)
+    print(json.dumps({"status": "PASS_THREE_SHORT_ROW_UNITS", "realized_by_m": table, "template_m_range": [7, 30], "new_kappa_claimed": False},
                      indent=1))
 
 
