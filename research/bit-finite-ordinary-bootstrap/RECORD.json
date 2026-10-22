@@ -37,6 +37,25 @@
   "complex_supplier_changed": false,
   "maintainer_mathematical_review": "Pending",
   "external_independent_reproduction": "Not claimed; separate internal AI source-type and arithmetic audits.",
-  "hosted_CI": "Not yet observed for this proposed package.",
-  "publication": "Actual PR number, creation time and initial scientific head will be recorded after posting."
+  "hosted_CI": {
+    "observed_at_utc": "2026-10-22T20:38:07.423496+00:00",
+    "head": "acac896e0599bf0c0c3be09345247c5213aa686a",
+    "checks": [
+      {
+        "name": "plan",
+        "status": "in_progress",
+        "conclusion": null,
+        "html_url": "https://github.com/CrocSwap/integer-mult-bounds/actions/runs/39850391834/job/120074657124"
+      }
+    ],
+    "scope": "Exact observed head only; separate from mathematical review."
+  },
+  "publication": {
+    "PR": 4814,
+    "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4814",
+    "created_at": "2026-10-22T20:36:53Z",
+    "initial_posted_head": "acac896e0599bf0c0c3be09345247c5213aa686a",
+    "scientific_commit": "db3856719bdf2b913f9662ec348e39c2c7c65242",
+    "cadence_rule": "Only actual PR creation counts as a new submission; added commits/body edits do not."
+  }
 }
