@@ -27,7 +27,7 @@ Both profiles are read from main (SHA256-pinned). The exponents lie above each p
 ## Results
 
 All 15 cases pass:
-- **Identity (2).** It holds to `10^−9` relative at every rank and exponent.
+- **Identity (2), exactly.** At every rank checked, both sides are compared as **formal power sums** `Σ_x c_x·x^t` with integer coefficients, from 245 up to 16,252 distinct bases `x`. They are identical, so (2) holds **exactly, for every exponent `t` at once**. A rejection control drops one root source and is detected. Numerically it also holds to `10^−9` at each tested `t`.
 - **Ratio ordering.** It holds, as does `q > 1`.
 - **(7), (8), (9).** They hold with the following slack:
 
@@ -55,6 +55,6 @@ This runs in about 30 s with the standard library only.
 
 ## Open next questions
 
-- An exact-rational version at rational `t`, using certified powers `r^t` as in my #4580 check, to make the identity check exact. First step: replace the float powers by certified intervals at `t = t0`.
+- Certified (interval) versions of (7) and (8). (2) is now exact. First step: certified powers `r^t` at `t = t0`, as in my #4580 check.
 
 Credit: zxv (#4483), Dillon (#4532), Cinna Davis (#4470), Jacob Alan Sussman (Pascal matching). Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.

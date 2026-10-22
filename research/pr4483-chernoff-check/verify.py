@@ -4,7 +4,8 @@
 For the arbitrary-height flow at #4483's height G = (a+b) floor(log_M floor(N/m)), this file's own flow code computes,
 at real exponents t, the unit-column potential H_t, root-source potential R_t, inner-source potential I_t,
 boundary-exit potential B_t and leaf-exit potential F_t, and checks
-  (2)  I_t + R_t = B_t + F_t + (T - P) H_t                         (relative error < 1e-9, floats)
+  (2)  I_t + R_t = B_t + F_t + (T - P) H_t, EXACTLY as an identity of formal power sums sum_x c_x x^t with integer
+       coefficients (hence for every t at once), with a dropped-source rejection control, and numerically at each t
   (7)  (T - P) H_t >= (1 - u_t^ell) P^(G+1) (q^(a ell + 1) - 1)
   (8)  R_t <= q M^lambda v_t^ell P^(G+1)
   (9)  A_t = (T - P) H_t - R_t >= D_ell(t) P^(G+1)
@@ -40,7 +41,7 @@ def multis(n, size):
         yield (size,); return
     for k in range(size + 1):
         for rest in multis(n - 1, size - k): yield (k,) + rest
-def potentials(N, W, P, G, t):
+def potentials(N, W, P, G, t, formal=False):
     ks = sorted(W); m = ks[-1]
     def c(a):
         v = 1
@@ -58,21 +59,43 @@ def potentials(N, W, P, G, t):
                 if m * rho * r <= N: nxt[rho * r] = nxt.get(rho * r, 0) + cnt * pr
         F.append(nxt)
     present = lambda rho, a: m * rho * c(a) <= N
-    H = R = I = B = Fl = 0.0
+    if formal:
+        H, R, I, B, Fl = {}, {}, {}, {}, {}
+
+        def acc(d, base, coeff):
+            d[base] = d.get(base, 0) + coeff
+    else:
+        H = R = I = B = Fl = 0.0
     for d in range(G + 1):
         for rho, cnt in F[d].items():
             for b in multis(len(ks), G - d):
                 if not present(rho, b): continue
-                H += cnt * u(b) * (rho * c(b)) ** t
+                if formal:
+                    acc(H, rho * c(b), cnt * u(b))
+                else:
+                    H += cnt * u(b) * (rho * c(b)) ** t
                 for r, pr in P.items():
                     issued = cnt * pr * u(b); rank = r * rho * c(b)
-                    if d == G: Fl += issued * rank ** t; continue
+                    if d == G:
+                        if formal:
+                            acc(Fl, rank, issued)
+                        else:
+                            Fl += issued * rank ** t
+                        continue
                     D = sum(W[k] * u(tuple(x - (i == j) for j, x in enumerate(b)))
                             for i, k in enumerate(ks) if b[i] > 0 and present(rho * r, tuple(x - (i == j) for j, x in enumerate(b))))
-                    if issued - cnt * pr * D: B += (issued - cnt * pr * D) * rank ** t
+                    if issued - cnt * pr * D:
+                        if formal:
+                            acc(B, rank, issued - cnt * pr * D)
+                        else:
+                            B += (issued - cnt * pr * D) * rank ** t
     for a in multis(len(ks), G):
         if present(1, a):
-            for k in ks: R += W[k] * u(a) * (k * c(a)) ** t
+            for k in ks:
+                if formal:
+                    acc(R, k * c(a), W[k] * u(a))
+                else:
+                    R += W[k] * u(a) * (k * c(a)) ** t
     for d in range(1, G + 1):
         for rho, cnt in F[d - 1].items():
             for r, pr in P.items():
@@ -80,12 +103,39 @@ def potentials(N, W, P, G, t):
                     if not present(rho * r, a): continue
                     for i, k in enumerate(ks):
                         b = list(a); b[i] += 1
-                        if not present(rho, tuple(b)): I += cnt * pr * u(a) * W[k] * (rho * r * c(tuple(b))) ** t
+                        if not present(rho, tuple(b)):
+                            if formal:
+                                acc(I, rho * r * c(tuple(b)), cnt * pr * u(a) * W[k])
+                            else:
+                                I += cnt * pr * u(a) * W[k] * (rho * r * c(tuple(b))) ** t
     return H, R, I, B, Fl
 
 
 def mom(h, t):
     return sum(x * k ** t for k, x in h.items())
+
+
+def exact_identity(W, P, N, G):
+    """(2) as an identity of formal power sums sum_x coeff_x x^t, exact for every t at once."""
+    H, R, I, B, Fl = potentials(N, W, P, G, None, formal=True)
+    lhs, rhs = dict(I), dict(B)
+    for x, v in R.items():
+        lhs[x] = lhs.get(x, 0) + v
+    for x, v in Fl.items():
+        rhs[x] = rhs.get(x, 0) + v
+    for x, v in H.items():  # (T - P) H = sum_k W_k (k x)^t - sum_r P_r (r x)^t
+        for k, w in W.items():
+            rhs[k * x] = rhs.get(k * x, 0) + w * v
+        for r, q in P.items():
+            rhs[r * x] = rhs.get(r * x, 0) - q * v
+    lhs = {x: v for x, v in lhs.items() if v}
+    rhs = {x: v for x, v in rhs.items() if v}
+    need(lhs == rhs, f"exact formal identity (2) at N={N}, G={G}")
+    x0 = min(R)  # rejection control: dropping one root source must break the identity
+    bad = dict(lhs)
+    bad[x0] -= R[x0]
+    need({x: v for x, v in bad.items() if v} != rhs, "control: a dropped root source is detected")
+    return len(lhs)
 
 
 def check_case(name, W, P, M, a, b, s, lam, ranks, exponents):
@@ -114,7 +164,9 @@ def check_case(name, W, P, M, a, b, s, lam, ranks, exponents):
             need((T - Pt) * H >= rhs7 * (1 - 1e-12), f"{name}: (7) at N={N}, t={t}")
             need(R <= rhs8 * (1 + 1e-12), f"{name}: (8) at N={N}, t={t}")
             need(A >= D * Pt ** (G + 1) - 1e-9 * abs(D * Pt ** (G + 1)), f"{name}: (9) at N={N}, t={t}")
-            rows.append({"t": t, "N": N, "ell": ell, "G": G, "ratio7": round(((T - Pt) * H) / rhs7, 4) if rhs7 > 0 else None,
+            if t == exponents[0]:
+                bases = exact_identity(W, P, N, G)
+            rows.append({"t": t, "N": N, "ell": ell, "G": G, "exact_identity_bases": bases, "ratio7": round(((T - Pt) * H) / rhs7, 4) if rhs7 > 0 else None,
                          "ratio8": round(R / rhs8, 4)})
     return rows
 

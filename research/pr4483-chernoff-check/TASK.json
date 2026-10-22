@@ -86,14 +86,14 @@
   "budget_minutes": 40,
   "stop_rule": "Stop at heights G <= 6 (p7) and 4 (p16).",
   "outcome": "completed",
-  "evidence": "Own flow potentials at #4483's height: identity (2) to 1e-9; (7) slack ratio >= 9.97; (8) ratio <= 0.31; (9) and ratio ordering; 15 cases on p7 and p16 above their crossings.",
+  "evidence": "Own flow potentials at #4483's height: identity (2) EXACT as formal power sums (up to 16,252 bases) with a rejection control; (7) slack ratio >= 9.97; (8) ratio <= 0.31; (9) and ratio ordering; 15 cases on p7 and p16 above their crossings.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Exact-rational version with certified powers.",
-      "why_it_matters": "Would make the identity check exact.",
-      "first_step": "Certified r^t intervals at t = t0.",
+      "question": "Certified interval versions of (7) and (8).",
+      "why_it_matters": "(2) is exact; (7)/(8) use floats with wide margins.",
+      "first_step": "Certified r^t at t = t0.",
       "blocked_by": "None."
     }
   ]
