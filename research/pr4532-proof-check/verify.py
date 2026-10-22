@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent proof check of PR #4532 (Dillon), PROOF.md sections 1.1 and 2.2-2.3: the funded critical-root majorant
+"""Independent proof check of PR #4532 (Dillon), PROOF.md sections 1.1, 2.2-2.3 and 3: the funded critical-root majorant
 L(n) <= A n^t (c + log n)^p used by #4535 (kappa = 0.003020165). Text vendored from #4535 head a6d7237f.
 
 Every analytic step of section 2.3 is checked in the form it is used, and section 1.1's identities:
@@ -15,6 +15,8 @@ Every analytic step of section 2.3 is checked in the form it is used, and sectio
      on random nonnegative potentials satisfying (10));
   S6 K_ell's derivative numerator a(c + log m + log 2) + (a-1) log M (exact rational identity) and n < m M^(ell+1)
      for C_n = floor(n/m), ell = floor(log_M C_n) (exhaustive integer ranges);
+  S8 section 3's tail-gate feasibility lemma on the p16 profile (convexity bound, (13) at the crossing, the
+     sufficiency construction, and necessity on random passing gate samples);
   S7 the monotonicity directions that the endpoint evaluation in critical_guards relies on, on the actual p16 profile
      over each witness's cover interval: T(t+s)/T(t) and P(t+s)/P(t) nondecreasing, tilted means nondecreasing, every
      mirror cell sum nondecreasing, eta increasing, and (6) log q(t) >= d (t - t*) from the isolated crossing.
@@ -242,6 +244,65 @@ def S0():
     return checks
 
 
+def S8(rng):
+    """Section 3 lemma on the p16 profile (floats; validation of a written convexity proof).
+
+    (i) the convexity bound H(lambda) <= mu_T(t) - log q(t)/lambda on a grid of t >= t* and lambda;
+    (ii) at the crossing, (13) T(t - lambda) exp(lambda mu_P) < P(t) holds for small lambda;
+    (iii) sufficiency: the proof's construction g, j, a = 1, b = g - 1, M = 2^j yields, for a small s, all three gates;
+    (iv) necessity: every random (a, b, M, s, lambda) passing the three gates has H(lambda) > mu_P(t).
+    """
+    prof = json.loads(PROFILE.read_bytes())
+    T = {int(k): v for k, v in prof["targets"].items()}
+    P = {int(k): v for k, v in prof["paid"].items()}
+
+    def mom(h, t):
+        return sum(c * k ** t for k, c in h.items())
+
+    def mean(h, t):
+        return sum(c * k ** t * math.log(k) for k, c in h.items()) / mom(h, t)
+
+    def H(t, lam):
+        return (math.log(mom(P, t)) - math.log(mom(T, t - lam))) / lam
+
+    ts = float(T_STAR)
+    checks = 0
+    for t in (ts, ts + 1e-4, ts + 1e-3, 0.999):
+        q = mom(T, t) / mom(P, t)
+        for lam in (1e-3, 1e-2, 0.05, 0.1, 0.3, 1.0):
+            need(H(t, lam) <= mean(T, t) - math.log(q) / lam + 1e-9, "convexity bound on H")
+            checks += 1
+    muT, muP = mean(T, ts), mean(P, ts)
+    lam = 1e-3
+    need(mom(T, ts - lam) * math.exp(lam * muP) < mom(P, ts), "(13) at the crossing")
+    delta = muT - muP
+    Hl = H(ts, lam)
+    g = 2
+    while g * Hl / math.log(2) - (g * muP + delta) / math.log(2) <= 1:
+        g += 1
+    j = math.floor((g * muP + delta) / math.log(2)) + 1
+    need((g * muP + delta) / math.log(2) < j < g * Hl / math.log(2), "integer j inside the interval")
+    a, b, M = 1, g - 1, 2.0 ** j
+    s = 1e-4
+    u = M ** (-s) * (mom(T, ts + s) / mom(T, ts)) ** a * (mom(P, ts + s) / mom(P, ts)) ** b
+    v = M ** lam * (mom(T, ts - lam) / mom(P, ts)) ** (a + b)
+    need(u < 1 and v < 1 and mom(T, ts + s) / mom(T, ts) >= mom(P, ts + s) / mom(P, ts), "constructed gates hold")
+    passing = 0
+    for _ in range(4000):
+        a2, b2 = rng.randint(1, 6), rng.randint(1, 6)
+        M2 = 2.0 ** rng.randint(2, 40)
+        s2, lam2 = rng.uniform(0.001, 0.5), rng.uniform(0.001, 0.5)
+        t = ts + rng.uniform(0, 1e-3)
+        u2 = M2 ** (-s2) * (mom(T, t + s2) / mom(T, t)) ** a2 * (mom(P, t + s2) / mom(P, t)) ** b2
+        v2 = M2 ** lam2 * (mom(T, t - lam2) / mom(P, t)) ** (a2 + b2)
+        order = mom(T, t + s2) / mom(T, t) >= mom(P, t + s2) / mom(P, t)
+        if u2 < 1 and v2 < 1 and order:
+            need(H(t, lam2) > mean(P, t), "necessity: gates imply H(lambda) > mu_P")
+            passing += 1
+    need(passing > 50, "enough passing gate samples")
+    return {"convexity_points": checks, "constructed": {"g": g, "j": j}, "necessity_samples": passing}
+
+
 def check_binding():
     raw = SPEC.read_bytes()
     need(hashlib.sha256(raw).hexdigest() == SPEC_SHA256, "vendored #4532 PROOF.md")
@@ -257,7 +318,7 @@ def main():
     rng = random.Random(45321)
     s7, ts = S7()
     report = {"status": "PASS_PR4532_PROOF_CHECK", "S0_section_1_1_identities": S0(), "S1_identity_points": S1(rng), "S2_S3_S4_grid_checks": S2_S3_S4(),
-              "S5_closure_cases": S5(rng), "S6_integer_cases": S6(rng), "S7_profile_grid_points": s7,
+              "S5_closure_cases": S5(rng), "S6_integer_cases": S6(rng), "S7_profile_grid_points": s7, "S8_section_3": S8(rng),
               "float_crossing": ts, "spec_statements_bound": check_binding(), "new_kappa_claimed": False}
     print(json.dumps(report, indent=1))
 

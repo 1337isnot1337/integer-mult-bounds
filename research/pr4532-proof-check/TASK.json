@@ -84,16 +84,16 @@
   "scope_change_reason": null,
   "bottleneck_link": "Independent proof-level coverage of the majorant theorem underlying the best open conditional kappa (#4535).",
   "budget_minutes": 45,
-  "stop_rule": "Stop at #4532 sections 1.1 and 2.2-2.3.",
+  "stop_rule": "Stop at #4532 sections 1.1, 2.2-2.3 and 3.",
   "outcome": "completed",
-  "evidence": "S0 section 1.1 identities as exact finite sums on the p16 windows (7 exponents); S1 identity (2,000 exact points); S2-S4 on 60-digit grids for both witnesses; S5 closure; S6 K_ell identity and 17,118 integer cases; S7 monotonicity directions and (6) on both cover intervals; 6 statements bound.",
+  "evidence": "S0 section 1.1 identities as exact finite sums on the p16 windows (7 exponents); S1 identity (2,000 exact points); S2-S4 on 60-digit grids for both witnesses; S5 closure; S6 K_ell identity and 17,118 integer cases; S7 monotonicity directions and (6) on both cover intervals; 6 statements bound. S8 section 3 lemma on the p16 profile (convexity bound, (13), sufficiency construction, necessity on 149 samples).",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [
     {
-      "question": "Independent check of #4532 section 3 (exact tail-gate feasibility criterion).",
-      "why_it_matters": "Completes #4532; not needed by #4535.",
-      "first_step": "Check the H(lambda) characterisation on the p16 profile.",
+      "question": "Can pointwise mirror slack be replaced by a bound against the capped measure? (#4532's own question)",
+      "why_it_matters": "Would widen admissible profiles.",
+      "first_step": "Retain the exact base measure on one offending mirror window.",
       "blocked_by": "None."
     }
   ]

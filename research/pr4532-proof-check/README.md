@@ -1,4 +1,4 @@
-# Independent proof check of #4532 §1.1 and §2.2–2.3: the funded critical-root majorant
+# Independent proof check of #4532 §1.1, §2.2–2.3 and §3: the funded critical-root majorant
 
 **Task:** independent-moment (independent source-bound coverage). **Base:** canonical main `f626db5c`. **No new κ.**
 
@@ -25,6 +25,8 @@ Every checked step holds. I found no gap.
 | S6 | `K_ℓ`'s derivative numerator `a(c + log m + log 2) + (a−1) log M`, and `n < m·M^(ℓ+1)` for `C_n = ⌊n/m⌋`, `ℓ = ⌊log_M C_n⌋` | exact rational identity; 17,118 exhaustive integer cases |
 | S7 | monotonicity directions behind the endpoint evaluation in `critical_guards`: forward ratios, tilted means, every mirror cell sum and `η` nondecreasing; the root-tail and moment-ratio endpoint bounds; (6) `log q(t) ≥ d(t − t*)` from the crossing | the actual p16 profile on 121-point grids over each witness's cover interval |
 
+| S8 | §3 lemma: the convexity bound `H(λ) ≤ μ_T − log q/λ`; (13) at the crossing; the sufficiency construction (`g = 2`, `j = 9`, so `a = b = 1`, `M = 512`) passing all three gates; necessity on 149 random passing gate samples | p16 profile, floats |
+
 S2–S4 and S7 are run for **both** witnesses:
 - #4532's p16 witness: `M = 1024`, `a = b = 1`, `ℓ0 = 650`, `p = 2/5`, `c = 133`, cover `.997067`;
 - my #4565 retuned witness: `M = 2^24`, `a = 3`, `b = 2`, `ℓ0 = 64`, `p = 3/10`, `c = 101`, cover `.99725`.
@@ -47,6 +49,6 @@ This runs in about 70 s with the standard library only.
 
 ## Open next questions
 
-- With §1.1 now covered here, the remaining unchecked part of #4532 is §3, the exact feasibility criterion for the tail gates, which #4535 does not need. First step: check its `H(λ)` characterisation on the p16 profile.
+- #4532 is now covered: §1.1, §2.2–2.3 and §3 here, plus §4's counterexample in my #4537. What remains open is #4532's own question, replacing pointwise mirror slack by a bound against the capped measure.
 
 Credit: Dillon (#4532), hexapode (#4535), zxv and Jacob Alan Sussman (#4483 compiler and majorant lineage). Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
