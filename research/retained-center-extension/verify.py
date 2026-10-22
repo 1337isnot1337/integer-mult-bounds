@@ -34,7 +34,7 @@ def load():
     return json.loads(gzip.decompress(raw))
 
 
-def emit(payload, dual=False, baseline=False):
+def emit(payload, dual=False, baseline=False, cached=False):
     """Same chronological order for inverse transpose; dualize every chart."""
     starts = list(payload['canonical']['start'])
     centers = []
@@ -50,7 +50,9 @@ def emit(payload, dual=False, baseline=False):
             if op == 'copy':
                 center += 1
                 centers.append({'source': g[2][1], 'input_frame': frame})
-                starts.append(frame)
+                starts.append(0 if cached else frame)
+                if cached:
+                    continue
             role = lambda x: x[1] if x[0] == 'L' else 632 + center
             dst = role(g[1])
             if op in ('add', 'copy'):
@@ -70,7 +72,8 @@ def emit(payload, dual=False, baseline=False):
             events.append(('transport', r, a, b, width))
         elif kind == 'center':
             _, _, a, b, width = e
-            events.append(('transport', 632 + center, a, b, width))
+            if not cached:
+                events.append(('transport', 632 + center, a, b, width))
         elif kind == 'warp':
             _, r, op, a, b = e
             symbol = (1 if op > 0 else -1) * (abs(op) + (1000000 if dual else 0))
@@ -89,7 +92,7 @@ def span(basis):
     return out
 
 
-def replay(payload, starts, events, baseline=False):
+def replay(payload, starts, events, baseline=False, paid_expected=None):
     rows = [{(i, ()): Q(1)} for i in range(N)]
     current = starts[:]
     frames = payload['canonical']['frames']
@@ -125,7 +128,7 @@ def replay(payload, starts, events, baseline=False):
                 plus(out, {(variable, word): value})
             rows[r] = out
             current[r] = b
-    need(dict(paid) == PAID, 'complete emitted recursive invoice')
+    need(dict(paid) == (PAID if paid_expected is None else paid_expected), 'complete emitted recursive invoice')
     need(current == payload['canonical']['final'] + [0] * 8, 'all 640 output charts')
     need(all(not word for row in rows for _, word in row), 'all free warp words cancel')
     return [{i: v for (i, _), v in row.items()} for row in rows]
@@ -199,6 +202,34 @@ def run():
     dual = replay(payload, starts, dual_events)
     need(dual == transpose(inverse), 'all-640-column raw inverse transpose with the same bill')
     need(product(transpose(dual), actual) == identity, 'exact primal/dual pairing')
+    # A separately emitted kernel accepts a caller-computed empty-chart cache.
+    # The expensive center transforms are absent; their data are not declared free.
+    cache_paid = {r: n for r, n in PAID.items() if r != 8}
+    cache_starts, _, cache_events = emit(payload, cached=True)
+    cache_actual = replay(payload, cache_starts, cache_events, paid_expected=cache_paid)
+    cache_expected = [dict(row) for row in actual]
+    for i in range(632):
+        plus(cache_expected[i], k2[i], -1)
+    for i in range(8):
+        cache_expected[632 + i] = {632 + i: Q(1)}
+    need(cache_actual == cache_expected, 'cache ABI [[A-BR,B],[0,I]]')
+    cache_k = [dict(row) for row in cache_actual]
+    for i in range(N):
+        plus(cache_k[i], identity[i], -1)
+    need(not any(product(cache_k, cache_k)), 'cache kernel is square-zero off identity')
+    cache_inverse = [dict(row) for row in identity]
+    for i in range(N):
+        plus(cache_inverse[i], cache_k[i], -1)
+    _, _, cache_dual_events = emit(payload, dual=True, cached=True)
+    cache_dual = replay(payload, cache_starts, cache_dual_events, paid_expected=cache_paid)
+    need(cache_dual == transpose(cache_inverse), 'actual raw dual of cache-supplied kernel')
+    supplied = [dict(row) for row in identity]
+    for i in range(8):
+        supplied[632 + i] = r[i]
+    need(product(cache_actual, supplied)[:632] == a[:632], 'derived cache recovers exact old ABI')
+    cold = {j for row in r for j in row if j >= 224}
+    need(len(cold) == 106 and all(payload['canonical']['start'][j] == 0 for j in cold),
+         'all helper contributions to R are already in the empty entrance chart')
     # Controls retain the same source/invoice but falsify actual operator claims.
     bad = list(events)
     i = next(i for i, e in enumerate(bad) if e[0] == 'add' and e[1] == 632)
@@ -237,6 +268,11 @@ def run():
               'old_input_terms_in_center_outputs': [len(row) for row in r],
               'center_residual_ranks_without_decoupling_credit': [8] * 8,
               'primal_and_raw_inverse_transpose_checked': True,
+              'cache_supplied_kernel': {'paid': cache_paid, 'recursive_rank_mass_saved': 64,
+                  'cache_inputs': 8, 'cache_chart': 0, 'required_relation': 'c=R*x',
+                  'cold_helper_inputs_in_R': 106, 'source_X_inputs_in_R': 112,
+                  'raw_dual_checked': True, 'caller_cost_included': False,
+                  'independent_productive_cache_credit': 0},
               'controls': ['center injection sign', 'dual sign', 'false center rank',
                            'new-input leakage', 'old-input contamination'],
               'independent_new_productive_jobs_certified': False,

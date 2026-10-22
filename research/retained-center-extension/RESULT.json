@@ -2,6 +2,24 @@
   "B_rank": 8,
   "R_rank": 8,
   "abi_sha256": "fdbc6a44d66c603e010730a46d45db3b6605b75d9e8ec53041a8d3a105c8057a",
+  "cache_supplied_kernel": {
+    "cache_chart": 0,
+    "cache_inputs": 8,
+    "caller_cost_included": false,
+    "cold_helper_inputs_in_R": 106,
+    "independent_productive_cache_credit": 0,
+    "paid": {
+      "1": 2201,
+      "2": 412,
+      "3": 510,
+      "4": 127,
+      "5": 40
+    },
+    "raw_dual_checked": true,
+    "recursive_rank_mass_saved": 64,
+    "required_relation": "c=R*x",
+    "source_X_inputs_in_R": 112
+  },
   "center_residual_ranks_without_decoupling_credit": [
     8,
     8,

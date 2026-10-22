@@ -26,6 +26,16 @@ only on the 112 Y outputs. R reads X and original helper inputs. If K=M-I,
 then K^2 is nonzero and K^3=0. Its inverse is I-K+K^2. The explicit sparse
 matrices are in ABI.json; RESULT.json is a regenerated receipt.
 
+A second exact kernel accepts eight caller-supplied empty-chart fields and
+removes all eight center transforms. Its complete operator is
+`[[A-BR,B],[0,I_8]]`; the old native output is recovered exactly when the
+caller supplies `c=Rx`. [CACHE.md](CACHE.md) specifies that contract, its raw
+dual, the 106 cold helper contributions, and the full direct caller bill.
+Direct acquisition loses at least 48 units of recursive moment. An exact p16
+scalar-span recycling test also finds no free reconstruction at its 18 full
+stages. These are scoped failed consumers, not admission or a universal
+cache obstruction.
+
 This is a constructive escape from **the pair-shear interface**, not a proof
 that it escapes any complete controller or price obstruction. The added
 centers are coupled outputs. Each one has 100--104 old-input terms, while

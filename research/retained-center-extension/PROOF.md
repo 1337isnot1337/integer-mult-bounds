@@ -63,8 +63,8 @@ K^3 = 0.
 ```
 
 Thus K^2 is nonzero and M^-1=I-K+K^2. Exact sparse multiplication verifies
-both inverse identities. This is an algebraic class-three unipotent endpoint,
-with a central square term. It does not by itself classify realizable Gaussian
+both inverse identities. This is a unipotent endpoint whose off-identity part
+has nilpotence index three, with a central square term. It does not classify realizable Gaussian
 controllers or imply a larger exponent.
 
 ## The actual raw inverse transpose
@@ -122,10 +122,16 @@ free physical decoder and supplies no independent rank-eight target credit.
   supplier counterpart and the full outer transfer.
 
 Decision: preserve this changed interface as a bounded construction checkpoint,
-then test a small exact consumer of the class-three endpoint and its dual.
+then test a small exact consumer of this endpoint and its dual.
 Stop if its fully charged target/paid moment is not positive. A hypothetical
 64-rank-unit per-call center credit is a planning relaxation only. Further
 root digits or an invoice that sets either B or R to zero cannot admit it.
+
+CACHE.md and the updated registered replay provide a second kernel accepting
+the explicit relation c=Rx. Its two-sided operator and raw dual are proved,
+but the direct complete caller is more expensive than the original. The first
+p16 scalar-span cache recycling screen also fails in its stated model. Neither
+check supplies the unknown profitable consumer or removes the expansion gate.
 
 The existing PR4359 embedded logger also retains dirty data and requires a
 consumer. This extension instead replaces **all eight owned center lifetimes**

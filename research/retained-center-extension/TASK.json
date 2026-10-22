@@ -52,7 +52,7 @@
   "budget_minutes": 60,
   "stop_rule": "Publish the exact coupled interface; require one exact fully paid independent-output consumer before further parameter or compiler expansion.",
   "outcome": "partial",
-  "evidence": "ABI.json, RESULT.json, verify.py and PROOF.md; no higher K claimed.",
+  "evidence": "ABI.json, RESULT.json, verify.py and PROOF.md; no higher K claimed. CACHE.md and CACHE-SPAN.json add an exact cache-supplied kernel and its two scoped failed caller tests.",
   "author": "Cinna Davis",
   "ai_assistance": "Substantial OpenAI Codex assistance in derivation, implementation and writing; no subagents.",
   "upstream_check": {
