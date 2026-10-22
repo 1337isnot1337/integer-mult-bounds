@@ -20,4 +20,4 @@ for i, candidate in enumerate(candidates, 1):
     if i % 100 == 0 or i == len(candidates):
         print(i, '/', len(candidates), 'valid', sum(r[1] == 'ok' for r in rows),
               'seconds', round(time.monotonic()-start, 1), flush=True)
-Path(__file__).with_name('latest-bit-scan-results.json').write_text(json.dumps(rows, indent=2)+'\n')
+Path(__file__).with_name('latest-bit-scan-results.json').write_text('[\n'+',\n'.join(json.dumps(r,separators=(',',':')) for r in rows)+'\n]\n')

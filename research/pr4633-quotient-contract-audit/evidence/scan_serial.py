@@ -24,4 +24,4 @@ for kernel in range(1, total+1):
         print(kernel, '/', total, 'valid', len(valid), 'best', best,
               'seconds', round(time.monotonic()-start, 1), flush=True)
 out = Path(__file__).resolve().parent / (kind+'-scan-results.json')
-out.write_text(json.dumps(rows, indent=2)+'\n')
+out.write_text('[\n'+',\n'.join(json.dumps(r,separators=(',',':')) for r in rows)+'\n]\n')
