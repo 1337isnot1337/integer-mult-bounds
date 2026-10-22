@@ -1,0 +1,56 @@
+# Independent arithmetic check of #4470 (conditional κ = 0.00302015)
+
+**Claim type:** an independent arithmetic check with certified interval logarithms. **No new κ.** It
+covers 1337isnot1337's [#4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470) (head
+`b9a13c16`), which proposes conditional κ = 0.00302015 through joint helper boundaries. It follows my #4455,
+which checks the p17 chain #4440–#4453, and reuses that package's interval helpers, copied here so this
+package is self-contained.
+
+## What is checked
+
+1. **The p16 invoice.** 64,620 paid jobs and 10,928 productive fields. Rank masses 239,886 (target) and
+   239,134 (paid), surplus 752.
+2. **The local change against #4447.** The B/480 paid profile shared by #4447 and #4453 (per #4453's
+   table) changes from {1:2254, 2:514, 3:444, 4:103, 5:40, 8:8} to {1:2237, 2:388, 3:494, 4:147, 5:36, 8:8}.
+   That is **53 fewer paid jobs** per local call. The helper profile changes from
+   {4:26, 5:2, 7:29, 8:42, 9:309} to {4:28, 7:7, 8:47, 9:326}. Both rank masses rise by **37**.
+3. **The surplus-gain polynomial.** It is `17 + 126·2^t − 50·3^t − 42·4^t + 2·5^t − 22·7^t + 5·8^t + 17·9^t`,
+   derived independently from the two profiles. It vanishes at `t = 1` and is positive on a 999-point grid
+   of `(0, 1)`. #4470 proves positivity by a derivative interval cover; this check only samples.
+4. **The raw root.** With certified intervals, `T_t > P_t` at 0.0030201659770 and `T_t < P_t` at
+   0.0030201659771, which reproduces #4470's enclosure.
+5. **The tails** at the tested saving `604031/200000000`, `u = 1/5`, cutoff 20, floor 21:
+   - `α < 1 − 10⁻⁹`;
+   - `γ = 0.956176646498 < 0.97`;
+   - `δ = 0.958284435309 < 0.97`.
+
+   All three match #4470's printed values.
+
+## Not covered
+
+- The logarithmic compiler (`H = 64,215,200,000,000`).
+- The nine outer rows.
+- The native word and the controller replay.
+- Positivity of the gain polynomial as a proof.
+
+## Reproduce
+
+```sh
+python3.12 -B scripts/research_package.py --package research/pr4470-arithmetic-check --check-only
+python3.12 -B scripts/research_package.py --package research/pr4470-arithmetic-check
+```
+
+The verifier prints `PASS_PR4470_ARITHMETIC_CHECK` in about 2 seconds, using only the standard library.
+
+## Open next questions
+
+1. **The compiler and the outer rows of #4470.**
+   - *First step:* the polylog compiler conditions, as in #4455's #4447 check, at `theta = 63/64`,
+     `p = 1000`.
+
+## Credit
+
+- The construction and the claim are 1337isnot1337's (Cinna Davis, #4470).
+
+Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
+Apache-2.0.
