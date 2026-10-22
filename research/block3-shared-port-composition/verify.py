@@ -166,7 +166,7 @@ def main():
         (ROOT/'RESULT.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n');(ROOT/'WORD.json').write_text(json.dumps({'two_ports':pair,'five_ports':full,'fused_two_ports':fused_pair,'fused_five_ports':fused_full,'snapshot_restore':snapshot,'fused_five_raw_inverse_transpose':raw_dual_word(fused_full)},indent=2)+'\n')
     else:
         need(json.dumps(result,sort_keys=True)==json.dumps(json.loads((ROOT/'RESULT.json').read_text()),sort_keys=True),'receipt mismatch')
-        need(json.loads((ROOT/'WORD.json').read_text())=={'two_ports':[list(g)for g in pair],'five_ports':[list(g)for g in full],'fused_two_ports':[list(g)for g in fused_pair],'fused_five_ports':[list(g)for g in fused_full],'snapshot_restore':[list(g)for g in snapshot],'fused_five_raw_inverse_transpose':[list(g)for g in raw_dual_word(fused_full)]},'emitted word mismatch')
+        need(json.dumps(json.loads((ROOT/'WORD.json').read_text()),sort_keys=True)==json.dumps({'two_ports':[list(g)for g in pair],'five_ports':[list(g)for g in full],'fused_two_ports':[list(g)for g in fused_pair],'fused_five_ports':[list(g)for g in fused_full],'snapshot_restore':[list(g)for g in snapshot],'fused_five_raw_inverse_transpose':[list(g)for g in raw_dual_word(fused_full)]},sort_keys=True),'emitted word mismatch')
     print(result['status'])
 
 if __name__=='__main__':main()
