@@ -1,6 +1,7 @@
 # Finite ordinary BIT backend bootstrap
 
-The productive supplier in [PR4760](https://github.com/CrocSwap/integer-mult-bounds/pull/4760)
+This finite bootstrap of the unchanged productive supplier from
+[PR4760](https://github.com/CrocSwap/integer-mult-bounds/pull/4760)
 admits ordinary BIT saving **1737729/500000000 = 0.003475458**, under its
 retained completed-interface and implementation premises. This is
 **0.454124296% above its previous exact ordinary saving**
@@ -24,7 +25,8 @@ or priority for bootstrapping is claimed.
 python3.12 -B scripts/research_package.py --package research/bit-finite-ordinary-bootstrap
 ```
 
-The first command authenticates and replays PR4760's exact raw/native/caller
+The two registered commands in VERIFY.json run through this wrapper. The first
+authenticates and replays PR4760's exact raw/native/caller
 certificate, then checks the new tails, compiler constants and all three
 ordinary stages. The second uses the separate literal census and positive-series
 engine, independently derives the new bounds, and rejects seven invalid
@@ -34,6 +36,7 @@ is needed by the direct verifier commands.
 
 See [PROOF.md](PROOF.md), [RESULT.json](RESULT.json),
 [INDEPENDENT.json](INDEPENDENT.json) and [RECORD.json](RECORD.json).
+The author-side environment and export checks are in [VALIDATION.md](VALIDATION.md).
 Finite replays and internal AI checks are separate from an independent external
 mathematical review. The massive uniform program is algorithm-defined and is
 not materialized. Newly generated fixed constants replace prior numerical
