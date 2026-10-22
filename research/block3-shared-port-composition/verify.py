@@ -108,6 +108,8 @@ def expected(banks,f,two=False):
     return [plus(act(A,act(A,x[0])),act(A,L)),act(A,u1),act(A,u2),act(A,u3),t4]
 
 def main():
+    need(word(ops['D'],base['P'],ops['A'])==word(ops['M'],ops['C2']),'separate DPA=MC2 tensor word')
+    need(word(ops['D'],base['Q'],ops['A'])==word(ops['K'],d['pauli'](1,3)),'separate DQA=Ka tensor word')
     pair=port(0,1)+port(1,2)
     full=sum([port(k,k+1)for k in range(4)],[])+port(4,0,False)
     need(invoice(pair)['paid_call_records']==6,'two-port paid bill')
@@ -161,7 +163,7 @@ def main():
     support_Dinv=sorted(set(sum(z!=Z for z in row)for row in adj(ops['D'])))
     support_Ainv=sorted(set(sum(z!=Z for z in row)for row in adj(ops['A'])))
     need(support_Dinv==[4]and support_Ainv==[2],'reset support floor')
-    result={'status':'PASS_BLOCK3_SHARED_PORT_COMPOSITION','new_kappa':False,'pair':invoice(pair),'five_port':invoice(full),'fused_pair':invoice(fused_pair),'fused_five_port':invoice(fused_full),'optimistic_five_target_moment':'3^(1-C)-2; any additional rank1 call makes it <=0 for 0<=C<1','direct_snapshot_reset_policy':{'emitted_invoice':invoice(snapshot),'paid_calls':23,'extra_paid_over_14':9,'saved_output_fields':5,'workspace_cleanup':'unpriced; additional obligation','domain':'single-bank monomial/Gaussian resets with additive contamination removed separately; excludes split-register decoder paths'},'AD_equals_monomial_K':True,'D_inverse_column_support':support_Dinv,'A_inverse_column_support':support_Ainv,'finite_replays':receipts,'raw_dual_bilinear_entries':1600,'controls':['fake independent original input rejected','forward word as raw dual rejected']}
+    result={'status':'PASS_BLOCK3_SHARED_PORT_COMPOSITION','new_kappa':False,'pair':invoice(pair),'five_port':invoice(full),'fused_pair':invoice(fused_pair),'fused_five_port':invoice(fused_full),'fused_raw_inverse_transpose':invoice(raw_dual_word(fused_full)),'optimistic_five_target_moment':'3^(1-C)-2; any additional rank1 call makes it <=0 for 0<=C<1','direct_snapshot_reset_policy':{'emitted_invoice':invoice(snapshot),'paid_calls':23,'extra_paid_over_14':9,'saved_output_fields':5,'workspace_cleanup':'unpriced; additional obligation','domain':'single-bank monomial/Gaussian resets with additive contamination removed separately; excludes split-register decoder paths'},'AD_equals_monomial_K':True,'D_inverse_column_support':support_Dinv,'A_inverse_column_support':support_Ainv,'finite_replays':receipts,'raw_dual_bilinear_entries':1600,'controls':['fake independent original input rejected','forward word as raw dual rejected']}
     if '--write' in sys.argv:
         (ROOT/'RESULT.json').write_text(json.dumps(result,sort_keys=True,indent=2)+'\n');(ROOT/'WORD.json').write_text(json.dumps({'two_ports':pair,'five_ports':full,'fused_two_ports':fused_pair,'fused_five_ports':fused_full,'snapshot_restore':snapshot,'fused_five_raw_inverse_transpose':raw_dual_word(fused_full)},indent=2)+'\n')
     else:

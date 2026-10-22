@@ -2,7 +2,7 @@
 
 ## Formal all-input identities
 
-Write U3(a,b)=(Aa, D b+B a), U2(a,b)=(Aa, A b+F a), where B=D L A, F=A L A, L=P+2Q and all products refer to the source's separately tensorized letters. Each port is a finite chronological reversible word on two arbitrary banks. The source implements a monomial-weighted ADD by mapping/restoring its source, so no original input is silently copied or destroyed. The exact inverse of U3 is `(A^-1 t, D^-1 u-L t)` and of U2 is `(A^-1 t, A^-1 s-L t)`.
+Write U3(a,b)=(Aa, D b+B a), U2(a,b)=(Aa, A b+F a), where B=D L A, F=A L A, L=P+2Q and all products refer to the source's separately tensorized letters. The exact base pure-word identities `D P A=M C2` and `D Q A=K a` are checked separately; tensorizing each pure identity gives `D_f(P_f+2Q_f)A_f=M_f C2_f+2K_f a_f` at every width. Each port is a finite chronological reversible word on two arbitrary banks. The source implements a monomial-weighted ADD by mapping/restoring its source, so no original input is silently copied or destroyed. The exact inverse of U3 is `(A^-1 t, D^-1 u-L t)` and of U2 is `(A^-1 t, A^-1 s-L t)`.
 
 Composition U3(0,1) followed by U3(1,2) gives
 
@@ -26,7 +26,7 @@ The emitted finite bill is6 child invocations (two of rank1, four of rank3),24 m
 
 ## Raw inverse transpose
 
-For chronological gates G1,...,Gr, the primal operator is M=Gr...G1. Then M^-T=Gr^-T...G1^-T, so its chronological gate list has the same order, with each gate replaced by inverse transpose. For a unitary single-bank operator G this replacement is conjugate(G). For `dst += c src`, with real rational c here, it is `src -= c dst`. The raw dual uses no complex conjugation in its bilinear pairing. Applying inverse primitives in reverse order instead constructs M^-1. The verifier checks these different constructions separately and rejects using the forward word as the raw dual.
+For chronological gates G1,...,Gr, the primal operator is M=Gr...G1. Then M^-T=Gr^-T...G1^-T, so its chronological gate list has the same order, with each gate replaced by inverse transpose. For a unitary single-bank operator G this replacement is conjugate(G). For `dst += c src`, with real rational c here, it is `src -= c dst`. The raw dual has the same recursive profile `{1:2,3:4}`,24 monomial passes and10 ADD passes (with reversed direction and negated coefficients). The raw dual uses no complex conjugation in its bilinear pairing. Applying inverse primitives in reverse order instead constructs M^-1. The verifier checks these different constructions separately and rejects using the forward word as the raw dual.
 
 ## Scoped optimistic bound
 
