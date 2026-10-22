@@ -4,7 +4,7 @@
 Douglas Colkitt, with OpenAI Codex assistance. Apache-2.0.
 """
 import argparse
-from contextlib import closing
+from contextlib import closing, contextmanager
 from itertools import chain
 import hashlib
 import importlib.metadata
@@ -17,8 +17,10 @@ import stat
 import subprocess
 import sys
 import tempfile
+import threading
 
 ROOT = Path(__file__).resolve().parents[1]
+GIT_BLOB_RESPONSE_TIMEOUT = 90
 
 
 def require(ok, message):
@@ -139,6 +141,33 @@ class _UnsupportedNulBatch(Exception):
     """Git rejected the initial NUL-mode request before yielding any source."""
 
 
+@contextmanager
+def _git_blob_response_deadline(process):
+    """Bound one direct-child response, excluding time spent by its consumer.
+
+    Descendants retaining a pipe and separate git() calls need their own
+    containment/deadlines; killing the direct child cannot close their handles.
+    """
+    expired = threading.Event()
+
+    def terminate():
+        expired.set()
+        try:
+            process.kill()
+        except ProcessLookupError:
+            pass
+
+    timer = threading.Timer(GIT_BLOB_RESPONSE_TIMEOUT, terminate)
+    timer.start()
+    try:
+        yield
+    finally:
+        timer.cancel()
+        timer.join()
+        if expired.is_set():
+            raise subprocess.TimeoutExpired("git cat-file blob response", GIT_BLOB_RESPONSE_TIMEOUT)
+
+
 def _git_blob_batch(root, specs, nul):
     argv = ["git", "cat-file", "--batch"] + (["-z"] if nul else [])
     # Usage diagnostics from the unsupported-option probe are expected. Avoid
@@ -153,23 +182,24 @@ def _git_blob_batch(root, specs, nul):
                     # Resolve one literal argument, never split a path into requests.
                     request = git(root, "rev-parse", "--verify", "--end-of-options", spec).decode("ascii").strip()
                     require(re.fullmatch(r"[0-9a-f]{40,64}", request), "invalid Git object ID")
-                try:
-                    process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
-                    process.stdin.flush()
-                except BrokenPipeError:
-                    header = b""
-                else:
-                    header = process.stdout.readline()
-                if nul and index == 0 and not header and process.wait(timeout=90) == 129:
-                    raise _UnsupportedNulBatch(spec)
-                fields = header.rstrip(b"\n").split(b" ")
-                require(len(fields) == 3 and re.fullmatch(rb"[0-9a-f]{40,64}", fields[0])
-                        and fields[1] == b"blob" and fields[2].isdigit(),
-                        "missing or non-blob Git source: " + spec)
-                size = int(fields[2])
-                pinned = process.stdout.read(size)
-                require(len(pinned) == size and process.stdout.read(1) == b"\n",
-                        "incomplete Git blob response: " + spec)
+                with _git_blob_response_deadline(process):
+                    try:
+                        process.stdin.write(request.encode("utf-8") + (b"\0" if nul else b"\n"))
+                        process.stdin.flush()
+                    except BrokenPipeError:
+                        header = b""
+                    else:
+                        header = process.stdout.readline()
+                    if nul and index == 0 and not header and process.wait(timeout=90) == 129:
+                        raise _UnsupportedNulBatch(spec)
+                    fields = header.rstrip(b"\n").split(b" ")
+                    require(len(fields) == 3 and re.fullmatch(rb"[0-9a-f]{40,64}", fields[0])
+                            and fields[1] == b"blob" and fields[2].isdigit(),
+                            "missing or non-blob Git source: " + spec)
+                    size = int(fields[2])
+                    pinned = process.stdout.read(size)
+                    require(len(pinned) == size and process.stdout.read(1) == b"\n",
+                            "incomplete Git blob response: " + spec)
                 yield fields[0].decode("ascii"), pinned
             process.stdin.close()
             require(process.wait(timeout=90) == 0, "Git source reader failed")
