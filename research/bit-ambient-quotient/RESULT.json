@@ -14,36 +14,42 @@
   "emitted_paid_mass": 5129,
   "emitted_surplus": 753,
   "endpoint_failures": 0,
-  "frames": 117,
-  "gain_absolute": 0.008936837444043276,
-  "gain_relative": 2.5797330146343347,
+  "frames": 65,
+  "gain_absolute": 0.02878517442286887,
+  "gain_relative": 8.309210641419726,
   "helper_widths": {
     "8": 439
   },
-  "kernel_vector": 150,
+  "kernel_basis": [
+    150,
+    102,
+    255
+  ],
+  "kernel_dimension": 3,
   "local_checks": {
     "adds": 24305,
     "copies": 9
   },
-  "main_rank_mass": 1457,
+  "main_rank_mass": 1294,
   "main_widths": {
-    "6": 107,
-    "7": 105,
-    "8": 10
+    "4": 103,
+    "7": 70,
+    "8": 49
   },
   "package": "bit-ambient-quotient",
-  "quotient_kappa": 0.01240108641606724,
+  "quotient_kappa": 0.03224942339489283,
   "quotient_paid": {
-    "1": 1198,
-    "2": 1255,
-    "3": 207,
-    "4": 86,
-    "5": 41,
-    "6": 23,
-    "7": 1
+    "1": 1020,
+    "2": 495,
+    "3": 75,
+    "4": 442,
+    "5": 143,
+    "6": 4,
+    "7": 12,
+    "8": 2
   },
-  "quotient_paid_mass": 5023,
-  "quotient_surplus": 2661,
+  "quotient_paid_mass": 4842,
+  "quotient_surplus": 5919,
   "roles": 661,
   "status": "PASS_BIT_AMBIENT_QUOTIENT"
 }

@@ -1,52 +1,60 @@
-# Conditional kappa = 0.012401 (BIT-limited, +310.6%): BIT supplier to 0.012401086416 by an ambient quotient (kernel 150)
+# BIT supplier 0.032249423394893 by a three-dimensional ambient quotient
 
 **Scoped finite construction with exact local replay evidence. Not a multiplication theorem.**
 
-With the complex supplier at 0.015637149091, the outer value is
-`min(complex, BIT)`, so raising the BIT supplier to **0.012401086416** raises the
-outer kappa from 0.00302015 to **0.012401**, a **+310.6%** gain limited by the BIT
-side itself.
+**Frontier base: 0.012401086416** — this package's own one-dimensional quotient, the
+value the BIT branch carried before this change. The three-dimensional quotient moves
+the BIT supplier from `0.012401086416` to **`0.032249423394893`**, a **+160.05%** step
+on that base, and from the emitted word's `0.003464248972024` to that value,
+**+830.92%** in total.
 
-The BIT supplier's local word is PR589's E8 word: `h = 8`, `V = 111` roles per
-side, `R = 439` helpers, 661 roles, 636 frames and 249 records. Frames are stored
-by annihilator rows, so a frame is the GF(2) nullspace of its rows.
+The BIT local word is PR589's E8 word: `h = 8`, `V = 111` roles per side, `R = 439`
+helpers, 661 roles, 636 frames and 249 records. Frames are stored by annihilator
+rows, so a frame is the GF(2) nullspace of its rows.
 
-For a nonzero kernel `v` with lowest set bit `j`,
+For a kernel subspace `K` of dimension `k`, the map
 
 ```
-phi(x) = drop_j( x xor v when bit_j(x) is set else x )
+phi(x) = (r_1.x, ..., r_(8-k).x)      over a basis r of the annihilator of K
 ```
 
-is linear and surjective onto `F2^7` with kernel `span{v}`. It shrinks exactly the
-frames containing `v`, so a MOVE whose destination contains `v` and whose source
-does not loses one rank. Frames with the same image are identified, the helper
-finals are restored to the full `F2^8` (the contract requires every helper to be
-physically `D_I8`, and the tensor block to stay 7), and every MOVE rank is
-recomputed from the new dimensions.
+is linear and surjective onto `F2^(8-k)` with kernel exactly `K`. It shrinks exactly
+the frames meeting `K`, so a MOVE whose destination meets `K` in more dimensions than
+its source loses that many ranks. Frames with equal image are identified, the
+full-ambient image is re-padded with all `k` freed axes so every helper stays
+physically `D_I8` and the tensor block stays 7, and every MOVE rank is recomputed.
 
-The kernel is chosen by replay, not by arithmetic: `scan_kernels.py` builds,
-replays and prices all 255 directions. **All 255 replay, and `150` has the highest
-admissible kappa.**
+## The kernel dimension is the lever
+
+| kernel dim | kappa | vs base 0.012401086416 |
+|---:|---:|---:|
+| 1 | 0.012401086416 | — (the base) |
+| 2 | 0.021785831250 | +75.68% |
+| **3** | **0.032249423394893** | **+160.05%** |
+| 4 | 0.017525188018 | +41.32% |
+
+The submitted word uses `K = span{150, 102, 255}` (dimension 3, quotient width 5).
+Of 455 sampled three-dimensional kernels, 445 replay and **all 445 price at
+0.032249423394893** — the value is a plateau in the dimension, not a lucky triple.
 
 | quantity | emitted | quotient |
 |---|---:|---:|
-| frames | 636 | **117** |
-| frame dimensions | see source | `{0:1, 1:16, 2:19, 3:11, 4:7, 5:41, 6:20, 7:1, 8:1}` |
-| main widths | `{7: 222}` | `{6: 107, 7: 105, 8: 10}` |
+| frames | 636 | **65** |
+| frame dimensions | — | `{0:1, 1:13, 2:8, 3:25, 4:16, 5:1, 8:1}` |
+| main widths | `{7: 222}` | `{4: 103, 7: 70, 8: 49}` |
+| main rank mass | 1,554 | **1,294** |
 | helper widths | `{8: 439}` | `{8: 439}` (start dim 0, final dim 8) |
-| paid profile | `{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` | `{1:1198, 2:1255, 3:207, 4:86, 5:41, 6:23, 7:1}` |
-| paid rank mass | 5,129 | **5,023** |
-| rank surplus | 753 | **2,661** |
-| **BIT kappa** | **0.003464248972** | **0.012401086416** |
-
-`+0.008937`, **+258.0%** on the BIT supplier. Both screen constraints hold at the
-new kappa.
+| helper rank mass | 3,512 | 3,512 |
+| paid profile | `{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` | `{1:1020, 2:495, 3:75, 4:442, 5:143, 6:4, 7:12, 8:2}` |
+| paid rank mass | 5,129 | **4,842** |
+| rank surplus | 753 | **5,919** |
+| **BIT kappa** | **0.003464248972024** | **0.032249423394893** |
 
 ## Why the quotient is legitimate
 
-The quotient recognises a one-dimensional gauge direction in the ambient: the
-frames containing `v` lose exactly one dimension, and nothing else moves. The
-shipped local record interpreter then replays the rewritten word unchanged:
+A frame meeting `K` in `j` dimensions loses exactly `j`, and nothing else moves, so
+no MOVE is lengthened: `dim phi(F) <= dim F` for every `F`. The shipped local record
+interpreter then replays the rewritten word with no change of its own:
 
 | check | result |
 |---|---:|
@@ -57,69 +65,66 @@ shipped local record interpreter then replays the rewritten word unchanged:
 | helper finals at dim 8 | 439 of 439 |
 | helper starts at ground | 439 of 439 |
 | source word reproduces the declared bill | `{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` |
-| emitted BIT kappa reproduces the frontier | 0.003464248972 |
+| emitted BIT kappa reproduces the frontier | 0.003464248972024 |
 
-The last two rows are the calibration: replaying the *pinned source word* through
-the same interpreter reproduces the declared local bill exactly, and the emitted
-invoice's screen reproduces the frontier's BIT kappa to twelve digits. The
-quotient is then the same interpreter on the same records with recomputed ranks.
+The last two rows are the calibration: replaying the *pinned source word* through the
+same interpreter reproduces the declared local bill exactly, and the emitted invoice's
+screen reproduces the frontier's BIT kappa to fifteen digits. The quotient is that
+same interpreter on the same records with recomputed ranks.
 
-**The block stays 7.** The tensor block is `ambient - 1`, and the word's ambient
-is eight axes for both words. The quotient would leave one axis unused, so the
-builder re-pads the full-ambient frame: every role that ended at the full ambient
-ends there again, so helper ranks are preserved and the block-7 ladder charge is
-correct rather than assumed. `verify.py` asserts `ambient_dim == 8` and that no
-helper final is below 8.
+**The block stays 7.** The tensor block is `ambient - 1`, and the ambient is eight
+axes for both words. The quotient would leave `k` axes unused, so the builder re-pads
+the full-ambient image with all of them: every role that ended at the full ambient
+ends there again, helper ranks are preserved, and the block-7 ladder charge is correct
+rather than assumed. `verify.py` asserts `ambient_dim == 8`, an independent kernel
+basis, a matching quotient width, and no helper final below 8.
 
-## Evidence and reproduction
+## Reproduce
 
 ```sh
 python3 -B research/bit-ambient-quotient/build.py          # writes the artifact
 python3 -B research/bit-ambient-quotient/verify.py         # independent checks
-python3 -B research/bit-ambient-quotient/scan_kernels.py   # the kernel choice
+python3 -B research/bit-ambient-quotient/scan_kernels.py   # the dimension ladder
 ```
 
-`verify.py` loads only the artifact and the pinned source word; it does not import
-the builder. The two-constraint screen is inlined (tail offset `1/5`, cutoff `20`,
+`verify.py` loads only the artifact and the pinned source word; it does not import the
+builder. The two-constraint screen is inlined (tail offset `1/5`, cutoff `20`,
 gamma `0.97`), so no file outside the base commit is required.
-
-The scan prices every direction through the full replay, not through a formula,
-and reports the ranking.
 
 ## What is not claimed
 
-- **The admission parameters are declared constants.** `atom 0.004`,
-  `ordinary 0.0034364` and `admitted 0.0034` are literals in
-  `research/query-thinned-controllers/verify.py`; they are not derived from the
-  supplier word and are not raised here. The 0.012401 outer value requires them
-  raised to match a 0.0124 supplier — the same kind of contract change as
-  `controller.py:152` for the mixed main widths.
-- **The frame charts collapse**: 636 distinct frames become 117. The local record
-  interpreter validates the word's own frame record, and no consumer here reads
-  the BIT's frame charts (`inventories` reads the paid and helper profiles only),
-  but a contract that requires particular frame charts would reject the word —
-  the same question raised for the complex quotient in #4604.
+- **The outer kappa does not move in this package.** The outer value is
+  `min(complex, BIT)`; the complex supplier sets it.
+- **The frame charts collapse**: 636 frames become 65. The interpreter validates the
+  word's own frame record and `inventories` reads only the paid and helper profiles,
+  so no consumer in this tree reads the charts — but a contract requiring particular
+  frame charts would reject the word (the #4604 question).
+- Kernel dimension 4 replays but prices worse at 0.017525188018; the plateau break is
+  unexplained and recorded as an open question.
 - This is not a multiplication theorem and not a Lean verification.
-- The quotient is one-dimensional; higher-dimensional kernels are not explored.
-- Only PR589's E8 word is exercised.
+- Only PR589's E8 word is exercised; 292 other `h = 8` words are untested.
 
 ## Open next questions
 
-1. **Does a two-dimensional kernel replay?** All 255 one-dimensional quotients
-   replay and land between 0.0122 and 0.0124; a plane could shorten more MOVEs.
-2. **Which consumer, if any, requires the frame charts?** The same question as
-   #4604, and the answer decides whether this family is admissible.
-3. **What admission parameters correspond to a 0.0124 supplier?** The declared
-   `atom 0.004` and `after_cover 0.00345` are far below the new supplier kappa.
-4. **Do the other `h = 8` words admit the same quotient?** 292 such words exist in
-   the tree with different frame inventories.
+1. **Why does dimension 4 fall back to 0.017525188018?** The mechanism is not
+   explained; it may be the helper re-padding or the frame nesting.
+2. **Can the complex supplier follow?** It needs
+   `research/fresh-helper-boundary/native.py:85` to derive the centre transport's rank
+   instead of fixing it at `8`; with that one-line change a two- and three-dimensional
+   complex quotient replays, and the complex side moves too.
+3. **Which consumer, if any, requires the frame charts?** This is the #4604 question,
+   and it decides whether any of these quotients is admissible.
+4. **What admission parameters correspond to a 0.032249423394893 supplier?** The
+   declared literals in `research/query-thinned-controllers/verify.py` are far below
+   it.
 
 ## Attribution
 
 Built on PR589's regenerated E8 word
 (`research/kappa-rebuild/bit/sources/pr589-regenerated`) and the local record
-interpreter and declared bill of `research/kappa-rebuild/bit/mixed_productive_bit.py`
-(DreamingOfClouds / PR589, eumemic / PR555 and PR543, and their cited lineage).
-The quotient construction follows `research/complex-ambient-quotient`.
+interpreter and declared bill of
+`research/kappa-rebuild/bit/mixed_productive_bit.py` (DreamingOfClouds / PR589,
+eumemic / PR555 and PR543, and their cited lineage). The quotient construction follows
+`research/complex-ambient-quotient`.
 
 Apache-2.0; substantial AI assistance.

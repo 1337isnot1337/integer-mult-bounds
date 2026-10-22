@@ -4,142 +4,139 @@
 
 The input is PR589's regenerated E8 word at
 `research/kappa-rebuild/bit/sources/pr589-regenerated`: `WORD.json.gz` (pinned by
-the SHA-256 recorded in the artifact), `records/frames.json` (636 frames stored by
-annihilator rows) and `records/249-records.bin` (249 records, `<6i`:
-`op, x, y, c, f, z`). The local record interpreter and the declared local bill
-`{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` are those of
-`research/kappa-rebuild/bit/mixed_productive_bit.py`, whose own `audit_local`
-reproduces that bill from this word.
+SHA-256 `e3e301e62bc2b41dbf1ceac0acf3d35824ebeab1848c5a2142d4577b109da52f`, which
+matches `mixed_productive_bit.py`'s own `WORD_HASH`), `records/frames.json`
+(636 frames stored by annihilator rows) and `records/249-records.bin` (249
+records, `<6i`: `op, x, y, c, f, z`). The local record interpreter and the
+declared local bill `{1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}` are those of
+`research/kappa-rebuild/bit/mixed_productive_bit.py`.
 
 There are 661 persistent fields: `2V = 222` main fields and `R = 439` helpers, in
 an eight-axis ambient. A frame's dimension is the dimension of the GF(2) nullspace
-of its annihilator rows; `frame 1` is the full ambient.
+of its annihilator rows; frame 1 is the full ambient.
 
-The changed object is the ambient. For a nonzero kernel `v` with lowest set bit
-`j`,
+The changed object is the ambient. For a kernel subspace `K` of dimension `k` with
+annihilator basis `r_1..r_(8-k)`,
 
 ```
-phi : F2^8 -> F2^7,   phi(x) = drop_j( x xor v when bit_j(x) is set else x )
+phi : F2^8 -> F2^(8-k),   phi(x)_i = r_i . x
 ```
 
-`phi` is linear and surjective with kernel `span{v}`: two vectors collide exactly
-when they differ by `v`. `build.py` maps every frame's vector set through `phi`,
-deduplicates each image basis by exact GF(2) rank, identifies frames with equal
-image, and rewrites every role boundary and every record's frame fields. Every
-MOVE rank is recomputed as `dim(image(destination)) - dim(image(source))`. The
-record order, the ADD/COPY structure and every helper boundary are otherwise
-unchanged.
+`phi` is linear and surjective with kernel exactly `K`. `build.py` maps every
+frame's vector set through `phi`, deduplicates each image basis by exact GF(2)
+rank, identifies frames with equal image, and rewrites every role boundary and
+every record's frame fields. Every MOVE rank is recomputed as
+`dim(image(destination)) - dim(image(source))`. The record order, the ADD/COPY
+structure and every helper boundary are otherwise unchanged.
 
-The kernel is `v = 150`. It is not chosen by hand: `scan_kernels.py` builds,
-replays and prices all 255 directions; all 255 replay, and `150` has the highest
-admissible kappa (next: `102` at 0.012370756966, `153` at 0.012297488831).
+The kernel is `span{150, 102, 255}`, dimension 3. It is not chosen by hand:
+`scan_kernels.py` prices the dimension ladder and samples the solids. The value is
+a plateau in the dimension — 445 of 455 sampled three-dimensional kernels replay
+and all price at 0.032249423394893.
 
 ## 2. Frame-coordinate invariant under the quotient
 
-A field at frame `F` carries the frame operator `C_F`. A chosen frame `E subset F`
+A field at frame `F` carries the frame operator `C_F`; a chosen frame `E subset F`
 carries `C_E`, and the paid transport between them has rank `dim F - dim E`.
 Because `phi` is linear, `E subset F` implies `phi(E) subset phi(F)`, so every
 nesting the records rely on survives and the transport's rank becomes
 `dim phi(F) - dim phi(E)`.
 
-The induction is unchanged: at each scalar step the participating fields are
-moved into the operation's declared frame, and a scalar linear combination
-commutes with a common frame operator, so the logical step is the same before and
-after the quotient. The replay checks that directly — the arbitrary-column test
-and the endpoint test are frame-independent value tests, and both are exact in
-both directions.
+The induction is unchanged: at each scalar step the participating fields are moved
+into the operation's declared frame, and a scalar linear combination commutes with
+a common frame operator, so the logical step is the same before and after the
+quotient. The replay checks that directly — the arbitrary-column test and the
+endpoint test are frame-independent value tests, and both are exact in both
+directions.
 
-Containment is what makes the quotient admissible: no MOVE is lengthened, because
-`dim phi(F) <= dim F` for every `F`, and a move is shortened exactly when its
-destination contains `v` and its source does not.
+No MOVE is lengthened, since `dim phi(F) <= dim F` for every `F`; a move is
+shortened by the number of kernel dimensions its destination meets minus the number
+its source meets.
 
 ## 2b. Re-padding the full ambient and the block
 
-Two things must be restored, and neither costs a rank of surplus.
-
-**The block.** The tensor block is `ambient - 1`; the block-7 ladder charge is
-correct only if the word's ambient is eight-dimensional. The ambient is eight axes
-for both words (`span()` requires `0 <= vector < 256`), so the quotient leaves one
-axis unused, which invites the reading that the word is a block-6 word.
-
-**The helpers.** Every helper must be physically `D_I8` — start at ground, final at
-the full ambient. `phi` sends `F2^8` onto `F2^7`, so quotienting would leave every
-helper at dimension 7.
-
-`build.py` restores both at once: the image of the full ambient is replaced by the
-whole of `F2^8` again (the 7-dimensional image plus the unused axis). Every role
-that ended at the full ambient ends there again, so helper ranks are preserved
-exactly, helper finals are dimension 8, and the ambient is eight axes.
+The tensor block is `ambient - 1`, and the block-7 ladder charge is correct only if
+the word's ambient is eight-dimensional. The quotient leaves `k` axes unused, so
+`build.py` re-pads the full-ambient image with all `k` of them: the 5-dimensional
+image becomes the whole of `F2^8` again. Every role that ended at the full ambient
+ends there again, so helper finals are dimension 8, helper ranks are preserved, and
+the ambient is eight axes.
 
 ## 3. Complete local bill
 
-The bill is read off the replay rather than argued:
+Read off the replay:
 
 ```
 emitted   {1:1323, 2:1342, 3:79, 4:44, 5:102, 6:11, 7:19}          mass 5,129
-quotient  {1:1198, 2:1255, 3:207, 4:86, 5:41, 6:23, 7:1}           mass 5,023
+quotient  {1:1020, 2:495, 3:75, 4:442, 5:143, 6:4, 7:12, 8:2}      mass 4,842
 ```
 
-The paid mass falls by 106 ranks per call. With the frontier's sixteen-stage
-controller, eighteen thick calls, fifteen thin queries, `ports = 111` and
-`block = 7`, the invoice's rank surplus is
+The paid mass falls by 287 ranks per call and its shape shifts into ranks 4 and 5.
+With the frontier's sixteen-stage controller, eighteen thick calls, fifteen thin
+queries, `ports = 111` and `block = 7`:
 
 ```
 targets = 63,216 (helpers) + 154,290 (ladder)              = 217,506
 paid    = 18*paid_mass + 1,665 (thin) + 122,766 (idles)
 
 emitted   217,506 - (18*5,129 + 1,665 + 122,766) =   753
-quotient  217,506 - (18*5,023 + 1,665 + 122,766) = 2,661
+quotient  217,506 - (18*4,842 + 1,665 + 122,766) = 5,919
 ```
 
-equivalently `S = 31,524 - 18*(paid - 3,512) - 1,665`, where 31,524 is the ladder's
-own surplus (154,290 target mass minus 122,766 paid mass). The two-constraint
-screen then gives
+The two-constraint screen gives
 
 ```
 emitted   BIT kappa = 0.003464248972    (the frontier's declared BIT value)
-quotient  BIT kappa = 0.012401086416    (+258.0%)
+quotient  BIT kappa = 0.032249423394893    (+830.92% over the emitted word)
+
+Against this package's own one-dimensional quotient, the frontier base
+0.012401086416, the step is +160.05%.
 ```
 
-## 3b. The outer value becomes BIT-limited 0.012401
+## 3b. Where the composition stands
 
-The outer value is `min(complex, BIT)`. With the complex supplier at
-0.015637149091 (`research/complex-ambient-quotient`) and the BIT supplier here at
-0.012401086416, the minimum is the BIT, so the outer kappa moves from 0.00302015
-to **0.012401**, **+310.6%**.
+The frontier base for this package is its own one-dimensional quotient,
+0.012401086416. With the complex supplier at 0.015637149091
+(`research/complex-ambient-quotient`) and the BIT supplier now at
+0.032249423394893, the outer `min(complex, BIT)` is the complex side. The BIT is no
+longer binding and has 2.06x of headroom over the complex.
 
-That composition needs one contract change: `atom 0.004`, `ordinary 0.0034364` and
-`admitted 0.0034` are declared literals in
-`research/query-thinned-controllers/verify.py`, not functions of the supplier
-word, and a 0.0124 supplier requires them raised. The complex side must also be
-throttled to the BIT's value, since the admission chain requires
-`admitted > TESTED`.
+The complex side cannot follow with the same construction yet: `synthesize` in
+`research/fresh-helper-boundary/native.py:85` hardcodes the centre transport's rank
+as `8`
+
+```python
+e = ['center', 0, e[2], second[3], 8]
+```
+
+and the centre frames are dim-8 hyperplanes, so a kernel of dimension >= 2 always
+shrinks them and the stored rank stops matching the frame dimensions. The
+one-dimensional complex quotient avoids this because its kernel direction misses
+the centre frames. Deriving that rank instead of fixing it at 8 is the change the
+complex side needs.
 
 ## 4. What is checked, and what is not
 
 Checked by `verify.py` from the artifact and the pinned source word, with the
-shipped record interpreter: 661 roles; ambient dimension 8; no helper final below
-dimension 8; all 439 helper starts at ground; both directions replay with 24,305
-ADDs and 9 COPY episodes; all arbitrary input columns exact; all 661 endpoints
-exact; owned COPY cleanup exact; forward and backward paid profiles identical;
-the source word reproduces the declared local bill; the emitted invoice reproduces
-the frontier's BIT kappa; and the quotient strictly improves the screen.
+shipped record interpreter: 661 roles; ambient dimension 8; the kernel basis is
+independent and the declared quotient width matches its dimension; no helper final
+below dimension 8; all 439 helper starts at ground; both directions replay with
+24,305 ADDs and 9 COPY episodes; all arbitrary input columns exact; all 661
+endpoints exact; owned COPY cleanup exact; forward and backward paid profiles
+identical; the source word reproduces the declared local bill; the emitted invoice
+reproduces the frontier's BIT kappa; and the quotient strictly improves the screen.
 
 Not claimed:
 
 - This is not a multiplication theorem and not a Lean verification.
-- **The outer value needs the admission literals raised.** The composition to
-  0.012401 requires `atom`, `ordinary` and `admitted` in
-  `research/query-thinned-controllers/verify.py` to be re-derived for a 0.0124
-  supplier, and the complex side throttled to the BIT's value.
-- **The frame charts are not preserved**: 636 frames become 117. The interpreter
-  validates the word's own frame record, and `inventories` reads only the paid and
+- **The outer kappa does not move here.** The complex supplier sets it; this
+  package moves the BIT supplier from the base 0.012401086416 to 0.032249423394893.
+- **The frame charts are not preserved**: 636 frames become 65. The interpreter
+  validates the word's own frame record and `inventories` reads only the paid and
   helper profiles, so no consumer in this tree reads the charts — but a contract
-  requiring particular charts would reject the word. This is the question raised
-  for the complex quotient in #4604, and it is not settled here.
-- Only one-dimensional kernels are explored. All 255 replay and cluster between
-  0.0122 and 0.0124.
+  requiring particular charts would reject the word. This is the #4604 question.
+- Kernel dimension 4 replays but prices worse (0.0175); the plateau break is
+  unexplained. Dimension 5 was not searched exhaustively.
 - Only PR589's E8 word is exercised; 292 other `h = 8` words are untested.
-- The admission parameters are declared constants in
-  `research/query-thinned-controllers/verify.py`; they are not derived from the
-  supplier and are not raised here.
+- The admission parameters in `research/query-thinned-controllers/verify.py` are
+  declared literals, not functions of the supplier, and are not raised here.

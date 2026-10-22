@@ -37,6 +37,18 @@ def need(ok, message):
         raise ValueError(message)
 
 
+def _rank(rows):
+    piv = {}
+    for r in [x for x in rows if x]:
+        y = r
+        for p in sorted(piv, reverse=True):
+            if y >> p & 1:
+                y ^= piv[p]
+        if y:
+            piv[y.bit_length()-1] = y
+    return len(piv)
+
+
 def moment(profile, exponent):
     return sum(n*(r**exponent) for r, n in profile.items() if n and r > 0)
 
@@ -126,14 +138,18 @@ def replay(records, start, final, dims, reverse):
 def main():
     with gzip.open(HERE/'QUOTIENT-BIT-WORD.json.gz', 'rt') as handle:
         artifact = json.load(handle)
-    kernel = artifact['kernel_vector']
+    kernels = [int(v) for v in artifact['kernel_basis']]
     dims = {int(k): v for k, v in artifact['frame_dims'].items()}
     start, final = artifact['start'], artifact['final']
     records = [tuple(r) for r in artifact['records']]
 
     need(artifact['ambient_dim'] == AMBIENT, 'ambient is not eight')
     need(len(start) == len(final) == ROLES, 'role count')
-    need(0 < kernel < (1 << AMBIENT), 'kernel out of range')
+    need(1 <= len(kernels) < AMBIENT, 'kernel dimension out of range')
+    need(all(0 < k < (1 << AMBIENT) for k in kernels), 'kernel vector out of range')
+    need(_rank(kernels) == len(kernels), 'kernel basis is not independent')
+    need(artifact['quotient_width'] == AMBIENT - len(kernels),
+         'quotient width does not match the kernel dimension')
     need(max(dims.values()) == AMBIENT, 'no frame reaches the full ambient')
     need(all(dims[final[r]] == AMBIENT for r in range(2*PAIRS, ROLES)),
          'a helper final is not D_I8')
@@ -142,8 +158,8 @@ def main():
 
     mains = Counter(dims[final[r]]-dims[start[r]] for r in range(2*PAIRS))
     helpers = Counter(dims[final[r]]-dims[start[r]] for r in range(2*PAIRS, ROLES))
-    print('artifact: kernel %d, %d frames, %d roles, ambient %d'
-          % (kernel, len(dims), ROLES, AMBIENT))
+    print('artifact: kernel %s (dim %d), %d frames, %d roles, ambient %d'
+          % (kernels, len(kernels), len(dims), ROLES, AMBIENT))
     print('main widths %s ; helper widths %s'
           % (dict(sorted(mains.items())), dict(sorted(helpers.items()))))
 
@@ -178,14 +194,15 @@ def main():
     need(k1 is not None and k1 > k0, 'quotient does not improve the screen')
     need(s0 == 48*CALLS-111, 'emitted surplus identity 48*thick-111')
     print()
-    print('emitted  surplus %d (thin %d)  BIT kappa %.12f' % (s0, thin0, k0))
-    print('quotient surplus %d (thin %d)  BIT kappa %.12f' % (s1, thin1, k1))
-    print('gain %+.6f  %+.1f%%' % (k1-k0, 100*(k1/k0-1)))
+    print('emitted  surplus %d (thin %d)  BIT kappa %.15f' % (s0, thin0, k0))
+    print('quotient surplus %d (thin %d)  BIT kappa %.15f' % (s1, thin1, k1))
+    print('gain %+.15f  %+.2f%%' % (k1-k0, 100*(k1/k0-1)))
 
     result = {
         'package': 'bit-ambient-quotient',
         'status': 'PASS_BIT_AMBIENT_QUOTIENT',
-        'kernel_vector': kernel,
+        'kernel_basis': kernels,
+        'kernel_dimension': len(kernels),
         'frames': len(dims),
         'roles': ROLES,
         'ambient_dim': AMBIENT,
