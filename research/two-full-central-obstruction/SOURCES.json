@@ -61,6 +61,13 @@
       "pin": "head:08ac39202263203fded429c826ba9228ac9df803:research/productive-controller-basis-search/GLOBAL-PROOF.md",
       "git_blob": "74b67e22e6c063193a83825207cdec19a8fef7a4",
       "sha256": "adc377b13924701bf5b0b50b091d8b69c90195d50ce0f6808f7fb4c7e0b16457"
+    },
+    {
+      "path": "research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+      "usage": "provenance",
+      "pin": "head:20bb93cd990d2ff683e4d0fc56b87a42cd5d3296:research/t74-native-fast/vendor/native/new/code/borrow/vendor/clifford/clifford_exact.py",
+      "git_blob": "166841a037f069249f6f7f6dedb89248812f59e2",
+      "sha256": "2982ead07721e83358dc67c6f49c2b4c16a236a6bebdfd72f58221be1f5d0962"
     }
   ]
 }

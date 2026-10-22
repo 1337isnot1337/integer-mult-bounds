@@ -101,3 +101,28 @@ At the funded comparison, an actual three-call improvement must save more
 than 58.916072241014304 in moment before any new work or reserve. Hypothetical
 single-rank alternatives include deleting 59 H1 or 8 H8 paid calls, or adding
 seven truly independent H9 targets; none is an available construction here.
+
+## Addendum: full monomial routing on exactly two owners
+
+The same package now also closes **full monomial Clifford interstage routing**,
+including central/fresh mixing and arbitrary owner GL2, when there are exactly
+two main owners and no access to other states. The original separated-address
+theorem permits restored dirty scratch; this additional full-monomial theorem
+has a different owner boundary. Their two relaxations are not combined.
+
+Retain the native rank-eight transverse factors in their actual order. The
+untouched row/column entry of two triangular FULL maps is D2 W_rc D1, supported
+only on Fourier grades at most sixteen. Two rank-seventeen targets require
+every lower-grade entry to vanish, forcing W_rc=0 and then the other entry in
+that input column to vanish as well. This makes the arbitrary interstage W
+singular. [PROOF.md](PROOF.md) contains the complete all-width argument.
+
+An actual interstage controlled-phase word makes both off-diagonal pure words
+rank seventeen, but retains a nonzero rank-sixteen diagonal word. It therefore
+fails the endpoint gate despite its favorable maximal-rank count. The portable
+`verify_grade.py` regenerates this unchanged independent check in private
+scratch from authenticated vendored Clifford source and compares its receipt.
+Its only adaptation replaces one Git source-loader line; scientific code is
+unchanged. Run it normally or with `-I -O -W error -B`. Both registered variants
+are below one second. This small portable check is separate from the larger
+native accounting/wrapper audit, whose local-only replay limit remains above.

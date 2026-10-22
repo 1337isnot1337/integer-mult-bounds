@@ -203,3 +203,97 @@ predecessors. Finite-dimensional rank and separating-polynomial arguments
 are elementary tools, with no literature-priority claim. A separate
 gpt-6.1-sol/high agent independently reviewed the projection and all-width
 arguments; this is not independent human or proof-kernel acceptance.
+
+## Addendum: full monomial routing, exactly two owners and no additional states
+
+The preceding theorem grants arbitrary restored dirty scratch but restricts
+the free address subgroup to separated central/transverse operations. The
+following theorem removes that address separation for **exactly two main
+owners**, without access to scratch or transformed helper states. These are
+two distinct scopes; no theorem here simultaneously grants both extensions.
+
+This direct-column argument was independently derived by the parent agent
+and checked/refined by the separate gpt-6.1-sol/high reviewer. Its unchanged
+review note and one literal controlled-phase check are under `grade/`.
+
+Take G to be a fixed finite group of exact one-column seventeen-axis Clifford
+matrices, including phases. Let H now be its FULL monomial Clifford subgroup,
+including central/fresh axis mixing, and let B be its subgroup algebra. Let
+grade(g) be the Gaussian Fourier rank of a Clifford word g. Multiplication
+on either side by a monomial preserves grade. The projection pi_16 retaining
+basis words of grade at most sixteen is therefore a B-bimodule map.
+
+At a fixed sufficiently large column width use the same central-character
+twisted quotient and faithful tensor representation proved above. Scalar
+phases leave grade unchanged, so pi_16 remains well-defined and bimodular.
+Scalar choices may depend on width, and all free matrices below may be any
+invertible matrices over B.
+
+Retain each actual native transverse factor instead of absorbing it. A FULL
+main map is
+
+    T_s = diag(D_sx,D_sy) E_s,
+
+where each D factor has Fourier rank eight, and E_s is an elementary upper
+or lower shear with one central letter. The two letters may differ and need
+not commute. Role-dependent rank-eight D factors, signs, inverses and all
+actual raw-D0 translations are allowed. Call-specific monomial boundaries
+are absorbed into L,W,R. Suppose a successful word existed:
+
+    L T_2 W T_1 R = diag(g1,g2),
+
+with both g_j of Fourier rank seventeen and L,W,R invertible over B.
+The target is pure grade seventeen. Bimodularity and invertibility give
+
+    pi_16(T_2 W T_1)=0.                              (4)
+
+Let c be the input column untouched by the first shear and r the output row
+untouched by the second; let i denote the other row. Direct multiplication
+in the original factor order gives
+
+    (T_2 W T_1)_rc = D_2r W_rc D_1c.
+
+Every basis word of W_rc is monomial. Fourier-rank subadditivity gives grade
+at most 8+0+8=16 for every basis word in this entry. Thus the entry equals
+its pi_16 projection and is zero by (4). The D factors are group units, so
+W_rc=0. The other entry of the same input column then simplifies to
+
+    (T_2 W T_1)_ic = D_2i W_ic D_1c,
+
+because its possible second-shear contribution factors through W_rc.
+It too is supported on grades at most sixteen, hence is zero. Therefore
+W_ic=0 as well. An entire column of W is zero, contradicting invertibility.
+Choosing untouched row/column directly handles every pair of shear
+orientations; no commuting of D factors past changed central letters is used.
+
+This proves that full monomial Clifford routing, including controlled phases
+and arbitrary non-diagonal owner GL2 words, cannot supply the two independent
+rank-seventeen jobs using two FULL calls on exactly two main owners. It does
+not cover added owners or existing transformed helper resources. Arbitrary
+width-specific address operations outside the finite columnwise alphabet
+also remain outside both theorems.
+
+### Literal controlled-phase check and portable replay
+
+The separate reviewer tested C_f=(-1)^(sum_columns q_column*a_column), with a
+one old transverse axis, applied to only Y between two FULL calls. This
+costs one monomial pass per port and zero additional Gaussian calls. Its
+two off-diagonal pure words have grade seventeen: counting only those
+maximal-grade words would incorrectly suggest two productive outputs.
+Its nonzero M22 word has grade sixteen, so the full matrix fails (4).
+The pure q/a coordinate swap is a discriminating control with only one
+grade-seventeen off-diagonal word. Neither is a completed endpoint.
+
+The unchanged author check and RESULT.json are in `grade/`. `verify_grade.py`
+is an explicit portable adapter: it hash-authenticates the author code and
+retained Clifford engine, substitutes vendored bytes for its single Git
+source-loading line, and executes every scientific line unchanged in private
+scratch. The regenerated receipt must equal the frozen author receipt.
+No package output is rewritten. Normal and optimized registered replays
+run this small check; there is no circuit enumeration or boundary synthesis.
+
+The addendum changes the alphabet covered by the source-bound ceiling, not
+the source paid profile or the selected result. Its stronger two-owner
+scope rules out expanding an unpriced controlled-phase/mixed-routing search.
+The next construction must name an additional paid resource, original owner,
+changed native operation or target invoice before another search is justified.
