@@ -10,10 +10,13 @@
   "absorption": {
     "conclusion": "A*N^theta*(133+logN)^(2/5)<=N^t above this finite cutoff; physical implementation overhead not inferred",
     "cost_all_larger_N_monotonicity": true,
+    "cost_margin_evaluation_N": "2^1000000000000",
     "cost_margin_lower": "646/3",
     "logA_upper": "11588535078387598648766751054204368156120388952774219/850705917302346158658436518579420528640000000000000",
     "log_threshold": 1000000000000,
+    "margin_evaluation_log_N": 1000000000000,
     "margin_lower": "299725246478781048809002279469549139266283611047225781/850705917302346158658436518579420528640000000000000",
+    "margin_scope": "margin_lower is evaluated at log(N)=log_threshold; cost_margin_lower is the conservative certified margin at primary_certified_N. The two margins use different cutoffs.",
     "positive_gap": "377/1000000000000",
     "primary_certified_N": "2^1000000000000",
     "secondary_conservative_N_cutoff": "2^2000000000000"

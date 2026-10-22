@@ -19,6 +19,8 @@ The registered commands replay PR4470's unchanged dependency and native gates, t
 
 `PROOF.md` supplies the mathematical combination and finite physical closure argument. `RESULT.json` is a finite arithmetic certificate, not a formal proof of that argument or of the inherited hypotheses. `VALIDATION.md` records actual commands and limitations.
 
+Reporting clarification following Ryanson Jonathan's independent arithmetic check in PR4536: `absorption.margin_lower` is evaluated at `log(N)=10^12`, whereas `absorption.cost_margin_lower=646/3` is the conservative bound at the stated `N=2^(10^12)`. The certificate now labels both evaluation points explicitly. Neither the cutoffs, margins nor κ changed. PR4536 checks arithmetic, not the compiler theorem or physical premises.
+
 ## Scope and attribution
 
 This branch is stacked on PR4532 at `644607ba59ebe401ac7ecd627ae7f331f924d1b0`. Its predecessor files are unchanged and are not new work here. Canonical main at preparation was `f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc`. The selected record is untouched.

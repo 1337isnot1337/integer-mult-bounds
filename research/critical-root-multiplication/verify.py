@@ -82,6 +82,10 @@ def run(profile_override=None,k_override=None,closed=False,small_threshold=False
  require(gap*H*F(2,3)>36,'cost finite absorption margin')
  require(gap-F(2,5)/(133+F(2,3)*H)>0,'cost all-size monotonicity')
  absorb['primary_certified_N']='2^1000000000000';absorb['cost_margin_lower']=str(gap*H*F(2,3)-36);absorb['cost_all_larger_N_monotonicity']=True
+ # Distinguish the two independently checked cutoffs (PR4536 reporting note).
+ absorb['margin_evaluation_log_N']=absorb['log_threshold']
+ absorb['cost_margin_evaluation_N']=absorb['primary_certified_N']
+ absorb['margin_scope']='margin_lower is evaluated at log(N)=log_threshold; cost_margin_lower is the conservative certified margin at primary_certified_N. The two margins use different cutoffs.'
  k=F('.003020165') if k_override is None else k_override;d=F(1,10**10);uniform=1-t
  require(k<uniform,'raw kappa lacks uniform slack')
  a={'kappa':k,'tested_saving':F('.0030201657'),'complex_uniform_saving':uniform,'b':F('.0030201655'),'a':F('.0030201654'),'q':F('.0030201653'),'bit_saving':F(compiler['ordinary_BIT']['admitted']),'epsilon':1-d,'beta':1-3*d,'r0':d/10,'stop':d,'layout':d,'d':d}
