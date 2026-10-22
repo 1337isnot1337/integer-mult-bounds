@@ -6,8 +6,9 @@ Apache-2.0; substantial OpenAI Codex assistance and credited sources in README.
 """
 import argparse
 from collections import defaultdict
-import hashlib,json,time
+import hashlib,json,sys,time
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent))
 import model as M
 
 def solve(source,forms,seconds,fixed_helper_side):

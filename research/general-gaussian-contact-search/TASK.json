@@ -2,7 +2,7 @@
   "schema_version": 1,
   "task_id": "complex-new-helper-inventory",
   "priority_revision": 7,
-  "base_commit": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
+  "base_commit": "ff306a3ba3fcad1895af03753c056cdcb72d1ee0",
   "original_card": {
     "id": "complex-new-helper-inventory",
     "question": "Can a new local cost interface change the deficit-to-recursive-cost ratio beyond current packing?",
@@ -62,5 +62,16 @@
       "first_step": "Run a named bounded search, reprice its full Gaussian rank list and prove the actual moment gain before native implementation.",
       "blocked_by": "No new positive complete supplier has been established."
     }
-  ]
+  ],
+  "canonical_base": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
+  "overlap_check": {
+    "searched_at": "2026-10-22T16:01:43.982068+00:00",
+    "terms": [
+      "non-nested contact",
+      "Gaussian contact search",
+      "signed-cut"
+    ],
+    "coverage": "5862 local note records; 453 open PRs; 3614 discussions; complete reported pagination",
+    "result": "Only this package matched those terms; narrow overlap check is not a novelty certificate. Explicitly retains PR4610, PR4654 and PR4672 predecessors."
+  }
 }

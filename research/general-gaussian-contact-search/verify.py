@@ -4,9 +4,10 @@ from collections import Counter
 from fractions import Fraction as Q
 import hashlib,importlib.util,json,sys
 from pathlib import Path
-import model as M
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[1]
+sys.path.insert(0,str(HERE))
+import model as M
 
 def power(r,C):
     if r==1:return Q(1),Q(1)
@@ -76,7 +77,7 @@ def main():
     pins=M.load(HERE/'SOURCES.json')
     for row in pins['files']:
         if row['usage']=='input':M.need(hashlib.sha256((ROOT/row['path']).read_bytes()).hexdigest()==row['sha256'],'input source bytes')
-    result=run();path=HERE/'RESULT.json'
+    result=json.loads(json.dumps(run()));path=HERE/'RESULT.json'
     if '--write' in sys.argv:path.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     else:M.need(result==M.load(path),'stored exact receipt')
     print('PASS_GENERAL_GAUSSIAN_CONTACT_MODEL: 285 physical rank pairs, known positive calibration; no new kappa')
