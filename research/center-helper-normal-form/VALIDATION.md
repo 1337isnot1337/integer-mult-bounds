@@ -33,3 +33,10 @@ and authenticate the actual count.
 No new physical phase audit, complete controller, compiler/outer admission,
 selected cold replay, full Lean proof or independent human acceptance is
 claimed. No higher K or independent productive-center credit is claimed.
+
+Continuation: consumer.py adds a conditional two-call homogeneous three-field
+identity. Exact cyclic-group-ring coefficients, the actual inverse transpose,
+two independent dense rational specializations and five failure controls pass.
+The complete registered replay and isolated optimized replay pass after this
+addition. The actual native provider is explicitly not realized; no source
+invoice or K is assigned to this conditional identity.

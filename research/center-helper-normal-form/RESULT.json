@@ -1,5 +1,25 @@
 {
   "cold_complete_helper_pool": 326,
+  "conditional_three_field_controller": {
+    "coefficient_ring": "Z[q]/(q^4-1)",
+    "controls": 5,
+    "free_boundary_entries": [
+      "0",
+      "1",
+      "-P",
+      "P"
+    ],
+    "homogeneous_progress_required": true,
+    "native_provider_realized": false,
+    "new_kappa": null,
+    "oracle_calls": [
+      "U(Q)^(-T)",
+      "U(Q)"
+    ],
+    "query_outputs": 2,
+    "restored_outputs": 1,
+    "status": "PASS_CONDITIONAL_TWO_CALL_THREE_FIELD_CONTROLLER"
+  },
   "elimination_pivots": [
     "2",
     "2",

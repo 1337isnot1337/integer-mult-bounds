@@ -119,6 +119,10 @@ def run():
     for row in origins['files']:
         need(sha256((HERE/row['path']).read_bytes()).hexdigest() == row['sha256'],
              'Changed frozen PR4694 source')
+    spec = importlib.util.spec_from_file_location('three_field_consumer', HERE/'consumer.py')
+    consumer = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(consumer)
+    consumer_result = consumer.check()
     engine = load_engine()
     payload = engine.load()
     c = payload['canonical']
@@ -213,6 +217,7 @@ def run():
             'raw_dual_positive_prefix_envelope': str(dual_prefix),
             'primal_and_raw_dual_640_columns': True,
             'independent_center_credit': False, 'new_kappa': None,
+            'conditional_three_field_controller': consumer_result,
             'program_sha256': sha256(json.dumps(native, default=str).encode()).hexdigest()}
 
 

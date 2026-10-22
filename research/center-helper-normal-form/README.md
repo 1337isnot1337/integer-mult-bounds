@@ -30,6 +30,19 @@ column. A full physical change to a Jordan basis is not supplied or priced.
 These chains give a smaller concrete target for a changed controller; they do
 not establish a positive recursive moment or a new K.
 
+## Conditional two-call consumer
+
+CONSUMER.md and consumer.py give the exact identity
+`L U E D U^(-T) D R = diag(Q,Q,I)` for a homogeneous three-field query
+chain with symmetric Q, Q^4=I and monomial P=Q^2. It uses two oracle calls
+and actual scalar/Pauli boundary gates; the raw dual's quadratic term is
+retained and corrected. A conditional complete moment is derived there.
+
+This makes the chain a specific consumer target rather than only a Jordan
+classification. The real source charts do not yet realize that homogeneous
+offer. The physical embedding, its full cost and all R_X terms remain open;
+this conditional identity is not applied to the native invoice.
+
 ## Reproduce
 
 ```sh

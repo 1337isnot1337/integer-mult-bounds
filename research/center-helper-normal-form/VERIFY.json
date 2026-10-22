@@ -17,7 +17,7 @@
         "{package}/verify.py"
       ],
       "timeout_seconds": 180,
-      "checks": "Fresh 640-column native primal and raw dual, exact helper basis/inverse, actual frames and paid profile, explicit three-step chains, rational Jordan ranks and mutation controls."
+      "checks": "Fresh 640-column native primal and raw dual, exact helper basis/inverse, actual frames and paid profile, explicit three-step chains, rational Jordan ranks and mutation controls. Exact conditional two-call identity in Z[q]/(q^4-1), actual raw dual and five active failure controls."
     }
   ]
 }
