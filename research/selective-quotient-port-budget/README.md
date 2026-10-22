@@ -78,6 +78,11 @@ need its complete moment and physical contract checked separately. The result
 identifies the center recipe as a premise that must change to recover a
 positive local rank advantage, rather than declaring a universal barrier.
 
+Concurrent #4654 constructs an exact mixed type-A/type-B quotient interface.
+Its type-B ports are not the retained complementary ports counted here. A
+controller that consumes those changed interfaces escapes this selective-port
+scope and remains a constructive next route; this result does not refute it.
+
 ## Reproduce
 
 From the repository root, standard-library CPython 3.12:

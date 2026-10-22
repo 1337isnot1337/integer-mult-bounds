@@ -66,20 +66,21 @@
   "overlap_coverage": {
     "local": {
       "head": "b58ad9ef4d4e861b0eaa5dba41742bdc072dca51",
-      "records": 5860,
+      "records": 5862,
       "head_records": 5860,
       "complete_head_inventory": true,
       "unsearched_head_paths": []
     },
     "open_prs": {
-      "fetched_at": "2026-10-22T14:06:57.031525+00:00",
+      "fetched_at": "2026-10-22T14:20:50.611470+00:00",
       "complete_pagination": true,
-      "records": 422
+      "records": 425
     },
     "discussions": {
-      "fetched_at": "2026-10-22T14:07:46.949234+00:00",
+      "fetched_at": "2026-10-22T14:22:03.534515+00:00",
       "complete_pagination": true,
-      "records": 3586
+      "records": 3588
     }
-  }
+  },
+  "concurrent_work": "PR4654 supplies a positive mixed A/B interface. This result counts only complementary retained ports, so it does not exclude a controller consuming the changed type-B interface."
 }
