@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/retained-center-extension/inputs/round3-native.json.gz",
+    "research/retained-center-extension/ABI.json",
+    "research/retained-center-extension/RESULT.json"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 120,
+      "checks": "Authenticate exact source, derive and replay all 640 independent columns and actual raw inverse transpose, check nested/scalar charts, unchanged invoice, block ranks, nilpotence index, two-sided inverse and operator/rank controls."
+    }
+  ]
+}
