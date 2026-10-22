@@ -87,6 +87,6 @@ The check takes about 20 s and uses the standard library only.
 
 ## Open next questions
 
-- **Minimum calls.** Do the three-row words for units meet #4600's 4m call floor? First step: count the calls of the construction through the row-model converse.
+- **Beyond the balanced row model.** Every balanced word uses each call exactly m times, so every coefficient realized here costs exactly #4600's 4m calls. The open direction is unbalanced or signed depth-four words, where short-row counts and call counts can separate. First step: restate #4280's congruences for a word with one call used m + 1 times.
 
 Credit: petalas (Nick Petalas) for #4600 and #4280. Prepared by Ryanson Jonathan with substantial Claude Code (Claude Opus 5.5) assistance.
