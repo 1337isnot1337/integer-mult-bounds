@@ -283,6 +283,33 @@ def actual_profile(starts, ends, frames):
     return tuple(h)
 
 
+def matches_alphabet(ca, cb, coefs, max_len):
+    """All words of length <= max_len over shears y_i += c y_j (c in coefs) with the window endpoint (meet in middle)."""
+    gates = tuple((i, j, c) for i in range(3) for j in range(3) if i != j for c in coefs)
+
+    def layer(n):
+        out = [(IDENTITY, ())]
+        for _ in range(n):
+            out = [(act(m, g), w + (g,)) for m, w in out for g in gates]
+        return out
+
+    half = max_len // 2
+    pre = defaultdict(list)
+    for n in range(half + 1):
+        for m, w in layer(n):
+            pre[n, m].append(w)
+    T, found = target(ca, cb), []
+    for total in range(max_len + 1):
+        lp = min(half, total)
+        lq = total - lp
+        for _, q in layer(lq):
+            inv = T
+            for (i, j, c) in reversed(q):
+                inv = act(inv, (i, j, -c))
+            found += [p + q for p in pre.get((lp, inv), ())]
+    return found
+
+
 def main():
     raw = RESULT.read_bytes()
     need(hashlib.sha256(raw).hexdigest() == RESULT_SHA256, "vendored #4546 RESULT.json")
@@ -332,6 +359,21 @@ def main():
             need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling, window {w['index']}, len<={L}")
             if L == 6:
                 profile_counts[len(profiles)] += 1
+    # Nonunit coefficients: optimistic in the rewrite's favour (their scalar-height cost is not charged).
+    nonunit = {}
+    for coefs, L in (((-2, -1, 1, 2), 6), ((-3, -2, -1, 1, 2, 3), 5)):
+        cache = {}
+        for w in every:
+            key = tuple(w["coefficients"])
+            if key not in cache:
+                cache[key] = matches_alphabet(key[0], key[1], coefs, L)
+            old = actual_profile(w["starts"], w["ends"], w["frames"])
+            profiles = set()
+            for word in cache[key]:
+                profiles |= relaxed(w["starts"], w["ends"], word)
+            need(profiles and max(gain_upper(old, p) for p in profiles) == 0, f"zero ceiling with coefficients {coefs}")
+        nonunit[f"coefficients {sorted(set(abs(c) for c in coefs))}, len<={L}"] = {
+            "matching_words_per_sign_case": len(next(iter(cache.values()))), "windows_zero": len(every)}
     # #4543's receiver-sharing word a += s b; b += cb x; a -= s b with s = -ca cb, on all 128 windows. The relaxation
     # contains every actual monotone path, so "infeasible" here means the rewrite cannot meet the frame contract at all.
     rs = Counter()
@@ -354,6 +396,7 @@ def main():
         need(max(gain_upper(old, p) for p in profiles) == 0, "receiver sharing never improves")
         rs["incumbent_admitted" if old in profiles else "incumbent_excluded", w["phase"]] += 1
     print(json.dumps({"status": "PASS_PR4546_EXTENDED_CEILINGS", "windows": rows,
+                      "nonunit_coefficients_all_windows": nonunit,
                       "receiver_sharing_4543_all_windows": {f"{k[0]}:{k[1]}": v for k, v in sorted(rs.items())},
                       "windows_with_positive_optimistic_gain": summary,
                       "all_eligible_windows": {"count": len(every), "phases": dict(phases),

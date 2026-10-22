@@ -19,8 +19,8 @@
         "-B",
         "{package}/verify.py"
       ],
-      "timeout_seconds": 300,
-      "checks": "Own extraction of #4470 windows cross-checked with #4546; length<=4 census/ceilings reproduced; lengths 5-6 on its twelve windows; all 128 eligible windows zero at lengths <=4 and <=6."
+      "timeout_seconds": 600,
+      "checks": "Own extraction of #4470 windows cross-checked with #4546; length<=4 census/ceilings reproduced; lengths 5-6 on its twelve windows; all 128 eligible windows zero at lengths <=4 and <=6. Nonunit coefficient alphabets (|c|<=2 to length 6, |c|<=3 to length 5) on all 128 windows: zero."
     }
   ]
 }
