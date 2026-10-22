@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/joint-helper-lattice/PROOF.md",
+    "research/query-thinned-controllers/controller.py"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "All binary five-call masks, exact survivor coefficient ranks, gate identities, working and failure controls"
+    }
+  ]
+}
