@@ -1,8 +1,10 @@
-# Joined mask / key / repair contract: statement and proof
+# Scanner-owned CRT mask consumption / disposal contract
 
-Scope: one repaired switch layer of Cinna Davis's #4100 `CRT.md` §4, one target. This proves
-the *composition* (representation, ownership, erasure, correctness of the sparse reinsertion)
-under an explicit key premise. It does not prove or execute the key arithmetic on tapes.
+Scope: one repaired switch layer of Cinna Davis's #4100 `CRT.md` §4, one target. The narrow
+addition is consumption of the actual #4208/#4201 scanner-owned mask by marker-driven repair,
+with disposal/head-return gates. Correctness below instantiates the inherited #2250/#4328
+repair argument under an explicit key premise; it is not a new repair algorithm or endpoint.
+It neither executes key arithmetic on tapes nor closes the full caller or its asymptotic cost.
 
 ## Setting
 
@@ -19,6 +21,23 @@ compact macro (ten shears), `T` the ideal controlled switch `y -> y xor (f(y) <<
 * (F3) The unchanged #4201 scanner outputs `mask[q] = 1` iff `q` is bad, from the stencil
   produced by the unchanged #4208 producer, with exact invoices
   `T_prod = 33H+25K+38Y-6G-J+12B+335` and `T_scan = 8ML+15M+13L+18`.
+* (F4) Extraction, full-key stable two-bucket radix reinsertion and erasure are inherited
+  from #2250/#4328; #4328 supplies the CRT tariff, not a new result of this package.
+
+## Prior physical repair and the distinct boundary
+
+Jose Manuel's #3055 at `9dc841c9a101435fdd15e0f7623bf16b6d0363e9`,
+`research/physical-complex-compact/PROOF.md` §§4–6 and `compact_streams.py`, already implements
+encoded current-inverse destination keys, physical hole flags, stable two-bucket radix
+repair, hole-key equality checks and disposal. His #3608 at
+`c6020096322012f7cc41236c3ac15a6b6cd3f8b9`, `research/physical-sparse-xor-batch/PROOF.md`
+and `sparse_engine.py`, implements encoded variable-pair control and reuses that repair
+with owned-work return. These are physical-repair prior art, not merely host-array sketches.
+Their resource arguments use long actual records to absorb polynomial control work;
+they do not supply consumption of the CRT #4208/#4201 scanner-owned mask at `R = Θ(p)`.
+See [README's exact-head comparison](README.md#exact-head-comparison-and-retained-credit)
+for source links. This package claims that mask-consumption/disposal interface only, not
+first physical repair, a new algorithm, a new endpoint or a new asymptotic tariff.
 
 Let `raw` be the stream after the macro: `raw[S(x)] = payload(x)`. Goal: `final[T(x)] = payload(x)`.
 
@@ -76,8 +95,9 @@ some hole key (equivalent fixtures are recorded as such).
 **Ownership/erasure.** `erase` reads to `END`, blanks every cell including the allocated `END`,
 and rewinds. `repair` ends by erasing `mask` (consumed), `stencil` (consumed), `good`, `bad`,
 `counter`, and each pass erases `b0, b1`. Each role is then physically `LEFT, BLANK*`, so the
-next layer's producer/scanner/repair reuses the same physical tapes; the verifier asserts
+private roles can be reused by a later producer/scanner/repair invocation; the verifier asserts
 blankness before every reuse. `data` is overwritten in place cell by cell (no extra length).
+This local postcondition does not imply an uninterrupted all-tape inter-layer data handoff.
 
 **What a skipped clear costs.** Marker-driven reads stop at `END`, so stale cells beyond a
 rewritten marker are not read by the next layer; skipping a clear is therefore a *state/
@@ -96,17 +116,25 @@ cell additionally counts `R = 12` bit-widths in the observer bit meter. With `M 
   the block rewritten), i.e. `O(N L^2)`; erase of buckets `O(N L)` per pass;
 * reinsertion `O(M L + N L)`; final erasure `O(M + N (L+1) + L)`.
 
-The verifier reports exact observed counts per phase and per layer. Key ARITHMETIC (the body of
-`key_function`: ten shears, a Beneš table lookup, an ideal switch, over `E(p, ell)`-bounded data
-in #4377) is not charged and not on tapes; only the interface actions are. This is the
-"explicit paid key subroutine" premise: its cost is `E` per call from #4377's counting proof.
+The verifier reports exact observed counts per phase and per invocation. Key ARITHMETIC
+(the host `key_function` body: ten shears, a Beneš table lookup and an ideal switch) is not
+charged and is not on tapes; only the address-read/key-write interface actions are charged.
+CRT.md's `E(p,ell)` and #4377's counting proof remain a conditional allowance, not payment
+for the executed host callback. No #4377 tape evaluator is plugged in here. The displayed
+local repair accounting does not establish a new `O(V)` tariff for this implementation.
 
 ## Limits
 
-* Macro `S`, and the raw stream/ideal layout used as oracles, are host-built; only the repair
-  (and, upstream, producer and scanner) is a tape program.
+* Macro `S`, the raw stream and ideal-layout oracles, and the inter-layer payload handoff
+  are host-built. Within each repaired-layer invocation, producer/scanner and the remaining
+  repair actions are tape programs, with the host key callback explicitly excluded.
 * The geometry is the unary one-target family of #4208 with the fixed `u2,t2,y8`; many-target
   ordering and binary/transported geometry are not covered.
 * `key_function` is not a tape program (stated above). The AST guardrail is a review aid.
-* The 4096-payload runs are finite evidence for the actual caller; the algebraic statement is
-  the proof above, for every `(L, f)` satisfying (F1)-(F3) and (K).
+* The existing #4169 ten-layer fixture already supplies the 4096-payload / 29,440-hole
+  forward/inverse endpoint and current-state inverse keys. Here it is **ten separate repaired-layer
+  invocations**, not an uninterrupted all-tape caller: host code extracts each output and
+  populates the next raw data tape, despite reuse of blank private roles.
+* These finite invocations exercise the interface; the algebraic statement is the inherited
+  repair argument above for every `(L, f)` satisfying (F1)-(F3) and (K), not a universal
+  tape-evaluator, full-construction or multiplication theorem. Outcome remains `partial`.
