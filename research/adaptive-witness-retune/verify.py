@@ -5,6 +5,9 @@
         s 3/100, lambda 3/25; guards U .9848, V .9609, Q 1.0017, d 1.04, beta .5632, eta .982, t_hi .9974293)
     p7  (kappa .00268647): H = 2,253,000,000 instead of 3,040,000,000  (t0 .99731352, p 1/10, c 40, M 288, ell0 44,
         s 3/25, lambda 2/5; guards U .9436, V .7921, Q 1.0012, d 1.72, beta .321, eta .9845, t_hi .9976537)
+    native4453 (kappa .00300120): H = 713,000,000 instead of 1,300,000,000, and the matched-uniform case
+        2,580,000,000 instead of 4,300,000,000 (t0 29909963/30000000, p 2/5, c 200, M 768, ell0 140, s 1/20,
+        lambda 3/20; guards U .9817, V .9417, Q 1.0013, d 1.02, beta .5743, eta .982, t_hi .9973512)
 Each witness keeps #4483's raw profile, uniform saving and kappa; only the free geometry changes. This verifier
 re-certifies every finite gate of #4483's PROOF.md (guards (18), mirror (4), recurrence (20), funding (17)) with its
 own interval arithmetic (from research/rank-convergence-gates), shows H - 10^6 fails (17), and cross-checks each
@@ -229,7 +232,11 @@ def main():
     comp = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(comp)
     out = {}
-    for name, old_H, new_H in (("p16", 2800000000, 1587000000), ("p7", 3040000000, 2253000000)):
+    wanted = set(sys.argv[1:])
+    for name, old_H, new_H in (("p16", 2800000000, 1587000000), ("p7", 3040000000, 2253000000),
+                               ("native4453", 1300000000, 713000000), ("native4453-matched-uniform", 4300000000, 2580000000)):
+        if wanted and name not in wanted:
+            continue
         base = cases[name]
         need(base["witness"]["H"] == old_H, f"#4483's {name} witness")
         witness = json.loads((HERE / f"WITNESS-{name}.json").read_text(encoding="utf-8"))

@@ -80,13 +80,13 @@
     ]
   },
   "scope_status": "refined",
-  "actual_scope": "Sharper certified witnesses for #4483's adaptive-height compiler (p16, p7) at unchanged uniform saving and kappa.",
+  "actual_scope": "Sharper certified witnesses for #4483's adaptive-height compiler (p16, p7, native4453 x2) at unchanged uniform saving and kappa.",
   "scope_change_reason": "Follow-up to my certified check of #4483 (#4529).",
   "bottleneck_link": "Smaller explicit sufficient rank for the kappa 0.00302015 construction under review.",
   "budget_minutes": 60,
   "stop_rule": "Stop at certified witnesses from a parameter scan.",
   "outcome": "completed",
-  "evidence": "p16 H 2.8e9 -> 1.587e9 (1.764x); p7 H 3.04e9 -> 2.253e9 (1.349x); certified by own interval checker and by #4483's compiler.certify; H-1e6 fails.",
+  "evidence": "p16 H 2.8e9 -> 1.587e9 (1.764x); native4453 1.3e9 -> 7.13e8 (1.823x); native4453 matched 4.3e9 -> 2.58e9 (1.667x); p7 3.04e9 -> 2.253e9 (1.349x); certified by own interval checker and by #4483's compiler.certify; H-1e6 fails.",
   "author": "Ryanson Jonathan, with Claude Code (Claude Opus 5.5) assistance",
   "ai_assistance": "Substantial Claude Code (Claude Opus 5.5) assistance; no independent human review.",
   "open_questions": [

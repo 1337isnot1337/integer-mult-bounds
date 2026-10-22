@@ -15,10 +15,23 @@
       "argv": [
         "{python}",
         "-B",
-        "{package}/verify.py"
+        "{package}/verify.py",
+        "p16",
+        "p7"
       ],
       "timeout_seconds": 600,
-      "checks": "Two retuned #4483 witnesses (p16 H=1,587,000,000; p7 H=2,253,000,000) at unchanged uniform saving and kappa: certified guards (18), mirror (4), recurrence (20), funding (17); H-1e6 fails; #4483 compiler.certify accepts both."
+      "checks": "Retuned #4483 witnesses at unchanged uniform saving and kappa (p16 1,587,000,000; p7 2,253,000,000; native4453 713,000,000; native4453 matched 2,580,000,000): certified guards (18), mirror (4), recurrence (20), funding (17); H-1e6 fails; #4483 compiler.certify accepts."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-B",
+        "{package}/verify.py",
+        "native4453",
+        "native4453-matched-uniform"
+      ],
+      "timeout_seconds": 600,
+      "checks": "Retuned #4483 witnesses at unchanged uniform saving and kappa (p16 1,587,000,000; p7 2,253,000,000; native4453 713,000,000; native4453 matched 2,580,000,000): certified guards (18), mirror (4), recurrence (20), funding (17); H-1e6 fails; #4483 compiler.certify accepts."
     }
   ]
 }
