@@ -1191,9 +1191,10 @@
       "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
       "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
       "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
-      "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
+      "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json",
+      "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
     ],
-    "selected_frontier_changed": false
+    "selected_frontier_changed": true
   },
   "next_substantive_review": {
     "source_pr": 4483,
@@ -1201,6 +1202,6 @@
       4507
     ],
     "claim": "Compiler-size reductions at the same conditional kappa; not needed for the PR4470 verdict.",
-    "plan": "Migrate reviewed PR4470 source closure, cold-replay entry point and selected/public status consistently; review compiler-size changes separately."
+    "plan": "Selected PR4470 migration complete. Review optional compiler-size changes separately; no need to repeat unchanged selected replays."
   }
 }

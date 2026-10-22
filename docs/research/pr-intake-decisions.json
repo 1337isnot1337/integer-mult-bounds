@@ -56137,9 +56137,10 @@
         "research/fresh-helper-thinned",
         "research/joint-helper-lattice",
         "research/missing-join-frame",
-        "research/query-thinned-controllers"
+        "research/query-thinned-controllers",
+        "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
       ],
-      "unresolved_question": "Selected source closure, cold replay and public-status migration remain. Inherited full analytic/physical theorem, optional search and later compiler-size improvements are outside this review.",
+      "unresolved_question": "Selected source closure, serial replay and public metadata migrated to kappa 0.00302015. Inherited full analytic/physical theorem, optional discovery/search and later compiler-size improvements remain outside this scoped review.",
       "scope": "Cumulative conditional construction and fresh source-bound native/dependency/arithmetic review passed at kappa 0.00302015, with independent frame, commutation and arithmetic audits. Exact prior native/compiler evidence reused; see proof review for limits.",
       "review_completion": {
         "changed_file_coverage": true,
@@ -56152,18 +56153,22 @@
         "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
         "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
         "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
-        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
+        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json",
+        "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json",
+        "docs/research/pr-intake-evidence/pr4470/selection-replay/VALIDATION.json"
       ],
       "closure": {
-        "kind": "merged_for_archive_only",
+        "kind": "merged_with_scoped_review",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4470",
-        "merge_commit": "bbde3b0bedb8f7ce17159dfbe913b7e3e5194bab"
+        "merge_commit": "bbde3b0bedb8f7ce17159dfbe913b7e3e5194bab",
+        "note": "Selected source closure, serial replay and public metadata migrated to kappa 0.00302015. Inherited full analytic/physical theorem, optional discovery/search and later compiler-size improvements remain outside this scoped review."
       },
       "conditional_frontier_review": {
         "status": "passed",
         "kappa": "60403/20000000",
         "review": "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
-        "selection_migrated": false
+        "selection_migrated": true,
+        "integration": "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
       }
     },
     {

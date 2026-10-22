@@ -17017,7 +17017,7 @@
       "number": 4206,
       "head": "304cfbd1910cf7041e6e33ee7db9b2045e74d9f6",
       "status": "ready_to_integrate",
-      "reason": "Independent scientific review remains open. Current twenty-file review seals match the submitted head; an explicit final_root_binding supplement resolves the older comment\u2019s stale metadata report and preserves historical hashes. Author-reported six-command replay remains attributed evidence, not independently rerun in intake.",
+      "reason": "Independent scientific review remains open. Current twenty-file review seals match the submitted head; an explicit final_root_binding supplement resolves the older comment’s stale metadata report and preserves historical hashes. Author-reported six-command replay remains attributed evidence, not independently rerun in intake.",
       "evidence": [
         "docs/research/pr-intake-evidence/queue-oct21a-20261021.json"
       ],
@@ -20229,19 +20229,21 @@
     {
       "number": 4470,
       "head": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
-      "status": "ready_to_integrate",
-      "reason": "Cumulative conditional construction and fresh source-bound native/dependency/arithmetic review passed at kappa 0.00302015, with independent frame, commutation and arithmetic audits. Exact prior native/compiler evidence reused; see proof review for limits. Selected source closure, cold replay and public-status migration remain. Inherited full analytic/physical theorem, optional search and later compiler-size improvements are outside this review.",
+      "status": "deferred_replay",
+      "reason": "Selected source closure, serial replay and public metadata migrated to kappa 0.00302015. Inherited full analytic/physical theorem, optional discovery/search and later compiler-size improvements remain outside this scoped review. No outstanding selected-publication action; reopen only for changed evidence or a scoped optional review.",
       "evidence": [
         "docs/research/pr-intake-evidence/queue-oct21e-20261021.json",
         "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
         "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
         "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
-        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
+        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json",
+        "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
       ],
       "policy_version": 1,
       "baseline": "f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc",
       "watch_paths": {},
-      "watch_prs": {}
+      "watch_prs": {},
+      "selection_migrated": true
     },
     {
       "number": 4471,

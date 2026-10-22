@@ -123,7 +123,7 @@
     "research/community-efficient2400-audit/DISPOSITIONS.json": "2602f88f4a333ade0b654645a3126fcde85f16c41f25f36a397f8c760f8acf4c",
     "research/community-efficient2500-audit/DISPOSITIONS.json": "23d12152b20bd788c5fb1e1935543185dc3772634cf26efbfad88f6d78ed6e15",
     "research/community-efficient2600-audit/DISPOSITIONS.json": "d7816f0e79c421d750d691cb1edfc4646accae0a47dc817fb32409745795765c",
-    "docs/research/pr-intake-decisions.json": "df1a229443cfb4d47d3030bfb65a2f0ad52e72e10da40f185099bb6fa6957243",
+    "docs/research/pr-intake-decisions.json": "d357fca16133cad4e3e5ab629556d804f648fe0cfed143b6a8dade6275fdf7eb",
     "research/community-batch970-audit/COMPANION-REVIEWS.json": "6510eb71b37cd3c0842999011ff84408c58493b7c8451a24082f526c6c18e7ec",
     "research/community-efficient300-audit/PARENT-EVIDENCE.json": "8d9e28ec3ece26b91ef5a297092697c341652853164477a4961c992151cec353",
     "research/pr116-evidence-reconciliation/PARENT-EVIDENCE.json": "62a666dac3e67ba8d388820c92e0cd4495657a20b6eae280a5367af8e89d769c",
@@ -217051,9 +217051,10 @@
         }
       ],
       "closure": {
-        "kind": "merged_for_archive_only",
+        "kind": "merged_with_scoped_review",
         "url": "https://github.com/CrocSwap/integer-mult-bounds/pull/4470",
-        "merge_commit": "bbde3b0bedb8f7ce17159dfbe913b7e3e5194bab"
+        "merge_commit": "bbde3b0bedb8f7ce17159dfbe913b7e3e5194bab",
+        "note": "Selected source closure, serial replay and public metadata migrated to kappa 0.00302015. Inherited full analytic/physical theorem, optional discovery/search and later compiler-size improvements remain outside this scoped review."
       },
       "reviewed_head": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
       "current_head": "b9a13c1673e0e9697de410de16e8bbf3207a7363",
@@ -217064,9 +217065,10 @@
         "research/fresh-helper-thinned",
         "research/joint-helper-lattice",
         "research/missing-join-frame",
-        "research/query-thinned-controllers"
+        "research/query-thinned-controllers",
+        "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
       ],
-      "unresolved_question": "Selected source closure, cold replay and public-status migration remain. Inherited full analytic/physical theorem, optional search and later compiler-size improvements are outside this review.",
+      "unresolved_question": "Selected source closure, serial replay and public metadata migrated to kappa 0.00302015. Inherited full analytic/physical theorem, optional discovery/search and later compiler-size improvements remain outside this scoped review.",
       "review_completion": {
         "changed_file_coverage": true,
         "scoped_mechanism_review": true,
@@ -217078,7 +217080,9 @@
         "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
         "docs/research/pr-intake-evidence/pr4470/VALIDATION.json",
         "docs/research/pr-intake-evidence/pr4470/SOURCE-REUSE.json",
-        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json"
+        "docs/research/pr-intake-evidence/pr4470/REVIEWED-SOURCES.json",
+        "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json",
+        "docs/research/pr-intake-evidence/pr4470/selection-replay/VALIDATION.json"
       ],
       "current_head_observed_in": "docs/research/pr-intake-decisions.json",
       "reconciliation_evidence": [
@@ -217088,7 +217092,8 @@
         "status": "passed",
         "kappa": "60403/20000000",
         "review": "docs/research/pr-intake-evidence/pr4470/PROOF-REVIEW.md",
-        "selection_migrated": false
+        "selection_migrated": true,
+        "integration": "docs/research/pr-intake-evidence/pr4470/INTEGRATION.json"
       }
     },
     {

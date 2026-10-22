@@ -3,6 +3,21 @@
 The [selected record](certificates/selected-result.json) identifies the current
 frontier; numbered checkpoints below retain their historical attribution.
 
+## Joint-helper selected checkpoint: κ = 0.00302015
+
+**Cinna Davis / 1337isnot1337 (#4470)** supplies the selected joint-helper patch,
+following her #4416/#4440/#4441/#4447 construction sequence. **zxv (#4359/#4433)**
+supplies the productive-helper native/controller and higher-moment/compiler
+foundation; **Jacob Alan Sussman (#4268)** supplies the mixed-target recursion.
+
+**Mihir Srivastava / mihir-s-05 (#4464/#4504)** and
+**Ryanson Jonathan / pinterbanget (#4466/#4478)** supply the independently
+implemented audits replayed in this review. **Mark / Matarener (#4457)**
+identified the commutation question and adversarial example. Complementary
+and parallel contributions retain their own credit; the
+[new contributor map](docs/research/community-joint4470-contributors.md)
+links their scopes and the cumulative predecessor map below.
+
 ## Productive-helper checkpoint: κ = 0.0023
 
 **zxv (#4359)** supplied the new complete conditional construction, using
