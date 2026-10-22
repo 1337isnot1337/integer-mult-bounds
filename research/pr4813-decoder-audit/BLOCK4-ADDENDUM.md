@@ -71,3 +71,18 @@ larger invertible observation system.
 Prepared for Cinna Davis with substantial OpenAI assistance. Credit the
 reviewed authors and their cited predecessors; no independent human review
 or claim of global novelty. Apache-2.0 under the repository license.
+
+## Same missing implication in the subsequent block-five claim
+
+PR4826 at d7b53d3992e658f0dd49d0207ba33bbc39272bac advertises 0.3174.
+Its source is
+https://github.com/hexapode/integer-mult-bounds/blob/d7b53d3992e658f0dd49d0207ba33bbc39272bac/research/complex-block5-three-in-nine/verify_schedule.py
+(Git blob ea1511ae49f4e9b9d58033d7d69056227bf4b53f).
+Lines 171-173 choose the same half-XOR masks [1,2,4], now in dimension 32.
+Lines 262-270 compute K*x and use it directly to construct the primary
+observations. Line 287 again applies K to recovered inputs. There is still no
+execution of nine paid calls that produces those observations. The corresponding
+whole-cycle condition claim is again 9/7 (line 224), and the same invariant
+all-ones subspace gives cond_2(M)^2 >= 27/11. The checker now includes that
+32-coordinate instance. Increasing the finite matrix dimension does not repair
+the missing paid construction or all-width cost proof.

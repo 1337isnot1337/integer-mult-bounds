@@ -6,6 +6,7 @@
     "claimed_bound_refuted": true,
     "claimed_whole_cycle_bound": "9/7",
     "condition_squared_lower_bound": "27/11",
+    "coordinates_per_array": 16,
     "large_rayleigh": "9/4",
     "masks": [
       1,
@@ -19,6 +20,7 @@
     "claimed_bound_refuted": true,
     "claimed_whole_cycle_bound": "8193/8191",
     "condition_squared_lower_bound": "39/7",
+    "coordinates_per_array": 16,
     "large_rayleigh": "9/4",
     "masks": [
       1,
@@ -36,6 +38,20 @@
       13
     ],
     "small_rayleigh": "21/52"
+  },
+  "pr4826": {
+    "arrays": 3,
+    "claimed_bound_refuted": true,
+    "claimed_whole_cycle_bound": "9/7",
+    "condition_squared_lower_bound": "27/11",
+    "coordinates_per_array": 32,
+    "large_rayleigh": "9/4",
+    "masks": [
+      1,
+      2,
+      4
+    ],
+    "small_rayleigh": "11/12"
   },
   "status": "PASS_BLOCK4_CYCLE_CONDITION_CONTROLS"
 }
