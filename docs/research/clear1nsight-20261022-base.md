@@ -1,0 +1,5 @@
+# Isolated contribution base, 22 October 2026
+
+This branch starts at canonical main f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc. It carries only the already tested fork PR14 navigation and historical source-role corrections, separate from all four new research submissions. The historical replay's original-manifest reference is now the same byte-identical manifest in canonical main, so no foreign fork commit is required. Scientific verifiers, original hashes and receipts, selected records, and replay invalidation paths are unchanged. Credit zxv's PR4436 documentation, James Reed's PR3563 and the locale/D8 authors; fork adaptation by Chris R / Clear1nsight with substantial OpenAI assistance, Apache-2.0.
+
+This is an isolated base branch, not a merge into main or a selected-frontier update. Each research PR targets this branch to keep its scientific diff focused. Upstream submission should carry the individual research commit; upstream maintainers own any shared CI repair. New package metadata pins the canonical scientific baseline, not the changing current documentation.
