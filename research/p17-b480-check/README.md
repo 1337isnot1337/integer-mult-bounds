@@ -94,6 +94,13 @@ constant it uses dominates the true quantity:
 
 The stated `H0` = 357,651,736,794,440 and `H1` = 15,026,650,096,742,881,962,201 reproduce exactly.
 
+
+**#4446's separate p6 BIT supplier**, which supplies the ordinary BIT premise, is also checked:
+
+- the rank masses are 102,419 (paid) and 102,932 (target), with surplus 513;
+- the raw root lies in `(0.00314, 0.00315)`, above the admitted 0.00312;
+- `α < 99999/100000` at the tested saving `157/50000` (computed upper bound 0.9999882).
+
 ## Not covered
 
 - The native replay of the new contact, its transports and phases.

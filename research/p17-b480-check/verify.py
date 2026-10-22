@@ -297,6 +297,18 @@ def main():
         need(1 - 1 / (1 + 1024 * g_) - Q(4, 2 ** 32) == s_ > 0, "#4440: Bernoulli surplus")
     need(20 ** 64 < 21 ** 63 and 17 ** 64 < 18 ** 63 and Q(31, 32) ** 128 < Q(1, 16) and Q(19, 20) ** 128 < Q(1, 16),
          "#4440: exit exponent h = 1/64 and tail decay blocks")
+    # #4446's separate p6 BIT supplier (ordinary BIT premise): invoice, raw root and alpha at the tested saving
+    Pb = {1: 17199, 2: 17446, 3: 1027, 4: 572, 5: 1326, 6: 143, 7: 1357, 14: 444, 28: 444, 42: 222}
+    Tb = {8: 5707, 22: 444, 36: 444, 50: 222, 92: 222}
+    need(sum(k * w for k, w in Pb.items()) == 102419 and sum(k * w for k, w in Tb.items()) == 102932, "#4446 BIT: rank masses")
+    tl, _ = moment(Tb, Q(157, 50000))
+    _, ph = moment(Pb, Q(157, 50000))
+    need(ph / tl < Q(99999, 100000), "#4446 BIT: alpha < 99999/100000 at the tested saving 157/50000")
+    lo_t, _ = moment(Tb, Q(314, 100000)); _, hi_p = moment(Pb, Q(314, 100000))
+    _, hi_t = moment(Tb, Q(315, 100000)); lo_p, _ = moment(Pb, Q(315, 100000))
+    need(lo_t > hi_p and hi_t < lo_p, "#4446 BIT: raw root in (0.00314, 0.00315), above the admitted 0.00312")
+    out["4446_BIT_supplier"] = {"rank_masses": [102419, 102932], "surplus": 513, "alpha_upper": f"{float(ph / tl):.9f}",
+                                "raw_root_bracket": ["0.00314", "0.00315"]}
     out["4440_compiler"] = {"complex": [75415467350, 10418370291022217], "BIT": [3755884544, 25986965159937]}
     print(json.dumps(out, indent=1))
 
