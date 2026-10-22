@@ -28,3 +28,14 @@ not external human review or formal-kernel verification. The completed backend
 and underlying implementation premises remain those identified in PROOF.md.
 The enormous uniform program and fixed machine/precision constants are
 algorithm-defined, not materialized or empirically timed here.
+
+## Hosted portability correction
+
+The first Linux CI on head `709fcb31cc66bd8ce2165d60f495259502325536`
+passed the complete primary/source replay, then rejected the independent
+receipt comparison. Its four source-pin keys had Windows path separators.
+The generator now uses repository-relative POSIX keys on every OS. Exact
+comparison proves these key separators are the only changed certificate
+fields; all mathematics, input hashes, bounds and controls are identical.
+Normal and isolated optimized checks of the correction pass. A new Linux
+hosted replay is pending; its result is recorded separately by exact head.
