@@ -134,5 +134,13 @@
     "status": "failed on unchanged main",
     "error": "KeyError: 'bit_lower'",
     "scope": "Orientation helper expects the old certificate schema; current selected PR4359 record was read directly. No selected scientific replay was attempted and no baseline success is claimed."
+  },
+  "publication_checkpoint": {
+    "upstream_commit": "f9f85c1e4fa1e955ff39f10fca447e3e2a4e4adc",
+    "checked_at_utc": "2026-10-22T03:22:51.239933+00:00",
+    "priority_revision": 7,
+    "guidance": "Required guides, priorities and selected record unchanged; canonical main merged into isolated contribution branch to preserve frozen source-retention commit ancestry.",
+    "overlap": "No existing PR for this fork branch. PR4436/4456/4476/4483 are now merged. New PR4507 optimizes chronological batch widths and checks local mass and normalized leaves, not expanded raw-instance/column counts; the scopes remain distinct.",
+    "authentication": "gh authenticated as dillona; explicit user authorization to submit."
   }
 }
