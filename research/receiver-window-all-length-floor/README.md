@@ -30,6 +30,18 @@ comparison proves the floor for every accepted relaxed path. No search,
 relaxation, price or acceptance function from either predecessor is imported.
 Their model and interpretation are credited, not claimed as newly invented.
 
+The submission refresh found concurrent investigations
+[#4573](https://github.com/CrocSwap/integer-mult-bounds/discussions/4573),
+[#4574](https://github.com/CrocSwap/integer-mult-bounds/discussions/4574) and
+[#4577](https://github.com/CrocSwap/integer-mult-bounds/discussions/4577), all
+under the same donor account. This package is **independent corroboration and
+a separately reviewable certificate**, with no exclusive novelty or priority
+claim. Its code and proof were developed before reading those claims. #4577
+reports a directed-dependency graph with 1,303 states; the present more
+permissive bidirectional propagation has 1,496 states and the same 239 terminal
+profiles. The separate integer Dijkstra checks add an algorithmically distinct
+check of the cost floor. No concurrent artifact is imported or certified here.
+
 Canonical base is `f626db5c3a3d781d8f7695038776c621651f75e1`, priority revision 7.
 The selected record there is still `23/10000`. The constructor source is
 [Cinna Davis's #4470](https://github.com/CrocSwap/integer-mult-bounds/pull/4470),
@@ -208,6 +220,10 @@ retiming checks; its all-length explanation was still explicitly unproved.
 Those additions are distinct from the present closure of the 128 adjacent
 windows. The older head above is the proposal inspected when this task began;
 neither predecessor checker is a runtime input here.
+The refreshed overlap corpus completed 355 open PRs and 3,486 Discussion
+records at 08:04 UTC and exposed the concurrent claims credited above. Local
+note coverage remains incomplete. This is the basis for the independent
+corroboration framing, rather than an assertion of unique new coverage.
 
 ## Open next questions
 

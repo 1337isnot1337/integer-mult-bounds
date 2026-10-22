@@ -86,7 +86,7 @@
   "budget_minutes": 60,
   "stop_rule": "Stop after source-bound closure of all 128 windows and containment/cost controls, or report any relaxed counterexample. No larger-window search, physical supplier replay or frontier change.",
   "outcome": "negative-result",
-  "evidence": "README.md proves containment, finite closure and concave-order implication; RESULT.json records 128 windows, 1496 states, 4730 transitions and 239 profiles; verify.py reproduces every field with positive and failure controls.",
+  "evidence": "README proof and RESULT receipt: 128 windows, 1496 states, 4730 transitions, 239 profiles, 248 independently minimized integer costs; 894 geometric and 22621 directed coefficient prefixes; source binding and semantic controls.",
   "author": "Mihir Srivastava",
   "ai_assistance": "Substantial OpenAI Codex assistance for mathematical reasoning, implementation, verification, documentation and GitHub coordination. No independent human or formal-kernel review claimed.",
   "open_questions": [
@@ -106,9 +106,9 @@
   "canonical_discussion": "https://github.com/CrocSwap/integer-mult-bounds/discussions/4572",
   "family_expansion_decision": "narrow: finish the missing all-length implication, then stop the fixed three-field search; extra-field or changed-boundary work needs a fresh complete contract and invoice.",
   "overlap": {
-    "checked_at": "2026-10-22T07:50:00Z",
+    "checked_at": "2026-10-22T08:04:34Z",
     "open_pr_records": 355,
-    "discussion_records": 3470,
+    "discussion_records": 3486,
     "remote_complete_pagination": true,
     "local_notes_complete": false,
     "limitation": "Sparse local notes; inspected relevant PR4470 primary inputs, root guidance, ledger and PR4546/4567 source and body directly. No claim of exhaustive novelty.",
@@ -131,7 +131,13 @@
         "author": "Ryanson Jonathan",
         "scope": "all 128 finite ceilings and explicitly unproved all-length explanation"
       }
+    ],
+    "concurrent_discussions": [
+      4573,
+      4574,
+      4577
     ]
   },
-  "baseline_orientation": "Attempted python -B scripts/research_baseline.py; failed because selected package roots are omitted in the sparse checkout. No selected baseline/cold-replay pass claimed. Read selected record/review and authenticate all seven inputs used by this scoped audit."
+  "baseline_orientation": "Attempted python -B scripts/research_baseline.py; failed because selected package roots are omitted in the sparse checkout. No selected baseline/cold-replay pass claimed. Read selected record/review and authenticate all seven inputs used by this scoped audit.",
+  "contribution_position": "Independent corroboration: concurrent investigations found on submission refresh are credited. Bidirectional 1496-state relaxation plus separate Dijkstra truncated-cost minima; no exclusive novelty or priority claim."
 }
