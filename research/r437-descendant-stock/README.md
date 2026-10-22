@@ -32,7 +32,7 @@ All sources are exact bytes at canonical main
 `b58ad9ef4d4e861b0eaa5dba41742bdc072dca51`; `SOURCES.json` binds their blobs and
 SHA256 digests. No predecessor source is edited.
 
-1. `r437-pooled-native-interface/replica_catalogue.py`, `PooledTopology`, has
+1. `r437-pooled-native-interface/replica_catalogue.py`, `ReplicaTopology`, has
    28,416 families. `selected-bit-physical-caller/macro_binding.py`,
    `SelectedBinding`, sets cutoff 64 and `stock_multiple=9475`.
 2. `fresh_rows.quotient` divides positive rows successively by the family count,
@@ -121,7 +121,8 @@ The receipt reports:
   with leaf divisor 1). These include non-coprime factors.
 - **14** internal nodes through the unchanged AST of `fresh_rows.quotient` and
   the four-statement quotient/stock block in `Machine.node`, using an explicitly
-  substituted **integer Count adapter**. This checks control-flow arithmetic,
+  substituted **integer Count/Word adapter**, including the source's radix loop.
+  This checks control-flow arithmetic,
   not binary tape operations, acquisition, cleanup or timing.
 - Four full maximal paths with `(q,w,n)=(3,1,64),(3,2,128),(5,2,512),(3,2,2048)`.
   At width 512, depth 4, the old/new stock factor is **850,624,046,875**. At
