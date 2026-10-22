@@ -1011,19 +1011,22 @@
     "evidence": "docs/research/pr-intake-evidence/windows-and-new-archives-20261016.json"
   },
   "latest_publication": {
-    "commit": "f2a1a85d598a20d9bc141ed41dd69b83c4f05de5",
-    "decisions": 248,
-    "counts": {
-      "deferred_replay": 1,
-      "waiting_revision": 5,
-      "archive": 239,
-      "reviewed_tooling": 3
-    },
+    "commit": "b1857553b7ea74493b01080c67842e2b4a0dfea0",
+    "decisions": 70,
+    "archive_count": 64,
+    "reviewed_tooling_count": 1,
+    "retained_revision_holds": [
+      1900,
+      1930,
+      2134,
+      2216,
+      2249
+    ],
     "evidence": [
-      "docs/research/pr-intake-evidence/queue-oct21a-20261021.json",
-      "docs/research/pr-intake-evidence/queue-oct21b-20261021.json",
-      "docs/research/pr-intake-evidence/queue-oct21c-20261021.json",
-      "docs/research/pr-intake-evidence/queue-oct21d-20261021.json"
+      "docs/research/pr-intake-evidence/queue-oct21e-20261021.json",
+      "docs/research/pr-intake-evidence/queue-oct21e-closures.json",
+      "docs/research/pr-intake-evidence/queue-oct21f-20261021.json",
+      "docs/research/pr-intake-evidence/queue-oct21f-closures.json"
     ],
     "selected_frontier_changed": false
   },
@@ -1116,14 +1119,14 @@
     }
   ],
   "latest_queue": {
-    "open_count": 294,
+    "open_count": 293,
     "actionable_count": 0,
     "counts": {
-      "draft": 173,
+      "draft": 172,
       "waiting_revision": 114,
       "deferred_replay": 7
     },
-    "observed_at": "2026-10-21T19:28:52.164216+00:00"
+    "observed_at": "2026-10-22T02:50:13.489328+00:00"
   },
   "bulk_intake_20261020_completed": {
     "decisions": 586,
@@ -1181,5 +1184,28 @@
       "docs/research/pr-intake-evidence/pr4416/REVIEWED-SOURCES.json"
     ],
     "selected_frontier_changed": false
+  },
+  "next_substantive_review": {
+    "source_pr": 4470,
+    "claim": "conditional kappa 0.00302015; not yet selected or independently replayed by maintainer",
+    "source_dependencies": [
+      4440,
+      4441,
+      4447
+    ],
+    "supporting_audits": [
+      4448,
+      4455,
+      4457,
+      4464,
+      4466,
+      4478,
+      4504
+    ],
+    "compiler_followup": [
+      4483,
+      4507
+    ],
+    "plan": "Review the strongest complete native chain and unique deltas once; reuse exact-source audit coverage with explicit limits. Keep compiler-size improvement review separate from admitting a new exponent."
   }
 }
