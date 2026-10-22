@@ -78,3 +78,25 @@ No predecessor source or selected frontier was changed.
 - **Changed demand/operations:** retaining centres differently or consuming them
   in a different caller may remove paid work. Name the actual consumer and charge
   restoration, compiler, precision and all 408 helper obligations before a search.
+
+## Registered replay and archival status
+
+The parent reviewed the complete mixed-original-group result and authorized one
+focused archival PR. This records a supporting paid-invoice ceiling; primary
+research toward a higher κ continues under a different operation/budget gate.
+The original local decision and scientific files are preserved unchanged.
+
+TASK.json explicitly declares the changed card premise; SOURCES.json pins the
+originating catalogue/selected record and exact PR4867 inputs. The source-history
+merge retains predecessor commit ancestry while preserving this package's tree.
+PR4864 is citation-only: its geometry source is neither imported nor executed.
+The registered commands run ordinary and optimized warning-strict replay:
+
+```
+python3 -B scripts/research_package.py --package research/sol1337-global-centre-cut
+python3 -B scripts/check_research_commit.py --package research/sol1337-global-centre-cut --check-source-history
+```
+
+No prospective public CLAIM was posted before the short sweep finished. Any
+publication is a DONE finding and honest evidence handoff. Hosted execution,
+independent human acceptance and formal proof-kernel acceptance are unclaimed.

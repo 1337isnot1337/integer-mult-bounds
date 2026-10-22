@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "task_id": "complex-rank-shape-decoder",
+  "priority_revision": 7,
+  "base_commit": "624de9dc66858af0945e5f8a0942488d62280d43",
+  "original_card": {
+    "id": "complex-rank-shape-decoder",
+    "question": "Can a decoder deliver the local paid mass in fewer, larger-rank children (block frame climbs instead of rank-1 to rank-3 steps)?",
+    "starting_points": [
+      "docs/research/research-family-status.md",
+      "research/complex-local-word-ceiling/README.md",
+      "research/complex-decoder-field-extension-seed44/README.md",
+      "research/complex-frame-pair-decoders/README.md",
+      "research/selected-k8-unrestricted-ends/README.md",
+      "research/eisenstein-reduction-copy-floor/README.md"
+    ],
+    "methods": [
+      "Find one exact small decoding identity whose frame path climbs in blocks, and price its complete per-call profile.",
+      "Bound the best effective child rank achievable for one fixed support alphabet, including copies, frames and restoration."
+    ],
+    "acceptance_gate": "A per-call local profile, with all copied information, frames and restoration counted, whose ceiling exceeds the selected word's by at least 5%; masked or overcomplete supports must change an assumption of the eight-term all-pairs bound. A scoped local result may be retained without a complete supplier. Expanding it into further construction rounds requires the family-level budget and obligation gate in research-family-status.md; an optimistic passing relaxation alone is not acceptance.",
+    "first_step": {
+      "command": [
+        "python3",
+        "-B",
+        "research/complex-local-word-ceiling/verify.py"
+      ],
+      "expected": "PASS_COMPLEX_LOCAL_WORD_CEILING",
+      "inspect": "Read the selected word's per-call local profile, its packing ceiling and the lever table; run levers.py for the ideal budget of the lever you target.",
+      "scope": "Positive control and planning budget only; this is not a new construction or full cold replay."
+    },
+    "first_experiment": "Before any synthesis, write the candidate per-call local profile (and centre charge / unpaid coordinates if changed) and screen it with ceiling.ceiling(); reject it if even the ideal ceiling does not beat the selected word's by your stated margin. Ideal budget: rank-16 delivery is 2.31x (levers.py).",
+    "bottleneck_link": "Rank-1 children are about half of recursive cost; the selected word's effective child rank is about 3.9. Larger-rank delivery lowers recursive cost per unit of paid mass.",
+    "allowed_variations": [
+      "One masked, overcomplete or block decoder family with exact labels and supports.",
+      "A scoped lower bound on effective rank for one alphabet.",
+      "If the coverage law, template or guard changes, derive an applicable fully charged replacement bound instead of applying the incumbent ceiling outside its scope."
+    ],
+    "scope_change_triggers": [
+      "Repacking idle remainders of an unchanged word (covered by the packing ceiling).",
+      "Repeating the eight-term all-pairs search inside its proved scope.",
+      "Only changing helper terminal subspaces and monotone frames within the fixed scalar word, entrances and cleanup contract already covered by #1995/#2013.",
+      "Searching below C=40 in the #2017 Eisenstein binary scalar-rectangle or fixed-support block-linear additive pairing model; specify a changed premise instead. This bound does not cover every complex decoder.",
+      "Continuing a partial cost improvement while leaving the same unpriced consumer, restoration or central-readout obligation unresolved; refresh the family expansion decision first. Local product-retiming evidence has a narrow scope and is not a ban on changed graphs or contracts."
+    ],
+    "overlap_terms": [
+      "rank shape",
+      "block climb",
+      "masked decoder",
+      "overcomplete",
+      "effective rank"
+    ]
+  },
+  "scope_status": "changed",
+  "actual_scope": "Exact nonimprovement theorem for every subset of all184 newly variable retained640 centre contacts under any common nonzero18-bit transvection axis, including simultaneous choices across all9 original-chart groups.",
+  "scope_change_reason": "The assigned direction deliberately removes PR4867 coherent-single-original-group restriction. Eight nonempty original-chart singleton leaves can move along with the176 empty-chart contacts. Actual graph topology enables exact conditional leaf elimination, without assuming mixed-group submodularity. This changes the original card from proposed rank-shape construction to a scoped paid-invoice ceiling.",
+  "bottleneck_link": "A real profitable change in the complete centre/incident recursive paid profile would be a necessary first gate toward a higher kappa. This complete common-axis grammar fails that optimistic gate, preventing unsupported downstream compiler expansion.",
+  "budget_minutes": 60,
+  "stop_rule": "Stop at complete262143-axis/184-variable old-or-common-transvection grammar after exact integer-prefix certification. No mixed-axis, changed-operation, caller, compiler, root or seed expansion is part of this archival package.",
+  "outcome": "negative-result",
+  "evidence": "All262143 ambient nonzero axes yield419 complete rank-energy configurations; all3771 exact integer-prefix cuts have minimum0. Exact feasible-flow, equal-capacity-cut and184-variable invoice recounts certify nonnegative paid-moment change for every0<theta<1. Three topology/invoice controls reject. Separate rounded-moment diagnostics are not a proof premise.",
+  "author": "Prepared for Chris R",
+  "ai_assistance": "Substantial OpenAI Codex assistance; dedicated user-authorized gpt-6.1-sol HIGH research agent, followed by separate read-only agent audit and parent replay.",
+  "open_questions": [
+    {
+      "question": "Can a precisely declared mixed-axis replacement or changed source operation remove actual paid work?",
+      "why_it_matters": "All subsets with one common axis across the184 contacts have now been covered. A higher kappa requires a mechanism beyond this finite unchanged-operation grammar.",
+      "first_step": "Declare the replacement operation/axis grammar and one literal chronological source/caller boundary; write its complete optimistic paid invoice before a new experiment.",
+      "blocked_by": "No profitable such replacement or complete owned-caller, compiler, precision and outer funding is supplied here."
+    }
+  ]
+}

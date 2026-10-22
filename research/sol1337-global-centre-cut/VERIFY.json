@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "ready",
+  "python": "3.12",
+  "requirements": [],
+  "inputs": [
+    "research/sol1337-global-centre-cut/build_graph.py",
+    "research/sol1337-global-centre-cut/vendor/dynamic_neighbors.cpp",
+    "research/sol1337-global-centre-cut/vendor/neighbors.hpp",
+    "research/sol1337-global-centre-cut/vendor/model.py",
+    "research/sol1337-global-centre-cut/vendor/retained_verify.py",
+    "research/sol1337-global-centre-cut/inputs/round3-native.json.gz",
+    "research/sol1337-global-centre-cut/LICENSE",
+    "research/sol1337-global-centre-cut/NOTICE.md"
+  ],
+  "commands": [
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Authenticates retained640 sources; all262143 axes,419 complete rank configurations,3771 exact integer-prefix cuts plus rounded diagnostic; three invoice/topology rejection controls. Requires C++20 g++ on PATH. No native/phase/caller/outer/Lean replay."
+    },
+    {
+      "argv": [
+        "{python}",
+        "-I",
+        "-O",
+        "-W",
+        "error",
+        "-B",
+        "{package}/verify.py"
+      ],
+      "timeout_seconds": 180,
+      "checks": "Same exact bounded verifier under optimized Python; explicit exceptions and C++ checks remain active."
+    }
+  ]
+}
