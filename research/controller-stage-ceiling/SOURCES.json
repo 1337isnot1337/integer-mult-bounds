@@ -49,14 +49,16 @@
       "usage": "input",
       "git_blob": "88fa05cb3d0b7227f85ba0c42eb427184949447d",
       "sha256": "c6f16840b3f7bed8686ad494b479df599b18b420c239dc6167c214130b78eb64",
-      "pin": "head:1eb8da6cfb35512c0cc2533413e5ca42f48e13c6:research/warp-interface-20261022/NATIVE-VALIDATION.json"
+      "pin": "head:6ba2f0ad1809172be7ebf04ad750592f14475dab:research/controller-stage-ceiling/inputs/pr4610-native.json",
+      "original_source_pin": "head:1eb8da6cfb35512c0cc2533413e5ca42f48e13c6:research/warp-interface-20261022/NATIVE-VALIDATION.json"
     },
     {
       "path": "research/controller-stage-ceiling/inputs/pr4626-arithmetic.json",
       "usage": "input",
       "git_blob": "bec84f7dc990a0a892fd77fd74665d49df66d4de",
       "sha256": "5787bae88594f8d05e1a7bbecdc98c8635523c817093b717af621ac893277d28",
-      "pin": "head:e4413c43eeaacdd20be123fdd7d7add53427f028:research/helper621-warp-combination/ARITHMETIC.json"
+      "pin": "head:6ba2f0ad1809172be7ebf04ad750592f14475dab:research/controller-stage-ceiling/inputs/pr4626-arithmetic.json",
+      "original_source_pin": "head:e4413c43eeaacdd20be123fdd7d7add53427f028:research/helper621-warp-combination/ARITHMETIC.json"
     },
     {
       "path": "research/joint-helper-lattice/CONTROLLER.json",

@@ -18,6 +18,14 @@ PR4610 with H112's 56-rank-unit local saving. Its repair budgets at .004,
 .006 and .01 are included, with the unproved native/caller compatibility
 explicitly retained. A budget or positive invoice is not an implementation.
 
+| Candidate C | Maximum optimistic rank-one repair budget |
+| --- | ---: |
+| .004 | 2641.1932795534 (p=64) |
+| .006 | 342.1085144324 (p=37) |
+| .01 | Already negative: -93.1789150428 |
+
+These are bounded-family upper limits; source compatibility is unproved.
+
 Reproduce from the repository root:
 
 ```sh
