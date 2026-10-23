@@ -43,22 +43,34 @@
       "group algebra"
     ]
   },
-  "scope_status": "unchanged",
-  "actual_scope": "Can an explicitly larger or nonabelian register model escape the scoped three-register obstruction?",
-  "scope_change_reason": null,
-  "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
+  "scope_status": "refined",
+  "actual_scope": "Changed hypothesis: free per-register address twists B -> P B Q (P, Q in GL_m(Z_(2))) between paid calls, which the three-register bound and its successors exclude; with binary mixing and any number of restored dirty roles. Question: can such twists beat sum_s rank(C_s mod 2) (nine for three targets invertible mod 2)? Domain: odd-denominator frames, formal group-algebra identities.",
+  "scope_change_reason": "The card allows a specified nonabelian operation family. Twisted XORs make the operator ring a skew group ring F2[H] x| G with an abelian address group, unlike the nonabelian address groups (Q8, D16, GL_n(F2), A5, ...) already studied. Free address maps are the hypothesis every predecessor names as excluded.",
+  "bottleneck_link": "Side result for the bit primitive: it decides whether free relabellings can reduce the paid call count of the bit interchange. One-sided relabellings cannot in the odd-denominator domain. For two-sided relabellings, the square-zero obstruction is shown to be powerless, which isolates what an exact saving or a stronger cut must handle.",
   "budget_minutes": 150,
-  "stop_rule": "TODO",
-  "outcome": "in-progress",
-  "evidence": "TODO",
+  "stop_rule": "Stop after a uniform proof for one explicit twist model plus an exact finite witness or obstruction for the complementary model. Do not run open-ended searches over the S3 x S3 twist alphabet in this session.",
+  "outcome": "partial",
+  "evidence": "Written proof of Theorem A (PROOF.md section 3). Exact skew-ring verifier: the direct nine-call word; 240 seeded random one-sided-twist words satisfying the flattening bound, with the opposite flattening exceeding it; and all 5040 orders of the seven-call two-sided witness agreeing with the target in the square-zero image, none exact. Mutation controls are rejected.",
   "author": "JoyboyBrian",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5)",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "Can two-sided address twists (for example B -> S B S^T) realize three invertible targets with fewer than nine paid calls exactly?",
+      "why_it_matters": "A yes would change the paid count of the bit primitive under a free-relabelling premise. A no would extend the floor to all PBQ twists.",
+      "first_step": "Compute the order-two term (modulo the cube of the augmentation ideal) of the seven-call frame multiset over all S3 x S3 twist assignments, to obtain a second-order cut or a candidate.",
+      "blocked_by": "Size of the twist alphabet, and the lack of a rank invariant robust to F2[G] zero divisors."
+    },
+    {
+      "question": "Does the native bit supplier implement a per-register PBQ address relabelling without paid work?",
+      "why_it_matters": "A formal saving matters only if the relabelling is legal and cheaper than the call it saves.",
+      "first_step": "Identify which address maps the selected bit word's physical layout applies for free.",
+      "blocked_by": "No native model of address relabelling in this package."
+    },
+    {
+      "question": "Do words mixing left-only and right-only twists evade the floor?",
+      "why_it_matters": "Neither flattening applies directly, so this is the smallest gap between Theorem A and the open two-sided case.",
+      "first_step": "Run an exact square-zero relaxation search with left and right axis swaps and at most eight calls.",
+      "blocked_by": "Nothing beyond search budget."
     }
   ]
 }
