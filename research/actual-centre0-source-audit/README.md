@@ -43,7 +43,7 @@ python3 -B scripts/research_package.py --package research/actual-centre0-source-
 python3 -B scripts/check_research_commit.py --package research/actual-centre0-source-audit --check-source-history
 ```
 
-Base is canonical `81e9bd69e4a5b00ba9c713a1620e36d576d5522e`. Publication preflight/export runs in a clean explicit-root subprocess environment with inherited GIT_* variables removed; that invocation hygiene is not a shared-tooling fix or authentication against arbitrary hostile machine configuration. No native/global/historical/Lean suite is included.
+Base is canonical `81e9bd69e4a5b00ba9c713a1620e36d576d5522e`. Publication preflight/export runs in a clean explicit-root subprocess environment with inherited GIT_* variables removed; that invocation hygiene is not a shared-tooling fix or authentication against arbitrary hostile machine configuration. The path-specific whitespace attribute preserves native_core.py's original extra blank EOF without editing source bytes. No native/global/historical/Lean suite is included.
 
 ## Open next questions
 
