@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Exact structural corroboration; not a census or proof of the common-J lemma."""
+from fractions import Fraction
 from itertools import product
 import json
 
@@ -183,14 +184,53 @@ def endpoint_controls():
     need(mm(mm(s, target), s) != target, 'noncoordinate target-conjugation control')
 
 
+def rational_rank(rows):
+    rows = [[Fraction(x) for x in row] for row in rows]
+    pivot = 0
+    for column in range(len(rows[0])):
+        found = next((i for i in range(pivot, len(rows)) if rows[i][column]), None)
+        if found is None:
+            continue
+        rows[pivot], rows[found] = rows[found], rows[pivot]
+        scale = rows[pivot][column]
+        rows[pivot] = [x / scale for x in rows[pivot]]
+        for i in range(len(rows)):
+            if i != pivot:
+                scale = rows[i][column]
+                rows[i] = [x - scale*y for x, y in zip(rows[i], rows[pivot])]
+        pivot += 1
+    return pivot
+
+
+def mixed_relation_projection():
+    # Six independent matrix units and two same-row rank-one sums.
+    frames = [tuple(int(i == j) for j in range(9)) for i in range(6)]
+    frames += [tuple(frames[0][j] + frames[k][j] for j in range(9)) for k in (1, 2)]
+    need(all(rational_rank([f[0:3], f[3:6], f[6:9]]) == 1 for f in frames),
+         'fixture must use rational rank-one frames')
+    need(len(frames) - rational_rank(frames) == 2, 'original relation nullity')
+    # E_tt is assigned frame zero; BOTH independent relations meet this call.
+    relations = ((-1, -1, 0, 0, 0, 0, 1, 0), (-1, 0, -1, 0, 0, 0, 0, 1))
+    need(all(all(sum(r[i]*frames[i][j] for i in range(8)) == 0 for j in range(9))
+             for r in relations), 'mixed relation fixture')
+    retained = frames[1:]
+    need(len(retained) - rational_rank(retained) == 1, 'subset relation kernel')
+    need(all(r[0] != 0 for r in relations), 'relations must meet removed singleton')
+    # One relation survives, obtained by subtracting the two mixed relations.
+    surviving = tuple(relations[0][i] - relations[1][i] for i in range(1, 8))
+    need(all(sum(surviving[i]*retained[i][j] for i in range(7)) == 0 for j in range(9)),
+         'zero-extension relation injection calibration')
+
+
 def main():
     shapes, pairs = block_check()
     common_j_terminal()
     endpoint_controls()
+    mixed_relation_projection()
     print(json.dumps({'status': 'PASS_AUXILIARY_SPAN_SIX_CYCLIC_LINE',
                       'cyclic_projectors': 12, 'shapes': shapes,
                       'symbolic_pair_products': pairs, 'ordered_eight_call_fixtures': 12,
-                      'negative_controls': 5,
+                      'negative_controls': 5, 'mixed_relation_subset_nullities': [2, 1],
                       'scope': 'structural corroboration; inherited common-J lemma not reproved'}))
 
 

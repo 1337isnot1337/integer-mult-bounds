@@ -28,3 +28,32 @@ Publication-source/export checks and independent review will be recorded in
 the final handoff against their exact committed heads. The science program is
 self-contained; its two predecessor README inputs are retained for source-bound
 mathematical provenance and included by the official exporter.
+
+## Independent mathematical review and publication evidence
+
+A separate read-only AI-agent review inspected PROOF.md SHA256
+`fcf6673d10ebb0a936fca28d6f811ab7d20e3e9438fc17f440f2b3e565e984ae`
+and actual PR468 README §5.1, SHA256
+`c12b33ef388deece0cbf891505a2ce2c0779a0c3a6cf1f0f7f7039bab59cbebd`.
+It found no applicability blocker: the common-J lemma permits arbitrary
+coordinate-diagonal targets and at most two rational relations; both tail
+orientations project correctly; zero-extension preserves the subset-nullity
+bound; and the singleton receives only its own coordinate calls. Root also
+read the proof and confirmed its explicit inherited-premise boundary.
+This is independent AI-agent review, not independent human or formal-kernel
+acceptance, and not a complete fresh audit of PR468.
+
+The first committed package, `3c7f2ec62401852823494a131761def53c0932d4`,
+passed committed-byte and source-history checks on nine files; the sole source
+history base is `4c0a359d88f22f05189d51f48387750b801a45d4`. Official export
+and offline integrity check passed. The nine-file archive SHA256 was
+`5ae743eee9507d7678e108edd22b9c324deb829cf93940fdc06bd86145875ebf`.
+Actual Git-free normal and optimized science replays passed from that export.
+These receipts bind that commit, not later changed bytes.
+
+The final checker adds one exact rational rank-one eight-frame calibration:
+the original nullity is two, both displayed relations meet the deleted
+singleton call, and the retained core has nullity one. This directly exercises
+the reason the proof must use kernel injection rather than assume disjoint
+relation support. The final publication handoff records fresh checks for this
+changed checker and the final committed/exported bytes.

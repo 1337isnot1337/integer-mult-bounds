@@ -60,7 +60,9 @@ enumerations of all 120 projectors; selects the 12 cyclic ones by graph
 reachability; checks the four no-tail, four incoming-tail and four
 outgoing-tail cases; checks 300 exact symbolic pair projections and twelve
 ordered eight-call products; and corroborates the inherited lemma's final
-U(b)DU(c) Laurent formula.
+U(b)DU(c) Laurent formula. An exact rational eight-frame fixture has two
+relations meeting the removed singleton and a one-relation surviving core;
+it checks the boundary that a disjoint-support shortcut would miss.
 
 Five negative controls expose opposite-tail feedback, unequal internal
 diagonals, a deleted direct call, unsafe reduction of address exponents
