@@ -5,9 +5,12 @@ attribution corrections listed below. Review date: 2026-10-22 local time.
 This is an independent OpenAI Codex agent review. It is not human review or
 a proof-assistant result. The reviewer did not write the historical proofs.
 
-The checked package is `legacy-native-query-obstructions`. The exact 65
-file hashes are in `CHECKED-FILES.json`. Its SHA-256 is
-`f91f88f3cb5c81b360ab1b693cfceeaff0fc2ab23289b2ced8a7c75362b70e90`.
+The checked package is `legacy-native-query-obstructions`. The final 77
+file hashes are in `CHECKED-FILES.json`, excluding publication review files.
+Its SHA-256 is `8a7c4612bd2caee6b3113b28953f31d213e338bb9395f149600925fb009b62b8`.
+The earlier 65-file manifest is retained in `CHECKED-FILES-BEFORE-ENV.json`.
+The wrapper correction and its environment test are reviewed separately in
+`WRAPPER-ENV-REVIEW.md`. The mathematical sources and inputs did not change.
 The source manifest contains 50 frozen input files. The review uses upstream
 commit `cef4b52f2a59009865bf8eabde1be3f159063703` for comparison.
 

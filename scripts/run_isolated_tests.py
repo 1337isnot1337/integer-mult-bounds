@@ -125,6 +125,32 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
     Results follow the input order regardless of scheduling. Each child must return a successful unittest result; a zero process exit
     alone is insufficient. Completion receipts are private to this invocation.
     """
+    previous_handler = None
+    termination = {'requested': False, 'waiting': False}
+
+    def terminate(signum, frame):
+        if not termination['requested']:
+            termination['requested'] = True
+            if termination['waiting']:
+                raise SystemExit(128 + signum)
+
+    try:
+        if (os.name != 'nt' and threading.current_thread() is threading.main_thread()
+                and signal.getsignal(signal.SIGTERM) == signal.SIG_DFL):
+            previous_handler = signal.SIG_DFL
+            signal.signal(signal.SIGTERM, terminate)
+        # Popen runs only in workers. The existing registration lock makes the
+        # cancellation snapshot wait for every in-progress launch to be owned.
+        result = _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termination)
+    finally:
+        if previous_handler is not None:
+            signal.signal(signal.SIGTERM, previous_handler)
+    if termination['requested']:
+        raise SystemExit(143)
+    return result
+
+
+def _run_modules(files, python, tests_dir, cwd, workers, module_timeout, termination):
     python = sys.executable if python is None else python
     tests_dir = ROOT / 'tests' if tests_dir is None else tests_dir
     cwd = ROOT if cwd is None else cwd
@@ -239,7 +265,22 @@ def run_modules(files, python=None, tests_dir=None, cwd=None, workers=None,
 
     pool = ThreadPoolExecutor(max_workers=workers)
     try:
-        return list(pool.map(run_one, enumerate(files)))
+        if termination['requested']:
+            raise SystemExit(143)
+        results = []
+        pending = iter(pool.map(run_one, enumerate(files)))
+        while True:
+            try:
+                termination['waiting'] = True
+                if termination['requested']:
+                    raise SystemExit(143)
+                results.append(next(pending))
+            except StopIteration:
+                return results
+            finally:
+                # Disable asynchronous raises before any exceptional cleanup,
+                # including a first SIGTERM during an unrelated worker failure.
+                termination['waiting'] = False
     except BaseException as error:
         with lock:
             stopping = True

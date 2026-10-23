@@ -2,6 +2,7 @@
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 import subprocess
@@ -29,12 +30,14 @@ checks = [
     "native-shear-continuation/independent-audit/check.py",
     "native-shear-continuation/independent-audit/positive_five_check.py",
 ]
+child_env = os.environ.copy()
+child_env.pop("PYTHONOPTIMIZE", None)
 results = []
 for index, name in enumerate(checks):
     script = work / "source" / name
     started = time.monotonic()
     result = subprocess.run([sys.executable, "-B", str(script)], cwd=script.parent,
-                            capture_output=True, text=True, timeout=120)
+                            capture_output=True, text=True, env=child_env, timeout=120)
     (work / f"check-{index}.stdout.log").write_text(result.stdout)
     (work / f"check-{index}.stderr.log").write_text(result.stderr)
     results.append({"check": name, "exit_code": result.returncode,

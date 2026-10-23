@@ -354,6 +354,16 @@ class PackageTests(unittest.TestCase):
                     package.run_command([sys.executable, "-c", 'assert False, "invalid fixture"'], self.root, 5)
                 self.assertEqual(os.environ["PYTHONOPTIMIZE"], value)
 
+    def test_inherited_pythonpath_cannot_shadow_child_imports(self):
+        shadow = self.root / "shadow"
+        shadow.mkdir()
+        (shadow / "fractions.py").write_text("raise SystemExit(0)\n")
+        verifier = "import fractions; raise SystemExit(5)"
+        with patch.dict(os.environ, {"PYTHONPATH": str(shadow)}):
+            with self.assertRaisesRegex(ValueError, "exited 5"):
+                package.run_command([sys.executable, "-c", verifier], self.root, 5)
+            self.assertEqual(os.environ["PYTHONPATH"], str(shadow))
+
     def test_nested_interpreter_and_explicit_options(self):
         output = self.root / "mode.json"
         nested = "import json,os,sys; print(json.dumps([sys.flags.optimize, __debug__, os.environ.get('REPLAY_SENTINEL')]))"
