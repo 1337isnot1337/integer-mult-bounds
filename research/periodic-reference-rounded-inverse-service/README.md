@@ -17,7 +17,9 @@ an actual dropped-wrap trajectory that fails the requested target.
 
 The implementation is a host-array numerical service. The complete arithmetic
 bill, borrowed-input lifetime, output coexistence, scratch initialization and
-cleanup, persistent table and separately executed source setup are explicit.
+cleanup, persistent table and separately executed source setup are explicit. Retained
+module-level pi caches and weight-receipt storage are counted separately
+from the service scratch arrays.
 No physical tape realization, selected supplier, full multiplier or kappa
 improvement is claimed. The R10 insufficient-halo finding remains valid.
 

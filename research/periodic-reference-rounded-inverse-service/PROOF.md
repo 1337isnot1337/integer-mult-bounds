@@ -86,7 +86,14 @@ exponential and rational-weight setup is executed and timed, not an O(1)
 or free oracle. The original Reference caches, its entries/weights/kernels,
 and generated integer table coexist during preparation and verification.
 The receipt records setup cache counts and exact coefficient bit maxima;
-this phase is distinct from steady-state service workspace. Source interval
+this phase is distinct from steady-state service workspace. The retained
+interval module also stays in sys.modules: its pi_interval cache retains four
+precision-specific intervals, while its unused root_of_unity cache is empty.
+These are intentional shared setup state, not cleared service scratch.
+The maximum declared interval precision is6830bits; the384 weight receipts
+have eight fields each and actual rational numerator/denominator widths at
+most6831bits in the finite fixture. The receipt records these separately.
+Source interval
 internals and Python allocator overhead remain inherited implementation costs,
 not a proved multitape bit tariff. Peak process RSS is diagnostic only.
 

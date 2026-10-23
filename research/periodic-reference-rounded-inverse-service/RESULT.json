@@ -47,9 +47,14 @@
   "setup": {
     "entry_cache": 3457,
     "kernel_cache": 4,
+    "max_declared_interval_bits": 6830,
+    "phase_cache_entries": 0,
+    "pi_cache_entries": 4,
     "rational_max_bits": 3851,
     "source_entry_requests": 3457,
-    "weight_cache": 384
+    "weight_cache": 384,
+    "weight_rational_max_bits": 6831,
+    "weight_record_fields": 8
   },
   "signed_accumulator_width_bound": 73,
   "status": "PASS",

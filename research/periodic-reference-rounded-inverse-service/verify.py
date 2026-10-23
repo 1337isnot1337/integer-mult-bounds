@@ -65,7 +65,13 @@ def main():
     entries=reference.entries
     setup=dict(entry_cache=len(entries),weight_cache=len(reference.weights),kernel_cache=len(reference.kernel),
                rational_max_bits=max(max(e.value.numerator.bit_length(),e.value.denominator.bit_length()) for e in entries.values()),
-               source_entry_requests=plan.source_entries)
+               source_entry_requests=plan.source_entries,
+               pi_cache_entries=reference.exp.oracle.pi_interval.cache_info().currsize,
+               phase_cache_entries=reference.exp.oracle.root_of_unity.cache_info().currsize,
+               max_declared_interval_bits=2*reference.weight_precision+32,
+               weight_record_fields=len(next(iter(reference.weights.values()))),
+               weight_rational_max_bits=max(max(v.numerator.bit_length(),v.denominator.bit_length())
+                   for item in reference.weights.values() for v in item.values() if type(v)is Q))
     need(setup['entry_cache']==3457 and setup['weight_cache']==384,'complete actual coefficient setup')
     wrap=reference.entry('narrow',0,384)
     need(wrap.kind=='cross-period' and wrap.lift==-1 and wrap.value>0,'actual seam preserved')
