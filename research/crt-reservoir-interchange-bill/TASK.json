@@ -53,22 +53,28 @@
       }
     ]
   },
-  "scope_status": "unchanged",
-  "actual_scope": "Does one quantified step of the proposed #4100 all-size construction hold at its actual caller?",
-  "scope_change_reason": null,
-  "bottleneck_link": "TODO: explain the causal connection or label this as a side result",
+  "scope_status": "refined",
+  "actual_scope": "Write one #4174 Plan.placement (three reservoir sources to front u, front t, back b) as calls of BIT.md's ordinary interchange, the callee CRT.md section 3-4 bills at O(V H^{1-a}+V). Count placement and restoration calls, and evaluate BIT.md section 4's wrapper branch at the actual width H = r_max G, starting with p = 1310720, ell = 21 (H = 10752) and the #4174 production layout.",
+  "scope_change_reason": "The card asks for one quantified #4100 step at its actual caller. This refines it to the reservoir side left open by #4377/#4650 open question 2 and pending #4938 open question 1: the ordinary-callee bill of the #4174 placement. BIT.md's theorem is used as stated, not reproved.",
+  "bottleneck_link": "Side result on the #4100 transfer obligations. It prices one inherited callee interface of the CRT route at its actual parameters. It does not change the selected exponent.",
   "budget_minutes": 90,
-  "stop_rule": "TODO",
-  "outcome": "in-progress",
-  "evidence": "TODO",
+  "stop_rule": "Stop after the six-call decomposition, the conditional bill, the exact wrapper branch threshold, the elementary-range inequality and the padding ranges at the two layouts. Do not reprove BIT.md, price the rest of the section 4 gadget, or claim a new kappa.",
+  "outcome": "completed",
+  "evidence": "PROOF.md proves (i)-(v). verify.py checks 12 exchange orders on dirty Placement fixtures, all 131072 minimal and 104864 production plans, the exact GL_64 order bounds and j(D) table, the wrapper branch at every E <= 311309, the radix lemma, the elementary inequality, the padding ranges and 13 rejection controls. It prints PASS_CRT_RESERVOIR_INTERCHANGE_BILL. Ten source mutations of sharp claims all fail.",
   "author": "JoyboyBrian",
-  "ai_assistance": "TODO: disclose tools used",
+  "ai_assistance": "Substantial assistance from Anthropic Claude (Claude Code, Opus 5.5)",
   "open_questions": [
     {
-      "question": "TODO",
-      "why_it_matters": "TODO",
-      "first_step": "TODO",
-      "blocked_by": "TODO"
+      "question": "Does a direct binary exchange of H single-bit swaps meet the same bill on fixed tapes without the (q^E/2^H)^2 padding?",
+      "why_it_matters": "At the actual widths the literal BIT.md call pays up to 2^34 (minimal) or 2^74 (production) extra volume per call, and the a2 saving is absent anyway.",
+      "first_step": "Write one bit swap at positions i < j as one fixed-tape pass with a bounded buffer, and count its tape actions per record.",
+      "blocked_by": "Nothing; it needs a tape model, not new mathematics."
+    },
+    {
+      "question": "What is the stage-0 constant C_0 of BIT.md's elementary q-digit swap?",
+      "why_it_matters": "By (iii)-(iv) it is the whole callee constant at every CRT layout with L < 2.77e9.",
+      "first_step": "Bound one q-digit transposition of two radix-q fields with intervening fields on a fixed tape inventory.",
+      "blocked_by": "BIT.md does not state the elementary algorithm in detail."
     }
   ]
 }
