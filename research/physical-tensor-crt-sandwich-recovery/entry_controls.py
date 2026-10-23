@@ -28,3 +28,22 @@ def check(machine,tape,raw,Count,owned,initialize_marker,erase_marker,need):
         reject('production coefficient',False)
         need(not machine.pending and not machine.pool.live,'reusable after return consumption')
     return dict(metadata_aliases=6,descendant_aliases=5,end_head_return=True,subsequent_valid_entry=True)
+
+def construction(Sandwich,tensor,converter,initialize_marker,erase_marker,need):
+    """Transferred child states fail before any mutation to their backing."""
+    def reject(message):
+        before=(tuple(tensor.output.cells),tensor.output.head)
+        try:Sandwich(tensor,converter)
+        except ValueError as error:need(message in str(error),'constructor rejection: '+str(error))
+        else:raise ValueError('missing constructor rejection')
+        need((tuple(tensor.output.cells),tensor.output.head)==before,'failed construction preserves child return')
+    initialize_marker(tensor.output);tensor.output.append(1);tensor.output.append(0)
+    reject('empty transferred resident origin')
+    tensor.output.clear();erase_marker(tensor.output)
+    saved=converter.router;converter.router=tensor.gather.router
+    try:reject('disjoint child owners')
+    finally:converter.router=saved
+    tensor.chirp.word.closed=False
+    try:reject('closed transferred resident owner')
+    finally:tensor.chirp.word.closed=True
+    return 3

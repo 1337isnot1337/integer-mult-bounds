@@ -23,7 +23,8 @@ python3.12 -O -B research/physical-tensor-crt-sandwich-recovery/verify.py --suit
 ```
 
 The second command takes about six minutes. No network, dependencies or
-coefficient regeneration are required. The official package export includes
+coefficient regeneration are required. Optional `prepare_fixture.py OUTPUT_FILE`
+repeats the actual ~251-second producer into a new file; it is not part of replay. The official package export includes
 all source inputs and original notices; nested archives authenticate themselves.
 Full execution is a finite certificate, while PROOF.md is a conditional written
 argument. Neither is independent human or kernel acceptance.

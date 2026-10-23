@@ -214,6 +214,8 @@ def private_tapes(owner):
         if id(value) in seen:return
         seen.add(id(value))
         if isinstance(value,Tape):tapes.append(value);return
+        if isinstance(value,ScratchPool):need(not value.live,'lease-free transferred resident pool')
+        if hasattr(value,'closed'):need(value.closed,'closed transferred resident owner')
         if isinstance(value,dict):
             for item in value.values():visit(item)
         elif isinstance(value,(tuple,list)):

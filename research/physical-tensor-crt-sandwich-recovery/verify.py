@@ -29,6 +29,8 @@ def main():
         catalogue=tape(raw)
         tensor=Tensor(finite_chirp(),FullRouter(literal_native()))
         converter=Converter(FullRouter(literal_native()))
+        from entry_controls import construction
+        construction(Sandwich,tensor,converter,initialize_marker,erase_marker,need)
         machine=Sandwich(tensor,converter)
         from entry_controls import check
         controls=check(machine,tape,raw,Count,owned,initialize_marker,erase_marker,need)
